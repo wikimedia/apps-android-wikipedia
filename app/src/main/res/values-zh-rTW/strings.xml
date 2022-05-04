@@ -4,6 +4,7 @@
 * Chubit
 * Cwlin0416
 * Dbrant
+* DinoWP
 * Eric850130
 * Go1002opn
 * Impartial just
@@ -57,7 +58,7 @@
   <string name="menu_clear_all_history">清除歷史</string>
   <string name="history_item_deleted">%s已從歷史移除</string>
   <string name="history_items_deleted">%d個條目已從歷史移除</string>
-  <string name="history_item_delete_undo">還原</string>
+  <string name="history_item_delete_undo">撤銷</string>
   <string name="notification_archive_undo">還原</string>
   <string name="app_settings">應用程式設定</string>
   <string name="search_tab_tooltip">再次輕觸圖示可直接開始輸入搜尋項。</string>
@@ -76,12 +77,24 @@
   <string name="page_edit_history_activity_title">修訂歷史：%s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;小編輯&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">空白編輯摘要</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">搜尋或篩選編輯</string>
+  <string name="page_edit_history_filter_by">篩選依</string>
+  <string name="page_edit_history_filter_by_all">所有編輯數（%s）</string>
+  <string name="page_edit_history_filter_by_user">使用者編輯數（%s）</string>
+  <string name="page_edit_history_filter_by_anon">匿名編輯數（%s）</string>
+  <string name="page_edit_history_filter_by_bot">機器人編輯數（%s）</string>
   <string name="page_edit_history_metrics_content_description">自 %1$s 到 %2$s 期間的計量</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">自 %2$s 共 %1$d 次編輯</item>
+    <item quantity="other">自 %2$s 共 %1$d 次編輯</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">嘗試更改&lt;a href=\"#\"&gt;篩選&lt;/a&gt;來查看更多編輯</string>
   <string name="menu_page_show_tabs">顯示分頁</string>
   <string name="menu_page_other_languages">替換其它語言版本</string>
   <string name="menu_page_find_in_page">於條目尋找</string>
   <string name="menu_page_add_to_watchlist">新增至監視清單</string>
   <string name="menu_page_watch">監視</string>
+  <string name="menu_page_unwatch">取消監視</string>
   <string name="menu_page_view_talk">檢視討論頁</string>
   <string name="menu_page_talk_page">討論頁</string>
   <string name="menu_page_view_edit_history">檢視編輯歷史</string>
@@ -230,7 +243,6 @@
   <string name="page_protected_can_not_edit_title">此頁面受到保護</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">新增至監視清單</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">持續追蹤您感興趣條目的最新狀況。請輕觸溢位選單，並選擇&lt;b&gt;新增至監視清單&lt;/b&gt;來查看條目的變動內容。</string>
-  <string name="page_notification_tooltip">您的通知現在在此。</string>
   <string name="settings_item_preferences">設定</string>
   <string name="settings_activity_title">設定</string>
   <string name="about_description">關於維基百科應用程式</string>
@@ -265,7 +277,7 @@
   <string name="edit_next">下一步</string>
   <string name="edit_done">發布</string>
   <string name="edit_preview">預覽</string>
-  <string name="edit_undo">還原</string>
+  <string name="edit_undo">撤銷</string>
   <string name="edit_redo">重做</string>
   <string name="edit_zoom_in">放大</string>
   <string name="edit_zoom_out">縮小</string>
@@ -497,7 +509,7 @@
   </plurals>
   <string name="reading_list_items_deleted">從清單移除%d個條目</string>
   <string name="reading_lists_item_deleted">%s已從清單之中移除</string>
-  <string name="reading_list_item_delete_undo">還原</string>
+  <string name="reading_list_item_delete_undo">撤銷</string>
   <string name="reading_list_deleted">%s 已刪除</string>
   <string name="saved_list_empty_title">尚無儲存頁面</string>
   <string name="reading_lists_empty_message">將條目增加至供日後閱讀用的清單，讓您即使在離線時也可使用。</string>
@@ -901,6 +913,7 @@
   <string name="suggested_edits_paused_message">建議編輯被暫停至 %1$s。很抱歉，%2$s，您最近有太多編輯被回退。</string>
   <string name="suggested_edits_disabled_message">建議編輯已停用。很抱歉，%s，您最近有太多編輯被回退。</string>
   <string name="suggested_edits_ip_blocked_message">您現在使用的 IP 位址（或 IP 位址範圍）被封鎖而無法編輯維基百科。</string>
+  <string name="suggested_edits_gate_message">很抱歉，%s，您必須直接在條目至少做出 3 次編輯才能使用此功能。</string>
   <string name="suggested_edits_editing_tips_link_text">編輯提示與技巧</string>
   <string name="suggested_edits_help_page_link_text">建議編輯說明頁面</string>
   <string name="suggested_edits_edit_streak_label_text">連續編輯紀錄</string>
@@ -1085,7 +1098,7 @@
   <string name="talk_message_empty">訊息不能為空。</string>
   <string name="talk_subject_empty">話題不能為空。</string>
   <string name="talk_response_submitted">回覆已發布。</string>
-  <string name="talk_snackbar_undo">還原</string>
+  <string name="talk_snackbar_undo">撤銷</string>
   <string name="talk_last_modified">由%2$s在&lt;b&gt; %1$s &lt;/b&gt;所做的最後一次編輯</string>
   <string name="talk_snackbar_survey_text">感謝使用討論頁。您願意透過參與調查來協助我們改善此應用程式嗎？</string>
   <string name="talk_snackbar_survey_action_text">入門</string>
@@ -1115,6 +1128,21 @@
   <string name="thank_success_message">您的感謝已發送給%s 👍</string>
   <string name="menu_option_view_user_profile">檢視使用者個人檔案頁面</string>
   <string name="menu_option_view_user_talk">檢視討論頁</string>
+  <string name="menu_option_view_user_contributions">檢視使用者貢獻</string>
+  <string name="revision_diff_compare">比較修訂</string>
+  <string name="revision_diff_compare_title">比較修訂：%s</string>
+  <string name="revision_diff_from">從：</string>
+  <string name="revision_diff_to">至：</string>
+  <string name="revision_diff_line_num">第 %d 行</string>
+  <string name="revision_diff_line_nums">第 %d 到第 %d 行</string>
+  <string name="revision_diff_line_added">行已新增</string>
+  <string name="revision_diff_line_removed">行已移除</string>
+  <string name="revision_diff_paragraph_added">章節已添加</string>
+  <string name="revision_diff_paragraph_removed">章節已移除</string>
+  <string name="revision_undo_title">撤銷編輯</string>
+  <string name="revision_undo_message">這將會撤銷掉在此顯示出的修訂在條目裡所做出的變更內容。</string>
+  <string name="revision_undo_reason">若要繼續，請提供撤銷此編輯內容的原因：</string>
+  <string name="revision_undo_success">已撤銷修訂。</string>
   <string name="revision_compare_button">比較</string>
   <string name="revision_compare_two_only">僅能選擇兩個修訂。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s與該討論頁已新增到您的監視清單%2$s。</string>
@@ -1139,4 +1167,10 @@
   <string name="watchlist_page_moved">已移動</string>
   <string name="watchlist_page_protected">已保護</string>
   <string name="watchlist_page_deleted">已刪除</string>
+  <string name="action_item_categories">分類</string>
+  <string name="page_no_categories">這個頁面不屬於任何分類。</string>
+  <string name="category_tab_articles">條目</string>
+  <string name="category_tab_subcategories">子分類</string>
+  <string name="category_empty">在此分類中找不到條目。</string>
+  <string name="subcategory_empty">在此分類中找不到子分類。</string>
 </resources>

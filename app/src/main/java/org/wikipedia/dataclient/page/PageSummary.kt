@@ -28,7 +28,7 @@ open class PageSummary(
     @SerialName("description_source") val descriptionSource: String = "",
     @Serializable(with = LocationSerializer::class) val geo: Location? = null,
     val type: String = TYPE_STANDARD,
-    val pageId: Int = 0,
+    @SerialName("pageid") val pageId: Int = 0,
     val revision: Long = 0L,
     val timestamp: String = "",
     val views: Long = 0,

@@ -90,5 +90,6 @@ class HistoryEntry(
         const val SOURCE_EDIT_DIFF_DETAILS = 33
         const val SOURCE_ERROR = 34
         const val SOURCE_EDIT_HISTORY = 35
+        const val SOURCE_CATEGORY = 36
     }
 }

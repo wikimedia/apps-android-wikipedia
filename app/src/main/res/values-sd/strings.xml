@@ -114,10 +114,10 @@
   <string name="title_captcha">ڪيپچا ڄاڻايو</string>
   <string name="edit_section_captcha_reload">ٻيھر اتارڻ لاءِ CAPTCHA تي ٽيپ ڪريو</string>
   <string name="nav_item_login">وڪيپيڊيا ۾ داخل ٿيو</string>
-  <string name="login_username_hint">واپرائيندڙ-نانءُ</string>
+  <string name="login_username_hint">واپرائيندڙنانءُ</string>
   <string name="login_password_hint">ڳجهولفظ</string>
   <string name="account_creation_password_hint">ڳجهولفظ</string>
-  <string name="login_2fa_hint">ٻہ مرحلا تصديق ڪوڊ</string>
+  <string name="login_2fa_hint">ٻہ-مرحلا تصديق ڪوڊ</string>
   <string name="onboarding_card_login">داخل ٿيو</string>
   <string name="page_editing_login">داخل ٿيو</string>
   <string name="reading_lists_sync_login">داخل ٿيو</string>
@@ -145,7 +145,7 @@
   <string name="search_empty_message_multilingual_upgrade">وڪيپيڊيا کي وڌيڪ ٻولين ۾ ڳوليو</string>
   <string name="delete_selected_items">چونڊيل شيون ڊاھيو</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="create_account_username_hint">واپرائيندڙ-نانءُ</string>
+  <string name="create_account_username_hint">واپرائيندڙنانءُ</string>
   <string name="login_dont_have_account">کاتو نہ اٿو؟</string>
   <string name="login_join_wikipedia">وڪيپيڊيا ۾ شامل ٿيو</string>
   <string name="login_forgot_password">ڳجهولفظ وساري ويٺا آهيو؟</string>
@@ -190,7 +190,6 @@
   <string name="page_protected_can_not_edit_anon">معاف ڪجو، ھيءُ صفحو ھن وقت گمناميءَ ۾ سنوارجي نٿو سگهجي.</string>
   <string name="page_protected_can_not_edit_title">هيءُ صفحو تحفظيل آهي</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">نظر۾فھرست ۾ رکو</string>
-  <string name="page_notification_tooltip">توھان جا اطلاع ھاڻي ھتي آھن.</string>
   <string name="settings_item_preferences">ترتيبون</string>
   <string name="settings_activity_title">ترتيبون</string>
   <string name="about_description">وڪيپيڊيا ايپ بابت</string>

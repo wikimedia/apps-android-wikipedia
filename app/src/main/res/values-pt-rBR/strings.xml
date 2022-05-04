@@ -37,6 +37,7 @@
 * Walesson
 * Webysther
 * Welerson98
+* YuriNikolai
 -->
 <resources>
   <string name="app_name_prod">Wikipédia</string>
@@ -80,10 +81,12 @@
   <string name="share_via">Compartilhar via</string>
   <string name="image_share_via">Compartilhar via</string>
   <string name="search_redirect_from">Redirecionado de %s</string>
+  <string name="page_edit_history_activity_title">Historial de revisões: %s</string>
   <string name="menu_page_show_tabs">Mostrar guias</string>
   <string name="menu_page_other_languages">Alterar idioma</string>
   <string name="menu_page_find_in_page">Encontre no artigo</string>
   <string name="menu_page_add_to_watchlist">Adicionar às páginas vigiadas</string>
+  <string name="menu_page_unwatch">Deixar de vigiar</string>
   <string name="menu_page_view_talk">Ver página de discussão</string>
   <string name="menu_page_view_edit_history">Ver histórico de edições</string>
   <string name="menu_page_edit_history">Histórico de edições</string>
@@ -227,7 +230,6 @@
   <string name="page_protected_can_not_edit_title">Esta página está protegida</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Adicionar às páginas vigiadas</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Acompanhe o que está acontecendo com os artigos de seu interesse. Toque no menu flutuante e selecione &lt;b&gt;Adicionar à lista de páginas vigiadas&lt;/b&gt; para ver as alterações em um artigo.</string>
-  <string name="page_notification_tooltip">Suas notificações agora estão aqui.</string>
   <string name="settings_item_preferences">Configurações</string>
   <string name="settings_activity_title">Configurações</string>
   <string name="about_description">Sobre o aplicativo da Wikipédia</string>
@@ -775,6 +777,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente uma linha, entre dois a doze palavras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Começar a editar</string>
   <string name="description_edit_tutorial_promise">Ao começar, eu prometo não fazer mau uso, esta funcionalidade.</string>
+  <string name="customize_toolbar_description_text">Personaliza a barra de ferramentas inferior com as cinco ligações que considerar mais úteis.</string>
   <string name="suggested_edits_describe_articles">Descrever artigos</string>
   <string name="suggested_edits_caption_images">Imagens de legenda</string>
   <string name="suggested_edits_tag_images">Marcações de imagens</string>
@@ -1065,6 +1068,16 @@
   <string name="thank_dialog_positive_button_text">Enviar agradecimento</string>
   <string name="thank_dialog_negative_button_text">Cancelar</string>
   <string name="thank_success_message">O seu \'agradecimento\' foi enviado para %s 👍</string>
+  <string name="menu_option_view_user_contributions">Ver contribuições do usuário</string>
+  <string name="revision_diff_compare">Comparar revisões</string>
+  <string name="revision_diff_from">De:</string>
+  <string name="revision_diff_to">Para:</string>
+  <string name="revision_diff_line_added">Linha acrescentada</string>
+  <string name="revision_diff_line_removed">Linha removida</string>
+  <string name="revision_diff_paragraph_removed">Parágrafo removido</string>
+  <string name="revision_undo_title">Desfazer edição</string>
+  <string name="revision_undo_reason">Para continuar, por favor forneça um motivo para desfazer esta edição:</string>
+  <string name="revision_undo_success">A revisão foi desfeita.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e sua página de discussão foi adicionada à sua lista de páginas vigiadas %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Mudar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>

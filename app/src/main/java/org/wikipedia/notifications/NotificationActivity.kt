@@ -38,7 +38,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
@@ -475,7 +474,6 @@ class NotificationActivity : BaseActivity() {
                 n.contents?.links?.getPrimary()?.let { link ->
                     val url = link.url
                     if (url.isNotEmpty()) {
-                        NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logAction(NotificationInteractionEvent.ACTION_PRIMARY, link)
                         NotificationInteractionEvent.logAction(n, NotificationInteractionEvent.ACTION_PRIMARY, link)
                         linkHandler.wikiSite = WikiSite(url)
                         linkHandler.onUrlClick(url, null, "")
@@ -507,7 +505,7 @@ class NotificationActivity : BaseActivity() {
     private inner class NotificationSearchBarHolder constructor(view: View) :
         RecyclerView.ViewHolder(view) {
         val notificationFilterButton: AppCompatImageView = itemView.findViewById(R.id.notification_filter_button)
-        val notificationFilterCountView: TextView = itemView.findViewById(R.id.notification_filter_count)
+        val notificationFilterCountView: TextView = itemView.findViewById(R.id.filter_count)
 
         init {
             (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.color_group_22))
@@ -586,8 +584,18 @@ class NotificationActivity : BaseActivity() {
                     override fun onQueryTextFocusChange() {
                     }
 
+                    override fun onFilterIconClick() {
+                        NotificationPreferencesFunnel(WikipediaApp.getInstance()).logFilterClick()
+                        DeviceUtil.hideSoftKeyboard(this@NotificationActivity)
+                        startActivity(NotificationFilterActivity.newIntent(this@NotificationActivity))
+                    }
+
                     override fun getExcludedFilterCount(): Int {
                         return viewModel.excludedFiltersCount()
+                    }
+
+                    override fun getFilterIconContentDescription(): Int {
+                        return R.string.notifications_search_bar_filter_hint
                     }
                 })
 

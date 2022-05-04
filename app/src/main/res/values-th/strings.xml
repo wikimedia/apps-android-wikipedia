@@ -15,6 +15,7 @@
 * Patsagorn Y.
 * Pon44695
 * Prame Tan
+* Trisorn Triboon
 -->
 <resources>
   <string name="app_name_prod">วิกิพีเดีย</string>
@@ -48,6 +49,10 @@
   <string name="app_settings">การตั้งค่าแอป</string>
   <string name="search_tab_tooltip">แตะไอคอนอีกครั้งเพื่อเริ่มพิมพ์คำค้นหาโดยตรง</string>
   <string name="history_list_title">ประวัติ</string>
+  <string name="image_content_description">ภาพ: %s</string>
+  <string name="page_content_description">หน้า: %s</string>
+  <string name="wikimedia_commons">วิกิมีเดียคอมมอนส์</string>
+  <string name="wikidata">วิกิสนเทศ</string>
   <string name="dialog_title_clear_history">ล้างประวัติการเข้าชม</string>
   <string name="dialog_message_clear_history">การกระทำนี้จะลบประวัติการใช้งานของคุณทั้งหมดและปิดแท็บปัจจุบัน คุณแน่ใจหรือไม่?</string>
   <string name="dialog_message_clear_history_yes">ใช่</string>
@@ -55,12 +60,17 @@
   <string name="share_via">แบ่งปันผ่าน</string>
   <string name="image_share_via">แบ่งปันผ่าน</string>
   <string name="search_redirect_from">เปลี่ยนทางจาก %s</string>
+  <string name="page_edit_history_activity_title">ประวัติรุ่นแก้ไข: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;ล&lt;/b&gt; %s</string>
   <string name="menu_page_show_tabs">แสดงแท็บ</string>
   <string name="menu_page_other_languages">เปลี่ยนภาษา</string>
   <string name="menu_page_find_in_page">ค้นหาในบทความ</string>
   <string name="menu_page_add_to_watchlist">เพิ่มเข้ารายการเฝ้าดู</string>
+  <string name="menu_page_unwatch">เลิกเฝ้าดู</string>
   <string name="menu_page_view_talk">ดูหน้าอภิปราย</string>
+  <string name="menu_page_talk_page">หน้าอภิปราย</string>
   <string name="menu_page_view_edit_history">ดูประวัติการแก้ไข</string>
+  <string name="menu_page_edit_history">ประวัติการแก้ไข</string>
   <string name="menu_page_remove_from_watchlist">เอาออกจากรายการเฝ้าดู</string>
   <string name="edit_section_find_in_page">ค้นหาในหน้า</string>
   <string name="menu_page_font_and_theme">แบบอักษรและชุดตกแต่ง</string>
@@ -155,6 +165,7 @@
   <string name="dialog_create_account_checking_progress">กำลังยืนยัน</string>
   <string name="create_account_email_hint">อีเมล (ไม่จำเป็น)</string>
   <string name="create_account_password_repeat_hint">พิมพ์รหัสผ่านซ้ำ</string>
+  <string name="create_account_password_is_username">ห้ามรหัสผ่านซ้ำกับชื่อผู้ใช้</string>
   <string name="create_account_passwords_mismatch_error">รหัสผ่านไม่ตรงกัน</string>
   <string name="create_account_email_error">ที่อยู่อีเมลไม่ถูกต้อง</string>
   <string name="create_account_username_error">ตัวอักษรในชื่อผู้ใช้ไม่ถูกต้อง</string>
@@ -172,6 +183,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">รายละเอียด</string>
   <string name="preferences_general_heading">ทั่วไป</string>
+  <string name="preferences_account_heading">บัญชี</string>
   <string name="wikipedia_app_faq">คำถามที่พบบ่อยเกี่ยวกับแอปวิกิพีเดีย</string>
   <string name="send_feedback">ส่งคำติชมแอป</string>
   <string name="create_account_account_created_toast">สร้างบัญชีแล้ว!</string>
@@ -290,6 +302,7 @@
   <string name="gallery_save_success">บันทึกไฟล์แล้ว</string>
   <string name="gallery_error_video_failed">ไม่สามารถเล่นวิดีโอได้</string>
   <string name="gallery_save_image_write_permission_rationale">การบันทึกรูปภาพต้องใช้สิทธิอนุญาตให้เขียนลงในที่เก็บข้อมูลในอุปกรณ์ของคุณ</string>
+  <string name="gallery_edit_button_content_description">แก้ไขคำบรรยายภาพ</string>
   <string name="gallery_add_image_caption_button">เพิ่มคำบรรยายภาพ</string>
   <string name="gallery_add_image_caption_in_language_button">เพิ่มคำบรรยายภาพ (%s)</string>
   <string name="err_cannot_save_file">ไม่สามารถบันทึกไฟล์ได้</string>
@@ -361,6 +374,7 @@
   <string name="page_footer_license_text">เนื้อหาอนุญาตให้เผยแพร่ภายใต้ $1 เว้นแต่ระบุไว้เป็นอื่น</string>
   <string name="empty_tab_title">แท็บใหม่</string>
   <string name="menu_save_all_tabs">บันทึกแท็บทั้งหมด</string>
+  <string name="error_blocked_reason">เหตุผลที่ให้ไว้คือ: %s</string>
   <string name="crash_report_activity_title">แอพพลิเคชันเกิดข้อผิดพลาด</string>
   <string name="crash_report_relaunch_or_quit">เราขออภัย แอปวิกิพีเดียพบปัญหาและสิ้นสุดการทำงาน\n\nคุณต้องการเริ่มการทำงานใหม่หรือออกจากแอป</string>
   <string name="crash_report_relaunch">เริ่มการทำงานใหม่</string>
@@ -386,6 +400,7 @@
   <string name="text_size_decrease">ลดขนาดข้อความ</string>
   <string name="text_size_percent_default">%s (ค่าเริ่มต้น)</string>
   <string name="text_style_title">แบบอักษร</string>
+  <string name="theme_customize_toolbar">ปรับแต่งแถบเครื่องมือ</string>
   <string name="nav_item_saved">บันทึกแล้ว</string>
   <string name="reading_list_save_to">บันทึกลงในรายการอ่าน</string>
   <string name="reading_list_move_to">ย้ายลงในรายการอ่าน</string>
@@ -560,6 +575,7 @@
   <string name="notifications_view_archived_button_text">ดูการแจ้งเตือนที่เก็บถาวร</string>
   <string name="notification_preferences_title">การตั้งค่าการแจ้งเตือน</string>
   <string name="notifications_mark_unread">ทำเครื่องหมายว่ายังไม่ได้อ่าน</string>
+  <string name="notifications_direct_reply_action">ตอบกลับ</string>
   <string name="watchlist_title">รายการเฝ้าดู</string>
   <string name="preference_title_notification_poll">การแจ้งเตือนโพล</string>
   <string name="preference_summary_notification_poll">อนุญาตให้แอปใช้ข้อมูลเพื่อตรวจสอบการแจ้งเตือนใหม่ในเบื้องหลัง</string>
@@ -578,6 +594,10 @@
   <string name="preference_summary_notification_mention">มีคนกล่าวถึงคุณในหน้า</string>
   <string name="preference_title_notification_user_talk">หน้าคุย</string>
   <string name="preference_summary_notification_user_talk" fuzzy="true">ข้อความจากหน้าคุย</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">วิกิพีเดีย</string>
+  <string name="notifications_tab_filter_all">ทั้งหมด</string>
+  <string name="notifications_menu_mark_as_read">ทำเครื่องหมายว่าอ่านแล้ว</string>
+  <string name="notifications_menu_mark_as_unread">ทำเครื่องหมายว่ายังไม่ได้อ่าน</string>
   <string name="view_because_you_read_card_title">เนื่องจากคุณอ่าน</string>
   <string name="view_random_card_title">ตัวสุ่ม</string>
   <string name="view_random_article_card_title">สุ่มบทความ</string>
@@ -680,6 +700,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">ควรเขียนให้พอดีหนึ่งบรรทัด และเขียนตั้งแต่ 2-12 คำ</string>
   <string name="description_edit_tutorial_button_label_start_editing">เริ่มแก้ไข</string>
   <string name="description_edit_tutorial_promise">ฉันสัญญาว่าจะไม่ใช้คุณลักษณะนี้ในทางที่ผิด</string>
+  <string name="customize_toolbar_category_menu">เมนู</string>
   <string name="suggested_edits_describe_articles">อธิบายบทความ</string>
   <string name="suggested_edits_caption_images">เขียนคำอธิบายภาพ</string>
   <string name="suggested_edits_tag_images">เพิ่มป้ายระบุให้กับภาพ</string>
@@ -894,8 +915,21 @@
   <string name="talk_add_reply">ตอบกลับ</string>
   <string name="talk_no_subject">(ไม่มีหัวเรื่อง)</string>
   <string name="talk_reply_subject">หัวเรื่อง</string>
+  <string name="talk_overflow_sort_by">เรียงตาม</string>
+  <string name="talk_overflow_sort_date_published">วันที่เผยแพร่</string>
+  <string name="watchlist_details_next_edit">การแก้ไขถัดไป</string>
+  <string name="watchlist_details_prev_edit">การแก้ไขก่อนหน้า</string>
+  <string name="thank_label">ขอบคุณ</string>
+  <string name="view_user_page">ดูหน้าผู้ใช้</string>
   <string name="thank_dialog_positive_button_text">ส่งคำขอบคุณ</string>
   <string name="thank_dialog_negative_button_text">ยกเลิก</string>
+  <string name="menu_option_view_user_contributions">ดูการเข้ามีส่วนร่วมของผู้ใช้</string>
+  <string name="revision_diff_compare">เปรียบเทียบรุ่นแก้ไข</string>
+  <string name="revision_diff_compare_title">เปรียบเทียบรุ่นแก้ไข: %s</string>
+  <string name="revision_diff_from">จาก:</string>
+  <string name="revision_diff_to">ถึง:</string>
+  <string name="revision_compare_button">เปรียบเทียบ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ถาวร</string>
   <string name="watchlist_filter_all">ทั้งหมด</string>
   <string name="watchlist_filter_talk">คุย</string>
   <string name="watchlist_filter_pages">หน้า</string>
@@ -903,4 +937,9 @@
   <string name="watchlist_page_moved">ถูกย้าย</string>
   <string name="watchlist_page_protected">ถูกป้องกัน</string>
   <string name="watchlist_page_deleted">ถูกลบ</string>
+  <string name="action_item_categories">หมวดหมู่</string>
+  <string name="category_tab_articles">บทความ</string>
+  <string name="category_tab_subcategories">หมวดหมู่ย่อย</string>
+  <string name="category_empty">ไม่พบบทความในหมวดหมู่นี้</string>
+  <string name="subcategory_empty">ไม่พบหมวดหมู่ย่อยในหมวดหมู่นี้</string>
 </resources>

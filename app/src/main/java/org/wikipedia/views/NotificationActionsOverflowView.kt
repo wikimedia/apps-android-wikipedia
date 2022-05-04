@@ -20,8 +20,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ViewNotificationActionsOverflowBinding
 import org.wikipedia.dataclient.WikiSite
@@ -29,6 +27,7 @@ import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationLinkHandler
 import org.wikipedia.notifications.NotificationListItemContainer
 import org.wikipedia.notifications.db.Notification
+import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -72,7 +71,7 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
                     binding.overflowViewSecondary.visibility = View.VISIBLE
 
                     val uri = Uri.parse(secondary.first().url)
-                    val pageTitle = WikiSite(uri).titleForUri(uri)
+                    val pageTitle = PageTitle.titleForUri(uri, WikiSite(uri))
                     if (pageTitle.isUserPage) {
                         binding.overflowViewSecondaryTalk.visibility = View.VISIBLE
                         binding.overflowViewSecondaryTalk.text = context.getString(R.string.notifications_menu_user_talk_page, secondary.first().label)
@@ -118,7 +117,6 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         val url = link.url
         val notification = container.notification
         if (url.isNotEmpty() && notification != null) {
-            NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logAction(linkIndex, link)
             NotificationInteractionEvent.logAction(notification, linkIndex, link)
             linkHandler.wikiSite = WikiSite(url)
             linkHandler.onUrlClick(url, null, "")

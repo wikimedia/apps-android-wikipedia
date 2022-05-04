@@ -77,6 +77,17 @@
   <string name="page_edit_history_activity_title">판 역사: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;잔글&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">빈 편집 요약</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">편집 검색/필터</string>
+  <string name="page_edit_history_filter_by">필터 기준</string>
+  <string name="page_edit_history_filter_by_all">모든 편집 (%s)</string>
+  <string name="page_edit_history_filter_by_user">유저 편집 (%s)</string>
+  <string name="page_edit_history_filter_by_anon">익명 편집 (%s)</string>
+  <string name="page_edit_history_filter_by_bot">봇 편집 (%s)</string>
+  <string name="page_edit_history_metrics_content_description">%1$s부터 %2$s까지의 메트릭스</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="other">%2$s 이후 편집 %1$d건</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">더 많은 편집을 보려면 &lt;a href=\"#\"&gt;필터&lt;/a&gt;를 변경하세요</string>
   <string name="menu_page_show_tabs">탭 보기</string>
   <string name="menu_page_other_languages">언어 변경</string>
   <string name="menu_page_find_in_page">문서에서 찾기</string>
@@ -231,7 +242,6 @@
   <string name="page_protected_can_not_edit_title">이 문서는 보호되어 있습니다</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">주시문서 목록에 추가</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">관심 가는 문서에 일어나는 변화를 추적해보세요. 메뉴를 &lt;b&gt;주시문서 목록에 추가&lt;/b&gt; 문서의 변경 사항을 확인할 수 있습니다.</string>
-  <string name="page_notification_tooltip">알림이 여기에 있습니다.</string>
   <string name="settings_item_preferences">설정</string>
   <string name="settings_activity_title">설정</string>
   <string name="about_description">위키백과 앱 정보</string>
@@ -794,6 +804,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">편집 시작</string>
   <string name="description_edit_tutorial_promise">시작함으로써 나는 이 기능을 악용하지 않을 것을 약속합니다.</string>
   <string name="customize_toolbar_title">도구 모음 사용자 지정</string>
+  <string name="customize_toolbar_description_text">가장 도움이 될만한 5개의 링크를 가지고 아래의 도구 모음을 사용자에 맞게 수정하십시오.</string>
   <string name="customize_toolbar_category_toolbar">도구 모음</string>
   <string name="customize_toolbar_category_menu">메뉴</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">여기에 즐겨찾는 항목을 끌어 놓으십시오 👋</string>
@@ -1129,4 +1140,10 @@
   <string name="watchlist_page_moved">이동됨</string>
   <string name="watchlist_page_protected">보호됨</string>
   <string name="watchlist_page_deleted">삭제됨</string>
+  <string name="action_item_categories">분류</string>
+  <string name="page_no_categories">이 문서는 어떠한 분류에도 속하지 않습니다.</string>
+  <string name="category_tab_articles">문서</string>
+  <string name="category_tab_subcategories">하위 분류</string>
+  <string name="category_empty">이 분류에 문서가 없습니다.</string>
+  <string name="subcategory_empty">이 분류에 하위 분류가 없습니다.</string>
 </resources>

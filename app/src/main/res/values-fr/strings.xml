@@ -95,11 +95,18 @@
   <string name="page_edit_history_activity_title">Historique des versions : %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Résumé de modification vide</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Rechercher ou filtrer des modifications</string>
+  <string name="page_edit_history_filter_by">Filtrer par</string>
+  <string name="page_edit_history_filter_by_all">Toutes les modifications (%s)</string>
+  <string name="page_edit_history_filter_by_user">Modifications par un utilisateur (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Modifications anonyme (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Modifications par robot (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Mesures de %1$s à %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d modification depuis %2$s</item>
     <item quantity="other">%1$d modifications depuis %2$s</item>
   </plurals>
-  <string name="page_edit_history_metrics_content_description">Mesures de %1$s à %2$s</string>
+  <string name="page_edit_history_empty_search_message">Essayez de changer les &lt;a href=\"#\"&gt;filtres&lt;/a&gt; pour voir davantage de modifications</string>
   <string name="menu_page_show_tabs">Afficher les onglets</string>
   <string name="menu_page_other_languages">Changer de langue</string>
   <string name="menu_page_find_in_page">Trouver dans l’article</string>
@@ -254,7 +261,6 @@
   <string name="page_protected_can_not_edit_title">Cette page est protégée</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Ajouter à la liste de suivi</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Garder trace de ce qui se passe sur les articles qui vous intéressent. Taper sur le menu surgissant et sélectionner &lt;b&gt;Ajouter à la liste de suivi&lt;/b&gt; pour voir les modifications sur cet article.</string>
-  <string name="page_notification_tooltip">Vos notifications sont désormais ici.</string>
   <string name="settings_item_preferences">Paramètres</string>
   <string name="settings_activity_title">Paramètres</string>
   <string name="about_description">À propos de l’application Wikipédia</string>
@@ -474,7 +480,7 @@
   <string name="reading_list_article_added_to_named">%1$s ajouté à %2$s.</string>
   <string name="reading_list_article_added_to_default_list">%s enregistré. Voulez-vous l’ajouter à une liste ?</string>
   <string name="reading_list_article_moved_to_named">%1$s déplacé vers %2$s .</string>
-  <string name="reading_list_article_already_exists_message">Tout est bon ! %1$s contient déjà %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Tout va bien ! %1$s contient déjà %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Tout va bien ! %s contient déjà tous les articles.</string>
   <string name="reading_list_added_view_button">Afficher la liste</string>
   <string name="reading_list_add_to_list_button">Ajouter à la liste</string>
@@ -644,7 +650,7 @@
   <string name="notifications_poll_enable_title">Activer les notifications</string>
   <string name="notifications_poll_enable_positive">Activer</string>
   <string name="notifications_poll_enable_negative">Pas maintenant</string>
-  <string name="notifications_empty_message">Vous n’avez pas de nouvelle notification !</string>
+  <string name="notifications_empty_message">Vous n’avez aucune nouvelle notification !</string>
   <string name="notifications_view_archived_button_text">Afficher les notifications archivées</string>
   <string name="notification_preferences_title">Préférences de notification</string>
   <string name="notifications_mark_unread">Marquer comme non lu</string>
@@ -926,6 +932,7 @@
   <string name="suggested_edits_paused_message">Les modifications suggérées sont en pause jusqu’au %1$s. Désolé %2$s, certaines de vos contributions récentes ont été annulées.</string>
   <string name="suggested_edits_disabled_message">Les modifications suggérées sont désactivées. Désolé %s, trop de vos contributions récentes ont été annulées.</string>
   <string name="suggested_edits_ip_blocked_message">Il semblerait que votre adresse IP (ou une plage d’adresses IP) soit actuellement bloquée pour modifier Wikipédia.</string>
+  <string name="suggested_edits_gate_message">Désolé, %s, vous devez réaliser au moins trois modifications directement dans un article pour utiliser cette fonctionnalité.</string>
   <string name="suggested_edits_editing_tips_link_text">Modifier les trucs et astuces</string>
   <string name="suggested_edits_help_page_link_text">Page d’aide des Modifications suggérées</string>
   <string name="suggested_edits_edit_streak_label_text">Modifier la trace</string>
@@ -1179,4 +1186,10 @@
   <string name="watchlist_page_moved">Déplacé</string>
   <string name="watchlist_page_protected">Protégé</string>
   <string name="watchlist_page_deleted">Supprimé</string>
+  <string name="action_item_categories">Catégories</string>
+  <string name="page_no_categories">Cette page n’appartient à aucune catégorie.</string>
+  <string name="category_tab_articles">Articles</string>
+  <string name="category_tab_subcategories">Sous-catégories</string>
+  <string name="category_empty">Aucun article trouvé dans cette catégorie.</string>
+  <string name="subcategory_empty">Aucune sous-catégorie trouvée dans cette catégorie.</string>
 </resources>

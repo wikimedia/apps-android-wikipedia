@@ -263,7 +263,6 @@
   <string name="page_protected_can_not_edit_title">Эта страница защищена</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Добавить в список наблюдения</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Следите за тем, что происходит с интересующими вас статьями. Нажмите меню и выберите &lt;b&gt;Добавить в список наблюдения&lt;/b&gt;, чтобы увидеть изменения в статье.</string>
-  <string name="page_notification_tooltip">Ваши уведомления теперь здесь.</string>
   <string name="settings_item_preferences">Настройки</string>
   <string name="settings_activity_title">Настройки</string>
   <string name="about_description">О приложении «Википедия»</string>
@@ -1175,6 +1174,9 @@
   <string name="thank_success_message">Ваше \"Спасибо\" отправлено участнику %s 👍</string>
   <string name="menu_option_view_user_profile">Посмотреть страницу профиля пользователя</string>
   <string name="menu_option_view_user_talk">Смотрите страницу обсуждения</string>
+  <string name="revision_diff_compare_title">Сравнить версии: %s</string>
+  <string name="revision_diff_from">От:</string>
+  <string name="revision_diff_line_num">Строка %d</string>
   <string name="revision_compare_button">Сравнить</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Участник %1$s и его страница обсуждений добавлены в ваш список наблюдения %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Изменить</string>
@@ -1198,4 +1200,7 @@
   <string name="watchlist_page_moved">Перемещено</string>
   <string name="watchlist_page_protected">Защищено</string>
   <string name="watchlist_page_deleted">Удалено</string>
+  <string name="action_item_categories">Категории</string>
+  <string name="category_tab_articles">Статьи</string>
+  <string name="category_tab_subcategories">Подкатегории</string>
 </resources>

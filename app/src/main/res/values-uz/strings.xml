@@ -56,15 +56,27 @@
   <string name="page_edit_history_activity_title">Oʻzgarishlar tarixi: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Jami tahrir boʻsh</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Tahrirlarni qidirish yoki filtrlash</string>
+  <string name="page_edit_history_filter_by">Quyidagicha filtrlash</string>
+  <string name="page_edit_history_filter_by_all">Barcha tahrirlar (%s)</string>
+  <string name="page_edit_history_filter_by_user">Foydalanuvchi tahrirlari (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonim tahrirlar (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Bot tahrirlari (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s dan %2$s gacha metrikada</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%2$s dan buyon %1$d ta tahrir</item>
+    <item quantity="other">%2$s dan buyon %1$d ta tahrir</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Batafsil tahrirlarni koʻrish uchun &lt;a href=\"#\"&gt;filtrlarni&lt;/a&gt; sinab koʻring</string>
   <string name="menu_page_show_tabs">Tablarni ko‘rsatish</string>
   <string name="menu_page_other_languages">Boshqa tillarda o‘qish</string>
   <string name="menu_page_find_in_page">Maqoladan izlash</string>
   <string name="menu_page_add_to_watchlist">Kuzatuv roʻyxatiga qoʻshmoq</string>
   <string name="menu_page_watch">Kuzatmoq</string>
+  <string name="menu_page_unwatch">Kuzatmaslik</string>
   <string name="menu_page_view_talk">Munozara sahifani koʻrish</string>
   <string name="menu_page_talk_page">Munozara sahifasi</string>
-  <string name="menu_page_view_edit_history">Tahrirlash tarixini koʻrish</string>
+  <string name="menu_page_view_edit_history">Tahrirlar tarixini koʻrish</string>
   <string name="menu_page_edit_history">Oʻzgarishlar tarixi</string>
   <string name="menu_page_remove_from_watchlist">Kuzatuv roʻyxatidan oʻchirmoq</string>
   <string name="menu_page_watched">Kuzatilgan</string>
@@ -90,7 +102,7 @@
   <string name="menu_text_select_edit_here">Bu yerni tahrirlamoq</string>
   <string name="last_updated_text">%sda oxirgi bor yangilangan</string>
   <string name="talk_page_link_text">Muhokama sahifasini ko‘rmoq</string>
-  <string name="edit_history_link_text">Tahrirlash tarixini ko‘rmoq</string>
+  <string name="edit_history_link_text">Tahrirlar tarixini koʻrish</string>
   <string name="map_view_link_text">Xaritada ko‘rmoq</string>
   <string name="other_languages_indication_text">Boshqa tilda o‘qimoq</string>
   <string name="language_count_link_text">Maqola %d ta tilda mavjud</string>
@@ -210,7 +222,6 @@
   <string name="page_protected_can_not_edit_title">Bu sahifa himoyalangan</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Kuzatuv roʻyxatiga qoʻshmoq</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Siz qiziqish bildirgan maqolalarda qanday oʻzgarishlar boʻlayotganligini kuzatib turing. Maqoladagi oʻzgarishlardan boxabar boʻlib borish uchun qoʻshimcha menyudagi &lt;b&gt;Kuzatuv roʻyxatiga qoʻshmoq&lt;/b&gt; tugmasini tanlang.</string>
-  <string name="page_notification_tooltip">Sizning bildirishnomalaringiz bu yerda boʻladi.</string>
   <string name="settings_item_preferences">Tanlovlar</string>
   <string name="settings_activity_title">Tanlovlar</string>
   <string name="about_description">«Vikipediya» ilovasi haqida</string>
@@ -880,6 +891,7 @@
   <string name="suggested_edits_paused_message">Tavsiya etilgan tahrirlar %1$sgacha toʻxtatildi. Kechirasiz, %2$s%, yaqinda qilgan baʼzi hissalaringiz qaytarildi.</string>
   <string name="suggested_edits_disabled_message">Tavsiya etilgan tahrirlar faol emas. Kechirasiz, %s, juda koʻp qoʻshgan narsalaringiz bekor qilindi.</string>
   <string name="suggested_edits_ip_blocked_message">Sizning IP-manzilingiz (yoki IP-manzillar diapazoningiz) hozirda Vikipediyani tahrirlashga toʻsiq qoʻyilganga oʻxshaydi.</string>
+  <string name="suggested_edits_gate_message">Kechirasiz, %s, bu funksiyadan foydalanish uchun to‘g‘ridan-to‘g‘ri maqolaga kamida uchta tahrir qilishingiz lozim.</string>
   <string name="suggested_edits_editing_tips_link_text">Maslahatlar va tavsiyalarni tahrirlash</string>
   <string name="suggested_edits_help_page_link_text">Tavsiya etilganni tahrirlash yordam sahifasi</string>
   <string name="suggested_edits_edit_streak_label_text">Qatorni tahrirlamoq</string>
@@ -1094,6 +1106,21 @@
   <string name="thank_success_message">Sizning «Tashakkur»ingiz %sga bildirildi 👍</string>
   <string name="menu_option_view_user_profile">Foydalanuvchi profili sahifasini koʻrish</string>
   <string name="menu_option_view_user_talk">Munozara sahifasini koʻrish</string>
+  <string name="menu_option_view_user_contributions">Foydalanuvchi hissasini koʻrmoq</string>
+  <string name="revision_diff_compare">Tahrirlarni solishtirimoq</string>
+  <string name="revision_diff_compare_title">Tahrirlarni solishtirish: %s</string>
+  <string name="revision_diff_from">Bundan:</string>
+  <string name="revision_diff_to">Bunga:</string>
+  <string name="revision_diff_line_num">%d-qator</string>
+  <string name="revision_diff_line_nums">%d-%d qatorlar</string>
+  <string name="revision_diff_line_added">Qator qoʻshildi</string>
+  <string name="revision_diff_line_removed">Qator oʻchirildi</string>
+  <string name="revision_diff_paragraph_added">Paragraf qoʻshildi</string>
+  <string name="revision_diff_paragraph_removed">Paragraf oʻchirildi</string>
+  <string name="revision_undo_title">Tahrirni bekor qilmoq</string>
+  <string name="revision_undo_message">Bu yerda koʻrsatilgan maqolaning tahrir(lar)i tomonidan kiritilgan oʻzgarishlar bekor qilinadi.</string>
+  <string name="revision_undo_reason">Davom etish uchun ushbu tahrirni bekor qilish sababini keltiring:</string>
+  <string name="revision_undo_success">Qayta koʻrib chiqish bekor qilindi.</string>
   <string name="revision_compare_button">Solishtirish</string>
   <string name="revision_compare_two_only">Faqat ikkita tahrirni tanlash mumkin.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s va uning munozara sahifasi sizning %2$s-kuzatuvlar roʻyxatigizga qoʻshildi.</string>
@@ -1118,4 +1145,10 @@
   <string name="watchlist_page_moved">Koʻchirilgan</string>
   <string name="watchlist_page_protected">Himoyalangan</string>
   <string name="watchlist_page_deleted">O‘chirilgan</string>
+  <string name="action_item_categories">Turkumlar</string>
+  <string name="page_no_categories">Ushbu sahifa bironta turkumga taalluqli emas.</string>
+  <string name="category_tab_articles">Maqolalar</string>
+  <string name="category_tab_subcategories">Ostturkumlar</string>
+  <string name="category_empty">Ushbu turkumda maqolalar topilmadi.</string>
+  <string name="subcategory_empty">Bu turkumda ostturkumlar mavjud emas.</string>
 </resources>

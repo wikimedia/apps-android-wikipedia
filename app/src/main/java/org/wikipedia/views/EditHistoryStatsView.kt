@@ -41,9 +41,9 @@ class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = 
             calendar.add(Calendar.YEAR, -1)
             val lastYear = DateUtil.getMDYDateString(calendar.time)
             binding.editCountsView.text = context.resources.getQuantityString(R.plurals.page_edit_history_article_edits_since_year,
-                    editHistoryStats.editCount.count, editHistoryStats.editCount.count, createdYear)
+                    editHistoryStats.allEdits.count, editHistoryStats.allEdits.count, createdYear)
             binding.statsGraphView.setData(editHistoryStats.metrics.map { it.edits.toFloat() })
-            binding.statsGraphView.contentDescription = context.getString(R.string.page_edit_history_metrics_content_description, today, lastYear)
+            binding.statsGraphView.contentDescription = context.getString(R.string.page_edit_history_metrics_content_description, lastYear, today)
             FeedbackUtil.setButtonLongPressToast(binding.statsGraphView)
 
             binding.articleTitleView.movementMethod = LinkMovementMethodExt { _ ->

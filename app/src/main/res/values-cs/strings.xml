@@ -63,6 +63,10 @@
   <string name="app_settings">Nastavení aplikace</string>
   <string name="search_tab_tooltip">Chcete-li přímo začít vyhledávat, klepněte znovu na tuto ikonu.</string>
   <string name="history_list_title">Historie</string>
+  <string name="image_content_description">Obrázek: %s</string>
+  <string name="page_content_description">Stránka: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Vymazat historii prohlížení</string>
   <string name="dialog_message_clear_history">Tímto smažete celou svoji historii prohlížení a zavřete všechny nyní otevřené záložky. Jste si jisti?</string>
   <string name="dialog_message_clear_history_yes">Ano</string>
@@ -217,7 +221,6 @@
   <string name="page_protected_can_not_edit_title">Tato stránka je zamčena</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Přidat do sledovaných stránek</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Sledujte, co se děje s články, které vás zajímají. Klepnutím na rozbalovací nabídku a výběrem možnosti &lt;b&gt;Přidat do sledovaných stránek&lt;/b&gt; uvidíte změny článku.</string>
-  <string name="page_notification_tooltip">Vaše oznámení se nyní nacházejí zde.</string>
   <string name="settings_item_preferences">Nastavení</string>
   <string name="settings_activity_title">Nastavení</string>
   <string name="about_description">O aplikaci Wikipedie</string>

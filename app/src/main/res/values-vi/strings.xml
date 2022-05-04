@@ -11,6 +11,8 @@
 * Minh Nguyen
 * MuratTheTurkish
 * Nghiemtrongdai VN
+* Ngoxuannguyenchuong
+* NguoiDungKhongDinhDanh
 * NguyenHung
 * Nguyên Lê
 * Nguyễn Mạnh An
@@ -139,7 +141,7 @@
   <string name="create_account_login">Đăng nhập</string>
   <string name="menu_login">Đăng nhập</string>
   <string name="login_activity_title">Đăng nhập</string>
-  <string name="login_in_progress_dialog_message">Đang đăng nhập bạn vào…</string>
+  <string name="login_in_progress_dialog_message">Đang đăng nhập…</string>
   <string name="login_success_toast">Đã đăng nhập!</string>
   <string name="reset_password_title">Đặt mật khẩu</string>
   <string name="reset_password_description">Bạn đã đăng nhập bằng mật khẩu tạm thời. Để hoàn tất việc đăng nhập, xin vui lòng đặt lại mật khẩu mới tại đây.</string>
@@ -176,8 +178,8 @@
   <string name="create_account_generic_error">Không thể mở tài khoản</string>
   <string name="create_account_next">Tiếp</string>
   <string name="email_recommendation_dialog_title">Mở tài khoản mà không cung cấp địa chỉ thư điện tử?</string>
-  <string name="email_recommendation_dialog_message">Mặc dù không được bắt buộc, chúng tôi &lt;b&gt;rất khuyến khích&lt;/b&gt; cung cấp địa chỉ thư điện tử, vì địa chỉ thư điện tử được yêu cầu để phục hồi tài khoản nếu trường hợp bạn quên mật khẩu.</string>
-  <string name="email_recommendation_message">Khuyến khích vì địa chỉ thư điện tử được yêu cầu để phục hồi tài khoản.</string>
+  <string name="email_recommendation_dialog_message">Dù không bắt buộc, chúng tôi &lt;b&gt;rất khuyến khích&lt;/b&gt; cung cấp địa chỉ thư điện tử, vì nếu mất mật khẩu, bạn sẽ cần nhận thư điện tử để khôi phục tài khoản.</string>
+  <string name="email_recommendation_message">Khuyến khích, vì bạn cần địa chỉ thư điện tử để khôi phục tài khoản.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Bỏ qua việc cung cấp địa chỉ thư điện tử</string>
   <string name="email_recommendation_dialog_create_with_email_action">Đặt địa chỉ thư điện tử</string>
   <string name="create_account_button">Mở tài khoản</string>
@@ -215,7 +217,6 @@
   <string name="page_protected_can_not_edit_title">Trang này bị khóa</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Thêm vào danh sách theo dõi</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Theo dõi những gì đang xảy ra với các trang mà bạn quan tâm. Nhấn vào menu mục bổ sung và chọn &lt;b&gt;Thêm vào danh sách theo dõi&lt;/b&gt; để xem các thay đổi đối với một bài viết.</string>
-  <string name="page_notification_tooltip">Các thông báo được di chuyển sang đây.</string>
   <string name="settings_item_preferences">Tùy chọn</string>
   <string name="settings_activity_title">Tùy chọn</string>
   <string name="about_description">Giới thiệu về ứng dụng Wikipedia</string>
@@ -757,7 +758,7 @@
   <string name="description_edit_success_saved_image_caption_snackbar">Đã đăng chú thích hình ảnh!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Đã đăng chú thích hình ảnh! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Đã đăng chú thích hình ảnh!</string>
-  <string name="description_edit_success_se_general_feed_link_snackbar">Muốn điều đó? Giúp chúng tôi thêm nhiều hơn nữa.</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Bạn có thích không? Tiếp tục nhé?</string>
   <string name="description_edit_success_encouragement">Bạn vừa cải thiện Wikipedia cho mọi người</string>
   <string name="description_edit_success_done">Xong</string>
   <string name="description_edit_success_did_you_know">Bạn có biết?</string>
@@ -821,7 +822,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Thêm thông tin</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Trang tập tin trên Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Trang tập tin trên Wikipedia</string>
-  <string name="suggested_edits_article_cta_image_tags">Dùng thẻ quyền cho hình ảnh</string>
+  <string name="suggested_edits_article_cta_image_tags">Thêm thẻ cho hình ảnh</string>
   <string name="suggested_edits_article_cta_image_caption">Thêm chú thích hình ảnh</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Thêm chú thích hình ảnh (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Xem</string>
@@ -836,15 +837,15 @@
   <string name="suggested_edits_image_tags">Thẻ hình ảnh</string>
   <string name="suggested_edits_image_tags_publishing">Đang xuất bản</string>
   <string name="suggested_edits_image_tags_published">Đã xuất bản</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Gắn thẻ quyền cho hình ảnh giúp chúng dễ tìm hơn.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Bằng cách thêm thẻ quyền hình ảnh, bạn sẽ giúp tìm kiếm hình ảnh dễ dàng hơn trên Commons, kho lưu trữ hình ảnh giấy phép tự do mà Wikipedia sử dụng cho hình ảnh trong các bài viết.</string>
-  <string name="suggested_edits_image_tags_onboarding_note">Chỉ những thẻ quyền bạn chọn mới được thêm vào hình ảnh</string>
-  <string name="suggested_edits_image_tags_task_detail">Thêm thẻ quyền tùy chỉnh vào hình ảnh để dễ tìm hơn.</string>
-  <string name="suggested_edits_image_tags_choose">Thêm hoặc lựa chọn các thẻ quyền phù hợp</string>
-  <string name="suggested_edits_image_tags_published_list">Các thẻ quyền đã xuất bản</string>
-  <string name="suggested_edits_image_tags_search">Tìm kiếm thẻ quyền</string>
-  <string name="suggested_edits_image_tags_select_title">Bạn chưa chọn bất kỳ thẻ quyền nào cho hình ảnh này</string>
-  <string name="suggested_edits_image_tags_select_text">Chỉ những thẻ quyền bạn chọn mới được thêm vào hình ảnh. Các thẻ không được chọn sẽ bị đánh dấu là bị từ chối. Bạn có chắc chắn muốn đánh dấu tất cả các thẻ quyền là bị từ chối không?</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Gắn thẻ cho hình ảnh sẽ giúp chúng dễ tìm hơn.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Bằng cách thêm thẻ cho hình ảnh, bạn sẽ giúp chúng dễ tìm hơn trên Commons, kho lưu trữ hình ảnh tự do mà Wikipedia dùng làm nguồn cung hình ảnh cho bài viết.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">Chỉ những thẻ bạn chọn mới được thêm vào hình ảnh.</string>
+  <string name="suggested_edits_image_tags_task_detail">Thêm thẻ vào hình ảnh để giúp chúng dễ tìm hơn.</string>
+  <string name="suggested_edits_image_tags_choose">Thêm hoặc lựa chọn các thẻ phù hợp</string>
+  <string name="suggested_edits_image_tags_published_list">Các thẻ đã xuất bản</string>
+  <string name="suggested_edits_image_tags_search">Tìm kiếm thẻ</string>
+  <string name="suggested_edits_image_tags_select_title">Bạn chưa chọn bất kỳ thẻ nào cho hình ảnh này</string>
+  <string name="suggested_edits_image_tags_select_text">Chỉ những thẻ bạn chọn mới được thêm vào hình ảnh. Các thẻ không được chọn sẽ bị đánh dấu là bị từ chối. Bạn có chắc chắn muốn từ chối tất cả các thẻ không?</string>
   <string name="suggested_edits_image_tags_add_tag">Thêm thẻ</string>
   <string name="suggested_edits_image_zoom_tooltip">Vuốt để phóng to hình ảnh này.</string>
   <string name="suggested_edits_encouragement_message">%s, cảm ơn vì sửa đổi của bạn. Dưới đây, bạn có thể tìm hiểu thêm các cách đóng góp cho Wikipedia.</string>
@@ -914,7 +915,7 @@
   <string name="suggested_edits_encourage_account_creation_title">Bạn có biết rằng bất cứ ai cũng có thể đóng góp cho Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Các sửa đổi gợi ý là một cách mới để đóng góp cho Wikipedia trên Android. Nó giúp bạn có những đóng góp nhỏ nhưng quan trọng cho Wikipedia.\nMục tiêu của chúng tôi là làm cho việc sửa đổi dễ dàng hơn và dễ tiếp cận hơn cho mọi người! Đăng nhập hoặc tham gia Wikipedia để bắt đầu.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Đăng nhập / Tham gia Wikipedia</string>
-  <string name="suggested_edits_contribution_type_image_tag">Thẻ quyền cho hình ảnh</string>
+  <string name="suggested_edits_contribution_type_image_tag">Thẻ cho hình ảnh</string>
   <string name="suggested_edits_contribution_current_revision_text">Sửa đổi của bạn đang hiện tại ở Wikipedia</string>
   <string name="suggested_card_more_edits">Thêm các sửa đổi gợi ý</string>
   <plurals name="suggested_edits_tags_diff_count_text">
@@ -935,7 +936,7 @@
   </plurals>
   <string name="file_page_activity_title">Trang tập tin</string>
   <string name="file_page_add_image_caption_button">Thêm chú thích hình ảnh</string>
-  <string name="file_page_add_image_tags_button">Thêm thẻ quyền cho hình ảnh</string>
+  <string name="file_page_add_image_tags_button">Thêm thẻ cho hình ảnh</string>
   <string name="file_page_suggestion_reason">Lý do gợi ý</string>
   <string name="file_page_edit_button_content_description">Chỉnh sửa %s</string>
   <string name="description_edit_revert_subtitle">Cảm ơn bạn đã sửa đổi Wikipedia.</string>
@@ -1067,6 +1068,9 @@
   <string name="thank_success_message">Lời \'Cảm ơn\' của bạn đã được gửi tới %s 👍</string>
   <string name="menu_option_view_user_contributions">Xem đóng góp của người dùng</string>
   <string name="revision_diff_compare">So sánh các phiên bản</string>
+  <string name="revision_diff_from">Từ:</string>
+  <string name="revision_diff_to">Đến:</string>
+  <string name="revision_undo_title">Hoàn tác sửa đổi</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s cùng trang thảo luận đã được thêm vào danh sách theo dõi của bạn %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Thay đổi</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">vô hạn</string>
@@ -1089,4 +1093,5 @@
   <string name="watchlist_page_moved">Đã di chuyển</string>
   <string name="watchlist_page_protected">Đã khóa</string>
   <string name="watchlist_page_deleted">Đã xóa</string>
+  <string name="category_tab_articles">Bài viết</string>
 </resources>

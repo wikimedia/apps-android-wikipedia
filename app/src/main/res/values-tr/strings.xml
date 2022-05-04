@@ -29,6 +29,7 @@
 * MrSchipunov
 * MuratTheTurkish
 * Okkerem
+* Oyuncu
 * Rapsar
 * SaldırganSincap
 * Sayginer
@@ -244,7 +245,6 @@
   <string name="page_protected_can_not_edit_title">Bu sayfa koruma altındadır</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">İzleme listesine ekle</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">İlgilendiğiniz maddelere ne olduğunu takip edin. Bir maddedeki değişiklikleri görmek için taşma menüsüne dokunun ve &lt;b&gt;İzleme Listesine Ekle&lt;/b&gt; seçeneğini seçin.</string>
-  <string name="page_notification_tooltip">Bildirimleriniz artık burada.</string>
   <string name="settings_item_preferences">Ayarlar</string>
   <string name="settings_activity_title">Ayarlar</string>
   <string name="about_description">Vikipedi uygulaması hakkında</string>
@@ -1147,4 +1147,10 @@
   <string name="watchlist_page_moved">Taşındı</string>
   <string name="watchlist_page_protected">Korumalı</string>
   <string name="watchlist_page_deleted">Silindi</string>
+  <string name="action_item_categories">kategoriler</string>
+  <string name="page_no_categories">Bulunduğunuz sayfa herhangi bir kategoriye ait değildir.</string>
+  <string name="category_tab_articles">Makaleler</string>
+  <string name="category_tab_subcategories">alt kategoriler</string>
+  <string name="category_empty">kategoride makale bulunamadı.</string>
+  <string name="subcategory_empty">Bu kategoride alt kategori bulunamadı.</string>
 </resources>

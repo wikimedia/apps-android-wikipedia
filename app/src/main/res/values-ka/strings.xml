@@ -188,7 +188,6 @@
   <string name="page_protected_can_not_edit">სამწუხაროდ, ამ მომენტისათვის თქვენს ანგარიშს არ აქვს ამ გვერდის რედაქტირებისთვის საჭირო შესაბამისი უფლებები.</string>
   <string name="page_protected_can_not_edit_title">ეს გვერდი დაცულია</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">კონტროლის სიაში დამატება</string>
-  <string name="page_notification_tooltip">თქვენი შეტყობინებები ახლა აქ არის.</string>
   <string name="settings_item_preferences">კონფიგურაცია</string>
   <string name="settings_activity_title">კონფიგურაცია</string>
   <string name="about_description">ვიკიპედიის აპლიკაციის შესახებ</string>
@@ -467,7 +466,7 @@
   <string name="description_edit_success_done">გაკეთდა</string>
   <string name="description_edit_success_did_you_know">იცოდით?</string>
   <string name="description_edit_tutorial_title_descriptions">სტატიის აღწერა</string>
-  <string name="description_edit_tutorial_button_label_start_editing">დაიწყე რედაქტირება</string>
+  <string name="description_edit_tutorial_button_label_start_editing">დაიწყეთ რედაქტირება</string>
   <string name="size_gb">%.2f გბ</string>
   <string name="size_mb">%.2f მბ</string>
   <string name="onboarding_skip">გამოტოვება</string>

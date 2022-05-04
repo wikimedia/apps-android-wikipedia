@@ -9,6 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.view.MenuItemCompat
@@ -65,6 +66,62 @@ class TalkTopicsActivity : BaseActivity() {
     private var currentSearchQuery: String? = null
     private var currentSortMode = Prefs.talkTopicsSortMode
 
+    private val requestLanguageChange = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            it.data?.let { intent ->
+                if (intent.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
+                    val pos = intent.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
+                    if (pos < WikipediaApp.getInstance().language().appLanguageCodes.size) {
+                        funnel?.logChangeLanguage()
+
+                        val newNamespace = when {
+                            pageTitle.namespace() == Namespace.USER -> {
+                                UserAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCodes[pos])
+                            }
+                            pageTitle.namespace() == Namespace.USER_TALK -> {
+                                UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCodes[pos])
+                            }
+                            else -> pageTitle.namespace
+                        }
+
+                        pageTitle = PageTitle(newNamespace, StringUtil.removeNamespace(pageTitle.prefixedText),
+                            WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[pos]))
+
+                        talkTopicsProvider.cancel()
+                        talkTopicsProvider = TalkTopicsProvider(pageTitle)
+                        loadTopics()
+                    }
+                }
+            }
+        }
+    }
+
+    private val requestNewTopic = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == TalkTopicActivity.RESULT_EDIT_SUCCESS) {
+            val newRevisionId = it.data?.getLongExtra(TalkTopicActivity.RESULT_NEW_REVISION_ID, 0) ?: 0
+            val topic = it.data?.getIntExtra(TalkTopicActivity.EXTRA_TOPIC, 0) ?: -1
+            val undoneSubject = it.data?.getStringExtra(TalkTopicActivity.EXTRA_SUBJECT) ?: ""
+            val undoneText = it.data?.getStringExtra(TalkTopicActivity.EXTRA_BODY) ?: ""
+            if (newRevisionId > 0) {
+                FeedbackUtil.makeSnackbar(this, getString(R.string.talk_new_topic_submitted), FeedbackUtil.LENGTH_DEFAULT)
+                    .setAnchorView(binding.talkNewTopicButton)
+                    .setAction(R.string.talk_snackbar_undo) {
+                        binding.talkNewTopicButton.isEnabled = false
+                        binding.talkNewTopicButton.alpha = 0.5f
+                        binding.talkProgressBar.visibility = View.VISIBLE
+                        undoSave(newRevisionId, topic, undoneSubject, undoneText)
+                    }
+                    .show()
+            }
+        }
+    }
+
+    private val requestGoToTopic = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == TalkTopicActivity.RESULT_BACK_FROM_TOPIC) {
+            finish()
+        }
+    }
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTalkTopicsBinding.inflate(layoutInflater)
@@ -88,8 +145,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         binding.talkNewTopicButton.setOnClickListener {
             funnel?.logNewTopicClick()
-            startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, "", invokeSource),
-                Constants.ACTIVITY_REQUEST_NEW_TOPIC_ACTIVITY)
+            requestNewTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, "", invokeSource))
         }
 
         binding.talkRefreshView.setOnRefreshListener {
@@ -123,50 +179,6 @@ class TalkTopicsActivity : BaseActivity() {
         super.onResume()
         loadTopics()
         searchActionModeCallback.searchActionProvider?.selectAllQueryTexts()
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE && resultCode == RESULT_OK) {
-            if (data != null && data.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
-                val pos = data.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
-                if (pos < WikipediaApp.getInstance().language().appLanguageCodes.size) {
-                    funnel?.logChangeLanguage()
-
-                    val newNamespace = when {
-                        pageTitle.namespace() == Namespace.USER -> {
-                            UserAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCodes[pos])
-                        }
-                        pageTitle.namespace() == Namespace.USER_TALK -> {
-                            UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCodes[pos])
-                        }
-                        else -> pageTitle.namespace
-                    }
-
-                    pageTitle = PageTitle(newNamespace, StringUtil.removeNamespace(pageTitle.prefixedText),
-                            WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[pos]))
-                    loadTopics()
-                }
-            }
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_NEW_TOPIC_ACTIVITY && resultCode == TalkTopicActivity.RESULT_EDIT_SUCCESS) {
-            val newRevisionId = data?.getLongExtra(TalkTopicActivity.RESULT_NEW_REVISION_ID, 0) ?: 0
-            val topic = data?.getIntExtra(TalkTopicActivity.EXTRA_TOPIC, 0) ?: -1
-            val undoneSubject = data?.getStringExtra(TalkTopicActivity.EXTRA_SUBJECT) ?: ""
-            val undoneText = data?.getStringExtra(TalkTopicActivity.EXTRA_BODY) ?: ""
-            if (newRevisionId > 0) {
-                FeedbackUtil.makeSnackbar(this, getString(R.string.talk_new_topic_submitted), FeedbackUtil.LENGTH_DEFAULT)
-                    .setAnchorView(binding.talkNewTopicButton)
-                    .setAction(R.string.talk_snackbar_undo) {
-                        binding.talkNewTopicButton.isEnabled = false
-                        binding.talkNewTopicButton.alpha = 0.5f
-                        binding.talkProgressBar.visibility = View.VISIBLE
-                        undoSave(newRevisionId, topic, undoneSubject, undoneText)
-                    }
-                    .show()
-            }
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_GO_TO_TOPIC_ACTIVITY && resultCode == TalkTopicActivity.RESULT_BACK_FROM_TOPIC) {
-            finish()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -205,8 +217,7 @@ class TalkTopicsActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_change_language -> {
-                startActivityForResult(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.TALK_ACTIVITY),
-                    Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
+                requestLanguageChange.launch(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.TALK_ACTIVITY))
                 return true
             }
             R.id.menu_view_in_browser -> {
@@ -293,8 +304,7 @@ class TalkTopicsActivity : BaseActivity() {
                 }
             }
             if (topic != null) {
-                startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, topic.getIndicatorSha(), invokeSource),
-                        Constants.ACTIVITY_REQUEST_GO_TO_TOPIC_ACTIVITY)
+                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, topic.getIndicatorSha(), invokeSource))
                 overridePendingTransition(0, 0)
                 return
             }
