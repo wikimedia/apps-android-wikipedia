@@ -202,20 +202,18 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
         }
     }
 
-    fun getSubscriptions(commentName: String) {
+    suspend fun isSubscribed(commentName: String): Boolean {
         if (pageTitle == null) {
-            return
+            return false
         }
         val pageTitle = pageTitle!!
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
-            val subscriptionsResponse = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(commentName)
-            // TODO: send list to the UiState
-        }
+        val response = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(commentName)
+        return response.subscriptions[commentName] == 1
     }
 
     class Factory(private val pageTitle: PageTitle?) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return TalkTopicsViewModel(pageTitle) as T
         }
     }

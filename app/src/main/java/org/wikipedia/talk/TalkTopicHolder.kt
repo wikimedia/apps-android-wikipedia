@@ -5,13 +5,19 @@ import android.graphics.Color
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import org.wikipedia.views.TalkTopicsActionsOverflowView
@@ -67,7 +73,7 @@ class TalkTopicHolder internal constructor(
         binding.topicReplyNumber.text = (allReplies.size - 1).toString()
 
         // Last comment date
-        val lastCommentDate = allReplies.mapNotNull { it.date }.maxByOrNull { it }
+        val lastCommentDate = allReplies.mapNotNull { it.date }.maxByOrNull { it }?.run { DateUtil.getDateAndTime(this) }
         binding.topicLastCommentDate.text = context.getString(R.string.talk_list_item_last_comment_date, lastCommentDate)
         binding.topicLastCommentDate.isVisible = lastCommentDate != null
 
@@ -92,14 +98,25 @@ class TalkTopicHolder internal constructor(
     }
 
     private fun showOverflowMenu(anchorView: View) {
-        TalkTopicsActionsOverflowView(context).show(anchorView, threadItem, object : TalkTopicsActionsOverflowView.Callback {
-            override fun markAsReadClick(threadItem: ThreadItem, markRead: Boolean) {
-                markAsSeen()
+        CoroutineScope(Dispatchers.Main).launch {
+            val subscribed = withContext(Dispatchers.IO) {
+                viewModel.isSubscribed(threadItem.name)
             }
+            threadItem.subscribed = subscribed
+            TalkTopicsActionsOverflowView(context).show(anchorView, threadItem, object : TalkTopicsActionsOverflowView.Callback {
+                override fun markAsReadClick() {
+                    markAsSeen()
+                }
 
-            override fun subscribeClick(threadItem: ThreadItem, subscribed: Boolean) {
-                // TODO: implement this
-            }
-        })
+                override fun subscribeClick() {
+                    viewModel.subscribeTopic(threadItem.name, !subscribed)
+                }
+
+                override fun shareClick() {
+                    ShareUtil.shareText(context, context.getString(R.string.talk_share_discussion_subject,
+                        threadItem.html.ifEmpty { context.getString(R.string.talk_no_subject) }), pageTitle.uri + "#" + StringUtil.addUnderscores(threadItem.html))
+                }
+            })
+        }
     }
 }

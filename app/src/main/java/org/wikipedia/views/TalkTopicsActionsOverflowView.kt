@@ -17,8 +17,9 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 class TalkTopicsActionsOverflowView(context: Context) : FrameLayout(context) {
 
     interface Callback {
-        fun markAsReadClick(threadItem: ThreadItem, markRead: Boolean)
-        fun subscribeClick(threadItem: ThreadItem, subscribed: Boolean)
+        fun markAsReadClick()
+        fun subscribeClick()
+        fun shareClick()
     }
 
     private var binding = ViewTalkTopicsActionsOverflowBinding.inflate(LayoutInflater.from(context), this, true)
@@ -38,22 +39,25 @@ class TalkTopicsActionsOverflowView(context: Context) : FrameLayout(context) {
 
         binding.overflowMarkAsRead.text = context.getString(if (threadItem.seen)
             R.string.talk_list_item_overflow_mark_as_unread else R.string.notifications_menu_mark_as_read)
-        // TODO: update read and subscribe status
+        binding.overflowMarkAsRead.setCompoundDrawablesWithIntrinsicBounds(if (threadItem.seen) R.drawable.ic_outline_markunread_24 else R.drawable.ic_outline_drafts_24, 0, 0, 0)
+
+        binding.overflowSubscribe.text = context.getString(if (threadItem.subscribed)
+            R.string.talk_list_item_overflow_subscribed else R.string.talk_list_item_overflow_subscribe)
+        binding.overflowSubscribe.setCompoundDrawablesWithIntrinsicBounds(if (threadItem.subscribed) R.drawable.ic_notifications_active else R.drawable.ic_notifications_black_24dp, 0, 0, 0)
 
         binding.overflowMarkAsRead.setOnClickListener {
             dismiss()
-            callback.markAsReadClick(threadItem, true)
+            callback.markAsReadClick()
         }
 
         binding.overflowSubscribe.setOnClickListener {
             dismiss()
-            // TODO: use actual subscribe status
-            callback.subscribeClick(threadItem, true)
+            callback.subscribeClick()
         }
 
         binding.overflowShare.setOnClickListener {
             dismiss()
-            // TODO: implement share
+            callback.shareClick()
         }
     }
 

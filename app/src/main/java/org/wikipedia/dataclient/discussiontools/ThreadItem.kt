@@ -24,6 +24,7 @@ class ThreadItem(
     @IgnoredOnParcel @Transient var isExpanded = false
     @IgnoredOnParcel @Transient var isLastSibling = false
     @IgnoredOnParcel @Transient var seen: Boolean = false
+    @IgnoredOnParcel @Transient var subscribed: Boolean = false
 
     @IgnoredOnParcel val allReplies: List<ThreadItem>
         get() {
