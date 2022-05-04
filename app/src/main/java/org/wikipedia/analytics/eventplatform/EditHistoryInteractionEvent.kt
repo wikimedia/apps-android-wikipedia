@@ -70,23 +70,23 @@ class EditHistoryInteractionEvent(private var wikiDb: String, private var pageId
     }
 
     fun logOlderEditChevronClick() {
-        submitEvent("undo_fail")
+        submitEvent("older_edit_click")
     }
 
     fun logNewerEditChevronClick() {
-        submitEvent("undo_fail")
+        submitEvent("newer_edit_click")
     }
 
     fun logShareClick() {
-        submitEvent("undo_fail")
+        submitEvent("share_click")
     }
 
     fun logWatchClick() {
-        submitEvent("undo_fail")
+        submitEvent("watch_click")
     }
 
     fun logUnwatchClick() {
-        submitEvent("undo_fail")
+        submitEvent("unwatch_click")
     }
 
     private fun submitEvent(action: String) {

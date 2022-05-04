@@ -23,7 +23,9 @@ class UndoEditDialog constructor(private val editHistoryInteractionEvent: EditHi
         setButton(BUTTON_POSITIVE, context.getString(R.string.edit_undo)) { _, _ ->
             callback.onSuccess(binding.textInput.text.toString())
         }
-        setButton(BUTTON_NEGATIVE, context.getString(R.string.text_input_dialog_cancel_button_text)) { _, _ -> }
+        setButton(BUTTON_NEGATIVE, context.getString(R.string.text_input_dialog_cancel_button_text)) { _, _ ->
+            editHistoryInteractionEvent?.logUndoCancel()
+        }
         create()
         setPositiveButtonEnabled(false)
     }
