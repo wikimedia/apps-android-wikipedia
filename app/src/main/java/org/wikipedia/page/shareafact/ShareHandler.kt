@@ -4,6 +4,7 @@ import android.os.Build
 import android.view.ActionMode
 import android.view.MenuItem
 import kotlinx.serialization.Serializable
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
@@ -17,7 +18,7 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
 
     private fun onEditHerePayload(sectionID: Int, text: String, isEditingDescription: Boolean) {
         if (sectionID == 0 && isEditingDescription) {
-            fragment.verifyBeforeEditingDescription(text)
+            fragment.verifyBeforeEditingDescription(text, Constants.InvokeSource.PAGE_EDIT_HIGHLIGHT)
         } else {
             if (sectionID >= 0) {
                 fragment.editHandler.startEditingSection(sectionID, text)
