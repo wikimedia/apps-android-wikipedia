@@ -44,6 +44,5 @@ class UndoEditDialog constructor(private val editHistoryInteractionEvent: EditHi
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         binding.textInput.removeTextChangedListener(watcher)
-        editHistoryInteractionEvent?.logUndoCancel()
     }
 }
