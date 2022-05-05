@@ -3,6 +3,7 @@ package org.wikipedia.talk
 import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -24,6 +25,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         fun onExpandClick(item: ThreadItem)
         fun onReplyClick(item: ThreadItem)
         fun onShareClick(item: ThreadItem)
+        fun onUserNameClick(item: ThreadItem, view: View)
     }
 
     var callback: Callback? = null
@@ -51,6 +53,10 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
             helper.gravity = Gravity.END
             helper.show()
         }
+
+        binding.userNameText.setOnClickListener {
+            callback?.onUserNameClick(item, it)
+        }
     }
 
     fun bindItem(item: ThreadItem, movementMethod: MovementMethod, replying: Boolean = false) {
@@ -58,7 +64,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         binding.userNameText.text = item.author
         binding.timeStampText.isVisible = item.date != null
         item.date?.let { binding.timeStampText.text = DateUtil.getDateAndTimeWithPipe(it) }
-        binding.bodyText.text = StringUtil.fromHtml(item.html)
+        binding.bodyText.text = StringUtil.fromHtml(item.html).trim()
         binding.bodyText.movementMethod = movementMethod
 
         if (replying) {
@@ -118,6 +124,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
                 }
                 R.id.menu_copy_text -> {
                     ClipboardUtil.setPlainText(context, null, StringUtil.fromHtml(item.html))
+                    FeedbackUtil.showMessage(context as Activity, R.string.text_copied)
                     true
                 }
                 else -> false

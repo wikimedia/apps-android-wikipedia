@@ -30,6 +30,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
+import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.*
 
 class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
@@ -274,6 +275,12 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             val title = viewModel.pageTitle.copy()
             title.fragment = item.id
             ShareUtil.shareText(this@TalkTopicActivity, title)
+        }
+
+        override fun onUserNameClick(item: ThreadItem, view: View) {
+            UserTalkPopupHelper.show(this@TalkTopicActivity, bottomSheetPresenter,
+                    PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), item.author, viewModel.pageTitle.wikiSite),
+                    !AccountUtil.isLoggedIn, view, Constants.InvokeSource.TALK_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
         }
     }
 
