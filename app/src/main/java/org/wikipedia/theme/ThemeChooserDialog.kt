@@ -21,6 +21,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.AppearanceChangeFunnel
+import org.wikipedia.analytics.eventplatform.AppearanceSettingInteractionEvent
 import org.wikipedia.databinding.DialogThemeChooserBinding
 import org.wikipedia.events.WebViewInvalidateEvent
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -47,6 +48,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     private var app = WikipediaApp.getInstance()
     private lateinit var funnel: AppearanceChangeFunnel
+    private lateinit var appearanceSettingInteractionEvent: AppearanceSettingInteractionEvent
     private lateinit var invokeSource: InvokeSource
     private var isMobileWeb: Boolean = false
     private val disposables = CompositeDisposable()
@@ -77,6 +79,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
                     updatingFont = true
                     updateFontSize()
                     funnel.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
+                    appearanceSettingInteractionEvent.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
                 }
             }
 
@@ -107,6 +110,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         isMobileWeb = requireArguments().getBoolean(EXTRA_IS_MOBILE_WEB)
         funnel = AppearanceChangeFunnel(app, app.wikiSite, invokeSource)
+        appearanceSettingInteractionEvent = AppearanceSettingInteractionEvent(invokeSource)
     }
 
     override fun onDestroyView() {
@@ -183,6 +187,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     private fun onToggleReadingFocusMode(enabled: Boolean) {
         Prefs.readingFocusModeEnabled = enabled
         funnel.logReadingFocusMode(enabled)
+        appearanceSettingInteractionEvent.logReadingFocusMode(enabled)
         callback()?.onToggleReadingFocusMode()
     }
 
@@ -266,6 +271,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         override fun onClick(v: View) {
             if (app.currentTheme !== theme) {
                 funnel.logThemeChange(app.currentTheme, theme)
+                appearanceSettingInteractionEvent.logThemeChange(app.currentTheme, theme)
                 app.currentTheme = theme
             }
         }
@@ -276,6 +282,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             if (v.tag != null) {
                 val newFontFamily = v.tag as String
                 funnel.logFontThemeChange(Prefs.fontFamily, newFontFamily)
+                appearanceSettingInteractionEvent.logFontThemeChange(Prefs.fontFamily, newFontFamily)
                 app.setFontFamily(newFontFamily)
             }
         }
@@ -299,12 +306,13 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
                 updatingFont = true
                 updateFontSize()
                 funnel.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
+                appearanceSettingInteractionEvent.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
             }
         }
     }
 
     private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any?) {
+        override fun accept(event: Any) {
             if (event is WebViewInvalidateEvent) {
                 updatingFont = false
                 updateComponents()
