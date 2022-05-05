@@ -100,9 +100,8 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
             val newRevisionId = it.data?.getLongExtra(TalkTopicActivity.RESULT_NEW_REVISION_ID, 0) ?: 0
             // TODO: fix this
-            val topic = it.data?.getStringExtra(TalkTopicActivity.EXTRA_TOPIC) ?: ""
-            val undoneSubject = it.data?.getStringExtra(TalkReplyActivity.EXTRA_SUBJECT) ?: ""
-            val undoneText = it.data?.getStringExtra(TalkReplyActivity.EXTRA_BODY) ?: ""
+            val undoneSubject = it.data?.getCharSequenceExtra(TalkReplyActivity.EXTRA_SUBJECT) ?: "123"
+            val undoneText = it.data?.getCharSequenceExtra(TalkReplyActivity.EXTRA_BODY) ?: "123"
             if (newRevisionId > 0) {
                 FeedbackUtil.makeSnackbar(this, getString(R.string.talk_new_topic_submitted), FeedbackUtil.LENGTH_DEFAULT)
                     .setAnchorView(binding.talkNewTopicButton)
@@ -111,7 +110,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                         binding.talkNewTopicButton.alpha = 0.5f
                         binding.talkProgressBar.isVisible = true
                         binding.talkConditionContainer.isVisible = true
-                        viewModel.undoSave(newRevisionId, topic, undoneSubject, undoneText)
+                        viewModel.undoSave(newRevisionId, undoneSubject, undoneText)
                     }
                     .show()
             }
@@ -177,7 +176,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             viewModel.uiState.collect {
                 when (it) {
                     is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.threadItems, it.lastModifiedResponse, it.watchStatus)
-                    is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.topicId, it.undoneSubject, it.undoneBody)
+                    is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.undoneSubject, it.undoneBody)
                     is TalkTopicsViewModel.UiState.DoWatch -> updateOnWatch(it.watchPostResponse)
                     is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
                 }
@@ -254,7 +253,9 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                 return true
             }
             R.id.menu_watch -> {
-                viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
+                if (AccountUtil.isLoggedIn) {
+                    viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
+                }
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
@@ -384,9 +385,8 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         binding.talkNewTopicButton.show()
     }
 
-    private fun updateOnUndoSave(topicId: String, undoneSubject: String, undoneBody: String) {
-        // TODO: fix the crash
-        startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, invokeSource))
+    private fun updateOnUndoSave(undoneSubject: CharSequence, undoneBody: CharSequence) {
+        startActivity(TalkReplyActivity.newIntent(this@TalkTopicsActivity, pageTitle, null, invokeSource, undoneSubject, undoneBody))
     }
 
     private fun updateOnWatch(watchPostResponse: WatchPostResponse) {

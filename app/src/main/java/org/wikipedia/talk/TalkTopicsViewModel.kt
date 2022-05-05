@@ -128,7 +128,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
                         reply.author.contains(currentSearchQuery.orEmpty(), true) } }
     }
 
-    fun undoSave(newRevisionId: Long, topicId: String, undoneSubject: String, undoneBody: String) {
+    fun undoSave(newRevisionId: Long, undoneSubject: CharSequence, undoneBody: CharSequence) {
         if (pageTitle == null) {
             return
         }
@@ -138,7 +138,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
                 CsrfTokenClient(pageTitle.wikiSite).token.blockingFirst()
             }
             val undoResponse = ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(title = pageTitle.prefixedText, undoRevId = newRevisionId, token = token)
-            uiState.value = UiState.UndoEdit(undoResponse, topicId, undoneSubject, undoneBody)
+            uiState.value = UiState.UndoEdit(undoResponse, undoneSubject, undoneBody)
         }
     }
 
@@ -230,7 +230,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
                              val lastModifiedResponse: MwQueryResponse,
                              val watchStatus: MwQueryPage) : UiState()
         data class LoadError(val throwable: Throwable) : UiState()
-        data class UndoEdit(val edit: Edit, val topicId: String, val undoneSubject: String, val undoneBody: String) : UiState()
+        data class UndoEdit(val edit: Edit, val undoneSubject: CharSequence, val undoneBody: CharSequence) : UiState()
         data class DoWatch(val watchPostResponse: WatchPostResponse) : UiState()
         data class EditError(val throwable: Throwable) : UiState()
     }
