@@ -224,6 +224,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
                 // Watchlist
                 watchMenuItem.isVisible = true
+                watchMenuItem.title = getString(if (isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
                 watchMenuItem.setIcon(PageActionItem.watchlistIcon(isWatched, hasWatchlistExpiry))
             } else {
                 notificationMenuItem.isVisible = false
@@ -393,6 +394,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         if (firstWatch != null) {
             showWatchlistSnackbar(viewModel.lastWatchExpiry, firstWatch)
         }
+        invalidateOptionsMenu()
     }
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
