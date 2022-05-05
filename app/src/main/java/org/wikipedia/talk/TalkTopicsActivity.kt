@@ -48,6 +48,7 @@ import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.*
+import org.wikipedia.util.log.L
 import org.wikipedia.views.*
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
@@ -99,7 +100,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     private val requestNewTopic = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
             val newRevisionId = it.data?.getLongExtra(TalkTopicActivity.RESULT_NEW_REVISION_ID, 0) ?: 0
-            // TODO: fix this
             val undoneSubject = it.data?.getCharSequenceExtra(TalkReplyActivity.EXTRA_SUBJECT) ?: "123"
             val undoneText = it.data?.getCharSequenceExtra(TalkReplyActivity.EXTRA_BODY) ?: "123"
             if (newRevisionId > 0) {
@@ -113,6 +113,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                         viewModel.undoSave(newRevisionId, undoneSubject, undoneText)
                     }
                     .show()
+                viewModel.loadTopics()
             }
         }
     }
@@ -386,7 +387,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnUndoSave(undoneSubject: CharSequence, undoneBody: CharSequence) {
-        startActivity(TalkReplyActivity.newIntent(this@TalkTopicsActivity, pageTitle, null, invokeSource, undoneSubject, undoneBody))
+        requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, pageTitle, null, invokeSource, undoneSubject, undoneBody))
     }
 
     private fun updateOnWatch(watchPostResponse: WatchPostResponse) {
