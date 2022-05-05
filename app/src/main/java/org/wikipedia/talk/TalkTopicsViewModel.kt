@@ -142,11 +142,11 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
         }
     }
 
-    fun markAsSeen(topicId: String?) {
-        topicId?.let {
+    fun markAsSeen(topicName: String?, force: Boolean = false) {
+        topicName?.let {
             viewModelScope.launch(editHandler) {
                 withContext(Dispatchers.Main) {
-                    if (topicSeen(topicId)) {
+                    if (topicSeen(topicName) && !force) {
                         talkPageDao.deleteTalkPageSeen(it)
                     } else {
                         talkPageDao.insertTalkPageSeen(TalkPageSeen(it))

@@ -41,7 +41,7 @@
         android:id="@+id/topicBodyGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="topicUserIcon,topicUsername,topicContentText,topicReplyIcon,topicReplyNumber,topicLastCommentDate" />
+        app:constraint_referenced_ids="topicUserIcon,topicUsername,topicReplyIcon,topicReplyNumber,topicLastCommentDate" />
 
     <ImageView
         android:id="@+id/topicUserIcon"

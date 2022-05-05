@@ -13,6 +13,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
+import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DateUtil
@@ -55,10 +56,12 @@ class TalkTopicHolder internal constructor(
 
         if (allReplies.isEmpty()) {
             binding.topicBodyGroup.isVisible = false
+            binding.topicContentText.isVisible = false
             return
         }
 
         // Last comment
+        binding.topicContentText.isVisible = pageTitle.namespace() == Namespace.USER_TALK
         binding.topicContentText.text = RichTextUtil.stripHtml(allReplies.last().html).trim()
         binding.topicContentText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_text_color))
         StringUtil.highlightAndBoldenText(binding.topicContentText, viewModel.currentSearchQuery, true, Color.YELLOW)
@@ -84,7 +87,7 @@ class TalkTopicHolder internal constructor(
     }
 
     override fun onClick(v: View?) {
-        markAsSeen()
+        markAsSeen(true)
         context.startActivity(TalkTopicActivity.newIntent(context, pageTitle, threadItem.name, invokeSource))
     }
 
@@ -92,8 +95,8 @@ class TalkTopicHolder internal constructor(
         markAsSeen()
     }
 
-    private fun markAsSeen() {
-        viewModel.markAsSeen(threadItem.name)
+    private fun markAsSeen(force: Boolean = false) {
+        viewModel.markAsSeen(threadItem.name, force)
         bindingAdapter?.notifyItemChanged(itemPosition)
     }
 

@@ -48,7 +48,6 @@ import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.*
-import org.wikipedia.util.log.L
 import org.wikipedia.views.*
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
