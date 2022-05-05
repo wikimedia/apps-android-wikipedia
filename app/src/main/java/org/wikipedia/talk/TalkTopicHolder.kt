@@ -44,7 +44,7 @@ class TalkTopicHolder internal constructor(
         itemView.setOnClickListener(this)
 
         // setting tag for swipe action text
-        if (threadItem.seen) {
+        if (!threadItem.seen) {
             itemView.setTag(R.string.tag_text_key, context.getString(R.string.talk_list_item_swipe_mark_as_read))
             itemView.setTag(R.string.tag_icon_key, R.drawable.ic_outline_drafts_24)
         } else {
