@@ -48,10 +48,7 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.talk.UserTalkPopupHelper
-import org.wikipedia.util.DateUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
+import org.wikipedia.util.*
 import org.wikipedia.views.EditHistoryFilterOverflowView
 import org.wikipedia.views.EditHistoryStatsView
 import org.wikipedia.views.SearchAndFilterActionProvider
@@ -141,8 +138,8 @@ class EditHistoryListActivity : BaseActivity() {
             }
         }
 
-        lifecycleScope.launchWhenCreated {
-            viewModel.editHistoryStatsFlow.collectLatest {
+        viewModel.editHistoryStatsData.observe(this) {
+            if (it is Resource.Success) {
                 if (editHistoryInteractionEvent == null) {
                     editHistoryInteractionEvent = EditHistoryInteractionEvent(viewModel.pageTitle.wikiSite.dbName(), viewModel.pageId)
                     editHistoryInteractionEvent?.logShowHistory()
@@ -221,12 +218,12 @@ class EditHistoryListActivity : BaseActivity() {
 
     fun showFilterOverflowMenu() {
         editHistoryInteractionEvent?.logFilterClick()
-        val editCountsFlowValue = viewModel.editHistoryStatsFlow.value
-        if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryStats) {
+        val editCountsValue = viewModel.editHistoryStatsData.value
+        if (editCountsValue is Resource.Success) {
             val anchorView = if (actionMode != null && searchActionModeCallback.searchAndFilterActionProvider != null)
                 searchActionModeCallback.searchBarFilterIcon!! else if (editHistorySearchBarAdapter.viewHolder != null)
                     editHistorySearchBarAdapter.viewHolder!!.binding.filterByButton else binding.root
-            EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(anchorView, editCountsFlowValue) {
+            EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(anchorView, editCountsValue.data) {
                 editHistoryInteractionEvent?.logFilterSelection(Prefs.editHistoryFilterType.ifEmpty { EditCount.EDIT_TYPE_ALL })
                 setupAdapters()
                 editHistoryListAdapter.reload()
@@ -350,9 +347,9 @@ class EditHistoryListActivity : BaseActivity() {
 
     private inner class StatsViewHolder constructor(private val view: EditHistoryStatsView) : RecyclerView.ViewHolder(view) {
         fun bindItem() {
-            val statsFlowValue = viewModel.editHistoryStatsFlow.value
-            if (statsFlowValue is EditHistoryListViewModel.EditHistoryStats) {
-                view.setup(viewModel.pageTitle, statsFlowValue)
+            val statsFlowValue = viewModel.editHistoryStatsData.value
+            if (statsFlowValue is Resource.Success) {
+                view.setup(viewModel.pageTitle, statsFlowValue.data)
             }
         }
     }
@@ -372,8 +369,8 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         fun bindItem() {
-            val editCountsFlowValue = viewModel.editHistoryStatsFlow.value
-            if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryStats) {
+            val statsFlowValue = viewModel.editHistoryStatsData.value
+            if (statsFlowValue is Resource.Success) {
                 binding.root.setCardBackgroundColor(
                     ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.color_group_22)
                 )
