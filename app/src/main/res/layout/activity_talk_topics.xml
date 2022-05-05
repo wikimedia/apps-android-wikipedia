@@ -49,6 +49,15 @@
                     android:orientation="vertical"
                     android:background="?paper_color">
 
+                    <ImageView
+                        android:id="@+id/talkLeadImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="86dp"
+                        android:layout_marginBottom="16dp"
+                        android:visibility="gone"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@string/image_content_description"/>
+
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/talkRecyclerView"
                         android:layout_width="match_parent"
