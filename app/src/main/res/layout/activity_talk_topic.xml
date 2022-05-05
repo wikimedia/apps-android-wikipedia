@@ -39,7 +39,7 @@
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:textColor="?attr/primary_text_color"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </LinearLayout>

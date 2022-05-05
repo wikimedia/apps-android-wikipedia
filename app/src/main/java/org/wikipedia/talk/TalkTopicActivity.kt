@@ -102,6 +102,13 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         editFunnel = EditFunnel(WikipediaApp.getInstance(), viewModel.pageTitle)
 
+        binding.talkRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                binding.talkToolbarSubjectView.isVisible = binding.talkRecyclerView.computeVerticalScrollOffset() > recyclerView.getChildAt(0).height
+            }
+        })
+
         viewModel.threadItemsData.observe(this) {
             when (it) {
                 is Resource.Success -> updateOnSuccess(it.data)
@@ -217,6 +224,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 }
             }
         }
+        binding.talkToolbarSubjectView.text = StringUtil.fromHtml(viewModel.topic?.html)
         invalidateOptionsMenu()
     }
 
