@@ -104,7 +104,7 @@ object EventPlatformClient {
          * If another item is added to QUEUE during this time, reset the countdown.
          */
         private const val WAIT_MS = 30000
-        private const val MAX_QUEUE_SIZE = 1
+        private const val MAX_QUEUE_SIZE = 64
         private val SEND_RUNNABLE = Runnable { sendAllScheduled() }
 
         @Synchronized
