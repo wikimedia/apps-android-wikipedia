@@ -5,13 +5,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
+import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
-import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscribeResponse
 import org.wikipedia.dataclient.discussiontools.ThreadItem
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.edit.Edit
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
@@ -22,8 +23,9 @@ import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.util.log.L
 import org.wikipedia.views.TalkTopicsSortOverflowView
+import org.wikipedia.watchlist.WatchlistExpiry
 
-class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
+class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : ViewModel() {
 
     private val talkPageDao = AppDatabase.instance.talkPageSeenDao()
     private val handler = CoroutineExceptionHandler { _, throwable ->
@@ -33,14 +35,17 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
         uiState.value = UiState.EditError(throwable)
     }
 
+    private val watchlistFunnel = WatchlistFunnel()
     private var resolveTitleRequired = false
     val threadItems = mutableListOf<ThreadItem>()
+    var watchlistExpiryChanged = false
+    var lastWatchExpiry = WatchlistExpiry.NEVER
+    var currentSearchQuery: String? = null
     var currentSortMode = Prefs.talkTopicsSortMode
         set(value) {
             field = value
             Prefs.talkTopicsSortMode = field
         }
-    var currentSearchQuery: String? = null
 
     val uiState = MutableStateFlow(UiState())
 
@@ -88,11 +93,12 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
 
             val discussionToolsInfoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText) }
             val lastModifiedResponse = async { ServiceFactory.get(pageTitle.wikiSite).getLastModified(pageTitle.prefixedText) }
+            val watchStatus = async { if (!sidePanel) ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!! else MwQueryPage() }
 
             threadItems.clear()
             threadItems.addAll(discussionToolsInfoResponse.await().pageInfo?.threads ?: emptyList())
 
-            uiState.value = UiState.LoadTopic(pageTitle, threadItems, lastModifiedResponse.await())
+            uiState.value = UiState.LoadTopic(pageTitle, threadItems, lastModifiedResponse.await(), watchStatus.await())
         }
     }
 
@@ -136,38 +142,6 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
         }
     }
 
-    fun doSave(subject: String, body: String) {
-        if (pageTitle == null) {
-            return
-        }
-        val pageTitle = pageTitle!!
-        viewModelScope.launch(editHandler) {
-            val token = withContext(Dispatchers.IO) {
-                CsrfTokenClient(pageTitle.wikiSite).token.blockingFirst()
-            }
-            val postTopicResponse = ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopic(pageTitle.prefixedText, subject, body, token)
-            postTopicResponse.result?.let {
-                uiState.value = UiState.DoEdit(it)
-            }
-        }
-    }
-
-    fun doSaveReply(commentId: String, body: String) {
-        if (pageTitle == null) {
-            return
-        }
-        val pageTitle = pageTitle!!
-        viewModelScope.launch(editHandler) {
-            val token = withContext(Dispatchers.IO) {
-                CsrfTokenClient(pageTitle.wikiSite).token.blockingFirst()
-            }
-            val postTopicResponse = ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopicReply(pageTitle.prefixedText, commentId, body, token)
-            postTopicResponse.result?.let {
-                uiState.value = UiState.DoEdit(it)
-            }
-        }
-    }
-
     fun markAsSeen(topicId: String?) {
         topicId?.let {
             viewModelScope.launch(editHandler) {
@@ -195,10 +169,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
             val token = withContext(Dispatchers.IO) {
                 CsrfTokenClient(pageTitle.wikiSite).token.blockingFirst()
             }
-            val subscribeResponse = ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, commentName, token, subscribe)
-            subscribeResponse.status?.let {
-                uiState.value = UiState.Subscribe(it)
-            }
+            ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, commentName, token, subscribe)
         }
     }
 
@@ -211,21 +182,56 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
         return response.subscriptions[commentName] == 1
     }
 
-    class Factory(private val pageTitle: PageTitle?) : ViewModelProvider.Factory {
+    fun watchOrUnwatch(isWatched: Boolean, expiry: WatchlistExpiry, unwatch: Boolean) {
+        if (pageTitle == null) {
+            return
+        }
+        val pageTitle = pageTitle!!
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
+            withContext(Dispatchers.IO) {
+                if (expiry != WatchlistExpiry.NEVER) {
+                    watchlistFunnel.logAddExpiry()
+                } else {
+                    if (isWatched) {
+                        watchlistFunnel.logRemoveArticle()
+                    } else {
+                        watchlistFunnel.logAddArticle()
+                    }
+                }
+                val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
+                val response = ServiceFactory.get(pageTitle.wikiSite)
+                    .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
+
+                lastWatchExpiry = expiry
+                if (watchlistExpiryChanged && unwatch) {
+                    watchlistExpiryChanged = false
+                }
+
+                if (unwatch) {
+                    watchlistFunnel.logRemoveSuccess()
+                } else {
+                    watchlistFunnel.logAddSuccess()
+                }
+                uiState.value = UiState.DoWatch(response)
+            }
+        }
+    }
+
+    class Factory(private val pageTitle: PageTitle?, private val sidePanel: Boolean = false) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return TalkTopicsViewModel(pageTitle) as T
+            return TalkTopicsViewModel(pageTitle, sidePanel) as T
         }
     }
 
     open class UiState {
         data class LoadTopic(val pageTitle: PageTitle,
                              val threadItems: List<ThreadItem>,
-                             val lastModifiedResponse: MwQueryResponse) : UiState()
+                             val lastModifiedResponse: MwQueryResponse,
+                             val watchStatus: MwQueryPage) : UiState()
         data class LoadError(val throwable: Throwable) : UiState()
-        data class DoEdit(val editResult: DiscussionToolsEditResponse.EditResult) : UiState()
         data class UndoEdit(val edit: Edit, val topicId: String, val undoneSubject: String, val undoneBody: String) : UiState()
+        data class DoWatch(val watchPostResponse: WatchPostResponse) : UiState()
         data class EditError(val throwable: Throwable) : UiState()
-        data class Subscribe(val subscribeStatus: DiscussionToolsSubscribeResponse.SubscribeStatus) : UiState()
     }
 }

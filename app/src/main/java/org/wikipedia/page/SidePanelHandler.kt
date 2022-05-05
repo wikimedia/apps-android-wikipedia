@@ -53,7 +53,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         ObservableWebView.OnClickListener, ObservableWebView.OnScrollChangeListener, OnContentHeightChangedListener {
 
     private val binding = (fragment.requireActivity() as PageActivity).binding
-    private val viewModel: TalkTopicsViewModel by fragment.viewModels { TalkTopicsViewModel.Factory(fragment.title) }
+    private val viewModel: TalkTopicsViewModel by fragment.viewModels { TalkTopicsViewModel.Factory(fragment.title, true) }
     private val talkTopicsAdapter = TalkTopicItemAdapter()
     private val scrollerViewParams = FrameLayout.LayoutParams(DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE), DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE))
     private val webView = fragment.webView

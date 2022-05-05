@@ -18,6 +18,12 @@
         <menu>
 
             <item
+                android:id="@+id/menu_watch"
+                android:icon="@drawable/ic_star_24"
+                android:title="@string/menu_page_watch"
+                android:visible="false"
+                app:showAsAction="never" />
+            <item
                 android:id="@+id/menu_change_language"
                 android:icon="@drawable/ic_translate_toolbar_icon_color_themed"
                 android:title="@string/langlinks_activity_title"

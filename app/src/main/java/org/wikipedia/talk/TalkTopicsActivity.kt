@@ -29,16 +29,17 @@ import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.okhttp.HttpStatusException
+import org.wikipedia.dataclient.watch.Watch
+import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
-import org.wikipedia.page.LinkMovementMethodExt
-import org.wikipedia.page.Namespace
-import org.wikipedia.page.PageActivity
-import org.wikipedia.page.PageTitle
+import org.wikipedia.page.*
+import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
@@ -48,8 +49,10 @@ import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.*
 import org.wikipedia.views.*
+import org.wikipedia.watchlist.WatchlistExpiry
+import org.wikipedia.watchlist.WatchlistExpiryDialog
 
-class TalkTopicsActivity : BaseActivity() {
+class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     private lateinit var binding: ActivityTalkTopicsBinding
     private lateinit var pageTitle: PageTitle
     private lateinit var invokeSource: Constants.InvokeSource
@@ -59,6 +62,9 @@ class TalkTopicsActivity : BaseActivity() {
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
     private var goToTopic = false
+    private var isWatched = false
+    private var hasWatchlistExpiry = false
+    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     private val requestLanguageChange = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
@@ -170,8 +176,9 @@ class TalkTopicsActivity : BaseActivity() {
         lifecycleScope.launchWhenCreated {
             viewModel.uiState.collect {
                 when (it) {
-                    is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.threadItems, it.lastModifiedResponse)
+                    is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.threadItems, it.lastModifiedResponse, it.watchStatus)
                     is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.topicId, it.undoneSubject, it.undoneBody)
+                    is TalkTopicsViewModel.UiState.DoWatch -> updateOnWatch(it.watchPostResponse)
                     is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
                 }
             }
@@ -199,7 +206,9 @@ class TalkTopicsActivity : BaseActivity() {
             menu.findItem(R.id.menu_view_user_page).title = getString(R.string.menu_option_user_page, StringUtil.removeNamespace(pageTitle.displayText))
 
             val notificationMenuItem = menu.findItem(R.id.menu_notifications)
+            val watchMenuItem = menu.findItem(R.id.menu_watch)
             if (AccountUtil.isLoggedIn) {
+                // Notification
                 notificationMenuItem.isVisible = true
                 notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
                 notificationButtonView.setOnClickListener {
@@ -212,8 +221,13 @@ class TalkTopicsActivity : BaseActivity() {
                 notificationMenuItem.actionView = notificationButtonView
                 notificationMenuItem.expandActionView()
                 FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+
+                // Watchlist
+                watchMenuItem.isVisible = true
+                watchMenuItem.setIcon(PageActionItem.watchlistIcon(isWatched, hasWatchlistExpiry))
             } else {
                 notificationMenuItem.isVisible = false
+                watchMenuItem.isVisible = false
             }
             updateNotificationDot(false)
         }
@@ -238,12 +252,21 @@ class TalkTopicsActivity : BaseActivity() {
                 ShareUtil.shareText(this, getString(R.string.talk_share_talk_page), pageTitle.uri)
                 return true
             }
+            R.id.menu_watch -> {
+                viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
+                return true
+            }
             else -> return super.onOptionsItemSelected(item)
         }
     }
 
     override fun onUnreadNotification() {
         updateNotificationDot(true)
+    }
+
+    override fun onExpirySelect(expiry: WatchlistExpiry) {
+        viewModel.watchOrUnwatch(isWatched, expiry, false)
+        bottomSheetPresenter.dismiss(supportFragmentManager)
     }
 
     private fun resetViews() {
@@ -257,7 +280,7 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkConditionContainer.isVisible = true
     }
 
-    private fun updateOnSuccess(pageTitle: PageTitle, threadItems: List<ThreadItem>, lastModifiedResponse: MwQueryResponse) {
+    private fun updateOnSuccess(pageTitle: PageTitle, threadItems: List<ThreadItem>, lastModifiedResponse: MwQueryResponse, watchStatus: MwQueryPage) {
         // Update page title and start the funnel
         this.pageTitle = pageTitle
         funnel = TalkFunnel(pageTitle, invokeSource)
@@ -273,6 +296,11 @@ class TalkTopicsActivity : BaseActivity() {
                 startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle, revision.revId))
             }
         }
+
+        // Update watch status
+        // TODO: move these variable to viewModel
+        isWatched = watchStatus.watched
+        hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
 
         binding.talkFooter.viewPageContainer.setOnClickListener {
             goToPage()
@@ -356,8 +384,15 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private fun updateOnUndoSave(topicId: String, undoneSubject: String, undoneBody: String) {
-        // TODO: discuss this
+        // TODO: fix the crash
         startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, invokeSource))
+    }
+
+    private fun updateOnWatch(watchPostResponse: WatchPostResponse) {
+        val firstWatch = watchPostResponse.getFirst()
+        if (firstWatch != null) {
+            showWatchlistSnackbar(viewModel.lastWatchExpiry, firstWatch)
+        }
     }
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
@@ -389,6 +424,27 @@ class TalkTopicsActivity : BaseActivity() {
             HistoryEntry(PageTitle(pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
         }
         startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
+    }
+
+    private fun showWatchlistSnackbar(expiry: WatchlistExpiry, watch: Watch) {
+        isWatched = watch.watched
+        hasWatchlistExpiry = expiry != WatchlistExpiry.NEVER
+        if (watch.unwatched) {
+            FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, viewModel.pageTitle?.displayText))
+        } else if (watch.watched) {
+            val snackbar = FeedbackUtil.makeSnackbar(this,
+                getString(R.string.watchlist_page_add_to_watchlist_snackbar,
+                    viewModel.pageTitle?.displayText,
+                    getString(expiry.stringId)),
+                FeedbackUtil.LENGTH_DEFAULT)
+            if (!viewModel.watchlistExpiryChanged) {
+                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
+                    viewModel.watchlistExpiryChanged = true
+                    bottomSheetPresenter.show(supportFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
+                }
+            }
+            snackbar.show()
+        }
     }
 
     internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
