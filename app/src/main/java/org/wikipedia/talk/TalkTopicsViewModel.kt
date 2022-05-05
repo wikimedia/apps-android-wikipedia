@@ -142,11 +142,11 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
         }
     }
 
-    fun markAsSeen(topicName: String?, force: Boolean = false) {
-        topicName?.let {
+    fun markAsSeen(threadItem: ThreadItem?, force: Boolean = false) {
+        threadSha(threadItem)?.let {
             viewModelScope.launch(editHandler) {
                 withContext(Dispatchers.Main) {
-                    if (topicSeen(topicName) && !force) {
+                    if (topicSeen(threadItem) && !force) {
                         talkPageDao.deleteTalkPageSeen(it)
                     } else {
                         talkPageDao.insertTalkPageSeen(TalkPageSeen(it))
@@ -156,8 +156,12 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
         }
     }
 
-    fun topicSeen(topicId: String?): Boolean {
-        return topicId?.run { talkPageDao.getTalkPageSeen(topicId) != null } ?: run { false }
+    fun topicSeen(threadItem: ThreadItem?): Boolean {
+        return threadSha(threadItem)?.run { talkPageDao.getTalkPageSeen(this) != null } ?: false
+    }
+
+    private fun threadSha(threadItem: ThreadItem?): String? {
+        return threadItem?.let { it.name + "|" + it.allReplies.maxByOrNull { reply -> reply.timestamp }!!.timestamp }
     }
 
     fun subscribeTopic(commentName: String, subscribe: Boolean) {

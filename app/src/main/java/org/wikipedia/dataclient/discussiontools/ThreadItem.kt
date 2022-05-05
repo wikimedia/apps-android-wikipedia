@@ -16,7 +16,7 @@ class ThreadItem(
         val name: String = "",
         val html: String = "",
         val author: String = "",
-        private val timestamp: String = "",
+        val timestamp: String = "",
         val headingLevel: Int = 0,
         val placeholderHeading: Boolean = false,
         val replies: List<ThreadItem> = emptyList()

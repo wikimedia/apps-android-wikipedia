@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TalkPageSeenDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertTalkPageSeen(talkPageSeen: TalkPageSeen)
 
     @Query("SELECT * FROM TalkPageSeen WHERE sha = :sha LIMIT 1")

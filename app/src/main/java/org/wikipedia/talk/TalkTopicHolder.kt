@@ -35,7 +35,7 @@ class TalkTopicHolder internal constructor(
     private var itemPosition = -1
 
     fun bindItem(item: ThreadItem, position: Int) {
-        item.seen = viewModel.topicSeen(item.name)
+        item.seen = viewModel.topicSeen(item)
         threadItem = item
         itemPosition = position
         binding.topicTitleText.text = RichTextUtil.stripHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }
@@ -96,7 +96,7 @@ class TalkTopicHolder internal constructor(
     }
 
     private fun markAsSeen(force: Boolean = false) {
-        viewModel.markAsSeen(threadItem.name, force)
+        viewModel.markAsSeen(threadItem, force)
         bindingAdapter?.notifyItemChanged(itemPosition)
     }
 

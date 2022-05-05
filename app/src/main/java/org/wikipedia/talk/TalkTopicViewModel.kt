@@ -6,7 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.DiffUtil
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -61,10 +63,8 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
             val res = subscribeResponse.await()
             subscribed = res.subscriptions[topicId] == 1
 
-            topic?.name?.let {
-                if (it.isNotEmpty()) {
-                    AppDatabase.instance.talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(it))
-                }
+            threadSha(topic)?.let {
+                AppDatabase.instance.talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(it))
             }
 
             val newItemsFlattened = topic?.allReplies.orEmpty().filter { it.id !in oldItemsFlattened.map { item -> item.id } }
@@ -159,6 +159,10 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
             }
         }
         return null
+    }
+
+    private fun threadSha(threadItem: ThreadItem?): String? {
+        return threadItem?.let { it.name + "|" + it.allReplies.maxByOrNull { reply -> reply.timestamp }!!.timestamp }
     }
 
     private fun updateFlattenedThreadItems() {
