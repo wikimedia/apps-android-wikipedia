@@ -49,7 +49,7 @@ class ThemeFittingRoomFragment : Fragment() {
     }
 
     private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any?) {
+        override fun accept(event: Any) {
             if (event is ChangeTextSizeEvent) {
                 updateTextSize()
                 binding.themeTestText.post { WikipediaApp.getInstance().bus.post(WebViewInvalidateEvent()) }

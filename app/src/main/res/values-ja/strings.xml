@@ -44,6 +44,7 @@
 * Yusuke1109
 * そらたこ
 * ネイ
+* 春春眠眠
 * 神樂坂秀吉
 * 組曲師
 -->
@@ -90,7 +91,10 @@
   <string name="share_via">共有する</string>
   <string name="image_share_via">共有する</string>
   <string name="search_redirect_from">%s からリダイレクト</string>
+  <string name="page_edit_history_activity_title">変更履歴: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">編集の要約を空にする</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">編集を検索またはフィルタリングする</string>
   <string name="menu_page_show_tabs">タブを表示</string>
   <string name="menu_page_other_languages">他の言語で読む</string>
   <string name="menu_page_find_in_page">ページ内検索</string>
