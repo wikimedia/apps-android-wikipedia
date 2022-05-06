@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
-import androidx.appcompat.content.res.AppCompatResources
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewLinkPreviewErrorBinding
 import org.wikipedia.page.LinkMovementMethodExt
@@ -28,7 +27,7 @@ class LinkPreviewErrorView : LinearLayout {
 
     fun setError(caught: Throwable?, pageTitle: PageTitle) {
         val errorType = LinkPreviewErrorType[caught, pageTitle]
-        binding.viewLinkPreviewErrorIcon.setImageDrawable(AppCompatResources.getDrawable(context, errorType.icon))
+        binding.viewLinkPreviewErrorIcon.setImageResource(errorType.icon)
 
         if (errorType === LinkPreviewErrorType.OFFLINE) {
             val message = (context.getString(R.string.page_offline_notice_cannot_load_while_offline) +

@@ -77,7 +77,7 @@
   <string name="menu_page_watch">Figyel</string>
   <string name="menu_page_unwatch">Lapfigyelés vége</string>
   <string name="menu_page_view_talk">Vitalap megtekintése</string>
-  <string name="menu_page_talk_page">Üzenőlap</string>
+  <string name="menu_page_talk_page">Vitalap</string>
   <string name="menu_page_view_edit_history">Laptörténet megtekintése</string>
   <string name="menu_page_edit_history">Szerkesztések története</string>
   <string name="menu_page_remove_from_watchlist">Eltávolítás a figyelőlistáról</string>
@@ -475,6 +475,7 @@
   <string name="reading_list_name_hint">A lista neve</string>
   <string name="reading_list_description_hint">Leírás (opcionális)</string>
   <string name="reading_list_item_deleted">%s eltávolítva a listáról</string>
+  <string name="reading_list_item_deleted_from_list">%1$s eltávolítva a(z) %2$s listáról</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d szócikk eltávolítva a listáról</item>
     <item quantity="other">%d szócikk eltávolítva a listáról</item>
@@ -638,7 +639,7 @@
   <string name="preference_title_notification_mention">Említés</string>
   <string name="preference_summary_notification_mention">Valaki megemlített egy lapon</string>
   <string name="preference_title_notification_user_talk">Vitalap</string>
-  <string name="preference_summary_notification_user_talk">Üzenetek és válaszok a beszélgetési oldalakról</string>
+  <string name="preference_summary_notification_user_talk">Üzenetek és válaszok vitalapokról</string>
   <string name="preference_title_notification_email_user">email érkezett</string>
   <string name="preference_summary_notification_email_user">Email érkezett wikin keresztül</string>
   <string name="preference_title_notification_user_rights">Szerkesztői jog módosulása</string>
@@ -675,7 +676,7 @@
   <string name="notifications_type_filter_header">Szűrés típusra</string>
   <string name="notifications_all_wikis_text">Minden wiki</string>
   <string name="notifications_all_types_text">Minden típus</string>
-  <string name="notifications_menu_user_talk_page">%s üzenőlapja</string>
+  <string name="notifications_menu_user_talk_page">%s vitalapja</string>
   <string name="notifications_offline_disable_message">Ez a funkció nem elérhető offline.</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
   <string name="view_random_card_title">Találomra</string>
@@ -1053,6 +1054,7 @@
   <string name="talk_title">Vitalap</string>
   <string name="talk_user_title">Címzett: %s</string>
   <string name="talk_new_topic">Új téma létrehozása</string>
+  <string name="talk_new_topic_submitted">Téma közzétéve.</string>
   <string name="talk_page_empty">Ez a vitalap üres.</string>
   <string name="talk_add_reply">Válasz</string>
   <string name="talk_no_subject">(Nincs tárgy)</string>
@@ -1061,17 +1063,19 @@
   <string name="talk_message_hint">Üzenet megfogalmazása</string>
   <string name="talk_message_empty">Az üzenet nem lehet üres.</string>
   <string name="talk_subject_empty">A tárgy nem lehet üres.</string>
+  <string name="talk_response_submitted">Válasz közzétéve.</string>
   <string name="talk_snackbar_undo">Visszavonás</string>
   <string name="talk_last_modified">&lt;b&gt;Utoljára szerkesztette %1$s&lt;/b&gt; ekkor: %2$s</string>
-  <string name="talk_snackbar_survey_text">Köszönjük, hogy használod a beszélgetőoldalakat. Segítenél nekünk az alkalmazás fejlesztésében egy felmérésben való részvétellel?</string>
+  <string name="talk_snackbar_survey_text">Köszönjük, hogy használod a vitalapokat. Segítenél nekünk az alkalmazás fejlesztésében egy felmérésben való részvétellel?</string>
   <string name="talk_snackbar_survey_action_text">Kezdjük el</string>
   <string name="talk_share_discussion_subject">Wikipédia - vita a vitalap \"%s\" témájáról</string>
   <string name="talk_share_talk_page">Wikipédia – beszélgetések a vitalapon</string>
+  <string name="talk_search_hint">Üzenetek keresése</string>
   <string name="talk_overflow_sort_by">Rendezve</string>
   <string name="talk_overflow_sort_date_published">Közzététel dátuma</string>
   <string name="talk_overflow_sort_topic_name">Téma neve</string>
   <string name="menu_option_share_talk_discussion">Oszd meg a vitát</string>
-  <string name="menu_option_share_talk_page">Beszélgetési oldal megosztása</string>
+  <string name="menu_option_share_talk_page">Vitalap megosztása</string>
   <string name="menu_option_share_edit">Szerkesztés megosztása</string>
   <string name="menu_option_user_profile">%s profilja</string>
   <string name="menu_option_user_contributions">%s közreműködései</string>
@@ -1088,7 +1092,7 @@
   <string name="thank_dialog_negative_button_text">Mégse</string>
   <string name="thank_success_message">A köszöneted elküldve %s részére 👍</string>
   <string name="menu_option_view_user_profile">Szerkesztői profillap megtekintése</string>
-  <string name="menu_option_view_user_talk">Üzenőlap megtekintése</string>
+  <string name="menu_option_view_user_talk">Vitalap megtekintése</string>
   <string name="menu_option_view_user_contributions">Szerkesztő közreműködéseinek megtekintése</string>
   <string name="revision_diff_compare">Lapváltozatok összehasonlítása</string>
   <string name="revision_diff_compare_title">„%s” változatainak összehasonlítása</string>
@@ -1126,6 +1130,10 @@
   <string name="watchlist_page_moved">Áthelyezve</string>
   <string name="watchlist_page_protected">Védett</string>
   <string name="watchlist_page_deleted">Törölve</string>
+  <string name="action_item_categories">Kategóriák</string>
+  <string name="page_no_categories">Ez a lap nem tartozik egyetlen kategóriába sem.</string>
+  <string name="category_tab_articles">Szócikkek</string>
+  <string name="category_tab_subcategories">Alkategóriák</string>
   <string name="category_empty">Ebben a kategóriában nem található szócikk.</string>
   <string name="subcategory_empty">Ebben a kategóriában nincsenek alkategóriák.</string>
 </resources>
