@@ -240,7 +240,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
 
         override fun onMove(recyclerView: RecyclerView, source: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
             if (target is WikipediaLanguageItemHolder) {
-                adapter.onMoveItem(source.adapterPosition, target.getAdapterPosition())
+                adapter.onMoveItem(source.bindingAdapterPosition, target.bindingAdapterPosition)
             }
             return true
         }

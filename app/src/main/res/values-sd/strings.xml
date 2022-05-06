@@ -49,11 +49,26 @@
   <string name="share_via">ونڊيو بذريعہ</string>
   <string name="image_share_via">ونڊيو بذريعہ</string>
   <string name="search_redirect_from">%s کان چوريل</string>
+  <string name="page_edit_history_activity_title">ورجاءَ سوانح: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;م&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">سنوار تَتُ خالي</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">سنوارون ڳوليو يا ڇاڻيو</string>
+  <string name="page_edit_history_filter_by">جي لحاظ سان ڇاڻيو</string>
+  <string name="page_edit_history_filter_by_all">سڀ سنوارون (%s)</string>
+  <string name="page_edit_history_filter_by_user">واپرائيندڙ جون سنوارون (%s)</string>
+  <string name="page_edit_history_filter_by_anon">اڻڄاتل سنوارون (%s)</string>
+  <string name="page_edit_history_filter_by_bot">بوٽ سنوارون (%s)</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d کان سنوار %2$s</item>
+    <item quantity="other">%1$d کان سنوارون %2$s</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">&lt;a href=\"#\"&gt;ڇاڻين&lt;/a&gt; کي بدلائي وڌيڪ سنوارون ڏسڻ جي ڪوشش ڪريو</string>
   <string name="menu_page_show_tabs">ٽيبس ڏيکاريو</string>
   <string name="menu_page_other_languages">ٻولي مَٽايو</string>
   <string name="menu_page_find_in_page">مضمون ۾ ڳوليو</string>
   <string name="menu_page_add_to_watchlist">نظر۾فھرست ۾ رکو</string>
   <string name="menu_page_watch">نظر۾رکو</string>
+  <string name="menu_page_unwatch">نظر۾نہ رکو</string>
   <string name="menu_page_view_talk">بحث صفحو ڏسو</string>
   <string name="menu_page_talk_page">بحث صفحو</string>
   <string name="menu_page_view_edit_history">سنوار جي سوانح ڏسو</string>
@@ -114,10 +129,10 @@
   <string name="title_captcha">ڪيپچا ڄاڻايو</string>
   <string name="edit_section_captcha_reload">ٻيھر اتارڻ لاءِ CAPTCHA تي ٽيپ ڪريو</string>
   <string name="nav_item_login">وڪيپيڊيا ۾ داخل ٿيو</string>
-  <string name="login_username_hint">واپرائيندڙ-نانءُ</string>
+  <string name="login_username_hint">واپرائيندڙنانءُ</string>
   <string name="login_password_hint">ڳجهولفظ</string>
   <string name="account_creation_password_hint">ڳجهولفظ</string>
-  <string name="login_2fa_hint">ٻہ مرحلا تصديق ڪوڊ</string>
+  <string name="login_2fa_hint">ٻہ-مرحلا تصديق ڪوڊ</string>
   <string name="onboarding_card_login">داخل ٿيو</string>
   <string name="page_editing_login">داخل ٿيو</string>
   <string name="reading_lists_sync_login">داخل ٿيو</string>
@@ -127,7 +142,7 @@
   <string name="login_in_progress_dialog_message">توهان کي داخل ڪندي...</string>
   <string name="login_success_toast">داخل ٿيا!</string>
   <string name="reset_password_title">پنھنجو ڳجهولفظ مرتب ڪريو</string>
-  <string name="reset_password_description">توھان ھڪ عارضي ڳجهي-لفظ سان داخل ٿيا. داخل ٿيڻ کي مڪمل ڪرڻ لاءِ پنھنجو ھڪ نئون ڳجهولفظ مرتب ڪريو.</string>
+  <string name="reset_password_description">توھان ھڪ عارضي ڳجهي‌لفظ سان داخل ٿيا. داخل ٿيڻ کي مڪمل ڪرڻ لاءِ پنھنجو ھڪ نئون ڳجهولفظ مرتب ڪريو.</string>
   <string name="reset_password_hint">نئون ڳجهولفظ</string>
   <string name="reset_password_button">محفوظ ڪريو ۽ داخل ٿيو</string>
   <string name="preference_title_logout">ٻاھر نڪرو</string>
@@ -145,7 +160,7 @@
   <string name="search_empty_message_multilingual_upgrade">وڪيپيڊيا کي وڌيڪ ٻولين ۾ ڳوليو</string>
   <string name="delete_selected_items">چونڊيل شيون ڊاھيو</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="create_account_username_hint">واپرائيندڙ-نانءُ</string>
+  <string name="create_account_username_hint">واپرائيندڙنانءُ</string>
   <string name="login_dont_have_account">کاتو نہ اٿو؟</string>
   <string name="login_join_wikipedia">وڪيپيڊيا ۾ شامل ٿيو</string>
   <string name="login_forgot_password">ڳجهولفظ وساري ويٺا آهيو؟</string>
@@ -154,6 +169,7 @@
   <string name="dialog_create_account_checking_progress">تصديق ڪندي</string>
   <string name="create_account_email_hint">ايميل (اختياري)</string>
   <string name="create_account_password_repeat_hint">ڳجهولفظ ورجايو</string>
+  <string name="create_account_password_is_username">ڳجهولفظ واپرائيندڙنانء وانگر ساڳيو نٿو ٿي سگهي</string>
   <string name="create_account_passwords_mismatch_error">ڳجھالفظ نٿا ملن</string>
   <string name="create_account_email_error">ناقابلِڪار ايميل پتو</string>
   <string name="create_account_username_error">واپرائيندڙ-نانءَ ۾ ناقابلڪار حرف</string>
@@ -161,6 +177,7 @@
   <string name="create_account_generic_error">کاتو کولي نہ سگھيو</string>
   <string name="create_account_next">اڳيون</string>
   <string name="email_recommendation_dialog_title">بغير ايميل پتي جي کاتو کوليون؟</string>
+  <string name="email_recommendation_message">سفارش ڪيل آھي ڇو جو کاتو واپس ھٿ ڪرڻ ۾ ايميل گهربل ھجي ٿي.</string>
   <string name="email_recommendation_dialog_create_without_email_action">ايميل سواءِ جاري رکو</string>
   <string name="email_recommendation_dialog_create_with_email_action">ڪو ايميل پتو ڏيو</string>
   <string name="create_account_button">کاتو کوليو</string>
@@ -337,7 +354,7 @@
   <string name="enable_location_service">فعاليو</string>
   <string name="location_permissions_enable_prompt">اوھان جي ويجهو جڳھون ڏسڻ لاءِ مڪانيت اجازتن کي فعال ڪريو.</string>
   <string name="location_permissions_enable_action">ھلايو</string>
-  <string name="error_webview_updating">دي اينڊروئڊ سسٽم ويبوِيو ھن وقت جديديو پيو وڃي.\nمھرباني ڪري ھڪ لمحي ۾ ٻيھر ڪوشش ڪريو.</string>
+  <string name="error_webview_updating">دي اينڊروئڊ سسٽم ويبوِيو ھن وقت تجديديو پيو وڃي. مھرباني ڪري ھڪ لمحي ۾ ٻيھر ڪوشش ڪريو.</string>
   <plurals name="multi_items_selected">
     <item quantity="one">%d چونڊيل</item>
     <item quantity="other">%d چونڊيل</item>
@@ -495,8 +512,9 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">رد</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">رد</string>
   <string name="reading_list_split_dialog_ok_button_text">ٺيڪ</string>
+  <string name="reading_list_activity_title">پڙھڻ جي فھرست: %s</string>
   <string name="user_option_sync_label">ترجيحون</string>
-  <string name="notification_reverted_title">ورايل سنوار</string>
+  <string name="notification_reverted_title">موٽايل سنوار</string>
   <string name="notification_channel_title">مضمونَ لاھيندي</string>
   <string name="notification_channel_description">لھڻ جي پيشرفت</string>
   <string name="notification_syncing_pause_button">بيھو</string>
@@ -549,7 +567,12 @@
     <item quantity="one">1 پڙھيل طور نشان لڳايو ويو</item>
     <item quantity="other">%d پڙھيل طور نشان لڳايا ويا</item>
   </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 نہ-پڙھيل طور نشان لڳايو ويو</item>
+    <item quantity="other">%d نہ-پڙھيل طور لڳايا ويا</item>
+  </plurals>
   <string name="watchlist_title">نظر۾فھرست</string>
+  <string name="preference_title_notification_poll">اطلاع پول ڪريو</string>
   <string name="preference_summary_notification_poll">پسمنظر ۾ اطلاع چڪاسڻ لاءِ ايپ کي پسمنظر ۾ ڊيٽا ھلائڻ جي اجازت ڏيو.</string>
   <string name="preference_category_notification_types">ايپ-۾ اطلاعن جا قسم</string>
   <string name="preference_title_notification_system">سرشتو</string>
@@ -558,7 +581,7 @@
   <string name="preference_summary_notification_milestone">ڪي سنوار انگ پڄي چڪا آھن</string>
   <string name="preference_title_notification_thanks">مھرباني</string>
   <string name="preference_summary_notification_thanks">ڪوئي توھان جي ڪنھن سنوار لاءِ مھرباني چئي ٿو</string>
-  <string name="preference_title_notification_revert">ورايو</string>
+  <string name="preference_title_notification_revert">موٽايل</string>
   <string name="preference_summary_notification_revert">توھان جي ڀاڱيدارين مان ھڪ ورائي وئي</string>
   <string name="preference_title_notification_login_fail">داخل-ٿيو</string>
   <string name="preference_summary_notification_login_fail">توھان جي داخل ٿيڻ جون سرگرميون</string>
@@ -580,6 +603,7 @@
   <string name="notifications_channel_group_other_description">ايپ پاران ٻيا اطلاع</string>
   <string name="notifications_filter_label">اطلاع ڇاڻيو</string>
   <string name="notifications_filter_icon_content_description">اطلاع ڇاڻيو</string>
+  <string name="notifications_filter_update_app_languages">ايپ جون ٻوليون تجديديو</string>
   <string name="notifications_empty_search_message">وڌيڪ اطلاع ڏسڻ لاءِ %s کي ھٽائي ڏسو.</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d ڇاڻي</item>
@@ -602,6 +626,7 @@
   <string name="notifications_all_wikis_text">سڀ \"وڪي\"</string>
   <string name="notifications_all_types_text">سڀ \"قسم\"</string>
   <string name="notifications_menu_user_talk_page">%s جو بحث صفحو</string>
+  <string name="notifications_offline_disable_message">آفلائين ھجڻ دوران ھي فنڪشن موجود نہ آھي.</string>
   <string name="view_because_you_read_card_title">ڇو تہ توھان پڙھو ٿا</string>
   <string name="view_random_card_title">بلاترتيبڪار</string>
   <string name="view_random_article_card_title">بلاترتيب مضمون</string>
@@ -710,6 +735,7 @@
   <string name="customize_toolbar_title">اوزارپٽي مرضي مطابق بڻايو</string>
   <string name="customize_toolbar_category_toolbar">اوزارپٽي</string>
   <string name="customize_toolbar_category_menu">مينيو</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">پنھنجا پسنديده آئٽم ھتي ڇڪي اچي اڇلايو 👋</string>
   <string name="customize_toolbar_reset_to_default_button">پاڻمرادو-ڏنل طرف ٻيھر مرتب ڪريو</string>
   <string name="suggested_edits_describe_articles">مضمونن کي بيان ڪريو</string>
   <string name="suggested_edits_caption_images">عڪسن کي عنوان ڏيو</string>
@@ -796,6 +822,7 @@
   <string name="suggested_edits_page_views_stat_tooltip">گذريل 30 ڏينھن ۾ توھان جن شين ۾ ڀاڱيداري ڪئي انھن جون ڪل صفحي-ڏيٺون.</string>
   <string name="suggested_edits_editing_tips_link_text">سنوارڻ جا مشورا ۽ شرڪتون</string>
   <string name="suggested_edits_help_page_link_text">تجويزڪيل سنوارن لاءِ مدد صفحو</string>
+  <string name="suggested_edits_edit_streak_label_text">سنوار تسلسل</string>
   <string name="suggested_edits_views_label_text">ڏيٺون</string>
   <string name="suggested_edits_quality_label_text">معيار سنواريو</string>
   <string name="suggested_edits_quality_perfect_text">ڪامل</string>
@@ -958,6 +985,11 @@
   <string name="talk_snackbar_undo">اڻڪريو</string>
   <string name="talk_last_modified">&lt;b&gt;%1$s کي آخري ڀيرو&lt;/b&gt; %2$s سنواريو</string>
   <string name="talk_snackbar_survey_action_text">شروع ڪريو</string>
+  <string name="talk_share_talk_page">وڪيپيڊيا - بحث صفحي تي گفتگوئون</string>
+  <string name="talk_search_hint">نياپا لھو</string>
+  <string name="talk_overflow_sort_by">مرتب ڪريو</string>
+  <string name="talk_overflow_sort_date_published">ڇپجڻ جي تاريخ</string>
+  <string name="talk_overflow_sort_topic_name">موضوع جو نالو</string>
   <string name="menu_option_share_talk_discussion">بحث ونڊيو</string>
   <string name="menu_option_share_talk_page">بحث صفحو ونڊيو</string>
   <string name="menu_option_share_edit">سنوار ونڊيو</string>
@@ -977,6 +1009,21 @@
   <string name="thank_success_message">توھان جي \'مھرباني\' %s ڏانھن موڪلي وئي 👍</string>
   <string name="menu_option_view_user_profile">واپرائيندڙ جو پروفائيل صفحو ڏسو</string>
   <string name="menu_option_view_user_talk">بحث صفحو ڏسو</string>
+  <string name="menu_option_view_user_contributions">واپرائيندڙ جون ڀاڱيداريون ڏسو</string>
+  <string name="revision_diff_compare">ورجاءَ ڀيٽيو</string>
+  <string name="revision_diff_compare_title">ورجاءَ ڀيٽيو: %s</string>
+  <string name="revision_diff_from">کان:</string>
+  <string name="revision_diff_to">تائين:</string>
+  <string name="revision_diff_line_num">سِٽ %d</string>
+  <string name="revision_diff_line_nums">سِٽون %d–%d</string>
+  <string name="revision_diff_line_added">وڌل سِٽ</string>
+  <string name="revision_diff_line_removed">ڪڍيل سِٽ</string>
+  <string name="revision_diff_paragraph_added">وڌل پيراگراف</string>
+  <string name="revision_diff_paragraph_removed">ڪڍيل پيراگراف</string>
+  <string name="revision_undo_title">سنوار اڻڪريو</string>
+  <string name="revision_undo_success">ورجاء کي ختم ڪيو ويو.</string>
+  <string name="revision_compare_button">ڀيٽيو</string>
+  <string name="revision_compare_two_only">رڳو ٻہ ورجاءَ چونڊي سگهجن ٿا.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ۽ ان جو بحث صفحو توھان جي %2$s نظر۾فھرست ۾ وڌا ويا آھن.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">بدلايو</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">مستقل طور</string>
@@ -999,4 +1046,10 @@
   <string name="watchlist_page_moved">چوريل</string>
   <string name="watchlist_page_protected">تحفظيل</string>
   <string name="watchlist_page_deleted">ڊاھيل</string>
+  <string name="action_item_categories">زمرا</string>
+  <string name="page_no_categories">ھي صفحو ڪنھن زمري سان تعلق نٿو رکي.</string>
+  <string name="category_tab_articles">مضمونَ</string>
+  <string name="category_tab_subcategories">ماتحت-زمرا</string>
+  <string name="category_empty">ھن زمري ۾ ڪوبہ مضمون نہ لڌو.</string>
+  <string name="subcategory_empty">ھن زمري ۾ ڪي بہ ماتحت-زمرا نہ لڌا.</string>
 </resources>

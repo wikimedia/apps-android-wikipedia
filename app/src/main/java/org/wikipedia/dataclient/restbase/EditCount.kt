@@ -16,5 +16,6 @@ class EditCount {
         const val EDIT_TYPE_EDITS = "edits"
         const val EDIT_TYPE_MINOR = "minor"
         const val EDIT_TYPE_REVERTED = "reverted"
+        const val EDIT_TYPE_ALL = "all"
     }
 }
