@@ -11,7 +11,7 @@ import org.wikipedia.notifications.db.Notification
 
 @Suppress("unused")
 @Serializable
-@SerialName("/analytics/mobile_apps/android_notification_interaction/1.0.0")
+@SerialName("/analytics/mobile_apps/android_notification_interaction/2.0.0")
 class NotificationInteractionEvent(
     private val notification_id: Int,
     private val notification_wiki: String,
@@ -21,7 +21,7 @@ class NotificationInteractionEvent(
     private val selection_token: String,
     private val incoming_only: Boolean,
     private val device_level_enabled: Boolean
-) : MobileAppsEventBase(STREAM_NAME) {
+) : MobileAppsEvent(STREAM_NAME) {
 
     companion object {
         private const val STREAM_NAME = "android.notification_interaction"
