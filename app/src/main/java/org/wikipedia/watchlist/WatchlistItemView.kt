@@ -86,11 +86,11 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         L10nUtil.setConditionalLayoutDirection(this, item.wiki!!.languageCode)
     }
 
-    private fun setButtonTextAndIconColor(text: String, @AttrRes backgroundTint: Int, @DrawableRes iconResourceDrawable: Int? = null) {
+    private fun setButtonTextAndIconColor(text: String, @AttrRes backgroundTint: Int, @DrawableRes iconResourceDrawable: Int = 0) {
         val themedTint = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.color_group_61))
         binding.diffText.text = text
         binding.diffText.setTextColor(themedTint)
-        iconResourceDrawable?.let { binding.diffText.setIconResource(it) }
+        binding.diffText.setIconResource(iconResourceDrawable)
         binding.diffText.iconTint = themedTint
         binding.diffText.setBackgroundColor(ResourceUtil.getThemedColor(context, backgroundTint))
     }
