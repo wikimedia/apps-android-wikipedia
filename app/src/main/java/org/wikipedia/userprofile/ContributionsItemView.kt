@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemSuggestedEditsContributionsBinding
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
@@ -27,7 +26,7 @@ class ContributionsItemView constructor(context: Context, attrs: AttributeSet? =
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         setPaddingRelative(DimenUtil.roundedDpToPx(16f), 0, 0, 0)
-        background = ContextCompat.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground))
+        setBackgroundResource(ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground))
         setOnClickListener {
             if (binding.contributionTitle.text.isNotEmpty()) {
                 callback?.onClick(context, contribution!!)
