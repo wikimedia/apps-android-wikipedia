@@ -3,7 +3,6 @@ package org.wikipedia.feed.configure
 import android.content.Context
 import android.view.View
 import android.widget.TextView
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
@@ -19,8 +18,7 @@ class LanguageItemHolder internal constructor(private val context: Context, item
         langCodeView.setTextColor(if (enabled) ContextCompat.getColor(context, android.R.color.white)
         else ResourceUtil.getThemedColor(context, R.attr.color_group_63))
 
-        langCodeView.background = AppCompatResources.getDrawable(context, if (enabled) R.drawable.lang_button_shape
-        else R.drawable.lang_button_shape_border)
+        langCodeView.setBackgroundResource(if (enabled) R.drawable.lang_button_shape else R.drawable.lang_button_shape_border)
 
         langCodeView.background.colorFilter = BlendModeColorFilterCompat
             .createBlendModeColorFilterCompat(if (enabled) ContextCompat.getColor(context, R.color.base30)
