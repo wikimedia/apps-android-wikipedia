@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import org.wikipedia.databinding.ItemCustomizeToolbarTabBinding
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.views.ConfigurableTabLayout
 
 class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = null) : ConfigurableTabLayout(context, attrs) {
@@ -25,6 +26,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
             view.id = item.hashCode()
             view.text = context.getString(item.titleResId)
             view.setCompoundDrawablesWithIntrinsicBounds(0, item.iconResId, 0, 0)
+            view.compoundDrawablePadding = -DimenUtil.roundedDpToPx(4f)
             view.setOnClickListener { v ->
                 if (isEnabled(v)) {
                     item.select(callback)
