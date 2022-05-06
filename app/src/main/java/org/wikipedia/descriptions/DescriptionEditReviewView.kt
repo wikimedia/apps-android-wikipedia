@@ -28,6 +28,10 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
         visibility = GONE
     }
 
+    fun setLoginCallback(callback: DescriptionEditLicenseView.Callback) {
+        binding.licenseView.callback = callback
+    }
+
     fun setSummary(summaryForEdit: PageSummaryForEdit, description: String, captionReview: Boolean) {
         L10nUtil.setConditionalLayoutDirection(this, summaryForEdit.lang)
         if (captionReview) {

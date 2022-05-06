@@ -101,6 +101,10 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         removeCallbacks(textValidateRunnable)
     }
 
+    fun setLoginCallback(callback: DescriptionEditLicenseView.Callback) {
+        binding.viewDescriptionEditReviewContainer.setLoginCallback(callback)
+    }
+
     fun setPageTitle(pageTitle: PageTitle) {
         this.pageTitle = pageTitle
         originalDescription = pageTitle.description
