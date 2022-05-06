@@ -18,6 +18,8 @@
         android:textStyle="bold"
         android:lineSpacingExtra="5sp"
         android:textColorLink="?attr/colorAccent"
+        android:maxLines="1"
+        android:ellipsize="end"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/topicOverflowMenu"

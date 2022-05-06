@@ -1,5 +1,6 @@
 package org.wikipedia.talk
 
+import android.app.Activity
 import android.content.Context
 import android.graphics.Color
 import android.view.View
@@ -16,10 +17,7 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.util.DateUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.ShareUtil
-import org.wikipedia.util.StringUtil
+import org.wikipedia.util.*
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import org.wikipedia.views.TalkTopicsActionsOverflowView
 
@@ -112,7 +110,9 @@ class TalkTopicHolder internal constructor(
                 }
 
                 override fun subscribeClick() {
-                    viewModel.subscribeTopic(threadItem.name, !subscribed)
+                    viewModel.subscribeTopic(threadItem.name, subscribed)
+                    FeedbackUtil.showMessage(context as Activity, context.getString(if (!subscribed) R.string.talk_thread_subscribed_to else R.string.talk_thread_unsubscribed_from,
+                        StringUtil.fromHtml(threadItem.html)), FeedbackUtil.LENGTH_DEFAULT)
                 }
 
                 override fun shareClick() {

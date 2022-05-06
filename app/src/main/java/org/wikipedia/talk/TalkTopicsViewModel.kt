@@ -12,7 +12,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.edit.Edit
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
@@ -39,6 +38,8 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
     private var resolveTitleRequired = false
     val threadItems = mutableListOf<ThreadItem>()
     var watchlistExpiryChanged = false
+    var isWatched = false
+    var hasWatchlistExpiry = false
     var lastWatchExpiry = WatchlistExpiry.NEVER
     var currentSearchQuery: String? = null
     var currentSortMode = Prefs.talkTopicsSortMode
@@ -93,12 +94,18 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
 
             val discussionToolsInfoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText) }
             val lastModifiedResponse = async { ServiceFactory.get(pageTitle.wikiSite).getLastModified(pageTitle.prefixedText) }
-            val watchStatus = async { if (!sidePanel) ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!! else MwQueryPage() }
+            val watchStatus = withContext(Dispatchers.Default) {
+                    if (!sidePanel) ServiceFactory.get(pageTitle.wikiSite)
+                        .getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!! else MwQueryPage()
+            }
 
             threadItems.clear()
             threadItems.addAll(discussionToolsInfoResponse.await().pageInfo?.threads ?: emptyList())
 
-            uiState.value = UiState.LoadTopic(pageTitle, threadItems, lastModifiedResponse.await(), watchStatus.await())
+            isWatched = watchStatus.watched
+            hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
+
+            uiState.value = UiState.LoadTopic(pageTitle, threadItems, lastModifiedResponse.await())
         }
     }
 
@@ -164,7 +171,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
         return threadItem?.let { it.name + "|" + it.allReplies.maxByOrNull { reply -> reply.timestamp }?.timestamp }
     }
 
-    fun subscribeTopic(commentName: String, subscribe: Boolean) {
+    fun subscribeTopic(commentName: String, subscribed: Boolean) {
         if (pageTitle == null) {
             return
         }
@@ -173,7 +180,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
             val token = withContext(Dispatchers.IO) {
                 CsrfTokenClient(pageTitle.wikiSite).token.blockingFirst()
             }
-            ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, commentName, token, subscribe)
+            ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, commentName, token, if (!subscribed) true else null)
         }
     }
 
@@ -186,7 +193,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
         return response.subscriptions[commentName] == 1
     }
 
-    fun watchOrUnwatch(isWatched: Boolean, expiry: WatchlistExpiry, unwatch: Boolean) {
+    fun watchOrUnwatch(expiry: WatchlistExpiry, unwatch: Boolean) {
         if (pageTitle == null) {
             return
         }
@@ -216,7 +223,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
                 } else {
                     watchlistFunnel.logAddSuccess()
                 }
-                uiState.value = UiState.DoWatch(response)
+
+                response.getFirst()?.let {
+                    uiState.value = UiState.DoWatch(isWatched)
+                }
             }
         }
     }
@@ -231,11 +241,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
     open class UiState {
         data class LoadTopic(val pageTitle: PageTitle,
                              val threadItems: List<ThreadItem>,
-                             val lastModifiedResponse: MwQueryResponse,
-                             val watchStatus: MwQueryPage) : UiState()
+                             val lastModifiedResponse: MwQueryResponse) : UiState()
         data class LoadError(val throwable: Throwable) : UiState()
         data class UndoEdit(val edit: Edit, val undoneSubject: CharSequence, val undoneBody: CharSequence) : UiState()
-        data class DoWatch(val watchPostResponse: WatchPostResponse) : UiState()
+        data class DoWatch(val isWatched: Boolean) : UiState()
         data class EditError(val throwable: Throwable) : UiState()
     }
 }

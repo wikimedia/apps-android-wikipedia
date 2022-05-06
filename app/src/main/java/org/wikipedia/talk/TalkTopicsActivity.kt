@@ -29,11 +29,8 @@ import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
-import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.okhttp.HttpStatusException
-import org.wikipedia.dataclient.watch.Watch
-import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
@@ -62,8 +59,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
     private var goToTopic = false
-    private var isWatched = false
-    private var hasWatchlistExpiry = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     private val requestLanguageChange = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -175,9 +170,9 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         lifecycleScope.launchWhenCreated {
             viewModel.uiState.collect {
                 when (it) {
-                    is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.threadItems, it.lastModifiedResponse, it.watchStatus)
+                    is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.threadItems, it.lastModifiedResponse)
                     is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.undoneSubject, it.undoneBody)
-                    is TalkTopicsViewModel.UiState.DoWatch -> updateOnWatch(it.watchPostResponse)
+                    is TalkTopicsViewModel.UiState.DoWatch -> updateOnWatch()
                     is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
                 }
             }
@@ -223,8 +218,8 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
                 // Watchlist
                 watchMenuItem.isVisible = true
-                watchMenuItem.title = getString(if (isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
-                watchMenuItem.setIcon(PageActionItem.watchlistIcon(isWatched, hasWatchlistExpiry))
+                watchMenuItem.title = getString(if (viewModel.isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
+                watchMenuItem.setIcon(PageActionItem.watchlistIcon(viewModel.isWatched, viewModel.hasWatchlistExpiry))
             } else {
                 notificationMenuItem.isVisible = false
                 watchMenuItem.isVisible = false
@@ -254,7 +249,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             }
             R.id.menu_watch -> {
                 if (AccountUtil.isLoggedIn) {
-                    viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
+                    viewModel.watchOrUnwatch(WatchlistExpiry.NEVER, viewModel.isWatched)
                 }
                 return true
             }
@@ -267,7 +262,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     override fun onExpirySelect(expiry: WatchlistExpiry) {
-        viewModel.watchOrUnwatch(isWatched, expiry, false)
+        viewModel.watchOrUnwatch(expiry, false)
         bottomSheetPresenter.dismiss(supportFragmentManager)
     }
 
@@ -282,7 +277,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         binding.talkConditionContainer.isVisible = true
     }
 
-    private fun updateOnSuccess(pageTitle: PageTitle, threadItems: List<ThreadItem>, lastModifiedResponse: MwQueryResponse, watchStatus: MwQueryPage) {
+    private fun updateOnSuccess(pageTitle: PageTitle, threadItems: List<ThreadItem>, lastModifiedResponse: MwQueryResponse) {
         // Update page title and start the funnel
         this.pageTitle = pageTitle
         funnel = TalkFunnel(pageTitle, invokeSource)
@@ -298,11 +293,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                 startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle, revision.revId))
             }
         }
-
-        // Update watch status
-        // TODO: move these variable to viewModel
-        isWatched = watchStatus.watched
-        hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
 
         binding.talkFooter.viewPageContainer.setOnClickListener {
             goToPage()
@@ -389,11 +379,8 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, pageTitle, null, invokeSource, undoneSubject, undoneBody))
     }
 
-    private fun updateOnWatch(watchPostResponse: WatchPostResponse) {
-        val firstWatch = watchPostResponse.getFirst()
-        if (firstWatch != null) {
-            showWatchlistSnackbar(viewModel.lastWatchExpiry, firstWatch)
-        }
+    private fun updateOnWatch() {
+        showWatchlistSnackbar()
         invalidateOptionsMenu()
     }
 
@@ -428,21 +415,19 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
     }
 
-    private fun showWatchlistSnackbar(expiry: WatchlistExpiry, watch: Watch) {
-        isWatched = watch.watched
-        hasWatchlistExpiry = expiry != WatchlistExpiry.NEVER
-        if (watch.unwatched) {
+    private fun showWatchlistSnackbar() {
+        if (!viewModel.isWatched) {
             FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, viewModel.pageTitle?.displayText))
-        } else if (watch.watched) {
+        } else if (viewModel.isWatched) {
             val snackbar = FeedbackUtil.makeSnackbar(this,
                 getString(R.string.watchlist_page_add_to_watchlist_snackbar,
                     viewModel.pageTitle?.displayText,
-                    getString(expiry.stringId)),
+                    getString(viewModel.lastWatchExpiry.stringId)),
                 FeedbackUtil.LENGTH_DEFAULT)
             if (!viewModel.watchlistExpiryChanged) {
                 snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
                     viewModel.watchlistExpiryChanged = true
-                    bottomSheetPresenter.show(supportFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
+                    bottomSheetPresenter.show(supportFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.lastWatchExpiry))
                 }
             }
             snackbar.show()
