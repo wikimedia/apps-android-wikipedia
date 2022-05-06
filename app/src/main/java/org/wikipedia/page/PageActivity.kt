@@ -59,8 +59,7 @@ import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.widgets.WidgetProviderFeaturedPage
 import java.util.*
 
-class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Callback, FrameLayoutNavMenuTriggerer.Callback,
-    FeedbackUtil.Callback {
+class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Callback, FrameLayoutNavMenuTriggerer.Callback {
 
     enum class TabPosition {
         CURRENT_TAB, CURRENT_TAB_SQUASH, NEW_TAB_BACKGROUND, NEW_TAB_FOREGROUND, EXISTING_TAB
@@ -676,8 +675,16 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         anchorView?.let {
             it.postDelayed({
                 if (!isDestroyed) {
-                    val balloon = FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip), arrowAnchorPadding = -DimenUtil.roundedDpToPx(12f), topOrBottomMargin = -12, aboveOrBelow = aboveOrBelow, autoDismiss = false, showDismissButton = true, callback = this)
+                    val balloon =
+                        FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip), arrowAnchorPadding = -DimenUtil.roundedDpToPx(12f), topOrBottomMargin = -12, aboveOrBelow = aboveOrBelow, autoDismiss = false, showDismissButton = true, callback = object :
+                            FeedbackUtil.Callback {
+                            override fun onDismissClicked() {
+                                Prefs.showOneTimeCustomizeToolbarTooltip = false
+                                Prefs.toolbarTooltipVisible = false
+                            }
+                        })
                     balloon.showAlignBottom(it)
+                    Prefs.toolbarTooltipVisible = true
                 }
             }, 2000)
         }
@@ -810,9 +817,5 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 .putExtra(EXTRA_HISTORYENTRY, entry)
                 .putExtra(EXTRA_PAGETITLE, title)
         }
-    }
-
-    override fun onDismissClicked() {
-        Prefs.showOneTimeCustomizeToolbarTooltip = false
     }
 }
