@@ -6,8 +6,8 @@ import android.text.Spanned
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.widget.ImageView
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.isGone
 import org.wikipedia.R
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.FeedbackUtil
@@ -44,13 +44,9 @@ class CabSearchView @JvmOverloads constructor(context: Context, attrs: Attribute
     }
 
     fun setCloseButtonVisibility(searchString: String?) {
-        if (searchString.isNullOrEmpty()) {
-            searchCloseBtn.visibility = GONE
-            searchCloseBtn.setImageDrawable(null)
-        } else {
-            searchCloseBtn.visibility = VISIBLE
-            searchCloseBtn.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.ic_close_themed_24dp))
-        }
+        val isEmpty = searchString.isNullOrEmpty()
+        searchCloseBtn.isGone = isEmpty
+        searchCloseBtn.setImageResource(if (isEmpty) 0 else R.drawable.ic_close_themed_24dp)
     }
 
     private class PlainTextInputFilter : InputFilter {
