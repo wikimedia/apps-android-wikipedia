@@ -3,27 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:background="@android:color/white"
+    android:layout_height="wrap_content"
     tools:orientation="vertical"
     tools:parentTag="android.widget.LinearLayout">
 
-    <ImageView
-        android:id="@+id/licenseIcon"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/licenseText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
-        android:contentDescription="@string/cc_logo"
-        app:tint="@color/base30"
-        app:srcCompat="@drawable/ic_license_cc" />
+        android:lineSpacingMultiplier="1.2"
+        android:linksClickable="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/base30"
+        android:drawableStart="@drawable/ic_license_cc"
+        app:drawableTint="@color/base30"
+        android:drawablePadding="8dp"
+        tools:text="Lorem ipsum" />
 
     <TextView
-        android:id="@+id/licenseText"
-        android:layout_width="wrap_content"
+        android:id="@+id/anonWarningText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="40dp"
         android:layout_marginEnd="8dp"
         android:lineSpacingMultiplier="1.2"
         android:linksClickable="true"
