@@ -8,6 +8,7 @@ import android.speech.RecognizerIntent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -20,6 +21,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.DescriptionEditFunnel
+import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
@@ -32,6 +34,7 @@ import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.language.AppLanguageLookUpTable
+import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -62,6 +65,16 @@ class DescriptionEditFragment : Fragment() {
     private var highlightText: String? = null
 
     private val disposables = CompositeDisposable()
+
+    private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+            binding.fragmentDescriptionEditView.loadReviewContent(binding.fragmentDescriptionEditView.showingReviewContent())
+            funnel.logLoginSuccess()
+            FeedbackUtil.showMessage(this, R.string.login_success_toast)
+        } else {
+            funnel.logLoginFailure()
+        }
+    }
 
     private val successRunnable = Runnable {
         if (!isAdded) {
@@ -114,6 +127,13 @@ class DescriptionEditFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentDescriptionEditBinding.inflate(inflater, container, false)
         loadPageSummaryIfNeeded(savedInstanceState)
+
+        binding.fragmentDescriptionEditView.setLoginCallback {
+            val loginIntent = LoginActivity.newIntent(requireActivity(),
+                    LoginFunnel.SOURCE_EDIT, funnel.sessionToken)
+            loginLauncher.launch(loginIntent)
+        }
+
         funnel.logReady()
         return binding.root
     }
