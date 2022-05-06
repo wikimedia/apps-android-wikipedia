@@ -119,7 +119,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         viewModel.subscribeData.observe(this) {
             if (it is Resource.Success) {
                 FeedbackUtil.showMessage(this, getString(if (it.data) R.string.talk_thread_subscribed_to else R.string.talk_thread_unsubscribed_from,
-                        StringUtil.fromHtml(viewModel.topic!!.html)), FeedbackUtil.LENGTH_DEFAULT)
+                        StringUtil.fromHtml(viewModel.topic!!.html).trim().ifEmpty { getString(R.string.talk_no_subject) }), FeedbackUtil.LENGTH_DEFAULT)
                 headerAdapter.notifyItemChanged(0)
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(this, it.throwable)
