@@ -97,8 +97,12 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "MMM d HH:mm")
     }
 
-    fun getDateAndTimeWithPipe(date: Date): String {
-        return getCachedDateFormat("MMM d, yyyy | HH:mm", Locale.getDefault(), false).format(date)
+    fun getTimeAndDateString(date: Date): String {
+        return getCachedDateFormat("HH:mm, MMM d, yyyy", Locale.getDefault(), false).format(date)
+    }
+
+    fun getTimeAndDateString(dateStr: String): String {
+        return getCachedDateFormat("HH:mm, MMM d, yyyy", Locale.getDefault(), false).format(iso8601DateParse(dateStr))
     }
 
     @Synchronized
@@ -140,15 +144,6 @@ object DateUtil {
     @Throws(ParseException::class)
     fun getHttpLastModifiedDate(dateStr: String): Date {
         return getCachedDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH, true).parse(dateStr)!!
-    }
-
-    @Throws(ParseException::class)
-    fun getLastSyncDateString(dateStr: String): String {
-        return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "d MMM yyyy HH:mm")
-    }
-
-    fun get24HrFormatTimeOnlyString(date: Date): String {
-        return getDateStringWithSkeletonPattern(date, "kk:mm")
     }
 
     fun yearToStringWithEra(year: Int): String {

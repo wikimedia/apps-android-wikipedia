@@ -36,7 +36,6 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NotificationButtonView
 import java.util.*
-import kotlin.collections.ArrayList
 
 class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistItemView.Callback, WatchlistLanguagePopupView.Callback {
     private var _binding: FragmentWatchlistBinding? = null
@@ -246,7 +245,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     internal inner class WatchlistDateViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindItem(date: Date) {
             val textView = itemView.findViewById<TextView>(R.id.dateText)
-            textView.text = DateUtil.getMonthOnlyDateString(date)
+            textView.text = DateUtil.getShortDateString(date)
         }
     }
 
