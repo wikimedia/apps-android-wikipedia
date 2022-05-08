@@ -136,6 +136,8 @@ object EventPlatformClient {
         STREAM_CONFIGS.clear()
         STREAM_CONFIGS.putAll(Prefs.streamConfigs)
         refreshStreamConfigs()
+        areStreamConfigsReady = true
+        processSubmitQueue()
     }
 
     /**
