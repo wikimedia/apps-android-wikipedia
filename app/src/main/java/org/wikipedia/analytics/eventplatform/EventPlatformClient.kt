@@ -13,6 +13,7 @@ import java.net.HttpURLConnection
 import java.util.*
 
 object EventPlatformClient {
+
     /**
      * Stream configs to be fetched on startup and stored for the duration of the app lifecycle.
      */
@@ -27,6 +28,31 @@ object EventPlatformClient {
      * Taken out of iOS client, but flag can be set on the request object to wait until connected to send
      */
     private var ENABLED = WikipediaApp.getInstance().isOnline
+
+
+    /*
+
+    This flag tells us when STREAM_CONFIGS setup is complete.
+
+    It needs to be volatile as it's called from another thread.
+     */
+    @Volatile
+    private var areStreamConfigsReady = false
+
+    /*
+    This stores the events to submit until the STREAM_CONFIGS setup is complete.
+
+    Because it's set at app startup we don't expect to store a lot of events there so there is no
+    max to the queue.
+     */
+    private val submitQueue = mutableSetOf<Event>()
+
+
+    private fun processSubmitQueue() {
+        for (event in submitQueue) {
+            submit(event)
+        }
+    }
 
     fun setStreamConfig(streamConfig: StreamConfig) {
         STREAM_CONFIGS[streamConfig.streamName] = streamConfig
@@ -59,6 +85,12 @@ object EventPlatformClient {
      */
     @Synchronized
     fun submit(event: Event) {
+
+        if (! areStreamConfigsReady) {
+            submitQueue.add(event)
+            return
+        }
+
         if (!SamplingController.isInSample(event)) {
             return
         }
@@ -129,7 +161,7 @@ object EventPlatformClient {
         @Synchronized
         fun sendAllScheduled() {
             WikipediaApp.getInstance().mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
-            if (ENABLED) {
+            if (ENABLED && areStreamConfigsReady) {
                 send()
                 QUEUE.clear()
             }

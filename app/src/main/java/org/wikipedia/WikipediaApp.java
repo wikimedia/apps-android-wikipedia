@@ -163,6 +163,10 @@ public class WikipediaApp extends Application {
         // For good measure, explicitly call our token subscription function, in case the
         // API failed in previous attempts.
         WikipediaFirebaseMessagingService.Companion.updateSubscription();
+
+        /*
+        Moving this code to a Runnable gains 100ms of app startup on a Moto G10.
+         */
         new Runnable() {
             @Override
             public void run() {
