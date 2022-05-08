@@ -86,7 +86,7 @@ object EventPlatformClient {
     @Synchronized
     fun submit(event: Event) {
 
-        if (! areStreamConfigsReady) {
+        if (!areStreamConfigsReady) {
             submitQueue.add(event)
             return
         }
