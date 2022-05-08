@@ -189,11 +189,8 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     }
 
     private fun deleteSelectedPages() {
-        val selectedEntryList = mutableListOf<HistoryEntry>()
-        for (i in selectedEntries.indices) {
-            val entry = selectedEntries.valueAt(i)
-            selectedEntryList.add(entry)
-            AppDatabase.instance.historyEntryDao().delete(entry)
+        val selectedEntryList = selectedEntries.toList().onEach {
+            AppDatabase.instance.historyEntryDao().delete(it)
         }
         selectedEntries.clear()
         if (selectedEntryList.isNotEmpty()) {

@@ -395,8 +395,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onPageCloseActionMode() {
         val actionModesToFinish = ArraySet(currentActionModes)
-        for (i in actionModesToFinish.indices) {
-            actionModesToFinish.valueAt(i).finish()
+        for (actionMode in actionModesToFinish) {
+            actionMode.finish()
         }
         currentActionModes.clear()
     }

@@ -225,8 +225,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             // -----------------------------------------------
 
             // Do any remote lists need to be deleted?
-            for (i in listIdsDeleted.indices) {
-                val id = listIdsDeleted.valueAt(i)
+            for (id in listIdsDeleted) {
                 L.d("Deleting remote list id $id")
                 try {
                     client.deleteList(getCsrfToken(wiki, csrfToken), id)
@@ -240,8 +239,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             }
 
             // Do any remote pages need to be deleted?
-            for (i in pageIdsDeleted.indices) {
-                val id = pageIdsDeleted.valueAt(i)
+            for (id in pageIdsDeleted) {
                 L.d("Deleting remote page id $id")
                 val listAndPageId = id.split(":").toTypedArray()
                 try {

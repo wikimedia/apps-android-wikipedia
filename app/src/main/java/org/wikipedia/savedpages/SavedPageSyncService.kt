@@ -1,7 +1,6 @@
 package org.wikipedia.savedpages
 
 import android.content.Intent
-import androidx.collection.ArraySet
 import androidx.collection.arraySetOf
 import androidx.core.app.JobIntentService
 import io.reactivex.rxjava3.core.Completable
@@ -247,12 +246,11 @@ class SavedPageSyncService : JobIntentService() {
     }
 
     @Throws(IOException::class, InterruptedException::class)
-    private fun reqSaveFiles(page: ReadingListPage, pageTitle: PageTitle, urls: ArraySet<String>) {
+    private fun reqSaveFiles(page: ReadingListPage, pageTitle: PageTitle, urls: Set<String>) {
         val numOfImages = urls.size
         var percentage = MEDIA_LIST_PROGRESS.toFloat()
         val updateRate = (CircularProgressBar.MAX_PROGRESS - percentage) / numOfImages
-        for (i in urls.indices) {
-            val url = urls.valueAt(i)
+        for (url in urls) {
             if (savedPageSyncNotification.isSyncPaused() || savedPageSyncNotification.isSyncCanceled()) {
                 throw InterruptedException("Sync paused or cancelled.")
             }
