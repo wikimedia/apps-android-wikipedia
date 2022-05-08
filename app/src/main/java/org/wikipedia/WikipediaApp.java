@@ -165,7 +165,7 @@ public class WikipediaApp extends Application {
         WikipediaFirebaseMessagingService.Companion.updateSubscription();
 
         /*
-        Moving this code to a Runnable gains 100ms of app startup on a Moto G10.
+        Moving this code to a Runnable gains 200ms of app startup on a Moto G10.
          */
         new Runnable() {
             @Override
