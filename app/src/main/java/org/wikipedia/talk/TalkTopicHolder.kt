@@ -2,9 +2,11 @@ package org.wikipedia.talk
 
 import android.app.Activity
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.view.View
 import androidx.core.view.isVisible
+import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -53,30 +55,47 @@ class TalkTopicHolder internal constructor(
         val allReplies = threadItem.allReplies
 
         if (allReplies.isEmpty()) {
-            binding.topicBodyGroup.isVisible = false
             binding.topicContentText.isVisible = false
+            binding.topicUserIcon.isVisible = false
+            binding.topicUsername.isVisible = false
+            binding.topicReplyIcon.isVisible = false
+            binding.topicReplyNumber.isVisible = false
+            binding.topicLastCommentDate.isVisible = false
             return
         }
 
         // Last comment
         binding.topicContentText.isVisible = pageTitle.namespace() == Namespace.USER_TALK
-        binding.topicContentText.text = RichTextUtil.stripHtml(allReplies.last().html).trim()
+        binding.topicContentText.text = RichTextUtil.stripHtml(allReplies.last().html).trim().replace("\n", " ")
         binding.topicContentText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_text_color))
         StringUtil.highlightAndBoldenText(binding.topicContentText, viewModel.currentSearchQuery, true, Color.YELLOW)
 
         // Username with involved user number exclude the author
         val usersInvolved = allReplies.map { it.author }.distinct().size - 1
         val usernameText = allReplies.first().author + (if (usersInvolved > 1) " +$usersInvolved" else "")
+        val usernameColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.colorAccent
         binding.topicUsername.text = usernameText
+        binding.topicUserIcon.isVisible = pageTitle.namespace() == Namespace.USER_TALK
+        binding.topicUsername.isVisible = pageTitle.namespace() == Namespace.USER_TALK
+        binding.topicUsername.setTextColor(ResourceUtil.getThemedColor(context, usernameColor))
+        ImageViewCompat.setImageTintList(binding.topicUserIcon, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, usernameColor)))
         StringUtil.highlightAndBoldenText(binding.topicUsername, viewModel.currentSearchQuery, true, Color.YELLOW)
 
         // Amount of replies, exclude the topic in replies[].
-        binding.topicReplyNumber.text = (allReplies.size - 1).toString()
+        val replyNumber = allReplies.size - 1
+        val replyNumberColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_text_color
+        binding.topicReplyNumber.isVisible = replyNumber > 0
+        binding.topicReplyIcon.isVisible = replyNumber > 0
+        binding.topicReplyNumber.text = replyNumber.toString()
+        binding.topicReplyNumber.setTextColor(ResourceUtil.getThemedColor(context, replyNumberColor))
+        ImageViewCompat.setImageTintList(binding.topicReplyIcon, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, replyNumberColor)))
 
         // Last comment date
         val lastCommentDate = allReplies.mapNotNull { it.date }.maxByOrNull { it }?.run { DateUtil.getDateAndTime(this) }
+        val lastCommentColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.secondary_text_color
         binding.topicLastCommentDate.text = context.getString(R.string.talk_list_item_last_comment_date, lastCommentDate)
         binding.topicLastCommentDate.isVisible = lastCommentDate != null
+        binding.topicLastCommentDate.setTextColor(ResourceUtil.getThemedColor(context, lastCommentColor))
 
         // Overflow menu
         binding.topicOverflowMenu.setOnClickListener {

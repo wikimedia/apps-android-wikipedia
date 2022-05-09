@@ -1107,6 +1107,7 @@
   <string name="talk_share_talk_page">Subject text while sharing a talk page</string>
   <string name="talk_edit_disclaimer">Disclaimer of editing a talk page. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
   <string name="talk_search_hint">Hint for the talk page search bar.</string>
+  <string name="talk_search_topics_hint">Hint for the talk page search bar.</string>
   <string name="talk_overflow_sort_by">Header text of the sort menu.</string>
   <string name="talk_overflow_sort_date_published">Menu item label for sorting the list by the published date.</string>
   <string name="talk_overflow_sort_date_updated">Menu item label for sorting the list by the updated date.</string>

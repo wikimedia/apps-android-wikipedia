@@ -1161,6 +1161,7 @@
     <string name="talk_share_talk_page">Wikipedia - discussions on talk page</string>
     <string name="talk_edit_disclaimer"><![CDATA[This is a talk page. Please respect the talk page guidelines, and remember to sign your posts by typing four tildes: ~~~~ when posting using wikitext.<br\><br\><a href="https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines">Wikipedia:Talk page guidelines</a>]]></string>
     <string name="talk_search_hint">Search messages</string>
+    <string name="talk_search_topics_hint">Search topics</string>
     <string name="talk_overflow_sort_by">Sort by</string>
     <string name="talk_overflow_sort_date_published">Date published</string>
     <string name="talk_overflow_sort_date_updated">Date updated</string>
