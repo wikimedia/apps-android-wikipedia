@@ -108,5 +108,5 @@ class ArticleInteractionEvent(private val wikiDb: String, private val pageId: In
                                       @SerialName("wiki_db") private val wikiDb: String,
                                       @SerialName("page_id") private val pageId: Int,
                                       private val action: String) :
-        MobileAppsEventBase("android.article_toolbar_interaction")
+        MobileAppsEvent("android.article_toolbar_interaction")
 }
