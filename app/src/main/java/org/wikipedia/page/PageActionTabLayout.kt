@@ -12,6 +12,7 @@ import org.wikipedia.R
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ConfigurableTabLayout
 
@@ -39,6 +40,8 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
             val item = PageActionItem.find(it)
             view.id = item.hashCode()
             view.text = context.getString(item.titleResId)
+            view.contentDescription = view.text
+            FeedbackUtil.setButtonLongPressToast(view)
             TextViewCompat.setCompoundDrawableTintList(view, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.color_group_63)))
             view.setCompoundDrawablesWithIntrinsicBounds(0, item.iconResId, 0, 0)
             view.compoundDrawablePadding = -DimenUtil.roundedDpToPx(4f)
