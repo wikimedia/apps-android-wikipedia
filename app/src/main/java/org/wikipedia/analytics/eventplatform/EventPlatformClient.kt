@@ -1,6 +1,5 @@
 package org.wikipedia.analytics.eventplatform
 
-import android.util.Log
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
