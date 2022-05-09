@@ -1183,7 +1183,7 @@
   <string name="revision_diff_compare_title">Сравнить версии: %s</string>
   <string name="revision_diff_from">От:</string>
   <string name="revision_diff_line_num">Строка %d</string>
-  <string name="revision_diff_line_nums">Строки %d — %d</string>
+  <string name="revision_diff_line_nums">Строки с %d-й по %d-ю</string>
   <string name="revision_diff_line_added">Строка добавлена</string>
   <string name="revision_diff_line_removed">Строка удалена</string>
   <string name="revision_diff_paragraph_added">Абзац добавлен</string>
