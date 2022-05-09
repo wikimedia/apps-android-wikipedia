@@ -41,7 +41,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
-import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.search.SearchActivity
@@ -664,30 +663,20 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         if (!Prefs.showOneTimeCustomizeToolbarTooltip) {
             return
         }
-        val anchorView: View?
-        var aboveOrBelow = true
-        if (Prefs.customizeToolbarMenuOrder.contains(PageActionItem.THEME.id)) {
-            anchorView = binding.pageToolbarButtonShowOverflowMenu
-            aboveOrBelow = false
-        } else {
-            anchorView = pageFragment.getPageActionTabLayout().children.find { it.id == PageActionItem.THEME.hashCode() }
-        }
-        anchorView?.let {
-            it.postDelayed({
-                if (!isDestroyed) {
-                    val balloon =
-                        FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip), arrowAnchorPadding = -DimenUtil.roundedDpToPx(12f), topOrBottomMargin = -12, aboveOrBelow = aboveOrBelow, autoDismiss = false, showDismissButton = true, callback = object :
-                            FeedbackUtil.Callback {
-                            override fun onDismissClicked() {
-                                Prefs.showOneTimeCustomizeToolbarTooltip = false
-                                Prefs.toolbarTooltipVisible = false
-                            }
-                        })
-                    balloon.showAlignBottom(it)
-                    Prefs.toolbarTooltipVisible = true
-                }
-            }, 2000)
-        }
+        binding.pageToolbarButtonShowOverflowMenu.postDelayed({
+            if (!isDestroyed) {
+                val balloon =
+                    FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip), arrowAnchorPadding = -DimenUtil.roundedDpToPx(12f), topOrBottomMargin = -12, aboveOrBelow = true, autoDismiss = false, showDismissButton = true, callback = object :
+                        FeedbackUtil.Callback {
+                        override fun onDismissClicked() {
+                            Prefs.showOneTimeCustomizeToolbarTooltip = false
+                            Prefs.toolbarTooltipVisible = false
+                        }
+                    })
+                balloon.showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
+                Prefs.toolbarTooltipVisible = true
+            }
+        }, 2000)
     }
 
     private fun enqueueTooltip(runnable: Runnable) {
