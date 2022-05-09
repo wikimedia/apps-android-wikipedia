@@ -42,10 +42,6 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
         preprocessData(eventData, DEFAULT_SESSION_TOKEN_KEY, sessionToken)
     }
 
-    protected fun log(vararg params: Pair<String, Any?>) {
-        log(wiki, *params)
-    }
-
     /**
      * Logs an event.
      *
@@ -71,7 +67,7 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
      * The subclass methods should take more explicit parameters
      * depending on what they are logging.
      */
-    protected fun log(wiki: WikiSite?, vararg params: Pair<String, Any?>) {
+    protected fun log(vararg params: Pair<String, Any?>) {
         if (ReleaseUtil.isDevRelease || isUserInSamplingGroup(app.appInstallID, getSampleRate())) {
             val eventData = JSONObject()
             for ((key, value) in params) {
