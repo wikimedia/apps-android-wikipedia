@@ -108,7 +108,6 @@ class FeedAdapter<T : View>(private val coordinator: FeedCoordinatorBase, privat
     }
 
     private fun adjustDayHeaderView(view: DayHeaderCardView) {
-        val layoutParams = view.layoutParams as StaggeredGridLayoutManager.LayoutParams
-        layoutParams.isFullSpan = true
+        view.updateLayoutParams<StaggeredGridLayoutManager.LayoutParams> { isFullSpan = true }
     }
 }

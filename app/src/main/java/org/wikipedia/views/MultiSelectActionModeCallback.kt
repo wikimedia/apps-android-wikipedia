@@ -33,7 +33,7 @@ abstract class MultiSelectActionModeCallback : ActionMode.Callback {
 
     companion object {
         private const val ACTION_MODE_TAG = "multiSelectActionMode"
-        @JvmStatic
+
         fun isTagType(mode: ActionMode?): Boolean {
             return mode != null && ACTION_MODE_TAG == mode.tag
         }

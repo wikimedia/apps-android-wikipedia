@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
+import androidx.core.view.updateLayoutParams
 import androidx.core.widget.ImageViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewImageTitleDescriptionBinding
@@ -40,7 +41,7 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
     }
 
     fun setImageDrawable(@DrawableRes imageDrawable: Int) {
-        binding.image.setImageDrawable(AppCompatResources.getDrawable(context, imageDrawable))
+        binding.image.setImageResource(imageDrawable)
     }
 
     fun getDescriptionView(): View {
@@ -77,10 +78,10 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         binding.image.setImageResource(iconRes)
         ImageViewCompat.setImageTintList(binding.image, AppCompatResources.getColorStateList(context, iconTint))
 
-        val params = binding.image.layoutParams
-        params.width = DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.suggested_edits_icon_size) * 3 / 4)
-        params.height = params.width
-        binding.image.layoutParams = params
+        binding.image.updateLayoutParams {
+            width = DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.suggested_edits_icon_size) * 3 / 4)
+            height = width
+        }
         binding.image.requestLayout()
     }
 }
