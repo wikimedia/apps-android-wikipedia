@@ -1454,6 +1454,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onEditArticleSelected() {
             editHandler.startEditingArticle()
+            articleInteractionEvent?.logEditArticleClick()
         }
 
         override fun forwardClick() {
