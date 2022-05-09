@@ -17,7 +17,7 @@ class CreateAccountClientTest : MockRetrofitTest() {
         enqueueFromFile("create_account_success.json")
         observable.test().await()
             .assertComplete().assertNoErrors()
-            .assertValue { it.status == "FAIL" && it.user == "TestUser" }
+            .assertValue { it.status == "PASS" && it.user == "Farb0nucci" }
     }
 
     @Test
