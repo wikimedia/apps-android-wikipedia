@@ -2,7 +2,6 @@ package org.wikipedia.analytics.eventplatform
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.wikipedia.auth.AccountUtil
 import java.util.concurrent.TimeUnit
 
 class ArticleTocInteractionEvent(private val pageId: Int,
@@ -36,14 +35,13 @@ class ArticleTocInteractionEvent(private val pageId: Int,
         if (numSections == 0 || numOpens == 0) {
             return
         }
-        EventPlatformClient.submit(ArticleTocInteractionEventImpl(!AccountUtil.isLoggedIn, wikiDb, pageId, numOpens, numSectionClicks, totalOpenedSec, numSections))
+        EventPlatformClient.submit(ArticleTocInteractionEventImpl(wikiDb, pageId, numOpens, numSectionClicks, totalOpenedSec, numSections))
     }
 
     @Suppress("unused")
     @Serializable
     @SerialName("/analytics/mobile_apps/android_article_toc_interaction/1.0.0")
-    class ArticleTocInteractionEventImpl(@SerialName("is_anon") private val isAnon: Boolean,
-                                         @SerialName("wiki_db") private val wikiDb: String,
+    class ArticleTocInteractionEventImpl(@SerialName("wiki_db") private val wikiDb: String,
                                          @SerialName("page_id") private val pageId: Int,
                                          @SerialName("num_opens") private val numberOfOpens: Int,
                                          @SerialName("num_section_clicks") private val numberOfSectionClicks: Int,

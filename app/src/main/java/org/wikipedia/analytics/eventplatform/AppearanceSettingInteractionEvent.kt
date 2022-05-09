@@ -3,7 +3,6 @@ package org.wikipedia.analytics.eventplatform
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants.InvokeSource
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.theme.Theme
 
 class AppearanceSettingInteractionEvent(private val source: InvokeSource) {
@@ -25,14 +24,13 @@ class AppearanceSettingInteractionEvent(private val source: InvokeSource) {
     }
 
     private fun submitEvent(action: String, currentValue: String, newValue: String) {
-        EventPlatformClient.submit(AppearanceSettingInteractionEventImpl(action, !AccountUtil.isLoggedIn, currentValue, newValue, source.value))
+        EventPlatformClient.submit(AppearanceSettingInteractionEventImpl(action, currentValue, newValue, source.value))
     }
 
     @Suppress("unused")
     @Serializable
     @SerialName("/analytics/mobile_apps/android_app_appearance_settings_interaction/1.0.0")
     class AppearanceSettingInteractionEventImpl(private val action: String,
-                                                @SerialName("is_anon") private val isAnon: Boolean,
                                                 @SerialName("current_value") private val currentValue: String,
                                                 @SerialName("new_value") private val newValue: String,
                                                 private val source: String) :
