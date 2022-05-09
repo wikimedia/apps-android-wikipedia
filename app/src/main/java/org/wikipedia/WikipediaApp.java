@@ -44,6 +44,7 @@ import org.wikipedia.util.log.L;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.Executors;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.internal.functions.Functions;
@@ -167,12 +168,14 @@ public class WikipediaApp extends Application {
         /*
         Moving this code to a Runnable gains 200ms of app startup on a Moto G10.
          */
-        new Runnable() {
+        Runnable r = new Runnable() {
             @Override
             public void run() {
                 EventPlatformClient.INSTANCE.setUpStreamConfigs();
             }
-        };    }
+        };
+        Executors.newSingleThreadExecutor().execute(r);
+    }
 
     public int getVersionCode() {
         // Our ABI-specific version codes are structured in increments of 10000, so just
