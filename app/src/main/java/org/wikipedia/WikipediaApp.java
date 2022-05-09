@@ -137,16 +137,14 @@ public class WikipediaApp extends Application {
             StrictMode.setThreadPolicy(
                     new StrictMode.ThreadPolicy.Builder()
                             .detectAll()
-                            .penaltyLog().build());
+                            .penaltyLog().penaltyDeath().build());
             StrictMode.setVmPolicy(
                     new StrictMode.VmPolicy.Builder()
                             .detectActivityLeaks()
-                            .detectContentUriWithoutPermission()
                             .detectLeakedClosableObjects()
                             .detectLeakedRegistrationObjects()
                             .detectLeakedSqlLiteObjects()
-                            .detectCredentialProtectedWhileLocked()
-                            .penaltyLog().build());
+                            .penaltyLog().penaltyDeath().build());
         }
 
         // This handler will catch exceptions thrown from Observables after they are disposed,

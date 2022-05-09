@@ -67,11 +67,10 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                 return
             }
 
-            /*
             csrfDisposables.clear()
 
             for (lang in WikipediaApp.getInstance().language().appLanguageCodes) {
-                csrfDisposables.add(CsrfTokenClient(WikiSite.forLanguageCode(lang)).token
+                csrfDisposables.add(CsrfTokenClient.getToken(WikiSite.forLanguageCode(lang))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
@@ -83,8 +82,6 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                         L.e(it)
                     }))
             }
-
-             */
         }
 
         private fun subscribeWithCsrf(csrfToken: String) {

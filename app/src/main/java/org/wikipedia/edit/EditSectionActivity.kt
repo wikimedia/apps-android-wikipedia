@@ -93,7 +93,7 @@ class EditSectionActivity : BaseActivity() {
             binding.editSectionCaptchaContainer.visibility = View.GONE
             captchaHandler.hideCaptcha()
             editSummaryFragment.saveSummary()
-            disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
+            disposables.add(CsrfTokenClient.getToken(pageTitle.wikiSite)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ doSave(it) }) { showError(it) })

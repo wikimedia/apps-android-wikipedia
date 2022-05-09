@@ -63,7 +63,7 @@ class PollNotificationWorker(
     private fun assertLoggedIn() {
         // Attempt to get a dummy CSRF token, which should automatically re-log us in explicitly,
         // and should automatically log us out if the credentials are no longer valid.
-        CsrfTokenClient(WikipediaApp.getInstance().wikiSite).token
+        CsrfTokenClient.getToken(WikipediaApp.getInstance().wikiSite)
             .subscribeOn(Schedulers.io())
             .subscribe()
     }

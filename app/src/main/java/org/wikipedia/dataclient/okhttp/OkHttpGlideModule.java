@@ -16,6 +16,8 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.io.InputStream;
 
+import okhttp3.Call;
+
 /**
  * NOTE: do not convert this class to Kotlin yet. The Glide annotation does not support it.
  */
@@ -24,7 +26,7 @@ public class OkHttpGlideModule extends AppGlideModule {
     @Override
     public void registerComponents(@NonNull Context context, Glide glide, @NonNull Registry registry) {
         glide.getRegistry().replace(GlideUrl.class, InputStream.class,
-                new OkHttpUrlLoader.Factory(OkHttpConnectionFactory.getClient()));
+                new OkHttpUrlLoader.Factory((Call.Factory) OkHttpConnectionFactory.getClient()));
     }
 
     @Override
