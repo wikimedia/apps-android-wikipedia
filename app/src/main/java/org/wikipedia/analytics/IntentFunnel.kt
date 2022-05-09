@@ -6,19 +6,19 @@ import org.wikipedia.WikipediaApp
 class IntentFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REV_ID) {
 
     fun logSearchWidgetTap() {
-        log("action", "searchwidgettap")
+        log("action" to "searchwidgettap")
     }
 
     fun logFeaturedArticleWidgetTap() {
-        log("action", "featuredarticlewidgettap")
+        log("action" to "featuredarticlewidgettap")
     }
 
     fun logShareIntent() {
-        log("action", "share")
+        log("action" to "share")
     }
 
     fun logProcessTextIntent() {
-        log("action", "processtext")
+        log("action" to "processtext")
     }
 
     override fun preprocessSessionToken(eventData: JSONObject) {}

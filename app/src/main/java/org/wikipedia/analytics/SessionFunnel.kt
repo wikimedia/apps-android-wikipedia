@@ -74,21 +74,21 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
     private fun logSessionData() {
         val sessionLengthSeconds = (sessionData.lastTouchTime - sessionData.startTime) / DateUtils.SECOND_IN_MILLIS
         log(
-                "length", sessionLengthSeconds,
-                "fromSearch", sessionData.pagesFromSearch,
-                "fromRandom", sessionData.pagesFromRandom,
-                "fromLanglink", sessionData.pagesFromLangLink,
-                "fromInternal", sessionData.pagesFromInternal,
-                "fromExternal", sessionData.pagesFromExternal,
-                "fromHistory", sessionData.pagesFromHistory,
-                "fromReadingList", sessionData.pagesFromReadingList,
-                "fromBack", sessionData.pagesFromBack,
-                "noDescription", sessionData.pagesWithNoDescription,
-                "fromSuggestedEdits", sessionData.pagesFromSuggestedEdits,
-                "totalPages", sessionData.totalPages,
-                "pageLoadLatency", sessionData.getLeadLatency(),
-                "languages", JsonUtil.encodeToString(app.language().appLanguageCodes),
-                "apiMode", 1
+            "length" to sessionLengthSeconds,
+            "fromSearch" to sessionData.pagesFromSearch,
+            "fromRandom" to sessionData.pagesFromRandom,
+            "fromLanglink" to sessionData.pagesFromLangLink,
+            "fromInternal" to sessionData.pagesFromInternal,
+            "fromExternal" to sessionData.pagesFromExternal,
+            "fromHistory" to sessionData.pagesFromHistory,
+            "fromReadingList" to sessionData.pagesFromReadingList,
+            "fromBack" to sessionData.pagesFromBack,
+            "noDescription" to sessionData.pagesWithNoDescription,
+            "fromSuggestedEdits" to sessionData.pagesFromSuggestedEdits,
+            "totalPages" to sessionData.totalPages,
+            "pageLoadLatency" to sessionData.getLeadLatency(),
+            "languages" to JsonUtil.encodeToString(app.language().appLanguageCodes),
+            "apiMode" to 1
         )
     }
 

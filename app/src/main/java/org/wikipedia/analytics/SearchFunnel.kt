@@ -10,58 +10,45 @@ class SearchFunnel(app: WikipediaApp, private val source: InvokeSource) :
 
     fun searchStart() {
         log(
-                "action", "start",
-                "language", JsonUtil.encodeToString(app.language().appLanguageCodes)
+            "action" to "start",
+            "language" to JsonUtil.encodeToString(app.language().appLanguageCodes)
         )
     }
 
     fun searchCancel(languageCode: String?) {
-        log(
-                "action", "cancel",
-                "language", languageCode
-        )
+        log("action" to "cancel", "language" to languageCode)
     }
 
     fun searchClick(position: Int, languageCode: String?) {
-        log(
-                "action", "click",
-                "position", position,
-                "language", languageCode
-        )
+        log("action" to "click", "position" to position, "language" to languageCode)
     }
 
     fun searchDidYouMean(languageCode: String?) {
-        log(
-                "action", "didyoumean",
-                "language", languageCode
-        )
+        log("action" to "didyoumean", "language" to languageCode)
     }
 
     fun searchResults(fullText: Boolean, numResults: Int, delayMillis: Int, languageCode: String?) {
         log(
-                "action", "results",
-                "type_of_search", if (fullText) "full" else "prefix",
-                "number_of_results", numResults,
-                "time_to_display_results", delayMillis,
-                "language", languageCode
+            "action" to "results",
+            "type_of_search" to if (fullText) "full" else "prefix",
+            "number_of_results" to numResults,
+            "time_to_display_results" to delayMillis,
+            "language" to languageCode
         )
     }
 
     fun searchError(fullText: Boolean, delayMillis: Int, languageCode: String?) {
         log(
-                "action", "error",
-                "type_of_search", if (fullText) "full" else "prefix",
-                "time_to_display_results", delayMillis,
-                "language", languageCode
+            "action" to "error",
+            "type_of_search" to if (fullText) "full" else "prefix",
+            "time_to_display_results" to delayMillis,
+            "language" to languageCode
         )
     }
 
     fun searchLanguageSwitch(previousLanguage: String, currentLanguage: String) {
         if (previousLanguage != currentLanguage) {
-            log(
-                    "action", "langswitch",
-                    "language", "$previousLanguage>$currentLanguage"
-            )
+            log("action" to "langswitch", "language" to "$previousLanguage>$currentLanguage")
         }
     }
 

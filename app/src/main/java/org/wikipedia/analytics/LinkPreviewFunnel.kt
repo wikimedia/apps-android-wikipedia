@@ -20,15 +20,15 @@ class LinkPreviewFunnel(app: WikipediaApp, private val source: Int) : TimedFunne
     }
 
     fun logLinkClick() {
-        log("action", "linkclick")
+        log("action" to "linkclick")
     }
 
     fun logNavigate() {
-        log("action", if (Prefs.isLinkPreviewEnabled) "navigate" else "disabled")
+        log("action" to if (Prefs.isLinkPreviewEnabled) "navigate" else "disabled")
     }
 
     fun logCancel() {
-        log("action", "cancel")
+        log("action" to "cancel")
     }
 
     companion object {

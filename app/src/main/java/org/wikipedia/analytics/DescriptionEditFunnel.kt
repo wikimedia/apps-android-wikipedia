@@ -22,47 +22,38 @@ class DescriptionEditFunnel(app: WikipediaApp, title: PageTitle, private val typ
     }
 
     override fun logStart() {
-        log(
-                "action", "start",
-                "wikidataDescriptionEdit", type.toLogString()
-        )
+        log("action" to "start", "wikidataDescriptionEdit" to type.toLogString())
     }
 
     fun logReady() {
-        log(
-                "action", "ready",
-                "wikidataDescriptionEdit", type.toLogString()
-        )
+        log("action" to "ready", "wikidataDescriptionEdit" to type.toLogString())
     }
 
     override fun logSaveAttempt() {
-        log(
-                "action", "saveAttempt",
-                "wikidataDescriptionEdit", type.toLogString()
-        )
+        log("action" to "saveAttempt", "wikidataDescriptionEdit" to type.toLogString())
     }
 
     override fun logSaved(revID: Long) {
         log(
-                "action", "saved",
-                "revID", revID,
-                "wikidataDescriptionEdit", type.toLogString()
+            "action" to "saved",
+            "revID" to revID,
+            "wikidataDescriptionEdit" to type.toLogString()
         )
     }
 
     override fun logAbuseFilterWarning(code: String?) {
         log(
-                "action", "abuseFilterWarning",
-                "abuseFilterName", code,
-                "wikidataDescriptionEdit", type.toLogString()
+            "action" to "abuseFilterWarning",
+            "abuseFilterName" to code,
+            "wikidataDescriptionEdit" to type.toLogString()
         )
     }
 
     override fun logError(code: String?) {
         log(
-                "action", "error",
-                "errorText", code,
-                "wikidataDescriptionEdit", type.toLogString()
+            "action" to "error",
+            "errorText" to code,
+            "wikidataDescriptionEdit" to type.toLogString()
         )
     }
 }

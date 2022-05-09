@@ -24,9 +24,7 @@ class ABTestFunnel internal constructor(private val abTestName: String, private 
 
     override fun preprocessSessionToken(eventData: JSONObject) {}
     fun logGroupEvent(groupEventId: String) {
-        log(
-                "test_group", groupEventId
-        )
+        log("test_group" to groupEventId)
     }
 
     companion object {

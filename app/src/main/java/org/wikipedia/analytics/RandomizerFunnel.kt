@@ -33,11 +33,11 @@ class RandomizerFunnel(app: WikipediaApp, wiki: WikiSite?, private val source: I
 
     fun done() {
         log(
-                "source", source.ordinal,
-                "fingerSwipesForward", numSwipesForward,
-                "fingerSwipesBack", numSwipesBack,
-                "diceClicks", numClicksForward,
-                "backClicks", numClicksBack
+            "source" to source.ordinal,
+            "fingerSwipesForward" to numSwipesForward,
+            "fingerSwipesBack" to numSwipesBack,
+            "diceClicks" to numClicksForward,
+            "backClicks" to numClicksBack
         )
     }
 

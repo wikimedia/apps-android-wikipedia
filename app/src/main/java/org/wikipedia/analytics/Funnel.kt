@@ -42,16 +42,15 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
         preprocessData(eventData, DEFAULT_SESSION_TOKEN_KEY, sessionToken)
     }
 
-    protected fun log(vararg params: Any?) {
+    protected fun log(vararg params: Pair<String, Any?>) {
         log(wiki, *params)
     }
 
     /**
      * Logs an event.
      *
-     * @param params        Actual data for the event. Considered to be an array
-     * of alternating key and value items (for easier
-     * use in subclass constructors).
+     * @param params Actual data for the event. Considered to be an array of key and value pairs
+     * (for easier use in subclass constructors).
      *
      * For example, what would be expressed in a more sane
      * language as:
@@ -64,27 +63,25 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
      * would be expressed here as
      *
      * .log(
-     * "page", "List of mass murderers",
-     * "section", "2014"
+     * "page" to "List of mass murderers",
+     * "section" to "2014"
      * );
      *
      * This format should be only used in subclass methods directly.
      * The subclass methods should take more explicit parameters
      * depending on what they are logging.
      */
-    protected fun log(wiki: WikiSite?, vararg params: Any?) {
+    protected fun log(wiki: WikiSite?, vararg params: Pair<String, Any?>) {
         if (ReleaseUtil.isDevRelease || isUserInSamplingGroup(app.appInstallID, getSampleRate())) {
             val eventData = JSONObject()
-            var i = 0
-            while (i < params.size) {
-                preprocessData(eventData, params[i].toString(), params[i + 1])
-                i += 2
+            for ((key, value) in params) {
+                preprocessData(eventData, key, value)
             }
             val event = EventLoggingEvent(
-                    schemaName,
-                    revision,
-                    wiki?.dbName() ?: app.wikiSite.dbName(),
-                    preprocessData(eventData)
+                schemaName,
+                revision,
+                wiki?.dbName() ?: app.wikiSite.dbName(),
+                preprocessData(eventData)
             )
             EventLoggingService.instance.log(event.data)
         }

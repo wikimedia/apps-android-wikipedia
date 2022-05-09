@@ -89,10 +89,10 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
 
     fun log() {
         log(
-                "edit_tasks", JsonUtil.encodeToString(statsCollection),
-                "help_opened", helpOpenedCount,
-                "scorecard_opened", contributionsOpenedCount,
-                "source", invokeSource.value
+            "edit_tasks" to JsonUtil.encodeToString(statsCollection),
+            "help_opened" to helpOpenedCount,
+            "scorecard_opened" to contributionsOpenedCount,
+            "source" to invokeSource.value
         )
     }
 

@@ -8,7 +8,7 @@ class WiktionaryDialogFunnel(app: WikipediaApp, private val text: String) :
         TimedFunnel(app, SCHEMA_NAME, REV_ID, if (ReleaseUtil.isProdRelease) SAMPLE_LOG_100 else SAMPLE_LOG_ALL) {
 
     fun logClose() {
-        log("text", text)
+        log("text" to text)
     }
 
     override fun preprocessSessionToken(eventData: JSONObject) {}

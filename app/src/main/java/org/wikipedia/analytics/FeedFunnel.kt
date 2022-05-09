@@ -11,18 +11,14 @@ class FeedFunnel(app: WikipediaApp) : TimedFunnel(app, SCHEMA_NAME, REVISION, SA
         if (!entered) {
             entered = true
             resetDuration()
-            log(
-                    "action", "enter"
-            )
+            log("action" to "enter")
         }
     }
 
     fun exit() {
         if (entered) {
             entered = false
-            log(
-                    "action", "exit"
-            )
+            log("action" to "exit")
         }
     }
 
@@ -30,44 +26,26 @@ class FeedFunnel(app: WikipediaApp) : TimedFunnel(app, SCHEMA_NAME, REVISION, SA
         if (EXCLUDED_CARDS.contains(cardType)) {
             return
         }
-        log(
-                "action", "cardShown",
-                "cardType", cardType.code(),
-                "language", languageCode
-        )
+        log("action" to "cardShown", "cardType" to cardType.code(), "language" to languageCode)
     }
 
     fun cardClicked(cardType: CardType, languageCode: String?) {
         if (EXCLUDED_CARDS.contains(cardType)) {
             return
         }
-        log(
-                "action", "cardClicked",
-                "cardType", cardType.code(),
-                "language", languageCode
-        )
+        log("action" to "cardClicked", "cardType" to cardType.code(), "language" to languageCode)
     }
 
     fun requestMore(age: Int) {
-        log(
-                "action", "more",
-                "age", age
-        )
+        log("action" to "more", "age" to age)
     }
 
     fun refresh(age: Int) {
-        log(
-                "action", "refresh",
-                "age", age
-        )
+        log("action" to "refresh", "age" to age)
     }
 
     fun dismissCard(cardType: CardType, position: Int) {
-        log(
-                "action", "dismiss",
-                "cardType", cardType.code(),
-                "position", position
-        )
+        log("action" to "dismiss", "cardType" to cardType.code(), "position" to position)
     }
 
     companion object {

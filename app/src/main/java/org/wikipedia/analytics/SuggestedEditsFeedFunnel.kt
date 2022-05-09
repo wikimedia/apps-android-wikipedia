@@ -9,15 +9,15 @@ class SuggestedEditsFeedFunnel(private val type: DescriptionEditActivity.Action,
         Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REVISION, SAMPLE_LOG_ALL) {
 
     fun start() {
-        log("action", "start")
+        log("action" to "start")
     }
 
     fun stop() {
-        log("action", "stop")
+        log("action" to "stop")
     }
 
     fun editSuccess() {
-        log("action", "editSuccess")
+        log("action" to "editSuccess")
     }
 
     override fun preprocessSessionToken(eventData: JSONObject) {}

@@ -8,18 +8,18 @@ class AppLanguageSearchingFunnel(private val settingsSessionToken: String) :
 
     fun logLanguageAdded(languageAdded: Boolean, languageCode: String?, searchString: String?) {
         log(
-                "language_settings_token", settingsSessionToken,
-                "added", languageAdded,
-                "language", languageCode,
-                "search_string", searchString
+            "language_settings_token" to settingsSessionToken,
+            "added" to languageAdded,
+            "language" to languageCode,
+            "search_string" to searchString
         )
     }
 
     fun logNoLanguageAdded(languageAdded: Boolean, searchString: String?) {
         log(
-                "language_settings_token", settingsSessionToken,
-                "added", languageAdded,
-                "search_string", searchString
+            "language_settings_token" to settingsSessionToken,
+            "added" to languageAdded,
+            "search_string" to searchString
         )
     }
 

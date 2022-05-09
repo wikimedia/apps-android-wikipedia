@@ -10,95 +10,59 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
         Funnel(app, SCHEMA_NAME, REV_ID, title.wikiSite) {
 
     open fun logStart() {
-        log(
-                "action", "start"
-        )
+        log("action" to "start")
     }
 
     fun logPreview() {
-        log(
-                "action", "preview"
-        )
+        log("action" to "preview")
     }
 
     fun logSaved(revID: Long, source: String?) {
-        log(
-                "action", "saved",
-                "revID", revID,
-                "source", source
-        )
+        log("action" to "saved", "revID" to revID, "source" to source)
     }
 
     open fun logSaved(revID: Long) {
-        log(
-                "action", "saved",
-                "revID", revID
-        )
+        log("action" to "saved", "revID" to revID)
     }
 
     fun logLoginAttempt() {
-        log(
-                "action", "loginAttempt"
-        )
+        log("action" to "loginAttempt")
     }
 
     fun logLoginSuccess() {
-        log(
-                "action", "loginSuccess"
-        )
+        log("action" to "loginSuccess")
     }
 
     fun logLoginFailure() {
-        log(
-                "action", "loginFailure"
-        )
+        log("action" to "loginFailure")
     }
 
     fun logCaptchaShown() {
-        log(
-                "action", "captchaShown"
-        )
+        log("action" to "captchaShown")
     }
 
     fun logCaptchaFailure() {
-        log(
-                "action", "captchaFailure"
-        )
+        log("action" to "captchaFailure")
     }
 
     open fun logAbuseFilterWarning(code: String?) {
-        log(
-                "action", "abuseFilterWarning",
-                "abuseFilterName", code
-        )
+        log("action" to "abuseFilterWarning", "abuseFilterName" to code)
     }
 
     fun logAbuseFilterWarningIgnore(code: String?) {
-        log(
-                "action", "abuseFilterWarningIgnore",
-                "abuseFilterName", code
-        )
+        log("action" to "abuseFilterWarningIgnore", "abuseFilterName" to code)
     }
 
     fun logAbuseFilterWarningBack(code: String?) {
-        log(
-                "action", "abuseFilterWarningBack",
-                "abuseFilterName", code
-        )
+        log("action" to "abuseFilterWarningBack", "abuseFilterName" to code)
     }
 
     fun logAbuseFilterError(code: String?) {
-        log(
-                "action", "abuseFilterError",
-                "abuseFilterName", code
-        )
+        log("action" to "abuseFilterError", "abuseFilterName" to code)
     }
 
     open fun logError(code: String?) {
-        log(
-                "action", "error",
-                "errorText", code
-        )
+        log("action" to "error", "errorText" to code)
     }
 
     fun logEditSummaryTap(summaryTagStringID: Int) {
@@ -109,16 +73,11 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
             R.string.edit_summary_tag_other -> "other"
             else -> throw RuntimeException("Need to add new summary tags to EditFunnel")
         }
-        log(
-                "action", "editSummaryTap",
-                "editSummaryTapped", summaryTag
-        )
+        log("action" to "editSummaryTap", "editSummaryTapped" to summaryTag)
     }
 
     open fun logSaveAttempt() {
-        log(
-                "action", "saveAttempt"
-        )
+        log("action" to "saveAttempt")
     }
 
     override fun preprocessData(eventData: JSONObject): JSONObject {

@@ -24,11 +24,11 @@ class FindInPageFunnel(app: WikipediaApp, wiki: WikiSite?, private val pageId: I
 
     fun logDone() {
         log(
-                "pageID", pageId,
-                "numFindNext", numFindNext,
-                "numFindPrev", numFindPrev,
-                "findText", findText,
-                "pageHeight", pageHeight
+            "pageID" to pageId,
+            "numFindNext" to numFindNext,
+            "numFindPrev" to numFindPrev,
+            "findText" to findText,
+            "pageHeight" to pageHeight
         )
     }
 

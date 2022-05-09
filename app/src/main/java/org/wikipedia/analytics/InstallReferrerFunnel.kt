@@ -8,10 +8,10 @@ class InstallReferrerFunnel internal constructor(app: WikipediaApp) : Funnel(app
     fun logInstall(referrerUrl: String?, utfMedium: String?,
                    utfCampaign: String?, utfSource: String?) {
         log(
-                PARAM_REFERRER_URL, referrerUrl,
-                PARAM_UTM_MEDIUM, utfMedium,
-                PARAM_UTM_CAMPAIGN, utfCampaign,
-                PARAM_UTM_SOURCE, utfSource
+            PARAM_REFERRER_URL to referrerUrl,
+            PARAM_UTM_MEDIUM to utfMedium,
+            PARAM_UTM_CAMPAIGN to utfCampaign,
+            PARAM_UTM_SOURCE to utfSource
         )
     }
 

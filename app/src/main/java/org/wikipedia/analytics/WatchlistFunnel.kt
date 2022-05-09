@@ -6,7 +6,7 @@ import org.wikipedia.json.JsonUtil
 class WatchlistFunnel : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
 
     private fun logAction(action: String?) {
-        log("action", action)
+        log("action" to action)
     }
 
     fun logShowTooltipMore() {
@@ -46,10 +46,7 @@ class WatchlistFunnel : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, 
     }
 
     fun logChangeLanguage(languagesList: List<String>) {
-        log(
-                "action", "change_language",
-                "languages", JsonUtil.encodeToString(languagesList)
-        )
+        log("action" to "change_language", "languages" to JsonUtil.encodeToString(languagesList))
     }
 
     companion object {

@@ -44,11 +44,11 @@ class ToCInteractionFunnel(app: WikipediaApp, wiki: WikiSite?, private val pageI
             return
         }
         log(
-                "num_peeks", 0,
-                "num_opens", numOpens,
-                "num_section_clicks", numSectionClicks,
-                "total_peek_sec", 0,
-                "total_open_sec", totalOpenedSec
+            "num_peeks" to 0,
+            "num_opens" to numOpens,
+            "num_section_clicks" to numSectionClicks,
+            "total_peek_sec" to 0,
+            "total_open_sec" to totalOpenedSec
         )
     }
 

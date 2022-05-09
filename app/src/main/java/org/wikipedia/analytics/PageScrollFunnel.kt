@@ -44,11 +44,11 @@ class PageScrollFunnel(app: WikipediaApp, private val pageId: Int) :
 
     fun logDone() {
         log(
-                "pageID", pageId,
-                "pageHeight", (pageHeight / DimenUtil.densityScalar).toInt(),
-                "scrollFluxDown", (scrollFluxDown / DimenUtil.densityScalar).toInt(),
-                "scrollFluxUp", (scrollFluxUp / DimenUtil.densityScalar).toInt(),
-                "maxPercentViewed", maxPercentViewed
+            "pageID" to pageId,
+            "pageHeight" to (pageHeight / DimenUtil.densityScalar).toInt(),
+            "scrollFluxDown" to (scrollFluxDown / DimenUtil.densityScalar).toInt(),
+            "scrollFluxUp" to (scrollFluxUp / DimenUtil.densityScalar).toInt(),
+            "maxPercentViewed" to maxPercentViewed
         )
     }
 

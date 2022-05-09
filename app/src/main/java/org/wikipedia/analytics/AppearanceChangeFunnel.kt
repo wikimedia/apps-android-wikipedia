@@ -12,32 +12,33 @@ class AppearanceChangeFunnel(app: WikipediaApp, wiki: WikiSite, private val sour
 
     fun logFontSizeChange(currentFontSize: Float, newFontSize: Float) {
         log(
-                "action", "fontSizeChange",
-                "current_value", currentFontSize.toString(),
-                "new_value", newFontSize.toString())
+            "action" to "fontSizeChange",
+            "current_value" to currentFontSize.toString(),
+            "new_value" to newFontSize.toString()
+        )
     }
 
     fun logThemeChange(currentTheme: Theme, newTheme: Theme) {
         log(
-                "action", "themeChange",
-                "current_value", currentTheme.funnelName,
-                "new_value", newTheme.funnelName
+            "action" to "themeChange",
+            "current_value" to currentTheme.funnelName,
+            "new_value" to newTheme.funnelName
         )
     }
 
     fun logFontThemeChange(currentFontFamily: String?, newFontFamily: String?) {
         log(
-                "action", "fontThemeChange",
-                "current_value", currentFontFamily,
-                "new_value", newFontFamily
+            "action" to "fontThemeChange",
+            "current_value" to currentFontFamily,
+            "new_value" to newFontFamily
         )
     }
 
     fun logReadingFocusMode(newValue: Boolean) {
         log(
-                "action", "readingFocusMode",
-                "current_value", (!newValue).toString(),
-                "new_value", newValue.toString()
+            "action" to "readingFocusMode",
+            "current_value" to (!newValue).toString(),
+            "new_value" to newValue.toString()
         )
     }
 

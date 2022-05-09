@@ -21,9 +21,9 @@ class OnThisDayFunnel(app: WikipediaApp, wiki: WikiSite?, source: InvokeSource) 
 
     fun done(totalOnThisDayEvents: Int) {
         log(
-                "source", source,
-                "totalEvents", totalOnThisDayEvents,
-                "scrolledEvents", maxScrolledPosition
+            "source" to source,
+            "totalEvents" to totalOnThisDayEvents,
+            "scrolledEvents" to maxScrolledPosition
         )
     }
 

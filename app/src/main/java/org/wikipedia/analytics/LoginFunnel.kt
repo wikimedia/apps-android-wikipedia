@@ -3,30 +3,28 @@ package org.wikipedia.analytics
 import org.wikipedia.WikipediaApp
 
 class LoginFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
-
-    @JvmOverloads
     fun logStart(source: String = "", editSessionToken: String = "") {
-        log("action", "start", "source", source, "edit_session_token", editSessionToken)
+        log("action" to "start", "source" to source, "edit_session_token" to editSessionToken)
     }
 
     fun logCreateAccountAttempt() {
-        log("action", "createAccountAttempt")
+        log("action" to "createAccountAttempt")
     }
 
     fun logCreateAccountFailure() {
-        log("action", "createAccountFailure")
+        log("action" to "createAccountFailure")
     }
 
     fun logCreateAccountSuccess() {
-        log("action", "createAccountSuccess")
+        log("action" to "createAccountSuccess")
     }
 
     fun logError(code: String?) {
-        log("action", "error", "error_text", code)
+        log("action" to "error", "error_text" to code)
     }
 
     fun logSuccess() {
-        log("action", "success")
+        log("action" to "success")
     }
 
     companion object {

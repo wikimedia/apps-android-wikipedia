@@ -9,43 +9,42 @@ import org.wikipedia.settings.Prefs
 class ReadingListsFunnel : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID) {
 
     fun logAddClick(source: InvokeSource) {
-        log("action", "addclick", "addsource", source.ordinal)
+        log("action" to "addclick", "addsource" to source.ordinal)
     }
 
     fun logAddToList(list: ReadingList, listCount: Int,
                      source: InvokeSource) {
         log(
-                "action", if (list.pages.isEmpty()) "addtonew" else "addtoexisting",
-                "addsource", source.ordinal,
-                "itemcount", list.pages.size,
-                "listcount", listCount
+            "action" to if (list.pages.isEmpty()) "addtonew" else "addtoexisting",
+            "addsource" to source.ordinal,
+            "itemcount" to list.pages.size,
+            "listcount" to listCount
         )
     }
 
     fun logMoveClick(source: InvokeSource) {
-        log("action", "moveclick", "addsource", source.ordinal)
+        log("action" to "moveclick", "addsource" to source.ordinal)
     }
 
-    fun logMoveToList(list: ReadingList, listCount: Int,
-                      source: InvokeSource) {
+    fun logMoveToList(list: ReadingList, listCount: Int, source: InvokeSource) {
         log(
-                "action", if (list.pages.isEmpty()) "movetonew" else "movetoexisting",
-                "addsource", source.ordinal,
-                "itemcount", list.pages.size,
-                "listcount", listCount
+            "action" to if (list.pages.isEmpty()) "movetonew" else "movetoexisting",
+            "addsource" to source.ordinal,
+            "itemcount" to list.pages.size,
+            "listcount" to listCount
         )
     }
 
     fun logModifyList(list: ReadingList, listCount: Int) {
-        log("action", "modifylist", "itemcount", list.pages.size, "listcount", listCount)
+        log("action" to "modifylist", "itemcount" to list.pages.size, "listcount" to listCount)
     }
 
     fun logDeleteList(list: ReadingList, listCount: Int) {
-        log("action", "deletelist", "itemcount", list.pages.size, "listcount", listCount)
+        log("action" to "deletelist", "itemcount" to list.pages.size, "listcount" to listCount)
     }
 
     fun logDeleteItem(list: ReadingList, listCount: Int) {
-        log("action", "deleteitem", "itemcount", list.pages.size, "listcount", listCount)
+        log("action" to "deleteitem", "itemcount" to list.pages.size, "listcount" to listCount)
     }
 
     override fun preprocessData(eventData: JSONObject): JSONObject {

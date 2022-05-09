@@ -25,8 +25,8 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
             }
 
             log(
-                "type_toggles", JsonUtil.encodeToString(toggleMap),
-                "background_fetch", app.resources.getInteger(R.integer.notification_poll_interval_minutes)
+                "type_toggles" to JsonUtil.encodeToString(toggleMap),
+                "background_fetch" to app.resources.getInteger(R.integer.notification_poll_interval_minutes)
             )
         }
     }
@@ -36,15 +36,15 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
         val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
         val fullFiltersList = NotificationFilterActivity.allWikisList() + NotificationFilterActivity.allTypesIdList()
         val toggleMap = fullFiltersList.associateWith { !excludedWikiCodes.contains(it) && !excludedTypeCodes.contains(it) }
-        log("type_toggles", JsonUtil.encodeToString(toggleMap))
+        log("type_toggles" to JsonUtil.encodeToString(toggleMap))
     }
 
     fun logSearchClick() {
-        log("type_toggles", "search_clicked")
+        log("type_toggles" to "search_clicked")
     }
 
     fun logFilterClick() {
-        log("type_toggles", "filter_clicked")
+        log("type_toggles" to "filter_clicked")
     }
 
     companion object {

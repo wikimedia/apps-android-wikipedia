@@ -6,23 +6,15 @@ import org.wikipedia.WikipediaApp
 class CreateAccountFunnel(app: WikipediaApp, private val requestSource: String) : Funnel(app, SCHEMA_NAME, REVISION) {
 
     fun logStart(loginSessionToken: String?) {
-        log(
-                "action", "start",
-                "loginSessionToken", loginSessionToken
-        )
+        log("action" to "start", "loginSessionToken" to loginSessionToken)
     }
 
     fun logError(code: String?) {
-        log(
-                "action", "error",
-                "errorText", code
-        )
+        log("action" to "error", "errorText" to code)
     }
 
     fun logSuccess() {
-        log(
-                "action", "success"
-        )
+        log("action" to "success")
     }
 
     override fun preprocessData(eventData: JSONObject): JSONObject {

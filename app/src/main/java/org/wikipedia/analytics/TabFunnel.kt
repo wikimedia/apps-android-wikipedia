@@ -29,14 +29,9 @@ class TabFunnel : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, SCHEMA_REVISIO
     }
 
     private fun log(action: String, size: Int, index: Int? = null) {
-        val params = mutableListOf<Any>()
-        params.add("action")
-        params.add(action)
-        params.add("tabCount")
-        params.add(size)
+        val params = mutableListOf("action" to action, "tabCount" to size)
         if (index != null) {
-            params.add("tabIndex")
-            params.add(index)
+            params.add("tabIndex" to index)
         }
         log(*params.toTypedArray())
     }
