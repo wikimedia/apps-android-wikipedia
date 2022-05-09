@@ -2,6 +2,9 @@ package org.wikipedia.dataclient
 
 import androidx.collection.lruCache
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import io.reactivex.rxjava3.core.Completable
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.subjects.PublishSubject
 import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Response
@@ -40,19 +43,33 @@ object ServiceFactory {
     })
 
     @JvmStatic
+    @Synchronized
     fun get(wiki: WikiSite): Service {
         return SERVICE_CACHE[wiki]!!
     }
 
+    @Synchronized
+    fun get2(wiki: WikiSite): Observable<Service> {
+        return Observable.fromCallable { SERVICE_CACHE[wiki]!! }
+    }
+
+    @Synchronized
     fun getRest(wiki: WikiSite): RestService {
         return REST_SERVICE_CACHE[wiki]!!
     }
 
+    @Synchronized
+    fun getRest2(wiki: WikiSite): Observable<RestService> {
+        return Observable.fromCallable { REST_SERVICE_CACHE[wiki]!! }
+    }
+
+    @Synchronized
     fun getCoreRest(wiki: WikiSite): CoreRestService {
         return CORE_REST_SERVICE_CACHE[wiki]!!
     }
 
     @JvmStatic
+    @Synchronized
     fun getAnalyticsRest(streamConfig: StreamConfig): EventService {
         return ANALYTICS_REST_SERVICE_CACHE[streamConfig.destinationEventService]!!
     }

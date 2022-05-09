@@ -67,6 +67,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                 return
             }
 
+            /*
             csrfDisposables.clear()
 
             for (lang in WikipediaApp.getInstance().language().appLanguageCodes) {
@@ -82,6 +83,8 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                         L.e(it)
                     }))
             }
+
+             */
         }
 
         private fun subscribeWithCsrf(csrfToken: String) {

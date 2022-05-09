@@ -6,6 +6,7 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Handler;
+import android.os.StrictMode;
 import android.text.TextUtils;
 import android.view.Window;
 import android.webkit.WebView;
@@ -131,6 +132,22 @@ public class WikipediaApp extends Application {
 
         // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+
+        if (BuildConfig.DEBUG) {
+            StrictMode.setThreadPolicy(
+                    new StrictMode.ThreadPolicy.Builder()
+                            .detectAll()
+                            .penaltyLog().build());
+            StrictMode.setVmPolicy(
+                    new StrictMode.VmPolicy.Builder()
+                            .detectActivityLeaks()
+                            .detectContentUriWithoutPermission()
+                            .detectLeakedClosableObjects()
+                            .detectLeakedRegistrationObjects()
+                            .detectLeakedSqlLiteObjects()
+                            .detectCredentialProtectedWhileLocked()
+                            .penaltyLog().build());
+        }
 
         // This handler will catch exceptions thrown from Observables after they are disposed,
         // or from Observables that are (deliberately or not) missing an onError handler.
