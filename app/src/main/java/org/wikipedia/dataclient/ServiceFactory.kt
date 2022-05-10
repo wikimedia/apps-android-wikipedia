@@ -46,9 +46,8 @@ object ServiceFactory {
         return SERVICE_CACHE[wiki]!!
     }
 
-    @Synchronized
     fun getObservable(wiki: WikiSite): Observable<Service> {
-        return Observable.fromCallable { SERVICE_CACHE[wiki]!! }
+        return Observable.fromCallable { get(wiki) }
     }
 
     @Synchronized
@@ -56,9 +55,8 @@ object ServiceFactory {
         return REST_SERVICE_CACHE[wiki]!!
     }
 
-    @Synchronized
     fun getRestObservable(wiki: WikiSite): Observable<RestService> {
-        return Observable.fromCallable { REST_SERVICE_CACHE[wiki]!! }
+        return Observable.fromCallable { getRest(wiki) }
     }
 
     @Synchronized
