@@ -34,8 +34,7 @@ class RemoteConfigRefreshTask : RecurringTask() {
     }
 
     companion object {
-        // Switch over to production when it is available
-        private const val REMOTE_CONFIG_URL = "https://meta.wikimedia.org/static/current/extensions/MobileApp/config/android.json"
+        private const val REMOTE_CONFIG_URL = "https://meta.wikimedia.org/w/extensions/MobileApp/config/android.json"
         private val RUN_INTERVAL_MILLI = TimeUnit.DAYS.toMillis(1)
     }
 }
