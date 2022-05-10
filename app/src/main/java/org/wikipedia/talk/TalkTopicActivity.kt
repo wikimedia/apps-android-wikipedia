@@ -105,7 +105,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.talkRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                binding.talkToolbarSubjectView.isVisible = binding.talkRecyclerView.computeVerticalScrollOffset() > recyclerView.getChildAt(0).height
+                binding.talkToolbarSubjectView.isVisible = binding.talkRecyclerView.computeVerticalScrollOffset() > (recyclerView.getChildAt(0).height / 2)
             }
         })
 
