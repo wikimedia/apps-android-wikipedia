@@ -2,6 +2,7 @@ package org.wikipedia.talk
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
@@ -9,6 +10,7 @@ import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -68,7 +70,9 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         textWatcher = binding.replySubjectText.doOnTextChanged { _, _, _, _ ->
             binding.replySubjectLayout.error = null
             binding.replyInputView.textInputLayout.error = null
+            setSaveButtonEnabled(!binding.replyInputView.editText.text.isNullOrBlank())
         }
+        binding.replyInputView.editText.addTextChangedListener(textWatcher)
 
         binding.replySaveButton.setOnClickListener {
             onSaveClicked()
@@ -107,6 +111,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     private fun onInitialLoad() {
         updateEditLicenseText()
+        setSaveButtonEnabled(false)
 
         if (viewModel.topic != null) {
             binding.replyInputView.userNameHints = setOf(viewModel.topic!!.author)
@@ -174,6 +179,11 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
     }
 
+    private fun setSaveButtonEnabled(enabled: Boolean) {
+        binding.replySaveButton.isEnabled = enabled
+        binding.replySaveButton.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(this, if (enabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
+    }
+
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
         val body = binding.replyInputView.editText.getParsedText(viewModel.pageTitle.wikiSite).trim()
@@ -196,7 +206,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
 
         binding.progressBar.visibility = View.VISIBLE
-        binding.replySaveButton.isEnabled = false
+        setSaveButtonEnabled(false)
 
         viewModel.postReply(subject, body)
     }
@@ -205,7 +215,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         AnonymousNotificationHelper.onEditSubmitted()
 
         binding.progressBar.visibility = View.GONE
-        binding.replySaveButton.isEnabled = true
+        setSaveButtonEnabled(true)
         editFunnel.logSaved(newRevision)
         EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle)
 
@@ -225,7 +235,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         editFunnel.logError(t.message)
         EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle)
         binding.progressBar.visibility = View.GONE
-        binding.replySaveButton.isEnabled = true
+        setSaveButtonEnabled(true)
         FeedbackUtil.showError(this, t)
     }
 
