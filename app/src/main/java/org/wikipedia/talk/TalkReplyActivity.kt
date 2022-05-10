@@ -9,8 +9,8 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.core.util.lruCache
 import androidx.core.view.isVisible
-import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -41,6 +41,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private val viewModel: TalkReplyViewModel by viewModels { TalkReplyViewModel.Factory(intent.extras!!) }
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var userMentionScrolled = false
+    private var savedSuccess = false
 
     private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
         linkHandler.onUrlClick(url, title, linkText, x, y)
@@ -94,6 +95,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         viewModel.postReplyData.observe(this) {
             if (it is Resource.Success) {
+                savedSuccess = true
                 onSaveSuccess(it.data)
             } else if (it is Resource.Error) {
                 onSaveError(it.throwable)
@@ -104,6 +106,9 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     public override fun onDestroy() {
+        if (!savedSuccess && !binding.replyInputView.editText.text.isNullOrBlank() && viewModel.topic != null) {
+            draftReplies.put(viewModel.topic!!.id, binding.replyInputView.editText.text!!)
+        }
         binding.replySubjectText.removeTextChangedListener(textWatcher)
         binding.replyInputView.editText.removeTextChangedListener(textWatcher)
         super.onDestroy()
@@ -117,10 +122,16 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             binding.replyInputView.userNameHints = setOf(viewModel.topic!!.author)
         }
 
+        val savedReplyText = if (viewModel.topic == null) null else draftReplies.get(viewModel.topic?.id)
+        if (!savedReplyText.isNullOrEmpty()) {
+            binding.replyInputView.editText.setText(savedReplyText)
+            binding.replyInputView.editText.setSelection(binding.replyInputView.editText.text.toString().length)
+        }
+
         binding.progressBar.isVisible = false
         binding.replySubjectText.setText(intent.getCharSequenceExtra(EXTRA_SUBJECT))
-        binding.replyInputView.editText.setText(intent.getCharSequenceExtra(EXTRA_BODY))
-        if (intent.hasExtra(EXTRA_BODY)) {
+        if (intent.hasExtra(EXTRA_BODY) && binding.replyInputView.editText.text.isNullOrEmpty()) {
+            binding.replyInputView.editText.setText(intent.getCharSequenceExtra(EXTRA_BODY))
             binding.replyInputView.editText.setSelection(binding.replyInputView.editText.text.toString().length)
         }
         editFunnel.logStart()
@@ -227,6 +238,10 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                 it.putExtra(EXTRA_TOPIC_ID, viewModel.topic!!.id)
             }
             setResult(RESULT_EDIT_SUCCESS, it)
+
+            if (viewModel.topic != null) {
+                draftReplies.remove(viewModel.topic?.id)
+            }
             finish()
         }
     }
@@ -302,6 +317,9 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         const val RESULT_EDIT_SUCCESS = 1
         const val RESULT_BACK_FROM_TOPIC = 2
         const val RESULT_NEW_REVISION_ID = "newRevisionId"
+
+        // TODO: persist in db. But for now, it's fine to store these for the lifetime of the app.
+        val draftReplies = lruCache<String, CharSequence>(10)
 
         fun newIntent(context: Context,
                       pageTitle: PageTitle,
