@@ -527,7 +527,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         }
 
         override fun getSearchHintString(): String {
-            return getString(R.string.talk_search_hint)
+            return getString(R.string.talk_search_topics_hint)
         }
 
         override fun getParentContext(): Context {
