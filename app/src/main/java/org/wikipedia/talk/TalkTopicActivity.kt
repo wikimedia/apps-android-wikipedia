@@ -383,16 +383,19 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     companion object {
         const val EXTRA_PAGE_TITLE = "pageTitle"
-        const val EXTRA_TOPIC = "topicName"
+        const val EXTRA_TOPIC_NAME = "topicName"
+        const val EXTRA_REPLY_ID = "replyId"
         const val RESULT_NEW_REVISION_ID = "newRevisionId"
 
         fun newIntent(context: Context,
                       pageTitle: PageTitle,
-                      topicId: String,
+                      topicName: String,
+                      replyId: String?,
                       invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicActivity::class.java)
                     .putExtra(EXTRA_PAGE_TITLE, pageTitle)
-                    .putExtra(EXTRA_TOPIC, topicId)
+                    .putExtra(EXTRA_TOPIC_NAME, topicName)
+                    .putExtra(EXTRA_REPLY_ID, replyId)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }

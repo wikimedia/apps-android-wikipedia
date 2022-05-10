@@ -22,7 +22,8 @@ import org.wikipedia.util.SingleLiveData
 class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
 
     val pageTitle = bundle.getParcelable<PageTitle>(TalkTopicActivity.EXTRA_PAGE_TITLE)!!
-    val topicId = bundle.getString(TalkTopicActivity.EXTRA_TOPIC)!!
+    val topicName = bundle.getString(TalkTopicActivity.EXTRA_TOPIC_NAME)!!
+    var scrollTargetId = bundle.getString(TalkTopicActivity.EXTRA_REPLY_ID)
 
     var topic: ThreadItem? = null
     val sectionId get() = threadItems.indexOf(topic)
@@ -30,7 +31,6 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     val flattenedThreadItems = mutableListOf<ThreadItem>()
     var subscribed = false
         private set
-    var scrollTargetId: String? = null
     val threadItemsData = MutableLiveData<Resource<List<ThreadItem>>>()
     val subscribeData = SingleLiveData<Resource<Boolean>>()
     val undoResponseData = SingleLiveData<Resource<Boolean>>()
@@ -57,12 +57,12 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
             threadItemsData.postValue(Resource.Error(throwable))
         }) {
             val discussionToolsInfoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText) }
-            val subscribeResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(topicId) }
+            val subscribeResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(topicName) }
             val oldItemsFlattened = topic?.allReplies.orEmpty()
 
-            topic = discussionToolsInfoResponse.await().pageInfo?.threads.orEmpty().find { it.name == topicId }
+            topic = discussionToolsInfoResponse.await().pageInfo?.threads.orEmpty().find { it.name == topicName }
             val res = subscribeResponse.await()
-            subscribed = res.subscriptions[topicId] == 1
+            subscribed = res.subscriptions[topicName] == 1
 
             threadSha(topic)?.let {
                 AppDatabase.instance.talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(it))
@@ -70,7 +70,6 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
 
             val newItemsFlattened = topic?.allReplies.orEmpty().filter { it.id !in oldItemsFlattened.map { item -> item.id } }
 
-            scrollTargetId = null
             if (oldItemsFlattened.isNotEmpty() && newItemsFlattened.isNotEmpty()) {
                 if (AccountUtil.isLoggedIn) {
                     scrollTargetId = newItemsFlattened.findLast { it.author == AccountUtil.userName }?.id
@@ -101,7 +100,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
             subscribeData.postValue(Resource.Error(throwable))
         }) {
             val token = ServiceFactory.get(pageTitle.wikiSite).getCsrfToken().query?.csrfToken()!!
-            val response = ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, topicId, token, if (!subscribed) true else null)
+            val response = ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, topicName, token, if (!subscribed) true else null)
             subscribed = response.status!!.subscribe
             subscribeData.postValue(Resource.Success(subscribed))
         }

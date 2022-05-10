@@ -315,15 +315,24 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
         if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)) {
             intent.putExtra(EXTRA_GO_TO_TOPIC, false)
+            var threadTopic: ThreadItem? = null
             var threadItem: ThreadItem? = null
             if (!pageTitle.fragment.isNullOrEmpty()) {
-                val targetTopic = UriUtil.parseTalkTopicFromFragment(pageTitle.fragment.orEmpty())
-                threadItem = threadItems.find {
-                    StringUtil.addUnderscores(targetTopic) == StringUtil.addUnderscores(it.html)
+                threadItems.forEach { topic ->
+                    if (threadTopic == null) {
+                        if (topic.name == pageTitle.fragment) {
+                            threadTopic = topic
+                        } else {
+                            threadItem = topic.allReplies.find { it.id == pageTitle.fragment }
+                            if (threadItem != null) {
+                                threadTopic = topic
+                            }
+                        }
+                    }
                 }
             }
-            if (threadItem != null) {
-                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, threadItem.name, invokeSource))
+            if (threadTopic != null) {
+                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, threadTopic!!.name, threadItem?.id, invokeSource))
                 overridePendingTransition(0, 0)
                 return
             }
