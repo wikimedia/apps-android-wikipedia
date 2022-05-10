@@ -21,7 +21,7 @@ class ThreadItem(
         val placeholderHeading: Boolean = false,
         val replies: List<ThreadItem> = emptyList()
 ) : Parcelable {
-    @IgnoredOnParcel @Transient var isExpanded = false
+    @IgnoredOnParcel @Transient var isExpanded = true
     @IgnoredOnParcel @Transient var isLastSibling = false
     @IgnoredOnParcel @Transient var seen: Boolean = false
     @IgnoredOnParcel @Transient var subscribed: Boolean = false

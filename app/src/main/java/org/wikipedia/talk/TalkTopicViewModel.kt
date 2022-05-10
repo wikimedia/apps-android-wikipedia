@@ -14,6 +14,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
@@ -83,8 +84,8 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
             threadItems.addAll(topic?.replies.orEmpty())
 
             if (scrollTargetId.isNullOrEmpty()) {
-                // By default expand the first level of the thread
-                threadItems.forEach { it.isExpanded = true }
+                // By default, expand or collapse based on user preference
+                expandOrCollapseAll()
             } else {
                 // If we have a scroll target, make sure we're expanded to view the target
                 topic?.allReplies?.forEach { it.isExpanded = true }
@@ -114,9 +115,10 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         return getDiffResult(prevList, flattenedThreadItems)
     }
 
-    fun expandOrCollapseAll(expand: Boolean): DiffUtil.DiffResult {
+    fun expandOrCollapseAll(): DiffUtil.DiffResult {
         val prevList = mutableListOf<ThreadItem>()
         prevList.addAll(flattenedThreadItems)
+        val expand = Prefs.talkTopicExpandOrCollapseByDefault
         topic?.allReplies?.forEach { if (it.level > 1) it.isExpanded = expand }
         updateFlattenedThreadItems()
         return getDiffResult(prevList, flattenedThreadItems)

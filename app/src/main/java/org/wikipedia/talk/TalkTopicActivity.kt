@@ -30,6 +30,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
+import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.*
 
@@ -173,19 +174,22 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 true
             }
             R.id.menu_talk_topic_expand -> {
-                viewModel.expandOrCollapseAll(true).dispatchUpdatesTo(threadAdapter)
-                threadAdapter.notifyItemRangeChanged(0, threadAdapter.itemCount)
-                invalidateOptionsMenu()
+                expandOrCollapseAll(true)
                 true
             }
             R.id.menu_talk_topic_collapse -> {
-                viewModel.expandOrCollapseAll(false).dispatchUpdatesTo(threadAdapter)
-                threadAdapter.notifyItemRangeChanged(0, threadAdapter.itemCount)
-                invalidateOptionsMenu()
+                expandOrCollapseAll(false)
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun expandOrCollapseAll(expand: Boolean) {
+        Prefs.talkTopicExpandOrCollapseByDefault = expand
+        viewModel.expandOrCollapseAll().dispatchUpdatesTo(threadAdapter)
+        threadAdapter.notifyItemRangeChanged(0, threadAdapter.itemCount)
+        invalidateOptionsMenu()
     }
 
     private fun onInitialLoad() {
