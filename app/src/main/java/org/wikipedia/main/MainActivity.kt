@@ -59,7 +59,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun onTabChanged(tab: NavTab) {
         if (tab == NavTab.EXPLORE) {
-            binding.mainToolbarWordmark.visibility = View.VISIBLE
+            // binding.mainToolbarWordmark.visibility = View.VISIBLE
+            binding.mainToolbar.visibility = View.GONE
             binding.mainToolbar.title = ""
             controlNavTabInFragment = false
         } else {
@@ -67,7 +68,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
                 FeedbackUtil.showTooltip(this, fragment.binding.mainNavTabLayout.findViewById(NavTab.SEARCH.id()), getString(R.string.search_tab_tooltip), aboveOrBelow = true, autoDismiss = false)
                 Prefs.showSearchTabTooltip = false
             }
-            binding.mainToolbarWordmark.visibility = View.GONE
+            // binding.mainToolbarWordmark.visibility = View.GONE
+            binding.mainToolbar.visibility = View.VISIBLE
             binding.mainToolbar.setTitle(tab.text())
             controlNavTabInFragment = true
         }

@@ -18,11 +18,14 @@ import org.wikipedia.feed.searchbar.SearchCardView
 import org.wikipedia.feed.suggestededits.SuggestedEditsCardView
 import org.wikipedia.feed.topread.TopReadCardView
 import org.wikipedia.feed.view.FeedCardView
+import org.wikipedia.feed.wikiheader.WikiHeaderCardView
 import org.wikipedia.model.EnumCode
 import org.wikipedia.model.EnumCodeMap
 
-enum class CardType constructor(private val code: Int,
-                                private val contentType: FeedContentType? = null) : EnumCode {
+enum class CardType constructor(
+    private val code: Int,
+    private val contentType: FeedContentType? = null
+) : EnumCode {
     SEARCH_BAR(0) {
         override fun newView(ctx: Context): FeedCardView<*> {
             return SearchCardView(ctx)
@@ -103,6 +106,12 @@ enum class CardType constructor(private val code: Int,
             return AccessibilityCardView(ctx)
         }
     },
+    WIKI_HEADER(23) {
+        override fun newView(ctx: Context): FeedCardView<*> {
+            return WikiHeaderCardView(ctx)
+        }
+    },
+
     // TODO: refactor this item when the new Modern Event Platform is finished.
     ARTICLE_ANNOUNCEMENT(96) {
         override fun newView(ctx: Context): FeedCardView<*> {

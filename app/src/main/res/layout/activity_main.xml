@@ -17,15 +17,6 @@
         android:background="?attr/paper_color"
         android:elevation="4dp"
         app:titleMarginStart="28dp">
-
-        <ImageView
-            android:id="@+id/main_toolbar_wordmark"
-            android:layout_width="128dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/feed_header_wordmark"
-            app:tint="?attr/material_theme_primary_color" />
     </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout

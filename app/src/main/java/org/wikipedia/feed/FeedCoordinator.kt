@@ -12,6 +12,8 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.offline.OfflineCardClient
 import org.wikipedia.feed.onboarding.OnboardingClient
 import org.wikipedia.feed.searchbar.SearchClient
+import org.wikipedia.feed.wikiheader.WikiHeaderCard
+import org.wikipedia.feed.wikiheader.WikiHeaderClient
 
 class FeedCoordinator internal constructor(context: Context) : FeedCoordinatorBase(context) {
 
@@ -28,6 +30,7 @@ class FeedCoordinator internal constructor(context: Context) : FeedCoordinatorBa
 
     override fun buildScript(age: Int) {
         val online = WikipediaApp.getInstance().isOnline
+        conditionallyAddPendingClient(WikiHeaderClient(), age == 0)
         conditionallyAddPendingClient(SearchClient(), age == 0)
         conditionallyAddPendingClient(AnnouncementClient(), age == 0 && online)
         conditionallyAddPendingClient(OnboardingClient(), age == 0)
