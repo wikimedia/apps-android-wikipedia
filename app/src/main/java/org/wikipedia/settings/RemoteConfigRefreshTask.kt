@@ -2,6 +2,7 @@ package org.wikipedia.settings
 
 import okhttp3.Request
 import okhttp3.Response
+import okhttp3.internal.closeQuietly
 import org.json.JSONObject
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.client
@@ -28,7 +29,7 @@ class RemoteConfigRefreshTask : RecurringTask() {
         } catch (e: Exception) {
             L.e(e)
         } finally {
-            response?.close()
+            response?.closeQuietly()
         }
     }
 
