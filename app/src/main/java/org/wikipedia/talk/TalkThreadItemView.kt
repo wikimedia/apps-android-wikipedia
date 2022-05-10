@@ -39,7 +39,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
             callback?.onReplyClick(item)
         }
 
-        binding.showRepliesContainer.setOnClickListener {
+        binding.showRepliesTapTarget.setOnClickListener {
             callback?.onExpandClick(item)
             updateExpandedState()
         }
@@ -72,6 +72,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
             binding.topDivider.isVisible = false
             binding.threadLineTop.isVisible = false
             binding.showRepliesContainer.isVisible = false
+            binding.showRepliesTapTarget.isVisible = false
             binding.threadLineMiddle.isVisible = false
             binding.threadLineBottom.isVisible = false
             return
@@ -90,6 +91,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         binding.topDivider.isVisible = item.level <= 2
         binding.threadLineTop.isVisible = item.level > 2
         binding.showRepliesContainer.isVisible = item.level > 1 && item.replies.isNotEmpty()
+        binding.showRepliesTapTarget.isVisible = binding.showRepliesContainer.isVisible
         binding.threadLineMiddle.isVisible = item.level > 1 && (item.replies.isNotEmpty() || (item.level > 2 && !item.isLastSibling))
         updateExpandedState()
     }
