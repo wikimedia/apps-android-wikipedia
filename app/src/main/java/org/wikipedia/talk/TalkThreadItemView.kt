@@ -54,7 +54,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
             helper.show()
         }
 
-        binding.userNameText.setOnClickListener {
+        binding.userNameTapTarget.setOnClickListener {
             callback?.onUserNameClick(item, it)
         }
     }
@@ -62,6 +62,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
     fun bindItem(item: ThreadItem, movementMethod: MovementMethod, replying: Boolean = false) {
         this.item = item
         binding.userNameText.text = item.author
+        binding.userNameTapTarget.contentDescription = binding.userNameText.text
         binding.timeStampText.isVisible = item.date != null
         item.date?.let { binding.timeStampText.text = DateUtil.getDateAndTimeWithPipe(it) }
         binding.bodyText.text = StringUtil.fromHtml(item.html).trim()
@@ -114,6 +115,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
     private fun updateExpandedState() {
         binding.showRepliesArrow.setImageResource(if (item.isExpanded) R.drawable.ic_arrow_drop_down_black_24dp else R.drawable.ic_arrow_forward_24)
         binding.showRepliesText.text = context.resources.getQuantityString(if (item.isExpanded) R.plurals.talk_hide_replies_count else R.plurals.talk_show_replies_count, item.replies.size, item.replies.size)
+        binding.showRepliesTapTarget.contentDescription = binding.showRepliesText.text
         binding.threadLineBottom.isVisible = item.isExpanded || (item.level > 2 && !item.isLastSibling)
     }
 

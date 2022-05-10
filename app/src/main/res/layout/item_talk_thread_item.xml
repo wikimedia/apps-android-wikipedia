@@ -41,6 +41,16 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/menu_feed_overflow_label"/>
 
+    <View
+        android:id="@+id/userNameTapTarget"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/userNameText"
+        app:layout_constraintEnd_toEndOf="@id/userNameText"
+        android:layout_marginTop="4dp"
+        android:background="?attr/selectableItemBackgroundBorderless" />
+
     <TextView
         android:id="@+id/userNameText"
         android:layout_width="0dp"
@@ -48,20 +58,24 @@
         app:layout_constraintTop_toTopOf="@id/profileImage"
         app:layout_constraintStart_toEndOf="@id/profileImage"
         app:layout_constraintEnd_toStartOf="@id/overflowButton"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintWidth_max="wrap"
         android:layout_marginStart="4dp"
         android:layout_marginTop="2dp"
         android:textColor="?attr/colorAccent"
         android:textStyle="bold"
         android:lineSpacingExtra="6sp"
-        tools:text="Lorem ipsum" />
+        tools:text="Lorem ipsum Lorem ipsum" />
 
     <TextView
         android:id="@+id/timeStampText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/userNameText"
-        app:layout_constraintStart_toStartOf="@id/userNameText"
-        app:layout_constraintEnd_toEndOf="@id/userNameText"
+        app:layout_constraintStart_toEndOf="@id/profileImage"
+        app:layout_constraintEnd_toStartOf="@id/overflowButton"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="6dp"
         android:textColor="?attr/material_theme_secondary_color"
         android:lineSpacingExtra="6sp"
@@ -72,7 +86,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/timeStampText"
-        app:layout_constraintStart_toStartOf="@id/userNameText"
+        app:layout_constraintStart_toStartOf="@id/timeStampText"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="16dp"
