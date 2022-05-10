@@ -141,10 +141,10 @@ class AggregatedFeedContentClient {
             val date = DateUtil.getUtcRequestDateFor(age)
             aggregatedClient.disposables.add(Observable.fromIterable(FeedContentType.aggregatedLanguages)
                 .flatMap({ lang ->
-                        ServiceFactory.getRest(WikiSite.forLanguageCode(lang))
-                            .getAggregatedFeed(date.year, date.month, date.day)
+                    ServiceFactory.getRestObservable(WikiSite.forLanguageCode(lang))
+                            .flatMap { it.getAggregatedFeed(date.year, date.month, date.day) }
                             .subscribeOn(Schedulers.io())
-                         }, { first, second -> Pair(first, second) })
+                }, { first, second -> Pair(first, second) })
                 .toList()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pairList ->
@@ -158,9 +158,9 @@ class AggregatedFeedContentClient {
                         getCardFromResponse(aggregatedClient.aggregatedResponses, wiki, age, cards)
                     }
                     FeedCoordinator.postCardsToCallback(cb, cards)
-                }) { caught ->
-                    L.v(caught)
-                    cb.error(caught)
+                }) {
+                    L.v(it)
+                    cb.error(it)
                 })
         }
     }

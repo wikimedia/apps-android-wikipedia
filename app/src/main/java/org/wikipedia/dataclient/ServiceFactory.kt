@@ -2,9 +2,7 @@ package org.wikipedia.dataclient
 
 import androidx.collection.lruCache
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.subjects.PublishSubject
 import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Response
@@ -49,7 +47,7 @@ object ServiceFactory {
     }
 
     @Synchronized
-    fun get2(wiki: WikiSite): Observable<Service> {
+    fun getObservable(wiki: WikiSite): Observable<Service> {
         return Observable.fromCallable { SERVICE_CACHE[wiki]!! }
     }
 
@@ -59,7 +57,7 @@ object ServiceFactory {
     }
 
     @Synchronized
-    fun getRest2(wiki: WikiSite): Observable<RestService> {
+    fun getRestObservable(wiki: WikiSite): Observable<RestService> {
         return Observable.fromCallable { REST_SERVICE_CACHE[wiki]!! }
     }
 

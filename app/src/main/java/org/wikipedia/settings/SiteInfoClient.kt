@@ -42,7 +42,7 @@ object SiteInfoClient {
         if (SITE_INFO_MAP.containsKey(wiki.languageCode)) {
             return
         }
-        ServiceFactory.get2(wiki).flatMap { it.siteInfo }
+        ServiceFactory.getObservable(wiki).flatMap { it.siteInfo }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response -> SITE_INFO_MAP[wiki.languageCode] = response.query?.siteInfo }) { caught -> L.d(caught) }

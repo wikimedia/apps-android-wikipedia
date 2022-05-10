@@ -96,7 +96,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         binding.progressBar.visibility = View.VISIBLE
         binding.eventsRecycler.visibility = View.GONE
         binding.errorView.visibility = View.GONE
-        disposables.add(ServiceFactory.getRest(wiki).getOnThisDay(month + 1, date)
+        disposables.add(ServiceFactory.getRestObservable(wiki).flatMap { it.getOnThisDay(month + 1, date) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doAfterTerminate {

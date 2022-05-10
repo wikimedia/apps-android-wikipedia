@@ -69,7 +69,7 @@ object EventPlatformClient {
     }
 
     private fun refreshStreamConfigs() {
-        ServiceFactory.get2(WikiSite(BuildConfig.META_WIKI_BASE_URI)).flatMap { it.streamConfigs }
+        ServiceFactory.getObservable(WikiSite(BuildConfig.META_WIKI_BASE_URI)).flatMap { it.streamConfigs }
                 .subscribeOn(Schedulers.io())
                 .subscribe({ updateStreamConfigs(it.streamConfigs) }) { L.e(it) }
     }

@@ -43,8 +43,7 @@ class BecauseYouReadClient : FeedClient {
         // If the language code has a parent language code, it means set "Accept-Language" will slow down the loading time of /page/related
         // TODO: remove when https://phabricator.wikimedia.org/T271145 is resolved.
         val hasParentLanguageCode = !WikipediaApp.getInstance().language().getDefaultLanguageCode(entry.title.wikiSite.languageCode).isNullOrEmpty()
-        disposables.add(ServiceFactory.getRest(entry.title.wikiSite)
-            .getRelatedPages(entry.title.prefixedText)
+        disposables.add(ServiceFactory.getRestObservable(entry.title.wikiSite).flatMap { it.getRelatedPages(entry.title.prefixedText) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .flatMap { relatedPages ->
@@ -54,7 +53,7 @@ class BecauseYouReadClient : FeedClient {
                 Observable.fromIterable(list)
             }
             .concatMap { pageSummary ->
-                if (hasParentLanguageCode) ServiceFactory.getRest(entry.title.wikiSite).getSummary(entry.referrer, pageSummary.apiTitle)
+                if (hasParentLanguageCode) ServiceFactory.getRestObservable(entry.title.wikiSite).flatMap { it.getSummary(entry.referrer, pageSummary.apiTitle) }
                 else Observable.just(pageSummary)
             }
             .observeOn(AndroidSchedulers.mainThread())

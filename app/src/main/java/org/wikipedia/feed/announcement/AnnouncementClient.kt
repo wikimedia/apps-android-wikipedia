@@ -24,7 +24,7 @@ class AnnouncementClient : FeedClient {
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
-        disposables.add(ServiceFactory.getRest2(wiki).flatMap { it.announcements }
+        disposables.add(ServiceFactory.getRestObservable(wiki).flatMap { it.announcements }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ list ->

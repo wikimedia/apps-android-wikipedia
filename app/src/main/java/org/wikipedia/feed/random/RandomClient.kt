@@ -36,8 +36,7 @@ class RandomClient : FeedClient {
     }
 
     private fun getRandomSummaryObservable(lang: String): Observable<PageSummary> {
-        return ServiceFactory.getRest(WikiSite.forLanguageCode(lang))
-            .randomSummary
+        return ServiceFactory.getRestObservable(WikiSite.forLanguageCode(lang)).flatMap { it.randomSummary }
             .subscribeOn(Schedulers.io())
             .onErrorResumeNext { throwable ->
                 Observable.fromCallable {
