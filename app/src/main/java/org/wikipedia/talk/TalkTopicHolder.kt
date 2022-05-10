@@ -22,6 +22,7 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.*
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import org.wikipedia.views.TalkTopicsActionsOverflowView
+import java.util.*
 
 class TalkTopicHolder internal constructor(
         private val binding: ItemTalkTopicBinding,
@@ -72,7 +73,7 @@ class TalkTopicHolder internal constructor(
 
         // Username with involved user number exclude the author
         val usersInvolved = allReplies.map { it.author }.distinct().size - 1
-        val usernameText = allReplies.first().author + (if (usersInvolved > 1) " +$usersInvolved" else "")
+        val usernameText = allReplies.maxByOrNull { it.date ?: Date() }?.author.orEmpty() + (if (usersInvolved > 1) " +$usersInvolved" else "")
         val usernameColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.colorAccent
         binding.topicUsername.text = usernameText
         binding.topicUserIcon.isVisible = pageTitle.namespace() == Namespace.USER_TALK
