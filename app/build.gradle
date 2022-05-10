@@ -161,6 +161,7 @@ android {
             enableSplit false
         }
     }
+    namespace 'org.wikipedia'
 }
 
 configurations {
