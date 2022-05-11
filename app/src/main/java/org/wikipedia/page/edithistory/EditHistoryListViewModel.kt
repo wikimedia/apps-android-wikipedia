@@ -1,12 +1,12 @@
 package org.wikipedia.page.edithistory
 
 import android.os.Bundle
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -16,6 +16,7 @@ import org.wikipedia.dataclient.restbase.Metrics
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import retrofit2.HttpException
 import java.io.IOException
@@ -23,9 +24,11 @@ import java.util.*
 
 class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
-    val editHistoryStatsFlow = MutableStateFlow(EditHistoryItemModel())
+    val editHistoryStatsData = MutableLiveData<Resource<EditHistoryStats>>()
 
     var pageTitle: PageTitle = bundle.getParcelable(EditHistoryListActivity.INTENT_EXTRA_PAGE_TITLE)!!
+    var pageId = -1
+        private set
     var comparing = false
         private set
     var selectedRevisionFrom: MwQueryPage.Revision? = null
@@ -96,14 +99,17 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
                 val editCountsBotResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_BOT) }
                 val articleMetricsResponse = async { ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today) }
 
-                editHistoryStatsFlow.value = EditHistoryStats(
-                    mwResponse.await().query?.pages?.first()?.revisions?.first()!!,
+                val page = mwResponse.await().query?.pages?.first()
+                pageId = page?.pageId ?: -1
+
+                editHistoryStatsData.postValue(Resource.Success(EditHistoryStats(
+                    page?.revisions?.first()!!,
                     articleMetricsResponse.await().firstItem.results,
                     editCountsResponse.await(),
                     editCountsUserResponse.await(),
                     editCountsAnonResponse.await(),
                     editCountsBotResponse.await()
-                )
+                )))
             }
         }
     }
@@ -190,7 +196,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return EditHistoryListViewModel(bundle) as T
         }
     }

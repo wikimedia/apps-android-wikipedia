@@ -809,6 +809,8 @@
   <string name="customize_toolbar_category_menu">메뉴</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">여기에 즐겨찾는 항목을 끌어 놓으십시오 👋</string>
   <string name="customize_toolbar_reset_to_default_button">기본값으로 재설정</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">항목을 이동하려면 드래그 아이콘을 누르고 계십시오</string>
+  <string name="customize_toolbar_item_default_tooltip">항목의 위치를 변경하려면 항목을 누르고 끄십시오</string>
   <string name="suggested_edits_describe_articles">문서 설명 추가</string>
   <string name="suggested_edits_caption_images">이미지 캡션 추가</string>
   <string name="suggested_edits_tag_images">이미지 태그하기</string>
@@ -899,6 +901,7 @@
   <string name="suggested_edits_paused_message">편집 제안이 %1$s까지 일시 중단되었습니다. %2$s님, 죄송합니다. 최근 기여 중 일부 기여가 되돌려졌습니다.</string>
   <string name="suggested_edits_disabled_message">&lt;b&gt;편집 제안이 비활성화되었습니다.&lt;/b&gt; %s님 죄송합니다. 최근 기여의 대다수가 되돌려졌습니다.</string>
   <string name="suggested_edits_ip_blocked_message">현재 사용 중인 IP(또는 IP의 주소)로는 위키백과를 편집할 수 없습니다.</string>
+  <string name="suggested_edits_gate_message">죄송합니다, %s님. 이 기능을 사용하려면 문서 내에 적어도 3건의 편집을 직접 해야 합니다.</string>
   <string name="suggested_edits_editing_tips_link_text">편집 팁 및 트릭</string>
   <string name="suggested_edits_help_page_link_text">편집 제안 도움말 문서</string>
   <string name="suggested_edits_edit_streak_label_text">편집 스트리크</string>

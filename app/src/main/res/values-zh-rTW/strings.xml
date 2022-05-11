@@ -130,6 +130,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">發布後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;授權，且不撤回您所釋出的貢獻。</string>
   <string name="edit_save_action_license_anon">發佈後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，同時您同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
+  <string name="edit_anon_warning">編輯將以您的裝置的 IP 位址發布。如果您有&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;，您可以擁有更多隱私。</string>
   <string name="preference_title_language">維基百科語言</string>
   <string name="langlinks_filter_hint">搜尋</string>
   <string name="langlinks_empty">此頁面沒有其它可用語言版本。</string>
@@ -1137,7 +1138,7 @@
   <string name="revision_diff_line_nums">第 %d 到第 %d 行</string>
   <string name="revision_diff_line_added">行已新增</string>
   <string name="revision_diff_line_removed">行已移除</string>
-  <string name="revision_diff_paragraph_added">章節已添加</string>
+  <string name="revision_diff_paragraph_added">已新增章節</string>
   <string name="revision_diff_paragraph_removed">章節已移除</string>
   <string name="revision_undo_title">撤銷編輯</string>
   <string name="revision_undo_message">這將會撤銷掉在此顯示出的修訂在條目裡所做出的變更內容。</string>
