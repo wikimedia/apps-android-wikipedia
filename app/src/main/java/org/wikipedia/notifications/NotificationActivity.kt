@@ -22,7 +22,6 @@ import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.updateBounds
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
