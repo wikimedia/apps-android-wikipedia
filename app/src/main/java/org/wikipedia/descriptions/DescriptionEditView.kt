@@ -3,7 +3,6 @@ package org.wikipedia.descriptions
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.PorterDuff
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
@@ -181,16 +180,21 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     }
 
     private fun setDarkReviewScreen(enabled: Boolean) {
-        if (context is DescriptionEditActivity &&
-                (action == DescriptionEditActivity.Action.ADD_CAPTION ||
-                action == DescriptionEditActivity.Action.TRANSLATE_CAPTION)) {
+        val context = context
+        val actions = listOf(DescriptionEditActivity.Action.ADD_CAPTION, DescriptionEditActivity.Action.TRANSLATE_CAPTION)
+
+        if (context is DescriptionEditActivity && action in actions) {
             binding.viewDescriptionEditToolbarContainer.setBackgroundResource(if (enabled) android.R.color.black else ResourceUtil.getThemedAttributeId(context, R.attr.paper_color))
-            binding.viewDescriptionEditSaveButton.setColorFilter(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.themed_icon_color), PorterDuff.Mode.SRC_IN)
-            binding.viewDescriptionEditCancelButton.setColorFilter(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN)
+            ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton,
+                ColorStateList.valueOf(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.themed_icon_color)))
+            ImageViewCompat.setImageTintList(binding.viewDescriptionEditCancelButton,
+                ColorStateList.valueOf(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.toolbar_icon_color)))
             binding.viewDescriptionEditHeader.setTextColor(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.material_theme_primary_color))
-            (context as DescriptionEditActivity).updateStatusBarColor(if (enabled) Color.BLACK else ResourceUtil.getThemedColor(context, R.attr.paper_color))
-            DeviceUtil.updateStatusBarTheme(context as DescriptionEditActivity, null, enabled)
-            (context as DescriptionEditActivity).updateNavigationBarColor(if (enabled) Color.BLACK else ResourceUtil.getThemedColor(context, R.attr.paper_color))
+
+            val barColor = if (enabled) Color.BLACK else ResourceUtil.getThemedColor(context, R.attr.paper_color)
+            context.updateStatusBarColor(barColor)
+            DeviceUtil.updateStatusBarTheme(context, null, enabled)
+            context.updateNavigationBarColor(barColor)
         }
     }
 
