@@ -40,7 +40,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 50400
+        versionCode 50401
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -161,6 +161,7 @@ android {
             enableSplit false
         }
     }
+    namespace 'org.wikipedia'
 }
 
 configurations {
