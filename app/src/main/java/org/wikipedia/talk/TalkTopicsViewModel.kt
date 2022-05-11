@@ -227,7 +227,11 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
                 }
 
                 response.getFirst()?.let {
-                    uiState.value = UiState.DoWatch(isWatched)
+                    isWatched = it.watched
+                    hasWatchlistExpiry = lastWatchExpiry != WatchlistExpiry.NEVER
+                    // We have to send values to the object, even if we use the variables from ViewModel.
+                    // Otherwise the status will not be updated in the activity since the values in the object remains the same.
+                    uiState.value = UiState.DoWatch(isWatched, hasWatchlistExpiry)
                 }
             }
         }
@@ -247,7 +251,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
                              val lastModifiedResponse: MwQueryResponse) : UiState()
         data class LoadError(val throwable: Throwable) : UiState()
         data class UndoEdit(val edit: Edit, val undoneSubject: CharSequence, val undoneBody: CharSequence) : UiState()
-        data class DoWatch(val isWatched: Boolean) : UiState()
+        data class DoWatch(val isWatched: Boolean, val hasWatchlistExpiry: Boolean) : UiState()
         data class EditError(val throwable: Throwable) : UiState()
     }
 }
