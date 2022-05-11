@@ -71,6 +71,8 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
             resolveTitleRequired = true
         }
 
+        uiState.value = UiState.UpdateNamespace(pageTitle)
+
         viewModelScope.launch(handler) {
             if (resolveTitleRequired) {
                 val siteInfoResponse = withContext(Dispatchers.IO) {
@@ -239,6 +241,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
     }
 
     open class UiState {
+        data class UpdateNamespace(val pageTitle: PageTitle) : UiState()
         data class LoadTopic(val pageTitle: PageTitle,
                              val threadItems: List<ThreadItem>,
                              val lastModifiedResponse: MwQueryResponse) : UiState()

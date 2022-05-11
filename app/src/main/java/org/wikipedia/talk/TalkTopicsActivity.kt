@@ -171,6 +171,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         lifecycleScope.launchWhenCreated {
             viewModel.uiState.collect {
                 when (it) {
+                    is TalkTopicsViewModel.UiState.UpdateNamespace -> setToolbarTitle(it.pageTitle)
                     is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.threadItems, it.lastModifiedResponse)
                     is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.undoneSubject, it.undoneBody)
                     is TalkTopicsViewModel.UiState.DoWatch -> updateOnWatch()
@@ -270,8 +271,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     private fun resetViews() {
         invalidateOptionsMenu()
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
-        setToolbarTitle(pageTitle)
-
         binding.talkProgressBar.isVisible = true
         binding.talkErrorView.isVisible = false
         binding.talkEmptyContainer.isVisible = false
