@@ -106,6 +106,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt;, и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако се &lt;a href=\"https://#login\"&gt;најавите&lt;/a&gt; ќе имате поголема приватност.</string>
+  <string name="edit_anon_warning">Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако &lt;a href=\"https://#login\"&gt;се најавите&lt;/a&gt;, тогаш ќе имате повеќе приватност.</string>
   <string name="preference_title_language">Јазици на Википедија</string>
   <string name="langlinks_filter_hint">Пребарај</string>
   <string name="langlinks_empty">Страницава не е достапна на други јазици</string>
