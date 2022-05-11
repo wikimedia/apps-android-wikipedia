@@ -17,6 +17,7 @@ import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkThreadItemBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.*
 
 @SuppressLint("RestrictedApi")
@@ -66,6 +67,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         binding.timeStampText.isVisible = item.date != null
         item.date?.let { binding.timeStampText.text = DateUtil.getDateAndTimeWithPipe(it) }
         binding.bodyText.text = StringUtil.fromHtml(item.html).trim()
+        RichTextUtil.removeUnderlinesFromLinks(binding.bodyText)
         binding.bodyText.movementMethod = movementMethod
 
         if (replying) {

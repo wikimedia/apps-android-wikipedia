@@ -51,7 +51,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private val requestEditSource = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
-            // TODO: maybe add funnel?
             loadTopics()
         }
     }
@@ -253,7 +252,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private inner class HeaderViewHolder constructor(private val view: TalkThreadHeaderView) : RecyclerView.ViewHolder(view), TalkThreadHeaderView.Callback {
         fun bindItem() {
-            view.bind(viewModel.pageTitle, viewModel.topic!!, viewModel.subscribed)
+            view.bind(viewModel.pageTitle, viewModel.topic!!, viewModel.subscribed, linkMovementMethod)
             view.callback = this
         }
 

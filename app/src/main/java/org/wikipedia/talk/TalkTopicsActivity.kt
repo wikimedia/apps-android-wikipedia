@@ -416,11 +416,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun goToPage() {
-        val entry = if (pageTitle.namespace() == Namespace.USER_TALK) {
-            HistoryEntry(PageTitle(UserAliasData.valueFor(pageTitle.wikiSite.languageCode) + ":" + pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
-        } else {
-            HistoryEntry(PageTitle(pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
-        }
+        val entry = HistoryEntry(getNonTalkPageTitle(pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
         startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
     }
 
@@ -554,6 +550,16 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                 .putExtra(EXTRA_PAGE_TITLE, pageTitle)
                 .putExtra(EXTRA_GO_TO_TOPIC, !pageTitle.fragment.isNullOrEmpty())
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+        }
+
+        fun getNonTalkPageTitle(title: PageTitle): PageTitle {
+            val newTitle = title.copy()
+            if (title.namespace() == Namespace.USER_TALK) {
+                newTitle.namespace = UserAliasData.valueFor(title.wikiSite.languageCode)
+            } else if (title.namespace() == Namespace.TALK) {
+                newTitle.namespace = ""
+            }
+            return newTitle
         }
     }
 }
