@@ -121,6 +121,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Uverejnením vašej úpravy zároveň súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov v rámci licenciou &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Uverejnením vašej úpravy zároveň súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov pod licenciou &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budú spájané s IP adresou vášho zariadenia. Po &lt;a href=\"https://#login\"&gt;prihlásení&lt;/a&gt; budete disponovať vyššou ochranou súkromia.</string>
+  <string name="edit_anon_warning">Úpravy budú prirátané k IP adrese vášho zariadenia. Ak sa &lt;a href=\"https://#login\"&gt;prihlásite&lt;/a&gt; budete mať viac súkromia.</string>
   <string name="preference_title_language">Jazyk Wikipédie</string>
   <string name="langlinks_filter_hint">Hľadať</string>
   <string name="langlinks_empty">Táto stránka nie je k dispozícii v iných jazykoch</string>
@@ -944,6 +945,7 @@
   <string name="suggested_edits_paused_message">&lt;b&gt;Navrhované úpravy sú pozastavené do %1$s.&lt;/b&gt; Ľutujeme %2$s, niektoré Vaše nedávne príspevky boli vrátené späť.</string>
   <string name="suggested_edits_disabled_message">&lt;b&gt;Navrhované úpravy sú vypnuté.&lt;/b&gt; Ľutujeme %s, veľké množstvo Vašich nedávnych príspevkov bolo vrátených späť.</string>
   <string name="suggested_edits_ip_blocked_message">Vyzerá to tak, že IP adresa (alebo rozsah IP adries), ktorú používate, má momentálne zablokované upravovanie Wikipédie.</string>
+  <string name="suggested_edits_gate_message">Prepáčte %s, musíte urobiť aspoň tri úpravy v článku, aby ste mohli použiť túto funkciu.</string>
   <string name="suggested_edits_editing_tips_link_text">Editačné tipy a triky</string>
   <string name="suggested_edits_help_page_link_text">Nápoveda Navrhovaných úprav</string>
   <string name="suggested_edits_edit_streak_label_text">Úprav v sérii</string>
@@ -1154,11 +1156,17 @@
   <string name="talk_snackbar_survey_action_text">Začať</string>
   <string name="talk_share_discussion_subject">Wikipédia - diskusia na stránke témy \"%s\"</string>
   <string name="talk_share_talk_page">Wikipédia - diskusie na diskusných stránkach</string>
+  <string name="talk_edit_disclaimer">Toto je diskusná stránka. Prosím rešpektujte pravidlá diskusných stránok a nezabudnite sa podpísať pod svoj príspevok napísaním štyroch vlniek: ~~~~ keď používate wikitext. &lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia: Pravidlá diskusných stránok&lt;/a&gt;</string>
+  <string name="talk_search_hint">Vyhľadať správy</string>
+  <string name="talk_overflow_sort_by">Zoradiť podľa</string>
+  <string name="talk_overflow_sort_date_published">Dátum zverejnenia</string>
+  <string name="talk_overflow_sort_topic_name">Názov témy</string>
   <string name="menu_option_share_talk_discussion">Zdieľať diskusiu</string>
   <string name="menu_option_share_talk_page">Zdieľať diskusnú stránku</string>
   <string name="menu_option_share_edit">Zdieľať úpravu</string>
   <string name="menu_option_user_profile">Profil používateľa %s</string>
   <string name="menu_option_user_contributions">Príspevky používateľa %s</string>
+  <string name="menu_option_edit_source">Upraviť zdroj</string>
   <string name="watchlist_details_watching_label">Sledované</string>
   <string name="watchlist_details_watch_label">Sledovať</string>
   <string name="watchlist_details_next_edit">Ďalšia úprava</string>
@@ -1170,6 +1178,25 @@
   <string name="thank_dialog_positive_button_text">Poslať poďakovanie</string>
   <string name="thank_dialog_negative_button_text">Zrušiť</string>
   <string name="thank_success_message">Vaše poďakovanie bolo poslané používateľovi/ke %s 👍</string>
+  <string name="menu_option_view_user_profile">Zobraziť stránku používateľa</string>
+  <string name="menu_option_view_user_talk">Zobraziť diskusnú stránku</string>
+  <string name="menu_option_view_user_contributions">Zobraziť príspevky používateľa</string>
+  <string name="revision_diff_compare">Porovnať revízie</string>
+  <string name="revision_diff_compare_title">Porovnať revízie: %s</string>
+  <string name="revision_diff_from">Od:</string>
+  <string name="revision_diff_to">Do:</string>
+  <string name="revision_diff_line_num">Riadok %d</string>
+  <string name="revision_diff_line_nums">Riadky %d-%d</string>
+  <string name="revision_diff_line_added">Riadok pridaný</string>
+  <string name="revision_diff_line_removed">Riadok odstránený</string>
+  <string name="revision_diff_paragraph_added">Odsek pridaný</string>
+  <string name="revision_diff_paragraph_removed">Odsek odstránený</string>
+  <string name="revision_undo_title">Vrátiť úpravu</string>
+  <string name="revision_undo_message">Toto vráti naspäť úpravu urobenú revíziou artikla zobrazeného tu.</string>
+  <string name="revision_undo_reason">Pre pokračovanie prosím zadajte dôvod prečo chcete úpravu vrátiť späť:</string>
+  <string name="revision_undo_success">Revízia bola vrátená späť.</string>
+  <string name="revision_compare_button">Porovnať</string>
+  <string name="revision_compare_two_only">Vybrané môžu byť len dve revízie.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Stránka %1$s bola pridaná do Vášho zoznamu sledovaných %2$s</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Zmeniť</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">natrvalo</string>
@@ -1192,4 +1219,10 @@
   <string name="watchlist_page_moved">Presunuté</string>
   <string name="watchlist_page_protected">Chránené</string>
   <string name="watchlist_page_deleted">Zmazané</string>
+  <string name="action_item_categories">Kategórie</string>
+  <string name="page_no_categories">Táto stránka nepatrí do žiadnej kategórie.</string>
+  <string name="category_tab_articles">Články</string>
+  <string name="category_tab_subcategories">Podkategórie</string>
+  <string name="category_empty">V tejto kategórii sa nenašiel žiadny článok.</string>
+  <string name="subcategory_empty">V tejto kategórii sa nenašla žiadna podkategória.</string>
 </resources>

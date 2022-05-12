@@ -68,8 +68,8 @@ class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeS
         }
     }
 
-    override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-        val langCode = buttonView!!.tag as String
+    override fun onCheckedChanged(buttonView: CompoundButton, isChecked: Boolean) {
+        val langCode = buttonView.tag as String
         if (isChecked) {
             disabledLangCodes.remove(langCode)
         } else if (!isChecked) {
