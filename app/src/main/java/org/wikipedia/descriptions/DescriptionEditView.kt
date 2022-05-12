@@ -247,7 +247,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     fun setError(text: CharSequence?) {
         binding.viewDescriptionEditTextLayout.setErrorIconDrawable(R.drawable.ic_error_black_24dp)
-        val colorStateList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorError))
+        val colorStateList = ResourceUtil.getThemedColorStateList(context, R.attr.colorError)
         binding.viewDescriptionEditTextLayout.setErrorIconTintList(colorStateList)
         binding.viewDescriptionEditTextLayout.setErrorTextColor(colorStateList)
         binding.viewDescriptionEditTextLayout.boxStrokeErrorColor = colorStateList
@@ -336,18 +336,18 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     private fun enableSaveButton(enabled: Boolean, saveInProgress: Boolean) {
         if (saveInProgress) {
             binding.viewDescriptionEditSaveButton.setImageResource(R.drawable.ic_check_circle_black_24dp)
-            ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color)))
+            ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ResourceUtil.getThemedColorStateList(context, R.attr.themed_icon_color))
             binding.viewDescriptionEditSaveButton.isEnabled = false
             binding.viewDescriptionEditSaveButton.alpha = 1 / 2f
         } else {
             binding.viewDescriptionEditSaveButton.alpha = 1f
             if (enabled) {
                 binding.viewDescriptionEditSaveButton.setImageResource(R.drawable.ic_check_circle_black_24dp)
-                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color)))
+                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ResourceUtil.getThemedColorStateList(context, R.attr.themed_icon_color))
                 binding.viewDescriptionEditSaveButton.isEnabled = true
             } else {
                 binding.viewDescriptionEditSaveButton.setImageResource(R.drawable.ic_check_black_24dp)
-                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color)))
+                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ResourceUtil.getThemedColorStateList(context, R.attr.material_theme_de_emphasised_color))
                 binding.viewDescriptionEditSaveButton.isEnabled = false
             }
         }
