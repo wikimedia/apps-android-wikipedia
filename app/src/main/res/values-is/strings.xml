@@ -37,6 +37,7 @@
   <string name="history_item_delete_undo">Afturkalla</string>
   <string name="notification_archive_undo">Afturkalla</string>
   <string name="app_settings">Stillingar forrits</string>
+  <string name="search_tab_tooltip">Ýttu aftur á táknið til að byrja strax að skrifa leitarorð.</string>
   <string name="history_list_title">Breytingaskrá</string>
   <string name="image_content_description">Mynd: %s</string>
   <string name="page_content_description">Síða: %s</string>
@@ -105,6 +106,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir ævinlega út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; leyfinu.</string>
   <string name="edit_save_action_license_anon">Með því að birta þetta samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; notkunarleyfinu. Breytingar verða tengdar IP-vistfangi tækisins þíns. Ef þú &lt;a href=\"https://#login\"&gt;skráir þig inn&lt;/a&gt;, mun gagnaleynd þín aukast.</string>
+  <string name="edit_anon_warning">Breytingar verða skráðar undir IP-tölu tækisins þíns. Til að tryggja öryggi þitt er best að &lt;a href=\"https://#login\"&gt;skrá þig inn&lt;/a&gt;.</string>
   <string name="preference_title_language">Tungumál Wikipediu</string>
   <string name="langlinks_filter_hint">Leita</string>
   <string name="langlinks_empty">Þessi síða er ekki tiltæk á öðrum tungumálum.</string>
@@ -208,7 +210,7 @@
   <string name="preference_title_auto_upload_crash_reports">Senda hrunskýrslur</string>
   <string name="preference_summary_auto_upload_crash_reports">Leyfa forritinu að senda tilkynningar um hrun sjálfkrafa til utanaðkomandi þjónustu þannig að við getum skoðað hvað fór úrskeiðis og lagað villur fljótt og vel.</string>
   <string name="editing_error_spamblacklist">Fann tengla á útilokuð lén (%s). Fjarlægðu þá og reyndu aftur.</string>
-  <string name="history_filter_list_hint">Sía breytingarskrá</string>
+  <string name="history_filter_list_hint">Sía breytingaskrá</string>
   <string name="error_can_not_process_link">Gat ekki birt þennan tengil</string>
   <string name="page_protected_autoconfirmed">Þessi síða er varin að hluta til.</string>
   <string name="page_protected_sysop">Þessi síða er varin í heild.</string>
@@ -217,6 +219,7 @@
   <string name="page_protected_can_not_edit_anon">Því miður, þessa síðu er ekki hægt að vinna nafnlaust í augnablikinu.</string>
   <string name="page_protected_can_not_edit_title">Þessi síða er varin</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Bæta á vaktlistann</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Haltu utan um það sem gerist varðandi greinar sem þú hefur áhuga á. Ýttu á yfirflæðisvalmyndina og veldu &lt;b&gt;Bæta á vaktlista&lt;/b&gt; til að sjá allar breytingar á grein.</string>
   <string name="settings_item_preferences">Stillingar</string>
   <string name="settings_activity_title">Stillingar</string>
   <string name="about_description">Um Wikipedia-appið</string>
@@ -264,10 +267,13 @@
   <string name="edit_conflict_message">Þessari síðu hefur þegar verið breytt af öðrum notanda, og rekst á við þína útgáfu. Afritaðu breytingarnar þínar, farðu síðan til baka og endurlestu síðuna, og prófaðu síðan að breyta henni aftur.</string>
   <string name="edit_notices">Tilkynningar vegna breytinga</string>
   <string name="edit_notices_please_read">Lestu þetta áður en þú byrjar að breyta</string>
+  <string name="edit_notices_show_auto">Birta tilkynningar um breytingar sjálfkrafa</string>
+  <string name="edit_notices_tooltip">Ýttu á þennan hnapp til að sjá tilkynningar um breytingar á þessari grein.</string>
   <string name="find_next">Finna næsta</string>
   <string name="find_previous">Finna fyrra</string>
   <string name="find_first_occurence">Þetta er fyrsta tilvikið</string>
   <string name="find_last_occurence">Þetta er síðasta tilvikið</string>
+  <string name="article_opened_in_background_tab">Greinin hefur verið opnuð í bakgrunnsflipa.</string>
   <string name="abusefilter_title_warn">Þetta lítur ekki út fyrir að vera uppbyggileg breyting, ert þú viss um að þú viljir birta hana?</string>
   <string name="abusefilter_title_disallow">Þú getur ekki gefið út þessa breytingu. Farðu til baka og breyttu henni.</string>
   <string name="abusefilter_text_warn">Sjálfvirk sía hefur greint þessa breytingu sem mögulega eyðileggjandi. Hún gæti innihaldið eitt af eftirtöldu:&lt;br /&gt;&lt;br /&gt;· Eintómir hástafir&lt;br /&gt;· Tæming greina eða þvaður&lt;br /&gt;· Óviðeigandi ytri tenglar eða myndir&lt;br /&gt;· Endurteknir stafir</string>
@@ -366,10 +372,15 @@
   <string name="location_permissions_enable_prompt">Virkja heimildir fyrir staðsetningu til að sjá staði í næsta nágrenni.</string>
   <string name="location_permissions_enable_action">Kveikja</string>
   <string name="error_webview_updating">Verið er að uppfæra Android System WebView í augnablikinu. Prófaðu aftur eftir smástund.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d valið</item>
+    <item quantity="other">%d valið</item>
+  </plurals>
   <string name="multi_select_items_selected">%d valið</string>
   <string name="error_message_generic">Villa kom upp</string>
   <string name="view_link_preview_error_button_dismiss">Vísa frá</string>
   <string name="error_page_does_not_exist">Þessi síða er ekki til</string>
+  <string name="error_user_page_does_not_exist">Wikipedia er ekki með &lt;a href=\"%1$s\"&gt;notandasíðu&lt;/a&gt; með nákvæmlega þessu heiti. Venjulega ætti &lt;b&gt;%2$s&lt;/b&gt; að hafa útbúið og breytt þessari síðu. Ef þú ert ekki viss, skaltu ganga úr skugga um að \"%3$s\" sé til.</string>
   <string name="view_wiki_error_message_offline">Næ ekki að tengjast netinu</string>
   <string name="view_wiki_error_message_timeout">Náði ekki að tengjast Wikipedia. Athugaðu internettenginguna eða reyndu aftur síðar</string>
   <string name="reference_title">Heimild %s</string>
@@ -381,10 +392,15 @@
   <string name="page_footer_license_text">Efni má nota samkvæmt $1 nema annað komi fram</string>
   <string name="empty_tab_title">Nýr flipi</string>
   <string name="menu_save_all_tabs">Vista alla flipa</string>
+  <string name="error_blocked_title">Nafnið þitt eða IP-vistfangið hefur verið útilokað.</string>
+  <string name="error_blocked_by">Bannið var sett af &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">Uppgefin ástæða er: %s</string>
   <string name="error_blocked_start">Upphaf banns: %s</string>
   <string name="error_blocked_expiry">Bann rennur út: %s</string>
   <string name="error_blocked_id">Auðkenni banns: %s</string>
+  <string name="error_blocked_footer">Þú getur haft samband við &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eða annan &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;stjórnanda&lt;/a&gt; til að ræða bannið.</string>
+  <string name="theme_chooser_menu_item_tooltip">Sérsníddu verkfærastikuna þína og prófaðu lesáhersluhaminn</string>
+  <string name="error_blocked_footer_no_blocker">Þú getur haft samband við &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;stjórnanda&lt;/a&gt; til að ræða bannið.</string>
   <string name="crash_report_activity_title">Villa í forriti</string>
   <string name="crash_report_relaunch_or_quit">Því miður, Wikipedia-appið varð fyrir villu og vað þessvegna lokað.\n\nViltu byrja aftur eða hætta alveg?</string>
   <string name="crash_report_relaunch">Byrja aftur</string>
@@ -411,6 +427,8 @@
   <string name="text_size_percent_default">%s (sjálfgefið)</string>
   <string name="text_style_title">Letur</string>
   <string name="theme_category_reading">Lestur</string>
+  <string name="reading_focus_mode">Lesáhersluhamur</string>
+  <string name="reading_focus_mode_detail">Felur breytingaeiginleika og botnstiku við skrun</string>
   <string name="theme_category_toolbar">Verkfærastika</string>
   <string name="theme_customize_toolbar">Sérsníða verkfærastiku</string>
   <string name="nav_item_saved">Vistað</string>
@@ -425,6 +443,14 @@
   <string name="reading_list_articles_already_exist_message">Allt í þessu fína! %s inniheldur þegar allar greinar.</string>
   <string name="reading_list_added_view_button">Skoða lista</string>
   <string name="reading_list_add_to_list_button">Bæta við lista</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 grein, %2$.2f MB</item>
+    <item quantity="other">%1$d greinar, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d af 1 grein tiltæk án nettengingar, %3$.2f MB</item>
+    <item quantity="other">%1$d af %2$d greinum tiltækar án nettengingar, %3$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 grein, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d greinar, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d af 1 grein tiltækri án nettengingar, %2$.2f MB</string>
@@ -450,6 +476,14 @@
   <string name="reading_list_description_hint">Lýsing (valfrjáls)</string>
   <string name="reading_list_item_deleted">%s fjarlægt af lista</string>
   <string name="reading_list_item_deleted_from_list">%1$s fjarlægt af %2$s</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d grein fjarlægð af lista</item>
+    <item quantity="other">%d greinar fjarlægðar af lista</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d grein fjarlægð af %s</item>
+    <item quantity="other">%d greinar fjarlægðar af %s</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d greinar fjarlægðar af lista</string>
   <string name="reading_lists_item_deleted">%s fjarlægt af listum</string>
   <string name="reading_list_item_delete_undo">Afturkalla</string>
@@ -461,6 +495,7 @@
   <string name="reading_list_article_make_offline">Gera þessa grein tiltæka án nettengingar</string>
   <string name="reading_list_add_to_other_list">Bæta á annan leslista</string>
   <string name="reading_list_move_to_other_list">Færa á annan leslista</string>
+  <string name="reading_list_move_from_to_other_list">Færa af %s á annan leslista</string>
   <string name="reading_list_remove_from_list">Fjarlægja úr %s</string>
   <string name="reading_list_remove_from_lists">Fjarlægja af leslistum</string>
   <string name="reading_list_select_item">Velja</string>
@@ -479,6 +514,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Nei</string>
   <string name="reading_list_article_save_in_progress">Verið er að sækja þessa grein og verður hún tiltæk án nettengingar þegar því er lokið.</string>
   <string name="reading_list_articles_added_to_named">Bætti %1$d greinum við %2$s</string>
+  <string name="reading_list_articles_moved_to_named">Færði %1$d greinum yfir á %2$s</string>
   <string name="reading_list_delete_confirm">Ertu viss um að þú viljir eyða %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Skráðu inn til að virkja samstillingu</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Skráðu þig inn til að leyfa vistun leslista inn á aðganginn þinn.</string>
@@ -499,6 +535,7 @@
   <string name="no_user_lists_msg">Útbúðu lista yfir staði til að heimsækja, eftirlætisumræðuefni og margt fleira</string>
   <string name="reading_list_saved_list_rename">%1$s (gert af notanda)</string>
   <string name="split_reading_list_message">Leslistar eru takmarkaðir við %d greinar. Fyrirliggjandi listum sem hafa fleiri greinar en þau mörk, hefur verið skipt upp í fleiri lista.</string>
+  <string name="reading_list_move_article_limit_message">Get ekki fært á þennan lista. Þú hefur náð %2$d greina takmörkum á hvern lista fyrir \"%1$s\".</string>
   <string name="reading_list_article_limit_message">Get ekki bætt á þennan lista. Þú hefur náð %2$d greina takmörkum á hvern lista fyrir \"%1$s\".</string>
   <string name="reading_lists_limit_message">Get ekki búið til annan lista. Þú hefur náð 100 leslista takmörkum á hvern notandaaðgang.</string>
   <string name="reading_lists_menu_create_list">Búa til nýjan lista</string>
@@ -578,7 +615,9 @@
   <string name="notifications_mark_unread">Merkja sem ólesið</string>
   <string name="notifications_mark_all_as_read">Merkja allt sem lesið</string>
   <string name="notifications_direct_reply_action">Svara</string>
+  <string name="notifications_direct_reply_progress">Sendi svar til %s…</string>
   <string name="notifications_direct_reply_success">Svar sent</string>
+  <string name="notifications_direct_reply_error">Gat ekki sent svar sjálfkrafa.</string>
   <string name="notifications_mark_all_as_read_message">%d merkt sem lesið</string>
   <string name="notifications_mark_all_as_unread_message">%d merkt sem ólesið</string>
   <plurals name="notifications_mark_as_read_plural">
@@ -595,7 +634,7 @@
   <string name="preference_category_notification_types">Tegundir tilkynninga innan forrits</string>
   <string name="preference_title_notification_system">Kerfi</string>
   <string name="preference_summary_notification_system">Skilaboð frá kerfi</string>
-  <string name="preference_title_notification_milestone">Vegalengdarsteinn</string>
+  <string name="preference_title_notification_milestone">Áfangi</string>
   <string name="preference_summary_notification_milestone">Þú hefur náð ákveðnum fjölda breytinga</string>
   <string name="preference_title_notification_thanks">Þakkir</string>
   <string name="preference_summary_notification_thanks">Einhver þakkar þér fyrir breytingu</string>
@@ -610,6 +649,9 @@
   <string name="preference_title_notification_email_user">Tók á móti tölvupósti</string>
   <string name="preference_summary_notification_email_user">Einhver sendi þér tölvupóst í gegnum wiki-ið</string>
   <string name="preference_title_notification_user_rights">Breyting á réttindum notanda</string>
+  <string name="preference_summary_notification_user_rights">Móttekið þegar breyting er gerð á notandaréttindum þínum</string>
+  <string name="preference_title_notification_article_linked">Tenglar á greinar sem þú bjóst til</string>
+  <string name="preference_summary_notification_article_linked">Móttekið þegar nýr tengill var gerður í síðu sem þú bjóst til</string>
   <string name="preference_category_push_notifications">Ýti-tilkynningar</string>
   <string name="preference_title_customize_push_notifications">Sérsníða ýti-tilkynningar</string>
   <string name="preference_category_display_settings">Birtingarstillingar</string>
@@ -621,8 +663,14 @@
   <string name="notifications_filter_label">Sía tilkynningar</string>
   <string name="notifications_filter_icon_content_description">Sía tilkynningar</string>
   <string name="notifications_filter_update_app_languages">Uppfæra tungumál forrits</string>
+  <string name="notifications_empty_search_message">Prófaðu að fjarlægja %s til að sjá fleiri tilkynningar</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d sía</item>
+    <item quantity="other">%d síur</item>
+  </plurals>
   <string name="notifications_select_all_filters">Velja allar síur</string>
   <string name="notifications_tab_filter_all">Allt</string>
+  <string name="notifications_tab_filter_mentions">Minnst á</string>
   <string name="notifications_tab_filter_unread">(%s)</string>
   <string name="notifications_search_bar_hint">Leita eða sía tilkynningar</string>
   <string name="notifications_search_bar_filter_hint">Tilkynningasía</string>
@@ -633,6 +681,7 @@
   <string name="notifications_menu_check_all">Merkja öll atriði</string>
   <string name="notifications_menu_uncheck_all">Afmerkja öll atriði</string>
   <string name="notifications_wiki_filter_header">Wiki-sía</string>
+  <string name="notifications_type_filter_header">Tegundasía</string>
   <string name="notifications_all_wikis_text">Allt \"wiki\"</string>
   <string name="notifications_all_types_text">Allt \"type\"</string>
   <string name="notifications_menu_user_talk_page">Spjallsíða %s</string>
@@ -801,7 +850,7 @@
   <string name="suggested_edits_feed_card_translate_image_caption">Bæta við myndatexta (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Bæta við merkjum á myndir</string>
   <string name="suggested_edits_snackbar_survey_text">Hvernig fannst þér vinnan við breytingar? Taktu þér smástund við að fylla út könnun á notkun forritsins við breytingar.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Taktu þátt í könnun</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Taka þátt í könnun</string>
   <string name="suggested_edits_task_action_text_add">Bæta við</string>
   <string name="suggested_edits_task_action_text_translate">Þýða</string>
   <string name="suggested_edits_image_captions">Myndatextar</string>
@@ -852,6 +901,8 @@
     <item quantity="one">%d dagur</item>
     <item quantity="other">%d dagar</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">Hvað eru þessar tillögur að breytingum?</string>
+  <string name="suggested_edits_what_is_text">Tillögur að breytingum eru möguleg smá en alveg nauðsynleg framlög til Wikipedia.</string>
   <string name="suggested_edits_learn_more">Kanna nánar</string>
   <string name="suggested_edits_paused_title">Í bið</string>
   <string name="suggested_edits_disabled_title">Óvirkt</string>
@@ -861,6 +912,7 @@
   <string name="suggested_edits_task_new">nýtt</string>
   <string name="suggested_edits_cc0_notice">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að þú gefir framlag þitt ævinlega út með &lt;a href=\"%2$s\"&gt;CC0 notkunarleyfinu&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Tillögur að breytingum</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Takk fyrir framlag þitt til Wikipedia! Því ekki að halda áfram þar sem þú skildir við síðast?</string>
   <string name="suggested_edits_contributions_screen_title">Framlög frá %s</string>
   <string name="suggested_edits_contribution_language_label">Tungumál</string>
   <string name="suggested_edits_contribution_date_time_label">Dagsetning / Tími</string>
@@ -962,6 +1014,7 @@
   <string name="main_tooltip_text_v2">Vissir þú að allir geta breytt efni á Wikipedia?</string>
   <string name="main_tooltip_action_button">Komast í gang</string>
   <string name="main_tooltip_watchlist_title">Vaktlisti</string>
+  <string name="main_tooltip_watchlist_text">Finndu greinar og síður sem þú hefur áður bætt við vaktlistann þinn í valmyndinni \"Meira\" undir &lt;b&gt;Vaktlisti&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Í lagi</string>
   <string name="text_input_dialog_ok_button_text">Í lagi</string>
   <string name="text_input_dialog_cancel_button_text">Hætta við</string>
@@ -981,12 +1034,20 @@
   <string name="talk_response_submitted">Svar sent</string>
   <string name="talk_snackbar_undo">Afturkalla</string>
   <string name="talk_last_modified">&lt;b&gt;Síðast breytt %1$s&lt;/b&gt; af %2$s</string>
+  <string name="talk_snackbar_survey_text">Takk fyrir að nota spjallsíðurnar. Getur þú hjálpað okkur við að bæta forritið með því að taka þátt í könnun?</string>
   <string name="talk_snackbar_survey_action_text">Komast í gang</string>
+  <string name="talk_share_discussion_subject">Wikipedia - umræður á spjallsíðu efnisins \"%s\"</string>
+  <string name="talk_share_talk_page">Wikipedia - umræður á spjallsíðu</string>
+  <string name="talk_edit_disclaimer">Þetta er spjallsíða. Vinsamlegast virtu leiðbeiningarnar fyrir spjallsíðuna og mundu að undirrita færslurnar þínar með því að skrifa fjórar tildur: ~~~~ á eftir færslum með wikitexta.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Leiðbeiningar fyrir spjallsíður&lt;/a&gt;</string>
   <string name="talk_search_hint">Leita í skilaboðum</string>
   <string name="talk_overflow_sort_by">Raða eftir</string>
   <string name="talk_overflow_sort_date_published">Útgáfudagsetning</string>
   <string name="talk_overflow_sort_topic_name">Heiti umfjöllunarefnis</string>
+  <string name="menu_option_share_talk_discussion">Deila umræðu</string>
   <string name="menu_option_share_talk_page">Deila spjallsíðu</string>
+  <string name="menu_option_share_edit">Deila breytingu</string>
+  <string name="menu_option_user_profile">Notandasnið fyrir %s</string>
+  <string name="menu_option_user_contributions">Framlög frá %s</string>
   <string name="menu_option_edit_source">Breyta frumtexta</string>
   <string name="watchlist_details_watching_label">Vaktandi</string>
   <string name="watchlist_details_watch_label">Vakta</string>
@@ -1002,6 +1063,8 @@
   <string name="menu_option_view_user_profile">Skoða notandasíðu notandans</string>
   <string name="menu_option_view_user_talk">Skoða spjallsíðu</string>
   <string name="menu_option_view_user_contributions">Skoða framlög notanda</string>
+  <string name="revision_diff_compare">Bera saman útgáfur</string>
+  <string name="revision_diff_compare_title">Bera saman útgáfur: %s</string>
   <string name="revision_diff_from">Frá:</string>
   <string name="revision_diff_to">Til:</string>
   <string name="revision_diff_line_num">Lína %d</string>
@@ -1011,6 +1074,9 @@
   <string name="revision_diff_paragraph_added">Málsgrein bætt við</string>
   <string name="revision_diff_paragraph_removed">Málsgrein fjarlægð</string>
   <string name="revision_undo_title">Afturkalla breytingu</string>
+  <string name="revision_undo_message">Þetta mun afturkalla þær breytingar sem gerðar hafa verið við yfirferð(ir) á greininni sem birtist hér.</string>
+  <string name="revision_undo_reason">Til að halda áfram skaltu gefa upp ástæðu fyrir afturköllun þessarar breytingar:</string>
+  <string name="revision_undo_success">útgáfan var afturkölluð.</string>
   <string name="revision_compare_button">Bera saman</string>
   <string name="revision_compare_two_only">Aðeins er hægt að velja tvær útgáfur.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Síðunni %1$s og spjallsíðu hennar hefur verið bætt við á %2$s vaktlistann þinn.</string>
@@ -1020,6 +1086,7 @@
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">í 1 mánuð</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">í 3 mánuði</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">í 6 mánuði</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s og spjallsíða hennar hafa verið fjarlægðar af vaktlistanum þínum.</string>
   <string name="watchlist_expiry_dialog_title">Veldu tímabil vaktlista</string>
   <string name="watchlist_expiry_dialog_permanent">Varanlegt</string>
   <string name="watchlist_expiry_dialog_one_week">1 vika</string>
