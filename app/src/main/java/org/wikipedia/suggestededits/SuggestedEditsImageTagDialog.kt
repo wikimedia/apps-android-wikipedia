@@ -163,8 +163,8 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
             itemView.setOnClickListener(this)
         }
 
-        override fun onClick(v: View?) {
-            val item = v!!.tag as ImageTag
+        override fun onClick(v: View) {
+            val item = v.tag as ImageTag
             callback()?.onSearchSelect(item)
             dismiss()
         }
