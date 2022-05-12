@@ -15,20 +15,13 @@ class RandomizerFunnel(app: WikipediaApp, wiki: WikiSite?, private val source: I
 
     override fun preprocessSessionToken(eventData: JSONObject) {}
 
-    fun swipedForward() {
-        numSwipesForward++
-    }
-
-    fun swipedBack() {
-        numSwipesBack++
-    }
-
-    fun clickedForward() {
-        numClicksForward++
-    }
-
-    fun clickedBack() {
-        numClicksBack++
+    fun execAction(action: Action) {
+        when (action) {
+            Action.SWIPE_FORWARD -> numSwipesForward++
+            Action.SWIPE_BACK ->    numSwipesBack++
+            Action.CLICK_FORWARD -> numClicksForward++
+            Action.CLICK_BACK ->    numClicksBack++
+        }
     }
 
     fun done() {
@@ -39,6 +32,13 @@ class RandomizerFunnel(app: WikipediaApp, wiki: WikiSite?, private val source: I
                 "diceClicks", numClicksForward,
                 "backClicks", numClicksBack
         )
+    }
+
+    enum class Action {
+        SWIPE_FORWARD,
+        SWIPE_BACK,
+        CLICK_FORWARD,
+        CLICK_BACK,
     }
 
     companion object {

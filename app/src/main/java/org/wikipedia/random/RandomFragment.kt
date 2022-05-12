@@ -9,18 +9,17 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
 import androidx.core.util.Pair
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.RandomizerFunnel
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentRandomBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
@@ -38,7 +37,6 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.AnimationUtil.PagerTransformer
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
 class RandomFragment : Fragment() {
@@ -58,8 +56,9 @@ class RandomFragment : Fragment() {
     private val disposables = CompositeDisposable()
 
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
-    private lateinit var funnel: RandomizerFunnel
     private val viewPagerListener: ViewPagerListener = ViewPagerListener()
+
+    private val viewModel: RandomViewModel by viewModels { RandomViewModel.Factory(requireArguments()) }
 
     private lateinit var wikiSite: WikiSite
     private val topTitle get() = getTopChild()?.title
@@ -92,9 +91,38 @@ class RandomFragment : Fragment() {
         if (savedInstanceState != null && binding.randomItemPager.currentItem == 0 && topTitle != null) {
             updateSaveShareButton(topTitle)
         }
+        lifecycleScope.launchWhenResumed {
+            launch {
+                viewModel.savaShareState.collect { alreadyStored ->
+                    saveButtonState = alreadyStored
+                    val img =
+                        if (saveButtonState) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
+                    binding.randomSaveButton.setImageResource(img)
+                }
+            }
 
-        funnel = RandomizerFunnel(WikipediaApp.getInstance(), wikiSite,
-                (arguments?.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? InvokeSource)!!)
+            launch {
+                viewModel.saveToDefaultList.collect { result ->
+                    if (result is RandomViewModel.Result) {
+                        onAddPageToDefaultList(result.value)
+                    }
+                }
+            }
+            launch {
+                viewModel.saveToCustomList.collect { result ->
+                    if (result is RandomViewModel.Result) {
+                        onAddPageToCustomList(result.value)
+                    }
+                }
+            }
+            launch {
+                viewModel.movePageToList.collect { result ->
+                    if (result is RandomViewModel.Result) {
+                        onMovePageToList(result.value.sourceReadingListId, result.value.title)
+                    }
+                }
+            }
+        }
 
         return view
     }
@@ -107,7 +135,6 @@ class RandomFragment : Fragment() {
     override fun onDestroyView() {
         disposables.clear()
         binding.randomItemPager.unregisterOnPageChangeCallback(viewPagerListener)
-        funnel.done()
         _binding = null
         super.onDestroyView()
     }
@@ -120,7 +147,7 @@ class RandomFragment : Fragment() {
         viewPagerListener.setNextPageSelectedAutomatic()
         binding.randomItemPager.setCurrentItem(binding.randomItemPager.currentItem + 1, true)
 
-        funnel.clickedForward()
+        viewModel.clickedForward()
     }
 
     private fun onBackClick() {
@@ -128,7 +155,7 @@ class RandomFragment : Fragment() {
 
         if (binding.randomItemPager.currentItem > 0) {
             binding.randomItemPager.setCurrentItem(binding.randomItemPager.currentItem - 1, true)
-            funnel.clickedBack()
+            viewModel.clickedBack()
         }
     }
 
@@ -146,7 +173,11 @@ class RandomFragment : Fragment() {
                 }
 
                 override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                    onAddPageToList(title, addToDefault)
+                    if (addToDefault) {
+                        viewModel.saveToDefaultList(title)
+                    } else {
+                        viewModel.saveToCustomList(title)
+                    }
                 }
 
                 override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
@@ -154,7 +185,7 @@ class RandomFragment : Fragment() {
                 }
             }).show(HistoryEntry(title, HistoryEntry.SOURCE_RANDOM))
         } else {
-            onAddPageToList(title, true)
+            viewModel.saveToDefaultList(title)
         }
     }
 
@@ -170,18 +201,18 @@ class RandomFragment : Fragment() {
         startActivity(intent, if (DimenUtil.isLandscape(requireContext()) || sharedElements.isEmpty()) null else options.toBundle())
     }
 
-    fun onAddPageToList(title: PageTitle, addToDefault: Boolean) {
-        if (addToDefault) {
-            addToDefaultList(requireActivity(), title, InvokeSource.RANDOM_ACTIVITY,
-                AddToDefaultListCallback { readingListId -> onMovePageToList(readingListId, title) },
-                ReadingListBehaviorsUtil.Callback { updateSaveShareButton(title) }
-            )
-        } else {
+    private fun onAddPageToDefaultList(title: PageTitle) {
+        addToDefaultList(requireActivity(), title, InvokeSource.RANDOM_ACTIVITY,
+            AddToDefaultListCallback { readingListId -> viewModel.movePageToList(readingListId, title) },
+            ReadingListBehaviorsUtil.Callback { updateSaveShareButton(title) }
+        )
+    }
+
+    private fun onAddPageToCustomList(title: PageTitle) {
             bottomSheetPresenter.show(childFragmentManager,
                     AddToReadingListDialog.newInstance(title, InvokeSource.RANDOM_ACTIVITY) {
                         updateSaveShareButton(title)
             })
-        }
     }
 
     fun onMovePageToList(sourceReadingListId: Long, title: PageTitle) {
@@ -201,18 +232,7 @@ class RandomFragment : Fragment() {
             return
         }
 
-        val d = Observable.fromCallable { AppDatabase.instance.readingListPageDao().findPageInAnyList(title) != null }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ exists: Boolean ->
-                    saveButtonState = exists
-                    val img = if (saveButtonState) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
-                    binding.randomSaveButton.setImageResource(img)
-                }, { t ->
-                    L.w(t)
-                })
-
-        disposables.add(d)
+        viewModel.actualizeSaveShare(title)
     }
 
     private fun updateSaveShareButton() {
@@ -255,9 +275,9 @@ class RandomFragment : Fragment() {
 
             if (!nextPageSelectedAutomatic) {
                 if (position > prevPosition) {
-                    funnel.swipedForward()
+                    viewModel.swipedForward()
                 } else if (position < prevPosition) {
-                    funnel.swipedBack()
+                    viewModel.swipedBack()
                 }
             }
 
