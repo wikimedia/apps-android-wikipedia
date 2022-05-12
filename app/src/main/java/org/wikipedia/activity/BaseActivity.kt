@@ -51,7 +51,6 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 import kotlin.math.abs
 
-
 abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
     private val networkStateReceiver = NetworkStateReceiver()
@@ -347,9 +346,7 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
                 val endX = event.x
                 val endY = event.y
                 if (isClick(startX.toFloat(), endX, startY.toFloat(), endY)) {
-
                     view?.let { Log.e("#####", getNameFromId(it) + "VIEW CLICK EVENT" + localClassName) }
-
                 }
             }
         }
