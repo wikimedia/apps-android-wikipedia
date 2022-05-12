@@ -1,13 +1,13 @@
 package org.wikipedia.descriptions
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
-import androidx.core.content.ContextCompat
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.net.toUri
 import androidx.core.view.isVisible
+import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewDescriptionEditLicenseBinding
@@ -58,11 +58,11 @@ class DescriptionEditLicenseView constructor(context: Context, attrs: AttributeS
     }
 
     fun darkLicenseView() {
-        val white70 = ContextCompat.getColor(context, R.color.white70)
+        val white70 = AppCompatResources.getColorStateList(context, R.color.white70)
         setBackgroundResource(android.R.color.black)
         binding.licenseText.setTextColor(white70)
         binding.licenseText.setLinkTextColor(white70)
-        binding.licenseText.compoundDrawables[0]?.setTintList(ColorStateList.valueOf(white70))
+        TextViewCompat.setCompoundDrawableTintList(binding.licenseText, white70)
         binding.anonWarningText.setTextColor(white70)
         binding.anonWarningText.setLinkTextColor(white70)
     }

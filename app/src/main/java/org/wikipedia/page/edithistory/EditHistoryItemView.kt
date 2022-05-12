@@ -77,8 +77,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
 
     fun setSelectedState(selectedState: Int) {
         val colorDefault = ResourceUtil.getThemedColor(context, R.attr.paper_color)
-        val colorButtonDefault = ResourceUtil.getThemedColor(context, R.attr.color_group_22)
-        val colorSecondary = ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color)
+        val colorSecondary = ResourceUtil.getThemedColorStateList(context, R.attr.material_theme_secondary_color)
         val colorFrom = ResourceUtil.getThemedColor(context, R.attr.colorAccent)
         val colorTo = ResourceUtil.getThemedColor(context, R.attr.color_group_68)
         binding.selectButton.isVisible = selectedState != EditHistoryListViewModel.SELECT_INACTIVE
@@ -86,12 +85,12 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         if (selectedState == EditHistoryListViewModel.SELECT_INACTIVE ||
                 selectedState == EditHistoryListViewModel.SELECT_NONE) {
             binding.selectButton.setImageResource(R.drawable.ic_check_empty_24)
-            ImageViewCompat.setImageTintList(binding.selectButton, ColorStateList.valueOf(colorSecondary))
+            ImageViewCompat.setImageTintList(binding.selectButton, colorSecondary)
             binding.cardView.setDefaultBorder()
             binding.cardView.setCardBackgroundColor(colorDefault)
-            binding.userNameText.backgroundTintList = ColorStateList.valueOf(colorButtonDefault)
+            binding.userNameText.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_22)
             binding.userNameText.setTextColor(colorSecondary)
-            binding.userNameText.iconTint = ColorStateList.valueOf(colorSecondary)
+            binding.userNameText.iconTint = colorSecondary
             binding.editHistoryTimeText.setTextColor(colorSecondary)
         } else if (selectedState == EditHistoryListViewModel.SELECT_FROM) {
             binding.selectButton.setImageResource(R.drawable.ic_check_circle_black_24dp)

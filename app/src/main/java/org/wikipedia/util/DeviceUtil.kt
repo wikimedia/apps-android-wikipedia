@@ -15,8 +15,6 @@ import android.view.inputmethod.InputMethodManager
 import androidx.annotation.ColorInt
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.BlendModeColorFilterCompat
-import androidx.core.graphics.BlendModeCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -58,9 +56,7 @@ object DeviceUtil {
     fun updateStatusBarTheme(activity: Activity, toolbar: Toolbar?, reset: Boolean) {
         activity.window.insetsControllerCompat?.isAppearanceLightStatusBars = !reset ||
                 !WikipediaApp.getInstance().currentTheme.isDark
-        toolbar?.navigationIcon?.colorFilter = BlendModeColorFilterCompat
-                .createBlendModeColorFilterCompat(if (reset) Color.WHITE
-                else ResourceUtil.getThemedColor(activity, R.attr.toolbar_icon_color), BlendModeCompat.SRC_IN)
+        toolbar?.navigationIcon?.setTint(if (reset) Color.WHITE else ResourceUtil.getThemedColor(activity, R.attr.toolbar_icon_color))
     }
 
     fun setContextClickAsLongClick(vararg views: View) {
