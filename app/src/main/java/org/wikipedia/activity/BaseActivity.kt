@@ -11,8 +11,12 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.MenuItem
 import android.view.MotionEvent
+import android.view.View
+import android.view.View.OnTouchListener
+import android.view.ViewGroup
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -45,8 +49,10 @@ import org.wikipedia.util.PermissionUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
+import kotlin.math.abs
 
-abstract class BaseActivity : AppCompatActivity() {
+
+abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
     private val networkStateReceiver = NetworkStateReceiver()
     private var previousNetworkState = WikipediaApp.getInstance().isOnline
@@ -91,6 +97,22 @@ abstract class BaseActivity : AppCompatActivity() {
         maybeShowLoggedOutInBackgroundDialog()
 
         Prefs.localClassName = localClassName
+
+        val decorView = window.decorView
+        decorView.viewTreeObserver.addOnGlobalLayoutListener { printClickedViews(window.decorView) }
+    }
+
+    private fun printClickedViews(currentView: View?) {
+        if (currentView == null) {
+            return
+        }
+        currentView.setOnTouchListener(this)
+        if (currentView is ViewGroup) {
+            val viewGroup = currentView
+            for (i in 0 until viewGroup.childCount) {
+                printClickedViews(viewGroup.getChildAt(i))
+            }
+        }
     }
 
     override fun onDestroy() {
@@ -309,5 +331,38 @@ abstract class BaseActivity : AppCompatActivity() {
     companion object {
         private var EXCLUSIVE_BUS_METHODS: ExclusiveBusConsumer? = null
         private var EXCLUSIVE_DISPOSABLE: Disposable? = null
+    }
+    private var startX = 0
+    private var startY = 0
+    private val CLICK_ACTION_THRESHOLD = 200
+
+    override fun onTouch(view: View?, event: MotionEvent?): Boolean {
+
+        when (event?.action) {
+            MotionEvent.ACTION_DOWN -> {
+                startX = event.x.toInt()
+                startY = event.y.toInt()
+            }
+            MotionEvent.ACTION_UP -> {
+                val endX = event.x
+                val endY = event.y
+                if (isClick(startX.toFloat(), endX, startY.toFloat(), endY)) {
+
+                    view?.let { Log.e("#####", getNameFromId(it) + "VIEW CLICK EVENT" + localClassName) }
+
+                }
+            }
+        }
+        return false
+    }
+
+    private fun isClick(startX: Float, endX: Float, startY: Float, endY: Float): Boolean {
+        val diffHorizontal = abs(startX - endX)
+        val diffVertical = abs(startY - endY)
+        return !(diffHorizontal > CLICK_ACTION_THRESHOLD || diffVertical > CLICK_ACTION_THRESHOLD)
+    }
+
+    open fun getNameFromId(view: View?): String? {
+        return if (view?.id == null) "no-id" else view.resources.getResourceName(view.id)
     }
 }
