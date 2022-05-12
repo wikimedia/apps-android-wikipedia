@@ -1,7 +1,6 @@
 package org.wikipedia.page
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.TypedValue
@@ -42,7 +41,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
             view.text = context.getString(item.titleResId)
             view.contentDescription = view.text
             FeedbackUtil.setButtonLongPressToast(view)
-            TextViewCompat.setCompoundDrawableTintList(view, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.color_group_63)))
+            TextViewCompat.setCompoundDrawableTintList(view, ResourceUtil.getThemedColorStateList(context, R.attr.color_group_63))
             view.setCompoundDrawablesWithIntrinsicBounds(0, item.iconResId, 0, 0)
             view.compoundDrawablePadding = -DimenUtil.roundedDpToPx(4f)
             view.setOnClickListener { v ->
