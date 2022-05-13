@@ -95,39 +95,20 @@ class RandomFragment : Fragment() {
         }
         lifecycleScope.launchWhenResumed {
             launch {
-                viewModel.savaShareState.collect { alreadyStored ->
+                viewModel.saveShareState.collect { alreadyStored ->
                     saveButtonState = alreadyStored
-                    val img =
-                        if (saveButtonState) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
-                    binding.randomSaveButton.setImageResource(img)
-                }
-            }
 
-            launch {
-                viewModel.saveToDefaultList.collect { result ->
-                    if (result is RandomViewModel.Result) {
-                        onAddPageToDefaultList(result.value)
-                    }
-                }
-            }
-            launch {
-                viewModel.saveToCustomList.collect { result ->
-                    if (result is RandomViewModel.Result) {
-                        onAddPageToCustomList(result.value)
-                    }
-                }
-            }
-            launch {
-                viewModel.movePageToList.collect { result ->
-                    if (result is RandomViewModel.Result) {
-                        onMovePageToList(result.value.sourceReadingListId, result.value.title)
-                    }
+                    val image = if (saveButtonState) {
+                        R.drawable.ic_bookmark_white_24dp
+                    } else R.drawable.ic_bookmark_border_white_24dp
+
+                    binding.randomSaveButton.setImageResource(image)
                 }
             }
         }
 
         funnel = RandomizerFunnel(WikipediaApp.getInstance(), wikiSite,
-            (arguments?.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? InvokeSource)!!)
+                (arguments?.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? InvokeSource)!!)
 
         return view
     }
@@ -179,11 +160,7 @@ class RandomFragment : Fragment() {
                 }
 
                 override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                    if (addToDefault) {
-                        viewModel.saveToDefaultList(title)
-                    } else {
-                        viewModel.saveToCustomList(title)
-                    }
+                    onAddPageToList(title, addToDefault)
                 }
 
                 override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
@@ -191,7 +168,7 @@ class RandomFragment : Fragment() {
                 }
             }).show(HistoryEntry(title, HistoryEntry.SOURCE_RANDOM))
         } else {
-            viewModel.saveToDefaultList(title)
+            onAddPageToList(title, true)
         }
     }
 
@@ -207,18 +184,18 @@ class RandomFragment : Fragment() {
         startActivity(intent, if (DimenUtil.isLandscape(requireContext()) || sharedElements.isEmpty()) null else options.toBundle())
     }
 
-    private fun onAddPageToDefaultList(title: PageTitle) {
-        addToDefaultList(requireActivity(), title, InvokeSource.RANDOM_ACTIVITY,
-            AddToDefaultListCallback { readingListId -> viewModel.movePageToList(readingListId, title) },
-            ReadingListBehaviorsUtil.Callback { updateSaveShareButton(title) }
-        )
-    }
-
-    private fun onAddPageToCustomList(title: PageTitle) {
+    fun onAddPageToList(title: PageTitle, addToDefault: Boolean) {
+        if (addToDefault) {
+            addToDefaultList(requireActivity(), title, InvokeSource.RANDOM_ACTIVITY,
+                AddToDefaultListCallback { readingListId -> onMovePageToList(readingListId, title) },
+                ReadingListBehaviorsUtil.Callback { updateSaveShareButton(title) }
+            )
+        } else {
             bottomSheetPresenter.show(childFragmentManager,
                     AddToReadingListDialog.newInstance(title, InvokeSource.RANDOM_ACTIVITY) {
                         updateSaveShareButton(title)
             })
+        }
     }
 
     fun onMovePageToList(sourceReadingListId: Long, title: PageTitle) {
