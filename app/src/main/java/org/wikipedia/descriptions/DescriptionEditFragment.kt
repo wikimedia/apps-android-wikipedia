@@ -222,14 +222,14 @@ class DescriptionEditFragment : Fragment() {
         }
 
         private fun getEditTokenThenSave() {
-            val csrfClient = if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
+            val csrfSite = if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-                CsrfTokenClient(Constants.commonsWikiSite)
+                Constants.commonsWikiSite
             } else {
-                CsrfTokenClient(if (shouldWriteToLocalWiki()) pageTitle.wikiSite else Constants.wikidataWikiSite)
+                if (shouldWriteToLocalWiki()) pageTitle.wikiSite else Constants.wikidataWikiSite
             }
 
-            disposables.add(csrfClient.token.subscribe({ token ->
+            disposables.add(CsrfTokenClient.getToken(csrfSite).subscribe({ token ->
                 if (shouldWriteToLocalWiki()) {
                     // If the description is being applied to an article on English Wikipedia, it
                     // should be written directly to the article instead of Wikidata.
