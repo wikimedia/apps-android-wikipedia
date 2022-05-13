@@ -13,7 +13,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.util.Resource
 
-class RandomItemViewModel(bundle: Bundle): ViewModel() {
+class RandomItemViewModel(bundle: Bundle) : ViewModel() {
 
 	private val wikiSite: WikiSite = bundle.getParcelable(RandomActivity.INTENT_EXTRA_WIKISITE)!!
 
