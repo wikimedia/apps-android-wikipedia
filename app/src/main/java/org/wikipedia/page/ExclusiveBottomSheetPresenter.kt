@@ -49,11 +49,7 @@ class ExclusiveBottomSheetPresenter {
         if (manager.isStateSaved || manager.isDestroyed) {
             return
         }
-        dismiss(manager.findFragmentByTag(BOTTOM_SHEET_FRAGMENT_TAG) as DialogFragment?)
-    }
-
-    fun dismiss(fragment: DialogFragment?) {
-        fragment?.dismiss()
+        (manager.findFragmentByTag(BOTTOM_SHEET_FRAGMENT_TAG) as DialogFragment?)?.dismiss()
     }
 
     companion object {
