@@ -97,6 +97,10 @@ class ArticleInteractionEvent(private val wikiDb: String, private val pageId: In
         submitEvent("unwatch_article")
     }
 
+    fun logEditArticleClick() {
+        submitEvent("edit_article")
+    }
+
     private fun submitEvent(action: String) {
         EventPlatformClient.submit(ArticleInteractionEventImpl(duration, wikiDb, pageId, action))
     }

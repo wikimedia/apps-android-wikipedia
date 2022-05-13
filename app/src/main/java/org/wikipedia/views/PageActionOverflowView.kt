@@ -71,6 +71,9 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
                     view.setCompoundDrawablesWithIntrinsicBounds(PageActionItem.readingListIcon(model.isInReadingList), 0, 0, 0)
                     view.visibility = if (enabled) VISIBLE else GONE
                 }
+                PageActionItem.EDIT_ARTICLE -> {
+                    view.setCompoundDrawablesWithIntrinsicBounds(PageActionItem.editArticleIcon(model.page?.pageProperties?.canEdit != true), 0, 0, 0)
+                }
                 else -> {
                     view.visibility = if (enabled) VISIBLE else GONE
                 }
