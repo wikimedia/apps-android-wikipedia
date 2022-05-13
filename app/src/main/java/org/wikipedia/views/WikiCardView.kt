@@ -1,7 +1,6 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.os.Build
 import android.util.AttributeSet
 import androidx.core.content.ContextCompat
@@ -58,7 +57,7 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
         }
 
         setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
-        rippleColor = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.material_theme_border_color))
+        rippleColor = ResourceUtil.getThemedColorStateList(context, R.attr.material_theme_border_color)
     }
 
     fun setDefaultBorder() {
