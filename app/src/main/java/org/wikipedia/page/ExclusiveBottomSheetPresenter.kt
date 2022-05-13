@@ -38,12 +38,22 @@ class ExclusiveBottomSheetPresenter {
         dialog.show(manager, BOTTOM_SHEET_FRAGMENT_TAG)
     }
 
+    fun getCurrentBottomSheet(manager: FragmentManager): DialogFragment? {
+        if (manager.isStateSaved || manager.isDestroyed) {
+            return null
+        }
+        return manager.findFragmentByTag(BOTTOM_SHEET_FRAGMENT_TAG) as DialogFragment?
+    }
+
     fun dismiss(manager: FragmentManager) {
         if (manager.isStateSaved || manager.isDestroyed) {
             return
         }
-        val dialog = manager.findFragmentByTag(BOTTOM_SHEET_FRAGMENT_TAG) as DialogFragment?
-        dialog?.dismiss()
+        dismiss(manager.findFragmentByTag(BOTTOM_SHEET_FRAGMENT_TAG) as DialogFragment?)
+    }
+
+    fun dismiss(fragment: DialogFragment?) {
+        fragment?.dismiss()
     }
 
     companion object {
