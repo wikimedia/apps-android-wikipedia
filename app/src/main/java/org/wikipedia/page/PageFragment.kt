@@ -32,6 +32,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.datetime.Clock
 import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
@@ -94,7 +95,6 @@ import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import org.wikipedia.wiktionary.WiktionaryDialog
-import java.util.*
 
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
     ReferenceDialog.Callback, WiktionaryDialog.Callback, WatchlistExpiryDialog.Callback {
@@ -673,7 +673,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ list ->
                         val country = GeoUtil.geoIPCountry
-                        val now = Date()
+                        val now = Clock.System.now()
                         for (announcement in list.items) {
                             if (AnnouncementClient.shouldShow(announcement, country, now) &&
                                 announcement.placement == Announcement.PLACEMENT_ARTICLE &&

@@ -5,6 +5,8 @@ import androidx.annotation.VisibleForTesting
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
@@ -16,7 +18,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
-import java.util.*
 
 class AnnouncementClient : FeedClient {
 
@@ -45,27 +46,23 @@ class AnnouncementClient : FeedClient {
 
         @VisibleForTesting
         private fun buildCards(announcements: List<Announcement>): List<Card> {
-            val cards = mutableListOf<Card>()
             val country = GeoUtil.geoIPCountry
-            val now = Date()
-            for (announcement in announcements) {
-                if (shouldShow(announcement, country, now)) {
-                    when (announcement.type) {
-                        Announcement.SURVEY -> cards.add(SurveyCard(announcement))
-                        Announcement.FUNDRAISING -> if (announcement.placement == Announcement.PLACEMENT_FEED) {
-                            cards.add(FundraisingCard(announcement))
-                        }
-                        else -> cards.add(AnnouncementCard(announcement))
-                    }
+            val now = Clock.System.now()
+            return announcements.filter { shouldShow(it, country, now) }.map {
+                if (it.type == Announcement.SURVEY) {
+                    SurveyCard(it)
+                } else if (it.type == Announcement.FUNDRAISING && it.placement == Announcement.PLACEMENT_FEED) {
+                    FundraisingCard(it)
+                } else {
+                    AnnouncementCard(it)
                 }
             }
-            return cards
         }
 
-        fun shouldShow(announcement: Announcement?, country: String?, date: Date): Boolean {
+        fun shouldShow(announcement: Announcement?, country: String?, instant: Instant): Boolean {
             return (announcement != null && !announcement.platforms.isNullOrEmpty() && (announcement.platforms.contains(PLATFORM_CODE) ||
                     announcement.platforms.contains(PLATFORM_CODE_NEW)) &&
-                    matchesCountryCode(announcement, country) && matchesDate(announcement, date) &&
+                    matchesCountryCode(announcement, country) && matchesDate(announcement, instant) &&
                     matchesVersionCodes(announcement.minVersion(), announcement.maxVersion()) && matchesConditions(announcement))
         }
 
@@ -75,16 +72,13 @@ class AnnouncementClient : FeedClient {
             if (!announcementsCountryOverride.isNullOrEmpty()) {
                 countryCode = announcementsCountryOverride
             }
-            return if (countryCode.isNullOrEmpty() || announcement.countries.isNullOrEmpty()) {
+            return if (countryCode.isNullOrEmpty() || announcement.countries.isEmpty()) {
                 false
             } else announcement.countries.contains(countryCode)
         }
 
-        private fun matchesDate(announcement: Announcement, date: Date): Boolean {
-            if (Prefs.ignoreDateForAnnouncements) {
-                return true
-            }
-            return announcement.startTime()?.before(date) == true && announcement.endTime()?.after(date) == true
+        private fun matchesDate(announcement: Announcement, instant: Instant): Boolean {
+            return Prefs.ignoreDateForAnnouncements || instant in announcement.startTime..announcement.endTime
         }
 
         private fun matchesConditions(announcement: Announcement): Boolean {
