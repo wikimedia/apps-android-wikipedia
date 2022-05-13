@@ -7,11 +7,10 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.view.ActionMode
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.BlendModeColorFilterCompat
-import androidx.core.graphics.BlendModeCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.MenuItemCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -127,9 +126,10 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         sortByRecentItem.setTitle(if (sortMode == ReadingList.SORT_BY_RECENT_DESC) R.string.reading_list_sort_by_recent_desc else R.string.reading_list_sort_by_recent)
         val searchItem = menu.findItem(R.id.menu_search_lists)
         val sortOptionsItem = menu.findItem(R.id.menu_sort_options)
-        val iconColor = if (toolbarExpanded) ContextCompat.getColor(requireContext(), android.R.color.white) else ResourceUtil.getThemedColor(requireContext(), R.attr.toolbar_icon_color)
-        searchItem.icon.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(iconColor, BlendModeCompat.SRC_IN)
-        sortOptionsItem.icon.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(iconColor, BlendModeCompat.SRC_IN)
+        val iconColor = if (toolbarExpanded) AppCompatResources.getColorStateList(requireContext(), android.R.color.white)
+        else ResourceUtil.getThemedColorStateList(requireContext(), R.attr.toolbar_icon_color)
+        MenuItemCompat.setIconTintList(searchItem, iconColor)
+        MenuItemCompat.setIconTintList(sortOptionsItem, iconColor)
         readingList?.let {
             if (it.isDefault) {
                 menu.findItem(R.id.menu_reading_list_rename)?.let { item ->
