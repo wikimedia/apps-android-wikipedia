@@ -39,6 +39,7 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
         binding.categoriesNoneFound.isVisible = false
         binding.categoriesRecycler.isVisible = false
         binding.dialogCategoriesProgress.isVisible = true
+        binding.categoriesError.backClickListener = View.OnClickListener { dismiss() }
 
         viewModel.categoriesData.observe(this) {
             binding.dialogCategoriesProgress.isVisible = false
@@ -61,12 +62,8 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun layOutCategories(categoryList: List<PageTitle>) {
-        if (categoryList.isEmpty()) {
-            binding.categoriesNoneFound.visibility = View.VISIBLE
-            binding.categoriesRecycler.visibility = View.GONE
-        }
-        binding.categoriesRecycler.visibility = View.VISIBLE
-        binding.categoriesNoneFound.visibility = View.GONE
+        binding.categoriesRecycler.isVisible = categoryList.isNotEmpty()
+        binding.categoriesNoneFound.isVisible = categoryList.isEmpty()
         binding.categoriesError.visibility = View.GONE
         binding.categoriesRecycler.adapter = CategoryAdapter(categoryList)
     }
