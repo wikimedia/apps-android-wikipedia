@@ -71,7 +71,7 @@ class EditSectionActivity : BaseActivity() {
     lateinit var pageTitle: PageTitle
         private set
 
-    private var sectionID = 0
+    private var sectionID = -1
     private var sectionAnchor: String? = null
     private var textToHighlight: String? = null
     private var sectionWikitext: String? = null
@@ -110,7 +110,7 @@ class EditSectionActivity : BaseActivity() {
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
 
         pageTitle = intent.getParcelableExtra(EXTRA_TITLE)!!
-        sectionID = intent.getIntExtra(EXTRA_SECTION_ID, 0)
+        sectionID = intent.getIntExtra(EXTRA_SECTION_ID, -1)
         sectionAnchor = intent.getStringExtra(EXTRA_SECTION_ANCHOR)
         textToHighlight = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
         supportActionBar?.title = ""
@@ -230,7 +230,7 @@ class EditSectionActivity : BaseActivity() {
             showProgressBar(true)
         }
         disposables.add(ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(pageTitle.prefixedText,
-                sectionID.toString(), null, summaryText, if (isLoggedIn) "user" else null,
+                if (sectionID >= 0) sectionID.toString() else null, null, summaryText, if (isLoggedIn) "user" else null,
                 binding.editSectionText.text.toString(), null, currentRevision, token,
                 if (captchaHandler.isActive) captchaHandler.captchaId() else "null",
                 if (captchaHandler.isActive) captchaHandler.captchaWord() else "null")
@@ -516,7 +516,7 @@ class EditSectionActivity : BaseActivity() {
 
     private fun fetchSectionText() {
         if (sectionWikitext == null) {
-            disposables.add(ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, sectionID)
+            disposables.add(ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, if (sectionID >= 0) sectionID else null)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->

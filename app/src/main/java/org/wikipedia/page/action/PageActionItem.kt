@@ -71,6 +71,11 @@ enum class PageActionItem constructor(val id: Int,
         override fun select(cb: Callback) {
             cb.onCategoriesSelected()
         }
+    },
+    EDIT_ARTICLE(12, R.string.menu_edit_article, R.drawable.ic_mode_edit_white_24dp) {
+        override fun select(cb: Callback) {
+            cb.onEditArticleSelected()
+        }
     };
 
     abstract fun select(cb: Callback)
@@ -94,6 +99,7 @@ enum class PageActionItem constructor(val id: Int,
         fun onNewTabSelected()
         fun onExploreSelected()
         fun onCategoriesSelected()
+        fun onEditArticleSelected()
         fun forwardClick()
     }
 
@@ -126,6 +132,11 @@ enum class PageActionItem constructor(val id: Int,
         @DrawableRes
         fun readingListIcon(pageSaved: Boolean): Int {
             return if (pageSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
+        }
+
+        @DrawableRes
+        fun editArticleIcon(isProtected: Boolean): Int {
+            return if (isProtected) R.drawable.ic_edit_pencil_locked else R.drawable.ic_mode_edit_white_24dp
         }
     }
 }
