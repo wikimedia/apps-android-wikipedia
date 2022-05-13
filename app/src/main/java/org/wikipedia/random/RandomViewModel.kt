@@ -1,23 +1,17 @@
 package org.wikipedia.random
 
-import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import org.wikipedia.Constants
-import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.RandomizerFunnel
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.log.L
 
-class RandomViewModel(bundle: Bundle) : ViewModel() {
+class RandomViewModel : ViewModel() {
 
-	private val funnel: RandomizerFunnel
 	private var saveShareJob: Job? = null
 
 	private val handler = CoroutineExceptionHandler { _, throwable ->
@@ -35,13 +29,6 @@ class RandomViewModel(bundle: Bundle) : ViewModel() {
 
 	private val _movePageToList = MutableStateFlow<SaveSharedState<MoveDataSource>>(Initial())
 	val movePageToList: StateFlow<SaveSharedState<MoveDataSource>> = _movePageToList
-
-	init {
-		val wikiSite = bundle.getParcelable<WikiSite>(RandomActivity.INTENT_EXTRA_WIKISITE)
-		val invokeSource =
-			bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
-		funnel = RandomizerFunnel(WikipediaApp.getInstance(), wikiSite, invokeSource)
-	}
 
 	fun saveToDefaultList(title: PageTitle) {
 		_saveToDefaultList.value = Result(title)
@@ -66,32 +53,10 @@ class RandomViewModel(bundle: Bundle) : ViewModel() {
 		}
 	}
 
-	fun clickedForward() {
-		funnel.execAction(RandomizerFunnel.Action.CLICK_FORWARD)
-	}
-
-	fun clickedBack() {
-		funnel.execAction(RandomizerFunnel.Action.CLICK_BACK)
-	}
-
-	fun swipedForward() {
-		funnel.execAction(RandomizerFunnel.Action.SWIPE_FORWARD)
-	}
-
-	fun swipedBack() {
-		funnel.execAction(RandomizerFunnel.Action.SWIPE_BACK)
-	}
-
-	override fun onCleared() {
-		super.onCleared()
-
-		funnel.done()
-	}
-
-	class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
+	class Factory() : ViewModelProvider.Factory {
 		@Suppress("unchecked_cast")
 		override fun <T : ViewModel> create(modelClass: Class<T>): T {
-			return RandomViewModel(bundle) as T
+			return RandomViewModel() as T
 		}
 	}
 

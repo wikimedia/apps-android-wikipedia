@@ -20,6 +20,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.RandomizerFunnel
 import org.wikipedia.databinding.FragmentRandomBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
@@ -56,9 +57,10 @@ class RandomFragment : Fragment() {
     private val disposables = CompositeDisposable()
 
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private lateinit var funnel: RandomizerFunnel
     private val viewPagerListener: ViewPagerListener = ViewPagerListener()
 
-    private val viewModel: RandomViewModel by viewModels { RandomViewModel.Factory(requireArguments()) }
+    private val viewModel: RandomViewModel by viewModels { RandomViewModel.Factory() }
 
     private lateinit var wikiSite: WikiSite
     private val topTitle get() = getTopChild()?.title
@@ -124,6 +126,9 @@ class RandomFragment : Fragment() {
             }
         }
 
+        funnel = RandomizerFunnel(WikipediaApp.getInstance(), wikiSite,
+            (arguments?.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? InvokeSource)!!)
+
         return view
     }
 
@@ -135,6 +140,7 @@ class RandomFragment : Fragment() {
     override fun onDestroyView() {
         disposables.clear()
         binding.randomItemPager.unregisterOnPageChangeCallback(viewPagerListener)
+        funnel.done()
         _binding = null
         super.onDestroyView()
     }
@@ -147,7 +153,7 @@ class RandomFragment : Fragment() {
         viewPagerListener.setNextPageSelectedAutomatic()
         binding.randomItemPager.setCurrentItem(binding.randomItemPager.currentItem + 1, true)
 
-        viewModel.clickedForward()
+        funnel.clickedForward()
     }
 
     private fun onBackClick() {
@@ -155,7 +161,7 @@ class RandomFragment : Fragment() {
 
         if (binding.randomItemPager.currentItem > 0) {
             binding.randomItemPager.setCurrentItem(binding.randomItemPager.currentItem - 1, true)
-            viewModel.clickedBack()
+            funnel.clickedBack()
         }
     }
 
@@ -275,9 +281,9 @@ class RandomFragment : Fragment() {
 
             if (!nextPageSelectedAutomatic) {
                 if (position > prevPosition) {
-                    viewModel.swipedForward()
+                    funnel.swipedForward()
                 } else if (position < prevPosition) {
-                    viewModel.swipedBack()
+                    funnel.swipedBack()
                 }
             }
 

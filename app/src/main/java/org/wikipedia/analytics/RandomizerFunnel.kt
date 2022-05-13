@@ -6,7 +6,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 
 class RandomizerFunnel(app: WikipediaApp, wiki: WikiSite?, private val source: InvokeSource) :
-        TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL, wiki) {
+    TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL, wiki) {
 
     private var numSwipesForward = 0
     private var numSwipesBack = 0
@@ -15,30 +15,30 @@ class RandomizerFunnel(app: WikipediaApp, wiki: WikiSite?, private val source: I
 
     override fun preprocessSessionToken(eventData: JSONObject) {}
 
-    fun execAction(action: Action) {
-        when (action) {
-            Action.SWIPE_FORWARD -> numSwipesForward++
-            Action.SWIPE_BACK ->    numSwipesBack++
-            Action.CLICK_FORWARD -> numClicksForward++
-            Action.CLICK_BACK ->    numClicksBack++
-        }
+    fun swipedForward() {
+        numSwipesForward++
+    }
+
+    fun swipedBack() {
+        numSwipesBack++
+    }
+
+    fun clickedForward() {
+        numClicksForward++
+    }
+
+    fun clickedBack() {
+        numClicksBack++
     }
 
     fun done() {
         log(
-                "source", source.ordinal,
-                "fingerSwipesForward", numSwipesForward,
-                "fingerSwipesBack", numSwipesBack,
-                "diceClicks", numClicksForward,
-                "backClicks", numClicksBack
+            "source", source.ordinal,
+            "fingerSwipesForward", numSwipesForward,
+            "fingerSwipesBack", numSwipesBack,
+            "diceClicks", numClicksForward,
+            "backClicks", numClicksBack
         )
-    }
-
-    enum class Action {
-        SWIPE_FORWARD,
-        SWIPE_BACK,
-        CLICK_FORWARD,
-        CLICK_BACK,
     }
 
     companion object {
