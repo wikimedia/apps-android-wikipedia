@@ -46,10 +46,7 @@ class ExclusiveBottomSheetPresenter {
     }
 
     fun dismiss(manager: FragmentManager) {
-        if (manager.isStateSaved || manager.isDestroyed) {
-            return
-        }
-        (manager.findFragmentByTag(BOTTOM_SHEET_FRAGMENT_TAG) as DialogFragment?)?.dismiss()
+        getCurrentBottomSheet(manager)?.dismiss()
     }
 
     companion object {
