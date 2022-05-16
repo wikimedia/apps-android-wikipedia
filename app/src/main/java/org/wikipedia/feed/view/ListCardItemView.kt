@@ -2,12 +2,12 @@ package org.wikipedia.feed.view
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.VisibleForTesting
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.util.Pair
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewListCardItemBinding
 import org.wikipedia.dataclient.page.PageSummary

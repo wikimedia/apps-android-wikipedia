@@ -1,11 +1,11 @@
 package org.wikipedia.feed.onthisday
 
 import android.app.Activity
+import android.app.ActivityOptions
 import android.net.Uri
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
-import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
@@ -71,7 +71,7 @@ class OnThisDayPagesViewHolder(
             HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY
         )
         val sharedElements = TransitionUtil.getSharedElements(activity, image)
-        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, *sharedElements)
+        val options = ActivityOptions.makeSceneTransitionAnimation(activity, *sharedElements)
         val intent = PageActivity.newIntentForNewTab(activity, entry, entry.title)
         if (sharedElements.isNotEmpty()) {
             intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true)

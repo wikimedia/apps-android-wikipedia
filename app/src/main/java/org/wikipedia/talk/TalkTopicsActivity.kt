@@ -355,7 +355,7 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private fun undoSave(newRevisionId: Long, topicId: Int, undoneSubject: String, undoneBody: String) {
-        disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
+        disposables.add(CsrfTokenClient.getToken(pageTitle.wikiSite)
             .subscribeOn(Schedulers.io())
             .flatMap { token -> ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(pageTitle.prefixedText, newRevisionId, token) }
             .subscribeOn(Schedulers.io())
