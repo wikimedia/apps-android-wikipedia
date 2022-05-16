@@ -638,7 +638,7 @@
   <string name="view_top_read_card_pageviews_m_suffix">%d မ</string>
   <string name="view_next_random_article">ထူႏ ရော့ꩻရာꩻရောမ်ဖြုဲင်ꩻအလင်</string>
   <string name="view_main_page_card_title">ဟန်ႏနီꩻ ဝီခီပီးဒီးယားကို</string>
-  <string name="view_main_page_card_action">ထွား အဓိကလိတ်မဲ့ငါဗဟိုႏ</string>
+  <string name="view_main_page_card_action">ထွား ဗဟိုႏလိတ်မဲ့ငါ</string>
   <string name="view_featured_image_card_title">ဟန်နီꩻတာႏ ဓာတ်ပုင်ႏ</string>
   <string name="view_featured_image_card_download">ဒေါင်းထူႏ</string>
   <string name="view_featured_image_card_share">ဖန်းဖြယ်</string>
@@ -648,7 +648,7 @@
   <string name="menu_feed_overflow_label">လွိုက်ရွေꩻထဲင်းခရာႏဖုံႏ</string>
   <string name="feed_featured_image_share_subject">Wikimedia Commons ဓာတ်ပုင်ႏတဲးဝါး</string>
   <string name="feed">ထိုမ်ႏလွူꩻထွား</string>
-  <string name="home">အမွူး</string>
+  <string name="home">ဗဟိုႏ</string>
   <string name="view_static_card_icon_content_description">ကဒ်ပုင်ႏ</string>
   <string name="view_card_news_title">သꩻတင်ꩻကိုနဝ်ꩻ</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -915,7 +915,7 @@
   <string name="talk_subject_empty">အကျောင်ꩻခရာႏနဝ်ꩻ ထွာအခြေင် လꩻတဝ်းသွူ။</string>
   <string name="talk_response_submitted">ဒင်ႏထွူလဲဉ်း လဝ်းပြန်ႏချာမုꩻ။</string>
   <string name="talk_snackbar_undo">သဲင်ꩻဖျင်ချာ</string>
-  <string name="talk_last_modified">%2$s &lt;b&gt;အဆုဲင်ꩻသွတ်ꩻမွဉ်းဖျင်ခါꩻလꩻလဲဉ်း %1$s&lt;/b&gt;</string>
+  <string name="talk_last_modified">%2$s &lt;b&gt;မွဉ်းဖျင်ခါꩻလꩻလဲဉ်း %1$s&lt;/b&gt;</string>
   <string name="talk_snackbar_survey_action_text">မာꩻစခန်း</string>
   <string name="menu_option_share_talk_discussion">ဖန်းဖြယ် အိုင်ကိုမ်ချက်</string>
   <string name="menu_option_share_talk_page">ဖန်းဖြယ် အိုင်ကိုမ်ဒေါ့ꩻရီလိတ်မဲ့ငါ</string>

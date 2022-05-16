@@ -394,7 +394,7 @@ class NotificationActivity : BaseActivity() {
                 binding.notificationSource.text = title.full
                 StringUtil.highlightAndBoldenText(binding.notificationSource, viewModel.currentSearchQuery, true, Color.YELLOW)
                 n.contents?.links?.getPrimary()?.url?.let {
-                    binding.notificationSource.setCompoundDrawables(null, null,
+                    binding.notificationSource.setCompoundDrawablesRelative(null, null,
                             if (UriUtil.isAppSupportedLink(Uri.parse(it))) null else externalLinkIcon, null)
                 }
                 binding.notificationSource.updateLayoutParams<ConstraintLayout.LayoutParams> {
@@ -432,7 +432,7 @@ class NotificationActivity : BaseActivity() {
                 binding.notificationSource.isVisible = true
             } ?: run {
                 binding.notificationSource.isVisible = false
-                binding.notificationSource.setCompoundDrawables(null, null, null, null)
+                binding.notificationSource.setCompoundDrawablesRelative(null, null, null, null)
                 binding.notificationWikiCodeContainer.isVisible = false
             }
 
