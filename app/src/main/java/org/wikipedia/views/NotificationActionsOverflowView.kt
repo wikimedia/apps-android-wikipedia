@@ -94,7 +94,7 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
 
         container.notification?.isUnread?.let {
             binding.overflowMarkAsRead.setText(if (it) R.string.notifications_menu_mark_as_read else R.string.notifications_menu_mark_as_unread)
-            binding.overflowMarkAsRead.setCompoundDrawablesWithIntrinsicBounds(if (it) R.drawable.ic_outline_markunread_24 else R.drawable.ic_outline_drafts_24, 0, 0, 0)
+            binding.overflowMarkAsRead.setCompoundDrawablesRelativeWithIntrinsicBounds(if (it) R.drawable.ic_outline_markunread_24 else R.drawable.ic_outline_drafts_24, 0, 0, 0)
         }
 
         binding.overflowViewPrimary.setOnClickListener(actionClickListener)
@@ -139,7 +139,7 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
 
         val iconColor = ColorStateList.valueOf(customIconColor)
         val textColor = ColorStateList.valueOf(customTextColor)
-        textView.setCompoundDrawablesWithIntrinsicBounds(icon, 0, 0, 0)
+        textView.setCompoundDrawablesRelativeWithIntrinsicBounds(icon, 0, 0, 0)
         TextViewCompat.setCompoundDrawableTintList(textView, iconColor)
         textView.setTextColor(textColor)
         textView.tag = link
