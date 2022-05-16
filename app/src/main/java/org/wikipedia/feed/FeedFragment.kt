@@ -3,11 +3,11 @@ package org.wikipedia.feed
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.core.util.Pair
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.BackPressedHandler
@@ -42,7 +42,6 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
-import java.util.*
 
 class FeedFragment : Fragment(), BackPressedHandler {
     private var _binding: FragmentFeedBinding? = null
