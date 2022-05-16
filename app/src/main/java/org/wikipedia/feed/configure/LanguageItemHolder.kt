@@ -3,9 +3,8 @@ package org.wikipedia.feed.configure
 import android.content.Context
 import android.view.View
 import android.widget.TextView
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.BlendModeColorFilterCompat
-import androidx.core.graphics.BlendModeCompat
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.ViewCompat
 import org.wikipedia.R
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.DefaultViewHolder
@@ -15,13 +14,9 @@ class LanguageItemHolder internal constructor(private val context: Context, item
     fun bindItem(langCode: String, enabled: Boolean) {
         langCodeView.text = langCode
 
-        langCodeView.setTextColor(if (enabled) ContextCompat.getColor(context, android.R.color.white)
-        else ResourceUtil.getThemedColor(context, R.attr.color_group_63))
-
+        val color = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_63)
+        langCodeView.setTextColor(if (enabled) AppCompatResources.getColorStateList(context, android.R.color.white) else color)
         langCodeView.setBackgroundResource(if (enabled) R.drawable.lang_button_shape else R.drawable.lang_button_shape_border)
-
-        langCodeView.background.colorFilter = BlendModeColorFilterCompat
-            .createBlendModeColorFilterCompat(if (enabled) ContextCompat.getColor(context, R.color.base30)
-            else ResourceUtil.getThemedColor(context, R.attr.color_group_63), BlendModeCompat.SRC_IN)
+        ViewCompat.setBackgroundTintList(langCodeView, if (enabled) AppCompatResources.getColorStateList(context, R.color.base30) else color)
     }
 }

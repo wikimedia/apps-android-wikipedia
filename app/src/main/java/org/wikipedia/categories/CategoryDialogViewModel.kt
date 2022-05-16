@@ -28,11 +28,11 @@ class CategoryDialogViewModel(bundle: Bundle) : ViewModel() {
         }) {
             withContext(Dispatchers.IO) {
                 val response = ServiceFactory.get(pageTitle.wikiSite).getCategories(pageTitle.prefixedText)
-                val titles = response.query!!.pages!!.map { page ->
+                val titles = response.query?.pages?.map { page ->
                     PageTitle(page.title, pageTitle.wikiSite).also {
                         it.displayText = page.displayTitle(pageTitle.wikiSite.languageCode)
                     }
-                }
+                }.orEmpty()
                 categoriesData.postValue(Resource.Success(titles))
             }
         }

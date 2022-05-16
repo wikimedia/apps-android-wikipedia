@@ -217,6 +217,7 @@
   <string name="page_protected_can_not_edit">Ваш налог тренутно нема довољно овлашћења за уређивање ове странице.</string>
   <string name="page_protected_can_not_edit_anon">Ова страница се тренутно не може уређивати анонимно.</string>
   <string name="page_protected_can_not_edit_title">Ова страница је заштићена</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Додај на списак надгледања</string>
   <string name="settings_item_preferences">Подешавања</string>
   <string name="settings_activity_title">Подешавања</string>
   <string name="about_description">О апликацији Википедија</string>
@@ -262,6 +263,9 @@
   <string name="edit_summary_tag_other_hint">Други начини на које сте побољшали страницу</string>
   <string name="edit_conflict_title">Сукоб измена</string>
   <string name="edit_conflict_message">Дошло је до сукоба измена јер је други корисник већ изменио страницу. Копирајте своје измене, вратите се и освежите страницу, па покушајте поново.</string>
+  <string name="edit_notices">Обавештење о чланку</string>
+  <string name="edit_notices_please_read">Молимо прочитајте пре уређивања</string>
+  <string name="edit_notices_show_auto">Аутоматски приказуј обавештења о чланцима</string>
   <string name="find_next">Пронађи следеће</string>
   <string name="find_previous">Пронађи претходно</string>
   <string name="find_first_occurence">Ово је прво појављивање</string>
@@ -730,6 +734,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Почнимо</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Натпис слике (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Датотека</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Датотека са Викимедијине оставе</string>
   <string name="suggested_edits_image_preview_dialog_artist">Уметник</string>
   <string name="suggested_edits_image_preview_dialog_tags">Ознаке</string>
   <string name="suggested_edits_image_preview_dialog_date">Датум</string>
@@ -903,7 +908,29 @@
   <string name="menu_option_view_user_profile">Прикажи страницу уредника</string>
   <string name="menu_option_view_user_talk">Прикажи страницу за разговор</string>
   <string name="menu_option_view_user_contributions">Прикажи доприносе</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">трајно</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">недељу дана</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">месец дана</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 месеца</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 месеци</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s и пратећа сзр су уклоњени са вашег списка надгледања.</string>
+  <string name="watchlist_expiry_dialog_permanent">Трајно</string>
+  <string name="watchlist_expiry_dialog_one_week">недељу дана</string>
+  <string name="watchlist_expiry_dialog_one_month">месец дана</string>
+  <string name="watchlist_expiry_dialog_three_months">3 месеца</string>
+  <string name="watchlist_expiry_dialog_six_months">6 месеци</string>
+  <string name="watchlist_empty">Ваш списак надгледања је празан.</string>
+  <string name="watchlist_filter_all">Све</string>
+  <string name="watchlist_filter_talk">Разговор</string>
+  <string name="watchlist_filter_pages">Странице</string>
+  <string name="watchlist_filter_other">Друго</string>
+  <string name="watchlist_page_moved">Премештено</string>
+  <string name="watchlist_page_protected">Заштићено</string>
+  <string name="watchlist_page_deleted">Избрисано</string>
   <string name="action_item_categories">Категорије</string>
+  <string name="page_no_categories">Ова страница није категорисана.</string>
   <string name="category_tab_articles">Чланци</string>
   <string name="category_tab_subcategories">Поткатегорије</string>
+  <string name="category_empty">Нема чланака у овој категорији.</string>
+  <string name="subcategory_empty">Нема поткатегорија у овој категорији.</string>
 </resources>
