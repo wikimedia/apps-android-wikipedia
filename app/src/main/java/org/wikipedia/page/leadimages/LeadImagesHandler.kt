@@ -1,7 +1,7 @@
 package org.wikipedia.page.leadimages
 
+import android.app.ActivityOptions
 import android.net.Uri
-import androidx.core.app.ActivityOptionsCompat
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -234,7 +234,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                         pageHeaderView.imageView.top.toFloat(), leadImageWidth.toFloat(), leadImageHeight.toFloat(),
                         leadImageUrl!!, true)
                     GalleryActivity.setTransitionInfo(hitInfo)
-                    val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, pageHeaderView.imageView, activity.getString(R.string.transition_page_gallery))
+                    val options = ActivityOptions.makeSceneTransitionAnimation(activity, pageHeaderView.imageView, activity.getString(R.string.transition_page_gallery))
                     activity.startActivityForResult(GalleryActivity.newIntent(activity,
                         parentFragment.title, filename, wiki, parentFragment.revision, GalleryFunnel.SOURCE_LEAD_IMAGE),
                         Constants.ACTIVITY_REQUEST_GALLERY, options.toBundle())
