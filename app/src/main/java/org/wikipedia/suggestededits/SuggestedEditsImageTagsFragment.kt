@@ -223,7 +223,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         chip.iconEndPadding = 0f
         chip.textStartPadding = DimenUtil.dpToPx(2f)
         chip.chipIconSize = DimenUtil.dpToPx(24f)
-        chip.chipIconTint = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
+        chip.chipIconTint = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.material_theme_de_emphasised_color)
         chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
         chip.setOnCheckedChangeListener(this)
         chip.setOnClickListener(this)
@@ -332,7 +332,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         binding.publishProgressBarComplete.visibility = GONE
         binding.publishProgressBar.visibility = VISIBLE
 
-        disposables.add(CsrfTokenClient(Constants.commonsWikiSite).token
+        disposables.add(CsrfTokenClient.getToken(Constants.commonsWikiSite)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ token ->

@@ -386,7 +386,7 @@
   <string name="view_wiki_error_message_offline">Internetga bog‘lanib bo‘lmadi</string>
   <string name="view_wiki_error_message_timeout">Vikipediyaga ulanib bo‘lmadi. Tarmoq ulanishingizni tekshiring yoki keyinroq qayta urinib ko‘ring</string>
   <string name="reference_title">Izohlar %s</string>
-  <string name="reference_list_title">Izohlar</string>
+  <string name="reference_list_title">Manbalar</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Rasm xiralashishi (tungi temada)</string>
   <string name="preference_title_prefer_offline_content">Oflayn tarkibni afzal ko‘rmoq</string>
   <string name="preference_summary_prefer_offline_content">Har doim maqolaning so‘nggi versiyasini yuklashdan ko‘ra, oflayn rejimda mavjud bo‘lgan maqolalarni yuklash orqali trafigingizni tejang.</string>
@@ -1050,7 +1050,7 @@
   <string name="wikitext_bulleted_list">Belgili roʻyxat</string>
   <string name="wikitext_numbered_list">Raqamlangan roʻyxat</string>
   <string name="wikitext_template">Andoza</string>
-  <string name="wikitext_reference">Izoh</string>
+  <string name="wikitext_reference">Manba</string>
   <string name="wikitext_preview_link">Koʻrish havolasi</string>
   <string name="main_drawer_help">Yordam</string>
   <string name="main_drawer_login">Vikipediaga kirmoq</string>

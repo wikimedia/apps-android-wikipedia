@@ -2,6 +2,7 @@ package org.wikipedia.settings
 
 import okhttp3.Request
 import okhttp3.Response
+import okhttp3.internal.closeQuietly
 import org.json.JSONObject
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.client
@@ -28,13 +29,12 @@ class RemoteConfigRefreshTask : RecurringTask() {
         } catch (e: Exception) {
             L.e(e)
         } finally {
-            response?.close()
+            response?.closeQuietly()
         }
     }
 
     companion object {
-        // Switch over to production when it is available
-        private const val REMOTE_CONFIG_URL = "https://meta.wikimedia.org/static/current/extensions/MobileApp/config/android.json"
+        private const val REMOTE_CONFIG_URL = "https://meta.wikimedia.org/w/extensions/MobileApp/config/android.json"
         private val RUN_INTERVAL_MILLI = TimeUnit.DAYS.toMillis(1)
     }
 }

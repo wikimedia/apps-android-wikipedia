@@ -957,7 +957,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, stagedScrollY: Int, isRefresh: Boolean = false) {
         // clear the title in case the previous page load had failed.
         clearActivityActionBarTitle()
-        dismissBottomSheet()
+
+        if (bottomSheetPresenter.getCurrentBottomSheet(childFragmentManager) !is ThemeChooserDialog) {
+            dismissBottomSheet()
+        }
 
         if (AccountUtil.isLoggedIn) {
             // explicitly check notifications for the current user
@@ -1450,6 +1453,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 bottomSheetPresenter.show(childFragmentManager, CategoryDialog.newInstance(it))
             }
             articleInteractionEvent?.logCategoriesClick()
+        }
+
+        override fun onEditArticleSelected() {
+            editHandler.startEditingArticle()
+            articleInteractionEvent?.logEditArticleClick()
         }
 
         override fun forwardClick() {

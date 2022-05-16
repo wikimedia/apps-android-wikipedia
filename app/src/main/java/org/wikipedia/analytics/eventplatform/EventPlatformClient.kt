@@ -8,7 +8,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.log.L
 import java.net.HttpURLConnection
 import java.util.*
@@ -63,25 +62,7 @@ object EventPlatformClient {
         if (!SamplingController.isInSample(event)) {
             return
         }
-        addEventMetadata(event)
         OutputBuffer.schedule(event)
-    }
-
-    /**
-     * Supplement the outgoing event with additional metadata, if not already present.
-     * These include:
-     * - dt: ISO 8601 timestamp
-     * - app_session_id: the current session ID
-     * - app_install_id: app install ID
-     *
-     * @param event event
-     */
-    fun addEventMetadata(event: Event) {
-        if (event is MobileAppsEvent) {
-            event.sessionId = AssociationController.sessionId
-            event.appInstallId = Prefs.appInstallId
-        }
-        event.dt = DateUtil.iso8601DateFormat(Date())
     }
 
     fun flushCachedEvents() {
