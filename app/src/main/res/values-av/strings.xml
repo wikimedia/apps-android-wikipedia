@@ -20,7 +20,7 @@
   <string name="menu_page_find_in_page" fuzzy="true">Гьумералда батизе</string>
   <string name="menu_page_share" fuzzy="true">Рехсезе</string>
   <string name="last_updated_text">Ахирисеб цӀигьаби:%s</string>
-  <string name="talk_page_link_text" fuzzy="true">Гьоркьоб лъей</string>
+  <string name="talk_page_link_text" fuzzy="true">БахӀс</string>
   <string name="preference_title_language" fuzzy="true">Википедиялъул мацӀал</string>
   <string name="langlinks_filter_hint">ЦIехезе</string>
   <string name="langlinks_empty">Гьаб гьумер цоги мацӀалда гьечӀо</string>
