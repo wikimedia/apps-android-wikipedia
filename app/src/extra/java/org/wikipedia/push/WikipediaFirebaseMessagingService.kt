@@ -70,7 +70,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
             csrfDisposables.clear()
 
             for (lang in WikipediaApp.getInstance().language().appLanguageCodes) {
-                csrfDisposables.add(CsrfTokenClient(WikiSite.forLanguageCode(lang)).token
+                csrfDisposables.add(CsrfTokenClient.getToken(WikiSite.forLanguageCode(lang))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({

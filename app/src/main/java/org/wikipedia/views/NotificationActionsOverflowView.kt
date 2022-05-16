@@ -15,9 +15,9 @@ import android.widget.PopupWindow
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.widget.PopupWindowCompat
+import androidx.core.widget.TextViewCompat
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
@@ -139,9 +139,8 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
 
         val iconColor = ColorStateList.valueOf(customIconColor)
         val textColor = ColorStateList.valueOf(customTextColor)
-        val drawable = AppCompatResources.getDrawable(context, icon)
-        drawable?.setTintList(iconColor)
-        textView.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
+        textView.setCompoundDrawablesWithIntrinsicBounds(icon, 0, 0, 0)
+        TextViewCompat.setCompoundDrawableTintList(textView, iconColor)
         textView.setTextColor(textColor)
         textView.tag = link
         textView.visibility = View.VISIBLE

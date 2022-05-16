@@ -47,7 +47,6 @@ class EventPlatformClientTest {
     @Test
     fun testEventSerialization() {
         val event = TestAppsEvent("test")
-        EventPlatformClient.addEventMetadata(event)
         val serialized = JsonUtil.encodeToString(event)!!
         MatcherAssert.assertThat(serialized.contains("dt"), CoreMatchers.`is`(true))
         MatcherAssert.assertThat(serialized.contains("app_session_id"), CoreMatchers.`is`(true))

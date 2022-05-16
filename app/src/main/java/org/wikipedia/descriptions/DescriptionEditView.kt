@@ -3,7 +3,6 @@ package org.wikipedia.descriptions
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.PorterDuff
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
@@ -101,6 +100,10 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         removeCallbacks(textValidateRunnable)
     }
 
+    fun setLoginCallback(callback: DescriptionEditLicenseView.Callback) {
+        binding.viewDescriptionEditReviewContainer.setLoginCallback(callback)
+    }
+
     fun setPageTitle(pageTitle: PageTitle) {
         this.pageTitle = pageTitle
         originalDescription = pageTitle.description
@@ -177,16 +180,21 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     }
 
     private fun setDarkReviewScreen(enabled: Boolean) {
-        if (context is DescriptionEditActivity &&
-                (action == DescriptionEditActivity.Action.ADD_CAPTION ||
-                action == DescriptionEditActivity.Action.TRANSLATE_CAPTION)) {
+        val context = context
+        val actions = listOf(DescriptionEditActivity.Action.ADD_CAPTION, DescriptionEditActivity.Action.TRANSLATE_CAPTION)
+
+        if (context is DescriptionEditActivity && action in actions) {
             binding.viewDescriptionEditToolbarContainer.setBackgroundResource(if (enabled) android.R.color.black else ResourceUtil.getThemedAttributeId(context, R.attr.paper_color))
-            binding.viewDescriptionEditSaveButton.setColorFilter(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.themed_icon_color), PorterDuff.Mode.SRC_IN)
-            binding.viewDescriptionEditCancelButton.setColorFilter(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN)
+            ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton,
+                ColorStateList.valueOf(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.themed_icon_color)))
+            ImageViewCompat.setImageTintList(binding.viewDescriptionEditCancelButton,
+                ColorStateList.valueOf(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.toolbar_icon_color)))
             binding.viewDescriptionEditHeader.setTextColor(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.material_theme_primary_color))
-            (context as DescriptionEditActivity).updateStatusBarColor(if (enabled) Color.BLACK else ResourceUtil.getThemedColor(context, R.attr.paper_color))
-            DeviceUtil.updateStatusBarTheme(context as DescriptionEditActivity, null, enabled)
-            (context as DescriptionEditActivity).updateNavigationBarColor(if (enabled) Color.BLACK else ResourceUtil.getThemedColor(context, R.attr.paper_color))
+
+            val barColor = if (enabled) Color.BLACK else ResourceUtil.getThemedColor(context, R.attr.paper_color)
+            context.updateStatusBarColor(barColor)
+            DeviceUtil.updateStatusBarTheme(context, null, enabled)
+            context.updateNavigationBarColor(barColor)
         }
     }
 
@@ -239,7 +247,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     fun setError(text: CharSequence?) {
         binding.viewDescriptionEditTextLayout.setErrorIconDrawable(R.drawable.ic_error_black_24dp)
-        val colorStateList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorError))
+        val colorStateList = ResourceUtil.getThemedColorStateList(context, R.attr.colorError)
         binding.viewDescriptionEditTextLayout.setErrorIconTintList(colorStateList)
         binding.viewDescriptionEditTextLayout.setErrorTextColor(colorStateList)
         binding.viewDescriptionEditTextLayout.boxStrokeErrorColor = colorStateList
@@ -328,18 +336,18 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     private fun enableSaveButton(enabled: Boolean, saveInProgress: Boolean) {
         if (saveInProgress) {
             binding.viewDescriptionEditSaveButton.setImageResource(R.drawable.ic_check_circle_black_24dp)
-            ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color)))
+            ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ResourceUtil.getThemedColorStateList(context, R.attr.themed_icon_color))
             binding.viewDescriptionEditSaveButton.isEnabled = false
             binding.viewDescriptionEditSaveButton.alpha = 1 / 2f
         } else {
             binding.viewDescriptionEditSaveButton.alpha = 1f
             if (enabled) {
                 binding.viewDescriptionEditSaveButton.setImageResource(R.drawable.ic_check_circle_black_24dp)
-                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color)))
+                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ResourceUtil.getThemedColorStateList(context, R.attr.themed_icon_color))
                 binding.viewDescriptionEditSaveButton.isEnabled = true
             } else {
                 binding.viewDescriptionEditSaveButton.setImageResource(R.drawable.ic_check_black_24dp)
-                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color)))
+                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ResourceUtil.getThemedColorStateList(context, R.attr.material_theme_de_emphasised_color))
                 binding.viewDescriptionEditSaveButton.isEnabled = false
             }
         }

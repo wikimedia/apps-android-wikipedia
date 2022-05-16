@@ -2,7 +2,6 @@ package org.wikipedia.analytics.eventplatform
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.wikipedia.auth.AccountUtil
 
 class EditHistoryInteractionEvent(private val wikiDb: String, private val pageId: Int) :
     TimedEvent() {
@@ -90,14 +89,13 @@ class EditHistoryInteractionEvent(private val wikiDb: String, private val pageId
     }
 
     private fun submitEvent(action: String) {
-        EventPlatformClient.submit(EditHistoryInteractionEventImpl(!AccountUtil.isLoggedIn, duration, wikiDb, pageId, action))
+        EventPlatformClient.submit(EditHistoryInteractionEventImpl(duration, wikiDb, pageId, action))
     }
 
     @Suppress("unused")
     @Serializable
     @SerialName("/analytics/mobile_apps/android_edit_history_interaction/1.0.0")
-    class EditHistoryInteractionEventImpl(@SerialName("is_anon") private val isAnon: Boolean,
-                                      @SerialName("time_spent_ms") private val timeSpentMs: Int,
+    class EditHistoryInteractionEventImpl(@SerialName("time_spent_ms") private val timeSpentMs: Int,
                                       @SerialName("wiki_db") private val wikiDb: String,
                                       @SerialName("page_id") private val pageId: Int,
                                       private val action: String) :

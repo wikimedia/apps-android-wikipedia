@@ -286,7 +286,6 @@ class ImageZoomHelper(activity: Activity) {
         private const val FLAG_ZOOMABLE = 1
         private const val FLAG_UNZOOMABLE = 2
 
-        @JvmStatic
         var isZooming = false
             private set
 
@@ -294,7 +293,6 @@ class ImageZoomHelper(activity: Activity) {
             return if (view.tag == null) 0 else view.tag as Int
         }
 
-        @JvmStatic
         fun setViewZoomable(view: View) {
             view.tag = getIntTag(view) or FLAG_ZOOMABLE
         }

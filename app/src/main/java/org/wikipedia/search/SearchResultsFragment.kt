@@ -1,6 +1,5 @@
 package org.wikipedia.search
 
-import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,7 +30,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
-import org.wikipedia.util.ResourceUtil.getThemedColor
+import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.StringUtil.boldenKeywordText
 import org.wikipedia.util.StringUtil.fromHtml
 import org.wikipedia.views.DefaultViewHolder
@@ -404,8 +403,8 @@ class SearchResultsFragment : Fragment() {
     }
 
     private inner class NoSearchResultItemViewHolder(itemView: View) : DefaultViewHolder<View>(itemView) {
-        private val accentColorStateList = ColorStateList.valueOf(getThemedColor(requireContext(), R.attr.colorAccent))
-        private val secondaryColorStateList = ColorStateList.valueOf(getThemedColor(requireContext(), R.attr.material_theme_secondary_color))
+        private val accentColorStateList = getThemedColorStateList(requireContext(), R.attr.colorAccent)
+        private val secondaryColorStateList = getThemedColorStateList(requireContext(), R.attr.material_theme_secondary_color)
         fun bindItem(position: Int) {
             val langCode = WikipediaApp.getInstance().language().appLanguageCodes[position]
             val resultsCount = resultsCountList[position]
