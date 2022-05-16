@@ -164,8 +164,8 @@
   <string name="login_username_hint">نام کاربری</string>
   <string name="login_password_hint">رمز عبور</string>
   <string name="account_creation_password_hint">رمز عبور</string>
-  <string name="login_2fa_hint">کد تأیید اعتبار دومرحله‌ای</string>
-  <string name="login_2fa_other_workflow_error_msg">تأیید اعتبار دو مرحله‌ای مورد نیاز است! لطفاً به فعالیت اصلی بازگردید و با توکن دومرحله‌ای خودتان به سامانه وارد شوید و از نو تلاش کنید.</string>
+  <string name="login_2fa_hint">کد اصالت‌سنجی دومرحله‌ای</string>
+  <string name="login_2fa_other_workflow_error_msg">اصالت‌سنجی دو مرحله‌ای مورد نیاز است! لطفاً به فعالیت اصلی بازگردید و با توکن دومرحله‌ای خودتان به سامانه وارد شوید و از نو تلاش کنید.</string>
   <string name="onboarding_card_login">ورود</string>
   <string name="page_editing_login">ورود</string>
   <string name="reading_lists_sync_login">ورود</string>
