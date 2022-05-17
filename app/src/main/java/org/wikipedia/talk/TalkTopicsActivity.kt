@@ -319,7 +319,8 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             if (!pageTitle.fragment.isNullOrEmpty()) {
                 threadItems.forEach { topic ->
                     if (threadTopic == null) {
-                        if (topic.name == pageTitle.fragment) {
+                        if (StringUtil.removeUnderscores(StringUtil.fromHtml(topic.html).toString()) == pageTitle.fragment ||
+                                topic.name == pageTitle.fragment) {
                             threadTopic = topic
                         } else {
                             threadItem = topic.allReplies.find { it.id == pageTitle.fragment }
