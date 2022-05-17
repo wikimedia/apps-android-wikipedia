@@ -73,7 +73,7 @@
                     android:gravity="center_horizontal|bottom"
                     android:paddingBottom="4dp"
                     android:text="T"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/chip_text_color"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
@@ -102,7 +102,7 @@
                     android:gravity="center_horizontal|bottom"
                     android:paddingBottom="2dp"
                     android:text="T"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/chip_text_color"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />

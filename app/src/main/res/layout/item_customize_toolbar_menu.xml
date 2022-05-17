@@ -4,4 +4,4 @@
     style="@style/OverflowMenuItem"
     android:drawablePadding="16dp"
     android:textColor="?attr/chart_shade1"
-    app:drawableTint="?android:attr/textColorSecondary" />
+    app:drawableTint="?attr/chip_text_color" />
