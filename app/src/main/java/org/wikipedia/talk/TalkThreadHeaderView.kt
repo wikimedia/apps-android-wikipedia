@@ -38,8 +38,10 @@ class TalkThreadHeaderView constructor(context: Context, attrs: AttributeSet? = 
                 ": " + "<a href='" + baseTitle.uri + "'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
         RichTextUtil.removeUnderlinesFromLinks(binding.pageTitleText)
 
-        val titleStr = StringUtil.fromHtml(item?.html).toString().trim()
+        binding.threadTitleText.movementMethod = movementMethod
+        val titleStr = StringUtil.fromHtml(item?.html).trim()
         binding.threadTitleText.text = titleStr.ifEmpty { context.getString(R.string.talk_no_subject) }
+        RichTextUtil.removeUnderlinesFromLinks(binding.threadTitleText)
 
         binding.subscribeButton.text = context.getString(if (subscribed) R.string.talk_list_item_overflow_subscribed else R.string.talk_list_item_overflow_subscribe)
         binding.subscribeButton.setTextColor(ResourceUtil.getThemedColor(context, if (subscribed) R.attr.material_theme_secondary_color else R.attr.colorAccent))
