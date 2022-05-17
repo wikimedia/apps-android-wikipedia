@@ -332,7 +332,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         binding.publishProgressBarComplete.visibility = GONE
         binding.publishProgressBar.visibility = VISIBLE
 
-        disposables.add(CsrfTokenClient(Constants.commonsWikiSite).token
+        disposables.add(CsrfTokenClient.getToken(Constants.commonsWikiSite)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ token ->

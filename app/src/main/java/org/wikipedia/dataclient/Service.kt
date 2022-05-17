@@ -264,16 +264,10 @@ interface Service {
 
     // ------- Editing -------
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=content|timestamp|ids&rvlimit=1&converttitles=")
-    fun getWikiTextForSection(
-        @Query("titles") title: String,
-        @Query("rvsection") section: Int
-    ): Observable<MwQueryResponse>
-
     @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full")
     fun getWikiTextForSectionWithInfo(
         @Query("titles") title: String,
-        @Query("rvsection") section: Int
+        @Query("rvsection") section: Int?
     ): Observable<MwQueryResponse>
 
     @FormUrlEncoded
@@ -291,7 +285,7 @@ interface Service {
     @POST(MW_API_PREFIX + "action=edit")
     fun postEditSubmit(
         @Field("title") title: String,
-        @Field("section") section: String,
+        @Field("section") section: String?,
         @Field("sectiontitle") newSectionTitle: String?,
         @Field("summary") summary: String,
         @Field("assert") user: String?,

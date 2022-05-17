@@ -685,6 +685,7 @@
   <string name="notifications_all_wikis_text">Allt \"wiki\"</string>
   <string name="notifications_all_types_text">Allt \"type\"</string>
   <string name="notifications_menu_user_talk_page">Spjallsíða %s</string>
+  <string name="notifications_offline_disable_message">Aðgerðin er ekki tiltæk í ónettengdum ham.</string>
   <string name="view_because_you_read_card_title">Því þú last</string>
   <string name="view_random_card_title">Slembið</string>
   <string name="view_random_article_card_title">Handahófsvalin grein</string>
@@ -769,12 +770,19 @@
   <string name="description_edit_helper_text_lowercase_warning">byrjar yfirleitt með litlum bókstaf</string>
   <string name="description_edit_voice_input_description">Raddskipun</string>
   <string name="description_too_short">Textinn er of stuttur.</string>
+  <string name="description_ends_with_punctuation">Textinn má ekki enda á greinarmerkjum.</string>
+  <string name="description_starts_with_article">Forðastu að byrja greinar með “a” eða “the”.</string>
+  <string name="description_starts_with_uppercase">Byrjaðu með lágstaf nema fyrsta orðið sé sérnafn.</string>
+  <string name="description_starts_with_lowercase">Forðastu að byrja með lágstaf.</string>
+  <string name="description_is_in_different_language">Textinn lítur út fyrir að vera á óvæntu tungumáli. Tungumálið ætti að vera %s.</string>
+  <string name="description_verification_notice">Athugaðu hvort lýsingin þín sé á tungumálinu %1$s. Þú getur hunsað þessa tilkynningu ef lýsingin sem þú skrifaðir sé sannanlega á tungumálinu %2$s.</string>
   <string name="description_edit_success_saved">Lýsing greinar birt!</string>
   <string name="description_edit_success_saved_snackbar">Lýsing geinar birt!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Lýsing geinar birt! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Myndatexti birtur!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Myndatexti birtur! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Myndamerki birt!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Var þetta ekki bara gaman? Hjálpaðu okkur við að bæta við meiru.</string>
   <string name="description_edit_success_encouragement">Þú varst að gera Wikipedia betri fyrir alla</string>
   <string name="description_edit_success_done">Lokið</string>
   <string name="description_edit_success_did_you_know">Vissir þú það?</string>
@@ -786,9 +794,13 @@
   <string name="description_edit_tutorial_button_label_start_editing">Hefja breytingar</string>
   <string name="description_edit_tutorial_promise">Ef ég byrja, lofa ég að misnota ekki þennan eiginleika.</string>
   <string name="customize_toolbar_title">Sérsníða verkfærastiku</string>
+  <string name="customize_toolbar_description_text">Sérsníddu verkfærastikuna neðst með þeim 5 tenglum sem þér finnast hjálplegastir.</string>
   <string name="customize_toolbar_category_toolbar">Verkfærastika</string>
   <string name="customize_toolbar_category_menu">Valmynd</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Dragðu og slepptu eftirlætisatriðunum þínum hér 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Frumstilla á sjálfgefið</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Haltu niðri draga-tákninu til að flytja atriðið</string>
+  <string name="customize_toolbar_item_default_tooltip">Ýttu og dragðu atriði til að endurstaðsetja það</string>
   <string name="suggested_edits_describe_articles">Lýsa greinum</string>
   <string name="suggested_edits_caption_images">Setja myndatexta</string>
   <string name="suggested_edits_tag_images">Merkja myndir</string>
@@ -879,6 +891,7 @@
   <string name="suggested_edits_paused_message">Tillögur að breytingum eru í dvala til %1$s. Því miður %2$s, sumt af því sem þú hefur unnið við hefur verið afturkallað.</string>
   <string name="suggested_edits_disabled_message">Tillögur að breytingum eru ekki virkar. Því miður %s, of margt af því sem þú hefur unnið við hefur verið afturkallað.</string>
   <string name="suggested_edits_ip_blocked_message">Það lítur út fyrir að IP-vistfangið þitt (eða svið af IP-vistföngum) sé í augnablikinu útilokað frá því að gera breytingar á Wikipedia.</string>
+  <string name="suggested_edits_gate_message">Því miður, %s, þú verður að hafa gert að minnsta kosti þrjár beinar breytingar í grein til að nota þennan eiginleika.</string>
   <string name="suggested_edits_editing_tips_link_text">Ábendingar og góð ráð við breytingar</string>
   <string name="suggested_edits_help_page_link_text">Hjálparsíða fyrir tillögur að breytingum</string>
   <string name="suggested_edits_edit_streak_label_text">Breytingaruna</string>
@@ -913,6 +926,7 @@
   <string name="suggested_edits_cc0_notice">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að þú gefir framlag þitt ævinlega út með &lt;a href=\"%2$s\"&gt;CC0 notkunarleyfinu&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Tillögur að breytingum</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Takk fyrir framlag þitt til Wikipedia! Því ekki að halda áfram þar sem þú skildir við síðast?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Hefurðu tíma til að halda áfram að gera Wikipedíu betri? Skoðaðu þessar tillögur að breytingum.</string>
   <string name="suggested_edits_contributions_screen_title">Framlög frá %s</string>
   <string name="suggested_edits_contribution_language_label">Tungumál</string>
   <string name="suggested_edits_contribution_date_time_label">Dagsetning / Tími</string>
@@ -920,14 +934,43 @@
   <string name="suggested_edits_contribution_image_label">Mynd</string>
   <string name="suggested_edits_contribution_article_label">Grein</string>
   <string name="suggested_edits_contribution_views">%s innlit</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Skoðað %s sinnum síðustu 30 daga.</item>
+    <item quantity="other">Skoðuð %s sinnum síðustu 30 daga.</item>
+  </plurals>
+  <string name="suggested_edits_contribution_seen_text">Skoðað %s sinnum síðustu 30 daga.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Þú bættir við %d merki</item>
+    <item quantity="other">Þú bættir við %d merkjum</item>
+  </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Í gær</string>
   <string name="suggested_edits_encourage_account_creation_title">Vissir þú að allir geta breytt efni á Wikipedia?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Tillögur að breytingum er ný leið til að vinna við Wikipedia á Android. Þær hjálpa til við að gera smáar en mikilvægar breytingar á Wikipedia.\nMarkmið okkar er að einfalda vinnuna og gera hana aðgengilegri fyrir alla. Skráðu þig inn eða gakktu til liðs við Wikipedia til að komast í gang.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Skrá inn / nýskrá á Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Myndamerki</string>
+  <string name="suggested_edits_contribution_current_revision_text">Breytingin þín er núna sjáanleg á Wikipedia</string>
+  <string name="suggested_card_more_edits">Fleiri tillögur að breytingum</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s merki</item>
+    <item quantity="other">%1$s merki</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s stafur</item>
+    <item quantity="other">%1$s stafir</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Þú fjarlægðir %d staf</item>
+    <item quantity="other">Þú fjarlægðir %d stafi</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Þú bættir við %d staf</item>
+    <item quantity="other">Þú bættir við %d stöfum</item>
+  </plurals>
   <string name="file_page_activity_title">Síða skráarinnar</string>
   <string name="file_page_add_image_caption_button">Bæta við myndatexta</string>
   <string name="file_page_add_image_tags_button">Bæta við merkjum á myndir</string>
+  <string name="file_page_suggestion_reason">Ástæða fyrir tillögu</string>
   <string name="file_page_edit_button_content_description">Breyta %s</string>
   <string name="description_edit_revert_subtitle">Takk fyrir framlag þitt til Wikipedia!</string>
   <string name="description_edit_revert_intro">Við vitum að þú reyndir þitt besta, en einn í yfirlestrarhópnum var í vafa. Hugsanlegar ástæður fyrir því að breytingunni þinni var hafnað, gætu meðal annars verið:</string>
@@ -968,6 +1011,7 @@
     <item quantity="one">Á síðasta ári</item>
     <item quantity="other">Fyrir %d árum síðan</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Þú hefur ferðast í tíma 🚀</string>
   <string name="on_this_day_back_to_future">Til baka í framtíðina</string>
   <string name="languages_list_activity_title">Bæta við tungumáli</string>
   <string name="languages_list_suggested_text">Stungið upp á</string>

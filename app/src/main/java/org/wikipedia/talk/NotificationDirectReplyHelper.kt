@@ -31,7 +31,7 @@ object NotificationDirectReplyHelper {
                     replyTo: String, notificationId: Int) {
         Toast.makeText(context, context.getString(R.string.notifications_direct_reply_progress, replyTo), Toast.LENGTH_SHORT).show()
 
-        Observable.zip(CsrfTokenClient(wiki).token.subscribeOn(Schedulers.io()),
+        Observable.zip(CsrfTokenClient.getToken(wiki).subscribeOn(Schedulers.io()),
             ServiceFactory.getRest(wiki).getTalkPage(title.prefixedText).subscribeOn(Schedulers.io())) { token, response ->
             Pair(token, response)
         }.subscribeOn(Schedulers.io())

@@ -401,7 +401,7 @@ class ReadingListSyncAdapter : JobIntentService() {
     @Throws(Throwable::class)
     private fun getCsrfToken(wiki: WikiSite, tokenList: MutableList<String>): String {
         if (tokenList.size == 0) {
-            tokenList.add(CsrfTokenClient(wiki).token.blockingSingle())
+            tokenList.add(CsrfTokenClient.getToken(wiki).blockingSingle())
         }
         return tokenList[0]
     }

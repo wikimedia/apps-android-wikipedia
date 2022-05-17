@@ -1,5 +1,6 @@
 package org.wikipedia.page.linkpreview
 
+import android.app.ActivityOptions
 import android.content.DialogInterface
 import android.content.Intent
 import android.location.Location
@@ -8,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -36,7 +36,6 @@ import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
-import java.util.*
 
 class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorView.Callback, DialogInterface.OnDismissListener {
     interface Callback {
@@ -78,12 +77,12 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
     }
     private val galleryViewListener = GalleryViewListener { view, thumbUrl, imageName ->
-        var options: ActivityOptionsCompat? = null
+        var options: ActivityOptions? = null
         view.drawable?.let {
             val hitInfo = JavaScriptActionHandler.ImageHitInfo(0f, 0f, it.intrinsicWidth.toFloat(), it.intrinsicHeight.toFloat(), thumbUrl, false)
             GalleryActivity.setTransitionInfo(hitInfo)
             view.transitionName = requireActivity().getString(R.string.transition_page_gallery)
-            options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), view, requireActivity().getString(R.string.transition_page_gallery))
+            options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), view, requireActivity().getString(R.string.transition_page_gallery))
         }
         startActivityForResult(GalleryActivity.newIntent(requireContext(), pageTitle, imageName,
                 pageTitle.wikiSite, revision, GalleryFunnel.SOURCE_LINK_PREVIEW),

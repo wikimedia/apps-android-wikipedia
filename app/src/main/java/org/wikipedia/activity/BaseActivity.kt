@@ -5,7 +5,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
@@ -115,17 +114,6 @@ abstract class BaseActivity : AppCompatActivity() {
         unregisterExclusiveBusMethods()
         EXCLUSIVE_BUS_METHODS = exclusiveBusMethods
         EXCLUSIVE_DISPOSABLE = WikipediaApp.getInstance().bus.subscribe(EXCLUSIVE_BUS_METHODS!!)
-    }
-
-    override fun applyOverrideConfiguration(configuration: Configuration) {
-        // TODO: remove when this is fixed:
-        // https://issuetracker.google.com/issues/141132133
-        // On Lollipop the current version of AndroidX causes a crash when instantiating a WebView.
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M &&
-                resources.configuration.uiMode == WikipediaApp.getInstance().resources.configuration.uiMode) {
-            return
-        }
-        super.applyOverrideConfiguration(configuration)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

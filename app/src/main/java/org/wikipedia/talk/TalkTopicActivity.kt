@@ -19,7 +19,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.TalkFunnel
-import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTalkTopicBinding
 import org.wikipedia.dataclient.WikiSite
@@ -343,13 +342,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         talkFunnel.logReplyClick()
         replyResult.launch(TalkReplyActivity.newIntent(this@TalkTopicActivity, viewModel.pageTitle,
                 item, Constants.InvokeSource.TALK_ACTIVITY, undoSubject, undoBody))
-    }
-
-    private fun onSaveError(t: Throwable) {
-        editFunnel.logError(t.message)
-        EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle)
-        binding.talkProgressBar.visibility = View.GONE
-        FeedbackUtil.showError(this, t)
     }
 
     private fun showUndoSnackbar(undoRevId: Long) {
