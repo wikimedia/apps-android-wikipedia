@@ -1,13 +1,12 @@
 package org.wikipedia.random
 
 import android.os.Bundle
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
@@ -17,8 +16,7 @@ class RandomItemViewModel(bundle: Bundle) : ViewModel() {
 
 	private val wikiSite: WikiSite = bundle.getParcelable(RandomActivity.INTENT_EXTRA_WIKISITE)!!
 
-	private val _requestRandomPageFlow = MutableStateFlow<RequestState>(Initial)
-	val requestRandomPageFlow = _requestRandomPageFlow.asStateFlow()
+	val requestRandomPageData = MutableLiveData<Resource<PageSummary>>()
 
 	private val disposables = CompositeDisposable()
 
@@ -31,9 +29,9 @@ class RandomItemViewModel(bundle: Bundle) : ViewModel() {
 			.subscribeOn(Schedulers.io())
 			.observeOn(AndroidSchedulers.mainThread())
 			.subscribe({ pageSummary ->
-				_requestRandomPageFlow.value = Response(Resource.Success(pageSummary))
+				requestRandomPageData.postValue(Resource.Success(pageSummary))
 			}, { throwable ->
-				_requestRandomPageFlow.value = Response(Resource.Error(throwable))
+				requestRandomPageData.postValue(Resource.Error(throwable))
 			})
 
 		disposables.add(d)
@@ -51,8 +49,4 @@ class RandomItemViewModel(bundle: Bundle) : ViewModel() {
 			return RandomItemViewModel(bundle) as T
 		}
 	}
-
-	sealed class RequestState
-	object Initial : RequestState()
-	class Response(val value: Resource<PageSummary>) : RequestState()
 }

@@ -8,9 +8,6 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.databinding.FragmentRandomItemBinding
 import org.wikipedia.dataclient.WikiSite
@@ -47,21 +44,15 @@ class RandomItemFragment : Fragment() {
 
         wikiSite = requireArguments().getParcelable(RandomActivity.INTENT_EXTRA_WIKISITE)!!
 
-        lifecycleScope.launchWhenStarted {
-            launch {
-                viewModel.requestRandomPageFlow.collect { state ->
-                    if (state is RandomItemViewModel.Response) {
-                        when (val result = state.value) {
-                            is Resource.Success -> {
-                                summary = result.data
-                                updateContents()
-                                parent().onChildLoaded()
-                            }
-                            is Resource.Error -> {
-                                setErrorState(result.throwable)
-                            }
-                        }
-                    }
+        viewModel.requestRandomPageData.observe(this) {
+            when (it) {
+                is Resource.Success -> {
+                    summary = it.data
+                    updateContents()
+                    parent().onChildLoaded()
+                }
+                is Resource.Error -> {
+                    setErrorState(it.throwable)
                 }
             }
         }
