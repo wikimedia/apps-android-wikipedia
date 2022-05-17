@@ -29,6 +29,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.*
@@ -227,6 +228,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             }
         }
         binding.talkToolbarSubjectView.text = StringUtil.fromHtml(viewModel.topic?.html)
+        RichTextUtil.removeUnderlinesFromLinks(binding.talkToolbarSubjectView)
         invalidateOptionsMenu()
     }
 
