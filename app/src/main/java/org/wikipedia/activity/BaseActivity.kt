@@ -15,6 +15,7 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
+import android.view.View.NO_ID
 import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import androidx.annotation.ColorInt
@@ -360,6 +361,6 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
     }
 
     open fun getNameFromId(view: View?): String? {
-        return if (view?.id == null) "no-id" else view.resources.getResourceName(view.id)
+        return if (view?.id == null || view.id == NO_ID) "no-id" else view.resources.getResourceName(view.id)
     }
 }
