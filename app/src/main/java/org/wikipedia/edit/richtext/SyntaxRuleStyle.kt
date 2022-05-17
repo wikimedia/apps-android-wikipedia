@@ -43,6 +43,21 @@ enum class SyntaxRuleStyle {
             return StyleSpanEx(Typeface.ITALIC, spanStart, syntaxItem)
         }
     },
+    HEADING_LARGE {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return RelativeSizeSpanEx(1.5f, spanStart, syntaxItem)
+        }
+    },
+    HEADING_MEDIUM {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return RelativeSizeSpanEx(1.3f, spanStart, syntaxItem)
+        }
+    },
+    HEADING_SMALL {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return RelativeSizeSpanEx(1.2f, spanStart, syntaxItem)
+        }
+    },
     SEARCH_MATCHES {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
             return ColorSpanEx(Color.BLACK, ContextCompat.getColor(ctx, R.color.find_in_page), spanStart, syntaxItem)

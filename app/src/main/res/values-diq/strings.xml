@@ -12,7 +12,7 @@
 * SHaran (WMF)
 -->
 <resources>
-  <string name="app_name_prod">Wikipedia</string>
+  <string name="app_name_prod">Wikipediya</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
@@ -595,7 +595,7 @@
   <string name="onboarding_multilingual_secondary_text">Cihazê şıma tede de na cêrêni vinay:</string>
   <string name="onboarding_multilingual_add_language_text">Zıwan cı kerê ya zi bıvurnê</string>
   <string name="onboarding_welcome_title_v2">Ensiklopediya xosere\n… 300 ra zêde zıwanan de</string>
-  <string name="app_shortcuts_random">Raştameyaye</string>
+  <string name="app_shortcuts_random">Raştameye</string>
   <string name="app_shortcuts_continue_reading">Wanayışi dewam kerê</string>
   <string name="app_shortcuts_search">Cı geyre</string>
   <string name="on_this_day_card_title">Noroc de</string>
@@ -652,4 +652,5 @@
   <string name="text_input_dialog_ok_button_text">TEMAM</string>
   <string name="text_input_dialog_cancel_button_text">Bıtexelne</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Bıtexelne</string>
+  <string name="watchlist_filter_all">Pêro</string>
 </resources>

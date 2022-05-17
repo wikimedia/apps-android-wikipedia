@@ -31,7 +31,11 @@ class SyntaxHighlighter(
             SyntaxRule("<", ">", SyntaxRuleStyle.REF),
             SyntaxRule("'''''", "'''''", SyntaxRuleStyle.BOLD_ITALIC),
             SyntaxRule("'''", "'''", SyntaxRuleStyle.BOLD),
-            SyntaxRule("''", "''", SyntaxRuleStyle.ITALIC)
+            SyntaxRule("''", "''", SyntaxRuleStyle.ITALIC),
+            SyntaxRule("=====", "=====", SyntaxRuleStyle.HEADING_SMALL),
+            SyntaxRule("====", "====", SyntaxRuleStyle.HEADING_SMALL),
+            SyntaxRule("===", "===", SyntaxRuleStyle.HEADING_MEDIUM),
+            SyntaxRule("==", "==", SyntaxRuleStyle.HEADING_LARGE),
     )
 
     private var searchText: String? = null

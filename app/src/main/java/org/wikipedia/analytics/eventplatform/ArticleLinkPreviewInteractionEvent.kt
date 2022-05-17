@@ -2,7 +2,6 @@ package org.wikipedia.analytics.eventplatform
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.Prefs
 
 class ArticleLinkPreviewInteractionEvent(private val wikiDb: String,
@@ -22,7 +21,7 @@ class ArticleLinkPreviewInteractionEvent(private val wikiDb: String,
     }
 
     private fun submitEvent(action: String) {
-        EventPlatformClient.submit(ArticleLinkPreviewInteractionEventImpl(action, source, !AccountUtil.isLoggedIn, duration, wikiDb, pageId, PROD_LINK_PREVIEW_VERSION))
+        EventPlatformClient.submit(ArticleLinkPreviewInteractionEventImpl(action, source, duration, wikiDb, pageId, PROD_LINK_PREVIEW_VERSION))
     }
 
     @Suppress("unused")
@@ -30,7 +29,6 @@ class ArticleLinkPreviewInteractionEvent(private val wikiDb: String,
     @SerialName("/analytics/mobile_apps/android_article_link_preview_interaction/1.0.0")
     class ArticleLinkPreviewInteractionEventImpl(private val action: String,
                                                  private val source: Int,
-                                                 @SerialName("is_anon") private val isAnon: Boolean,
                                                  @SerialName("time_spent_ms") private val timeSpentMs: Int,
                                                  @SerialName("wiki_db") private val wikiDb: String,
                                                  @SerialName("page_id") private val pageId: Int,

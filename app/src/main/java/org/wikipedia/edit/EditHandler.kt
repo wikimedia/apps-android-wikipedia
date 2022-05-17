@@ -85,6 +85,13 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
         }
     }
 
+    fun startEditingArticle() {
+        currentPage?.let {
+            fragment.startActivityForResult(EditSectionActivity.newIntent(fragment.requireContext(),
+                    -1, null, it.title), Constants.ACTIVITY_REQUEST_EDIT_SECTION)
+        }
+    }
+
     companion object {
         private const val TYPE_EDIT_SECTION = "edit_section"
         private const val TYPE_ADD_TITLE_DESCRIPTION = "add_title_description"

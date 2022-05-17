@@ -145,6 +145,7 @@
   <string name="on_this_day_page_share">Поделиться</string>
   <string name="reading_list_page_share">Поделиться</string>
   <string name="menu_text_select_edit_here">Править здесь</string>
+  <string name="menu_edit_article">Отредактировать статью</string>
   <string name="last_updated_text">Последнее обновление: %s</string>
   <string name="talk_page_link_text">Смотреть страницу обсуждения</string>
   <string name="edit_history_link_text">Посмотреть историю изменений</string>
@@ -484,7 +485,7 @@
   <string name="reading_list_article_moved_to_named">%1$s перемещено в %2$s.</string>
   <string name="reading_list_article_already_exists_message">Всё хорошо! %1$s уже содержит %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Всё хорошо! %s уже содержит все статьи.</string>
-  <string name="reading_list_added_view_button">Просмотр списка</string>
+  <string name="reading_list_added_view_button">Посмотреть список</string>
   <string name="reading_list_add_to_list_button">Добавить в список</string>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">Статей: %1$d, %2$.2f MB</item>
@@ -664,8 +665,8 @@
   <string name="notifications_activity_title">Уведомления</string>
   <string name="notifications_activity_title_archived">Архив уведомлений</string>
   <string name="notifications_search">Искать уведомления</string>
-  <string name="notifications_view_unread">Просмотр непрочитанных</string>
-  <string name="notifications_view_archived">Просмотр архивированных</string>
+  <string name="notifications_view_unread">Посмотреть непрочитанные</string>
+  <string name="notifications_view_archived">Посмотреть заархивированные</string>
   <string name="notifications_prefs">Настройки уведомлений</string>
   <string name="notifications_archive">Отметить как прочитанное и архивировать</string>
   <plurals name="notification_archive_message">
@@ -913,7 +914,7 @@
   <string name="suggested_edits_article_cta_image_tags">Добавить тэги к изображению</string>
   <string name="suggested_edits_article_cta_image_caption">Добавить описание изображения</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Добавить описание изображения (%s)</string>
-  <string name="suggested_edits_article_cta_snackbar_action">Просмотр</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Посмотреть</string>
   <string name="suggested_edits_feed_card_add_image_caption">Добавить заголовок изображения</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Добавить заголовок изображения (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Добавить теги изображений</string>
@@ -1183,7 +1184,7 @@
   <string name="revision_diff_compare_title">Сравнить версии: %s</string>
   <string name="revision_diff_from">От:</string>
   <string name="revision_diff_line_num">Строка %d</string>
-  <string name="revision_diff_line_nums">Строки %d — %d</string>
+  <string name="revision_diff_line_nums">Строки с %d-й по %d-ю</string>
   <string name="revision_diff_line_added">Строка добавлена</string>
   <string name="revision_diff_line_removed">Строка удалена</string>
   <string name="revision_diff_paragraph_added">Абзац добавлен</string>
