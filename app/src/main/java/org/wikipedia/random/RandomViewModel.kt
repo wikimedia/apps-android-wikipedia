@@ -1,7 +1,6 @@
 package org.wikipedia.random
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -29,13 +28,6 @@ class RandomViewModel : ViewModel() {
 					AppDatabase.instance.readingListPageDao().findPageInAnyList(title) != null
 				_saveShareState.value = exists
 			}
-		}
-	}
-
-	class Factory : ViewModelProvider.Factory {
-		@Suppress("unchecked_cast")
-		override fun <T : ViewModel> create(modelClass: Class<T>): T {
-			return RandomViewModel() as T
 		}
 	}
 }

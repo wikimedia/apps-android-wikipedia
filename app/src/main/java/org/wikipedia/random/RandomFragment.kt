@@ -60,7 +60,7 @@ class RandomFragment : Fragment() {
     private lateinit var funnel: RandomizerFunnel
     private val viewPagerListener: ViewPagerListener = ViewPagerListener()
 
-    private val viewModel: RandomViewModel by viewModels { RandomViewModel.Factory() }
+    private val viewModel: RandomViewModel by viewModels()
 
     private lateinit var wikiSite: WikiSite
     private val topTitle get() = getTopChild()?.title
