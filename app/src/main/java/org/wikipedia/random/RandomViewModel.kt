@@ -11,22 +11,22 @@ import org.wikipedia.util.log.L
 
 class RandomViewModel : ViewModel() {
 
-	private var saveShareJob: Job? = null
+	private var job: Job? = null
 
-	private val handler = CoroutineExceptionHandler { _, throwable ->
+	private val errorHandler = CoroutineExceptionHandler { _, throwable ->
 		L.w(throwable)
 	}
 
-	private val _saveShareState = MutableStateFlow(false)
-	val saveShareState: StateFlow<Boolean> = _saveShareState
+	private val _titleExistsInListFlow = MutableStateFlow(false)
+	val titleExistsInListFlow: StateFlow<Boolean> = _titleExistsInListFlow
 
-	fun actualizeSaveShare(title: PageTitle) {
-		saveShareJob?.cancel()
-		saveShareJob = viewModelScope.launch(handler) {
+	fun actualizeSaveShareButton(title: PageTitle) {
+		job?.cancel()
+		job = viewModelScope.launch(errorHandler) {
 			withContext(Dispatchers.IO) {
 				val exists =
 					AppDatabase.instance.readingListPageDao().findPageInAnyList(title) != null
-				_saveShareState.value = exists
+				_titleExistsInListFlow.value = exists
 			}
 		}
 	}

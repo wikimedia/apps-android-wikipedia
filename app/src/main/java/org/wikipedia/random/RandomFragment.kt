@@ -95,7 +95,7 @@ class RandomFragment : Fragment() {
         }
         lifecycleScope.launchWhenResumed {
             launch {
-                viewModel.saveShareState.collect { alreadyStored ->
+                viewModel.titleExistsInListFlow.collect { alreadyStored ->
                     saveButtonState = alreadyStored
 
                     val image = if (saveButtonState) {
@@ -215,7 +215,7 @@ class RandomFragment : Fragment() {
             return
         }
 
-        viewModel.actualizeSaveShare(title)
+        viewModel.actualizeSaveShareButton(title)
     }
 
     private fun updateSaveShareButton() {
