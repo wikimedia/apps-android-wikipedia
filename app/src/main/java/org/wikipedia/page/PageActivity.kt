@@ -15,6 +15,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.view.*
 import androidx.preference.PreferenceManager
+import com.skydoves.balloon.Balloon
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import org.wikipedia.Constants
@@ -77,6 +78,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private val listDialogDismissListener = DialogInterface.OnDismissListener { pageFragment.updateBookmarkAndMenuOptionsFromDao() }
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
+    private var themeTooltipBalloon: Balloon? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -122,6 +124,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP)
         FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
         binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
+            themeTooltipBalloon?.dismiss()
             pageFragment.showOverflowMenu(it)
             pageFragment.articleInteractionEvent?.logMoreClick()
         }
@@ -665,7 +668,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         }
         binding.pageToolbarButtonShowOverflowMenu.postDelayed({
             if (!isDestroyed) {
-                val balloon =
+                themeTooltipBalloon =
                     FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip), arrowAnchorPadding = -DimenUtil.roundedDpToPx(12f), topOrBottomMargin = -12, aboveOrBelow = true, autoDismiss = false, showDismissButton = true, callback = object :
                         FeedbackUtil.Callback {
                         override fun onDismissClicked() {
@@ -673,7 +676,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                             Prefs.toolbarTooltipVisible = false
                         }
                     })
-                balloon.showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
+                themeTooltipBalloon?.showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
                 Prefs.toolbarTooltipVisible = true
             }
         }, 2000)
