@@ -429,7 +429,6 @@
   <string name="error_blocked_expiry">Label stating the expiry date of the block. The %s symbol is replaced by the date.</string>
   <string name="error_blocked_id">Label stating the ID of the block. The %s symbol is replaced by the ID.</string>
   <string name="error_blocked_footer">Text that explains how to get in touch with the user or administrator that created the block. The %1$s symbol is replaced by the username of the blocker, and %2$s is replaced by a URL that leads to the user page of the blocker.</string>
-  <string name="theme_chooser_menu_item_tooltip">Tooltip message text for customizing menu options on article screen.\n\n\"Reading focus mode\" is {{msg-wm|Wikipedia-android-strings-reading focus mode}}.</string>
   <string name="error_blocked_footer_no_blocker">Text that explains how to get in touch with an administrator that created the block.</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>

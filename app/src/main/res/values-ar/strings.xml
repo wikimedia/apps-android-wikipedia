@@ -1113,8 +1113,6 @@
   <string name="watchlist_page_moved">نُقلت</string>
   <string name="watchlist_page_protected">محمية</string>
   <string name="watchlist_page_deleted">حُذفت</string>
-  <string name="theme_chooser_menu_item_short_tooltip">خصص شريط أدواتك</string>
-  <string name="customize_toolbar_shortcut_description_text">خصص شريط الأدوات السفلي باستخدام أكثر 5 اختصارات مفيدة</string>
   <string name="action_item_categories">التصنيفات</string>
   <string name="page_no_categories">لا تنتمي هذه الصفحة إلى أية تصنيفات.</string>
   <string name="category_tab_articles">المقالات</string>

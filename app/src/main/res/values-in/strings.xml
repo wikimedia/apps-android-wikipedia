@@ -1135,8 +1135,6 @@
   <string name="watchlist_page_moved">Dipindahkan</string>
   <string name="watchlist_page_protected">Dilindungi</string>
   <string name="watchlist_page_deleted">Dihapus</string>
-  <string name="theme_chooser_menu_item_short_tooltip">Kustomisasi bilah alat Anda</string>
-  <string name="customize_toolbar_shortcut_description_text">Kustomisasi bilah alat bawah dengan 5 pintasan yang paling membantu Anda</string>
   <string name="action_item_categories">Kategori</string>
   <string name="page_no_categories">Halaman ini tidak terdaftar dalam kategori apa pun.</string>
   <string name="category_tab_articles">Artikel</string>
