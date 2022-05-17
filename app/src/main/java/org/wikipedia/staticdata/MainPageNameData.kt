@@ -113,6 +113,7 @@ object MainPageNameData {
             "gor" to "Halaman Bungaliyo",
             "got" to "𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽𐌹𐌻𐌰𐌿𐍆𐍃",
             "gu" to "મુખપૃષ્ઠ",
+            "guw" to "Weda Tangan",
             "gv" to "Ard-ghuillag",
             "ha" to "Babban shafi",
             "hak" to "Thèu-Ya̍p",
