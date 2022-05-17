@@ -2,6 +2,7 @@ package org.wikipedia.talk
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.format.DateUtils
 import android.view.Menu
@@ -305,9 +306,9 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             binding.talkFooter.viewPageIcon.setImageResource(R.drawable.ic_article_ltr_ooui)
             binding.talkFooter.viewPageTitle.text = getString(R.string.talk_footer_view_article)
             pageTitle.thumbUrl?.let {
-                binding.talkLeadImage.isVisible = true
+                binding.talkLeadImageContainer.isVisible = true
                 binding.talkLeadImage.contentDescription = StringUtil.removeNamespace(pageTitle.displayText)
-                ViewUtil.loadImage(binding.talkLeadImage, ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
+                binding.talkLeadImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
             }
         }
         binding.talkFooter.viewPageContent.text = StringUtil.fromHtml(StringUtil.removeNamespace(pageTitle.displayText))
