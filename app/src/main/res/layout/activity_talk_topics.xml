@@ -141,6 +141,13 @@
 
             </FrameLayout>
 
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/talkTopicsSnackbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="64dp" />
+
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                 android:id="@+id/talkNewTopicButton"
                 android:layout_width="wrap_content"
