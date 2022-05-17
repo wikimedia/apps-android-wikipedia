@@ -49,8 +49,8 @@ class RandomItemFragment : Fragment() {
 
         lifecycleScope.launchWhenStarted {
             launch {
-                viewModel.saveShareState.collect { state ->
-                    if (state is RandomItemViewModel.Result) {
+                viewModel.requestRandomPageFlow.collect { state ->
+                    if (state is RandomItemViewModel.Response) {
                         when (val result = state.value) {
                             is Resource.Success -> {
                                 summary = result.data

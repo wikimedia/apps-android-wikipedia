@@ -17,8 +17,8 @@ class RandomItemViewModel(bundle: Bundle) : ViewModel() {
 
 	private val wikiSite: WikiSite = bundle.getParcelable(RandomActivity.INTENT_EXTRA_WIKISITE)!!
 
-	private val _saveShareState = MutableStateFlow<SaveSharedState>(Initial)
-	val saveShareState = _saveShareState.asStateFlow()
+	private val _requestRandomPageFlow = MutableStateFlow<RequestState>(Initial)
+	val requestRandomPageFlow = _requestRandomPageFlow.asStateFlow()
 
 	private val disposables = CompositeDisposable()
 
@@ -31,9 +31,9 @@ class RandomItemViewModel(bundle: Bundle) : ViewModel() {
 			.subscribeOn(Schedulers.io())
 			.observeOn(AndroidSchedulers.mainThread())
 			.subscribe({ pageSummary ->
-				_saveShareState.value = Result(Resource.Success(pageSummary))
+				_requestRandomPageFlow.value = Response(Resource.Success(pageSummary))
 			}, { throwable ->
-				_saveShareState.value = Result(Resource.Error(throwable))
+				_requestRandomPageFlow.value = Response(Resource.Error(throwable))
 			})
 
 		disposables.add(d)
@@ -52,7 +52,7 @@ class RandomItemViewModel(bundle: Bundle) : ViewModel() {
 		}
 	}
 
-	sealed class SaveSharedState
-	object Initial : SaveSharedState()
-	class Result(val value: Resource<PageSummary>) : SaveSharedState()
+	sealed class RequestState
+	object Initial : RequestState()
+	class Response(val value: Resource<PageSummary>) : RequestState()
 }
