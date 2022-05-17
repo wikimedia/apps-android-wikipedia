@@ -144,7 +144,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
         val pageTitle = pageTitle!!
         viewModelScope.launch(editHandler) {
             val token = withContext(Dispatchers.IO) {
-                CsrfTokenClient(pageTitle.wikiSite).token.blockingFirst()
+                CsrfTokenClient.getToken(pageTitle.wikiSite).blockingFirst()
             }
             val undoResponse = ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(title = pageTitle.prefixedText, undoRevId = newRevisionId, token = token)
             uiState.value = UiState.UndoEdit(undoResponse, undoneSubject, undoneBody)
@@ -180,7 +180,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
         val pageTitle = pageTitle!!
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
             val token = withContext(Dispatchers.IO) {
-                CsrfTokenClient(pageTitle.wikiSite).token.blockingFirst()
+                CsrfTokenClient.getToken(pageTitle.wikiSite).blockingFirst()
             }
             ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, commentName, token, if (!subscribed) true else null)
         }
