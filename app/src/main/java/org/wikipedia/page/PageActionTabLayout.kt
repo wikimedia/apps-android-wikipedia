@@ -30,7 +30,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
             view.gravity = Gravity.CENTER
             view.setPadding(0, DimenUtil.roundedDpToPx(8f), 0, 0)
             view.setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackgroundBorderless))
-            view.setTextColor(ResourceUtil.getThemedColor(context, R.attr.color_group_63))
+            view.setTextColor(ResourceUtil.getThemedColor(context, R.attr.chip_text_color))
             view.textAlignment = TEXT_ALIGNMENT_CENTER
             view.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f)
             view.maxLines = 2
