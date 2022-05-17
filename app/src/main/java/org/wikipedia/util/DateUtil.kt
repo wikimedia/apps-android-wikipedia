@@ -1,5 +1,6 @@
 package org.wikipedia.util
 
+import android.content.Context
 import android.icu.text.RelativeDateTimeFormatter
 import android.os.Build
 import android.text.format.DateFormat
@@ -89,8 +90,9 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "MMM d")
     }
 
-    fun getTimeString(date: Date): String {
-        return getDateStringWithSkeletonPattern(date, "HH:mm")
+    fun getTimeString(context: Context, date: Date): String {
+        val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm" else "hh:mm a"
+        return getDateStringWithSkeletonPattern(date, datePattern)
     }
 
     fun getShortDayWithTimeString(date: Date): String {
