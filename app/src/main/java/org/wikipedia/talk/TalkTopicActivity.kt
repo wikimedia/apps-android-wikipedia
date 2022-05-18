@@ -3,7 +3,10 @@ package org.wikipedia.talk
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
@@ -195,30 +198,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun showFindInPage() {
-        startActionMode(object : ActionMode.Callback {
-            override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-                val menuItem = menu.add(R.string.menu_option_find_in_page)
-//                menuItem.actionProvider = FindInTalkPageActionProvider(binding.talkRecyclerView,
-//                    binding.editSectionText, syntaxHighlighter, actionMode!!)
-                menuItem.expandActionView()
-                return true
-            }
-
-            override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
-                mode.tag = "actionFindInPage"
-                return false
-            }
-
-            override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
-                return false
-            }
-
-            override fun onDestroyActionMode(mode: ActionMode) {
-//                binding.editSectionText.clearMatches(syntaxHighlighter)
-//                binding.editSectionText.setSelection(binding.editSectionText.selectionStart,
-//                    binding.editSectionText.selectionStart)
-            }
-        })
+        
     }
 
     private fun onInitialLoad() {
