@@ -10,6 +10,11 @@
         app:showAsAction="always">
         <menu>
             <item
+                android:id="@+id/menu_find_in_page"
+                android:icon="@drawable/ic_find_in_page_24px"
+                android:title="@string/menu_option_find_in_page"
+                app:showAsAction="never" />
+            <item
                 android:id="@+id/menu_talk_topic_expand"
                 android:icon="@drawable/ic_expand_24"
                 android:title="@string/talk_menu_expand_threads"

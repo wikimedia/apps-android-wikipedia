@@ -181,6 +181,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 expandOrCollapseAll(false)
                 true
             }
+            R.id.menu_find_in_page -> {
+                expandOrCollapseAll(true)
+                // TODO: do find-in-page
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
