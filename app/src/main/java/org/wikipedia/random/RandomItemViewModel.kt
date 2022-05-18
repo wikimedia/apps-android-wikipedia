@@ -4,9 +4,11 @@ import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
@@ -18,29 +20,21 @@ class RandomItemViewModel(bundle: Bundle) : ViewModel() {
 
 	val requestRandomPageData = MutableLiveData<Resource<PageSummary>>()
 
-	private val disposables = CompositeDisposable()
+	private val errorHandler = CoroutineExceptionHandler { _, throwable ->
+		requestRandomPageData.value = Resource.Error(throwable)
+	}
 
 	init {
 		getRandomPage()
 	}
 
 	fun getRandomPage() {
-		val d = ServiceFactory.getRest(wikiSite).randomSummary
-			.subscribeOn(Schedulers.io())
-			.observeOn(AndroidSchedulers.mainThread())
-			.subscribe({ pageSummary ->
-				requestRandomPageData.postValue(Resource.Success(pageSummary))
-			}, { throwable ->
-				requestRandomPageData.postValue(Resource.Error(throwable))
-			})
-
-		disposables.add(d)
-	}
-
-	override fun onCleared() {
-		disposables.clear()
-
-		super.onCleared()
+		viewModelScope.launch(errorHandler) {
+			withContext(Dispatchers.IO) {
+				val randomSummary = ServiceFactory.getRest(wikiSite).getRandomSummary()
+				requestRandomPageData.postValue(Resource.Success(randomSummary))
+			}
+		}
 	}
 
 	class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {

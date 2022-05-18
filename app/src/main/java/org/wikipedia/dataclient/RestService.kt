@@ -66,6 +66,10 @@ interface RestService {
     @get:Headers("Accept: $ACCEPT_HEADER_SUMMARY")
     val randomSummary: Observable<PageSummary>
 
+    @GET("page/random/summary")
+    @Headers("Accept: $ACCEPT_HEADER_SUMMARY")
+    suspend fun getRandomSummary(): PageSummary
+
     @Headers("Accept: $ACCEPT_HEADER_SUMMARY")
     @GET("page/related/{title}")
     fun getRelatedPages(@Path("title") title: String?): Observable<RbRelatedPages>
