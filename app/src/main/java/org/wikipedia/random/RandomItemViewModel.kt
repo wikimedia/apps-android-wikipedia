@@ -14,7 +14,7 @@ import org.wikipedia.util.Resource
 
 class RandomItemViewModel(bundle: Bundle) : ViewModel() {
 
-	private val wikiSite: WikiSite = bundle.getParcelable(RandomActivity.INTENT_EXTRA_WIKISITE)!!
+	val wikiSite: WikiSite = bundle.getParcelable(RandomActivity.INTENT_EXTRA_WIKISITE)!!
 
 	val requestRandomPageData = MutableLiveData<Resource<PageSummary>>()
 

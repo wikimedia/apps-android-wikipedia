@@ -33,16 +33,13 @@ class RandomItemFragment : Fragment() {
 
     private val viewModel: RandomItemViewModel by viewModels { RandomItemViewModel.Factory(requireArguments()) }
 
-    private lateinit var wikiSite: WikiSite
     private var summary: PageSummary? = null
 
     val isLoadComplete: Boolean get() = summary != null
-    val title: PageTitle? get() = summary?.getPageTitle(wikiSite)
+    val title: PageTitle? get() = summary?.getPageTitle(viewModel.wikiSite)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        wikiSite = requireArguments().getParcelable(RandomActivity.INTENT_EXTRA_WIKISITE)!!
 
         viewModel.requestRandomPageData.observe(this) {
             when (it) {
@@ -79,7 +76,7 @@ class RandomItemFragment : Fragment() {
             viewModel.getRandomPage()
         }
 
-        L10nUtil.setConditionalLayoutDirection(view, wikiSite.languageCode)
+        L10nUtil.setConditionalLayoutDirection(view, viewModel.wikiSite.languageCode)
         return view
     }
 
