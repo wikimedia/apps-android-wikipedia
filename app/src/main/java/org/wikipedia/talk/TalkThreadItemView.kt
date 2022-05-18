@@ -64,6 +64,9 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         this.item = item
         binding.userNameText.text = item.author
         binding.userNameTapTarget.contentDescription = binding.userNameText.text
+        binding.userNameText.isVisible = item.author.isNotEmpty()
+        binding.userNameTapTarget.isVisible = binding.userNameText.isVisible
+        binding.profileImage.visibility = if (binding.userNameText.isVisible) View.VISIBLE else View.INVISIBLE
         binding.timeStampText.isVisible = item.date != null
         item.date?.let { binding.timeStampText.text = DateUtil.getDateAndTimeWithPipe(it) }
         binding.bodyText.text = StringUtil.fromHtml(item.html).trim()
