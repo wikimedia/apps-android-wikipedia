@@ -36,7 +36,6 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
@@ -61,7 +60,6 @@ class WikipediaApp : Application() {
     private val activityLifecycleHandler = ActivityLifecycleHandler()
     private var defaultWikiSite: WikiSite? = null
 
-    val remoteConfig = RemoteConfig()
     val bus = RxBus()
     val tabList = mutableListOf<Tab>()
 

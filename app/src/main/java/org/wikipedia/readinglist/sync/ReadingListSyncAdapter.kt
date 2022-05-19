@@ -20,6 +20,7 @@ import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingList
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -29,7 +30,7 @@ class ReadingListSyncAdapter : JobIntentService() {
 
     override fun onHandleWork(intent: Intent) {
         val extras = intent.extras!!
-        if (isDisabledByRemoteConfig || !AccountUtil.isLoggedIn ||
+        if (RemoteConfig.config.disableReadingListSync || !AccountUtil.isLoggedIn ||
                 !(Prefs.isReadingListSyncEnabled || Prefs.isReadingListsRemoteDeletePending)) {
             L.d("Skipping sync of reading lists.")
             if (extras.containsKey(SYNC_EXTRAS_REFRESHING)) {
@@ -485,8 +486,6 @@ class ReadingListSyncAdapter : JobIntentService() {
             Prefs.isReadingListsRemoteDeletePending = false
             manualSync()
         }
-
-        val isDisabledByRemoteConfig get() = WikipediaApp.instance.remoteConfig.config.optBoolean("disableReadingListSync", false)
 
         fun manualSyncWithDeleteList(list: ReadingList) {
             if (list.remoteId <= 0) {
