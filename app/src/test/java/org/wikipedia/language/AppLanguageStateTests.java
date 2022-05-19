@@ -13,14 +13,14 @@ import java.util.List;
 public class AppLanguageStateTests {
 
     @Test public void testInitAppLanguages() {
-        Assert.assertTrue(WikipediaApp.getInstance().language().getAppLanguageCode().equals("en"));
+        Assert.assertTrue(WikipediaApp.instance.languageState.getAppLanguageCode().equals("en"));
     }
 
     @Test public void testAddAppLanguage() {
-        WikipediaApp.getInstance().language().addAppLanguageCode("ja");
-        Assert.assertTrue(WikipediaApp.getInstance().language().getAppLanguageCode().equals("en"));
-        Assert.assertTrue(WikipediaApp.getInstance().language().getAppLanguageCodes().size() == 2);
-        Assert.assertTrue(WikipediaApp.getInstance().language().getAppLanguageCodes().get(1).equals("ja"));
+        WikipediaApp.instance.languageState.addAppLanguageCode("ja");
+        Assert.assertTrue(WikipediaApp.instance.languageState.getAppLanguageCode().equals("en"));
+        Assert.assertTrue(WikipediaApp.instance.languageState.getAppLanguageCodes().size() == 2);
+        Assert.assertTrue(WikipediaApp.instance.languageState.getAppLanguageCodes().get(1).equals("ja"));
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
@@ -30,9 +30,9 @@ public class AppLanguageStateTests {
         list.add("ja");
         list.add("es");
         list.add("zh-hant");
-        WikipediaApp.getInstance().language().setAppLanguageCodes(list);
-        Assert.assertTrue(WikipediaApp.getInstance().language().getAppLanguageCode().equals("en")
-                && WikipediaApp.getInstance().language().getAppLanguageCodes().size() == 4);
+        WikipediaApp.instance.languageState.setAppLanguageCodes(list);
+        Assert.assertTrue(WikipediaApp.instance.languageState.getAppLanguageCode().equals("en")
+                && WikipediaApp.instance.languageState.getAppLanguageCodes().size() == 4);
     }
 
     @Test public void testRemoveAppLanguages() {
@@ -41,13 +41,13 @@ public class AppLanguageStateTests {
         list.add("ja");
         list.add("es");
         list.add("zh-hant");
-        WikipediaApp.getInstance().language().setAppLanguageCodes(list);
+        WikipediaApp.instance.languageState.setAppLanguageCodes(list);
 
         List<String> listToRemove = new ArrayList<>();
         listToRemove.add("en");
         listToRemove.add("zh-hant");
-        WikipediaApp.getInstance().language().removeAppLanguageCodes(listToRemove);
-        Assert.assertTrue(WikipediaApp.getInstance().language().getAppLanguageCode().equals("ja"));
-        Assert.assertTrue(WikipediaApp.getInstance().language().getAppLanguageCodes().size() == 2);
+        WikipediaApp.instance.languageState.removeAppLanguageCodes(listToRemove);
+        Assert.assertTrue(WikipediaApp.instance.languageState.getAppLanguageCode().equals("ja"));
+        Assert.assertTrue(WikipediaApp.instance.languageState.getAppLanguageCodes().size() == 2);
     }
 }

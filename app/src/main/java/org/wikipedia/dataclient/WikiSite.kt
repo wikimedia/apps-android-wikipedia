@@ -140,7 +140,7 @@ data class WikiSite(
         }
 
         private fun languageCodeToSubdomain(languageCode: String): String {
-            return WikipediaApp.getInstance().language().getDefaultLanguageCode(languageCode) ?: normalizeLanguageCode(languageCode)
+            return WikipediaApp.instance.languageState.getDefaultLanguageCode(languageCode) ?: normalizeLanguageCode(languageCode)
         }
 
         fun authorityToLanguageCode(authority: String): String {
