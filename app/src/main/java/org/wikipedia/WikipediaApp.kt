@@ -73,7 +73,7 @@ class WikipediaApp : Application() {
                 bus.post(ThemeFontChangeEvent())
             }
         }
-    
+
     val appOrSystemLanguageCode: String
         get() {
             val code = languageState.appLanguageCode
