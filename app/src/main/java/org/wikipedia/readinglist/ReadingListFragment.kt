@@ -41,9 +41,9 @@ import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.page.PageAvailableOfflineHandler.check
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.settings.SiteInfoClient.maxPagesPerReadingList
 import org.wikipedia.util.*
 import org.wikipedia.views.*
@@ -213,7 +213,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
     private fun setSwipeRefreshView() {
         binding.readingListSwipeRefresh.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         binding.readingListSwipeRefresh.setOnRefreshListener { ReadingListsFragment.refreshSync(this, binding.readingListSwipeRefresh) }
-        if (ReadingListSyncAdapter.isDisabledByRemoteConfig) {
+        if (RemoteConfig.config.disableReadingListSync) {
             binding.readingListSwipeRefresh.isEnabled = false
         }
     }
