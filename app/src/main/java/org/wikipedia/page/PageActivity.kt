@@ -184,7 +184,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                if (app.haveMainActivity()) {
+                if (app.haveMainActivity) {
                     onBackPressed()
                 } else {
                     pageFragment.goToMainTab()
