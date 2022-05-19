@@ -16,8 +16,6 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
                                                          private val revision: Int, private val sampleRate: Int = SAMPLE_LOG_ALL,
                                                          private val wiki: WikiSite? = null) {
 
-    private val sampleRateRemoteParamName = schemaName + "_rate"
-
     val sessionToken = UUID.randomUUID().toString()
 
     internal constructor(app: WikipediaApp, schemaName: String, revision: Int, wiki: WikiSite?) :
@@ -73,7 +71,7 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
      * depending on what they are logging.
      */
     protected fun log(wiki: WikiSite?, vararg params: Any?) {
-        if (ReleaseUtil.isDevRelease || isUserInSamplingGroup(app.appInstallID, getSampleRate())) {
+        if (ReleaseUtil.isDevRelease || isUserInSamplingGroup(app.appInstallID, sampleRate)) {
             val eventData = JSONObject()
             var i = 0
             while (i < params.size) {
@@ -88,15 +86,6 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
             )
             EventLoggingService.instance.log(event.data)
         }
-    }
-
-    /**
-     * @return Sampling rate for this funnel, as given by the remote config parameter for this
-     * funnel (the name of which is defined as "[schema name]_rate"), with a fallback to the
-     * hard-coded sampling rate passed into the constructor.
-     */
-    private fun getSampleRate(): Int {
-        return app.remoteConfig.config.optInt(sampleRateRemoteParamName, sampleRate)
     }
 
     companion object {
