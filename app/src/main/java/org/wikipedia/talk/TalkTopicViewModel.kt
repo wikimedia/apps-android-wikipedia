@@ -45,8 +45,13 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     }
 
     val isFullyExpanded: Boolean get() {
-        return flattenedThreadItems.size == topic?.allReplies?.size
+        return !currentSearchQuery.isNullOrEmpty() || flattenedThreadItems.size == topic?.allReplies?.size
     }
+
+    var currentSearchQuery: String? = null
+
+    val filteredFlattenedThreadItems get() = flattenedThreadItems.filter { it.html.contains(currentSearchQuery.orEmpty(), true)
+            || it.author.contains(currentSearchQuery.orEmpty(), true) }
 
     init {
         loadTopic()
@@ -122,6 +127,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         updateFlattenedThreadItems()
         return getDiffResult(prevList, flattenedThreadItems)
     }
+
 
     private fun getDiffResult(prevList: List<ThreadItem>, newList: List<ThreadItem>): DiffUtil.DiffResult {
         return DiffUtil.calculateDiff(object : DiffUtil.Callback() {

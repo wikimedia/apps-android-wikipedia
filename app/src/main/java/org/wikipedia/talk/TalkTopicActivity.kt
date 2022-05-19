@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.appcompat.view.ActionMode
+import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,6 +28,7 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
@@ -33,6 +36,8 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.*
+import org.wikipedia.util.log.L
+import org.wikipedia.views.SearchActionProvider
 
 class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private lateinit var binding: ActivityTalkTopicBinding
@@ -44,6 +49,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val threadAdapter = TalkReplyItemAdapter()
     private val headerAdapter = HeaderItemAdapter()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private var actionMode: ActionMode? = null
+    private val searchActionModeCallback = SearchCallback()
 
     private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
         linkHandler.onUrlClick(url, title, linkText, x, y)
@@ -198,7 +205,50 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun showFindInPage() {
-        
+        if (actionMode == null) {
+            actionMode = startSupportActionMode(searchActionModeCallback)
+        }
+    }
+
+    private inner class SearchCallback : SearchActionModeCallback() {
+        var searchActionProvider: SearchActionProvider? = null
+        override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            searchActionProvider = SearchActionProvider(this@TalkTopicActivity, searchHintString,
+                object : SearchActionProvider.Callback {
+                    override fun onQueryTextChange(s: String) {
+                        onQueryChange(s)
+                    }
+
+                    override fun onQueryTextFocusChange() {
+                    }
+                })
+
+            val menuItem = menu.add(searchHintString)
+
+            MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
+            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+            return super.onCreateActionMode(mode, menu)
+        }
+
+        override fun onQueryChange(s: String) {
+            viewModel.currentSearchQuery = s
+            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+        }
+
+        override fun onDestroyActionMode(mode: ActionMode) {
+            super.onDestroyActionMode(mode)
+            actionMode = null
+            viewModel.currentSearchQuery = null
+            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+        }
+
+        override fun getSearchHintString(): String {
+            return getString(R.string.talk_search_topics_hint)
+        }
+
+        override fun getParentContext(): Context {
+            return this@TalkTopicActivity
+        }
     }
 
     private fun onInitialLoad() {
@@ -227,7 +277,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             threadAdapter.notifyDataSetChanged()
         }
         if (!viewModel.scrollTargetId.isNullOrEmpty()) {
-            val position = 1 + viewModel.flattenedThreadItems.indexOfFirst { it.id == viewModel.scrollTargetId }
+            val position = 1 + viewModel.filteredFlattenedThreadItems.indexOfFirst { it.id == viewModel.scrollTargetId }
             if (position >= 0) {
                 binding.talkRecyclerView.post {
                     if (!isDestroyed) {
@@ -308,7 +358,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     internal inner class TalkReplyItemAdapter : RecyclerView.Adapter<TalkReplyHolder>() {
         override fun getItemCount(): Int {
-            return viewModel.flattenedThreadItems.size
+            return viewModel.filteredFlattenedThreadItems.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkReplyHolder {
@@ -316,7 +366,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onBindViewHolder(holder: TalkReplyHolder, pos: Int) {
-            holder.bindItem(viewModel.flattenedThreadItems[pos])
+            holder.bindItem(viewModel.filteredFlattenedThreadItems[pos])
         }
     }
 
