@@ -46,7 +46,6 @@ import java.util.*
 
 class WikipediaApp : Application() {
 
-    val remoteConfig = RemoteConfig()
     lateinit var mainThreadHandler: Handler
         private set
     lateinit var languageState: AppLanguageState
@@ -62,7 +61,9 @@ class WikipediaApp : Application() {
     private val activityLifecycleHandler = ActivityLifecycleHandler()
     private var defaultWikiSite: WikiSite? = null
 
+    val remoteConfig = RemoteConfig()
     val bus = RxBus()
+    val tabList = mutableListOf<Tab>()
 
     var currentTheme = Theme.fallback
         set(value) {
@@ -72,9 +73,7 @@ class WikipediaApp : Application() {
                 bus.post(ThemeFontChangeEvent())
             }
         }
-
-    val tabList = mutableListOf<Tab>()
-
+    
     val appOrSystemLanguageCode: String
         get() {
             val code = languageState.appLanguageCode
