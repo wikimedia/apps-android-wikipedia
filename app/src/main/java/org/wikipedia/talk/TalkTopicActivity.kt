@@ -36,7 +36,6 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.*
-import org.wikipedia.util.log.L
 import org.wikipedia.views.SearchActionProvider
 
 class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
@@ -226,20 +225,21 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             val menuItem = menu.add(searchHintString)
 
             MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
-            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+            // TODO: hide "hide reply" icons
+            threadAdapter.notifyDataSetChanged()
             return super.onCreateActionMode(mode, menu)
         }
 
         override fun onQueryChange(s: String) {
             viewModel.currentSearchQuery = s
-            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+            threadAdapter.notifyDataSetChanged()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
             viewModel.currentSearchQuery = null
-            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+            threadAdapter.notifyDataSetChanged()
         }
 
         override fun getSearchHintString(): String {
