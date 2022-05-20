@@ -12,7 +12,6 @@ import org.wikipedia.util.log.L
 object SiteInfoClient {
     private val SITE_INFO_MAP = mutableMapOf<String, SiteInfo?>()
 
-    @JvmStatic
     fun getMainPageForLang(lang: String): String {
         getSiteInfoForLang(lang)?.let {
             if (!it.mainpage.isNullOrEmpty()) {
@@ -22,7 +21,6 @@ object SiteInfoClient {
         return MainPageNameData.valueFor(lang)
     }
 
-    @JvmStatic
     val maxPagesPerReadingList: Int
         get() {
             val info = getSiteInfoForLang(WikipediaApp.instance.wikiSite.languageCode)
@@ -37,7 +35,6 @@ object SiteInfoClient {
         } else null
     }
 
-    @JvmStatic
     fun updateFor(wiki: WikiSite) {
         if (SITE_INFO_MAP.containsKey(wiki.languageCode)) {
             return

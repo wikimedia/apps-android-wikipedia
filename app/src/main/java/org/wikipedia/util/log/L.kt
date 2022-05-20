@@ -33,37 +33,30 @@ object L {
         }
     }
 
-    @JvmStatic
     fun v(msg: String) {
         LEVEL_V.log(msg, null)
     }
 
-    @JvmStatic
     fun d(msg: String) {
         LEVEL_D.log(msg, null)
     }
 
-    @JvmStatic
     fun i(msg: String) {
         LEVEL_I.log(msg, null)
     }
 
-    @JvmStatic
     fun w(msg: String) {
         LEVEL_W.log(msg, null)
     }
 
-    @JvmStatic
     fun e(msg: String) {
         LEVEL_E.log(msg, null)
     }
 
-    @JvmStatic
     fun v(t: Throwable?) {
         LEVEL_V.log("", t)
     }
 
-    @JvmStatic
     fun d(t: Throwable?) {
         LEVEL_D.log("", t)
     }
@@ -72,12 +65,10 @@ object L {
         LEVEL_I.log("", t)
     }
 
-    @JvmStatic
     fun w(t: Throwable?) {
         LEVEL_W.log("", t)
     }
 
-    @JvmStatic
     fun e(t: Throwable?) {
         LEVEL_E.log("", t)
     }
@@ -86,7 +77,6 @@ object L {
         LEVEL_V.log(msg, t)
     }
 
-    @JvmStatic
     fun d(msg: String, t: Throwable?) {
         LEVEL_D.log(msg, t)
     }
@@ -95,12 +85,10 @@ object L {
         LEVEL_I.log(msg, t)
     }
 
-    @JvmStatic
     fun w(msg: String, t: Throwable?) {
         LEVEL_W.log(msg, t)
     }
 
-    @JvmStatic
     fun e(msg: String, t: Throwable?) {
         LEVEL_E.log(msg, t)
     }
@@ -116,7 +104,6 @@ object L {
 
     // Favor logRemoteErrorIfProd(). If it's worth consuming bandwidth and developer hours, it's
     // worth crashing on everything but prod
-    @JvmStatic
     fun logRemoteError(t: Throwable) {
         LEVEL_E.log("", t)
         if (!ReleaseUtil.isPreBetaRelease) {

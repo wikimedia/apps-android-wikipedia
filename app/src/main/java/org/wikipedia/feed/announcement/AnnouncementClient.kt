@@ -62,7 +62,6 @@ class AnnouncementClient : FeedClient {
             return cards
         }
 
-        @JvmStatic
         fun shouldShow(announcement: Announcement?, country: String?, date: Date): Boolean {
             return (announcement != null && !announcement.platforms.isNullOrEmpty() && (announcement.platforms.contains(PLATFORM_CODE) ||
                     announcement.platforms.contains(PLATFORM_CODE_NEW)) &&

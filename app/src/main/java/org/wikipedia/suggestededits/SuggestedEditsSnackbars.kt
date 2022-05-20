@@ -17,7 +17,6 @@ object SuggestedEditsSnackbars {
     private const val MAX_SHOW_PER_SESSION = 2
     private val snackbarSessionMap = mutableMapOf<String, Int>()
 
-    @JvmStatic
     fun show(activity: Activity, action: Action?, sequentialSnackbar: Boolean = true, targetLanguageCode: String? = null,
              enableViewAction: Boolean = false, listener: OpenPageListener? = null) {
         val app = WikipediaApp.instance

@@ -119,7 +119,6 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
     }
 
     companion object {
-        @JvmStatic
         fun forceUpdateWidget(context: Context) {
             val intent = Intent(context, WidgetProviderFeaturedPage::class.java)
             intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE

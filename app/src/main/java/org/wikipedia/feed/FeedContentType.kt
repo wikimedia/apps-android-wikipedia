@@ -89,7 +89,6 @@ enum class FeedContentType(private val code: Int,
 
         fun of(code: Int): FeedContentType { return MAP[code] }
 
-        @JvmStatic
         val aggregatedLanguages: List<String>
             get() {
                 val appLangCodes = WikipediaApp.instance.languageState.appLanguageCodes
