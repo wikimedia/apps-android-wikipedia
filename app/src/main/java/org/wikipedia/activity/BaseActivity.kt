@@ -11,11 +11,9 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
-import android.view.View.NO_ID
 import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import androidx.annotation.ColorInt
@@ -31,6 +29,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.LoginFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
@@ -337,7 +336,6 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
     private val CLICK_ACTION_THRESHOLD = 200
 
     override fun onTouch(view: View?, event: MotionEvent?): Boolean {
-
         when (event?.action) {
             MotionEvent.ACTION_DOWN -> {
                 startX = event.x.toInt()
@@ -347,7 +345,7 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
                 val endX = event.x
                 val endY = event.y
                 if (isClick(startX.toFloat(), endX, startY.toFloat(), endY)) {
-                    view?.let { Log.e("#####", getNameFromId(it) + "VIEW CLICK EVENT" + localClassName) }
+                    BreadCrumbLogEvent.log(javaClass.simpleName, view)
                 }
             }
         }
@@ -358,9 +356,5 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
         val diffHorizontal = abs(startX - endX)
         val diffVertical = abs(startY - endY)
         return !(diffHorizontal > CLICK_ACTION_THRESHOLD || diffVertical > CLICK_ACTION_THRESHOLD)
-    }
-
-    open fun getNameFromId(view: View?): String? {
-        return if (view?.id == null || view.id == NO_ID) "no-id" else view.resources.getResourceName(view.id)
     }
 }
