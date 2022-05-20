@@ -61,7 +61,7 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
             L.e(throwable)
         }) {
             withContext(Dispatchers.IO) {
-                val siteMatrix = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getSiteMatrix()
+                val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
                 val sites = SiteMatrix.getSites(siteMatrix)
                 siteListData.postValue(Resource.Success(sites))
             }
@@ -73,7 +73,7 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
         while (it.hasNext()) {
             val link = it.next()
             val languageCode = link.wikiSite.languageCode
-            val languageVariants = WikipediaApp.getInstance().language().getLanguageVariants(languageCode)
+            val languageVariants = WikipediaApp.instance.languageState.getLanguageVariants(languageCode)
             if (AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE == languageCode) {
                 // Replace legacy name of тарашкевіца language with the correct name.
                 // TODO: Can probably be removed when T111853 is resolved.
@@ -88,12 +88,12 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
                 }
             }
         }
-        addVariantEntriesIfNeeded(WikipediaApp.getInstance().language(), pageTitle, languageEntries)
+        addVariantEntriesIfNeeded(WikipediaApp.instance.languageState, pageTitle, languageEntries)
     }
 
     private fun sortLanguageEntriesByMru(entries: MutableList<PageTitle>) {
         var addIndex = 0
-        for (language in WikipediaApp.getInstance().language().mruLanguageCodes) {
+        for (language in WikipediaApp.instance.languageState.mruLanguageCodes) {
             for (i in entries.indices) {
                 if (entries[i].wikiSite.languageCode == language) {
                     val entry = entries.removeAt(i)
@@ -110,7 +110,7 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
             return null
         }
         return value.data.find { it.code == code }?.localname.orEmpty()
-                .ifEmpty { WikipediaApp.getInstance().language().getAppLanguageCanonicalName(code) }
+                .ifEmpty { WikipediaApp.instance.languageState.getAppLanguageCanonicalName(code) }
     }
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {

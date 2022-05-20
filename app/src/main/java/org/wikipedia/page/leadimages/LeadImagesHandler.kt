@@ -110,7 +110,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 .map { response -> response.query?.isEditProtected ?: false }
                 .flatMap { isProtected ->
                     if (isProtected) Observable.empty() else Observable.zip(ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitle(imageTitle, Constants.COMMONS_DB_NAME),
-                        ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(imageTitle, WikipediaApp.getInstance().appOrSystemLanguageCode)) { first, second -> Pair(first, second) }
+                        ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(imageTitle, WikipediaApp.instance.appOrSystemLanguageCode)) { first, second -> Pair(first, second) }
                 }
                 .flatMap { pair ->
                     val labelMap = pair.first.first?.labels?.values?.associate { v -> v.language to v.value }.orEmpty()
@@ -123,8 +123,8 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                         imageEditType = ImageEditType.ADD_CAPTION
                         return@flatMap Observable.just(depicts)
                     }
-                    if (WikipediaApp.getInstance().language().appLanguageCodes.size >= Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
-                        for (lang in WikipediaApp.getInstance().language().appLanguageCodes) {
+                    if (WikipediaApp.instance.languageState.appLanguageCodes.size >= Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
+                        for (lang in WikipediaApp.instance.languageState.appLanguageCodes) {
                             if (!labelMap.containsKey(lang)) {
                                 imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION
                                 captionTargetPageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, lang))
@@ -159,7 +159,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 }
                 captionTargetPageTitle?.run {
                     callToActionTargetSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayText, null, leadImageUrl)
-                    pageHeaderView.callToActionText = parentFragment.getString(R.string.suggested_edits_article_cta_image_caption_in_language, WikipediaApp.getInstance().language().getAppLanguageLocalizedName(wikiSite.languageCode))
+                    pageHeaderView.callToActionText = parentFragment.getString(R.string.suggested_edits_article_cta_image_caption_in_language, WikipediaApp.instance.languageState.getAppLanguageLocalizedName(wikiSite.languageCode))
                 }
             }
             else -> {

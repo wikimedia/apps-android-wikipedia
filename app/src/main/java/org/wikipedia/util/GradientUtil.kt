@@ -23,7 +23,7 @@ object GradientUtil {
     private const val GRADIENT_POWER = 3
 
     fun getPowerGradient(@ColorRes baseColor: Int, gravity: Int): Drawable {
-        return getPowerGradientInt(ContextCompat.getColor(WikipediaApp.getInstance(), baseColor), gravity)
+        return getPowerGradientInt(ContextCompat.getColor(WikipediaApp.instance, baseColor), gravity)
     }
 
     fun getPowerGradientInt(@ColorInt baseColor: Int, gravity: Int): Drawable {

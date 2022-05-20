@@ -41,7 +41,7 @@ class DescriptionEditRevertHelpView constructor(context: Context, attrs: Attribu
 
     private fun getHistoryUri(qNumber: String): Uri {
         return Uri.Builder()
-                .scheme(WikipediaApp.getInstance().wikiSite.scheme())
+                .scheme(WikipediaApp.instance.wikiSite.scheme())
                 .authority("m.wikidata.org")
                 .appendPath("wiki")
                 .appendPath("Special:History")
