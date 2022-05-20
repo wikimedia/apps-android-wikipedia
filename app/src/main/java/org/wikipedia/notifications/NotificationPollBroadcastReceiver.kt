@@ -92,7 +92,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         val DBNAME_WIKI_NAME_MAP = mutableMapOf<String, String>()
         private var LOCALLY_KNOWN_NOTIFICATIONS = Prefs.locallyKnownNotifications.toMutableList()
 
-        @JvmStatic
         fun startPollTask(context: Context) {
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             try {

@@ -39,7 +39,6 @@ class FeedCoordinator internal constructor(context: Context) : FeedCoordinatorBa
     }
 
     companion object {
-        @JvmStatic
         fun postCardsToCallback(cb: FeedClient.Callback, cards: List<Card>) {
             Completable.fromAction {
                 val delayMillis = 150L

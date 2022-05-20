@@ -111,7 +111,6 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     companion object {
-        @JvmStatic
         fun newInstance(): MenuNavTabDialog {
             return MenuNavTabDialog()
         }
