@@ -15,7 +15,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.internal.functions.Functions
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.analytics.FunnelManager
 import org.wikipedia.analytics.InstallReferrerListener
 import org.wikipedia.analytics.SessionFunnel
@@ -191,7 +190,7 @@ class WikipediaApp : Application() {
      * @return the value that should go in the Accept-Language header.
      */
     fun getAcceptLanguage(wiki: WikiSite?): String {
-        val wikiLang = if (wiki == null || "meta" == wiki.languageCode) "" else StringUtils.defaultString(wiki.languageCode)
+        val wikiLang = if (wiki == null || "meta" == wiki.languageCode) "" else wiki.languageCode
         return AcceptLanguageUtil.getAcceptLanguage(wikiLang, languageState.appLanguageCode,
                 languageState.systemLanguageCode)
     }
