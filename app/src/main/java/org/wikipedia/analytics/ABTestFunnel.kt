@@ -6,7 +6,7 @@ import org.wikipedia.settings.PrefsIoUtil
 import kotlin.random.Random
 
 class ABTestFunnel internal constructor(private val abTestName: String, private val abTestGroupCount: Int) :
-        Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
+        Funnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
 
     // initialize the group if it hasn't been yet.
     val aBTestGroup: Int

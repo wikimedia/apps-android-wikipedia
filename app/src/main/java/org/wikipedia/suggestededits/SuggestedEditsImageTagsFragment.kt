@@ -78,7 +78,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         binding.publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
         binding.publishOverlayContainer.visibility = GONE
 
-        val colorStateList = ColorStateList.valueOf(if (WikipediaApp.getInstance().currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+        val colorStateList = ColorStateList.valueOf(if (WikipediaApp.instance.currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
         binding.publishProgressBar.progressTintList = colorStateList
         binding.publishProgressBarComplete.progressTintList = colorStateList
         ImageViewCompat.setImageTintList(binding.publishProgressCheck, colorStateList)
@@ -149,7 +149,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             return
         }
 
-        funnel = EditFunnel(WikipediaApp.getInstance(), pageTitle)
+        funnel = EditFunnel(WikipediaApp.instance, pageTitle)
 
         binding.tagsLicenseText.visibility = GONE
         binding.tagsHintText.visibility = VISIBLE

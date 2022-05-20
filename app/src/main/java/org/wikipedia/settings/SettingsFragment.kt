@@ -19,7 +19,7 @@ class SettingsFragment : PreferenceLoaderFragment() {
     private val disposables = CompositeDisposable()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
+        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
 
         // TODO: Kick off a sync of reading lists, which will call back to us whether lists
         // are enabled or not. (Not sure if this is necessary yet.)

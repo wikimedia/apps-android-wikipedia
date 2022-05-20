@@ -88,11 +88,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private const val MAX_LOCALLY_KNOWN_NOTIFICATIONS = 32
         private const val FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3
         private const val SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7
-        val DBNAME_WIKI_SITE_MAP = mutableMapOf<String, WikiSite>().withDefault { WikipediaApp.getInstance().wikiSite }
+        val DBNAME_WIKI_SITE_MAP = mutableMapOf<String, WikiSite>().withDefault { WikipediaApp.instance.wikiSite }
         val DBNAME_WIKI_NAME_MAP = mutableMapOf<String, String>()
         private var LOCALLY_KNOWN_NOTIFICATIONS = Prefs.locallyKnownNotifications.toMutableList()
 
-        @JvmStatic
         fun startPollTask(context: Context) {
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             try {
@@ -149,7 +148,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             }
             if (notificationsToDisplay.isNotEmpty()) {
                 Prefs.notificationUnreadCount = notificationsToDisplay.size
-                WikipediaApp.getInstance().bus.post(UnreadNotificationsEvent())
+                WikipediaApp.instance.bus.post(UnreadNotificationsEvent())
             }
 
             // Android 7.0 and above performs automatic grouping of multiple notifications, in case
@@ -195,7 +194,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         private fun maybeShowLocalNotificationForEditorReactivation(context: Context) {
-            if (Prefs.lastDescriptionEditTime == 0L || WikipediaApp.getInstance().isAnyActivityResumed) {
+            if (Prefs.lastDescriptionEditTime == 0L || WikipediaApp.instance.isAnyActivityResumed) {
                 return
             }
             var days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.lastDescriptionEditTime)

@@ -18,7 +18,7 @@ class PollNotificationWorker(
 ) : CoroutineWorker(appContext, params) {
     override suspend fun doWork(): Result {
         return try {
-            val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).lastUnreadNotification()
+            val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).lastUnreadNotification()
             val lastNotificationTime = response.query?.notifications?.list?.maxOfOrNull { it.utcIso8601 }.orEmpty()
             if (lastNotificationTime > Prefs.remoteNotificationsSeenTime) {
                 Prefs.remoteNotificationsSeenTime = lastNotificationTime
@@ -37,7 +37,7 @@ class PollNotificationWorker(
     private suspend fun retrieveNotifications() {
         NotificationPollBroadcastReceiver.DBNAME_WIKI_SITE_MAP.clear()
         NotificationPollBroadcastReceiver.DBNAME_WIKI_NAME_MAP.clear()
-        val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unreadNotificationWikis()
+        val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).unreadNotificationWikis()
         val wikiMap = response.query!!.unreadNotificationWikis.orEmpty()
         val wikis = wikiMap.keys.toList()
         for ((dbName, wiki) in wikiMap) {
@@ -52,7 +52,7 @@ class PollNotificationWorker(
     private suspend fun getFullNotifications(foreignWikis: List<String>) {
         val notificationRepository = NotificationRepository(AppDatabase.instance.notificationDao())
 
-        val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite)
+        val response = ServiceFactory.get(WikipediaApp.instance.wikiSite)
             .getAllNotifications(if (foreignWikis.isEmpty()) "*" else foreignWikis.joinToString("|"), "!read", null)
         response.query?.notifications?.list?.let {
             notificationRepository.insertNotifications(it)
@@ -63,7 +63,7 @@ class PollNotificationWorker(
     private fun assertLoggedIn() {
         // Attempt to get a dummy CSRF token, which should automatically re-log us in explicitly,
         // and should automatically log us out if the credentials are no longer valid.
-        CsrfTokenClient.getToken(WikipediaApp.getInstance().wikiSite)
+        CsrfTokenClient.getToken(WikipediaApp.instance.wikiSite)
             .subscribeOn(Schedulers.io())
             .subscribe()
     }

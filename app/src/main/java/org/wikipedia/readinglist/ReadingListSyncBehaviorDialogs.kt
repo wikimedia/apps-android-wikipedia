@@ -43,7 +43,7 @@ object ReadingListSyncBehaviorDialogs {
                 .setNegativeButton(R.string.reading_list_prompt_turned_sync_on_dialog_no_thanks, null)
                 .setOnDismissListener {
                     Prefs.showReadingListSyncEnablePrompt = !binding.dialogCheckbox.isChecked
-                    WikipediaApp.getInstance().bus.post(ReadingListsEnableSyncStatusEvent())
+                    WikipediaApp.instance.bus.post(ReadingListsEnableSyncStatusEvent())
                 }
                 .show()
     }

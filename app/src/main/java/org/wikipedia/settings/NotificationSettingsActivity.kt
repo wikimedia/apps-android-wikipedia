@@ -13,7 +13,7 @@ class NotificationSettingsActivity : SingleFragmentActivity<NotificationSettings
     }
 
     override fun onDestroy() {
-        NotificationPreferencesFunnel(WikipediaApp.getInstance()).done()
+        NotificationPreferencesFunnel(WikipediaApp.instance).done()
         super.onDestroy()
     }
 
