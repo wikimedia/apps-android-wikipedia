@@ -30,7 +30,7 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
         val indicatorRadius = 4
         val indicatorPadding = 8
         val indicatorHeight = 20
-        binding.newsRecyclerView.addItemDecoration(
+        binding.newsCardviewRecyclerView.addItemDecoration(
             RecyclerViewIndicatorDotDecor(
                 DimenUtil.roundedDpToPx(indicatorRadius.toFloat()).toFloat(),
                 DimenUtil.roundedDpToPx(indicatorPadding.toFloat()),
@@ -62,12 +62,12 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
         }
 
     private fun setUpRecycler(card: NewsCard) {
-        binding.newsRecyclerView.setHasFixedSize(true)
-        binding.newsRecyclerView.layoutManager =
+        binding.newsCardviewRecyclerView.setHasFixedSize(true)
+        binding.newsCardviewRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.newsRecyclerView.isNestedScrollingEnabled = false
-        binding.newsRecyclerView.clipToPadding = false
-        binding.newsRecyclerView.adapter = NewsAdapter(card)
+        binding.newsCardviewRecyclerView.isNestedScrollingEnabled = false
+        binding.newsCardviewRecyclerView.clipToPadding = false
+        binding.newsCardviewRecyclerView.adapter = NewsAdapter(card)
         setUpIndicatorDots(card)
         setUpSnapHelper()
     }
@@ -75,7 +75,7 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
     private fun setUpSnapHelper() {
         if (!isSnapHelperAttached) {
             val snapHelper = PagerSnapHelper()
-            snapHelper.attachToRecyclerView(binding.newsRecyclerView)
+            snapHelper.attachToRecyclerView(binding.newsCardviewRecyclerView)
             isSnapHelperAttached = true
         }
     }
