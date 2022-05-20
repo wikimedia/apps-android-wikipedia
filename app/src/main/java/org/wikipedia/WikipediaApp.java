@@ -35,7 +35,6 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.push.WikipediaFirebaseMessagingService;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.settings.RemoteConfig;
 import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.DimenUtil;
@@ -55,7 +54,6 @@ import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
 import static org.wikipedia.util.ReleaseUtil.getChannel;
 
 public class WikipediaApp extends Application {
-    private final RemoteConfig remoteConfig = new RemoteConfig();
     private Handler mainThreadHandler;
     private AppLanguageState appLanguageState;
     private FunnelManager funnelManager;
@@ -88,10 +86,6 @@ public class WikipediaApp extends Application {
 
     public FunnelManager getFunnelManager() {
         return funnelManager;
-    }
-
-    public RemoteConfig getRemoteConfig() {
-        return remoteConfig;
     }
 
     /**
