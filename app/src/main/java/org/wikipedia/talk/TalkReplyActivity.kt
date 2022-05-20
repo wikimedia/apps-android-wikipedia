@@ -29,6 +29,8 @@ import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
+import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.util.*
 import org.wikipedia.views.UserMentionInputView
 
@@ -117,6 +119,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private fun onInitialLoad() {
         updateEditLicenseText()
         setSaveButtonEnabled(false)
+        setToolbarTitle(viewModel.pageTitle)
 
         if (viewModel.topic != null) {
             binding.replyInputView.userNameHints = setOf(viewModel.topic!!.author)
@@ -139,7 +142,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         if (viewModel.isNewTopic) {
             title = getString(R.string.talk_new_topic)
-            binding.talkToolbarSubjectView.visibility = View.INVISIBLE
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_message_hint)
             binding.replySubjectLayout.isVisible = true
             binding.replySubjectLayout.requestFocus()
@@ -158,6 +160,17 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                 }
             }
         }
+    }
+
+    private fun setToolbarTitle(pageTitle: PageTitle) {
+        binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
+        binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
+        binding.toolbarTitle.movementMethod = LinkMovementMethodExt { _ ->
+            val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
+            startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
+        }
+        RichTextUtil.removeUnderlinesFromLinks(binding.toolbarTitle)
+        FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
     }
 
     internal inner class TalkLinkHandler internal constructor(context: Context) : LinkHandler(context) {
