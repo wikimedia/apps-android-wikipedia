@@ -31,5 +31,5 @@ class WikitextClientTest : MockRetrofitTest() {
     }
 
     private val observable
-        get() = apiService.getWikiTextForSection("User:Mhollo/sandbox", 0)
+        get() = apiService.getWikiTextForSectionWithInfo("User:Mhollo/sandbox", 0)
 }

@@ -2,7 +2,6 @@ package org.wikipedia.page.edithistory
 
 import android.content.Context
 import android.content.Intent
-import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
@@ -392,12 +391,12 @@ class EditHistoryListActivity : BaseActivity() {
             if (Prefs.editHistoryFilterType.isEmpty()) {
                 binding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ColorStateList.valueOf(ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.chip_text_color)))
+                    ResourceUtil.getThemedColorStateList(this@EditHistoryListActivity, R.attr.chip_text_color))
             } else {
                 binding.filterCount.visibility = View.VISIBLE
                 binding.filterCount.text = (if (Prefs.editHistoryFilterType.isNotEmpty()) 1 else 0).toString()
                 ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ColorStateList.valueOf(ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.colorAccent)))
+                    ResourceUtil.getThemedColorStateList(this@EditHistoryListActivity, R.attr.colorAccent))
             }
         }
     }
