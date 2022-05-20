@@ -49,7 +49,7 @@ object DimenUtil {
 
     // TODO: use getResources().getDimensionPixelSize()?  Define leadImageWidth with px, not dp?
     fun calculateLeadImageWidth(): Int {
-        val res = WikipediaApp.getInstance().resources
+        val res = WikipediaApp.instance.resources
         return (res.getDimension(R.dimen.leadImageWidth) / densityScalar).toInt()
     }
 
@@ -76,7 +76,7 @@ object DimenUtil {
     private val displayMetrics: DisplayMetrics
         get() = resources.displayMetrics
     private val resources: Resources
-        get() = WikipediaApp.getInstance().resources
+        get() = WikipediaApp.instance.resources
 
     fun getNavigationBarHeight(context: Context): Float {
         val id = getNavigationBarId(context)

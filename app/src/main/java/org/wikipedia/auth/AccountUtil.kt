@@ -62,13 +62,13 @@ object AccountUtil {
     var groups: Set<String>
         get() {
             val account = account() ?: return emptySet()
-            val setStr = accountManager().getUserData(account, WikipediaApp.getInstance().getString(R.string.preference_key_login_groups))
+            val setStr = accountManager().getUserData(account, WikipediaApp.instance.getString(R.string.preference_key_login_groups))
             return if (setStr.isNullOrEmpty()) emptySet() else (JsonUtil.decodeFromString(setStr) ?: emptySet())
         }
         set(groups) {
             val account = account() ?: return
             accountManager().setUserData(account,
-                    WikipediaApp.getInstance().getString(R.string.preference_key_login_groups),
+                    WikipediaApp.instance.getString(R.string.preference_key_login_groups),
                     JsonUtil.encodeToString(groups))
         }
 
@@ -106,7 +106,7 @@ object AccountUtil {
 
     @JvmStatic
     fun accountType(): String {
-        return WikipediaApp.getInstance().getString(R.string.account_type)
+        return WikipediaApp.instance.getString(R.string.account_type)
     }
 
     private fun createAccount(userName: String, password: String): Boolean {
@@ -129,17 +129,17 @@ object AccountUtil {
     private var userIds: Map<String, Int>
         get() {
             val account = account() ?: return emptyMap()
-            val mapStr = accountManager().getUserData(account, WikipediaApp.getInstance().getString(R.string.preference_key_login_user_id_map))
+            val mapStr = accountManager().getUserData(account, WikipediaApp.instance.getString(R.string.preference_key_login_user_id_map))
             return if (mapStr.isNullOrEmpty()) emptyMap() else (JsonUtil.decodeFromString(mapStr) ?: emptyMap())
         }
         private set(ids) {
             val account = account() ?: return
             accountManager().setUserData(account,
-                    WikipediaApp.getInstance().getString(R.string.preference_key_login_user_id_map),
+                    WikipediaApp.instance.getString(R.string.preference_key_login_user_id_map),
                     JsonUtil.encodeToString(ids))
         }
 
     private fun accountManager(): AccountManager {
-        return AccountManager.get(WikipediaApp.getInstance())
+        return AccountManager.get(WikipediaApp.instance)
     }
 }

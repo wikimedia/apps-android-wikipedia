@@ -99,7 +99,7 @@ class AnnouncementClient : FeedClient {
 
         private fun matchesVersionCodes(minVersion: Int, maxVersion: Int): Boolean {
             val versionCode = if (Prefs.announcementsVersionCode > 0) Prefs.announcementsVersionCode
-            else WikipediaApp.getInstance().versionCode
+            else WikipediaApp.instance.versionCode
             try {
                 if (minVersion != -1 && minVersion > versionCode) {
                     return false

@@ -76,7 +76,7 @@ class NotificationActivity : BaseActivity() {
             viewModel.updateTabSelection(binding.notificationTabLayout.selectedTabPosition)
         }
     }
-    var funnel = NotificationPreferencesFunnel(WikipediaApp.getInstance())
+    var funnel = NotificationPreferencesFunnel(WikipediaApp.instance)
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -281,7 +281,7 @@ class NotificationActivity : BaseActivity() {
     }
 
     private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean, fromUndoOrClick: Boolean = false, position: Int? = null) {
-        if (!WikipediaApp.getInstance().isOnline) {
+        if (!WikipediaApp.instance.isOnline) {
             if (fromUndoOrClick && position != null) {
                 // Skip if the action is from onClick.
                 return
@@ -440,7 +440,7 @@ class NotificationActivity : BaseActivity() {
                 binding.notificationItemSelectedImage.visibility = View.VISIBLE
                 binding.notificationItemImage.visibility = View.INVISIBLE
                 itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.multi_select_background_color))
-                if (WikipediaApp.getInstance().currentTheme.isDark) {
+                if (WikipediaApp.instance.currentTheme.isDark) {
                     binding.notificationTitle.setTextColor(Color.WHITE)
                 }
             } else {
@@ -464,8 +464,8 @@ class NotificationActivity : BaseActivity() {
         }
 
         private fun isValidAppLanguageCode(langCode: String): Boolean {
-            return WikipediaApp.getInstance().language().getLanguageCodeIndex(langCode) >= 0 ||
-                    WikipediaApp.getInstance().language().getLanguageVariants(langCode) != null
+            return WikipediaApp.instance.languageState.getLanguageCodeIndex(langCode) >= 0 ||
+                    WikipediaApp.instance.languageState.getLanguageVariants(langCode) != null
         }
 
         override fun onClick(v: View) {
@@ -586,7 +586,7 @@ class NotificationActivity : BaseActivity() {
                     }
 
                     override fun onFilterIconClick() {
-                        NotificationPreferencesFunnel(WikipediaApp.getInstance()).logFilterClick()
+                        NotificationPreferencesFunnel(WikipediaApp.instance).logFilterClick()
                         DeviceUtil.hideSoftKeyboard(this@NotificationActivity)
                         startActivity(NotificationFilterActivity.newIntent(this@NotificationActivity))
                     }

@@ -95,7 +95,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
     private fun addHeaders(request: WebResourceRequest, builder: Request.Builder): Request.Builder {
         model.title?.let { title ->
             // TODO: Find a common way to set this header between here and RetrofitFactory.
-            builder.header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(title.wikiSite))
+            builder.header("Accept-Language", WikipediaApp.instance.getAcceptLanguage(title.wikiSite))
             if (model.isInReadingList) {
                 builder.header(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
             }
