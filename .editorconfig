@@ -1,3 +1,0 @@
-# Customizations for ktlint
-[*.{kt,kts}]
-disabled_rules=indent,parameter-list-wrapping,no-wildcard-imports
