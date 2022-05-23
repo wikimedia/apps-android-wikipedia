@@ -91,10 +91,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             DeviceUtil.setNavigationBarColor(it, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         }
 
-        binding.customizeFavorites.setOnClickListener {
-            startActivity(CustomizeToolbarActivity.newIntent(requireContext()))
-        }
-
         disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
 
         return binding.root
