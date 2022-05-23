@@ -532,7 +532,7 @@
   <string name="notifications_filter_label">Silañ ar c\'hemennoù</string>
   <string name="notifications_filter_icon_content_description">Silañ ar c\'hemennoù</string>
   <string name="notifications_filter_update_app_languages">Hizivaat yezhoù an arload</string>
-  <string name="notifications_empty_search_message" fuzzy="true">Esaeit lemel % da welet muioc\'h a gemennoù</string>
+  <string name="notifications_empty_search_message" fuzzy="true">Esaeit lemel %s da welet muioc\'h a gemennoù</string>
   <string name="notifications_select_all_filters">Diuzañ an holl siloù</string>
   <string name="notifications_tab_filter_all">An holl</string>
   <string name="notifications_tab_filter_mentions">Menegoù</string>
