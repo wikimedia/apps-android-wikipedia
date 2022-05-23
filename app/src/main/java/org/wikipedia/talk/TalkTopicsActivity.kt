@@ -150,7 +150,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
         binding.talkNewTopicButton.setOnClickListener {
             funnel?.logNewTopicClick()
-            requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, pageTitle, null, invokeSource))
+            requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, pageTitle, null, null, invokeSource))
         }
 
         binding.talkRefreshView.setOnRefreshListener {
@@ -388,7 +388,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnUndoSave(undoneSubject: CharSequence, undoneBody: CharSequence) {
-        requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, pageTitle, null, invokeSource, undoneSubject, undoneBody))
+        requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, pageTitle, null, null, invokeSource, undoneSubject, undoneBody))
     }
 
     private fun updateOnWatch() {
