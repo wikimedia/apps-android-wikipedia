@@ -80,7 +80,7 @@
   <string name="image_share_via">Text for button to share image via different means.\n{{Identical|Share via}}</string>
   <string name="search_redirect_from">Label shown when a search result is redirected from the original search query. The \"%s\" symbol is replaced with the redirect source.</string>
   <string name="page_edit_history_activity_title">Label text for the new edit history screen when the edit history stats view is not visible. %s will be replaced by the title of the article.</string>
-  <string name="page_edit_history_minor_edit">Letter m to represent that the edit is a minor edit. %s represents the edit comment.</string>
+  <string name="page_edit_history_minor_edit">Letter m to represent that the edit is a minor edit. %s represents the edit comment.\n\nSee also:\n* {{msg-mw|minoreditletter}}</string>
   <string name="page_edit_history_comment_placeholder">Placeholder text when a comment is not available on an edit.</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Text hint for the search bar in edit history.</string>
   <string name="page_edit_history_filter_by">Menu header for the overflow menu when clicking on the filter icon in the search bar in edit history.</string>

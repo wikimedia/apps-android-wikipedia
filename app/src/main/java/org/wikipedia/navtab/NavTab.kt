@@ -56,7 +56,6 @@ enum class NavTab constructor(private val text: Int, private val id: Int, privat
 
         private val MAP = EnumCodeMap(NavTab::class.java)
 
-        @JvmStatic
         fun of(code: Int): NavTab {
             return MAP[code]
         }

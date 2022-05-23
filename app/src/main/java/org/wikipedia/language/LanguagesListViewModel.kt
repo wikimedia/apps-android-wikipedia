@@ -19,9 +19,9 @@ import java.util.*
 
 class LanguagesListViewModel : ViewModel() {
 
-    private val suggestedLanguageCodes = WikipediaApp.getInstance().language().remainingAvailableLanguageCodes
-    private val nonSuggestedLanguageCodes = WikipediaApp.getInstance().language().appMruLanguageCodes.filterNot {
-            suggestedLanguageCodes.contains(it) || WikipediaApp.getInstance().language().appLanguageCodes.contains(it)
+    private val suggestedLanguageCodes = WikipediaApp.instance.languageState.remainingAvailableLanguageCodes
+    private val nonSuggestedLanguageCodes = WikipediaApp.instance.languageState.appMruLanguageCodes.filterNot {
+            suggestedLanguageCodes.contains(it) || WikipediaApp.instance.languageState.appLanguageCodes.contains(it)
         }
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
@@ -37,7 +37,7 @@ class LanguagesListViewModel : ViewModel() {
     private fun fetchData() {
         viewModelScope.launch(handler) {
             withContext(Dispatchers.IO) {
-                val siteMatrix = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getSiteMatrix()
+                val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
                 val sites = SiteMatrix.getSites(siteMatrix)
                 siteListData.postValue(Resource.Success(sites))
             }
@@ -61,7 +61,7 @@ class LanguagesListViewModel : ViewModel() {
                                              results: MutableList<LanguageListItem>) {
         var first = true
         for (code in codes) {
-            val localizedName = StringUtils.stripAccents(WikipediaApp.getInstance().language().getAppLanguageLocalizedName(code).orEmpty())
+            val localizedName = StringUtils.stripAccents(WikipediaApp.instance.languageState.getAppLanguageLocalizedName(code).orEmpty())
             val canonicalName = StringUtils.stripAccents(getCanonicalName(code).orEmpty())
             if (filter.isEmpty() || code.contains(filter) ||
                     localizedName.lowercase(Locale.getDefault()).contains(filter) ||
@@ -81,7 +81,7 @@ class LanguagesListViewModel : ViewModel() {
             return null
         }
         return value.data.find { it.code == code }?.localname.orEmpty()
-                .ifEmpty { WikipediaApp.getInstance().language().getAppLanguageCanonicalName(code) }
+                .ifEmpty { WikipediaApp.instance.languageState.getAppLanguageCanonicalName(code) }
     }
 
     class LanguageListItem(val code: String, val isHeader: Boolean = false)

@@ -63,12 +63,12 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
     }
 
     private fun getFeaturedArticleInformation(cb: Callback) {
-        val app = WikipediaApp.getInstance()
+        val app = WikipediaApp.instance
         val mainPageTitle = PageTitle(
                 MainPageNameData.valueFor(app.appOrSystemLanguageCode),
                 app.wikiSite)
         val date = DateUtil.getUtcRequestDateFor(0)
-        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getAggregatedFeed(date.year, date.month, date.day)
+        ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getAggregatedFeed(date.year, date.month, date.day)
                 .flatMap { response: AggregatedFeedContent ->
                     if (response.tfa != null) {
                         Observable.just(response.tfa)
@@ -81,7 +81,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                 .flatMap { response ->
                     if (response is MwParseResponse) {
                         L.d("Downloaded page " + mainPageTitle.displayText)
-                        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getSummary(null, findFeaturedArticleTitle(response.text))
+                        ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getSummary(null, findFeaturedArticleTitle(response.text))
                     } else {
                         Observable.just(response as PageSummary)
                     }
@@ -119,7 +119,6 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
     }
 
     companion object {
-        @JvmStatic
         fun forceUpdateWidget(context: Context) {
             val intent = Intent(context, WidgetProviderFeaturedPage::class.java)
             intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE

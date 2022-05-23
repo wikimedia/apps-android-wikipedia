@@ -61,7 +61,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     private var rtl = false
     private var currentItemSelected = 0
     private var currentTalkSortMode = Prefs.talkTopicsSortMode
-    private var funnel = ToCInteractionFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().wikiSite, 0, 0)
+    private var funnel = ToCInteractionFunnel(WikipediaApp.instance, WikipediaApp.instance.wikiSite, 0, 0)
     private var articleTocInteractionEvent: ArticleTocInteractionEvent? = null
 
     private val sectionOffsetsCallback: ValueCallback<String> = ValueCallback { value ->
@@ -189,7 +189,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
                 gravity = if (rtl) Gravity.LEFT else Gravity.RIGHT
             }
             log()
-            funnel = ToCInteractionFunnel(WikipediaApp.getInstance(), it.title.wikiSite, it.pageProperties.pageId, tocAdapter.count)
+            funnel = ToCInteractionFunnel(WikipediaApp.instance, it.title.wikiSite, it.pageProperties.pageId, tocAdapter.count)
             articleTocInteractionEvent = ArticleTocInteractionEvent(it.pageProperties.pageId, it.title.wikiSite.dbName(), tocAdapter.count)
             articleTocInteractionEvent?.logClick()
             if (ReleaseUtil.isPreBetaRelease) {

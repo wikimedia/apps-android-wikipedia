@@ -168,7 +168,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         revertSeverity = 0
         binding.progressBar.visibility = VISIBLE
 
-        disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
+        disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 UserContributionsStats.getEditCountsObservable()) { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
@@ -332,7 +332,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun maybeSetPausedOrDisabled(): Boolean {
         val pauseEndDate = UserContributionsStats.maybePauseAndGetEndDate()
 
-        if (totalContributions < MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS && WikipediaApp.getInstance().appOrSystemLanguageCode == "en") {
+        if (totalContributions < MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS && WikipediaApp.instance.appOrSystemLanguageCode == "en") {
             clearContents()
             binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_gate_message, AccountUtil.userName))
             binding.disabledStatesView.setPositiveButton(R.string.suggested_edits_learn_more, {
@@ -423,7 +423,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, secondary: Boolean) {
-            if (WikipediaApp.getInstance().language().appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && secondary) {
+            if (WikipediaApp.instance.languageState.appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && secondary) {
                 startActivityForResult(WikipediaLanguagesActivity.newIntent(requireActivity(), Constants.InvokeSource.SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
                 return
             }
