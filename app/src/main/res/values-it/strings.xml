@@ -90,7 +90,10 @@
   <string name="page_edit_history_activity_title">Cronologia: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Oggetto modifica vuoto</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Cerca o filtra le modifiche</string>
+  <string name="page_edit_history_filter_by">Filtra per</string>
   <string name="page_edit_history_filter_by_all">Tutte le modifiche (%s)</string>
+  <string name="page_edit_history_filter_by_user">Modifiche dell\'utente (%s)</string>
   <string name="page_edit_history_filter_by_anon">Modifiche anonime (%s)</string>
   <string name="page_edit_history_filter_by_bot">Modifiche di bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Statistiche dal %1$s al %2$s</string>
@@ -130,6 +133,7 @@
   <string name="on_this_day_page_share">Condividi</string>
   <string name="reading_list_page_share">Condividi</string>
   <string name="menu_text_select_edit_here">Modifica qui</string>
+  <string name="menu_edit_article">Modifica voce</string>
   <string name="last_updated_text">Ultimo aggiornamento %s</string>
   <string name="talk_page_link_text">Vedi la pagina di discussione</string>
   <string name="edit_history_link_text">Vedi cronologia delle modifiche</string>
@@ -457,6 +461,9 @@
   <string name="text_size_decrease">Diminuisci la dimensione del testo</string>
   <string name="text_size_percent_default">%s (predefinito)</string>
   <string name="text_style_title">Tipo di carattere</string>
+  <string name="reading_focus_mode_detail">Nasconde le funzioni di modifica e la barra degli strumenti in basso durante lo scorrimento</string>
+  <string name="theme_category_toolbar">Barra degli strumenti</string>
+  <string name="theme_customize_toolbar">Personalizza barra degli strumenti</string>
   <string name="nav_item_saved">Salvato</string>
   <string name="reading_list_save_to">Salva nell\'elenco di lettura</string>
   <string name="reading_list_move_to">Sposta nell\'elenco di lettura</string>
@@ -818,7 +825,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una riga, da due a dodici parole</string>
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
   <string name="description_edit_tutorial_promise">Per iniziare, prometto di non abusare di questa funzione.</string>
+  <string name="customize_toolbar_title">Personalizza barra degli strumenti</string>
+  <string name="customize_toolbar_description_text">Personalizza la barra degli strumenti in basso con i 5 collegamenti che ritieni più utili.</string>
+  <string name="customize_toolbar_category_toolbar">Barra degli strumenti</string>
   <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Trascina qui i tuoi oggetti preferiti 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Ripristina predefiniti</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Tieni premuta l\'icona di trascinamento per muovere l\'elemento</string>
   <string name="customize_toolbar_item_default_tooltip">Clicca e trascina un elemento per riposizionarlo</string>
   <string name="suggested_edits_describe_articles">Descrivi voce</string>
@@ -1125,6 +1137,7 @@
   <string name="thank_success_message">Il tuo \'ringraziamento\' è stato inviato a %s 👍</string>
   <string name="menu_option_view_user_profile">Visualizza pagina profilo dell\'utente</string>
   <string name="menu_option_view_user_talk">Vedi la pagina di discussione</string>
+  <string name="menu_option_view_user_contributions">Visualizza i contributi degli utenti</string>
   <string name="revision_diff_compare">Confronta versioni</string>
   <string name="revision_diff_from">Da:</string>
   <string name="revision_diff_to">A:</string>

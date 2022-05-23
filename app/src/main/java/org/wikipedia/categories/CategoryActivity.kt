@@ -3,6 +3,8 @@ package org.wikipedia.categories
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -112,6 +114,21 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
         binding.categoryTabLayout.selectTab(binding.categoryTabLayout.getTabAt(if (viewModel.showSubcategories) 1 else 0))
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_category, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_categories -> {
+                bottomSheetPresenter.show(supportFragmentManager, CategoryDialog.newInstance(viewModel.pageTitle))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun loadPage(title: PageTitle) {

@@ -3,6 +3,7 @@
 * Alefbeis
 * Har-wradim
 * MuratTheTurkish
+* Pacha Tchernof
 * פוילישער
 -->
 <resources>
@@ -30,7 +31,7 @@
   <string name="history_items_deleted">%d ארטיקלען אוועקגענומען פון היסטאריע</string>
   <string name="history_item_delete_undo">צוריקשטעלן</string>
   <string name="notification_archive_undo">אַנולירן</string>
-  <string name="history_list_title">היסטאריע</string>
+  <string name="history_list_title">היסטאָריע</string>
   <string name="dialog_title_clear_history">אפראמען בלעטערן היסטאריע</string>
   <string name="dialog_message_clear_history">דאס וועט אויסמעקן אלע אייערע נאכקוקן היסטאריע און צומאכן אפענע טאבן. זענט איר זיכער?</string>
   <string name="dialog_message_clear_history_yes">יא</string>

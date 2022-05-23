@@ -155,7 +155,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         talkFunnel = TalkFunnel(pageTitle, intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
         talkFunnel.logOpenTopic()
 
-        editFunnel = EditFunnel(WikipediaApp.getInstance(), pageTitle)
+        editFunnel = EditFunnel(WikipediaApp.instance, pageTitle)
         updateEditLicenseText()
 
         onInitialLoad()
@@ -405,7 +405,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         talkFunnel.logEditSubmit()
 
-        disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
+        disposables.add(CsrfTokenClient.getToken(pageTitle.wikiSite)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
@@ -416,7 +416,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     private fun undoSave() {
-        disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
+        disposables.add(CsrfTokenClient.getToken(pageTitle.wikiSite)
             .subscribeOn(Schedulers.io())
             .flatMap { token -> ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(pageTitle.prefixedText, revisionForUndo, token) }
             .subscribeOn(Schedulers.io())

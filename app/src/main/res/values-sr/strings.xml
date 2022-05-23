@@ -177,7 +177,7 @@
   <string name="create_account_passwords_mismatch_error">Лозинке се не поклапају</string>
   <string name="create_account_email_error">Неважећа имејл-адреса</string>
   <string name="create_account_username_error">Неважећи знакови у корисничком имену</string>
-  <string name="create_account_password_error">Лозинка мора имати бар 8 карактера</string>
+  <string name="create_account_password_error">Лозинка мора имати најмање 8 знакова</string>
   <string name="create_account_generic_error">Није могуће отворити налог</string>
   <string name="create_account_next">Следеће</string>
   <string name="email_recommendation_dialog_title">Отворити налог без имејл-адресе?</string>
@@ -217,6 +217,7 @@
   <string name="page_protected_can_not_edit">Ваш налог тренутно нема довољно овлашћења за уређивање ове странице.</string>
   <string name="page_protected_can_not_edit_anon">Ова страница се тренутно не може уређивати анонимно.</string>
   <string name="page_protected_can_not_edit_title">Ова страница је заштићена</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Додај на списак надгледања</string>
   <string name="settings_item_preferences">Подешавања</string>
   <string name="settings_activity_title">Подешавања</string>
   <string name="about_description">О апликацији Википедија</string>
@@ -262,6 +263,9 @@
   <string name="edit_summary_tag_other_hint">Други начини на које сте побољшали страницу</string>
   <string name="edit_conflict_title">Сукоб измена</string>
   <string name="edit_conflict_message">Дошло је до сукоба измена јер је други корисник већ изменио страницу. Копирајте своје измене, вратите се и освежите страницу, па покушајте поново.</string>
+  <string name="edit_notices">Обавештење о чланку</string>
+  <string name="edit_notices_please_read">Прочитајте пре уређивања</string>
+  <string name="edit_notices_show_auto">Аутоматски приказуј обавештења о чланцима</string>
   <string name="find_next">Пронађи следеће</string>
   <string name="find_previous">Пронађи претходно</string>
   <string name="find_first_occurence">Ово је прво појављивање</string>
@@ -374,10 +378,10 @@
   <string name="page_footer_license_text">Садржај је доступан под лиценцом $1 осим ако није другачије наведено</string>
   <string name="empty_tab_title">Нова картица</string>
   <string name="menu_save_all_tabs">Сачувај све картице</string>
-  <string name="error_blocked_title">Ваше корисничко име или IP адреса је блокирано.</string>
+  <string name="error_blocked_title">Блокирано је Ваше корисничко име или Ваша IP адреса.</string>
   <string name="error_blocked_reason">Разлог: %s</string>
   <string name="error_blocked_start">Почетак блокаде: %s</string>
-  <string name="error_blocked_expiry">Крај блокаде: %s</string>
+  <string name="error_blocked_expiry">Истек блокаде: %s</string>
   <string name="error_blocked_id">ID блокаде: %s</string>
   <string name="crash_report_activity_title">Грешка у апликацији</string>
   <string name="crash_report_relaunch_or_quit">Апликација Википедија је наишла на грешку и обустављена је.\n\nЖелите ли поново да је покренете или да изађете?</string>
@@ -730,6 +734,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Почнимо</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Натпис слике (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Датотека</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Датотека са Викимедијине оставе</string>
   <string name="suggested_edits_image_preview_dialog_artist">Уметник</string>
   <string name="suggested_edits_image_preview_dialog_tags">Ознаке</string>
   <string name="suggested_edits_image_preview_dialog_date">Датум</string>
@@ -903,7 +908,29 @@
   <string name="menu_option_view_user_profile">Прикажи страницу уредника</string>
   <string name="menu_option_view_user_talk">Прикажи страницу за разговор</string>
   <string name="menu_option_view_user_contributions">Прикажи доприносе</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">трајно</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">недељу дана</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">месец дана</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 месеца</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 месеци</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s и пратећа сзр су уклоњени са вашег списка надгледања.</string>
+  <string name="watchlist_expiry_dialog_permanent">Трајно</string>
+  <string name="watchlist_expiry_dialog_one_week">недељу дана</string>
+  <string name="watchlist_expiry_dialog_one_month">месец дана</string>
+  <string name="watchlist_expiry_dialog_three_months">3 месеца</string>
+  <string name="watchlist_expiry_dialog_six_months">6 месеци</string>
+  <string name="watchlist_empty">Ваш списак надгледања је празан.</string>
+  <string name="watchlist_filter_all">Све</string>
+  <string name="watchlist_filter_talk">Разговор</string>
+  <string name="watchlist_filter_pages">Странице</string>
+  <string name="watchlist_filter_other">Друго</string>
+  <string name="watchlist_page_moved">Премештено</string>
+  <string name="watchlist_page_protected">Заштићено</string>
+  <string name="watchlist_page_deleted">Избрисано</string>
   <string name="action_item_categories">Категорије</string>
+  <string name="page_no_categories">Ова страница није категорисана.</string>
   <string name="category_tab_articles">Чланци</string>
   <string name="category_tab_subcategories">Поткатегорије</string>
+  <string name="category_empty">Нема чланака у овој категорији.</string>
+  <string name="subcategory_empty">Нема поткатегорија у овој категорији.</string>
 </resources>

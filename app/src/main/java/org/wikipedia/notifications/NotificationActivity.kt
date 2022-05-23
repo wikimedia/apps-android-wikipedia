@@ -2,9 +2,7 @@ package org.wikipedia.notifications
 
 import android.content.Context
 import android.content.Intent
-import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -19,11 +17,12 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.annotation.PluralsRes
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.updateBounds
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
@@ -77,7 +76,7 @@ class NotificationActivity : BaseActivity() {
             viewModel.updateTabSelection(binding.notificationTabLayout.selectedTabPosition)
         }
     }
-    var funnel = NotificationPreferencesFunnel(WikipediaApp.getInstance())
+    var funnel = NotificationPreferencesFunnel(WikipediaApp.instance)
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,9 +92,10 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
         binding.notificationsRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, skipSearchBar = true))
 
-        externalLinkIcon = ContextCompat.getDrawable(this, R.drawable.ic_open_in_new_black_24px)?.apply {
-            setBounds(0, 0, DimenUtil.roundedDpToPx(16f), DimenUtil.roundedDpToPx(16f))
-        }!!
+        externalLinkIcon = AppCompatResources.getDrawable(this, R.drawable.ic_open_in_new_black_24px)!!.apply {
+            val px = DimenUtil.roundedDpToPx(16f)
+            updateBounds(right = px, bottom = px)
+        }
 
         val touchCallback = SwipeableItemTouchHelperCallback(this,
                 ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent),
@@ -281,7 +281,7 @@ class NotificationActivity : BaseActivity() {
     }
 
     private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean, fromUndoOrClick: Boolean = false, position: Int? = null) {
-        if (!WikipediaApp.getInstance().isOnline) {
+        if (!WikipediaApp.instance.isOnline) {
             if (fromUndoOrClick && position != null) {
                 // Skip if the action is from onClick.
                 return
@@ -355,13 +355,13 @@ class NotificationActivity : BaseActivity() {
             this.itemPosition = pos
             val n = container.notification!!
             val notificationCategory = NotificationCategory.find(n.category)
-            val notificationColor = ContextCompat.getColor(this@NotificationActivity,
+            val notificationColor = AppCompatResources.getColorStateList(this@NotificationActivity,
                 ResourceUtil.getThemedAttributeId(this@NotificationActivity, notificationCategory.iconColor))
-            val primaryColor = ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.primary_text_color)
+            val primaryColor = ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.primary_text_color)
 
             binding.notificationItemImage.setImageResource(notificationCategory.iconResId)
-            binding.notificationItemImage.setColorFilter(if (n.isUnread) notificationColor else
-                ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN)
+            ImageViewCompat.setImageTintList(binding.notificationItemImage, if (n.isUnread) notificationColor else
+                ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.toolbar_icon_color))
             n.contents?.let {
                 binding.notificationSubtitle.text = RichTextUtil.stripHtml(it.header)
                 StringUtil.highlightAndBoldenText(binding.notificationSubtitle, viewModel.currentSearchQuery, true, Color.YELLOW)
@@ -394,7 +394,7 @@ class NotificationActivity : BaseActivity() {
                 binding.notificationSource.text = title.full
                 StringUtil.highlightAndBoldenText(binding.notificationSource, viewModel.currentSearchQuery, true, Color.YELLOW)
                 n.contents?.links?.getPrimary()?.url?.let {
-                    binding.notificationSource.setCompoundDrawables(null, null,
+                    binding.notificationSource.setCompoundDrawablesRelative(null, null,
                             if (UriUtil.isAppSupportedLink(Uri.parse(it))) null else externalLinkIcon, null)
                 }
                 binding.notificationSource.updateLayoutParams<ConstraintLayout.LayoutParams> {
@@ -432,7 +432,7 @@ class NotificationActivity : BaseActivity() {
                 binding.notificationSource.isVisible = true
             } ?: run {
                 binding.notificationSource.isVisible = false
-                binding.notificationSource.setCompoundDrawables(null, null, null, null)
+                binding.notificationSource.setCompoundDrawablesRelative(null, null, null, null)
                 binding.notificationWikiCodeContainer.isVisible = false
             }
 
@@ -440,7 +440,7 @@ class NotificationActivity : BaseActivity() {
                 binding.notificationItemSelectedImage.visibility = View.VISIBLE
                 binding.notificationItemImage.visibility = View.INVISIBLE
                 itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.multi_select_background_color))
-                if (WikipediaApp.getInstance().currentTheme.isDark) {
+                if (WikipediaApp.instance.currentTheme.isDark) {
                     binding.notificationTitle.setTextColor(Color.WHITE)
                 }
             } else {
@@ -464,8 +464,8 @@ class NotificationActivity : BaseActivity() {
         }
 
         private fun isValidAppLanguageCode(langCode: String): Boolean {
-            return WikipediaApp.getInstance().language().getLanguageCodeIndex(langCode) >= 0 ||
-                    WikipediaApp.getInstance().language().getLanguageVariants(langCode) != null
+            return WikipediaApp.instance.languageState.getLanguageCodeIndex(langCode) >= 0 ||
+                    WikipediaApp.instance.languageState.getLanguageVariants(langCode) != null
         }
 
         override fun onClick(v: View) {
@@ -533,13 +533,11 @@ class NotificationActivity : BaseActivity() {
             val excludedFilters = viewModel.excludedFiltersCount()
             if (excludedFilters == 0) {
                 notificationFilterCountView.visibility = View.GONE
-                ImageViewCompat.setImageTintList(notificationFilterButton,
-                    ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.chip_text_color)))
+                ImageViewCompat.setImageTintList(notificationFilterButton, ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.chip_text_color))
             } else {
                 notificationFilterCountView.visibility = View.VISIBLE
                 notificationFilterCountView.text = excludedFilters.toString()
-                ImageViewCompat.setImageTintList(notificationFilterButton,
-                    ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.colorAccent)))
+                ImageViewCompat.setImageTintList(notificationFilterButton, ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.colorAccent))
             }
         }
     }
@@ -588,7 +586,7 @@ class NotificationActivity : BaseActivity() {
                     }
 
                     override fun onFilterIconClick() {
-                        NotificationPreferencesFunnel(WikipediaApp.getInstance()).logFilterClick()
+                        NotificationPreferencesFunnel(WikipediaApp.instance).logFilterClick()
                         DeviceUtil.hideSoftKeyboard(this@NotificationActivity)
                         startActivity(NotificationFilterActivity.newIntent(this@NotificationActivity))
                     }

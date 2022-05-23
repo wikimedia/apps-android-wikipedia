@@ -1,7 +1,6 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.os.Build
 import android.util.AttributeSet
 import androidx.core.content.ContextCompat
@@ -38,7 +37,7 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            when (WikipediaApp.getInstance().currentTheme) {
+            when (WikipediaApp.instance.currentTheme) {
                 Theme.DARK -> {
                     cardElevation = elevation
                     outlineAmbientShadowColor = ContextCompat.getColor(context, R.color.base0)
@@ -58,11 +57,11 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
         }
 
         setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
-        rippleColor = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.material_theme_border_color))
+        rippleColor = ResourceUtil.getThemedColorStateList(context, R.attr.material_theme_border_color)
     }
 
     fun setDefaultBorder() {
-        strokeWidth = when (WikipediaApp.getInstance().currentTheme) {
+        strokeWidth = when (WikipediaApp.instance.currentTheme) {
             Theme.DARK -> {
                 DimenUtil.roundedDpToPx(0f)
             }
