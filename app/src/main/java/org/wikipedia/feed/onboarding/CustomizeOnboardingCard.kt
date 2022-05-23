@@ -12,7 +12,7 @@ class CustomizeOnboardingCard(announcement: Announcement) : OnboardingCard(annou
     }
 
     override fun shouldShow(): Boolean {
-        return super.shouldShow() && WikipediaApp.getInstance().isOnline
+        return super.shouldShow() && WikipediaApp.instance.isOnline
     }
 
     override fun prefKey(): Int {

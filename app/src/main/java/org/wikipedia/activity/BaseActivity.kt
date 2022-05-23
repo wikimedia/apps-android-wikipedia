@@ -48,7 +48,7 @@ import org.wikipedia.views.ImageZoomHelper
 abstract class BaseActivity : AppCompatActivity() {
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
     private val networkStateReceiver = NetworkStateReceiver()
-    private var previousNetworkState = WikipediaApp.getInstance().isOnline
+    private var previousNetworkState = WikipediaApp.instance.isOnline
     private val disposables = CompositeDisposable()
     private var currentTooltip: Balloon? = null
     private var imageZoomHelper: ImageZoomHelper? = null
@@ -56,7 +56,7 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         exclusiveBusMethods = ExclusiveBusConsumer()
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(NonExclusiveBusConsumer()))
+        disposables.add(WikipediaApp.instance.bus.subscribe(NonExclusiveBusConsumer()))
         setTheme()
         removeSplashBackground()
 
@@ -74,7 +74,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
 
         // Conditionally execute all recurring tasks
-        RecurringTasksExecutor(WikipediaApp.getInstance()).run()
+        RecurringTasksExecutor(WikipediaApp.instance).run()
         if (Prefs.isReadingListsFirstTimeSync && AccountUtil.isLoggedIn) {
             Prefs.isReadingListsFirstTimeSync = false
             Prefs.isReadingListSyncEnabled = true
@@ -102,18 +102,18 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
-        WikipediaApp.getInstance().sessionFunnel.persistSession()
+        WikipediaApp.instance.sessionFunnel.persistSession()
         super.onStop()
     }
 
     override fun onResume() {
         super.onResume()
-        WikipediaApp.getInstance().sessionFunnel.touchSession()
+        WikipediaApp.instance.sessionFunnel.touchSession()
 
         // allow this activity's exclusive bus methods to override any existing ones.
         unregisterExclusiveBusMethods()
         EXCLUSIVE_BUS_METHODS = exclusiveBusMethods
-        EXCLUSIVE_DISPOSABLE = WikipediaApp.getInstance().bus.subscribe(EXCLUSIVE_BUS_METHODS!!)
+        EXCLUSIVE_DISPOSABLE = WikipediaApp.instance.bus.subscribe(EXCLUSIVE_BUS_METHODS!!)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -164,7 +164,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected open fun setTheme() {
-        setTheme(WikipediaApp.getInstance().currentTheme.resourceId)
+        setTheme(WikipediaApp.instance.currentTheme.resourceId)
     }
 
     protected open fun onGoOffline() {}
@@ -198,7 +198,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     private inner class NetworkStateReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            val isDeviceOnline = WikipediaApp.getInstance().isOnline
+            val isDeviceOnline = WikipediaApp.instance.isOnline
             if (isDeviceOnline) {
                 if (!previousNetworkState) {
                     onGoOnline()

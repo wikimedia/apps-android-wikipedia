@@ -109,14 +109,14 @@ class AppLanguageState(context: Context) {
         _appLanguageCodes.remove(code)
         _appLanguageCodes.add(code)
         Prefs.appLanguageCodeList = _appLanguageCodes
-        WikipediaApp.getInstance().resetWikiSite()
+        WikipediaApp.instance.resetWikiSite()
     }
 
     fun setAppLanguageCodes(codes: List<String>) {
         _appLanguageCodes.clear()
         _appLanguageCodes.addAll(codes.filter { it.isNotEmpty() })
         Prefs.appLanguageCodeList = _appLanguageCodes
-        WikipediaApp.getInstance().resetWikiSite()
+        WikipediaApp.instance.resetWikiSite()
     }
 
     fun removeAppLanguageCodes(codes: List<String>) {

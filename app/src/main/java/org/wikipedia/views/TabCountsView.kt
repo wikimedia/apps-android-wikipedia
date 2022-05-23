@@ -27,7 +27,7 @@ class TabCountsView constructor(context: Context, attrs: AttributeSet? = null) :
     }
 
     fun updateTabCount(animation: Boolean) {
-        val count = WikipediaApp.getInstance().tabCount
+        val count = WikipediaApp.instance.tabCount
         binding.tabsCountText.text = count.toString()
 
         var tabTextSize = TAB_COUNT_TEXT_SIZE_MEDIUM

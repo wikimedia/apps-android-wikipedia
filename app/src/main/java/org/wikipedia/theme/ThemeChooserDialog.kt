@@ -45,7 +45,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         INCREASE, DECREASE, RESET
     }
 
-    private var app = WikipediaApp.getInstance()
+    private var app = WikipediaApp.instance
     private lateinit var funnel: AppearanceChangeFunnel
     private lateinit var appearanceSettingInteractionEvent: AppearanceSettingInteractionEvent
     private lateinit var invokeSource: InvokeSource
@@ -91,7 +91,12 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             DeviceUtil.setNavigationBarColor(it, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         }
 
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
+        binding.customizeFavorites.setOnClickListener {
+            startActivity(CustomizeToolbarActivity.newIntent(requireContext()))
+        }
+
+        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
+
         return binding.root
     }
 
