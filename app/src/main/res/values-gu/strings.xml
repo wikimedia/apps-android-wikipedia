@@ -18,12 +18,18 @@
   <string name="error_network_error" fuzzy="true">નેટવર્ક સાથે જોડાણ સ્થાપિત કરી શકાતું નથી.</string>
   <string name="page_error_retry">ફરી પ્રયત્ન કરો</string>
   <string name="menu_clear_all_history">ઇતિહાસ હટાવો</string>
+  <string name="wikimedia_commons">વિકિમીડિયા કૉમન્સ</string>
+  <string name="wikidata">વિકિડેટા</string>
   <string name="dialog_title_clear_history" fuzzy="true">બ્રાઉઝિંગનો ઇતિહાસ હટાવશો?</string>
   <string name="dialog_message_clear_history_yes">હા</string>
   <string name="dialog_message_clear_history_no">ના</string>
   <string name="share_via">આના માધ્યમથી વહેંચો</string>
-  <string name="menu_page_other_languages" fuzzy="true">અન્ય ભાષાઓમાં વાંચો</string>
+  <string name="page_edit_history_filter_by_all">બધા સંપાદનો (%s)</string>
+  <string name="page_edit_history_filter_by_user">સભ્ય સંપાદનો (%s)</string>
+  <string name="page_edit_history_filter_by_anon">અજ્ઞાત સંપાદનો (%s)</string>
+  <string name="menu_page_other_languages">ભાષા બદલો</string>
   <string name="menu_page_find_in_page" fuzzy="true">પાનામાં શોધો</string>
+  <string name="menu_page_talk_page">ચર્ચા પાનું</string>
   <string name="menu_page_share" fuzzy="true">વહેંચો</string>
   <string name="last_updated_text">%s એ છેલ્લું અદ્યતન કરાયું</string>
   <string name="preference_title_language">વિકિપીડિયા ભાષાઓ</string>
@@ -31,7 +37,8 @@
   <string name="langlinks_empty">આ પાનું અન્ય ભાષાઓમાં ઉપલબ્ધ નથી.</string>
   <string name="langlinks_no_match" fuzzy="true">તમારી પૃચ્છાને અનુકૂળ કોઈ ભાષા મળી નથી.</string>
   <string name="langlinks_activity_title">અન્ય ભાષાઓ</string>
-  <string name="menu_save_changes" fuzzy="true">ફેરફારો સાચવો</string>
+  <string name="langlinks_your_wikipedia_languages">તમારી વિકિપીડિયા ભાષાઓ</string>
+  <string name="menu_save_changes">ફેરફારો પ્રકાશિત કરો</string>
   <string name="edit_saved_successfully" fuzzy="true">સચવાયેલું સંપાદિત કરો!</string>
   <string name="dialog_message_edit_failed">સંપાદન અસફળ!</string>
   <string name="dialog_message_edit_failed_retry">ફરી પ્રયત્ન કરો</string>
@@ -65,6 +72,7 @@
   <string name="create_account_next">આગળ</string>
   <string name="create_account_button">ખાતું બનાવો</string>
   <string name="preferences_general_heading">સામાન્ય</string>
+  <string name="preferences_account_heading">ખાતું</string>
   <string name="create_account_account_created_toast">ખાતું ખોલવામાં આવ્યું!</string>
   <string name="preferences_privacy_settings_heading">ગોપનીયતા</string>
   <string name="settings_activity_title" fuzzy="true">ગોઠવણીઓ</string>

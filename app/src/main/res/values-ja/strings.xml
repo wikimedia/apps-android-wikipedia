@@ -92,7 +92,7 @@
   <string name="image_share_via">共有する</string>
   <string name="search_redirect_from">%s からリダイレクト</string>
   <string name="page_edit_history_activity_title">変更履歴: %s</string>
-  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;細&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">編集の要約を空にする</string>
   <string name="page_edit_history_search_or_filter_edits_hint">編集を検索またはフィルタリングする</string>
   <string name="menu_page_show_tabs">タブを表示</string>
