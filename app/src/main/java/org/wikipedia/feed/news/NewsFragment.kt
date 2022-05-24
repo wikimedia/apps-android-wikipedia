@@ -69,11 +69,11 @@ class NewsFragment : Fragment() {
         }
 
         binding.storyTextView.text = RichTextUtil.stripHtml(item.story)
-        binding.linksRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.linksRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(),
+        binding.newsStoryItemsRecyclerview.layoutManager = LinearLayoutManager(requireContext())
+        binding.newsStoryItemsRecyclerview.addItemDecoration(DrawableItemDecoration(requireContext(),
             R.attr.list_separator_drawable))
-        binding.linksRecyclerView.isNestedScrollingEnabled = false
-        binding.linksRecyclerView.adapter = RecyclerAdapter(item.linkCards(wiki), Callback())
+        binding.newsStoryItemsRecyclerview.isNestedScrollingEnabled = false
+        binding.newsStoryItemsRecyclerview.adapter = RecyclerAdapter(item.linkCards(wiki), Callback())
         return binding.root
     }
 
