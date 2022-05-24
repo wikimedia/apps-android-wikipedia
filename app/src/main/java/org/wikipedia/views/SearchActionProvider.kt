@@ -61,4 +61,8 @@ class SearchActionProvider(context: Context,
     fun selectAllQueryTexts() {
         binding.searchInput.selectAllQueryTexts()
     }
+
+    fun setQueryText(text: String?) {
+        binding.searchInput.setQuery(text, false)
+    }
 }
