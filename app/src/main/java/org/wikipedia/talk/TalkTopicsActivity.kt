@@ -68,21 +68,21 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             it.data?.let { intent ->
                 if (intent.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
                     val pos = intent.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
-                    if (pos < WikipediaApp.getInstance().language().appLanguageCodes.size) {
+                    if (pos < WikipediaApp.instance.languageState.appLanguageCodes.size) {
                         funnel?.logChangeLanguage()
 
                         val newNamespace = when {
                             pageTitle.namespace() == Namespace.USER -> {
-                                UserAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCodes[pos])
+                                UserAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCodes[pos])
                             }
                             pageTitle.namespace() == Namespace.USER_TALK -> {
-                                UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCodes[pos])
+                                UserTalkAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCodes[pos])
                             }
                             else -> pageTitle.namespace
                         }
 
                         pageTitle = PageTitle(newNamespace, StringUtil.removeNamespace(pageTitle.prefixedText),
-                            WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[pos]))
+                            WikiSite.forLanguageCode(WikipediaApp.instance.languageState.appLanguageCodes[pos]))
 
                         resetViews()
                         viewModel.pageTitle = pageTitle
@@ -150,7 +150,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
         binding.talkNewTopicButton.setOnClickListener {
             funnel?.logNewTopicClick()
-            requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, pageTitle, null, invokeSource))
+            requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, pageTitle, null, null, invokeSource))
         }
 
         binding.talkRefreshView.setOnRefreshListener {
@@ -388,7 +388,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnUndoSave(undoneSubject: CharSequence, undoneBody: CharSequence) {
-        requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, pageTitle, null, invokeSource, undoneSubject, undoneBody))
+        requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, pageTitle, null, null, invokeSource, undoneSubject, undoneBody))
     }
 
     private fun updateOnWatch() {

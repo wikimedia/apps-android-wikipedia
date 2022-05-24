@@ -11,7 +11,7 @@ class SearchFunnel(app: WikipediaApp, private val source: InvokeSource) :
     fun searchStart() {
         log(
                 "action", "start",
-                "language", JsonUtil.encodeToString(app.language().appLanguageCodes)
+                "language", JsonUtil.encodeToString(app.languageState.appLanguageCodes)
         )
     }
 

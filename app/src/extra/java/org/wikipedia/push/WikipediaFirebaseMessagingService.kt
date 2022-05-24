@@ -56,7 +56,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         private var csrfDisposables = CompositeDisposable()
 
         fun isUsingPush(): Boolean {
-            return GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(WikipediaApp.getInstance()) == ConnectionResult.SUCCESS &&
+            return GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(WikipediaApp.instance) == ConnectionResult.SUCCESS &&
                     Prefs.pushNotificationToken.isNotEmpty() &&
                     Prefs.isPushNotificationTokenSubscribed
         }
@@ -69,12 +69,12 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
 
             csrfDisposables.clear()
 
-            for (lang in WikipediaApp.getInstance().language().appLanguageCodes) {
+            for (lang in WikipediaApp.instance.languageState.appLanguageCodes) {
                 csrfDisposables.add(CsrfTokenClient.getToken(WikiSite.forLanguageCode(lang))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
-                        if (lang == WikipediaApp.getInstance().appOrSystemLanguageCode) {
+                        if (lang == WikipediaApp.instance.appOrSystemLanguageCode) {
                             subscribeWithCsrf(it)
                         }
                         setNotificationOptions(lang, it)
@@ -112,7 +112,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                 }
             }
 
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).subscribePush(csrfToken, token)
+            ServiceFactory.get(WikipediaApp.instance.wikiSite).subscribePush(csrfToken, token)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .retry(SUBSCRIBE_RETRY_COUNT.toLong())
@@ -158,7 +158,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
             if (pushToken.isEmpty()) {
                 return Observable.just(MwQueryResponse())
             }
-            return ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unsubscribePush(csrfToken, pushToken)
+            return ServiceFactory.get(WikipediaApp.instance.wikiSite).unsubscribePush(csrfToken, pushToken)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .retry(UNSUBSCRIBE_RETRY_COUNT.toLong())

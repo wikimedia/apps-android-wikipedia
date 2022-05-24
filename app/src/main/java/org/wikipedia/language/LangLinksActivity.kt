@@ -25,7 +25,7 @@ import java.util.*
 class LangLinksActivity : BaseActivity() {
     private lateinit var binding: ActivityLanglinksBinding
 
-    private var app = WikipediaApp.getInstance()
+    private var app = WikipediaApp.instance
 
     private var currentSearchQuery: String? = null
     private var actionMode: ActionMode? = null
@@ -142,8 +142,8 @@ class LangLinksActivity : BaseActivity() {
             binding.langlinksRecycler.adapter = LangLinksAdapter(languageEntries,
                     languageEntries.filter {
                         it.wikiSite.languageCode == AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE &&
-                                app.language().appLanguageCodes.contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE) ||
-                                app.language().appLanguageCodes.contains(it.wikiSite.languageCode)
+                                app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE) ||
+                                app.languageState.appLanguageCodes.contains(it.wikiSite.languageCode)
                     })
             binding.langlinksRecycler.layoutManager = LinearLayoutManager(this)
             ViewAnimations.crossFade(binding.langlinksLoadProgress, binding.langlinksRecycler)
@@ -154,7 +154,7 @@ class LangLinksActivity : BaseActivity() {
     private inner class LangLinksAdapter(languageEntries: List<PageTitle>, private val appLanguageEntries: List<PageTitle>) : RecyclerView.Adapter<DefaultViewHolder>() {
         private val originalLanguageEntries = languageEntries.toMutableList()
         private val languageEntries = mutableListOf<PageTitle>()
-        private val variantTitlesToUpdate = originalLanguageEntries.filter { !WikipediaApp.getInstance().language().getDefaultLanguageCode(it.wikiSite.languageCode).isNullOrEmpty() }.toMutableList()
+        private val variantTitlesToUpdate = originalLanguageEntries.filter { !WikipediaApp.instance.languageState.getDefaultLanguageCode(it.wikiSite.languageCode).isNullOrEmpty() }.toMutableList()
 
         private var isSearching = false
 
@@ -203,8 +203,8 @@ class LangLinksActivity : BaseActivity() {
             val filter = filterText.lowercase(Locale.getDefault())
             for (entry in originalLanguageEntries) {
                 val languageCode = entry.wikiSite.languageCode
-                val canonicalName = app.language().getAppLanguageCanonicalName(languageCode).orEmpty()
-                val localizedName = app.language().getAppLanguageLocalizedName(languageCode).orEmpty()
+                val canonicalName = app.languageState.getAppLanguageCanonicalName(languageCode).orEmpty()
+                val localizedName = app.languageState.getAppLanguageLocalizedName(languageCode).orEmpty()
                 if (canonicalName.lowercase(Locale.getDefault()).contains(filter) ||
                         localizedName.lowercase(Locale.getDefault()).contains(filter)) {
                     languageEntries.add(entry)
@@ -244,12 +244,12 @@ class LangLinksActivity : BaseActivity() {
         override fun bindItem(pageTitle: PageTitle) {
             this.pageTitle = pageTitle
             val languageCode = pageTitle.wikiSite.languageCode
-            val localizedLanguageName = app.language().getAppLanguageLocalizedName(languageCode)
+            val localizedLanguageName = app.languageState.getAppLanguageLocalizedName(languageCode)
             localizedLanguageNameTextView.text = localizedLanguageName?.capitalize(Locale.getDefault())
                     ?: languageCode
             articleTitleTextView.text = pageTitle.displayText
             val canonicalName = viewModel.getCanonicalName(languageCode)
-            if (canonicalName.isNullOrEmpty() || languageCode == app.language().systemLanguageCode) {
+            if (canonicalName.isNullOrEmpty() || languageCode == app.languageState.systemLanguageCode) {
                 nonLocalizedLanguageNameTextView.visibility = View.GONE
             } else {
                 // TODO: Fix an issue when app language is zh-hant, the subtitle in zh-hans will display in English
@@ -260,7 +260,7 @@ class LangLinksActivity : BaseActivity() {
         }
 
         override fun onClick(v: View) {
-            app.language().addMruLanguageCode(pageTitle.wikiSite.languageCode)
+            app.languageState.addMruLanguageCode(pageTitle.wikiSite.languageCode)
             val historyEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_LANGUAGE_LINK)
             val intent = PageActivity.newIntentForCurrentTab(this@LangLinksActivity, historyEntry, pageTitle, false)
             setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent)

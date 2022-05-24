@@ -84,7 +84,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.replyInputView.wikiSite = viewModel.pageTitle.wikiSite
         binding.replyInputView.listener = this
 
-        editFunnel = EditFunnel(WikipediaApp.getInstance(), viewModel.pageTitle)
+        editFunnel = EditFunnel(WikipediaApp.instance, viewModel.pageTitle)
         editFunnel.logStart()
         EditAttemptStepEvent.logInit(viewModel.pageTitle)
 
@@ -163,7 +163,10 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
-        binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
+        binding.toolbarTitle.text = StringUtil.fromHtml(
+            if (viewModel.isNewTopic) pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>"
+            else intent.getStringExtra(EXTRA_PARENT_SUBJECT).orEmpty()
+        ).trim().ifEmpty { getString(R.string.talk_no_subject) }
         binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
         binding.toolbarTitle.movementMethod = LinkMovementMethodExt { _ ->
             val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
@@ -323,6 +326,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     companion object {
         const val EXTRA_PAGE_TITLE = "pageTitle"
+        const val EXTRA_PARENT_SUBJECT = "parentSubject"
         const val EXTRA_TOPIC = "topic"
         const val EXTRA_TOPIC_ID = "topicId"
         const val EXTRA_SUBJECT = "subject"
@@ -336,12 +340,14 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         fun newIntent(context: Context,
                       pageTitle: PageTitle,
+                      parentSubject: String?,
                       topic: ThreadItem?,
                       invokeSource: Constants.InvokeSource,
                       undoSubject: CharSequence? = null,
                       undoBody: CharSequence? = null): Intent {
             return Intent(context, TalkReplyActivity::class.java)
                     .putExtra(EXTRA_PAGE_TITLE, pageTitle)
+                    .putExtra(EXTRA_PARENT_SUBJECT, parentSubject)
                     .putExtra(EXTRA_TOPIC, topic)
                     .putExtra(EXTRA_SUBJECT, undoSubject)
                     .putExtra(EXTRA_BODY, undoBody)

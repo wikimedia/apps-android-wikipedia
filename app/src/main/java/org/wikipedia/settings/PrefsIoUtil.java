@@ -142,7 +142,7 @@ public final class PrefsIoUtil {
 
     @NonNull
     private static Context getContext() {
-        return WikipediaApp.getInstance();
+        return WikipediaApp.Companion.getInstance();
     }
 
     private PrefsIoUtil() { }

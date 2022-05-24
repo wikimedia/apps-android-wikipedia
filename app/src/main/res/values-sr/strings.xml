@@ -177,7 +177,7 @@
   <string name="create_account_passwords_mismatch_error">Лозинке се не поклапају</string>
   <string name="create_account_email_error">Неважећа имејл-адреса</string>
   <string name="create_account_username_error">Неважећи знакови у корисничком имену</string>
-  <string name="create_account_password_error">Лозинка мора имати бар 8 карактера</string>
+  <string name="create_account_password_error">Лозинка мора имати најмање 8 знакова</string>
   <string name="create_account_generic_error">Није могуће отворити налог</string>
   <string name="create_account_next">Следеће</string>
   <string name="email_recommendation_dialog_title">Отворити налог без имејл-адресе?</string>
@@ -264,7 +264,7 @@
   <string name="edit_conflict_title">Сукоб измена</string>
   <string name="edit_conflict_message">Дошло је до сукоба измена јер је други корисник већ изменио страницу. Копирајте своје измене, вратите се и освежите страницу, па покушајте поново.</string>
   <string name="edit_notices">Обавештење о чланку</string>
-  <string name="edit_notices_please_read">Молимо прочитајте пре уређивања</string>
+  <string name="edit_notices_please_read">Прочитајте пре уређивања</string>
   <string name="edit_notices_show_auto">Аутоматски приказуј обавештења о чланцима</string>
   <string name="find_next">Пронађи следеће</string>
   <string name="find_previous">Пронађи претходно</string>
@@ -378,10 +378,10 @@
   <string name="page_footer_license_text">Садржај је доступан под лиценцом $1 осим ако није другачије наведено</string>
   <string name="empty_tab_title">Нова картица</string>
   <string name="menu_save_all_tabs">Сачувај све картице</string>
-  <string name="error_blocked_title">Ваше корисничко име или IP адреса је блокирано.</string>
+  <string name="error_blocked_title">Блокирано је Ваше корисничко име или Ваша IP адреса.</string>
   <string name="error_blocked_reason">Разлог: %s</string>
   <string name="error_blocked_start">Почетак блокаде: %s</string>
-  <string name="error_blocked_expiry">Крај блокаде: %s</string>
+  <string name="error_blocked_expiry">Истек блокаде: %s</string>
   <string name="error_blocked_id">ID блокаде: %s</string>
   <string name="crash_report_activity_title">Грешка у апликацији</string>
   <string name="crash_report_relaunch_or_quit">Апликација Википедија је наишла на грешку и обустављена је.\n\nЖелите ли поново да је покренете или да изађете?</string>

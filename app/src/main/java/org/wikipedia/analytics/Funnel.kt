@@ -1,6 +1,5 @@
 package org.wikipedia.analytics
 
-import androidx.annotation.VisibleForTesting
 import org.json.JSONException
 import org.json.JSONObject
 import org.wikipedia.WikipediaApp
@@ -108,7 +107,6 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
          * @return Whether the current user is part of the requested sampling rate bucket.
          */
         @JvmStatic
-        @VisibleForTesting
         fun isUserInSamplingGroup(appInstallID: String, sampleRate: Int): Boolean {
             return try {
                 val lastFourDigits = appInstallID.substring(appInstallID.length - 4).toInt(16)

@@ -84,7 +84,7 @@ class RandomFragment : Fragment() {
         binding.randomBackButton.setOnClickListener { onBackClick() }
         binding.randomSaveButton.setOnClickListener { onSaveShareClick() }
 
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
+        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
 
         updateSaveShareButton()
         updateBackButton(0)
@@ -93,7 +93,7 @@ class RandomFragment : Fragment() {
             updateSaveShareButton(topTitle)
         }
 
-        funnel = RandomizerFunnel(WikipediaApp.getInstance(), wikiSite,
+        funnel = RandomizerFunnel(WikipediaApp.instance, wikiSite,
                 (arguments?.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? InvokeSource)!!)
 
         return view
