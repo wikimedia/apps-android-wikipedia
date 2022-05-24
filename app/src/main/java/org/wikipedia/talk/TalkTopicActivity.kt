@@ -244,7 +244,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun getSearchHintString(): String {
-            return getString(R.string.talk_search_topics_hint)
+            return getString(R.string.talk_search_find_in_talk_topics_hint)
         }
 
         override fun getParentContext(): Context {

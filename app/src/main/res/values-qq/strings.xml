@@ -1109,6 +1109,7 @@
   <string name="talk_edit_disclaimer">Disclaimer of editing a talk page. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
   <string name="talk_search_hint">Hint for the talk page search bar.</string>
   <string name="talk_search_topics_hint">Hint for the talk page search bar.</string>
+  <string name="talk_search_find_in_talk_topics_hint">Hint for the find in page in the talk topic page search bar.</string>
   <string name="talk_overflow_sort_by">Header text of the sort menu.</string>
   <string name="talk_overflow_sort_date_published">Menu item label for sorting the list by the published date.</string>
   <string name="talk_overflow_sort_date_updated">Menu item label for sorting the list by the updated date.</string>
@@ -1147,7 +1148,7 @@
   <string name="menu_option_user_contributions">Menu option label for user contributions screen. %s indicating the username.</string>
   <string name="menu_option_edit_source">Menu option label for editing the page.</string>
   <string name="menu_option_user_page">Menu option label for the user page. %s indicating the username.</string>
-  <string name="menu_option_find_in_page">Menu option label for finding in page.</string>
+  <string name="menu_option_find_in_talk_page_topic">Menu option label for finding in talk page topic.</string>
   <string name="talk_menu_copy_text">Menu label for copying the text of the current reply.</string>
   <string name="talk_menu_expand_threads">Menu label for expanding all the threads in the conversation.</string>
   <string name="talk_menu_collapse_threads">Menu label for collapsing all the threads in the conversation.</string>
