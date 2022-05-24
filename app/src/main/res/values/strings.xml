@@ -1233,8 +1233,4 @@
     <string name="category_empty">No articles found in this category.</string>
     <string name="subcategory_empty">No subcategories found in this category.</string>
 
-    <!-- Breadcrumb names -->
-    <string name="breadcrumb_view_with_position">%s item %d</string>
-    <string name="breadcrumb_view_click">%s click</string>
-    <!-- /Breadcrumb names-->
 </resources>

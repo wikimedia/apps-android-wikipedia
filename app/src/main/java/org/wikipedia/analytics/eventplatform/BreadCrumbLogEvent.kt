@@ -4,6 +4,8 @@ import android.util.Log
 import android.view.View
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.wikipedia.R
+import org.wikipedia.activity.BaseActivity
 
 @Suppress("unused")
 @Serializable
@@ -18,6 +20,10 @@ class BreadCrumbLogEvent(private val screen_name: String,
         fun log(screenName: String, view: View?) {
             // EventPlatformClient.submit(BreadCrumbLogEvent(screenName, BreadCrumbViewUtil.getLogNameForView(view), WikipediaApp.getInstance().language().appLanguageCode))
             Log.e("|BREADCRUMB|", "|SCREEN|\t|" + screenName + "|\t|ACTION|\t|" + BreadCrumbViewUtil.getLogNameForView(view) + "|")
+        }
+
+        fun logSwipe(activity: BaseActivity, isRtlSwipe: Boolean) {
+            Log.e("|BREADCRUMB|", "|SCREEN|\t|" + BreadCrumbViewUtil.getReadableScreenName(activity, isRtlSwipe) + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_screen_shown) + "|")
         }
     }
 }

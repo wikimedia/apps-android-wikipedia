@@ -11,11 +11,8 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.view.MenuItem
-import android.view.MotionEvent
-import android.view.View
+import android.view.*
 import android.view.View.OnTouchListener
-import android.view.ViewGroup
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +27,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.BreadCrumbViewUtil
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
@@ -48,6 +46,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.PermissionUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.ActivityGestureListener
 import org.wikipedia.views.ImageZoomHelper
 import kotlin.math.abs
 
@@ -58,6 +57,7 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
     private val disposables = CompositeDisposable()
     private var currentTooltip: Balloon? = null
     private var imageZoomHelper: ImageZoomHelper? = null
+    private var gestureDetector: GestureDetector? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,6 +99,7 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
 
         val decorView = window.decorView
         decorView.viewTreeObserver.addOnGlobalLayoutListener { printClickedViews(window.decorView) }
+        gestureDetector = GestureDetector(this, ActivityGestureListener(this))
     }
 
     private fun printClickedViews(currentView: View?) {
@@ -336,6 +337,10 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
     private val CLICK_ACTION_THRESHOLD = 200
 
     override fun onTouch(view: View?, event: MotionEvent?): Boolean {
+
+        if (gestureDetector!!.onTouchEvent(event)) {
+            return false
+        }
         when (event?.action) {
             MotionEvent.ACTION_DOWN -> {
                 startX = event.x.toInt()
@@ -345,7 +350,7 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
                 val endX = event.x
                 val endY = event.y
                 if (isClick(startX.toFloat(), endX, startY.toFloat(), endY)) {
-                    BreadCrumbLogEvent.log(javaClass.simpleName, view)
+                    BreadCrumbLogEvent.log(BreadCrumbViewUtil.getReadableScreenName(this, view), view)
                 }
             }
         }
