@@ -223,21 +223,20 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             val menuItem = menu.add(searchHintString)
 
             MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
-            // TODO: hide "hide reply" icons
-            threadAdapter.notifyDataSetChanged()
+            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
             return super.onCreateActionMode(mode, menu)
         }
 
         override fun onQueryChange(s: String) {
             viewModel.currentSearchQuery = s
-            threadAdapter.notifyDataSetChanged()
+            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
             viewModel.currentSearchQuery = null
-            threadAdapter.notifyDataSetChanged()
+            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
 
         override fun getSearchHintString(): String {
@@ -275,7 +274,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             threadAdapter.notifyDataSetChanged()
         }
         if (!viewModel.scrollTargetId.isNullOrEmpty()) {
-            val position = 1 + viewModel.filteredFlattenedThreadItems.indexOfFirst { it.id == viewModel.scrollTargetId }
+            val position = 1 + viewModel.flattenedThreadItems.indexOfFirst { it.id == viewModel.scrollTargetId }
             if (position >= 0) {
                 binding.talkRecyclerView.post {
                     if (!isDestroyed) {
@@ -311,7 +310,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private inner class HeaderViewHolder constructor(private val view: TalkThreadHeaderView) : RecyclerView.ViewHolder(view), TalkThreadHeaderView.Callback {
         fun bindItem() {
-            view.bind(viewModel.pageTitle, viewModel.topic!!, viewModel.subscribed, linkMovementMethod)
+            view.bind(viewModel.pageTitle, viewModel.topic!!, viewModel.subscribed, linkMovementMethod, viewModel.currentSearchQuery)
             view.callback = this
         }
 
@@ -323,7 +322,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     internal inner class TalkReplyHolder internal constructor(view: TalkThreadItemView) : RecyclerView.ViewHolder(view), TalkThreadItemView.Callback {
         fun bindItem(item: ThreadItem) {
             (itemView as TalkThreadItemView).let {
-                it.bindItem(item, linkMovementMethod)
+                it.bindItem(item, linkMovementMethod, searchQuery = viewModel.currentSearchQuery)
                 if (item.id == viewModel.scrollTargetId) {
                     viewModel.scrollTargetId = null
                     it.animateSelectedBackground()
@@ -356,7 +355,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     internal inner class TalkReplyItemAdapter : RecyclerView.Adapter<TalkReplyHolder>() {
         override fun getItemCount(): Int {
-            return viewModel.filteredFlattenedThreadItems.size
+            return viewModel.flattenedThreadItems.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkReplyHolder {
@@ -364,7 +363,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onBindViewHolder(holder: TalkReplyHolder, pos: Int) {
-            holder.bindItem(viewModel.filteredFlattenedThreadItems[pos])
+            holder.bindItem(viewModel.flattenedThreadItems[pos])
         }
     }
 
