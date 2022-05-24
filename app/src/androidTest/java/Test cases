@@ -1,0 +1,70 @@
+1. Wyszukiwarka bez logowania z zakladki Explore
+    Kroki:
+    1. Kliknac w wyszukiwarke
+    2. Wpisac tresc
+    3. Kliknac enter
+    4. Asercja na nazwe na liscie
+    5. Wejsc w artykul
+
+2. Wyszkuiwanie z zakladki Search
+    1. Klikniecie w ikone Search
+    2. klikniecie w wyszukiwarke
+    3. Wpisanie tresci
+    3. assercja na tresc w wynikach
+    4. Wejscie w artykul
+
+3. Wyszukiwanie bez logowania - brak rezultatow z zakladki Explore
+    1. Kliknac w wyszukiwarke
+    2. Wpisac tresc "asdasd11"
+    3. Kliknac enter
+    4. Asercja na "No result" na liscie
+
+4. Historia wyszukiwania (to zalezy czy historia z pierwszych dwoch krokow ma sie zapisywac czy czyscic po sobie)
+    1. Kliknac w wyszukiwarke
+    2. Sprawdzic liste elementow
+    3. Assercja na nazwe z poprzendiego TC ?
+    4. Kliknac w haslo
+    5. Assercja na haslo z historii z rezultatem wyszukiwania
+
+5. Kasowanie historii wyszukiwania  (podobnie jak wczenis)
+    1. Kliknac w wyszukiwarke
+    2. Sprawdzic widocznosc liste Recent searches
+    3. Kliknac w Delete Button
+    4. Kliknac na popupie w Yes
+    5. Assercja na brak listy historii wyszukiwania
+
+6. Zmiana jezyka wyszukiwania
+    1. Kliknij w wyszukiwarke
+    2. Kliknij w button jezyka
+    3. Kliknij w button Add language
+    4. Kliknij na pierwszy z listy
+    5. Assercja nazw jezykow w widoku jezykow
+    6. Posprzatanie po sobie ?
+
+7. Wyszukiwanie artykulow w innym jezyku
+    1. Kliknij w wyszukiwarke
+    2. Wpisz tekst
+    3. Pobierz tekst pierwszego itema
+    3. Kliknij w zakladke drugiego jezyka
+    4. Assercja na brak itema z pierwszej zakladki
+    5. Assercja tlumaczenia?
+    6. Posprzatanie po sobie ?
+
+8. Ustawienia - sprawdzenie jezykow
+    1. Klikniecie w hambuger More
+    2. Klikniecie settings
+    3. Klikniecie w wikipedia languages
+    4. Assercja na jezyki
+
+9. Kasowanie jezyka?
+
+
+10. Sprawdzenie aktualnosci
+    1. Pobranie dzisiejszej daty
+    2. Assercja daty w aktualnosciach
+    3. Sprawdzenie itemow na liscie Featured article
+
+11,12,13,14? - rejestracja/logowanie/wylogowanie/zapis ulubionych
+    1. Co zrobic z captcha? Bo to stopuje :(
+
+
