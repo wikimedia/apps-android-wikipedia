@@ -29,7 +29,6 @@ object ReleaseUtil {
     val isDevRelease: Boolean
         get() = calculateReleaseType() == RELEASE_DEV
 
-    @JvmStatic
     fun getChannel(ctx: Context): String {
         var channel = Prefs.appChannel
         if (channel == null) {

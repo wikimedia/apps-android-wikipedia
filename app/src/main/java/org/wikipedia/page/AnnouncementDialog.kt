@@ -23,7 +23,7 @@ import org.wikipedia.util.UriUtil
 class AnnouncementDialog internal constructor(context: Context, val announcement: Announcement) : AlertDialog(context), AnnouncementCardView.Callback {
 
     // TODO: refactor this item when the new Modern Event Platform is finished.
-    private val funnel: FeedFunnel = FeedFunnel(WikipediaApp.getInstance())
+    private val funnel: FeedFunnel = FeedFunnel(WikipediaApp.instance)
 
     init {
         val scrollView = ScrollView(context)
@@ -36,7 +36,7 @@ class AnnouncementDialog internal constructor(context: Context, val announcement
     }
 
     override fun show() {
-        funnel.cardShown(CardType.ARTICLE_ANNOUNCEMENT, WikipediaApp.getInstance().appOrSystemLanguageCode)
+        funnel.cardShown(CardType.ARTICLE_ANNOUNCEMENT, WikipediaApp.instance.appOrSystemLanguageCode)
         super.show()
     }
 
@@ -52,7 +52,7 @@ class AnnouncementDialog internal constructor(context: Context, val announcement
                 context.startActivity(WikipediaLanguagesActivity.newIntent(context, Constants.InvokeSource.ANNOUNCEMENT))
             else -> UriUtil.handleExternalLink(context, uri)
         }
-        funnel.cardClicked(CardType.ARTICLE_ANNOUNCEMENT, WikipediaApp.getInstance().appOrSystemLanguageCode)
+        funnel.cardClicked(CardType.ARTICLE_ANNOUNCEMENT, WikipediaApp.instance.appOrSystemLanguageCode)
         dismissDialog()
     }
 

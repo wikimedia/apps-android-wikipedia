@@ -122,7 +122,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
             applyResults(emptyList())
             return
         }
-        disposables.add(ServiceFactory.get(Constants.wikidataWikiSite).searchEntities(searchTerm, WikipediaApp.getInstance().appOrSystemLanguageCode, WikipediaApp.getInstance().appOrSystemLanguageCode)
+        disposables.add(ServiceFactory.get(Constants.wikidataWikiSite).searchEntities(searchTerm, WikipediaApp.instance.appOrSystemLanguageCode, WikipediaApp.instance.appOrSystemLanguageCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ search ->

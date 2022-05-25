@@ -45,7 +45,7 @@ import java.util.*
 class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
-    private var app = WikipediaApp.getInstance()
+    private var app = WikipediaApp.instance
     private var tempLangCodeHolder: String? = null
     private var langBtnClicked = false
     private var isSearchActive = false
@@ -56,7 +56,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private lateinit var funnel: SearchFunnel
     private lateinit var invokeSource: InvokeSource
     private lateinit var initialLanguageList: String
-    var searchLanguageCode = app.language().appLanguageCode
+    var searchLanguageCode = app.languageState.appLanguageCode
         private set
 
     private val searchCloseListener = SearchView.OnCloseListener {
@@ -102,7 +102,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         searchResultsFragment = childFragmentManager.findFragmentById(
                 R.id.fragment_search_results) as SearchResultsFragment
         binding.searchToolbar.setNavigationOnClickListener { requireActivity().supportFinishAfterTransition() }
-        initialLanguageList = JsonUtil.encodeToString(app.language().appLanguageCodes).orEmpty()
+        initialLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty()
         binding.searchContainer.setOnClickListener { onSearchContainerClick() }
         binding.searchLangButtonContainer.setOnClickListener { onLangButtonClick() }
         initSearchView()
@@ -128,14 +128,14 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH) {
             var position = 0
-            val finalLanguageList = JsonUtil.encodeToString(app.language().appLanguageCodes)
+            val finalLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes)
             if (finalLanguageList != initialLanguageList) {
                 requireActivity().setResult(RESULT_LANG_CHANGED)
             }
             if (data != null && data.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
                 position = data.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
-            } else if (app.language().appLanguageCodes.contains(searchLanguageCode)) {
-                position = app.language().appLanguageCodes.indexOf(searchLanguageCode)
+            } else if (app.languageState.appLanguageCodes.contains(searchLanguageCode)) {
+                position = app.languageState.appLanguageCodes.indexOf(searchLanguageCode)
             }
             searchResultsFragment.clearSearchResultsCountCache()
             Prefs.selectedLanguagePositionInSearch = position
@@ -143,7 +143,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     private fun handleIntent(intent: Intent) {
-        val intentFunnel = IntentFunnel(WikipediaApp.getInstance())
+        val intentFunnel = IntentFunnel(WikipediaApp.instance)
         if (Intent.ACTION_SEND == intent.action && Constants.PLAIN_TEXT_MIME_TYPE == intent.type) {
             intentFunnel.logShareIntent()
             requireArguments().putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_TEXT))
@@ -158,10 +158,10 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     fun setUpLanguageScroll(position: Int) {
         var pos = position
-        if (app.language().appLanguageCodes.size > 1) {
-            pos = if (app.language().appLanguageCodes.size > pos) pos else 0
+        if (app.languageState.appLanguageCodes.size > 1) {
+            pos = if (app.languageState.appLanguageCodes.size > pos) pos else 0
             binding.searchLanguageScrollViewContainer.visibility = View.VISIBLE
-            binding.searchLanguageScrollView.setUpLanguageScrollTabData(app.language().appLanguageCodes, pos, this)
+            binding.searchLanguageScrollView.setUpLanguageScrollTabData(app.languageState.appLanguageCodes, pos, this)
             binding.searchLangButtonContainer.visibility = View.GONE
         } else {
             maybeShowMultilingualSearchTooltip()
@@ -324,8 +324,8 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     private fun initLangButton() {
-        binding.searchLangButton.text = app.language().appLanguageCode.uppercase(Locale.ENGLISH)
-        ViewUtil.formatLangButton(binding.searchLangButton, app.language().appLanguageCode.uppercase(Locale.ENGLISH),
+        binding.searchLangButton.text = app.languageState.appLanguageCode.uppercase(Locale.ENGLISH)
+        ViewUtil.formatLangButton(binding.searchLangButton, app.languageState.appLanguageCode.uppercase(Locale.ENGLISH),
                 LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER)
         FeedbackUtil.setButtonLongPressToast(binding.searchLangButtonContainer)
     }

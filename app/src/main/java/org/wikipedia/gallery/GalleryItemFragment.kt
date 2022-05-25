@@ -155,7 +155,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
             return
         }
         updateProgressBar(true)
-        disposables.add(getMediaInfoDisposable(imageTitle!!.prefixedText, WikipediaApp.getInstance().appOrSystemLanguageCode)
+        disposables.add(getMediaInfoDisposable(imageTitle!!.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doAfterTerminate {

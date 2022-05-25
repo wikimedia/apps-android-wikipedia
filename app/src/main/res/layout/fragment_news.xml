@@ -75,7 +75,7 @@
                 android:textSize="16sp" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/links_recycler_view"
+                android:id="@+id/news_story_items_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 

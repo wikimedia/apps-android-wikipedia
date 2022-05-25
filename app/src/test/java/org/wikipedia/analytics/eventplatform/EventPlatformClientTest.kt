@@ -24,7 +24,7 @@ class EventPlatformClientTest {
         EventPlatformClient.AssociationController.beginNewSession()
 
         // Set app install ID
-        WikipediaApp.getInstance().appInstallID
+        WikipediaApp.instance.appInstallID
     }
 
     @Test

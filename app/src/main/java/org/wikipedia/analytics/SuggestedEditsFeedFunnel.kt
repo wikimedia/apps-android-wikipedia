@@ -6,7 +6,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.descriptions.DescriptionEditActivity
 
 class SuggestedEditsFeedFunnel(private val type: DescriptionEditActivity.Action, private val source: InvokeSource) :
-        Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REVISION, SAMPLE_LOG_ALL) {
+        Funnel(WikipediaApp.instance, SCHEMA_NAME, REVISION, SAMPLE_LOG_ALL) {
 
     fun start() {
         log("action", "start")

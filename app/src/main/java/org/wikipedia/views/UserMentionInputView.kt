@@ -33,7 +33,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
 
     val editText get() = binding.inputEditText
     val textInputLayout get() = binding.inputTextLayout
-    var wikiSite = WikipediaApp.getInstance().wikiSite
+    var wikiSite = WikipediaApp.instance.wikiSite
     var listener: Listener? = null
     var userNameHints: Set<String> = emptySet()
 
