@@ -1,6 +1,5 @@
 package org.wikipedia.navtab
 
-import android.view.View
 import androidx.fragment.app.Fragment
 import org.wikipedia.R
 import org.wikipedia.feed.FeedFragment
@@ -11,22 +10,22 @@ import org.wikipedia.readinglist.ReadingListsFragment
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 
 enum class NavTab constructor(private val text: Int, private val id: Int, private val icon: Int) : EnumCode {
-    EXPLORE(R.string.nav_item_feed, View.generateViewId(), R.drawable.ic_globe) {
+    EXPLORE(R.string.nav_item_feed, R.id.explore, R.drawable.ic_globe) {
         override fun newInstance(): Fragment {
             return FeedFragment.newInstance()
         }
     },
-    READING_LISTS(R.string.nav_item_saved, View.generateViewId(), R.drawable.ic_bookmark_white_24dp) {
+    READING_LISTS(R.string.nav_item_saved, R.id.reading_lists, R.drawable.ic_bookmark_white_24dp) {
         override fun newInstance(): Fragment {
             return ReadingListsFragment.newInstance()
         }
     },
-    SEARCH(R.string.nav_item_search, View.generateViewId(), R.drawable.ic_search_themed_24dp) {
+    SEARCH(R.string.nav_item_search, R.id.search, R.drawable.ic_search_themed_24dp) {
         override fun newInstance(): Fragment {
             return HistoryFragment.newInstance()
         }
     },
-    EDITS(R.string.nav_item_suggested_edits, View.generateViewId(), R.drawable.ic_mode_edit_themed_24dp) {
+    EDITS(R.string.nav_item_suggested_edits, R.id.edits, R.drawable.ic_mode_edit_themed_24dp) {
         override fun newInstance(): Fragment {
             return SuggestedEditsTasksFragment.newInstance()
         }
