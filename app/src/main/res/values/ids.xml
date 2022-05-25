@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="nav_tab_explore" type="id" />
+    <item name="nav_tab_reading_lists" type="id" />
+    <item name="nav_tab_search" type="id" />
+    <item name="nav_tab_edits" type="id" />
+</resources>
