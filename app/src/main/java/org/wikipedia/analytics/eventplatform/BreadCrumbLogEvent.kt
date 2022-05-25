@@ -17,13 +17,17 @@ class BreadCrumbLogEvent(private val screen_name: String,
     companion object {
         private const val STREAM_NAME = "android.breadcrumb_log_event"
 
-        fun log(screenName: String, view: View?) {
+        fun logClick(activity: BaseActivity, view: View?) {
             // EventPlatformClient.submit(BreadCrumbLogEvent(screenName, BreadCrumbViewUtil.getLogNameForView(view), WikipediaApp.getInstance().language().appLanguageCode))
-            Log.e("|BREADCRUMB|", "|SCREEN|\t|" + screenName + "|\t|ACTION|\t|" + BreadCrumbViewUtil.getLogNameForView(view) + "|")
+            Log.e("|BREADCRUMB|", "|SCREEN|\t|" + BreadCrumbViewUtil.getReadableScreenName(activity) + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_view_click, BreadCrumbViewUtil.getLogNameForView(view)) + "|")
         }
 
         fun logSwipe(activity: BaseActivity, isRtlSwipe: Boolean) {
-            Log.e("|BREADCRUMB|", "|SCREEN|\t|" + BreadCrumbViewUtil.getReadableScreenName(activity, isRtlSwipe) + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_screen_shown) + "|")
+            Log.e("|BREADCRUMB|", "|SCREEN|\t|" + BreadCrumbViewUtil.getReadableScreenName(activity) + "|\t|ACTION|\t|" + activity.getString(if (isRtlSwipe) R.string.breadcrumb_screen_swiped_left_on else R.string.breadcrumb_screen_swiped_right_on) + "|")
+        }
+
+        fun logScreenShown(activity: BaseActivity) {
+            Log.e("|BREADCRUMB|", "|SCREEN|\t|" + BreadCrumbViewUtil.getReadableScreenName(activity) + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_screen_shown) + "|")
         }
     }
 }

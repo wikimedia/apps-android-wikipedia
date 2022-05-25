@@ -27,7 +27,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
-import org.wikipedia.analytics.eventplatform.BreadCrumbViewUtil
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
@@ -102,15 +101,19 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
         gestureDetector = GestureDetector(this, ActivityGestureListener(this))
     }
 
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        BreadCrumbLogEvent.logScreenShown(this)
+    }
+
     private fun printClickedViews(currentView: View?) {
         if (currentView == null) {
             return
         }
         currentView.setOnTouchListener(this)
         if (currentView is ViewGroup) {
-            val viewGroup = currentView
-            for (i in 0 until viewGroup.childCount) {
-                printClickedViews(viewGroup.getChildAt(i))
+            for (i in 0 until currentView.childCount) {
+                printClickedViews(currentView.getChildAt(i))
             }
         }
     }
@@ -350,7 +353,7 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
                 val endX = event.x
                 val endY = event.y
                 if (isClick(startX.toFloat(), endX, startY.toFloat(), endY)) {
-                    BreadCrumbLogEvent.log(BreadCrumbViewUtil.getReadableScreenName(this, view), view)
+                    BreadCrumbLogEvent.logClick(this, view)
                 }
             }
         }
