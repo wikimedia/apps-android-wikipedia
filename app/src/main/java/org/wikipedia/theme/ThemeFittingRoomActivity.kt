@@ -41,7 +41,6 @@ class ThemeFittingRoomActivity : SingleFragmentActivity<ThemeFittingRoomFragment
     }
 
     companion object {
-        @JvmStatic
         fun newIntent(context: Context): Intent {
             return Intent(context, ThemeFittingRoomActivity::class.java)
         }

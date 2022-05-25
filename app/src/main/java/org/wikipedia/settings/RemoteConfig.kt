@@ -1,27 +1,35 @@
 package org.wikipedia.settings
 
-import org.json.JSONException
-import org.json.JSONObject
+import kotlinx.serialization.Serializable
+import org.wikipedia.json.JsonUtil
+import org.wikipedia.util.log.L
 
-class RemoteConfig {
-    private var curConfig: JSONObject? = null
+object RemoteConfig {
+    private var curConfig: RemoteConfigImpl? = null
 
     // If there's no pref set, just give back the empty JSON Object
-    val config: JSONObject
+    val config: RemoteConfigImpl
         get() {
             if (curConfig == null) {
                 curConfig = try {
-                    // If there's no pref set, just give back the empty JSON Object
-                    JSONObject(Prefs.remoteConfigJson)
-                } catch (e: JSONException) {
-                    throw RuntimeException(e)
+                    JsonUtil.decodeFromString<RemoteConfigImpl>(Prefs.remoteConfigJson)
+                } catch (e: Exception) {
+                    L.e(e)
+                    RemoteConfigImpl()
                 }
             }
             return curConfig!!
         }
 
-    fun updateConfig(newConfig: JSONObject) {
-        Prefs.remoteConfigJson = newConfig.toString()
-        curConfig = newConfig
+    fun updateConfig(configStr: String) {
+        Prefs.remoteConfigJson = configStr
+        curConfig = null
+    }
+
+    @Suppress("unused")
+    @Serializable
+    class RemoteConfigImpl {
+        val disableReadingListSync = false
+        val disableAnonEditing = false
     }
 }

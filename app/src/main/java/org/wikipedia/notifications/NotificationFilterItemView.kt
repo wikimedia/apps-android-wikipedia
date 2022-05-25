@@ -101,7 +101,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
             Constants.WIKI_CODE_WIKIDATA -> context.getString(R.string.wikidata)
             context.getString(R.string.notifications_all_wikis_text) -> filterCode
             context.getString(R.string.notifications_all_types_text) -> filterCode
-            else -> WikipediaApp.getInstance().language().getAppLanguageCanonicalName(filterCode).orEmpty()
+            else -> WikipediaApp.instance.languageState.getAppLanguageCanonicalName(filterCode).orEmpty()
         }
     }
 }

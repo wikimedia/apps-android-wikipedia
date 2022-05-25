@@ -152,11 +152,11 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         return when (action) {
             DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
                 context.getString(R.string.description_edit_translate_article_description_label_per_language,
-                        WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang))
+                        WikipediaApp.instance.languageState.getAppLanguageLocalizedName(lang))
             }
             DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
                 context.getString(R.string.description_edit_translate_caption_label_per_language,
-                        WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang))
+                        WikipediaApp.instance.languageState.getAppLanguageLocalizedName(lang))
             }
             DescriptionEditActivity.Action.ADD_CAPTION -> context.getString(R.string.description_edit_add_caption_label)
             else -> context.getString(R.string.description_edit_article_description_label)
@@ -166,10 +166,10 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     private fun getHintText(lang: String): CharSequence {
         return if (action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) {
             context.getString(R.string.description_edit_translate_article_description_hint_per_language,
-                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang))
+                    WikipediaApp.instance.languageState.getAppLanguageLocalizedName(lang))
         } else if (action == DescriptionEditActivity.Action.ADD_CAPTION || action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
             context.getString(R.string.description_edit_translate_caption_hint_per_language,
-                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang))
+                    WikipediaApp.instance.languageState.getAppLanguageLocalizedName(lang))
         } else {
             context.getString(R.string.description_edit_text_hint)
         }
@@ -305,7 +305,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 pageTitle.wikiSite.languageCode == "en" && Character.isLowerCase(binding.viewDescriptionEditText.text.toString()[0])) {
             setWarning(context.getString(R.string.description_starts_with_lowercase))
         } else if (isLanguageWrong) {
-            val localizedName = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(pageSummaryForEdit.lang)
+            val localizedName = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(pageSummaryForEdit.lang)
             setWarning(context.getString(R.string.description_verification_notice, localizedName, localizedName))
         } else {
             clearError()
@@ -368,7 +368,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     override fun onLanguageDetectionSuccess(languageCodes: List<String>) {
         if (!languageCodes.contains(pageSummaryForEdit.lang) &&
-                !languageCodes.contains(WikipediaApp.getInstance().language().getDefaultLanguageCode(pageSummaryForEdit.lang))) {
+                !languageCodes.contains(WikipediaApp.instance.languageState.getDefaultLanguageCode(pageSummaryForEdit.lang))) {
             isLanguageWrong = true
             enqueueValidateText()
         }
