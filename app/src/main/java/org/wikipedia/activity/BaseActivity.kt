@@ -96,7 +96,7 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
         Prefs.localClassName = localClassName
 
         val decorView = window.decorView
-        decorView.viewTreeObserver.addOnGlobalLayoutListener { printClickedViews(window.decorView) }
+        decorView.viewTreeObserver.addOnGlobalLayoutListener { setTouchListenersToViews(window.decorView) }
         gestureDetector = GestureDetector(this, ActivityGestureListener(this))
     }
 
@@ -105,14 +105,14 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
         BreadCrumbLogEvent.logScreenShown(this)
     }
 
-    private fun printClickedViews(currentView: View?) {
+    private fun setTouchListenersToViews(currentView: View?) {
         if (currentView == null) {
             return
         }
         currentView.setOnTouchListener(this)
         if (currentView is ViewGroup) {
             for (i in 0 until currentView.childCount) {
-                printClickedViews(currentView.getChildAt(i))
+                setTouchListenersToViews(currentView.getChildAt(i))
             }
         }
     }
@@ -322,10 +322,10 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
     companion object {
         private var EXCLUSIVE_BUS_METHODS: ExclusiveBusConsumer? = null
         private var EXCLUSIVE_DISPOSABLE: Disposable? = null
+        private const val CLICK_ACTION_THRESHOLD = 200
     }
-    private var startX = 0
-    private var startY = 0
-    private val CLICK_ACTION_THRESHOLD = 200
+    private var startX = 0f
+    private var startY = 0f
 
     override fun onTouch(view: View?, event: MotionEvent?): Boolean {
 
@@ -334,13 +334,13 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
         }
         when (event?.action) {
             MotionEvent.ACTION_DOWN -> {
-                startX = event.x.toInt()
-                startY = event.y.toInt()
+                startX = event.x
+                startY = event.y
             }
             MotionEvent.ACTION_UP -> {
                 val endX = event.x
                 val endY = event.y
-                if (isClick(startX.toFloat(), endX, startY.toFloat(), endY)) {
+                if (isClick(startX, endX, startY, endY)) {
                     BreadCrumbLogEvent.logClick(this, view)
                 }
             }
