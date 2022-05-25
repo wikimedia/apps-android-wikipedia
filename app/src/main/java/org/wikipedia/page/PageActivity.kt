@@ -78,7 +78,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private val listDialogDismissListener = DialogInterface.OnDismissListener { pageFragment.updateBookmarkAndMenuOptionsFromDao() }
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
-    private var themeTooltipBalloon: Balloon? = null
+    private var customizeToolbarTooltip: Balloon? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -124,7 +124,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP)
         FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
         binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
-            themeTooltipBalloon?.dismiss()
+            customizeToolbarTooltip?.dismiss()
             pageFragment.showOverflowMenu(it)
             pageFragment.articleInteractionEvent?.logMoreClick()
         }
@@ -666,20 +666,16 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         if (!Prefs.showOneTimeCustomizeToolbarTooltip) {
             return
         }
-        binding.pageToolbarButtonShowOverflowMenu.postDelayed({
-            if (!isDestroyed) {
-                themeTooltipBalloon =
-                    FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip), arrowAnchorPadding = -DimenUtil.roundedDpToPx(12f), topOrBottomMargin = -12, aboveOrBelow = true, autoDismiss = false, showDismissButton = true, callback = object :
-                        FeedbackUtil.Callback {
-                        override fun onDismissClicked() {
-                            Prefs.showOneTimeCustomizeToolbarTooltip = false
-                            Prefs.toolbarTooltipVisible = false
-                        }
-                    })
-                themeTooltipBalloon?.showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
-                Prefs.toolbarTooltipVisible = true
+        if (!isDestroyed) {
+            customizeToolbarTooltip =
+                FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip), arrowAnchorPadding = -DimenUtil.roundedDpToPx(10f), topOrBottomMargin = -12, aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
+            customizeToolbarTooltip?.setOnBalloonDismissListener {
+                Prefs.showOneTimeCustomizeToolbarTooltip = false
+                Prefs.toolbarTooltipVisible = false
             }
-        }, 2000)
+            customizeToolbarTooltip?.showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
+            Prefs.toolbarTooltipVisible = true
+        }
     }
 
     private fun enqueueTooltip(runnable: Runnable) {
