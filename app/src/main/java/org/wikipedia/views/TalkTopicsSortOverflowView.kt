@@ -11,6 +11,7 @@ import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.core.view.isVisible
 import androidx.core.widget.PopupWindowCompat
+import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.databinding.ViewTalkTopicsSortOverflowBinding
 
 class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
@@ -28,8 +29,9 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
         setButtonsListener()
     }
 
-    fun show(anchorView: View, sortMode: Int, callback: Callback?) {
+    fun show(anchorView: View, sortMode: Int, funnel: TalkFunnel?, callback: Callback?) {
         this.callback = callback
+        funnel?.logOpenSort()
         popupWindowHost = PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true)
         popupWindowHost?.let {
@@ -45,31 +47,37 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
                 binding.sortByDatePublishedSelected.isVisible = true
                 binding.sortByDatePublishedOrder.isVisible = true
                 binding.sortByDatePublishedOrder.rotation = 90f
+                funnel?.logSortOrderPublished()
             }
             SORT_BY_DATE_PUBLISHED_ASCENDING -> {
                 binding.sortByDatePublishedSelected.isVisible = true
                 binding.sortByDatePublishedOrder.isVisible = true
                 binding.sortByDatePublishedOrder.rotation = 270f
+                funnel?.logSortOrderPublished()
             }
             SORT_BY_TOPIC_NAME_DESCENDING -> {
                 binding.sortByTopicNameSelected.isVisible = true
                 binding.sortByTopicNameOrder.isVisible = true
                 binding.sortByTopicNameOrder.rotation = 90f
+                funnel?.logSortOrderTopic()
             }
             SORT_BY_TOPIC_NAME_ASCENDING -> {
                 binding.sortByTopicNameSelected.isVisible = true
                 binding.sortByTopicNameOrder.isVisible = true
                 binding.sortByTopicNameOrder.rotation = 270f
+                funnel?.logSortOrderTopic()
             }
             SORT_BY_DATE_UPDATED_DESCENDING -> {
                 binding.sortByDateUpdatedSelected.isVisible = true
                 binding.sortByDateUpdatedOrder.isVisible = true
                 binding.sortByDateUpdatedOrder.rotation = 90f
+                funnel?.logSortOrderUpdated()
             }
             SORT_BY_DATE_UPDATED_ASCENDING -> {
                 binding.sortByDateUpdatedSelected.isVisible = true
                 binding.sortByDateUpdatedOrder.isVisible = true
                 binding.sortByDateUpdatedOrder.rotation = 270f
+                funnel?.logSortOrderUpdated()
             }
         }
     }

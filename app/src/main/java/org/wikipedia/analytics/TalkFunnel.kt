@@ -5,7 +5,6 @@ import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.page.PageTitle
-import java.util.*
 
 class TalkFunnel constructor(private val title: PageTitle, private val invokeSource: Constants.InvokeSource) :
         TimedFunnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
@@ -43,6 +42,22 @@ class TalkFunnel constructor(private val title: PageTitle, private val invokeSou
 
     fun logEditSubmit() {
         log("action", "submit")
+    }
+
+    fun logOpenSort() {
+        log("action", "open_sort")
+    }
+
+    fun logSortOrderPublished() {
+        log("action", "sort_order_published")
+    }
+
+    fun logSortOrderUpdated() {
+        log("action", "sort_order_updated")
+    }
+
+    fun logSortOrderTopic() {
+        log("action", "sort_order_topic")
     }
 
     companion object {
