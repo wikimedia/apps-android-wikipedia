@@ -273,14 +273,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun updateAfterRevisionFetchSuccess() {
         viewModel.revisionFrom?.let {
             binding.usernameFromButton.text = it.user
-            binding.revisionFromTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(it.timeStamp))
+            binding.revisionFromTimestamp.text = DateUtil.getTimeAndDateString(DateUtil.iso8601DateParse(it.timeStamp))
             binding.overlayRevisionFromTimestamp.text = binding.revisionFromTimestamp.text
             binding.revisionFromEditComment.text = StringUtil.fromHtml(it.parsedcomment.trim())
         }
 
         viewModel.revisionTo?.let {
             binding.usernameToButton.text = it.user
-            binding.revisionToTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(it.timeStamp))
+            binding.revisionToTimestamp.text = DateUtil.getTimeAndDateString(DateUtil.iso8601DateParse(it.timeStamp))
             binding.overlayRevisionToTimestamp.text = binding.revisionToTimestamp.text
             binding.revisionToEditComment.text = StringUtil.fromHtml(it.parsedcomment.trim())
         }
