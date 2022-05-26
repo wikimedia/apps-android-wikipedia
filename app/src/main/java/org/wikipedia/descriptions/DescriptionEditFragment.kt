@@ -391,10 +391,6 @@ class DescriptionEditFragment : Fragment() {
             SuggestedEditsFunnel.get().failure(action)
         }
 
-        override fun onHelpClick() {
-            FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
-        }
-
         override fun onCancelClick() {
             if (binding.fragmentDescriptionEditView.showingReviewContent()) {
                 binding.fragmentDescriptionEditView.loadReviewContent(false)
