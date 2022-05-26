@@ -33,12 +33,10 @@ class TalkTopicHolder internal constructor(
 ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
 
     private lateinit var threadItem: ThreadItem
-    private var itemPosition = -1
 
     fun bindItem(item: ThreadItem, position: Int) {
         item.seen = viewModel.topicSeen(item)
         threadItem = item
-        itemPosition = position
         binding.topicTitleText.text = RichTextUtil.stripHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }
         binding.topicTitleText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.material_theme_primary_color))
         StringUtil.highlightAndBoldenText(binding.topicTitleText, viewModel.currentSearchQuery, true, Color.YELLOW)

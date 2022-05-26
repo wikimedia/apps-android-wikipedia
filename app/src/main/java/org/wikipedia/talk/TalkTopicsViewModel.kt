@@ -37,15 +37,21 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
     private val watchlistFunnel = WatchlistFunnel()
     private var resolveTitleRequired = false
     val threadItems = mutableListOf<ThreadItem>()
+    var sortedThreadItems : List<ThreadItem> = emptyList()
     var watchlistExpiryChanged = false
     var isWatched = false
     var hasWatchlistExpiry = false
     var lastWatchExpiry = WatchlistExpiry.NEVER
     var currentSearchQuery: String? = null
+        set(value) {
+            field = value
+            sortAndFilterThreadItems()
+        }
     var currentSortMode = Prefs.talkTopicsSortMode
         set(value) {
             field = value
             Prefs.talkTopicsSortMode = field
+            sortAndFilterThreadItems()
         }
 
     val uiState = MutableStateFlow(UiState())
@@ -103,38 +109,13 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
 
             threadItems.clear()
             threadItems.addAll(discussionToolsInfoResponse.await().pageInfo?.threads ?: emptyList())
+            sortAndFilterThreadItems()
 
             isWatched = watchStatus.watched
             hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
 
             uiState.value = UiState.LoadTopic(pageTitle, threadItems, lastModifiedResponse.await())
         }
-    }
-
-    val sortedThreadItems get(): List<ThreadItem> {
-        when (currentSortMode) {
-            TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_DESCENDING -> {
-                threadItems.sortByDescending { it.replies.firstOrNull()?.date }
-            }
-            TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_ASCENDING -> {
-                threadItems.sortBy { it.replies.firstOrNull()?.date }
-            }
-            TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_DESCENDING -> {
-                threadItems.sortByDescending { RichTextUtil.stripHtml(it.html) }
-            }
-            TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_ASCENDING -> {
-                threadItems.sortBy { RichTextUtil.stripHtml(it.html) }
-            }
-            TalkTopicsSortOverflowView.SORT_BY_DATE_UPDATED_DESCENDING -> {
-                threadItems.sortByDescending { it.replies.lastOrNull()?.date }
-            }
-            TalkTopicsSortOverflowView.SORT_BY_DATE_UPDATED_ASCENDING -> {
-                threadItems.sortBy { it.replies.lastOrNull()?.date }
-            }
-        }
-        return threadItems.filter { it.html.contains(currentSearchQuery.orEmpty(), true) ||
-                it.allReplies.any { reply -> reply.html.contains(currentSearchQuery.orEmpty(), true) ||
-                        reply.author.contains(currentSearchQuery.orEmpty(), true) } }
     }
 
     fun undoSave(newRevisionId: Long, undoneSubject: CharSequence, undoneBody: CharSequence) {
@@ -184,6 +165,32 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
             }
             ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, commentName, token, if (!subscribed) true else null)
         }
+    }
+
+    private fun sortAndFilterThreadItems() {
+        when (currentSortMode) {
+            TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_DESCENDING -> {
+                threadItems.sortByDescending { it.replies.firstOrNull()?.date }
+            }
+            TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_ASCENDING -> {
+                threadItems.sortBy { it.replies.firstOrNull()?.date }
+            }
+            TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_DESCENDING -> {
+                threadItems.sortByDescending { RichTextUtil.stripHtml(it.html) }
+            }
+            TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_ASCENDING -> {
+                threadItems.sortBy { RichTextUtil.stripHtml(it.html) }
+            }
+            TalkTopicsSortOverflowView.SORT_BY_DATE_UPDATED_DESCENDING -> {
+                threadItems.sortByDescending { it.replies.lastOrNull()?.date }
+            }
+            TalkTopicsSortOverflowView.SORT_BY_DATE_UPDATED_ASCENDING -> {
+                threadItems.sortBy { it.replies.lastOrNull()?.date }
+            }
+        }
+        sortedThreadItems = threadItems.filter { it.html.contains(currentSearchQuery.orEmpty(), true) ||
+                it.allReplies.any { reply -> reply.html.contains(currentSearchQuery.orEmpty(), true) ||
+                        reply.author.contains(currentSearchQuery.orEmpty(), true) } }
     }
 
     suspend fun isSubscribed(commentName: String): Boolean {
