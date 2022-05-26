@@ -94,7 +94,7 @@
   <string name="search_redirect_from">Redirigé depuis %s</string>
   <string name="page_edit_history_activity_title">Historique des versions : %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
-  <string name="page_edit_history_comment_placeholder">Résumé de modification vide</string>
+  <string name="page_edit_history_comment_placeholder">Résumé des modifications vide</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Rechercher ou filtrer des modifications</string>
   <string name="page_edit_history_filter_by">Filtrer par</string>
   <string name="page_edit_history_filter_by_all">Toutes les modifications (%s)</string>
