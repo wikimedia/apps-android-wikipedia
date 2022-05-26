@@ -99,11 +99,11 @@ object DateUtil {
     }
 
     fun getTimeAndDateString(date: Date): String {
-        return getCachedDateFormat("HH:mm, MMM d, yyyy", Locale.getDefault(), false).format(date)
+        return getDateStringWithSkeletonPattern(date, "HH:mm, MMM d, yyyy")
     }
 
     fun getTimeAndDateString(dateStr: String): String {
-        return getCachedDateFormat("HH:mm, MMM d, yyyy", Locale.getDefault(), false).format(iso8601DateParse(dateStr))
+        return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "HH:mm, MMM d, yyyy")
     }
 
     @Synchronized
