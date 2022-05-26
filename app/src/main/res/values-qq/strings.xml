@@ -991,6 +991,7 @@
     <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is added.</item>
     <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are added.</item>
   </plurals>
+  <string name="suggested_ml_translation">Label text indicating the following text was translated from a machine learning service. %s will be replaced by translated text.</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>

@@ -242,6 +242,7 @@ dependencies {
     alphaImplementation "com.google.mlkit:language-id:$mlKitVersion"
     devImplementation "com.google.mlkit:language-id:$mlKitVersion"
     customImplementation "com.google.mlkit:language-id:$mlKitVersion"
+    implementation 'com.google.mlkit:translate:17.0.0'
 
     // For receiving push notifications for logged-in users.
     prodImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"

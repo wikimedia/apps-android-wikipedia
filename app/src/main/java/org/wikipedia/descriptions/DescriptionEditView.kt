@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.addTextChangedListener
 import org.wikipedia.R
@@ -15,6 +16,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewDescriptionEditBinding
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.mlkit.MlKitLanguageDetector
+import org.wikipedia.mlkit.MlKitTextTranslation
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.*
@@ -39,6 +41,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     private val binding = ViewDescriptionEditBinding.inflate(LayoutInflater.from(context), this)
     private val mlKitLanguageDetector = MlKitLanguageDetector()
     private val languageDetectRunnable = Runnable { mlKitLanguageDetector.detectLanguageFromText(binding.viewDescriptionEditText.text.toString()) }
+    private val mlKitTextTranslation = MlKitTextTranslation()
     private val textValidateRunnable = Runnable { validateText() }
     private var originalDescription: String? = null
     private var isTranslationEdit = false
@@ -198,7 +201,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         }
     }
 
-    fun setSummaries(sourceSummary: PageSummaryForEdit, targetSummary: PageSummaryForEdit?) {
+    fun setSummaries(fragment: DescriptionEditFragment, sourceSummary: PageSummaryForEdit, targetSummary: PageSummaryForEdit?) {
         // the summary data that will bring to the review screen
         pageSummaryForEdit = if (isTranslationEdit) targetSummary!! else sourceSummary
         binding.viewDescriptionEditPageSummaryContainer.visibility = VISIBLE
@@ -212,6 +215,12 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
         binding.viewDescriptionEditReadArticleBarContainer.setSummary(pageSummaryForEdit)
         binding.viewDescriptionEditReadArticleBarContainer.setOnClickListener { performReadArticleClick() }
+
+        // Set possible translation
+        mlKitTextTranslation.translateText(fragment, binding.viewDescriptionEditPageSummary.text.toString()) {
+            binding.viewDescriptionEditPageSummaryTranslation.isVisible = true
+            binding.viewDescriptionEditPageSummaryTranslation.text = context.getString(R.string.suggested_ml_translation, it)
+        }
     }
 
     fun setSaveState(saving: Boolean) {

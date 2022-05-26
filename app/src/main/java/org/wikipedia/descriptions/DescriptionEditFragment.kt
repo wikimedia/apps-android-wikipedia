@@ -189,7 +189,7 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.setPageTitle(pageTitle)
         highlightText?.let { binding.fragmentDescriptionEditView.setHighlightText(it) }
         binding.fragmentDescriptionEditView.callback = EditViewCallback()
-        sourceSummary?.let { binding.fragmentDescriptionEditView.setSummaries(it, targetSummary) }
+        sourceSummary?.let { binding.fragmentDescriptionEditView.setSummaries(this, it, targetSummary) }
         if (savedInstanceState != null) {
             binding.fragmentDescriptionEditView.description = savedInstanceState.getString(ARG_DESCRIPTION)
             binding.fragmentDescriptionEditView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING))

@@ -151,6 +151,22 @@
                             android:textSize="16sp"
                             tools:text="Lorem ipsum" />
 
+                        <TextView
+                            android:id="@+id/view_description_edit_page_summary_translation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="8dp"
+                            android:ellipsize="end"
+                            android:gravity="start"
+                            android:lineSpacingExtra="6sp"
+                            android:maxLines="4"
+                            android:textColor="?attr/material_theme_primary_color"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            android:textStyle="italic"
+                            tools:text="Lorem ipsum" />
+
                     </LinearLayout>
 
                     <FrameLayout

@@ -1014,6 +1014,7 @@
         <item quantity="one">You added %d character</item>
         <item quantity="other">You added %d characters</item>
     </plurals>
+    <string name="suggested_ml_translation">(Translation) %s</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->
