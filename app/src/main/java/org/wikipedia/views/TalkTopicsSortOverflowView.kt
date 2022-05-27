@@ -21,6 +21,7 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
     }
 
     private var binding = ViewTalkTopicsSortOverflowBinding.inflate(LayoutInflater.from(context), this, true)
+    private var funnel: TalkFunnel? = null
     private var callback: Callback? = null
     private var popupWindowHost: PopupWindow? = null
     private var currentSortMode = SORT_BY_DATE_PUBLISHED_DESCENDING
@@ -31,6 +32,7 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
 
     fun show(anchorView: View, sortMode: Int, funnel: TalkFunnel?, callback: Callback?) {
         this.callback = callback
+        this.funnel = funnel
         funnel?.logOpenSort()
         popupWindowHost = PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true)
@@ -47,37 +49,31 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
                 binding.sortByDatePublishedSelected.isVisible = true
                 binding.sortByDatePublishedOrder.isVisible = true
                 binding.sortByDatePublishedOrder.rotation = 90f
-                funnel?.logSortOrderPublished()
             }
             SORT_BY_DATE_PUBLISHED_ASCENDING -> {
                 binding.sortByDatePublishedSelected.isVisible = true
                 binding.sortByDatePublishedOrder.isVisible = true
                 binding.sortByDatePublishedOrder.rotation = 270f
-                funnel?.logSortOrderPublished()
             }
             SORT_BY_TOPIC_NAME_DESCENDING -> {
                 binding.sortByTopicNameSelected.isVisible = true
                 binding.sortByTopicNameOrder.isVisible = true
                 binding.sortByTopicNameOrder.rotation = 90f
-                funnel?.logSortOrderTopic()
             }
             SORT_BY_TOPIC_NAME_ASCENDING -> {
                 binding.sortByTopicNameSelected.isVisible = true
                 binding.sortByTopicNameOrder.isVisible = true
                 binding.sortByTopicNameOrder.rotation = 270f
-                funnel?.logSortOrderTopic()
             }
             SORT_BY_DATE_UPDATED_DESCENDING -> {
                 binding.sortByDateUpdatedSelected.isVisible = true
                 binding.sortByDateUpdatedOrder.isVisible = true
                 binding.sortByDateUpdatedOrder.rotation = 90f
-                funnel?.logSortOrderUpdated()
             }
             SORT_BY_DATE_UPDATED_ASCENDING -> {
                 binding.sortByDateUpdatedSelected.isVisible = true
                 binding.sortByDateUpdatedOrder.isVisible = true
                 binding.sortByDateUpdatedOrder.rotation = 270f
-                funnel?.logSortOrderUpdated()
             }
         }
     }
@@ -92,14 +88,17 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
     private fun setButtonsListener() {
         binding.sortByDatePublishedButton.setOnClickListener {
             dismissPopupWindowHost()
+            funnel?.logSortOrderPublished()
             callback?.sortByClicked(if (currentSortMode == SORT_BY_DATE_PUBLISHED_DESCENDING) SORT_BY_DATE_PUBLISHED_ASCENDING else SORT_BY_DATE_PUBLISHED_DESCENDING)
         }
         binding.sortByTopicNameButton.setOnClickListener {
             dismissPopupWindowHost()
+            funnel?.logSortOrderTopic()
             callback?.sortByClicked(if (currentSortMode == SORT_BY_TOPIC_NAME_DESCENDING) SORT_BY_TOPIC_NAME_ASCENDING else SORT_BY_TOPIC_NAME_DESCENDING)
         }
         binding.sortByDateUpdatedButton.setOnClickListener {
             dismissPopupWindowHost()
+            funnel?.logSortOrderUpdated()
             callback?.sortByClicked(if (currentSortMode == SORT_BY_DATE_UPDATED_DESCENDING) SORT_BY_DATE_UPDATED_ASCENDING else SORT_BY_DATE_UPDATED_DESCENDING)
         }
     }

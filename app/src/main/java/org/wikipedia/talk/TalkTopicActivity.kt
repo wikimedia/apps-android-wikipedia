@@ -98,9 +98,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         talkFunnel = TalkFunnel(viewModel.pageTitle, intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
         talkFunnel.logOpenTopic()
 
-        talkFunnel = TalkFunnel(viewModel.pageTitle, intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
-        talkFunnel.logOpenTopic()
-
         binding.talkRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
@@ -184,6 +181,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun expandOrCollapseAll(expand: Boolean) {
+        if (expand) {
+            talkFunnel.logThreadGlobalExpend()
+        } else {
+            talkFunnel.logThreadGlobalCollapse()
+        }
         Prefs.talkTopicExpandOrCollapseByDefault = expand
         viewModel.expandOrCollapseAll().dispatchUpdatesTo(threadAdapter)
         threadAdapter.notifyItemRangeChanged(0, threadAdapter.itemCount)
@@ -274,6 +276,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onExpandClick(item: ThreadItem) {
+            if (item.isExpanded) {
+                talkFunnel.logThreadItemCollapse()
+            } else {
+                talkFunnel.logThreadItemExpend()
+            }
             viewModel.toggleItemExpanded(item).dispatchUpdatesTo(threadAdapter)
             invalidateOptionsMenu()
         }

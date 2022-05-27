@@ -60,6 +60,22 @@ class TalkFunnel constructor(private val title: PageTitle, private val invokeSou
         log("action", "sort_order_topic")
     }
 
+    fun logThreadGlobalCollapse() {
+        log("action", "global_collapse")
+    }
+
+    fun logThreadGlobalExpend() {
+        log("action", "global_expand")
+    }
+
+    fun logThreadItemCollapse() {
+        log("action", "item_collapse")
+    }
+
+    fun logThreadItemExpend() {
+        log("action", "item_expand")
+    }
+
     companion object {
         private const val SCHEMA_NAME = "MobileWikiAppTalk"
         private const val REV_ID = 21020341
