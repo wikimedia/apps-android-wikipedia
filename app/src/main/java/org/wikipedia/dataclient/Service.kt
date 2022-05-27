@@ -339,7 +339,7 @@ interface Service {
         @Field("user") user: String,
         @Field("token") token: String
     ): RollbackPostResponse
-    
+
     // ------- Wikidata -------
 
     @GET(MW_API_PREFIX + "action=wbgetentities")
