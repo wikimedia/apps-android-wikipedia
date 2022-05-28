@@ -3,7 +3,6 @@ package org.wikipedia.activity
 import androidx.fragment.app.Fragment
 
 object FragmentUtil {
-    @JvmStatic
     @Suppress("UNCHECKED_CAST")
     fun <T> getCallback(fragment: Fragment, callback: Class<T>): T? {
         if (callback.isInstance(fragment.targetFragment)) {

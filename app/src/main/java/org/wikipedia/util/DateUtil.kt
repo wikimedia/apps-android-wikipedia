@@ -1,5 +1,6 @@
 package org.wikipedia.util
 
+import android.content.Context
 import android.icu.text.RelativeDateTimeFormatter
 import android.os.Build
 import android.text.format.DateFormat
@@ -14,7 +15,6 @@ object DateUtil {
     private val DATE_FORMATS = HashMap<String, SimpleDateFormat>()
 
     // TODO: Switch to DateTimeFormatter when minSdk = 26.
-    @JvmStatic
     @Synchronized
     fun iso8601DateFormat(date: Date): String {
         return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).format(date)
@@ -89,16 +89,21 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "MMM d")
     }
 
-    fun getTimeString(date: Date): String {
-        return getDateStringWithSkeletonPattern(date, "HH:mm")
+    fun getTimeString(context: Context, date: Date): String {
+        val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm" else "hh:mm a"
+        return getDateStringWithSkeletonPattern(date, datePattern)
     }
 
     fun getShortDayWithTimeString(date: Date): String {
         return getDateStringWithSkeletonPattern(date, "MMM d HH:mm")
     }
 
-    fun getDateAndTimeWithPipe(date: Date): String {
-        return getCachedDateFormat("MMM d, yyyy | HH:mm", Locale.getDefault(), false).format(date)
+    fun getTimeAndDateString(date: Date): String {
+        return getDateStringWithSkeletonPattern(date, "HH:mm, MMM d, yyyy")
+    }
+
+    fun getTimeAndDateString(dateStr: String): String {
+        return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "HH:mm, MMM d, yyyy")
     }
 
     @Synchronized
@@ -121,7 +126,7 @@ object DateUtil {
         //       difficult for translators to write correct format specifiers without being able to
         //       test them. We should investigate localization support in date libraries such as
         //       Joda-Time and how TWN solves this classic problem.
-        val dateFormat = DateFormat.getMediumDateFormat(WikipediaApp.getInstance())
+        val dateFormat = DateFormat.getMediumDateFormat(WikipediaApp.instance)
         dateFormat.timeZone = TimeZone.getTimeZone("UTC")
         return dateFormat.format(date)
     }
@@ -142,15 +147,6 @@ object DateUtil {
         return getCachedDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH, true).parse(dateStr)!!
     }
 
-    @Throws(ParseException::class)
-    fun getLastSyncDateString(dateStr: String): String {
-        return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "d MMM yyyy HH:mm")
-    }
-
-    fun get24HrFormatTimeOnlyString(date: Date): String {
-        return getDateStringWithSkeletonPattern(date, "kk:mm")
-    }
-
     fun yearToStringWithEra(year: Int): String {
         val cal: Calendar = GregorianCalendar(year, 1, 1)
         return getDateStringWithSkeletonPattern(cal.time, if (year < 0) "y GG" else "y")
@@ -158,7 +154,7 @@ object DateUtil {
 
     fun getYearDifferenceString(year: Int, languageCode: String): String {
         val diffInYears = Calendar.getInstance()[Calendar.YEAR] - year
-        val targetResource = L10nUtil.getResourcesForWikiLang(languageCode) ?: WikipediaApp.getInstance().resources
+        val targetResource = L10nUtil.getResourcesForWikiLang(languageCode) ?: WikipediaApp.instance.resources
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             val firstMatchLocaleInstance = RelativeDateTimeFormatter.getInstance(targetResource.configuration.locales.getFirstMatch(arrayOf(languageCode)))
             when (diffInYears) {

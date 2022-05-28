@@ -1,12 +1,12 @@
 package org.wikipedia.feed.onthisday
 
 import android.app.Activity
+import android.app.ActivityOptions
 import android.content.Context
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityOptionsCompat
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -31,7 +31,7 @@ import org.wikipedia.views.ImageZoomHelper
 class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(context), CardFooterView.Callback {
 
     private val binding = ViewCardOnThisDayBinding.inflate(LayoutInflater.from(context), this, true)
-    private val funnel = FeedFunnel(WikipediaApp.getInstance())
+    private val funnel = FeedFunnel(WikipediaApp.instance)
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var age = 0
 
@@ -42,7 +42,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
     override fun onFooterClicked() {
         card?.let {
             funnel.cardClicked(CardType.ON_THIS_DAY, it.wikiSite().languageCode)
-            val options = ActivityOptionsCompat.makeSceneTransitionAnimation((context as Activity),
+            val options = ActivityOptions.makeSceneTransitionAnimation(context as Activity,
                 binding.cardHeader.titleView, context.getString(R.string.transition_on_this_day))
             context.startActivity(OnThisDayActivity.newIntent(context, age, -1,
                 it.wikiSite(), InvokeSource.ON_THIS_DAY_CARD_FOOTER), options.toBundle())
@@ -91,7 +91,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
         card?.let {
             val isYearClicked = view.id == R.id.year
             funnel.cardClicked(CardType.ON_THIS_DAY, it.wikiSite().languageCode)
-            val options = ActivityOptionsCompat.makeSceneTransitionAnimation((context as Activity),
+            val options = ActivityOptions.makeSceneTransitionAnimation(context as Activity,
                 binding.cardHeader.titleView, context.getString(R.string.transition_on_this_day))
             context.startActivity(OnThisDayActivity.newIntent(context, age, if (isYearClicked) it.year() else -1, it.wikiSite(),
                     if (isYearClicked) InvokeSource.ON_THIS_DAY_CARD_YEAR else InvokeSource.ON_THIS_DAY_CARD_BODY), options.toBundle()

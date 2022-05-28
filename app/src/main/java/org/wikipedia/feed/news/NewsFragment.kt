@@ -1,15 +1,15 @@
 package org.wikipedia.feed.news
 
+import android.app.ActivityOptions
 import android.os.Build
 import android.os.Bundle
+import android.util.Pair
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
-import androidx.core.util.Pair
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
@@ -28,9 +28,6 @@ import org.wikipedia.readinglist.MoveToReadingListDialog
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.*
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.TabUtil
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
@@ -72,11 +69,11 @@ class NewsFragment : Fragment() {
         }
 
         binding.storyTextView.text = RichTextUtil.stripHtml(item.story)
-        binding.linksRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.linksRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(),
+        binding.newsStoryItemsRecyclerview.layoutManager = LinearLayoutManager(requireContext())
+        binding.newsStoryItemsRecyclerview.addItemDecoration(DrawableItemDecoration(requireContext(),
             R.attr.list_separator_drawable))
-        binding.linksRecyclerView.isNestedScrollingEnabled = false
-        binding.linksRecyclerView.adapter = RecyclerAdapter(item.linkCards(wiki), Callback())
+        binding.newsStoryItemsRecyclerview.isNestedScrollingEnabled = false
+        binding.newsStoryItemsRecyclerview.adapter = RecyclerAdapter(item.linkCards(wiki), Callback())
         return binding.root
     }
 
@@ -113,7 +110,7 @@ class NewsFragment : Fragment() {
         }
 
         override fun onSelectPage(card: Card, entry: HistoryEntry, sharedElements: Array<Pair<View, String>>) {
-            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
+            val options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
             val intent = PageActivity.newIntentForNewTab(requireContext(), entry, entry.title)
             if (sharedElements.isNotEmpty()) {
                 intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true)

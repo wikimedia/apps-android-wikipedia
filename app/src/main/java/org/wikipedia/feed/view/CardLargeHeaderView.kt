@@ -61,7 +61,7 @@ class CardLargeHeaderView : ConstraintLayout {
         override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
             var color1 = palette.getLightVibrantColor(ContextCompat.getColor(context, R.color.base70))
             var color2 = palette.getLightMutedColor(ContextCompat.getColor(context, R.color.base30))
-            if (WikipediaApp.getInstance().currentTheme.isDark) {
+            if (WikipediaApp.instance.currentTheme.isDark) {
                 color1 = ResourceUtil.darkenColor(color1)
                 color2 = ResourceUtil.darkenColor(color2)
             } else {

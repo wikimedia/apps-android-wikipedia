@@ -2,6 +2,7 @@ package org.wikipedia.page
 
 import android.animation.ObjectAnimator
 import android.app.Activity
+import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
@@ -16,7 +17,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.graphics.Insets
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
@@ -139,7 +139,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private var avPlayer: AvPlayer? = null
     private var avCallback: AvCallback? = null
     private var sections: MutableList<Section>? = null
-    private var app = WikipediaApp.getInstance()
+    private var app = WikipediaApp.instance
 
     override lateinit var linkHandler: LinkHandler
     override lateinit var webView: ObservableWebView
@@ -596,7 +596,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 if (!isAdded) {
                     return@evaluate
                 }
-                var options: ActivityOptionsCompat? = null
+                var options: ActivityOptions? = null
 
                 val hitInfo: JavaScriptActionHandler.ImageHitInfo? = JsonUtil.decodeFromString(s)
                 hitInfo?.let {
@@ -610,7 +610,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     binding.pageImageTransitionHolder.visibility = View.VISIBLE
                     ViewUtil.loadImage(binding.pageImageTransitionHolder, it.src)
                     GalleryActivity.setTransitionInfo(it)
-                    options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
+                    options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(),
                         binding.pageImageTransitionHolder, getString(R.string.transition_page_gallery))
                 }
                 webView.post {

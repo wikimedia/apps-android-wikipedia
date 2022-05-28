@@ -37,7 +37,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
                 callback?.onUserClick(item!!)
             }
         }
-        if (WikipediaApp.getInstance().language().appLanguageCodes.size == 1) {
+        if (WikipediaApp.instance.languageState.appLanguageCodes.size == 1) {
             binding.langCodeBackground.visibility = GONE
             binding.langCodeText.visibility = GONE
         } else {
@@ -51,7 +51,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         binding.titleText.text = item.title
         binding.langCodeText.text = item.wiki!!.languageCode
         binding.summaryText.text = StringUtil.fromHtml(item.parsedComment)
-        binding.timeText.text = DateUtil.getTimeString(item.date)
+        binding.timeText.text = DateUtil.getTimeString(context, item.date)
         binding.userNameText.text = item.user
         binding.userNameText.contentDescription = context.getString(R.string.talk_user_title, item.user)
 

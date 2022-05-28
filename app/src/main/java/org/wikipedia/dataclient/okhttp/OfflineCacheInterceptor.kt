@@ -99,7 +99,7 @@ class OfflineCacheInterceptor : Interceptor {
     private fun getCacheWritingResponse(request: Request, response: Response, lang: String, title: String): Response {
         val contentType = response.header("Content-Type", "*/*")!!
         val contentLength = response.header("Content-Length", "-1")!!.toLong()
-        val cachePath = WikipediaApp.getInstance().filesDir.absolutePath + File.separator + OFFLINE_PATH
+        val cachePath = WikipediaApp.instance.filesDir.absolutePath + File.separator + OFFLINE_PATH
 
         File(cachePath).mkdirs()
 

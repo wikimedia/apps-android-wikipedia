@@ -118,7 +118,7 @@ class DescriptionEditFragment : Fragment() {
             targetSummary = it
         }
         val type = if (pageTitle.description == null) DescriptionEditFunnel.Type.NEW else DescriptionEditFunnel.Type.EXISTING
-        funnel = DescriptionEditFunnel(WikipediaApp.getInstance(), pageTitle, type, invokeSource)
+        funnel = DescriptionEditFunnel(WikipediaApp.instance, pageTitle, type, invokeSource)
         funnel.logStart()
         EditAttemptStepEvent.logInit(pageTitle)
     }
@@ -389,10 +389,6 @@ class DescriptionEditFragment : Fragment() {
                 EditAttemptStepEvent.logSaveFailure(pageTitle)
             }
             SuggestedEditsFunnel.get().failure(action)
-        }
-
-        override fun onHelpClick() {
-            FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
         }
 
         override fun onCancelClick() {

@@ -156,7 +156,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         talkFunnel = TalkFunnel(pageTitle, intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
         talkFunnel.logOpenTopic()
 
-        editFunnel = EditFunnel(WikipediaApp.getInstance(), pageTitle)
+        editFunnel = EditFunnel(WikipediaApp.instance, pageTitle)
         updateEditLicenseText()
 
         onInitialLoad()

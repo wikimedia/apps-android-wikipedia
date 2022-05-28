@@ -47,7 +47,7 @@ class NotificationFilterActivity : BaseActivity() {
         val filterListWithHeaders = mutableListOf<Any>()
         filterListWithHeaders.add(getString(R.string.notifications_wiki_filter_header))
         filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, getString(R.string.notifications_all_wikis_text)))
-        WikipediaApp.getInstance().language().appLanguageCodes.forEach {
+        WikipediaApp.instance.languageState.appLanguageCodes.forEach {
             filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, it, null))
         }
         filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, Constants.WIKI_CODE_COMMONS, R.drawable.ic_commons_logo))
@@ -156,7 +156,7 @@ class NotificationFilterActivity : BaseActivity() {
             }
             Prefs.notificationExcludedWikiCodes = excludedWikiCodes
             Prefs.notificationExcludedTypeCodes = excludedTypeCodes
-            NotificationPreferencesFunnel(WikipediaApp.getInstance()).logNotificationFilterPrefs()
+            NotificationPreferencesFunnel(WikipediaApp.instance).logNotificationFilterPrefs()
             notifyItemRangeChanged(0, itemCount)
         }
     }
@@ -185,7 +185,7 @@ class NotificationFilterActivity : BaseActivity() {
 
         fun allWikisList(): List<String> {
             val wikiList = mutableListOf<String>()
-            wikiList.addAll(WikipediaApp.getInstance().language().appLanguageCodes)
+            wikiList.addAll(WikipediaApp.instance.languageState.appLanguageCodes)
             wikiList.add(Constants.WIKI_CODE_COMMONS)
             wikiList.add(Constants.WIKI_CODE_WIKIDATA)
             return wikiList

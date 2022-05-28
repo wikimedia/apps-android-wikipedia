@@ -121,7 +121,7 @@ class EditSectionActivity : BaseActivity() {
         editPreviewFragment = supportFragmentManager.findFragmentById(R.id.edit_section_preview_fragment) as EditPreviewFragment
         editSummaryFragment = supportFragmentManager.findFragmentById(R.id.edit_section_summary_fragment) as EditSummaryFragment
         editSummaryFragment.title = pageTitle
-        funnel = WikipediaApp.getInstance().funnelManager.getEditFunnel(pageTitle)
+        funnel = WikipediaApp.instance.funnelManager.getEditFunnel(pageTitle)
 
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
@@ -498,7 +498,7 @@ class EditSectionActivity : BaseActivity() {
 
     private fun updateTextSize() {
         val extra = Prefs.editingTextSizeExtra
-        binding.editSectionText.textSize = WikipediaApp.getInstance().getFontSize(window) + extra.toFloat()
+        binding.editSectionText.textSize = WikipediaApp.instance.getFontSize(window) + extra.toFloat()
     }
 
     private fun resetToStart() {
