@@ -277,7 +277,7 @@ object FileAliasData {
             "stq" to "Bielde",
             "su" to "Gambar",
             "sv" to "Fil",
-            "sw" to "Picha",
+            "sw" to "Faili",
             "szl" to "Plik",
             "szy" to "tangan",
             "ta" to "படிமம்",

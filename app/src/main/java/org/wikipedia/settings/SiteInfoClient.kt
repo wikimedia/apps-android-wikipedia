@@ -13,15 +13,13 @@ import org.wikipedia.util.log.L
 object SiteInfoClient {
     private val SITE_INFO_MAP = arrayMapOf<String, SiteInfo?>()
 
-    @JvmStatic
     fun getMainPageForLang(lang: String): String {
         return SITE_INFO_MAP[lang]?.mainpage.orEmpty().ifEmpty { MainPageNameData.valueFor(lang) }
     }
 
-    @JvmStatic
     val maxPagesPerReadingList: Int
         get() {
-            val info = SITE_INFO_MAP[WikipediaApp.getInstance().wikiSite.languageCode]
+            val info = SITE_INFO_MAP[WikipediaApp.instance.wikiSite.languageCode]
             return if (info?.readingListsConfig != null && info.readingListsConfig.maxEntriesPerList > 0) {
                 info.readingListsConfig.maxEntriesPerList
             } else Constants.MAX_READING_LIST_ARTICLE_LIMIT

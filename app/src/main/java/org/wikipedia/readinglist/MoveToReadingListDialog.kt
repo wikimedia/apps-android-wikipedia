@@ -55,15 +55,12 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
     companion object {
         private const val SOURCE_READING_LIST_ID = "sourceReadingListId"
 
-        @JvmStatic
         fun newInstance(sourceReadingListId: Long,
                         title: PageTitle,
                         source: InvokeSource): MoveToReadingListDialog {
             return newInstance(sourceReadingListId, listOf(title), source, true, null)
         }
 
-        @JvmStatic
-        @JvmOverloads
         fun newInstance(sourceReadingListId: Long,
                         titles: List<PageTitle>,
                         source: InvokeSource,

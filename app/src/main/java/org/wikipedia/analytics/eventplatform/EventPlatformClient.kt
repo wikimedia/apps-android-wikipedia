@@ -26,7 +26,7 @@ object EventPlatformClient {
      * Inputs: network connection state on/off, connection state bad y/n?
      * Taken out of iOS client, but flag can be set on the request object to wait until connected to send
      */
-    private var ENABLED = WikipediaApp.getInstance().isOnline
+    private var ENABLED = WikipediaApp.instance.isOnline
 
     fun setStreamConfig(streamConfig: StreamConfig) {
         STREAM_CONFIGS[streamConfig.streamName] = streamConfig
@@ -110,7 +110,7 @@ object EventPlatformClient {
 
         @Synchronized
         fun sendAllScheduled() {
-            WikipediaApp.getInstance().mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
+            WikipediaApp.instance.mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
             if (ENABLED) {
                 send()
                 QUEUE.clear()
@@ -132,8 +132,8 @@ object EventPlatformClient {
                     sendAllScheduled()
                 } else {
                     // The arrival of a new item interrupts the timer and resets the countdown.
-                    WikipediaApp.getInstance().mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
-                    WikipediaApp.getInstance().mainThreadHandler.postDelayed(SEND_RUNNABLE, WAIT_MS.toLong())
+                    WikipediaApp.instance.mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
+                    WikipediaApp.instance.mainThreadHandler.postDelayed(SEND_RUNNABLE, WAIT_MS.toLong())
                 }
             }
         }

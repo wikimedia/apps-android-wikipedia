@@ -61,7 +61,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         binding.mainDrawerDonateContainer.setOnClickListener {
             visitInExternalBrowser(requireContext(),
                     Uri.parse(getString(R.string.donate_url,
-                            BuildConfig.VERSION_NAME, WikipediaApp.getInstance().language().systemLanguageCode)))
+                            BuildConfig.VERSION_NAME, WikipediaApp.instance.languageState.systemLanguageCode)))
             dismiss()
         }
 
@@ -111,7 +111,6 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     companion object {
-        @JvmStatic
         fun newInstance(): MenuNavTabDialog {
             return MenuNavTabDialog()
         }

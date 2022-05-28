@@ -30,7 +30,7 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
 
         fun newIntent(context: Context, source: InvokeSource, query: String?): Intent {
             if (source == InvokeSource.WIDGET) {
-                IntentFunnel(WikipediaApp.getInstance()).logSearchWidgetTap()
+                IntentFunnel(WikipediaApp.instance).logSearchWidgetTap()
             }
             return Intent(context, SearchActivity::class.java)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)

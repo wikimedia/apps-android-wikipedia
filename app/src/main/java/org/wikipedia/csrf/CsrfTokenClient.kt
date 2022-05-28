@@ -86,8 +86,8 @@ object CsrfTokenClient {
 
     private fun bailWithLogout() {
         // Signal to the rest of the app that we're explicitly logging out in the background.
-        WikipediaApp.getInstance().logOut()
+        WikipediaApp.instance.logOut()
         Prefs.loggedOutInBackground = true
-        WikipediaApp.getInstance().bus.post(LoggedOutInBackgroundEvent())
+        WikipediaApp.instance.bus.post(LoggedOutInBackgroundEvent())
     }
 }

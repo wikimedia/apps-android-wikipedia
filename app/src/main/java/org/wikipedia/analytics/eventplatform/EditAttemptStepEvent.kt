@@ -16,7 +16,7 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
 
         private const val STREAM_NAME = "eventlogging_EditAttemptStep"
         private const val INTEGRATION_ID = "app-android"
-        private val PLATFORM = WikipediaApp.getInstance().getString(R.string.device_type).lowercase()
+        private val PLATFORM = WikipediaApp.instance.getString(R.string.device_type).lowercase()
 
         fun logInit(pageTitle: PageTitle) {
             submitEditAttemptEvent(ActionType.INIT, pageTitle)

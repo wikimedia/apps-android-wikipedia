@@ -72,7 +72,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             true
         }
         findPreference(R.string.preference_key_missing_description_test).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikipediaApp.getInstance().wikiSite, 10)
+            EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikipediaApp.instance.wikiSite, 10)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ summary: PageSummary ->
@@ -80,7 +80,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                                 .setTitle(fromHtml(summary.displayTitle))
                                 .setMessage(fromHtml(summary.extract))
                                 .setPositiveButton("Go") { _: DialogInterface, _: Int ->
-                                    val title = summary.getPageTitle(WikipediaApp.getInstance().wikiSite)
+                                    val title = summary.getPageTitle(WikipediaApp.instance.wikiSite)
                                     activity.startActivity(PageActivity.newIntentForNewTab(activity, HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title))
                                 }
                                 .setNegativeButton(android.R.string.cancel, null)
@@ -95,8 +95,8 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             true
         }
         findPreference(R.string.preference_key_missing_description_test2).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikipediaApp.getInstance().wikiSite,
-                    WikipediaApp.getInstance().language().appLanguageCodes[1], true, 10)
+            EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikipediaApp.instance.wikiSite,
+                    WikipediaApp.instance.languageState.appLanguageCodes[1], true, 10)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ (_, second) ->
@@ -104,7 +104,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                                 .setTitle(fromHtml(second.displayTitle))
                                 .setMessage(fromHtml(second.description))
                                 .setPositiveButton("Go") { _: DialogInterface, _: Int ->
-                                    val title = second.getPageTitle(WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[1]))
+                                    val title = second.getPageTitle(WikiSite.forLanguageCode(WikipediaApp.instance.languageState.appLanguageCodes[1]))
                                     activity.startActivity(PageActivity.newIntentForNewTab(activity, HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title))
                                 }
                                 .setNegativeButton(android.R.string.cancel, null)
@@ -158,7 +158,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     }
 
     private fun resetMediaWikiSettings() {
-        WikipediaApp.getInstance().resetWikiSite()
+        WikipediaApp.instance.resetWikiSite()
     }
 
     private fun createTestReadingList(listName: String, numOfLists: Int, numOfArticles: Int) {
@@ -174,7 +174,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             index += 1
             val list = AppDatabase.instance.readingListDao().createList("$listName $index", "")
             val pages = (0 until numOfArticles).map {
-                ReadingListPage(PageTitle("${it + 1}", WikipediaApp.getInstance().wikiSite))
+                ReadingListPage(PageTitle("${it + 1}", WikipediaApp.instance.wikiSite))
             }
             AppDatabase.instance.readingListPageDao().addPagesToList(list, pages, true)
         }

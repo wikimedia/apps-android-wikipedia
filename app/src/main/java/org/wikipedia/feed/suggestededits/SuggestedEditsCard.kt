@@ -15,7 +15,7 @@ class SuggestedEditsCard(wiki: WikiSite,
     }
 
     override fun title(): String {
-        return WikipediaApp.getInstance().getString(R.string.suggested_edits_feed_card_title)
+        return WikipediaApp.instance.getString(R.string.suggested_edits_feed_card_title)
     }
 
     override fun subtitle(): String {
@@ -23,6 +23,6 @@ class SuggestedEditsCard(wiki: WikiSite,
     }
 
     fun footerActionText(): String {
-        return WikipediaApp.getInstance().getString(R.string.suggested_card_more_edits)
+        return WikipediaApp.instance.getString(R.string.suggested_card_more_edits)
     }
 }
