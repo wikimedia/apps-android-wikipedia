@@ -15,7 +15,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.MenuItemCompat
-import kotlin.jvm.Throws
 
 object ResourceUtil {
     fun bitmapFromVectorDrawable(context: Context, @DrawableRes id: Int, @ColorRes tintColor: Int?): Bitmap {
@@ -47,6 +46,10 @@ object ResourceUtil {
         return typedValue.data
     }
 
+    fun getThemedColorStateList(context: Context, @AttrRes id: Int): ColorStateList {
+        return ColorStateList.valueOf(getThemedColor(context, id))
+    }
+
     @Throws(NotFoundException::class)
     fun uri(context: Context, @AnyRes id: Int): Uri {
         val res = context.resources
@@ -59,7 +62,7 @@ object ResourceUtil {
     }
 
     fun setMenuItemTint(context: Context, item: MenuItem, @AttrRes colorAttr: Int) {
-        MenuItemCompat.setIconTintList(item, ColorStateList.valueOf(getThemedColor(context, colorAttr)))
+        MenuItemCompat.setIconTintList(item, getThemedColorStateList(context, colorAttr))
     }
 
     @ColorInt

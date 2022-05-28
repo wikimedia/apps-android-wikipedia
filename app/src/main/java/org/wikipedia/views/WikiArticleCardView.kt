@@ -3,10 +3,10 @@ package org.wikipedia.views
 import android.content.Context
 import android.net.Uri
 import android.util.AttributeSet
+import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.util.Pair
 import org.wikipedia.databinding.ViewWikiArticleCardBinding
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs

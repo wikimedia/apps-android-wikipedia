@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.withStyledAttributes
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewWikitextKeyboardButtonBinding
@@ -50,7 +49,6 @@ class WikitextKeyboardButtonView constructor(context: Context, attrs: AttributeS
         }
         isClickable = true
         isFocusable = true
-        background = AppCompatResources.getDrawable(context,
-                getThemedAttributeId(context, android.R.attr.selectableItemBackground))
+        setBackgroundResource(getThemedAttributeId(context, android.R.attr.selectableItemBackground))
     }
 }

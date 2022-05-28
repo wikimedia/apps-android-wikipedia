@@ -59,7 +59,7 @@ object NotificationPresenter {
             }
         }
 
-        val themedContext = ContextThemeWrapper(context, WikipediaApp.getInstance().currentTheme.resourceId)
+        val themedContext = ContextThemeWrapper(context, WikipediaApp.instance.currentTheme.resourceId)
 
         showNotification(context, builder, id, n.agent?.name ?: wikiSiteName, title, title, lang,
                 notificationCategory.iconResId, ResourceUtil.getThemedAttributeId(themedContext, notificationCategory.iconColor), activityIntent)

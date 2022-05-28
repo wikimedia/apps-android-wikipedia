@@ -47,6 +47,13 @@
   <string name="search_redirect_from">Virugeleet vu(n) %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Eidele Resumé vun der Ännerung</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">No Ännerunge sichen oder Ännerunge filteren</string>
+  <string name="page_edit_history_filter_by">Filteren no</string>
+  <string name="page_edit_history_filter_by_all">All Ännerungen (%s)</string>
+  <string name="page_edit_history_filter_by_user">Benotzer-Ännerungen (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonym Ännerungen (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Bot-Ännerungen (%s)</string>
+  <string name="page_edit_history_empty_search_message">Versicht d\'&lt;a href=\"#\"&gt;Filteren&lt;/a&gt; z\'ännere fir méi Ännerungen ze gesinn</string>
   <string name="menu_page_show_tabs">Tabs weisen</string>
   <string name="menu_page_other_languages">Sprooch wiesselen</string>
   <string name="menu_page_find_in_page">Am Artikel sichen</string>
@@ -77,6 +84,7 @@
   <string name="on_this_day_page_share">Deelen</string>
   <string name="reading_list_page_share">Deelen</string>
   <string name="menu_text_select_edit_here">Hei änneren</string>
+  <string name="menu_edit_article">Artikel änneren</string>
   <string name="last_updated_text">Lescht Aktualiséierung %s</string>
   <string name="talk_page_link_text">Diskussiounssäit weisen</string>
   <string name="edit_history_link_text">All Versioune vun der Säit weisen</string>
@@ -467,10 +475,10 @@
   <string name="notifications_activity_title">Notifikatiounen</string>
   <string name="notifications_activity_title_archived">Notifikatiounen (archivéiert)</string>
   <string name="notifications_search">An den Notifikatioune sichen</string>
-  <string name="notifications_view_unread">Déi net geliest weisen</string>
+  <string name="notifications_view_unread">Déi net geliese weisen</string>
   <string name="notifications_view_archived">Déi archivéiert weisen</string>
   <string name="notifications_prefs">Astellunge vun den Notifikatiounen</string>
-  <string name="notifications_archive">Als geliest markéieren an archivéieren</string>
+  <string name="notifications_archive">Als gelies markéieren an archivéieren</string>
   <string name="notifications_poll_enable_title">Notifikatiounen aktivéieren</string>
   <string name="notifications_poll_enable_positive">Aschalten</string>
   <string name="notifications_poll_enable_negative">Net elo</string>
@@ -480,8 +488,8 @@
   <string name="notifications_mark_unread">Als net gelies markéieren</string>
   <string name="notifications_direct_reply_action">Äntweren</string>
   <string name="notifications_direct_reply_success">Äntwert publizéiert.</string>
-  <string name="notifications_mark_all_as_read_message">%d markéiert als geliest</string>
-  <string name="notifications_mark_all_as_unread_message">%d markéiert als net geliest</string>
+  <string name="notifications_mark_all_as_read_message">%d markéiert als gelies</string>
+  <string name="notifications_mark_all_as_unread_message">%d markéiert als net gelies</string>
   <string name="watchlist_title">Iwwerwaachungslëscht</string>
   <string name="preference_title_notification_system">System</string>
   <string name="preference_summary_notification_system">Message vum System</string>
@@ -739,6 +747,7 @@
   <string name="menu_option_view_user_talk">Diskussiounssäit weisen</string>
   <string name="menu_option_view_user_contributions">Benotzerkontributioune weisen</string>
   <string name="revision_diff_compare">Versioune vergläichen</string>
+  <string name="revision_diff_compare_title">Versioune vergläichen: %s</string>
   <string name="revision_diff_from">Vum:</string>
   <string name="revision_diff_to">Fir:</string>
   <string name="revision_diff_paragraph_removed">Abschnitt ewechgeholl</string>

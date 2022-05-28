@@ -58,7 +58,7 @@
   <string name="menu_clear_all_history">清除歷史</string>
   <string name="history_item_deleted">%s已從歷史移除</string>
   <string name="history_items_deleted">%d個條目已從歷史移除</string>
-  <string name="history_item_delete_undo">還原</string>
+  <string name="history_item_delete_undo">撤銷</string>
   <string name="notification_archive_undo">還原</string>
   <string name="app_settings">應用程式設定</string>
   <string name="search_tab_tooltip">再次輕觸圖示可直接開始輸入搜尋項。</string>
@@ -77,7 +77,18 @@
   <string name="page_edit_history_activity_title">修訂歷史：%s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;小編輯&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">空白編輯摘要</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">搜尋或篩選編輯</string>
+  <string name="page_edit_history_filter_by">篩選依</string>
+  <string name="page_edit_history_filter_by_all">所有編輯數（%s）</string>
+  <string name="page_edit_history_filter_by_user">使用者編輯數（%s）</string>
+  <string name="page_edit_history_filter_by_anon">匿名編輯數（%s）</string>
+  <string name="page_edit_history_filter_by_bot">機器人編輯數（%s）</string>
   <string name="page_edit_history_metrics_content_description">自 %1$s 到 %2$s 期間的計量</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">自 %2$s 共 %1$d 次編輯</item>
+    <item quantity="other">自 %2$s 共 %1$d 次編輯</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">嘗試更改&lt;a href=\"#\"&gt;篩選&lt;/a&gt;來查看更多編輯</string>
   <string name="menu_page_show_tabs">顯示分頁</string>
   <string name="menu_page_other_languages">替換其它語言版本</string>
   <string name="menu_page_find_in_page">於條目尋找</string>
@@ -110,6 +121,7 @@
   <string name="on_this_day_page_share">分享</string>
   <string name="reading_list_page_share">分享</string>
   <string name="menu_text_select_edit_here">在此編輯</string>
+  <string name="menu_edit_article">編輯條目</string>
   <string name="last_updated_text">最後更新時間：%s</string>
   <string name="talk_page_link_text">檢視討論頁</string>
   <string name="edit_history_link_text">檢視編輯歷史</string>
@@ -119,6 +131,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">發布後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;授權，且不撤回您所釋出的貢獻。</string>
   <string name="edit_save_action_license_anon">發佈後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，同時您同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
+  <string name="edit_anon_warning">編輯將以您的裝置的 IP 位址發布。如果您有&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;，您可以擁有更多隱私。</string>
   <string name="preference_title_language">維基百科語言</string>
   <string name="langlinks_filter_hint">搜尋</string>
   <string name="langlinks_empty">此頁面沒有其它可用語言版本。</string>
@@ -266,7 +279,7 @@
   <string name="edit_next">下一步</string>
   <string name="edit_done">發布</string>
   <string name="edit_preview">預覽</string>
-  <string name="edit_undo">還原</string>
+  <string name="edit_undo">撤銷</string>
   <string name="edit_redo">重做</string>
   <string name="edit_zoom_in">放大</string>
   <string name="edit_zoom_out">縮小</string>
@@ -498,7 +511,7 @@
   </plurals>
   <string name="reading_list_items_deleted">從清單移除%d個條目</string>
   <string name="reading_lists_item_deleted">%s已從清單之中移除</string>
-  <string name="reading_list_item_delete_undo">還原</string>
+  <string name="reading_list_item_delete_undo">撤銷</string>
   <string name="reading_list_deleted">%s 已刪除</string>
   <string name="saved_list_empty_title">尚無儲存頁面</string>
   <string name="reading_lists_empty_message">將條目增加至供日後閱讀用的清單，讓您即使在離線時也可使用。</string>
@@ -902,6 +915,7 @@
   <string name="suggested_edits_paused_message">建議編輯被暫停至 %1$s。很抱歉，%2$s，您最近有太多編輯被回退。</string>
   <string name="suggested_edits_disabled_message">建議編輯已停用。很抱歉，%s，您最近有太多編輯被回退。</string>
   <string name="suggested_edits_ip_blocked_message">您現在使用的 IP 位址（或 IP 位址範圍）被封鎖而無法編輯維基百科。</string>
+  <string name="suggested_edits_gate_message">很抱歉，%s，您必須直接在條目至少做出 3 次編輯才能使用此功能。</string>
   <string name="suggested_edits_editing_tips_link_text">編輯提示與技巧</string>
   <string name="suggested_edits_help_page_link_text">建議編輯說明頁面</string>
   <string name="suggested_edits_edit_streak_label_text">連續編輯紀錄</string>
@@ -1086,7 +1100,7 @@
   <string name="talk_message_empty">訊息不能為空。</string>
   <string name="talk_subject_empty">話題不能為空。</string>
   <string name="talk_response_submitted">回覆已發布。</string>
-  <string name="talk_snackbar_undo">還原</string>
+  <string name="talk_snackbar_undo">撤銷</string>
   <string name="talk_last_modified">由%2$s在&lt;b&gt; %1$s &lt;/b&gt;所做的最後一次編輯</string>
   <string name="talk_snackbar_survey_text">感謝使用討論頁。您願意透過參與調查來協助我們改善此應用程式嗎？</string>
   <string name="talk_snackbar_survey_action_text">入門</string>
@@ -1125,6 +1139,12 @@
   <string name="revision_diff_line_nums">第 %d 到第 %d 行</string>
   <string name="revision_diff_line_added">行已新增</string>
   <string name="revision_diff_line_removed">行已移除</string>
+  <string name="revision_diff_paragraph_added">已新增章節</string>
+  <string name="revision_diff_paragraph_removed">章節已移除</string>
+  <string name="revision_undo_title">撤銷編輯</string>
+  <string name="revision_undo_message">這將會撤銷掉在此顯示出的修訂在條目裡所做出的變更內容。</string>
+  <string name="revision_undo_reason">若要繼續，請提供撤銷此編輯內容的原因：</string>
+  <string name="revision_undo_success">已撤銷修訂。</string>
   <string name="revision_compare_button">比較</string>
   <string name="revision_compare_two_only">僅能選擇兩個修訂。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s與該討論頁已新增到您的監視清單%2$s。</string>

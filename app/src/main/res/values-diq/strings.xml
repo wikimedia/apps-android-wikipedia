@@ -12,7 +12,7 @@
 * SHaran (WMF)
 -->
 <resources>
-  <string name="app_name_prod">Wikipedia</string>
+  <string name="app_name_prod">Wikipediya</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
@@ -25,7 +25,7 @@
   <string name="filter_hint_filter_my_lists_and_articles">Parzûnê listanê mı</string>
   <string name="nav_item_suggested_edits">Vurnayışi</string>
   <string name="nav_item_more">Zêde</string>
-  <string name="nav_item_search">Cıgeyrayış</string>
+  <string name="nav_item_search">Cı geyre</string>
   <string name="error_network_error">Şıma nêvawyayê internet.</string>
   <string name="page_error_retry">Anciya bıcerrebne</string>
   <string name="card_offline_error_retry">Anciya bıcerrebne</string>
@@ -307,7 +307,7 @@
   <string name="crash_report_quit">Veciyayış</string>
   <string name="article_menu_bar_save_button">Qeyd ke</string>
   <string name="article_menu_bar_language_button">Zıwan</string>
-  <string name="article_menu_bar_search_button">Cıgeyrayış</string>
+  <string name="article_menu_bar_search_button">Cı geyre</string>
   <string name="article_menu_bar_theme_button">Thema</string>
   <string name="article_menu_bar_contents_button">Zerrek</string>
   <string name="article_header_edit_hint">Bıvurne...</string>
@@ -514,7 +514,7 @@
   <string name="suggested_edits_add_caption_button">Şınastiye cıkere</string>
   <string name="suggested_edits_edit_caption_button">Bınnuştey bıvurnê</string>
   <string name="suggested_edits_review_image_caption">Bınnuştey resimi tetkik kerê</string>
-  <string name="suggested_edits_my_contributions">İştirakê mı</string>
+  <string name="suggested_edits_my_contributions">İştırakê mı</string>
   <string name="suggested_edits_license_notice">Şınastey vurnayışiya\"&lt;a href=\"%1$s\"&gt;Şertanê karkerdışi &lt;/a&gt;\"u iştıraka peyser megêriya weziyet de lisansê &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; çapnayışi qebul kena.</string>
   <string name="suggested_edits_image_caption_license_notice">Bınnuştey resimi vurnayışiya \"&lt;a href=\"%1$s\"&gt;Şertanê karkerdışi&lt;/a&gt;\" u iştıraka peyser megêriya weziyet de lisansê &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; çapnayışi qebul kena.</string>
   <string name="suggested_edits_menu_info">Melumat</string>
@@ -595,7 +595,7 @@
   <string name="onboarding_multilingual_secondary_text">Cihazê şıma tede de na cêrêni vinay:</string>
   <string name="onboarding_multilingual_add_language_text">Zıwan cı kerê ya zi bıvurnê</string>
   <string name="onboarding_welcome_title_v2">Ensiklopediya xosere\n… 300 ra zêde zıwanan de</string>
-  <string name="app_shortcuts_random">Raştameyaye</string>
+  <string name="app_shortcuts_random">Raştameye</string>
   <string name="app_shortcuts_continue_reading">Wanayışi dewam kerê</string>
   <string name="app_shortcuts_search">Cı geyre</string>
   <string name="on_this_day_card_title">Noroc de</string>
@@ -652,4 +652,5 @@
   <string name="text_input_dialog_ok_button_text">TEMAM</string>
   <string name="text_input_dialog_cancel_button_text">Bıtexelne</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Bıtexelne</string>
+  <string name="watchlist_filter_all">Pêro</string>
 </resources>

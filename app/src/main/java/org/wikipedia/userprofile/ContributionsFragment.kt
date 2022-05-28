@@ -24,7 +24,6 @@ import org.apache.commons.lang3.time.DateUtils
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.UserContributionFunnel
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentContributionsSuggestedEditsBinding
@@ -105,7 +104,6 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
 
         resetAndFetch()
 
-        UserContributionFunnel.get().logOpen()
         UserContributionEvent.logOpen()
     }
 
@@ -114,7 +112,6 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         binding.contributionsRecyclerView.clearOnScrollListeners()
         _binding = null
         disposables.clear()
-        UserContributionFunnel.reset()
         super.onDestroyView()
     }
 
@@ -122,19 +119,15 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         editFilterType = editType
         when (editFilterType) {
             EDIT_TYPE_ARTICLE_DESCRIPTION -> {
-                UserContributionFunnel.get().logFilterDescriptions()
                 UserContributionEvent.logFilterDescriptions()
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
-                UserContributionFunnel.get().logFilterCaptions()
                 UserContributionEvent.logFilterCaptions()
             }
             EDIT_TYPE_IMAGE_TAG -> {
-                UserContributionFunnel.get().logFilterTags()
                 UserContributionEvent.logFilterTags()
             }
             else -> {
-                UserContributionFunnel.get().logFilterAll()
                 UserContributionEvent.logFilterAll()
             }
         }
@@ -193,20 +186,20 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     }
 
     private fun homeSiteObservable(): Observable<Pair<List<Contribution>, Int>> {
-        return if (allContributions.isNotEmpty() && !continuations.containsKey(WikipediaApp.getInstance().wikiSite)) Observable.just(Pair(Collections.emptyList(), -1))
-        else ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getUserContributions(AccountUtil.userName!!, 50, continuations[WikipediaApp.getInstance().wikiSite])
+        return if (allContributions.isNotEmpty() && !continuations.containsKey(WikipediaApp.instance.wikiSite)) Observable.just(Pair(Collections.emptyList(), -1))
+        else ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName!!, 50, continuations[WikipediaApp.instance.wikiSite])
             .subscribeOn(Schedulers.io())
             .flatMap { response ->
                 val contributions = mutableListOf<Contribution>()
                 val cont = response.continuation?.ucContinuation
                 if (cont.isNullOrEmpty()) {
-                    continuations.remove(WikipediaApp.getInstance().wikiSite)
+                    continuations.remove(WikipediaApp.instance.wikiSite)
                 } else {
-                    continuations[WikipediaApp.getInstance().wikiSite] = cont
+                    continuations[WikipediaApp.instance.wikiSite] = cont
                 }
                 response.query?.userContributions?.forEach {
                     contributions.add(Contribution("", it.revid, it.title, it.title, it.title, EDIT_TYPE_GENERIC, null, it.date(),
-                        WikipediaApp.getInstance().wikiSite, 0, it.sizediff, it.top, 0))
+                        WikipediaApp.instance.wikiSite, 0, it.sizediff, it.top, 0))
                 }
                 Observable.just(Pair(contributions, response.query?.userInfo!!.editCount))
             }
@@ -226,7 +219,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     continuations[Constants.wikidataWikiSite] = cont
                 }
                 response.query?.userContributions?.forEach { contribution ->
-                    var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
+                    var contributionLanguage = WikipediaApp.instance.appOrSystemLanguageCode
                     var contributionDescription = contribution.comment
                     var editType: Int = EDIT_TYPE_GENERIC
                     var qNumber = ""
@@ -287,7 +280,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                         continuations[Constants.commonsWikiSite] = cont
                     }
                     response.query?.userContributions?.forEach { contribution ->
-                        var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
+                        var contributionLanguage = WikipediaApp.instance.appOrSystemLanguageCode
                         var editType: Int = EDIT_TYPE_GENERIC
                         var contributionDescription = contribution.comment
                         var qNumber = ""
@@ -583,22 +576,18 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         override fun onClick(context: Context, contribution: Contribution) {
             when (contribution.editType) {
                 EDIT_TYPE_ARTICLE_DESCRIPTION -> {
-                    UserContributionFunnel.get().logViewDescription()
                     UserContributionEvent.logViewDescription()
                     context.startActivity(ContributionDetailsActivity.newIntent(context, contribution))
                 }
                 EDIT_TYPE_IMAGE_CAPTION -> {
-                    UserContributionFunnel.get().logViewCaption()
                     UserContributionEvent.logViewCaption()
                     context.startActivity(ContributionDetailsActivity.newIntent(context, contribution))
                 }
                 EDIT_TYPE_IMAGE_TAG -> {
-                    UserContributionFunnel.get().logViewTag()
                     UserContributionEvent.logViewTag()
                     context.startActivity(ContributionDetailsActivity.newIntent(context, contribution))
                 }
                 else -> {
-                    UserContributionFunnel.get().logViewMisc()
                     UserContributionEvent.logViewMisc()
                     context.startActivity(ArticleEditDetailsActivity.newIntent(context,
                             PageTitle(contribution.apiTitle, contribution.wikiSite), contribution.revId))

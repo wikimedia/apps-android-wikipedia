@@ -71,21 +71,21 @@ class TalkTopicsActivity : BaseActivity() {
             it.data?.let { intent ->
                 if (intent.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
                     val pos = intent.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
-                    if (pos < WikipediaApp.getInstance().language().appLanguageCodes.size) {
+                    if (pos < WikipediaApp.instance.languageState.appLanguageCodes.size) {
                         funnel?.logChangeLanguage()
 
                         val newNamespace = when {
                             pageTitle.namespace() == Namespace.USER -> {
-                                UserAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCodes[pos])
+                                UserAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCodes[pos])
                             }
                             pageTitle.namespace() == Namespace.USER_TALK -> {
-                                UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCodes[pos])
+                                UserTalkAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCodes[pos])
                             }
                             else -> pageTitle.namespace
                         }
 
                         pageTitle = PageTitle(newNamespace, StringUtil.removeNamespace(pageTitle.prefixedText),
-                            WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[pos]))
+                            WikiSite.forLanguageCode(WikipediaApp.instance.languageState.appLanguageCodes[pos]))
 
                         talkTopicsProvider.cancel()
                         talkTopicsProvider = TalkTopicsProvider(pageTitle)
@@ -355,7 +355,7 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private fun undoSave(newRevisionId: Long, topicId: Int, undoneSubject: String, undoneBody: String) {
-        disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
+        disposables.add(CsrfTokenClient.getToken(pageTitle.wikiSite)
             .subscribeOn(Schedulers.io())
             .flatMap { token -> ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(pageTitle.prefixedText, newRevisionId, token) }
             .subscribeOn(Schedulers.io())

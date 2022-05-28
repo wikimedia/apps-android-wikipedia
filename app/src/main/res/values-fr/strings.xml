@@ -94,12 +94,19 @@
   <string name="search_redirect_from">Redirigé depuis %s</string>
   <string name="page_edit_history_activity_title">Historique des versions : %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
-  <string name="page_edit_history_comment_placeholder">Résumé de modification vide</string>
+  <string name="page_edit_history_comment_placeholder">Résumé des modifications vide</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Rechercher ou filtrer des modifications</string>
+  <string name="page_edit_history_filter_by">Filtrer par</string>
+  <string name="page_edit_history_filter_by_all">Toutes les modifications (%s)</string>
+  <string name="page_edit_history_filter_by_user">Modifications par un utilisateur (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Modifications anonyme (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Modifications par robot (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Mesures de %1$s à %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d modification depuis %2$s</item>
     <item quantity="other">%1$d modifications depuis %2$s</item>
   </plurals>
-  <string name="page_edit_history_metrics_content_description">Mesures de %1$s à %2$s</string>
+  <string name="page_edit_history_empty_search_message">Essayez de changer les &lt;a href=\"#\"&gt;filtres&lt;/a&gt; pour voir davantage de modifications</string>
   <string name="menu_page_show_tabs">Afficher les onglets</string>
   <string name="menu_page_other_languages">Changer de langue</string>
   <string name="menu_page_find_in_page">Trouver dans l’article</string>
@@ -132,6 +139,7 @@
   <string name="on_this_day_page_share">Partager</string>
   <string name="reading_list_page_share">Partager</string>
   <string name="menu_text_select_edit_here">Modifier ici</string>
+  <string name="menu_edit_article">Modifier l’article</string>
   <string name="last_updated_text">Dernière modification le %s</string>
   <string name="talk_page_link_text">Afficher la page de discussion</string>
   <string name="edit_history_link_text">Afficher l’historique des modifications</string>
@@ -141,6 +149,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et placez définitivement vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et placez définitivement vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les modifications seront attribuées à l’adresse IP de votre équipement. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
+  <string name="edit_anon_warning">Les modifications seront attribuées à l’adresse IP de votre équipement. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
   <string name="preference_title_language">Langues de Wikipédia</string>
   <string name="langlinks_filter_hint">Rechercher</string>
   <string name="langlinks_empty">Cette page n’est pas disponible dans d’autres langues</string>

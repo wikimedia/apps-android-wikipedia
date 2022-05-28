@@ -1,7 +1,6 @@
 package org.wikipedia.feed.topread
 
 import android.os.Parcelable
-import androidx.annotation.VisibleForTesting
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
@@ -37,8 +36,6 @@ class TopReadListCard(private val articles: TopRead, val site: WikiSite) :
     }
 
     companion object {
-        @JvmStatic
-        @VisibleForTesting
         fun toItems(articles: List<PageSummary>, wiki: WikiSite): List<TopReadItemCard> {
             return articles.map { TopReadItemCard(it, wiki) }
         }

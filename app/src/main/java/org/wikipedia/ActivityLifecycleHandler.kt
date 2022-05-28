@@ -21,7 +21,7 @@ class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2
     }
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
-        val app = WikipediaApp.getInstance()
+        val app = WikipediaApp.instance
         if (activity is MainActivity) {
             haveMainActivity = true
         }

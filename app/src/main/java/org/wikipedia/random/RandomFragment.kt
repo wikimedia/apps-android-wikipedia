@@ -1,13 +1,13 @@
 package org.wikipedia.random
 
+import android.app.ActivityOptions
 import android.graphics.drawable.Animatable
 import android.os.Bundle
+import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
-import androidx.core.util.Pair
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -84,7 +84,7 @@ class RandomFragment : Fragment() {
         binding.randomBackButton.setOnClickListener { onBackClick() }
         binding.randomSaveButton.setOnClickListener { onSaveShareClick() }
 
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
+        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
 
         updateSaveShareButton()
         updateBackButton(0)
@@ -93,7 +93,7 @@ class RandomFragment : Fragment() {
             updateSaveShareButton(topTitle)
         }
 
-        funnel = RandomizerFunnel(WikipediaApp.getInstance(), wikiSite,
+        funnel = RandomizerFunnel(WikipediaApp.instance, wikiSite,
                 (arguments?.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? InvokeSource)!!)
 
         return view
@@ -159,7 +159,7 @@ class RandomFragment : Fragment() {
     }
 
     fun onSelectPage(title: PageTitle, sharedElements: Array<Pair<View, String>>) {
-        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
+        val options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
         val intent = PageActivity.newIntentForNewTab(requireContext(),
                 HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title)
 
@@ -269,7 +269,7 @@ class RandomFragment : Fragment() {
     }
 
     private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any?) {
+        override fun accept(event: Any) {
             if (event is ArticleSavedOrDeletedEvent) {
                 if (!isAdded || topTitle == null) {
                     return

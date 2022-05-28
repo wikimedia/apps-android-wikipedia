@@ -15,6 +15,7 @@
   <string name="search_hint">Pretraži Wikipediju</string>
   <string name="search_hint_voice_search">Pretraga glasom</string>
   <string name="search_hint_search_languages">Pronađi jezik</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtriraj moje spiskove</string>
   <string name="nav_item_suggested_edits">Izmjene</string>
   <string name="nav_item_more">Više</string>
   <string name="nav_item_search">Pretraži</string>
@@ -46,13 +47,34 @@
   <string name="share_via">Podijeli pomoću</string>
   <string name="image_share_via">Podijeli pomoću</string>
   <string name="search_redirect_from">Preusmjereno sa %s</string>
+  <string name="page_edit_history_activity_title">Historija izmjena: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Prazan sažetak izmjene</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Pretraži ili filtriraj izmjene</string>
+  <string name="page_edit_history_filter_by">Filtriraj po</string>
+  <string name="page_edit_history_filter_by_all">Sve izmjene (%s)</string>
+  <string name="page_edit_history_filter_by_user">Korisničke izmjene (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonimne izmjene (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Izmjene botova (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Metrika od %1$s do %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d izmjena od %2$s.</item>
+    <item quantity="few">%1$d izmjene od %2$s.</item>
+    <item quantity="other">%1$d izmjena od %2$s.</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Pokušaj promijeniti &lt;a href=\"#\"&gt;filtere&lt;/a&gt; da vidite više izmjena</string>
   <string name="menu_page_show_tabs">Prikaži kartice</string>
   <string name="menu_page_other_languages">Promijeni jezik</string>
   <string name="menu_page_find_in_page">Pronađi u članku</string>
   <string name="menu_page_add_to_watchlist">Dodaj na spisak praćenja</string>
+  <string name="menu_page_watch">Prati</string>
+  <string name="menu_page_unwatch">Prestani pratiti</string>
   <string name="menu_page_view_talk">Prikaži stranicu za razgovor</string>
+  <string name="menu_page_talk_page">Stranica za razgovor</string>
   <string name="menu_page_view_edit_history">Prikaži historiju izmjena</string>
+  <string name="menu_page_edit_history">Historija izmjena</string>
   <string name="menu_page_remove_from_watchlist">Ukloni sa spiska praćenja</string>
+  <string name="menu_page_watched">Praćeno</string>
   <string name="edit_section_find_in_page">Pronađi na stranici</string>
   <string name="menu_page_font_and_theme">Font i tema</string>
   <string name="menu_page_add_to_list">Dodaj na spisak za čitanje</string>
@@ -61,6 +83,7 @@
   <string name="feed_card_add_to_default_list">Sačuvaj</string>
   <string name="menu_page_share">Podijeli link</string>
   <string name="menu_article_share">Podijeli članak</string>
+  <string name="menu_page_article_share">Podijeli</string>
   <string name="menu_page_open_a_new_tab">Otvori novu karticu</string>
   <string name="menu_page_new_tab">Nova kartica</string>
   <string name="menu_page_reading_lists">Spiskovi za čitanje</string>
@@ -147,6 +170,7 @@
   <string name="dialog_create_account_checking_progress">Potvrđujem</string>
   <string name="create_account_email_hint">Adresa e-pošte (neobavezno)</string>
   <string name="create_account_password_repeat_hint">Ponovo upišite lozinku</string>
+  <string name="create_account_password_is_username">Lozinka ne može biti ista kao korisničko ime</string>
   <string name="create_account_passwords_mismatch_error">Lozinke se ne slažu</string>
   <string name="create_account_email_error">Neispravna adresa e-pošte</string>
   <string name="create_account_username_error">Neispravni znakovi u korisničkom imenu</string>
@@ -161,6 +185,7 @@
   <string name="create_account_button">Napravi korisnički račun</string>
   <string name="create_account_name_unavailable">Korisničko ime \"%s\" nije dostupno. Izaberite drugo.</string>
   <string name="create_account_ip_block_message">Vašoj IP-adresi trenutno je zabranjeno stvaranje novih računa.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detalji</string>
   <string name="preferences_general_heading">Općenito</string>
   <string name="preferences_account_heading">Račun</string>
@@ -171,13 +196,18 @@
   <string name="preferences_heading_data_usage">Upotreba podataka</string>
   <string name="preferences_heading_experimental">Eksperimentalno</string>
   <string name="preference_title_sync_reading_lists_from_account">Sinhronizacija spiska za čitanje</string>
+  <string name="preference_title_download_reading_list_articles">Preuzmi članke spiska za čitanje</string>
   <string name="preference_summary_sync_reading_lists">Sinhronizirajte spiskove za čitanje među raznim uređajima tako što ćete ih sačuvati na Vaš račun na Wikipediji</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Sinhroniziraj spiskove za čitanje na raznim uređajima tako što ćeš ih sačuvati na svoj Wikipedia račun \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Želiš ukloniti sinhronizirane spiskove za čitanje sa \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ovo će u potpunosti izbrisati sve prethodno sinhronizirane spiskove za čitanje iz memorije. Želiš ukloniti sve sinhronizirane spiske sa svog računa \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">Privatnost</string>
   <string name="preference_title_eventlogging_opt_in">Šalji izvještaje o korištenju</string>
   <string name="preference_summary_eventlogging_opt_in">Dozvolite Wikimediji da prikupi informacije o tom kako koristite aplikaciju da bismo je poboljšali</string>
   <string name="preference_title_auto_upload_crash_reports">Šalji izvještaje o rušenju aplikacije</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Dozvolite aplikaciji da automatski šalje izvještaje o rušenju aplikacije HockeyAppu / nezavisnom pružaocu usluga da bismo ih mogli pregledati i brže i lakše popraviti programsku grešku.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Dozvolite aplikaciji da automatski šalje izvještaje o tehničkim poteškoćama pružaocu usluga treće strane da bismo ih mogli pregledati i brže i lakše popraviti programsku grešku.</string>
   <string name="editing_error_spamblacklist">Otkriven link ka blokiranim domenama (%s). Uklonite ih i pokušajte ponovo.</string>
+  <string name="history_filter_list_hint">Historija filtera</string>
   <string name="error_can_not_process_link">Ne mogu prikazati link</string>
   <string name="page_protected_autoconfirmed">Ova stranica je poluzaštićena.</string>
   <string name="page_protected_sysop">Ova stranica je potpuno zaštićena.</string>
@@ -192,16 +222,23 @@
   <string name="about_description">O aplikaciji Wikipedia</string>
   <string name="privacy_policy_description">Pravila o privatnosti</string>
   <string name="terms_of_use_description">Uslovi korištenja</string>
+  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/bs</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Korištene biblioteke</string>
   <string name="about_contributors_heading">Saradnici</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Stranice ekipe&lt;/a&gt;</string>
   <string name="about_translators_heading">Prevodioci</string>
   <string name="about_translators_translatewiki">Aplikaciju su preveli dobrovoljci na sajtu &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenca</string>
-  <string name="about_app_license" fuzzy="true">Izvorni kôd dostupan je na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; pod &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licencom Apache 2.0&lt;/a&gt;. Osim gdje je drukčije navedeno, sadržaj je dostupan pod &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;slobodnom licencom Autorstvo-Dijeliti pod istim uvjetima&lt;/a&gt;.</string>
+  <string name="about_app_license">Izvorni kôd dostupan je na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; pod &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licencom Apache 2.0&lt;/a&gt;. Osim gdje je drukčije navedeno, sadržaj je dostupan pod &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;slobodnom licencom Autorstvo-Dijeliti pod istim uvjetima&lt;/a&gt;.</string>
   <string name="about_wmf">Proizvod &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondacije Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaciji</string>
   <string name="edit_abandon_confirm">Izmijenili ste stranicu. Jeste li sigurni da želite izaći bez da sačuvate izmjene?</string>
@@ -225,6 +262,9 @@
   <string name="edit_summary_tag_other_hint">Neki drugi načini na koje ste poboljšali ovu stranicu</string>
   <string name="edit_conflict_title">Sukob izmjena</string>
   <string name="edit_conflict_message">Stranicu je već izmijenio drugi korisnik i sadržaj je u suprotnosti s Vašim. Prekopirajte svoje izmjene, osvježite stranicu te je ponovo pokušajte izmijeniti.</string>
+  <string name="edit_notices">Uređivačke napomene</string>
+  <string name="edit_notices_please_read">Pročitaj prije uređivanja</string>
+  <string name="edit_notices_show_auto">Automatski prikaži uređivačke napomene</string>
   <string name="find_next">Pronađi sljedeće</string>
   <string name="find_previous">Pronađi prethodno</string>
   <string name="find_first_occurence">Ovo je prvo pojavljivanje</string>

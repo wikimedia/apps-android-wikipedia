@@ -23,7 +23,6 @@ class AppShortcuts {
         private const val APP_SHORTCUT_ID_RANDOM = "shortcutRandom"
         private const val APP_SHORTCUT_ID_SEARCH = "shortcutSearch"
 
-        @JvmStatic
         fun setShortcuts(app: Context) {
             CoroutineScope(Dispatchers.Default).launch(CoroutineExceptionHandler { _, msg -> run { L.e(msg) } }) {
                 val list = listOf(searchShortcut(app), continueReadingShortcut(app), randomShortcut(app))

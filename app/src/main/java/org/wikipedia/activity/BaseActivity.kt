@@ -5,7 +5,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
@@ -26,7 +25,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.LoginFunnel
-import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
@@ -50,7 +48,7 @@ import org.wikipedia.views.ImageZoomHelper
 abstract class BaseActivity : AppCompatActivity() {
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
     private val networkStateReceiver = NetworkStateReceiver()
-    private var previousNetworkState = WikipediaApp.getInstance().isOnline
+    private var previousNetworkState = WikipediaApp.instance.isOnline
     private val disposables = CompositeDisposable()
     private var currentTooltip: Balloon? = null
     private var imageZoomHelper: ImageZoomHelper? = null
@@ -58,7 +56,7 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         exclusiveBusMethods = ExclusiveBusConsumer()
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(NonExclusiveBusConsumer()))
+        disposables.add(WikipediaApp.instance.bus.subscribe(NonExclusiveBusConsumer()))
         setTheme()
         removeSplashBackground()
 
@@ -72,12 +70,11 @@ abstract class BaseActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         if (savedInstanceState == null) {
-            NotificationInteractionFunnel.processIntent(intent)
             NotificationInteractionEvent.processIntent(intent)
         }
 
         // Conditionally execute all recurring tasks
-        RecurringTasksExecutor(WikipediaApp.getInstance()).run()
+        RecurringTasksExecutor(WikipediaApp.instance).run()
         if (Prefs.isReadingListsFirstTimeSync && AccountUtil.isLoggedIn) {
             Prefs.isReadingListsFirstTimeSync = false
             Prefs.isReadingListSyncEnabled = true
@@ -105,29 +102,18 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
-        WikipediaApp.getInstance().sessionFunnel.persistSession()
+        WikipediaApp.instance.sessionFunnel.persistSession()
         super.onStop()
     }
 
     override fun onResume() {
         super.onResume()
-        WikipediaApp.getInstance().sessionFunnel.touchSession()
+        WikipediaApp.instance.sessionFunnel.touchSession()
 
         // allow this activity's exclusive bus methods to override any existing ones.
         unregisterExclusiveBusMethods()
         EXCLUSIVE_BUS_METHODS = exclusiveBusMethods
-        EXCLUSIVE_DISPOSABLE = WikipediaApp.getInstance().bus.subscribe(EXCLUSIVE_BUS_METHODS!!)
-    }
-
-    override fun applyOverrideConfiguration(configuration: Configuration) {
-        // TODO: remove when this is fixed:
-        // https://issuetracker.google.com/issues/141132133
-        // On Lollipop the current version of AndroidX causes a crash when instantiating a WebView.
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M &&
-                resources.configuration.uiMode == WikipediaApp.getInstance().resources.configuration.uiMode) {
-            return
-        }
-        super.applyOverrideConfiguration(configuration)
+        EXCLUSIVE_DISPOSABLE = WikipediaApp.instance.bus.subscribe(EXCLUSIVE_BUS_METHODS!!)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -178,7 +164,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected open fun setTheme() {
-        setTheme(WikipediaApp.getInstance().currentTheme.resourceId)
+        setTheme(WikipediaApp.instance.currentTheme.resourceId)
     }
 
     protected open fun onGoOffline() {}
@@ -212,7 +198,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     private inner class NetworkStateReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            val isDeviceOnline = WikipediaApp.getInstance().isOnline
+            val isDeviceOnline = WikipediaApp.instance.isOnline
             if (isDeviceOnline) {
                 if (!previousNetworkState) {
                     onGoOnline()

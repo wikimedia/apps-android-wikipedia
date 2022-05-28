@@ -15,7 +15,6 @@ object LanguageUtil {
     private const val MACAU_COUNTRY_CODE = "MO"
     private val TRADITIONAL_CHINESE_COUNTRY_CODES = listOf(Locale.TAIWAN.country, HONG_KONG_COUNTRY_CODE, MACAU_COUNTRY_CODE)
 
-    @JvmStatic
     val availableLanguages: List<String>
         get() {
             val languages = mutableListOf<String>()
@@ -34,7 +33,7 @@ object LanguageUtil {
             }
 
             // Query the installed keyboard languages, and add them to the list, if they don't exist.
-            val imm = WikipediaApp.getInstance().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            val imm = WikipediaApp.instance.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             val ims = imm.enabledInputMethodList ?: emptyList()
             val langTagList = mutableListOf<String>()
             for (method in ims) {
@@ -109,7 +108,7 @@ object LanguageUtil {
     val firstSelectedChineseVariant: String
         get() {
             val firstSelectedChineseLangCode =
-                WikipediaApp.getInstance().language().appLanguageCodes.firstOrNull {
+                WikipediaApp.instance.languageState.appLanguageCodes.firstOrNull {
                     isChineseVariant(it)
                 }
             return firstSelectedChineseLangCode.orEmpty()

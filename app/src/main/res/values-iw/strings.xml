@@ -69,13 +69,20 @@
   <string name="page_edit_history_activity_title">היסטוריית גרסאות:  %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;מ&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">תקציר עריכה ריק</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">חיפוש או סינון של עריכות</string>
+  <string name="page_edit_history_filter_by">לסנן לפי</string>
+  <string name="page_edit_history_filter_by_all">כל העריכות (%s)</string>
+  <string name="page_edit_history_filter_by_user">עריכות משתמש (%s)</string>
+  <string name="page_edit_history_filter_by_anon">עריכות אלמוניות (%s)</string>
+  <string name="page_edit_history_filter_by_bot">עריכות בוט (%s)</string>
+  <string name="page_edit_history_metrics_content_description">מדדים מאז %1$s עד %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">עריכה %1$d מאז %2$s</item>
     <item quantity="two">%1$d עריכות מאז %2$s</item>
     <item quantity="many">%1$d עריכות מאז %2$s</item>
     <item quantity="other">%1$d עריכות מאז %2$s</item>
   </plurals>
-  <string name="page_edit_history_metrics_content_description">מדדים מאז %1$s עד %2$s</string>
+  <string name="page_edit_history_empty_search_message">נא לנסות לשנות את &lt;a href=\"#\"&gt;המסננים&lt;/a&gt; כדי לראות יותר עריכות</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בערך</string>
@@ -108,6 +115,7 @@
   <string name="on_this_day_page_share">שיתוף</string>
   <string name="reading_list_page_share">שיתוף</string>
   <string name="menu_text_select_edit_here">לערוך כאן</string>
+  <string name="menu_edit_article">לערוך את הערך</string>
   <string name="last_updated_text">עודכן לאחרונה %s</string>
   <string name="talk_page_link_text">הצגת דף השיחה</string>
   <string name="edit_history_link_text">הצגת היסטוריית עריכות</string>
@@ -117,6 +125,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
+  <string name="edit_anon_warning">עריכות ייוחסו לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך פרטיות רבה יותר.</string>
   <string name="preference_title_language">שפות ויקיפדיה</string>
   <string name="langlinks_filter_hint">חיפוש</string>
   <string name="langlinks_empty">הדף הזה אינו זמין בשפות אחרות</string>

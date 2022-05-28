@@ -10,7 +10,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
@@ -118,7 +117,7 @@ class NotificationViewModel : ViewModel() {
 
     private fun delimitedWikiList(): String {
         return dbNameMap.keys.union(NotificationFilterActivity.allWikisList().map {
-            val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
+            val defaultLangCode = WikipediaApp.instance.languageState.getDefaultLanguageCode(it) ?: it
             "${defaultLangCode.replace("-", "_")}wiki"
         }).joinToString("|")
     }
@@ -132,7 +131,7 @@ class NotificationViewModel : ViewModel() {
 
     fun fetchAndSave() {
         viewModelScope.launch(handler) {
-            if (WikipediaApp.getInstance().isOnline) {
+            if (WikipediaApp.instance.isOnline) {
                 withContext(Dispatchers.IO) {
                     currentContinueStr = notificationRepository.fetchAndSave(delimitedWikiList(), "read|!read", currentContinueStr)
                 }
@@ -166,13 +165,12 @@ class NotificationViewModel : ViewModel() {
                     Constants.WIKIDATA_DB_NAME -> Constants.wikidataWikiSite
                     else -> {
                         val langCode = StringUtil.dbNameToLangCode(notification.wiki)
-                        WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode)
+                        WikiSite.forLanguageCode(WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode) ?: langCode)
                     }
                 }
             }
             notificationsPerWiki.getOrPut(wiki) { ArrayList() }.add(notification)
             if (!markUnread) {
-                NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
                 NotificationInteractionEvent.logMarkRead(notification, selectionKey)
             }
         }

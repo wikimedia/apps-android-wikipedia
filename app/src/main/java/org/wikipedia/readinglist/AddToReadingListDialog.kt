@@ -212,16 +212,12 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         const val PAGE_TITLE_LIST = "pageTitleList"
         const val SHOW_DEFAULT_LIST = "showDefaultList"
 
-        @JvmStatic
-        @JvmOverloads
         fun newInstance(title: PageTitle,
                         source: InvokeSource,
                         listener: DialogInterface.OnDismissListener? = null): AddToReadingListDialog {
             return newInstance(listOf(title), source, listener)
         }
 
-        @JvmStatic
-        @JvmOverloads
         fun newInstance(titles: List<PageTitle>,
                         source: InvokeSource,
                         listener: DialogInterface.OnDismissListener? = null): AddToReadingListDialog {
