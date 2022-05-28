@@ -46,7 +46,7 @@ class WikipediaApp : Application() {
     val languageState by lazy { AppLanguageState(this) }
     val funnelManager by lazy { FunnelManager(this) }
     val sessionFunnel by lazy { SessionFunnel(this) }
-    val userAgent: String by lazy {
+    val userAgent by lazy {
         var channel = ReleaseUtil.getChannel(this)
         channel = if (channel.isBlank()) "" else " $channel"
         String.format("WikipediaApp/%s (Android %s; %s; %s Build/%s)%s",
