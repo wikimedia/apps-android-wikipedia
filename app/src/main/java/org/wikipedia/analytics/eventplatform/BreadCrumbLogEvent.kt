@@ -19,7 +19,10 @@ class BreadCrumbLogEvent(private val screen_name: String,
 
         fun logClick(activity: BaseActivity, view: View?) {
             // EventPlatformClient.submit(BreadCrumbLogEvent(screenName, BreadCrumbViewUtil.getLogNameForView(view), WikipediaApp.getInstance().language().appLanguageCode))
-            Log.e("|BREADCRUMB|", "|SCREEN|\t|" + BreadCrumbViewUtil.getReadableScreenName(activity) + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_view_click, BreadCrumbViewUtil.getLogNameForView(view)) + "|")
+            val viewReadableName = BreadCrumbViewUtil.getLogNameForView(view)
+            if (viewReadableName != activity.getString(R.string.breadcrumb_view_unnamed)) {
+                Log.e("|BREADCRUMB|", "|SCREEN|\t|" + BreadCrumbViewUtil.getReadableScreenName(activity) + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_view_click, viewReadableName) + "|")
+            }
         }
 
         fun logSwipe(activity: BaseActivity, isRtlSwipe: Boolean) {
@@ -28,6 +31,10 @@ class BreadCrumbLogEvent(private val screen_name: String,
 
         fun logScreenShown(activity: BaseActivity) {
             Log.e("|BREADCRUMB|", "|SCREEN|\t|" + BreadCrumbViewUtil.getReadableScreenName(activity) + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_screen_shown) + "|")
+        }
+
+        fun logBackPress(activity: BaseActivity) {
+            Log.e("|BREADCRUMB|", "|SCREEN|\t|" + BreadCrumbViewUtil.getReadableScreenName(activity) + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_screen_back_press) + "|")
         }
     }
 }

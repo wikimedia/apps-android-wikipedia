@@ -1,6 +1,5 @@
 package org.wikipedia.analytics.eventplatform
 
-import android.content.res.Resources
 import android.view.View
 import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
@@ -21,22 +20,29 @@ import org.wikipedia.onboarding.InitialOnboardingFragment.OnboardingPage
 object BreadCrumbViewUtil {
 
     fun getLogNameForView(view: View?): String {
-        if (view?.parent != null && view.parent is RecyclerView) {
-            val position = (view.parent as RecyclerView).getChildViewHolder(view).layoutPosition + 1
-            if (view is ListCardItemView) {
-                var currentParent = view.parent
-                while (currentParent !is ListCardView<*>) {
-                    if (currentParent.parent != null) {
-                        currentParent = currentParent.parent
-                    } else {
-                        return view.context?.getString(R.string.breadcrumb_view_with_position, getLogNameForView(view.parent as RecyclerView), position).orEmpty()
+        view?.let {
+            val context = it.context
+            context?.let { viewContext ->
+                if (it.parent != null && it.parent is RecyclerView) {
+                    val position =
+                        (it.parent as RecyclerView).getChildViewHolder(it).layoutPosition + 1
+                    if (it is ListCardItemView) {
+                        var currentParent = it.parent
+                        while (currentParent !is ListCardView<*>) {
+                            if (currentParent.parent != null) {
+                                currentParent = currentParent.parent
+                            } else {
+                                return viewContext.getString(R.string.breadcrumb_view_with_position, getLogNameForView(it.parent as RecyclerView), position)
+                            }
+                        }
+                        return viewContext.getString(R.string.breadcrumb_view_with_position, currentParent.javaClass.simpleName, position)
                     }
+                    return viewContext.getString(R.string.breadcrumb_view_with_position, getLogNameForView(it.parent as RecyclerView), position)
                 }
-                return view.context?.getString(R.string.breadcrumb_view_with_position, currentParent.javaClass.simpleName, position).orEmpty()
+                return if (it.id == View.NO_ID) context.getString(R.string.breadcrumb_view_unnamed) else getViewResourceName(it)
             }
-            return view.context?.getString(R.string.breadcrumb_view_with_position, getLogNameForView(view.parent as RecyclerView), position).orEmpty()
         }
-        return view?.let { if (it.id == View.NO_ID) "no-id" else getViewResourceName(it) }.orEmpty()
+        return "unnamed"
     }
 
     private fun getViewResourceName(view: View): String {
@@ -45,10 +51,8 @@ object BreadCrumbViewUtil {
                 return view.context.getString(R.string.breadcrumb_switch_view_click, view.resources.getResourceEntryName(view.id), if (!view.isChecked) view.context.getString(R.string.breadcrumb_switch_view_state_on) else view.context.getString(R.string.breadcrumb_switch_view_state_off))
             }
             view.resources.getResourceEntryName(view.id)
-        } catch (e: Resources.NotFoundException) {
-            "unnamed view"
         } catch (e: Exception) {
-            ""
+            view.context.getString(R.string.breadcrumb_view_unnamed)
         }
     }
 

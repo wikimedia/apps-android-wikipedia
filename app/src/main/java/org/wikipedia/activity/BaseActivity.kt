@@ -151,6 +151,11 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        BreadCrumbLogEvent.logBackPress(this)
+    }
+
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
                                             grantResults: IntArray) {
         when (requestCode) {
