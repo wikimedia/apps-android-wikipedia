@@ -976,7 +976,7 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Gestern</string>
-  <string name="suggested_edits_encourage_account_creation_title">Wussten Sie, dass jeder Wikipedia bearbeiten kann?</string>
+  <string name="suggested_edits_encourage_account_creation_title">Wusstest du, dass jeder Wikipedia bearbeiten kann?</string>
   <string name="suggested_edits_encourage_account_creation_message">Vorgeschlagene Bearbeitungen ist eine neue Art, Wikipedia auf Android zu bearbeiten. Es hilft dir, kleine aber wichtige Beiträge zu Wikipedia zu leisten.\nUnser Ziel ist es, das Editieren einfacher und zugänglicher für alle zu machen! Logge dich ein oder schließe dich Wikipedia an, um anzufangen.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Anmelden / Wikipedia beitreten</string>
   <string name="suggested_edits_contribution_type_image_tag">Bild-Tags</string>
@@ -1086,7 +1086,7 @@
   <string name="main_drawer_help">Hilfe</string>
   <string name="main_drawer_login">Anmelden / Wikipedia beitreten</string>
   <string name="main_tooltip_text">%s, wussten Sie das jeder Wikipedia editieren kann?</string>
-  <string name="main_tooltip_text_v2">Wussten Sie, dass jeder Wikipedia bearbeiten kann?</string>
+  <string name="main_tooltip_text_v2">Wusstest du, dass jeder Wikipedia bearbeiten kann?</string>
   <string name="main_tooltip_action_button">Loslegen</string>
   <string name="main_tooltip_watchlist_title">Beobachtungsliste</string>
   <string name="main_tooltip_watchlist_text">Artikel und Seiten, die du zuvor zu deiner Beobachtungsliste hinzugefügt hast, findest du im Mehr-Menü unter &lt;b&gt;Beobachtungsliste&lt;/b&gt;.</string>
