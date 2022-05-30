@@ -5,6 +5,7 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.button.MaterialButton
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleFragmentActivity
@@ -49,6 +50,9 @@ object BreadCrumbViewUtil {
         return try {
             if (view is SwitchCompat) {
                 return view.context.getString(R.string.breadcrumb_switch_view_click, view.resources.getResourceEntryName(view.id), if (!view.isChecked) view.context.getString(R.string.breadcrumb_switch_view_state_on) else view.context.getString(R.string.breadcrumb_switch_view_state_off))
+            }
+            if(view.id == R.id.footerActionButton){
+               return (view as MaterialButton).text.toString()
             }
             view.resources.getResourceEntryName(view.id)
         } catch (e: Exception) {
