@@ -2,6 +2,7 @@ package org.wikipedia.analytics.eventplatform
 
 import android.content.res.Resources
 import android.view.View
+import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
@@ -40,6 +41,9 @@ object BreadCrumbViewUtil {
 
     private fun getViewResourceName(view: View): String {
         return try {
+            if (view is SwitchCompat) {
+                return view.context.getString(R.string.breadcrumb_switch_view_click, view.resources.getResourceEntryName(view.id), if (!view.isChecked) view.context.getString(R.string.breadcrumb_switch_view_state_on) else view.context.getString(R.string.breadcrumb_switch_view_state_off))
+            }
             view.resources.getResourceEntryName(view.id)
         } catch (e: Resources.NotFoundException) {
             "unnamed view"
