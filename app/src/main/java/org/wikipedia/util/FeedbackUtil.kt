@@ -17,6 +17,7 @@ import com.skydoves.balloon.*
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.databinding.ViewPlainTextTooltipBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.main.MainActivity
@@ -157,7 +158,7 @@ object FeedbackUtil {
 
     fun showTooltip(activity: Activity, anchor: View, text: CharSequence, aboveOrBelow: Boolean,
                     autoDismiss: Boolean, arrowAnchorPadding: Int = 0, topOrBottomMargin: Int = 0): Balloon {
-        return showTooltip(activity, getTooltip(anchor.context, text, autoDismiss, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow), anchor, aboveOrBelow, autoDismiss)
+        return showTooltip(activity, getTooltip(anchor, text, autoDismiss, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow), anchor, aboveOrBelow, autoDismiss)
     }
 
     fun showTooltip(activity: Activity, anchor: View, @LayoutRes layoutRes: Int,
@@ -177,15 +178,16 @@ object FeedbackUtil {
         return balloon
     }
 
-    fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean, arrowAnchorPadding: Int = 0,
+    fun getTooltip(anchor: View, text: CharSequence, autoDismiss: Boolean, arrowAnchorPadding: Int = 0,
                    topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false): Balloon {
-        val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
+        BreadCrumbLogEvent.logTooltipShown(anchor.context as Activity, anchor)
+        val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(anchor.context))
         binding.textView.text = text
         if (showDismissButton) {
             binding.buttonView.visibility = View.VISIBLE
         }
 
-        val balloon = createBalloon(context) {
+        val balloon = createBalloon(anchor.context) {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
             setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
             setArrowOrientationRules(ArrowOrientationRules.ALIGN_ANCHOR)
@@ -194,7 +196,7 @@ object FeedbackUtil {
             setMarginRight(8)
             setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)
             setMarginBottom(if (aboveOrBelow) topOrBottomMargin else 0)
-            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
+            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(anchor.context, R.attr.colorAccent))
             setDismissWhenTouchOutside(autoDismiss)
             setLayout(binding.root)
             setWidth(BalloonSizeSpec.WRAP)

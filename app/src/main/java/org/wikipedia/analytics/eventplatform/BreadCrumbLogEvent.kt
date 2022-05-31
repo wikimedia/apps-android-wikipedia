@@ -1,5 +1,6 @@
 package org.wikipedia.analytics.eventplatform
 
+import android.app.Activity
 import android.util.Log
 import android.view.View
 import kotlinx.serialization.SerialName
@@ -35,6 +36,10 @@ class BreadCrumbLogEvent(private val screen_name: String,
 
         fun logBackPress(activity: BaseActivity) {
             Log.e("|BREADCRUMB|", "|SCREEN|\t|" + BreadCrumbViewUtil.getReadableScreenName(activity) + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_screen_back_press) + "|")
+        }
+
+        fun logTooltipShown(activity: Activity, anchor: View) {
+            Log.e("|BREADCRUMB|", "|SCREEN|\t|" + activity.javaClass.simpleName + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_tooltip_shown_on_view, BreadCrumbViewUtil.getLogNameForView(anchor)) + "|")
         }
     }
 }

@@ -97,4 +97,5 @@
     <string name="breadcrumb_screen_swiped_left_on">swiped left on</string>
     <string name="breadcrumb_screen_fragment_name">%s screen %s</string>
     <string name="breadcrumb_view_unnamed">unnamed</string>
+    <string name="breadcrumb_tooltip_shown_on_view">tooltip shown on %s</string>
 </resources>
