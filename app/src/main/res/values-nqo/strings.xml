@@ -50,6 +50,7 @@
   <string name="share_via">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫ ߛߌߟߊ ߣߌ߲߬ ߝߍ߬</string>
   <string name="image_share_via">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫ ߛߌߟߊ ߣߌ߲߬ ߝߍ߬</string>
   <string name="search_redirect_from">ߟߊߞߎ߲߬ߛߌ߲߬ߣߍ߲߬ ߞߊ߬ ߓߐ߫ %s</string>
+  <string name="page_edit_history_activity_title">ߟߢߊ߬ߟߌ ߘߐ߬ߝߐ: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;ߡ&lt;b/&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߫ ߘߐߞߏߟߏ߲ ߠߎ߬ ߟߊߘߛߏߟߌ</string>
   <string name="page_edit_history_search_or_filter_edits_hint">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬ ߢߌߣߌ߲߫ ߥߟߊ߫ ߞߵߊ߬ߟߎ߫ ߛߍ߲ߛߍ߲߫</string>
@@ -559,6 +560,7 @@
   <string name="preference_summary_notification_revert">ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߮ߞߊ߲ ߞߋߟߋ߲߫ ߞߎ߲߬ߠߊߛߊ߬ߦߌ߬ߣߍ߲ ߠߋ߬ ߕߘߍ߬</string>
   <string name="preference_title_notification_login_fail">ߌ ߜߊ߲߬ߞߎ߲߫</string>
   <string name="preference_summary_notification_login_fail">ߌ ߟߊ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߡߛߍ߬ߞߍ߬ߡߛߍߞߍ ߟߎ߫</string>
+  <string name="preference_title_notification_mention">ߞߏߝߐߟߌ</string>
   <string name="preference_summary_notification_mention">ߘߏߕߌ߰ ߓߘߴߌ ߕߐ߮ ߘߐߕߍ߰ ߞߐߜߍ ߘߐ߫</string>
   <string name="preference_title_notification_user_talk">ߞߎߡߊߢߐ߲߯ߦߊ߫ ߞߐߜߍ</string>
   <string name="preference_summary_notification_user_talk">ߗߋߛߓߍ ߣߴߊ߬ ߖߋ߬ߓߌ ߞߊ߬ ߝߘߊ߫ ߞߎߡߊߢߐ߲߯ߦߊ߫ ߞߐߜߍ ߟߎ߫ ߟߊ߫</string>
@@ -569,6 +571,7 @@
   <string name="preference_title_notification_article_linked">ߌ ߟߊ߫ ߞߎߡߘߊ߫ ߛߌ߲ߘߌߣߍ߲ ߠߎ߬ ߛߘߌ߬ߜߋ߲</string>
   <string name="preference_summary_notification_article_linked">ߊ߬ ߟߊߛߐ߬ߘߐ߲߬ߣߍ߲߫ ߦߋ߫ ߟߋ߬ ߓߊߏ߬ ߛߘߌ߬ߜߋ߲ ߘߏ߫ ߓߘߊ߫ ߝߙߊ߬ ߌ ߟߊ߫ ߞߐߜߍ߫ ߛߌ߲ߘߌߣߍ߲ ߠߊ߫</string>
   <string name="preference_category_push_notifications">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߘߌ߯</string>
+  <string name="preference_title_customize_push_notifications">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߗߋߟߌ ߘߎ߲߬ߘߎ߬ߡߊ߬ߦߊ߫</string>
   <string name="preference_category_display_settings">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ ߟߎ߫</string>
   <string name="preference_title_hide_read_notifications">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߬ ߘߐߞߊ߬ߙߊ߲߬ߣߍ߲ ߠߎ߬ ߢߡߊߘߏ߲߰</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">ߥߞߌߔߋߘߌߦߊ</string>
@@ -581,6 +584,7 @@
   <string name="notifications_empty_search_message">ߌ ߞߊߘߊ߲߫ ߞߊ߬ %s ߓߐ߫ ߦߋ߲߬ ߛߴߌ ߘߌ߫ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߫ ߜߘߍ߫ ߟߎ߫ ߦߋ߫</string>
   <string name="notifications_select_all_filters">ߛߍ߲ߛߍ߲ߟߊ߲ ߠߎ߬ ߓߍ߯ ߓߊߕߐ߬ߡߐ߲߫</string>
   <string name="notifications_tab_filter_all">ߊ߬ ߓߍ߯</string>
+  <string name="notifications_tab_filter_mentions">ߞߏߝߐߟߌ ߟߎ߫</string>
   <string name="notifications_search_bar_hint">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߢߌߣߌ߲߫ ߥߟߊ߫ ߞߵߊ߬ߟߎ߫ ߛߍ߲ߛߍ߲߫</string>
   <string name="notifications_search_bar_filter_hint">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߛߍ߲ߛߍ߲ߟߊ߲</string>
   <string name="notifications_menu_mark_as_read">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
@@ -685,8 +689,16 @@
   <string name="description_edit_success_did_you_know">ߌ ߞߵߊ߬ ߟߐ߲߫ ߓߊ߬؟</string>
   <string name="description_edit_tutorial_title_descriptions">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ</string>
   <string name="description_edit_tutorial_keep_it_short">ߊ߬ ߕߏ߫ ߛߎ߬ߘߎ߲߬ߧߊ ߘߐ߫</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">ߛߌ߬ߕߊ߬ߙߌ߬ ߞߋߟߋ߲߫ ߛߌ߲ߞߐ߲ߦߕߊ߸ ߞߎߡߊߘߋ߲߫ ߝߌ߬ߟߊ߫ ߣߌ߫ ߕߊ߲ߣߌߝߌ߬ߟߊ ߟߎ߬ ߕߍ߫</string>
   <string name="description_edit_tutorial_button_label_start_editing">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߊߡߌ߬ߣߊ߬</string>
+  <string name="description_edit_tutorial_promise">ߊ߬ ߘߊߡߌߣߊߟߌ ߘߐ߫߸ ߒ ߓߘߊ߫ ߟߊ߬ߤߘߌ ߕߊ߬ ߞߏ߫ ߒ ߕߍߣߊ߬ ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߡߜߊߣߊ߲ߦߊ߫ ߟߊ߫.</string>
+  <string name="customize_toolbar_title">ߖߐ߯ߙߊ߲߫ ߝߙߊߕߌ ߘߎ߲߬ߘߎ߬ߡߊ߬ߦߊ߫</string>
+  <string name="customize_toolbar_description_text">ߘߎ߰ߟߊ߬ߘߐ߫ ߖߐ߯ߙߊ߲߫ ߝߙߊߕߌ ߘߎ߲߬ߘߎ߬ߡߊ߬ߦߊ߫ ߛߘߌ߬ߜߋ߲߫ ߅ ߟߎ߫ ߟߊ߫ ߌ ߣߊ߬ ߡߍ߲ ߠߎ߬ ߦߋ߫ ߟߊ߫ ߘߍ߬ߡߍ߲߬ߝߋ߲߫ ߓߘߍߓߘߍ ߘߌ߫.</string>
   <string name="customize_toolbar_category_toolbar">ߖߐ߯ߙߊ߲߫ ߝߙߊߕߌ</string>
+  <string name="customize_toolbar_category_menu">ߢߣߊߕߊߟߌ</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">ߌ ߘߌߦߊߣߍ߲߫ ߝߛߌ ߟߎ߬ ߕߍ߬ߙߍ߲߬ߘߍ߫ ߞߵߊ߬ߟߎ߫ ߓߌ߬ߟߊ߫ ߦߊ߲߬ 👋</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">ߛߌ߲ߞߐ߲ ߘߐߖߊ߬ ߞߵߊ߬ ߛߊ߬ߡߊ߲߫ ߞߊ߬ ߝߌ߬ߛߌ ߓߴߊ߬ ߣߐ߭ ߘߐ߫</string>
+  <string name="customize_toolbar_item_default_tooltip">ߝߌ߬ߛߌ ߘߌ߯ ߞߵߊ߬ ߛߊ߬ߡߊ߲߫ ߞߵߊ߬ ߛߌ߰ߝߊߘߌ ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="suggested_edits_describe_articles">ߞߎߡߘߊ ߟߎ߬ ߛߓߍ߫</string>
   <string name="suggested_edits_caption_images">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍ߬ߟߌ߬ߡߊ ߟߎ߬</string>
   <string name="suggested_edits_tag_images">ߖߌ߬ߦߊ߬ߓߍ߫ ߘߎ߲ߛߓߍ ߟߎ߬</string>
@@ -763,6 +775,8 @@
   <string name="suggested_edits_paused_message">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ ߟߊߟߐ߬ߣߍ߲߫ ߝߏ߫ %1$s߸ %2$s ߤߊߞߍ߬ߕߏ߫߸ ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲߫ ߠߊߓߊ߲ ߘߏ߫ ߟߎ߫ ߓߘߊ߫ ߟߊߕߊ߲߬ߞߌ߫.</string>
   <string name="suggested_edits_disabled_message">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ ߓߘߊ߫ ߓߴߊ߬ ߟߊ߫. %s ߤߊߞߍ߬ߕߏ߫߸ ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߥߙߍߓߊߓߊ ߟߎ߬ ߓߘߊ߫ ߟߊߕߊ߲߬ߞߌ߫.</string>
   <string name="suggested_edits_ip_blocked_message">ߊ߬ ߞߍߣߍ߲߫ ߦߴߌ ߟߊ߫ IP ߛߊ߲߬ߓߊ߬ߕߐ߮ (ߥߟߊ߫ IP ߛߊ߲߬ߓߊ߬ߕߐ߮ ߛߙߍߘߍ) ߓߊ߬ߟߌ߬ߣߍ߲߫ ߦߋ߫ ߥߊ߯ߕߌ ߣߌ߲߬ ߠߊ߫ ߞߊ߬ ߓߐ߫ ߥߞߌߔߋߘߌߦߊ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߡߊ߬.</string>
+  <string name="suggested_edits_editing_tips_link_text">ߓߘߎߓߘߎ ߣߌ߫ ߞߋ߬ߥߎ߬ߦߊ߬ߞߏ ߟߎ߬ ߡߊߦߟߍ߬ߡߊ߲߫</string>
+  <string name="suggested_edits_help_page_link_text">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߞߎ߲߬ߦߌ߬ߘߊ߬ߟߌ ߟߎ߬ ߘߍ߬ߡߍ߲߬ߠߌ߲߫ ߞߐߜߍ</string>
   <string name="suggested_edits_edit_streak_label_text">ߜߋ߬ߙߋ ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="suggested_edits_views_label_text">ߦߌ߬ߘߊ߬ߟߌ</string>
   <string name="suggested_edits_quality_label_text">ߛߎ߯ߦߊ ߡߊߦߟߍ߬ߡߊ߲߫</string>
