@@ -295,7 +295,7 @@
   <string name="clear_recent_searches_confirm_yes">Ha</string>
   <string name="clear_recent_searches_confirm_no">Yo‘q</string>
   <string name="error_browser_not_found">Veb-sahifani ochib boʻlmadi (brauzer ilovasi mavjud emas).</string>
-  <string name="table_infobox">Tezkor faktlar</string>
+  <string name="table_infobox">Qisqa faktlar</string>
   <string name="table_other">Batafsil maʼlumot</string>
   <string name="table_close">Yopmoq</string>
   <string name="widget_name_featured_page">Tanlangan sahifa</string>
