@@ -52,7 +52,8 @@ data class PageTitle(
         get() = _namespace.orEmpty()
         set(value) {
             _namespace = value
-            _displayText = if (value.isEmpty()) _displayText else StringUtil.removeUnderscores(value) + ":" + StringUtil.removeNamespace(_displayText.orEmpty())
+            // TODO: fix the issue when entering an user talk page from a user page in PageActivity
+            _displayText = if (value.isEmpty()) _displayText else StringUtil.removeUnderscores(value) + ":" + _displayText
         }
 
     val isFilePage: Boolean

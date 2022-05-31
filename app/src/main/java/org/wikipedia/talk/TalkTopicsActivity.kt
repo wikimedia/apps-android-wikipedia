@@ -302,7 +302,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
         if (pageTitle.namespace() == Namespace.USER_TALK) {
             binding.talkFooter.viewPageIcon.setImageResource(R.drawable.ic_user_avatar)
-            binding.talkFooter.viewPageTitle.text = getString(R.string.talk_footer_view_user_profile)
+            binding.talkFooter.viewPageTitle.text = getString(R.string.talk_footer_view_user_page)
         } else {
             binding.talkFooter.viewPageIcon.setImageResource(R.drawable.ic_article_ltr_ooui)
             binding.talkFooter.viewPageTitle.text = getString(R.string.talk_footer_view_article)

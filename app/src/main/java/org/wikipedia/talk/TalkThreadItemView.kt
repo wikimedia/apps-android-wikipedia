@@ -70,7 +70,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         binding.profileImage.visibility = if (binding.userNameText.isVisible) View.VISIBLE else View.INVISIBLE
         binding.timeStampText.isVisible = item.date != null
         item.date?.let {
-            binding.timeStampText.text = DateUtil.getDateAndTimeWithPipe(it)
+            binding.timeStampText.text = DateUtil.getTimeAndDateString(it)
             StringUtil.highlightAndBoldenText(binding.timeStampText, searchQuery, true, Color.YELLOW)
         }
         binding.bodyText.text = StringUtil.fromHtml(item.html).trim()

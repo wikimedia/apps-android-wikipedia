@@ -37,9 +37,9 @@ class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = 
         if (timestamp.isNotBlank()) {
             val createdYear = DateUtil.getYearOnlyDateString(DateUtil.iso8601DateParse(timestamp))
             val calendar = Calendar.getInstance()
-            val today = DateUtil.getMDYDateString(calendar.time)
+            val today = DateUtil.getShortDateString(calendar.time)
             calendar.add(Calendar.YEAR, -1)
-            val lastYear = DateUtil.getMDYDateString(calendar.time)
+            val lastYear = DateUtil.getShortDateString(calendar.time)
             binding.editCountsView.text = context.resources.getQuantityString(R.plurals.page_edit_history_article_edits_since_year,
                     editHistoryStats.allEdits.count, editHistoryStats.allEdits.count, createdYear)
             binding.statsGraphView.setData(editHistoryStats.metrics.map { it.edits.toFloat() })
