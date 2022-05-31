@@ -204,6 +204,10 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         onLangButtonClick()
     }
 
+    override fun getLangCode(): String {
+        return searchLanguageCode
+    }
+
     override fun setSearchText(text: CharSequence) {
         binding.searchCabView.setQuery(text, false)
     }

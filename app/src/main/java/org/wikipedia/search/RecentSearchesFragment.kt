@@ -12,16 +12,18 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchRecentBinding
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryResult
+import org.wikipedia.page.Namespace
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 
@@ -29,12 +31,14 @@ class RecentSearchesFragment : Fragment() {
     interface Callback {
         fun switchToSearch(text: String)
         fun onAddLanguageClicked()
+        fun getLangCode(): String
     }
 
     private var _binding: FragmentSearchRecentBinding? = null
     private val binding get() = _binding!!
     var callback: Callback? = null
-    var recentSearchList = mutableListOf<RecentSearch>()
+    val recentSearchList = mutableListOf<RecentSearch>()
+    private val namespaceMap = mutableMapOf<Namespace, String>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSearchRecentBinding.inflate(inflater, container, false)
@@ -55,6 +59,7 @@ class RecentSearchesFragment : Fragment() {
         }
         binding.addLanguagesButton.setOnClickListener { onAddLangButtonClick() }
         binding.recentSearchesRecycler.layoutManager = LinearLayoutManager(requireActivity())
+        binding.namespacesRecycler.layoutManager = LinearLayoutManager(requireActivity(), RecyclerView.HORIZONTAL, false)
         val touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         touchCallback.swipeableEnabled = true
         val itemTouchHelper = ItemTouchHelper(touchCallback)
@@ -103,11 +108,27 @@ class RecentSearchesFragment : Fragment() {
 
     suspend fun updateList() {
         try {
-            val searches = withContext(Dispatchers.IO) {
-                AppDatabase.instance.recentSearchDao().getRecentSearches()
+            val searches: List<RecentSearch>
+            val nsMap: Map<String, MwQueryResult.Namespace>
+            withContext(Dispatchers.IO) {
+
+                // TODO: don't do this every time Search is opened!
+                val nsDeferred = async { ServiceFactory.get(WikiSite.forLanguageCode(callback?.getLangCode().orEmpty())).getPageNamespaceWithSiteInfo(null).query?.namespaces.orEmpty() }
+                val searchesDeferred = async { AppDatabase.instance.recentSearchDao().getRecentSearches() }
+
+                searches = searchesDeferred.await()
+                nsMap = nsDeferred.await()
             }
+
+            namespaceMap.clear()
+            namespaceMap[Namespace.USER] = nsMap[Namespace.USER.code().toString()]?.name.orEmpty()
+            namespaceMap[Namespace.PROJECT] = nsMap[Namespace.PROJECT.code().toString()]?.name.orEmpty()
+            namespaceMap[Namespace.PORTAL] = nsMap[Namespace.PORTAL.code().toString()]?.name.orEmpty()
+
             recentSearchList.clear()
             recentSearchList.addAll(searches)
+
+            binding.namespacesRecycler.adapter = NamespaceAdapter()
             binding.recentSearchesRecycler.adapter?.notifyDataSetChanged()
 
             val searchesEmpty = recentSearchList.isEmpty()
@@ -153,6 +174,38 @@ class RecentSearchesFragment : Fragment() {
 
         override fun onBindViewHolder(holder: RecentSearchItemViewHolder, pos: Int) {
             holder.bindItem(pos)
+        }
+    }
+
+    private inner class NamespaceItemViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+        private var ns: Namespace? = null
+
+        fun bindItem(ns: Namespace?) {
+            itemView.setOnClickListener(this)
+            this.ns = ns
+            (itemView as TextView).text = if (ns == null) "Namespaces" else namespaceMap[ns].orEmpty() + ":"
+            itemView.isEnabled = ns != null
+            itemView.setTextColor(ResourceUtil.getThemedColor(requireContext(), if (ns == null) R.attr.material_theme_primary_color else R.attr.colorAccent))
+        }
+
+        override fun onClick(v: View) {
+            callback?.switchToSearch((v as TextView).text.toString())
+        }
+    }
+
+    private inner class NamespaceAdapter : RecyclerView.Adapter<NamespaceItemViewHolder>() {
+        private val namespaces = listOf(Namespace.USER, Namespace.PROJECT, Namespace.PORTAL)
+
+        override fun getItemCount(): Int {
+            return namespaces.size + 1
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NamespaceItemViewHolder {
+            return NamespaceItemViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_namespace, parent, false))
+        }
+
+        override fun onBindViewHolder(holder: NamespaceItemViewHolder, pos: Int) {
+            holder.bindItem(if (pos > 0) namespaces[pos - 1] else null)
         }
     }
 }
