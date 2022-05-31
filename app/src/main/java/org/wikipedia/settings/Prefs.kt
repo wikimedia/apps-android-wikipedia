@@ -597,4 +597,8 @@ object Prefs {
     var toolbarTooltipVisible
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_toolbar_tooltip_visible, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_toolbar_tooltip_visible, value)
+
+    var talkTopicExpandOrCollapseByDefault
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_talk_topic_expand_all, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_talk_topic_expand_all, value)
 }

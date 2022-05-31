@@ -4,19 +4,22 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import io.reactivex.rxjava3.core.Completable
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TalkPageSeenDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertTalkPageSeen(talkPageSeen: TalkPageSeen)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertTalkPageSeen(talkPageSeen: TalkPageSeen)
 
     @Query("SELECT * FROM TalkPageSeen WHERE sha = :sha LIMIT 1")
     fun getTalkPageSeen(sha: String): TalkPageSeen?
 
     @Query("SELECT * FROM TalkPageSeen")
-    fun getAll(): List<TalkPageSeen>
+    fun getAll(): Flow<List<TalkPageSeen>>
+
+    @Query("DELETE FROM TalkPageSeen WHERE sha = :sha")
+    suspend fun deleteTalkPageSeen(sha: String)
 
     @Query("DELETE FROM TalkPageSeen")
-    fun deleteAll(): Completable
+    suspend fun deleteAll()
 }

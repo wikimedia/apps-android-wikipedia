@@ -106,16 +106,11 @@ class Notification(var id: Long = 0,
 
         private var primaryLink: Link? = null
         private val primary: JsonElement? = null
-        private val legacyPrimary: JsonElement? = null
         val secondary: List<Link>? = null
 
         fun getPrimary(): Link? {
-            if (primaryLink == null) {
-                if (legacyPrimary != null && legacyPrimary is JsonObject) {
-                    primaryLink = JsonUtil.json.decodeFromJsonElement<Link>(legacyPrimary)
-                } else if (primary != null && primary is JsonObject) {
-                    primaryLink = JsonUtil.json.decodeFromJsonElement<Link>(primary)
-                }
+            if (primaryLink == null && primary != null && primary is JsonObject) {
+                primaryLink = JsonUtil.json.decodeFromJsonElement<Link>(primary)
             }
             return primaryLink
         }

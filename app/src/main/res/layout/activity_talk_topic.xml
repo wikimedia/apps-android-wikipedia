@@ -10,79 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/talkScrollContainer"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/talkRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="?attr/actionBarSize">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/talkSubjectView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:lineSpacingExtra="8sp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:textColor="?attr/primary_text_color"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/talkRecyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:scrollbars="vertical" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/replySubjectLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:hint="@string/talk_reply_subject"
-                    app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
-
-                    <org.wikipedia.views.PlainPasteEditText
-                        android:id="@+id/replySubjectText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="flagNoExtractUi|actionNext"
-                        android:inputType="textEmailSubject"
-                        android:lineSpacingExtra="6sp"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <org.wikipedia.views.UserMentionInputView
-                    android:id="@+id/replyInputView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp" />
-
-                <TextView
-                    android:id="@+id/licenseText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    app:drawableStartCompat="@drawable/ic_license_cc"
-                    app:drawableTint="?attr/material_theme_de_emphasised_color"
-                    android:drawablePadding="8dp"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="?attr/color_group_63"
-                    tools:text="Sample license text" />
-
-            </LinearLayout>
-
-        </androidx.core.widget.NestedScrollView>
+            android:layout_marginTop="?attr/actionBarSize"
+            android:scrollbars="vertical" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/replyToolbar"
@@ -106,21 +39,8 @@
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:textColor="?attr/primary_text_color"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
-
-                <ImageView
-                    android:id="@+id/replySaveButton"
-                    android:layout_width="56dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:contentDescription="@string/description_edit_save"
-                    android:focusable="true"
-                    android:padding="16dp"
-                    app:srcCompat="@drawable/ic_check_circle_black_24dp"
-                    app:tint="?attr/themed_icon_color"/>
 
             </LinearLayout>
 
@@ -141,18 +61,6 @@
             android:layout_gravity="top"
             android:layout_marginTop="-7dp"
             android:indeterminate="true" />
-
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/talkReplyButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="16dp"
-            app:backgroundTint="?attr/colorAccent"
-            app:icon="@drawable/ic_reply_24"
-            app:iconTint="@android:color/white"
-            android:textColor="@android:color/white"
-            android:text="@string/talk_add_reply" />
 
     </FrameLayout>
 
