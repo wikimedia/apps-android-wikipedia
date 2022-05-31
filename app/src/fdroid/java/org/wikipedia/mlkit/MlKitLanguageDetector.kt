@@ -2,7 +2,7 @@ package org.wikipedia.mlkit
 
 class MlKitLanguageDetector {
     interface Callback {
-        fun onLanguageDetectionSuccess(languageCode: String)
+        fun onLanguageDetectionSuccess(languageCodes: List<String>)
     }
 
     var callback: Callback? = null
