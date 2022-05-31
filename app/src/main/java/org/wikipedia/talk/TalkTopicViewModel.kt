@@ -100,7 +100,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             subscribeData.postValue(Resource.Error(throwable))
         }) {
-            val token = ServiceFactory.get(pageTitle.wikiSite).getCsrfToken().query?.csrfToken()!!
+            val token = ServiceFactory.get(pageTitle.wikiSite).getToken().query?.csrfToken()!!
             val response = ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, topicName, token, if (!subscribed) true else null)
             subscribed = response.status!!.subscribe
             subscribeData.postValue(Resource.Success(subscribed))
@@ -148,7 +148,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             undoResponseData.postValue(Resource.Error(throwable))
         }) {
-            val token = ServiceFactory.get(pageTitle.wikiSite).getCsrfToken().query?.csrfToken()!!
+            val token = ServiceFactory.get(pageTitle.wikiSite).getToken().query?.csrfToken()!!
             val response = ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(title = pageTitle.prefixedText, undoRevId = undoRevId, token = token)
             undoResponseData.postValue(Resource.Success(response.edit!!.editSucceeded))
         }
