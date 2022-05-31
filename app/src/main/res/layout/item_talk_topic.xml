@@ -6,34 +6,122 @@
     android:padding="16dp"
     android:clickable="true"
     android:focusable="true"
-    android:background="?attr/selectableItemBackground">
+    android:foreground="?attr/selectableItemBackground"
+    android:background="?paper_color">
 
     <TextView
         android:id="@+id/topicTitleText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textColor="?attr/material_theme_primary_color"
         android:textSize="16sp"
-        android:lineSpacingExtra="6sp"
+        android:textStyle="bold"
+        android:lineSpacingExtra="5sp"
         android:textColorLink="?attr/colorAccent"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/topicOverflowMenu"
+        tools:text="Lorem ipsum" />
+
+    <ImageView
+        android:id="@+id/topicOverflowMenu"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/abc_action_menu_overflow_description"
+        android:paddingVertical="12dp"
+        android:layout_marginEnd="-16dp"
+        app:tint="?attr/secondary_text_color"
+        app:layout_constraintTop_toTopOf="@id/topicTitleText"
+        app:layout_constraintBottom_toBottomOf="@id/topicTitleText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_more_vert_white_24dp" />
+
+    <ImageView
+        android:id="@+id/topicUserIcon"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:contentDescription="@string/talk_list_item_user_icon_content_description"
+        android:layout_marginVertical="8dp"
+        app:tint="?attr/colorAccent"
+        app:layout_constraintTop_toBottomOf="@id/topicTitleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_user_avatar" />
+
+    <TextView
+        android:id="@+id/topicUsername"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/colorAccent"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:lineSpacingExtra="8sp"
+        android:layout_marginVertical="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="@id/topicUserIcon"
+        app:layout_constraintBottom_toBottomOf="@id/topicUserIcon"
+        app:layout_constraintStart_toEndOf="@id/topicUserIcon"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:text="Lorem ipsum" />
 
     <TextView
-        android:id="@+id/topicSubtitleText"
+        android:id="@+id/topicContentText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="?attr/primary_text_color"
+        android:textSize="14sp"
+        android:lineSpacingExtra="8sp"
+        android:layout_marginVertical="8dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        app:layout_constraintTop_toBottomOf="@id/topicUserIcon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="?attr/material_theme_primary_color"
-        android:lineSpacingExtra="6sp"
-        android:textColorLink="?attr/colorAccent"
+        tools:text="Lorem ipsum" />
+
+    <ImageView
+        android:id="@+id/topicReplyIcon"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:contentDescription="@string/talk_list_item_reply_icon_content_description"
+        android:layout_marginVertical="8dp"
+        app:tint="?attr/primary_text_color"
+        app:layout_constraintTop_toBottomOf="@id/topicContentText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_reply_24" />
+
+    <TextView
+        android:id="@+id/topicReplyNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/primary_text_color"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:lineSpacingExtra="8sp"
+        android:layout_marginVertical="8dp"
+        android:layout_marginHorizontal="8dp"
+        app:layout_constraintTop_toTopOf="@id/topicReplyIcon"
+        app:layout_constraintBottom_toBottomOf="@id/topicReplyIcon"
+        app:layout_constraintStart_toEndOf="@id/topicReplyIcon"
+        app:layout_constraintEnd_toStartOf="@id/topicLastCommentDate"
+        tools:text="Lorem ipsum" />
+
+    <TextView
+        android:id="@+id/topicLastCommentDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/secondary_text_color"
+        android:textSize="14sp"
+        android:text="@string/talk_list_item_last_comment_date"
+        android:lineSpacingExtra="8sp"
+        android:layout_marginVertical="8dp"
+        app:layout_constraintTop_toTopOf="@id/topicReplyNumber"
+        app:layout_constraintBottom_toBottomOf="@id/topicReplyNumber"
+        app:layout_constraintStart_toEndOf="@id/topicReplyNumber"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:text="Lorem ipsum" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
