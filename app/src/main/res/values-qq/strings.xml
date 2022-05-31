@@ -1208,4 +1208,5 @@
   <string name="category_tab_subcategories">Label for tab that lists all the subcategories of a category.</string>
   <string name="category_empty">Error shown when the current category contains no articles.</string>
   <string name="subcategory_empty">Error shown when the current category contains no subcategories.</string>
+  <string name="search_namespaces">Hint for selecting the namespace when searching.</string>
 </resources>

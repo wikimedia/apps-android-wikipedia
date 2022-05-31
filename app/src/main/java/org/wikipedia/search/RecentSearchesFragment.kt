@@ -38,6 +38,7 @@ class RecentSearchesFragment : Fragment() {
     private val binding get() = _binding!!
     var callback: Callback? = null
     val recentSearchList = mutableListOf<RecentSearch>()
+    private val namespaceHints = listOf(Namespace.USER, Namespace.PROJECT, Namespace.PORTAL, Namespace.HELP)
     private val namespaceMap = mutableMapOf<Namespace, String>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -121,9 +122,9 @@ class RecentSearchesFragment : Fragment() {
             }
 
             namespaceMap.clear()
-            namespaceMap[Namespace.USER] = nsMap[Namespace.USER.code().toString()]?.name.orEmpty()
-            namespaceMap[Namespace.PROJECT] = nsMap[Namespace.PROJECT.code().toString()]?.name.orEmpty()
-            namespaceMap[Namespace.PORTAL] = nsMap[Namespace.PORTAL.code().toString()]?.name.orEmpty()
+            namespaceHints.forEach {
+                namespaceMap[it] = nsMap[it.code().toString()]?.name.orEmpty()
+            }
 
             recentSearchList.clear()
             recentSearchList.addAll(searches)
@@ -183,7 +184,7 @@ class RecentSearchesFragment : Fragment() {
         fun bindItem(ns: Namespace?) {
             itemView.setOnClickListener(this)
             this.ns = ns
-            (itemView as TextView).text = if (ns == null) "Namespaces" else namespaceMap[ns].orEmpty() + ":"
+            (itemView as TextView).text = if (ns == null) getString(R.string.search_namespaces) else namespaceMap[ns].orEmpty() + ":"
             itemView.isEnabled = ns != null
             itemView.setTextColor(ResourceUtil.getThemedColor(requireContext(), if (ns == null) R.attr.material_theme_primary_color else R.attr.colorAccent))
         }
@@ -194,10 +195,8 @@ class RecentSearchesFragment : Fragment() {
     }
 
     private inner class NamespaceAdapter : RecyclerView.Adapter<NamespaceItemViewHolder>() {
-        private val namespaces = listOf(Namespace.USER, Namespace.PROJECT, Namespace.PORTAL)
-
         override fun getItemCount(): Int {
-            return namespaces.size + 1
+            return namespaceHints.size + 1
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NamespaceItemViewHolder {
@@ -205,7 +204,7 @@ class RecentSearchesFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: NamespaceItemViewHolder, pos: Int) {
-            holder.bindItem(if (pos > 0) namespaces[pos - 1] else null)
+            holder.bindItem(if (pos > 0) namespaceHints[pos - 1] else null)
         }
     }
 }
