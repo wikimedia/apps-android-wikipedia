@@ -666,16 +666,14 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         if (!Prefs.showOneTimeCustomizeToolbarTooltip) {
             return
         }
-        if (!isDestroyed) {
-            customizeToolbarTooltip =
-                FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip), arrowAnchorPadding = -DimenUtil.roundedDpToPx(10f), topOrBottomMargin = -12, aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
-            customizeToolbarTooltip?.setOnBalloonDismissListener {
-                Prefs.showOneTimeCustomizeToolbarTooltip = false
-                Prefs.toolbarTooltipVisible = false
-            }
-            customizeToolbarTooltip?.showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
-            Prefs.toolbarTooltipVisible = true
+        customizeToolbarTooltip =
+            FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip), arrowAnchorPadding = -DimenUtil.roundedDpToPx(10f), topOrBottomMargin = -12, aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
+        customizeToolbarTooltip?.setOnBalloonDismissListener {
+            Prefs.showOneTimeCustomizeToolbarTooltip = false
+            Prefs.toolbarTooltipVisible = false
         }
+        customizeToolbarTooltip?.showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
+        Prefs.toolbarTooltipVisible = true
     }
 
     private fun enqueueTooltip(runnable: Runnable) {
