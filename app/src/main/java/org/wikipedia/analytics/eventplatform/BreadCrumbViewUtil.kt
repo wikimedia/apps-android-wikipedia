@@ -51,8 +51,8 @@ object BreadCrumbViewUtil {
             if (view is SwitchCompat) {
                 return view.context.getString(R.string.breadcrumb_switch_view_click, view.resources.getResourceEntryName(view.id), if (!view.isChecked) view.context.getString(R.string.breadcrumb_switch_view_state_on) else view.context.getString(R.string.breadcrumb_switch_view_state_off))
             }
-            if(view.id == R.id.footerActionButton){
-               return (view as MaterialButton).text.toString()
+            if (view.id == R.id.footerActionButton) {
+                return (view as MaterialButton).text.toString()
             }
             view.resources.getResourceEntryName(view.id)
         } catch (e: Exception) {
