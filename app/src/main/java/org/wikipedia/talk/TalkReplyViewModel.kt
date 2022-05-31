@@ -22,7 +22,7 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             postReplyData.postValue(Resource.Error(throwable))
         }) {
-            val token = ServiceFactory.get(pageTitle.wikiSite).getCsrfToken().query?.csrfToken()!!
+            val token = ServiceFactory.get(pageTitle.wikiSite).getToken().query?.csrfToken()!!
             val response = if (topic != null) {
                 ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopicReply(pageTitle.prefixedText, topic.id, body, token)
             } else {
