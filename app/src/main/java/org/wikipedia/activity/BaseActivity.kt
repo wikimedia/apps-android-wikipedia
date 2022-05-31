@@ -46,6 +46,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ActivityGestureListener
 import org.wikipedia.views.ImageZoomHelper
+import org.wikipedia.views.ViewUtil
 import kotlin.math.abs
 
 abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
@@ -96,25 +97,13 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
         Prefs.localClassName = localClassName
 
         val decorView = window.decorView
-        decorView.viewTreeObserver.addOnGlobalLayoutListener { setTouchListenersToViews(window.decorView) }
+        decorView.viewTreeObserver.addOnGlobalLayoutListener { ViewUtil.setTouchListenersToViews(window.decorView, this) }
         gestureDetector = GestureDetector(this, ActivityGestureListener(this))
     }
 
     override fun onResumeFragments() {
         super.onResumeFragments()
         BreadCrumbLogEvent.logScreenShown(this)
-    }
-
-    private fun setTouchListenersToViews(currentView: View?) {
-        if (currentView == null) {
-            return
-        }
-        currentView.setOnTouchListener(this)
-        if (currentView is ViewGroup) {
-            for (i in 0 until currentView.childCount) {
-                setTouchListenersToViews(currentView.getChildAt(i))
-            }
-        }
     }
 
     override fun onDestroy() {
@@ -327,13 +316,11 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
     companion object {
         private var EXCLUSIVE_BUS_METHODS: ExclusiveBusConsumer? = null
         private var EXCLUSIVE_DISPOSABLE: Disposable? = null
-        private const val CLICK_ACTION_THRESHOLD = 200
     }
+
     private var startX = 0f
     private var startY = 0f
-
     override fun onTouch(view: View?, event: MotionEvent?): Boolean {
-
         if (gestureDetector!!.onTouchEvent(event)) {
             return false
         }
@@ -345,17 +332,11 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
             MotionEvent.ACTION_UP -> {
                 val endX = event.x
                 val endY = event.y
-                if (isClick(startX, endX, startY, endY)) {
+                if (ViewUtil.isClick(startX, endX, startY, endY)) {
                     BreadCrumbLogEvent.logClick(this, view)
                 }
             }
         }
         return false
-    }
-
-    private fun isClick(startX: Float, endX: Float, startY: Float, endY: Float): Boolean {
-        val diffHorizontal = abs(startX - endX)
-        val diffVertical = abs(startY - endY)
-        return !(diffHorizontal > CLICK_ACTION_THRESHOLD || diffVertical > CLICK_ACTION_THRESHOLD)
     }
 }

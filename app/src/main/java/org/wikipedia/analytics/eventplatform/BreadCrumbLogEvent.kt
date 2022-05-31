@@ -6,6 +6,7 @@ import android.view.View
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.settings.SettingsActivity
 
@@ -23,31 +24,31 @@ class BreadCrumbLogEvent(private val screen_name: String,
             if (activity is SettingsActivity) {
                 return
             }
-            // EventPlatformClient.submit(BreadCrumbLogEvent(screenName, BreadCrumbViewUtil.getLogNameForView(view), WikipediaApp.getInstance().language().appLanguageCode))
             val viewReadableName = BreadCrumbViewUtil.getLogNameForView(view)
             if (viewReadableName != activity.getString(R.string.breadcrumb_view_unnamed)) {
-                Log.e("|BREADCRUMB|", "|SCREEN|\t|" + BreadCrumbViewUtil.getReadableScreenName(activity) + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_view_click, viewReadableName) + "|")
+                EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), activity.getString(R.string.breadcrumb_view_click, viewReadableName), WikipediaApp.instance.languageState.appLanguageCode))
             }
         }
 
         fun logSwipe(activity: BaseActivity, isRtlSwipe: Boolean) {
-            Log.e("|BREADCRUMB|", "|SCREEN|\t|" + BreadCrumbViewUtil.getReadableScreenName(activity) + "|\t|ACTION|\t|" + activity.getString(if (isRtlSwipe) R.string.breadcrumb_screen_swiped_left_on else R.string.breadcrumb_screen_swiped_right_on) + "|")
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), activity.getString(if (isRtlSwipe) R.string.breadcrumb_screen_swiped_left_on else R.string.breadcrumb_screen_swiped_right_on), WikipediaApp.instance.languageState.appLanguageCode))
         }
 
         fun logScreenShown(activity: BaseActivity) {
-            Log.e("|BREADCRUMB|", "|SCREEN|\t|" + BreadCrumbViewUtil.getReadableScreenName(activity) + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_screen_shown) + "|")
+            Log.e("hasty","here")
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), activity.getString(R.string.breadcrumb_screen_shown), WikipediaApp.instance.languageState.appLanguageCode))
         }
 
         fun logBackPress(activity: BaseActivity) {
-            Log.e("|BREADCRUMB|", "|SCREEN|\t|" + BreadCrumbViewUtil.getReadableScreenName(activity) + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_screen_back_press) + "|")
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), activity.getString(R.string.breadcrumb_screen_back_press), WikipediaApp.instance.languageState.appLanguageCode))
         }
 
         fun logTooltipShown(activity: Activity, anchor: View) {
-            Log.e("|BREADCRUMB|", "|SCREEN|\t|" + activity.javaClass.simpleName + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_tooltip_shown_on_view, BreadCrumbViewUtil.getLogNameForView(anchor)) + "|")
+            EventPlatformClient.submit(BreadCrumbLogEvent(activity.javaClass.simpleName, activity.getString(R.string.breadcrumb_tooltip_shown_on_view, BreadCrumbViewUtil.getLogNameForView(anchor)), WikipediaApp.instance.languageState.appLanguageCode))
         }
 
         fun logSettingsSelection(activity: Activity, title: String?) {
-            Log.e("|BREADCRUMB|", "|SCREEN|\t|" + activity.javaClass.simpleName + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_view_click, title) + "|")
+            EventPlatformClient.submit(BreadCrumbLogEvent(activity.javaClass.simpleName, activity.getString(R.string.breadcrumb_view_click, title), WikipediaApp.instance.languageState.appLanguageCode))
         }
     }
 }

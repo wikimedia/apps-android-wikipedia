@@ -7,6 +7,8 @@ import android.net.Uri
 import android.text.TextUtils
 import android.view.ActionMode
 import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -23,11 +25,13 @@ import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.ResourceUtil.getThemedColor
 import org.wikipedia.util.WhiteBackgroundTransformation
 import java.util.*
+import kotlin.math.abs
 
 object ViewUtil {
     private val CENTER_CROP_ROUNDED_CORNERS = MultiTransformation(CenterCrop(),
             WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
     val ROUNDED_CORNERS = RoundedCorners(roundedDpToPx(15f))
+    const val CLICK_ACTION_THRESHOLD = 200
     val CENTER_CROP_LARGE_ROUNDED_CORNERS = MultiTransformation(CenterCrop(),
             WhiteBackgroundTransformation(), ROUNDED_CORNERS)
 
@@ -80,5 +84,23 @@ object ViewUtil {
 
     fun adjustImagePlaceholderHeight(containerWidth: Float, thumbWidth: Float, thumbHeight: Float): Int {
         return (Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat() / thumbWidth * thumbHeight * containerWidth / Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat()).toInt()
+    }
+
+    fun isClick(startX: Float, endX: Float, startY: Float, endY: Float): Boolean {
+        val diffHorizontal = abs(startX - endX)
+        val diffVertical = abs(startY - endY)
+        return !(diffHorizontal > CLICK_ACTION_THRESHOLD || diffVertical > CLICK_ACTION_THRESHOLD)
+    }
+
+    fun setTouchListenersToViews(currentView: View?, onTouchListener:View.OnTouchListener) {
+        if (currentView == null) {
+            return
+        }
+        currentView.setOnTouchListener(onTouchListener)
+        if (currentView is ViewGroup) {
+            for (i in 0 until currentView.childCount) {
+                setTouchListenersToViews(currentView.getChildAt(i), onTouchListener)
+            }
+        }
     }
 }
