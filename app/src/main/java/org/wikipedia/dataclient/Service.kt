@@ -16,7 +16,6 @@ import org.wikipedia.dataclient.wikidata.Search
 import org.wikipedia.edit.Edit
 import org.wikipedia.login.LoginClient.LoginResponse
 import org.wikipedia.search.PrefixSearchResponse
-import retrofit2.Call
 import retrofit2.http.*
 
 /**
@@ -156,17 +155,13 @@ interface Service {
 
     // ------- CSRF, Login, and Create Account -------
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
-    @get:Headers("Cache-Control: no-cache")
-    val csrfTokenCall: Call<MwQueryResponse?>
-
-    @get:GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
-    @get:Headers("Cache-Control: no-cache")
-    val csrfToken: Observable<MwQueryResponse>
-
-    @GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
     @Headers("Cache-Control: no-cache")
-    suspend fun getCsrfToken(): MwQueryResponse
+    @GET(MW_API_PREFIX + "action=query&meta=tokens")
+    fun getTokenObservable(@Query("type") type: String = "csrf"): Observable<MwQueryResponse>
+
+    @GET(MW_API_PREFIX + "action=query&meta=tokens")
+    @Headers("Cache-Control: no-cache")
+    suspend fun getToken(@Query("type") type: String = "csrf"): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=createaccount&createmessageformat=html")
