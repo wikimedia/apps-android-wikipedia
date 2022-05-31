@@ -33,13 +33,13 @@ object BreadCrumbViewUtil {
                             if (currentParent.parent != null) {
                                 currentParent = currentParent.parent
                             } else {
-                                //ListItemView is not in a CardView
+                                // ListItemView is not in a CardView
                                 return viewContext.getString(R.string.breadcrumb_view_with_position, getReadableNameForView(it.parent as RecyclerView), position)
                             }
                         }
                         return viewContext.getString(R.string.breadcrumb_view_with_position, currentParent.javaClass.simpleName, position)
                     }
-                    //Returning only recyclerview name and click position for non-cardView recyclerViews
+                    // Returning only recyclerview name and click position for non-cardView recyclerViews
                     return viewContext.getString(R.string.breadcrumb_view_with_position, getReadableNameForView(it.parent as RecyclerView), position)
                 }
                 return if (it.id == View.NO_ID) context.getString(R.string.breadcrumb_view_unnamed) else getViewResourceName(it)
