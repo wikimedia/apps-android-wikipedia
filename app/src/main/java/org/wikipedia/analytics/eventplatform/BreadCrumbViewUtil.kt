@@ -20,7 +20,7 @@ import org.wikipedia.onboarding.InitialOnboardingFragment.OnboardingPage
 
 object BreadCrumbViewUtil {
 
-    fun getLogNameForView(view: View?): String {
+    fun getReadableNameForView(view: View?): String {
         view?.let {
             val context = it.context
             context?.let { viewContext ->
@@ -33,12 +33,14 @@ object BreadCrumbViewUtil {
                             if (currentParent.parent != null) {
                                 currentParent = currentParent.parent
                             } else {
-                                return viewContext.getString(R.string.breadcrumb_view_with_position, getLogNameForView(it.parent as RecyclerView), position)
+                                //ListItemView is not in a CardView
+                                return viewContext.getString(R.string.breadcrumb_view_with_position, getReadableNameForView(it.parent as RecyclerView), position)
                             }
                         }
                         return viewContext.getString(R.string.breadcrumb_view_with_position, currentParent.javaClass.simpleName, position)
                     }
-                    return viewContext.getString(R.string.breadcrumb_view_with_position, getLogNameForView(it.parent as RecyclerView), position)
+                    //Returning only recyclerview name and click position for non-cardView recyclerViews
+                    return viewContext.getString(R.string.breadcrumb_view_with_position, getReadableNameForView(it.parent as RecyclerView), position)
                 }
                 return if (it.id == View.NO_ID) context.getString(R.string.breadcrumb_view_unnamed) else getViewResourceName(it)
             }
