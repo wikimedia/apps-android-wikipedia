@@ -51,6 +51,7 @@
         android:id="@+id/recent_searches"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="48dp"
         android:orientation="vertical">
 
         <FrameLayout
@@ -101,7 +102,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="bottom">
+        android:layout_gravity="bottom"
+        android:background="?attr/paper_color">
 
         <View
             android:layout_width="match_parent"
