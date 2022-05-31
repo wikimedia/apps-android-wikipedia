@@ -61,6 +61,16 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
                 binding.sortByTopicNameOrder.isVisible = true
                 binding.sortByTopicNameOrder.rotation = 270f
             }
+            SORT_BY_DATE_UPDATED_DESCENDING -> {
+                binding.sortByDateUpdatedSelected.isVisible = true
+                binding.sortByDateUpdatedOrder.isVisible = true
+                binding.sortByDateUpdatedOrder.rotation = 90f
+            }
+            SORT_BY_DATE_UPDATED_ASCENDING -> {
+                binding.sortByDateUpdatedSelected.isVisible = true
+                binding.sortByDateUpdatedOrder.isVisible = true
+                binding.sortByDateUpdatedOrder.rotation = 270f
+            }
         }
     }
 
@@ -74,19 +84,15 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
     private fun setButtonsListener() {
         binding.sortByDatePublishedButton.setOnClickListener {
             dismissPopupWindowHost()
-            callback?.sortByClicked(getNewSortByMode(true))
+            callback?.sortByClicked(if (currentSortMode == SORT_BY_DATE_PUBLISHED_DESCENDING) SORT_BY_DATE_PUBLISHED_ASCENDING else SORT_BY_DATE_PUBLISHED_DESCENDING)
         }
         binding.sortByTopicNameButton.setOnClickListener {
             dismissPopupWindowHost()
-            callback?.sortByClicked(getNewSortByMode(false))
+            callback?.sortByClicked(if (currentSortMode == SORT_BY_TOPIC_NAME_DESCENDING) SORT_BY_TOPIC_NAME_ASCENDING else SORT_BY_TOPIC_NAME_DESCENDING)
         }
-    }
-
-    private fun getNewSortByMode(isDatePublishedClicked: Boolean): Int {
-        return if (isDatePublishedClicked) {
-            if (currentSortMode == SORT_BY_DATE_PUBLISHED_DESCENDING) SORT_BY_DATE_PUBLISHED_ASCENDING else SORT_BY_DATE_PUBLISHED_DESCENDING
-        } else {
-            if (currentSortMode == SORT_BY_TOPIC_NAME_DESCENDING) SORT_BY_TOPIC_NAME_ASCENDING else SORT_BY_TOPIC_NAME_DESCENDING
+        binding.sortByDateUpdatedButton.setOnClickListener {
+            dismissPopupWindowHost()
+            callback?.sortByClicked(if (currentSortMode == SORT_BY_DATE_UPDATED_DESCENDING) SORT_BY_DATE_UPDATED_ASCENDING else SORT_BY_DATE_UPDATED_DESCENDING)
         }
     }
 
@@ -95,5 +101,7 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
         const val SORT_BY_DATE_PUBLISHED_ASCENDING = 1
         const val SORT_BY_TOPIC_NAME_DESCENDING = 2
         const val SORT_BY_TOPIC_NAME_ASCENDING = 3
+        const val SORT_BY_DATE_UPDATED_DESCENDING = 4
+        const val SORT_BY_DATE_UPDATED_ASCENDING = 5
     }
 }

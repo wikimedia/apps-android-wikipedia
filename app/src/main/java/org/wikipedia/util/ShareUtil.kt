@@ -43,9 +43,9 @@ object ShareUtil {
         }
     }
 
-    fun shareText(context: Context, title: PageTitle) {
+    fun shareText(context: Context, title: PageTitle, withProvenance: Boolean = true) {
         shareText(context, StringUtil.fromHtml(title.displayText).toString(),
-                UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_link))
+                if (withProvenance) UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_link) else title.uri)
     }
 
     fun shareText(context: Context, title: PageTitle, newId: Long, oldId: Long) {
