@@ -593,4 +593,8 @@ object Prefs {
     var editHistoryFilterType
         get() = PrefsIoUtil.getString(R.string.preference_key_edit_history_filter_type, null).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_edit_history_filter_type, value)
+
+    var talkTopicExpandOrCollapseByDefault
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_talk_topic_expand_all, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_talk_topic_expand_all, value)
 }
