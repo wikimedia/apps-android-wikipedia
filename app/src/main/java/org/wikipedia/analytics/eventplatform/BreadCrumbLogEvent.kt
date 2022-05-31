@@ -1,7 +1,6 @@
 package org.wikipedia.analytics.eventplatform
 
 import android.app.Activity
-import android.util.Log
 import android.view.View
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -35,7 +34,6 @@ class BreadCrumbLogEvent(private val screen_name: String,
         }
 
         fun logScreenShown(activity: BaseActivity) {
-            Log.e("hasty","here")
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), activity.getString(R.string.breadcrumb_screen_shown), WikipediaApp.instance.languageState.appLanguageCode))
         }
 

@@ -92,7 +92,7 @@ object ViewUtil {
         return !(diffHorizontal > CLICK_ACTION_THRESHOLD || diffVertical > CLICK_ACTION_THRESHOLD)
     }
 
-    fun setTouchListenersToViews(currentView: View?, onTouchListener:View.OnTouchListener) {
+    fun setTouchListenersToViews(currentView: View?, onTouchListener: View.OnTouchListener) {
         if (currentView == null) {
             return
         }

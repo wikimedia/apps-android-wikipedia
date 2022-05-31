@@ -10,7 +10,10 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.view.*
+import android.view.GestureDetector
+import android.view.MenuItem
+import android.view.MotionEvent
+import android.view.View
 import android.view.View.OnTouchListener
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
@@ -47,7 +50,6 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.ActivityGestureListener
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
-import kotlin.math.abs
 
 abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
