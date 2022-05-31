@@ -15,6 +15,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.view.*
 import androidx.preference.PreferenceManager
+import com.skydoves.balloon.Balloon
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import org.wikipedia.Constants
@@ -41,7 +42,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
-import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.search.SearchActivity
@@ -78,6 +78,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private val listDialogDismissListener = DialogInterface.OnDismissListener { pageFragment.updateBookmarkAndMenuOptionsFromDao() }
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
+    private var customizeToolbarTooltip: Balloon? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -123,6 +124,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP)
         FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
         binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
+            customizeToolbarTooltip?.dismiss()
             pageFragment.showOverflowMenu(it)
             pageFragment.articleInteractionEvent?.logMoreClick()
         }
@@ -664,23 +666,14 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         if (!Prefs.showOneTimeCustomizeToolbarTooltip) {
             return
         }
-        val anchorView: View?
-        var aboveOrBelow = true
-        if (Prefs.customizeToolbarMenuOrder.contains(PageActionItem.THEME.id)) {
-            anchorView = binding.pageToolbarButtonShowOverflowMenu
-            aboveOrBelow = false
-        } else {
-            anchorView = pageFragment.getPageActionTabLayout().children.find { it.id == PageActionItem.THEME.hashCode() }
+        customizeToolbarTooltip =
+            FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip), arrowAnchorPadding = -DimenUtil.roundedDpToPx(10f), topOrBottomMargin = -12, aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
+        customizeToolbarTooltip?.setOnBalloonDismissListener {
+            Prefs.showOneTimeCustomizeToolbarTooltip = false
+            Prefs.toolbarTooltipVisible = false
         }
-        anchorView?.let {
-            it.postDelayed({
-                if (!isDestroyed) {
-                    FeedbackUtil.showTooltip(this, it, getString(R.string.theme_chooser_menu_item_tooltip),
-                            aboveOrBelow = aboveOrBelow, autoDismiss = false, -DimenUtil.roundedDpToPx(8f), 0)
-                }
-            }, 2000)
-        }
-        Prefs.showOneTimeCustomizeToolbarTooltip = false
+        customizeToolbarTooltip?.showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
+        Prefs.toolbarTooltipVisible = true
     }
 
     private fun enqueueTooltip(runnable: Runnable) {
