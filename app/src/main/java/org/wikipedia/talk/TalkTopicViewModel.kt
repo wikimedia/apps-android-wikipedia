@@ -23,6 +23,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
 
     val pageTitle = bundle.getParcelable<PageTitle>(TalkTopicActivity.EXTRA_PAGE_TITLE)!!
     val topicName = bundle.getString(TalkTopicActivity.EXTRA_TOPIC_NAME)!!
+    var currentSearchQuery = bundle.getString(TalkTopicActivity.EXTRA_SEARCH_QUERY)
     var scrollTargetId = bundle.getString(TalkTopicActivity.EXTRA_REPLY_ID)
 
     var topic: ThreadItem? = null
@@ -45,7 +46,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     }
 
     val isFullyExpanded: Boolean get() {
-        return flattenedThreadItems.size == topic?.allReplies?.size
+        return !currentSearchQuery.isNullOrEmpty() || flattenedThreadItems.size == topic?.allReplies?.size
     }
 
     init {

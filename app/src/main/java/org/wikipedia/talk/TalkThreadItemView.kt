@@ -60,17 +60,22 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         }
     }
 
-    fun bindItem(item: ThreadItem, movementMethod: MovementMethod, replying: Boolean = false) {
+    fun bindItem(item: ThreadItem, movementMethod: MovementMethod, replying: Boolean = false, searchQuery: String? = null) {
         this.item = item
         binding.userNameText.text = item.author
         binding.userNameTapTarget.contentDescription = binding.userNameText.text
         binding.userNameText.isVisible = item.author.isNotEmpty()
         binding.userNameTapTarget.isVisible = binding.userNameText.isVisible
+        StringUtil.highlightAndBoldenText(binding.userNameText, searchQuery, true, Color.YELLOW)
         binding.profileImage.visibility = if (binding.userNameText.isVisible) View.VISIBLE else View.INVISIBLE
         binding.timeStampText.isVisible = item.date != null
-        item.date?.let { binding.timeStampText.text = DateUtil.getTimeAndDateString(it) }
+        item.date?.let {
+            binding.timeStampText.text = DateUtil.getTimeAndDateString(it)
+            StringUtil.highlightAndBoldenText(binding.timeStampText, searchQuery, true, Color.YELLOW)
+        }
         binding.bodyText.text = StringUtil.fromHtml(item.html).trim()
         RichTextUtil.removeUnderlinesFromLinks(binding.bodyText)
+        StringUtil.highlightAndBoldenText(binding.bodyText, searchQuery, true, Color.YELLOW)
         binding.bodyText.movementMethod = movementMethod
 
         if (replying) {

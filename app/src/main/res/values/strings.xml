@@ -1163,6 +1163,7 @@
     <string name="talk_edit_disclaimer"><![CDATA[This is a talk page. Please respect the talk page guidelines, and remember to sign your posts by typing four tildes: ~~~~ when posting using wikitext.<br\><br\><a href="https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines">Wikipedia:Talk page guidelines</a>]]></string>
     <string name="talk_search_hint">Search messages</string>
     <string name="talk_search_topics_hint">Search topics</string>
+    <string name="talk_search_find_in_talk_topics_hint">Find in talk page topic</string>
     <string name="talk_overflow_sort_by">Sort by</string>
     <string name="talk_overflow_sort_date_published">Date published</string>
     <string name="talk_overflow_sort_date_updated">Date updated</string>
@@ -1199,6 +1200,7 @@
     <string name="menu_option_user_contributions">%s\'s contributions</string>
     <string name="menu_option_edit_source">Edit source</string>
     <string name="menu_option_user_page">%s user page</string>
+    <string name="menu_option_find_in_talk_page_topic">Find in talk page topic</string>
     <string name="talk_menu_copy_text">Copy text</string>
     <string name="talk_menu_expand_threads">Expand threads</string>
     <string name="talk_menu_collapse_threads">Collapse threads</string>

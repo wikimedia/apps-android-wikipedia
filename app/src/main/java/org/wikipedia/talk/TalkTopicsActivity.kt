@@ -95,7 +95,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
     private val requestNewTopic = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
-            val newRevisionId = it.data?.getLongExtra(TalkTopicActivity.RESULT_NEW_REVISION_ID, 0) ?: 0
+            val newRevisionId = it.data?.getLongExtra(TalkReplyActivity.RESULT_NEW_REVISION_ID, 0) ?: 0
             val undoneSubject = it.data?.getCharSequenceExtra(TalkReplyActivity.EXTRA_SUBJECT) ?: ""
             val undoneText = it.data?.getCharSequenceExtra(TalkReplyActivity.EXTRA_BODY) ?: ""
             if (newRevisionId > 0) {
@@ -334,7 +334,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                 }
             }
             if (threadTopic != null) {
-                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, threadTopic!!.name, threadItem?.id, invokeSource))
+                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, threadTopic!!.name, threadItem?.id, viewModel.currentSearchQuery, invokeSource))
                 overridePendingTransition(0, 0)
                 return
             }

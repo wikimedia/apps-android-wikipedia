@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.appcompat.view.ActionMode
+import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,6 +26,7 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
@@ -31,6 +34,7 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.*
+import org.wikipedia.views.SearchActionProvider
 
 class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private lateinit var binding: ActivityTalkTopicBinding
@@ -41,6 +45,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val threadAdapter = TalkReplyItemAdapter()
     private val headerAdapter = HeaderItemAdapter()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private var actionMode: ActionMode? = null
+    private val searchActionModeCallback = SearchCallback()
 
     private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
         linkHandler.onUrlClick(url, title, linkText, x, y)
@@ -138,6 +144,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         onInitialLoad()
+        viewModel.currentSearchQuery?.let {
+            showFindInPage()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -179,6 +188,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 expandOrCollapseAll(false)
                 true
             }
+            R.id.menu_find_in_page -> {
+                expandOrCollapseAll(true)
+                showFindInPage()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -188,6 +202,54 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         viewModel.expandOrCollapseAll().dispatchUpdatesTo(threadAdapter)
         threadAdapter.notifyItemRangeChanged(0, threadAdapter.itemCount)
         invalidateOptionsMenu()
+    }
+
+    private fun showFindInPage() {
+        if (actionMode == null) {
+            actionMode = startSupportActionMode(searchActionModeCallback)
+        }
+    }
+
+    private inner class SearchCallback : SearchActionModeCallback() {
+        var searchActionProvider: SearchActionProvider? = null
+        override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            searchActionProvider = SearchActionProvider(this@TalkTopicActivity, searchHintString,
+                object : SearchActionProvider.Callback {
+                    override fun onQueryTextChange(s: String) {
+                        onQueryChange(s)
+                    }
+
+                    override fun onQueryTextFocusChange() {
+                    }
+                })
+
+            val menuItem = menu.add(searchHintString)
+
+            MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
+            searchActionProvider?.setQueryText(viewModel.currentSearchQuery)
+            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+            return super.onCreateActionMode(mode, menu)
+        }
+
+        override fun onQueryChange(s: String) {
+            viewModel.currentSearchQuery = s
+            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+        }
+
+        override fun onDestroyActionMode(mode: ActionMode) {
+            super.onDestroyActionMode(mode)
+            actionMode = null
+            viewModel.currentSearchQuery = null
+            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+        }
+
+        override fun getSearchHintString(): String {
+            return getString(R.string.talk_search_find_in_talk_topics_hint)
+        }
+
+        override fun getParentContext(): Context {
+            return this@TalkTopicActivity
+        }
     }
 
     private fun onInitialLoad() {
@@ -252,7 +314,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private inner class HeaderViewHolder constructor(private val view: TalkThreadHeaderView) : RecyclerView.ViewHolder(view), TalkThreadHeaderView.Callback {
         fun bindItem() {
-            view.bind(viewModel.pageTitle, viewModel.topic!!, viewModel.subscribed, linkMovementMethod)
+            view.bind(viewModel.pageTitle, viewModel.topic!!, viewModel.subscribed, linkMovementMethod, viewModel.currentSearchQuery)
             view.callback = this
         }
 
@@ -264,7 +326,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     internal inner class TalkReplyHolder internal constructor(view: TalkThreadItemView) : RecyclerView.ViewHolder(view), TalkThreadItemView.Callback {
         fun bindItem(item: ThreadItem) {
             (itemView as TalkThreadItemView).let {
-                it.bindItem(item, linkMovementMethod)
+                it.bindItem(item, linkMovementMethod, searchQuery = viewModel.currentSearchQuery)
                 if (item.id == viewModel.scrollTargetId) {
                     viewModel.scrollTargetId = null
                     it.animateSelectedBackground()
@@ -377,17 +439,19 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         const val EXTRA_PAGE_TITLE = "pageTitle"
         const val EXTRA_TOPIC_NAME = "topicName"
         const val EXTRA_REPLY_ID = "replyId"
-        const val RESULT_NEW_REVISION_ID = "newRevisionId"
+        const val EXTRA_SEARCH_QUERY = "searchQuery"
 
         fun newIntent(context: Context,
                       pageTitle: PageTitle,
                       topicName: String,
                       replyId: String?,
+                      searchQuery: String?,
                       invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicActivity::class.java)
                     .putExtra(EXTRA_PAGE_TITLE, pageTitle)
                     .putExtra(EXTRA_TOPIC_NAME, topicName)
                     .putExtra(EXTRA_REPLY_ID, replyId)
+                    .putExtra(EXTRA_SEARCH_QUERY, searchQuery)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }
