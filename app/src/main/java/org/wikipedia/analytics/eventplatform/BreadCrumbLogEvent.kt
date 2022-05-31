@@ -7,6 +7,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.settings.SettingsActivity
 
 @Suppress("unused")
 @Serializable
@@ -19,6 +20,9 @@ class BreadCrumbLogEvent(private val screen_name: String,
         private const val STREAM_NAME = "android.breadcrumb_log_event"
 
         fun logClick(activity: BaseActivity, view: View?) {
+            if (activity is SettingsActivity) {
+                return
+            }
             // EventPlatformClient.submit(BreadCrumbLogEvent(screenName, BreadCrumbViewUtil.getLogNameForView(view), WikipediaApp.getInstance().language().appLanguageCode))
             val viewReadableName = BreadCrumbViewUtil.getLogNameForView(view)
             if (viewReadableName != activity.getString(R.string.breadcrumb_view_unnamed)) {
@@ -40,6 +44,10 @@ class BreadCrumbLogEvent(private val screen_name: String,
 
         fun logTooltipShown(activity: Activity, anchor: View) {
             Log.e("|BREADCRUMB|", "|SCREEN|\t|" + activity.javaClass.simpleName + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_tooltip_shown_on_view, BreadCrumbViewUtil.getLogNameForView(anchor)) + "|")
+        }
+
+        fun logSettingsSelection(activity: Activity, title: String?) {
+            Log.e("|BREADCRUMB|", "|SCREEN|\t|" + activity.javaClass.simpleName + "|\t|ACTION|\t|" + activity.getString(R.string.breadcrumb_view_click, title) + "|")
         }
     }
 }

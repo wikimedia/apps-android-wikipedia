@@ -10,6 +10,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.auth.AccountUtil
 
 @Suppress("unused")
@@ -30,6 +31,7 @@ class LogoutPreference : Preference {
         holder.itemView.findViewById<TextView>(R.id.accountName).text = AccountUtil.userName
         holder.itemView.findViewById<Button>(R.id.logoutButton).setOnClickListener {
             activity?.let {
+                BreadCrumbLogEvent.logSettingsSelection(it, it.getString(R.string.breadcrumb_settings_logout))
                 AlertDialog.Builder(it)
                     .setMessage(R.string.logout_prompt)
                     .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
