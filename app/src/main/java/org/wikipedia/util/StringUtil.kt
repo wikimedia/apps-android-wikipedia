@@ -211,7 +211,9 @@ object StringUtil {
                 c <= 0x1FFFFF -> count = 4
             }
             for (j in 0 until count) {
-                indices[ptr++] = i
+                if (ptr < indices.size) {
+                    indices[ptr++] = i
+                }
             }
         }
         return indices

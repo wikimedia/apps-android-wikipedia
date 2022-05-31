@@ -15,6 +15,7 @@ class UserInfo : BlockInfo() {
     val name: String = ""
     val anon: Boolean = false
     val messages: Boolean = false
+    val rights: List<String> = emptyList()
 
     fun groups(): Set<String> {
         return groups?.toSet() ?: emptySet()

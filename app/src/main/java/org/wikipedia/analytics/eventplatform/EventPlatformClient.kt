@@ -7,7 +7,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.log.L
 import java.net.HttpURLConnection
 import java.util.*
@@ -26,7 +25,7 @@ object EventPlatformClient {
      * Inputs: network connection state on/off, connection state bad y/n?
      * Taken out of iOS client, but flag can be set on the request object to wait until connected to send
      */
-    private var ENABLED = WikipediaApp.getInstance().isOnline
+    private var ENABLED = WikipediaApp.instance.isOnline
 
     fun setStreamConfig(streamConfig: StreamConfig) {
         STREAM_CONFIGS[streamConfig.streamName] = streamConfig
@@ -62,25 +61,7 @@ object EventPlatformClient {
         if (!SamplingController.isInSample(event)) {
             return
         }
-        addEventMetadata(event)
         OutputBuffer.schedule(event)
-    }
-
-    /**
-     * Supplement the outgoing event with additional metadata, if not already present.
-     * These include:
-     * - dt: ISO 8601 timestamp
-     * - app_session_id: the current session ID
-     * - app_install_id: app install ID
-     *
-     * @param event event
-     */
-    fun addEventMetadata(event: Event) {
-        if (event is MobileAppsEvent) {
-            event.sessionId = AssociationController.sessionId
-            event.appInstallId = Prefs.appInstallId
-        }
-        event.dt = DateUtil.iso8601DateFormat(Date())
     }
 
     fun flushCachedEvents() {
@@ -128,7 +109,7 @@ object EventPlatformClient {
 
         @Synchronized
         fun sendAllScheduled() {
-            WikipediaApp.getInstance().mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
+            WikipediaApp.instance.mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
             if (ENABLED) {
                 send()
                 QUEUE.clear()
@@ -150,8 +131,8 @@ object EventPlatformClient {
                     sendAllScheduled()
                 } else {
                     // The arrival of a new item interrupts the timer and resets the countdown.
-                    WikipediaApp.getInstance().mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
-                    WikipediaApp.getInstance().mainThreadHandler.postDelayed(SEND_RUNNABLE, WAIT_MS.toLong())
+                    WikipediaApp.instance.mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
+                    WikipediaApp.instance.mainThreadHandler.postDelayed(SEND_RUNNABLE, WAIT_MS.toLong())
                 }
             }
         }

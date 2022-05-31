@@ -27,14 +27,11 @@ class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>(
     }
 
     private fun getActionBarTitle(action: Action): String {
-        return if (action == ADD_IMAGE_TAGS) {
-            getString(R.string.suggested_edits_tag_images)
-        } else if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
-            getString(R.string.suggested_edits_caption_images)
-        } else if (action == VANDALISM_PATROL) {
-            getString(R.string.suggested_edits_vandalism_patrol)
-        } else {
-            getString(R.string.suggested_edits_describe_articles)
+        return when (action) {
+            ADD_IMAGE_TAGS -> getString(R.string.suggested_edits_tag_images)
+            ADD_CAPTION, TRANSLATE_CAPTION -> getString(R.string.suggested_edits_caption_images)
+            VANDALISM_PATROL -> getString(R.string.suggested_edits_vandalism_patrol)
+            else -> getString(R.string.suggested_edits_describe_articles)
         }
     }
 

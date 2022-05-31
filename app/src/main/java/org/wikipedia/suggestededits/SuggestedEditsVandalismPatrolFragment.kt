@@ -48,7 +48,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
         binding.publishOverlayContainer.visibility = GONE
 
         val colorStateList = ColorStateList(arrayOf(intArrayOf()),
-                intArrayOf(if (WikipediaApp.getInstance().currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)))
+                intArrayOf(if (WikipediaApp.instance.currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)))
         binding.publishProgressBar.progressTintList = colorStateList
         binding.publishProgressBarComplete.progressTintList = colorStateList
         binding.publishProgressCheck.imageTintList = colorStateList

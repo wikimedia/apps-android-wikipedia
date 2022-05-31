@@ -20,6 +20,7 @@ import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingList
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -29,7 +30,7 @@ class ReadingListSyncAdapter : JobIntentService() {
 
     override fun onHandleWork(intent: Intent) {
         val extras = intent.extras!!
-        if (isDisabledByRemoteConfig || !AccountUtil.isLoggedIn ||
+        if (RemoteConfig.config.disableReadingListSync || !AccountUtil.isLoggedIn ||
                 !(Prefs.isReadingListSyncEnabled || Prefs.isReadingListsRemoteDeletePending)) {
             L.d("Skipping sync of reading lists.")
             if (extras.containsKey(SYNC_EXTRAS_REFRESHING)) {
@@ -42,7 +43,7 @@ class ReadingListSyncAdapter : JobIntentService() {
         val listIdsDeleted = Prefs.readingListsDeletedIds.toMutableSet()
         val pageIdsDeleted = Prefs.readingListPagesDeletedIds.toMutableSet()
         var allLocalLists: MutableList<ReadingList>? = null
-        val wiki = WikipediaApp.getInstance().wikiSite
+        val wiki = WikipediaApp.instance.wikiSite
         val client = ReadingListClient(wiki)
         val readingListSyncNotification = ReadingListSyncNotification.instance
         var lastSyncTime = Prefs.readingListsLastSyncTime.orEmpty()
@@ -119,7 +120,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             }
 
             // Notify any event consumers that reading lists are, in fact, enabled.
-            WikipediaApp.getInstance().bus.post(ReadingListsEnabledStatusEvent())
+            WikipediaApp.instance.bus.post(ReadingListsEnabledStatusEvent())
 
             // setup syncing indicator for remote to local
             val remoteItemsTotal = remoteListsModified.size
@@ -357,11 +358,11 @@ class ReadingListSyncAdapter : JobIntentService() {
                 if (lastSyncTime.isEmpty()) {
                     // This means that it's our first time attempting to sync, and we see that
                     // syncing isn't enabled on the server. So, let's prompt the user to enable it:
-                    WikipediaApp.getInstance().bus.post(ReadingListsEnableDialogEvent())
+                    WikipediaApp.instance.bus.post(ReadingListsEnableDialogEvent())
                 } else {
                     // This can only mean that our reading lists have been torn down (disabled) by
                     // another client, so we need to notify the user of this development.
-                    WikipediaApp.getInstance().bus.post(ReadingListsNoLongerSyncedEvent())
+                    WikipediaApp.instance.bus.post(ReadingListsNoLongerSyncedEvent())
                 }
             }
             if (client.isErrorType(t, "notloggedin")) {
@@ -401,7 +402,7 @@ class ReadingListSyncAdapter : JobIntentService() {
     @Throws(Throwable::class)
     private fun getCsrfToken(wiki: WikiSite, tokenList: MutableList<String>): String {
         if (tokenList.size == 0) {
-            tokenList.add(CsrfTokenClient(wiki).token.blockingSingle())
+            tokenList.add(CsrfTokenClient.getToken(wiki).blockingSingle())
         }
         return tokenList[0]
     }
@@ -486,8 +487,6 @@ class ReadingListSyncAdapter : JobIntentService() {
             manualSync()
         }
 
-        val isDisabledByRemoteConfig get() = WikipediaApp.getInstance().remoteConfig.config.optBoolean("disableReadingListSync", false)
-
         fun manualSyncWithDeleteList(list: ReadingList) {
             if (list.remoteId <= 0) {
                 return
@@ -520,7 +519,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             if (inProgress()) {
                 return
             }
-            if (AccountUtil.account() == null || !WikipediaApp.getInstance().isOnline) {
+            if (AccountUtil.account() == null || !WikipediaApp.instance.isOnline) {
                 if (extras.containsKey(SYNC_EXTRAS_REFRESHING)) {
                     SavedPageSyncService.sendSyncEvent()
                 }
@@ -529,8 +528,8 @@ class ReadingListSyncAdapter : JobIntentService() {
             extras.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true)
             extras.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true)
 
-            enqueueWork(WikipediaApp.getInstance(), ReadingListSyncAdapter::class.java,
-                JOB_ID, Intent(WikipediaApp.getInstance(), ReadingListSyncAdapter::class.java)
+            enqueueWork(WikipediaApp.instance, ReadingListSyncAdapter::class.java,
+                JOB_ID, Intent(WikipediaApp.instance, ReadingListSyncAdapter::class.java)
                     .putExtras(extras))
         }
     }

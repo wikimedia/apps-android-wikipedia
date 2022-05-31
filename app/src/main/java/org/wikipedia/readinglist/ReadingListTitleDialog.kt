@@ -9,7 +9,6 @@ object ReadingListTitleDialog {
         fun onSuccess(text: String, description: String)
     }
 
-    @JvmStatic
     fun readingListTitleDialog(activity: Activity,
                                title: String,
                                description: String?,

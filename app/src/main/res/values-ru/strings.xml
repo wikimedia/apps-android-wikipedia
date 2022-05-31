@@ -111,6 +111,10 @@
   <string name="search_redirect_from">Перенаправлено с %s</string>
   <string name="page_edit_history_activity_title">История изменений: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
+  <string name="page_edit_history_filter_by_all">Все правки (%s)</string>
+  <string name="page_edit_history_filter_by_user">Правки участников (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Анонимные правки (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Правки ботов (%s)</string>
   <string name="menu_page_show_tabs">Показать вкладки</string>
   <string name="menu_page_other_languages">Изменить язык</string>
   <string name="menu_page_find_in_page">Найти в статье</string>
@@ -141,6 +145,7 @@
   <string name="on_this_day_page_share">Поделиться</string>
   <string name="reading_list_page_share">Поделиться</string>
   <string name="menu_text_select_edit_here">Править здесь</string>
+  <string name="menu_edit_article">Отредактировать статью</string>
   <string name="last_updated_text">Последнее обновление: %s</string>
   <string name="talk_page_link_text">Смотреть страницу обсуждения</string>
   <string name="edit_history_link_text">Посмотреть историю изменений</string>
@@ -480,7 +485,7 @@
   <string name="reading_list_article_moved_to_named">%1$s перемещено в %2$s.</string>
   <string name="reading_list_article_already_exists_message">Всё хорошо! %1$s уже содержит %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Всё хорошо! %s уже содержит все статьи.</string>
-  <string name="reading_list_added_view_button">Просмотр списка</string>
+  <string name="reading_list_added_view_button">Посмотреть список</string>
   <string name="reading_list_add_to_list_button">Добавить в список</string>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">Статей: %1$d, %2$.2f MB</item>
@@ -660,8 +665,8 @@
   <string name="notifications_activity_title">Уведомления</string>
   <string name="notifications_activity_title_archived">Архив уведомлений</string>
   <string name="notifications_search">Искать уведомления</string>
-  <string name="notifications_view_unread">Просмотр непрочитанных</string>
-  <string name="notifications_view_archived">Просмотр архивированных</string>
+  <string name="notifications_view_unread">Посмотреть непрочитанные</string>
+  <string name="notifications_view_archived">Посмотреть заархивированные</string>
   <string name="notifications_prefs">Настройки уведомлений</string>
   <string name="notifications_archive">Отметить как прочитанное и архивировать</string>
   <plurals name="notification_archive_message">
@@ -850,6 +855,7 @@
   <string name="customize_toolbar_title">Настроить панель инструментов</string>
   <string name="customize_toolbar_category_toolbar">Панель инструментов</string>
   <string name="customize_toolbar_category_menu">Меню</string>
+  <string name="customize_toolbar_reset_to_default_button">Сбросить к настройкам по умолчанию</string>
   <string name="suggested_edits_describe_articles">Описать статьи</string>
   <string name="suggested_edits_caption_images">Описание изображений</string>
   <string name="suggested_edits_tag_images">Тегирование изображений</string>
@@ -908,7 +914,7 @@
   <string name="suggested_edits_article_cta_image_tags">Добавить тэги к изображению</string>
   <string name="suggested_edits_article_cta_image_caption">Добавить описание изображения</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Добавить описание изображения (%s)</string>
-  <string name="suggested_edits_article_cta_snackbar_action">Просмотр</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Посмотреть</string>
   <string name="suggested_edits_feed_card_add_image_caption">Добавить заголовок изображения</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Добавить заголовок изображения (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Добавить теги изображений</string>
@@ -1174,9 +1180,16 @@
   <string name="thank_success_message">Ваше \"Спасибо\" отправлено участнику %s 👍</string>
   <string name="menu_option_view_user_profile">Посмотреть страницу профиля пользователя</string>
   <string name="menu_option_view_user_talk">Смотрите страницу обсуждения</string>
+  <string name="revision_diff_compare">Сравнить версии</string>
   <string name="revision_diff_compare_title">Сравнить версии: %s</string>
   <string name="revision_diff_from">От:</string>
   <string name="revision_diff_line_num">Строка %d</string>
+  <string name="revision_diff_line_nums">Строки с %d-й по %d-ю</string>
+  <string name="revision_diff_line_added">Строка добавлена</string>
+  <string name="revision_diff_line_removed">Строка удалена</string>
+  <string name="revision_diff_paragraph_added">Абзац добавлен</string>
+  <string name="revision_diff_paragraph_removed">Абзац удалён</string>
+  <string name="revision_undo_title">Отменить правку</string>
   <string name="revision_compare_button">Сравнить</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Участник %1$s и его страница обсуждений добавлены в ваш список наблюдения %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Изменить</string>

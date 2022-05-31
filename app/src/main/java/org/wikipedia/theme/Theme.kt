@@ -24,11 +24,9 @@ enum class Theme(val marshallingId: Int, val funnelName: String, @field:StyleRes
         get() = this == DARK || this == BLACK
 
     companion object {
-        @JvmStatic
         val fallback: Theme
             get() = LIGHT
 
-        @JvmStatic
         fun ofMarshallingId(id: Int): Theme? {
             return values().find { it.marshallingId == id }
         }

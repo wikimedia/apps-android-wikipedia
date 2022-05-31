@@ -2,6 +2,7 @@ package org.wikipedia.dataclient.okhttp
 
 import okhttp3.Interceptor
 import okhttp3.Response
+import okhttp3.internal.closeQuietly
 import java.io.IOException
 
 class UnsuccessfulResponseInterceptor : Interceptor {
@@ -11,6 +12,9 @@ class UnsuccessfulResponseInterceptor : Interceptor {
         if (rsp.isSuccessful) {
             return rsp
         }
-        throw HttpStatusException(rsp)
+
+        val e = HttpStatusException(rsp)
+        rsp.closeQuietly()
+        throw e
     }
 }

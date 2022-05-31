@@ -3,11 +3,11 @@ package org.wikipedia.feed
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.core.util.Pair
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.BackPressedHandler
@@ -42,7 +42,6 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
-import java.util.*
 
 class FeedFragment : Fragment(), BackPressedHandler {
     private var _binding: FragmentFeedBinding? = null
@@ -52,7 +51,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
     private val feedCallback = FeedCallback()
     private val feedScrollListener = FeedScrollListener()
     private val callback get() = getCallback(this, Callback::class.java)
-    private var app: WikipediaApp = WikipediaApp.getInstance()
+    private var app: WikipediaApp = WikipediaApp.instance
     private var coordinator: FeedCoordinator = FeedCoordinator(app)
     private var funnel: FeedFunnel = FeedFunnel(app)
     private var shouldElevateToolbar = false
@@ -122,8 +121,8 @@ class FeedFragment : Fragment(), BackPressedHandler {
     }
 
     private fun showRemoveChineseVariantPrompt() {
-        if (app.language().appLanguageCodes.contains(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE) &&
-            app.language().appLanguageCodes.contains(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE) &&
+        if (app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE) &&
+            app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE) &&
             Prefs.shouldShowRemoveChineseVariantPrompt) {
             AlertDialog.Builder(requireActivity())
                 .setTitle(R.string.dialog_of_remove_chinese_variants_from_app_lang_title)

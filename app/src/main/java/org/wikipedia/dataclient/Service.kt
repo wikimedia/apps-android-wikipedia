@@ -7,6 +7,7 @@ import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscribeResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscriptionList
 import org.wikipedia.dataclient.mwapi.*
+import org.wikipedia.dataclient.rollback.RollbackPostResponse
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.Claims
 import org.wikipedia.dataclient.wikidata.Entities
@@ -213,6 +214,9 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
     val userInfo: Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=rights")
+    suspend fun userRights(): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
     fun getUserList(@Query("ususers") userNames: String): Observable<MwQueryResponse>
 
@@ -272,16 +276,10 @@ interface Service {
 
     // ------- Editing -------
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=content|timestamp|ids&rvlimit=1&converttitles=")
-    fun getWikiTextForSection(
-        @Query("titles") title: String,
-        @Query("rvsection") section: Int
-    ): Observable<MwQueryResponse>
-
     @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full")
     fun getWikiTextForSectionWithInfo(
         @Query("titles") title: String,
-        @Query("rvsection") section: Int
+        @Query("rvsection") section: Int?
     ): Observable<MwQueryResponse>
 
     @FormUrlEncoded
@@ -307,7 +305,7 @@ interface Service {
     @POST(MW_API_PREFIX + "action=edit")
     fun postEditSubmit(
         @Field("title") title: String,
-        @Field("section") section: String,
+        @Field("section") section: String?,
         @Field("sectiontitle") newSectionTitle: String?,
         @Field("summary") summary: String,
         @Field("assert") user: String?,
@@ -318,15 +316,6 @@ interface Service {
         @Field("captchaid") captchaId: String?,
         @Field("captchaword") captchaWord: String?
     ): Observable<Edit>
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=rollback")
-    suspend fun postRollback(
-            @Field("title") title: String,
-            @Field("user") user: String,
-            @Field("summary") summary: String,
-            @Field("token") token: String
-    ): MwPostResponse
 
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     fun getUserContributions(
@@ -340,6 +329,15 @@ interface Service {
 
     @get:GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     val editorTaskCounts: Observable<MwQueryResponse>
+
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=rollback")
+    suspend fun postRollback(
+        @Field("title") title: String,
+        @Field("summary") summary: String?,
+        @Field("user") user: String,
+        @Field("token") token: String
+    ): RollbackPostResponse
 
     // ------- Wikidata -------
 

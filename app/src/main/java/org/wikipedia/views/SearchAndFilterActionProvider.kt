@@ -1,7 +1,6 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -75,13 +74,11 @@ class SearchAndFilterActionProvider(context: Context,
         val enabledFilters = callback.getExcludedFilterCount()
         if (enabledFilters == 0) {
             binding.filterCount.visibility = View.GONE
-            ImageViewCompat.setImageTintList(binding.filterIcon,
-                ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.chip_text_color)))
+            ImageViewCompat.setImageTintList(binding.filterIcon, ResourceUtil.getThemedColorStateList(context, R.attr.chip_text_color))
         } else {
             binding.filterCount.visibility = View.VISIBLE
             binding.filterCount.text = enabledFilters.toString()
-            ImageViewCompat.setImageTintList(binding.filterIcon,
-                ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorAccent)))
+            ImageViewCompat.setImageTintList(binding.filterIcon, ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent))
         }
     }
 

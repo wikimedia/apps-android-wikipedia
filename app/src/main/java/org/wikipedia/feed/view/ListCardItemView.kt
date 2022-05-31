@@ -2,13 +2,12 @@ package org.wikipedia.feed.view
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.VisibleForTesting
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.util.Pair
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewListCardItemBinding
 import org.wikipedia.dataclient.page.PageSummary
@@ -49,8 +48,7 @@ class ListCardItemView @JvmOverloads constructor(context: Context, attrs: Attrib
         setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding.toFloat()),
             0, DimenUtil.roundedDpToPx(topBottomPadding.toFloat()))
         DeviceUtil.setContextClickAsLongClick(this)
-        background = AppCompatResources.getDrawable(getContext(),
-            ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground))
+        setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
 
         setOnClickListener {
             if (historyEntry != null && card != null) {

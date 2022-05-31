@@ -2,7 +2,7 @@ package org.wikipedia.diff
 
 import android.app.AlertDialog
 import android.content.res.ColorStateList
-import android.graphics.*
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.*
 import android.widget.FrameLayout
@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.button.MaterialButton
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
@@ -50,6 +51,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     private val viewModel: ArticleEditDetailsViewModel by viewModels { ArticleEditDetailsViewModel.Factory(requireArguments()) }
+    private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -58,7 +60,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         binding.diffRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         FeedbackUtil.setButtonLongPressToast(binding.newerIdButton, binding.olderIdButton)
-
         return binding.root
     }
 
@@ -72,8 +73,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         viewModel.watchedStatus.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
-                isWatched = it.data.query?.firstPage()?.watched ?: false
-                hasWatchlistExpiry = it.data.query?.firstPage()?.hasWatchlistExpiry() ?: false
+                if (editHistoryInteractionEvent == null) {
+                    editHistoryInteractionEvent = EditHistoryInteractionEvent(viewModel.pageTitle.wikiSite.dbName(), viewModel.pageId)
+                    editHistoryInteractionEvent?.logRevision()
+                }
+                isWatched = it.data.watched
+                hasWatchlistExpiry = it.data.hasWatchlistExpiry()
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
             }
@@ -106,8 +111,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(),
                         R.attr.material_theme_de_emphasised_color))
                 binding.thankButton.isEnabled = false
+                editHistoryInteractionEvent?.logThankSuccess()
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
+                editHistoryInteractionEvent?.logThankFail()
             }
         }
 
@@ -129,9 +136,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 setLoadingState()
                 viewModel.getRevisionDetails(it.data.edit!!.newRevId)
                 FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_undo_success), FeedbackUtil.LENGTH_DEFAULT).show()
+                editHistoryInteractionEvent?.logUndoSuccess()
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
                 FeedbackUtil.showError(requireActivity(), it.throwable)
+                editHistoryInteractionEvent?.logUndoFail()
             }
         }
 
@@ -169,10 +178,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.newerIdButton.setOnClickListener {
             setLoadingState()
             viewModel.goForward()
+            editHistoryInteractionEvent?.logNewerEditChevronClick()
         }
         binding.olderIdButton.setOnClickListener {
             setLoadingState()
             viewModel.goBackward()
+            editHistoryInteractionEvent?.logOlderEditChevronClick()
         }
 
         binding.usernameFromButton.setOnClickListener {
@@ -183,10 +194,16 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             showUserPopupMenu(viewModel.revisionTo, binding.usernameToButton)
         }
 
-        binding.thankButton.setOnClickListener { showThankDialog() }
+        binding.thankButton.setOnClickListener {
+            showThankDialog()
+            editHistoryInteractionEvent?.logThankTry()
+        }
 
         binding.undoButton.isVisible = ReleaseUtil.isPreBetaRelease
-        binding.undoButton.setOnClickListener { showUndoDialog() }
+        binding.undoButton.setOnClickListener {
+            showUndoDialog()
+            editHistoryInteractionEvent?.logUndoTry()
+        }
 
         binding.errorView.backClickListener = View.OnClickListener { requireActivity().finish() }
     }
@@ -208,10 +225,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             R.id.menu_share_edit -> {
                 ShareUtil.shareText(requireContext(), PageTitle(viewModel.pageTitle.prefixedText,
                         viewModel.pageTitle.wikiSite), viewModel.revisionToId, viewModel.revisionFromId)
+                editHistoryInteractionEvent?.logShareClick()
                 true
             }
             R.id.menu_add_watchlist -> {
                 viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
+                if (isWatched) editHistoryInteractionEvent?.logUnwatchClick() else editHistoryInteractionEvent?.logWatchClick()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -254,14 +273,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun updateAfterRevisionFetchSuccess() {
         viewModel.revisionFrom?.let {
             binding.usernameFromButton.text = it.user
-            binding.revisionFromTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(it.timeStamp))
+            binding.revisionFromTimestamp.text = DateUtil.getTimeAndDateString(DateUtil.iso8601DateParse(it.timeStamp))
             binding.overlayRevisionFromTimestamp.text = binding.revisionFromTimestamp.text
             binding.revisionFromEditComment.text = StringUtil.fromHtml(it.parsedcomment.trim())
         }
 
         viewModel.revisionTo?.let {
             binding.usernameToButton.text = it.user
-            binding.revisionToTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(it.timeStamp))
+            binding.revisionToTimestamp.text = DateUtil.getTimeAndDateString(DateUtil.iso8601DateParse(it.timeStamp))
             binding.overlayRevisionToTimestamp.text = binding.revisionToTimestamp.text
             binding.revisionToEditComment.text = StringUtil.fromHtml(it.parsedcomment.trim())
         }
@@ -332,7 +351,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .setPositiveButton(R.string.thank_dialog_positive_button_text) { _, _ ->
                     viewModel.sendThanks(viewModel.pageTitle.wikiSite, viewModel.revisionToId)
                 }
-                .setNegativeButton(R.string.thank_dialog_negative_button_text, null)
+                .setNegativeButton(R.string.thank_dialog_negative_button_text) { _, _ ->
+                    editHistoryInteractionEvent?.logThankCancel()
+                }
                 .create()
         dialog.layoutInflater.inflate(R.layout.view_thank_dialog, parent)
         dialog.setOnShowListener {
@@ -343,7 +364,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun showUndoDialog() {
-        val dialog = UndoEditDialog(requireActivity()) { text ->
+        val dialog = UndoEditDialog(editHistoryInteractionEvent, requireActivity()) { text ->
             viewModel.revisionTo?.let {
                 binding.progressBar.isVisible = true
                 viewModel.undoEdit(viewModel.pageTitle, it.user, text.toString(), viewModel.revisionToId, 0)

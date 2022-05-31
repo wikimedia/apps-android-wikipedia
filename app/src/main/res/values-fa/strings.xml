@@ -164,8 +164,8 @@
   <string name="login_username_hint">نام کاربری</string>
   <string name="login_password_hint">رمز عبور</string>
   <string name="account_creation_password_hint">رمز عبور</string>
-  <string name="login_2fa_hint">کد تأیید اعتبار دومرحله‌ای</string>
-  <string name="login_2fa_other_workflow_error_msg">تأیید اعتبار دو مرحله‌ای مورد نیاز است! لطفاً به فعالیت اصلی بازگردید و با توکن دومرحله‌ای خودتان به سامانه وارد شوید و از نو تلاش کنید.</string>
+  <string name="login_2fa_hint">کد اصالت‌سنجی دومرحله‌ای</string>
+  <string name="login_2fa_other_workflow_error_msg">اصالت‌سنجی دو مرحله‌ای مورد نیاز است! لطفاً به فعالیت اصلی بازگردید و با توکن دومرحله‌ای خودتان به سامانه وارد شوید و از نو تلاش کنید.</string>
   <string name="onboarding_card_login">ورود</string>
   <string name="page_editing_login">ورود</string>
   <string name="reading_lists_sync_login">ورود</string>
@@ -343,9 +343,9 @@
   <string name="gallery_save_success">پرونده ذخیره شد.</string>
   <string name="gallery_error_video_failed">امکان پخش ویدئو وجود ندارد.</string>
   <string name="gallery_save_image_write_permission_rationale">برای ذخیره تصاویر، به اجازهٔ ذخیره بر روی دستگاهتان نیاز است.</string>
-  <string name="gallery_edit_button_content_description">ویرایش توضیح تصویر</string>
-  <string name="gallery_add_image_caption_button">افزودن توضیح تصویر</string>
-  <string name="gallery_add_image_caption_in_language_button">افزودن توضیح تصویر (%s)</string>
+  <string name="gallery_edit_button_content_description">ویرایش برنگاشت تصویر</string>
+  <string name="gallery_add_image_caption_button">افزودن برنگاشت تصویر</string>
+  <string name="gallery_add_image_caption_in_language_button">افزودن برنگاشت تصویر (%s)</string>
   <string name="err_cannot_save_file">ذخیرهٔ پرونده ممکن نیست</string>
   <string name="expand_refs">برای بازشدن صفحه، لمس کنید</string>
   <string name="cc_logo">پروانهٔ کریتیو کامنز</string>
@@ -612,23 +612,23 @@
     <item quantity="other">%1$d فهرست باقی مانده‌است</item>
   </plurals>
   <string name="notification_echo_channel_description">اعلان‌های ویکی‌پدیا</string>
-  <string name="notifications_activity_title">اعلان‌ها</string>
-  <string name="notifications_activity_title_archived">اعلان‌ها (بایگانی‌شده)</string>
-  <string name="notifications_search">جستجو در اعلان‌ها</string>
+  <string name="notifications_activity_title">آگاه‌سازی‌ها</string>
+  <string name="notifications_activity_title_archived">آگاه‌سازی‌ها (بایگانی‌شده)</string>
+  <string name="notifications_search">جستجو در آگاه‌سازی‌ها</string>
   <string name="notifications_view_unread">مشاهدهٔ خوانده‌نشده‌ها</string>
   <string name="notifications_view_archived">مشاهدهٔ بایگانی‌شده‌ها</string>
-  <string name="notifications_prefs">ترجیحات اعلان‌ها</string>
+  <string name="notifications_prefs">ترجیحات آگاه‌سازی‌ها</string>
   <string name="notifications_archive">نشانه‌گذاری به‌عنوان خوانده‌شده و بایگانی‌کردن</string>
   <plurals name="notification_archive_message">
     <item quantity="one">آگاه‌سازی‌ بایگانی شد</item>
     <item quantity="other">%d آگاه‌سازی‌ بایگانی شد</item>
   </plurals>
-  <string name="notifications_poll_enable_title">فعال‌سازی اعلان‌ها</string>
+  <string name="notifications_poll_enable_title">فعال‌سازی آگاه‌سازی‌ها</string>
   <string name="notifications_poll_enable_positive">فعال‌سازی</string>
   <string name="notifications_poll_enable_negative">اکنون نه</string>
   <string name="notifications_empty_message">آگاه‌سازی‌‌ نخواندهٔ دیگری باقی نمانده است!</string>
   <string name="notifications_view_archived_button_text">مشاهدهٔ اعلان‌های بایگانی‌شده</string>
-  <string name="notification_preferences_title">ترجیحات اعلان‌ها</string>
+  <string name="notification_preferences_title">ترجیحات آگاه‌سازی‌ها</string>
   <string name="notifications_mark_unread">نشانه‌گذاری به‌عنوان خوانده‌نشده</string>
   <string name="notifications_mark_all_as_read">نشان‌گذاری همه به عنوان خوانده‌شده</string>
   <string name="notifications_direct_reply_action">پاسخ</string>
@@ -638,9 +638,9 @@
   <string name="notifications_mark_all_as_read_message">%d به عنوان خوانده شده علامت‌گذاری شد</string>
   <string name="notifications_mark_all_as_unread_message">%d به عنوان خوانده نشده علامت‌گذاری شد</string>
   <string name="watchlist_title">فهرست پیگیری</string>
-  <string name="preference_title_notification_poll">سرشماری اعلان‌ها</string>
+  <string name="preference_title_notification_poll">سرشماری آگاه‌سازی‌ها</string>
   <string name="preference_summary_notification_poll">به نرم‌افزار اجازه دهید به صورت ناپیدا از داده‌های شما برای بررسی آگاه‌سازی‌های جدید استفاده کند.</string>
-  <string name="preference_category_notification_types">انواع اعلانات درون‌برنامه‌ای</string>
+  <string name="preference_category_notification_types">انواع آگاه‌سازی درون‌برنامه‌ای</string>
   <string name="preference_title_notification_system">سامانه</string>
   <string name="preference_summary_notification_system">پیام‌های سامانه</string>
   <string name="preference_title_notification_milestone">نقطهٔ عطف</string>
@@ -666,11 +666,11 @@
   <string name="preference_category_display_settings">تنظیمات نمایش</string>
   <string name="preference_title_hide_read_notifications">نهفتن اعلان‌های خوانده‌شده</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">ویکی‌پدیا</string>
-  <string name="notifications_channel_group_wikipedia_notifications_description">اعلان‌ها از ویکی‌پدیا</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">آگاه‌سازی‌ها از ویکی‌پدیا</string>
   <string name="notifications_channel_group_other_title">سایر</string>
-  <string name="notifications_channel_group_other_description">سایر اعلان‌ها از  برنامه</string>
-  <string name="notifications_filter_label">پالایش اعلان‌ها</string>
-  <string name="notifications_filter_icon_content_description">پالایش اعلان‌ها</string>
+  <string name="notifications_channel_group_other_description">سایر آگاه‌سازی‌ها از  برنامه</string>
+  <string name="notifications_filter_label">پالایش آگاه‌سازی‌ها</string>
+  <string name="notifications_filter_icon_content_description">پالایش آگاه‌سازی‌ها</string>
   <string name="notifications_filter_update_app_languages">به‌روزرسانی زبان‌های برنامه</string>
   <string name="notifications_tab_filter_all">همه</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه کرده‌اید</string>
@@ -736,17 +736,17 @@
   <string name="description_edit_translate_article_description_label_per_language">توضیحات مقاله (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">توضیحات مقاله (%s)</string>
   <string name="description_edit_add_caption_label">توضیحات تصویر</string>
-  <string name="description_edit_add_caption_hint">توضیح تصویر</string>
-  <string name="description_edit_translate_caption_label_per_language">توضیح تصویر (%s)</string>
-  <string name="description_edit_translate_caption_hint_per_language">توضیح تصویر (%s)</string>
+  <string name="description_edit_add_caption_hint">برنگاشت تصویر</string>
+  <string name="description_edit_translate_caption_label_per_language">برنگاشت تصویر (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">برنگاشت تصویر (%s)</string>
   <string name="description_edit_save">انتشار</string>
   <string name="description_edit_read">خواندن</string>
   <string name="description_edit_add_description">افزودن توضیحات مقاله</string>
   <string name="description_edit_translate_description">ترجمهٔ توضیحات مقاله</string>
   <string name="description_edit_edit_description">ویرایش توضیحات مقاله</string>
-  <string name="description_edit_add_image_caption">افزودن توضیح تصویر</string>
-  <string name="description_edit_edit_image_caption">ویرایش توضیح تصویر</string>
-  <string name="description_edit_translate_image_caption">ترجمهٔ توضیحات تصویر</string>
+  <string name="description_edit_add_image_caption">افزودن برنگاشت تصویر</string>
+  <string name="description_edit_edit_image_caption">ویرایش برنگاشت تصویر</string>
+  <string name="description_edit_translate_image_caption">ترجمهٔ برنگاشت تصویر</string>
   <string name="description_edit_cancel_hint">لغو</string>
   <string name="description_edit_help_title">راهنما:توضیحات مقاله</string>
   <string name="description_edit_help_about_wikidata">دربارهٔ ویکی‌داده</string>
@@ -764,8 +764,8 @@
   <string name="description_edit_success_saved">توضیحات مقاله منتشر شد!</string>
   <string name="description_edit_success_saved_snackbar">توضیحات مقاله منتشر شد!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">توضیحات مقاله منتشر شد! (%s)</string>
-  <string name="description_edit_success_saved_image_caption_snackbar">توضیحات تصویر منتشر شد!</string>
-  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">توضیحات تصویر منتشر شد!(%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">برنگاشت تصویر منتشر شد!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">برنگاشت تصویر منتشر شد! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">برچسب(های) تصویر منتشر شد!</string>
   <string name="description_edit_success_se_general_feed_link_snackbar">لذت بردید؟ برای افزودن مطالب بیشتر کمک کنید.</string>
   <string name="description_edit_success_encouragement">شما ویکی‌پدیا را برای همه بهتر کردید</string>
@@ -780,20 +780,20 @@
   <string name="description_edit_tutorial_promise">پیش از استفاده، قول می‌دهم از این ویژگی سو‌ءاستفاده نکنم.</string>
   <string name="customize_toolbar_category_menu">منو</string>
   <string name="suggested_edits_describe_articles">مقاله‌ها را توصیف کنید</string>
-  <string name="suggested_edits_caption_images">به تصویرها توضیح بیفزایید</string>
+  <string name="suggested_edits_caption_images">به تصویرها برنگاشت بیفزایید</string>
   <string name="suggested_edits_tag_images">برچسب‌گذاری تصویرها</string>
   <string name="suggested_edits_review_description">مرور توضیحات مقاله</string>
   <string name="suggested_edits_add_description_button">افزدون توضیحات</string>
   <string name="suggested_edits_edit_description_button">ویرایش توضیحات</string>
   <string name="suggested_edits_add_translation_button">افزودن ترجمه</string>
   <string name="suggested_edits_edit_translation_button">ویرایش ترجمه</string>
-  <string name="suggested_edits_add_caption_button">افزودن توضیحات</string>
-  <string name="suggested_edits_edit_caption_button">ویرایش توضیحات</string>
-  <string name="suggested_edits_review_image_caption">بازبینی توضیحات تصویر</string>
+  <string name="suggested_edits_add_caption_button">افزودن برنگاشت</string>
+  <string name="suggested_edits_edit_caption_button">ویرایش برنگاشت</string>
+  <string name="suggested_edits_review_image_caption">بازبینی برنگاشت تصویر</string>
   <string name="suggested_edits_my_contributions">مشارکت‌های من</string>
   <string name="suggested_edits_no_description">این پرونده دارای توضیحات نیست</string>
   <string name="suggested_edits_license_notice">با افزودن توضیحات، با &lt;a href=\"%1$s\"&gt;شرایط استفاده&lt;/a&gt; موافقت کرده و قبول می‌کنم که مشارکت‌هایم به‌طور برگشت‌ناپذیری تحت پروانهٔ &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; منتشر شوند.</string>
-  <string name="suggested_edits_image_caption_license_notice">با افزودن توضیحات تصویر، با &lt;a href=\"%1$s\"&gt;شرایط استفاده&lt;/a&gt; موافقت کرده و قبول می‌کنم که مشارکت‌هایم به‌طور برگشت‌ناپذیری تحت پروانهٔ &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; منتشر شوند.</string>
+  <string name="suggested_edits_image_caption_license_notice">با افزودن برنگاشت تصویر، با &lt;a href=\"%1$s\"&gt;شرایط استفاده&lt;/a&gt; موافقت کرده و قبول می‌کنم که مشارکت‌هایم به‌طور برگشت‌ناپذیری تحت پروانهٔ &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; منتشر شوند.</string>
   <string name="suggested_edits_menu_info">اطلاعات</string>
   <string name="suggested_edits_task_add_description_title">افزودن توضیحات مقاله</string>
   <string name="suggested_edits_task_add_description_description">مشارکت در مقالات بدون توضیحات</string>
@@ -821,7 +821,7 @@
   <string name="suggested_edits_feed_card_add_description_button">افزودن توضیح مقاله</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">افزودن توضیحات مقاله (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">شروع کن</string>
-  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">توضیح تصویر (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">برنگاشت تصویر (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">تصویر</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">پرونده‌ای از ویکی‌انبار</string>
   <string name="suggested_edits_image_preview_dialog_artist">هنرمند</string>
@@ -833,11 +833,11 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">صفحهٔ این پرونده در ویکی‌انبار</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">صفحهٔ پرونده در ویکی‌پدیا</string>
   <string name="suggested_edits_article_cta_image_tags">افزودن برچسب‌های تصویر</string>
-  <string name="suggested_edits_article_cta_image_caption">افزودن توضیح تصویر</string>
-  <string name="suggested_edits_article_cta_image_caption_in_language">افزودن توضیحات تصویر (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">افزودن برنگاشت تصویر</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">افزودن برنگاشت تصویر (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">نمایش</string>
-  <string name="suggested_edits_feed_card_add_image_caption">افزودن توضیحات تصویر</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">افزودن توضیحات تصویر (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">افزودن برنگاشت تصویر</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">افزودن برنگاشت تصویر (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">افزودن برچسب‌های تصویر</string>
   <string name="suggested_edits_snackbar_survey_text">تجربهٔ ویرایش شما چطور بود؟ لطفاً برای پاسخ دادن به یک نظرسنجی دربارهٔ ویرایش با استفاده از اپلیکیشین چند دقیقه زمان بگذارید.</string>
   <string name="suggested_edits_snackbar_survey_action_text">شرکت در آمارگیری</string>
@@ -945,7 +945,7 @@
     <item quantity="other">شما %d نویسه افزودید</item>
   </plurals>
   <string name="file_page_activity_title">صفحه پرونده</string>
-  <string name="file_page_add_image_caption_button">افزودن توضیح تصویر</string>
+  <string name="file_page_add_image_caption_button">افزودن برنگاشت تصویر</string>
   <string name="file_page_add_image_tags_button">افزودن برچسب‌های تصویر</string>
   <string name="file_page_suggestion_reason">دلیل پیشنهاد</string>
   <string name="file_page_edit_button_content_description">ویرایش %s</string>

@@ -49,7 +49,7 @@ class SuggestedEditsVandalismPatrolViewModel(private val langCode: String) : Vie
             withContext(Dispatchers.IO) {
                 val wiki = WikiSite.forLanguageCode(langCode)
                 val token = ServiceFactory.get(wiki).getToken("rollback").query!!.rollbackToken()!!
-                ServiceFactory.get(wiki).postRollback(candidate!!.title, candidate!!.user, "", token)
+                ServiceFactory.get(wiki).postRollback(candidate!!.title, "", candidate!!.user, token)
                 rollbackResponse.postValue(Resource.Success(Unit))
             }
         }

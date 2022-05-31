@@ -5,21 +5,19 @@ import android.content.pm.PackageManager
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
-import org.wikipedia.auth.AccountUtil
 import java.util.concurrent.TimeUnit
 
 @Suppress("unused")
 @Serializable
-@SerialName("/analytics/mobile_apps/android_daily_stats/1.0.0")
+@SerialName("/analytics/mobile_apps/android_daily_stats/2.0.0")
 class DailyStatsEvent(private val app_install_age_in_days: Long,
-                      private val languages: List<String>,
-                      private val is_anon: Boolean) : MobileAppsEvent(STREAM_NAME) {
+                      private val languages: List<String>) : MobileAppsEvent(STREAM_NAME) {
 
     companion object {
         private const val STREAM_NAME = "android.daily_stats"
 
         fun log(app: WikipediaApp) {
-            EventPlatformClient.submit(DailyStatsEvent(getInstallAgeDays(app), app.language().appLanguageCodes, !AccountUtil.isLoggedIn))
+            EventPlatformClient.submit(DailyStatsEvent(getInstallAgeDays(app), app.languageState.appLanguageCodes))
         }
 
         private fun getInstallAgeDays(context: Context): Long {
