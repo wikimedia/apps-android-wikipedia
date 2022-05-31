@@ -7,6 +7,7 @@ import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscribeResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscriptionList
 import org.wikipedia.dataclient.mwapi.*
+import org.wikipedia.dataclient.rollback.RollbackPostResponse
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.Claims
 import org.wikipedia.dataclient.wikidata.Entities
@@ -214,6 +215,9 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
     val userInfo: Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=rights")
+    suspend fun userRights(): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
     fun getUserList(@Query("ususers") userNames: String): Observable<MwQueryResponse>
 
@@ -326,6 +330,15 @@ interface Service {
 
     @get:GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     val editorTaskCounts: Observable<MwQueryResponse>
+
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=rollback")
+    suspend fun postRollback(
+        @Field("title") title: String,
+        @Field("summary") summary: String?,
+        @Field("user") user: String,
+        @Field("token") token: String
+    ): RollbackPostResponse
 
     // ------- Wikidata -------
 
