@@ -35,7 +35,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         Prefs.customizeToolbarMenuOrder.forEach {
             val view = ItemCustomizeToolbarMenuBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)
-            view.id = item.hashCode()
+            view.id = item.view_id
             view.text = context.getString(item.titleResId)
             view.setCompoundDrawablesRelativeWithIntrinsicBounds(item.iconResId, 0, 0, 0)
             view.setOnClickListener {

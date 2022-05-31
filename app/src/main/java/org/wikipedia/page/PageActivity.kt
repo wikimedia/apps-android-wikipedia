@@ -670,7 +670,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             anchorView = binding.pageToolbarButtonShowOverflowMenu
             aboveOrBelow = false
         } else {
-            anchorView = pageFragment.getPageActionTabLayout().children.find { it.id == PageActionItem.THEME.hashCode() }
+            anchorView = pageFragment.getPageActionTabLayout().children.find { it.id == R.id.page_theme }
         }
         anchorView?.let {
             it.postDelayed({

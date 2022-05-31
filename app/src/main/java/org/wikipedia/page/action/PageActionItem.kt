@@ -8,71 +8,72 @@ import org.wikipedia.model.EnumCodeMap
 
 @Suppress("unused")
 enum class PageActionItem constructor(val id: Int,
+                                      val view_id: Int,
                                       @StringRes val titleResId: Int,
                                       @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
                                       val isAvailableOnMobileWeb: Boolean = true,
                                       val isExternalLink: Boolean = false) : EnumCode {
-    SAVE(0, R.string.article_menu_bar_save_button, R.drawable.ic_bookmark_border_white_24dp, false) {
+    SAVE(0, R.id.page_save, R.string.article_menu_bar_save_button, R.drawable.ic_bookmark_border_white_24dp, false) {
         override fun select(cb: Callback) {
             cb.onSaveSelected()
         }
     },
-    LANGUAGE(1, R.string.article_menu_bar_language_button, R.drawable.ic_translate_white_24dp, false) {
+    LANGUAGE(1, R.id.page_language, R.string.article_menu_bar_language_button, R.drawable.ic_translate_white_24dp, false) {
         override fun select(cb: Callback) {
             cb.onLanguageSelected()
         }
     },
-    FIND_IN_ARTICLE(2, R.string.menu_page_find_in_page, R.drawable.ic_find_in_page_24px) {
+    FIND_IN_ARTICLE(2, R.id.page_find_in_article, R.string.menu_page_find_in_page, R.drawable.ic_find_in_page_24px) {
         override fun select(cb: Callback) {
             cb.onFindInArticleSelected()
         }
     },
-    THEME(3, R.string.article_menu_bar_theme_button, R.drawable.ic_icon_format_size, true) {
+    THEME(3, R.id.page_theme, R.string.article_menu_bar_theme_button, R.drawable.ic_icon_format_size, true) {
         override fun select(cb: Callback) {
             cb.onThemeSelected()
         }
     },
-    CONTENTS(4, R.string.article_menu_bar_contents_button, R.drawable.ic_icon_list, false) {
+    CONTENTS(4, R.id.page_contents, R.string.article_menu_bar_contents_button, R.drawable.ic_icon_list, false) {
         override fun select(cb: Callback) {
             cb.onContentsSelected()
         }
     },
-    SHARE(5, R.string.menu_page_article_share, R.drawable.ic_share) {
+    SHARE(5, R.id.page_share, R.string.menu_page_article_share, R.drawable.ic_share) {
         override fun select(cb: Callback) {
             cb.onShareSelected()
         }
     },
-    ADD_TO_WATCHLIST(6, R.string.menu_page_watch, R.drawable.ic_baseline_star_outline_24, false) {
+    ADD_TO_WATCHLIST(6, R.id.page_watch, R.string.menu_page_watch, R.drawable.ic_baseline_star_outline_24, false) {
         override fun select(cb: Callback) {
             cb.onAddToWatchlistSelected()
         }
     },
-    VIEW_TALK_PAGE(7, R.string.menu_page_talk_page, R.drawable.ic_icon_speech_bubbles_ooui_ltr) {
+    VIEW_TALK_PAGE(7, R.id.page_view_talk_page, R.string.menu_page_talk_page, R.drawable.ic_icon_speech_bubbles_ooui_ltr) {
         override fun select(cb: Callback) {
             cb.onViewTalkPageSelected()
         }
     },
-    VIEW_EDIT_HISTORY(8, R.string.menu_page_edit_history, R.drawable.ic_icon_revision_history_apps, true) {
+    VIEW_EDIT_HISTORY(8, R.id.page_view_edit_history, R.string.menu_page_edit_history, R.drawable.ic_icon_revision_history_apps, true) {
         override fun select(cb: Callback) {
             cb.onViewEditHistorySelected()
         }
     },
-    NEW_TAB(9, R.string.menu_new_tab, R.drawable.ic_add_gray_white_24dp) {
+    NEW_TAB(9, R.id.page_new_tab, R.string.menu_new_tab, R.drawable.ic_add_gray_white_24dp) {
         override fun select(cb: Callback) {
             cb.onNewTabSelected()
         }
     },
-    EXPLORE(10, R.string.feed, R.drawable.ic_globe) {
+    EXPLORE(10, R.id.page_explore, R.string.feed, R.drawable.ic_globe) {
         override fun select(cb: Callback) {
             cb.onExploreSelected()
         }
     },
-    CATEGORIES(11, R.string.action_item_categories, R.drawable.ic_category_black_24dp) {
+    CATEGORIES(11, R.id.page_categories, R.string.action_item_categories, R.drawable.ic_category_black_24dp) {
         override fun select(cb: Callback) {
             cb.onCategoriesSelected()
         }
     },
-    EDIT_ARTICLE(12, R.string.menu_edit_article, R.drawable.ic_mode_edit_white_24dp) {
+    EDIT_ARTICLE(12, R.id.page_edit_article, R.string.menu_edit_article, R.drawable.ic_mode_edit_white_24dp) {
         override fun select(cb: Callback) {
             cb.onEditArticleSelected()
         }
@@ -111,7 +112,7 @@ enum class PageActionItem constructor(val id: Int,
         }
 
         private fun findOrNull(id: Int): PageActionItem? {
-            return MAP.valueIterator().asSequence().firstOrNull { id == it.id || id == it.hashCode() }
+            return MAP.valueIterator().asSequence().firstOrNull { id == it.id || id == it.view_id }
         }
 
         fun find(id: Int): PageActionItem {
