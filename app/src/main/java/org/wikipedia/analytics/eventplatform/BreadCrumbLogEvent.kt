@@ -41,8 +41,8 @@ class BreadCrumbLogEvent(private val screen_name: String,
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), activity.getString(R.string.breadcrumb_screen_back_press), WikipediaApp.instance.languageState.appLanguageCode))
         }
 
-        fun logTooltipShown(activity: Activity, anchor: View) {
-            EventPlatformClient.submit(BreadCrumbLogEvent(activity.javaClass.simpleName, activity.getString(R.string.breadcrumb_tooltip_shown_on_view, BreadCrumbViewUtil.getReadableNameForView(anchor)), WikipediaApp.instance.languageState.appLanguageCode))
+        fun logTooltipShown(activity: Activity?, anchor: View) {
+            EventPlatformClient.submit(BreadCrumbLogEvent(activity?.javaClass?.simpleName.orEmpty(), activity?.getString(R.string.breadcrumb_tooltip_shown_on_view, BreadCrumbViewUtil.getReadableNameForView(anchor)).orEmpty(), WikipediaApp.instance.languageState.appLanguageCode))
         }
 
         fun logSettingsSelection(activity: Activity, title: String?) {
