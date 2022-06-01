@@ -1206,4 +1206,5 @@
   <string name="subcategory_empty">Error shown when the current category contains no subcategories.</string>
   <string name="customize_toolbar_shortcut_description_text">Description of the customize toolbar page.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Tooltip message text for customizing menu options on article screen</string>
+  <string name="revision_initial_na">Label shown when showing a diff of the first revision of an article (when there is no previous revision to compare with).</string>
 </resources>

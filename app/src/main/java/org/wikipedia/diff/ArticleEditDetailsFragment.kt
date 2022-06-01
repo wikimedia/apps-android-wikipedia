@@ -281,12 +281,22 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun updateAfterRevisionFetchSuccess() {
-        viewModel.revisionFrom?.let {
-            binding.usernameFromButton.text = it.user
-            binding.revisionFromTimestamp.text = DateUtil.getTimeAndDateString(DateUtil.iso8601DateParse(it.timeStamp))
-            binding.overlayRevisionFromTimestamp.text = binding.revisionFromTimestamp.text
-            binding.revisionFromEditComment.text = StringUtil.fromHtml(it.parsedcomment.trim())
+        if (viewModel.revisionFrom != null) {
+            binding.usernameFromButton.text = viewModel.revisionFrom!!.user
+            binding.revisionFromTimestamp.text = DateUtil.getTimeAndDateString(DateUtil.iso8601DateParse(viewModel.revisionFrom!!.timeStamp))
+            binding.revisionFromEditComment.text = StringUtil.fromHtml(viewModel.revisionFrom!!.parsedcomment.trim())
+            binding.revisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+            binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+            binding.usernameFromButton.isVisible = true
+            binding.revisionFromEditComment.isVisible = true
+        } else {
+            binding.usernameFromButton.isVisible = false
+            binding.revisionFromEditComment.isVisible = false
+            binding.revisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
+            binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
+            binding.revisionFromTimestamp.text = getString(R.string.revision_initial_na)
         }
+        binding.overlayRevisionFromTimestamp.text = binding.revisionFromTimestamp.text
 
         viewModel.revisionTo?.let {
             binding.usernameToButton.text = it.user
