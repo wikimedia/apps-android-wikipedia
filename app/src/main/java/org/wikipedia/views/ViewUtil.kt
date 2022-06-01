@@ -34,7 +34,7 @@ object ViewUtil {
             WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
     val ROUNDED_CORNERS = RoundedCorners(roundedDpToPx(15f))
     const val CLICK_ACTION_THRESHOLD = 200
-    const val CLICK_TIME_THRESHOLD = 250
+    const val CLICK_TIME_THRESHOLD = 400
     val CENTER_CROP_LARGE_ROUNDED_CORNERS = MultiTransformation(CenterCrop(),
             WhiteBackgroundTransformation(), ROUNDED_CORNERS)
 
