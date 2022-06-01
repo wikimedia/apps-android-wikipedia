@@ -331,7 +331,15 @@ class SearchResultsFragment : Fragment() {
         get() = binding.searchResultsList.adapter as SearchResultAdapter
 
     private fun displayResults(results: List<SearchResult>) {
-        totalResults.addAll(results.distinctBy { it.pageTitle.wikiSite.languageCode + it.pageTitle.prefixedText })
+        for (newResult in results) {
+            val res = totalResults.find { newResult.pageTitle.prefixedText == newResult.pageTitle.prefixedText &&
+                    newResult.pageTitle.wikiSite.languageCode == newResult.pageTitle.wikiSite.languageCode }
+            if (res == null) {
+                totalResults.add(newResult)
+            } else if (!newResult.pageTitle.description.isNullOrEmpty()) {
+                res.pageTitle.description = newResult.pageTitle.description
+            }
+        }
         binding.searchResultsContainer.visibility = View.VISIBLE
         adapter.notifyDataSetChanged()
     }
