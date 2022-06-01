@@ -331,18 +331,7 @@ class SearchResultsFragment : Fragment() {
         get() = binding.searchResultsList.adapter as SearchResultAdapter
 
     private fun displayResults(results: List<SearchResult>) {
-        for (newResult in results) {
-            var contains = false
-            for ((pageTitle) in totalResults) {
-                if (newResult.pageTitle == pageTitle) {
-                    contains = true
-                    break
-                }
-            }
-            if (!contains) {
-                totalResults.add(newResult)
-            }
-        }
+        totalResults.addAll(results.distinctBy { it.pageTitle.wikiSite.languageCode + it.pageTitle.prefixedText })
         binding.searchResultsContainer.visibility = View.VISIBLE
         adapter.notifyDataSetChanged()
     }
