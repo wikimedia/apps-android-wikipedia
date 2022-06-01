@@ -140,7 +140,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             thankStatus.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                val token = ServiceFactory.get(wikiSite).getCsrfToken().query?.csrfToken()
+                val token = ServiceFactory.get(wikiSite).getToken().query?.csrfToken()
                 thankStatus.postValue(Resource.Success(ServiceFactory.get(wikiSite).postThanksToRevision(revisionId, token!!)))
             }
         }
@@ -187,7 +187,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
                 val msgResponse = ServiceFactory.get(title.wikiSite).getMessages("undo-summary", "$revisionId|$user")
                 val undoMessage = msgResponse.query?.allmessages?.find { it.name == "undo-summary" }?.content
                 val summary = if (undoMessage != null) "$undoMessage $comment" else comment
-                val token = ServiceFactory.get(title.wikiSite).getCsrfToken().query!!.csrfToken()!!
+                val token = ServiceFactory.get(title.wikiSite).getToken().query!!.csrfToken()!!
                 val undoResponse = ServiceFactory.get(title.wikiSite).postUndoEdit(title.prefixedText, summary,
                         null, token, revisionId, if (revisionIdAfter > 0) revisionIdAfter else null)
                 undoEditResponse.postValue(Resource.Success(undoResponse))
