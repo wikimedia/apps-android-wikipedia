@@ -65,7 +65,7 @@ class EditNoticesDialog constructor(
 
     private open inner class DefaultViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         open fun bindItem(position: Int) {
-            (itemView as TextView).text = StringUtil.fromHtml(editNotices[position])
+            (itemView as TextView).text = StringUtil.fromHtml(StringUtil.removeStyleTags(editNotices[position]))
         }
     }
 }
