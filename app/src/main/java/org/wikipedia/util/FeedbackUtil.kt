@@ -32,6 +32,7 @@ import org.wikipedia.staticdata.SpecialAliasData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.views.ViewUtil.getActivity
 import java.util.concurrent.TimeUnit
 
 object FeedbackUtil {
@@ -181,7 +182,7 @@ object FeedbackUtil {
 
     fun getTooltip(anchor: View, text: CharSequence, autoDismiss: Boolean, arrowAnchorPadding: Int = 0,
                    topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false): Balloon {
-        BreadCrumbLogEvent.logTooltipShown(anchor.context as Activity, anchor)
+        BreadCrumbLogEvent.logTooltipShown(anchor.context.getActivity(), anchor)
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(anchor.context))
         binding.textView.text = text
         if (showDismissButton) {
