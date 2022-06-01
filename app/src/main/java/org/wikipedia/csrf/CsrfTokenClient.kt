@@ -19,11 +19,11 @@ object CsrfTokenClient {
     private const val ANON_TOKEN = "+\\"
     private const val MAX_RETRIES = 3
 
-    fun getToken(site: WikiSite): Observable<String> {
-        return getToken(site, null)
+    fun getToken(site: WikiSite, type: String = "csrf"): Observable<String> {
+        return getToken(site, type, null)
     }
 
-    fun getToken(site: WikiSite, svc: Service?): Observable<String> {
+    fun getToken(site: WikiSite, type: String = "csrf", svc: Service?): Observable<String> {
         return Observable.create { emitter ->
             var token = ""
             try {
@@ -48,10 +48,14 @@ object CsrfTokenClient {
                         return@create
                     }
 
-                    service.csrfToken
+                    service.getTokenObservable(type)
                             .subscribeOn(Schedulers.io())
                             .blockingSubscribe({
-                                token = it.query?.csrfToken().orEmpty()
+                                if (type == "rollback") {
+                                    token = it.query?.rollbackToken().orEmpty()
+                                } else {
+                                    token = it.query?.csrfToken().orEmpty()
+                                }
                                 if (AccountUtil.isLoggedIn && token == ANON_TOKEN) {
                                     throw RuntimeException("App believes we're logged in, but got anonymous token.")
                                 }

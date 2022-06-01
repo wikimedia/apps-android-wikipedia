@@ -30,7 +30,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
             view.gravity = Gravity.CENTER
             view.setPadding(0, DimenUtil.roundedDpToPx(8f), 0, 0)
             view.setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackgroundBorderless))
-            view.setTextColor(ResourceUtil.getThemedColor(context, R.attr.color_group_63))
+            view.setTextColor(ResourceUtil.getThemedColor(context, R.attr.chip_text_color))
             view.textAlignment = TEXT_ALIGNMENT_CENTER
             view.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f)
             view.maxLines = 2
@@ -41,7 +41,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
             view.text = context.getString(item.titleResId)
             view.contentDescription = view.text
             FeedbackUtil.setButtonLongPressToast(view)
-            TextViewCompat.setCompoundDrawableTintList(view, ResourceUtil.getThemedColorStateList(context, R.attr.color_group_63))
+            TextViewCompat.setCompoundDrawableTintList(view, ResourceUtil.getThemedColorStateList(context, R.attr.chip_text_color))
             view.setCompoundDrawablesWithIntrinsicBounds(0, item.iconResId, 0, 0)
             view.compoundDrawablePadding = -DimenUtil.roundedDpToPx(4f)
             view.setOnClickListener { v ->
