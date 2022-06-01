@@ -17,6 +17,7 @@ import org.wikipedia.edit.Edit
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
+import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
 
 class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
@@ -39,6 +40,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     var revisionFromId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM, -1)
     var revisionFrom: MwQueryPage.Revision? = null
     var canGoForward = false
+    var hasRollbackRights = false
 
     private var diffRevisionId = 0L
 
@@ -48,6 +50,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
 
     init {
         getWatchedStatusAndPageId()
+        checkRollbackRights()
         getRevisionDetails(revisionToId, revisionFromId)
     }
 
@@ -59,6 +62,17 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
                 val page = ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!!
                 pageId = page.pageId
                 watchedStatus.postValue(Resource.Success(page))
+            }
+        }
+    }
+
+    private fun checkRollbackRights() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.d(throwable)
+        }) {
+            withContext(Dispatchers.IO) {
+                val userRights = ServiceFactory.get(pageTitle.wikiSite).userRights().query?.userInfo?.rights
+                hasRollbackRights = userRights?.contains("rollback") == true
             }
         }
     }
