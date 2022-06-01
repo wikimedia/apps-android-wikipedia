@@ -37,7 +37,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
             view.ellipsize = TextUtils.TruncateAt.END
 
             val item = PageActionItem.find(it)
-            view.id = item.hashCode()
+            view.id = item.viewId
             view.text = context.getString(item.titleResId)
             view.contentDescription = view.text
             FeedbackUtil.setButtonLongPressToast(view)
