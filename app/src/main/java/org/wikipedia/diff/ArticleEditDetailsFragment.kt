@@ -104,6 +104,16 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
 
+        viewModel.singleRevisionText.observe(viewLifecycleOwner) {
+            if (it is Resource.Success) {
+                binding.diffRecyclerView.adapter = DiffUtil.DiffLinesAdapter(DiffUtil.buildDiffLinesList(requireContext(), it.data))
+                updateAfterDiffFetchSuccess()
+                binding.progressBar.isVisible = false
+            } else if (it is Resource.Error) {
+                setErrorState(it.throwable)
+            }
+        }
+
         viewModel.thankStatus.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
                 FeedbackUtil.showMessage(requireActivity(), getString(R.string.thank_success_message,

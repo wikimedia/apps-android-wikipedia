@@ -11,6 +11,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.DiffResponse
+import org.wikipedia.dataclient.restbase.Revision
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.edit.Edit
@@ -24,6 +25,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     val watchedStatus = MutableLiveData<Resource<MwQueryPage>>()
     val revisionDetails = MutableLiveData<Resource<Unit>>()
     val diffText = MutableLiveData<Resource<DiffResponse>>()
+    val singleRevisionText = MutableLiveData<Resource<Revision>>()
     val thankStatus = SingleLiveData<Resource<EntityPostResponse>>()
     val watchResponse = SingleLiveData<Resource<WatchPostResponse>>()
     val undoEditResponse = SingleLiveData<Resource<Edit>>()
@@ -129,7 +131,11 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             diffText.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                diffText.postValue(Resource.Success(ServiceFactory.getCoreRest(pageTitle.wikiSite).getDiff(oldRevisionId, newRevisionId)))
+                if (oldRevisionId > 0) {
+                    diffText.postValue(Resource.Success(ServiceFactory.getCoreRest(pageTitle.wikiSite).getDiff(oldRevisionId, newRevisionId)))
+                } else {
+                    singleRevisionText.postValue(Resource.Success(ServiceFactory.getCoreRest(pageTitle.wikiSite).getRevision(newRevisionId)))
+                }
                 diffRevisionId = newRevisionId
             }
         }

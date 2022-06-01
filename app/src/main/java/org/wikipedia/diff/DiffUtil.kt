@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.dataclient.restbase.DiffResponse
+import org.wikipedia.dataclient.restbase.Revision
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 
@@ -38,6 +39,13 @@ object DiffUtil {
                 lastItem = item
             }
         }
+        return items
+    }
+
+    fun buildDiffLinesList(context: Context, singleRev: Revision): List<DiffLine>  {
+        val items = mutableListOf<DiffLine>()
+
+
         return items
     }
 
