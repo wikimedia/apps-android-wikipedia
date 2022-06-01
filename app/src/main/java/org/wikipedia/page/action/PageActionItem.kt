@@ -8,7 +8,7 @@ import org.wikipedia.model.EnumCodeMap
 
 @Suppress("unused")
 enum class PageActionItem constructor(val id: Int,
-                                      val view_id: Int,
+                                      val viewId: Int,
                                       @StringRes val titleResId: Int,
                                       @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
                                       val isAvailableOnMobileWeb: Boolean = true,
@@ -112,7 +112,7 @@ enum class PageActionItem constructor(val id: Int,
         }
 
         private fun findOrNull(id: Int): PageActionItem? {
-            return MAP.valueIterator().asSequence().firstOrNull { id == it.id || id == it.view_id }
+            return MAP.valueIterator().asSequence().firstOrNull { id == it.id || id == it.viewId }
         }
 
         fun find(id: Int): PageActionItem {
