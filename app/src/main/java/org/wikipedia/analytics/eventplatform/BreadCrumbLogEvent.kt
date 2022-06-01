@@ -29,6 +29,13 @@ class BreadCrumbLogEvent(private val screen_name: String,
             }
         }
 
+        fun logLongClick(activity: BaseActivity, view: View?) {
+            val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
+            if (viewReadableName != activity.getString(R.string.breadcrumb_view_unnamed)) {
+                EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), activity.getString(R.string.breadcrumb_view_long_click, viewReadableName), WikipediaApp.instance.languageState.appLanguageCode))
+            }
+        }
+
         fun logSwipe(activity: BaseActivity, isRtlSwipe: Boolean) {
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), activity.getString(if (isRtlSwipe) R.string.breadcrumb_screen_swiped_left_on else R.string.breadcrumb_screen_swiped_right_on), WikipediaApp.instance.languageState.appLanguageCode))
         }

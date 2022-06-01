@@ -34,6 +34,7 @@ object ViewUtil {
             WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
     val ROUNDED_CORNERS = RoundedCorners(roundedDpToPx(15f))
     const val CLICK_ACTION_THRESHOLD = 200
+    const val CLICK_TIME_THRESHOLD = 250
     val CENTER_CROP_LARGE_ROUNDED_CORNERS = MultiTransformation(CenterCrop(),
             WhiteBackgroundTransformation(), ROUNDED_CORNERS)
 
@@ -88,10 +89,10 @@ object ViewUtil {
         return (Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat() / thumbWidth * thumbHeight * containerWidth / Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat()).toInt()
     }
 
-    fun isClick(startX: Float, endX: Float, startY: Float, endY: Float): Boolean {
+    fun isClick(startX: Float, endX: Float, startY: Float, endY: Float, clickDuration: Long): Boolean {
         val diffHorizontal = abs(startX - endX)
         val diffVertical = abs(startY - endY)
-        return !(diffHorizontal > CLICK_ACTION_THRESHOLD || diffVertical > CLICK_ACTION_THRESHOLD)
+        return !(diffHorizontal > CLICK_ACTION_THRESHOLD || diffVertical > CLICK_ACTION_THRESHOLD) && clickDuration < CLICK_TIME_THRESHOLD
     }
 
     tailrec fun Context.getActivity(): Activity? = this as? Activity
@@ -107,5 +108,11 @@ object ViewUtil {
                 setTouchListenersToViews(currentView.getChildAt(i), onTouchListener)
             }
         }
+    }
+
+    fun isLongClick(startX: Float, endX: Float, startY: Float, endY: Float, clickDuration: Long): Boolean {
+        val diffHorizontal = abs(startX - endX)
+        val diffVertical = abs(startY - endY)
+        return !(diffHorizontal > CLICK_ACTION_THRESHOLD || diffVertical > CLICK_ACTION_THRESHOLD) && clickDuration >= CLICK_TIME_THRESHOLD
     }
 }

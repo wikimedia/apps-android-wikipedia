@@ -322,19 +322,27 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
 
     private var startX = 0f
     private var startY = 0f
+    private var startSystemTime = 0L
     override fun onTouch(view: View?, event: MotionEvent?): Boolean {
         if (gestureDetector!!.onTouchEvent(event)) {
             return false
         }
         when (event?.action) {
             MotionEvent.ACTION_DOWN -> {
+                startSystemTime = System.currentTimeMillis()
                 startX = event.x
                 startY = event.y
             }
             MotionEvent.ACTION_UP -> {
                 val endX = event.x
                 val endY = event.y
-                if (ViewUtil.isClick(startX, endX, startY, endY)) {
+                val endSystemTime = System.currentTimeMillis()
+
+                if (ViewUtil.isLongClick(startX, endX, startY, endY, endSystemTime - startSystemTime)) {
+                    BreadCrumbLogEvent.logLongClick(this, view)
+                }
+
+                if (ViewUtil.isClick(startX, endX, startY, endY, endSystemTime - startSystemTime)) {
                     BreadCrumbLogEvent.logClick(this, view)
                 }
             }

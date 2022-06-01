@@ -88,6 +88,7 @@
     <!-- Breadcrumbs -->
     <string name="breadcrumb_view_with_position">%s item %d</string>
     <string name="breadcrumb_view_click">%s click</string>
+    <string name="breadcrumb_view_long_click">%s long click</string>
     <string name="breadcrumb_switch_view_click">%s turn %s</string>
     <string name="breadcrumb_switch_view_state_on">ON</string>
     <string name="breadcrumb_switch_view_state_off">OFF</string>
