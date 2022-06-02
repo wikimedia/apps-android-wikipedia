@@ -400,7 +400,6 @@
   <string name="text_size_decrease">ลดขนาดข้อความ</string>
   <string name="text_size_percent_default">%s (ค่าเริ่มต้น)</string>
   <string name="text_style_title">แบบอักษร</string>
-  <string name="theme_customize_toolbar">ปรับแต่งแถบเครื่องมือ</string>
   <string name="nav_item_saved">บันทึกแล้ว</string>
   <string name="reading_list_save_to">บันทึกลงในรายการอ่าน</string>
   <string name="reading_list_move_to">ย้ายลงในรายการอ่าน</string>

@@ -399,7 +399,6 @@
   <string name="error_blocked_expiry">La blukuso finos ye: %s</string>
   <string name="error_blocked_id">ID dil blokuso: %s</string>
   <string name="error_blocked_footer">Vu povas kontaktar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; od altra &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrero&lt;/a&gt; por diskutar la blokuso.</string>
-  <string name="theme_chooser_menu_item_tooltip">Ajustez vua \'stango di utensili\' (\'\'toolbar\'\') e probez enfokigar en la lektado</string>
   <string name="error_blocked_footer_no_blocker">Vu povas kontaktar ul &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administranto&lt;/a&gt; por diskutar pri la blokuso.</string>
   <string name="crash_report_activity_title">Eroro che \'\'app\'\'</string>
   <string name="crash_report_relaunch_or_quit">Pardonez, l\'\'\'app\'\' de Wikipedio faliis, e klozesis automatale.\n\nKa vu deziras rikomencar, or finar ol?</string>
@@ -428,8 +427,6 @@
   <string name="text_style_title">Litero-fonto</string>
   <string name="theme_category_reading">Lektado</string>
   <string name="reading_focus_mode">Modo por enfokigar la lektado</string>
-  <string name="theme_category_toolbar">Utensilo-stango (\'\'toolbar\'\')</string>
-  <string name="theme_customize_toolbar">Ajustez l\'utensilo-stango</string>
   <string name="nav_item_saved">Registragita</string>
   <string name="reading_list_save_to">Adjuntez a la lektebla listo</string>
   <string name="reading_list_move_to">Movar a lektebla listo</string>
@@ -780,7 +777,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Komencar redaktar</string>
   <string name="description_edit_tutorial_promise">Komencante, me promisas ne facar mala uzo di ca resurso.</string>
   <string name="customize_toolbar_title">Ajustez l\'utensilo-stango</string>
-  <string name="customize_toolbar_description_text">Ajustez l\'infra utensilo-stango kun 5 ligili quin vu judikas kom utila.</string>
   <string name="customize_toolbar_category_toolbar">Utensilo-stango (\'\'toolbar\'\')</string>
   <string name="customize_toolbar_category_menu">Menuo</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Tirez e lasez hike vua preferinda utensili 👋</string>
