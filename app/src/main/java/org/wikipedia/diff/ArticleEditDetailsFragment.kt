@@ -144,6 +144,31 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
 
+        viewModel.rollbackRights.observe(viewLifecycleOwner) {
+            binding.progressBar.isVisible = false
+            if (it is Resource.Success) {
+                binding.rollbackButton.isVisible = AccountUtil.isLoggedIn && it.data
+                binding.undoButton.isVisible = AccountUtil.isLoggedIn && !it.data
+            } else if (it is Resource.Error) {
+                it.throwable.printStackTrace()
+                FeedbackUtil.showError(requireActivity(), it.throwable)
+            }
+        }
+
+        viewModel.rollbackResponse.observe(viewLifecycleOwner) {
+            binding.progressBar.isVisible = false
+            if (it is Resource.Success) {
+                setLoadingState()
+                viewModel.getRevisionDetails(it.data.rollback?.revision ?: 0)
+                FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_undo_success), FeedbackUtil.LENGTH_DEFAULT).show()
+                // TODO: check analytics
+            } else if (it is Resource.Error) {
+                it.throwable.printStackTrace()
+                FeedbackUtil.showError(requireActivity(), it.throwable)
+                // TODO: check analytics
+            }
+        }
+
         L10nUtil.setConditionalLayoutDirection(requireView(), viewModel.pageTitle.wikiSite.languageCode)
 
         binding.scrollContainer.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
@@ -199,10 +224,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             editHistoryInteractionEvent?.logThankTry()
         }
 
-        binding.undoButton.isVisible = ReleaseUtil.isPreBetaRelease
         binding.undoButton.setOnClickListener {
             showUndoDialog()
             editHistoryInteractionEvent?.logUndoTry()
+        }
+
+        binding.rollbackButton.setOnClickListener {
+            rollbackEdits()
+            // TODO: add analytics
         }
 
         binding.errorView.backClickListener = View.OnClickListener { requireActivity().finish() }
@@ -217,6 +246,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         val watchlistItem = menu.findItem(R.id.menu_add_watchlist)
         watchlistItem.title = getString(if (isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
         watchlistItem.setIcon(getWatchlistIcon(isWatched, hasWatchlistExpiry))
+        menu.findItem(R.id.menu_undo).isVisible = AccountUtil.isLoggedIn && viewModel.hasRollbackRights
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -231,6 +261,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             R.id.menu_add_watchlist -> {
                 viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
                 if (isWatched) editHistoryInteractionEvent?.logUnwatchClick() else editHistoryInteractionEvent?.logWatchClick()
+                true
+            }
+            R.id.menu_undo -> {
+                showUndoDialog()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -371,6 +405,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
         dialog.show()
+    }
+
+    private fun rollbackEdits() {
+        binding.progressBar.isVisible = true
+        viewModel.revisionTo?.let {
+            // TODO: check whether we should have the same input dialog for the summary
+            viewModel.postRollback(viewModel.pageTitle, it.user, "")
+        }
     }
 
     override fun onExpirySelect(expiry: WatchlistExpiry) {

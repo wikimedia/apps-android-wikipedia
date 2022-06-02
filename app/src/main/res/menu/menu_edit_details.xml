@@ -16,6 +16,10 @@
                 android:id="@+id/menu_add_watchlist"
                 android:icon="@drawable/ic_star_24"
                 android:title="@string/menu_page_watch" />
+            <item
+                android:id="@+id/menu_undo"
+                android:icon="@drawable/ic_undo_themed_24dp"
+                android:title="@string/edit_undo" />
         </menu>
     </item>
 </menu>

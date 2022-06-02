@@ -326,29 +326,52 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/thanksDivider" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/undoButton"
-                    style="@style/FlatButton"
+                <FrameLayout
+                    android:id="@+id/undoRollbackButtonContainer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:layout_marginStart="16dp"
-                    android:letterSpacing="0.02"
-                    android:text="@string/edit_undo"
-                    android:textAllCaps="false"
-                    android:textColor="?attr/colorError"
-                    app:icon="@drawable/ic_undo_themed_24dp"
-                    app:iconGravity="textStart"
-                    app:iconSize="20dp"
-                    app:iconTint="?attr/colorError"
                     app:layout_constraintStart_toEndOf="@id/thankButton"
-                    app:layout_constraintTop_toBottomOf="@id/thanksDivider" />
+                    app:layout_constraintTop_toBottomOf="@id/thanksDivider">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/undoButton"
+                        style="@style/FlatButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.02"
+                        android:text="@string/edit_undo"
+                        android:textAllCaps="false"
+                        android:textColor="?attr/chip_text_color"
+                        android:visibility="gone"
+                        app:icon="@drawable/ic_undo_themed_24dp"
+                        app:iconGravity="textStart"
+                        app:iconSize="20dp"
+                        app:iconTint="?attr/chip_text_color"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/rollbackButton"
+                        style="@style/FlatButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.02"
+                        android:text="@string/edit_rollback"
+                        android:textAllCaps="false"
+                        android:textColor="?attr/chip_text_color"
+                        android:visibility="gone"
+                        app:icon="@drawable/ic_undo_themed_24dp"
+                        app:iconGravity="textStart"
+                        app:iconSize="20dp"
+                        app:iconTint="?attr/chip_text_color"/>
+
+                </FrameLayout>
 
                 <TextView
                     android:id="@+id/diffCharacterCountView"
                     android:layout_width="wrap_content"
                     android:layout_height="54dp"
-                    app:layout_constraintStart_toEndOf="@id/undoButton"
+                    app:layout_constraintStart_toEndOf="@id/undoRollbackButtonContainer"
                     app:layout_constraintTop_toBottomOf="@id/thanksDivider"
                     android:layout_marginStart="16dp"
                     android:paddingTop="2dp"
