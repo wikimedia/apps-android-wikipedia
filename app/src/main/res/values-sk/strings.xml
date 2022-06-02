@@ -419,7 +419,6 @@
   <string name="error_blocked_expiry">Koniec blokovania: %s</string>
   <string name="error_blocked_id">ID bloku: %s</string>
   <string name="error_blocked_footer">Môžete kontaktovať &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; alebo iného &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrátora&lt;/a&gt; pre diskutovanie o bloku.</string>
-  <string name="theme_chooser_menu_item_tooltip">Prispôsobte si svoj panel nástrojov a skúste mód sústredeného čítania</string>
   <string name="error_blocked_footer_no_blocker">Môžete kontaktovať a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrátora&lt;/a&gt; pre diskutovanie o bloku.</string>
   <string name="crash_report_activity_title">Chyba aplikácie</string>
   <string name="crash_report_relaunch_or_quit">Ospravedlňujeme sa, aplikácia Wikipédia narazila na chybu a bola ukončená.\n\nChceli by ste začať odznova alebo aplikáciu ukončiť?</string>
@@ -449,8 +448,6 @@
   <string name="theme_category_reading">Čítanie</string>
   <string name="reading_focus_mode">Mód sústredeného čítania</string>
   <string name="reading_focus_mode_detail">Skryje funkcie úprav a spodný panel nástrojov pri skrolovaní</string>
-  <string name="theme_category_toolbar">Panel nástrojov</string>
-  <string name="theme_customize_toolbar">Prispôsobiť panel nástrojov</string>
   <string name="nav_item_saved">Uložené</string>
   <string name="reading_list_save_to">Uložiť do zoznamu na prečítanie</string>
   <string name="reading_list_move_to">Presunúť do zoznamu na prečítanie</string>
@@ -847,7 +844,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Začať s úpravami</string>
   <string name="description_edit_tutorial_promise">Sľubujem, že nezneužijem túto funkciu.</string>
   <string name="customize_toolbar_title">Prispôsobiť panel nástrojov</string>
-  <string name="customize_toolbar_description_text">Prispôsobiť spodný panel nástrojov s 5 odkazmi, ktoré považujete za najviac nápomocné.</string>
   <string name="customize_toolbar_category_toolbar">Panel nástrojov</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Chyťte a pretiahnite svoje obľúbené položky sem</string>
@@ -1159,15 +1155,52 @@
   <string name="talk_share_talk_page">Wikipédia - diskusie na diskusných stránkach</string>
   <string name="talk_edit_disclaimer">Toto je diskusná stránka. Prosím rešpektujte pravidlá diskusných stránok a nezabudnite sa podpísať pod svoj príspevok napísaním štyroch vlniek: ~~~~ keď používate wikitext. &lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia: Pravidlá diskusných stránok&lt;/a&gt;</string>
   <string name="talk_search_hint">Vyhľadať správy</string>
+  <string name="talk_search_topics_hint">Hľadať témy</string>
+  <string name="talk_search_find_in_talk_topics_hint">Nájsť na diskusnej stránke témy</string>
   <string name="talk_overflow_sort_by">Zoradiť podľa</string>
   <string name="talk_overflow_sort_date_published">Dátum zverejnenia</string>
+  <string name="talk_overflow_sort_date_updated">Dátum aktualizácie</string>
   <string name="talk_overflow_sort_topic_name">Názov témy</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Ukázať odpoveď (%d)</item>
+    <item quantity="few">Ukázať odpovede (%d)</item>
+    <item quantity="many">Ukázať odpovedí (%d)</item>
+    <item quantity="other"/>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Schovať odpoveď</item>
+    <item quantity="few">Schovať odpovede (%d)</item>
+    <item quantity="many">Schovať odpovedí (%d)</item>
+    <item quantity="other"/>
+  </plurals>
+  <string name="talk_thread_subscribed_to">Prihlásený na odber pre %s</string>
+  <string name="talk_thread_unsubscribed_from">Zrušený odber pre %s</string>
+  <string name="talk_list_item_overflow_subscribe">Odoberať</string>
+  <string name="talk_list_item_overflow_subscribed">Prihlásený na odber</string>
+  <string name="talk_list_item_overflow_mark_as_read">Označiť ako prečítané</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Označiť ako neprečítané</string>
+  <string name="talk_list_item_overflow_share">Zdieľať</string>
+  <string name="talk_list_item_last_comment_date">Posledný komentár: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Odpovede celkom</string>
+  <string name="talk_list_item_user_icon_content_description">Ikona používateľa</string>
+  <string name="talk_list_item_swipe_mark_as_read">Prečítané</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Neprečítané</string>
+  <string name="talk_footer_about_this_talk_page">O tejto diskusnej stránke</string>
+  <string name="talk_footer_view_edit_history">Zobraziť históriu úprav</string>
+  <string name="talk_footer_view_user_page">Zobraziť stránku používateľa</string>
+  <string name="talk_footer_view_article">Zobraziť článok</string>
+  <string name="talk_footer_last_modified">Posledná úprava %1$s; upravil/a %2$s</string>
   <string name="menu_option_share_talk_discussion">Zdieľať diskusiu</string>
   <string name="menu_option_share_talk_page">Zdieľať diskusnú stránku</string>
   <string name="menu_option_share_edit">Zdieľať úpravu</string>
   <string name="menu_option_user_profile">Profil používateľa %s</string>
   <string name="menu_option_user_contributions">Príspevky používateľa %s</string>
   <string name="menu_option_edit_source">Upraviť zdroj</string>
+  <string name="menu_option_user_page">Stránka používateľa %s</string>
+  <string name="menu_option_find_in_talk_page_topic">Nájsť na diskusnej stránke témy</string>
+  <string name="talk_menu_copy_text">Kopírovať text</string>
+  <string name="talk_menu_expand_threads">Rozbaliť vlákna</string>
+  <string name="talk_menu_collapse_threads">Zbaliť vlákna</string>
   <string name="watchlist_details_watching_label">Sledované</string>
   <string name="watchlist_details_watch_label">Sledovať</string>
   <string name="watchlist_details_next_edit">Ďalšia úprava</string>
