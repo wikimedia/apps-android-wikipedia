@@ -1,5 +1,6 @@
 package org.wikipedia.views
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
@@ -26,6 +27,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.ResourceUtil.getThemedColor
 import org.wikipedia.util.WhiteBackgroundTransformation
+import java.lang.reflect.Field
 import java.util.*
 import kotlin.math.abs
 
@@ -103,11 +105,40 @@ object ViewUtil {
         if (currentView == null) {
             return
         }
-        currentView.setOnTouchListener(onTouchListener)
+        if (!hasTouchListener(currentView)) {
+            currentView.setOnTouchListener(onTouchListener)
+        }
         if (currentView is ViewGroup) {
             for (i in 0 until currentView.childCount) {
                 setTouchListenersToViews(currentView.getChildAt(i), onTouchListener)
             }
+        }
+    }
+
+    private fun hasTouchListener(v: View?): Boolean {
+        try {
+            val listenerInfo = getListenerInfo(v!!)
+            listenerInfo?.let {
+                val listenerInfoClass = listenerInfo.javaClass
+                val field = listenerInfoClass.getDeclaredField("mOnTouchListener")
+                field.isAccessible = true
+                if (field[listenerInfo] != null) return true
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return false
+    }
+
+    @SuppressLint("DiscouragedPrivateApi")
+    private fun getListenerInfo(v: View): Any? {
+        val field: Field?
+        return try {
+            field = Class.forName("android.view.View").getDeclaredField("mListenerInfo")
+            field.isAccessible = true
+            field[v] as Any
+        } catch (e: Exception) {
+            null
         }
     }
 
