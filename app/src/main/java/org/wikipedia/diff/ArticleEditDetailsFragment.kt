@@ -89,6 +89,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (it is Resource.Success) {
                 updateDiffCharCountView(viewModel.diffSize)
                 updateAfterRevisionFetchSuccess()
+                updateUndoAndRollbackButtons()
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
             }
@@ -157,8 +158,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         viewModel.rollbackRights.observe(viewLifecycleOwner) {
             binding.progressBar.isVisible = false
             if (it is Resource.Success) {
-                binding.rollbackButton.isVisible = AccountUtil.isLoggedIn && it.data
-                binding.undoButton.isVisible = AccountUtil.isLoggedIn && !it.data
+                updateUndoAndRollbackButtons()
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
                 FeedbackUtil.showError(requireActivity(), it.throwable)
@@ -256,7 +256,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         val watchlistItem = menu.findItem(R.id.menu_add_watchlist)
         watchlistItem.title = getString(if (isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
         watchlistItem.setIcon(getWatchlistIcon(isWatched, hasWatchlistExpiry))
-        menu.findItem(R.id.menu_undo).isVisible = AccountUtil.isLoggedIn && viewModel.hasRollbackRights
+        menu.findItem(R.id.menu_undo).isVisible = AccountUtil.isLoggedIn && viewModel.hasRollbackRights && !viewModel.canGoForward
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -433,6 +433,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             // TODO: check whether we should have the same input dialog for the summary
             viewModel.postRollback(viewModel.pageTitle, it.user, "")
         }
+    }
+
+    private fun updateUndoAndRollbackButtons() {
+        binding.rollbackButton.isVisible = AccountUtil.isLoggedIn && viewModel.hasRollbackRights && !viewModel.canGoForward
+        binding.undoButton.isVisible = AccountUtil.isLoggedIn && !binding.rollbackButton.isVisible
+        requireActivity().invalidateOptionsMenu()
     }
 
     override fun onExpirySelect(expiry: WatchlistExpiry) {
