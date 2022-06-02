@@ -294,7 +294,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             binding.revisionFromEditComment.isVisible = false
             binding.revisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
             binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
-            binding.revisionFromTimestamp.text = getString(R.string.revision_initial_na)
+            binding.revisionFromTimestamp.text = getString(R.string.revision_initial_none)
         }
         binding.overlayRevisionFromTimestamp.text = binding.revisionFromTimestamp.text
 

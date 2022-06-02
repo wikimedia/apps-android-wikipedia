@@ -421,7 +421,6 @@
   <string name="error_blocked_expiry">Wygasająca blokada: %s</string>
   <string name="error_blocked_id">Identyfikator blokady: %s</string>
   <string name="error_blocked_footer">Możesz skontaktować się z &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; lub innym &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratorem&lt;/a&gt;, aby omówić blokadę.</string>
-  <string name="theme_chooser_menu_item_tooltip">Dostosuj pasek narzędzi i wypróbuj tryb skupienia na czytaniu</string>
   <string name="error_blocked_footer_no_blocker">Możesz skontaktować się z &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratorem&lt;/a&gt;, aby omówić blokadę.</string>
   <string name="crash_report_activity_title">Błąd aplikacji</string>
   <string name="crash_report_relaunch_or_quit">Niestety, w aplikacji Wikipedii wystąpił błąd, w wyniku czego została ona zamknięta.\n\nChcesz ponownie ją uruchomić czy zamknąć?</string>
@@ -451,8 +450,6 @@
   <string name="theme_category_reading">Czytanie</string>
   <string name="reading_focus_mode">Tryb skupienia na czytaniu</string>
   <string name="reading_focus_mode_detail">Ukrywa funkcje edycji i dolny pasek narzędzi podczas przewijania</string>
-  <string name="theme_category_toolbar">Pasek narzędzi</string>
-  <string name="theme_customize_toolbar">Personalizuj pasek narzędzi</string>
   <string name="nav_item_saved">Zapisane</string>
   <string name="reading_list_save_to">Zapisz do przeczytania</string>
   <string name="reading_list_move_to">Przejdź do listy lektur</string>
@@ -787,7 +784,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Rozpocznij edycję</string>
   <string name="description_edit_tutorial_promise">Rozpoczynając, obiecuję nie nadużywać tej funkcji.</string>
   <string name="customize_toolbar_title">Personalizuj pasek narzędzi</string>
-  <string name="customize_toolbar_description_text">Dostosuj dolny pasek narzędzi za pomocą 5 najbardziej przydatnych odnośników.</string>
   <string name="customize_toolbar_category_toolbar">Pasek narzędzi</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Przeciągnij i upuść tutaj swoje ulubione elementy 👋</string>

@@ -454,8 +454,6 @@
   <string name="theme_category_reading">القراءة</string>
   <string name="reading_focus_mode">وضع تركيز القراءة</string>
   <string name="reading_focus_mode_detail">أخف ميزات التعديل وشريط الأدوات السفلي أثناء التمرير</string>
-  <string name="theme_category_toolbar">شريط الأدوات</string>
-  <string name="theme_customize_toolbar">تخصيص شريط الأدوات</string>
   <string name="nav_item_saved">محفوظة</string>
   <string name="reading_list_save_to">حفظ في قائمة القراءة</string>
   <string name="reading_list_move_to">انتقل إلى قائمة القراءة</string>
@@ -795,7 +793,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">ابدأ التعديل</string>
   <string name="description_edit_tutorial_promise">ببدئي، أنا أعد بعدم إساءة استخدام هذه الميزة.</string>
   <string name="customize_toolbar_title">تخصيص شريط الأدوات</string>
-  <string name="customize_toolbar_description_text">خصّص شريط الأدوات السفلي بخمسة وصلات تجدها الأكثر فائدةً.</string>
   <string name="customize_toolbar_category_toolbar">شريط الأدوات</string>
   <string name="customize_toolbar_category_menu">القائمة</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">اسحب وأسقط العناصر المُفضلة لك هنا 👋</string>

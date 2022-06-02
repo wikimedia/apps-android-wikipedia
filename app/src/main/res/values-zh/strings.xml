@@ -471,8 +471,6 @@
   <string name="theme_category_reading">阅读</string>
   <string name="reading_focus_mode">专注阅读模式</string>
   <string name="reading_focus_mode_detail">滚动时隐藏编辑功能和底部工具栏</string>
-  <string name="theme_category_toolbar">工具栏</string>
-  <string name="theme_customize_toolbar">自定义工具栏</string>
   <string name="nav_item_saved">已保存</string>
   <string name="reading_list_save_to">保存至阅读列表</string>
   <string name="reading_list_move_to">移动至阅读列表</string>
