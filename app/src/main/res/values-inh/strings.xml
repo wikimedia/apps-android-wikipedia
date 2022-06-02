@@ -398,7 +398,6 @@
   <string name="error_blocked_expiry">Блок тохар чакхдоал: %s</string>
   <string name="error_blocked_id">Блок тохара идентификаци: %s</string>
   <string name="error_blocked_footer">Хьа аьттув ба &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; яхачунца е кхыча &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;администратораца&lt;/a&gt; бувзаме а ваьнна хьона теха йолча блоках лаьца дувца.</string>
-  <string name="theme_chooser_menu_item_tooltip">Кечалий панель хьанийса а яь, фокусировкай раж Ӏоеша хьажа</string>
   <string name="error_blocked_footer_no_blocker">Хьа аьттув ба &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;администратораца&lt;/a&gt; бувзаме а ваьнна хьона теха йолча блоках лаьца дувца.</string>
   <string name="crash_report_activity_title">Приложенен гӀалат</string>
   <string name="crash_report_relaunch_or_quit">Бехк ма баккхалахь, Википеден приложене чу гӀалат нийсделар, из бахьан долаш дӀакъовлаялар из.\n\nЮха хьаелла безам ба хьа из е аравала?</string>
@@ -428,8 +427,6 @@
   <string name="theme_category_reading">Дешар</string>
   <string name="reading_focus_mode">Фокусировкай раж ешар</string>
   <string name="reading_focus_mode_detail">Тоадара функцеши лохера кечалий панели къайлайоаккх лакхехьа е лохехьа хьал-Ӏо озача хана</string>
-  <string name="theme_category_toolbar">Кечалий панель</string>
-  <string name="theme_customize_toolbar">Кечалий панель нийсъе</string>
   <string name="nav_item_saved">ДӀайилай</string>
   <string name="reading_list_save_to">Éша дIаяхкача оагIонашта тIатоха</string>
   <string name="reading_list_move_to">Éша дIаяхкача оагIонашта юкъеяккха</string>
@@ -810,7 +807,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Тоадар доладе</string>
   <string name="description_edit_tutorial_promise">ДӀадоладича аз чӀоагӀо ю ер функци харцахьа ца лелае.</string>
   <string name="customize_toolbar_title">Кечалий панель нийсъе</string>
-  <string name="customize_toolbar_description_text">Нийсъе лохера кечалий панель, хьайна пайданегӀа хетача 5 тӀатовжамаца</string>
   <string name="customize_toolbar_category_toolbar">Кечалий панель</string>
   <string name="customize_toolbar_category_menu">Меню</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Хьадехьаяха укхазахьа хьайна дукхагӀа еза элементаш</string>

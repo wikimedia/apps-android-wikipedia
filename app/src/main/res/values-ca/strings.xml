@@ -417,7 +417,6 @@
   <string name="error_blocked_expiry">Expiració del blocatge: %s</string>
   <string name="error_blocked_id">ID del blocatge: %s</string>
   <string name="error_blocked_footer">Podeu contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altre &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt;administrador o administradora&lt;/a&gt; per a discutir el blocatge.</string>
-  <string name="theme_chooser_menu_item_tooltip">Personalitzeu la barra d\'eines i proveu el mode de focalització en lectura</string>
   <string name="error_blocked_footer_no_blocker">Podeu contactar un &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt; administrador o una administradora&lt;/a&gt; per a discutir el blocatge.</string>
   <string name="crash_report_activity_title">Error de l\'aplicació</string>
   <string name="crash_report_relaunch_or_quit">Ens sap greu, l\'aplicació de Viquipèdia ha experimentat un error i s\'ha tancat.\n\nVoleu començar de nou o sortir?</string>
@@ -447,8 +446,6 @@
   <string name="theme_category_reading">Lectura</string>
   <string name="reading_focus_mode">Mode de focalització en lectura</string>
   <string name="reading_focus_mode_detail">Amaga les funcionalitats d\'edició i la barra d\'eines inferior en desplaçar-se</string>
-  <string name="theme_category_toolbar">Barra d\'eines</string>
-  <string name="theme_customize_toolbar">Personalitza la barra d\'eines</string>
   <string name="nav_item_saved">Desat</string>
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
   <string name="reading_list_move_to">Mou a la llista de lectura</string>
@@ -812,7 +809,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
   <string name="customize_toolbar_title">Personalitza la barra d\'eines</string>
-  <string name="customize_toolbar_description_text">Personalitza la barra d\'eines inferior amb 5 enllaços que trobeu útils.</string>
   <string name="customize_toolbar_category_toolbar">Barra d\'eines</string>
   <string name="customize_toolbar_category_menu">Menú</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Arrossegueu i deixeu anar els vostres elements preferits ací 👋</string>

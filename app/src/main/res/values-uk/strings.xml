@@ -400,7 +400,6 @@
   <string name="error_blocked_expiry">Кінець блокування: %s</string>
   <string name="error_blocked_id">Ідентифікатор блокування: %s</string>
   <string name="error_blocked_footer">Ви можете зв\'язатися із &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; або іншим &lt;a href=\"https://uk.wikipedia.org/wiki/Вікіпедія:Адміністратори\"&gt;адміністратором&lt;/a&gt; й обговорити блокування.</string>
-  <string name="theme_chooser_menu_item_tooltip">Налаштуйте панель інструментів і спробуйте читати режим фокусування</string>
   <string name="error_blocked_footer_no_blocker">Ви можете зв\'язатися з &lt;a href=\"https://uk.wikipedia.org/wiki/Вікіпедія:Адміністратори\"&gt;адміністратором&lt;/a&gt; й обговорити блокування.</string>
   <string name="crash_report_activity_title">Помилка програми</string>
   <string name="crash_report_relaunch_or_quit">Перепрошуємо, у додатку Вікіпедії сталася помилка і його було закрито.\n\nХочете почати спочатку чи вийти?</string>
@@ -430,8 +429,6 @@
   <string name="theme_category_reading">Читання</string>
   <string name="reading_focus_mode">Режим фокусування читання</string>
   <string name="reading_focus_mode_detail">Приховує функції редагування та нижню панель інструментів під час прокручування</string>
-  <string name="theme_category_toolbar">Панель інструменту</string>
-  <string name="theme_customize_toolbar">Налаштувати панель інструменту</string>
   <string name="nav_item_saved">Збережено</string>
   <string name="reading_list_save_to">Зберегти до списку для читання</string>
   <string name="reading_list_move_to">Перенести до читального списку</string>
