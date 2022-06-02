@@ -1165,13 +1165,13 @@
     <item quantity="one">Ukázať odpoveď (%d)</item>
     <item quantity="few">Ukázať odpovede (%d)</item>
     <item quantity="many">Ukázať odpovedí (%d)</item>
-    <item quantity="other"/>
+    <item quantity="other">Ukázať odpovedí (%d)</item>
   </plurals>
   <plurals name="talk_hide_replies_count">
     <item quantity="one">Schovať odpoveď</item>
     <item quantity="few">Schovať odpovede (%d)</item>
     <item quantity="many">Schovať odpovedí (%d)</item>
-    <item quantity="other"/>
+    <item quantity="other">Schovať odpovedí (%d)</item>
   </plurals>
   <string name="talk_thread_subscribed_to">Prihlásený na odber pre %s</string>
   <string name="talk_thread_unsubscribed_from">Zrušený odber pre %s</string>
