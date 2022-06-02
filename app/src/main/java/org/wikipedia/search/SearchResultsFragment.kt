@@ -332,15 +332,12 @@ class SearchResultsFragment : Fragment() {
 
     private fun displayResults(results: List<SearchResult>) {
         for (newResult in results) {
-            var contains = false
-            for ((pageTitle) in totalResults) {
-                if (newResult.pageTitle == pageTitle) {
-                    contains = true
-                    break
-                }
-            }
-            if (!contains) {
+            val res = totalResults.find { newResult.pageTitle.prefixedText == newResult.pageTitle.prefixedText &&
+                    newResult.pageTitle.wikiSite.languageCode == newResult.pageTitle.wikiSite.languageCode }
+            if (res == null) {
                 totalResults.add(newResult)
+            } else if (!newResult.pageTitle.description.isNullOrEmpty()) {
+                res.pageTitle.description = newResult.pageTitle.description
             }
         }
         binding.searchResultsContainer.visibility = View.VISIBLE
