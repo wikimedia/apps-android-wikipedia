@@ -422,7 +422,6 @@
   <string name="error_blocked_expiry">Kadaluwarsa pemblokiran: %s</string>
   <string name="error_blocked_id">ID Blokir: %s</string>
   <string name="error_blocked_footer">Anda bisa menghubungi &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; atau &lt;a href=\"https://id.wikipedia.org/wiki/Wikipedia:Pengurus\n\"&gt;pengurus&lt;/a&gt; lain untuk mendiskusikan pemblokiran Anda.</string>
-  <string name="theme_chooser_menu_item_tooltip">Ubah suaikan bilah perkakas Anda dan coba mode fokus membaca</string>
   <string name="error_blocked_footer_no_blocker">Anda bisa menghubungi seorang &lt;a href=\"https://id.wikipedia.org/wiki/Wikipedia:Pengurus\n\"&gt;pengurus&lt;/a&gt; untuk mendiskusikan pembatasan Anda.</string>
   <string name="crash_report_activity_title">Kesalahan aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Kami mohon maaf, aplikasi Wikipedia mengalami kesalahan dan dihentikan.\n\nApakah Anda ingin memulai kembali atau keluar?</string>
@@ -452,8 +451,6 @@
   <string name="theme_category_reading">Membaca</string>
   <string name="reading_focus_mode">Mode fokus membaca</string>
   <string name="reading_focus_mode_detail">Sembunyikan fitur penyuntingan dan bilah alat bawah ketika menggulir</string>
-  <string name="theme_category_toolbar">Bilah perkakas</string>
-  <string name="theme_customize_toolbar">Ubah suaikan bilah perkakas</string>
   <string name="nav_item_saved">Tersimpan</string>
   <string name="reading_list_save_to">Simpan ke daftar bacaan</string>
   <string name="reading_list_move_to">Pindahkan ke daftar bacaan</string>
@@ -805,7 +802,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Mulai menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan memulai, saya berjanji untuk tidak menyalahgunakan fitur ini.</string>
   <string name="customize_toolbar_title">Ubah suaikan bilah perkakas</string>
-  <string name="customize_toolbar_description_text">Ubah bilah perkakas bawah dengan 5 pranala yang Anda rasa paling berguna.</string>
   <string name="customize_toolbar_category_toolbar">Bilah perkakas</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Seret dan taruh hal-hal favorit Anda ke sini 👋</string>
