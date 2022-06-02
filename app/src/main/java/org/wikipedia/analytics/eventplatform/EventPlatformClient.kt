@@ -7,6 +7,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.net.HttpURLConnection
 import java.util.*
@@ -58,7 +59,7 @@ object EventPlatformClient {
      */
     @Synchronized
     fun submit(event: Event) {
-        if (!SamplingController.isInSample(event)) {
+        if (!SamplingController.isInSample(event) || (event is BreadCrumbLogEvent && ReleaseUtil.isProdRelease)) {
             return
         }
         OutputBuffer.schedule(event)
