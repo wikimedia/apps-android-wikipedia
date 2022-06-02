@@ -20,7 +20,7 @@ class BreadCrumbLogEvent(private val screen_name: String,
 
         fun logClick(activity: Activity?, view: View?) {
             activity?.let {
-                if (it is SettingsActivity) {
+                if (it is SettingsActivity || !view?.isClickable!!) {
                     return
                 }
                 val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
