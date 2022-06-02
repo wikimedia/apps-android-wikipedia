@@ -99,7 +99,7 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
         Prefs.localClassName = localClassName
 
         val decorView = window.decorView
-        decorView.viewTreeObserver.addOnGlobalLayoutListener { ViewUtil.setTouchListenersToViews(window.decorView, this) }
+        decorView.viewTreeObserver.addOnGlobalLayoutListener { ViewUtil.setTouchListenersToViews(decorView, this) }
         gestureDetector = GestureDetector(this, ActivityGestureListener(this))
     }
 
@@ -315,16 +315,11 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
         }
     }
 
-    companion object {
-        private var EXCLUSIVE_BUS_METHODS: ExclusiveBusConsumer? = null
-        private var EXCLUSIVE_DISPOSABLE: Disposable? = null
-    }
-
     private var startX = 0f
     private var startY = 0f
     private var startSystemTime = 0L
     override fun onTouch(view: View?, event: MotionEvent?): Boolean {
-        if (gestureDetector!!.onTouchEvent(event)) {
+        if (gestureDetector?.onTouchEvent(event)!!) {
             return false
         }
         when (event?.action) {
@@ -348,5 +343,10 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
             }
         }
         return false
+    }
+
+    companion object {
+        private var EXCLUSIVE_BUS_METHODS: ExclusiveBusConsumer? = null
+        private var EXCLUSIVE_DISPOSABLE: Disposable? = null
     }
 }

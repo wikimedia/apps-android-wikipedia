@@ -30,13 +30,14 @@ import java.util.*
 import kotlin.math.abs
 
 object ViewUtil {
-    private val CENTER_CROP_ROUNDED_CORNERS = MultiTransformation(CenterCrop(),
-            WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
+
+    private const val CLICK_ACTION_THRESHOLD = 200
+    private const val CLICK_TIME_THRESHOLD = 400
+    private val CENTER_CROP_ROUNDED_CORNERS =
+        MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
     val ROUNDED_CORNERS = RoundedCorners(roundedDpToPx(15f))
-    const val CLICK_ACTION_THRESHOLD = 200
-    const val CLICK_TIME_THRESHOLD = 400
-    val CENTER_CROP_LARGE_ROUNDED_CORNERS = MultiTransformation(CenterCrop(),
-            WhiteBackgroundTransformation(), ROUNDED_CORNERS)
+    val CENTER_CROP_LARGE_ROUNDED_CORNERS =
+        MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), ROUNDED_CORNERS)
 
     fun loadImageWithRoundedCorners(view: ImageView, url: String?, largeRoundedSize: Boolean = false) {
         loadImage(view, url, true, largeRoundedSize)

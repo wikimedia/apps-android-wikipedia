@@ -1,13 +1,14 @@
 package org.wikipedia.analytics.eventplatform
 
+import android.app.Activity
 import android.view.View
 import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.button.MaterialButton
 import org.wikipedia.R
-import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.feed.view.ListCardItemView
 import org.wikipedia.feed.view.ListCardView
@@ -62,11 +63,11 @@ object BreadCrumbViewUtil {
         }
     }
 
-    fun getReadableScreenName(activity: BaseActivity): String {
+    fun getReadableScreenName(activity: Activity): String {
         return activity.getString(R.string.breadcrumb_screen_fragment_name, activity.javaClass.simpleName, getFragmentName(activity))
     }
 
-    private fun getFragmentName(activity: BaseActivity): String {
+    private fun getFragmentName(activity: Activity): String {
         val fragment = getVisibleFragment(activity)
 
         return when {
@@ -108,17 +109,20 @@ object BreadCrumbViewUtil {
         return ""
     }
 
-    private fun getVisibleFragment(activity: BaseActivity): Fragment? {
-        val fragmentManager = activity.supportFragmentManager
+    private fun getVisibleFragment(activity: Activity): Fragment? {
+        (activity is FragmentActivity).let {
+            val fragmentManager = (activity as FragmentActivity).supportFragmentManager
 
-        if (activity is SingleFragmentActivity<*>) {
-            return fragmentManager.findFragmentById(R.id.fragment_container)
-        } else {
-            val fragments: List<Fragment> = fragmentManager.fragments
-            for (fragment in fragments) {
-                if (fragment.isVisible) return fragment
+            if (activity is SingleFragmentActivity<*>) {
+                return fragmentManager.findFragmentById(R.id.fragment_container)
+            } else {
+                val fragments: List<Fragment> = fragmentManager.fragments
+                for (fragment in fragments) {
+                    if (fragment.isVisible) return fragment
+                }
             }
         }
+
         return null
     }
 }
