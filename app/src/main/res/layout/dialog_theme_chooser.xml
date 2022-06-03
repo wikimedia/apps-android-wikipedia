@@ -73,7 +73,7 @@
                     android:gravity="center_horizontal|bottom"
                     android:paddingBottom="4dp"
                     android:text="T"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/chip_text_color"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
@@ -102,7 +102,7 @@
                     android:gravity="center_horizontal|bottom"
                     android:paddingBottom="2dp"
                     android:text="T"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/chip_text_color"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
@@ -244,25 +244,6 @@
                 android:text="@string/theme_chooser_dialog_image_dimming_switch_label"
                 android:textColor="?attr/section_title_color" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/theme_category_toolbar"
-                android:textColor="?attr/primary_text_color"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/customizeFavorites"
-                style="@style/ThemeChooserButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="@string/theme_customize_toolbar"
-                android:textStyle="normal"
-                app:icon="@drawable/ic_chevron_forward_gray"
-                app:iconGravity="end"
-                app:iconTint="?attr/colorAccent" />
         </LinearLayout>
 
     </ScrollView>

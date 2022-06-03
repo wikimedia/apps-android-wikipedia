@@ -399,7 +399,6 @@
   <string name="error_blocked_expiry">Bann rennur út: %s</string>
   <string name="error_blocked_id">Auðkenni banns: %s</string>
   <string name="error_blocked_footer">Þú getur haft samband við &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eða annan &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;stjórnanda&lt;/a&gt; til að ræða bannið.</string>
-  <string name="theme_chooser_menu_item_tooltip">Sérsníddu verkfærastikuna þína og prófaðu lesáhersluhaminn</string>
   <string name="error_blocked_footer_no_blocker">Þú getur haft samband við &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;stjórnanda&lt;/a&gt; til að ræða bannið.</string>
   <string name="crash_report_activity_title">Villa í forriti</string>
   <string name="crash_report_relaunch_or_quit">Því miður, Wikipedia-appið varð fyrir villu og vað þessvegna lokað.\n\nViltu byrja aftur eða hætta alveg?</string>
@@ -429,8 +428,6 @@
   <string name="theme_category_reading">Lestur</string>
   <string name="reading_focus_mode">Lesáhersluhamur</string>
   <string name="reading_focus_mode_detail">Felur breytingaeiginleika og botnstiku við skrun</string>
-  <string name="theme_category_toolbar">Verkfærastika</string>
-  <string name="theme_customize_toolbar">Sérsníða verkfærastiku</string>
   <string name="nav_item_saved">Vistað</string>
   <string name="reading_list_save_to">Vista í leslista</string>
   <string name="reading_list_move_to">Færa á leslista</string>
@@ -794,7 +791,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Hefja breytingar</string>
   <string name="description_edit_tutorial_promise">Ef ég byrja, lofa ég að misnota ekki þennan eiginleika.</string>
   <string name="customize_toolbar_title">Sérsníða verkfærastiku</string>
-  <string name="customize_toolbar_description_text">Sérsníddu verkfærastikuna neðst með þeim 5 tenglum sem þér finnast hjálplegastir.</string>
   <string name="customize_toolbar_category_toolbar">Verkfærastika</string>
   <string name="customize_toolbar_category_menu">Valmynd</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Dragðu og slepptu eftirlætisatriðunum þínum hér 👋</string>

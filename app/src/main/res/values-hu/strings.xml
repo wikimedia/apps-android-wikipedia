@@ -408,7 +408,6 @@
   <string name="error_blocked_start">A blokk kezdete: %s</string>
   <string name="error_blocked_expiry">A blokk lejárata: %s</string>
   <string name="error_blocked_id">Blokkolási azonosító: %s</string>
-  <string name="theme_chooser_menu_item_tooltip">Eszköztár testreszabása és a fókuszált olvasási mód kipróbálása</string>
   <string name="crash_report_activity_title">Alkalmazáshiba</string>
   <string name="crash_report_relaunch_or_quit">Sajnáljuk, a Wikipédia alkalmazás hibát észlelt és leállt.\n\nSzeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="crash_report_relaunch">Újrakezdés</string>
@@ -437,8 +436,6 @@
   <string name="theme_category_reading">Olvasás</string>
   <string name="reading_focus_mode">Olvasásra fókuszálás</string>
   <string name="reading_focus_mode_detail">Szerkesztési funkciók elrejtése és az alsó eszköztár elrejtése görgetéskor</string>
-  <string name="theme_category_toolbar">Eszközsor</string>
-  <string name="theme_customize_toolbar">Eszköztár testreszabása</string>
   <string name="nav_item_saved">Elmentve</string>
   <string name="reading_list_save_to">Mentés olvasólistára</string>
   <string name="reading_list_move_to">Mozgatás olvasólistára</string>
@@ -794,7 +791,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Szerkesztés elkezdése</string>
   <string name="description_edit_tutorial_promise">A kezdéskor megígérem, hogy nem élek vissza ezzel a funkcióval.</string>
   <string name="customize_toolbar_title">Eszköztár testreszabása</string>
-  <string name="customize_toolbar_description_text">Szabd testre az alsó eszköztárat a számodra leghasznosabb 5 gombbal.</string>
   <string name="customize_toolbar_category_toolbar">Eszközsor</string>
   <string name="customize_toolbar_category_menu">Menü</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Fogd és húzd ide a kedvenc tételeket</string>

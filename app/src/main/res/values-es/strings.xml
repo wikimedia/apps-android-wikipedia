@@ -23,6 +23,7 @@
 * Eduardoaddad
 * Elisardojm
 * Eloy
+* Enly M
 * Envlh
 * Fitoschido
 * Geryescalier
@@ -462,7 +463,6 @@
   <string name="error_blocked_expiry">Expiración del bloque: %s</string>
   <string name="error_blocked_id">ID de bloqueo: %s</string>
   <string name="error_blocked_footer">Puedes contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o otro &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; para hablar sobre el bloque.</string>
-  <string name="theme_chooser_menu_item_tooltip">Personaliza tu barra de herramientas y prueba el modo de enfoque de lectura</string>
   <string name="error_blocked_footer_no_blocker">Puedes contactar un &lt;a href=\"https://es.wikipedia.org/wiki/Wikipedia:Bibliotecarios\"&gt;bibliotecario&lt;/a&gt; para hablar del bloqueo.</string>
   <string name="crash_report_activity_title">Error de la aplicación</string>
   <string name="crash_report_relaunch_or_quit">La aplicación de Wikipedia ha experimentado un error y se cerró.\n\n¿Te gustaría volver a empezar o salir?</string>
@@ -490,7 +490,6 @@
   <string name="text_size_percent_default">%s (predeterminado)</string>
   <string name="text_style_title">Tipo de letra</string>
   <string name="theme_category_reading">Leyendo</string>
-  <string name="theme_category_toolbar">Barra de herramientas</string>
   <string name="nav_item_saved">Guardado</string>
   <string name="reading_list_save_to">Guardar en lista de lectura</string>
   <string name="reading_list_move_to">Trasladar a una lista de lectura</string>
@@ -1117,6 +1116,10 @@
   <string name="talk_snackbar_survey_text">Gracias por usar las páginas de discusión. ¿Podrías ayudarnos a mejorar la aplicación participando en una encuesta?</string>
   <string name="talk_snackbar_survey_action_text">Empezar</string>
   <string name="talk_share_talk_page">Wikipedia - discusiones en página de discusión</string>
+  <string name="talk_search_topics_hint">Temas de busqueda</string>
+  <string name="talk_list_item_overflow_subscribe">Subscribirse</string>
+  <string name="talk_list_item_user_icon_content_description">Icono de usuario</string>
+  <string name="talk_footer_last_modified">Ultima edición %1$s por %2$s</string>
   <string name="menu_option_share_talk_discussion">Compartir discusión</string>
   <string name="menu_option_share_talk_page">Compartir página de discusión</string>
   <string name="menu_option_share_edit">Compartir edición</string>

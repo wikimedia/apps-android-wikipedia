@@ -106,6 +106,10 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "HH:mm, MMM d, yyyy")
     }
 
+    fun getDateAndTime(date: Date): String {
+        return getCachedDateFormat("MMM d, yyyy, HH:mm", Locale.getDefault(), false).format(date)
+    }
+
     @Synchronized
     private fun getDateStringWithSkeletonPattern(date: Date, pattern: String): String {
         return getCachedDateFormat(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false).format(date)
