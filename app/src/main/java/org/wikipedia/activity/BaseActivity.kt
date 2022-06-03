@@ -42,10 +42,7 @@ import org.wikipedia.recurring.RecurringTasksExecutor
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.PermissionUtil
-import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
@@ -96,6 +93,13 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
 
         Prefs.localClassName = localClassName
 
+        setUpBreadCrumbsTouchListeners()
+    }
+
+    private fun setUpBreadCrumbsTouchListeners() {
+        if (ReleaseUtil.isProdRelease) {
+            return
+        }
         val decorView = window.decorView
         decorView.viewTreeObserver.addOnGlobalLayoutListener { ViewUtil.setTouchListenersToViews(decorView, this) }
     }
