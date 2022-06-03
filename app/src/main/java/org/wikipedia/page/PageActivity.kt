@@ -664,7 +664,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         }
         enqueueTooltip {
             FeedbackUtil.getTooltip(
-                this,
+                binding.pageToolbarButtonShowOverflowMenu,
                 getString(R.string.theme_chooser_menu_item_short_tooltip),
                 arrowAnchorPadding = -DimenUtil.roundedDpToPx(10f),
                 topOrBottomMargin = -12,

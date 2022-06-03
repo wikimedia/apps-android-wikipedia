@@ -12,6 +12,8 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.MenuItem
 import android.view.MotionEvent
+import android.view.View
+import android.view.View.OnTouchListener
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +27,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.LoginFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
@@ -38,14 +41,12 @@ import org.wikipedia.recurring.RecurringTasksExecutor
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.PermissionUtil
-import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
+import org.wikipedia.views.ViewUtil
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
     private val networkStateReceiver = NetworkStateReceiver()
     private var previousNetworkState = WikipediaApp.instance.isOnline
@@ -90,6 +91,21 @@ abstract class BaseActivity : AppCompatActivity() {
         maybeShowLoggedOutInBackgroundDialog()
 
         Prefs.localClassName = localClassName
+
+        setUpBreadCrumbsTouchListeners()
+    }
+
+    private fun setUpBreadCrumbsTouchListeners() {
+        if (ReleaseUtil.isProdRelease) {
+            return
+        }
+        val decorView = window.decorView
+        decorView.viewTreeObserver.addOnGlobalLayoutListener { ViewUtil.setTouchListenersToViews(decorView, this) }
+    }
+
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        BreadCrumbLogEvent.logScreenShown(this)
     }
 
     override fun onDestroy() {
@@ -124,6 +140,11 @@ abstract class BaseActivity : AppCompatActivity() {
             }
             else -> false
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        BreadCrumbLogEvent.logBackPress(this)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
@@ -292,6 +313,33 @@ abstract class BaseActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private var startX = 0f
+    private var startY = 0f
+    private var startSystemTime = 0L
+    override fun onTouch(view: View?, event: MotionEvent?): Boolean {
+        when (event?.action) {
+            MotionEvent.ACTION_DOWN -> {
+                startSystemTime = System.currentTimeMillis()
+                startX = event.x
+                startY = event.y
+            }
+            MotionEvent.ACTION_UP -> {
+                val endX = event.x
+                val endY = event.y
+                val endSystemTime = System.currentTimeMillis()
+
+                if (ViewUtil.isLongClick(startX, endX, startY, endY, endSystemTime - startSystemTime)) {
+                    BreadCrumbLogEvent.logLongClick(this, view)
+                }
+
+                if (ViewUtil.isClick(startX, endX, startY, endY, endSystemTime - startSystemTime)) {
+                    BreadCrumbLogEvent.logClick(this, view)
+                }
+            }
+        }
+        return false
     }
 
     companion object {

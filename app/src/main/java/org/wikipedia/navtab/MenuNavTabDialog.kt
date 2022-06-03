@@ -11,6 +11,7 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -35,6 +36,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         _binding = ViewMainDrawerBinding.inflate(inflater, container, false)
 
         binding.mainDrawerAccountContainer.setOnClickListener {
+            BreadCrumbLogEvent.logClick(activity, binding.mainDrawerAccountContainer)
             if (AccountUtil.isLoggedIn) {
                 callback()?.usernameClick()
             } else {
@@ -44,21 +46,25 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerTalkContainer.setOnClickListener {
+            BreadCrumbLogEvent.logClick(activity, binding.mainDrawerTalkContainer)
             callback()?.talkClick()
             dismiss()
         }
 
         binding.mainDrawerWatchlistContainer.setOnClickListener {
+            BreadCrumbLogEvent.logClick(activity, binding.mainDrawerWatchlistContainer)
             callback()?.watchlistClick()
             dismiss()
         }
 
         binding.mainDrawerSettingsContainer.setOnClickListener {
+            BreadCrumbLogEvent.logClick(activity, binding.mainDrawerSettingsContainer)
             callback()?.settingsClick()
             dismiss()
         }
 
         binding.mainDrawerDonateContainer.setOnClickListener {
+            BreadCrumbLogEvent.logClick(activity, binding.mainDrawerDonateContainer)
             visitInExternalBrowser(requireContext(),
                     Uri.parse(getString(R.string.donate_url,
                             BuildConfig.VERSION_NAME, WikipediaApp.instance.languageState.systemLanguageCode)))
