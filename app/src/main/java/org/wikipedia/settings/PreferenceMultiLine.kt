@@ -9,6 +9,7 @@ import androidx.preference.Preference
 import androidx.preference.Preference.OnPreferenceClickListener
 import androidx.preference.PreferenceViewHolder
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 
 @Suppress("unused")
 class PreferenceMultiLine : Preference {
@@ -25,6 +26,7 @@ class PreferenceMultiLine : Preference {
         // (but only do this if the preference doesn't already have a click listener)
         if (onPreferenceClickListener == null) {
             onPreferenceClickListener = OnPreferenceClickListener { preference ->
+                BreadCrumbLogEvent.logSettingsSelection(context, preference.title.toString())
                 if (preference.intent != null) {
                     try {
                         context.startActivity(preference.intent)

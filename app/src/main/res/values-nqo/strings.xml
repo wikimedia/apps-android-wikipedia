@@ -389,8 +389,6 @@
   <string name="text_size_percent_default">(ߓߐߛߎ߲) %s</string>
   <string name="text_style_title">ߞߟߏߜߍ</string>
   <string name="theme_category_reading">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲</string>
-  <string name="theme_category_toolbar">ߖߐ߯ߙߊ߲߫ ߝߙߊߕߌ</string>
-  <string name="theme_customize_toolbar">ߖߐ߯ߙߊ߲߫ ߝߙߊߕߌ ߘߎ߲߬ߘߎ߬ߡߊ߬ߦߊ߫</string>
   <string name="nav_item_saved">ߊ߬ ߓߘߊ߫ ߟߊߞߎ߲߬ߘߎ߬</string>
   <string name="reading_list_save_to">ߊ߬ ߟߊߞߎ߲߬ߘߎ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_move_to">ߊ߬ ߛߋ߲߬ߓߐ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
@@ -693,7 +691,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߊߡߌ߬ߣߊ߬</string>
   <string name="description_edit_tutorial_promise">ߊ߬ ߘߊߡߌߣߊߟߌ ߘߐ߫߸ ߒ ߓߘߊ߫ ߟߊ߬ߤߘߌ ߕߊ߬ ߞߏ߫ ߒ ߕߍߣߊ߬ ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߡߜߊߣߊ߲ߦߊ߫ ߟߊ߫.</string>
   <string name="customize_toolbar_title">ߖߐ߯ߙߊ߲߫ ߝߙߊߕߌ ߘߎ߲߬ߘߎ߬ߡߊ߬ߦߊ߫</string>
-  <string name="customize_toolbar_description_text">ߘߎ߰ߟߊ߬ߘߐ߫ ߖߐ߯ߙߊ߲߫ ߝߙߊߕߌ ߘߎ߲߬ߘߎ߬ߡߊ߬ߦߊ߫ ߛߘߌ߬ߜߋ߲߫ ߅ ߟߎ߫ ߟߊ߫ ߌ ߣߊ߬ ߡߍ߲ ߠߎ߬ ߦߋ߫ ߟߊ߫ ߘߍ߬ߡߍ߲߬ߝߋ߲߫ ߓߘߍߓߘߍ ߘߌ߫.</string>
   <string name="customize_toolbar_category_toolbar">ߖߐ߯ߙߊ߲߫ ߝߙߊߕߌ</string>
   <string name="customize_toolbar_category_menu">ߢߣߊߕߊߟߌ</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">ߌ ߘߌߦߊߣߍ߲߫ ߝߛߌ ߟߎ߬ ߕߍ߬ߙߍ߲߬ߘߍ߫ ߞߵߊ߬ߟߎ߫ ߓߌ߬ߟߊ߫ ߦߊ߲߬ 👋</string>

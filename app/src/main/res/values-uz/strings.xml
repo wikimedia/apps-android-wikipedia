@@ -403,7 +403,6 @@
   <string name="error_blocked_expiry">Bloklash muddati: %s</string>
   <string name="error_blocked_id">Bloklashning ID kodi: %s</string>
   <string name="error_blocked_footer">Siz &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; bilan yoki &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; bilan bloklash masalasida murojaat qilishingiz mumkin.</string>
-  <string name="theme_chooser_menu_item_tooltip">Jihozlar panelini moslang va oʻqish rejimini yoqing</string>
   <string name="error_blocked_footer_no_blocker">Siz &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; bilan bloklash boʻyicha bogʻlanishingiz mumkin.</string>
   <string name="crash_report_activity_title">Ilova xatoligi</string>
   <string name="crash_report_relaunch_or_quit">Kechirasiz, Vikipediya ilovasida xatolik yuz berdi va u bekor qilindi.\n\nBoshlashni xohlaysizmi yoki ishdan chiqishni xohlaysizmi?</string>
@@ -433,8 +432,6 @@
   <string name="theme_category_reading">Oʻqish</string>
   <string name="reading_focus_mode">Oʻqish rejimi</string>
   <string name="reading_focus_mode_detail">Asosiy tahrirlarni va harakat vaqti quyi panelni berkitmoq</string>
-  <string name="theme_category_toolbar">Panel</string>
-  <string name="theme_customize_toolbar">Panelni moslash</string>
   <string name="nav_item_saved">Saqlamalar</string>
   <string name="reading_list_save_to">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
   <string name="reading_list_move_to">Oʻqish roʻyxatiga oʻtmoq</string>
@@ -796,7 +793,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Tahrirlash</string>
   <string name="description_edit_tutorial_promise">Boshlash bilan men ushbu funktsiyani notoʻgʻri ishlatmaslikka harakat qilaman.</string>
   <string name="customize_toolbar_title">Panelni moslash</string>
-  <string name="customize_toolbar_description_text">Quyi panelda Sizga kerakli boʻlgan 5 ta havolni joylang.</string>
   <string name="customize_toolbar_category_toolbar">Panel</string>
   <string name="customize_toolbar_category_menu">Menyu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Kerakli elementlarni bu yerga surib olib keling 👋</string>

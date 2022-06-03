@@ -407,7 +407,7 @@
     <string name="error_blocked_expiry">Expiration of block: %s</string>
     <string name="error_blocked_id">Block ID: %s</string>
     <string name="error_blocked_footer"><![CDATA[You can contact <a href="%2$s">%1$s</a> or another <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
-    <string name="theme_chooser_menu_item_tooltip">Customize your toolbar and try reading focus mode</string>
+    <string name="theme_chooser_menu_item_short_tooltip">Customize your toolbar</string>
     <string name="error_blocked_footer_no_blocker"><![CDATA[You can contact an <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
 
     <!-- Crash reporter -->
@@ -445,8 +445,6 @@
     <string name="theme_category_reading">Reading</string>
     <string name="reading_focus_mode">Reading focus mode</string>
     <string name="reading_focus_mode_detail">Hides edit features and bottom toolbar on scroll</string>
-    <string name="theme_category_toolbar">Toolbar</string>
-    <string name="theme_customize_toolbar">Customize toolbar</string>
     <!-- /Theme -->
 
     <!-- Reading lists -->
@@ -838,7 +836,7 @@
 
     <!-- Customize toolbar -->
     <string name="customize_toolbar_title">Customize toolbar</string>
-    <string name="customize_toolbar_description_text">Customize the bottom toolbar with 5 links you find most helpful.</string>
+    <string name="customize_toolbar_shortcut_description_text">Customize the bottom toolbar with 5 shortcuts you find most helpful.</string>
     <string name="customize_toolbar_category_toolbar">Toolbar</string>
     <string name="customize_toolbar_category_menu">Menu</string>
     <string name="customize_toolbar_drag_and_drop_placeholder">Drag and drop your favorite items here 👋</string>
@@ -1258,6 +1256,7 @@
     <string name="watchlist_page_moved">Moved</string>
     <string name="watchlist_page_protected">Protected</string>
     <string name="watchlist_page_deleted">Deleted</string>
+    <!-- /Watchlist -->
 
     <string name="action_item_categories">Categories</string>
     <string name="page_no_categories">This page does not belong to any categories.</string>
@@ -1266,5 +1265,6 @@
     <string name="category_empty">No articles found in this category.</string>
     <string name="subcategory_empty">No subcategories found in this category.</string>
     <string name="search_namespaces">Namespaces</string>
+    <string name="revision_initial_none">None (this is the first revision)</string>
 
 </resources>
