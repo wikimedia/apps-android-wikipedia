@@ -36,7 +36,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         _binding = ViewMainDrawerBinding.inflate(inflater, container, false)
 
         binding.mainDrawerAccountContainer.setOnClickListener {
-            BreadCrumbLogEvent.logClick(activity, binding.mainDrawerAccountContainer)
+            BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerAccountContainer)
             if (AccountUtil.isLoggedIn) {
                 callback()?.usernameClick()
             } else {
@@ -46,25 +46,25 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerTalkContainer.setOnClickListener {
-            BreadCrumbLogEvent.logClick(activity, binding.mainDrawerTalkContainer)
+            BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerTalkContainer)
             callback()?.talkClick()
             dismiss()
         }
 
         binding.mainDrawerWatchlistContainer.setOnClickListener {
-            BreadCrumbLogEvent.logClick(activity, binding.mainDrawerWatchlistContainer)
+            BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerWatchlistContainer)
             callback()?.watchlistClick()
             dismiss()
         }
 
         binding.mainDrawerSettingsContainer.setOnClickListener {
-            BreadCrumbLogEvent.logClick(activity, binding.mainDrawerSettingsContainer)
+            BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerSettingsContainer)
             callback()?.settingsClick()
             dismiss()
         }
 
         binding.mainDrawerDonateContainer.setOnClickListener {
-            BreadCrumbLogEvent.logClick(activity, binding.mainDrawerDonateContainer)
+            BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
             visitInExternalBrowser(requireContext(),
                     Uri.parse(getString(R.string.donate_url,
                             BuildConfig.VERSION_NAME, WikipediaApp.instance.languageState.systemLanguageCode)))

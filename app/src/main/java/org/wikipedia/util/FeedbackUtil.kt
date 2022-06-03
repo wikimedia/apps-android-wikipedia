@@ -32,7 +32,6 @@ import org.wikipedia.staticdata.SpecialAliasData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.talk.TalkTopicsActivity
-import org.wikipedia.views.ViewUtil.getActivity
 import java.util.concurrent.TimeUnit
 
 object FeedbackUtil {
@@ -160,7 +159,7 @@ object FeedbackUtil {
 
     fun showTooltip(activity: Activity, anchor: View, text: CharSequence, aboveOrBelow: Boolean,
                     autoDismiss: Boolean, arrowAnchorPadding: Int = 0, topOrBottomMargin: Int = 0): Balloon {
-        return showTooltip(activity, getTooltip(anchor, text, autoDismiss, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow), anchor, aboveOrBelow, autoDismiss)
+        return showTooltip(activity, getTooltip(anchor.context, text, autoDismiss, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow), anchor, aboveOrBelow, autoDismiss)
     }
 
     fun showTooltip(activity: Activity, anchor: View, @LayoutRes layoutRes: Int,
@@ -177,19 +176,19 @@ object FeedbackUtil {
         if (!autoDismiss) {
             (activity as BaseActivity).setCurrentTooltip(balloon)
         }
+        BreadCrumbLogEvent.logTooltipShown(activity, anchor)
         return balloon
     }
 
-    fun getTooltip(anchor: View, text: CharSequence, autoDismiss: Boolean, arrowAnchorPadding: Int = 0,
+    fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean, arrowAnchorPadding: Int = 0,
                    topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false): Balloon {
-        BreadCrumbLogEvent.logTooltipShown(anchor.context.getActivity(), anchor)
-        val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(anchor.context))
+        val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
         if (showDismissButton) {
             binding.buttonView.visibility = View.VISIBLE
         }
 
-        val balloon = createBalloon(anchor.context) {
+        val balloon = createBalloon(context) {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
             setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
             setArrowOrientationRules(ArrowOrientationRules.ALIGN_ANCHOR)
@@ -198,7 +197,7 @@ object FeedbackUtil {
             setMarginRight(8)
             setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)
             setMarginBottom(if (aboveOrBelow) topOrBottomMargin else 0)
-            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(anchor.context, R.attr.colorAccent))
+            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
             setDismissWhenTouchOutside(autoDismiss)
             setLayout(binding.root)
             setWidth(BalloonSizeSpec.WRAP)

@@ -116,7 +116,7 @@ abstract class OnboardingFragment(val enableSkip: Boolean = true) : Fragment(), 
 
     private inner class PageChangeCallback : OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {
-            BreadCrumbLogEvent.logSwipe(activity)
+            BreadCrumbLogEvent.logSwipe(requireActivity())
             updateButtonState()
             updatePageIndicatorContentDescription()
             // TODO: request focus to child view to make it readable after switched page.

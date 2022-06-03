@@ -14,6 +14,7 @@ import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnTouchListener
+import android.view.ViewConfiguration
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -45,9 +46,11 @@ import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
+import kotlin.math.abs
 
-abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
+abstract class BaseActivity : AppCompatActivity() {
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
+    private lateinit var breadcrumbTouchListener: BreadcrumbTouchListener
     private val networkStateReceiver = NetworkStateReceiver()
     private var previousNetworkState = WikipediaApp.instance.isOnline
     private val disposables = CompositeDisposable()
@@ -92,15 +95,10 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
 
         Prefs.localClassName = localClassName
 
-        setUpBreadCrumbsTouchListeners()
-    }
-
-    private fun setUpBreadCrumbsTouchListeners() {
-        if (ReleaseUtil.isProdRelease) {
-            return
+        if (!ReleaseUtil.isProdRelease) {
+            breadcrumbTouchListener = BreadcrumbTouchListener()
+            window.decorView.viewTreeObserver.addOnGlobalLayoutListener { ViewUtil.setTouchListenersToViews(window.decorView, breadcrumbTouchListener) }
         }
-        val decorView = window.decorView
-        decorView.viewTreeObserver.addOnGlobalLayoutListener { ViewUtil.setTouchListenersToViews(decorView, this) }
     }
 
     override fun onResumeFragments() {
@@ -315,31 +313,35 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
         }
     }
 
-    private var startX = 0f
-    private var startY = 0f
-    private var startSystemTime = 0L
-    override fun onTouch(view: View?, event: MotionEvent?): Boolean {
-        when (event?.action) {
-            MotionEvent.ACTION_DOWN -> {
-                startSystemTime = System.currentTimeMillis()
-                startX = event.x
-                startY = event.y
-            }
-            MotionEvent.ACTION_UP -> {
-                val endX = event.x
-                val endY = event.y
-                val endSystemTime = System.currentTimeMillis()
+    private inner class BreadcrumbTouchListener : OnTouchListener {
+        private var startX = 0f
+        private var startY = 0f
+        private var startMillis = 0L
+        private val touchSlop = ViewConfiguration.get(this@BaseActivity).scaledTouchSlop
 
-                if (ViewUtil.isLongClick(startX, endX, startY, endY, endSystemTime - startSystemTime)) {
-                    BreadCrumbLogEvent.logLongClick(this, view)
+        override fun onTouch(view: View, event: MotionEvent): Boolean {
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    startMillis = System.currentTimeMillis()
+                    startX = event.x
+                    startY = event.y
                 }
+                MotionEvent.ACTION_UP -> {
+                    val touchMillis = System.currentTimeMillis() - startMillis
+                    val dx = abs(startX - event.x)
+                    val dy = abs(startY - event.y)
 
-                if (ViewUtil.isClick(startX, endX, startY, endY, endSystemTime - startSystemTime)) {
-                    BreadCrumbLogEvent.logClick(this, view)
+                    if (dx <= touchSlop && dy <= touchSlop && view.isClickable) {
+                        if (touchMillis > ViewConfiguration.getLongPressTimeout()) {
+                            BreadCrumbLogEvent.logLongClick(this@BaseActivity, view)
+                        } else {
+                            BreadCrumbLogEvent.logClick(this@BaseActivity, view)
+                        }
+                    }
                 }
             }
+            return false
         }
-        return false
     }
 
     companion object {

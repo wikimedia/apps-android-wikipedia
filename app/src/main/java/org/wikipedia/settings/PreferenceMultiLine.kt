@@ -1,6 +1,5 @@
 package org.wikipedia.settings
 
-import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.util.AttributeSet
@@ -27,7 +26,7 @@ class PreferenceMultiLine : Preference {
         // (but only do this if the preference doesn't already have a click listener)
         if (onPreferenceClickListener == null) {
             onPreferenceClickListener = OnPreferenceClickListener { preference ->
-                BreadCrumbLogEvent.logSettingsSelection(context as Activity, preference.title.toString())
+                BreadCrumbLogEvent.logSettingsSelection(context, preference.title.toString())
                 if (preference.intent != null) {
                     try {
                         context.startActivity(preference.intent)

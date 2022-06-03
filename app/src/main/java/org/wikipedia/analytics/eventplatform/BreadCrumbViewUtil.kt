@@ -21,32 +21,26 @@ import org.wikipedia.onboarding.InitialOnboardingFragment.OnboardingPage
 
 object BreadCrumbViewUtil {
 
-    fun getReadableNameForView(view: View?): String {
-        view?.let {
-            val context = it.context
-            context?.let { viewContext ->
-                if (it.parent != null && it.parent is RecyclerView) {
-                    val position =
-                        (it.parent as RecyclerView).getChildViewHolder(it).layoutPosition + 1
-                    if (it is ListCardItemView) {
-                        var currentParent = it.parent
-                        while (currentParent !is ListCardView<*>) {
-                            if (currentParent.parent != null) {
-                                currentParent = currentParent.parent
-                            } else {
-                                // ListItemView is not in a CardView
-                                return viewContext.getString(R.string.breadcrumb_view_with_position, getReadableNameForView(it.parent as RecyclerView), position)
-                            }
-                        }
-                        return viewContext.getString(R.string.breadcrumb_view_with_position, currentParent.javaClass.simpleName, position)
+    fun getReadableNameForView(view: View): String {
+        if (view.parent != null && view.parent is RecyclerView) {
+            val position =
+                    (view.parent as RecyclerView).getChildViewHolder(view).layoutPosition + 1
+            if (view is ListCardItemView) {
+                var currentParent = view.parent
+                while (currentParent !is ListCardView<*>) {
+                    if (currentParent.parent != null) {
+                        currentParent = currentParent.parent
+                    } else {
+                        // ListItemView is not in a CardView
+                        return view.context.getString(R.string.breadcrumb_view_with_position, getReadableNameForView(view.parent as RecyclerView), position)
                     }
-                    // Returning only recyclerview name and click position for non-cardView recyclerViews
-                    return viewContext.getString(R.string.breadcrumb_view_with_position, getReadableNameForView(it.parent as RecyclerView), position)
                 }
-                return if (it.id == View.NO_ID) context.getString(R.string.breadcrumb_view_unnamed) else getViewResourceName(it)
+                return view.context.getString(R.string.breadcrumb_view_with_position, currentParent.javaClass.simpleName, position)
             }
+            // Returning only recyclerview name and click position for non-cardView recyclerViews
+            return view.context.getString(R.string.breadcrumb_view_with_position, getReadableNameForView(view.parent as RecyclerView), position)
         }
-        return "unnamed"
+        return if (view.id == View.NO_ID) view.context.getString(R.string.breadcrumb_view_unnamed) else getViewResourceName(view)
     }
 
     private fun getViewResourceName(view: View): String {
@@ -110,19 +104,14 @@ object BreadCrumbViewUtil {
     }
 
     private fun getVisibleFragment(activity: Activity): Fragment? {
-        (activity is FragmentActivity).let {
-            val fragmentManager = (activity as FragmentActivity).supportFragmentManager
-
-            if (activity is SingleFragmentActivity<*>) {
-                return fragmentManager.findFragmentById(R.id.fragment_container)
-            } else {
-                val fragments: List<Fragment> = fragmentManager.fragments
-                for (fragment in fragments) {
-                    if (fragment.isVisible) return fragment
-                }
+        if (activity is SingleFragmentActivity<*>) {
+            return activity.supportFragmentManager.findFragmentById(R.id.fragment_container)
+        } else if (activity is FragmentActivity) {
+            val fragments: List<Fragment> = activity.supportFragmentManager.fragments
+            for (fragment in fragments) {
+                if (fragment.isVisible) return fragment
             }
         }
-
         return null
     }
 }
