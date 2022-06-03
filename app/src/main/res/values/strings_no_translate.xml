@@ -94,8 +94,7 @@
     <string name="breadcrumb_switch_view_state_off">OFF</string>
     <string name="breadcrumb_screen_shown">shown</string>
     <string name="breadcrumb_screen_back_press">back press</string>
-    <string name="breadcrumb_screen_swiped_right_on">swiped right on</string>
-    <string name="breadcrumb_screen_swiped_left_on">swiped left on</string>
+    <string name="breadcrumb_screen_swiped_to">swiped to</string>
     <string name="breadcrumb_screen_fragment_name">%s screen %s</string>
     <string name="breadcrumb_view_unnamed">unnamed</string>
     <string name="breadcrumb_settings_logout">settings logout</string>
