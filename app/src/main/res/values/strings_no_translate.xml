@@ -90,13 +90,12 @@
     <string name="breadcrumb_view_click">%s click</string>
     <string name="breadcrumb_view_long_click">%s long click</string>
     <string name="breadcrumb_switch_view_click">%s turn %s</string>
-    <string name="breadcrumb_switch_view_state_on">ON</string>
-    <string name="breadcrumb_switch_view_state_off">OFF</string>
+    <string name="breadcrumb_switch_view_state_on">on</string>
+    <string name="breadcrumb_switch_view_state_off">off</string>
     <string name="breadcrumb_screen_shown">shown</string>
     <string name="breadcrumb_screen_back_press">back press</string>
     <string name="breadcrumb_screen_swiped_to">swiped to</string>
     <string name="breadcrumb_screen_fragment_name">%s screen %s</string>
     <string name="breadcrumb_view_unnamed">unnamed</string>
-    <string name="breadcrumb_settings_logout">settings logout</string>
     <string name="breadcrumb_tooltip_shown_on_view">tooltip shown on %s</string>
 </resources>

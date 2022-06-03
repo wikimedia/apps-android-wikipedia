@@ -29,9 +29,9 @@ class LogoutPreference : Preference {
         super.onBindViewHolder(holder)
         holder.itemView.isClickable = false
         holder.itemView.findViewById<TextView>(R.id.accountName).text = AccountUtil.userName
-        holder.itemView.findViewById<Button>(R.id.logoutButton).setOnClickListener {
+        holder.itemView.findViewById<Button>(R.id.logoutButton).setOnClickListener { view ->
             activity?.let {
-                BreadCrumbLogEvent.logSettingsSelection(it, it.getString(R.string.breadcrumb_settings_logout))
+                BreadCrumbLogEvent.logSettingsSelection(it, (view as Button).text.toString())
                 AlertDialog.Builder(it)
                     .setMessage(R.string.logout_prompt)
                     .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
