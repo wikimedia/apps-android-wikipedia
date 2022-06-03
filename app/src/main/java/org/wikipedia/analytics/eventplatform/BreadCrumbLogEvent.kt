@@ -7,7 +7,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.util.log.L
 
 @Suppress("unused")
 @Serializable
@@ -15,10 +14,6 @@ import org.wikipedia.util.log.L
 class BreadCrumbLogEvent(private val screen_name: String,
                          private val action: String,
                          private val primary_language_code: String) : MobileAppsEvent(STREAM_NAME) {
-
-    init {
-        L.d(">>>>>> " + screen_name + " : " + action)
-    }
 
     companion object {
         private const val STREAM_NAME = "android.breadcrumb_log_event"
