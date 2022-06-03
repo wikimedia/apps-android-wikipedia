@@ -437,7 +437,6 @@
   <string name="text_size_percent_default">%s (পূর্বনির্ধারিত)</string>
   <string name="text_style_title">ফন্ট</string>
   <string name="theme_category_reading">পড়ছেন</string>
-  <string name="theme_category_toolbar">সরঞ্জামদণ্ড</string>
   <string name="nav_item_saved">সংরক্ষিত</string>
   <string name="reading_list_save_to">পড়ার তালিকায় সংরক্ষণ করুন</string>
   <string name="reading_list_create_new">নতুন তৈরি করুন</string>

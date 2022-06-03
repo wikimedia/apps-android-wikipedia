@@ -253,7 +253,7 @@ class WikipediaApp : Application() {
         AccountUtil.removeAccount()
         Prefs.isPushNotificationTokenSubscribed = false
         Prefs.pushNotificationTokenOld = ""
-        ServiceFactory.get(wikiSite).csrfToken
+        ServiceFactory.get(wikiSite).getTokenObservable()
                 .subscribeOn(Schedulers.io())
                 .flatMap {
                     val csrfToken = it.query!!.csrfToken()

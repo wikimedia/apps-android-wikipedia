@@ -52,6 +52,7 @@ data class PageTitle(
         get() = _namespace.orEmpty()
         set(value) {
             _namespace = value
+            // TODO: fix the issue when entering an user talk page from a user page in PageActivity
             _displayText = if (value.isEmpty()) _displayText else StringUtil.removeUnderscores(value) + ":" + _displayText
         }
 
