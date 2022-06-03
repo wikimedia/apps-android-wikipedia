@@ -10,7 +10,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.view.GestureDetector
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
@@ -320,11 +319,6 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
     private var startY = 0f
     private var startSystemTime = 0L
     override fun onTouch(view: View?, event: MotionEvent?): Boolean {
-        getGestureDetectorForBreadCrumbs()?.let {
-            if (it.onTouchEvent(event)) {
-                return false
-            }
-        }
         when (event?.action) {
             MotionEvent.ACTION_DOWN -> {
                 startSystemTime = System.currentTimeMillis()
@@ -346,10 +340,6 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
             }
         }
         return false
-    }
-
-    protected open fun getGestureDetectorForBreadCrumbs(): GestureDetector? {
-        return null
     }
 
     companion object {

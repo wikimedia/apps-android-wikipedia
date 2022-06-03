@@ -39,9 +39,9 @@ class BreadCrumbLogEvent(private val screen_name: String,
             }
         }
 
-        fun logSwipe(activity: Activity?, isRtlSwipe: Boolean) {
+        fun logSwipe(activity: Activity?) {
             activity?.let {
-                EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(it), it.getString(if (isRtlSwipe) R.string.breadcrumb_screen_swiped_left_on else R.string.breadcrumb_screen_swiped_right_on), WikipediaApp.instance.languageState.appLanguageCode))
+                EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(it), it.getString(R.string.breadcrumb_screen_swiped_to), WikipediaApp.instance.languageState.appLanguageCode))
             }
         }
 
