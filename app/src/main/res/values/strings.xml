@@ -1231,6 +1231,7 @@
     <string name="revision_undo_message">This will undo the changes made by the revision(s) of the article shown here.</string>
     <string name="revision_undo_reason">To continue, please provide a reason for undoing this edit:</string>
     <string name="revision_undo_success">The revision was undone.</string>
+    <string name="revision_rollback_dialog_title">Are you sure you want to rollback the edits?</string>
     <string name="revision_rollback_success">Edits reverted.</string>
     <string name="revision_compare_button">Compare</string>
     <string name="revision_compare_two_only">Only two revisions can be selected.</string>

@@ -240,7 +240,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
 
         binding.rollbackButton.setOnClickListener {
-            rollbackEdits()
+            showRollbackDialog()
             // TODO: add analytics
         }
 
@@ -427,12 +427,18 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         dialog.show()
     }
 
-    private fun rollbackEdits() {
-        binding.progressBar.isVisible = true
-        viewModel.revisionTo?.let {
-            // TODO: check whether we should have the same input dialog for the summary
-            viewModel.postRollback(viewModel.pageTitle, it.user, "")
-        }
+    private fun showRollbackDialog() {
+        AlertDialog.Builder(requireActivity())
+            .setMessage(R.string.revision_rollback_dialog_title)
+            .setPositiveButton(android.R.string.ok) { _, _ ->
+                binding.progressBar.isVisible = true
+                viewModel.revisionTo?.let {
+                    // TODO: check whether we should have the same input dialog for the summary
+                    viewModel.postRollback(viewModel.pageTitle, it.user)
+                }
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
     }
 
     private fun updateUndoAndRollbackButtons() {

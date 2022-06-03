@@ -218,13 +218,13 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    fun postRollback(title: PageTitle, user: String, summary: String?) {
+    fun postRollback(title: PageTitle, user: String) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             rollbackResponse.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
                 val rollbackToken = ServiceFactory.get(title.wikiSite).getToken("rollback").query!!.rollbackToken()!!
-                val rollbackPostResponse = ServiceFactory.get(title.wikiSite).postRollback(title.prefixedText, summary, user, rollbackToken)
+                val rollbackPostResponse = ServiceFactory.get(title.wikiSite).postRollback(title.prefixedText, null, user, rollbackToken)
                 rollbackResponse.postValue(Resource.Success(rollbackPostResponse))
             }
         }
