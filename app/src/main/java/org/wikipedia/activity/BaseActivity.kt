@@ -47,7 +47,6 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.PermissionUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.ActivityGestureListener
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
 
@@ -58,7 +57,6 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
     private val disposables = CompositeDisposable()
     private var currentTooltip: Balloon? = null
     private var imageZoomHelper: ImageZoomHelper? = null
-    private var gestureDetector: GestureDetector? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -100,7 +98,6 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
 
         val decorView = window.decorView
         decorView.viewTreeObserver.addOnGlobalLayoutListener { ViewUtil.setTouchListenersToViews(decorView, this) }
-        gestureDetector = GestureDetector(this, ActivityGestureListener(this))
     }
 
     override fun onResumeFragments() {
@@ -319,8 +316,10 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
     private var startY = 0f
     private var startSystemTime = 0L
     override fun onTouch(view: View?, event: MotionEvent?): Boolean {
-        if (gestureDetector?.onTouchEvent(event)!!) {
-            return false
+        getGestureDetectorForBreadCrumbs()?.let {
+            if (it.onTouchEvent(event)) {
+                return false
+            }
         }
         when (event?.action) {
             MotionEvent.ACTION_DOWN -> {
@@ -343,6 +342,10 @@ abstract class BaseActivity : AppCompatActivity(), OnTouchListener {
             }
         }
         return false
+    }
+
+    protected open fun getGestureDetectorForBreadCrumbs(): GestureDetector? {
+        return null
     }
 
     companion object {

@@ -4,7 +4,6 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
-import org.wikipedia.onboarding.InitialOnboardingActivity
 
 class ActivityGestureListener(private val activity: BaseActivity) :
     GestureDetector.SimpleOnGestureListener() {
@@ -36,18 +35,16 @@ class ActivityGestureListener(private val activity: BaseActivity) :
                          event2: MotionEvent,
                          velocityX: Float,
                          velocityY: Float): Boolean {
-        if (activity is InitialOnboardingActivity) {
-            try {
-                val diffY = event1.y - event2.y
-                val diffX = event1.x - event2.x
-                if (diffY <= SwipeableListView.SWIPE_MAX_DISTANCE && diffX > SwipeableListView.SWIPE_MIN_DISTANCE) {
-                    BreadCrumbLogEvent.logSwipe(activity, false)
-                } else {
-                    BreadCrumbLogEvent.logSwipe(activity, true)
-                }
-            } catch (exception: Exception) {
-                exception.printStackTrace()
+        try {
+            val diffY = event1.y - event2.y
+            val diffX = event1.x - event2.x
+            if (diffY <= SwipeableListView.SWIPE_MAX_DISTANCE && diffX > SwipeableListView.SWIPE_MIN_DISTANCE) {
+                BreadCrumbLogEvent.logSwipe(activity, false)
+            } else {
+                BreadCrumbLogEvent.logSwipe(activity, true)
             }
+        } catch (exception: Exception) {
+            exception.printStackTrace()
         }
         return true
     }
