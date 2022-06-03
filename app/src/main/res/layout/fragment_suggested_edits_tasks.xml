@@ -89,7 +89,6 @@
                                 android:layout_height="32dp"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                android:layout_marginTop="-4dp"
                                 android:padding="2dp"
                                 app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
                                 app:tint="?attr/colorAccent"
