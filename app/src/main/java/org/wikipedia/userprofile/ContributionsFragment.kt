@@ -160,16 +160,17 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             })
         }
 
-        disposables.add(Observable.zip(homeSiteObservable(), wikiDataObservable(), wikiCommonsObservable(), {
+        disposables.add(Observable.zip(homeSiteObservable(), wikiDataObservable(), wikiCommonsObservable()) {
                 homeSiteContributions, wikidataContributions, commonsContributions ->
-                    val totalContributionCount = homeSiteContributions.second + wikidataContributions.second + commonsContributions.second
+                    val totalContributionCount =
+                        homeSiteContributions.second + wikidataContributions.second + commonsContributions.second
                     val contributions = mutableListOf<Contribution>()
                     contributions.addAll(homeSiteContributions.first)
                     contributions.addAll(wikidataContributions.first)
                     contributions.addAll(commonsContributions.first)
                     Pair(contributions, totalContributionCount)
-                })
-                .subscribeOn(Schedulers.io())
+            }
+            .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
                     binding.swipeRefreshLayout.isRefreshing = false
@@ -346,7 +347,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         }
         sortedContributions.sortByDescending { it.date }
 
-        if (!sortedContributions.isNullOrEmpty()) {
+        if (sortedContributions.isNotEmpty()) {
             var currentDate = sortedContributions[0].date
             var nextDate: Date
             displayedContributions.add(getCorrectDateString(currentDate))
@@ -438,7 +439,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 view.setDescription(StringUtil.removeNamespace(contribution.displayTitle))
             }
             view.setDiffCountText(contribution)
-            view.setIcon(contribution.editType)
+            view.setIcon(contribution)
             view.setImageUrl(contribution.imageUrl)
             view.setPageViewCountText(contribution.pageViews)
             if (contribution.pageViews == 0L && contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
