@@ -130,7 +130,7 @@ class TalkTopicHolder internal constructor(
                 override fun subscribeClick() {
                     viewModel.subscribeTopic(threadItem.name, subscribed)
                     FeedbackUtil.showMessage(context as Activity, context.getString(if (!subscribed) R.string.talk_thread_subscribed_to else R.string.talk_thread_unsubscribed_from,
-                        StringUtil.fromHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }), FeedbackUtil.LENGTH_DEFAULT)
+                        StringUtil.fromHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }))
                 }
 
                 override fun shareClick() {
