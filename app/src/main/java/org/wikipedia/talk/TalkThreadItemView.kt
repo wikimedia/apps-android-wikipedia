@@ -14,11 +14,13 @@ import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.view.menu.MenuPopupHelper
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
+import kotlinx.datetime.toJavaInstant
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkThreadItemBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.*
+import java.util.*
 
 @SuppressLint("RestrictedApi")
 class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
@@ -68,9 +70,9 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         binding.userNameTapTarget.isVisible = binding.userNameText.isVisible
         StringUtil.highlightAndBoldenText(binding.userNameText, searchQuery, true, Color.YELLOW)
         binding.profileImage.visibility = if (binding.userNameText.isVisible) View.VISIBLE else View.INVISIBLE
-        binding.timeStampText.isVisible = item.date != null
-        item.date?.let {
-            binding.timeStampText.text = DateUtil.getTimeAndDateString(context, it)
+        binding.timeStampText.isVisible = item.instant != null
+        item.instant?.let {
+            binding.timeStampText.text = DateUtil.getTimeAndDateString(context, Date.from(it.toJavaInstant()))
             StringUtil.highlightAndBoldenText(binding.timeStampText, searchQuery, true, Color.YELLOW)
         }
         binding.bodyText.text = StringUtil.fromHtml(StringUtil.removeStyleTags(item.html)).trim()

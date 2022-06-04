@@ -11,6 +11,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.datetime.Clock
+import kotlinx.datetime.toJavaInstant
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkTopicBinding
@@ -79,7 +81,8 @@ class TalkTopicHolder internal constructor(
 
         // Username with involved user number exclude the author
         val usersInvolved = allReplies.map { it.author }.distinct().size - 1
-        val usernameText = allReplies.maxByOrNull { it.date ?: Date() }?.author.orEmpty() + (if (usersInvolved > 1) " +$usersInvolved" else "")
+        val usernameText = allReplies.maxByOrNull { it.instant ?: Clock.System.now() }?.author
+            .orEmpty() + (if (usersInvolved > 1) " +$usersInvolved" else "")
         val usernameColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.colorAccent
         binding.topicUsername.text = usernameText
         binding.topicUserIcon.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
@@ -98,7 +101,9 @@ class TalkTopicHolder internal constructor(
         ImageViewCompat.setImageTintList(binding.topicReplyIcon, ResourceUtil.getThemedColorStateList(context, replyNumberColor))
 
         // Last comment date
-        val lastCommentDate = allReplies.mapNotNull { it.date }.maxOrNull()?.run { DateUtil.getDateAndTime(context, this) }
+        val lastCommentDate = allReplies.mapNotNull { it.instant }.maxOrNull()?.run {
+            DateUtil.getDateAndTime(context, Date.from(toJavaInstant()))
+        }
         val lastCommentColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.secondary_text_color
         binding.topicLastCommentDate.text = lastCommentDate
         binding.topicLastCommentDate.isVisible = lastCommentDate != null

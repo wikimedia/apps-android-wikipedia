@@ -160,7 +160,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private fun threadSha(threadItem: ThreadItem?): String? {
-        return threadItem?.let { it.name + "|" + it.allReplies.map { reply -> reply.timestamp }.maxOrNull() }
+        return threadItem?.let { it.name + "|" + it.allReplies.mapNotNull { reply -> reply.instant }.maxOrNull() }
     }
 
     private fun updateFlattenedThreadItems() {
