@@ -137,7 +137,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
                     true
                 }
                 R.id.menu_copy_text -> {
-                    ClipboardUtil.setPlainText(context, null, StringUtil.fromHtml(item.html))
+                    ClipboardUtil.setPlainText(context, text = StringUtil.fromHtml(item.html))
                     FeedbackUtil.showMessage(context as Activity, R.string.text_copied)
                     true
                 }

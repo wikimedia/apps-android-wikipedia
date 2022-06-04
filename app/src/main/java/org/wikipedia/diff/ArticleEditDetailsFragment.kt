@@ -420,7 +420,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun copyLink(uri: String?) {
-        setPlainText(requireContext(), null, uri)
+        setPlainText(requireContext(), text = uri)
         FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 
