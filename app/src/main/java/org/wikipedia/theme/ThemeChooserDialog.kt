@@ -25,7 +25,6 @@ import org.wikipedia.analytics.eventplatform.AppearanceSettingInteractionEvent
 import org.wikipedia.databinding.DialogThemeChooserBinding
 import org.wikipedia.events.WebViewInvalidateEvent
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
-import org.wikipedia.page.customize.CustomizeToolbarActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
@@ -92,11 +91,8 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             DeviceUtil.setNavigationBarColor(it, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         }
 
-        binding.customizeFavorites.setOnClickListener {
-            startActivity(CustomizeToolbarActivity.newIntent(requireContext()))
-        }
-
         disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
+
         return binding.root
     }
 

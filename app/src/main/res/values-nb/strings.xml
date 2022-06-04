@@ -411,7 +411,6 @@
   <string name="error_blocked_expiry">Blokkeringen utløper: %s</string>
   <string name="error_blocked_id">Blokkerings-ID: %s</string>
   <string name="error_blocked_footer">Du kan kontakte &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eller en annen &lt;a href=\"https://no.wikipedia.org/wiki/Wikipedia:Administratorer\"&gt;administrator&lt;/a&gt; for å diskutere blokkeringen.</string>
-  <string name="theme_chooser_menu_item_tooltip">Tilpass verktøylinjen og prøv lesefokuseringsmodusen</string>
   <string name="error_blocked_footer_no_blocker">Du kan kontakte en &lt;a href=\"https://no.wikipedia.org/wiki/Wikipedia:Administratorer\"&gt;administrator&lt;/a&gt; for å diskutere blokkeringen.</string>
   <string name="crash_report_activity_title">Applikasjonsfeil</string>
   <string name="crash_report_relaunch_or_quit">Wikipedia-appen avsluttet på grunn av en feil.\n\nVil du prøve å starte den på nytt eller avslutte?</string>
@@ -441,8 +440,6 @@
   <string name="theme_category_reading">Lesing</string>
   <string name="reading_focus_mode">Lesefokusmodus</string>
   <string name="reading_focus_mode_detail">Skjuler redigeringsfunksjoner og verktøylinjen på bunnen når du skroller</string>
-  <string name="theme_category_toolbar">Verktøylinje</string>
-  <string name="theme_customize_toolbar">Tilpass verktøylinje</string>
   <string name="nav_item_saved">Lagret</string>
   <string name="reading_list_save_to">Lagre i leseliste</string>
   <string name="reading_list_move_to">Flytt til leseliste</string>
@@ -805,7 +802,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Begynn å redigere</string>
   <string name="description_edit_tutorial_promise">Ved å begynne lover jeg å ikke misbruke denne funksjonen.</string>
   <string name="customize_toolbar_title">Tilpass verktøylinje</string>
-  <string name="customize_toolbar_description_text">Tilpass verktøylinja nederst med 5 lenker du syns er nyttige.</string>
   <string name="customize_toolbar_category_toolbar">Verktøylinje</string>
   <string name="customize_toolbar_category_menu">Meny</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Dra og slipp favorittelementete dine her 👋</string>

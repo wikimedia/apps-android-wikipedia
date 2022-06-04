@@ -11,6 +11,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.DiffResponse
+import org.wikipedia.dataclient.restbase.Revision
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.edit.Edit
@@ -24,6 +25,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     val watchedStatus = MutableLiveData<Resource<MwQueryPage>>()
     val revisionDetails = MutableLiveData<Resource<Unit>>()
     val diffText = MutableLiveData<Resource<DiffResponse>>()
+    val singleRevisionText = MutableLiveData<Resource<Revision>>()
     val thankStatus = SingleLiveData<Resource<EntityPostResponse>>()
     val watchResponse = SingleLiveData<Resource<WatchPostResponse>>()
     val undoEditResponse = SingleLiveData<Resource<Edit>>()
@@ -129,7 +131,11 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             diffText.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                diffText.postValue(Resource.Success(ServiceFactory.getCoreRest(pageTitle.wikiSite).getDiff(oldRevisionId, newRevisionId)))
+                if (oldRevisionId > 0) {
+                    diffText.postValue(Resource.Success(ServiceFactory.getCoreRest(pageTitle.wikiSite).getDiff(oldRevisionId, newRevisionId)))
+                } else {
+                    singleRevisionText.postValue(Resource.Success(ServiceFactory.getCoreRest(pageTitle.wikiSite).getRevision(newRevisionId)))
+                }
                 diffRevisionId = newRevisionId
             }
         }
@@ -140,7 +146,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             thankStatus.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                val token = ServiceFactory.get(wikiSite).getCsrfToken().query?.csrfToken()
+                val token = ServiceFactory.get(wikiSite).getToken().query?.csrfToken()
                 thankStatus.postValue(Resource.Success(ServiceFactory.get(wikiSite).postThanksToRevision(revisionId, token!!)))
             }
         }
@@ -187,7 +193,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
                 val msgResponse = ServiceFactory.get(title.wikiSite).getMessages("undo-summary", "$revisionId|$user")
                 val undoMessage = msgResponse.query?.allmessages?.find { it.name == "undo-summary" }?.content
                 val summary = if (undoMessage != null) "$undoMessage $comment" else comment
-                val token = ServiceFactory.get(title.wikiSite).getCsrfToken().query!!.csrfToken()!!
+                val token = ServiceFactory.get(title.wikiSite).getToken().query!!.csrfToken()!!
                 val undoResponse = ServiceFactory.get(title.wikiSite).postUndoEdit(title.prefixedText, summary,
                         null, token, revisionId, if (revisionIdAfter > 0) revisionIdAfter else null)
                 undoEditResponse.postValue(Resource.Success(undoResponse))

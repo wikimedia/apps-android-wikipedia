@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.dataclient.restbase.DiffResponse
+import org.wikipedia.dataclient.restbase.Revision
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 
@@ -39,6 +40,12 @@ object DiffUtil {
             }
         }
         return items
+    }
+
+    fun buildDiffLinesList(context: Context, singleRev: Revision): List<DiffLine> {
+        val range = DiffResponse.HighlightRange(0, 0, DiffResponse.HIGHLIGHT_TYPE_ADD)
+        val item = DiffResponse.DiffItem(DiffResponse.DIFF_TYPE_LINE_ADDED, 1, singleRev.source, null, listOf(range))
+        return listOf(DiffLine(context, item))
     }
 
     class DiffLine(context: Context, item: DiffResponse.DiffItem) {

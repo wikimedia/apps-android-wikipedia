@@ -3,6 +3,7 @@ package org.wikipedia.page
 import android.view.Gravity
 import android.view.View
 import org.wikipedia.R
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil.dpToPx
 import org.wikipedia.util.DimenUtil.getDimension
 import org.wikipedia.views.ObservableWebView
@@ -35,6 +36,10 @@ class ViewHideHandler(private val hideableView: View,
 
     override fun onScrollChanged(oldScrollY: Int, scrollY: Int, isHumanScroll: Boolean) {
         if (!enabled) {
+            return
+        }
+        if (gravity == Gravity.TOP && Prefs.toolbarTooltipVisible) {
+            ensureDisplayed()
             return
         }
         var animMargin = 0
