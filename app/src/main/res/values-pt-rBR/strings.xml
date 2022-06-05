@@ -777,7 +777,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente uma linha, entre dois a doze palavras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Começar a editar</string>
   <string name="description_edit_tutorial_promise">Ao começar, eu prometo não fazer mau uso, esta funcionalidade.</string>
-  <string name="customize_toolbar_description_text">Personaliza a barra de ferramentas inferior com as cinco ligações que considerar mais úteis.</string>
   <string name="suggested_edits_describe_articles">Descrever artigos</string>
   <string name="suggested_edits_caption_images">Imagens de legenda</string>
   <string name="suggested_edits_tag_images">Marcações de imagens</string>

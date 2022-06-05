@@ -76,13 +76,6 @@ class UriUtilTest {
     }
 
     @Test
-    fun testParseTalkTopicFromFragment() {
-        MatcherAssert.assertThat(UriUtil.parseTalkTopicFromFragment("c-Dmitry_Brant-2021-10-01T12:36:00.000Z-test"), Matchers.`is`("test"))
-        MatcherAssert.assertThat(UriUtil.parseTalkTopicFromFragment("c-Dmitry_Brant-2021-10-01T12:36:00.000Z-test-1-2-3"), Matchers.`is`("test-1-2-3"))
-        MatcherAssert.assertThat(UriUtil.parseTalkTopicFromFragment("test"), Matchers.`is`("test"))
-    }
-
-    @Test
     fun testIsAppSupportedLink() {
         MatcherAssert.assertThat(UriUtil.isAppSupportedLink(Uri.parse("https://en.wikipedia.org/wiki/Obama_Barack?markasread=10520073&markasreadwiki=zhwiki")), Matchers.`is`(true))
         MatcherAssert.assertThat(UriUtil.isAppSupportedLink(Uri.parse("https://en.wikipedia.org/w/index.php?title=Spacetime&oldid=prev&diff=816093705&markasread=123759827&markasreadwiki=enwiki")), Matchers.`is`(true))

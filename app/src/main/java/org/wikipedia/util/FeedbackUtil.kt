@@ -17,6 +17,7 @@ import com.skydoves.balloon.*
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.databinding.ViewPlainTextTooltipBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.main.MainActivity
@@ -30,6 +31,7 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.staticdata.SpecialAliasData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.suggestededits.SuggestionsActivity
+import org.wikipedia.talk.TalkTopicsActivity
 import java.util.concurrent.TimeUnit
 
 object FeedbackUtil {
@@ -174,6 +176,7 @@ object FeedbackUtil {
         if (!autoDismiss) {
             (activity as BaseActivity).setCurrentTooltip(balloon)
         }
+        BreadCrumbLogEvent.logTooltipShown(activity, anchor)
         return balloon
     }
 
@@ -237,6 +240,7 @@ object FeedbackUtil {
             is ReadingListActivity -> R.id.fragment_reading_list_coordinator
             is SuggestionsActivity -> R.id.suggestedEditsCardsCoordinator
             is EditHistoryListActivity -> R.id.edit_history_coordinator
+            is TalkTopicsActivity -> R.id.talkTopicsSnackbar
             else -> android.R.id.content
         }
         return ActivityCompat.requireViewById(activity, viewId)

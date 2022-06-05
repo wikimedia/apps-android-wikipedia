@@ -84,6 +84,12 @@
   <string name="page_edit_history_activity_title">تاريخ مراجعة: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;ط&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">ملخص محرر فارغ</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">ابحث في التعديلات أو افرزها</string>
+  <string name="page_edit_history_filter_by">الفرز حسب</string>
+  <string name="page_edit_history_filter_by_all">جميع التعديلات (%s)</string>
+  <string name="page_edit_history_filter_by_user">تعديلات المستخدمين (%s)</string>
+  <string name="page_edit_history_filter_by_anon">تعديلات المجهولين (%s)</string>
+  <string name="page_edit_history_filter_by_bot">تعديلات البوتات (%s)</string>
   <string name="menu_page_show_tabs">أظهر التبويبات</string>
   <string name="menu_page_other_languages">غير اللغة</string>
   <string name="menu_page_find_in_page">ابحث في المقالة</string>
@@ -448,8 +454,6 @@
   <string name="theme_category_reading">القراءة</string>
   <string name="reading_focus_mode">وضع تركيز القراءة</string>
   <string name="reading_focus_mode_detail">أخف ميزات التعديل وشريط الأدوات السفلي أثناء التمرير</string>
-  <string name="theme_category_toolbar">شريط الأدوات</string>
-  <string name="theme_customize_toolbar">تخصيص شريط الأدوات</string>
   <string name="nav_item_saved">محفوظة</string>
   <string name="reading_list_save_to">حفظ في قائمة القراءة</string>
   <string name="reading_list_move_to">انتقل إلى قائمة القراءة</string>
@@ -789,7 +793,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">ابدأ التعديل</string>
   <string name="description_edit_tutorial_promise">ببدئي، أنا أعد بعدم إساءة استخدام هذه الميزة.</string>
   <string name="customize_toolbar_title">تخصيص شريط الأدوات</string>
-  <string name="customize_toolbar_description_text">خصّص شريط الأدوات السفلي بخمسة وصلات تجدها الأكثر فائدةً.</string>
   <string name="customize_toolbar_category_toolbar">شريط الأدوات</string>
   <string name="customize_toolbar_category_menu">القائمة</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">اسحب وأسقط العناصر المُفضلة لك هنا 👋</string>
