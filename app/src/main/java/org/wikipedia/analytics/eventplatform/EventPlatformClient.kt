@@ -1,5 +1,6 @@
 package org.wikipedia.analytics.eventplatform
 
+import androidx.core.os.HandlerCompat
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
@@ -110,7 +111,9 @@ object EventPlatformClient {
 
         @Synchronized
         fun sendAllScheduled() {
-            WikipediaApp.instance.mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
+            if (HandlerCompat.hasCallbacks(WikipediaApp.instance.mainThreadHandler, SEND_RUNNABLE)) {
+                WikipediaApp.instance.mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
+            }
             if (ENABLED) {
                 send()
                 QUEUE.clear()
@@ -132,7 +135,9 @@ object EventPlatformClient {
                     sendAllScheduled()
                 } else {
                     // The arrival of a new item interrupts the timer and resets the countdown.
-                    WikipediaApp.instance.mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
+                    if (HandlerCompat.hasCallbacks(WikipediaApp.instance.mainThreadHandler, SEND_RUNNABLE)) {
+                        WikipediaApp.instance.mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
+                    }
                     WikipediaApp.instance.mainThreadHandler.postDelayed(SEND_RUNNABLE, WAIT_MS.toLong())
                 }
             }

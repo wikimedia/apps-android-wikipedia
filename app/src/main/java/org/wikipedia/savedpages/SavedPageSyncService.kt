@@ -2,6 +2,7 @@ package org.wikipedia.savedpages
 
 import android.content.Intent
 import androidx.core.app.JobIntentService
+import androidx.core.os.HandlerCompat
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -326,7 +327,9 @@ class SavedPageSyncService : JobIntentService() {
             if (ReadingListSyncAdapter.inProgress()) {
                 return
             }
-            WikipediaApp.instance.mainThreadHandler.removeCallbacks(ENQUEUE_RUNNABLE)
+            if (HandlerCompat.hasCallbacks(WikipediaApp.instance.mainThreadHandler, ENQUEUE_RUNNABLE)) {
+                WikipediaApp.instance.mainThreadHandler.removeCallbacks(ENQUEUE_RUNNABLE)
+            }
             WikipediaApp.instance.mainThreadHandler.postDelayed(ENQUEUE_RUNNABLE, ENQUEUE_DELAY_MILLIS.toLong())
         }
 
