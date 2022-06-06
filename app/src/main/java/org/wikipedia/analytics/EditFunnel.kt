@@ -66,6 +66,25 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
         )
     }
 
+    fun logRollbackAttempt() {
+        log(
+            "action", "rollbackAttempt"
+        )
+    }
+
+    fun logRollbackSuccess(revID: Long) {
+        log(
+            "action", "rollbackSuccess",
+            "revID", revID
+        )
+    }
+
+    fun logRollbackFailure() {
+        log(
+            "action", "rollbackFailure"
+        )
+    }
+
     open fun logAbuseFilterWarning(code: String?) {
         log(
                 "action", "abuseFilterWarning",
