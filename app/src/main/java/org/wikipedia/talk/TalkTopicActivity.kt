@@ -196,7 +196,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private fun expandOrCollapseAll(expand: Boolean) {
         if (expand) {
-            talkFunnel.logThreadGlobalExpend()
+            talkFunnel.logThreadGlobalExpand()
         } else {
             talkFunnel.logThreadGlobalCollapse()
         }
@@ -341,7 +341,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             if (item.isExpanded) {
                 talkFunnel.logThreadItemCollapse()
             } else {
-                talkFunnel.logThreadItemExpend()
+                talkFunnel.logThreadItemExpand()
             }
             viewModel.toggleItemExpanded(item).dispatchUpdatesTo(threadAdapter)
             invalidateOptionsMenu()

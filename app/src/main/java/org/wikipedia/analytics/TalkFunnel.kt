@@ -67,7 +67,7 @@ class TalkFunnel constructor(private val title: PageTitle, private val invokeSou
         log("action", "global_collapse")
     }
 
-    fun logThreadGlobalExpend() {
+    fun logThreadGlobalExpand() {
         log("action", "global_expand")
     }
 
@@ -75,7 +75,7 @@ class TalkFunnel constructor(private val title: PageTitle, private val invokeSou
         log("action", "item_collapse")
     }
 
-    fun logThreadItemExpend() {
+    fun logThreadItemExpand() {
         log("action", "item_expand")
     }
 
