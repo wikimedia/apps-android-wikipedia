@@ -1225,4 +1225,5 @@
   <string name="category_tab_subcategories">Sous-catégories</string>
   <string name="category_empty">Aucun article trouvé dans cette catégorie.</string>
   <string name="subcategory_empty">Aucune sous-catégorie trouvée dans cette catégorie.</string>
+  <string name="revision_initial_none">Aucune (c’est la première révision)</string>
 </resources>

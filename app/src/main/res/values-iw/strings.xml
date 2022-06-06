@@ -422,6 +422,7 @@
   <string name="error_blocked_expiry">פקיעת החסימה: %s</string>
   <string name="error_blocked_id">מזהה החסימה: %s</string>
   <string name="error_blocked_footer">באפשרותך ליצור קשר עם &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; או עם &lt;a href=\"https://he.wikipedia.org/wiki/WP:SYSOP\"&gt;מפעיל&lt;/a&gt;</string>
+  <string name="theme_chooser_menu_item_short_tooltip">התאמת סרגל הכלים שלך</string>
   <string name="error_blocked_footer_no_blocker">באפשרותך ליצור קשר עם &lt;a href=\"https://he.wikipedia.org/wiki/WP:SYSOP\"&gt;מפעיל&lt;/a&gt; כדי לדון בחסימה.</string>
   <string name="crash_report_activity_title">שגיאת יישום</string>
   <string name="crash_report_relaunch_or_quit">אנחנו מצטערים, ביישום ויקיפדיה אירעה שגיאה והוא נעצר.\n\nהאם להתחיל מהתחלה או לצאת?</string>
@@ -847,6 +848,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">להתחיל לערוך</string>
   <string name="description_edit_tutorial_promise">תחילת העריכה היא התחייבות שלי לא להשתמש באפשרות הזאת לרעה.</string>
   <string name="customize_toolbar_title">התאמת סרגל כלים</string>
+  <string name="customize_toolbar_shortcut_description_text">באפשרותך לעשות התאמה אישית של סרגל הכלית התחתון עם חמישה קיצורי דרך שהכי שימושיים לך.</string>
   <string name="customize_toolbar_category_toolbar">סרגל כלים</string>
   <string name="customize_toolbar_category_menu">תפריט</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">אפשר לגרור ולשחרר את הפריטים האהובים עליהם כאן 👋</string>
@@ -1158,15 +1160,52 @@
   <string name="talk_share_talk_page">ויקיפדיה – דיונים בדף שיחה</string>
   <string name="talk_edit_disclaimer">זהו דף שיחה. נא לכבד את ההנחיות לשימוש בדפי שיחה, ולזכור לחתום על ההודעות שלך בארבע טילדות בעת שימוש בקוד ויקי.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://he.wikipedia.org/wiki/ויקיפדיה:דף_שיחה\"&gt;ויקיפדיה:דף_שיחה&lt;/a&gt;</string>
   <string name="talk_search_hint">חיפוש הודעות</string>
+  <string name="talk_search_topics_hint">חיפוש נושאים</string>
+  <string name="talk_search_find_in_talk_topics_hint">חיפוש בנושא דף שיחה</string>
   <string name="talk_overflow_sort_by">מיון לפי</string>
   <string name="talk_overflow_sort_date_published">תאריך פרסום</string>
+  <string name="talk_overflow_sort_date_updated">תאריך העדכון</string>
   <string name="talk_overflow_sort_topic_name">שם הנושא</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">הצגת תשובה</item>
+    <item quantity="two">הצגת תשובות (%d)</item>
+    <item quantity="many">הצגת תשובות (%d)</item>
+    <item quantity="other">הצגת תשובות (%d)</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">הסתרת תשובה</item>
+    <item quantity="two">הסתרת תשובות (%d)</item>
+    <item quantity="many">הסתרת תשובות (%d)</item>
+    <item quantity="other">הסתרת תשובות (%d)</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">עשית מינוי לנושא \"%s\"</string>
+  <string name="talk_thread_unsubscribed_from">ביטלת את המינוי לנושא \"%s\"</string>
+  <string name="talk_list_item_overflow_subscribe">מעקב</string>
+  <string name="talk_list_item_overflow_subscribed">עשית מינוי</string>
+  <string name="talk_list_item_overflow_mark_as_read">סימון כהודעה שנקראה</string>
+  <string name="talk_list_item_overflow_mark_as_unread">סימון כהודעה שלא נקראה</string>
+  <string name="talk_list_item_overflow_share">שיתוף</string>
+  <string name="talk_list_item_last_comment_date">תגובה אחרונה: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">סה\"כ תשובות</string>
+  <string name="talk_list_item_user_icon_content_description">סמל משתמש</string>
+  <string name="talk_list_item_swipe_mark_as_read">סימון כהודעה שנקראה</string>
+  <string name="talk_list_item_swipe_mark_as_unread">סימון כהודעה שלא נקראה</string>
+  <string name="talk_footer_about_this_talk_page">אודות דף השיחה הזה</string>
+  <string name="talk_footer_view_edit_history">הצגת היסטוריית עריכות</string>
+  <string name="talk_footer_view_user_page">הצגת דף המשתמש</string>
+  <string name="talk_footer_view_article">הצגת הערך</string>
+  <string name="talk_footer_last_modified">נערך לאחרונה ב־%1$s על־ידי %2$s</string>
   <string name="menu_option_share_talk_discussion">שיתוף דיון</string>
   <string name="menu_option_share_talk_page">שיתוף דף שיחה</string>
   <string name="menu_option_share_edit">לשתף את העריכה</string>
   <string name="menu_option_user_profile">הפרופיל של %s</string>
   <string name="menu_option_user_contributions">התרומות של %s</string>
   <string name="menu_option_edit_source">עריכת קוד מקור</string>
+  <string name="menu_option_user_page">דף השיחה של %s</string>
+  <string name="menu_option_find_in_talk_page_topic">חיפוש בנושא דף שיחה</string>
+  <string name="talk_menu_copy_text">העתקת טקסט</string>
+  <string name="talk_menu_expand_threads">הרחבת שרשורים</string>
+  <string name="talk_menu_collapse_threads">הסתרת שרשורים</string>
   <string name="watchlist_details_watching_label">במעקב</string>
   <string name="watchlist_details_watch_label">לעקוב</string>
   <string name="watchlist_details_next_edit">העריכה הבאה</string>
@@ -1225,4 +1264,5 @@
   <string name="category_tab_subcategories">קטגוריות־משנה</string>
   <string name="category_empty">לא נמצאו ערכים בקטגוריה הזאת.</string>
   <string name="subcategory_empty">לא נמצאו קטגוריות־משנה בקטגוריה הזאת.</string>
+  <string name="revision_initial_none">אין (זאת הגרסה הראשונה)</string>
 </resources>
