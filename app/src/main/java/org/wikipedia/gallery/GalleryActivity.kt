@@ -461,7 +461,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     override fun onLinkPreviewCopyLink(title: PageTitle) {
-        ClipboardUtil.setPlainText(this, null, title.uri)
+        ClipboardUtil.setPlainText(this, text = title.uri)
         FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 

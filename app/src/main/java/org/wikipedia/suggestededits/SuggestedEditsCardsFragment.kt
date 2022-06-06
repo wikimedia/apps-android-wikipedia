@@ -282,13 +282,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         if (siteMatrix == null) {
             return app.languageState.getAppLanguageLocalizedName(code)!!
         }
-        var name: String? = null
-        SiteMatrix.getSites(siteMatrix!!).forEach {
-            if (code == it.code) {
-                name = it.name
-                return@forEach
-            }
-        }
+        var name = SiteMatrix.getSites(siteMatrix!!).find { it.code == code }?.name
         if (name.isNullOrEmpty()) {
             name = app.languageState.getAppLanguageLocalizedName(code)
         }

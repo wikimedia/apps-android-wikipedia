@@ -3,6 +3,7 @@ package org.wikipedia.watchlist
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -34,7 +35,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         binding.diffText.setOnClickListener(clickListener)
         binding.userNameText.setOnClickListener {
             if (item != null) {
-                callback?.onUserClick(item!!)
+                callback?.onUserClick(item!!, it)
             }
         }
         if (WikipediaApp.instance.languageState.appLanguageCodes.size == 1) {
@@ -96,6 +97,6 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
 
     interface Callback {
         fun onItemClick(item: MwQueryResult.WatchlistItem)
-        fun onUserClick(item: MwQueryResult.WatchlistItem)
+        fun onUserClick(item: MwQueryResult.WatchlistItem, view: View)
     }
 }

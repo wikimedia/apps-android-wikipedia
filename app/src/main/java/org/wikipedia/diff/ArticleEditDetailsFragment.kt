@@ -146,7 +146,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (it is Resource.Success) {
                 setLoadingState()
                 viewModel.getRevisionDetails(it.data.edit!!.newRevId)
-                FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_undo_success), FeedbackUtil.LENGTH_DEFAULT).show()
+                FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_undo_success)).show()
                 editHistoryInteractionEvent?.logUndoSuccess()
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
@@ -323,12 +323,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
             binding.usernameFromButton.isVisible = true
             binding.revisionFromEditComment.isVisible = true
+            binding.undoButton.isVisible = true
         } else {
             binding.usernameFromButton.isVisible = false
             binding.revisionFromEditComment.isVisible = false
             binding.revisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
             binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
             binding.revisionFromTimestamp.text = getString(R.string.revision_initial_none)
+            binding.undoButton.isVisible = false
         }
         binding.overlayRevisionFromTimestamp.text = binding.revisionFromTimestamp.text
 
@@ -386,8 +388,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
                             viewModel.pageTitle.displayText,
-                            getString(expiry.stringId)),
-                    FeedbackUtil.LENGTH_DEFAULT)
+                            getString(expiry.stringId)))
             if (!viewModel.watchlistExpiryChanged) {
                 snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
                     viewModel.watchlistExpiryChanged = true
@@ -474,7 +475,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun copyLink(uri: String?) {
-        setPlainText(requireContext(), null, uri)
+        setPlainText(requireContext(), text = uri)
         FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 
