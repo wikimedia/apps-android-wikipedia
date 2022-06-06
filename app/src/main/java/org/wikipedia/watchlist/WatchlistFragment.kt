@@ -23,13 +23,14 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.diff.ArticleEditDetailsActivity
-import org.wikipedia.language.AppLanguageLookUpTable
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationActivity
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.staticdata.UserTalkAliasData
-import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.staticdata.UserAliasData
+import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -47,6 +48,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     private var filterMode = FILTER_MODE_ALL
     private var displayLanguages = listOf<String>()
     private val funnel = WatchlistFunnel()
+    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -338,10 +340,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
                 PageTitle(item.title, item.wiki!!), item.revid))
     }
 
-    override fun onUserClick(item: MwQueryResult.WatchlistItem) {
-        startActivity(TalkTopicsActivity.newIntent(requireContext(),
-                PageTitle(UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE) + ":" + item.user, item.wiki!!),
-                Constants.InvokeSource.WATCHLIST_ACTIVITY))
+    override fun onUserClick(item: MwQueryResult.WatchlistItem, view: View) {
+        UserTalkPopupHelper.show(requireActivity() as AppCompatActivity, bottomSheetPresenter,
+                PageTitle(UserAliasData.valueFor(item.wiki!!.languageCode), item.user, item.wiki!!),
+                !AccountUtil.isLoggedIn, view, Constants.InvokeSource.WATCHLIST_ACTIVITY, HistoryEntry.SOURCE_WATCHLIST)
     }
 
     companion object {
