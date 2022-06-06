@@ -41,8 +41,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     var undoTopicId: String? = null
 
     val isExpandable: Boolean get() {
-        topic?.allReplies?.forEach { if (it.level > 1) return true }
-        return false
+        return topic?.allReplies.orEmpty().any { it.level > 1 }
     }
 
     val isFullyExpanded: Boolean get() {
@@ -155,12 +154,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     }
 
     fun findTopicById(id: String?): ThreadItem? {
-        topic?.allReplies?.forEach {
-            if (it.id == id) {
-                return it
-            }
-        }
-        return null
+        return topic?.allReplies?.find { it.id == id }
     }
 
     private fun threadSha(threadItem: ThreadItem?): String? {

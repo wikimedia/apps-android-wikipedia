@@ -157,11 +157,8 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
             binding.watchlistProgressBar.visibility = View.VISIBLE
         }
 
-        val calls = ArrayList<Observable<MwQueryResponse>>()
-
-        displayLanguages.forEach {
-            calls.add(ServiceFactory.get(WikiSite.forLanguageCode(it)).watchlist
-                    .subscribeOn(Schedulers.io()))
+        val calls = displayLanguages.map {
+            ServiceFactory.get(WikiSite.forLanguageCode(it)).watchlist.subscribeOn(Schedulers.io())
         }
 
         disposables.add(Observable.zip(calls) { resultList ->
