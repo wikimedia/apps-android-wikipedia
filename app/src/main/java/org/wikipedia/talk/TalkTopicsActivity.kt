@@ -480,7 +480,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             }
 
             talkSortButton.setOnClickListener {
-                TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(talkSortButton, viewModel.currentSortMode) {
+                TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(talkSortButton, viewModel.currentSortMode, funnel) {
                     viewModel.currentSortMode = it
                     binding.talkRecyclerView.adapter?.notifyDataSetChanged()
                 }
