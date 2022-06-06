@@ -94,7 +94,7 @@
   <string name="search_redirect_from">Redirigé depuis %s</string>
   <string name="page_edit_history_activity_title">Historique des versions : %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
-  <string name="page_edit_history_comment_placeholder">Résumé de modification vide</string>
+  <string name="page_edit_history_comment_placeholder">Résumé des modifications vide</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Rechercher ou filtrer des modifications</string>
   <string name="page_edit_history_filter_by">Filtrer par</string>
   <string name="page_edit_history_filter_by_all">Toutes les modifications (%s)</string>
@@ -442,7 +442,7 @@
   <string name="error_blocked_expiry">Expiration du blocage : %s</string>
   <string name="error_blocked_id">Identifiant du blocage : %s</string>
   <string name="error_blocked_footer">Vous pouvez contacter &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou un autre &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
-  <string name="theme_chooser_menu_item_tooltip">Personnaliser votre barre d’outils et essayer de lire en mode focalisé</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Personnaliser votre barre d’outils</string>
   <string name="error_blocked_footer_no_blocker">Vous pouvez contacter un &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
   <string name="crash_report_activity_title">Erreur de l’application</string>
   <string name="crash_report_relaunch_or_quit">Désolé, l’application Wikipédia a rencontré une erreur et s’est arrêtée.\n\nDésirez-vous redémarrer ou quitter ?</string>
@@ -472,8 +472,6 @@
   <string name="theme_category_reading">Lecture</string>
   <string name="reading_focus_mode">Mode de focalisation sur la lecture</string>
   <string name="reading_focus_mode_detail">Masque les fonctionnalités de modification et la barre d’outil en bas lors du défilement</string>
-  <string name="theme_category_toolbar">Barre d’outils</string>
-  <string name="theme_customize_toolbar">Personnaliser la barre d’outils</string>
   <string name="nav_item_saved">Enregistré</string>
   <string name="reading_list_save_to">Enregistrer dans la liste de lecture</string>
   <string name="reading_list_move_to">Déplacer vers la liste de lecture</string>
@@ -837,7 +835,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Commencez à éditer</string>
   <string name="description_edit_tutorial_promise">En commençant, je promets de ne pas abuser de cette fonctionnalité.</string>
   <string name="customize_toolbar_title">Personnaliser la barre d’outils</string>
-  <string name="customize_toolbar_description_text">Personnalise la barre d’outils avec 5 liens que vous trouvez les plus utiles.</string>
+  <string name="customize_toolbar_shortcut_description_text">Personnalisez la barre d’outils avec 5 raccourcis que vous trouvez les plus utiles.</string>
   <string name="customize_toolbar_category_toolbar">Barre d’outils</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Glisser et déposer vos éléments favoris ici 👋</string>
@@ -1127,15 +1125,48 @@
   <string name="talk_share_talk_page">Wikipédia — discussions sur la page de discussion</string>
   <string name="talk_edit_disclaimer">Ceci est une page de discussion. Veuillez respecter les lignes directrices relatives aux pages de discussion et vous souvenir de signer vos envois en tapant quatre tildes : ~~~~ en postant du wikitexte.&lt;br /&gt; &lt;br /&gt; &lt;a href=\"https://fr.wikipedia.org/wiki/Aide:Discussion#Recommandations_et_pratiques\"&gt;Aide:Discussion § Recommandations et pratiques&lt;/a&gt; sur Wikipédia</string>
   <string name="talk_search_hint">Recherche dans les messages</string>
+  <string name="talk_search_topics_hint">Rechercher des sujets</string>
+  <string name="talk_search_find_in_talk_topics_hint">Trouver dans le sujet de la page de discussion</string>
   <string name="talk_overflow_sort_by">Trier par</string>
   <string name="talk_overflow_sort_date_published">Date de publication</string>
+  <string name="talk_overflow_sort_date_updated">Dernière mise à jour</string>
   <string name="talk_overflow_sort_topic_name">Nom du sujet</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Afficher la réponse</item>
+    <item quantity="other">Afficher les %d réponses</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Masquer la réponse</item>
+    <item quantity="other">Masquer les %d réponses</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">Abonné à « %s »</string>
+  <string name="talk_thread_unsubscribed_from">Désabonné de « %s »</string>
+  <string name="talk_list_item_overflow_subscribe">S’abonner</string>
+  <string name="talk_list_item_overflow_subscribed">Abonné</string>
+  <string name="talk_list_item_overflow_mark_as_read">Marquer comme lu</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Marquer comme non lu</string>
+  <string name="talk_list_item_overflow_share">Partager</string>
+  <string name="talk_list_item_last_comment_date">Dernier commentaire : %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Total des réponses</string>
+  <string name="talk_list_item_user_icon_content_description">Icône d’utilisateur</string>
+  <string name="talk_list_item_swipe_mark_as_read">Lu</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Non lu</string>
+  <string name="talk_footer_about_this_talk_page">À propos de cette page de discussion</string>
+  <string name="talk_footer_view_edit_history">Afficher l’historique des modifications</string>
+  <string name="talk_footer_view_user_page">Afficher la page utilisateur</string>
+  <string name="talk_footer_view_article">Afficher l’article</string>
+  <string name="talk_footer_last_modified">Dernière modification le %1$s par %2$s</string>
   <string name="menu_option_share_talk_discussion">Partager la discussion</string>
   <string name="menu_option_share_talk_page">Partager la page de discussion</string>
   <string name="menu_option_share_edit">Partager la modification</string>
   <string name="menu_option_user_profile">Profil de %s</string>
   <string name="menu_option_user_contributions">Contributions de %s</string>
   <string name="menu_option_edit_source">Modifier la source</string>
+  <string name="menu_option_user_page">Page utilisateur de %s</string>
+  <string name="menu_option_find_in_talk_page_topic">Trouver dans le sujet de la page de discussion</string>
+  <string name="talk_menu_copy_text">Copier le texte</string>
+  <string name="talk_menu_expand_threads">Développer les fils</string>
+  <string name="talk_menu_collapse_threads">Réduire les fils</string>
   <string name="watchlist_details_watching_label">Suivi</string>
   <string name="watchlist_details_watch_label">Suivre</string>
   <string name="watchlist_details_next_edit">Modification suivante</string>
@@ -1194,4 +1225,5 @@
   <string name="category_tab_subcategories">Sous-catégories</string>
   <string name="category_empty">Aucun article trouvé dans cette catégorie.</string>
   <string name="subcategory_empty">Aucune sous-catégorie trouvée dans cette catégorie.</string>
+  <string name="revision_initial_none">Aucune (c’est la première révision)</string>
 </resources>

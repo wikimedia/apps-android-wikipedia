@@ -11,6 +11,7 @@ import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.core.view.isVisible
 import androidx.core.widget.PopupWindowCompat
+import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.databinding.ViewTalkTopicsSortOverflowBinding
 
 class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
@@ -20,6 +21,7 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
     }
 
     private var binding = ViewTalkTopicsSortOverflowBinding.inflate(LayoutInflater.from(context), this, true)
+    private var funnel: TalkFunnel? = null
     private var callback: Callback? = null
     private var popupWindowHost: PopupWindow? = null
     private var currentSortMode = SORT_BY_DATE_PUBLISHED_DESCENDING
@@ -28,8 +30,10 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
         setButtonsListener()
     }
 
-    fun show(anchorView: View, sortMode: Int, callback: Callback?) {
+    fun show(anchorView: View, sortMode: Int, funnel: TalkFunnel?, callback: Callback?) {
         this.callback = callback
+        this.funnel = funnel
+        funnel?.logOpenSort()
         popupWindowHost = PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true)
         popupWindowHost?.let {
@@ -61,6 +65,16 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
                 binding.sortByTopicNameOrder.isVisible = true
                 binding.sortByTopicNameOrder.rotation = 270f
             }
+            SORT_BY_DATE_UPDATED_DESCENDING -> {
+                binding.sortByDateUpdatedSelected.isVisible = true
+                binding.sortByDateUpdatedOrder.isVisible = true
+                binding.sortByDateUpdatedOrder.rotation = 90f
+            }
+            SORT_BY_DATE_UPDATED_ASCENDING -> {
+                binding.sortByDateUpdatedSelected.isVisible = true
+                binding.sortByDateUpdatedOrder.isVisible = true
+                binding.sortByDateUpdatedOrder.rotation = 270f
+            }
         }
     }
 
@@ -74,19 +88,21 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
     private fun setButtonsListener() {
         binding.sortByDatePublishedButton.setOnClickListener {
             dismissPopupWindowHost()
-            callback?.sortByClicked(getNewSortByMode(true))
+            val ascendingOrder = currentSortMode != SORT_BY_DATE_PUBLISHED_DESCENDING
+            funnel?.logSortOrderPublished(ascendingOrder)
+            callback?.sortByClicked(if (ascendingOrder) SORT_BY_DATE_PUBLISHED_ASCENDING else SORT_BY_DATE_PUBLISHED_DESCENDING)
         }
         binding.sortByTopicNameButton.setOnClickListener {
             dismissPopupWindowHost()
-            callback?.sortByClicked(getNewSortByMode(false))
+            val ascendingOrder = currentSortMode != SORT_BY_TOPIC_NAME_DESCENDING
+            funnel?.logSortOrderTopic(ascendingOrder)
+            callback?.sortByClicked(if (currentSortMode == SORT_BY_TOPIC_NAME_DESCENDING) SORT_BY_TOPIC_NAME_ASCENDING else SORT_BY_TOPIC_NAME_DESCENDING)
         }
-    }
-
-    private fun getNewSortByMode(isDatePublishedClicked: Boolean): Int {
-        return if (isDatePublishedClicked) {
-            if (currentSortMode == SORT_BY_DATE_PUBLISHED_DESCENDING) SORT_BY_DATE_PUBLISHED_ASCENDING else SORT_BY_DATE_PUBLISHED_DESCENDING
-        } else {
-            if (currentSortMode == SORT_BY_TOPIC_NAME_DESCENDING) SORT_BY_TOPIC_NAME_ASCENDING else SORT_BY_TOPIC_NAME_DESCENDING
+        binding.sortByDateUpdatedButton.setOnClickListener {
+            dismissPopupWindowHost()
+            val ascendingOrder = currentSortMode != SORT_BY_DATE_UPDATED_DESCENDING
+            funnel?.logSortOrderUpdated(ascendingOrder)
+            callback?.sortByClicked(if (currentSortMode == SORT_BY_DATE_UPDATED_DESCENDING) SORT_BY_DATE_UPDATED_ASCENDING else SORT_BY_DATE_UPDATED_DESCENDING)
         }
     }
 
@@ -95,5 +111,7 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
         const val SORT_BY_DATE_PUBLISHED_ASCENDING = 1
         const val SORT_BY_TOPIC_NAME_DESCENDING = 2
         const val SORT_BY_TOPIC_NAME_ASCENDING = 3
+        const val SORT_BY_DATE_UPDATED_DESCENDING = 4
+        const val SORT_BY_DATE_UPDATED_ASCENDING = 5
     }
 }

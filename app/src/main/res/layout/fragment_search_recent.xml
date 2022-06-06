@@ -33,17 +33,15 @@
             android:layout_marginEnd="30dp"
             android:text="@string/search_empty_message" />
 
-        <TextView
+        <Button
             android:id="@+id/add_languages_button"
             style="@style/App.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:clickable="true"
-            android:focusable="true"
             android:text="@string/add_wikipedia_languages_text"
-            android:textColor="?attr/secondary_text_color"
-            app:backgroundTint="?attr/button_background_color"
+            android:textColor="?attr/material_theme_secondary_color"
+            app:backgroundTint="?attr/chip_background_color"
             tools:text="Add Wikipedia languages" />
     </LinearLayout>
 

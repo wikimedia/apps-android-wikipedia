@@ -4,6 +4,7 @@
 * Aboulouei1
 * Alaa
 * Asaifm
+* Asma
 * Dbrant
 * Dr. Mohammed
 * Elbasyouny
@@ -84,6 +85,12 @@
   <string name="page_edit_history_activity_title">تاريخ مراجعة: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;ط&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">ملخص محرر فارغ</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">ابحث في التعديلات أو افرزها</string>
+  <string name="page_edit_history_filter_by">الفرز حسب</string>
+  <string name="page_edit_history_filter_by_all">جميع التعديلات (%s)</string>
+  <string name="page_edit_history_filter_by_user">تعديلات المستخدمين (%s)</string>
+  <string name="page_edit_history_filter_by_anon">تعديلات المجهولين (%s)</string>
+  <string name="page_edit_history_filter_by_bot">تعديلات البوتات (%s)</string>
   <string name="menu_page_show_tabs">أظهر التبويبات</string>
   <string name="menu_page_other_languages">غير اللغة</string>
   <string name="menu_page_find_in_page">ابحث في المقالة</string>
@@ -448,8 +455,6 @@
   <string name="theme_category_reading">القراءة</string>
   <string name="reading_focus_mode">وضع تركيز القراءة</string>
   <string name="reading_focus_mode_detail">أخف ميزات التعديل وشريط الأدوات السفلي أثناء التمرير</string>
-  <string name="theme_category_toolbar">شريط الأدوات</string>
-  <string name="theme_customize_toolbar">تخصيص شريط الأدوات</string>
   <string name="nav_item_saved">محفوظة</string>
   <string name="reading_list_save_to">حفظ في قائمة القراءة</string>
   <string name="reading_list_move_to">انتقل إلى قائمة القراءة</string>
@@ -789,7 +794,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">ابدأ التعديل</string>
   <string name="description_edit_tutorial_promise">ببدئي، أنا أعد بعدم إساءة استخدام هذه الميزة.</string>
   <string name="customize_toolbar_title">تخصيص شريط الأدوات</string>
-  <string name="customize_toolbar_description_text">خصّص شريط الأدوات السفلي بخمسة وصلات تجدها الأكثر فائدةً.</string>
   <string name="customize_toolbar_category_toolbar">شريط الأدوات</string>
   <string name="customize_toolbar_category_menu">القائمة</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">اسحب وأسقط العناصر المُفضلة لك هنا 👋</string>
@@ -1055,15 +1059,37 @@
   <string name="talk_share_talk_page">ويكيبيديا - نقاشات في صفحة نقاش</string>
   <string name="talk_edit_disclaimer">هذه صفحة نقاش. فضلًا التزم بإرشادات صفحات النقاش، وتذكر أن توقّع مشاركاتك بكتابة أربع علامات مدّة: ~~~~ عند النشر باستخدام نص ويكي.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://ar.wikipedia.org/wiki/ويكيبيديا:إرشادات_صفحة_النقاش\"&gt;ويكيبيديا:إرشادات صفحة النقاش&lt;/a&gt;</string>
   <string name="talk_search_hint">ابحث في الرسائل</string>
+  <string name="talk_search_topics_hint">البحث عن المواضيع</string>
   <string name="talk_overflow_sort_by">رتب حسب</string>
   <string name="talk_overflow_sort_date_published">تاريخ النشر</string>
   <string name="talk_overflow_sort_topic_name">اسم الموضوع</string>
+  <string name="talk_thread_subscribed_to">تم الاشتراك في \"%s\"</string>
+  <string name="talk_thread_unsubscribed_from">إلغاء الاشتراك \"%s\"</string>
+  <string name="talk_list_item_overflow_subscribe">اشترك</string>
+  <string name="talk_list_item_overflow_subscribed">مشترك</string>
+  <string name="talk_list_item_overflow_mark_as_read">علّم كمقروءة</string>
+  <string name="talk_list_item_overflow_mark_as_unread">وضع علامة كغير مقروءة</string>
+  <string name="talk_list_item_overflow_share">شارك</string>
+  <string name="talk_list_item_last_comment_date">التعليق الأخير: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">إجمالي الردود</string>
+  <string name="talk_list_item_user_icon_content_description">أيقونة المستخدم</string>
+  <string name="talk_list_item_swipe_mark_as_read">اقرأ</string>
+  <string name="talk_list_item_swipe_mark_as_unread">غير مقروءة</string>
+  <string name="talk_footer_about_this_talk_page">حول صفحة النقاش هذه</string>
+  <string name="talk_footer_view_edit_history">عرض تاريخ التعديل</string>
+  <string name="talk_footer_view_user_page">عرض صفحة المستخدم</string>
+  <string name="talk_footer_view_article">عرض المقالة</string>
+  <string name="talk_footer_last_modified">التعديل الأخير %1$s بواسطة %2$s</string>
   <string name="menu_option_share_talk_discussion">شارك النقاش</string>
   <string name="menu_option_share_talk_page">شارك صفحة النقاش</string>
   <string name="menu_option_share_edit">شارك التعديل</string>
   <string name="menu_option_user_profile">ملف %s</string>
   <string name="menu_option_user_contributions">مساهمات %s</string>
   <string name="menu_option_edit_source">عدل المصدر</string>
+  <string name="menu_option_user_page">%s صفحة المستخدم</string>
+  <string name="menu_option_find_in_talk_page_topic">تجد في موضوع صفحة الحديث</string>
+  <string name="talk_menu_copy_text">نسخ النص</string>
+  <string name="talk_menu_expand_threads">توسيع المواضيع</string>
   <string name="watchlist_details_watching_label">تُراقب</string>
   <string name="watchlist_details_watch_label">راقب</string>
   <string name="watchlist_details_next_edit">التعديل التالي</string>
@@ -1119,4 +1145,5 @@
   <string name="category_tab_subcategories">التصنيفات الفرعية</string>
   <string name="category_empty">لم يُعثر على مقالات في هذا التصنيف.</string>
   <string name="subcategory_empty">لم يُعثر على تصنيفات فرعية في هذا التصنيف.</string>
+  <string name="revision_initial_none">لا شيء (هذه هي المراجعة الأولى)</string>
 </resources>

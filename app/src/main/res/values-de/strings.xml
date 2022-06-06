@@ -25,6 +25,7 @@
 * Mirzali
 * MuratTheTurkish
 * Pittigrilli
+* Rummskartoffel
 * Scblr
 * Schmackes
 * Sebastian Wallroth
@@ -59,8 +60,8 @@
   <string name="storage_access_error_retry">Wiederholen</string>
   <string name="article_load_error_retry">Wiederholen</string>
   <string name="offline_load_error_retry">Wiederholen</string>
-  <string name="page_error_back_to_main">Zurück gehen</string>
-  <string name="error_back">Zurück gehen</string>
+  <string name="page_error_back_to_main">Zurück</string>
+  <string name="error_back">Zurück</string>
   <string name="error_next">Nächster</string>
   <string name="menu_clear_all_history">Verlauf löschen</string>
   <string name="history_item_deleted">%s aus dem Verlauf gelöscht</string>
@@ -431,7 +432,6 @@
   <string name="error_blocked_expiry">Ender der Sperre: %s</string>
   <string name="error_blocked_id">Sperr-ID: %s</string>
   <string name="error_blocked_footer">Du kannst &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; oder einen anderen &lt;a href=\"https://de.wikipedia.org/wiki/Wikipedia:Administratoren\"&gt;Administrator&lt;/a&gt; kontaktieren, um die Sperre zu besprechen.</string>
-  <string name="theme_chooser_menu_item_tooltip">Passe deine Symbolleiste an und versuche den Modus Lesefokus</string>
   <string name="error_blocked_footer_no_blocker">Du kannst einen &lt;a href=\"https://de.wikipedia.org/wiki/Wikipedia:Administratoren\"&gt;Administrator&lt;/a&gt; kontaktieren, um die Sperre zu besprechen.</string>
   <string name="crash_report_activity_title">Anwendungsfehler</string>
   <string name="crash_report_relaunch_or_quit">Leider ist in der Wikipedia-App ein Fehler aufgetreten.\n\nMöchtest du die App neu starten oder beenden?</string>
@@ -461,8 +461,6 @@
   <string name="theme_category_reading">Lesen</string>
   <string name="reading_focus_mode">Modus Lesefokus</string>
   <string name="reading_focus_mode_detail">Blendet Bearbeitungsfunktionen und untere Symbolleiste beim Scrollen aus</string>
-  <string name="theme_category_toolbar">Werkzeugleiste</string>
-  <string name="theme_customize_toolbar">Werkzeugleiste anpassen</string>
   <string name="nav_item_saved">Gespeichert</string>
   <string name="reading_list_save_to">Zur Leseliste hinzufügen</string>
   <string name="reading_list_move_to">In Leseliste verschieben</string>
@@ -825,7 +823,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Mit dem Bearbeiten anfangen</string>
   <string name="description_edit_tutorial_promise">Ich verspreche, dass ich diese Funktion nicht missbrauchen werde.</string>
   <string name="customize_toolbar_title">Werkzeugleiste anpassen</string>
-  <string name="customize_toolbar_description_text">Passe die untere Symbolleiste mit 5 Links an, die du am hilfreichsten findest.</string>
   <string name="customize_toolbar_category_toolbar">Werkzeugleiste</string>
   <string name="customize_toolbar_category_menu">Menü</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Ziehen deine Lieblingsobjekte hierher 👋.</string>
@@ -976,7 +973,7 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Gestern</string>
-  <string name="suggested_edits_encourage_account_creation_title">Wussten Sie, dass jeder Wikipedia bearbeiten kann?</string>
+  <string name="suggested_edits_encourage_account_creation_title">Wusstest du, dass jeder Wikipedia bearbeiten kann?</string>
   <string name="suggested_edits_encourage_account_creation_message">Vorgeschlagene Bearbeitungen ist eine neue Art, Wikipedia auf Android zu bearbeiten. Es hilft dir, kleine aber wichtige Beiträge zu Wikipedia zu leisten.\nUnser Ziel ist es, das Editieren einfacher und zugänglicher für alle zu machen! Logge dich ein oder schließe dich Wikipedia an, um anzufangen.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Anmelden / Wikipedia beitreten</string>
   <string name="suggested_edits_contribution_type_image_tag">Bild-Tags</string>
@@ -1086,7 +1083,7 @@
   <string name="main_drawer_help">Hilfe</string>
   <string name="main_drawer_login">Anmelden / Wikipedia beitreten</string>
   <string name="main_tooltip_text">%s, wussten Sie das jeder Wikipedia editieren kann?</string>
-  <string name="main_tooltip_text_v2">Wussten Sie, dass jeder Wikipedia bearbeiten kann?</string>
+  <string name="main_tooltip_text_v2">Wusstest du, dass jeder Wikipedia bearbeiten kann?</string>
   <string name="main_tooltip_action_button">Loslegen</string>
   <string name="main_tooltip_watchlist_title">Beobachtungsliste</string>
   <string name="main_tooltip_watchlist_text">Artikel und Seiten, die du zuvor zu deiner Beobachtungsliste hinzugefügt hast, findest du im Mehr-Menü unter &lt;b&gt;Beobachtungsliste&lt;/b&gt;.</string>
