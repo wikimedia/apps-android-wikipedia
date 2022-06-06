@@ -289,12 +289,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
             binding.usernameFromButton.isVisible = true
             binding.revisionFromEditComment.isVisible = true
+            binding.undoButton.isVisible = true
         } else {
             binding.usernameFromButton.isVisible = false
             binding.revisionFromEditComment.isVisible = false
             binding.revisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
             binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
             binding.revisionFromTimestamp.text = getString(R.string.revision_initial_none)
+            binding.undoButton.isVisible = false
         }
         binding.overlayRevisionFromTimestamp.text = binding.revisionFromTimestamp.text
 
