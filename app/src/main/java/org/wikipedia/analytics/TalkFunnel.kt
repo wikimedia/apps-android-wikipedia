@@ -5,7 +5,6 @@ import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.page.PageTitle
-import java.util.*
 
 class TalkFunnel constructor(private val title: PageTitle, private val invokeSource: Constants.InvokeSource) :
         TimedFunnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
@@ -43,6 +42,41 @@ class TalkFunnel constructor(private val title: PageTitle, private val invokeSou
 
     fun logEditSubmit() {
         log("action", "submit")
+    }
+
+    fun logOpenSort() {
+        log("action", "open_sort")
+    }
+
+    fun logSortOrderPublished(ascendingOrder: Boolean) {
+        val order = if (ascendingOrder) "ascending" else "descending"
+        log("action", "sort_order_published_$order")
+    }
+
+    fun logSortOrderUpdated(ascendingOrder: Boolean) {
+        val order = if (ascendingOrder) "ascending" else "descending"
+        log("action", "sort_order_updated_$order")
+    }
+
+    fun logSortOrderTopic(ascendingOrder: Boolean) {
+        val order = if (ascendingOrder) "ascending" else "descending"
+        log("action", "sort_order_topic_$order")
+    }
+
+    fun logThreadGlobalCollapse() {
+        log("action", "global_collapse")
+    }
+
+    fun logThreadGlobalExpand() {
+        log("action", "global_expand")
+    }
+
+    fun logThreadItemCollapse() {
+        log("action", "item_collapse")
+    }
+
+    fun logThreadItemExpand() {
+        log("action", "item_expand")
     }
 
     companion object {
