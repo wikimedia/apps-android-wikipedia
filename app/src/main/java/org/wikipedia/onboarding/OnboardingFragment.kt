@@ -12,6 +12,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import org.wikipedia.BackPressedHandler
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.databinding.FragmentOnboardingPagerBinding
 
 abstract class OnboardingFragment(val enableSkip: Boolean = true) : Fragment(), BackPressedHandler {
@@ -115,6 +116,7 @@ abstract class OnboardingFragment(val enableSkip: Boolean = true) : Fragment(), 
 
     private inner class PageChangeCallback : OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {
+            BreadCrumbLogEvent.logSwipe(requireActivity())
             updateButtonState()
             updatePageIndicatorContentDescription()
             // TODO: request focus to child view to make it readable after switched page.

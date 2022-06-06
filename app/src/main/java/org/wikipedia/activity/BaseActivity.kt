@@ -12,6 +12,9 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.MenuItem
 import android.view.MotionEvent
+import android.view.View
+import android.view.View.OnTouchListener
+import android.view.ViewConfiguration
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +28,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.LoginFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
@@ -38,15 +42,15 @@ import org.wikipedia.recurring.RecurringTasksExecutor
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.PermissionUtil
-import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
+import org.wikipedia.views.ViewUtil
+import kotlin.math.abs
 
 abstract class BaseActivity : AppCompatActivity() {
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
+    private lateinit var breadcrumbTouchListener: BreadcrumbTouchListener
     private val networkStateReceiver = NetworkStateReceiver()
     private var previousNetworkState = WikipediaApp.instance.isOnline
     private val disposables = CompositeDisposable()
@@ -90,6 +94,16 @@ abstract class BaseActivity : AppCompatActivity() {
         maybeShowLoggedOutInBackgroundDialog()
 
         Prefs.localClassName = localClassName
+
+        if (!ReleaseUtil.isProdRelease) {
+            breadcrumbTouchListener = BreadcrumbTouchListener()
+            window.decorView.viewTreeObserver.addOnGlobalLayoutListener { ViewUtil.setTouchListenersToViews(window.decorView, breadcrumbTouchListener) }
+        }
+    }
+
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        BreadCrumbLogEvent.logScreenShown(this)
     }
 
     override fun onDestroy() {
@@ -124,6 +138,11 @@ abstract class BaseActivity : AppCompatActivity() {
             }
             else -> false
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        BreadCrumbLogEvent.logBackPress(this)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
@@ -291,6 +310,37 @@ abstract class BaseActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+    }
+
+    private inner class BreadcrumbTouchListener : OnTouchListener {
+        private var startX = 0f
+        private var startY = 0f
+        private var startMillis = 0L
+        private val touchSlop = ViewConfiguration.get(this@BaseActivity).scaledTouchSlop
+
+        override fun onTouch(view: View, event: MotionEvent): Boolean {
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    startMillis = System.currentTimeMillis()
+                    startX = event.x
+                    startY = event.y
+                }
+                MotionEvent.ACTION_UP -> {
+                    val touchMillis = System.currentTimeMillis() - startMillis
+                    val dx = abs(startX - event.x)
+                    val dy = abs(startY - event.y)
+
+                    if (dx <= touchSlop && dy <= touchSlop && view.isClickable) {
+                        if (touchMillis > ViewConfiguration.getLongPressTimeout()) {
+                            BreadCrumbLogEvent.logLongClick(this@BaseActivity, view)
+                        } else {
+                            BreadCrumbLogEvent.logClick(this@BaseActivity, view)
+                        }
+                    }
+                }
+            }
+            return false
         }
     }
 

@@ -1256,6 +1256,7 @@
     <string name="watchlist_page_moved">Moved</string>
     <string name="watchlist_page_protected">Protected</string>
     <string name="watchlist_page_deleted">Deleted</string>
+    <!-- /Watchlist -->
 
     <string name="action_item_categories">Categories</string>
     <string name="page_no_categories">This page does not belong to any categories.</string>
