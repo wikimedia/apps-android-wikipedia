@@ -70,7 +70,7 @@ object FeedbackUtil {
     }
 
     fun showMessage(fragment: Fragment, text: String) {
-        makeSnackbar(fragment.requireActivity(), StringUtil.fromHtml(text), Snackbar.LENGTH_LONG).show()
+        makeSnackbar(fragment.requireActivity(), text, Snackbar.LENGTH_LONG).show()
     }
 
     fun showMessage(activity: Activity, @StringRes resId: Int) {
