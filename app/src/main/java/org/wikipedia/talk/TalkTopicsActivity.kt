@@ -99,7 +99,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             val undoneSubject = it.data?.getCharSequenceExtra(TalkReplyActivity.EXTRA_SUBJECT) ?: ""
             val undoneText = it.data?.getCharSequenceExtra(TalkReplyActivity.EXTRA_BODY) ?: ""
             if (newRevisionId > 0) {
-                FeedbackUtil.makeSnackbar(this, getString(R.string.talk_new_topic_submitted), FeedbackUtil.LENGTH_DEFAULT)
+                FeedbackUtil.makeSnackbar(this, getString(R.string.talk_new_topic_submitted))
                     .setAnchorView(binding.talkNewTopicButton)
                     .setAction(R.string.talk_snackbar_undo) {
                         binding.talkNewTopicButton.isEnabled = false
@@ -430,8 +430,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             val snackbar = FeedbackUtil.makeSnackbar(this,
                 getString(R.string.watchlist_page_add_to_watchlist_snackbar,
                     viewModel.pageTitle?.displayText,
-                    getString(viewModel.lastWatchExpiry.stringId)),
-                FeedbackUtil.LENGTH_DEFAULT)
+                    getString(viewModel.lastWatchExpiry.stringId)))
             if (!viewModel.watchlistExpiryChanged) {
                 snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
                     viewModel.watchlistExpiryChanged = true

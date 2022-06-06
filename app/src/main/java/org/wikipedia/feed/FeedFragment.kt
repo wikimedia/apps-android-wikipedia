@@ -361,7 +361,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
     }
 
     private fun showDismissCardUndoSnackbar(card: Card, position: Int) {
-        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed), FeedbackUtil.LENGTH_DEFAULT)
+        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
         snackbar.setAction(R.string.feed_undo_dismiss_card) { coordinator.undoDismissCard(card, position) }
         snackbar.show()
     }
