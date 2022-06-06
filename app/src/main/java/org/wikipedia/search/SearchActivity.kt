@@ -2,6 +2,7 @@ package org.wikipedia.search
 
 import android.content.Context
 import android.content.Intent
+import androidx.core.os.bundleOf
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.WikipediaApp
@@ -33,8 +34,7 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
                 IntentFunnel(WikipediaApp.instance).logSearchWidgetTap()
             }
             return Intent(context, SearchActivity::class.java)
-                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
-                    .putExtra(QUERY_EXTRA, query)
+                .putExtras(bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to source, QUERY_EXTRA to query))
         }
     }
 }

@@ -95,10 +95,11 @@ class DescriptionEditFragment : Fragment() {
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS)
             Prefs.showDescriptionEditSuccessPrompt = false
         } else {
-            val intent = Intent()
-            intent.putExtra(SuggestionsActivity.EXTRA_SOURCE_ADDED_CONTRIBUTION, binding.fragmentDescriptionEditView.description)
-            intent.putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
-            intent.putExtra(Constants.INTENT_EXTRA_ACTION, action)
+            val intent = Intent().putExtras(bundleOf(
+                SuggestionsActivity.EXTRA_SOURCE_ADDED_CONTRIBUTION to binding.fragmentDescriptionEditView.description,
+                Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource,
+                Constants.INTENT_EXTRA_ACTION to action
+            ))
             requireActivity().setResult(Activity.RESULT_OK, intent)
             DeviceUtil.hideSoftKeyboard(requireActivity())
             requireActivity().finish()

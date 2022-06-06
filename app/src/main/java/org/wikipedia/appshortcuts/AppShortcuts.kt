@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.core.content.pm.ShortcutInfoCompat
 import androidx.core.content.pm.ShortcutManagerCompat
 import androidx.core.graphics.drawable.IconCompat
+import androidx.core.os.bundleOf
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -41,9 +42,10 @@ class AppShortcuts {
                     .setIcon(IconCompat.createWithResource(app, R.drawable.appshortcut_ic_search))
                     .setIntent(
                             Intent(ACTION_APP_SHORTCUT, Uri.EMPTY, app, MainActivity::class.java)
-                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                    .putExtra(APP_SHORTCUT_ID, APP_SHORTCUT_ID_SEARCH)
-                                    .putExtra(Constants.INTENT_APP_SHORTCUT_SEARCH, true))
+                                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                .putExtras(bundleOf(APP_SHORTCUT_ID to APP_SHORTCUT_ID_SEARCH,
+                                    Constants.INTENT_APP_SHORTCUT_SEARCH to true))
+                    )
                     .build()
         }
 
@@ -54,9 +56,10 @@ class AppShortcuts {
                     .setIcon(IconCompat.createWithResource(app, R.drawable.appshortcut_ic_random))
                     .setIntent(
                             Intent(ACTION_APP_SHORTCUT, Uri.EMPTY, app, MainActivity::class.java)
-                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                    .putExtra(APP_SHORTCUT_ID, APP_SHORTCUT_ID_RANDOM)
-                                    .putExtra(Constants.INTENT_APP_SHORTCUT_RANDOMIZER, true))
+                                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                .putExtras(bundleOf(APP_SHORTCUT_ID to APP_SHORTCUT_ID_RANDOM,
+                                    Constants.INTENT_APP_SHORTCUT_RANDOMIZER to true))
+                    )
                     .build()
         }
 
@@ -67,9 +70,10 @@ class AppShortcuts {
                     .setIcon(IconCompat.createWithResource(app, R.drawable.appshortcut_ic_continue_reading))
                     .setIntent(
                             Intent(ACTION_APP_SHORTCUT, Uri.EMPTY, app, MainActivity::class.java)
-                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                    .putExtra(APP_SHORTCUT_ID, APP_SHORTCUT_ID_CONTINUE_READING)
-                                    .putExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING, true))
+                                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                .putExtras(bundleOf(APP_SHORTCUT_ID to APP_SHORTCUT_ID_CONTINUE_READING,
+                                    Constants.INTENT_APP_SHORTCUT_CONTINUE_READING to true))
+                    )
                     .build()
         }
     }

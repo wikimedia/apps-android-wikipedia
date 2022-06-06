@@ -3,6 +3,7 @@ package org.wikipedia.descriptions
 import android.content.Context
 import android.content.Intent
 import androidx.annotation.ColorInt
+import androidx.core.os.bundleOf
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -114,12 +115,10 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
                       action: Action,
                       invokeSource: InvokeSource): Intent {
             return Intent(context, DescriptionEditActivity::class.java)
-                    .putExtra(EXTRA_TITLE, title)
-                    .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
-                    .putExtra(EXTRA_SOURCE_SUMMARY, sourceSummary)
-                    .putExtra(EXTRA_TARGET_SUMMARY, targetSummary)
-                    .putExtra(Constants.INTENT_EXTRA_ACTION, action)
-                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtras(bundleOf(EXTRA_TITLE to title, EXTRA_HIGHLIGHT_TEXT to highlightText,
+                    EXTRA_SOURCE_SUMMARY to sourceSummary, EXTRA_TARGET_SUMMARY to targetSummary,
+                    Constants.INTENT_EXTRA_ACTION to action, Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource
+                ))
         }
     }
 }

@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
 import androidx.core.graphics.applyCanvas
 import androidx.core.graphics.createBitmap
+import androidx.core.os.bundleOf
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -77,8 +78,8 @@ object NotificationPresenter {
     }
 
     fun addIntentExtras(intent: Intent, id: Long, type: String): Intent {
-        return intent.putExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, id)
-                .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE, type)
+        return intent.putExtras(bundleOf(Constants.INTENT_EXTRA_NOTIFICATION_ID to id,
+            Constants.INTENT_EXTRA_NOTIFICATION_TYPE to type))
     }
 
     fun getDefaultBuilder(context: Context, id: Long, type: String?, notificationCategory: NotificationCategory = NotificationCategory.SYSTEM): NotificationCompat.Builder {
@@ -127,10 +128,11 @@ object NotificationPresenter {
             .build()
         val resultIntent = Intent(context, NotificationPollBroadcastReceiver::class.java)
             .setAction(NotificationPollBroadcastReceiver.ACTION_DIRECT_REPLY)
-            .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_WIKI, title.wikiSite)
-            .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_TITLE, title)
-            .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_REPLY_TO, replyTo)
-            .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_ID, id)
+            .putExtras(bundleOf(NotificationPollBroadcastReceiver.RESULT_EXTRA_WIKI to title.wikiSite,
+                NotificationPollBroadcastReceiver.RESULT_EXTRA_TITLE to title,
+                NotificationPollBroadcastReceiver.RESULT_EXTRA_REPLY_TO to replyTo,
+                NotificationPollBroadcastReceiver.RESULT_EXTRA_ID to id,
+            ))
         val resultPendingIntent = PendingIntent.getBroadcast(context, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
 
         val action = NotificationCompat.Action.Builder(R.drawable.ic_reply_24, context.getString(R.string.notifications_direct_reply_action), resultPendingIntent)

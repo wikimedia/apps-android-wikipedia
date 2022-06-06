@@ -7,6 +7,7 @@ import android.view.*
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -188,9 +189,10 @@ class LanguagesListActivity : BaseActivity() {
             interactionsCount++
             searchingFunnel.logLanguageAdded(true, item.code, currentSearchQuery)
             DeviceUtil.hideSoftKeyboard(this@LanguagesListActivity)
-            val returnIntent = Intent()
-            returnIntent.putExtra(WikipediaLanguagesFragment.ADD_LANGUAGE_INTERACTIONS, interactionsCount)
-            returnIntent.putExtra(LANGUAGE_SEARCHED, isLanguageSearched)
+            val returnIntent = Intent().putExtras(bundleOf(
+                WikipediaLanguagesFragment.ADD_LANGUAGE_INTERACTIONS to interactionsCount,
+                LANGUAGE_SEARCHED to isLanguageSearched
+            ))
             setResult(RESULT_OK, returnIntent)
             finish()
         }

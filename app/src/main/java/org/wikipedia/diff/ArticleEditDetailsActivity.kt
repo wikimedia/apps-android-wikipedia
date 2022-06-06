@@ -2,6 +2,7 @@ package org.wikipedia.diff
 
 import android.content.Context
 import android.content.Intent
+import androidx.core.os.bundleOf
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.page.PageTitle
 
@@ -24,9 +25,8 @@ class ArticleEditDetailsActivity : SingleFragmentActivity<ArticleEditDetailsFrag
 
         fun newIntent(context: Context, title: PageTitle, revisionFrom: Long, revisionTo: Long): Intent {
             return Intent(context, ArticleEditDetailsActivity::class.java)
-                    .putExtra(EXTRA_ARTICLE_TITLE, title)
-                    .putExtra(EXTRA_EDIT_REVISION_FROM, revisionFrom)
-                    .putExtra(EXTRA_EDIT_REVISION_TO, revisionTo)
+                .putExtras(bundleOf(EXTRA_ARTICLE_TITLE to title, EXTRA_EDIT_REVISION_FROM to revisionFrom,
+                    EXTRA_EDIT_REVISION_TO to revisionTo))
         }
     }
 }

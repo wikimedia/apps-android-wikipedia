@@ -13,6 +13,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.core.os.bundleOf
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
@@ -549,9 +550,10 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
         fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicsActivity::class.java)
-                .putExtra(EXTRA_PAGE_TITLE, pageTitle)
-                .putExtra(EXTRA_GO_TO_TOPIC, !pageTitle.fragment.isNullOrEmpty())
-                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtras(bundleOf(EXTRA_PAGE_TITLE to pageTitle,
+                    EXTRA_GO_TO_TOPIC to !pageTitle.fragment.isNullOrEmpty(),
+                    Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource,
+                ))
         }
 
         fun getNonTalkPageTitle(title: PageTitle): PageTitle {

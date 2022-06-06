@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import androidx.core.os.bundleOf
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.dataclient.WikiSite
@@ -31,8 +32,7 @@ class NewsActivity : SingleFragmentActivity<NewsFragment>() {
         const val EXTRA_WIKI = "wiki"
         fun newIntent(context: Context, item: NewsItem, wiki: WikiSite): Intent {
             return Intent(context, NewsActivity::class.java)
-                .putExtra(EXTRA_NEWS_ITEM, item)
-                .putExtra(EXTRA_WIKI, wiki)
+                .putExtras(bundleOf(EXTRA_NEWS_ITEM to item, EXTRA_WIKI to wiki))
         }
     }
 }

@@ -3,6 +3,7 @@ package org.wikipedia.settings
 import android.content.Intent
 import android.os.Build
 import android.provider.Settings
+import androidx.core.os.bundleOf
 import androidx.preference.PreferenceFragmentCompat
 import org.wikipedia.R
 
@@ -24,8 +25,8 @@ internal class NotificationSettingsPreferenceLoader(fragment: PreferenceFragment
                 }
                 else -> {
                     action = "android.settings.APP_NOTIFICATION_SETTINGS"
-                    putExtra("app_package", activity.packageName)
-                    putExtra("app_uid", activity.applicationInfo.uid)
+                    putExtras(bundleOf("app_package" to activity.packageName,
+                        "app_uid" to activity.applicationInfo.uid))
                 }
             }
         }

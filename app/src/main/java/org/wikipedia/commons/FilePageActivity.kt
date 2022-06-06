@@ -3,6 +3,7 @@ package org.wikipedia.commons
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.os.bundleOf
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.page.PageTitle
@@ -30,9 +31,9 @@ class FilePageActivity : SingleFragmentActivity<FilePageFragment>() {
 
         fun newIntent(context: Context, pageTitle: PageTitle, allowEdit: Boolean = true, suggestionReason: String? = null): Intent {
             return Intent(context, FilePageActivity::class.java)
-                    .putExtra(INTENT_EXTRA_PAGE_TITLE, pageTitle)
-                    .putExtra(INTENT_EXTRA_ALLOW_EDIT, allowEdit)
-                    .putExtra(INTENT_EXTRA_SUGGESTION_REASON, suggestionReason)
+                .putExtras(bundleOf(INTENT_EXTRA_PAGE_TITLE to pageTitle,
+                    INTENT_EXTRA_ALLOW_EDIT to allowEdit,
+                    INTENT_EXTRA_SUGGESTION_REASON to suggestionReason))
         }
     }
 }

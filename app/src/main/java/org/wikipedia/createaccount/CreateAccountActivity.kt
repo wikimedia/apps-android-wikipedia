@@ -10,6 +10,7 @@ import android.util.Patterns
 import android.view.KeyEvent
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import androidx.core.os.bundleOf
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.textfield.TextInputLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -257,10 +258,10 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     private fun finishWithUserResult(userName: String) {
-        val resultIntent = Intent()
-        resultIntent.putExtra(CREATE_ACCOUNT_RESULT_USERNAME, userName)
-        resultIntent.putExtra(CREATE_ACCOUNT_RESULT_PASSWORD, getText(binding.createAccountPasswordInput))
-        setResult(RESULT_ACCOUNT_CREATED, resultIntent)
+        setResult(RESULT_ACCOUNT_CREATED, Intent().putExtras(bundleOf(
+            CREATE_ACCOUNT_RESULT_USERNAME to userName,
+            CREATE_ACCOUNT_RESULT_PASSWORD to getText(binding.createAccountPasswordInput)
+        )))
         showProgressBar(false)
         captchaHandler.cancelCaptcha()
         funnel.logSuccess()
@@ -338,8 +339,7 @@ class CreateAccountActivity : BaseActivity() {
 
         fun newIntent(context: Context, sessionToken: String, source: String): Intent {
             return Intent(context, CreateAccountActivity::class.java)
-                    .putExtra(LOGIN_SESSION_TOKEN, sessionToken)
-                    .putExtra(LOGIN_REQUEST_SOURCE, source)
+                .putExtras(bundleOf(LOGIN_SESSION_TOKEN to sessionToken, LOGIN_REQUEST_SOURCE to source))
         }
     }
 }

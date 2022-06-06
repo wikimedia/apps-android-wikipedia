@@ -13,6 +13,7 @@ import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
+import androidx.core.os.bundleOf
 import androidx.core.view.*
 import androidx.preference.PreferenceManager
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -795,22 +796,19 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         fun newIntentForNewTab(context: Context, entry: HistoryEntry, title: PageTitle): Intent {
             return Intent(ACTION_LOAD_IN_NEW_TAB)
                 .setClass(context, PageActivity::class.java)
-                .putExtra(EXTRA_HISTORYENTRY, entry)
-                .putExtra(EXTRA_PAGETITLE, title)
+                .putExtras(bundleOf(EXTRA_HISTORYENTRY to entry, EXTRA_PAGETITLE to title))
         }
 
         fun newIntentForCurrentTab(context: Context, entry: HistoryEntry, title: PageTitle, squashBackstack: Boolean = true): Intent {
             return Intent(if (squashBackstack) ACTION_LOAD_IN_CURRENT_TAB_SQUASH else ACTION_LOAD_IN_CURRENT_TAB)
                 .setClass(context, PageActivity::class.java)
-                .putExtra(EXTRA_HISTORYENTRY, entry)
-                .putExtra(EXTRA_PAGETITLE, title)
+                .putExtras(bundleOf(EXTRA_HISTORYENTRY to entry, EXTRA_PAGETITLE to title))
         }
 
         fun newIntentForExistingTab(context: Context, entry: HistoryEntry, title: PageTitle): Intent {
             return Intent(ACTION_LOAD_FROM_EXISTING_TAB)
                 .setClass(context, PageActivity::class.java)
-                .putExtra(EXTRA_HISTORYENTRY, entry)
-                .putExtra(EXTRA_PAGETITLE, title)
+                .putExtras(bundleOf(EXTRA_HISTORYENTRY to entry, EXTRA_PAGETITLE to title))
         }
     }
 }

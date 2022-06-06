@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
+import androidx.core.os.bundleOf
 import androidx.core.os.postDelayed
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -681,10 +682,8 @@ class EditSectionActivity : BaseActivity() {
 
         fun newIntent(context: Context, sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String? = null): Intent {
             return Intent(context, EditSectionActivity::class.java)
-                .putExtra(EXTRA_SECTION_ID, sectionId)
-                .putExtra(EXTRA_SECTION_ANCHOR, sectionAnchor)
-                .putExtra(EXTRA_TITLE, title)
-                .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
+                .putExtras(bundleOf(EXTRA_SECTION_ID to sectionId, EXTRA_SECTION_ANCHOR to sectionAnchor,
+                    EXTRA_TITLE to title, EXTRA_HIGHLIGHT_TEXT to highlightText))
         }
     }
 }

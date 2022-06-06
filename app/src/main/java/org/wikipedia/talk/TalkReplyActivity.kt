@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.core.os.bundleOf
 import androidx.core.util.lruCache
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
@@ -215,10 +216,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
         val body = binding.replyInputView.editText.getParsedText(viewModel.pageTitle.wikiSite).trim()
-        Intent().let {
-            it.putExtra(EXTRA_SUBJECT, subject)
-            it.putExtra(EXTRA_BODY, body)
-        }
+        Intent().putExtras(bundleOf(EXTRA_SUBJECT to subject, EXTRA_BODY to body))
 
         editFunnel.logSaveAttempt()
         EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
@@ -248,12 +246,11 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle)
 
         Intent().let {
-            it.putExtra(RESULT_NEW_REVISION_ID, newRevision)
-            it.putExtra(EXTRA_SUBJECT, binding.replySubjectText.text)
-            it.putExtra(EXTRA_BODY, binding.replyInputView.editText.text)
-            if (viewModel.topic != null) {
-                it.putExtra(EXTRA_TOPIC_ID, viewModel.topic!!.id)
-            }
+            it.putExtras(bundleOf(RESULT_NEW_REVISION_ID to newRevision,
+                EXTRA_SUBJECT to binding.replySubjectText.text,
+                EXTRA_BODY to binding.replyInputView.editText.text,
+                EXTRA_TOPIC_ID to viewModel.topic?.id,
+            ))
             setResult(RESULT_EDIT_SUCCESS, it)
 
             if (viewModel.topic != null) {
@@ -347,12 +344,11 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                       undoSubject: CharSequence? = null,
                       undoBody: CharSequence? = null): Intent {
             return Intent(context, TalkReplyActivity::class.java)
-                    .putExtra(EXTRA_PAGE_TITLE, pageTitle)
-                    .putExtra(EXTRA_PARENT_SUBJECT, parentSubject)
-                    .putExtra(EXTRA_TOPIC, topic)
-                    .putExtra(EXTRA_SUBJECT, undoSubject)
-                    .putExtra(EXTRA_BODY, undoBody)
-                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                    .putExtras(bundleOf(EXTRA_PAGE_TITLE to pageTitle,
+                        EXTRA_PARENT_SUBJECT to parentSubject, EXTRA_TOPIC to topic,
+                        EXTRA_SUBJECT to undoSubject, EXTRA_BODY to undoBody,
+                        Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource,
+                    ))
         }
     }
 }

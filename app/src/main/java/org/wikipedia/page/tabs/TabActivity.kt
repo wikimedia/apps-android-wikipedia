@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.core.os.bundleOf
 import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
 import de.mrapp.android.tabswitcher.Animation
@@ -297,9 +298,9 @@ class TabActivity : BaseActivity() {
 
     private fun goToMainTab() {
         startActivity(MainActivity.newIntent(this)
-                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
-                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()))
+            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            .putExtras(bundleOf(Constants.INTENT_RETURN_TO_MAIN to true,
+                Constants.INTENT_EXTRA_GO_TO_MAIN_TAB to NavTab.EXPLORE.code())))
         finish()
     }
 

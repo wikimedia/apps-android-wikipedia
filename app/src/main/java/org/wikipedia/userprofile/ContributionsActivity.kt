@@ -2,6 +2,7 @@ package org.wikipedia.userprofile
 
 import android.content.Context
 import android.content.Intent
+import androidx.core.os.bundleOf
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
 
@@ -19,8 +20,8 @@ class ContributionsActivity : SingleFragmentActivity<ContributionsFragment>() {
         fun newIntent(context: Context, contributions: Int, pageViews: Long): Intent {
             SuggestedEditsFunnel.get().contributionsOpened()
             return Intent(context, ContributionsActivity::class.java)
-                    .putExtra(EXTRA_SOURCE_CONTRIBUTIONS, contributions)
-                    .putExtra(EXTRA_SOURCE_PAGEVIEWS, pageViews)
+                .putExtras(bundleOf(EXTRA_SOURCE_CONTRIBUTIONS to contributions,
+                    EXTRA_SOURCE_PAGEVIEWS to pageViews))
         }
     }
 }

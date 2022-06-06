@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
+import androidx.core.os.bundleOf
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
@@ -455,11 +456,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                       searchQuery: String?,
                       invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicActivity::class.java)
-                    .putExtra(EXTRA_PAGE_TITLE, pageTitle)
-                    .putExtra(EXTRA_TOPIC_NAME, topicName)
-                    .putExtra(EXTRA_REPLY_ID, replyId)
-                    .putExtra(EXTRA_SEARCH_QUERY, searchQuery)
-                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtras(bundleOf(EXTRA_PAGE_TITLE to pageTitle, EXTRA_TOPIC_NAME to topicName,
+                    EXTRA_REPLY_ID to replyId, EXTRA_SEARCH_QUERY to searchQuery,
+                    Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource
+                ))
         }
     }
 }

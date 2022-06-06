@@ -9,6 +9,7 @@ import android.os.Build
 import android.os.SystemClock
 import androidx.annotation.StringRes
 import androidx.core.app.RemoteInput
+import androidx.core.os.bundleOf
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -121,9 +122,9 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
         fun getCancelNotificationPendingIntent(context: Context, id: Long, type: String?): PendingIntent {
             val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
-                    .setAction(ACTION_CANCEL)
-                    .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, id)
-                    .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE, type)
+                .setAction(ACTION_CANCEL)
+                .putExtras(bundleOf(Constants.INTENT_EXTRA_NOTIFICATION_ID to id,
+                    Constants.INTENT_EXTRA_NOTIFICATION_TYPE to type))
             return PendingIntent.getBroadcast(context, id.toInt(), intent, DeviceUtil.pendingIntentFlags)
         }
 

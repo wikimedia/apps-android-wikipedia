@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import androidx.core.os.bundleOf
 import com.google.android.material.textfield.TextInputLayout
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -158,8 +159,7 @@ class ResetPasswordActivity : BaseActivity() {
 
         fun newIntent(context: Context, userName: String, token: String?): Intent {
             return Intent(context, ResetPasswordActivity::class.java)
-                    .putExtra(LOGIN_USER_NAME, userName)
-                    .putExtra(LOGIN_TOKEN, token)
+                .putExtras(bundleOf(LOGIN_USER_NAME to userName, LOGIN_TOKEN to token))
         }
     }
 }

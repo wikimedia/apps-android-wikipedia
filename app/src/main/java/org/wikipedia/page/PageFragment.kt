@@ -18,6 +18,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.graphics.Insets
+import androidx.core.os.bundleOf
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
@@ -1261,8 +1262,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     fun goToMainTab() {
         startActivity(MainActivity.newIntent(requireContext())
             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
-            .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()))
+            .putExtras(bundleOf(Constants.INTENT_RETURN_TO_MAIN to true,
+                Constants.INTENT_EXTRA_GO_TO_MAIN_TAB to NavTab.EXPLORE.code())))
         requireActivity().finish()
     }
 

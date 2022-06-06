@@ -3,6 +3,7 @@ package org.wikipedia.random
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.os.bundleOf
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.SingleFragmentActivity
@@ -14,10 +15,9 @@ class RandomActivity : SingleFragmentActivity<RandomFragment>() {
         const val INTENT_EXTRA_WIKISITE = "wikiSite"
 
         fun newIntent(context: Context, wikiSite: WikiSite, invokeSource: InvokeSource?): Intent {
-            return Intent(context, RandomActivity::class.java).apply {
-                putExtra(INTENT_EXTRA_WIKISITE, wikiSite)
-                putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
-            }
+            return Intent(context, RandomActivity::class.java)
+                .putExtras(bundleOf(INTENT_EXTRA_WIKISITE to wikiSite,
+                    Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource))
         }
     }
 

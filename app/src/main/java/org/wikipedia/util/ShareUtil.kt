@@ -12,6 +12,7 @@ import android.os.Parcelable
 import android.os.TransactionTooLargeException
 import android.widget.Toast
 import androidx.core.content.FileProvider
+import androidx.core.os.bundleOf
 import kotlinx.coroutines.*
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
@@ -27,9 +28,8 @@ object ShareUtil {
 
     fun shareText(context: Context, subject: String, text: String) {
         val shareIntent = Intent(Intent.ACTION_SEND)
-        shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
-        shareIntent.putExtra(Intent.EXTRA_TEXT, text)
-        shareIntent.type = "text/plain"
+            .putExtras(bundleOf(Intent.EXTRA_SUBJECT to subject, Intent.EXTRA_TEXT to text))
+            .setType("text/plain")
 
         try {
             val chooserIntent = getIntentChooser(context, shareIntent, context.getString(R.string.share_via))
@@ -100,10 +100,9 @@ object ShareUtil {
 
     private fun createImageShareIntent(subject: String, text: String, uri: Uri): Intent {
         return Intent(Intent.ACTION_SEND)
-                .putExtra(Intent.EXTRA_SUBJECT, subject)
-                .putExtra(Intent.EXTRA_TEXT, text)
-                .putExtra(Intent.EXTRA_STREAM, uri)
-                .setType("image/jpeg")
+            .putExtras(bundleOf(Intent.EXTRA_SUBJECT to subject, Intent.EXTRA_TEXT to text,
+                Intent.EXTRA_STREAM to uri))
+            .setType("image/jpeg")
     }
 
     private fun displayOnCatchMessage(caught: Throwable, context: Context) {

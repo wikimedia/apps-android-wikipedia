@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import androidx.core.os.bundleOf
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.readinglist.database.ReadingList
@@ -29,8 +30,7 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
         const val EXTRA_READING_LIST_ID = "readingListId"
         fun newIntent(context: Context, list: ReadingList): Intent {
             return Intent(context, ReadingListActivity::class.java)
-                    .putExtra(EXTRA_READING_LIST_TITLE, list.title)
-                    .putExtra(EXTRA_READING_LIST_ID, list.id)
+                .putExtras(bundleOf(EXTRA_READING_LIST_TITLE to list.title, EXTRA_READING_LIST_ID to list.id))
         }
     }
 }

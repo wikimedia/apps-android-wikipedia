@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -88,8 +89,8 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
 
         fun newIntent(context: Context, page: MwQueryPage, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, SuggestedEditsImageTagEditActivity::class.java)
-                    .putExtra(ARG_PAGE, JsonUtil.encodeToString(page))
-                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtras(bundleOf(ARG_PAGE to JsonUtil.encodeToString(page),
+                    Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource))
         }
     }
 }

@@ -2,6 +2,7 @@ package org.wikipedia.descriptions
 
 import android.content.Context
 import android.content.Intent
+import androidx.core.os.bundleOf
 import org.wikipedia.Constants
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.onboarding.OnboardingFragment
@@ -21,8 +22,8 @@ class DescriptionEditTutorialActivity : SingleFragmentActivity<DescriptionEditTu
 
         fun newIntent(context: Context, selectedText: String?, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, DescriptionEditTutorialActivity::class.java)
-                    .putExtra(DESCRIPTION_SELECTED_TEXT, selectedText)
-                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtras(bundleOf(DESCRIPTION_SELECTED_TEXT to selectedText,
+                    Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource))
         }
     }
 }

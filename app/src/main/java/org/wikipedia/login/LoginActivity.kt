@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import androidx.core.os.bundleOf
 import com.google.android.material.textfield.TextInputLayout
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -246,8 +247,7 @@ class LoginActivity : BaseActivity() {
 
         fun newIntent(context: Context, source: String, token: String? = null): Intent {
             return Intent(context, LoginActivity::class.java)
-                    .putExtra(LOGIN_REQUEST_SOURCE, source)
-                    .putExtra(EDIT_SESSION_TOKEN, token)
+                .putExtras(bundleOf(LOGIN_REQUEST_SOURCE to source, EDIT_SESSION_TOKEN to token))
         }
     }
 }

@@ -2,6 +2,7 @@ package org.wikipedia.feed.onthisday
 
 import android.content.Context
 import android.content.Intent
+import androidx.core.os.bundleOf
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.SingleFragmentActivity
@@ -24,10 +25,8 @@ class OnThisDayActivity : SingleFragmentActivity<OnThisDayFragment>() {
         fun newIntent(context: Context, age: Int, year: Int,
                       wikiSite: WikiSite, invokeSource: InvokeSource): Intent {
             return Intent(context, OnThisDayActivity::class.java)
-                .putExtra(EXTRA_AGE, age)
-                .putExtra(EXTRA_WIKISITE, wikiSite)
-                .putExtra(EXTRA_YEAR, year)
-                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtras(bundleOf(EXTRA_AGE to age, EXTRA_WIKISITE to wikiSite,
+                    EXTRA_YEAR to year, Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource))
         }
     }
 }

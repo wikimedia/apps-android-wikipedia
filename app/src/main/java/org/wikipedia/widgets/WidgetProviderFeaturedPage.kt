@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.text.style.URLSpan
 import android.widget.RemoteViews
+import androidx.core.os.bundleOf
 import androidx.core.text.getSpans
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -50,8 +51,8 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
 
                     val intent = Intent(context, PageActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                    intent.putExtra(PageActivity.EXTRA_PAGETITLE, pageTitle)
-                    intent.putExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET, true)
+                    intent.putExtras(bundleOf(PageActivity.EXTRA_PAGETITLE to pageTitle,
+                        Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET to true))
                     val pendingIntent = PendingIntent.getActivity(context, 1, intent,
                             PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
 

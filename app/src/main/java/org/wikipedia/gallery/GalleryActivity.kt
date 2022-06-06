@@ -17,6 +17,7 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -105,9 +106,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             binding.errorView.visibility = View.GONE
             loadGalleryContent()
         }
-        if (intent.hasExtra(EXTRA_PAGETITLE)) {
-            pageTitle = intent.getParcelableExtra(EXTRA_PAGETITLE)
-        }
+        pageTitle = intent.getParcelableExtra(EXTRA_PAGETITLE)
         initialFilename = intent.getStringExtra(EXTRA_FILENAME)
         revision = intent.getLongExtra(EXTRA_REVISION, 0)
         sourceWiki = intent.getParcelableExtra(EXTRA_WIKI)!!
@@ -706,16 +705,10 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         private var TRANSITION_INFO: JavaScriptActionHandler.ImageHitInfo? = null
 
         fun newIntent(context: Context, pageTitle: PageTitle?, filename: String, wiki: WikiSite, revision: Long, source: Int): Intent {
-            val intent = Intent()
-                .setClass(context, GalleryActivity::class.java)
-                .putExtra(EXTRA_FILENAME, filename)
-                .putExtra(EXTRA_WIKI, wiki)
-                .putExtra(EXTRA_REVISION, revision)
-                .putExtra(EXTRA_SOURCE, source)
-            if (pageTitle != null) {
-                intent.putExtra(EXTRA_PAGETITLE, pageTitle)
-            }
-            return intent
+            return Intent(context, GalleryActivity::class.java)
+                .putExtras(bundleOf(EXTRA_FILENAME to filename, EXTRA_WIKI to wiki,
+                    EXTRA_REVISION to revision, EXTRA_SOURCE to source, EXTRA_PAGETITLE to pageTitle
+                ))
         }
 
         fun setTransitionInfo(hitInfo: JavaScriptActionHandler.ImageHitInfo) {
