@@ -90,11 +90,11 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         }
 
         if (item.level > 1) {
-            binding.replyButton.backgroundTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.color_group_22))
-            binding.replyButton.iconTint = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+            binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_22)
+            binding.replyButton.iconTint = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
             binding.replyButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
         } else {
-            binding.replyButton.backgroundTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+            binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
             binding.replyButton.iconTint = ColorStateList.valueOf(Color.WHITE)
             binding.replyButton.setTextColor(Color.WHITE)
         }
