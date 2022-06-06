@@ -25,6 +25,7 @@
 * Mirzali
 * MuratTheTurkish
 * Pittigrilli
+* Rummskartoffel
 * Scblr
 * Schmackes
 * Sebastian Wallroth
@@ -59,8 +60,8 @@
   <string name="storage_access_error_retry">Wiederholen</string>
   <string name="article_load_error_retry">Wiederholen</string>
   <string name="offline_load_error_retry">Wiederholen</string>
-  <string name="page_error_back_to_main">Zurück gehen</string>
-  <string name="error_back">Zurück gehen</string>
+  <string name="page_error_back_to_main">Zurück</string>
+  <string name="error_back">Zurück</string>
   <string name="error_next">Nächster</string>
   <string name="menu_clear_all_history">Verlauf löschen</string>
   <string name="history_item_deleted">%s aus dem Verlauf gelöscht</string>
