@@ -30,6 +30,6 @@ class SamplingConfig {
     }
 
     fun getIdentifier(): Identifier {
-        return if (identifier != null) identifier!! else Identifier.SESSION
+        return identifier ?: Identifier.SESSION
     }
 }
