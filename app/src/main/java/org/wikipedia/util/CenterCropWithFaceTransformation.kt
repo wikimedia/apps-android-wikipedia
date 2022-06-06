@@ -64,15 +64,11 @@ class CenterCropWithFaceTransformation : BitmapTransformation() {
         }
         m.setScale(scale, scale)
         m.postTranslate(dx, dy)
-        val result = pool.getDirty(width, height, getNonNullConfig(inBitmap))
+        val result = pool.getDirty(width, height, inBitmap.config ?: Bitmap.Config.RGB_565)
         // We don't add or remove alpha, so keep the alpha setting of the Bitmap we were given.
         TransformationUtils.setAlpha(inBitmap, result)
         WhiteBackgroundTransformation().applyMatrixWithBackground(inBitmap, result, m)
         return result
-    }
-
-    private fun getNonNullConfig(bitmap: Bitmap): Bitmap.Config {
-        return if (bitmap.config != null) bitmap.config else Bitmap.Config.RGB_565
     }
 
     private fun detectFace(testBitmap: Bitmap): PointF? {
