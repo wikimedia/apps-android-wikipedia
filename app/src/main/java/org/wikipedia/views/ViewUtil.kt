@@ -1,14 +1,17 @@
 package org.wikipedia.views
 
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
+import android.content.ContextWrapper
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.text.TextUtils
-import android.view.ActionMode
-import android.view.LayoutInflater
+import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.forEach
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
@@ -25,11 +28,9 @@ import org.wikipedia.util.WhiteBackgroundTransformation
 import java.util.*
 
 object ViewUtil {
-    private val CENTER_CROP_ROUNDED_CORNERS = MultiTransformation(CenterCrop(),
-            WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
+    private val CENTER_CROP_ROUNDED_CORNERS = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
     val ROUNDED_CORNERS = RoundedCorners(roundedDpToPx(15f))
-    val CENTER_CROP_LARGE_ROUNDED_CORNERS = MultiTransformation(CenterCrop(),
-            WhiteBackgroundTransformation(), ROUNDED_CORNERS)
+    val CENTER_CROP_LARGE_ROUNDED_CORNERS = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), ROUNDED_CORNERS)
 
     fun loadImageWithRoundedCorners(view: ImageView, url: String?, largeRoundedSize: Boolean = false) {
         loadImage(view, url, true, largeRoundedSize)
@@ -80,5 +81,47 @@ object ViewUtil {
 
     fun adjustImagePlaceholderHeight(containerWidth: Float, thumbWidth: Float, thumbHeight: Float): Int {
         return (Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat() / thumbWidth * thumbHeight * containerWidth / Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat()).toInt()
+    }
+
+    tailrec fun Context.getActivity(): Activity? = this as? Activity
+        ?: (this as? ContextWrapper)?.baseContext?.getActivity()
+
+    fun setTouchListenersToViews(currentView: View?, onTouchListener: View.OnTouchListener) {
+        if (currentView == null) {
+            return
+        }
+        if (!hasTouchListener(currentView)) {
+            currentView.setOnTouchListener(onTouchListener)
+        }
+        if (currentView is ViewGroup) {
+            currentView.forEach {
+                setTouchListenersToViews(it, onTouchListener)
+            }
+        }
+    }
+
+    private fun hasTouchListener(v: View): Boolean {
+        try {
+            getListenerInfo(v)?.let {
+                val listenerInfoClass = it.javaClass
+                val field = listenerInfoClass.getDeclaredField("mOnTouchListener")
+                field.isAccessible = true
+                if (field[it] != null) return true
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return false
+    }
+
+    @SuppressLint("DiscouragedPrivateApi")
+    private fun getListenerInfo(v: View): Any? {
+        return try {
+            val field = Class.forName("android.view.View").getDeclaredField("mListenerInfo")
+            field.isAccessible = true
+            field[v] as Any
+        } catch (e: Exception) {
+            null
+        }
     }
 }
