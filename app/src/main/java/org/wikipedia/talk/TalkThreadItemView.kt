@@ -90,11 +90,11 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         }
 
         if (item.level > 1) {
-            binding.replyButton.backgroundTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.color_group_22))
-            binding.replyButton.iconTint = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+            binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_22)
+            binding.replyButton.iconTint = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
             binding.replyButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
         } else {
-            binding.replyButton.backgroundTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+            binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
             binding.replyButton.iconTint = ColorStateList.valueOf(Color.WHITE)
             binding.replyButton.setTextColor(Color.WHITE)
         }
@@ -137,7 +137,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
                     true
                 }
                 R.id.menu_copy_text -> {
-                    ClipboardUtil.setPlainText(context, null, StringUtil.fromHtml(item.html))
+                    ClipboardUtil.setPlainText(context, text = StringUtil.fromHtml(item.html))
                     FeedbackUtil.showMessage(context as Activity, R.string.text_copied)
                     true
                 }

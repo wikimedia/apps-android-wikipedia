@@ -31,7 +31,7 @@ class GraphView(context: Context, attributeSet: AttributeSet) : View(context, at
 
     fun setData(list: List<Float>) {
         maxX = list.size.toFloat()
-        maxY = list.maxByOrNull { it } ?: 0f
+        maxY = list.maxOrNull() ?: 0f
         dataSet.clear()
         dataSet.addAll(list)
         invalidate()

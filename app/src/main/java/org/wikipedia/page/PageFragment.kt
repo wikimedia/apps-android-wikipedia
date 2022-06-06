@@ -623,7 +623,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 }
             }
         } else {
-            val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT)
+            val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar))
             snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss) { snackbar.dismiss() }
             snackbar.show()
         }
@@ -643,7 +643,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, it.displayText))
             } else if (watch.watched) {
                 val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                    it.displayText, getString(expiry.stringId)), FeedbackUtil.LENGTH_DEFAULT)
+                    it.displayText, getString(expiry.stringId)))
                 if (!watchlistExpiryChanged) {
                     snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
                         watchlistExpiryChanged = true

@@ -148,7 +148,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
                 }
                 R.id.menu_long_press_copy_page -> {
                     entry?.let {
-                        ClipboardUtil.setPlainText(getActivity(), null, it.title.uri)
+                        ClipboardUtil.setPlainText(getActivity(), text = it.title.uri)
                         FeedbackUtil.showMessage((getActivity()), R.string.address_copied)
                     }
                     true
