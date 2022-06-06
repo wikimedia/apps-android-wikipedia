@@ -17,6 +17,7 @@ import com.skydoves.balloon.*
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.databinding.ViewPlainTextTooltipBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.main.MainActivity
@@ -175,6 +176,7 @@ object FeedbackUtil {
         if (!autoDismiss) {
             (activity as BaseActivity).setCurrentTooltip(balloon)
         }
+        BreadCrumbLogEvent.logTooltipShown(activity, anchor)
         return balloon
     }
 
