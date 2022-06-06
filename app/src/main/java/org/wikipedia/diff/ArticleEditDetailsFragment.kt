@@ -434,7 +434,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             .setPositiveButton(android.R.string.ok) { _, _ ->
                 binding.progressBar.isVisible = true
                 viewModel.revisionTo?.let {
-                    // TODO: check whether we should have the same input dialog for the summary
                     viewModel.postRollback(viewModel.pageTitle, it.user)
                 }
             }
