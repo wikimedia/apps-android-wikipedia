@@ -7,7 +7,6 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import androidx.annotation.AttrRes
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import org.wikipedia.R
@@ -56,24 +55,25 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         binding.userNameText.text = item.user
         binding.userNameText.contentDescription = context.getString(R.string.talk_user_title, item.user)
 
-        binding.userNameText.setIconResource(if (item.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_talk)
+        binding.userNameText.setIconResource(if (item.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_avatar)
         if (item.logtype.isNotEmpty()) {
             when (item.logtype) {
                 context.getString(R.string.page_moved) -> {
-                    setButtonTextAndIconColor(context.getString(R.string.watchlist_page_moved), R.attr.suggestions_background_color, R.drawable.ic_info_outline_black_24dp)
+                    setButtonTextAndIconColor(context.getString(R.string.watchlist_page_moved), R.drawable.ic_info_outline_black_24dp)
                 }
                 context.getString(R.string.page_protected) -> {
-                    setButtonTextAndIconColor(context.getString(R.string.watchlist_page_protected), R.attr.suggestions_background_color, R.drawable.ic_baseline_lock_24)
+                    setButtonTextAndIconColor(context.getString(R.string.watchlist_page_protected), R.drawable.ic_baseline_lock_24)
                 }
                 context.getString(R.string.page_deleted) -> {
-                    setButtonTextAndIconColor(context.getString(R.string.watchlist_page_deleted), R.attr.suggestions_background_color, R.drawable.ic_delete_white_24dp)
+                    setButtonTextAndIconColor(context.getString(R.string.watchlist_page_deleted), R.drawable.ic_delete_white_24dp)
                 }
             }
             binding.containerView.alpha = 0.5f
             binding.containerView.isClickable = false
         } else {
             val diffByteCount = item.newlen - item.oldlen
-            setButtonTextAndIconColor(String.format(if (diffByteCount != 0) "%+d" else "%d", diffByteCount), R.attr.color_group_22)
+            val diffText = context.getString(R.string.edit_diff_bytes, if (diffByteCount > 0) "+$diffByteCount" else diffByteCount.toString())
+            setButtonTextAndIconColor(diffText, textAllCaps = false)
             if (diffByteCount >= 0) {
                 binding.diffText.setTextColor(if (diffByteCount > 0) ContextCompat.getColor(context, R.color.green50)
                 else ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))
@@ -86,13 +86,13 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         L10nUtil.setConditionalLayoutDirection(this, item.wiki!!.languageCode)
     }
 
-    private fun setButtonTextAndIconColor(text: String, @AttrRes backgroundTint: Int, @DrawableRes iconResourceDrawable: Int = 0) {
+    private fun setButtonTextAndIconColor(text: String, @DrawableRes iconResourceDrawable: Int = 0, textAllCaps: Boolean = true) {
         val themedTint = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_61)
         binding.diffText.text = text
         binding.diffText.setTextColor(themedTint)
         binding.diffText.setIconResource(iconResourceDrawable)
         binding.diffText.iconTint = themedTint
-        binding.diffText.setBackgroundColor(ResourceUtil.getThemedColor(context, backgroundTint))
+        binding.diffText.isAllCaps = textAllCaps
     }
 
     interface Callback {
