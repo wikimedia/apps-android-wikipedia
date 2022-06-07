@@ -26,6 +26,7 @@ import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import java.util.concurrent.ConcurrentHashMap
 
 class RecentSearchesFragment : Fragment() {
     interface Callback {
@@ -39,7 +40,7 @@ class RecentSearchesFragment : Fragment() {
     var callback: Callback? = null
     val recentSearchList = mutableListOf<RecentSearch>()
     private val namespaceHints = listOf(Namespace.USER, Namespace.PORTAL, Namespace.HELP)
-    private val namespaceMap = mutableMapOf<Namespace, String>()
+    private val namespaceMap = ConcurrentHashMap<String, Map<Namespace, String>>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSearchRecentBinding.inflate(inflater, container, false)
@@ -61,6 +62,7 @@ class RecentSearchesFragment : Fragment() {
         binding.addLanguagesButton.setOnClickListener { onAddLangButtonClick() }
         binding.recentSearchesRecycler.layoutManager = LinearLayoutManager(requireActivity())
         binding.namespacesRecycler.layoutManager = LinearLayoutManager(requireActivity(), RecyclerView.HORIZONTAL, false)
+        binding.recentSearchesRecycler.adapter = RecentSearchAdapter()
         val touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         touchCallback.swipeableEnabled = true
         val itemTouchHelper = ItemTouchHelper(touchCallback)
@@ -75,12 +77,6 @@ class RecentSearchesFragment : Fragment() {
 
     fun hide() {
         binding.recentSearchesContainer.visibility = View.GONE
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.recentSearchesRecycler.adapter = RecentSearchAdapter()
-        lifecycleScope.launch { updateList() }
     }
 
     override fun onDestroyView() {
@@ -117,17 +113,21 @@ class RecentSearchesFragment : Fragment() {
         try {
             val searches: List<RecentSearch>
             val nsMap: Map<String, MwQueryResult.Namespace>
-            withContext(Dispatchers.IO) {
-                val nsDeferred = async { ServiceFactory.get(WikiSite.forLanguageCode(callback?.getLangCode().orEmpty())).getPageNamespaceWithSiteInfo(null).query?.namespaces.orEmpty() }
-                val searchesDeferred = async { AppDatabase.instance.recentSearchDao().getRecentSearches() }
+            val langCode = callback?.getLangCode().orEmpty()
 
-                searches = searchesDeferred.await()
-                nsMap = nsDeferred.await()
+            if (!namespaceMap.containsKey(langCode)) {
+                val map = mutableMapOf<Namespace, String>()
+                namespaceMap[langCode] = map
+                withContext(Dispatchers.IO) {
+                    nsMap = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getPageNamespaceWithSiteInfo(null).query?.namespaces.orEmpty()
+                    namespaceHints.forEach {
+                        map[it] = nsMap[it.code().toString()]?.name.orEmpty()
+                    }
+                }
             }
 
-            namespaceMap.clear()
-            namespaceHints.forEach {
-                namespaceMap[it] = nsMap[it.code().toString()]?.name.orEmpty()
+            withContext(Dispatchers.IO) {
+                searches = AppDatabase.instance.recentSearchDao().getRecentSearches()
             }
 
             recentSearchList.clear()
@@ -188,7 +188,7 @@ class RecentSearchesFragment : Fragment() {
         fun bindItem(ns: Namespace?) {
             itemView.setOnClickListener(this)
             this.ns = ns
-            (itemView as TextView).text = if (ns == null) getString(R.string.search_namespaces) else namespaceMap[ns].orEmpty() + ":"
+            (itemView as TextView).text = if (ns == null) getString(R.string.search_namespaces) else namespaceMap[callback?.getLangCode()]?.get(ns).orEmpty() + ":"
             itemView.isEnabled = ns != null
             itemView.setTextColor(ResourceUtil.getThemedColor(requireContext(), if (ns == null) R.attr.material_theme_primary_color else R.attr.colorAccent))
         }
