@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/namespaceText"
+    android:layout_width="wrap_content"
+    android:layout_height="48dp"
+    android:paddingHorizontal="8dp"
+    android:gravity="center_vertical"
+    android:textColor="?attr/material_theme_primary_color"
+    android:textStyle="bold"
+    android:background="?attr/selectableItemBackgroundBorderless"
+    tools:text="Namespace:"/>

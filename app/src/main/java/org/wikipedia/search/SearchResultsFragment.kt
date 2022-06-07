@@ -332,8 +332,8 @@ class SearchResultsFragment : Fragment() {
 
     private fun displayResults(results: List<SearchResult>) {
         for (newResult in results) {
-            val res = totalResults.find { newResult.pageTitle.prefixedText == newResult.pageTitle.prefixedText &&
-                    newResult.pageTitle.wikiSite.languageCode == newResult.pageTitle.wikiSite.languageCode }
+            val res = totalResults.find { newResult.pageTitle.prefixedText == it.pageTitle.prefixedText &&
+                    newResult.pageTitle.wikiSite.languageCode == it.pageTitle.wikiSite.languageCode }
             if (res == null) {
                 totalResults.add(newResult)
             } else if (!newResult.pageTitle.description.isNullOrEmpty()) {
