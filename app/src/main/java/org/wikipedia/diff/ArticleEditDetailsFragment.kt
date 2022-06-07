@@ -256,7 +256,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         val watchlistItem = menu.findItem(R.id.menu_add_watchlist)
         watchlistItem.title = getString(if (isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
         watchlistItem.setIcon(getWatchlistIcon(isWatched, hasWatchlistExpiry))
-        menu.findItem(R.id.menu_undo).isVisible = AccountUtil.isLoggedIn && viewModel.hasRollbackRights && !viewModel.canGoForward
+        menu.findItem(R.id.menu_undo).isVisible = (viewModel.revisionFrom != null) &&
+                !AccountUtil.isLoggedIn || (viewModel.hasRollbackRights && !viewModel.canGoForward)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
