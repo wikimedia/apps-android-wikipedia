@@ -37,10 +37,11 @@ class RecentSearchesFragment : Fragment() {
 
     private var _binding: FragmentSearchRecentBinding? = null
     private val binding get() = _binding!!
-    var callback: Callback? = null
-    val recentSearchList = mutableListOf<RecentSearch>()
     private val namespaceHints = listOf(Namespace.USER, Namespace.PORTAL, Namespace.HELP)
     private val namespaceMap = ConcurrentHashMap<String, Map<Namespace, String>>()
+    private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable -> L.e(throwable) }
+    var callback: Callback? = null
+    val recentSearchList = mutableListOf<RecentSearch>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSearchRecentBinding.inflate(inflater, container, false)
@@ -49,7 +50,7 @@ class RecentSearchesFragment : Fragment() {
             AlertDialog.Builder(requireContext())
                     .setMessage(getString(R.string.clear_recent_searches_confirm))
                     .setPositiveButton(getString(R.string.clear_recent_searches_confirm_yes)) { _, _ ->
-                        lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
+                        lifecycleScope.launch(coroutineExceptionHandler) {
                             withContext(Dispatchers.IO) {
                                 AppDatabase.instance.recentSearchDao().deleteAll()
                             }
@@ -104,45 +105,41 @@ class RecentSearchesFragment : Fragment() {
     }
 
     fun onLangCodeChanged() {
-        lifecycleScope.launch {
+        lifecycleScope.launch(coroutineExceptionHandler) {
             updateList()
         }
     }
 
     suspend fun updateList() {
-        try {
-            val searches: List<RecentSearch>
-            val nsMap: Map<String, MwQueryResult.Namespace>
-            val langCode = callback?.getLangCode().orEmpty()
+        val searches: List<RecentSearch>
+        val nsMap: Map<String, MwQueryResult.Namespace>
+        val langCode = callback?.getLangCode().orEmpty()
 
-            if (!namespaceMap.containsKey(langCode)) {
-                val map = mutableMapOf<Namespace, String>()
-                namespaceMap[langCode] = map
-                withContext(Dispatchers.IO) {
-                    nsMap = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getPageNamespaceWithSiteInfo(null).query?.namespaces.orEmpty()
-                    namespaceHints.forEach {
-                        map[it] = nsMap[it.code().toString()]?.name.orEmpty()
-                    }
+        if (!namespaceMap.containsKey(langCode)) {
+            val map = mutableMapOf<Namespace, String>()
+            namespaceMap[langCode] = map
+            withContext(Dispatchers.IO) {
+                nsMap = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getPageNamespaceWithSiteInfo(null).query?.namespaces.orEmpty()
+                namespaceHints.forEach {
+                    map[it] = nsMap[it.code().toString()]?.name.orEmpty()
                 }
             }
-
-            withContext(Dispatchers.IO) {
-                searches = AppDatabase.instance.recentSearchDao().getRecentSearches()
-            }
-
-            recentSearchList.clear()
-            recentSearchList.addAll(searches)
-
-            binding.namespacesRecycler.adapter = NamespaceAdapter()
-            binding.recentSearchesRecycler.adapter?.notifyDataSetChanged()
-
-            val searchesEmpty = recentSearchList.isEmpty()
-            binding.searchEmptyContainer.isInvisible = !searchesEmpty
-            updateSearchEmptyView(searchesEmpty)
-            binding.recentSearches.isInvisible = searchesEmpty
-        } catch (t: Throwable) {
-            L.e(t)
         }
+
+        withContext(Dispatchers.IO) {
+            searches = AppDatabase.instance.recentSearchDao().getRecentSearches()
+        }
+
+        recentSearchList.clear()
+        recentSearchList.addAll(searches)
+
+        binding.namespacesRecycler.adapter = NamespaceAdapter()
+        binding.recentSearchesRecycler.adapter?.notifyDataSetChanged()
+
+        val searchesEmpty = recentSearchList.isEmpty()
+        binding.searchEmptyContainer.isInvisible = !searchesEmpty
+        updateSearchEmptyView(searchesEmpty)
+        binding.recentSearches.isInvisible = searchesEmpty
     }
 
     private inner class RecentSearchItemViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
@@ -159,7 +156,7 @@ class RecentSearchesFragment : Fragment() {
         }
 
         override fun onSwipe() {
-            lifecycleScope.launch {
+            lifecycleScope.launch(coroutineExceptionHandler) {
                 withContext(Dispatchers.IO) {
                     AppDatabase.instance.recentSearchDao().delete(recentSearch)
                 }
@@ -183,14 +180,12 @@ class RecentSearchesFragment : Fragment() {
     }
 
     private inner class NamespaceItemViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        private var ns: Namespace? = null
-
         fun bindItem(ns: Namespace?) {
+            val isHeader = ns == null
             itemView.setOnClickListener(this)
-            this.ns = ns
-            (itemView as TextView).text = if (ns == null) getString(R.string.search_namespaces) else namespaceMap[callback?.getLangCode()]?.get(ns).orEmpty() + ":"
-            itemView.isEnabled = ns != null
-            itemView.setTextColor(ResourceUtil.getThemedColor(requireContext(), if (ns == null) R.attr.material_theme_primary_color else R.attr.colorAccent))
+            (itemView as TextView).text = if (isHeader) getString(R.string.search_namespaces) else namespaceMap[callback?.getLangCode()]?.get(ns).orEmpty() + ":"
+            itemView.isEnabled = !isHeader
+            itemView.setTextColor(ResourceUtil.getThemedColor(requireContext(), if (isHeader) R.attr.material_theme_primary_color else R.attr.colorAccent))
         }
 
         override fun onClick(v: View) {
@@ -208,7 +203,7 @@ class RecentSearchesFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: NamespaceItemViewHolder, pos: Int) {
-            holder.bindItem(if (pos > 0) namespaceHints[pos - 1] else null)
+            holder.bindItem(namespaceHints.getOrNull(pos - 1))
         }
     }
 }
