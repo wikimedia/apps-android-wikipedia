@@ -15,8 +15,6 @@ import android.view.inputmethod.InputMethodManager
 import androidx.annotation.ColorInt
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.BlendModeColorFilterCompat
-import androidx.core.graphics.BlendModeCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -43,12 +41,12 @@ object DeviceUtil {
     fun setLightSystemUiVisibility(activity: Activity) {
         // this make the system recognizes the status bar light and will make status bar icons become visible
         // if the theme is not dark
-        activity.window.insetsControllerCompat?.isAppearanceLightStatusBars = !WikipediaApp.getInstance().currentTheme.isDark
+        activity.window.insetsControllerCompat?.isAppearanceLightStatusBars = !WikipediaApp.instance.currentTheme.isDark
     }
 
     fun setNavigationBarColor(window: Window, @ColorInt color: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val isDarkThemeOrDarkBackground = WikipediaApp.getInstance().currentTheme.isDark ||
+            val isDarkThemeOrDarkBackground = WikipediaApp.instance.currentTheme.isDark ||
                     color == ContextCompat.getColor(window.context, android.R.color.black)
             window.navigationBarColor = color
             window.insetsControllerCompat?.isAppearanceLightNavigationBars = !isDarkThemeOrDarkBackground
@@ -57,10 +55,8 @@ object DeviceUtil {
 
     fun updateStatusBarTheme(activity: Activity, toolbar: Toolbar?, reset: Boolean) {
         activity.window.insetsControllerCompat?.isAppearanceLightStatusBars = !reset ||
-                !WikipediaApp.getInstance().currentTheme.isDark
-        toolbar?.navigationIcon?.colorFilter = BlendModeColorFilterCompat
-                .createBlendModeColorFilterCompat(if (reset) Color.WHITE
-                else ResourceUtil.getThemedColor(activity, R.attr.toolbar_icon_color), BlendModeCompat.SRC_IN)
+                !WikipediaApp.instance.currentTheme.isDark
+        toolbar?.navigationIcon?.setTint(if (reset) Color.WHITE else ResourceUtil.getThemedColor(activity, R.attr.toolbar_icon_color))
     }
 
     fun setContextClickAsLongClick(vararg views: View) {
@@ -73,7 +69,7 @@ object DeviceUtil {
 
     val isOnWiFi: Boolean
         get() {
-            val info = (WikipediaApp.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager)
+            val info = (WikipediaApp.instance.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager)
                     .getNetworkInfo(ConnectivityManager.TYPE_WIFI)
             return info != null && info.isConnected
         }
@@ -84,7 +80,7 @@ object DeviceUtil {
 
     val isAccessibilityEnabled: Boolean
         get() {
-            val am = WikipediaApp.getInstance().getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
+            val am = WikipediaApp.instance.getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
             // TODO: add more logic if other accessibility tools have different settings.
             return am.isEnabled && am.isTouchExplorationEnabled
         }

@@ -1,6 +1,7 @@
 package org.wikipedia.main
 
 import android.app.Activity
+import android.app.ActivityOptions
 import android.app.DownloadManager
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -9,9 +10,8 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import android.util.Pair
 import android.view.*
-import androidx.core.app.ActivityOptionsCompat
-import androidx.core.util.Pair
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -102,7 +102,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentMainBinding.inflate(inflater, container, false)
 
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
+        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
         binding.mainViewPager.isUserInputEnabled = false
         binding.mainViewPager.adapter = NavTabFragmentPagerAdapter(this)
         binding.mainViewPager.registerOnPageChangeCallback(pageChangeCallback)
@@ -174,13 +174,13 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
                 FeedbackUtil.showMessage(this, R.string.login_success_toast)
             }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
-            if (WikipediaApp.getInstance().tabCount == 0) {
+            if (WikipediaApp.instance.tabCount == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
                 return
             }
             if (resultCode == TabActivity.RESULT_NEW_TAB) {
-                val entry = HistoryEntry(PageTitle(getMainPageForLang(WikipediaApp.getInstance().appOrSystemLanguageCode),
-                        WikipediaApp.getInstance().wikiSite), HistoryEntry.SOURCE_MAIN_PAGE)
+                val entry = HistoryEntry(PageTitle(getMainPageForLang(WikipediaApp.instance.appOrSystemLanguageCode),
+                        WikipediaApp.instance.wikiSite), HistoryEntry.SOURCE_MAIN_PAGE)
                 startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 startActivity(PageActivity.newIntent(requireContext()))
@@ -230,14 +230,14 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsFragment
 
         val tabsItem = menu.findItem(R.id.menu_tabs)
-        if (WikipediaApp.getInstance().tabCount < 1 || currentFragment is SuggestedEditsTasksFragment) {
+        if (WikipediaApp.instance.tabCount < 1 || currentFragment is SuggestedEditsTasksFragment) {
             tabsItem.isVisible = false
             tabCountsView = null
         } else {
             tabsItem.isVisible = true
             tabCountsView = TabCountsView(requireActivity(), null)
             tabCountsView!!.setOnClickListener {
-                if (WikipediaApp.getInstance().tabCount == 1) {
+                if (WikipediaApp.instance.tabCount == 1) {
                     startActivity(PageActivity.newIntent(requireActivity()))
                 } else {
                     startActivityForResult(TabActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_BROWSE_TABS)
@@ -271,7 +271,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     fun handleIntent(intent: Intent) {
         if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOMIZER)) {
-            startActivity(RandomActivity.newIntent(requireActivity(), WikipediaApp.getInstance().wikiSite, InvokeSource.APP_SHORTCUTS))
+            startActivity(RandomActivity.newIntent(requireActivity(), WikipediaApp.instance.wikiSite, InvokeSource.APP_SHORTCUTS))
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_SEARCH)) {
             openSearchActivity(InvokeSource.APP_SHORTCUTS, null, null)
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
@@ -284,7 +284,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB)) {
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())))
-        } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.getInstance().tabCount > 0) {
+        } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.instance.tabCount > 0) {
             startActivity(PageActivity.newIntent(requireContext()))
         }
     }
@@ -314,7 +314,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     override fun onFeedSelectPageWithAnimation(entry: HistoryEntry, sharedElements: Array<Pair<View, String>>) {
-        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
+        val options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
         val intent = PageActivity.newIntentForNewTab(requireContext(), entry, entry.title)
         if (sharedElements.isNotEmpty()) {
             intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true)
@@ -336,7 +336,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     override fun onFeedNewsItemSelected(card: NewsCard, view: NewsItemView) {
-        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), view.imageView, getString(R.string.transition_news_item))
+        val options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), view.imageView, getString(R.string.transition_news_item))
         view.newsItem?.let {
             startActivity(NewsActivity.newIntent(requireActivity(), it, card.wikiSite()), if (it.thumb() != null) options.toBundle() else null)
         }
@@ -418,7 +418,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     override fun usernameClick() {
-        val pageTitle = PageTitle(UserAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCode) + ":" + AccountUtil.userName, WikipediaApp.getInstance().wikiSite)
+        val pageTitle = PageTitle(UserAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode) + ":" + AccountUtil.userName, WikipediaApp.instance.wikiSite)
         UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(pageTitle.uri))
     }
 
@@ -430,8 +430,8 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         if (AccountUtil.isLoggedIn) {
             AccountUtil.userName?.let {
                 startActivity(TalkTopicsActivity.newIntent(requireActivity(),
-                        PageTitle(UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCode), it,
-                                WikiSite.forLanguageCode(WikipediaApp.getInstance().appOrSystemLanguageCode)), InvokeSource.NAV_MENU))
+                        PageTitle(UserTalkAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode), it,
+                                WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)), InvokeSource.NAV_MENU))
             }
         }
     }
@@ -481,7 +481,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     private fun copyLink(url: String) {
-        ClipboardUtil.setPlainText(requireContext(), null, url)
+        ClipboardUtil.setPlainText(requireContext(), text = url)
         FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 
@@ -507,9 +507,8 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     fun openSearchActivity(source: InvokeSource, query: String?, transitionView: View?) {
         val intent = SearchActivity.newIntent(requireActivity(), source, query)
-        var options: ActivityOptionsCompat? = null
-        transitionView?.let {
-            options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), it, getString(R.string.transition_search_bar))
+        val options = transitionView?.let {
+            ActivityOptions.makeSceneTransitionAnimation(requireActivity(), it, getString(R.string.transition_search_bar))
         }
         startActivityForResult(intent, Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY, options?.toBundle())
     }

@@ -37,7 +37,7 @@ class SavedPageSyncWorker(
     params: WorkerParameters
 ) : CoroutineWorker(appContext, params) {
     private val savedPageSyncNotification = SavedPageSyncNotification.instance
-    private val app = appContext as WikipediaApp
+    val app: WikipediaApp = WikipediaApp.instance
 
     override suspend fun doWork(): Result {
         if (ReadingListSyncAdapter.inProgress()) {
@@ -332,7 +332,7 @@ class SavedPageSyncWorker(
             val workRequest = OneTimeWorkRequestBuilder<SavedPageSyncWorker>()
                 .setInitialDelay(2, TimeUnit.SECONDS)
                 .build()
-            WorkManager.getInstance(WikipediaApp.getInstance())
+            WorkManager.getInstance(WikipediaApp.instance)
                 .enqueueUniqueWork(WORK_NAME, ExistingWorkPolicy.REPLACE, workRequest)
         }
 
@@ -340,7 +340,7 @@ class SavedPageSyncWorker(
         fun sendSyncEvent(showMessage: Boolean = false) {
             // Note: this method posts from a background thread but subscribers expect events to be
             // received on the main thread.
-            WikipediaApp.getInstance().bus.post(ReadingListSyncEvent(showMessage))
+            WikipediaApp.instance.bus.post(ReadingListSyncEvent(showMessage))
         }
     }
 }

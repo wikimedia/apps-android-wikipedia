@@ -7,7 +7,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DateUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.net.HttpURLConnection
 import java.util.*
@@ -26,7 +26,7 @@ object EventPlatformClient {
      * Inputs: network connection state on/off, connection state bad y/n?
      * Taken out of iOS client, but flag can be set on the request object to wait until connected to send
      */
-    private var ENABLED = WikipediaApp.getInstance().isOnline
+    private var ENABLED = WikipediaApp.instance.isOnline
 
     fun setStreamConfig(streamConfig: StreamConfig) {
         STREAM_CONFIGS[streamConfig.streamName] = streamConfig
@@ -59,28 +59,10 @@ object EventPlatformClient {
      */
     @Synchronized
     fun submit(event: Event) {
-        if (!SamplingController.isInSample(event)) {
+        if (!SamplingController.isInSample(event) || (event is BreadCrumbLogEvent && ReleaseUtil.isProdRelease)) {
             return
         }
-        addEventMetadata(event)
         OutputBuffer.schedule(event)
-    }
-
-    /**
-     * Supplement the outgoing event with additional metadata, if not already present.
-     * These include:
-     * - dt: ISO 8601 timestamp
-     * - app_session_id: the current session ID
-     * - app_install_id: app install ID
-     *
-     * @param event event
-     */
-    fun addEventMetadata(event: Event) {
-        if (event is MobileAppsEvent) {
-            event.sessionId = AssociationController.sessionId
-            event.appInstallId = Prefs.appInstallId
-        }
-        event.dt = DateUtil.iso8601DateFormat(Date())
     }
 
     fun flushCachedEvents() {
@@ -123,12 +105,12 @@ object EventPlatformClient {
          * If another item is added to QUEUE during this time, reset the countdown.
          */
         private const val WAIT_MS = 30000
-        private const val MAX_QUEUE_SIZE = 64
+        private const val MAX_QUEUE_SIZE = 128
         private val SEND_RUNNABLE = Runnable { sendAllScheduled() }
 
         @Synchronized
         fun sendAllScheduled() {
-            WikipediaApp.getInstance().mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
+            WikipediaApp.instance.mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
             if (ENABLED) {
                 send()
                 QUEUE.clear()
@@ -150,8 +132,8 @@ object EventPlatformClient {
                     sendAllScheduled()
                 } else {
                     // The arrival of a new item interrupts the timer and resets the countdown.
-                    WikipediaApp.getInstance().mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
-                    WikipediaApp.getInstance().mainThreadHandler.postDelayed(SEND_RUNNABLE, WAIT_MS.toLong())
+                    WikipediaApp.instance.mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
+                    WikipediaApp.instance.mainThreadHandler.postDelayed(SEND_RUNNABLE, WAIT_MS.toLong())
                 }
             }
         }
@@ -165,12 +147,8 @@ object EventPlatformClient {
             if (!Prefs.isEventLoggingEnabled) {
                 return
             }
-            val eventsByStream = mutableMapOf<String, MutableList<Event>>()
-            QUEUE.forEach {
-                eventsByStream.getOrPut(it.stream) { mutableListOf() }.add(it)
-            }
-            eventsByStream.keys.forEach {
-                sendEventsForStream(STREAM_CONFIGS[it]!!, eventsByStream[it]!!)
+            QUEUE.groupBy { it.stream }.forEach { (stream, events) ->
+                sendEventsForStream(STREAM_CONFIGS[stream]!!, events)
             }
         }
 

@@ -1,9 +1,9 @@
 package org.wikipedia.watchlist
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -35,10 +35,10 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         binding.diffText.setOnClickListener(clickListener)
         binding.userNameText.setOnClickListener {
             if (item != null) {
-                callback?.onUserClick(item!!)
+                callback?.onUserClick(item!!, it)
             }
         }
-        if (WikipediaApp.getInstance().language().appLanguageCodes.size == 1) {
+        if (WikipediaApp.instance.languageState.appLanguageCodes.size == 1) {
             binding.langCodeBackground.visibility = GONE
             binding.langCodeText.visibility = GONE
         } else {
@@ -52,7 +52,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         binding.titleText.text = item.title
         binding.langCodeText.text = item.wiki!!.languageCode
         binding.summaryText.text = StringUtil.fromHtml(item.parsedComment)
-        binding.timeText.text = DateUtil.getTimeString(item.date)
+        binding.timeText.text = DateUtil.getTimeString(context, item.date)
         binding.userNameText.text = item.user
         binding.userNameText.contentDescription = context.getString(R.string.talk_user_title, item.user)
 
@@ -86,18 +86,17 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         L10nUtil.setConditionalLayoutDirection(this, item.wiki!!.languageCode)
     }
 
-    private fun setButtonTextAndIconColor(text: String, @AttrRes backgroundTint: Int, @DrawableRes iconResourceDrawable: Int? = null) {
-        val themedTint = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.color_group_61))
+    private fun setButtonTextAndIconColor(text: String, @AttrRes backgroundTint: Int, @DrawableRes iconResourceDrawable: Int = 0) {
+        val themedTint = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_61)
         binding.diffText.text = text
         binding.diffText.setTextColor(themedTint)
-        binding.diffText.icon = if (iconResourceDrawable == null) null
-        else ContextCompat.getDrawable(context, iconResourceDrawable)
+        binding.diffText.setIconResource(iconResourceDrawable)
         binding.diffText.iconTint = themedTint
         binding.diffText.setBackgroundColor(ResourceUtil.getThemedColor(context, backgroundTint))
     }
 
     interface Callback {
         fun onItemClick(item: MwQueryResult.WatchlistItem)
-        fun onUserClick(item: MwQueryResult.WatchlistItem)
+        fun onUserClick(item: MwQueryResult.WatchlistItem, view: View)
     }
 }

@@ -104,7 +104,7 @@ interface ReadingListPageDao {
         for (page in pages) {
             insertPageIntoDb(list, page)
         }
-        WikipediaApp.getInstance().bus.post(ArticleSavedOrDeletedEvent(true, *pages.toTypedArray()))
+        WikipediaApp.instance.bus.post(ArticleSavedOrDeletedEvent(true, *pages.toTypedArray()))
         SavedPageSyncWorker.enqueue()
     }
 
@@ -177,7 +177,7 @@ interface ReadingListPageDao {
         if (queueForSync) {
             ReadingListSyncAdapter.manualSyncWithDeletePages(list, pages)
         }
-        WikipediaApp.getInstance().bus.post(ArticleSavedOrDeletedEvent(false, *pages.toTypedArray()))
+        WikipediaApp.instance.bus.post(ArticleSavedOrDeletedEvent(false, *pages.toTypedArray()))
         SavedPageSyncWorker.enqueue()
     }
 
@@ -259,7 +259,7 @@ interface ReadingListPageDao {
             page.status = ReadingListPage.STATUS_QUEUE_FOR_SAVE
             insertPageIntoDb(list, page)
         }
-        WikipediaApp.getInstance().bus.post(ArticleSavedOrDeletedEvent(true, page))
+        WikipediaApp.instance.bus.post(ArticleSavedOrDeletedEvent(true, page))
 
         SavedPageSyncWorker.enqueue()
         if (queueForSync) {
@@ -277,7 +277,7 @@ interface ReadingListPageDao {
     private suspend fun addPageToList(list: ReadingList, title: PageTitle) {
         val protoPage = ReadingListPage(title)
         insertPageIntoDb(list, protoPage)
-        WikipediaApp.getInstance().bus.post(ArticleSavedOrDeletedEvent(true, protoPage))
+        WikipediaApp.instance.bus.post(ArticleSavedOrDeletedEvent(true, protoPage))
     }
 
     private suspend fun insertPageIntoDb(list: ReadingList, page: ReadingListPage) {

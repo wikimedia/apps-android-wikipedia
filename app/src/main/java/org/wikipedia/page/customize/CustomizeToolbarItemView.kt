@@ -30,7 +30,7 @@ class CustomizeToolbarItemView : LinearLayout {
     fun setContents(pageActionItem: PageActionItem, position: Int) {
         this.position = position
         binding.listItem.text = context.getString(pageActionItem.titleResId)
-        binding.listItem.setCompoundDrawablesWithIntrinsicBounds(pageActionItem.iconResId, 0, 0, 0)
+        binding.listItem.setCompoundDrawablesRelativeWithIntrinsicBounds(pageActionItem.iconResId, 0, 0, 0)
     }
 
     fun setDragHandleEnabled(enabled: Boolean) {

@@ -120,6 +120,7 @@
   <string name="on_this_day_page_share">공유</string>
   <string name="reading_list_page_share">공유</string>
   <string name="menu_text_select_edit_here">여기를 편집</string>
+  <string name="menu_edit_article">문서 편집</string>
   <string name="last_updated_text">%s에 마지막으로 업데이트됨</string>
   <string name="talk_page_link_text">토론 문서 보기</string>
   <string name="edit_history_link_text">편집 역사 보기</string>
@@ -129,6 +130,7 @@
   <string name="content_license_cc_by_sa">크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.0</string>
   <string name="edit_save_action_license_logged_in">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다.</string>
   <string name="edit_save_action_license_anon">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다. 편집에 당신이 쓴 기기의 IP 주소가 남습니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인정보를 더 보호할 수 있습니다.</string>
+  <string name="edit_anon_warning">편집에 당신의 장치의 IP 주소가 들어갑니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면 개인정보를 더 보호할 수 있습니다.</string>
   <string name="preference_title_language">위키백과 언어</string>
   <string name="langlinks_filter_hint">검색</string>
   <string name="langlinks_empty">이 문서는 다른 언어로 읽을 수 없습니다.</string>
@@ -419,7 +421,6 @@
   <string name="error_blocked_expiry">차단 해제일: %s</string>
   <string name="error_blocked_id">차단 ID: %s</string>
   <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;님 이나 다른 &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;관리자&lt;/a&gt;와 차단에 관해 의논할 수 있습니다.</string>
-  <string name="theme_chooser_menu_item_tooltip">도구 모음을 사용자에 맞게 지정하고 읽기 집중 모드를 사용해보세요</string>
   <string name="error_blocked_footer_no_blocker">&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;관리자&lt;/a&gt;와 차단에 관해 의논할 수 있습니다.</string>
   <string name="crash_report_activity_title">애플리케이션 오류</string>
   <string name="crash_report_relaunch_or_quit">죄송합니다,  위키백과 앱이 오류가 발생하여 종료되었습니다.\n\n다시 시작하거나 나가시겠습니까?</string>
@@ -449,8 +450,6 @@
   <string name="theme_category_reading">읽기</string>
   <string name="reading_focus_mode">읽기 집중 모드</string>
   <string name="reading_focus_mode_detail">스크롤할 때 편집 기능과 아래 도구 모음을 숨깁니다</string>
-  <string name="theme_category_toolbar">도구 모음</string>
-  <string name="theme_customize_toolbar">도구 모음 사용자 지정</string>
   <string name="nav_item_saved">저장됨</string>
   <string name="reading_list_save_to">읽기 목록에 저장</string>
   <string name="reading_list_move_to">읽기 목록으로 이동</string>
@@ -804,11 +803,12 @@
   <string name="description_edit_tutorial_button_label_start_editing">편집 시작</string>
   <string name="description_edit_tutorial_promise">시작함으로써 나는 이 기능을 악용하지 않을 것을 약속합니다.</string>
   <string name="customize_toolbar_title">도구 모음 사용자 지정</string>
-  <string name="customize_toolbar_description_text">가장 도움이 될만한 5개의 링크를 가지고 아래의 도구 모음을 사용자에 맞게 수정하십시오.</string>
   <string name="customize_toolbar_category_toolbar">도구 모음</string>
   <string name="customize_toolbar_category_menu">메뉴</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">여기에 즐겨찾는 항목을 끌어 놓으십시오 👋</string>
   <string name="customize_toolbar_reset_to_default_button">기본값으로 재설정</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">항목을 이동하려면 드래그 아이콘을 누르고 계십시오</string>
+  <string name="customize_toolbar_item_default_tooltip">항목의 위치를 변경하려면 항목을 누르고 끄십시오</string>
   <string name="suggested_edits_describe_articles">문서 설명 추가</string>
   <string name="suggested_edits_caption_images">이미지 캡션 추가</string>
   <string name="suggested_edits_tag_images">이미지 태그하기</string>
@@ -899,6 +899,7 @@
   <string name="suggested_edits_paused_message">편집 제안이 %1$s까지 일시 중단되었습니다. %2$s님, 죄송합니다. 최근 기여 중 일부 기여가 되돌려졌습니다.</string>
   <string name="suggested_edits_disabled_message">&lt;b&gt;편집 제안이 비활성화되었습니다.&lt;/b&gt; %s님 죄송합니다. 최근 기여의 대다수가 되돌려졌습니다.</string>
   <string name="suggested_edits_ip_blocked_message">현재 사용 중인 IP(또는 IP의 주소)로는 위키백과를 편집할 수 없습니다.</string>
+  <string name="suggested_edits_gate_message">죄송합니다, %s님. 이 기능을 사용하려면 문서 내에 적어도 3건의 편집을 직접 해야 합니다.</string>
   <string name="suggested_edits_editing_tips_link_text">편집 팁 및 트릭</string>
   <string name="suggested_edits_help_page_link_text">편집 제안 도움말 문서</string>
   <string name="suggested_edits_edit_streak_label_text">편집 스트리크</string>
@@ -1106,6 +1107,8 @@
   <string name="menu_option_view_user_contributions">사용자 기여 보기</string>
   <string name="revision_diff_compare">판 비교</string>
   <string name="revision_diff_compare_title">판 비교: %s</string>
+  <string name="revision_diff_from">이전 판:</string>
+  <string name="revision_diff_to">다음 판:</string>
   <string name="revision_diff_line_num">줄 %d</string>
   <string name="revision_diff_line_nums">줄 %d-%d</string>
   <string name="revision_diff_line_added">줄 추가됨</string>

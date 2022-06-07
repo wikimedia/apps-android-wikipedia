@@ -39,10 +39,10 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.*
-import java.util.*
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
     private var _binding: FragmentReadingListsBinding? = null
@@ -71,10 +71,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         binding.recyclerView.adapter = adapter
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable))
         setUpScrollListener()
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
+        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
         binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         binding.swipeRefreshLayout.setOnRefreshListener { refreshSync(this, binding.swipeRefreshLayout) }
-        if (ReadingListSyncAdapter.isDisabledByRemoteConfig) {
+        if (RemoteConfig.config.disableReadingListSync) {
             binding.swipeRefreshLayout.isEnabled = false
         }
         binding.searchEmptyView.visibility = View.GONE
@@ -266,7 +266,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private fun maybeShowListLimitMessage() {
         if (actionMode == null && displayedLists.size >= Constants.MAX_READING_LISTS_LIMIT) {
             val message = getString(R.string.reading_lists_limit_message)
-            FeedbackUtil.makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show()
+            FeedbackUtil.makeSnackbar(requireActivity(), message).show()
         }
     }
 
@@ -550,7 +550,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             return
         }
         if (AccountUtil.isLoggedIn && !Prefs.isReadingListSyncEnabled &&
-                Prefs.isReadingListSyncReminderEnabled && !ReadingListSyncAdapter.isDisabledByRemoteConfig) {
+                Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
             binding.onboardingView.setMessageTitle(getString(R.string.reading_lists_sync_reminder_title))
             binding.onboardingView.setMessageText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)).toString())
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
@@ -560,7 +560,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 Prefs.isReadingListSyncReminderEnabled = false
             }, false)
             binding.onboardingView.visibility = View.VISIBLE
-        } else if (!AccountUtil.isLoggedIn && Prefs.isReadingListLoginReminderEnabled && !ReadingListSyncAdapter.isDisabledByRemoteConfig) {
+        } else if (!AccountUtil.isLoggedIn && Prefs.isReadingListLoginReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
             binding.onboardingView.setMessageTitle(getString(R.string.reading_list_login_reminder_title))
             binding.onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text))
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)

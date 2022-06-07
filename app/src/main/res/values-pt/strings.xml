@@ -415,7 +415,6 @@
   <string name="error_blocked_expiry">Expiração do bloqueio: %s</string>
   <string name="error_blocked_id">Identificador do bloqueio: %s</string>
   <string name="error_blocked_footer">Pode entrar em contacto com &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou outro &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
-  <string name="theme_chooser_menu_item_tooltip">Personalizar a barra de ferramentas e experimentar o modo de focalização na leitura</string>
   <string name="error_blocked_footer_no_blocker">Pode entrar em contacto com um &lt;a href=\"https://pt.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
   <string name="crash_report_activity_title">Erro da aplicação</string>
   <string name="crash_report_relaunch_or_quit">Lamentamos, mas a aplicação Wikipédia teve uma falha e foi encerrada.\n\nQuer voltar a começar ou sair?</string>
@@ -445,8 +444,6 @@
   <string name="theme_category_reading">Leitura</string>
   <string name="reading_focus_mode">Modo de focalização na leitura</string>
   <string name="reading_focus_mode_detail">Esconde as funcionalidades de edição e a barra de ferramentas inferior ao deslizar a página</string>
-  <string name="theme_category_toolbar">Barra de ferramentas</string>
-  <string name="theme_customize_toolbar">Personalizar a barra de ferramentas</string>
   <string name="nav_item_saved">Gravado</string>
   <string name="reading_list_save_to">Guardar na lista de leitura</string>
   <string name="reading_list_move_to">Mover para lista de leitura</string>
@@ -809,7 +806,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Começar a editar</string>
   <string name="description_edit_tutorial_promise">Ao começar, prometo não utilizar esta funcionalidade de forma abusiva.</string>
   <string name="customize_toolbar_title">Personalizar a barra de ferramentas</string>
-  <string name="customize_toolbar_description_text">Personalize a barra de ferramentas inferior com cinco hiperligações que considera mais úteis.</string>
   <string name="customize_toolbar_category_toolbar">Barra de ferramentas</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Arraste e largue os seus elementos preferidos aqui 👋</string>

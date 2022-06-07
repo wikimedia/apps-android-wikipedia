@@ -104,7 +104,7 @@ interface ReadingListDao {
     suspend fun getDefaultList(): ReadingList {
         return getListsWithoutContents().find { it.isDefault } ?: run {
             L.w("(Re)creating default list.")
-            createNewList("", WikipediaApp.getInstance().getString(R.string.default_reading_list_description))
+            createNewList("", WikipediaApp.instance.getString(R.string.default_reading_list_description))
         }
     }
 
@@ -115,7 +115,7 @@ interface ReadingListDao {
                 return this
             }
             L.w("(Re)creating default list.")
-            return createNewList("", WikipediaApp.getInstance().getString(R.string.default_reading_list_description))
+            return createNewList("", WikipediaApp.instance.getString(R.string.default_reading_list_description))
         }
 
     private fun createNewList(title: String, description: String?): ReadingList {

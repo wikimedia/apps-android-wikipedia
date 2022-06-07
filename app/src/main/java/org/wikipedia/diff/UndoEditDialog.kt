@@ -6,9 +6,10 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doOnTextChanged
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.databinding.DialogUndoEditBinding
 
-class UndoEditDialog constructor(context: Context, callback: Callback) : AlertDialog(context) {
+class UndoEditDialog constructor(private val editHistoryInteractionEvent: EditHistoryInteractionEvent?, context: Context, callback: Callback) : AlertDialog(context) {
     fun interface Callback {
         fun onSuccess(text: CharSequence)
     }
@@ -22,7 +23,9 @@ class UndoEditDialog constructor(context: Context, callback: Callback) : AlertDi
         setButton(BUTTON_POSITIVE, context.getString(R.string.edit_undo)) { _, _ ->
             callback.onSuccess(binding.textInput.text.toString())
         }
-        setButton(BUTTON_NEGATIVE, context.getString(R.string.text_input_dialog_cancel_button_text)) { _, _ -> }
+        setButton(BUTTON_NEGATIVE, context.getString(R.string.text_input_dialog_cancel_button_text)) { _, _ ->
+            editHistoryInteractionEvent?.logUndoCancel()
+        }
         create()
         setPositiveButtonEnabled(false)
     }

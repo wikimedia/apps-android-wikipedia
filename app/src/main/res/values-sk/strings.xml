@@ -63,13 +63,35 @@
   <string name="share_via">Zdieľať cez</string>
   <string name="image_share_via">Zdieľať cez</string>
   <string name="search_redirect_from">Presmerované z %s</string>
+  <string name="page_edit_history_activity_title">História úprav: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Prázdny sumár úprav</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Hľadať alebo filtrovať úpravy</string>
+  <string name="page_edit_history_filter_by">Filtrovať podľa</string>
+  <string name="page_edit_history_filter_by_all">Všetky úpravy (%s)</string>
+  <string name="page_edit_history_filter_by_user">Úpravy používateľa (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonymné úpravy (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Úpravy bota (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Metriky od %1$s do %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d úprava od %2$s</item>
+    <item quantity="few">%1$d úpravy od %2$s</item>
+    <item quantity="many">%1$d úprav od %2$s</item>
+    <item quantity="other">%1$d úprav od %2$s</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Skúste zmeniť &lt;a href=\"#\"&gt;filtre&lt;/a&gt;pre zobrazenie viac úprav</string>
   <string name="menu_page_show_tabs">Zobraziť karty</string>
   <string name="menu_page_other_languages">Zmeniť jazyk</string>
   <string name="menu_page_find_in_page">Nájsť v článku</string>
   <string name="menu_page_add_to_watchlist">Pridať do zoznamu sledovaných</string>
+  <string name="menu_page_watch">Sledovať</string>
+  <string name="menu_page_unwatch">Nesledovať</string>
   <string name="menu_page_view_talk">Zobraziť diskusiu</string>
+  <string name="menu_page_talk_page">Diskusná stránka</string>
   <string name="menu_page_view_edit_history">Zobraziť históriu úprav</string>
+  <string name="menu_page_edit_history">História úprav</string>
   <string name="menu_page_remove_from_watchlist">Odstrániť zo zoznamu sledovaných</string>
+  <string name="menu_page_watched">Sledované</string>
   <string name="edit_section_find_in_page">Nájsť na stránke</string>
   <string name="menu_page_font_and_theme">Písmo a vzhľad</string>
   <string name="menu_page_add_to_list">Pridať do zoznamu na prečítanie</string>
@@ -90,6 +112,7 @@
   <string name="on_this_day_page_share">Zdieľať</string>
   <string name="reading_list_page_share">Zdieľať</string>
   <string name="menu_text_select_edit_here">Upraviť tu</string>
+  <string name="menu_edit_article">Upraviť článok</string>
   <string name="last_updated_text">Posledná aktualizácia %s</string>
   <string name="talk_page_link_text">Zobraziť diskusiu</string>
   <string name="edit_history_link_text">Zobraziť históriu úprav</string>
@@ -99,6 +122,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Uverejnením vašej úpravy zároveň súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov v rámci licenciou &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Uverejnením vašej úpravy zároveň súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov pod licenciou &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budú spájané s IP adresou vášho zariadenia. Po &lt;a href=\"https://#login\"&gt;prihlásení&lt;/a&gt; budete disponovať vyššou ochranou súkromia.</string>
+  <string name="edit_anon_warning">Úpravy budú prirátané k IP adrese vášho zariadenia. Ak sa &lt;a href=\"https://#login\"&gt;prihlásite&lt;/a&gt; budete mať viac súkromia.</string>
   <string name="preference_title_language">Jazyk Wikipédie</string>
   <string name="langlinks_filter_hint">Hľadať</string>
   <string name="langlinks_empty">Táto stránka nie je k dispozícii v iných jazykoch</string>
@@ -165,6 +189,7 @@
   <string name="dialog_create_account_checking_progress">Overujem</string>
   <string name="create_account_email_hint">E-mail (voliteľné)</string>
   <string name="create_account_password_repeat_hint">Zopakujte heslo</string>
+  <string name="create_account_password_is_username">Heslo nemôže byť rovnaké ako meno používateľa</string>
   <string name="create_account_passwords_mismatch_error">Heslá sa nezhodujú</string>
   <string name="create_account_email_error">Neplatná e-mailová adresa</string>
   <string name="create_account_username_error">Neplatné znaky v používateľskom mene</string>
@@ -420,6 +445,9 @@
   <string name="text_size_decrease">Zmenšiť veľkosť textu</string>
   <string name="text_size_percent_default">%s (predvolená hodnota)</string>
   <string name="text_style_title">Písmo</string>
+  <string name="theme_category_reading">Čítanie</string>
+  <string name="reading_focus_mode">Mód sústredeného čítania</string>
+  <string name="reading_focus_mode_detail">Skryje funkcie úprav a spodný panel nástrojov pri skrolovaní</string>
   <string name="nav_item_saved">Uložené</string>
   <string name="reading_list_save_to">Uložiť do zoznamu na prečítanie</string>
   <string name="reading_list_move_to">Presunúť do zoznamu na prečítanie</string>
@@ -797,6 +825,7 @@
   <string name="description_starts_with_uppercase">Začnite malým písmenom pokiaľ slovo nie je meno.</string>
   <string name="description_starts_with_lowercase">Vyhnite sa začatiu malým písmenom.</string>
   <string name="description_is_in_different_language">Zdá sa, že text je v neočakávanom jazyku. Jazyk by mal byť %s.</string>
+  <string name="description_verification_notice">Prosím skontrolujte či je váš popis v %1$s. Zamietnite toto upozornenie ak je váš popis napísaný v %2$s.</string>
   <string name="description_edit_success_saved">Popis článku bol uverejnený!</string>
   <string name="description_edit_success_saved_snackbar">Popis článku bol uverejnený!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku v jazyku %s bol uverejnený!</string>
@@ -814,6 +843,13 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálnom prípade jeden riadok s dvoma až dvanástimi slovami</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začať s úpravami</string>
   <string name="description_edit_tutorial_promise">Sľubujem, že nezneužijem túto funkciu.</string>
+  <string name="customize_toolbar_title">Prispôsobiť panel nástrojov</string>
+  <string name="customize_toolbar_category_toolbar">Panel nástrojov</string>
+  <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Chyťte a pretiahnite svoje obľúbené položky sem</string>
+  <string name="customize_toolbar_reset_to_default_button">Vynulovať na predvolené</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Podržte a potiahnite ikonu pre posunutie položky</string>
+  <string name="customize_toolbar_item_default_tooltip">Stlačte a presuňte položku</string>
   <string name="suggested_edits_describe_articles">Popísať články</string>
   <string name="suggested_edits_caption_images">Otitulkovať obrázky</string>
   <string name="suggested_edits_tag_images">Označiť obrázky</string>
@@ -906,6 +942,7 @@
   <string name="suggested_edits_paused_message">&lt;b&gt;Navrhované úpravy sú pozastavené do %1$s.&lt;/b&gt; Ľutujeme %2$s, niektoré Vaše nedávne príspevky boli vrátené späť.</string>
   <string name="suggested_edits_disabled_message">&lt;b&gt;Navrhované úpravy sú vypnuté.&lt;/b&gt; Ľutujeme %s, veľké množstvo Vašich nedávnych príspevkov bolo vrátených späť.</string>
   <string name="suggested_edits_ip_blocked_message">Vyzerá to tak, že IP adresa (alebo rozsah IP adries), ktorú používate, má momentálne zablokované upravovanie Wikipédie.</string>
+  <string name="suggested_edits_gate_message">Prepáčte %s, musíte urobiť aspoň tri úpravy v článku, aby ste mohli použiť túto funkciu.</string>
   <string name="suggested_edits_editing_tips_link_text">Editačné tipy a triky</string>
   <string name="suggested_edits_help_page_link_text">Nápoveda Navrhovaných úprav</string>
   <string name="suggested_edits_edit_streak_label_text">Úprav v sérii</string>
@@ -1116,11 +1153,54 @@
   <string name="talk_snackbar_survey_action_text">Začať</string>
   <string name="talk_share_discussion_subject">Wikipédia - diskusia na stránke témy \"%s\"</string>
   <string name="talk_share_talk_page">Wikipédia - diskusie na diskusných stránkach</string>
+  <string name="talk_edit_disclaimer">Toto je diskusná stránka. Prosím rešpektujte pravidlá diskusných stránok a nezabudnite sa podpísať pod svoj príspevok napísaním štyroch vlniek: ~~~~ keď používate wikitext. &lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia: Pravidlá diskusných stránok&lt;/a&gt;</string>
+  <string name="talk_search_hint">Vyhľadať správy</string>
+  <string name="talk_search_topics_hint">Hľadať témy</string>
+  <string name="talk_search_find_in_talk_topics_hint">Nájsť na diskusnej stránke témy</string>
+  <string name="talk_overflow_sort_by">Zoradiť podľa</string>
+  <string name="talk_overflow_sort_date_published">Dátum zverejnenia</string>
+  <string name="talk_overflow_sort_date_updated">Dátum aktualizácie</string>
+  <string name="talk_overflow_sort_topic_name">Názov témy</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Ukázať odpoveď (%d)</item>
+    <item quantity="few">Ukázať odpovede (%d)</item>
+    <item quantity="many">Ukázať odpovedí (%d)</item>
+    <item quantity="other">Ukázať odpovedí (%d)</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Schovať odpoveď</item>
+    <item quantity="few">Schovať odpovede (%d)</item>
+    <item quantity="many">Schovať odpovedí (%d)</item>
+    <item quantity="other">Schovať odpovedí (%d)</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">Prihlásený na odber pre %s</string>
+  <string name="talk_thread_unsubscribed_from">Zrušený odber pre %s</string>
+  <string name="talk_list_item_overflow_subscribe">Odoberať</string>
+  <string name="talk_list_item_overflow_subscribed">Prihlásený na odber</string>
+  <string name="talk_list_item_overflow_mark_as_read">Označiť ako prečítané</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Označiť ako neprečítané</string>
+  <string name="talk_list_item_overflow_share">Zdieľať</string>
+  <string name="talk_list_item_last_comment_date">Posledný komentár: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Odpovede celkom</string>
+  <string name="talk_list_item_user_icon_content_description">Ikona používateľa</string>
+  <string name="talk_list_item_swipe_mark_as_read">Prečítané</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Neprečítané</string>
+  <string name="talk_footer_about_this_talk_page">O tejto diskusnej stránke</string>
+  <string name="talk_footer_view_edit_history">Zobraziť históriu úprav</string>
+  <string name="talk_footer_view_user_page">Zobraziť stránku používateľa</string>
+  <string name="talk_footer_view_article">Zobraziť článok</string>
+  <string name="talk_footer_last_modified">Posledná úprava %1$s; upravil/a %2$s</string>
   <string name="menu_option_share_talk_discussion">Zdieľať diskusiu</string>
   <string name="menu_option_share_talk_page">Zdieľať diskusnú stránku</string>
   <string name="menu_option_share_edit">Zdieľať úpravu</string>
   <string name="menu_option_user_profile">Profil používateľa %s</string>
   <string name="menu_option_user_contributions">Príspevky používateľa %s</string>
+  <string name="menu_option_edit_source">Upraviť zdroj</string>
+  <string name="menu_option_user_page">Stránka používateľa %s</string>
+  <string name="menu_option_find_in_talk_page_topic">Nájsť na diskusnej stránke témy</string>
+  <string name="talk_menu_copy_text">Kopírovať text</string>
+  <string name="talk_menu_expand_threads">Rozbaliť vlákna</string>
+  <string name="talk_menu_collapse_threads">Zbaliť vlákna</string>
   <string name="watchlist_details_watching_label">Sledované</string>
   <string name="watchlist_details_watch_label">Sledovať</string>
   <string name="watchlist_details_next_edit">Ďalšia úprava</string>
@@ -1132,6 +1212,25 @@
   <string name="thank_dialog_positive_button_text">Poslať poďakovanie</string>
   <string name="thank_dialog_negative_button_text">Zrušiť</string>
   <string name="thank_success_message">Vaše poďakovanie bolo poslané používateľovi/ke %s 👍</string>
+  <string name="menu_option_view_user_profile">Zobraziť stránku používateľa</string>
+  <string name="menu_option_view_user_talk">Zobraziť diskusnú stránku</string>
+  <string name="menu_option_view_user_contributions">Zobraziť príspevky používateľa</string>
+  <string name="revision_diff_compare">Porovnať revízie</string>
+  <string name="revision_diff_compare_title">Porovnať revízie: %s</string>
+  <string name="revision_diff_from">Od:</string>
+  <string name="revision_diff_to">Do:</string>
+  <string name="revision_diff_line_num">Riadok %d</string>
+  <string name="revision_diff_line_nums">Riadky %d-%d</string>
+  <string name="revision_diff_line_added">Riadok pridaný</string>
+  <string name="revision_diff_line_removed">Riadok odstránený</string>
+  <string name="revision_diff_paragraph_added">Odsek pridaný</string>
+  <string name="revision_diff_paragraph_removed">Odsek odstránený</string>
+  <string name="revision_undo_title">Vrátiť úpravu</string>
+  <string name="revision_undo_message">Toto vráti naspäť úpravu urobenú revíziou artikla zobrazeného tu.</string>
+  <string name="revision_undo_reason">Pre pokračovanie prosím zadajte dôvod prečo chcete úpravu vrátiť späť:</string>
+  <string name="revision_undo_success">Revízia bola vrátená späť.</string>
+  <string name="revision_compare_button">Porovnať</string>
+  <string name="revision_compare_two_only">Vybrané môžu byť len dve revízie.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Stránka %1$s bola pridaná do Vášho zoznamu sledovaných %2$s</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Zmeniť</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">natrvalo</string>
@@ -1154,4 +1253,10 @@
   <string name="watchlist_page_moved">Presunuté</string>
   <string name="watchlist_page_protected">Chránené</string>
   <string name="watchlist_page_deleted">Zmazané</string>
+  <string name="action_item_categories">Kategórie</string>
+  <string name="page_no_categories">Táto stránka nepatrí do žiadnej kategórie.</string>
+  <string name="category_tab_articles">Články</string>
+  <string name="category_tab_subcategories">Podkategórie</string>
+  <string name="category_empty">V tejto kategórii sa nenašiel žiadny článok.</string>
+  <string name="subcategory_empty">V tejto kategórii sa nenašla žiadna podkategória.</string>
 </resources>

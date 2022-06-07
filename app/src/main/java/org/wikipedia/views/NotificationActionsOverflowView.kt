@@ -15,13 +15,11 @@ import android.widget.PopupWindow
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.widget.PopupWindowCompat
+import androidx.core.widget.TextViewCompat
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ViewNotificationActionsOverflowBinding
 import org.wikipedia.dataclient.WikiSite
@@ -96,7 +94,7 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
 
         container.notification?.isUnread?.let {
             binding.overflowMarkAsRead.setText(if (it) R.string.notifications_menu_mark_as_read else R.string.notifications_menu_mark_as_unread)
-            binding.overflowMarkAsRead.setCompoundDrawablesWithIntrinsicBounds(if (it) R.drawable.ic_outline_markunread_24 else R.drawable.ic_outline_drafts_24, 0, 0, 0)
+            binding.overflowMarkAsRead.setCompoundDrawablesRelativeWithIntrinsicBounds(if (it) R.drawable.ic_outline_markunread_24 else R.drawable.ic_outline_drafts_24, 0, 0, 0)
         }
 
         binding.overflowViewPrimary.setOnClickListener(actionClickListener)
@@ -119,7 +117,6 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         val url = link.url
         val notification = container.notification
         if (url.isNotEmpty() && notification != null) {
-            NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logAction(linkIndex, link)
             NotificationInteractionEvent.logAction(notification, linkIndex, link)
             linkHandler.wikiSite = WikiSite(url)
             linkHandler.onUrlClick(url, null, "")
@@ -142,9 +139,8 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
 
         val iconColor = ColorStateList.valueOf(customIconColor)
         val textColor = ColorStateList.valueOf(customTextColor)
-        val drawable = AppCompatResources.getDrawable(context, icon)
-        drawable?.setTintList(iconColor)
-        textView.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
+        textView.setCompoundDrawablesRelativeWithIntrinsicBounds(icon, 0, 0, 0)
+        TextViewCompat.setCompoundDrawableTintList(textView, iconColor)
         textView.setTextColor(textColor)
         textView.tag = link
         textView.visibility = View.VISIBLE

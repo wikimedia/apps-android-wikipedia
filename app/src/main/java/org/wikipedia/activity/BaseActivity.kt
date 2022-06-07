@@ -5,7 +5,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
@@ -13,6 +12,9 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.MenuItem
 import android.view.MotionEvent
+import android.view.View
+import android.view.View.OnTouchListener
+import android.view.ViewConfiguration
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +28,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.LoginFunnel
-import org.wikipedia.analytics.NotificationInteractionFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
@@ -40,17 +42,17 @@ import org.wikipedia.recurring.RecurringTasksExecutor
 import org.wikipedia.savedpages.SavedPageSyncWorker
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.PermissionUtil
-import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
+import org.wikipedia.views.ViewUtil
+import kotlin.math.abs
 
 abstract class BaseActivity : AppCompatActivity() {
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
+    private lateinit var breadcrumbTouchListener: BreadcrumbTouchListener
     private val networkStateReceiver = NetworkStateReceiver()
-    private var previousNetworkState = WikipediaApp.getInstance().isOnline
+    private var previousNetworkState = WikipediaApp.instance.isOnline
     private val disposables = CompositeDisposable()
     private var currentTooltip: Balloon? = null
     private var imageZoomHelper: ImageZoomHelper? = null
@@ -58,7 +60,7 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         exclusiveBusMethods = ExclusiveBusConsumer()
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(NonExclusiveBusConsumer()))
+        disposables.add(WikipediaApp.instance.bus.subscribe(NonExclusiveBusConsumer()))
         setTheme()
         removeSplashBackground()
 
@@ -72,12 +74,11 @@ abstract class BaseActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         if (savedInstanceState == null) {
-            NotificationInteractionFunnel.processIntent(intent)
             NotificationInteractionEvent.processIntent(intent)
         }
 
         // Conditionally execute all recurring tasks
-        RecurringTasksExecutor(WikipediaApp.getInstance()).run()
+        RecurringTasksExecutor(WikipediaApp.instance).run()
         if (Prefs.isReadingListsFirstTimeSync && AccountUtil.isLoggedIn) {
             Prefs.isReadingListsFirstTimeSync = false
             Prefs.isReadingListSyncEnabled = true
@@ -93,6 +94,16 @@ abstract class BaseActivity : AppCompatActivity() {
         maybeShowLoggedOutInBackgroundDialog()
 
         Prefs.localClassName = localClassName
+
+        if (!ReleaseUtil.isProdRelease) {
+            breadcrumbTouchListener = BreadcrumbTouchListener()
+            window.decorView.viewTreeObserver.addOnGlobalLayoutListener { ViewUtil.setTouchListenersToViews(window.decorView, breadcrumbTouchListener) }
+        }
+    }
+
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        BreadCrumbLogEvent.logScreenShown(this)
     }
 
     override fun onDestroy() {
@@ -105,29 +116,18 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
-        WikipediaApp.getInstance().sessionFunnel.persistSession()
+        WikipediaApp.instance.sessionFunnel.persistSession()
         super.onStop()
     }
 
     override fun onResume() {
         super.onResume()
-        WikipediaApp.getInstance().sessionFunnel.touchSession()
+        WikipediaApp.instance.sessionFunnel.touchSession()
 
         // allow this activity's exclusive bus methods to override any existing ones.
         unregisterExclusiveBusMethods()
         EXCLUSIVE_BUS_METHODS = exclusiveBusMethods
-        EXCLUSIVE_DISPOSABLE = WikipediaApp.getInstance().bus.subscribe(EXCLUSIVE_BUS_METHODS!!)
-    }
-
-    override fun applyOverrideConfiguration(configuration: Configuration) {
-        // TODO: remove when this is fixed:
-        // https://issuetracker.google.com/issues/141132133
-        // On Lollipop the current version of AndroidX causes a crash when instantiating a WebView.
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M &&
-                resources.configuration.uiMode == WikipediaApp.getInstance().resources.configuration.uiMode) {
-            return
-        }
-        super.applyOverrideConfiguration(configuration)
+        EXCLUSIVE_DISPOSABLE = WikipediaApp.instance.bus.subscribe(EXCLUSIVE_BUS_METHODS!!)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -138,6 +138,11 @@ abstract class BaseActivity : AppCompatActivity() {
             }
             else -> false
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        BreadCrumbLogEvent.logBackPress(this)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
@@ -178,7 +183,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected open fun setTheme() {
-        setTheme(WikipediaApp.getInstance().currentTheme.resourceId)
+        setTheme(WikipediaApp.instance.currentTheme.resourceId)
     }
 
     protected open fun onGoOffline() {}
@@ -190,15 +195,13 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     private fun showStoragePermissionSnackbar() {
-        val snackbar = FeedbackUtil.makeSnackbar(this,
-                getString(R.string.offline_read_permission_rationale), FeedbackUtil.LENGTH_DEFAULT)
+        val snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.offline_read_permission_rationale))
         snackbar.setAction(R.string.storage_access_error_retry) { requestStoragePermission() }
         snackbar.show()
     }
 
     private fun showAppSettingSnackbar() {
-        val snackbar = FeedbackUtil.makeSnackbar(this,
-                getString(R.string.offline_read_final_rationale), FeedbackUtil.LENGTH_DEFAULT)
+        val snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.offline_read_final_rationale))
         snackbar.setAction(R.string.app_settings) { goToSystemAppSettings() }
         snackbar.show()
     }
@@ -212,7 +215,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     private inner class NetworkStateReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            val isDeviceOnline = WikipediaApp.getInstance().isOnline
+            val isDeviceOnline = WikipediaApp.instance.isOnline
             if (isDeviceOnline) {
                 if (!previousNetworkState) {
                     onGoOnline()
@@ -295,8 +298,7 @@ abstract class BaseActivity : AppCompatActivity() {
                 maybeShowLoggedOutInBackgroundDialog()
             } else if (event is ReadingListSyncEvent) {
                 if (event.showMessage && !Prefs.isSuggestedEditsHighestPriorityEnabled) {
-                    FeedbackUtil.makeSnackbar(this@BaseActivity,
-                            getString(R.string.reading_list_toast_last_sync), FeedbackUtil.LENGTH_DEFAULT).show()
+                    FeedbackUtil.makeSnackbar(this@BaseActivity, getString(R.string.reading_list_toast_last_sync)).show()
                 }
             } else if (event is UnreadNotificationsEvent) {
                 runOnUiThread {
@@ -305,6 +307,37 @@ abstract class BaseActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+    }
+
+    private inner class BreadcrumbTouchListener : OnTouchListener {
+        private var startX = 0f
+        private var startY = 0f
+        private var startMillis = 0L
+        private val touchSlop = ViewConfiguration.get(this@BaseActivity).scaledTouchSlop
+
+        override fun onTouch(view: View, event: MotionEvent): Boolean {
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    startMillis = System.currentTimeMillis()
+                    startX = event.x
+                    startY = event.y
+                }
+                MotionEvent.ACTION_UP -> {
+                    val touchMillis = System.currentTimeMillis() - startMillis
+                    val dx = abs(startX - event.x)
+                    val dy = abs(startY - event.y)
+
+                    if (dx <= touchSlop && dy <= touchSlop && view.isClickable) {
+                        if (touchMillis > ViewConfiguration.getLongPressTimeout()) {
+                            BreadCrumbLogEvent.logLongClick(this@BaseActivity, view)
+                        } else {
+                            BreadCrumbLogEvent.logClick(this@BaseActivity, view)
+                        }
+                    }
+                }
+            }
+            return false
         }
     }
 

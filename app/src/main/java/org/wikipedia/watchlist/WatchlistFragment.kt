@@ -23,20 +23,20 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.diff.ArticleEditDetailsActivity
-import org.wikipedia.language.AppLanguageLookUpTable
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationActivity
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.staticdata.UserTalkAliasData
-import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.staticdata.UserAliasData
+import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NotificationButtonView
 import java.util.*
-import kotlin.collections.ArrayList
 
 class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistItemView.Callback, WatchlistLanguagePopupView.Callback {
     private var _binding: FragmentWatchlistBinding? = null
@@ -48,6 +48,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     private var filterMode = FILTER_MODE_ALL
     private var displayLanguages = listOf<String>()
     private val funnel = WatchlistFunnel()
+    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -91,7 +92,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
-        menu.findItem(R.id.menu_change_language).isVisible = WikipediaApp.getInstance().language().appLanguageCodes.size > 1
+        menu.findItem(R.id.menu_change_language).isVisible = WikipediaApp.instance.languageState.appLanguageCodes.size > 1
 
         val notificationMenuItem = menu.findItem(R.id.menu_notifications)
         if (AccountUtil.isLoggedIn) {
@@ -135,7 +136,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     private fun updateDisplayLanguages() {
-        displayLanguages = WikipediaApp.getInstance().language().appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
+        displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
     }
 
     private fun fetchWatchlist(refreshing: Boolean) {
@@ -158,11 +159,8 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
             binding.watchlistProgressBar.visibility = View.VISIBLE
         }
 
-        val calls = ArrayList<Observable<MwQueryResponse>>()
-
-        displayLanguages.forEach {
-            calls.add(ServiceFactory.get(WikiSite.forLanguageCode(it)).watchlist
-                    .subscribeOn(Schedulers.io()))
+        val calls = displayLanguages.map {
+            ServiceFactory.get(WikiSite.forLanguageCode(it)).watchlist.subscribeOn(Schedulers.io())
         }
 
         disposables.add(Observable.zip(calls) { resultList ->
@@ -246,7 +244,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     internal inner class WatchlistDateViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindItem(date: Date) {
             val textView = itemView.findViewById<TextView>(R.id.dateText)
-            textView.text = DateUtil.getMonthOnlyDateString(date)
+            textView.text = DateUtil.getShortDateString(date)
         }
     }
 
@@ -342,10 +340,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
                 PageTitle(item.title, item.wiki!!), item.revid))
     }
 
-    override fun onUserClick(item: MwQueryResult.WatchlistItem) {
-        startActivity(TalkTopicsActivity.newIntent(requireContext(),
-                PageTitle(UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE) + ":" + item.user, item.wiki!!),
-                Constants.InvokeSource.WATCHLIST_ACTIVITY))
+    override fun onUserClick(item: MwQueryResult.WatchlistItem, view: View) {
+        UserTalkPopupHelper.show(requireActivity() as AppCompatActivity, bottomSheetPresenter,
+                PageTitle(UserAliasData.valueFor(item.wiki!!.languageCode), item.user, item.wiki!!),
+                !AccountUtil.isLoggedIn, view, Constants.InvokeSource.WATCHLIST_ACTIVITY, HistoryEntry.SOURCE_WATCHLIST)
     }
 
     companion object {

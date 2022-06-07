@@ -13,7 +13,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
@@ -56,7 +55,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 PollNotificationWorker.schedulePollNotificationJob(context)
             }
             ACTION_CANCEL == intent.action -> {
-                NotificationInteractionFunnel.processIntent(intent)
+                NotificationInteractionEvent.processIntent(intent)
             }
             ACTION_DIRECT_REPLY == intent.action -> {
                 val remoteInput = RemoteInput.getResultsFromIntent(intent)
@@ -89,11 +88,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private const val MAX_LOCALLY_KNOWN_NOTIFICATIONS = 32
         private const val FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3
         private const val SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7
-        val DBNAME_WIKI_SITE_MAP = mutableMapOf<String, WikiSite>()
+        val DBNAME_WIKI_SITE_MAP = mutableMapOf<String, WikiSite>().withDefault { WikipediaApp.instance.wikiSite }
         val DBNAME_WIKI_NAME_MAP = mutableMapOf<String, String>()
         private var LOCALLY_KNOWN_NOTIFICATIONS = Prefs.locallyKnownNotifications.toMutableList()
 
-        @JvmStatic
         fun startPollTask(context: Context) {
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             try {
@@ -150,7 +148,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             }
             if (notificationsToDisplay.isNotEmpty()) {
                 Prefs.notificationUnreadCount = notificationsToDisplay.size
-                WikipediaApp.getInstance().bus.post(UnreadNotificationsEvent())
+                WikipediaApp.instance.bus.post(UnreadNotificationsEvent())
             }
 
             // Android 7.0 and above performs automatic grouping of multiple notifications, in case
@@ -158,17 +156,15 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             // we show our own custom "grouped" notification.
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N && notificationsToDisplay.size > 2) {
                 // Record that there is an incoming notification to track/compare further actions on it.
-                NotificationInteractionFunnel(WikipediaApp.getInstance(), 0, notificationsToDisplay[0].wiki, TYPE_MULTIPLE).logIncoming()
                 NotificationInteractionEvent.logIncoming(notificationsToDisplay[0], TYPE_MULTIPLE)
                 NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)
             } else {
                 for (n in notificationsToDisplay) {
                     // Record that there is an incoming notification to track/compare further actions on it.
-                    NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logIncoming()
                     NotificationInteractionEvent.logIncoming(n, null)
                     NotificationPresenter.showNotification(context, n,
                         DBNAME_WIKI_NAME_MAP.getOrElse(n.wiki) { n.wiki },
-                        DBNAME_WIKI_SITE_MAP.getOrElse(n.wiki) { WikipediaApp.getInstance().wikiSite }.languageCode)
+                        DBNAME_WIKI_SITE_MAP.getValue(n.wiki).languageCode)
                 }
             }
             if (locallyKnownModified) {
@@ -180,9 +176,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         private fun markItemsAsRead(items: List<Notification>) {
-            val notificationsPerWiki = items.groupBy {
-                DBNAME_WIKI_SITE_MAP.getOrElse(it.wiki) { WikipediaApp.getInstance().wikiSite }
-            }
+            val notificationsPerWiki = items.groupBy { DBNAME_WIKI_SITE_MAP.getValue(it.wiki) }
             for ((wiki, notifications) in notificationsPerWiki) {
                 markRead(wiki, notifications, false)
             }
@@ -190,7 +184,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
         fun markRead(wiki: WikiSite, notifications: List<Notification>, unread: Boolean) {
             val idListStr = notifications.joinToString("|")
-            CsrfTokenClient(wiki).token
+            CsrfTokenClient.getToken(wiki)
                     .subscribeOn(Schedulers.io())
                     .flatMap {
                         ServiceFactory.get(wiki).markRead(it, if (unread) null else idListStr, if (unread) idListStr else null)
@@ -200,7 +194,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         private fun maybeShowLocalNotificationForEditorReactivation(context: Context) {
-            if (Prefs.lastDescriptionEditTime == 0L || WikipediaApp.getInstance().isAnyActivityResumed) {
+            if (Prefs.lastDescriptionEditTime == 0L || WikipediaApp.instance.isAnyActivityResumed) {
                 return
             }
             var days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.lastDescriptionEditTime)

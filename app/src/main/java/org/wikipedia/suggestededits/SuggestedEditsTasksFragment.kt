@@ -21,7 +21,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
-import org.wikipedia.analytics.UserContributionFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentSuggestedEditsTasksBinding
@@ -69,9 +69,10 @@ class SuggestedEditsTasksFragment : Fragment() {
         val balloon = FeedbackUtil.getTooltip(requireContext(), binding.contributionsStatsView.tooltipText, autoDismiss = true, showDismissButton = true)
         balloon.showAlignBottom(binding.contributionsStatsView.getDescriptionView())
         balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getDescriptionView())
-                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getDescriptionView())
-                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getDescriptionView())
+            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getDescriptionView())
+            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getDescriptionView())
         Prefs.showOneTimeSequentialUserStatsTooltip = false
+        BreadCrumbLogEvent.logTooltipShown(requireActivity(), binding.contributionsStatsView)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -169,7 +170,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         revertSeverity = 0
         binding.progressBar.visibility = VISIBLE
 
-        disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
+        disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 UserContributionsStats.getEditCountsObservable()) { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
@@ -321,7 +322,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         clearContents()
         binding.disabledStatesView.setIPBlocked(blockMessage)
         binding.disabledStatesView.visibility = VISIBLE
-        UserContributionFunnel.get().logIpBlock()
         UserContributionEvent.logIpBlock()
     }
 
@@ -334,7 +334,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun maybeSetPausedOrDisabled(): Boolean {
         val pauseEndDate = UserContributionsStats.maybePauseAndGetEndDate()
 
-        if (totalContributions < MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS && WikipediaApp.getInstance().appOrSystemLanguageCode == "en") {
+        if (totalContributions < MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS && WikipediaApp.instance.appOrSystemLanguageCode == "en") {
             clearContents()
             binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_gate_message, AccountUtil.userName))
             binding.disabledStatesView.setPositiveButton(R.string.suggested_edits_learn_more, {
@@ -347,14 +347,12 @@ class SuggestedEditsTasksFragment : Fragment() {
             clearContents()
             binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
-            UserContributionFunnel.get().logDisabled()
             UserContributionEvent.logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
             binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
-            UserContributionFunnel.get().logPaused()
             UserContributionEvent.logPaused()
             return true
         }
@@ -427,7 +425,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, secondary: Boolean) {
-            if (WikipediaApp.getInstance().language().appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && secondary) {
+            if (WikipediaApp.instance.languageState.appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && secondary) {
                 startActivityForResult(WikipediaLanguagesActivity.newIntent(requireActivity(), Constants.InvokeSource.SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
                 return
             }

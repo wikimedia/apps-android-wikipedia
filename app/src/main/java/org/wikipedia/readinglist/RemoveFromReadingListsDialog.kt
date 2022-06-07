@@ -1,7 +1,6 @@
 package org.wikipedia.readinglist
 
 import android.content.Context
-import android.content.DialogInterface
 import androidx.appcompat.app.AlertDialog
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
@@ -10,15 +9,13 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 
-class RemoveFromReadingListsDialog(private val listsContainingPage: List<ReadingList>?) {
+class RemoveFromReadingListsDialog(private val listsContainingPage: List<ReadingList>) {
     fun interface Callback {
         fun onDeleted(lists: List<ReadingList>, page: ReadingListPage)
     }
 
     init {
-        listsContainingPage?.let {
-            ReadingList.sort(it as MutableList<ReadingList>, ReadingList.SORT_BY_NAME_ASC)
-        }
+        ReadingList.sort(listsContainingPage as MutableList<ReadingList>, ReadingList.SORT_BY_NAME_ASC)
     }
 
     fun deleteOrShowDialog(context: Context, callback: Callback?) {
@@ -36,34 +33,28 @@ class RemoveFromReadingListsDialog(private val listsContainingPage: List<Reading
     }
 
     private fun showDialog(context: Context, callback: Callback?) {
-        listsContainingPage?.let {
-            val listNames = arrayOfNulls<String>(it.size)
-            val selected = BooleanArray(listNames.size)
-            it.forEachIndexed { index, readingList ->
-                listNames[index] = readingList.title
-            }
-            AlertDialog.Builder(context)
-                    .setTitle(R.string.reading_list_remove_from_lists)
-                    .setPositiveButton(R.string.reading_list_remove_list_dialog_ok_button_text) { _: DialogInterface, _: Int ->
-                        var atLeastOneSelected = false
-                        val newLists = mutableListOf<ReadingList>()
-                        for (i in listNames.indices) {
-                            if (selected[i]) {
-                                atLeastOneSelected = true
-                                runBlocking(Dispatchers.IO) {
-                                    AppDatabase.instance.readingListPageDao().markPagesForDeletion(it[i], listOf(it[i].pages[0]))
-                                }
-                                newLists.add(it[i])
-                            }
+        val selectedLists = BooleanArray(listsContainingPage.size)
+        AlertDialog.Builder(context)
+            .setTitle(R.string.reading_list_remove_from_lists)
+            .setPositiveButton(R.string.reading_list_remove_list_dialog_ok_button_text) { _, _ ->
+                val newLists = (listsContainingPage zip selectedLists.asIterable())
+                    .filter { (_, selected) -> selected }
+                    .map { (listContainingPage, _) ->
+                        runBlocking(Dispatchers.IO) {
+                            AppDatabase.instance.readingListPageDao().markPagesForDeletion(listContainingPage,
+                                listOf(listContainingPage.pages[0]))
                         }
-                        if (atLeastOneSelected) {
-                            callback?.onDeleted(newLists, it[0].pages[0])
-                        }
+                        listContainingPage
                     }
-                    .setNegativeButton(R.string.reading_list_remove_from_list_dialog_cancel_button_text, null)
-                    .setMultiChoiceItems(listNames, selected) { _: DialogInterface, which: Int, checked: Boolean -> selected[which] = checked }
-                    .create()
-                    .show()
-        }
+                if (newLists.isNotEmpty()) {
+                    callback?.onDeleted(newLists, listsContainingPage[0].pages[0])
+                }
+            }
+            .setNegativeButton(R.string.reading_list_remove_from_list_dialog_cancel_button_text, null)
+            .setMultiChoiceItems(listsContainingPage.map { it.title }.toTypedArray(), selectedLists) { _, which, checked ->
+                selectedLists[which] = checked
+            }
+            .create()
+            .show()
     }
 }

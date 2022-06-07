@@ -90,7 +90,7 @@ object UriUtil {
     }
 
     fun resolveProtocolRelativeUrl(url: String): String {
-        return if (url.startsWith("//")) WikipediaApp.getInstance().wikiSite.scheme() + ":" + url else url
+        return if (url.startsWith("//")) WikipediaApp.instance.wikiSite.scheme() + ":" + url else url
     }
 
     fun isValidPageLink(uri: Uri): Boolean {
@@ -152,10 +152,5 @@ object UriUtil {
     /** Removes an optional fragment portion of a URL  */
     fun removeFragment(link: String): String {
         return link.replaceFirst("#.*$".toRegex(), "")
-    }
-
-    fun parseTalkTopicFromFragment(fragment: String): String {
-        val index = fragment.indexOf("Z-")
-        return if (index >= 0) fragment.substring(index + 2) else fragment
     }
 }

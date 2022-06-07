@@ -419,8 +419,6 @@
   <string name="text_size_percent_default">%s (προεπιλεγμένο)</string>
   <string name="text_style_title">Γραμματοσειρά</string>
   <string name="theme_category_reading">Ανάγνωση</string>
-  <string name="theme_category_toolbar">Εργαλειοθήκη</string>
-  <string name="theme_customize_toolbar">Προσαρμογή εργαλειοθήκης</string>
   <string name="nav_item_saved">Αποθηκεύτηκαν</string>
   <string name="reading_list_save_to">Αποθήκευση στη λίστα ανάγνωσης</string>
   <string name="reading_list_move_to">Προσθήκη στη λίστα ανάγνωσης</string>

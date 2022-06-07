@@ -4,10 +4,12 @@
 * A Chinese Wikipedian
 * A Retired User
 * AYZ04
+* Bo77le
 * Cwek
 * Davidzdh
 * Dbrant
 * Deathkon
+* Diskdance
 * Ff98sha
 * GoForceX
 * Grace03
@@ -139,6 +141,7 @@
   <string name="on_this_day_page_share">分享</string>
   <string name="reading_list_page_share">分享</string>
   <string name="menu_text_select_edit_here">在此编辑</string>
+  <string name="menu_edit_article">编辑文章</string>
   <string name="last_updated_text">最后更新于%s</string>
   <string name="talk_page_link_text">查看讨论页</string>
   <string name="edit_history_link_text">查看编辑历史</string>
@@ -469,8 +472,6 @@
   <string name="theme_category_reading">阅读</string>
   <string name="reading_focus_mode">专注阅读模式</string>
   <string name="reading_focus_mode_detail">滚动时隐藏编辑功能和底部工具栏</string>
-  <string name="theme_category_toolbar">工具栏</string>
-  <string name="theme_customize_toolbar">自定义工具栏</string>
   <string name="nav_item_saved">已保存</string>
   <string name="reading_list_save_to">保存至阅读列表</string>
   <string name="reading_list_move_to">移动至阅读列表</string>

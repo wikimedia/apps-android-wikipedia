@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.wikipedia"
     android:installLocation="auto"
     tools:node="strict">
     <!--
@@ -291,6 +290,9 @@
 
         <activity
             android:name=".talk.TalkTopicActivity" />
+
+        <activity
+            android:name=".talk.TalkReplyActivity" />
 
         <activity
             android:name=".diff.ArticleEditDetailsActivity" />
