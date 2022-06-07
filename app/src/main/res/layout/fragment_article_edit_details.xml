@@ -332,7 +332,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:layout_marginStart="16dp"
                     app:layout_constraintStart_toEndOf="@id/thankButton"
                     app:layout_constraintTop_toBottomOf="@id/thanksDivider">
 
@@ -346,6 +345,7 @@
                         android:textAllCaps="false"
                         android:textColor="?attr/chip_text_color"
                         android:visibility="gone"
+                        android:layout_marginStart="16dp"
                         app:icon="@drawable/ic_undo_themed_24dp"
                         app:iconGravity="textStart"
                         app:iconSize="20dp"
@@ -361,6 +361,7 @@
                         android:textAllCaps="false"
                         android:textColor="?attr/chip_text_color"
                         android:visibility="gone"
+                        android:layout_marginStart="16dp"
                         app:icon="@drawable/ic_undo_themed_24dp"
                         app:iconGravity="textStart"
                         app:iconSize="20dp"
