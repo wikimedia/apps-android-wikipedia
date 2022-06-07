@@ -28,6 +28,7 @@ import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.analytics.IntentFunnel
 import org.wikipedia.analytics.LinkPreviewFunnel
 import org.wikipedia.analytics.WatchlistFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityPageBinding
@@ -587,7 +588,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     private fun copyLink(url: String) {
-        ClipboardUtil.setPlainText(this, null, url)
+        ClipboardUtil.setPlainText(this, text = url)
     }
 
     private fun showCopySuccessMessage() {
@@ -668,7 +669,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             FeedbackUtil.getTooltip(
                 this,
                 getString(R.string.theme_chooser_menu_item_short_tooltip),
-                arrowAnchorPadding = -DimenUtil.roundedDpToPx(10f),
+                arrowAnchorPadding = -DimenUtil.roundedDpToPx(6f),
                 topOrBottomMargin = -12,
                 aboveOrBelow = true,
                 autoDismiss = false,
@@ -678,6 +679,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     Prefs.showOneTimeCustomizeToolbarTooltip = false
                     Prefs.toolbarTooltipVisible = false
                 }
+                BreadCrumbLogEvent.logTooltipShown(this@PageActivity, binding.pageToolbarButtonShowOverflowMenu)
                 showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
                 setCurrentTooltip(this)
                 Prefs.toolbarTooltipVisible = true

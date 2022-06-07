@@ -201,7 +201,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
     private fun showDeleteItemsUndoSnackbar(entries: List<HistoryEntry>) {
         val message = if (entries.size == 1) getString(R.string.history_item_deleted, entries[0].title.displayText) else getString(R.string.history_items_deleted, entries.size)
-        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT)
+        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), message)
         snackbar.setAction(R.string.history_item_delete_undo) {
             AppDatabase.instance.historyEntryDao().insert(entries)
             reloadHistoryItems()

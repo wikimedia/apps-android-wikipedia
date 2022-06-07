@@ -232,7 +232,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
             }
             if (!articleLimitMessageShown && it.pages.size >= maxPagesPerReadingList) {
                 val message = getString(R.string.reading_list_article_limit_message, readingList.title, maxPagesPerReadingList)
-                FeedbackUtil.makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show()
+                FeedbackUtil.makeSnackbar(requireActivity(), message).show()
                 articleLimitMessageShown = true
             }
         }
