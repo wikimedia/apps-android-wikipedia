@@ -220,7 +220,7 @@ class TabActivity : BaseActivity() {
 
     private fun showUndoSnackbar(tab: de.mrapp.android.tabswitcher.Tab, index: Int, appTab: Tab, appTabIndex: Int) {
         appTab.backStackPositionTitle?.let {
-            FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, it.displayText), FeedbackUtil.LENGTH_DEFAULT).run {
+            FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, it.displayText)).run {
                 setAction(R.string.reading_list_item_delete_undo) {
                     app.tabList.add(appTabIndex, appTab)
                     binding.tabSwitcher.addTab(tab, index)
@@ -231,7 +231,7 @@ class TabActivity : BaseActivity() {
     }
 
     private fun showUndoAllSnackbar(tabs: Array<de.mrapp.android.tabswitcher.Tab>, appTabs: MutableList<Tab>) {
-        FeedbackUtil.makeSnackbar(this, getString(R.string.all_tab_items_closed), FeedbackUtil.LENGTH_DEFAULT).run {
+        FeedbackUtil.makeSnackbar(this, getString(R.string.all_tab_items_closed)).run {
             setAction(R.string.reading_list_item_delete_undo) {
                 app.tabList.addAll(appTabs)
                 binding.tabSwitcher.addAllTabs(tabs)

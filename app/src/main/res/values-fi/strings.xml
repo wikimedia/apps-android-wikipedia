@@ -910,7 +910,7 @@
   <string name="suggested_edits_gate_message">Pahoittelut, %s, sinun tulee tehdä ainakin kolme muokkausta suoraan artikkeliin voidaksesi käyttää tätä ominaisuutta.</string>
   <string name="suggested_edits_editing_tips_link_text">Muokkausvinkkejä</string>
   <string name="suggested_edits_help_page_link_text">Ehdotettujen muokkausten ohjesivu</string>
-  <string name="suggested_edits_edit_streak_label_text">Muokkaa juovaa</string>
+  <string name="suggested_edits_edit_streak_label_text">Muokkausputki</string>
   <string name="suggested_edits_views_label_text">Näyttökerrat</string>
   <string name="suggested_edits_quality_label_text">Muokkauksen laatu</string>
   <string name="suggested_edits_quality_perfect_text">Täydellinen</string>

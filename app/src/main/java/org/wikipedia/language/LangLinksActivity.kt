@@ -247,7 +247,7 @@ class LangLinksActivity : BaseActivity() {
             val localizedLanguageName = app.languageState.getAppLanguageLocalizedName(languageCode)
             localizedLanguageNameTextView.text = localizedLanguageName?.capitalize(Locale.getDefault())
                     ?: languageCode
-            articleTitleTextView.text = pageTitle.displayText
+            articleTitleTextView.text = StringUtil.fromHtml(pageTitle.displayText)
             val canonicalName = viewModel.getCanonicalName(languageCode)
             if (canonicalName.isNullOrEmpty() || languageCode == app.languageState.systemLanguageCode) {
                 nonLocalizedLanguageNameTextView.visibility = View.GONE
