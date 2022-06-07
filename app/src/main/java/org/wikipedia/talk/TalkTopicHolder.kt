@@ -2,7 +2,6 @@ package org.wikipedia.talk
 
 import android.app.Activity
 import android.content.Context
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.view.View
 import androidx.core.view.isVisible
@@ -77,7 +76,7 @@ class TalkTopicHolder internal constructor(
         binding.topicUserIcon.isVisible = pageTitle.namespace() == Namespace.USER_TALK
         binding.topicUsername.isVisible = pageTitle.namespace() == Namespace.USER_TALK
         binding.topicUsername.setTextColor(ResourceUtil.getThemedColor(context, usernameColor))
-        ImageViewCompat.setImageTintList(binding.topicUserIcon, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, usernameColor)))
+        ImageViewCompat.setImageTintList(binding.topicUserIcon, ResourceUtil.getThemedColorStateList(context, usernameColor))
         StringUtil.highlightAndBoldenText(binding.topicUsername, viewModel.currentSearchQuery, true, Color.YELLOW)
 
         // Amount of replies, exclude the topic in replies[].
@@ -87,10 +86,10 @@ class TalkTopicHolder internal constructor(
         binding.topicReplyIcon.isVisible = replyNumber > 0
         binding.topicReplyNumber.text = replyNumber.toString()
         binding.topicReplyNumber.setTextColor(ResourceUtil.getThemedColor(context, replyNumberColor))
-        ImageViewCompat.setImageTintList(binding.topicReplyIcon, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, replyNumberColor)))
+        ImageViewCompat.setImageTintList(binding.topicReplyIcon, ResourceUtil.getThemedColorStateList(context, replyNumberColor))
 
         // Last comment date
-        val lastCommentDate = allReplies.mapNotNull { it.date }.maxByOrNull { it }?.run { DateUtil.getDateAndTime(this) }
+        val lastCommentDate = allReplies.mapNotNull { it.date }.maxOrNull()?.run { DateUtil.getDateAndTime(this) }
         val lastCommentColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.secondary_text_color
         binding.topicLastCommentDate.text = context.getString(R.string.talk_list_item_last_comment_date, lastCommentDate)
         binding.topicLastCommentDate.isVisible = lastCommentDate != null
@@ -130,7 +129,7 @@ class TalkTopicHolder internal constructor(
                 override fun subscribeClick() {
                     viewModel.subscribeTopic(threadItem.name, subscribed)
                     FeedbackUtil.showMessage(context as Activity, context.getString(if (!subscribed) R.string.talk_thread_subscribed_to else R.string.talk_thread_unsubscribed_from,
-                        StringUtil.fromHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }), FeedbackUtil.LENGTH_DEFAULT)
+                        StringUtil.fromHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }))
                 }
 
                 override fun shareClick() {
