@@ -151,7 +151,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
     }
 
     private fun threadSha(threadItem: ThreadItem?): String? {
-        return threadItem?.let { it.name + "|" + it.allReplies.maxByOrNull { reply -> reply.timestamp }?.timestamp }
+        return threadItem?.let { it.name + "|" + it.allReplies.map { reply -> reply.timestamp }.maxOrNull() }
     }
 
     fun subscribeTopic(commentName: String, subscribed: Boolean) {

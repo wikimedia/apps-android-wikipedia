@@ -192,9 +192,7 @@ class NotificationFilterActivity : BaseActivity() {
         }
 
         fun allTypesIdList(): List<String> {
-            val typeList = mutableListOf<String>()
-            NotificationCategory.FILTERS_GROUP.forEach { typeList.add(it.id) }
-            return typeList
+            return NotificationCategory.FILTERS_GROUP.map { it.id }
         }
 
         fun newIntent(context: Context): Intent {
