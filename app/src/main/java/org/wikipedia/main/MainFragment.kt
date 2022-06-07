@@ -481,7 +481,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     private fun copyLink(url: String) {
-        ClipboardUtil.setPlainText(requireContext(), null, url)
+        ClipboardUtil.setPlainText(requireContext(), text = url)
         FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 

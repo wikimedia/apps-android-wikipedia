@@ -112,7 +112,7 @@ class CreateAccountActivity : BaseActivity() {
 
     fun handleAccountCreationError(message: String) {
         if (message.contains("blocked")) {
-            FeedbackUtil.makeSnackbar(this, getString(R.string.create_account_ip_block_message), FeedbackUtil.LENGTH_DEFAULT)
+            FeedbackUtil.makeSnackbar(this, getString(R.string.create_account_ip_block_message))
                     .setAction(R.string.create_account_ip_block_details) {
                         visitInExternalBrowser(this,
                                 Uri.parse(getString(R.string.create_account_ip_block_help_url)))

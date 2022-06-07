@@ -37,8 +37,7 @@ object SuggestedEditsSnackbars {
                                     Action.ADD_IMAGE_TAGS -> R.string.description_edit_success_saved_image_tags_snackbar
                                     else -> R.string.description_edit_success_saved_image_caption_snackbar
                                 })
-                    }, FeedbackUtil.LENGTH_DEFAULT)
-
+                    })
             if (enableViewAction && listener != null) {
                 snackbar.setAction(R.string.suggested_edits_article_cta_snackbar_action) { listener.open() }
             }
@@ -60,7 +59,7 @@ object SuggestedEditsSnackbars {
 
     private fun showFeedLinkSnackbar(activity: Activity, action: Action?) {
         if (action != null && getSessionCount(activity, action) < MAX_SHOW_PER_SESSION) {
-            FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.description_edit_success_se_general_feed_link_snackbar), FeedbackUtil.LENGTH_DEFAULT)
+            FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.description_edit_success_se_general_feed_link_snackbar))
                     .setAction(R.string.suggested_edits_tasks_onboarding_get_started) {
                         activity.startActivity(SuggestionsActivity.newIntent(activity, action, Constants.InvokeSource.SNACKBAR_ACTION))
                     }

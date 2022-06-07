@@ -104,9 +104,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         talkFunnel = TalkFunnel(viewModel.pageTitle, intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
         talkFunnel.logOpenTopic()
 
-        talkFunnel = TalkFunnel(viewModel.pageTitle, intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
-        talkFunnel.logOpenTopic()
-
         binding.talkRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
@@ -124,7 +121,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         viewModel.subscribeData.observe(this) {
             if (it is Resource.Success) {
                 FeedbackUtil.showMessage(this, getString(if (it.data) R.string.talk_thread_subscribed_to else R.string.talk_thread_unsubscribed_from,
-                        StringUtil.fromHtml(viewModel.topic!!.html).trim().ifEmpty { getString(R.string.talk_no_subject) }), FeedbackUtil.LENGTH_DEFAULT)
+                        StringUtil.fromHtml(viewModel.topic!!.html).trim().ifEmpty { getString(R.string.talk_no_subject) }))
                 headerAdapter.notifyItemChanged(0)
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(this, it.throwable)
@@ -198,6 +195,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun expandOrCollapseAll(expand: Boolean) {
+        if (expand) {
+            talkFunnel.logThreadGlobalExpand()
+        } else {
+            talkFunnel.logThreadGlobalCollapse()
+        }
         Prefs.talkTopicExpandOrCollapseByDefault = expand
         viewModel.expandOrCollapseAll().dispatchUpdatesTo(threadAdapter)
         threadAdapter.notifyItemRangeChanged(0, threadAdapter.itemCount)
@@ -336,6 +338,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onExpandClick(item: ThreadItem) {
+            if (item.isExpanded) {
+                talkFunnel.logThreadItemCollapse()
+            } else {
+                talkFunnel.logThreadItemExpand()
+            }
             viewModel.toggleItemExpanded(item).dispatchUpdatesTo(threadAdapter)
             invalidateOptionsMenu()
         }
@@ -408,7 +415,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun showUndoSnackbar(undoRevId: Long) {
-        FeedbackUtil.makeSnackbar(this, getString(R.string.talk_response_submitted), FeedbackUtil.LENGTH_DEFAULT)
+        FeedbackUtil.makeSnackbar(this, getString(R.string.talk_response_submitted))
                 .setAction(R.string.talk_snackbar_undo) {
                     binding.talkProgressBar.visibility = View.VISIBLE
                     viewModel.undo(undoRevId)
@@ -422,7 +429,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     override fun onLinkPreviewCopyLink(title: PageTitle) {
-        ClipboardUtil.setPlainText(this, null, title.uri)
+        ClipboardUtil.setPlainText(this, text = title.uri)
         FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 
