@@ -38,7 +38,7 @@ class RecentSearchesFragment : Fragment() {
     private val binding get() = _binding!!
     var callback: Callback? = null
     val recentSearchList = mutableListOf<RecentSearch>()
-    private val namespaceHints = listOf(Namespace.USER, Namespace.PROJECT, Namespace.PORTAL, Namespace.HELP)
+    private val namespaceHints = listOf(Namespace.USER, Namespace.PORTAL, Namespace.HELP)
     private val namespaceMap = mutableMapOf<Namespace, String>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -107,13 +107,17 @@ class RecentSearchesFragment : Fragment() {
         callback?.onAddLanguageClicked()
     }
 
+    fun onLangCodeChanged() {
+        lifecycleScope.launch {
+            updateList()
+        }
+    }
+
     suspend fun updateList() {
         try {
             val searches: List<RecentSearch>
             val nsMap: Map<String, MwQueryResult.Namespace>
             withContext(Dispatchers.IO) {
-
-                // TODO: don't do this every time Search is opened!
                 val nsDeferred = async { ServiceFactory.get(WikiSite.forLanguageCode(callback?.getLangCode().orEmpty())).getPageNamespaceWithSiteInfo(null).query?.namespaces.orEmpty() }
                 val searchesDeferred = async { AppDatabase.instance.recentSearchDao().getRecentSearches() }
 

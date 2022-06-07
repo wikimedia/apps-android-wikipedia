@@ -359,6 +359,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         }
         searchLanguageCode = selectedLanguageCode
         searchResultsFragment.setLayoutDirection(searchLanguageCode)
+        recentSearchesFragment.onLangCodeChanged()
         startSearch(query, true)
     }
 
