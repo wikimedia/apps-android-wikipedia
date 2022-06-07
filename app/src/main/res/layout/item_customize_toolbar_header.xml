@@ -10,6 +10,9 @@
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:gravity="center_vertical"
-        style="@style/MaterialListSectionHeader" />
+        android:lineSpacingExtra="8sp"
+        android:textColor="?attr/primary_text_color"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

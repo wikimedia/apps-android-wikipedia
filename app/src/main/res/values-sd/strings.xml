@@ -405,8 +405,6 @@
   <string name="text_style_title">فونٽ</string>
   <string name="theme_category_reading">پڙھڻ</string>
   <string name="reading_focus_mode">پڙھڻ تي ڌيان جو موڊ</string>
-  <string name="theme_category_toolbar">اوزارپٽي</string>
-  <string name="theme_customize_toolbar">اوزارپٽي مرضي مطابق بڻايو</string>
   <string name="nav_item_saved">سانڍيل</string>
   <string name="reading_list_save_to">پڙھڻ جي فھرست ۾ سانڍيو</string>
   <string name="reading_list_move_to">پڙھڻ جي فھرست ڏانھن چوريو</string>

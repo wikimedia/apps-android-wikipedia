@@ -25,7 +25,6 @@ public class CsrfTokenClientTest extends MockRetrofitTest {
         enqueue404();
 
         CsrfTokenClient.INSTANCE.getToken(getWikiSite(), "csrf", getApiService()).test().await()
-
                 .assertError(Exception.class);
     }
 }

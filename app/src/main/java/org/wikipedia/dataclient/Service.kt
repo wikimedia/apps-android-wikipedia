@@ -108,7 +108,7 @@ interface Service {
     suspend fun getSiteMatrix(): SiteMatrix
 
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=namespaces")
-    fun getPageNamespaceWithSiteInfo(@Query("titles") title: String): Observable<MwQueryResponse>
+    suspend fun getPageNamespaceWithSiteInfo(@Query("titles") title: String): MwQueryResponse
 
     @get:GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     val siteInfo: Observable<MwQueryResponse>
@@ -230,15 +230,6 @@ interface Service {
         @Query("notcontinue") continueStr: String?
     ): MwQueryResponse
 
-    // TODO: remove "KT" if we remove the Observable one.
-    @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max")
-    suspend fun getAllNotificationsKT(
-        @Query("notwikis") wikiList: String?,
-        @Query("notfilter") filter: String?,
-        @Query("notcontinue") continueStr: String?
-    ): MwQueryResponse
-
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=echomarkread")
     fun markRead(
@@ -284,21 +275,13 @@ interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
-    fun postUndoEdit(
-        @Field("title") title: String,
-        @Field("undo") revision: Long,
-        @Field("token") token: String
-    ): Observable<Edit>
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=edit")
     suspend fun postUndoEdit(
             @Field("title") title: String,
-            @Field("summary") summary: String,
-            @Field("assert") user: String?,
+            @Field("summary") summary: String? = null,
+            @Field("assert") user: String? = null,
             @Field("token") token: String,
             @Field("undo") undoRevId: Long,
-            @Field("undoafter") undoRevAfter: Long?,
+            @Field("undoafter") undoRevAfter: Long? = null,
     ): Edit
 
     @FormUrlEncoded
@@ -432,16 +415,16 @@ interface Service {
     val watchlist: Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=timestamp|user|ids|comment|tags")
-    fun getLastModified(@Query("titles") titles: String): Observable<MwQueryResponse>
+    suspend fun getLastModified(@Query("titles") titles: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=newer")
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=newer")
     suspend fun getRevisionDetailsAscending(
         @Query("titles") titles: String,
         @Query("rvlimit") count: Int,
         @Query("rvstartid") revisionStartId: Long?
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=older")
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=older")
     suspend fun getRevisionDetailsDescending(
         @Query("titles") titles: String,
         @Query("rvlimit") count: Int,
@@ -498,12 +481,13 @@ interface Service {
             @Query("page") page: String
     ): DiscussionToolsInfoResponse
 
-    @GET(MW_API_PREFIX + "action=discussiontoolssubscribe")
+    @POST(MW_API_PREFIX + "action=discussiontoolssubscribe")
+    @FormUrlEncoded
     suspend fun subscribeTalkPageTopic(
-            @Query("page") page: String,
-            @Query("commentname") topicName: String,
-            @Query("token") token: String,
-            @Query("subscribe") subscribe: Boolean,
+            @Field("page") page: String,
+            @Field("commentname") topicName: String,
+            @Field("token") token: String,
+            @Field("subscribe") subscribe: Boolean?,
     ): DiscussionToolsSubscribeResponse
 
     @GET(MW_API_PREFIX + "action=discussiontoolsgetsubscriptions")

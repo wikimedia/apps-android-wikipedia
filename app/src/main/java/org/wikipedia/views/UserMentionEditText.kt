@@ -12,7 +12,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
-import java.util.*
 
 class UserMentionEditText : PlainPasteEditText {
     interface Listener {
@@ -171,14 +170,10 @@ class UserMentionEditText : PlainPasteEditText {
 
         val spans = editable.getSpans<UserColorSpan>()
         if (spans.isNotEmpty()) {
+            val pairs = spans.map { MutablePair(editable.getSpanStart(it), editable.getSpanEnd(it)) }
+                .sortedBy { it.first }
 
-            val pairs = mutableListOf<MutablePair<Int, Int>>()
-            spans.forEach {
-                pairs.add(MutablePair(editable.getSpanStart(it), editable.getSpanEnd(it)))
-            }
-            pairs.sortBy { it.first }
-
-            for (i in 0 until pairs.size) {
+            for (i in pairs.indices) {
                 var name = str.substring(pairs[i].first, pairs[i].second)
                 if (name.length > 1 && name.startsWith("@")) {
                     name = name.substring(1)

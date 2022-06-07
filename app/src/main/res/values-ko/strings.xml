@@ -421,7 +421,6 @@
   <string name="error_blocked_expiry">차단 해제일: %s</string>
   <string name="error_blocked_id">차단 ID: %s</string>
   <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;님 이나 다른 &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;관리자&lt;/a&gt;와 차단에 관해 의논할 수 있습니다.</string>
-  <string name="theme_chooser_menu_item_tooltip">도구 모음을 사용자에 맞게 지정하고 읽기 집중 모드를 사용해보세요</string>
   <string name="error_blocked_footer_no_blocker">&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;관리자&lt;/a&gt;와 차단에 관해 의논할 수 있습니다.</string>
   <string name="crash_report_activity_title">애플리케이션 오류</string>
   <string name="crash_report_relaunch_or_quit">죄송합니다,  위키백과 앱이 오류가 발생하여 종료되었습니다.\n\n다시 시작하거나 나가시겠습니까?</string>
@@ -451,8 +450,6 @@
   <string name="theme_category_reading">읽기</string>
   <string name="reading_focus_mode">읽기 집중 모드</string>
   <string name="reading_focus_mode_detail">스크롤할 때 편집 기능과 아래 도구 모음을 숨깁니다</string>
-  <string name="theme_category_toolbar">도구 모음</string>
-  <string name="theme_customize_toolbar">도구 모음 사용자 지정</string>
   <string name="nav_item_saved">저장됨</string>
   <string name="reading_list_save_to">읽기 목록에 저장</string>
   <string name="reading_list_move_to">읽기 목록으로 이동</string>
@@ -806,7 +803,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">편집 시작</string>
   <string name="description_edit_tutorial_promise">시작함으로써 나는 이 기능을 악용하지 않을 것을 약속합니다.</string>
   <string name="customize_toolbar_title">도구 모음 사용자 지정</string>
-  <string name="customize_toolbar_description_text">가장 도움이 될만한 5개의 링크를 가지고 아래의 도구 모음을 사용자에 맞게 수정하십시오.</string>
   <string name="customize_toolbar_category_toolbar">도구 모음</string>
   <string name="customize_toolbar_category_menu">메뉴</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">여기에 즐겨찾는 항목을 끌어 놓으십시오 👋</string>

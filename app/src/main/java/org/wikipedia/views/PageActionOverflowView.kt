@@ -18,6 +18,7 @@ import org.wikipedia.databinding.ItemCustomizeToolbarMenuBinding
 import org.wikipedia.databinding.ViewPageActionOverflowBinding
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.page.action.PageActionItem
+import org.wikipedia.page.customize.CustomizeToolbarActivity
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.settings.Prefs
 
@@ -35,7 +36,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         Prefs.customizeToolbarMenuOrder.forEach {
             val view = ItemCustomizeToolbarMenuBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)
-            view.id = item.hashCode()
+            view.id = item.viewId
             view.text = context.getString(item.titleResId)
             view.setCompoundDrawablesRelativeWithIntrinsicBounds(item.iconResId, 0, 0, 0)
             view.setOnClickListener {
@@ -43,6 +44,10 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
                 item.select(callback)
             }
             binding.overflowList.addView(view)
+        }
+        binding.customizeToolbar.setOnClickListener {
+            dismissPopupWindowHost()
+            context.startActivity(CustomizeToolbarActivity.newIntent(context))
         }
     }
 

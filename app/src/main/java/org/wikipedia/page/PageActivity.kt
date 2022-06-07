@@ -26,6 +26,7 @@ import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.analytics.IntentFunnel
 import org.wikipedia.analytics.LinkPreviewFunnel
 import org.wikipedia.analytics.WatchlistFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityPageBinding
@@ -41,7 +42,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
-import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.search.SearchActivity
@@ -331,6 +331,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
         maybeShowWatchlistTooltip()
+        maybeShowThemeTooltip()
     }
 
     override fun onPageDismissBottomSheet() {
@@ -585,7 +586,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     private fun copyLink(url: String) {
-        ClipboardUtil.setPlainText(this, null, url)
+        ClipboardUtil.setPlainText(this, text = url)
     }
 
     private fun showCopySuccessMessage() {
@@ -654,8 +655,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
                         R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
                 }
-            } else {
-                maybeShowThemeTooltip()
             }
         }
     }
@@ -664,23 +663,26 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         if (!Prefs.showOneTimeCustomizeToolbarTooltip) {
             return
         }
-        val anchorView: View?
-        var aboveOrBelow = true
-        if (Prefs.customizeToolbarMenuOrder.contains(PageActionItem.THEME.id)) {
-            anchorView = binding.pageToolbarButtonShowOverflowMenu
-            aboveOrBelow = false
-        } else {
-            anchorView = pageFragment.getPageActionTabLayout().children.find { it.id == PageActionItem.THEME.hashCode() }
-        }
-        anchorView?.let {
-            it.postDelayed({
-                if (!isDestroyed) {
-                    FeedbackUtil.showTooltip(this, it, getString(R.string.theme_chooser_menu_item_tooltip),
-                            aboveOrBelow = aboveOrBelow, autoDismiss = false, -DimenUtil.roundedDpToPx(8f), 0)
+        enqueueTooltip {
+            FeedbackUtil.getTooltip(
+                this,
+                getString(R.string.theme_chooser_menu_item_short_tooltip),
+                arrowAnchorPadding = -DimenUtil.roundedDpToPx(6f),
+                topOrBottomMargin = -12,
+                aboveOrBelow = true,
+                autoDismiss = false,
+                showDismissButton = true
+            ).apply {
+                setOnBalloonDismissListener {
+                    Prefs.showOneTimeCustomizeToolbarTooltip = false
+                    Prefs.toolbarTooltipVisible = false
                 }
-            }, 2000)
+                BreadCrumbLogEvent.logTooltipShown(this@PageActivity, binding.pageToolbarButtonShowOverflowMenu)
+                showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
+                setCurrentTooltip(this)
+                Prefs.toolbarTooltipVisible = true
+            }
         }
-        Prefs.showOneTimeCustomizeToolbarTooltip = false
     }
 
     private fun enqueueTooltip(runnable: Runnable) {
