@@ -199,7 +199,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     continuations[WikipediaApp.instance.wikiSite] = cont
                 }
                 response.query?.userContributions?.forEach {
-                    contributions.add(Contribution("", it.revid, it.title, it.title, it.title, EDIT_TYPE_GENERIC, null, it.date(),
+                    contributions.add(Contribution("", it.revid, it.ns, it.title, it.title, it.title, EDIT_TYPE_GENERIC, null, it.date(),
                         WikipediaApp.instance.wikiSite, 0, it.sizediff, it.top, 0))
                 }
                 Observable.just(Pair(contributions, response.query?.userInfo!!.editCount))
@@ -246,7 +246,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                         qLangMap[qNumber] = HashSet()
                     }
 
-                    wikidataContributions.add(Contribution(qNumber, contribution.revid, contribution.title, contribution.title, contributionDescription, editType, null, contribution.date(),
+                    wikidataContributions.add(Contribution(qNumber, contribution.revid, contribution.ns, contribution.title, contribution.title, contributionDescription, editType, null, contribution.date(),
                         WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, 0))
 
                     qLangMap[qNumber]?.add(contributionLanguage)
@@ -321,7 +321,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                             }
                         }
 
-                        contributions.add(Contribution(qNumber, contribution.revid, contribution.title, contribution.title, contributionDescription, editType, null, contribution.date(),
+                        contributions.add(Contribution(qNumber, contribution.revid, contribution.ns, contribution.title, contribution.title, contributionDescription, editType, null, contribution.date(),
                             WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, tagCount))
                     }
                     Observable.just(Pair(contributions, response.query?.userInfo!!.editCount))
