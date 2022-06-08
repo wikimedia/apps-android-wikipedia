@@ -322,7 +322,6 @@ class SavedPageSyncService : JobIntentService() {
                     SavedPageSyncService::class.java, JOB_ID, Intent(WikipediaApp.instance, SavedPageSyncService::class.java))
         }
 
-        @JvmStatic
         fun enqueue() {
             if (ReadingListSyncAdapter.inProgress()) {
                 return
@@ -331,8 +330,6 @@ class SavedPageSyncService : JobIntentService() {
             WikipediaApp.instance.mainThreadHandler.postDelayed(ENQUEUE_RUNNABLE, ENQUEUE_DELAY_MILLIS.toLong())
         }
 
-        @JvmStatic
-        @JvmOverloads
         fun sendSyncEvent(showMessage: Boolean = false) {
             // Note: this method posts from a background thread but subscribers expect events to be
             // received on the main thread.

@@ -7,7 +7,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.util.log.L
 
 object PageCacher {
-    @JvmStatic
     fun loadIntoCache(title: PageTitle) {
         L.d("Loading page into cache: " + title.prefixedText)
         ServiceFactory.getRest(title.wikiSite)

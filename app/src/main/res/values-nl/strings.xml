@@ -423,7 +423,6 @@
   <string name="error_blocked_expiry">Vervaldatum van blokkering: %s</string>
   <string name="error_blocked_id">Blokkering ID: %s</string>
   <string name="error_blocked_footer">U kunt contact opnemen met &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; of met een andere &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; voor meer informatie over de blokkering.</string>
-  <string name="theme_chooser_menu_item_tooltip">Pas uw werkbalk aan en probeer de focusmodus te lezen</string>
   <string name="error_blocked_footer_no_blocker">U kunt contact opnemen met een &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; voor meer informatie over de blokkering.</string>
   <string name="crash_report_activity_title">Programmafout</string>
   <string name="crash_report_relaunch_or_quit">Er is helaas een fout opgetreden in de Wikipedia-app en de app is beëindigd.\n\nWilt u overnieuw beginnen of sluiten?</string>
@@ -453,8 +452,6 @@
   <string name="theme_category_reading">Lezen</string>
   <string name="reading_focus_mode">Lezen in de focusmodus</string>
   <string name="reading_focus_mode_detail">Verbergt bewerkingsfuncties en onderste werkbalk bij het scrollen</string>
-  <string name="theme_category_toolbar">Werkbalk</string>
-  <string name="theme_customize_toolbar">Pas de werkbalk aan</string>
   <string name="nav_item_saved">Opgeslagen</string>
   <string name="reading_list_save_to">Naar leeslijst opslaan</string>
   <string name="reading_list_move_to">Naar leeslijst verplaatsen</string>

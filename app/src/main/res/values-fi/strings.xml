@@ -121,6 +121,7 @@
   <string name="on_this_day_page_share">Jaa</string>
   <string name="reading_list_page_share">Jaa</string>
   <string name="menu_text_select_edit_here">Muokkaa tästä</string>
+  <string name="menu_edit_article">Muokkaa artikkelia</string>
   <string name="last_updated_text">Päivitetty viimeksi %s</string>
   <string name="talk_page_link_text">Keskustelusivu</string>
   <string name="edit_history_link_text">Näytä muokkaushistoria</string>
@@ -422,7 +423,6 @@
   <string name="error_blocked_expiry">Esto päättyy: %s</string>
   <string name="error_blocked_id">Eston tunniste: %s</string>
   <string name="error_blocked_footer">Voit olla yhteydessä käyttäjään &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; tai toiseen &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
-  <string name="theme_chooser_menu_item_tooltip">Tuunaa työkalupalkkiasi ja kokeile lukutilaa</string>
   <string name="error_blocked_footer_no_blocker">Voit olla yhteydessä &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
   <string name="crash_report_activity_title">Sovellusvirhe</string>
   <string name="crash_report_relaunch_or_quit">Pahoittelumme. Wikipedia-sovellus kohtasi virheen ja kaatui.\n\nHaluaisitko käynnistää sovelluksen uudelleen vai poistua sovelluksesta?</string>
@@ -452,8 +452,6 @@
   <string name="theme_category_reading">Lukeminen</string>
   <string name="reading_focus_mode">Lukutila</string>
   <string name="reading_focus_mode_detail">Piilottaa muokkausominaisuudet sekä alapalkin alaspäin vieritettäessä</string>
-  <string name="theme_category_toolbar">Työkalupalkki</string>
-  <string name="theme_customize_toolbar">Kustomoi työkalupalkki</string>
   <string name="nav_item_saved">Tallennettu</string>
   <string name="reading_list_save_to">Tallenna lukulistaan</string>
   <string name="reading_list_move_to">Siirrä lukulistaan</string>
@@ -815,7 +813,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Aloita muokkaaminen</string>
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
   <string name="customize_toolbar_title">Kustomoi työkalupalkki</string>
-  <string name="customize_toolbar_description_text">Tuunaa alaosan työkalupalkkia niillä 5 linkillä, jotka koet hyödyllisimmiksi.</string>
   <string name="customize_toolbar_category_toolbar">Työkalupalkki</string>
   <string name="customize_toolbar_category_menu">Valikko</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Raahaa ja pudota suosikkikohteesi tähän 👋</string>
@@ -913,7 +910,7 @@
   <string name="suggested_edits_gate_message">Pahoittelut, %s, sinun tulee tehdä ainakin kolme muokkausta suoraan artikkeliin voidaksesi käyttää tätä ominaisuutta.</string>
   <string name="suggested_edits_editing_tips_link_text">Muokkausvinkkejä</string>
   <string name="suggested_edits_help_page_link_text">Ehdotettujen muokkausten ohjesivu</string>
-  <string name="suggested_edits_edit_streak_label_text">Muokkaa juovaa</string>
+  <string name="suggested_edits_edit_streak_label_text">Muokkausputki</string>
   <string name="suggested_edits_views_label_text">Näyttökerrat</string>
   <string name="suggested_edits_quality_label_text">Muokkauksen laatu</string>
   <string name="suggested_edits_quality_perfect_text">Täydellinen</string>
@@ -1105,13 +1102,27 @@
   <string name="talk_search_hint">Hae viestejä</string>
   <string name="talk_overflow_sort_by">Lajitteluperuste</string>
   <string name="talk_overflow_sort_date_published">Julkaisupäivä</string>
+  <string name="talk_overflow_sort_date_updated">Viimeksi päivitetty</string>
   <string name="talk_overflow_sort_topic_name">Aiheen nimi</string>
+  <string name="talk_list_item_overflow_subscribe">Tilaa</string>
+  <string name="talk_list_item_overflow_subscribed">Tilattu</string>
+  <string name="talk_list_item_overflow_mark_as_read">Merkitse luetuksi</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Merkitse lukemattomaksi</string>
+  <string name="talk_list_item_overflow_share">Jaa</string>
+  <string name="talk_list_item_last_comment_date">Viimeisin kommentti: %s</string>
+  <string name="talk_list_item_swipe_mark_as_read">Luettu</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Lukematon</string>
+  <string name="talk_footer_about_this_talk_page">Tietoja tästä keskustelusivusta</string>
+  <string name="talk_footer_view_edit_history">Näytä muokkaushistoria</string>
+  <string name="talk_footer_view_article">Näytä artikkeli</string>
   <string name="menu_option_share_talk_discussion">Jaa keskustelu</string>
   <string name="menu_option_share_talk_page">Jaa keskustelusivu</string>
   <string name="menu_option_share_edit">Jaa muokkaus</string>
   <string name="menu_option_user_profile">Käyttäjän %s profiili</string>
   <string name="menu_option_user_contributions">Käyttäjän %s muokkaukset</string>
   <string name="menu_option_edit_source">Muokkaa wikitekstiä</string>
+  <string name="menu_option_user_page">Käyttäjän %s käyttäjäsivu</string>
+  <string name="talk_menu_copy_text">Kopioi teksti</string>
   <string name="watchlist_details_watching_label">Tarkkailemassa</string>
   <string name="watchlist_details_watch_label">Tarkkaile</string>
   <string name="watchlist_details_next_edit">Seuraava muokkaus</string>

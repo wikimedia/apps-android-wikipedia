@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Aram
 * Arya sarhan
 * Asoxor
 * Cwtiyar
@@ -57,6 +58,7 @@
   <string name="image_share_via">ھاوبەشکردن لەڕێی</string>
   <string name="search_redirect_from">ڕەوانەکراوە لە %s</string>
   <string name="page_edit_history_activity_title">مێژووی پێداچوونەوە: %s</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">دەستکارییەکان بگەڕێ یان بپاڵێوە</string>
   <string name="page_edit_history_filter_by_all">ھەموو دەستکارییەکان (%s)</string>
   <string name="page_edit_history_filter_by_user">دەستکارییەکانی یەکارھێنەر (%s)</string>
   <string name="page_edit_history_filter_by_bot">دەستکارییەکانی بۆت (%s)</string>
@@ -167,6 +169,7 @@
   <string name="dialog_create_account_checking_progress">پەسەندکردن</string>
   <string name="create_account_email_hint">ئیمەیڵ (ئارەزوومەندانە)</string>
   <string name="create_account_password_repeat_hint">ڕێکخستنەوەی تێپەڕوشە</string>
+  <string name="create_account_password_is_username">تێپەڕوشە نابێت هەمان شت بێت لەگەڵ ناوی بەکارھێنەردا</string>
   <string name="create_account_passwords_mismatch_error">تێپەڕوشەکان ھەماھەنگ نین</string>
   <string name="create_account_email_error">ناونیشانی ئیمەیڵی نەگونجاو</string>
   <string name="create_account_username_error">نووسەی ناڕەوا لە ناوی بەکارھێنەر</string>
@@ -464,6 +467,8 @@
   <string name="reading_list_article_offline">بەبێ ئینتەرنێت بەردەستە</string>
   <string name="reading_list_article_make_offline">ئەم وتارە بەبێ ئینتەرنێت بەردەست بکە</string>
   <string name="reading_list_add_to_other_list">زیادی بکە بۆ پێڕستێکی خوێندنەوەی تر</string>
+  <string name="reading_list_move_to_other_list">گواستنەوە بۆ پێڕستی خوێندنەوەیەکی تر</string>
+  <string name="reading_list_move_from_to_other_list">گواستنەوە لە %sەوە بۆ پێڕستی خوێندنەوەیەکی تر</string>
   <string name="reading_list_remove_from_list">لە %s لای ببە</string>
   <string name="reading_list_remove_from_lists">لە پێڕستی خوێندنەوە لای ببە</string>
   <string name="reading_list_select_item">ھەڵبژێرە</string>
@@ -553,6 +558,7 @@
   <string name="notifications_poll_enable_negative">ئێستا نا</string>
   <string name="notifications_view_archived_button_text">بینینی ئارشیڤی ئاگادارییەکان</string>
   <string name="notifications_mark_unread">نیشانکردن وەکوو خوێنراو</string>
+  <string name="notifications_mark_all_as_read">ھەموویان وەک خوێندراوە نیشان بکە</string>
   <string name="notifications_direct_reply_action">وەڵامدانەوە</string>
   <string name="notifications_direct_reply_progress">بڵاوکردنەوەی وەڵام بۆ %s…</string>
   <string name="notifications_direct_reply_success">وەڵام بڵاوکرایەوە.</string>
@@ -705,7 +711,7 @@
   <string name="suggested_edits_task_add_description_title">زیادکردنی وەسفی وتار</string>
   <string name="suggested_edits_task_image_caption_title">زیادکردنی شرۆڤەی وێنە</string>
   <string name="suggested_edits_task_translate_caption_title">وەرگێڕانی شرۆڤەی وێنە</string>
-  <string name="suggested_edits_task_translate_caption_description">وەرگێڕانی شرۆڤەکان بۆ ناو زمانەکانی دیکە</string>
+  <string name="suggested_edits_task_translate_caption_description">شرۆڤەکان بۆ زمانەکانی تر وەربگێڕە</string>
   <string name="suggested_edits_task_multilingual_negative">بۆ من نا</string>
   <string name="suggested_edits_task_multilingual_positive">زمان زیاد بکە</string>
   <string name="suggested_edits_image_caption_summary_title_image">پەڕگە</string>

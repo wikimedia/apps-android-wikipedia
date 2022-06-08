@@ -51,6 +51,10 @@ class MwQueryResult {
         return tokens?.watch
     }
 
+    fun rollbackToken(): String? {
+        return tokens?.rollback
+    }
+
     fun createAccountToken(): String? {
         return tokens?.createAccount
     }
@@ -137,7 +141,8 @@ class MwQueryResult {
     private class Tokens(@SerialName("csrftoken") val csrf: String? = null,
                          @SerialName("createaccounttoken") val createAccount: String? = null,
                          @SerialName("logintoken") val login: String? = null,
-                         @SerialName("watchtoken") val watch: String? = null)
+                         @SerialName("watchtoken") val watch: String? = null,
+                         @SerialName("rollbacktoken") val rollback: String? = null)
 
     @Serializable
     class MarkReadResponse(val timestamp: String? = null, val result: String? = null)

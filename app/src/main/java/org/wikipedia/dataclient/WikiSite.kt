@@ -112,12 +112,10 @@ data class WikiSite(
         const val DEFAULT_SCHEME = "https"
         private var DEFAULT_BASE_URL: String? = null
 
-        @JvmStatic
         fun supportedAuthority(authority: String): Boolean {
             return authority.endsWith(Uri.parse(DEFAULT_BASE_URL).authority!!)
         }
 
-        @JvmStatic
         fun setDefaultBaseUrl(url: String) {
             DEFAULT_BASE_URL = url.ifEmpty { Service.WIKIPEDIA_URL }
         }

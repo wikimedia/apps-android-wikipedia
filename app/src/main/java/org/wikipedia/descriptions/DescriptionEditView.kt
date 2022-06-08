@@ -23,7 +23,6 @@ import java.util.*
 class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     interface Callback {
         fun onSaveClick()
-        fun onHelpClick()
         fun onCancelClick()
         fun onBottomBarClick()
         fun onVoiceInputClick()
@@ -53,7 +52,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         }
 
     init {
-        FeedbackUtil.setButtonLongPressToast(binding.viewDescriptionEditSaveButton, binding.viewDescriptionEditCancelButton, binding.viewDescriptionEditHelpButton)
+        FeedbackUtil.setButtonLongPressToast(binding.viewDescriptionEditSaveButton, binding.viewDescriptionEditCancelButton)
         orientation = VERTICAL
         mlKitLanguageDetector.callback = this
 
@@ -62,10 +61,6 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             if (it.isEnabled) {
                 callback?.onSaveClick()
             }
-        }
-
-        binding.viewDescriptionEditHelpButton.setOnClickListener {
-            callback?.onHelpClick()
         }
 
         binding.viewDescriptionEditCancelButton.setOnClickListener {
@@ -164,14 +159,18 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     }
 
     private fun getHintText(lang: String): CharSequence {
-        return if (action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) {
-            context.getString(R.string.description_edit_translate_article_description_hint_per_language,
+        return when (action) {
+            DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
+                context.getString(R.string.description_edit_translate_article_description_hint_per_language,
                     WikipediaApp.instance.languageState.getAppLanguageLocalizedName(lang))
-        } else if (action == DescriptionEditActivity.Action.ADD_CAPTION || action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-            context.getString(R.string.description_edit_translate_caption_hint_per_language,
+            }
+            DescriptionEditActivity.Action.ADD_CAPTION, DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
+                context.getString(R.string.description_edit_translate_caption_hint_per_language,
                     WikipediaApp.instance.languageState.getAppLanguageLocalizedName(lang))
-        } else {
-            context.getString(R.string.description_edit_text_hint)
+            }
+            else -> {
+                context.getString(R.string.description_edit_text_hint)
+            }
         }
     }
 
@@ -229,13 +228,11 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             binding.viewDescriptionEditReviewContainer.show()
             binding.viewDescriptionEditReadArticleBarContainer.hide()
             binding.viewDescriptionEditContainer.visibility = GONE
-            binding.viewDescriptionEditHelpButton.visibility = GONE
             DeviceUtil.hideSoftKeyboard(binding.viewDescriptionEditReviewContainer)
         } else {
             binding.viewDescriptionEditReviewContainer.hide()
             binding.viewDescriptionEditReadArticleBarContainer.show()
             binding.viewDescriptionEditContainer.visibility = VISIBLE
-            binding.viewDescriptionEditHelpButton.visibility = VISIBLE
         }
         setReviewHeaderText(enabled)
         setDarkReviewScreen(enabled)

@@ -227,7 +227,7 @@
   <string name="create_account_ip_block_help_url">https://it.m.wikipedia.org/wiki/Wikipedia:Politiche_di_blocco_degli_utenti</string>
   <string name="create_account_ip_block_details">Dettagli</string>
   <string name="preferences_general_heading">Generale</string>
-  <string name="preferences_account_heading">Account</string>
+  <string name="preferences_account_heading">Utenza</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="send_feedback">Invia commento sull\'applicazione</string>
   <string name="create_account_account_created_toast">Utenza creata!</string>
@@ -301,7 +301,7 @@
   <string name="edit_summary_tag_other_hint">Altri modi nei quali hai migliorato la pagina</string>
   <string name="edit_conflict_title">Conflitto di edizione</string>
   <string name="edit_conflict_message">La pagina è già stata modificata da un altro utente ed è in conflitto con la tua modifica. Copia le modifiche, torna indietro e aggiorna la pagina, quindi prova a modificare di nuovo.</string>
-  <string name="edit_notices">Editnotice</string>
+  <string name="edit_notices">Avvisi per le modifiche</string>
   <string name="edit_notices_please_read">Per favore leggi prima di modificare</string>
   <string name="edit_notices_show_auto">Mostra gli editnotice automaticamente</string>
   <string name="edit_notices_tooltip">Premi questo bottone per vedere l\'editnotice per questa voce.</string>
@@ -322,7 +322,7 @@
     <item quantity="one">1 risultato</item>
     <item quantity="other">%d risultati</item>
   </plurals>
-  <string name="button_clear_all_recent_searches">Pulisci le ricerche recenti</string>
+  <string name="button_clear_all_recent_searches">Cancella le ricerche recenti</string>
   <string name="clear_recent_searches_confirm">Sei sicuro di voler cancellare la tua cronologia di ricerca?</string>
   <string name="clear_recent_searches_confirm_yes">Sì</string>
   <string name="clear_recent_searches_confirm_no">No</string>
@@ -428,13 +428,14 @@
   <string name="page_footer_license_text">Il contenuto è disponibile in base alla licenza $1, se non diversamente specificato</string>
   <string name="empty_tab_title">Nuova scheda</string>
   <string name="menu_save_all_tabs">Salva tutte le schede</string>
-  <string name="error_blocked_title">Il tuo nome di utente o indirizzo IP è stato bloccato.</string>
+  <string name="error_blocked_title">Il tuo nome utente o indirizzo IP è stato bloccato.</string>
   <string name="error_blocked_by">Il blocco è stato effettuato da &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">La motivazione data è: %s</string>
   <string name="error_blocked_start">Inizio del blocco: %s</string>
   <string name="error_blocked_expiry">Scadenza del blocco: %s</string>
   <string name="error_blocked_id">ID blocco: %s</string>
   <string name="error_blocked_footer">Puoi contattare &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altro &lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Amministratori\"&gt;amministratore&lt;/a&gt; per discutere del blocco.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Personalizza la barra degli strumenti</string>
   <string name="error_blocked_footer_no_blocker">Puoi contattare un\'&lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Amministratori\"&gt;amministratore&lt;/a&gt; per discutere del blocco.</string>
   <string name="crash_report_activity_title">Errore dell\'applicazione</string>
   <string name="crash_report_relaunch_or_quit">Spiacenti, si è verificato un errore nell\'applicazione Wikipedia ed è stata terminata.\n\nVuoi riavviarla o uscire?</string>
@@ -461,9 +462,9 @@
   <string name="text_size_decrease">Diminuisci la dimensione del testo</string>
   <string name="text_size_percent_default">%s (predefinito)</string>
   <string name="text_style_title">Tipo di carattere</string>
+  <string name="theme_category_reading">Lettura</string>
+  <string name="reading_focus_mode">Modalità di messa a fuoco della lettura</string>
   <string name="reading_focus_mode_detail">Nasconde le funzioni di modifica e la barra degli strumenti in basso durante lo scorrimento</string>
-  <string name="theme_category_toolbar">Barra degli strumenti</string>
-  <string name="theme_customize_toolbar">Personalizza barra degli strumenti</string>
   <string name="nav_item_saved">Salvato</string>
   <string name="reading_list_save_to">Salva nell\'elenco di lettura</string>
   <string name="reading_list_move_to">Sposta nell\'elenco di lettura</string>
@@ -808,6 +809,7 @@
   <string name="description_starts_with_uppercase">Inizia con una lettera minuscola a meno che la prima parola non sia un sostantivo proprio.</string>
   <string name="description_starts_with_lowercase">Evita di iniziare con una lettera minuscola.</string>
   <string name="description_is_in_different_language">Il testo sembra appartenere a una lingua non accettata. La lingua dovrebbe essere %s.</string>
+  <string name="description_verification_notice">Verifica che la tua descrizione sia in %1$s. Non esitare a ignorare questa notifica se la descrizione che hai scritto è in %2$s.</string>
   <string name="description_edit_success_saved">Descrizione della voce pubblicata!</string>
   <string name="description_edit_success_saved_snackbar">Descrizione della voce pubblicata!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrizione della voce pubblicata! (%s)</string>
@@ -826,11 +828,10 @@
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
   <string name="description_edit_tutorial_promise">Per iniziare, prometto di non abusare di questa funzione.</string>
   <string name="customize_toolbar_title">Personalizza barra degli strumenti</string>
-  <string name="customize_toolbar_description_text">Personalizza la barra degli strumenti in basso con i 5 collegamenti che ritieni più utili.</string>
   <string name="customize_toolbar_category_toolbar">Barra degli strumenti</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Trascina qui i tuoi oggetti preferiti 👋</string>
-  <string name="customize_toolbar_reset_to_default_button">Riporta alle condizioni originali</string>
+  <string name="customize_toolbar_reset_to_default_button">Ripristina predefiniti</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Tieni premuta l\'icona di trascinamento per muovere l\'elemento</string>
   <string name="customize_toolbar_item_default_tooltip">Clicca e trascina un elemento per riposizionarlo</string>
   <string name="suggested_edits_describe_articles">Descrivi voce</string>
@@ -923,6 +924,7 @@
   <string name="suggested_edits_paused_message">Le modifiche suggerite vengono sospese fino al %1$s. Siamo spiacenti %2$s, alcuni dei tuoi contributi recenti sono stati annullati.</string>
   <string name="suggested_edits_disabled_message">Le modifiche suggerite sono disabilitate. Siamo spiacenti %s, troppi dei tuoi contributi recenti sono stati annullati.</string>
   <string name="suggested_edits_ip_blocked_message">Sembra che il tuo indirizzo IP (o intervallo di indirizzi IP) sia attualmente bloccato dalla modifica di Wikipedia.</string>
+  <string name="suggested_edits_gate_message">Ci spiace, %s, devi apportare almeno tre modifiche direttamente ad una voce per utilizzare questa funzione.</string>
   <string name="suggested_edits_editing_tips_link_text">Suggerimenti e trucchi per la modifica</string>
   <string name="suggested_edits_help_page_link_text">Pagina di aiuto per le modifiche suggerite</string>
   <string name="suggested_edits_edit_streak_label_text">Modifica sequenza</string>
@@ -1115,15 +1117,43 @@
   <string name="talk_share_talk_page">Wikipedia - discussione nella pagina di discussione</string>
   <string name="talk_edit_disclaimer">Questa è una pagina di discussione. Per favore rispetta le linee guida per le discussioni, e ricordati di firmare i tuoi interventi digitando quattro tilde: ~~~~ quando pubblichi utilizzando il wikitesto.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://it.wikipedia.org/wiki/Aiuto:Pagina_di_discussione\"&gt;Aiuto:Pagine di discussione&lt;/a&gt;</string>
   <string name="talk_search_hint">Cerca nei messaggi</string>
+  <string name="talk_search_topics_hint">Cerca argomenti</string>
+  <string name="talk_search_find_in_talk_topics_hint">Trova nell\'argomento della pagina di discussione</string>
   <string name="talk_overflow_sort_by">Ordina per</string>
   <string name="talk_overflow_sort_date_published">Data di pubblicazione</string>
+  <string name="talk_overflow_sort_date_updated">Ultimo aggiornamento</string>
   <string name="talk_overflow_sort_topic_name">Nome argomento</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Mostra risposta</item>
+    <item quantity="other">Mostra risposte (%d)</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Nascondi risposta</item>
+    <item quantity="other">Nascondi risposte (%d)</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">Iscritto a \"%s\"</string>
+  <string name="talk_thread_unsubscribed_from">Iscrizione annullata da \"%s\"</string>
+  <string name="talk_list_item_overflow_subscribe">Iscriviti</string>
+  <string name="talk_list_item_overflow_subscribed">Iscritto</string>
+  <string name="talk_list_item_overflow_mark_as_read">Segna come letto</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Segna come non letto</string>
+  <string name="talk_list_item_overflow_share">Condividi</string>
+  <string name="talk_list_item_user_icon_content_description">Icona utente</string>
+  <string name="talk_list_item_swipe_mark_as_read">Lette</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Non lette</string>
+  <string name="talk_footer_view_edit_history">Vedi cronologia delle modifiche</string>
+  <string name="talk_footer_view_user_page">Visualizza la pagina utente</string>
+  <string name="talk_footer_view_article">Visualizza voce</string>
+  <string name="talk_footer_last_modified">Ultima modifica %1$s di %2$s</string>
   <string name="menu_option_share_talk_discussion">Condividi discussione</string>
   <string name="menu_option_share_talk_page">Condividi pagina di discussione</string>
   <string name="menu_option_share_edit">Condividi modifica</string>
   <string name="menu_option_user_profile">Profilo di %s</string>
   <string name="menu_option_user_contributions">Contributi di %s</string>
   <string name="menu_option_edit_source">Modifica wikitesto</string>
+  <string name="menu_option_user_page">%s pagina utente</string>
+  <string name="menu_option_find_in_talk_page_topic">Trova nell\'argomento della pagina di discussione</string>
+  <string name="talk_menu_copy_text">Copia testo</string>
   <string name="watchlist_details_watching_label">Osservato</string>
   <string name="watchlist_details_watch_label">Osserva</string>
   <string name="watchlist_details_next_edit">Prossima modifica</string>
@@ -1148,8 +1178,10 @@
   <string name="revision_diff_paragraph_added">Paragrafo aggiunto</string>
   <string name="revision_diff_paragraph_removed">Paragrafo rimosso</string>
   <string name="revision_undo_title">Annulla modifica</string>
+  <string name="revision_undo_reason">Per continuare, fornisci un motivo per annullare questa modifica:</string>
   <string name="revision_undo_success">La versione è stata annullata.</string>
   <string name="revision_compare_button">Confronta</string>
+  <string name="revision_compare_two_only">Possono essere selezionate solamente due versioni.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e la sua pagina di discussione sono state aggiunte alla tua lista degli osservati speciali %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifica</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>

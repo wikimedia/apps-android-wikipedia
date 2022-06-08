@@ -31,7 +31,6 @@ object DimenUtil {
     val densityScalar: Float
         get() = displayMetrics.density
 
-    @JvmStatic
     fun getFloat(@DimenRes id: Int): Float {
         return getValue(id).float
     }
@@ -40,7 +39,6 @@ object DimenUtil {
         return TypedValue.complexToFloat(getValue(id).data)
     }
 
-    @JvmStatic
     fun getFontSizeFromSp(window: Window, fontSp: Float): Float {
         val metrics = DisplayMetrics()
         window.windowManager.defaultDisplay.getMetrics(metrics)

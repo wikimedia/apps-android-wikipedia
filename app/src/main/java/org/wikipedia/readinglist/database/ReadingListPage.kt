@@ -64,7 +64,6 @@ data class ReadingListPage(
         const val STATUS_QUEUE_FOR_DELETE = 2L
         const val STATUS_QUEUE_FOR_FORCED_SAVE = 3L
 
-        @JvmStatic
         fun toPageSummary(page: ReadingListPage): PageSummary {
             return PageSummary(page.displayTitle, page.apiTitle, page.description, page.description, page.thumbUrl, page.lang)
         }

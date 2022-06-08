@@ -15,7 +15,6 @@ object LanguageUtil {
     private const val MACAU_COUNTRY_CODE = "MO"
     private val TRADITIONAL_CHINESE_COUNTRY_CODES = listOf(Locale.TAIWAN.country, HONG_KONG_COUNTRY_CODE, MACAU_COUNTRY_CODE)
 
-    @JvmStatic
     val availableLanguages: List<String>
         get() {
             val languages = mutableListOf<String>()

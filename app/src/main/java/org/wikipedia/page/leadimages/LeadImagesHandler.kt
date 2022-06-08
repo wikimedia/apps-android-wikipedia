@@ -100,7 +100,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         }
         title?.let {
             val imageTitle = "File:" + page!!.pageProperties.leadImageName
-            pageHeaderView.imageView.contentDescription = parentFragment.getString(R.string.image_content_description, it.displayText)
+            pageHeaderView.imageView.contentDescription = StringUtil.fromHtml(parentFragment.getString(R.string.image_content_description, it.displayText))
             if (imageTitle == lastImageTitleForCallToAction) {
                 finalizeCallToAction()
                 return

@@ -11,7 +11,6 @@ import android.text.TextUtils
 import android.view.Window
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.math.MathUtils
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.internal.functions.Functions
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
@@ -211,10 +210,8 @@ class WikipediaApp : Application() {
     }
 
     fun setFontSizeMultiplier(mult: Int): Boolean {
-        var multiplier = mult
-        val minMultiplier = resources.getInteger(R.integer.minTextSizeMultiplier)
-        val maxMultiplier = resources.getInteger(R.integer.maxTextSizeMultiplier)
-        multiplier = MathUtils.clamp(multiplier, minMultiplier, maxMultiplier)
+        val multiplier = mult.coerceIn(resources.getInteger(R.integer.minTextSizeMultiplier),
+            resources.getInteger(R.integer.minTextSizeMultiplier))
         if (multiplier != Prefs.textSizeMultiplier) {
             Prefs.textSizeMultiplier = multiplier
             bus.post(ChangeTextSizeEvent())
@@ -271,7 +268,7 @@ class WikipediaApp : Application() {
         AccountUtil.removeAccount()
         Prefs.isPushNotificationTokenSubscribed = false
         Prefs.pushNotificationTokenOld = ""
-        ServiceFactory.get(wikiSite).csrfToken
+        ServiceFactory.get(wikiSite).getTokenObservable()
                 .subscribeOn(Schedulers.io())
                 .flatMap {
                     val csrfToken = it.query!!.csrfToken()

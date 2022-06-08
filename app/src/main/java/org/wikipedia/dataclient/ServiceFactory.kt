@@ -40,7 +40,6 @@ object ServiceFactory {
         createRetrofit(null, intakeBaseUriOverride).create<EventService>()
     })
 
-    @JvmStatic
     @Synchronized
     fun get(wiki: WikiSite): Service {
         return SERVICE_CACHE[wiki]!!
@@ -64,7 +63,6 @@ object ServiceFactory {
         return CORE_REST_SERVICE_CACHE[wiki]!!
     }
 
-    @JvmStatic
     @Synchronized
     fun getAnalyticsRest(streamConfig: StreamConfig): EventService {
         return ANALYTICS_REST_SERVICE_CACHE[streamConfig.destinationEventService]!!

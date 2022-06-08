@@ -15,7 +15,6 @@ import java.util.*
 
 object AccountUtil {
 
-    @JvmStatic
     fun updateAccount(response: AccountAuthenticatorResponse?, result: LoginResult) {
         if (createAccount(result.userName!!, result.password!!)) {
             response?.onResult(bundleOf(AccountManager.KEY_ACCOUNT_NAME to result.userName,
@@ -30,35 +29,29 @@ object AccountUtil {
         groups = result.groups
     }
 
-    @JvmStatic
     val isLoggedIn: Boolean
         get() = account() != null
 
-    @JvmStatic
     val userName: String?
         get() {
             val account = account()
             return account?.name
         }
 
-    @JvmStatic
     val password: String?
         get() {
             val account = account()
             return if (account == null) null else accountManager().getPassword(account)
         }
 
-    @JvmStatic
     fun getUserIdForLanguage(code: String): Int {
         return userIds.getOrElse(code) { 0 }
     }
 
-    @JvmStatic
     fun putUserIdForLanguage(code: String, id: Int) {
         userIds += code to id
     }
 
-    @JvmStatic
     var groups: Set<String>
         get() {
             val account = account() ?: return emptySet()
@@ -72,12 +65,10 @@ object AccountUtil {
                     JsonUtil.encodeToString(groups))
         }
 
-    @JvmStatic
     fun isMemberOf(groups: Set<String?>): Boolean {
         return groups.isNotEmpty() && !Collections.disjoint(groups, AccountUtil.groups)
     }
 
-    @JvmStatic
     fun removeAccount() {
         val account = account()
         if (account != null) {
@@ -89,12 +80,10 @@ object AccountUtil {
         }
     }
 
-    @JvmStatic
     fun supported(account: Account): Boolean {
         return account == account()
     }
 
-    @JvmStatic
     fun account(): Account? {
         return try {
             accountManager().getAccountsByType(accountType()).firstOrNull()
@@ -104,7 +93,6 @@ object AccountUtil {
         }
     }
 
-    @JvmStatic
     fun accountType(): String {
         return WikipediaApp.instance.getString(R.string.account_type)
     }

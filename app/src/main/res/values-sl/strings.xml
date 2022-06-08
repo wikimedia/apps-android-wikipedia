@@ -423,8 +423,6 @@
   <string name="theme_category_reading">Branje</string>
   <string name="reading_focus_mode">Način za branje</string>
   <string name="reading_focus_mode_detail">Skrije možnosti urejanja in orodno vrstico na dnu ob pomikanju</string>
-  <string name="theme_category_toolbar">Orodna vrstica</string>
-  <string name="theme_customize_toolbar">Prilagodi orodno vrstico</string>
   <string name="nav_item_saved">Shranjeno</string>
   <string name="reading_list_save_to">Shrani na bralni seznam</string>
   <string name="reading_list_move_to">Prestavi na bralni seznam</string>
@@ -803,7 +801,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Začetek urejanja</string>
   <string name="description_edit_tutorial_promise">Ob začetku obljubljam, da te funkcije ne bom zlorabil/a</string>
   <string name="customize_toolbar_title">Prilagodi orodno vrstico</string>
-  <string name="customize_toolbar_description_text">Prilagodite si orodno vrstico na dnu s 5 za vas najuporabnejšimi povezavami.</string>
   <string name="customize_toolbar_category_toolbar">Orodna vrstica</string>
   <string name="customize_toolbar_category_menu">Meni</string>
   <string name="customize_toolbar_reset_to_default_button">Ponastavi na privzeto</string>

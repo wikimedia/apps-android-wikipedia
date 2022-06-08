@@ -19,7 +19,6 @@ class DescriptionEditTutorialActivity : SingleFragmentActivity<DescriptionEditTu
     companion object {
         const val DESCRIPTION_SELECTED_TEXT = "selectedText"
 
-        @JvmStatic
         fun newIntent(context: Context, selectedText: String?, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, DescriptionEditTutorialActivity::class.java)
                     .putExtra(DESCRIPTION_SELECTED_TEXT, selectedText)

@@ -90,6 +90,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
         setInitialUiState()
         binding.cardsViewPager.offscreenPageLimit = 2
         binding.cardsViewPager.registerOnPageChangeCallback(viewPagerListener) // addOnPageChangeListener(viewPagerListener)
@@ -123,16 +124,9 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         maybeShowOnboarding()
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        setHasOptionsMenu(action == ADD_IMAGE_TAGS)
-    }
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        if (action == ADD_IMAGE_TAGS) {
-            inflater.inflate(R.menu.menu_suggested_edits, menu)
-            ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
-        }
+        inflater.inflate(R.menu.menu_suggested_edits, menu)
+        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -288,13 +282,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         if (siteMatrix == null) {
             return app.languageState.getAppLanguageLocalizedName(code)!!
         }
-        var name: String? = null
-        SiteMatrix.getSites(siteMatrix!!).forEach {
-            if (code == it.code) {
-                name = it.name
-                return@forEach
-            }
-        }
+        var name = SiteMatrix.getSites(siteMatrix!!).find { it.code == code }?.name
         if (name.isNullOrEmpty()) {
             name = app.languageState.getAppLanguageLocalizedName(code)
         }
