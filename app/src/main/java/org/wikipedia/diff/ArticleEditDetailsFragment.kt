@@ -352,6 +352,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.thankButton.isEnabled = true
         binding.thankButton.isVisible = AccountUtil.isLoggedIn && !AccountUtil.userName.equals(viewModel.revisionTo?.user)
         binding.revisionDetailsView.isVisible = true
+        binding.errorView.isVisible = false
     }
 
     private fun updateAfterDiffFetchSuccess() {
