@@ -10,7 +10,7 @@
         <menu>
             <item
                 android:id="@+id/menu_share_edit"
-                android:icon="@drawable/ic_share_material_secondary_themed"
+                android:icon="@drawable/ic_share"
                 android:title="@string/menu_option_share_edit" />
             <item
                 android:id="@+id/menu_add_watchlist"

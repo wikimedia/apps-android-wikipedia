@@ -117,6 +117,8 @@
 
     <style name="ToolbarPopupTheme" parent="ThemeOverlay.MaterialComponents">
         <item name="android:backgroundTint">?android:colorBackground</item>
+        <item name="android:textColor">?attr/chip_text_color</item>
+        <item name="android:tint">?attr/chip_text_color</item>
     </style>
 
     <style name="BottomNavigationTextAppearanceInactive">
