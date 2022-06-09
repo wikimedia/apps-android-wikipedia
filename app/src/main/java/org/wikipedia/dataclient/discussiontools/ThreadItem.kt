@@ -19,7 +19,8 @@ class ThreadItem(
         val timestamp: String = "",
         val headingLevel: Int = 0,
         val placeholderHeading: Boolean = false,
-        val replies: List<ThreadItem> = emptyList()
+        val replies: List<ThreadItem> = emptyList(),
+        val othercontent: String = ""
 ) : Parcelable {
     @IgnoredOnParcel @Transient var isExpanded = true
     @IgnoredOnParcel @Transient var isLastSibling = false

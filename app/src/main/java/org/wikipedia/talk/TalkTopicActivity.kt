@@ -153,6 +153,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
         menu?.let {
+            it.findItem(R.id.menu_find_in_page)?.isVisible = viewModel.topic?.replies.orEmpty().isNotEmpty()
             it.findItem(R.id.menu_edit_source)?.isVisible = AccountUtil.isLoggedIn
             if (viewModel.isExpandable) {
                 val fullyExpanded = viewModel.isFullyExpanded
