@@ -50,6 +50,10 @@ class TalkTopicHolder internal constructor(
             itemView.setTag(R.string.tag_icon_key, R.drawable.ic_outline_email_24)
         }
 
+        binding.topicOverflowMenu.setOnClickListener {
+            showOverflowMenu(it)
+        }
+
         val allReplies = threadItem.allReplies
 
         if (allReplies.isEmpty()) {
@@ -94,11 +98,6 @@ class TalkTopicHolder internal constructor(
         binding.topicLastCommentDate.text = context.getString(R.string.talk_list_item_last_comment_date, lastCommentDate)
         binding.topicLastCommentDate.isVisible = lastCommentDate != null
         binding.topicLastCommentDate.setTextColor(ResourceUtil.getThemedColor(context, lastCommentColor))
-
-        // Overflow menu
-        binding.topicOverflowMenu.setOnClickListener {
-            showOverflowMenu(it)
-        }
     }
 
     override fun onClick(v: View?) {
