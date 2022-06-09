@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Dbrant
+* Dowlinme
 * GBeecham
 * Kwekubo
 * Smirkybec
@@ -49,6 +50,8 @@
   <string name="share_via">Comhroinn trí</string>
   <string name="image_share_via">Comhroinn trí</string>
   <string name="search_redirect_from">Atreoraithe ó %s</string>
+  <string name="page_edit_history_activity_title">Stair leasaithe: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="menu_page_show_tabs">Taispeáin táib</string>
   <string name="menu_page_other_languages">Athraigh teanga</string>
   <string name="menu_page_find_in_page">Aimsigh sa leathanach</string>

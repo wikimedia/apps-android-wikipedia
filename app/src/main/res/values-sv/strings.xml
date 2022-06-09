@@ -1194,4 +1194,5 @@
   <string name="category_tab_subcategories">Underkategorier</string>
   <string name="category_empty">Inga artiklar hittades i den här kategorin.</string>
   <string name="subcategory_empty">Inga underkategorier hittades i den här kategorin.</string>
+  <string name="revision_initial_none">Ingen (detta är den första versionen)</string>
 </resources>
