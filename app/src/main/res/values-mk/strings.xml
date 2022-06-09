@@ -400,6 +400,7 @@
   <string name="error_blocked_expiry">Истек на блокот: %s</string>
   <string name="error_blocked_id">Назнака на блокот: %s</string>
   <string name="error_blocked_footer">Можете да се обратите кај &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или некој друг &lt;a href=\"https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; ако сакате да поразговарате за блокот.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Прилагодете си го алатникот</string>
   <string name="error_blocked_footer_no_blocker">Можете да се обратите кај &lt;a href=\"https://https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; за да поразговарате за блокот.</string>
   <string name="crash_report_activity_title">Грешка во прилогот</string>
   <string name="crash_report_relaunch_or_quit">За жал, прилогот наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
@@ -792,6 +793,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Почнете со уредување</string>
   <string name="description_edit_tutorial_promise">Почнувајќи, ветувам дека нема да ја злоупотребувам функцијава.</string>
   <string name="customize_toolbar_title">Прилагодување на алатникот</string>
+  <string name="customize_toolbar_shortcut_description_text">Прилагодете го алатникот на дното со 5 кратенки кои ви се најкорисни.</string>
   <string name="customize_toolbar_category_toolbar">Алатник</string>
   <string name="customize_toolbar_category_menu">Мени</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Тука довлекувајте ги омилените ставки 👋</string>
@@ -1181,4 +1183,6 @@
   <string name="category_tab_subcategories">Поткатегории</string>
   <string name="category_empty">Не се пронајдени статии во оваа категорија.</string>
   <string name="subcategory_empty">Не се пронајдени поткатегории во оваа категорија.</string>
+  <string name="search_namespaces">Именски простори</string>
+  <string name="revision_initial_none">Ниедна (ова е првата преработка)</string>
 </resources>

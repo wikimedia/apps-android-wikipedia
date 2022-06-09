@@ -214,15 +214,13 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     private fun showStoragePermissionSnackbar() {
-        val snackbar = FeedbackUtil.makeSnackbar(this,
-                getString(R.string.offline_read_permission_rationale), FeedbackUtil.LENGTH_DEFAULT)
+        val snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.offline_read_permission_rationale))
         snackbar.setAction(R.string.storage_access_error_retry) { requestStoragePermission() }
         snackbar.show()
     }
 
     private fun showAppSettingSnackbar() {
-        val snackbar = FeedbackUtil.makeSnackbar(this,
-                getString(R.string.offline_read_final_rationale), FeedbackUtil.LENGTH_DEFAULT)
+        val snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.offline_read_final_rationale))
         snackbar.setAction(R.string.app_settings) { goToSystemAppSettings() }
         snackbar.show()
     }
@@ -319,8 +317,7 @@ abstract class BaseActivity : AppCompatActivity() {
                 maybeShowLoggedOutInBackgroundDialog()
             } else if (event is ReadingListSyncEvent) {
                 if (event.showMessage && !Prefs.isSuggestedEditsHighestPriorityEnabled) {
-                    FeedbackUtil.makeSnackbar(this@BaseActivity,
-                            getString(R.string.reading_list_toast_last_sync), FeedbackUtil.LENGTH_DEFAULT).show()
+                    FeedbackUtil.makeSnackbar(this@BaseActivity, getString(R.string.reading_list_toast_last_sync)).show()
                 }
             } else if (event is UnreadNotificationsEvent) {
                 runOnUiThread {
