@@ -73,7 +73,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
             binding.timeStampText.text = DateUtil.getTimeAndDateString(it)
             StringUtil.highlightAndBoldenText(binding.timeStampText, searchQuery, true, Color.YELLOW)
         }
-        binding.bodyText.text = StringUtil.fromHtml(item.html).trim()
+        binding.bodyText.text = StringUtil.fromHtml(StringUtil.removeStyleTags(item.html)).trim()
         RichTextUtil.removeUnderlinesFromLinks(binding.bodyText)
         StringUtil.highlightAndBoldenText(binding.bodyText, searchQuery, true, Color.YELLOW)
         binding.bodyText.movementMethod = movementMethod
@@ -137,7 +137,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
                     true
                 }
                 R.id.menu_copy_text -> {
-                    ClipboardUtil.setPlainText(context, text = StringUtil.fromHtml(item.html))
+                    ClipboardUtil.setPlainText(context, text = StringUtil.fromHtml(StringUtil.removeStyleTags(item.html)))
                     FeedbackUtil.showMessage(context as Activity, R.string.text_copied)
                     true
                 }
