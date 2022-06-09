@@ -66,7 +66,7 @@
         <item name="button_background_color">@color/base100</item>
         <item name="tab_placeholder_text_color">@color/base80</item>
         <item name="chip_background_color">@color/base80</item>
-        <item name="chip_text_color">@color/base20</item>
+        <item name="color_group_9">@color/base20</item>
         <item name="color_group_22">@color/base90</item>
         <item name="color_group_43">@color/green50</item>
         <item name="color_group_44">@color/red50</item>

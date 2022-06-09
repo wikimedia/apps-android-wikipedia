@@ -272,7 +272,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
     private fun resetViews() {
         invalidateOptionsMenu()
-        L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
+        L10nUtil.setConditionalLayoutDirection(binding.talkContentsView, pageTitle.wikiSite.languageCode)
         binding.talkProgressBar.isVisible = true
         binding.talkErrorView.isVisible = false
         binding.talkEmptyContainer.isVisible = false

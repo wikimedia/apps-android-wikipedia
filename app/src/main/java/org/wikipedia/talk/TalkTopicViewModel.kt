@@ -167,8 +167,10 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         flattenedThreadItems.clear()
         flattenThreadLevel(threadItems, flattenedThreadItems)
         for (i in flattenedThreadItems.indices) {
+            flattenedThreadItems[i].isFirstTopLevel = false
             flattenedThreadItems[i].isLastSibling = i > 0 && flattenedThreadItems[i].level > 1 && (if (i < flattenedThreadItems.size - 1) flattenedThreadItems[i + 1].level < flattenedThreadItems[i].level else true)
         }
+        flattenedThreadItems.find { it.level == 1 }?.isFirstTopLevel = true
     }
 
     private fun flattenThreadLevel(list: List<ThreadItem>, flatList: MutableList<ThreadItem>) {
