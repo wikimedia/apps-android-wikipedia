@@ -1264,5 +1264,6 @@
   <string name="category_tab_subcategories">קטגוריות־משנה</string>
   <string name="category_empty">לא נמצאו ערכים בקטגוריה הזאת.</string>
   <string name="subcategory_empty">לא נמצאו קטגוריות־משנה בקטגוריה הזאת.</string>
+  <string name="search_namespaces">מרחבי שם</string>
   <string name="revision_initial_none">אין (זאת הגרסה הראשונה)</string>
 </resources>

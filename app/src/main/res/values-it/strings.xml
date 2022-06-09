@@ -4,6 +4,7 @@
 * Albe Albe 460
 * Albe Albe460
 * Beta16
+* Black Sky83
 * Bsitzmann
 * Ciampix
 * Dbrant
@@ -101,6 +102,7 @@
     <item quantity="one">%1$d modifica dal %2$s</item>
     <item quantity="other">%1$d modifiche dal %2$s</item>
   </plurals>
+  <string name="page_edit_history_empty_search_message">Prova a modificare i &lt;a href=\"#\"&gt;filtri&lt;/a&gt; per visualizzare più modifiche</string>
   <string name="menu_page_show_tabs">Mostra schede</string>
   <string name="menu_page_other_languages">Cambia lingua</string>
   <string name="menu_page_find_in_page">Trova nella voce</string>
@@ -143,6 +145,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Le modifiche verranno attribuite all\'indirizzo IP del tuo dispositivo. Se &lt;a href=\"https://#login\"&gt;accedi&lt;/a&gt; avrai maggiore privacy.</string>
+  <string name="edit_anon_warning">Le modifiche verranno attribuite all\'indirizzo IP del tuo dispositivo. Se &lt;a href=\"https://#login\"&gt;accedi&lt;/a&gt;, avrai più privacy.</string>
   <string name="preference_title_language">Lingue di Wikipedia</string>
   <string name="langlinks_filter_hint">Cerca</string>
   <string name="langlinks_empty">Questa pagina non è disponibile in altre lingue</string>
@@ -828,6 +831,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
   <string name="description_edit_tutorial_promise">Per iniziare, prometto di non abusare di questa funzione.</string>
   <string name="customize_toolbar_title">Personalizza barra degli strumenti</string>
+  <string name="customize_toolbar_shortcut_description_text">Personalizza la barra degli strumenti in basso con 5 scorciatoie che ritieni più utili.</string>
   <string name="customize_toolbar_category_toolbar">Barra degli strumenti</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Trascina qui i tuoi oggetti preferiti 👋</string>
@@ -1138,9 +1142,12 @@
   <string name="talk_list_item_overflow_mark_as_read">Segna come letto</string>
   <string name="talk_list_item_overflow_mark_as_unread">Segna come non letto</string>
   <string name="talk_list_item_overflow_share">Condividi</string>
+  <string name="talk_list_item_last_comment_date">Ultimo commento: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Risposte totali</string>
   <string name="talk_list_item_user_icon_content_description">Icona utente</string>
   <string name="talk_list_item_swipe_mark_as_read">Lette</string>
   <string name="talk_list_item_swipe_mark_as_unread">Non lette</string>
+  <string name="talk_footer_about_this_talk_page">A proposito di questa pagina di discussione</string>
   <string name="talk_footer_view_edit_history">Vedi cronologia delle modifiche</string>
   <string name="talk_footer_view_user_page">Visualizza la pagina utente</string>
   <string name="talk_footer_view_article">Visualizza voce</string>
@@ -1169,6 +1176,7 @@
   <string name="menu_option_view_user_talk">Vedi la pagina di discussione</string>
   <string name="menu_option_view_user_contributions">Visualizza i contributi degli utenti</string>
   <string name="revision_diff_compare">Confronta versioni</string>
+  <string name="revision_diff_compare_title">Confronta versioni: %s</string>
   <string name="revision_diff_from">Da:</string>
   <string name="revision_diff_to">A:</string>
   <string name="revision_diff_line_num">Riga %d</string>
@@ -1178,6 +1186,7 @@
   <string name="revision_diff_paragraph_added">Paragrafo aggiunto</string>
   <string name="revision_diff_paragraph_removed">Paragrafo rimosso</string>
   <string name="revision_undo_title">Annulla modifica</string>
+  <string name="revision_undo_message">Ciò annullerà le modifiche apportate alla versione della voce mostrata qui.</string>
   <string name="revision_undo_reason">Per continuare, fornisci un motivo per annullare questa modifica:</string>
   <string name="revision_undo_success">La versione è stata annullata.</string>
   <string name="revision_compare_button">Confronta</string>
@@ -1210,4 +1219,6 @@
   <string name="category_tab_subcategories">Sottocategorie</string>
   <string name="category_empty">Nessuna voce trovata in questa categoria.</string>
   <string name="subcategory_empty">Nessuna sottocategoria trovata in questa categoria.</string>
+  <string name="search_namespaces">Namespace</string>
+  <string name="revision_initial_none">Nessuna (questa è la prima versione)</string>
 </resources>
