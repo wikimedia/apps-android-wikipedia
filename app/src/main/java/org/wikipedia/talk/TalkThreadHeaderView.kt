@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkThreadHeaderBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
@@ -46,9 +47,18 @@ class TalkThreadHeaderView constructor(context: Context, attrs: AttributeSet? = 
         RichTextUtil.removeUnderlinesFromLinks(binding.threadTitleText)
         StringUtil.highlightAndBoldenText(binding.threadTitleText, searchQuery, true, Color.YELLOW)
 
-        binding.subscribeButton.text = context.getString(if (subscribed) R.string.talk_list_item_overflow_subscribed else R.string.talk_list_item_overflow_subscribe)
-        binding.subscribeButton.setTextColor(ResourceUtil.getThemedColor(context, if (subscribed) R.attr.material_theme_secondary_color else R.attr.colorAccent))
-        binding.subscribeButton.setIconResource(if (subscribed) R.drawable.ic_notifications_active else R.drawable.ic_notifications_black_24dp)
-        binding.subscribeButton.iconTint = binding.subscribeButton.textColors
+        if (isSubscribable(item)) {
+            binding.subscribeButton.text = context.getString(if (subscribed) R.string.talk_list_item_overflow_subscribed else R.string.talk_list_item_overflow_subscribe)
+            binding.subscribeButton.setTextColor(ResourceUtil.getThemedColor(context, if (subscribed) R.attr.material_theme_secondary_color else R.attr.colorAccent))
+            binding.subscribeButton.setIconResource(if (subscribed) R.drawable.ic_notifications_active else R.drawable.ic_notifications_black_24dp)
+            binding.subscribeButton.iconTint = binding.subscribeButton.textColors
+            binding.subscribeButton.isVisible = true
+        } else {
+            binding.subscribeButton.isVisible = false
+        }
+    }
+
+    private fun isSubscribable(item: ThreadItem?): Boolean {
+        return item?.name.orEmpty().length > 2
     }
 }

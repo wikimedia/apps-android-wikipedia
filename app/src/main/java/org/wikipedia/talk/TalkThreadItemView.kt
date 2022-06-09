@@ -89,14 +89,14 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
             return
         }
 
-        if (item.level > 1) {
-            binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_22)
-            binding.replyButton.iconTint = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
-            binding.replyButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
-        } else {
+        if (item.isFirstTopLevel) {
             binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
             binding.replyButton.iconTint = ColorStateList.valueOf(Color.WHITE)
             binding.replyButton.setTextColor(Color.WHITE)
+        } else {
+            binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_22)
+            binding.replyButton.iconTint = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
+            binding.replyButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
         }
 
         binding.topDivider.isVisible = item.level <= 2
