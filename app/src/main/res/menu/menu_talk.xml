@@ -31,7 +31,7 @@
                 app:showAsAction="never" />
             <item
                 android:id="@+id/menu_view_user_page"
-                android:icon="@drawable/ic_user_avatar_material_secondary_themed"
+                android:icon="@drawable/ic_user_avatar"
                 android:title="@string/menu_option_user_page"
                 android:visible="false"
                 app:showAsAction="never" />
@@ -49,7 +49,7 @@
                 app:showAsAction="never" />
             <item
                 android:id="@+id/menu_talk_topic_share"
-                android:icon="@drawable/ic_share_material_secondary_themed"
+                android:icon="@drawable/ic_share"
                 android:title="@string/menu_page_article_share"
                 app:showAsAction="never" />
         </menu>
