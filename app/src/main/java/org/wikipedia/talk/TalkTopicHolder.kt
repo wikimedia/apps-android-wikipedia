@@ -57,14 +57,21 @@ class TalkTopicHolder internal constructor(
         val allReplies = threadItem.allReplies
 
         if (allReplies.isEmpty()) {
-            binding.topicContentText.isVisible = false
             binding.topicUserIcon.isVisible = false
             binding.topicUsername.isVisible = false
             binding.topicReplyIcon.isVisible = false
             binding.topicReplyNumber.isVisible = false
             binding.topicLastCommentDate.isVisible = false
+            binding.topicContentText.isVisible = false
+            binding.otherContentText.isVisible = threadItem.othercontent.isNotEmpty()
+            binding.topicOverflowMenu.isVisible = threadItem.headingLevel != TalkTopicActivity.HEADER_LEVEL
+            if (threadItem.othercontent.isNotEmpty()) {
+                binding.topicTitleText.isVisible = threadItem.headingLevel != TalkTopicActivity.HEADER_LEVEL
+                binding.otherContentText.text = RichTextUtil.stripHtml(StringUtil.removeStyleTags(threadItem.othercontent)).trim().replace("\n", " ")
+            }
             return
         }
+        binding.otherContentText.isVisible = false
 
         // Last comment
         binding.topicContentText.isVisible = pageTitle.namespace() == Namespace.USER_TALK

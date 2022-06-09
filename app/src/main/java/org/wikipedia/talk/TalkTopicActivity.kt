@@ -449,6 +449,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         const val EXTRA_TOPIC_NAME = "topicName"
         const val EXTRA_REPLY_ID = "replyId"
         const val EXTRA_SEARCH_QUERY = "searchQuery"
+        const val HEADER_LEVEL = 99
 
         fun newIntent(context: Context,
                       pageTitle: PageTitle,
@@ -462,6 +463,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                     .putExtra(EXTRA_REPLY_ID, replyId)
                     .putExtra(EXTRA_SEARCH_QUERY, searchQuery)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+        }
+
+        fun isSubscribable(item: ThreadItem?): Boolean {
+            return item?.name.orEmpty().length > 2
         }
     }
 }

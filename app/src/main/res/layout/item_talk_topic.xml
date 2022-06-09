@@ -81,6 +81,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Lorem ipsum" />
 
+    <TextView
+        android:id="@+id/otherContentText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/primary_text_color"
+        android:textSize="14sp"
+        android:lineSpacingExtra="8sp"
+        android:layout_marginVertical="8dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:background="@drawable/rounded_12dp_accent90_fill"
+        android:paddingTop="8dp"
+        android:paddingBottom="10dp"
+        android:paddingHorizontal="12dp"
+        app:layout_constraintTop_toBottomOf="@id/topicUserIcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Lorem ipsum" />
+
     <ImageView
         android:id="@+id/topicReplyIcon"
         android:layout_width="16dp"
