@@ -83,7 +83,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
 
-        L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, viewModel.pageTitle.wikiSite.languageCode)
+        L10nUtil.setConditionalLayoutDirection(binding.talkRecyclerView, viewModel.pageTitle.wikiSite.languageCode)
+        L10nUtil.setConditionalLayoutDirection(binding.talkErrorView, viewModel.pageTitle.wikiSite.languageCode)
         binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
         binding.talkToolbarSubjectView.movementMethod = linkMovementMethod
 

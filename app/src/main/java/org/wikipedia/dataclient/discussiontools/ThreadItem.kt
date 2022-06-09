@@ -23,6 +23,7 @@ class ThreadItem(
         val othercontent: String = ""
 ) : Parcelable {
     @IgnoredOnParcel @Transient var isExpanded = true
+    @IgnoredOnParcel @Transient var isFirstTopLevel = false
     @IgnoredOnParcel @Transient var isLastSibling = false
     @IgnoredOnParcel @Transient var seen: Boolean = false
     @IgnoredOnParcel @Transient var subscribed: Boolean = false
