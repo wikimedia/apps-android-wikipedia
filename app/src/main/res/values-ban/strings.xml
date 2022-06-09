@@ -49,11 +49,18 @@
   <string name="page_edit_history_activity_title">Babad uahan: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Ringkasan uahan puyung</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Seleh utawi saring uahan</string>
+  <string name="page_edit_history_filter_by">Saring mawit</string>
+  <string name="page_edit_history_filter_by_all">Samian uahan (%s)</string>
+  <string name="page_edit_history_filter_by_user">Uahan anganggé (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Uahan anonim (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Uahan bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Métrik saking %1$s nganti %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d uahan saking %2$s</item>
     <item quantity="other">%1$d uahan saking %2$s</item>
   </plurals>
+  <string name="page_edit_history_empty_search_message">Coba gentos &lt;a href=\"#\"&gt;panyaringan&lt;/a&gt; antuk nyingakin luwih langkung uahan</string>
   <string name="menu_page_show_tabs">Édengang tab</string>
   <string name="menu_page_other_languages">Gingsir basa</string>
   <string name="menu_page_find_in_page">Ngarereh ring suratan</string>
@@ -96,6 +103,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Antuk ngawedar, Ida ngidep majeng &lt;a href=\"%1$s\"&gt;Katentuan Sang Anganggé&lt;/a&gt;, miwah ngalepas pituut Ida ring metén lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Antuk ngawedar, Ida ngidep majeng &lt;a href=\"%1$s\"&gt;Katentuan Sang Angaggé&lt;/a&gt;, miwah ngalepas pituut Ida ring metén lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Uahan pacang katemonin nuju alamat IP piranti. Pinaka Ida &lt;a href=\"https://#login\"&gt;manjing log&lt;/a&gt;, Ida pacang medué privasi langkung.</string>
+  <string name="edit_anon_warning">Uahan pacang kasuwécayang nuju alamat IP piranti ragané. Pinaka ragané &lt;a href=\"https://#login\"&gt;manjing log&lt;/a&gt;, ragané pacang polih langkung paragaan.</string>
   <string name="preference_title_language">Basa Wikipédia</string>
   <string name="langlinks_filter_hint">Rereh</string>
   <string name="langlinks_empty">Kaca puniki nénten kasedia ring basa tiosan.</string>

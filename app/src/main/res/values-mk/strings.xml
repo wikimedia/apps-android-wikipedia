@@ -1183,5 +1183,6 @@
   <string name="category_tab_subcategories">Поткатегории</string>
   <string name="category_empty">Не се пронајдени статии во оваа категорија.</string>
   <string name="subcategory_empty">Не се пронајдени поткатегории во оваа категорија.</string>
+  <string name="search_namespaces">Именски простори</string>
   <string name="revision_initial_none">Ниедна (ова е првата преработка)</string>
 </resources>

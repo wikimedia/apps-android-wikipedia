@@ -1114,6 +1114,7 @@
   <string name="talk_list_item_swipe_mark_as_unread">Lukematon</string>
   <string name="talk_footer_about_this_talk_page">Tietoja tästä keskustelusivusta</string>
   <string name="talk_footer_view_edit_history">Näytä muokkaushistoria</string>
+  <string name="talk_footer_view_user_page">Näytä käyttäjäsivu</string>
   <string name="talk_footer_view_article">Näytä artikkeli</string>
   <string name="menu_option_share_talk_discussion">Jaa keskustelu</string>
   <string name="menu_option_share_talk_page">Jaa keskustelusivu</string>
