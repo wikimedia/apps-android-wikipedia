@@ -662,11 +662,11 @@
   <string name="notifications_mark_all_as_read_message">%d marqué(s) comme lu(s)</string>
   <string name="notifications_mark_all_as_unread_message">%d marqué(s) comme non lu(s)</string>
   <plurals name="notifications_mark_as_read_plural">
-    <item quantity="one">1 marqué comme lu</item>
+    <item quantity="one">Un seul marqué comme lu</item>
     <item quantity="other">%d marqués comme lus</item>
   </plurals>
   <plurals name="notifications_mark_as_unread_plural">
-    <item quantity="one">1 marqué comme non lu</item>
+    <item quantity="one">Un seul marqué comme non lu</item>
     <item quantity="other">%d marqués comme non lus</item>
   </plurals>
   <string name="watchlist_title">Liste de suivi</string>
@@ -792,7 +792,7 @@
   <string name="description_edit_add_caption_label">Description de l’image</string>
   <string name="description_edit_add_caption_hint">Légende de l’image</string>
   <string name="description_edit_translate_caption_label_per_language">Légende de l’image (%s)</string>
-  <string name="description_edit_translate_caption_hint_per_language">Légende des images (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Légende de l’image (%s)</string>
   <string name="description_edit_save">Publier</string>
   <string name="description_edit_read">Lire</string>
   <string name="description_edit_add_description">Ajouter une description de l’article</string>
@@ -832,13 +832,13 @@
   <string name="description_edit_tutorial_title_descriptions_summary">Résume un article pour aider le lecteur à en comprendre le sujet d’un coup d’œil.</string>
   <string name="description_edit_tutorial_keep_it_short">Soyez bref</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idéalement une ligne, entre deux et douze mots</string>
-  <string name="description_edit_tutorial_button_label_start_editing">Commencez à éditer</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Commencez à modifier</string>
   <string name="description_edit_tutorial_promise">En commençant, je promets de ne pas abuser de cette fonctionnalité.</string>
   <string name="customize_toolbar_title">Personnaliser la barre d’outils</string>
   <string name="customize_toolbar_shortcut_description_text">Personnalisez la barre d’outils avec 5 raccourcis que vous trouvez les plus utiles.</string>
   <string name="customize_toolbar_category_toolbar">Barre d’outils</string>
   <string name="customize_toolbar_category_menu">Menu</string>
-  <string name="customize_toolbar_drag_and_drop_placeholder">Glisser et déposer vos éléments favoris ici 👋</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Glissez et déposez vos éléments favoris ici. 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Réinitialiser aux valeurs par défaut</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Maintenir l’icône tirée pour déplacer l’élément</string>
   <string name="customize_toolbar_item_default_tooltip">Appuyer et tirer un élément pour le repositionner</string>
@@ -877,7 +877,7 @@
   <string name="suggested_edits_image_caption_summary_title_license">Licence</string>
   <string name="suggested_edits_image_caption_summary_title_date">Date</string>
   <plurals name="suggested_edits_contribution_count">
-    <item quantity="one">1 contribution</item>
+    <item quantity="one">Une seule contribution</item>
     <item quantity="other">%d contributions</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Modifications suggérées</string>
@@ -1013,7 +1013,7 @@
   <string name="file_page_add_image_tags_button">Ajouter des balises d’image</string>
   <string name="file_page_suggestion_reason">Motif de la suggestion</string>
   <string name="file_page_edit_button_content_description">Modifier %s</string>
-  <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
+  <string name="description_edit_revert_subtitle">Merci pour votre modification de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">votre contribution ressemblait à une expérience ou à du vandalisme.</string>
@@ -1052,7 +1052,7 @@
     <item quantity="one">L’année dernière</item>
     <item quantity="other">Il y a %d ans</item>
   </plurals>
-  <string name="on_this_day_end_of_scroll_message">Vous avez voyagé dans le temps 🚀</string>
+  <string name="on_this_day_end_of_scroll_message">Vous avez voyagé dans le temps. 🚀</string>
   <string name="on_this_day_back_to_future">Retour vers le futur</string>
   <string name="languages_list_activity_title">Ajouter une langue</string>
   <string name="languages_list_suggested_text">Suggéré</string>
@@ -1177,7 +1177,7 @@
   <string name="thank_dialog_text">Dire « Merci » est une manière facile de montrer son appréciation du travail d’un éditeur sur Wikipédia. Les « Merci » ne peuvent être annulés et sont publiquement visibles.</string>
   <string name="thank_dialog_positive_button_text">Envoyer des remerciements</string>
   <string name="thank_dialog_negative_button_text">Annuler</string>
-  <string name="thank_success_message">Votre remerciement a été envoyé à %s 👍</string>
+  <string name="thank_success_message">Votre remerciement a été envoyé à %s. 👍</string>
   <string name="menu_option_view_user_profile">Afficher la page du profil utilisateur</string>
   <string name="menu_option_view_user_talk">Afficher la page de discussion</string>
   <string name="menu_option_view_user_contributions">Afficher les contributions de l’utilisateur</string>
@@ -1225,5 +1225,6 @@
   <string name="category_tab_subcategories">Sous-catégories</string>
   <string name="category_empty">Aucun article trouvé dans cette catégorie.</string>
   <string name="subcategory_empty">Aucune sous-catégorie trouvée dans cette catégorie.</string>
-  <string name="revision_initial_none">Aucune (c’est la première révision)</string>
+  <string name="search_namespaces">Espaces de noms</string>
+  <string name="revision_initial_none">Aucune (c’est la première version)</string>
 </resources>

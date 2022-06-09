@@ -939,8 +939,8 @@
     <item quantity="other">Label text for indicating how many contributions a user has made. For many contributions.</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
-    <item quantity="one">Label text to show the length of the edit streak in number of days. %d is for one dat.</item>
-    <item quantity="other">Label text to show the length of the edit streak in number of days. %d is for many days</item>
+    <item quantity="one">Label text to show the length of the edit streak in number of days. %d is for one day.</item>
+    <item quantity="other">Label text to show the length of the edit streak in number of days. %d is for many days.</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Title for card that introduces Suggested edits.</string>
   <string name="suggested_edits_what_is_text">Body text for card that introduces Suggested edits.</string>
@@ -1206,6 +1206,6 @@
   <string name="category_tab_subcategories">Label for tab that lists all the subcategories of a category.</string>
   <string name="category_empty">Error shown when the current category contains no articles.</string>
   <string name="subcategory_empty">Error shown when the current category contains no subcategories.</string>
-  <string name="search_namespaces">Hint for selecting the namespace when searching.</string>
+  <string name="search_namespaces">Hint for selecting the namespace when searching.\n{{Identical|Namespace}}</string>
   <string name="revision_initial_none">Label shown when showing a diff of the first revision of an article (when there is no previous revision to compare with).</string>
 </resources>
