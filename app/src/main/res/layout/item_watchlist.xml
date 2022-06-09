@@ -101,7 +101,7 @@
             android:fontFamily="sans-serif-medium"
             android:textAllCaps="false"
             android:textAlignment="viewStart"
-            android:textColor="?attr/chip_text_color"
+            android:textColor="?attr/color_group_9"
             android:maxLines="1"
             android:ellipsize="end"
             app:layout_constraintTop_toBottomOf="@id/summaryText"
@@ -110,7 +110,7 @@
             app:icon="@drawable/ic_user_talk"
             app:iconPadding="8dp"
             app:iconSize="16dp"
-            app:iconTint="?attr/chip_text_color"
+            app:iconTint="?attr/color_group_9"
             tools:text="Username"/>
 
 

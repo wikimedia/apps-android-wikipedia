@@ -336,13 +336,13 @@
                         android:letterSpacing="0.02"
                         android:text="@string/edit_undo"
                         android:textAllCaps="false"
-                        android:textColor="?attr/chip_text_color"
+                        android:textColor="?attr/color_group_9"
                         android:visibility="gone"
                         android:layout_marginStart="16dp"
                         app:icon="@drawable/ic_undo_themed_24dp"
                         app:iconGravity="textStart"
                         app:iconSize="20dp"
-                        app:iconTint="?attr/chip_text_color"/>
+                        app:iconTint="?attr/color_group_9"/>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/rollbackButton"
@@ -352,13 +352,13 @@
                         android:letterSpacing="0.02"
                         android:text="@string/edit_rollback"
                         android:textAllCaps="false"
-                        android:textColor="?attr/chip_text_color"
+                        android:textColor="?attr/color_group_9"
                         android:visibility="gone"
                         android:layout_marginStart="16dp"
                         app:icon="@drawable/ic_undo_themed_24dp"
                         app:iconGravity="textStart"
                         app:iconSize="20dp"
-                        app:iconTint="?attr/chip_text_color"/>
+                        app:iconTint="?attr/color_group_9"/>
 
                 </FrameLayout>
 
