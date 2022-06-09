@@ -23,6 +23,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
 
     val pageTitle = bundle.getParcelable<PageTitle>(TalkTopicActivity.EXTRA_PAGE_TITLE)!!
     val topicName = bundle.getString(TalkTopicActivity.EXTRA_TOPIC_NAME)!!
+    val topicId = bundle.getString(TalkTopicActivity.EXTRA_TOPIC_ID)!!
     var currentSearchQuery = bundle.getString(TalkTopicActivity.EXTRA_SEARCH_QUERY)
     var scrollTargetId = bundle.getString(TalkTopicActivity.EXTRA_REPLY_ID)
 
@@ -60,7 +61,8 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
             val subscribeResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(topicName) }
             val oldItemsFlattened = topic?.allReplies.orEmpty()
 
-            topic = discussionToolsInfoResponse.await().pageInfo?.threads.orEmpty().find { it.name == topicName }
+            topic = discussionToolsInfoResponse.await().pageInfo?.threads.orEmpty().find { it.id == topicId }
+
             val res = subscribeResponse.await()
             subscribed = res.subscriptions[topicName] == 1
 
@@ -165,8 +167,10 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         flattenedThreadItems.clear()
         flattenThreadLevel(threadItems, flattenedThreadItems)
         for (i in flattenedThreadItems.indices) {
+            flattenedThreadItems[i].isFirstTopLevel = false
             flattenedThreadItems[i].isLastSibling = i > 0 && flattenedThreadItems[i].level > 1 && (if (i < flattenedThreadItems.size - 1) flattenedThreadItems[i + 1].level < flattenedThreadItems[i].level else true)
         }
+        flattenedThreadItems.find { it.level == 1 }?.isFirstTopLevel = true
     }
 
     private fun flattenThreadLevel(list: List<ThreadItem>, flatList: MutableList<ThreadItem>) {
