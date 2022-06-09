@@ -103,7 +103,7 @@ class TalkTopicHolder internal constructor(
 
     override fun onClick(v: View?) {
         markAsSeen(true)
-        context.startActivity(TalkTopicActivity.newIntent(context, pageTitle, threadItem.name, null, viewModel.currentSearchQuery, invokeSource))
+        context.startActivity(TalkTopicActivity.newIntent(context, pageTitle, threadItem.name, threadItem.id, null, viewModel.currentSearchQuery, invokeSource))
     }
 
     override fun onSwipe() {
