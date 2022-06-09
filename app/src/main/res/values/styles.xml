@@ -500,7 +500,7 @@
     <style name="CustomChipStyle">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textColor">?attr/chip_text_color</item>
+        <item name="android:textColor">?attr/color_group_9</item>
         <item name="android:lineSpacingExtra">2sp</item>
         <item name="ensureMinTouchTargetSize">true</item>
         <item name="chipMinTouchTargetSize">48dp</item>

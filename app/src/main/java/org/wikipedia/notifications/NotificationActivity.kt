@@ -533,7 +533,7 @@ class NotificationActivity : BaseActivity() {
             val excludedFilters = viewModel.excludedFiltersCount()
             if (excludedFilters == 0) {
                 notificationFilterCountView.visibility = View.GONE
-                ImageViewCompat.setImageTintList(notificationFilterButton, ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.chip_text_color))
+                ImageViewCompat.setImageTintList(notificationFilterButton, ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.color_group_9))
             } else {
                 notificationFilterCountView.visibility = View.VISIBLE
                 notificationFilterCountView.text = excludedFilters.toString()
