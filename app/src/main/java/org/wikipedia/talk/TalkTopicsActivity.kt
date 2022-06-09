@@ -9,6 +9,9 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
@@ -165,7 +168,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
         binding.talkNewTopicButton.isVisible = false
 
-        binding.talkFooter.root.isVisible = false
+        // TODO: not adding footer adapter
 
         notificationButtonView = NotificationButtonView(this)
         Prefs.hasAnonymousNotification = false
@@ -285,34 +288,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         funnel = TalkFunnel(pageTitle, invokeSource)
         setToolbarTitle(pageTitle)
 
-        // Update last modified date
-        lastModifiedResponse.query?.firstPage()?.revisions?.firstOrNull()?.let { revision ->
-            binding.talkFooter.lastModifiedText.text = StringUtil.fromHtml(getString(R.string.talk_footer_last_modified,
-                DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
-                    System.currentTimeMillis(), 0L), revision.user))
-
-            binding.talkFooter.viewEditHistoryContainer.setOnClickListener {
-                startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle, revision.revId))
-            }
-        }
-
-        binding.talkFooter.viewPageContainer.setOnClickListener {
-            goToPage()
-        }
-
-        if (pageTitle.namespace() == Namespace.USER_TALK) {
-            binding.talkFooter.viewPageIcon.setImageResource(R.drawable.ic_user_avatar)
-            binding.talkFooter.viewPageTitle.text = getString(R.string.talk_footer_view_user_page)
-        } else {
-            binding.talkFooter.viewPageIcon.setImageResource(R.drawable.ic_article_ltr_ooui)
-            binding.talkFooter.viewPageTitle.text = getString(R.string.talk_footer_view_article)
-            pageTitle.thumbUrl?.let {
-                binding.talkLeadImageContainer.isVisible = true
-                binding.talkLeadImage.contentDescription = StringUtil.removeNamespace(pageTitle.displayText)
-                binding.talkLeadImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
-            }
-        }
-        binding.talkFooter.viewPageContent.text = StringUtil.fromHtml(StringUtil.removeNamespace(pageTitle.displayText))
+        // TODO: adding footer adapter
 
         if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)) {
             intent.putExtra(EXTRA_GO_TO_TOPIC, false)
@@ -441,6 +417,79 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         }
     }
 
+    private inner class HeaderItemAdapter : RecyclerView.Adapter<HeaderViewHolder>() {
+        override fun onBindViewHolder(holder: HeaderViewHolder, position: Int) {
+            holder.bindItem()
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeaderViewHolder {
+            return HeaderViewHolder(layoutInflater.inflate(R.layout.view_talk_topics_header, parent, false))
+        }
+
+        override fun getItemCount(): Int { return 1 }
+    }
+
+    private inner class HeaderViewHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
+
+        private val talkLeadImage = itemView.findViewById<FaceAndColorDetectImageView>(R.id.talkLeadImage)
+
+        fun bindItem() {
+            pageTitle.thumbUrl?.let {
+                talkLeadImage.contentDescription = StringUtil.removeNamespace(pageTitle.displayText)
+                talkLeadImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
+            }
+        }
+    }
+
+    private inner class FooterItemAdapter : RecyclerView.Adapter<FooterViewHolder>() {
+        override fun onBindViewHolder(holder: FooterViewHolder, position: Int) {
+            holder.bindItem()
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FooterViewHolder {
+            return FooterViewHolder(layoutInflater.inflate(R.layout.view_talk_topics_footer, parent, false))
+        }
+
+        override fun getItemCount(): Int { return 1 }
+    }
+
+    private inner class FooterViewHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
+
+        private val viewEditHistoryContainer = itemView.findViewById<LinearLayout>(R.id.viewEditHistoryContainer)
+        private val lastModifiedText = itemView.findViewById<TextView>(R.id.lastModifiedText)
+        private val viewPageContainer = itemView.findViewById<LinearLayout>(R.id.viewPageContainer)
+        private val viewPageIcon = itemView.findViewById<ImageView>(R.id.viewPageIcon)
+        private val viewPageTitle = itemView.findViewById<TextView>(R.id.viewPageTitle)
+        private val viewPageContent = itemView.findViewById<TextView>(R.id.viewPageContent)
+
+        fun bindItem() {
+            // Update last modified date
+            lastModifiedResponse.query?.firstPage()?.revisions?.firstOrNull()?.let { revision ->
+                lastModifiedText.text = StringUtil.fromHtml(getString(R.string.talk_footer_last_modified,
+                    DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
+                        System.currentTimeMillis(), 0L), revision.user))
+
+                viewEditHistoryContainer.setOnClickListener {
+                    startActivity(ArticleEditDetailsActivity.newIntent(this@TalkTopicsActivity, pageTitle, revision.revId))
+                }
+            }
+
+            viewPageContainer.setOnClickListener {
+                goToPage()
+            }
+
+            if (pageTitle.namespace() == Namespace.USER_TALK) {
+                viewPageIcon.setImageResource(R.drawable.ic_user_avatar)
+                viewPageTitle.text = getString(R.string.talk_footer_view_user_page)
+            } else {
+                viewPageIcon.setImageResource(R.drawable.ic_article_ltr_ooui)
+                viewPageTitle.text = getString(R.string.talk_footer_view_article)
+                // TODO: add header adapter
+            }
+            viewPageContent.text = StringUtil.fromHtml(StringUtil.removeNamespace(pageTitle.displayText))
+        }
+    }
+
     internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         private val listPlaceholder get() = if (actionMode == null) 1 else 0
@@ -455,7 +504,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
             if (type == ITEM_SEARCH_BAR) {
-                return TalkTopicSearcherHolder(layoutInflater.inflate(R.layout.view_talk_topic_search_bar, parent, false))
+                return TalkTopicSearcherHolder(layoutInflater.inflate(R.layout.view_talk_topics_search_bar, parent, false))
             }
             return TalkTopicHolder(ItemTalkTopicBinding.inflate(layoutInflater, parent, false), this@TalkTopicsActivity, pageTitle, viewModel, invokeSource)
         }
