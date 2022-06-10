@@ -41,13 +41,14 @@ class TalkThreadHeaderView constructor(context: Context, attrs: AttributeSet? = 
         RichTextUtil.removeUnderlinesFromLinks(binding.pageTitleText)
         StringUtil.highlightAndBoldenText(binding.pageTitleText, searchQuery, true, Color.YELLOW)
 
+        binding.threadTitleText.isVisible = !TalkTopicActivity.isHeaderTemplate(item)
         binding.threadTitleText.movementMethod = movementMethod
         val titleStr = StringUtil.fromHtml(item?.html).trim()
         binding.threadTitleText.text = titleStr.ifEmpty { context.getString(R.string.talk_no_subject) }
         RichTextUtil.removeUnderlinesFromLinks(binding.threadTitleText)
         StringUtil.highlightAndBoldenText(binding.threadTitleText, searchQuery, true, Color.YELLOW)
 
-        if (isSubscribable(item)) {
+        if (TalkTopicActivity.isSubscribable(item)) {
             binding.subscribeButton.text = context.getString(if (subscribed) R.string.talk_list_item_overflow_subscribed else R.string.talk_list_item_overflow_subscribe)
             binding.subscribeButton.setTextColor(ResourceUtil.getThemedColor(context, if (subscribed) R.attr.material_theme_secondary_color else R.attr.colorAccent))
             binding.subscribeButton.setIconResource(if (subscribed) R.drawable.ic_notifications_active else R.drawable.ic_notifications_black_24dp)
@@ -56,9 +57,9 @@ class TalkThreadHeaderView constructor(context: Context, attrs: AttributeSet? = 
         } else {
             binding.subscribeButton.isVisible = false
         }
-    }
 
-    private fun isSubscribable(item: ThreadItem?): Boolean {
-        return item?.name.orEmpty().length > 2
+        binding.otherContentText.movementMethod = movementMethod
+        binding.otherContentText.isVisible = !item?.othercontent.isNullOrEmpty()
+        binding.otherContentText.text = StringUtil.fromHtml(StringUtil.removeStyleTags(item?.othercontent.orEmpty()))
     }
 }

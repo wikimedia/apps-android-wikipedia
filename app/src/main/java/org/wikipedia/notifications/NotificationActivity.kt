@@ -497,6 +497,8 @@ class NotificationActivity : BaseActivity() {
             }
         }
 
+        override fun isSwipeable(): Boolean { return true }
+
         private fun showOverflowMenu(anchorView: View) {
             notificationActionOverflowView = NotificationActionsOverflowView(this@NotificationActivity)
             notificationActionOverflowView?.show(anchorView, container) {

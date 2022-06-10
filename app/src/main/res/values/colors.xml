@@ -41,6 +41,8 @@
     <color name="yellow90">#fef6e7</color>
     <color name="yellow50">#fc3</color> <!-- Foundation Yellow: B AAA: Warning messages -->
     <color name="yellow30">#ac6600</color>
+    <color name="yellow30_a5">#0aac6600</color>
+    <color name="yellow30_a20">#32ac6600</color>
 
     <color name="find_in_page">#FFFF00</color>
     <color name="find_in_page_active">#FF9632</color>

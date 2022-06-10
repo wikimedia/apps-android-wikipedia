@@ -50,17 +50,30 @@ class TalkTopicHolder internal constructor(
             itemView.setTag(R.string.tag_icon_key, R.drawable.ic_outline_email_24)
         }
 
+        binding.topicOverflowMenu.setOnClickListener {
+            showOverflowMenu(it)
+        }
+
         val allReplies = threadItem.allReplies
 
         if (allReplies.isEmpty()) {
-            binding.topicContentText.isVisible = false
             binding.topicUserIcon.isVisible = false
             binding.topicUsername.isVisible = false
             binding.topicReplyIcon.isVisible = false
             binding.topicReplyNumber.isVisible = false
             binding.topicLastCommentDate.isVisible = false
+            binding.topicContentText.isVisible = false
+            val isHeaderTemplate = TalkTopicActivity.isHeaderTemplate(threadItem)
+            binding.otherContentText.isVisible = isHeaderTemplate
+            binding.topicOverflowMenu.isVisible = !isHeaderTemplate
+            binding.topicTitleText.isVisible = !isHeaderTemplate
+            if (isHeaderTemplate) {
+                binding.otherContentText.text = RichTextUtil.stripHtml(StringUtil.removeStyleTags(threadItem.othercontent)).trim().replace("\n", " ")
+                StringUtil.highlightAndBoldenText(binding.otherContentText, viewModel.currentSearchQuery, true, Color.YELLOW)
+            }
             return
         }
+        binding.otherContentText.isVisible = false
 
         // Last comment
         binding.topicContentText.isVisible = pageTitle.namespace() == Namespace.USER_TALK
@@ -94,11 +107,6 @@ class TalkTopicHolder internal constructor(
         binding.topicLastCommentDate.text = context.getString(R.string.talk_list_item_last_comment_date, lastCommentDate)
         binding.topicLastCommentDate.isVisible = lastCommentDate != null
         binding.topicLastCommentDate.setTextColor(ResourceUtil.getThemedColor(context, lastCommentColor))
-
-        // Overflow menu
-        binding.topicOverflowMenu.setOnClickListener {
-            showOverflowMenu(it)
-        }
     }
 
     override fun onClick(v: View?) {
@@ -108,6 +116,10 @@ class TalkTopicHolder internal constructor(
 
     override fun onSwipe() {
         markAsSeen()
+    }
+
+    override fun isSwipeable(): Boolean {
+        return !TalkTopicActivity.isHeaderTemplate(threadItem)
     }
 
     private fun markAsSeen(force: Boolean = false) {
