@@ -63,10 +63,11 @@ class TalkTopicHolder internal constructor(
             binding.topicReplyNumber.isVisible = false
             binding.topicLastCommentDate.isVisible = false
             binding.topicContentText.isVisible = false
-            binding.otherContentText.isVisible = threadItem.othercontent.isNotEmpty()
-            binding.topicOverflowMenu.isVisible = !TalkTopicActivity.isHeaderTemplate(threadItem)
-            if (threadItem.othercontent.isNotEmpty()) {
-                binding.topicTitleText.isVisible = !TalkTopicActivity.isHeaderTemplate(threadItem)
+            val isHeaderTemplate = TalkTopicActivity.isHeaderTemplate(threadItem)
+            binding.otherContentText.isVisible = isHeaderTemplate
+            binding.topicOverflowMenu.isVisible = !isHeaderTemplate
+            binding.topicTitleText.isVisible = !isHeaderTemplate
+            if (isHeaderTemplate) {
                 binding.otherContentText.text = RichTextUtil.stripHtml(StringUtil.removeStyleTags(threadItem.othercontent)).trim().replace("\n", " ")
                 StringUtil.highlightAndBoldenText(binding.otherContentText, viewModel.currentSearchQuery, true, Color.YELLOW)
             }
@@ -115,6 +116,10 @@ class TalkTopicHolder internal constructor(
 
     override fun onSwipe() {
         markAsSeen()
+    }
+
+    override fun isSwipeable(): Boolean {
+        return !TalkTopicActivity.isHeaderTemplate(threadItem)
     }
 
     private fun markAsSeen(force: Boolean = false) {
