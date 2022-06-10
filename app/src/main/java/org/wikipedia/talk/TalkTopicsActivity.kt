@@ -483,9 +483,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private inner class FooterItemAdapter : RecyclerView.Adapter<FooterViewHolder>() {
-        override fun onBindViewHolder(holder: FooterViewHolder, position: Int) {
-            holder.bindItem()
-        }
+        override fun onBindViewHolder(holder: FooterViewHolder, position: Int) { }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FooterViewHolder {
             return FooterViewHolder(layoutInflater.inflate(R.layout.view_talk_topics_footer, parent, false))
@@ -528,8 +526,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             }
             viewPageContent.text = StringUtil.fromHtml(StringUtil.removeNamespace(pageTitle.displayText))
         }
-
-        fun bindItem() { }
     }
 
     internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -586,6 +582,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             binding.talkNewTopicButton.show()
             binding.talkConditionContainer.isVisible = false
             binding.talkSearchNoResult.isVisible = false
+            talkTopicItemAdapter.notifyDataSetChanged()
             updateConcatAdapter()
         }
 
