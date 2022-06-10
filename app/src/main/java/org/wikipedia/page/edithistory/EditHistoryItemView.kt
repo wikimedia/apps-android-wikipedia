@@ -49,7 +49,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
 
     fun setContents(itemRevision: MwQueryPage.Revision, currentQuery: String?) {
         val diffSize = itemRevision.diffSize
-        binding.diffText.text = context.getString(R.string.edit_diff_bytes, if (diffSize > 0) "+$diffSize" else diffSize.toString())
+        binding.diffText.text = StringUtil.getDiffBytesText(context, diffSize)
         if (diffSize >= 0) {
             binding.diffText.setTextColor(if (diffSize > 0) ContextCompat.getColor(context, R.color.green50)
             else ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))

@@ -306,7 +306,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun updateDiffCharCountView(diffSize: Int) {
-        binding.diffCharacterCountView.text = getString(R.string.edit_diff_bytes, if (diffSize > 0) "+$diffSize" else diffSize.toString())
+        binding.diffCharacterCountView.text = StringUtil.getDiffBytesText(requireContext(), diffSize)
         if (diffSize >= 0) {
             binding.diffCharacterCountView.setTextColor(if (diffSize > 0) ContextCompat.getColor(requireContext(),
                     R.color.green50) else ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color))
