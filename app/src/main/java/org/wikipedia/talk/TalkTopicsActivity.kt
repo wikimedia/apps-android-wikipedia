@@ -290,7 +290,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
         if (binding.talkRecyclerView.adapter == null) {
             binding.talkRecyclerView.adapter = ConcatAdapter().apply {
-                addAdapter(headerAdapter)
+                if (pageTitle.namespace() != Namespace.USER_TALK) addAdapter(headerAdapter)
                 addAdapter(talkTopicItemAdapter)
                 addAdapter(footerAdapter)
             }
@@ -436,11 +436,9 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         private val talkLeadImage = itemView.findViewById<FaceAndColorDetectImageView>(R.id.talkLeadImage)
 
         fun bindItem() {
-            if (pageTitle.namespace() != Namespace.USER_TALK) {
-                pageTitle.thumbUrl?.let {
-                    talkLeadImage.contentDescription = StringUtil.removeNamespace(pageTitle.displayText)
-                    talkLeadImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
-                }
+            pageTitle.thumbUrl?.let {
+                talkLeadImage.contentDescription = StringUtil.removeNamespace(pageTitle.displayText)
+                talkLeadImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
             }
         }
     }

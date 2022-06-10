@@ -33,7 +33,6 @@ import org.wikipedia.analytics.eventplatform.ArticleTocInteractionEvent
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.ItemTalkTopicBinding
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.settings.Prefs
@@ -115,7 +114,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         fragment.lifecycleScope.launchWhenCreated {
             viewModel.uiState.collect {
                 when (it) {
-                    is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.lastModifiedResponse)
+                    is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle)
                     is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
                 }
             }
@@ -139,12 +138,12 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         viewModel.loadTopics()
     }
 
-    private fun updateOnSuccess(pageTitle: PageTitle, lastModifiedResponse: MwQueryResponse) {
+    private fun updateOnSuccess(pageTitle: PageTitle) {
         binding.talkTitleView.text = StringUtil.fromHtml(pageTitle.displayText)
         binding.talkTitleView.setOnClickListener(openTalkPageOnClickListener(pageTitle))
         binding.talkFullscreenButton.setOnClickListener(openTalkPageOnClickListener(pageTitle))
 
-        lastModifiedResponse.query?.firstPage()?.revisions?.firstOrNull()?.let {
+        viewModel.lastRevision?.let {
             binding.talkLastModified.text = StringUtil.fromHtml(fragment.getString(R.string.talk_last_modified,
                 DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(it.timeStamp).time,
                     System.currentTimeMillis(), 0L), it.user))
