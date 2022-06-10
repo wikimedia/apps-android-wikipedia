@@ -151,7 +151,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
     }
 
     private fun threadSha(threadItem: ThreadItem?): String? {
-        return threadItem?.let { it.name + "|" + it.allReplies.map { reply -> reply.timestamp }.maxOrNull() }
+        return threadItem?.let { it.id + "|" + it.allReplies.map { reply -> reply.timestamp }.maxOrNull() }
     }
 
     fun subscribeTopic(commentName: String, subscribed: Boolean) {
@@ -188,8 +188,17 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
                 threadItems.sortBy { it.replies.lastOrNull()?.date }
             }
         }
-        sortedThreadItems = threadItems.filter { it.html.contains(currentSearchQuery.orEmpty(), true) ||
-                it.allReplies.any { reply -> reply.html.contains(currentSearchQuery.orEmpty(), true) ||
+
+        // Regardless of sort order, always put header template at the top, if we have one.
+        val headerItem = threadItems.find { it.othercontent.isNotEmpty() && TalkTopicActivity.isHeaderTemplate(it) }
+        if (headerItem != null) {
+            threadItems.remove(headerItem)
+            threadItems.add(0, headerItem)
+        }
+
+        sortedThreadItems = threadItems.filter { it.plainText.contains(currentSearchQuery.orEmpty(), true) ||
+                it.plainOtherContent.contains(currentSearchQuery.orEmpty(), true) ||
+                it.allReplies.any { reply -> reply.plainText.contains(currentSearchQuery.orEmpty(), true) ||
                         reply.author.contains(currentSearchQuery.orEmpty(), true) } }
     }
 
