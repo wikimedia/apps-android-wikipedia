@@ -9,10 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
+import androidx.core.view.isVisible
 import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewTalkTopicsActionsOverflowBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
+import org.wikipedia.talk.TalkTopicActivity
 
 class TalkTopicsActionsOverflowView(context: Context) : FrameLayout(context) {
 
@@ -41,6 +43,7 @@ class TalkTopicsActionsOverflowView(context: Context) : FrameLayout(context) {
             R.string.talk_list_item_overflow_mark_as_unread else R.string.notifications_menu_mark_as_read)
         binding.overflowMarkAsRead.setCompoundDrawablesWithIntrinsicBounds(if (threadItem.seen) R.drawable.ic_outline_markunread_24 else R.drawable.ic_outline_drafts_24, 0, 0, 0)
 
+        binding.overflowSubscribe.isVisible = TalkTopicActivity.isSubscribable(threadItem)
         binding.overflowSubscribe.text = context.getString(if (threadItem.subscribed)
             R.string.talk_list_item_overflow_subscribed else R.string.talk_list_item_overflow_subscribe)
         binding.overflowSubscribe.setCompoundDrawablesWithIntrinsicBounds(if (threadItem.subscribed) R.drawable.ic_notifications_active else R.drawable.ic_notifications_black_24dp, 0, 0, 0)

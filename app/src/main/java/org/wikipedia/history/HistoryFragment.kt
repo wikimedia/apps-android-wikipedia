@@ -313,6 +313,8 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             selectedEntries.add(entry)
             deleteSelectedPages()
         }
+
+        override fun isSwipeable(): Boolean { return true }
     }
 
     private inner class HistoryEntryItemAdapter : RecyclerView.Adapter<DefaultViewHolder<*>>() {

@@ -163,6 +163,8 @@ class RecentSearchesFragment : Fragment() {
                 updateList()
             }
         }
+
+        override fun isSwipeable(): Boolean { return true }
     }
 
     private inner class RecentSearchAdapter : RecyclerView.Adapter<RecentSearchItemViewHolder>() {
