@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.annotation.AttrRes
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.size
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import org.wikipedia.R
@@ -35,7 +36,8 @@ class DrawableItemDecoration @JvmOverloads constructor(context: Context, @AttrRe
             return
         }
 
-        val startingPosition = if (parent.getChildAt(searchBarPosition).id == R.id.search_container && skipSearchBar) 1 + searchBarPosition else searchBarPosition
+        val startingPosition = if (parent.size > searchBarPosition &&
+            parent.getChildAt(searchBarPosition).id == R.id.search_container && skipSearchBar) 1 + searchBarPosition else searchBarPosition
 
         val end = parent.childCount - 1
         for (i in (if (drawStart) startingPosition else startingPosition + 1) until end) {
