@@ -471,5 +471,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         fun isSubscribable(item: ThreadItem?): Boolean {
             return item?.name.orEmpty().length > 2
         }
+
+        fun isHeaderTemplate(item: ThreadItem?): Boolean {
+            return item?.headingLevel == HEADER_LEVEL
+        }
     }
 }

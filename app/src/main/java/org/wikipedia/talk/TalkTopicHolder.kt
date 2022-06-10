@@ -64,10 +64,11 @@ class TalkTopicHolder internal constructor(
             binding.topicLastCommentDate.isVisible = false
             binding.topicContentText.isVisible = false
             binding.otherContentText.isVisible = threadItem.othercontent.isNotEmpty()
-            binding.topicOverflowMenu.isVisible = threadItem.headingLevel != TalkTopicActivity.HEADER_LEVEL
+            binding.topicOverflowMenu.isVisible = !TalkTopicActivity.isHeaderTemplate(threadItem)
             if (threadItem.othercontent.isNotEmpty()) {
-                binding.topicTitleText.isVisible = threadItem.headingLevel != TalkTopicActivity.HEADER_LEVEL
+                binding.topicTitleText.isVisible = !TalkTopicActivity.isHeaderTemplate(threadItem)
                 binding.otherContentText.text = RichTextUtil.stripHtml(StringUtil.removeStyleTags(threadItem.othercontent)).trim().replace("\n", " ")
+                StringUtil.highlightAndBoldenText(binding.otherContentText, viewModel.currentSearchQuery, true, Color.YELLOW)
             }
             return
         }

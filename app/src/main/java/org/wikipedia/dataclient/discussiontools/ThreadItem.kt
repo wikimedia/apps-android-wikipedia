@@ -6,6 +6,7 @@ import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.StringUtil
 
 @Serializable
 @Parcelize
@@ -27,6 +28,9 @@ class ThreadItem(
     @IgnoredOnParcel @Transient var isLastSibling = false
     @IgnoredOnParcel @Transient var seen: Boolean = false
     @IgnoredOnParcel @Transient var subscribed: Boolean = false
+    // Pre-convert plaintext versions of the html and othercontent fields, for more efficient searching.
+    @IgnoredOnParcel @Transient val plainText = StringUtil.fromHtml(StringUtil.removeStyleTags(html)).toString()
+    @IgnoredOnParcel @Transient val plainOtherContent = StringUtil.fromHtml(StringUtil.removeStyleTags(othercontent)).toString()
 
     @IgnoredOnParcel val allReplies: List<ThreadItem>
         get() {

@@ -41,7 +41,7 @@ class TalkThreadHeaderView constructor(context: Context, attrs: AttributeSet? = 
         RichTextUtil.removeUnderlinesFromLinks(binding.pageTitleText)
         StringUtil.highlightAndBoldenText(binding.pageTitleText, searchQuery, true, Color.YELLOW)
 
-        binding.threadTitleText.isVisible = item?.headingLevel != TalkTopicActivity.HEADER_LEVEL
+        binding.threadTitleText.isVisible = !TalkTopicActivity.isHeaderTemplate(item)
         binding.threadTitleText.movementMethod = movementMethod
         val titleStr = StringUtil.fromHtml(item?.html).trim()
         binding.threadTitleText.text = titleStr.ifEmpty { context.getString(R.string.talk_no_subject) }
