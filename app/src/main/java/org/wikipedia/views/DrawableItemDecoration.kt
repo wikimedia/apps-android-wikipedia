@@ -16,7 +16,8 @@ import org.wikipedia.util.ResourceUtil
 class DrawableItemDecoration @JvmOverloads constructor(context: Context, @AttrRes id: Int,
                                                        private val drawStart: Boolean = false,
                                                        private val drawEnd: Boolean = true,
-                                                       private val skipSearchBar: Boolean = false) : ItemDecoration() {
+                                                       private val skipSearchBar: Boolean = false,
+                                                       private val searchBarPosition: Int = 0) : ItemDecoration() {
 
     private val drawable: Drawable = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, id))!!
 
@@ -30,11 +31,11 @@ class DrawableItemDecoration @JvmOverloads constructor(context: Context, @AttrRe
 
     override fun onDraw(canvas: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDraw(canvas, parent, state)
-        if (parent.childCount == 0 || (skipSearchBar && parent.childCount == 1)) {
+        if (parent.childCount == 0 || (skipSearchBar && parent.childCount == 1 + searchBarPosition)) {
             return
         }
 
-        val startingPosition = if (parent.getChildAt(0).id == R.id.search_container && skipSearchBar) 1 else 0
+        val startingPosition = if (parent.getChildAt(searchBarPosition).id == R.id.search_container && skipSearchBar) 1 + searchBarPosition else searchBarPosition
 
         val end = parent.childCount - 1
         for (i in (if (drawStart) startingPosition else startingPosition + 1) until end) {

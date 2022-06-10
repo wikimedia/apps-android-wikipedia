@@ -134,7 +134,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         goToTopic = intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false, skipSearchBar = true))
+        binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false, skipSearchBar = true, searchBarPosition = 1))
         binding.talkRecyclerView.itemAnimator = null
 
         val touchCallback = SwipeableItemTouchHelperCallback(this,
