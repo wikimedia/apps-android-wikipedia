@@ -33,7 +33,7 @@ class TalkTopicHolder internal constructor(
 
     private lateinit var threadItem: ThreadItem
 
-    fun bindItem(item: ThreadItem, position: Int) {
+    fun bindItem(item: ThreadItem) {
         item.seen = viewModel.topicSeen(item)
         threadItem = item
         binding.topicTitleText.text = RichTextUtil.stripHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }
@@ -73,6 +73,7 @@ class TalkTopicHolder internal constructor(
             }
             return
         }
+        binding.topicTitleText.isVisible = true
         binding.otherContentText.isVisible = false
 
         // Last comment

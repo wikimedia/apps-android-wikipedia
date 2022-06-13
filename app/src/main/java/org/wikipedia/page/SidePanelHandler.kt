@@ -437,7 +437,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         }
 
         override fun onBindViewHolder(holder: TalkTopicHolder, pos: Int) {
-             holder.bindItem(viewModel.sortedThreadItems[pos], pos)
+             holder.bindItem(viewModel.sortedThreadItems[pos])
         }
     }
 
