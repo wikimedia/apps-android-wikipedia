@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.annotation.AttrRes
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.size
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import org.wikipedia.R
@@ -34,7 +35,7 @@ class DrawableItemDecoration @JvmOverloads constructor(context: Context, @AttrRe
             return
         }
 
-        val startingPosition = if (parent.getChildAt(0).id == R.id.search_container && skipSearchBar) 1 else 0
+        val startingPosition = if ((parent.size > 0 && parent.getChildAt(0).findViewById<WikiCardView>(R.id.search_container) != null) && skipSearchBar) 1 else 0
 
         val end = parent.childCount - 1
         for (i in (if (drawStart) startingPosition else startingPosition + 1) until end) {

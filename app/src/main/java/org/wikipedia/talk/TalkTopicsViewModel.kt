@@ -11,7 +11,6 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.edit.Edit
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
@@ -38,6 +37,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
     private var resolveTitleRequired = false
     val threadItems = mutableListOf<ThreadItem>()
     var sortedThreadItems = listOf<ThreadItem>()
+    var lastRevision: MwQueryPage.Revision? = null
     var watchlistExpiryChanged = false
     var isWatched = false
     var hasWatchlistExpiry = false
@@ -109,12 +109,13 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
 
             threadItems.clear()
             threadItems.addAll(discussionToolsInfoResponse.await().pageInfo?.threads ?: emptyList())
+            lastRevision = lastModifiedResponse.await().query?.firstPage()?.revisions?.firstOrNull()
             sortAndFilterThreadItems()
 
             isWatched = watchStatus.watched
             hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
 
-            uiState.value = UiState.LoadTopic(pageTitle, threadItems, lastModifiedResponse.await())
+            uiState.value = UiState.LoadTopic(pageTitle, threadItems)
         }
     }
 
@@ -151,7 +152,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
     }
 
     private fun threadSha(threadItem: ThreadItem?): String? {
-        return threadItem?.let { it.name + "|" + it.allReplies.map { reply -> reply.timestamp }.maxOrNull() }
+        return threadItem?.let { it.id + "|" + it.allReplies.map { reply -> reply.timestamp }.maxOrNull() }
     }
 
     fun subscribeTopic(commentName: String, subscribed: Boolean) {
@@ -188,8 +189,17 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
                 threadItems.sortBy { it.replies.lastOrNull()?.date }
             }
         }
-        sortedThreadItems = threadItems.filter { it.html.contains(currentSearchQuery.orEmpty(), true) ||
-                it.allReplies.any { reply -> reply.html.contains(currentSearchQuery.orEmpty(), true) ||
+
+        // Regardless of sort order, always put header template at the top, if we have one.
+        val headerItem = threadItems.find { it.othercontent.isNotEmpty() && TalkTopicActivity.isHeaderTemplate(it) }
+        if (headerItem != null) {
+            threadItems.remove(headerItem)
+            threadItems.add(0, headerItem)
+        }
+
+        sortedThreadItems = threadItems.filter { it.plainText.contains(currentSearchQuery.orEmpty(), true) ||
+                it.plainOtherContent.contains(currentSearchQuery.orEmpty(), true) ||
+                it.allReplies.any { reply -> reply.plainText.contains(currentSearchQuery.orEmpty(), true) ||
                         reply.author.contains(currentSearchQuery.orEmpty(), true) } }
     }
 
@@ -254,8 +264,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
     open class UiState {
         data class UpdateNamespace(val pageTitle: PageTitle) : UiState()
         data class LoadTopic(val pageTitle: PageTitle,
-                             val threadItems: List<ThreadItem>,
-                             val lastModifiedResponse: MwQueryResponse) : UiState()
+                             val threadItems: List<ThreadItem>) : UiState()
         data class LoadError(val throwable: Throwable) : UiState()
         data class UndoEdit(val edit: Edit, val undoneSubject: CharSequence, val undoneBody: CharSequence) : UiState()
         data class DoWatch(val isWatched: Boolean, val hasWatchlistExpiry: Boolean) : UiState()

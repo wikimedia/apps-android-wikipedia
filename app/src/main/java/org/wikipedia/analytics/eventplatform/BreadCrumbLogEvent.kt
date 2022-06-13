@@ -11,7 +11,7 @@ import org.wikipedia.util.log.L
 
 @Suppress("unused", "CanBeParameter")
 @Serializable
-@SerialName("/analytics/mobile_apps/android_breadcrumb_log_event/1.0.0")
+@SerialName("/analytics/mobile_apps/android_breadcrumbs_event/1.0.0")
 class BreadCrumbLogEvent(private val screen_name: String,
                          private val action: String,
                          private val primary_language_code: String) : MobileAppsEvent(STREAM_NAME) {
@@ -21,7 +21,7 @@ class BreadCrumbLogEvent(private val screen_name: String,
     }
 
     companion object {
-        private const val STREAM_NAME = "android.breadcrumb_log_event"
+        private const val STREAM_NAME = "android.breadcrumbs_event"
 
         fun logClick(activity: Activity, view: View) {
             val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)

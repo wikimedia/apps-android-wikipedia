@@ -83,7 +83,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
 
-        L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, viewModel.pageTitle.wikiSite.languageCode)
+        L10nUtil.setConditionalLayoutDirection(binding.talkRecyclerView, viewModel.pageTitle.wikiSite.languageCode)
+        L10nUtil.setConditionalLayoutDirection(binding.talkErrorView, viewModel.pageTitle.wikiSite.languageCode)
         binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
         binding.talkToolbarSubjectView.movementMethod = linkMovementMethod
 
@@ -153,6 +154,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
         menu?.let {
+            it.findItem(R.id.menu_find_in_page)?.isVisible = viewModel.topic?.replies.orEmpty().isNotEmpty()
             it.findItem(R.id.menu_edit_source)?.isVisible = AccountUtil.isLoggedIn
             if (viewModel.isExpandable) {
                 val fullyExpanded = viewModel.isFullyExpanded
@@ -445,21 +447,33 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     companion object {
         const val EXTRA_PAGE_TITLE = "pageTitle"
         const val EXTRA_TOPIC_NAME = "topicName"
+        const val EXTRA_TOPIC_ID = "topicId"
         const val EXTRA_REPLY_ID = "replyId"
         const val EXTRA_SEARCH_QUERY = "searchQuery"
+        const val HEADER_LEVEL = 99
 
         fun newIntent(context: Context,
                       pageTitle: PageTitle,
                       topicName: String,
+                      topicId: String,
                       replyId: String?,
                       searchQuery: String?,
                       invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicActivity::class.java)
                     .putExtra(EXTRA_PAGE_TITLE, pageTitle)
                     .putExtra(EXTRA_TOPIC_NAME, topicName)
+                    .putExtra(EXTRA_TOPIC_ID, topicId)
                     .putExtra(EXTRA_REPLY_ID, replyId)
                     .putExtra(EXTRA_SEARCH_QUERY, searchQuery)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+        }
+
+        fun isSubscribable(item: ThreadItem?): Boolean {
+            return item?.name.orEmpty().length > 2
+        }
+
+        fun isHeaderTemplate(item: ThreadItem?): Boolean {
+            return item?.headingLevel == HEADER_LEVEL
         }
     }
 }
