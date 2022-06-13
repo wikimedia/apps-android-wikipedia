@@ -991,6 +991,7 @@
   <string name="file_page_add_image_caption_button">Суртах лаьцар тӀатоха</string>
   <string name="file_page_add_image_tags_button">Сурта фосташ тӀатоха</string>
   <string name="file_page_suggestion_reason">Тоаде мегаш дар белгалдаккхара бахьан</string>
+  <string name="file_page_edit_button_content_description">Тоаде %s</string>
   <string name="description_edit_revert_subtitle">Баркал Википеди тоаярах!</string>
   <string name="description_edit_revert_intro">Тхона хов Википеди тоае хьо гӀерташ хьо хинналга, амма цхьан доакъашхочо гӀалат зийннад. Ӏа тоадаьр юхадаккхара бахьан хила мег:</string>
   <string name="description_edit_revert_reason1">&lt;a href=\"%1$s\"&gt;Кулгалдеш йолча принцапашта&lt;/a&gt; юкъера цхьанеца вӀашкабоагӀаш бацар хьа хувцам.</string>
@@ -1101,9 +1102,52 @@
   <string name="talk_response_submitted">Жоп кепатехад.</string>
   <string name="talk_snackbar_undo">Юхадаккха</string>
   <string name="talk_last_modified">&lt;b&gt;ТӀеххьара хийцад укх хана: %1$s&lt;/b&gt; %2$s яхача доакъашхочо</string>
+  <string name="talk_snackbar_survey_text">Баркал хьона къамаьла оагӀонех пайда эцарах. Тха хоатама чу дакъа а лоацаш, приложени толашагӀа хилийта гӀо дергдарий Ӏа?</string>
+  <string name="talk_snackbar_survey_action_text">ДӀадоладе</string>
+  <string name="talk_share_discussion_subject">Википеди — къамаьл да укх тема чу: «%s»</string>
+  <string name="talk_share_talk_page">Википеди — къамаьла оагӀув</string>
+  <string name="talk_edit_disclaimer">Ер къамаьла оагӀув я. Дехар да, къамаьла оагӀон бокъонаш лелае, иштта, нагахьа санна викитекстаца Ӏайха цхьа хӀама яздаьдале, йистеваьлча(-яьлча), хьай текста кӀалха кулга язде йиъ тильдаца: ~~~~ .&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Википеди:Къамаьла оагӀон бокъонаш&lt;/a&gt;</string>
+  <string name="talk_search_hint">Хоамаш лахар</string>
+  <string name="talk_search_topics_hint">Лахара темаш</string>
+  <string name="talk_search_find_in_talk_topics_hint">Къамаьла оагӀона тӀа тема лаха</string>
+  <string name="talk_overflow_sort_by">Ишта дӀанийсдеш гойта</string>
+  <string name="talk_overflow_sort_date_published">Кепатохара таьрахь</string>
+  <string name="talk_overflow_sort_date_updated">Кердадаккхара таьрахь</string>
+  <string name="talk_overflow_sort_topic_name">Тема цӀи</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Гойта жоп</item>
+    <item quantity="other">Гойта жопаш (%d)</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Къайлахьо жоп</item>
+    <item quantity="other">Къайлахьо жопаш (%d)</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">ДӀатӀаязвеннав укх теманна: \"%s\"</string>
+  <string name="talk_thread_unsubscribed_from">Юхадаьккхад укх теманна дӀатӀаязвалар: \"%s\"</string>
+  <string name="talk_list_item_overflow_subscribe">ДӀатӀаязле</string>
+  <string name="talk_list_item_overflow_subscribed">ДӀатӀаязвеннав(-еннай)</string>
+  <string name="talk_list_item_overflow_mark_as_read">Дийшар морг белгалде</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Цадийшар морг белгалде</string>
+  <string name="talk_list_item_overflow_share">Кхычахьа тасса</string>
+  <string name="talk_list_item_last_comment_date">ТӀехьара комментарий: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Деррига жопаш</string>
+  <string name="talk_list_item_user_icon_content_description">Доакъашхочун иконка</string>
+  <string name="talk_list_item_swipe_mark_as_read">Деша</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Дийшадац</string>
+  <string name="talk_footer_about_this_talk_page">Укх къамаьл-оагӀонах лаьца</string>
+  <string name="talk_footer_view_edit_history">Хувцамашка хьажар</string>
+  <string name="talk_footer_view_user_page">Доакъашхочун оагӀонга хьажар</string>
+  <string name="talk_footer_view_article">Статьяга хьажар</string>
+  <string name="talk_footer_last_modified">&lt;b&gt;ТӀеххьара хийцад укх хана: %1$s доакъашхочо %2$s</string>
+  <string name="menu_option_share_talk_discussion">Къамаьл кхычахьа тасса</string>
+  <string name="menu_option_share_talk_page">Къамаьл-оагӀув кхычахьа тасса</string>
   <string name="menu_option_share_edit">Тоадар дӀадекъа</string>
   <string name="menu_option_user_profile">Профиль: %s</string>
   <string name="menu_option_user_contributions">Доакъашхочун къахьегам: %s</string>
+  <string name="menu_option_edit_source">Тоаде код</string>
+  <string name="menu_option_user_page">%s доакъашхочун оагӀув</string>
+  <string name="menu_option_find_in_talk_page_topic">Къамаьла оагӀона тӀа тема лаха</string>
+  <string name="talk_menu_copy_text">Тарам де текстах</string>
   <string name="talk_menu_expand_threads">Хьайоаржае темаш</string>
   <string name="talk_menu_collapse_threads">ДӀахьоарчае темаш</string>
   <string name="watchlist_details_watching_label">Зем бу</string>
@@ -1122,6 +1166,8 @@
   <string name="menu_option_view_user_contributions">Доакъашхочун къахьегамага хьажар</string>
   <string name="revision_diff_compare">Кепаш вӀаший йиста</string>
   <string name="revision_diff_compare_title">«%s»: кепаш вӀаший йистар</string>
+  <string name="revision_diff_from">Укх ханагара:</string>
+  <string name="revision_diff_to">Цу ханага:</string>
   <string name="revision_diff_line_num">МугӀ %d</string>
   <string name="revision_diff_line_nums">МугӀараш %d–%d</string>
   <string name="revision_diff_line_added">МугӀ тӀатехаб</string>
@@ -1162,5 +1208,6 @@
   <string name="category_tab_subcategories">КӀалъоагӀаташ</string>
   <string name="category_empty">Укх оагӀата чу статьяш кораяьяц.</string>
   <string name="subcategory_empty">Укх оагӀата чу кӀалъоагӀаташ кораяьяц.</string>
+  <string name="search_namespaces">ЦӀерий моттигаш</string>
   <string name="revision_initial_none">А (ер статьяй хьалхара кеп я)</string>
 </resources>

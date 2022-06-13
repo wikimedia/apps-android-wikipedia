@@ -27,12 +27,12 @@
                 app:showAsAction="never" />
             <item
                 android:id="@+id/menu_talk_topic_share"
-                android:icon="@drawable/ic_share_material_secondary_themed"
+                android:icon="@drawable/ic_share"
                 android:title="@string/talk_list_item_overflow_share"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/menu_edit_source"
-                android:icon="@drawable/ic_mode_edit_material_secondary_themed"
+                android:icon="@drawable/ic_mode_edit_white_24dp"
                 android:title="@string/menu_option_edit_source"
                 app:showAsAction="never" />
         </menu>

@@ -520,6 +520,8 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
             }
         }
 
+        override fun isSwipeable(): Boolean { return true }
+
         private val imageDimension
             get() = DimenUtil.roundedDpToPx(if (currentSearchQuery.isNullOrEmpty()) DimenUtil.getDimension(R.dimen.view_list_card_item_image) else ReadingListsFragment.ARTICLE_ITEM_IMAGE_DIMENSION.toFloat())
     }
