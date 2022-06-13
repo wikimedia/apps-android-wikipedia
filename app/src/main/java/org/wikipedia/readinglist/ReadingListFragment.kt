@@ -232,7 +232,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
             }
             if (!articleLimitMessageShown && it.pages.size >= maxPagesPerReadingList) {
                 val message = getString(R.string.reading_list_article_limit_message, readingList.title, maxPagesPerReadingList)
-                FeedbackUtil.makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show()
+                FeedbackUtil.makeSnackbar(requireActivity(), message).show()
                 articleLimitMessageShown = true
             }
         }
@@ -519,6 +519,8 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
                 }
             }
         }
+
+        override fun isSwipeable(): Boolean { return true }
 
         private val imageDimension
             get() = DimenUtil.roundedDpToPx(if (currentSearchQuery.isNullOrEmpty()) DimenUtil.getDimension(R.dimen.view_list_card_item_image) else ReadingListsFragment.ARTICLE_ITEM_IMAGE_DIMENSION.toFloat())

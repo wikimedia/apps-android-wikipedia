@@ -28,20 +28,20 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
         Prefs.customizeToolbarOrder.forEach {
             val view = MaterialTextView(context)
             view.gravity = Gravity.CENTER
-            view.setPadding(0, DimenUtil.roundedDpToPx(8f), 0, 0)
+            view.setPadding(DimenUtil.roundedDpToPx(2f), DimenUtil.roundedDpToPx(8f), DimenUtil.roundedDpToPx(2f), 0)
             view.setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackgroundBorderless))
-            view.setTextColor(ResourceUtil.getThemedColor(context, R.attr.color_group_63))
+            view.setTextColor(ResourceUtil.getThemedColor(context, R.attr.color_group_9))
             view.textAlignment = TEXT_ALIGNMENT_CENTER
             view.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f)
             view.maxLines = 2
             view.ellipsize = TextUtils.TruncateAt.END
 
             val item = PageActionItem.find(it)
-            view.id = item.hashCode()
+            view.id = item.viewId
             view.text = context.getString(item.titleResId)
             view.contentDescription = view.text
             FeedbackUtil.setButtonLongPressToast(view)
-            TextViewCompat.setCompoundDrawableTintList(view, ResourceUtil.getThemedColorStateList(context, R.attr.color_group_63))
+            TextViewCompat.setCompoundDrawableTintList(view, ResourceUtil.getThemedColorStateList(context, R.attr.color_group_9))
             view.setCompoundDrawablesWithIntrinsicBounds(0, item.iconResId, 0, 0)
             view.compoundDrawablePadding = -DimenUtil.roundedDpToPx(4f)
             view.setOnClickListener { v ->

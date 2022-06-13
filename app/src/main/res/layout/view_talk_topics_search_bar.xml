@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="2dp"
-    android:layout_marginBottom="16dp"
+    android:layout_marginBottom="2dp"
     android:layout_marginHorizontal="16dp"
     android:clickable="true"
     android:focusable="true"
@@ -15,7 +15,7 @@
     <ImageView
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:contentDescription="@string/talk_search_hint"
+        android:contentDescription="@string/talk_search_topics_hint"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_search_white_24dp"
         app:tint="?attr/material_theme_de_emphasised_color" />
@@ -26,7 +26,7 @@
         android:layout_gravity="center_vertical"
         android:layout_marginStart="48dp"
         android:layout_marginEnd="48dp"
-        android:text="@string/talk_search_hint"
+        android:text="@string/talk_search_topics_hint"
         android:textColor="?attr/material_theme_secondary_color"/>
 
     <ImageView
@@ -40,6 +40,6 @@
         android:focusable="true"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_baseline_tune_24"
-        app:tint="?attr/chip_text_color" />
+        app:tint="?attr/color_group_9" />
 
 </org.wikipedia.views.WikiCardView>

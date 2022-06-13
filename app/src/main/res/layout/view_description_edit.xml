@@ -46,19 +46,6 @@
                 android:padding="16dp" />
 
             <ImageView
-                android:id="@+id/view_description_edit_help_button"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center_vertical"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:contentDescription="@string/description_edit_help_title"
-                android:focusable="true"
-                android:padding="12dp"
-                app:srcCompat="@drawable/ic_info_outline_black_24dp"
-                app:tint="?attr/material_theme_secondary_color" />
-
-            <ImageView
                 android:id="@+id/view_description_edit_save_button"
                 android:layout_width="48dp"
                 android:layout_height="48dp"

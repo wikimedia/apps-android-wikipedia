@@ -104,6 +104,16 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
 
+        viewModel.singleRevisionText.observe(viewLifecycleOwner) {
+            if (it is Resource.Success) {
+                binding.diffRecyclerView.adapter = DiffUtil.DiffLinesAdapter(DiffUtil.buildDiffLinesList(requireContext(), it.data))
+                updateAfterDiffFetchSuccess()
+                binding.progressBar.isVisible = false
+            } else if (it is Resource.Error) {
+                setErrorState(it.throwable)
+            }
+        }
+
         viewModel.thankStatus.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
                 FeedbackUtil.showMessage(requireActivity(), getString(R.string.thank_success_message,
@@ -135,7 +145,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (it is Resource.Success) {
                 setLoadingState()
                 viewModel.getRevisionDetails(it.data.edit!!.newRevId)
-                FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_undo_success), FeedbackUtil.LENGTH_DEFAULT).show()
+                FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_undo_success)).show()
                 editHistoryInteractionEvent?.logUndoSuccess()
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
@@ -271,16 +281,28 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun updateAfterRevisionFetchSuccess() {
-        viewModel.revisionFrom?.let {
-            binding.usernameFromButton.text = it.user
-            binding.revisionFromTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(it.timeStamp))
-            binding.overlayRevisionFromTimestamp.text = binding.revisionFromTimestamp.text
-            binding.revisionFromEditComment.text = StringUtil.fromHtml(it.parsedcomment.trim())
+        if (viewModel.revisionFrom != null) {
+            binding.usernameFromButton.text = viewModel.revisionFrom!!.user
+            binding.revisionFromTimestamp.text = DateUtil.getTimeAndDateString(DateUtil.iso8601DateParse(viewModel.revisionFrom!!.timeStamp))
+            binding.revisionFromEditComment.text = StringUtil.fromHtml(viewModel.revisionFrom!!.parsedcomment.trim())
+            binding.revisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+            binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+            binding.usernameFromButton.isVisible = true
+            binding.revisionFromEditComment.isVisible = true
+            binding.undoButton.isVisible = true
+        } else {
+            binding.usernameFromButton.isVisible = false
+            binding.revisionFromEditComment.isVisible = false
+            binding.revisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
+            binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
+            binding.revisionFromTimestamp.text = getString(R.string.revision_initial_none)
+            binding.undoButton.isVisible = false
         }
+        binding.overlayRevisionFromTimestamp.text = binding.revisionFromTimestamp.text
 
         viewModel.revisionTo?.let {
             binding.usernameToButton.text = it.user
-            binding.revisionToTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(it.timeStamp))
+            binding.revisionToTimestamp.text = DateUtil.getTimeAndDateString(DateUtil.iso8601DateParse(it.timeStamp))
             binding.overlayRevisionToTimestamp.text = binding.revisionToTimestamp.text
             binding.revisionToEditComment.text = StringUtil.fromHtml(it.parsedcomment.trim())
         }
@@ -295,6 +317,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.thankButton.isEnabled = true
         binding.thankButton.isVisible = AccountUtil.isLoggedIn && !AccountUtil.userName.equals(viewModel.revisionTo?.user)
         binding.revisionDetailsView.isVisible = true
+        binding.errorView.isVisible = false
     }
 
     private fun updateAfterDiffFetchSuccess() {
@@ -332,8 +355,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
                             viewModel.pageTitle.displayText,
-                            getString(expiry.stringId)),
-                    FeedbackUtil.LENGTH_DEFAULT)
+                            getString(expiry.stringId)))
             if (!viewModel.watchlistExpiryChanged) {
                 snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
                     viewModel.watchlistExpiryChanged = true
@@ -400,7 +422,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun copyLink(uri: String?) {
-        setPlainText(requireContext(), null, uri)
+        setPlainText(requireContext(), text = uri)
         FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 

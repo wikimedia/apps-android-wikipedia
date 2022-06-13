@@ -10,7 +10,6 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import java.util.*
 import java.util.concurrent.Semaphore
-import kotlin.collections.ArrayList
 
 object EditingSuggestionsProvider {
     private val mutex: Semaphore = Semaphore(1)
@@ -47,9 +46,8 @@ object EditingSuggestionsProvider {
             } else {
                 ServiceFactory.getRest(Constants.wikidataWikiSite).getArticlesWithoutDescriptions(WikiSite.normalizeLanguageCode(wiki.languageCode))
                         .flatMap { pages ->
-                            val titleList = ArrayList<String>()
-                            pages.forEach { titleList.add(it.title()) }
-                            ServiceFactory.get(wiki).getDescription(titleList.joinToString("|")).subscribeOn(Schedulers.io())
+                            ServiceFactory.get(wiki).getDescription(pages.joinToString("|") { it.title() })
+                                .subscribeOn(Schedulers.io())
                         }
                         .map { pages ->
                             var title: String? = null

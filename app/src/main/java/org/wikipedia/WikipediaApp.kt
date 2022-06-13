@@ -196,7 +196,7 @@ class WikipediaApp : Application() {
 
     fun setFontSizeMultiplier(mult: Int): Boolean {
         val multiplier = mult.coerceIn(resources.getInteger(R.integer.minTextSizeMultiplier),
-            resources.getInteger(R.integer.minTextSizeMultiplier))
+            resources.getInteger(R.integer.maxTextSizeMultiplier))
         if (multiplier != Prefs.textSizeMultiplier) {
             Prefs.textSizeMultiplier = multiplier
             bus.post(ChangeTextSizeEvent())
@@ -253,7 +253,7 @@ class WikipediaApp : Application() {
         AccountUtil.removeAccount()
         Prefs.isPushNotificationTokenSubscribed = false
         Prefs.pushNotificationTokenOld = ""
-        ServiceFactory.get(wikiSite).csrfToken
+        ServiceFactory.get(wikiSite).getTokenObservable()
                 .subscribeOn(Schedulers.io())
                 .flatMap {
                     val csrfToken = it.query!!.csrfToken()

@@ -7,6 +7,7 @@ import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscribeResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscriptionList
 import org.wikipedia.dataclient.mwapi.*
+import org.wikipedia.dataclient.rollback.RollbackPostResponse
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.Claims
 import org.wikipedia.dataclient.wikidata.Entities
@@ -15,7 +16,6 @@ import org.wikipedia.dataclient.wikidata.Search
 import org.wikipedia.edit.Edit
 import org.wikipedia.login.LoginClient.LoginResponse
 import org.wikipedia.search.PrefixSearchResponse
-import retrofit2.Call
 import retrofit2.http.*
 
 /**
@@ -108,7 +108,7 @@ interface Service {
     suspend fun getSiteMatrix(): SiteMatrix
 
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=namespaces")
-    fun getPageNamespaceWithSiteInfo(@Query("titles") title: String): Observable<MwQueryResponse>
+    suspend fun getPageNamespaceWithSiteInfo(@Query("titles") title: String?): MwQueryResponse
 
     @get:GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     val siteInfo: Observable<MwQueryResponse>
@@ -155,17 +155,13 @@ interface Service {
 
     // ------- CSRF, Login, and Create Account -------
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
-    @get:Headers("Cache-Control: no-cache")
-    val csrfTokenCall: Call<MwQueryResponse?>
-
-    @get:GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
-    @get:Headers("Cache-Control: no-cache")
-    val csrfToken: Observable<MwQueryResponse>
-
-    @GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
     @Headers("Cache-Control: no-cache")
-    suspend fun getCsrfToken(): MwQueryResponse
+    @GET(MW_API_PREFIX + "action=query&meta=tokens")
+    fun getTokenObservable(@Query("type") type: String = "csrf"): Observable<MwQueryResponse>
+
+    @GET(MW_API_PREFIX + "action=query&meta=tokens")
+    @Headers("Cache-Control: no-cache")
+    suspend fun getToken(@Query("type") type: String = "csrf"): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=createaccount&createmessageformat=html")
@@ -214,6 +210,9 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
     val userInfo: Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=rights")
+    suspend fun userRights(): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
     fun getUserList(@Query("ususers") userNames: String): Observable<MwQueryResponse>
 
@@ -222,15 +221,6 @@ interface Service {
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max")
     suspend fun getAllNotifications(
-        @Query("notwikis") wikiList: String?,
-        @Query("notfilter") filter: String?,
-        @Query("notcontinue") continueStr: String?
-    ): MwQueryResponse
-
-    // TODO: remove "KT" if we remove the Observable one.
-    @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max")
-    suspend fun getAllNotificationsKT(
         @Query("notwikis") wikiList: String?,
         @Query("notfilter") filter: String?,
         @Query("notcontinue") continueStr: String?
@@ -281,21 +271,13 @@ interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
-    fun postUndoEdit(
-        @Field("title") title: String,
-        @Field("undo") revision: Long,
-        @Field("token") token: String
-    ): Observable<Edit>
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=edit")
     suspend fun postUndoEdit(
             @Field("title") title: String,
-            @Field("summary") summary: String,
-            @Field("assert") user: String?,
+            @Field("summary") summary: String? = null,
+            @Field("assert") user: String? = null,
             @Field("token") token: String,
             @Field("undo") undoRevId: Long,
-            @Field("undoafter") undoRevAfter: Long?,
+            @Field("undoafter") undoRevAfter: Long? = null,
     ): Edit
 
     @FormUrlEncoded
@@ -326,6 +308,15 @@ interface Service {
 
     @get:GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     val editorTaskCounts: Observable<MwQueryResponse>
+
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=rollback")
+    suspend fun postRollback(
+        @Field("title") title: String,
+        @Field("summary") summary: String?,
+        @Field("user") user: String,
+        @Field("token") token: String
+    ): RollbackPostResponse
 
     // ------- Wikidata -------
 
@@ -420,16 +411,16 @@ interface Service {
     val watchlist: Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=timestamp|user|ids|comment|tags")
-    fun getLastModified(@Query("titles") titles: String): Observable<MwQueryResponse>
+    suspend fun getLastModified(@Query("titles") titles: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=newer")
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=newer")
     suspend fun getRevisionDetailsAscending(
         @Query("titles") titles: String,
         @Query("rvlimit") count: Int,
         @Query("rvstartid") revisionStartId: Long?
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=older")
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=older")
     suspend fun getRevisionDetailsDescending(
         @Query("titles") titles: String,
         @Query("rvlimit") count: Int,
@@ -486,12 +477,13 @@ interface Service {
             @Query("page") page: String
     ): DiscussionToolsInfoResponse
 
-    @GET(MW_API_PREFIX + "action=discussiontoolssubscribe")
+    @POST(MW_API_PREFIX + "action=discussiontoolssubscribe")
+    @FormUrlEncoded
     suspend fun subscribeTalkPageTopic(
-            @Query("page") page: String,
-            @Query("commentname") topicName: String,
-            @Query("token") token: String,
-            @Query("subscribe") subscribe: Boolean,
+            @Field("page") page: String,
+            @Field("commentname") topicName: String,
+            @Field("token") token: String,
+            @Field("subscribe") subscribe: Boolean?,
     ): DiscussionToolsSubscribeResponse
 
     @GET(MW_API_PREFIX + "action=discussiontoolsgetsubscriptions")

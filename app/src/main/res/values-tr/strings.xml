@@ -23,6 +23,7 @@
 * Katpatuka
 * KorkmazO
 * Kumkumuk
+* LisafBia
 * Mavrikant
 * McAang
 * Mim.saitkilic
@@ -431,7 +432,7 @@
   <string name="error_blocked_expiry">Engel bitişi: %s</string>
   <string name="error_blocked_id">Engel kimliği: %s</string>
   <string name="error_blocked_footer">Engellemeyi görüşmek için &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ya da başka bir &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Hizmetliler#Hizmetliler_listesi\"&gt;hizmetli&lt;/a&gt; ile iletişime geçebilirsiniz.</string>
-  <string name="theme_chooser_menu_item_tooltip">Araç çubuğunuzu özelleştirin ve odaklanma kipinde okumayı deneyin</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Araç çubuğunuzu özelleştirin</string>
   <string name="error_blocked_footer_no_blocker">Engellemeyi görüşmek için bir &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Hizmetliler#Hizmetliler_listesi\"&gt;hizmetli&lt;/a&gt; ile iletişime geçebilirsiniz.</string>
   <string name="crash_report_activity_title">Uygulama hatası</string>
   <string name="crash_report_relaunch_or_quit">Üzgünüz, Vikipedi uygulaması bir sorunla karşılaştı ve kapatıldı.\n\nBaştan başlatmak mı yoksa çıkmak mı istersiniz?</string>
@@ -461,8 +462,6 @@
   <string name="theme_category_reading">Okuma</string>
   <string name="reading_focus_mode">Odaklanma modunda okunuyor</string>
   <string name="reading_focus_mode_detail">Kaydırma esnasındayken düzenleme özelliklerini ve alt araç çubuğunu gizler</string>
-  <string name="theme_category_toolbar">Araç çubuğu</string>
-  <string name="theme_customize_toolbar">Araç çubuğunu özelleştir</string>
   <string name="nav_item_saved">Kaydedildi</string>
   <string name="reading_list_save_to">Okuma listesine kaydet</string>
   <string name="reading_list_move_to">Okuma listesine taşı</string>
@@ -1108,15 +1107,48 @@
   <string name="talk_share_talk_page">Vikipedi - tartışma sayfasındaki tartışmalar</string>
   <string name="talk_edit_disclaimer">Bu bir tartışma sayfasıdır. Lütfen, tartışma sayfası yönergelerine uyun ve gönderilerinizi dört tilde yazarak imzalamayı unutmayın: vikimetni kullanırken gönderinin sonuna ~~~~ ekleyin.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Tartışma_sayfası\"&gt;Vikipedi:Tartışma sayfası&lt;/a&gt;</string>
   <string name="talk_search_hint">Mesajları ara</string>
+  <string name="talk_search_topics_hint">Konu ara</string>
+  <string name="talk_search_find_in_talk_topics_hint">Tartışma sayfasında konu bul</string>
   <string name="talk_overflow_sort_by">Sıralama ölçütü</string>
   <string name="talk_overflow_sort_date_published">Yayımlanma tarihi</string>
+  <string name="talk_overflow_sort_date_updated">Güncellenme tarihi</string>
   <string name="talk_overflow_sort_topic_name">Konu adı</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Cevabı göster</item>
+    <item quantity="other">(%d) cevabı göster</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Cevabı gizli</item>
+    <item quantity="other">(%d) cevabı gizle</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">\"%s\" konusu takip edildi</string>
+  <string name="talk_thread_unsubscribed_from">\"%s\" konusunu takipten çıkar</string>
+  <string name="talk_list_item_overflow_subscribe">Abone ol</string>
+  <string name="talk_list_item_overflow_subscribed">Abone olundu</string>
+  <string name="talk_list_item_overflow_mark_as_read">Okundu olarak işaretle</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Okunmadı olarak işaretle</string>
+  <string name="talk_list_item_overflow_share">Paylaş</string>
+  <string name="talk_list_item_last_comment_date">Son yorum: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Toplam yanıt</string>
+  <string name="talk_list_item_user_icon_content_description">Kullanıcı simgesi</string>
+  <string name="talk_list_item_swipe_mark_as_read">Okundu</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Okunmamış</string>
+  <string name="talk_footer_about_this_talk_page">Bu tartışma sayfası hakkında</string>
+  <string name="talk_footer_view_edit_history">Düzenleme geçmişini görüntüle</string>
+  <string name="talk_footer_view_user_page">Kullanıcı sayfasını görüntüle</string>
+  <string name="talk_footer_view_article">Maddeye bak</string>
+  <string name="talk_footer_last_modified">Son düzenleme %1$s tarihinde %2$s tarafından yapıldı</string>
   <string name="menu_option_share_talk_discussion">Tartışmayı paylaş</string>
   <string name="menu_option_share_talk_page">Tartışma sayfasını paylaş</string>
   <string name="menu_option_share_edit">Değişikliği paylaş</string>
   <string name="menu_option_user_profile">%s kullanıcısının bilgileri</string>
   <string name="menu_option_user_contributions">%s kullanıcısının katkıları</string>
   <string name="menu_option_edit_source">Kaynağı düzenle</string>
+  <string name="menu_option_user_page">%s kullanıcı sayfası</string>
+  <string name="menu_option_find_in_talk_page_topic">Tartışma sayfasında konu bul</string>
+  <string name="talk_menu_copy_text">Metni kopyala</string>
+  <string name="talk_menu_expand_threads">Konuları genişlet</string>
+  <string name="talk_menu_collapse_threads">Konuları daralt</string>
   <string name="watchlist_details_watching_label">İzleniyor</string>
   <string name="watchlist_details_watch_label">İzle</string>
   <string name="watchlist_details_next_edit">Sonraki düzenleme</string>

@@ -39,8 +39,10 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.*
-import java.util.*
+import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.views.PageItemView
+import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import org.wikipedia.views.WikiCardView
 
 class HistoryFragment : Fragment(), BackPressedHandler {
     interface Callback {
@@ -200,7 +202,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
     private fun showDeleteItemsUndoSnackbar(entries: List<HistoryEntry>) {
         val message = if (entries.size == 1) getString(R.string.history_item_deleted, entries[0].title.displayText) else getString(R.string.history_items_deleted, entries.size)
-        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT)
+        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), message)
         snackbar.setAction(R.string.history_item_delete_undo) {
             AppDatabase.instance.historyEntryDao().insert(entries)
             reloadHistoryItems()
@@ -311,6 +313,8 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             selectedEntries.add(entry)
             deleteSelectedPages()
         }
+
+        override fun isSwipeable(): Boolean { return true }
     }
 
     private inner class HistoryEntryItemAdapter : RecyclerView.Adapter<DefaultViewHolder<*>>() {

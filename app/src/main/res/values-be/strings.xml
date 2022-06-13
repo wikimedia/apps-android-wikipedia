@@ -178,7 +178,7 @@
   <string name="page_protected_sysop">Гэтая старонка была цалкам абаронена.</string>
   <string name="page_protected_other">Старонка пад аховай наступных узроўняў: %s</string>
   <string name="page_protected_can_not_edit">На жаль, на дадзены момант у вашага ўліковага запісу няма дастатковых правоў для рэдагавання гэтай старонкі.</string>
-  <string name="page_protected_can_not_edit_anon">На жаль, у цяперашні час гэтая старонка не можа быць адрэдагавана ананімна.</string>
+  <string name="page_protected_can_not_edit_anon">Шкада, зараз старонку нельга рэдагаваць ананімна.</string>
   <string name="page_protected_can_not_edit_title">Гэтая старонка пад аховай</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Дадаць у спіс назіранага</string>
   <string name="settings_item_preferences">Настройкі</string>

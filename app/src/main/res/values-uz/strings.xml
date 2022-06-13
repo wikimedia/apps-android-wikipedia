@@ -100,6 +100,7 @@
   <string name="on_this_day_page_share">Ulashmoq</string>
   <string name="reading_list_page_share">Ulashmoq</string>
   <string name="menu_text_select_edit_here">Bu yerni tahrirlamoq</string>
+  <string name="menu_edit_article">Maqolani tahrirlamoq</string>
   <string name="last_updated_text">%sda oxirgi bor yangilangan</string>
   <string name="talk_page_link_text">Muhokama sahifasini ko‘rmoq</string>
   <string name="edit_history_link_text">Tahrirlar tarixini koʻrish</string>
@@ -109,6 +110,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Nashr qilish bilan Siz &lt;a href=\"%1$s\"&gt; Foydalanish shartlari &lt;/a&gt;ga va o‘zingizning hissangizni &lt;a href=\"%2$s\"&gt; CC BY-SA 3.0 ostida qaytarib berilmaslikka rozilik bildirasiz. &lt;/a&gt; litsenziyasi.</string>
   <string name="edit_save_action_license_anon">Nashr qilish bilan Siz &lt;a href=\"%1$s\"&gt; Foydalanish shartlari &lt;/a&gt;ga va o‘z hissangizni &lt;a href=\"%2$s/\"&gt; CC BY-SA ostida qaytarib berilmaslikka rozilik bildirasiz. 3.0 &lt;/a&gt; litsenziyasi. O‘zgarishlar sizning qurilmangiz IP-manziliga tegishli bo‘ladi. Agar Siz &lt;a href=\"https://#login\"&gt; tizimga kirsangiz &lt;/a&gt;, siz ko\'proq shaxsiylikka ega bo‘lasiz.</string>
+  <string name="edit_anon_warning">Tahrirlar qurilmangiz IP manziliga tegishli boʻladi. Agar Siz tizimga &lt;a href=\"https://#login\"&gt;kirsangiz&lt;/a&gt;, maxfiylikka ega boʻlasiz.</string>
   <string name="preference_title_language">Vikipediya tillari</string>
   <string name="langlinks_filter_hint">Izlash</string>
   <string name="langlinks_empty">Bu sahifa boshqa tillarda mavjud emas.</string>
@@ -293,7 +295,7 @@
   <string name="clear_recent_searches_confirm_yes">Ha</string>
   <string name="clear_recent_searches_confirm_no">Yo‘q</string>
   <string name="error_browser_not_found">Veb-sahifani ochib boʻlmadi (brauzer ilovasi mavjud emas).</string>
-  <string name="table_infobox">Tezkor faktlar</string>
+  <string name="table_infobox">Qisqa faktlar</string>
   <string name="table_other">Batafsil maʼlumot</string>
   <string name="table_close">Yopmoq</string>
   <string name="widget_name_featured_page">Tanlangan sahifa</string>
@@ -401,7 +403,6 @@
   <string name="error_blocked_expiry">Bloklash muddati: %s</string>
   <string name="error_blocked_id">Bloklashning ID kodi: %s</string>
   <string name="error_blocked_footer">Siz &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; bilan yoki &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; bilan bloklash masalasida murojaat qilishingiz mumkin.</string>
-  <string name="theme_chooser_menu_item_tooltip">Jihozlar panelini moslang va oʻqish rejimini yoqing</string>
   <string name="error_blocked_footer_no_blocker">Siz &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; bilan bloklash boʻyicha bogʻlanishingiz mumkin.</string>
   <string name="crash_report_activity_title">Ilova xatoligi</string>
   <string name="crash_report_relaunch_or_quit">Kechirasiz, Vikipediya ilovasida xatolik yuz berdi va u bekor qilindi.\n\nBoshlashni xohlaysizmi yoki ishdan chiqishni xohlaysizmi?</string>
@@ -431,8 +432,6 @@
   <string name="theme_category_reading">Oʻqish</string>
   <string name="reading_focus_mode">Oʻqish rejimi</string>
   <string name="reading_focus_mode_detail">Asosiy tahrirlarni va harakat vaqti quyi panelni berkitmoq</string>
-  <string name="theme_category_toolbar">Panel</string>
-  <string name="theme_customize_toolbar">Panelni moslash</string>
   <string name="nav_item_saved">Saqlamalar</string>
   <string name="reading_list_save_to">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
   <string name="reading_list_move_to">Oʻqish roʻyxatiga oʻtmoq</string>
@@ -794,7 +793,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Tahrirlash</string>
   <string name="description_edit_tutorial_promise">Boshlash bilan men ushbu funktsiyani notoʻgʻri ishlatmaslikka harakat qilaman.</string>
   <string name="customize_toolbar_title">Panelni moslash</string>
-  <string name="customize_toolbar_description_text">Quyi panelda Sizga kerakli boʻlgan 5 ta havolni joylang.</string>
   <string name="customize_toolbar_category_toolbar">Panel</string>
   <string name="customize_toolbar_category_menu">Menyu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Kerakli elementlarni bu yerga surib olib keling 👋</string>
