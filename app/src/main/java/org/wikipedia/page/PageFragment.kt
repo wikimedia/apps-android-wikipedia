@@ -505,7 +505,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun openInNewTab(title: PageTitle, entry: HistoryEntry, position: Int) {
         val selectedTabPosition = app.tabList.firstOrNull { it.backStackPositionTitle != null &&
-                it.backStackPositionTitle == title }?.let { app.tabList.indexOf(it) } ?: -1
+                title.matches(it.backStackPositionTitle) }?.let { app.tabList.indexOf(it) } ?: -1
 
         if (selectedTabPosition >= 0) {
             return

@@ -391,7 +391,7 @@ class EditHistoryListActivity : BaseActivity() {
             if (Prefs.editHistoryFilterType.isEmpty()) {
                 binding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(this@EditHistoryListActivity, R.attr.chip_text_color))
+                    ResourceUtil.getThemedColorStateList(this@EditHistoryListActivity, R.attr.color_group_9))
             } else {
                 binding.filterCount.visibility = View.VISIBLE
                 binding.filterCount.text = (if (Prefs.editHistoryFilterType.isNotEmpty()) 1 else 0).toString()

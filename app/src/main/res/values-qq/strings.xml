@@ -286,6 +286,11 @@
   <string name="edit_preview">Header text to show above the preview of the edited article.\n{{Identical|Preview}}</string>
   <string name="edit_undo">Button label to undo the previous text that was typed.</string>
   <string name="edit_redo">Button label to redo the previous text that was typed.</string>
+  <string name="edit_rollback">Button label to rollback the article to the last revision.</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">Text for the revisions difference in bytes. %s will be replaced by the positive one or negative one.</item>
+    <item quantity="other">Text for the revisions difference in bytes. %s will be replaced by the number of bytes.</item>
+  </plurals>
   <string name="edit_zoom_in">Button label to increase the text size in the editor window.</string>
   <string name="edit_zoom_out">Button label to decrease the text size in the editor window.</string>
   <string name="edit_summary_tag_typo">Clickable summary tag for fixing a typo. A part of a list that includes:\n* {{msg-wm|Wikipedia-android-strings-edit summary tag typo}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag grammar}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag links}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag other}}</string>
@@ -939,8 +944,8 @@
     <item quantity="other">Label text for indicating how many contributions a user has made. For many contributions.</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
-    <item quantity="one">Label text to show the length of the edit streak in number of days. %d is for one dat.</item>
-    <item quantity="other">Label text to show the length of the edit streak in number of days. %d is for many days</item>
+    <item quantity="one">Label text to show the length of the edit streak in number of days. %d is for one day.</item>
+    <item quantity="other">Label text to show the length of the edit streak in number of days. %d is for many days.</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Title for card that introduces Suggested edits.</string>
   <string name="suggested_edits_what_is_text">Body text for card that introduces Suggested edits.</string>
@@ -1176,6 +1181,8 @@
   <string name="revision_undo_message">Dialog message explaining that the selected revision will be undone.</string>
   <string name="revision_undo_reason">Dialog message requesting a reason for undoing the selected revision.</string>
   <string name="revision_undo_success">Message shown when an edit was undone successfully.</string>
+  <string name="revision_rollback_dialog_title">Title of the rollback dialog.</string>
+  <string name="revision_rollback_success">Message shown when edits were reverted successfully.</string>
   <string name="revision_compare_button">Button label for comparing two revisions.</string>
   <string name="revision_compare_two_only">Error message when the user attempts to select more than two revisions for comparison.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Message shown when the article is added to Watchlist. The %1$s symbol will be replaced by the article title and the %2$s symbol will be replaced by the time period.</string>
@@ -1206,6 +1213,6 @@
   <string name="category_tab_subcategories">Label for tab that lists all the subcategories of a category.</string>
   <string name="category_empty">Error shown when the current category contains no articles.</string>
   <string name="subcategory_empty">Error shown when the current category contains no subcategories.</string>
-  <string name="search_namespaces">Hint for selecting the namespace when searching.</string>
+  <string name="search_namespaces">Hint for selecting the namespace when searching.\n{{Identical|Namespace}}</string>
   <string name="revision_initial_none">Label shown when showing a diff of the first revision of an article (when there is no previous revision to compare with).</string>
 </resources>

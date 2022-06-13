@@ -43,5 +43,5 @@
         android:focusable="true"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_baseline_tune_24"
-        app:tint="?attr/chip_text_color" />
+        app:tint="?attr/color_group_9" />
 </LinearLayout>
