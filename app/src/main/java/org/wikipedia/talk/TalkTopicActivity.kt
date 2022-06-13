@@ -154,6 +154,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
         menu?.let {
+            it.findItem(R.id.menu_find_in_page)?.isVisible = viewModel.topic?.replies.orEmpty().isNotEmpty()
             it.findItem(R.id.menu_edit_source)?.isVisible = AccountUtil.isLoggedIn
             if (viewModel.isExpandable) {
                 val fullyExpanded = viewModel.isFullyExpanded
@@ -449,6 +450,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         const val EXTRA_TOPIC_ID = "topicId"
         const val EXTRA_REPLY_ID = "replyId"
         const val EXTRA_SEARCH_QUERY = "searchQuery"
+        const val HEADER_LEVEL = 99
 
         fun newIntent(context: Context,
                       pageTitle: PageTitle,
@@ -464,6 +466,14 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                     .putExtra(EXTRA_REPLY_ID, replyId)
                     .putExtra(EXTRA_SEARCH_QUERY, searchQuery)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+        }
+
+        fun isSubscribable(item: ThreadItem?): Boolean {
+            return item?.name.orEmpty().length > 2
+        }
+
+        fun isHeaderTemplate(item: ThreadItem?): Boolean {
+            return item?.headingLevel == HEADER_LEVEL
         }
     }
 }
