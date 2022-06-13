@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlinx-serialization'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.emergetools.android'
 
 // Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
 final File PROD_PROPS_FILE = new File(System.getProperty('user.home'), '.sign/signing.properties')
@@ -89,7 +90,8 @@ android {
 
     signingConfigs {
         prod {
-            setSigningConfigKey(prod, PROD_PROPS)
+            // Changed to REPO_PROPS for demo purposes, we won't be releasing this fork to prod :)
+            setSigningConfigKey(prod, REPO_PROPS)
         }
         debug {
             setSigningConfigKey(debug, REPO_PROPS)
@@ -272,6 +274,47 @@ dependencies {
     androidTestUtil 'androidx.test:orchestrator:1.4.1'
 }
 
+emerge {
+    apiToken = System.getenv("EMERGE_API_TOKEN")
+
+    // Quick return to make sure Kotlin compiles
+    def githubEventJson = getGitHubEventJson(System.getenv("GITHUB_EVENT_PATH"))
+
+    def shaProperty = null
+    def baseShaProperty = null
+    def prNumberProperty = null
+    def branchNameProperty = null
+    if (githubEventJson != null) {
+        if (System.getenv("GITHUB_EVENT_NAME") == "pull_request") {
+            def pullRequestData = githubEventProperties.pull_request
+            def headData = pullRequestData.head
+            def baseData = pullRequestData.base
+
+            shaProperty = headData.sha
+            if (shaProperty == null) {
+                shaProperty = System.getenv("GITHUB_SHA")
+            }
+            baseShaProperty = baseData.sha
+            branchNameProperty = System.getenv("GITHUB_HEAD_REF")
+            prNumberProperty = System.getenv("GITHUB_REF").split('/')[2]
+        } else {
+            shaProperty = System.getenv("GITHUB_SHA")
+            baseShaProperty = githubEventProperties.before
+            branchNameProperty = System.getenv("GITHUB_REF").split('/').last()
+        }
+    }
+
+    vcsOptions {
+        sha = shaProperty
+        baseSha = baseShaProperty
+        branchName = branchNameProperty
+        repoName = "EmergeTools/apps-android-wikipedia"
+        if (prNumberProperty != null) {
+            prNumber = prNumberProperty
+        }
+    }
+}
+
 private setSigningConfigKey(config, Properties props) {
     if(props != null) {
         config.storeFile = props['keystore'] == null ? null : file(props['keystore'])
@@ -291,4 +334,12 @@ private static Properties loadProperties(File file) {
         System.err.println "\"${file}\" not found"
     }
     return props
+}
+
+private static getGitHubEventJson(String path) {
+    if (path == null) {
+        return null
+    }
+    def githubEventJsonFile = new File(path)
+    return JsonSlurper().parseText(githubEventJsonFile.readText())
 }
