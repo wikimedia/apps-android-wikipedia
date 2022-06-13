@@ -89,6 +89,8 @@
   <string name="share_via">اشتراک‌گذاری با</string>
   <string name="image_share_via">اشتراک‌گذاری با</string>
   <string name="search_redirect_from">تغییر مسیر از %s</string>
+  <string name="page_edit_history_activity_title">تاریخچهٔ ویرایش‌ها: %s</string>
+  <string name="page_edit_history_comment_placeholder">خلاصه ویرایش خالی است</string>
   <string name="page_edit_history_search_or_filter_edits_hint">جستجو یا پالایش ویرایش‌ها</string>
   <string name="page_edit_history_filter_by">پالایش بر اساس</string>
   <string name="page_edit_history_filter_by_all">تمام ویرایش‌ها (%s)</string>
