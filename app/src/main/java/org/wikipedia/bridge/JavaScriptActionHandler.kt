@@ -65,12 +65,16 @@ object JavaScriptActionHandler {
                 "}, 250);"
     }
 
+    fun setUpTalkPageBubble(isEnable: Boolean): String {
+        return "pcs.c1.Page.setTalkPageButton($isEnable)"
+    }
+
     fun prepareToScrollTo(anchorLink: String, highlight: Boolean): String {
         return "pcs.c1.Page.prepareForScrollToAnchor(\"${anchorLink.replace("\"", "\\\"")}\", { highlight: $highlight } )"
     }
 
     fun setUp(context: Context, title: PageTitle, isPreview: Boolean, toolbarMargin: Int): String {
-        val app: WikipediaApp = WikipediaApp.instance
+        val app = WikipediaApp.instance
         val topActionBarHeight = if (isPreview) 0 else DimenUtil.roundedPxToDp(toolbarMargin.toFloat())
         val res = L10nUtil.getStringsForArticleLanguage(title, intArrayOf(R.string.description_edit_add_description,
                 R.string.table_infobox, R.string.table_other, R.string.table_close))
@@ -101,7 +105,8 @@ object JavaScriptActionHandler {
                 "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
                 "   \"loadImages\": ${Prefs.isImageDownloadEnabled}," +
                 "   \"userGroups\": \"${AccountUtil.groups}\"," +
-                "   \"isEditable\": ${!Prefs.readingFocusModeEnabled}" +
+                "   \"isEditable\": ${!Prefs.readingFocusModeEnabled}," +
+                "   \"talkPageButton\": ${!Prefs.readingFocusModeEnabled}" +
                 "}", topMargin, 16, 48, 16, leadImageHeight)
     }
 

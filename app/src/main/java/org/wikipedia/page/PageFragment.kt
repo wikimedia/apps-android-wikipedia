@@ -326,6 +326,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         leadImagesHandler.refreshCallToActionVisibility()
         page?.let {
             bridge.execute(JavaScriptActionHandler.setUpEditButtons(!Prefs.readingFocusModeEnabled, !it.pageProperties.canEdit))
+            bridge.execute(JavaScriptActionHandler.setUpTalkPageBubble(!Prefs.readingFocusModeEnabled))
         }
         // We disable and then re-enable scroll events coming from the WebView, because toggling
         // reading focus mode within the article could actually change the dimensions of the page,
@@ -817,6 +818,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 } else {
                     updateProgressBar(false)
                     avPlayer!!.stop()
+                }
+            }
+        }
+        bridge.addListener("header_item") { _, messagePayload ->
+            messagePayload?.let { payload ->
+                when (payload["itemType"]?.jsonPrimitive?.content) {
+                    "talkPage" -> sidePanelHandler.showTalkTopics()
                 }
             }
         }
