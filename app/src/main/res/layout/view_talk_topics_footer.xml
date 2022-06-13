@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/footerContainer"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="?android:colorBackground"
     android:paddingTop="24dp"
@@ -29,7 +29,7 @@
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:contentDescription="@string/talk_search_hint"
+            android:contentDescription="@string/talk_footer_view_edit_history"
             android:scaleType="center"
             android:layout_margin="8dp"
             app:srcCompat="@drawable/ic_icon_revision_history_apps"
@@ -73,7 +73,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="8dp"
-            android:contentDescription="@string/talk_search_hint"
+            android:contentDescription="@string/view_user_page"
             android:scaleType="center"
             app:srcCompat="@drawable/ic_article_ltr_ooui"
             app:tint="?attr/secondary_text_color" />
