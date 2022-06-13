@@ -211,7 +211,7 @@ class WikipediaApp : Application() {
 
     fun setFontSizeMultiplier(mult: Int): Boolean {
         val multiplier = mult.coerceIn(resources.getInteger(R.integer.minTextSizeMultiplier),
-            resources.getInteger(R.integer.minTextSizeMultiplier))
+            resources.getInteger(R.integer.maxTextSizeMultiplier))
         if (multiplier != Prefs.textSizeMultiplier) {
             Prefs.textSizeMultiplier = multiplier
             bus.post(ChangeTextSizeEvent())

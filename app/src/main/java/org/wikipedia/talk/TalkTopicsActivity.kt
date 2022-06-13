@@ -12,10 +12,10 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,9 +28,10 @@ import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.databinding.ItemTalkTopicBinding
+import org.wikipedia.databinding.ViewTalkTopicsFooterBinding
+import org.wikipedia.databinding.ViewTalkTopicsHeaderBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
@@ -57,6 +58,10 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     private lateinit var invokeSource: Constants.InvokeSource
     private lateinit var notificationButtonView: NotificationButtonView
     private val viewModel: TalkTopicsViewModel by viewModels { TalkTopicsViewModel.Factory(intent.getParcelableExtra(EXTRA_PAGE_TITLE)) }
+    private val concatAdapter = ConcatAdapter()
+    private val headerAdapter = HeaderItemAdapter()
+    private val talkTopicItemAdapter = TalkTopicItemAdapter()
+    private val footerAdapter = FooterItemAdapter()
     private var funnel: TalkFunnel? = null
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
@@ -129,7 +134,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false, skipSearchBar = true))
-        binding.talkRecyclerView.adapter = TalkTopicItemAdapter()
         binding.talkRecyclerView.itemAnimator = null
 
         val touchCallback = SwipeableItemTouchHelperCallback(this,
@@ -165,8 +169,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
         binding.talkNewTopicButton.isVisible = false
 
-        binding.talkFooter.root.isVisible = false
-
         notificationButtonView = NotificationButtonView(this)
         Prefs.hasAnonymousNotification = false
 
@@ -174,7 +176,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             viewModel.uiState.collect {
                 when (it) {
                     is TalkTopicsViewModel.UiState.UpdateNamespace -> setToolbarTitle(it.pageTitle)
-                    is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.threadItems, it.lastModifiedResponse)
+                    is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.threadItems)
                     is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.undoneSubject, it.undoneBody)
                     is TalkTopicsViewModel.UiState.DoWatch -> updateOnWatch()
                     is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
@@ -272,47 +274,26 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
     private fun resetViews() {
         invalidateOptionsMenu()
-        L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
+        L10nUtil.setConditionalLayoutDirection(binding.talkContentsView, pageTitle.wikiSite.languageCode)
         binding.talkProgressBar.isVisible = true
         binding.talkErrorView.isVisible = false
         binding.talkEmptyContainer.isVisible = false
         binding.talkConditionContainer.isVisible = true
     }
 
-    private fun updateOnSuccess(pageTitle: PageTitle, threadItems: List<ThreadItem>, lastModifiedResponse: MwQueryResponse) {
+    private fun updateOnSuccess(pageTitle: PageTitle, threadItems: List<ThreadItem>) {
         // Update page title and start the funnel
         this.pageTitle = pageTitle
         funnel = TalkFunnel(pageTitle, invokeSource)
         setToolbarTitle(pageTitle)
 
-        // Update last modified date
-        lastModifiedResponse.query?.firstPage()?.revisions?.firstOrNull()?.let { revision ->
-            binding.talkFooter.lastModifiedText.text = StringUtil.fromHtml(getString(R.string.talk_footer_last_modified,
-                DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
-                    System.currentTimeMillis(), 0L), revision.user))
-
-            binding.talkFooter.viewEditHistoryContainer.setOnClickListener {
-                startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle, revision.revId))
+        if (binding.talkRecyclerView.adapter == null) {
+            binding.talkRecyclerView.adapter = concatAdapter.apply {
+                addAdapter(0, headerAdapter)
+                addAdapter(1, talkTopicItemAdapter)
+                addAdapter(2, footerAdapter)
             }
         }
-
-        binding.talkFooter.viewPageContainer.setOnClickListener {
-            goToPage()
-        }
-
-        if (pageTitle.namespace() == Namespace.USER_TALK) {
-            binding.talkFooter.viewPageIcon.setImageResource(R.drawable.ic_user_avatar)
-            binding.talkFooter.viewPageTitle.text = getString(R.string.talk_footer_view_user_page)
-        } else {
-            binding.talkFooter.viewPageIcon.setImageResource(R.drawable.ic_article_ltr_ooui)
-            binding.talkFooter.viewPageTitle.text = getString(R.string.talk_footer_view_article)
-            pageTitle.thumbUrl?.let {
-                binding.talkLeadImageContainer.isVisible = true
-                binding.talkLeadImage.contentDescription = StringUtil.removeNamespace(pageTitle.displayText)
-                binding.talkLeadImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
-            }
-        }
-        binding.talkFooter.viewPageContent.text = StringUtil.fromHtml(StringUtil.removeNamespace(pageTitle.displayText))
 
         if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)) {
             intent.putExtra(EXTRA_GO_TO_TOPIC, false)
@@ -334,7 +315,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                 }
             }
             if (threadTopic != null) {
-                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, threadTopic!!.name, threadItem?.id, viewModel.currentSearchQuery, invokeSource))
+                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, threadTopic!!.name, threadTopic!!.id, threadItem?.id, viewModel.currentSearchQuery, invokeSource))
                 overridePendingTransition(0, 0)
                 return
             }
@@ -347,15 +328,13 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             binding.talkConditionContainer.isVisible = false
             if (actionMode != null) {
                 binding.talkNewTopicButton.hide()
-                binding.talkFooter.root.isVisible = false
             } else {
                 binding.talkNewTopicButton.show()
                 binding.talkNewTopicButton.isEnabled = true
                 binding.talkNewTopicButton.alpha = 1.0f
-                binding.talkFooter.root.isVisible = true
             }
-            binding.talkNestedScrollView.isVisible = true
-            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+            footerAdapter.notifyItemChanged(0)
+            talkTopicItemAdapter.notifyDataSetChanged()
         }
         funnel?.logOpenTalk()
 
@@ -365,7 +344,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
     private fun updateOnError(t: Throwable) {
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
-        binding.talkNestedScrollView.isVisible = false
 
         // In the case of 404, it just means that the talk page hasn't been created yet.
         if (t is HttpStatusException && t.code == 404) {
@@ -380,7 +358,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnEmpty() {
-        binding.talkNestedScrollView.isVisible = false
         binding.talkEmptyContainer.isVisible = true
         binding.talkConditionContainer.isVisible = true
         // Allow them to create a new topic anyway
@@ -441,52 +418,113 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         }
     }
 
-    internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
-        private val listPlaceholder get() = if (actionMode == null) 1 else 0
-
-        override fun getItemCount(): Int {
-            return viewModel.sortedThreadItems.size + listPlaceholder
-        }
-
-        override fun getItemViewType(position: Int): Int {
-            return if (position == 0 && listPlaceholder == 1) ITEM_SEARCH_BAR else ITEM_TOPIC
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
-            if (type == ITEM_SEARCH_BAR) {
-                return TalkTopicSearcherHolder(layoutInflater.inflate(R.layout.view_talk_topic_search_bar, parent, false))
+    private fun updateConcatAdapter() {
+        if (actionMode == null) {
+            concatAdapter.apply {
+                addAdapter(0, headerAdapter)
+                addAdapter(2, footerAdapter)
             }
-            return TalkTopicHolder(ItemTalkTopicBinding.inflate(layoutInflater, parent, false), this@TalkTopicsActivity, pageTitle, viewModel, invokeSource)
-        }
-
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
-            if (holder is TalkTopicHolder) {
-                holder.bindItem(viewModel.sortedThreadItems[pos - listPlaceholder], pos)
+        } else {
+            concatAdapter.apply {
+                removeAdapter(headerAdapter)
+                removeAdapter(footerAdapter)
             }
         }
     }
 
-    private inner class TalkTopicSearcherHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
-        val talkSortButton: AppCompatImageView = itemView.findViewById(R.id.talk_sort_button)
+    private inner class HeaderItemAdapter : RecyclerView.Adapter<HeaderViewHolder>() {
+        override fun onBindViewHolder(holder: HeaderViewHolder, position: Int) {
+            holder.bindItem()
+        }
 
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeaderViewHolder {
+            return HeaderViewHolder(ViewTalkTopicsHeaderBinding.inflate(layoutInflater, parent, false))
+        }
+
+        override fun getItemCount(): Int { return 1 }
+    }
+
+    private inner class HeaderViewHolder constructor(private val binding: ViewTalkTopicsHeaderBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
-            (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@TalkTopicsActivity, R.attr.color_group_22))
+            binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(this@TalkTopicsActivity, R.attr.color_group_22))
 
-            itemView.setOnClickListener {
+            binding.searchContainer.setOnClickListener {
                 if (actionMode == null) {
                     actionMode = startSupportActionMode(searchActionModeCallback)
                 }
             }
 
-            talkSortButton.setOnClickListener {
-                TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(talkSortButton, viewModel.currentSortMode, funnel) {
+            binding.talkSortButton.setOnClickListener {
+                TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(binding.talkSortButton, viewModel.currentSortMode, funnel) {
                     viewModel.currentSortMode = it
-                    binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+                    talkTopicItemAdapter.notifyDataSetChanged()
                 }
             }
 
-            FeedbackUtil.setButtonLongPressToast(talkSortButton)
+            FeedbackUtil.setButtonLongPressToast(binding.talkSortButton)
+        }
+
+        fun bindItem() {
+            binding.talkLeadImageContainer.isVisible = pageTitle.namespace() != Namespace.USER_TALK
+            pageTitle.thumbUrl?.let {
+                binding.talkLeadImage.contentDescription = StringUtil.removeNamespace(pageTitle.displayText)
+                binding.talkLeadImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
+            }
+        }
+    }
+
+    private inner class FooterItemAdapter : RecyclerView.Adapter<FooterViewHolder>() {
+        override fun onBindViewHolder(holder: FooterViewHolder, position: Int) { }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FooterViewHolder {
+            return FooterViewHolder(ViewTalkTopicsFooterBinding.inflate(layoutInflater, parent, false))
+        }
+
+        override fun getItemCount(): Int { return 1 }
+    }
+
+    private inner class FooterViewHolder constructor(binding: ViewTalkTopicsFooterBinding) : RecyclerView.ViewHolder(binding.root) {
+        init {
+            // Update last modified date
+            viewModel.lastRevision?.let { revision ->
+                binding.lastModifiedText.text = StringUtil.fromHtml(getString(R.string.talk_footer_last_modified,
+                    DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
+                        System.currentTimeMillis(), 0L), revision.user))
+
+                binding.viewEditHistoryContainer.setOnClickListener {
+                    startActivity(ArticleEditDetailsActivity.newIntent(this@TalkTopicsActivity, pageTitle, revision.revId))
+                }
+            }
+
+            binding.viewPageContainer.setOnClickListener {
+                goToPage()
+            }
+
+            if (pageTitle.namespace() == Namespace.USER_TALK) {
+                binding.viewPageIcon.setImageResource(R.drawable.ic_user_avatar)
+                binding.viewPageTitle.text = getString(R.string.talk_footer_view_user_page)
+            } else {
+                binding.viewPageIcon.setImageResource(R.drawable.ic_article_ltr_ooui)
+                binding.viewPageTitle.text = getString(R.string.talk_footer_view_article)
+            }
+            binding.viewPageContent.text = StringUtil.fromHtml(StringUtil.removeNamespace(pageTitle.displayText))
+        }
+    }
+
+    internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+        override fun getItemCount(): Int {
+            return viewModel.sortedThreadItems.size
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
+            return TalkTopicHolder(ItemTalkTopicBinding.inflate(layoutInflater, parent, false), this@TalkTopicsActivity, pageTitle, viewModel, invokeSource)
+        }
+
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
+            if (holder is TalkTopicHolder) {
+                holder.bindItem(viewModel.sortedThreadItems[pos])
+            }
         }
     }
 
@@ -508,15 +546,14 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
 
             actionMode = mode
-            binding.talkFooter.root.isVisible = false
             binding.talkNewTopicButton.hide()
-            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+            updateConcatAdapter()
             return super.onCreateActionMode(mode, menu)
         }
 
         override fun onQueryChange(s: String) {
             viewModel.currentSearchQuery = s
-            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+            talkTopicItemAdapter.notifyDataSetChanged()
             binding.talkSearchNoResult.isVisible = binding.talkRecyclerView.adapter?.itemCount == 0
             binding.talkConditionContainer.isVisible = binding.talkSearchNoResult.isVisible
         }
@@ -525,11 +562,11 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             super.onDestroyActionMode(mode)
             actionMode = null
             viewModel.currentSearchQuery = null
-            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
             binding.talkNewTopicButton.show()
-            binding.talkFooter.root.isVisible = true
             binding.talkConditionContainer.isVisible = false
             binding.talkSearchNoResult.isVisible = false
+            talkTopicItemAdapter.notifyDataSetChanged()
+            updateConcatAdapter()
         }
 
         override fun getSearchHintString(): String {
@@ -542,8 +579,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     companion object {
-        private const val ITEM_SEARCH_BAR = 0
-        private const val ITEM_TOPIC = 1
         private const val EXTRA_PAGE_TITLE = "pageTitle"
         private const val EXTRA_GO_TO_TOPIC = "goToTopic"
 
