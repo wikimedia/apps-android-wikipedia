@@ -29,7 +29,12 @@ class HttpStatusException : IOException {
         try {
             rsp.body?.let {
                 if (it.contentType().toString().contains("json")) {
-                    serviceError = RbServiceError.create(it.string())
+                    val body = it.string()
+                    if (body.contains("\$schema")) {
+                        message = body
+                    } else {
+                        serviceError = RbServiceError.create(body)
+                    }
                 }
             }
         } catch (e: Exception) {
