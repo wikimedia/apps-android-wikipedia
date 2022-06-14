@@ -56,9 +56,16 @@ def transform_file(file_path, *funcs):
 def bump(file_path):
     transform_file(file_path, set_version_code)
     sh.cd(path_prefix)
-    sh.git.checkout('bumpVersionCode')
+    sh.git.checkout('main')
+    try:
+        sh.git.branch('-D', 'bumpVersionCode')
+    except:
+        print('Branch not deleted (safe to ignore).')
+    sh.git.checkout('-b', 'bumpVersionCode')
     sh.git.add('-u', file_path)
-    sh.git.commit('-m', 'Bump versionCode')
+    sh.git.commit('-m', 'Bump versionCode.')
+    sh.git.push('--set-upstream', 'origin', 'bumpVersionCode')
+    sh.git.checkout('main')
 
 
 if __name__ == '__main__':
