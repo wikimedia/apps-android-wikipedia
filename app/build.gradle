@@ -78,11 +78,7 @@ android {
         dev { java.srcDirs += 'src/extra/java' }
         custom { java.srcDirs += 'src/extra/java' }
 
-        test {
-            java.srcDirs += 'src/testlib/java'
-        }
         androidTest {
-            java.srcDirs += 'src/testlib/java'
             assets.srcDirs += files("$projectDir/schemas".toString())
         }
     }
