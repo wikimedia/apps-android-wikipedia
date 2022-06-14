@@ -13,7 +13,7 @@ import org.wikipedia.WikipediaApp
 @SerialName("/analytics/mobile_apps/android_breadcrumbs_event/1.0.0")
 class BreadCrumbLogEvent(private val screen_name: String,
                          private val action: String,
-                         private val primary_language_code: String) : MobileAppsEvent(STREAM_NAME) {
+                         private val app_primary_language_code: String) : MobileAppsEvent(STREAM_NAME) {
 
     companion object {
         private const val STREAM_NAME = "android.breadcrumbs_event"
