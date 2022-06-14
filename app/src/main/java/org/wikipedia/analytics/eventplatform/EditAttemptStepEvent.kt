@@ -7,6 +7,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.page.PageTitle
 
+@Suppress("unused")
 @Serializable
 @SerialName("/analytics/legacy/editattemptstep/1.2.0")
 class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) : Event(STREAM_NAME) {
@@ -47,6 +48,7 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
     }
 }
 
+@Suppress("unused")
 @Serializable
 class EditAttemptStepInteractionEvent(private val action: String,
                                       private val editing_session_id: String,
