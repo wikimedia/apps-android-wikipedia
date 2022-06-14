@@ -81,6 +81,12 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             onSaveClicked()
         }
 
+        binding.otherContentText.setOnClickListener {
+            viewModel.topic?.let {
+                startActivity(TalkTopicActivity.newIntent(this@TalkReplyActivity, viewModel.pageTitle, it.name, it.id, null, null, Constants.InvokeSource.TALK_ACTIVITY))
+            }
+        }
+
         binding.replyInputView.wikiSite = viewModel.pageTitle.wikiSite
         binding.replyInputView.listener = this
 
@@ -88,9 +94,13 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         editFunnel.logStart()
         EditAttemptStepEvent.logInit(viewModel.pageTitle)
 
-        if (viewModel.topic != null) {
+        if (viewModel.topic != null && !viewModel.isHeaderTemplate) {
             binding.threadItemView.bindItem(viewModel.topic!!, linkMovementMethod, true)
             binding.threadItemView.isVisible = true
+        } else if (viewModel.isHeaderTemplate) {
+            binding.otherContentText.text = RichTextUtil.stripHtml(StringUtil.removeStyleTags(viewModel.topic!!.othercontent)).trim().replace("\n", " ")
+            binding.otherContentText.isVisible = true
+            binding.threadItemView.isVisible = false
         } else {
             binding.threadItemView.isVisible = false
         }
@@ -108,7 +118,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     public override fun onDestroy() {
-        if (!savedSuccess && !binding.replyInputView.editText.text.isNullOrBlank() && viewModel.topic != null) {
+        if (!savedSuccess && !binding.replyInputView.editText.text.isNullOrBlank() && viewModel.topic != null && !viewModel.isHeaderTemplate) {
             draftReplies.put(viewModel.topic!!.id, binding.replyInputView.editText.text!!)
         }
         binding.replySubjectText.removeTextChangedListener(textWatcher)
@@ -122,7 +132,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         setToolbarTitle(viewModel.pageTitle)
         L10nUtil.setConditionalLayoutDirection(binding.talkScrollContainer, viewModel.pageTitle.wikiSite.languageCode)
 
-        if (viewModel.topic != null) {
+        if (viewModel.topic != null && !viewModel.isHeaderTemplate) {
             binding.replyInputView.userNameHints = setOf(viewModel.topic!!.author)
         }
 
@@ -252,12 +262,12 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             it.putExtra(RESULT_NEW_REVISION_ID, newRevision)
             it.putExtra(EXTRA_SUBJECT, binding.replySubjectText.text)
             it.putExtra(EXTRA_BODY, binding.replyInputView.editText.text)
-            if (viewModel.topic != null) {
+            if (viewModel.topic != null && !viewModel.isHeaderTemplate) {
                 it.putExtra(EXTRA_TOPIC_ID, viewModel.topic!!.id)
             }
             setResult(RESULT_EDIT_SUCCESS, it)
 
-            if (viewModel.topic != null) {
+            if (viewModel.topic != null && !viewModel.isHeaderTemplate) {
                 draftReplies.remove(viewModel.topic?.id)
             }
             finish()
