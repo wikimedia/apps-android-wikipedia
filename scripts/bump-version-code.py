@@ -70,4 +70,4 @@ def bump(file_path):
 
 if __name__ == '__main__':
     bump('app/build.gradle')
-    print('BUMP NOTICE! Push the current branch with bumped version and merge if appropriate. (Note: do not delete the `bumpVersionCode` branch!)')
+    print('BUMP NOTICE! Merge the new `bumpVersionCode` into Main.)')
