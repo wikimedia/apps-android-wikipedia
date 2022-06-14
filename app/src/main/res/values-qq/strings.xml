@@ -286,6 +286,11 @@
   <string name="edit_preview">Header text to show above the preview of the edited article.\n{{Identical|Preview}}</string>
   <string name="edit_undo">Button label to undo the previous text that was typed.</string>
   <string name="edit_redo">Button label to redo the previous text that was typed.</string>
+  <string name="edit_rollback">Button label to rollback the article to the last revision.</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">Text for the revisions difference in bytes. %s will be replaced by the positive one or negative one.</item>
+    <item quantity="other">Text for the revisions difference in bytes. %s will be replaced by the number of bytes.</item>
+  </plurals>
   <string name="edit_zoom_in">Button label to increase the text size in the editor window.</string>
   <string name="edit_zoom_out">Button label to decrease the text size in the editor window.</string>
   <string name="edit_summary_tag_typo">Clickable summary tag for fixing a typo. A part of a list that includes:\n* {{msg-wm|Wikipedia-android-strings-edit summary tag typo}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag grammar}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag links}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag other}}</string>
@@ -1176,6 +1181,8 @@
   <string name="revision_undo_message">Dialog message explaining that the selected revision will be undone.</string>
   <string name="revision_undo_reason">Dialog message requesting a reason for undoing the selected revision.</string>
   <string name="revision_undo_success">Message shown when an edit was undone successfully.</string>
+  <string name="revision_rollback_dialog_title">Title of the rollback dialog.</string>
+  <string name="revision_rollback_success">Message shown when edits were reverted successfully.</string>
   <string name="revision_compare_button">Button label for comparing two revisions.</string>
   <string name="revision_compare_two_only">Error message when the user attempts to select more than two revisions for comparison.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Message shown when the article is added to Watchlist. The %1$s symbol will be replaced by the article title and the %2$s symbol will be replaced by the time period.</string>

@@ -40,7 +40,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 50406
+        versionCode 50405
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -78,11 +78,7 @@ android {
         dev { java.srcDirs += 'src/extra/java' }
         custom { java.srcDirs += 'src/extra/java' }
 
-        test {
-            java.srcDirs += 'src/testlib/java'
-        }
         androidTest {
-            java.srcDirs += 'src/testlib/java'
             assets.srcDirs += files("$projectDir/schemas".toString())
         }
     }
