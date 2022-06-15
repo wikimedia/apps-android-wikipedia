@@ -14,7 +14,7 @@ import org.wikipedia.util.log.L
 @SerialName("/analytics/mobile_apps/android_breadcrumbs_event/1.0.0")
 class BreadCrumbLogEvent(private val screen_name: String,
                          private val action: String,
-                         private val primary_language_code: String) : MobileAppsEvent(STREAM_NAME) {
+                         private val app_primary_language_code: String) : MobileAppsEvent(STREAM_NAME) {
 
     init {
         L.d(">>> $screen_name.$action")
