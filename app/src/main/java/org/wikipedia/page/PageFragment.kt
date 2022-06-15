@@ -464,7 +464,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             return
         }
         if (title.namespace() === Namespace.USER_TALK || title.namespace() === Namespace.TALK) {
-            startTalkTopicActivity(title)
+            startTalkTopicsActivity(title)
             return
         } else if (title.namespace() == Namespace.CATEGORY) {
             startActivity(CategoryActivity.newIntent(requireActivity(), title))
@@ -591,8 +591,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    private fun startTalkTopicActivity(pageTitle: PageTitle) {
-        startActivity(TalkTopicsActivity.newIntent(requireActivity(), pageTitle, InvokeSource.PAGE_ACTIVITY))
+    private fun startTalkTopicsActivity(title: PageTitle, stripUrlFragment: Boolean = false) {
+        val talkTitle = title.copy()
+        if (stripUrlFragment) {
+            talkTitle.fragment = null
+        }
+        startActivity(TalkTopicsActivity.newIntent(requireActivity(), talkTitle, InvokeSource.PAGE_ACTIVITY))
     }
 
     private fun startGalleryActivity(fileName: String) {
@@ -832,7 +836,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 when (payload["itemType"]?.jsonPrimitive?.content) {
                     "talkPage" -> model.title?.run {
                         articleInteractionEvent?.logTalkPageArticleClick()
-                        startTalkTopicActivity(this)
+                        startTalkTopicsActivity(this, true)
                     }
                     "languages" -> startLangLinksActivity()
                     "lastEdited" -> {
@@ -1432,7 +1436,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onViewTalkPageSelected() {
             title?.let {
-                startActivity(TalkTopicsActivity.newIntent(requireContext(), it, InvokeSource.PAGE_ACTIVITY))
+                startTalkTopicsActivity(it, true)
             }
             articleInteractionEvent?.logTalkPageClick()
         }

@@ -153,7 +153,10 @@ object EventPlatformClient {
         }
 
         fun sendEventsForStream(streamConfig: StreamConfig, events: List<Event>) {
-            ServiceFactory.getAnalyticsRest(streamConfig).postEventsHasty(events)
+            (if (ReleaseUtil.isDevRelease)
+                ServiceFactory.getAnalyticsRest(streamConfig).postEvents(events)
+            else
+                ServiceFactory.getAnalyticsRest(streamConfig).postEventsHasty(events))
                     .subscribeOn(Schedulers.io())
                     .subscribe({
                         when (it.code()) {

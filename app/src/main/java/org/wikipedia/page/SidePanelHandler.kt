@@ -433,7 +433,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkTopicHolder {
             return TalkTopicHolder(ItemTalkTopicBinding.inflate(fragment.layoutInflater, parent, false),
-                fragment.requireContext(), pageTitle, viewModel, Constants.InvokeSource.PAGE_ACTIVITY)
+                fragment.requireContext(), viewModel, Constants.InvokeSource.PAGE_ACTIVITY)
         }
 
         override fun onBindViewHolder(holder: TalkTopicHolder, pos: Int) {
