@@ -18,6 +18,7 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.page.Namespace
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.*
+import org.wikipedia.util.log.L
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import org.wikipedia.views.TalkTopicsActionsOverflowView
 import java.util.*
@@ -75,7 +76,7 @@ class TalkTopicHolder internal constructor(
         binding.otherContentText.isVisible = false
 
         // Last comment
-        binding.topicContentText.isVisible = viewModel.pageTitle?.namespace() == Namespace.USER_TALK
+        binding.topicContentText.isVisible = viewModel.resolvedPageTitle?.namespace() == Namespace.USER_TALK
         binding.topicContentText.text = RichTextUtil.stripHtml(allReplies.last().html).trim().replace("\n", " ")
         binding.topicContentText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_text_color))
         StringUtil.highlightAndBoldenText(binding.topicContentText, viewModel.currentSearchQuery, true, Color.YELLOW)
@@ -85,8 +86,8 @@ class TalkTopicHolder internal constructor(
         val usernameText = allReplies.maxByOrNull { it.date ?: Date() }?.author.orEmpty() + (if (usersInvolved > 1) " +$usersInvolved" else "")
         val usernameColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.colorAccent
         binding.topicUsername.text = usernameText
-        binding.topicUserIcon.isVisible = viewModel.pageTitle?.namespace() == Namespace.USER_TALK
-        binding.topicUsername.isVisible = viewModel.pageTitle?.namespace() == Namespace.USER_TALK
+        binding.topicUserIcon.isVisible = viewModel.resolvedPageTitle?.namespace() == Namespace.USER_TALK
+        binding.topicUsername.isVisible = viewModel.resolvedPageTitle?.namespace() == Namespace.USER_TALK
         binding.topicUsername.setTextColor(ResourceUtil.getThemedColor(context, usernameColor))
         ImageViewCompat.setImageTintList(binding.topicUserIcon, ResourceUtil.getThemedColorStateList(context, usernameColor))
         StringUtil.highlightAndBoldenText(binding.topicUsername, viewModel.currentSearchQuery, true, Color.YELLOW)
@@ -110,7 +111,7 @@ class TalkTopicHolder internal constructor(
 
     override fun onClick(v: View?) {
         markAsSeen(true)
-        context.startActivity(TalkTopicActivity.newIntent(context, viewModel.pageTitle!!, threadItem.name, threadItem.id, null, viewModel.currentSearchQuery, invokeSource))
+        context.startActivity(TalkTopicActivity.newIntent(context, viewModel.resolvedPageTitle!!, threadItem.name, threadItem.id, null, viewModel.currentSearchQuery, invokeSource))
     }
 
     override fun onSwipe() {
@@ -145,7 +146,7 @@ class TalkTopicHolder internal constructor(
 
                 override fun shareClick() {
                     ShareUtil.shareText(context, context.getString(R.string.talk_share_discussion_subject,
-                        threadItem.html.ifEmpty { context.getString(R.string.talk_no_subject) }), viewModel.pageTitle?.uri + "#" + StringUtil.addUnderscores(threadItem.html))
+                        threadItem.html.ifEmpty { context.getString(R.string.talk_no_subject) }), viewModel.resolvedPageTitle?.uri + "#" + StringUtil.addUnderscores(threadItem.html))
                 }
             })
         }
