@@ -25,12 +25,12 @@ class BreadCrumbLogEvent(private val screen_name: String,
 
         fun logClick(activity: Activity, view: View) {
             val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
-            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), activity.getString(R.string.breadcrumb_view_click, viewReadableName), WikipediaApp.instance.languageState.appLanguageCode))
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), "$viewReadableName.click", WikipediaApp.instance.languageState.appLanguageCode))
         }
 
         fun logLongClick(activity: Activity, view: View) {
             val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
-            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), activity.getString(R.string.breadcrumb_view_long_click, viewReadableName), WikipediaApp.instance.languageState.appLanguageCode))
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), "$viewReadableName.longclick", WikipediaApp.instance.languageState.appLanguageCode))
         }
 
         fun logSwipe(activity: Activity) {
@@ -38,19 +38,20 @@ class BreadCrumbLogEvent(private val screen_name: String,
         }
 
         fun logScreenShown(activity: Activity) {
-            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), activity.getString(R.string.breadcrumb_screen_shown), WikipediaApp.instance.languageState.appLanguageCode))
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), "show", WikipediaApp.instance.languageState.appLanguageCode))
         }
 
         fun logBackPress(activity: Activity) {
-            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), activity.getString(R.string.breadcrumb_screen_back_press), WikipediaApp.instance.languageState.appLanguageCode))
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), "back", WikipediaApp.instance.languageState.appLanguageCode))
         }
 
         fun logTooltipShown(context: Context, anchor: View) {
-            EventPlatformClient.submit(BreadCrumbLogEvent(context.javaClass.simpleName.orEmpty(), context.getString(R.string.breadcrumb_tooltip_shown_on_view, BreadCrumbViewUtil.getReadableNameForView(anchor)), WikipediaApp.instance.languageState.appLanguageCode))
+            val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(anchor)
+            EventPlatformClient.submit(BreadCrumbLogEvent(context.javaClass.simpleName.orEmpty(), "$viewReadableName.tooltip", WikipediaApp.instance.languageState.appLanguageCode))
         }
 
         fun logSettingsSelection(context: Context, title: String) {
-            EventPlatformClient.submit(BreadCrumbLogEvent(context.javaClass.simpleName.orEmpty(), context.getString(R.string.breadcrumb_view_click, title), WikipediaApp.instance.languageState.appLanguageCode))
+            EventPlatformClient.submit(BreadCrumbLogEvent(context.javaClass.simpleName.orEmpty(), "$title.click", WikipediaApp.instance.languageState.appLanguageCode))
         }
     }
 }

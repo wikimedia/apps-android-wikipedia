@@ -11,6 +11,7 @@ import android.text.TextUtils
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
@@ -96,7 +97,7 @@ object ViewUtil {
                     findClickableViewAtPoint(v, x, y)?.let { return it }
                 }
             }
-            if (parentView.isClickable) {
+            if (parentView.isVisible && parentView.isEnabled && parentView.isClickable) {
                 return parentView
             }
         }

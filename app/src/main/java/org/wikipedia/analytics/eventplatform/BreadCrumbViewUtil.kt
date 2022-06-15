@@ -22,9 +22,8 @@ import org.wikipedia.onboarding.InitialOnboardingFragment.OnboardingPage
 object BreadCrumbViewUtil {
 
     fun getReadableNameForView(view: View): String {
-        if (view.parent != null && view.parent is RecyclerView) {
-            val position =
-                    (view.parent as RecyclerView).getChildViewHolder(view).layoutPosition + 1
+        if (view.parent is RecyclerView) {
+            val position = (view.parent as RecyclerView).getChildViewHolder(view).layoutPosition + 1
             if (view is ListCardItemView) {
                 var currentParent = view.parent
                 while (currentParent !is ListCardView<*>) {
@@ -46,7 +45,7 @@ object BreadCrumbViewUtil {
     private fun getViewResourceName(view: View): String {
         return try {
             if (view is SwitchCompat) {
-                return view.context.getString(R.string.breadcrumb_switch_view_click, view.resources.getResourceEntryName(view.id), if (!view.isChecked) view.context.getString(R.string.breadcrumb_switch_view_state_on) else view.context.getString(R.string.breadcrumb_switch_view_state_off))
+                return view.resources.getResourceEntryName(view.id) + "." + (if (!view.isChecked) "on" else "off")
             }
             if (view.id == R.id.footerActionButton) {
                 return (view as MaterialButton).text.toString()
@@ -58,7 +57,8 @@ object BreadCrumbViewUtil {
     }
 
     fun getReadableScreenName(activity: Activity): String {
-        return activity.getString(R.string.breadcrumb_screen_fragment_name, activity.javaClass.simpleName, getFragmentName(activity))
+        val fragName = getFragmentName(activity)
+        return activity.javaClass.simpleName + (if (fragName.isNotEmpty()) ".$fragName" else "")
     }
 
     private fun getFragmentName(activity: Activity): String {
