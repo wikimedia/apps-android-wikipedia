@@ -18,7 +18,6 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.page.Namespace
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.*
-import org.wikipedia.util.log.L
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import org.wikipedia.views.TalkTopicsActionsOverflowView
 import java.util.*
