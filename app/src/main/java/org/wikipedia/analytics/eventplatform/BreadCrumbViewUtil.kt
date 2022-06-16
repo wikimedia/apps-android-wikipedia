@@ -2,7 +2,6 @@ package org.wikipedia.analytics.eventplatform
 
 import android.app.Activity
 import android.view.View
-import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +19,7 @@ import org.wikipedia.onboarding.InitialOnboardingFragment
 import org.wikipedia.onboarding.InitialOnboardingFragment.OnboardingPage
 
 object BreadCrumbViewUtil {
+    private const val VIEW_UNNAMED = "unnamed"
 
     fun getReadableNameForView(view: View): String {
         if (view.parent is RecyclerView) {
@@ -31,28 +31,25 @@ object BreadCrumbViewUtil {
                         currentParent = currentParent.parent
                     } else {
                         // ListItemView is not in a CardView
-                        return view.context.getString(R.string.breadcrumb_view_with_position, getReadableNameForView(view.parent as RecyclerView), position)
+                        return getReadableNameForView(view.parent as RecyclerView) + "." + position
                     }
                 }
-                return view.context.getString(R.string.breadcrumb_view_with_position, currentParent.javaClass.simpleName, position)
+                return currentParent.javaClass.simpleName + "." + position
             }
             // Returning only recyclerview name and click position for non-cardView recyclerViews
-            return view.context.getString(R.string.breadcrumb_view_with_position, getReadableNameForView(view.parent as RecyclerView), position)
+            return getReadableNameForView(view.parent as RecyclerView) + "." + position
         }
-        return if (view.id == View.NO_ID) view.context.getString(R.string.breadcrumb_view_unnamed) else getViewResourceName(view)
+        return if (view.id == View.NO_ID) VIEW_UNNAMED else getViewResourceName(view)
     }
 
     private fun getViewResourceName(view: View): String {
         return try {
-            if (view is SwitchCompat) {
-                return view.resources.getResourceEntryName(view.id) + "." + (if (!view.isChecked) "on" else "off")
-            }
             if (view.id == R.id.footerActionButton) {
                 return (view as MaterialButton).text.toString()
             }
             view.resources.getResourceEntryName(view.id)
         } catch (e: Exception) {
-            view.context.getString(R.string.breadcrumb_view_unnamed)
+            VIEW_UNNAMED
         }
     }
 

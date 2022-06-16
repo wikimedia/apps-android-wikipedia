@@ -84,9 +84,4 @@
     <!-- Tag ids for SwipeableItemTouchHelper -->
     <string name="tag_icon_key">tagIconKey</string>
     <string name="tag_text_key">tagTextKey</string>
-
-    <!-- Breadcrumbs -->
-    <string name="breadcrumb_view_with_position">%s item %d</string>
-    <string name="breadcrumb_screen_swiped_to">swiped to</string>
-    <string name="breadcrumb_view_unnamed">unnamed</string>
 </resources>
