@@ -299,6 +299,11 @@
   <string name="edit_preview">Aperçu</string>
   <string name="edit_undo">Annuler</string>
   <string name="edit_redo">Refaire</string>
+  <string name="edit_rollback">Révoquer</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s octet</item>
+    <item quantity="other">%s octets</item>
+  </plurals>
   <string name="edit_zoom_in">Zoom avant</string>
   <string name="edit_zoom_out">Zoom arrière</string>
   <string name="edit_summary_tag_typo">Faute de frappe corrigée</string>
@@ -1195,6 +1200,8 @@
   <string name="revision_undo_message">Cela annulera les modifications réalisées dans les révisions de l’article affichées ici.</string>
   <string name="revision_undo_reason">Pour poursuivre, veuillez fournir un motif pour annuler cette modification :</string>
   <string name="revision_undo_success">La révision a été annulée.</string>
+  <string name="revision_rollback_dialog_title">Voulez-vous vraiment révoquer les modifications ?</string>
+  <string name="revision_rollback_success">Modifications révoquées.</string>
   <string name="revision_compare_button">Comparer</string>
   <string name="revision_compare_two_only">Seulement deux versions peuvent être sélectionnées.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s et sa page de discussion ont été ajoutés à votre liste de suivi %2$s.</string>
