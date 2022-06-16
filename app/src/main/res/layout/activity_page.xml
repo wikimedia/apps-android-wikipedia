@@ -164,6 +164,7 @@
             android:visibility="gone">
 
             <androidx.core.widget.NestedScrollView
+                android:id="@+id/talk_contents_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 

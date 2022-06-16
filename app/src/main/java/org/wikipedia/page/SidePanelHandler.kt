@@ -122,8 +122,10 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
     private fun setupTalkTopics(pageTitle: PageTitle) {
         binding.talkProgressBar.isVisible = true
-        binding.talkErrorView.visibility = View.GONE
-        binding.talkEmptyContainer.visibility = View.GONE
+        binding.talkErrorView.isVisible = false
+        binding.talkEmptyContainer.isVisible = false
+        binding.talkLastModified.isVisible = false
+        binding.talkContentsContainer.isVisible = false
 
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(fragment.requireContext())
         binding.talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 120))
@@ -159,19 +161,20 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
             binding.talkLastModified.isVisible = true
         }
 
-        binding.talkErrorView.visibility = View.GONE
-        binding.talkProgressBar.visibility = View.GONE
-        binding.talkRecyclerView.visibility = View.VISIBLE
+        binding.talkErrorView.isVisible = false
+        binding.talkProgressBar.isVisible = false
+        binding.talkLastModified.isVisible = true
+        binding.talkContentsContainer.isVisible = true
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
     }
 
     private fun updateOnError(throwable: Throwable) {
-        binding.talkRecyclerView.visibility = View.GONE
+        binding.talkContentsContainer.isVisible = false
         if (throwable is HttpStatusException && throwable.code == 404) {
-            binding.talkEmptyContainer.visibility = View.VISIBLE
+            binding.talkEmptyContainer.isVisible = true
         } else {
-            binding.talkLastModified.visibility = View.GONE
-            binding.talkErrorView.visibility = View.VISIBLE
+            binding.talkLastModified.isVisible = false
+            binding.talkErrorView.isVisible = true
             binding.talkErrorView.setError(throwable)
         }
     }
@@ -195,9 +198,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         funnel = ToCInteractionFunnel(WikipediaApp.instance, page.title.wikiSite, page.pageProperties.pageId, tocAdapter.count)
         articleTocInteractionEvent = ArticleTocInteractionEvent(page.pageProperties.pageId, page.title.wikiSite.dbName(), tocAdapter.count)
         articleTocInteractionEvent?.logClick()
-        if (ReleaseUtil.isPreBetaRelease) {
-            setupTalkTopics(page.title)
-        }
     }
 
     private fun scrollToSection(section: Section?) {
@@ -233,7 +233,8 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         onStartShow()
     }
 
-    fun showTalkTopics() {
+    fun showTalkTopics(pageTitle: PageTitle) {
+        setupTalkTopics(pageTitle)
         enableToCorTalkTopics(false)
         binding.navigationDrawer.openDrawer(binding.sidePanelContainer)
         onStartShow()

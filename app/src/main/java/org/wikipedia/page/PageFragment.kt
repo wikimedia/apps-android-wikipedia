@@ -826,7 +826,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bridge.addListener("header_item") { _, messagePayload ->
             messagePayload?.let { payload ->
                 when (payload["itemType"]?.jsonPrimitive?.content) {
-                    "talkPage" -> sidePanelHandler.showTalkTopics()
+                    "talkPage" -> model.title?.let { sidePanelHandler.showTalkTopics(it) }
                 }
             }
         }
