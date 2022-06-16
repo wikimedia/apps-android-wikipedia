@@ -107,6 +107,15 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
                 enableToCorTalkTopics(true)
             }
         })
+
+        binding.talkTitleView.setOnClickListener { openTalkPage() }
+        binding.talkFullscreenButton.setOnClickListener { openTalkPage() }
+        binding.talkLastModified.setOnClickListener { _ ->
+            talkViewModel?.let {
+                fragment.startActivity(ArticleEditDetailsActivity.newIntent(fragment.requireContext(), it.pageTitle, it.lastRevision!!.revId))
+            }
+        }
+
         setScrollerPosition()
         enableToCorTalkTopics()
     }
@@ -142,18 +151,12 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
     private fun updateOnSuccess(pageTitle: PageTitle) {
         binding.talkTitleView.text = StringUtil.fromHtml(pageTitle.displayText)
-        binding.talkTitleView.setOnClickListener(openTalkPageOnClickListener(pageTitle))
-        binding.talkFullscreenButton.setOnClickListener(openTalkPageOnClickListener(pageTitle))
 
         talkViewModel?.lastRevision?.let {
             binding.talkLastModified.text = StringUtil.fromHtml(fragment.getString(R.string.talk_last_modified,
                 DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(it.timeStamp).time,
                     System.currentTimeMillis(), 0L), it.user))
             binding.talkLastModified.isVisible = true
-            binding.talkLastModified.setOnClickListener {
-                fragment.startActivity(ArticleEditDetailsActivity.newIntent(fragment.requireContext(),
-                        talkViewModel!!.pageTitle, talkViewModel!!.lastRevision!!.revId))
-            }
         }
 
         binding.talkErrorView.visibility = View.GONE
@@ -173,9 +176,9 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         }
     }
 
-    private fun openTalkPageOnClickListener(title: PageTitle): View.OnClickListener {
-        return View.OnClickListener {
-            fragment.startActivity(TalkTopicsActivity.newIntent(fragment.requireContext(), title, Constants.InvokeSource.PAGE_ACTIVITY))
+    private fun openTalkPage() {
+        talkViewModel?.let {
+            fragment.startActivity(TalkTopicsActivity.newIntent(fragment.requireContext(), it.pageTitle, Constants.InvokeSource.PAGE_ACTIVITY))
         }
     }
 

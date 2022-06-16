@@ -1407,7 +1407,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         override fun onContentsSelected() {
-            sidePanelHandler?.showTalkTopics()//  .showToC()
+            sidePanelHandler?.showToC()
             articleInteractionEvent?.logContentsClick()
         }
 
