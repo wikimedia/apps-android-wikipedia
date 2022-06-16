@@ -285,6 +285,7 @@
   <string name="edit_preview">プレビュー</string>
   <string name="edit_undo">取り消す</string>
   <string name="edit_redo">やり直す</string>
+  <string name="edit_rollback">巻き戻し</string>
   <string name="edit_zoom_in">拡大</string>
   <string name="edit_zoom_out">縮小</string>
   <string name="edit_summary_tag_typo">タイプミスを修正</string>
@@ -1076,6 +1077,7 @@
   <string name="revision_undo_title">編集を取り消す</string>
   <string name="revision_undo_reason">操作を続ける場合、編集を取り消す理由を記入してください。</string>
   <string name="revision_undo_success">この版は取り消されました。</string>
+  <string name="revision_rollback_success">編集が差し戻されました</string>
   <string name="revision_compare_button">比較</string>
   <string name="revision_compare_two_only">2つの版しか選べません</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">変更</string>
