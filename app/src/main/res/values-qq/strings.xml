@@ -193,7 +193,7 @@
   <string name="search_empty_message">Brief explanation that there are currently no Search entries to look at. Just to fill an empty screen. This usually happens when a user just deleted search entries.</string>
   <string name="search_empty_message_multilingual_upgrade">Suggestion text encouraging users to add more languages to the app to read in.</string>
   <string name="delete_selected_items">Menu item hint for deleting selected items in a list.</string>
-  <string name="wp_stylized">A stylized string saying \"Wikipedia\". Used before wp_tag_line if no image representation exists. Usually the first and last characters are within big tags, if this fits the Wikipedia logo in your language.</string>
+  <string name="wp_stylized">A stylized string saying \"Wikipedia\". Used before wp_tag_line if no image representation exists. Usually the first and last characters are within &lt;code&gt;&amp;lt;big&amp;gt;...&amp;lt;/big&amp;gt;&lt;/code&gt; tags, if this fits the Wikipedia logo in your language.</string>
   <string name="create_account_username_hint">{{Identical|Username}}</string>
   <string name="login_dont_have_account">Label asking the user if they do not yet have an account.</string>
   <string name="login_join_wikipedia">Button label that lets the user create a new account on Wikipedia.</string>
@@ -286,7 +286,7 @@
   <string name="edit_preview">Header text to show above the preview of the edited article.\n{{Identical|Preview}}</string>
   <string name="edit_undo">Button label to undo the previous text that was typed.</string>
   <string name="edit_redo">Button label to redo the previous text that was typed.</string>
-  <string name="edit_rollback">Button label to rollback the article to the last revision.</string>
+  <string name="edit_rollback">Button label to rollback the article to the previous revision.</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">Text for the revisions difference in bytes. %s will be replaced by the positive one or negative one.</item>
     <item quantity="other">Text for the revisions difference in bytes. %s will be replaced by the number of bytes.</item>
@@ -951,7 +951,7 @@
   <string name="suggested_edits_what_is_text">Body text for card that introduces Suggested edits.</string>
   <string name="suggested_edits_learn_more">Button text for navigating to additional information for the user.</string>
   <string name="suggested_edits_paused_title">Title for card that explains that this feature is currently paused.</string>
-  <string name="suggested_edits_disabled_title">Title for card that explains that this feature is currently disabled.</string>
+  <string name="suggested_edits_disabled_title">Title for card that explains that this feature is currently disabled.\n{{Identical|Disabled}}</string>
   <string name="suggested_edits_ip_blocked_title">Title for card that explains that the IP address of the user is blocked.</string>
   <string name="suggested_edits_last_edited">This refers to the date when the user made their last edit.</string>
   <string name="suggested_edits_last_edited_never">Displayed when the user has never made an edit.\n\n{{Identical|Never}}</string>

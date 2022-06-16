@@ -257,6 +257,11 @@
   <string name="edit_preview">Преглед</string>
   <string name="edit_undo">Врати</string>
   <string name="edit_redo">Повтори</string>
+  <string name="edit_rollback">Отповикај</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s бајт</item>
+    <item quantity="other">%s бајти</item>
+  </plurals>
   <string name="edit_zoom_in">Приближи</string>
   <string name="edit_zoom_out">Оддалечи</string>
   <string name="edit_summary_tag_typo">Исправена грешка при пишување</string>
@@ -1153,6 +1158,8 @@
   <string name="revision_undo_message">Ова ќе ги врати промените направени со преработката/ките на тука прикажаната статија.</string>
   <string name="revision_undo_reason">За да продолжите, внесете причина за враќање на уредувањево:</string>
   <string name="revision_undo_success">Преработката е вратена.</string>
+  <string name="revision_rollback_dialog_title">Дали сигурно сакате да ги отповикате уредувањата?</string>
+  <string name="revision_rollback_success">Уредувањата се отповикани.</string>
   <string name="revision_compare_button">Спореди</string>
   <string name="revision_compare_two_only">Можете да изберете само две преработки.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s и нејзината разговорна страница се додадени во вашите набљудувања %2$s.</string>
