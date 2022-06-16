@@ -149,6 +149,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     override val referencesGroup get() = references?.referencesGroup
     override val selectedReferenceIndex get() = references?.selectedIndex ?: 0
 
+    lateinit var sidePanelHandler: SidePanelHandler
     lateinit var shareHandler: ShareHandler
     lateinit var editHandler: EditHandler
     var revision = 0L
@@ -157,7 +158,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
     private val foregroundTabPosition get() = app.tabList.size
     private val tabLayoutOffsetParams get() = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.pageActionsTabLayout.height)
-    var sidePanelHandler: SidePanelHandler? = null
     val currentTab get() = app.tabList.last()!!
     val title get() = model.title
     val page get() = model.page
@@ -248,7 +248,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         // uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup()
-        sidePanelHandler?.log()
+        sidePanelHandler.log()
         leadImagesHandler.dispose()
         disposables.clear()
         webView.clearAllListeners()
@@ -301,8 +301,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     override fun onBackPressed(): Boolean {
         articleInteractionEvent?.logBackClick()
-        if (sidePanelHandler?.isVisible == true) {
-            sidePanelHandler?.hide()
+        if (sidePanelHandler.isVisible) {
+            sidePanelHandler.hide()
             return true
         }
         if (pageFragmentLoadState.goBack()) {
@@ -437,11 +437,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     sections.add(0, Section(0, 0, model.title?.displayText.orEmpty(), model.title?.displayText.orEmpty(), ""))
                     page.sections = sections
                 }
-            }
 
-            model.page?.let {
-                sidePanelHandler?.setupForNewPage(it)
-                sidePanelHandler?.setEnabled(true)
+                sidePanelHandler.setupForNewPage(page)
+                sidePanelHandler.setEnabled(true)
             }
         }
         bridge.evaluate(JavaScriptActionHandler.getProtection()) { value ->
@@ -974,7 +972,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         addTimeSpentReading(activeTimer.elapsedSec)
         activeTimer.reset()
         callback()?.onPageSetToolbarElevationEnabled(false)
-        sidePanelHandler?.setEnabled(false)
+        sidePanelHandler.setEnabled(false)
         errorState = false
         binding.pageError.visibility = View.GONE
         watchlistExpiryChanged = false
@@ -1018,7 +1016,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 it.alpha = if (it.isEnabled) 1f else 0.5f
             }
         }
-        sidePanelHandler?.setEnabled(false)
+        sidePanelHandler.setEnabled(false)
         requireActivity().invalidateOptionsMenu()
     }
 
