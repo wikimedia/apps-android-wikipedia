@@ -35,6 +35,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
 
     private val watchlistFunnel = WatchlistFunnel()
     private var resolveTitleRequired = false
+    var resolvedPageTitle: PageTitle? = null
     val threadItems = mutableListOf<ThreadItem>()
     var sortedThreadItems = listOf<ThreadItem>()
     var lastRevision: MwQueryPage.Revision? = null
@@ -114,6 +115,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
 
             isWatched = watchStatus.watched
             hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
+            resolvedPageTitle = pageTitle
 
             uiState.value = UiState.LoadTopic(pageTitle, threadItems)
         }
