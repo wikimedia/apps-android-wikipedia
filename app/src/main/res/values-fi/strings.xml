@@ -280,6 +280,11 @@
   <string name="edit_preview">Esikatselu</string>
   <string name="edit_undo">Kumoa</string>
   <string name="edit_redo">Tee uudelleen</string>
+  <string name="edit_rollback">Palauta</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s tavu</item>
+    <item quantity="other">%s tavua</item>
+  </plurals>
   <string name="edit_zoom_in">Lähennä</string>
   <string name="edit_zoom_out">Loitonna</string>
   <string name="edit_summary_tag_typo">Kirjoitusvirhe korjattu</string>
@@ -1149,6 +1154,7 @@
   <string name="revision_undo_title">Kumoa muokkaus</string>
   <string name="revision_undo_reason">Anna syy tämän muokkauksen kumoamiselle jatkaaksesi:</string>
   <string name="revision_undo_success">Versio kumottiin.</string>
+  <string name="revision_rollback_success">Muokkaukset palautettu.</string>
   <string name="revision_compare_button">Vertaile</string>
   <string name="revision_compare_two_only">Vain kaksi versiota voidaan valita.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s keskustelusivuineen on lisätty tarkkailulistallesi %2$s.</string>

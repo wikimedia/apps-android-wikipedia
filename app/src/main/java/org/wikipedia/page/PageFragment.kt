@@ -438,10 +438,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     sections.add(0, Section(0, 0, model.title?.displayText.orEmpty(), model.title?.displayText.orEmpty(), ""))
                     page.sections = sections
                 }
-            }
 
-            model.title?.let {
-                sidePanelHandler.setupForNewPage(model.page)
+                sidePanelHandler.setupForNewPage(page)
                 sidePanelHandler.setEnabled(true)
             }
         }

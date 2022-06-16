@@ -120,6 +120,7 @@
   <string name="on_this_day_page_share">শেয়ার করুন</string>
   <string name="reading_list_page_share">শেয়ার করুন</string>
   <string name="menu_text_select_edit_here">এখানে সম্পাদনা করুন</string>
+  <string name="menu_edit_article">নিবন্ধ সম্পাদনা</string>
   <string name="last_updated_text">সর্বশেষ হালনাগাদ %s</string>
   <string name="talk_page_link_text">আলাপ পাতা দেখুন</string>
   <string name="edit_history_link_text">সম্পাদনার ইতিহাস দেখুন</string>
@@ -277,6 +278,7 @@
   <string name="edit_preview">প্রাকদর্শন</string>
   <string name="edit_undo">পূর্বাবস্থায় ফেরান</string>
   <string name="edit_redo">পুনরায় করুন</string>
+  <string name="edit_rollback">পুনর্বহাল</string>
   <string name="edit_zoom_in">আরও বড়</string>
   <string name="edit_zoom_out">আরও ছোট</string>
   <string name="edit_summary_tag_typo">বানান ঠিক করা হয়েছে</string>
@@ -957,6 +959,7 @@
   <string name="revision_diff_paragraph_removed">অনুচ্ছেদ সরানো হয়েছে</string>
   <string name="revision_undo_title">সম্পাদনা বাতিল করুন</string>
   <string name="revision_undo_reason">চালিয়ে যেতে, অনুগ্রহ করে এই সম্পাদনাটি পূর্বাবস্থায় ফেরত নেয়ার একটি কারণ প্রদান করুন:</string>
+  <string name="revision_rollback_success">সম্পাদনা পুনর্বহাল করা হয়েছে।</string>
   <string name="revision_compare_button">তুলনা করুন</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">পরিবর্তন</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">স্থায়ীভাবে</string>
