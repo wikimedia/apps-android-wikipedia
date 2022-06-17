@@ -59,7 +59,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             }
             ACTION_DIRECT_REPLY == intent.action -> {
                 val remoteInput = RemoteInput.getResultsFromIntent(intent)
-                val text = remoteInput.getCharSequence(RESULT_KEY_DIRECT_REPLY)
+                val text = remoteInput?.getCharSequence(RESULT_KEY_DIRECT_REPLY)
 
                 if (intent.hasExtra(RESULT_EXTRA_WIKI) && intent.hasExtra(RESULT_EXTRA_TITLE) && !text.isNullOrEmpty()) {
                     NotificationDirectReplyHelper.handleReply(context,
