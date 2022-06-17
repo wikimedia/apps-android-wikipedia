@@ -1,4 +1,12 @@
+Aplikasi Android resmi Wikipedia dirancang untuk membantumu mencari, menemukan, dan menjelajah pengetahuan di Wikipedia. Selesaikan taruhan dengan teman dengan pencarian cepat di aplikasi, atau menyelam ke artikel unggulan, gambar-gambar, artikel rekomendasi, dan banyak lagi dengan jelajahi umpan. Dengan lebih dari 39 juta artikel di hampir 300 bahasa, ensiklopedia gratis daring favoritmu kini berada di ujung jarimu.
+
 Fitur:
+
+Jelajah umpan - 'jelajah umpan' baru menawarkan konten Wikipedia yang direkomendasikan dan diperbarui secara terus-menerus tepat di layar beranda, termasuk artikel sedang tren, kejadian sekarang, bacaan rekomendasi, dan lebih banyak.
+
+Pencarian suara - cari dengan mudah apa yang anda inginkan dengan kolom pencarian pada atas aplikasi, termasuk pencarian suara, pada perangkatmu.
+
+Terdekat - Pelajari lebih lanjut tentang apa yang ada didekatmu dengan memilih tempat di peta interaktif untuk melihat artikel terkait dengan lokasi saat ini dan lokasi terdekat.
 
 Kodenya 100% sumber terbuka. Jika Anda memiliki pengalaman dengan Java dan Android SDK, maka kami menantikan kontribusi Anda! https://github.com/wikimedia/apps-android-wikipedia
 
