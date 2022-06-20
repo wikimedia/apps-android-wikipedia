@@ -420,7 +420,7 @@
   <string name="view_featured_image_card_share">გაზიარება</string>
   <string name="menu_feed_card_dismiss">ამ ბარათის დამალვა</string>
   <string name="menu_feed_card_dismissed">ბარათი დამალულია.</string>
-  <string name="menu_feed_overflow_label">მეტი პარამეტრები</string>
+  <string name="menu_feed_overflow_label">მეტი შესაძლებლობა</string>
   <string name="feed_featured_image_share_subject">ვიკისაწყობის რჩეული სურათი</string>
   <string name="feed">კვლევა</string>
   <string name="home">მთავარი</string>
