@@ -1147,7 +1147,6 @@
   <string name="talk_list_item_user_icon_content_description">Icona utente</string>
   <string name="talk_list_item_swipe_mark_as_read">Lette</string>
   <string name="talk_list_item_swipe_mark_as_unread">Non lette</string>
-  <string name="talk_footer_about_this_talk_page">A proposito di questa pagina di discussione</string>
   <string name="talk_footer_view_edit_history">Vedi cronologia delle modifiche</string>
   <string name="talk_footer_view_user_page">Visualizza la pagina utente</string>
   <string name="talk_footer_view_article">Visualizza voce</string>

@@ -1137,7 +1137,6 @@
   <string name="talk_list_item_user_icon_content_description">Content description of the user icon.</string>
   <string name="talk_list_item_swipe_mark_as_read">Label text for the swipe gesture that markes the item as read.</string>
   <string name="talk_list_item_swipe_mark_as_unread">Label text for the swipe gesture that markes the item as unread.</string>
-  <string name="talk_footer_about_this_talk_page">Title text for the footer section in the talk page.</string>
   <string name="talk_footer_view_edit_history">Label text for view edit history option.</string>
   <string name="talk_footer_view_user_page">Label text for view user page option.</string>
   <string name="talk_footer_view_article">Label text for view article option.</string>

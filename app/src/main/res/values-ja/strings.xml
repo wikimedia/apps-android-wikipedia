@@ -1051,7 +1051,6 @@
   <string name="talk_list_item_user_icon_content_description">利用者アイコン</string>
   <string name="talk_list_item_swipe_mark_as_read">閲覧</string>
   <string name="talk_list_item_swipe_mark_as_unread">未読</string>
-  <string name="talk_footer_about_this_talk_page">このトークページについて</string>
   <string name="talk_footer_view_edit_history">編集履歴を表示</string>
   <string name="talk_footer_view_user_page">利用者ページを表示</string>
   <string name="talk_footer_view_article">記事を閲覧</string>

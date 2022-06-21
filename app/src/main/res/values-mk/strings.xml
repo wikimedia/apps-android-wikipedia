@@ -1114,7 +1114,6 @@
   <string name="talk_list_item_user_icon_content_description">Корисничка икона</string>
   <string name="talk_list_item_swipe_mark_as_read">Прочитано</string>
   <string name="talk_list_item_swipe_mark_as_unread">Непрочитано</string>
-  <string name="talk_footer_about_this_talk_page">За оваа разговорна страница</string>
   <string name="talk_footer_view_edit_history">Погл. историја на уредувања</string>
   <string name="talk_footer_view_user_page">Полг. корисничка страница</string>
   <string name="talk_footer_view_article">Погл. статија</string>

@@ -1075,7 +1075,6 @@
   <string name="talk_list_item_user_icon_content_description">أيقونة المستخدم</string>
   <string name="talk_list_item_swipe_mark_as_read">اقرأ</string>
   <string name="talk_list_item_swipe_mark_as_unread">غير مقروءة</string>
-  <string name="talk_footer_about_this_talk_page">حول صفحة النقاش هذه</string>
   <string name="talk_footer_view_edit_history">عرض تاريخ التعديل</string>
   <string name="talk_footer_view_user_page">عرض صفحة المستخدم</string>
   <string name="talk_footer_view_article">عرض المقالة</string>

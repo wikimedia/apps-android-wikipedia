@@ -1156,7 +1156,6 @@
   <string name="talk_list_item_user_icon_content_description">Icône d’utilisateur</string>
   <string name="talk_list_item_swipe_mark_as_read">Lu</string>
   <string name="talk_list_item_swipe_mark_as_unread">Non lu</string>
-  <string name="talk_footer_about_this_talk_page">À propos de cette page de discussion</string>
   <string name="talk_footer_view_edit_history">Afficher l’historique des modifications</string>
   <string name="talk_footer_view_user_page">Afficher la page utilisateur</string>
   <string name="talk_footer_view_article">Afficher l’article</string>

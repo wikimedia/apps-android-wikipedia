@@ -1134,7 +1134,6 @@
   <string name="talk_list_item_user_icon_content_description">Доакъашхочун иконка</string>
   <string name="talk_list_item_swipe_mark_as_read">Деша</string>
   <string name="talk_list_item_swipe_mark_as_unread">Дийшадац</string>
-  <string name="talk_footer_about_this_talk_page">Укх къамаьл-оагӀонах лаьца</string>
   <string name="talk_footer_view_edit_history">Хувцамашка хьажар</string>
   <string name="talk_footer_view_user_page">Доакъашхочун оагӀонга хьажар</string>
   <string name="talk_footer_view_article">Статьяга хьажар</string>

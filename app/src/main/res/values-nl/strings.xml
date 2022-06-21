@@ -1133,7 +1133,6 @@
   <string name="talk_list_item_user_icon_content_description">Gebruikerspictogram</string>
   <string name="talk_list_item_swipe_mark_as_read">Gelezen</string>
   <string name="talk_list_item_swipe_mark_as_unread">Ongelezen</string>
-  <string name="talk_footer_about_this_talk_page">Over deze overlegpagina</string>
   <string name="talk_footer_view_edit_history">Bewerkgeschiedenis bekijken</string>
   <string name="talk_footer_view_user_page">Gebruikerspagina bekijken</string>
   <string name="talk_footer_view_article">Artikel bekijken</string>

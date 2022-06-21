@@ -1117,7 +1117,6 @@
   <string name="talk_list_item_last_comment_date">Viimeisin kommentti: %s</string>
   <string name="talk_list_item_swipe_mark_as_read">Luettu</string>
   <string name="talk_list_item_swipe_mark_as_unread">Lukematon</string>
-  <string name="talk_footer_about_this_talk_page">Tietoja tästä keskustelusivusta</string>
   <string name="talk_footer_view_edit_history">Näytä muokkaushistoria</string>
   <string name="talk_footer_view_user_page">Näytä käyttäjäsivu</string>
   <string name="talk_footer_view_article">Näytä artikkeli</string>

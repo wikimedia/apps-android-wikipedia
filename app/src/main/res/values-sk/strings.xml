@@ -1185,7 +1185,6 @@
   <string name="talk_list_item_user_icon_content_description">Ikona používateľa</string>
   <string name="talk_list_item_swipe_mark_as_read">Prečítané</string>
   <string name="talk_list_item_swipe_mark_as_unread">Neprečítané</string>
-  <string name="talk_footer_about_this_talk_page">O tejto diskusnej stránke</string>
   <string name="talk_footer_view_edit_history">Zobraziť históriu úprav</string>
   <string name="talk_footer_view_user_page">Zobraziť stránku používateľa</string>
   <string name="talk_footer_view_article">Zobraziť článok</string>
