@@ -304,6 +304,13 @@
   <string name="edit_preview">Предпросмотр</string>
   <string name="edit_undo">Отмена</string>
   <string name="edit_redo">Повтор действия</string>
+  <string name="edit_rollback">Откатить</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s байт</item>
+    <item quantity="few">%s байта</item>
+    <item quantity="many">%s байт</item>
+    <item quantity="other">%s байт</item>
+  </plurals>
   <string name="edit_zoom_in">Приблизить</string>
   <string name="edit_zoom_out">Отдалить</string>
   <string name="edit_summary_tag_typo">Исправлена опечатка</string>
@@ -1188,6 +1195,8 @@
   <string name="revision_diff_paragraph_added">Абзац добавлен</string>
   <string name="revision_diff_paragraph_removed">Абзац удалён</string>
   <string name="revision_undo_title">Отменить правку</string>
+  <string name="revision_rollback_dialog_title">Вы уверены, что хотите откатить правки?</string>
+  <string name="revision_rollback_success">Совершён откат правок.</string>
   <string name="revision_compare_button">Сравнить</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Участник %1$s и его страница обсуждений добавлены в ваш список наблюдения %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Изменить</string>
