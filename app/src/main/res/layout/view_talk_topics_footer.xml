@@ -8,17 +8,6 @@
     android:paddingTop="24dp"
     android:paddingBottom="120dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="8dp"
-        android:text="@string/talk_footer_about_this_talk_page"
-        android:textColor="?attr/secondary_text_color"
-        android:textAllCaps="true"
-        android:letterSpacing="0.04"/>
-
     <LinearLayout
         android:id="@+id/viewEditHistoryContainer"
         android:layout_width="match_parent"
