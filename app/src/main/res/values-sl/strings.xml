@@ -903,7 +903,7 @@
   <string name="suggested_edits_edit_streak_label_text">Niz urejanj</string>
   <string name="suggested_edits_views_label_text">Ogledov</string>
   <string name="suggested_edits_quality_label_text">Kakovost urejanj</string>
-  <string name="suggested_edits_quality_perfect_text">Popolna</string>
+  <string name="suggested_edits_quality_perfect_text">Popolno</string>
   <string name="suggested_edits_quality_excellent_text">Odlična</string>
   <string name="suggested_edits_quality_very_good_text">Zelo dobra</string>
   <string name="suggested_edits_quality_good_text">Dobra</string>
