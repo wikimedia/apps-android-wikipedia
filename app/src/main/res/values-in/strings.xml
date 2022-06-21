@@ -1099,7 +1099,7 @@
   <string name="menu_option_user_profile">%s profil</string>
   <string name="menu_option_user_contributions">%s kontribusi</string>
   <string name="menu_option_edit_source">Sunting sumber</string>
-  <string name="menu_option_user_page" fuzzy="true">Halaman pengguna $1</string>
+  <string name="menu_option_user_page" fuzzy="true">Halaman pengguna %s</string>
   <string name="menu_option_find_in_talk_page_topic">Cari di topik halaman pembicaraan</string>
   <string name="talk_menu_copy_text">Salin teks</string>
   <string name="talk_menu_expand_threads">Buka utas</string>

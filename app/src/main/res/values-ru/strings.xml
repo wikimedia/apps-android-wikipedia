@@ -309,7 +309,7 @@
     <item quantity="one">%s байт</item>
     <item quantity="few">%s байта</item>
     <item quantity="many">%s байт</item>
-    <item quantity="other">байт</item>
+    <item quantity="other">%s байт</item>
   </plurals>
   <string name="edit_zoom_in">Приблизить</string>
   <string name="edit_zoom_out">Отдалить</string>

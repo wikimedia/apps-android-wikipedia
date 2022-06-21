@@ -74,7 +74,7 @@
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d modificări de la %2$s</item>
     <item quantity="few">%1$d modificări de la%2$s</item>
-    <item quantity="other"/>
+    <item quantity="other">%1$d modificări de la%2$s</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Încercați să vă schimbați &lt;a href=\"#\"&gt;filters&lt;/a&gt; pentru a vedea mai multe editări</string>
   <string name="menu_page_show_tabs">Arată filele</string>
@@ -273,7 +273,7 @@
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
     <item quantity="few">%s bytes</item>
-    <item quantity="other"/>
+    <item quantity="other">%s bytes</item>
   </plurals>
   <string name="edit_zoom_in">Mărește</string>
   <string name="edit_zoom_out">Micșorează</string>
@@ -655,12 +655,12 @@
   <plurals name="notifications_mark_as_read_plural">
     <item quantity="one">1 marcat ca citit</item>
     <item quantity="few">%d marcat ca citit</item>
-    <item quantity="other"/>
+    <item quantity="other">%d marcat ca citit</item>
   </plurals>
   <plurals name="notifications_mark_as_unread_plural">
     <item quantity="one">1 marcat ca necitit</item>
     <item quantity="few">%d marcat ca necitit</item>
-    <item quantity="other"/>
+    <item quantity="other">%d marcat ca necitit</item>
   </plurals>
   <string name="watchlist_title">Pagini urmărite</string>
   <string name="preference_title_notification_poll">Activează notificările</string>
@@ -701,7 +701,7 @@
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filtru</item>
     <item quantity="few">%d filtre</item>
-    <item quantity="other"/>
+    <item quantity="other">%d filtre</item>
   </plurals>
   <string name="notifications_select_all_filters">Selectați toate filtrele</string>
   <string name="notifications_tab_filter_all">Toate</string>
@@ -1137,12 +1137,12 @@
   <plurals name="talk_show_replies_count">
     <item quantity="one">Afișează răspunsul</item>
     <item quantity="few">Afișați răspunsurile (%d)</item>
-    <item quantity="other"/>
+    <item quantity="other">Afișați răspunsurile (%d)</item>
   </plurals>
   <plurals name="talk_hide_replies_count">
     <item quantity="one">Ascunde răspunsul</item>
     <item quantity="few">Ascunde răspunsurile (%d)</item>
-    <item quantity="other"/>
+    <item quantity="other">Ascunde răspunsurile (%d)</item>
   </plurals>
   <string name="talk_thread_subscribed_to">Te-ai abonat la „%s”</string>
   <string name="talk_thread_unsubscribed_from">Dezabonat de la „%s”</string>
