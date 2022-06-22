@@ -13,6 +13,7 @@
 * Cooltey
 * Daud I.F. Argana
 * Dbrant
+* Farras
 * Gombang
 * Hanif Al Husaini
 * Hidayatsrf
@@ -1070,15 +1071,39 @@
   <string name="talk_share_talk_page">Wikipedia - diskusi di halaman pembicaraan</string>
   <string name="talk_edit_disclaimer">Ini adalah halaman pembicaraan. Tolong hormati pedoman halaman pembicaraan, dan jangan lupa untuk menandatangani pesan Anda dengan mengetik empat tilda: ~~~~ ketika menggunakan teks wiki.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
   <string name="talk_search_hint">Cari pesan</string>
+  <string name="talk_search_topics_hint">Cari topik</string>
+  <string name="talk_search_find_in_talk_topics_hint">Cari di topik halaman pembicaraan</string>
   <string name="talk_overflow_sort_by">Urut berdasarkan</string>
   <string name="talk_overflow_sort_date_published">Tanggal diterbitkan</string>
   <string name="talk_overflow_sort_topic_name">Nama topik</string>
+  <string name="talk_thread_subscribed_to">Ikuti utas \"%s\"</string>
+  <string name="talk_thread_unsubscribed_from">Berhenti ikuti utas \"%s\"</string>
+  <string name="talk_list_item_overflow_subscribe">Langganan</string>
+  <string name="talk_list_item_overflow_subscribed">Berlangganan</string>
+  <string name="talk_list_item_overflow_mark_as_read">Tandai sudah dibaca</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Tandai belum dibaca</string>
+  <string name="talk_list_item_overflow_share">Bagikan</string>
+  <string name="talk_list_item_last_comment_date">Komentar terakhir: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Total balasan</string>
+  <string name="talk_list_item_user_icon_content_description">Ikon pengguna</string>
+  <string name="talk_list_item_swipe_mark_as_read">Dibaca</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Belum dibaca</string>
+  <string name="talk_footer_about_this_talk_page">Tentang halaman pembicaraan ini</string>
+  <string name="talk_footer_view_edit_history">Lihat riwayat suntingan</string>
+  <string name="talk_footer_view_user_page">Lihat halaman pengguna</string>
+  <string name="talk_footer_view_article">Lihat artikel</string>
+  <string name="talk_footer_last_modified">Terakhir disunting %1$s oleh %2$s</string>
   <string name="menu_option_share_talk_discussion">Bagikan diskusi</string>
   <string name="menu_option_share_talk_page">Bagikan halaman pembicaraan</string>
   <string name="menu_option_share_edit">Bagikan hasil suntingan</string>
   <string name="menu_option_user_profile">%s profil</string>
   <string name="menu_option_user_contributions">%s kontribusi</string>
   <string name="menu_option_edit_source">Sunting sumber</string>
+  <string name="menu_option_user_page" fuzzy="true">Halaman pengguna %s</string>
+  <string name="menu_option_find_in_talk_page_topic">Cari di topik halaman pembicaraan</string>
+  <string name="talk_menu_copy_text">Salin teks</string>
+  <string name="talk_menu_expand_threads">Buka utas</string>
+  <string name="talk_menu_collapse_threads">Tutup utas</string>
   <string name="watchlist_details_watching_label">Memantau</string>
   <string name="watchlist_details_watch_label">Pantau</string>
   <string name="watchlist_details_next_edit">Suntingan selanjutnya</string>

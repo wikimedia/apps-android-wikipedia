@@ -281,6 +281,11 @@
   <string name="edit_preview">預覽</string>
   <string name="edit_undo">撤銷</string>
   <string name="edit_redo">重做</string>
+  <string name="edit_rollback">回退</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s 位元組</item>
+    <item quantity="other">%s 位元組</item>
+  </plurals>
   <string name="edit_zoom_in">放大</string>
   <string name="edit_zoom_out">縮小</string>
   <string name="edit_summary_tag_typo">修正筆誤</string>
@@ -424,6 +429,7 @@
   <string name="error_blocked_expiry">封鎖期滿：%s</string>
   <string name="error_blocked_id">封鎖 ID：%s</string>
   <string name="error_blocked_footer">您可以向&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;或是其他&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:管理员\"&gt;管理員&lt;/a&gt;聯絡來商量該封鎖操作。</string>
+  <string name="theme_chooser_menu_item_short_tooltip">自訂您的工具列</string>
   <string name="error_blocked_footer_no_blocker">您可以聯絡&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:管理员\"&gt;管理員&lt;/a&gt;來商量該封鎖操作。</string>
   <string name="crash_report_activity_title">應用程式錯誤</string>
   <string name="crash_report_relaunch_or_quit">很抱歉，維基百科應用程式發生錯誤並且已終止運行。\n\n要重新啟動，還是結束程式？</string>
@@ -815,6 +821,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">開始編輯</string>
   <string name="description_edit_tutorial_promise">首先，我保證不會濫用此功能。</string>
   <string name="customize_toolbar_title">自訂工具列</string>
+  <string name="customize_toolbar_shortcut_description_text">自訂帶有 5 個您認為最有用快捷的底部工具列。</string>
   <string name="customize_toolbar_category_toolbar">工具列</string>
   <string name="customize_toolbar_category_menu">選單</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">拖放您喜愛的項目到這裡👋</string>
@@ -1104,15 +1111,48 @@
   <string name="talk_share_talk_page">維基百科 - 討論頁上的討論</string>
   <string name="talk_edit_disclaimer">這是一個討論頁。請遵守討論頁的指引，並記得在使用 wikitext 發布內容時藉由輸入四個波浪號：~~~~ ，來在您發布的內容裡產生您的簽名。&lt;br&gt;&lt;br&gt;&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:討論頁指引\"&gt;維基百科:討論頁指引&lt;/a&gt;</string>
   <string name="talk_search_hint">搜尋訊息</string>
+  <string name="talk_search_topics_hint">搜尋主題</string>
+  <string name="talk_search_find_in_talk_topics_hint">在討論頁主題尋找</string>
   <string name="talk_overflow_sort_by">排序依</string>
   <string name="talk_overflow_sort_date_published">發佈日期</string>
+  <string name="talk_overflow_sort_date_updated">已更新日期</string>
   <string name="talk_overflow_sort_topic_name">主題名稱</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">顯示回覆</item>
+    <item quantity="other">顯示 %d 個回覆</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">隱藏回覆</item>
+    <item quantity="other">隱藏 %d 個回覆</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">已訂閱「%s」</string>
+  <string name="talk_thread_unsubscribed_from">已從「%s」取消訂閱</string>
+  <string name="talk_list_item_overflow_subscribe">訂閱</string>
+  <string name="talk_list_item_overflow_subscribed">已訂閱</string>
+  <string name="talk_list_item_overflow_mark_as_read">標記為已讀</string>
+  <string name="talk_list_item_overflow_mark_as_unread">標記為未讀</string>
+  <string name="talk_list_item_overflow_share">分享</string>
+  <string name="talk_list_item_last_comment_date">最後一次的發言：%s</string>
+  <string name="talk_list_item_reply_icon_content_description">回覆總數</string>
+  <string name="talk_list_item_user_icon_content_description">使用者圖像</string>
+  <string name="talk_list_item_swipe_mark_as_read">已讀</string>
+  <string name="talk_list_item_swipe_mark_as_unread">未讀</string>
+  <string name="talk_footer_about_this_talk_page">關於此討論頁</string>
+  <string name="talk_footer_view_edit_history">檢視編輯歷史</string>
+  <string name="talk_footer_view_user_page">檢視使用者頁面</string>
+  <string name="talk_footer_view_article">檢視條目</string>
+  <string name="talk_footer_last_modified">由%2$s在 %1$s 所做的最後一次編輯</string>
   <string name="menu_option_share_talk_discussion">分享討論</string>
   <string name="menu_option_share_talk_page">分享討論頁</string>
   <string name="menu_option_share_edit">分享編輯</string>
   <string name="menu_option_user_profile">%s基本資料</string>
   <string name="menu_option_user_contributions">%s的貢獻</string>
   <string name="menu_option_edit_source">編輯原始碼</string>
+  <string name="menu_option_user_page">%s的使用者頁面</string>
+  <string name="menu_option_find_in_talk_page_topic">在討論頁主題尋找</string>
+  <string name="talk_menu_copy_text">複製文字</string>
+  <string name="talk_menu_expand_threads">展開討論串</string>
+  <string name="talk_menu_collapse_threads">折疊討論串</string>
   <string name="watchlist_details_watching_label">已監視</string>
   <string name="watchlist_details_watch_label">監視</string>
   <string name="watchlist_details_next_edit">下一個編輯</string>
@@ -1141,6 +1181,8 @@
   <string name="revision_undo_message">這將會撤銷掉在此顯示出的修訂在條目裡所做出的變更內容。</string>
   <string name="revision_undo_reason">若要繼續，請提供撤銷此編輯內容的原因：</string>
   <string name="revision_undo_success">已撤銷修訂。</string>
+  <string name="revision_rollback_dialog_title">確定要回退這些編輯嗎？</string>
+  <string name="revision_rollback_success">已回退編輯。</string>
   <string name="revision_compare_button">比較</string>
   <string name="revision_compare_two_only">僅能選擇兩個修訂。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s與該討論頁已新增到您的監視清單%2$s。</string>
@@ -1171,4 +1213,6 @@
   <string name="category_tab_subcategories">子分類</string>
   <string name="category_empty">在此分類中找不到條目。</string>
   <string name="subcategory_empty">在此分類中找不到子分類。</string>
+  <string name="search_namespaces">命名空間</string>
+  <string name="revision_initial_none">無差異（這是第一個修訂版本）</string>
 </resources>
