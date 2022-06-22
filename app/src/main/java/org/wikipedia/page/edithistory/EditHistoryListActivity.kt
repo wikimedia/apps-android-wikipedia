@@ -170,11 +170,11 @@ class EditHistoryListActivity : BaseActivity() {
     private fun updateCompareStateItems() {
         binding.compareFromCard.isVisible = viewModel.selectedRevisionFrom != null
         if (viewModel.selectedRevisionFrom != null) {
-            binding.compareFromText.text = DateUtil.getShortDayWithTimeString(DateUtil.iso8601DateParse(viewModel.selectedRevisionFrom!!.timeStamp))
+            binding.compareFromText.text = DateUtil.getShortDayWithTimeString(this, viewModel.selectedRevisionFrom!!.timeStamp)
         }
         binding.compareToCard.isVisible = viewModel.selectedRevisionTo != null
         if (viewModel.selectedRevisionTo != null) {
-            binding.compareToText.text = DateUtil.getShortDayWithTimeString(DateUtil.iso8601DateParse(viewModel.selectedRevisionTo!!.timeStamp))
+            binding.compareToText.text = DateUtil.getShortDayWithTimeString(this, viewModel.selectedRevisionTo!!.timeStamp)
         }
         enableCompareButton(binding.compareConfirmButton, viewModel.selectedRevisionFrom != null && viewModel.selectedRevisionTo != null)
     }
