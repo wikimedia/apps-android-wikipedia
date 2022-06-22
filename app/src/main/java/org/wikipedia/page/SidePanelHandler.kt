@@ -33,7 +33,6 @@ import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.okhttp.HttpStatusException
-import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.TalkTopicHolder
 import org.wikipedia.talk.TalkTopicsActivity
@@ -110,11 +109,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
         binding.talkTitleView.setOnClickListener { openTalkPage() }
         binding.talkFullscreenButton.setOnClickListener { openTalkPage() }
-        binding.talkLastModified.setOnClickListener { _ ->
-            talkViewModel?.let {
-                fragment.startActivity(ArticleEditDetailsActivity.newIntent(fragment.requireContext(), it.pageTitle, it.lastRevision!!.revId))
-            }
-        }
 
         setScrollerPosition()
         enableToCorTalkTopics()
@@ -124,7 +118,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         binding.talkProgressBar.isVisible = true
         binding.talkErrorView.isVisible = false
         binding.talkEmptyContainer.isVisible = false
-        binding.talkLastModified.isVisible = false
         binding.talkContentsContainer.isVisible = false
 
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(fragment.requireContext())
@@ -154,16 +147,8 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     private fun updateOnSuccess(pageTitle: PageTitle) {
         binding.talkTitleView.text = StringUtil.fromHtml(pageTitle.displayText)
 
-        talkViewModel?.lastRevision?.let {
-            binding.talkLastModified.text = StringUtil.fromHtml(fragment.getString(R.string.talk_last_modified,
-                DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(it.timeStamp).time,
-                    System.currentTimeMillis(), 0L), it.user))
-            binding.talkLastModified.isVisible = true
-        }
-
         binding.talkErrorView.isVisible = false
         binding.talkProgressBar.isVisible = false
-        binding.talkLastModified.isVisible = true
         binding.talkContentsContainer.isVisible = true
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
     }
@@ -173,7 +158,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         if (throwable is HttpStatusException && throwable.code == 404) {
             binding.talkEmptyContainer.isVisible = true
         } else {
-            binding.talkLastModified.isVisible = false
             binding.talkErrorView.isVisible = true
             binding.talkErrorView.setError(throwable)
         }

@@ -251,26 +251,6 @@
                 android:layout_marginTop="-7dp"
                 android:indeterminate="true" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/talk_last_modified"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:background="?attr/color_group_22"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:textColor="?android:attr/textColorPrimary"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="8dp"
-                android:drawablePadding="12dp"
-                android:textSize="12sp"
-                android:gravity="center_vertical"
-                android:layout_gravity="bottom"
-                android:visibility="gone"
-                app:drawableStartCompat="@drawable/ic_history_24"
-                app:drawableTint="?android:attr/textColorTertiary"/>
-
         </FrameLayout>
     </FrameLayout>
 
