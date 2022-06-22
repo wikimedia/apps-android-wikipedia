@@ -180,11 +180,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textColor="?colorAccent"
                         android:textSize="20sp"
-                        android:lineSpacingExtra="5sp"
+                        android:lineSpacingExtra="8sp"
+                        android:textColor="?android:attr/textColorPrimary"
                         android:textStyle="bold"
-                        android:background="?android:selectableItemBackground"
                         android:paddingStart="16dp"
                         android:paddingVertical="14dp"/>
 

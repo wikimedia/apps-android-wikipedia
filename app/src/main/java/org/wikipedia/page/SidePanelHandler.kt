@@ -2,7 +2,6 @@ package org.wikipedia.page
 
 import android.annotation.SuppressLint
 import android.graphics.Typeface
-import android.text.format.DateUtils
 import android.util.SparseIntArray
 import android.util.TypedValue
 import android.view.Gravity
@@ -33,7 +32,9 @@ import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.okhttp.HttpStatusException
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
+import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.talk.TalkTopicHolder
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.TalkTopicsViewModel
@@ -107,7 +108,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
             }
         })
 
-        binding.talkTitleView.setOnClickListener { openTalkPage() }
         binding.talkFullscreenButton.setOnClickListener { openTalkPage() }
 
         setScrollerPosition()
@@ -145,12 +145,22 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     }
 
     private fun updateOnSuccess(pageTitle: PageTitle) {
-        binding.talkTitleView.text = StringUtil.fromHtml(pageTitle.displayText)
+        setToolbarTitle(pageTitle)
 
         binding.talkErrorView.isVisible = false
         binding.talkProgressBar.isVisible = false
         binding.talkContentsContainer.isVisible = true
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+    }
+
+    private fun setToolbarTitle(pageTitle: PageTitle) {
+        binding.talkTitleView.text = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
+        binding.talkTitleView.contentDescription = binding.talkTitleView.text
+        binding.talkTitleView.movementMethod = LinkMovementMethodExt { _ ->
+            openTalkPage()
+        }
+        RichTextUtil.removeUnderlinesFromLinks(binding.talkTitleView)
+        FeedbackUtil.setButtonLongPressToast(binding.talkTitleView)
     }
 
     private fun updateOnError(throwable: Throwable) {
