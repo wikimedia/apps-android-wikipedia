@@ -176,7 +176,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (it is Resource.Success) {
                 setLoadingState()
                 viewModel.getRevisionDetails(it.data.rollback?.revision ?: 0)
-                FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_undo_success), FeedbackUtil.LENGTH_DEFAULT).show()
+                FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_rollback_success), FeedbackUtil.LENGTH_DEFAULT).show()
                 editFunnel?.logRollbackSuccess(it.data.rollback?.revision ?: -1)
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
