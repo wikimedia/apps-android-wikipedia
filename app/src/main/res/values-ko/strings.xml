@@ -278,6 +278,7 @@
   <string name="edit_preview">미리 보기</string>
   <string name="edit_undo">실행 취소</string>
   <string name="edit_redo">다시 실행</string>
+  <string name="edit_rollback">일괄 되돌리기</string>
   <string name="edit_zoom_in">확대</string>
   <string name="edit_zoom_out">축소</string>
   <string name="edit_summary_tag_typo">오타를 고침</string>
@@ -1119,6 +1120,8 @@
   <string name="revision_undo_message">여기에 보이는 문서의 판들에 의한 변경사항을 취소합니다.</string>
   <string name="revision_undo_reason">계속하려면 이 편집을 취소하려는 이유를 제공해 주십시오:</string>
   <string name="revision_undo_success">이 판의 편집이 취소되었습니다.</string>
+  <string name="revision_rollback_dialog_title">이 편집을 일괄적으로 되돌리시겠습니까?</string>
+  <string name="revision_rollback_success">편집이 되돌려졌습니다.</string>
   <string name="revision_compare_button">비교</string>
   <string name="revision_compare_two_only">판 2개만 선택할 수 있습니다</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s 문서 및 토론 문서가 주시문서 목록 %2$s에 추가되었습니다.</string>
