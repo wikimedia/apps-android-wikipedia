@@ -148,6 +148,6 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
 
     companion object {
         private const val SCHEMA_NAME = "MobileWikiAppEdit"
-        private const val REV_ID = 20710930
+        private const val REV_ID = 23442324
     }
 }
