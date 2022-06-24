@@ -27,13 +27,13 @@ class TalkTopicHolder internal constructor(
         private val context: Context,
         private val viewModel: TalkTopicsViewModel,
         private val invokeSource: Constants.InvokeSource,
-        private val inSidePanel: Boolean = false
+        inSidePanel: Boolean = false
 ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
 
     private lateinit var threadItem: ThreadItem
 
     init {
-        binding.topicOverflowMenu.isVisible = !inSidePanel
+        binding.topicOverflowMenu.visibility = if (inSidePanel) View.INVISIBLE else View.VISIBLE
     }
 
     fun bindItem(item: ThreadItem) {
@@ -68,7 +68,7 @@ class TalkTopicHolder internal constructor(
             binding.topicContentText.isVisible = false
             val isHeaderTemplate = TalkTopicActivity.isHeaderTemplate(threadItem)
             binding.otherContentText.isVisible = isHeaderTemplate
-            binding.topicOverflowMenu.isVisible = !isHeaderTemplate && binding.topicOverflowMenu.isVisible
+            binding.topicOverflowMenu.visibility = if (!isHeaderTemplate && binding.topicOverflowMenu.isVisible) View.VISIBLE else View.INVISIBLE
             binding.topicTitleText.isVisible = !isHeaderTemplate
             if (isHeaderTemplate) {
                 binding.otherContentText.text = RichTextUtil.stripHtml(StringUtil.removeStyleTags(threadItem.othercontent)).trim().replace("\n", " ")
