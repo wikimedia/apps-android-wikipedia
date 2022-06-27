@@ -97,6 +97,7 @@
   <string name="on_this_day_page_share">Deila</string>
   <string name="reading_list_page_share">Deila</string>
   <string name="menu_text_select_edit_here">Breyta hér</string>
+  <string name="menu_edit_article">Breyta grein</string>
   <string name="last_updated_text">Síðast uppfært %s</string>
   <string name="talk_page_link_text">Skoða spjallsíðu</string>
   <string name="edit_history_link_text">Skoða breytingaskrá</string>
@@ -256,6 +257,11 @@
   <string name="edit_preview">Forskoðun</string>
   <string name="edit_undo">Afturkalla</string>
   <string name="edit_redo">Endurtaka</string>
+  <string name="edit_rollback">Taka til baka</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s bæti</item>
+    <item quantity="other">%s bæti</item>
+  </plurals>
   <string name="edit_zoom_in">Renna að</string>
   <string name="edit_zoom_out">Renna frá</string>
   <string name="edit_summary_tag_typo">Lagaði innsláttarvillu</string>
@@ -399,6 +405,7 @@
   <string name="error_blocked_expiry">Bann rennur út: %s</string>
   <string name="error_blocked_id">Auðkenni banns: %s</string>
   <string name="error_blocked_footer">Þú getur haft samband við &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eða annan &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;stjórnanda&lt;/a&gt; til að ræða bannið.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Sérsníddu verkfærastikuna þína</string>
   <string name="error_blocked_footer_no_blocker">Þú getur haft samband við &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;stjórnanda&lt;/a&gt; til að ræða bannið.</string>
   <string name="crash_report_activity_title">Villa í forriti</string>
   <string name="crash_report_relaunch_or_quit">Því miður, Wikipedia-appið varð fyrir villu og vað þessvegna lokað.\n\nViltu byrja aftur eða hætta alveg?</string>
@@ -1080,15 +1087,32 @@
   <string name="talk_share_talk_page">Wikipedia - umræður á spjallsíðu</string>
   <string name="talk_edit_disclaimer">Þetta er spjallsíða. Vinsamlegast virtu leiðbeiningarnar fyrir spjallsíðuna og mundu að undirrita færslurnar þínar með því að skrifa fjórar tildur: ~~~~ á eftir færslum með wikitexta.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Leiðbeiningar fyrir spjallsíður&lt;/a&gt;</string>
   <string name="talk_search_hint">Leita í skilaboðum</string>
+  <string name="talk_search_topics_hint">Leitarefni</string>
   <string name="talk_overflow_sort_by">Raða eftir</string>
   <string name="talk_overflow_sort_date_published">Útgáfudagsetning</string>
   <string name="talk_overflow_sort_topic_name">Heiti umfjöllunarefnis</string>
+  <string name="talk_list_item_overflow_subscribe">Gerast áskrifandi</string>
+  <string name="talk_list_item_overflow_subscribed">Í áskrift</string>
+  <string name="talk_list_item_overflow_mark_as_read">Merkja sem lesið</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Merkja sem ólesið</string>
+  <string name="talk_list_item_overflow_share">Deila</string>
+  <string name="talk_list_item_last_comment_date">Síðasta athugasemd: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Fjöldi svara</string>
+  <string name="talk_list_item_user_icon_content_description">Táknmynd notanda</string>
+  <string name="talk_list_item_swipe_mark_as_read">Lesið</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Ólesið</string>
+  <string name="talk_footer_about_this_talk_page">Um þessa spjallsíðu</string>
+  <string name="talk_footer_view_edit_history">Skoða breytingaskrá</string>
+  <string name="talk_footer_view_user_page">Skoða notandasíðu</string>
+  <string name="talk_footer_view_article">Skoða grein</string>
+  <string name="talk_footer_last_modified">Síðast breytt %1$s af %2$s</string>
   <string name="menu_option_share_talk_discussion">Deila umræðu</string>
   <string name="menu_option_share_talk_page">Deila spjallsíðu</string>
   <string name="menu_option_share_edit">Deila breytingu</string>
   <string name="menu_option_user_profile">Notandasnið fyrir %s</string>
   <string name="menu_option_user_contributions">Framlög frá %s</string>
   <string name="menu_option_edit_source">Breyta frumtexta</string>
+  <string name="menu_option_user_page">Notandasíða fyrir %s</string>
   <string name="watchlist_details_watching_label">Vaktandi</string>
   <string name="watchlist_details_watch_label">Vakta</string>
   <string name="watchlist_details_next_edit">Næsta breyting</string>
