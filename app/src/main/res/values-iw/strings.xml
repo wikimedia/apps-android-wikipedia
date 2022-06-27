@@ -275,6 +275,13 @@
   <string name="edit_preview">תצוגה מקדימה</string>
   <string name="edit_undo">ביטול</string>
   <string name="edit_redo">ביצוע חוזר</string>
+  <string name="edit_rollback">שחזור</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">בית אחד</item>
+    <item quantity="two">%s בתים</item>
+    <item quantity="many">%s בתים</item>
+    <item quantity="other">%s בתים</item>
+  </plurals>
   <string name="edit_zoom_in">התקרבות</string>
   <string name="edit_zoom_out">התרחקות</string>
   <string name="edit_summary_tag_typo">תיקנתי טעות הקלדה</string>
@@ -1234,6 +1241,8 @@
   <string name="revision_undo_message">זה יבטל את העריכה שנעשתה בגרסת הערך שמוצגת כאן.</string>
   <string name="revision_undo_reason">כדי להמשיך, נא לספק סיבה לביטול העריכה הזאת:</string>
   <string name="revision_undo_success">הגרסה בוטלה.</string>
+  <string name="revision_rollback_dialog_title">האם ברצונך באמת לשחזר את העריכות?</string>
+  <string name="revision_rollback_success">העריכות שוחזרו.</string>
   <string name="revision_compare_button">השוואה</string>
   <string name="revision_compare_two_only">ניתן לבחור שתי גרסאות בלבד.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">הדף %1$s ודף השיחה שלו נוספו לרשימת המעקב שלך %2$s.</string>
@@ -1264,5 +1273,6 @@
   <string name="category_tab_subcategories">קטגוריות־משנה</string>
   <string name="category_empty">לא נמצאו ערכים בקטגוריה הזאת.</string>
   <string name="subcategory_empty">לא נמצאו קטגוריות־משנה בקטגוריה הזאת.</string>
+  <string name="search_namespaces">מרחבי שם</string>
   <string name="revision_initial_none">אין (זאת הגרסה הראשונה)</string>
 </resources>

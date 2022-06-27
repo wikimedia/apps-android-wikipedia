@@ -109,6 +109,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
         clearContents()
+        setHasOptionsMenu(true)
     }
 
     private fun Group.addOnClickListener(listener: View.OnClickListener) {
@@ -128,11 +129,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         setUpTasks()
         refreshContents()
         SuggestedEditsFunnel.get().resume()
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        setHasOptionsMenu(true)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -417,8 +413,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask = SuggestedEditsTask()
         addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
-        addDescriptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
-        addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
+        addDescriptionsTask.imageDrawable = R.drawable.ic_article_ltr_ooui
         addDescriptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addDescriptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)
 

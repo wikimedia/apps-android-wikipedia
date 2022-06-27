@@ -131,6 +131,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
   <string name="edit_save_action_license_anon">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti. Muokkauksesi yhdistetään laitteesi IP-osoitteeseen. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, tietosuojasi paranee.</string>
+  <string name="edit_anon_warning">Laitteesi IP-osoite tallentuu muokkaushistoriaan. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, parannat yksityisyyttäsi.</string>
   <string name="preference_title_language">Wikipedian kielet</string>
   <string name="langlinks_filter_hint">Haku</string>
   <string name="langlinks_empty">Tämä sivu ei ole saatavilla muilla kielillä.</string>
@@ -280,6 +281,11 @@
   <string name="edit_preview">Esikatselu</string>
   <string name="edit_undo">Kumoa</string>
   <string name="edit_redo">Tee uudelleen</string>
+  <string name="edit_rollback">Palauta</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s tavu</item>
+    <item quantity="other">%s tavua</item>
+  </plurals>
   <string name="edit_zoom_in">Lähennä</string>
   <string name="edit_zoom_out">Loitonna</string>
   <string name="edit_summary_tag_typo">Kirjoitusvirhe korjattu</string>
@@ -423,6 +429,7 @@
   <string name="error_blocked_expiry">Esto päättyy: %s</string>
   <string name="error_blocked_id">Eston tunniste: %s</string>
   <string name="error_blocked_footer">Voit olla yhteydessä käyttäjään &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; tai toiseen &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Muokkaa työkalupalkkiasi</string>
   <string name="error_blocked_footer_no_blocker">Voit olla yhteydessä &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
   <string name="crash_report_activity_title">Sovellusvirhe</string>
   <string name="crash_report_relaunch_or_quit">Pahoittelumme. Wikipedia-sovellus kohtasi virheen ja kaatui.\n\nHaluaisitko käynnistää sovelluksen uudelleen vai poistua sovelluksesta?</string>
@@ -813,6 +820,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Aloita muokkaaminen</string>
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
   <string name="customize_toolbar_title">Kustomoi työkalupalkki</string>
+  <string name="customize_toolbar_shortcut_description_text">Tuunaa alaosan työkalupalkkia niillä 5 linkillä, jotka koet hyödyllisimmiksi.</string>
   <string name="customize_toolbar_category_toolbar">Työkalupalkki</string>
   <string name="customize_toolbar_category_menu">Valikko</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Raahaa ja pudota suosikkikohteesi tähän 👋</string>
@@ -1100,21 +1108,34 @@
   <string name="talk_share_talk_page">Wikipedia - keskustelut keskustelusivulla</string>
   <string name="talk_edit_disclaimer">Tämä on keskustelusivu. Kunnioitathan keskustelusivun ohjeistuksia ja muistathan allekirjoittaa viestisi neljällä aaltoviivalla: ~~~~ kun käytät wikitekstiä.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://fi.wikipedia.org/wiki/Wikipedia:Keskustelusivu\"&gt;Wikipedian keskustelusivujen ohjeet ja käytännöt&lt;/a&gt;</string>
   <string name="talk_search_hint">Hae viestejä</string>
+  <string name="talk_search_topics_hint">Hae aiheista</string>
   <string name="talk_overflow_sort_by">Lajitteluperuste</string>
   <string name="talk_overflow_sort_date_published">Julkaisupäivä</string>
   <string name="talk_overflow_sort_date_updated">Viimeksi päivitetty</string>
   <string name="talk_overflow_sort_topic_name">Aiheen nimi</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Näytä vastaus</item>
+    <item quantity="other">Näytä vastaukset (%d)</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Piilota vastaus</item>
+    <item quantity="other">Piilota vastaukset (%d)</item>
+  </plurals>
   <string name="talk_list_item_overflow_subscribe">Tilaa</string>
   <string name="talk_list_item_overflow_subscribed">Tilattu</string>
   <string name="talk_list_item_overflow_mark_as_read">Merkitse luetuksi</string>
   <string name="talk_list_item_overflow_mark_as_unread">Merkitse lukemattomaksi</string>
   <string name="talk_list_item_overflow_share">Jaa</string>
   <string name="talk_list_item_last_comment_date">Viimeisin kommentti: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Vastauksia yhteensä</string>
+  <string name="talk_list_item_user_icon_content_description">Käyttäjäkuvake</string>
   <string name="talk_list_item_swipe_mark_as_read">Luettu</string>
   <string name="talk_list_item_swipe_mark_as_unread">Lukematon</string>
   <string name="talk_footer_about_this_talk_page">Tietoja tästä keskustelusivusta</string>
   <string name="talk_footer_view_edit_history">Näytä muokkaushistoria</string>
+  <string name="talk_footer_view_user_page">Näytä käyttäjäsivu</string>
   <string name="talk_footer_view_article">Näytä artikkeli</string>
+  <string name="talk_footer_last_modified">Viimeksi muokannut %2$s kello %1$s</string>
   <string name="menu_option_share_talk_discussion">Jaa keskustelu</string>
   <string name="menu_option_share_talk_page">Jaa keskustelusivu</string>
   <string name="menu_option_share_edit">Jaa muokkaus</string>
@@ -1122,6 +1143,7 @@
   <string name="menu_option_user_contributions">Käyttäjän %s muokkaukset</string>
   <string name="menu_option_edit_source">Muokkaa wikitekstiä</string>
   <string name="menu_option_user_page">Käyttäjän %s käyttäjäsivu</string>
+  <string name="menu_option_find_in_talk_page_topic">Etsi keskustelusivun aiheista</string>
   <string name="talk_menu_copy_text">Kopioi teksti</string>
   <string name="watchlist_details_watching_label">Tarkkailemassa</string>
   <string name="watchlist_details_watch_label">Tarkkaile</string>
@@ -1148,6 +1170,8 @@
   <string name="revision_undo_title">Kumoa muokkaus</string>
   <string name="revision_undo_reason">Anna syy tämän muokkauksen kumoamiselle jatkaaksesi:</string>
   <string name="revision_undo_success">Versio kumottiin.</string>
+  <string name="revision_rollback_dialog_title">Haluatko varmasti kumota muokkaukset?</string>
+  <string name="revision_rollback_success">Muokkaukset palautettu.</string>
   <string name="revision_compare_button">Vertaile</string>
   <string name="revision_compare_two_only">Vain kaksi versiota voidaan valita.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s keskustelusivuineen on lisätty tarkkailulistallesi %2$s.</string>
@@ -1178,4 +1202,6 @@
   <string name="category_tab_subcategories">Alaluokat</string>
   <string name="category_empty">Tässä luokassa ei ole artikkeleita.</string>
   <string name="subcategory_empty">Tässä luokassa ei ole alaluokkia.</string>
+  <string name="search_namespaces">Nimiavaruudet</string>
+  <string name="revision_initial_none">Ei ole (tämä on ensimmäinen versio)</string>
 </resources>

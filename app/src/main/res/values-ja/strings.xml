@@ -29,6 +29,7 @@
 * S2KTS
 * Shirayuki
 * Siglite3
+* Skskbooi
 * Suchichi02
 * Sujiniku
 * Suyama
@@ -76,11 +77,11 @@
   <string name="history_item_deleted">履歴から%sを削除しました</string>
   <string name="history_items_deleted">履歴から%d件の記事を削除しました</string>
   <string name="history_item_delete_undo">元に戻す</string>
-  <string name="notification_archive_undo">取り消す</string>
+  <string name="notification_archive_undo">元に戻す</string>
   <string name="app_settings">アプリの設定</string>
   <string name="search_tab_tooltip">再度アイコンをタップして直接検索ワードを入力することができます。</string>
   <string name="history_list_title">履歴</string>
-  <string name="image_content_description">画像 %s</string>
+  <string name="image_content_description">画像: %s</string>
   <string name="page_content_description">ページ: %s</string>
   <string name="wikimedia_commons">ウィキメディア・コモンズ</string>
   <string name="wikidata">ウィキデータ</string>
@@ -90,7 +91,7 @@
   <string name="dialog_message_clear_history_no">いいえ</string>
   <string name="share_via">共有する</string>
   <string name="image_share_via">共有する</string>
-  <string name="search_redirect_from">%s からリダイレクト</string>
+  <string name="search_redirect_from">%s から転送されました</string>
   <string name="page_edit_history_activity_title">変更履歴: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;細&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">編集の要約を空にする</string>
@@ -285,6 +286,7 @@
   <string name="edit_preview">プレビュー</string>
   <string name="edit_undo">取り消す</string>
   <string name="edit_redo">やり直す</string>
+  <string name="edit_rollback">巻き戻し</string>
   <string name="edit_zoom_in">拡大</string>
   <string name="edit_zoom_out">縮小</string>
   <string name="edit_summary_tag_typo">タイプミスを修正</string>
@@ -1076,6 +1078,7 @@
   <string name="revision_undo_title">編集を取り消す</string>
   <string name="revision_undo_reason">操作を続ける場合、編集を取り消す理由を記入してください。</string>
   <string name="revision_undo_success">この版は取り消されました。</string>
+  <string name="revision_rollback_success">編集が差し戻されました</string>
   <string name="revision_compare_button">比較</string>
   <string name="revision_compare_two_only">2つの版しか選べません</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">変更</string>
@@ -1097,4 +1100,5 @@
   <string name="category_tab_subcategories">下位カテゴリ</string>
   <string name="category_empty">このカテゴリには記事がありませんでした</string>
   <string name="subcategory_empty">このカテゴリに下位カテゴリはありませんでした。</string>
+  <string name="search_namespaces">名前空間</string>
 </resources>

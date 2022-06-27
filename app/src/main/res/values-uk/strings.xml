@@ -65,6 +65,7 @@
   <string name="share_via">Поділитися через</string>
   <string name="image_share_via">Поділитися через</string>
   <string name="search_redirect_from">Перенаправлено з %s</string>
+  <string name="page_edit_history_activity_title">Історія ревізії: %s</string>
   <string name="menu_page_show_tabs">Показати вкладки</string>
   <string name="menu_page_other_languages">Змінити мову</string>
   <string name="menu_page_find_in_page">Знайти у статті</string>
@@ -253,6 +254,7 @@
   <string name="edit_preview">Попередній перегляд</string>
   <string name="edit_undo">Скасувати</string>
   <string name="edit_redo">Повторити</string>
+  <string name="edit_rollback">Відкіт</string>
   <string name="edit_zoom_in">Збільшити</string>
   <string name="edit_zoom_out">Зменшити</string>
   <string name="edit_summary_tag_typo">Виправлена описка</string>

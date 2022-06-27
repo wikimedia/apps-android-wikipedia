@@ -21,6 +21,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.button.MaterialButton
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
@@ -52,6 +54,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private val viewModel: ArticleEditDetailsViewModel by viewModels { ArticleEditDetailsViewModel.Factory(requireArguments()) }
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
+    private var editFunnel: EditFunnel? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -89,6 +92,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (it is Resource.Success) {
                 updateDiffCharCountView(viewModel.diffSize)
                 updateAfterRevisionFetchSuccess()
+                updateUndoAndRollbackButtons()
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
             }
@@ -154,6 +158,33 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
 
+        viewModel.rollbackRights.observe(viewLifecycleOwner) {
+            binding.progressBar.isVisible = false
+            if (it is Resource.Success) {
+                updateUndoAndRollbackButtons()
+                if (viewModel.hasRollbackRights) {
+                    editFunnel = WikipediaApp.instance.funnelManager.getEditFunnel(viewModel.pageTitle)
+                }
+            } else if (it is Resource.Error) {
+                it.throwable.printStackTrace()
+                FeedbackUtil.showError(requireActivity(), it.throwable)
+            }
+        }
+
+        viewModel.rollbackResponse.observe(viewLifecycleOwner) {
+            binding.progressBar.isVisible = false
+            if (it is Resource.Success) {
+                setLoadingState()
+                viewModel.getRevisionDetails(it.data.rollback?.revision ?: 0)
+                FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_rollback_success), FeedbackUtil.LENGTH_DEFAULT).show()
+                editFunnel?.logRollbackSuccess(it.data.rollback?.revision ?: -1)
+            } else if (it is Resource.Error) {
+                it.throwable.printStackTrace()
+                FeedbackUtil.showError(requireActivity(), it.throwable)
+                editFunnel?.logRollbackFailure()
+            }
+        }
+
         L10nUtil.setConditionalLayoutDirection(requireView(), viewModel.pageTitle.wikiSite.languageCode)
 
         binding.scrollContainer.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
@@ -209,10 +240,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             editHistoryInteractionEvent?.logThankTry()
         }
 
-        binding.undoButton.isVisible = ReleaseUtil.isPreBetaRelease
         binding.undoButton.setOnClickListener {
             showUndoDialog()
             editHistoryInteractionEvent?.logUndoTry()
+        }
+
+        binding.rollbackButton.setOnClickListener {
+            showRollbackDialog()
+            editFunnel?.logRollbackAttempt()
         }
 
         binding.errorView.backClickListener = View.OnClickListener { requireActivity().finish() }
@@ -227,6 +262,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         val watchlistItem = menu.findItem(R.id.menu_add_watchlist)
         watchlistItem.title = getString(if (isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
         watchlistItem.setIcon(getWatchlistIcon(isWatched, hasWatchlistExpiry))
+        menu.findItem(R.id.menu_undo).isVisible = (viewModel.revisionFrom != null) &&
+                !AccountUtil.isLoggedIn || (viewModel.hasRollbackRights && !viewModel.canGoForward)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -241,6 +278,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             R.id.menu_add_watchlist -> {
                 viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
                 if (isWatched) editHistoryInteractionEvent?.logUnwatchClick() else editHistoryInteractionEvent?.logWatchClick()
+                true
+            }
+            R.id.menu_undo -> {
+                showUndoDialog()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -265,7 +306,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun updateDiffCharCountView(diffSize: Int) {
-        binding.diffCharacterCountView.text = String.format(if (diffSize != 0) "%+d" else "%d", diffSize)
+        binding.diffCharacterCountView.text = StringUtil.getDiffBytesText(requireContext(), diffSize)
         if (diffSize >= 0) {
             binding.diffCharacterCountView.setTextColor(if (diffSize > 0) ContextCompat.getColor(requireContext(),
                     R.color.green50) else ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color))
@@ -317,6 +358,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.thankButton.isEnabled = true
         binding.thankButton.isVisible = AccountUtil.isLoggedIn && !AccountUtil.userName.equals(viewModel.revisionTo?.user)
         binding.revisionDetailsView.isVisible = true
+        binding.errorView.isVisible = false
     }
 
     private fun updateAfterDiffFetchSuccess() {
@@ -392,6 +434,25 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
         dialog.show()
+    }
+
+    private fun showRollbackDialog() {
+        AlertDialog.Builder(requireActivity())
+            .setMessage(R.string.revision_rollback_dialog_title)
+            .setPositiveButton(android.R.string.ok) { _, _ ->
+                binding.progressBar.isVisible = true
+                viewModel.revisionTo?.let {
+                    viewModel.postRollback(viewModel.pageTitle, it.user)
+                }
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
+    }
+
+    private fun updateUndoAndRollbackButtons() {
+        binding.rollbackButton.isVisible = AccountUtil.isLoggedIn && viewModel.hasRollbackRights && !viewModel.canGoForward
+        binding.undoButton.isVisible = AccountUtil.isLoggedIn && !binding.rollbackButton.isVisible
+        requireActivity().invalidateOptionsMenu()
     }
 
     override fun onExpirySelect(expiry: WatchlistExpiry) {

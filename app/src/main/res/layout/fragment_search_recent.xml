@@ -49,6 +49,7 @@
         android:id="@+id/recent_searches"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="48dp"
         android:orientation="vertical">
 
         <FrameLayout
@@ -95,5 +96,25 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:background="?attr/paper_color">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/material_theme_border_color"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/namespaces_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="8dp"
+            android:scrollbars="horizontal" />
+
+    </LinearLayout>
 
 </FrameLayout>
