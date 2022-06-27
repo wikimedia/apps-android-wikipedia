@@ -662,7 +662,7 @@
   <string name="preference_title_notification_user_talk">Pogovorna stran</string>
   <string name="preference_summary_notification_user_talk">Sporočila in odgovori s pogovornih strani</string>
   <string name="preference_title_notification_email_user">Prejeta e-pošta</string>
-  <string name="preference_summary_notification_email_user">Nekdo vam je iz vikija poslal e-pošto</string>
+  <string name="preference_summary_notification_email_user">Nekdo iz vikija vam je poslal e-pošto</string>
   <string name="preference_title_notification_user_rights">Spremembe uporabniških pravic</string>
   <string name="preference_summary_notification_user_rights">Prejeto ob spremembi vaših uporabniških pravic</string>
   <string name="preference_title_notification_article_linked">Povezave na članke, ki ste jih ustvarili</string>
