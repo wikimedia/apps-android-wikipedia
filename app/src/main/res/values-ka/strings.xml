@@ -209,7 +209,7 @@
   <string name="user_blocked_from_editing_title">დაბლოკილია</string>
   <string name="user_logged_in_blocked_from_editing">თქვენი ანგარიში დაბლოკილია რედაქტირებისაგან ამ პროექტში.</string>
   <string name="user_anon_blocked_from_editing">თქვენი IP მისამართი დაბლოკილია.</string>
-  <string name="edit_how_page_improved">რითი გააუმჯობესეთ გვერდი?</string>
+  <string name="edit_how_page_improved">რით გააუმჯობესეთ გვერდი?</string>
   <string name="edit_next">შემდეგი</string>
   <string name="edit_done">გამოქვეყნება</string>
   <string name="edit_preview">წინასწარი გადახედვა</string>
