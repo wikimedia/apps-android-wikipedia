@@ -464,6 +464,8 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             viewModel.pageTitle.thumbUrl?.let {
                 binding.talkLeadImage.contentDescription = StringUtil.removeNamespace(viewModel.pageTitle.displayText)
                 binding.talkLeadImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
+            } ?: run {
+                binding.talkLeadImageContainer.isVisible = false
             }
         }
     }
