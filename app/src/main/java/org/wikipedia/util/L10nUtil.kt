@@ -55,7 +55,7 @@ object L10nUtil {
                                     @StringRes strings: IntArray): SparseArray<String> {
         val config = currentConfiguration
         val systemLocale = ConfigurationCompat.getLocales(config)[0]
-        if (systemLocale.language == targetLocale.language) {
+        if (systemLocale?.language == targetLocale.language) {
             val localizedStrings = SparseArray<String>()
             strings.forEach {
                 localizedStrings.put(it, WikipediaApp.instance.getString(it))
@@ -75,7 +75,7 @@ object L10nUtil {
         val config = currentConfiguration
         val targetLocale = Locale(languageCode)
         val systemLocale = ConfigurationCompat.getLocales(config)[0]
-        if (systemLocale.language == targetLocale.language) {
+        if (systemLocale?.language == targetLocale.language) {
             return null
         }
         setDesiredLocale(config, targetLocale)
