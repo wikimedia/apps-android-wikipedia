@@ -318,7 +318,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private inner class HeaderViewHolder constructor(private val view: TalkThreadHeaderView) : RecyclerView.ViewHolder(view), TalkThreadHeaderView.Callback {
         fun bindItem() {
-            view.bind(viewModel.pageTitle, viewModel.topic!!, viewModel.subscribed, linkMovementMethod, viewModel.currentSearchQuery)
+            view.bind(viewModel.pageTitle, viewModel.topic, viewModel.subscribed, linkMovementMethod, viewModel.currentSearchQuery)
             view.callback = this
         }
 

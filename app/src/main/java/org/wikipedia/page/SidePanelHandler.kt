@@ -18,7 +18,6 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -52,7 +51,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         ObservableWebView.OnClickListener, ObservableWebView.OnScrollChangeListener, OnContentHeightChangedListener {
 
     private val binding = (fragment.requireActivity() as PageActivity).binding
-    private val viewModel: TalkTopicsViewModel by fragment.viewModels { TalkTopicsViewModel.Factory(fragment.title, true) }
+    private var talkViewModel: TalkTopicsViewModel? = null
     private val talkTopicsAdapter = TalkTopicItemAdapter()
     private val scrollerViewParams = FrameLayout.LayoutParams(DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE), DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE))
     private val webView = fragment.webView
@@ -108,17 +107,17 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
                 enableToCorTalkTopics(true)
             }
         })
-        setScrollerPosition()
-        enableToCorTalkTopics()
 
-        fragment.lifecycleScope.launchWhenCreated {
-            viewModel.uiState.collect {
-                when (it) {
-                    is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle)
-                    is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
-                }
+        binding.talkTitleView.setOnClickListener { openTalkPage() }
+        binding.talkFullscreenButton.setOnClickListener { openTalkPage() }
+        binding.talkLastModified.setOnClickListener { _ ->
+            talkViewModel?.let {
+                fragment.startActivity(ArticleEditDetailsActivity.newIntent(fragment.requireContext(), it.pageTitle, it.lastRevision!!.revId))
             }
         }
+
+        setScrollerPosition()
+        enableToCorTalkTopics()
     }
 
     private fun setupTalkTopics(pageTitle: PageTitle) {
@@ -134,26 +133,32 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
             hide()
         }
 
-        viewModel.pageTitle = pageTitle
-        viewModel.loadTopics()
+        if (talkViewModel == null) {
+            talkViewModel = TalkTopicsViewModel(pageTitle.copy(), true)
+
+            fragment.lifecycleScope.launchWhenCreated {
+                talkViewModel?.uiState?.collect {
+                    when (it) {
+                        is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle)
+                        is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
+                    }
+                }
+            }
+        } else {
+            talkViewModel?.updatePageTitle(pageTitle)
+        }
     }
 
     private fun updateOnSuccess(pageTitle: PageTitle) {
         binding.talkTitleView.text = StringUtil.fromHtml(pageTitle.displayText)
-        binding.talkTitleView.setOnClickListener(openTalkPageOnClickListener(pageTitle))
-        binding.talkFullscreenButton.setOnClickListener(openTalkPageOnClickListener(pageTitle))
 
-        viewModel.lastRevision?.let {
+        talkViewModel?.lastRevision?.let {
             binding.talkLastModified.text = StringUtil.fromHtml(fragment.getString(R.string.talk_last_modified,
                 DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(it.timeStamp).time,
                     System.currentTimeMillis(), 0L), it.user))
             binding.talkLastModified.isVisible = true
-            binding.talkLastModified.setOnClickListener { _ ->
-                fragment.startActivity(ArticleEditDetailsActivity.newIntent(fragment.requireContext(), pageTitle, it.revId))
-            }
         }
 
-        talkTopicsAdapter.pageTitle = pageTitle
         binding.talkErrorView.visibility = View.GONE
         binding.talkProgressBar.visibility = View.GONE
         binding.talkRecyclerView.visibility = View.VISIBLE
@@ -171,29 +176,27 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         }
     }
 
-    private fun openTalkPageOnClickListener(title: PageTitle): View.OnClickListener {
-        return View.OnClickListener {
-            fragment.startActivity(TalkTopicsActivity.newIntent(fragment.requireContext(), title, Constants.InvokeSource.PAGE_ACTIVITY))
+    private fun openTalkPage() {
+        talkViewModel?.let {
+            fragment.startActivity(TalkTopicsActivity.newIntent(fragment.requireContext(), it.pageTitle, Constants.InvokeSource.PAGE_ACTIVITY))
         }
     }
 
     @SuppressLint("RtlHardcoded")
-    fun setupForNewPage(page: Page?) {
-        page?.let {
-            tocAdapter.setPage(it)
-            rtl = L10nUtil.isLangRTL(it.title.wikiSite.languageCode)
-            binding.tocList.rtl = rtl
-            L10nUtil.setConditionalLayoutDirection(binding.sidePanelContainer, it.title.wikiSite.languageCode)
-            binding.sidePanelContainer.updateLayoutParams<DrawerLayout.LayoutParams> {
-                gravity = if (rtl) Gravity.LEFT else Gravity.RIGHT
-            }
-            log()
-            funnel = ToCInteractionFunnel(WikipediaApp.instance, it.title.wikiSite, it.pageProperties.pageId, tocAdapter.count)
-            articleTocInteractionEvent = ArticleTocInteractionEvent(it.pageProperties.pageId, it.title.wikiSite.dbName(), tocAdapter.count)
-            articleTocInteractionEvent?.logClick()
-            if (ReleaseUtil.isPreBetaRelease) {
-                setupTalkTopics(it.title)
-            }
+    fun setupForNewPage(page: Page) {
+        tocAdapter.setPage(page)
+        rtl = L10nUtil.isLangRTL(page.title.wikiSite.languageCode)
+        binding.tocList.rtl = rtl
+        L10nUtil.setConditionalLayoutDirection(binding.sidePanelContainer, page.title.wikiSite.languageCode)
+        binding.sidePanelContainer.updateLayoutParams<DrawerLayout.LayoutParams> {
+            gravity = if (rtl) Gravity.LEFT else Gravity.RIGHT
+        }
+        log()
+        funnel = ToCInteractionFunnel(WikipediaApp.instance, page.title.wikiSite, page.pageProperties.pageId, tocAdapter.count)
+        articleTocInteractionEvent = ArticleTocInteractionEvent(page.pageProperties.pageId, page.title.wikiSite.dbName(), tocAdapter.count)
+        articleTocInteractionEvent?.logClick()
+        if (ReleaseUtil.isPreBetaRelease) {
+            setupTalkTopics(page.title)
         }
     }
 
@@ -424,20 +427,17 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     }
 
     inner class TalkTopicItemAdapter : RecyclerView.Adapter<TalkTopicHolder>() {
-
-        lateinit var pageTitle: PageTitle
-
         override fun getItemCount(): Int {
-            return viewModel.sortedThreadItems.size
+            return talkViewModel?.sortedThreadItems?.size ?: 0
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkTopicHolder {
             return TalkTopicHolder(ItemTalkTopicBinding.inflate(fragment.layoutInflater, parent, false),
-                fragment.requireContext(), pageTitle, viewModel, Constants.InvokeSource.PAGE_ACTIVITY)
+                fragment.requireContext(), talkViewModel!!, Constants.InvokeSource.PAGE_ACTIVITY)
         }
 
         override fun onBindViewHolder(holder: TalkTopicHolder, pos: Int) {
-             holder.bindItem(viewModel.sortedThreadItems[pos])
+             holder.bindItem(talkViewModel!!.sortedThreadItems[pos])
         }
     }
 
