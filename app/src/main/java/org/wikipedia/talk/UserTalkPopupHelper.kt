@@ -17,7 +17,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.staticdata.UserTalkAliasData
-import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.usercontrib.UserContribListActivity
 
 @SuppressLint("RestrictedApi")
 object UserTalkPopupHelper {
@@ -71,7 +71,7 @@ object UserTalkPopupHelper {
                         activity.startActivity(TalkTopicsActivity.newIntent(activity, newTitle, invokeSource))
                     }
                     R.id.menu_user_contributions_page -> {
-                        FeedbackUtil.showUserContributionsPage(activity, title.text, title.wikiSite.languageCode)
+                        activity.startActivity(UserContribListActivity.newIntent(activity, title.text))
                     }
                 }
                 return true
