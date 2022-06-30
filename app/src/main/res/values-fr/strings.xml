@@ -521,7 +521,7 @@
   <string name="reading_list_name_hint">Nom de cette liste</string>
   <string name="reading_list_description_hint">Description (facultative)</string>
   <string name="reading_list_item_deleted">%s supprimé de la liste</string>
-  <string name="reading_list_item_deleted_from_list">%1$s a été supprimé de %2$s</string>
+  <string name="reading_list_item_deleted_from_list">%1$s a été retiré de %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d article supprimé de la liste</item>
     <item quantity="other">%d articles supprimés de la liste</item>
@@ -1166,7 +1166,7 @@
   <string name="menu_option_share_edit">Partager la modification</string>
   <string name="menu_option_user_profile">Profil de %s</string>
   <string name="menu_option_user_contributions">Contributions de %s</string>
-  <string name="menu_option_edit_source">Modifier la source</string>
+  <string name="menu_option_edit_source">Modifier le wikicode</string>
   <string name="menu_option_user_page">Page utilisateur de %s</string>
   <string name="menu_option_find_in_talk_page_topic">Trouver dans le sujet de la page de discussion</string>
   <string name="talk_menu_copy_text">Copier le texte</string>
