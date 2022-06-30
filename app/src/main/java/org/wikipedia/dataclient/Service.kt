@@ -210,6 +210,9 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
     val userInfo: Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|options|registrationdate|hasmsg")
+    suspend fun userInfoFull(): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=rights")
     suspend fun userRights(): MwQueryResponse
 
@@ -302,6 +305,13 @@ interface Service {
         @Query("uclimit") maxCount: Int,
         @Query("uccontinue") uccontinue: String?
     ): Observable<MwQueryResponse>
+
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags")
+    suspend fun getUserContrib(
+            @Query("ucuser") username: String,
+            @Query("uclimit") maxCount: Int,
+            @Query("uccontinue") uccontinue: String?
+    ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
     fun getPageViewsForTitles(@Query("titles") titles: String): Observable<MwQueryResponse>

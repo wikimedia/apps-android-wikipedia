@@ -1273,5 +1273,6 @@
     <string name="subcategory_empty">No subcategories found in this category.</string>
     <string name="search_namespaces">Namespaces</string>
     <string name="revision_initial_none">None (this is the first revision)</string>
+    <string name="user_contrib_activity_title">Contributions of %s</string>
 
 </resources>

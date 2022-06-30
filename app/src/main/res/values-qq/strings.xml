@@ -1215,4 +1215,5 @@
   <string name="subcategory_empty">Error shown when the current category contains no subcategories.</string>
   <string name="search_namespaces">Hint for selecting the namespace when searching.\n{{Identical|Namespace}}</string>
   <string name="revision_initial_none">Label shown when showing a diff of the first revision of an article (when there is no previous revision to compare with).</string>
+  <string name="user_contrib_activity_title">Title of screen that lists the contributions of a user to the current wiki. The %s symbol is replaced with the user name.</string>
 </resources>

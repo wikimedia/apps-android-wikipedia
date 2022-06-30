@@ -312,6 +312,10 @@
             android:name=".page.edithistory.EditHistoryListActivity"
             android:theme="@style/AppTheme" />
 
+        <activity
+            android:name=".usercontrib.UserContribListActivity"
+            android:theme="@style/AppTheme" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"

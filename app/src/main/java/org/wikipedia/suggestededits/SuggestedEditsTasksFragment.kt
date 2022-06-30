@@ -33,7 +33,7 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.userprofile.ContributionsActivity
+import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.userprofile.UserContributionsStats
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
@@ -86,7 +86,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         setupTestingButtons()
 
         binding.userStatsViewsGroup.addOnClickListener {
-            startActivity(ContributionsActivity.newIntent(requireActivity(), totalContributions, totalPageviews))
+            startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName.orEmpty()))
         }
 
         binding.learnMoreCard.setOnClickListener {

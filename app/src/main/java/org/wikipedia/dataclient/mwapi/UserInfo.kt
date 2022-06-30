@@ -11,6 +11,7 @@ class UserInfo : BlockInfo() {
     val id = 0
     private val groups: List<String>? = null
     @SerialName("latestcontrib") private val latestContrib: String? = null
+    @SerialName("registrationdate") private val regDate: String? = null
     @SerialName("editcount") val editCount = 0
     val name: String = ""
     val anon: Boolean = false
@@ -26,6 +27,15 @@ class UserInfo : BlockInfo() {
             var date = Date(0)
             if (!latestContrib.isNullOrEmpty()) {
                 date = DateUtil.iso8601DateParse(latestContrib)
+            }
+            return date
+        }
+
+    val registrationDate: Date
+        get() {
+            var date = Date(0)
+            if (!regDate.isNullOrEmpty()) {
+                date = DateUtil.iso8601DateParse(regDate)
             }
             return date
         }
