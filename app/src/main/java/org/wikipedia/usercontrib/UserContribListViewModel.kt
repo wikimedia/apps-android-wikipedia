@@ -67,7 +67,7 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
             L.e(throwable)
         }) {
             withContext(Dispatchers.IO) {
-                val userInfo = ServiceFactory.get(wikiSite).userInfoFull().query?.userInfo!!
+                val userInfo = ServiceFactory.get(wikiSite).userInfo(userName).query?.users!![0]
                 editHistoryStatsData.postValue(Resource.Success(UserContribStats(userInfo.editCount, userInfo.registrationDate)))
             }
         }

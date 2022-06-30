@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewUserContribStatsBinding
 import org.wikipedia.page.LinkMovementMethodExt
@@ -28,9 +29,14 @@ class UserContribStatsView constructor(context: Context, attrs: AttributeSet? = 
                 "<a href=\"#\">$userName</a>"))
         RichTextUtil.removeUnderlinesFromLinks(binding.userNameView)
 
-        val regYear = DateUtil.getYearOnlyDateString(stats.registrationDate)
-        binding.editCountsView.text = context.resources.getQuantityString(R.plurals.page_edit_history_article_edits_since_year,
-                stats.totalEdits, stats.totalEdits, regYear)
+        if (stats.totalEdits >= 0) {
+            val regYear = DateUtil.getYearOnlyDateString(stats.registrationDate)
+            binding.editCountsView.isVisible = true
+            binding.editCountsView.text = context.resources.getQuantityString(R.plurals.page_edit_history_article_edits_since_year,
+                    stats.totalEdits, stats.totalEdits, regYear)
+        } else {
+            binding.editCountsView.isVisible = false
+        }
 
         binding.userNameView.movementMethod = LinkMovementMethodExt { _ ->
             // context.startActivity(PageActivity.newIntentForNewTab(context, HistoryEntry(pageTitle, HistoryEntry.SOURCE_EDIT_HISTORY), pageTitle))
