@@ -62,7 +62,7 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
         loadStats()
     }
 
-    private fun loadStats() {
+    fun loadStats() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {

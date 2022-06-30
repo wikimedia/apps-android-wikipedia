@@ -4,10 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.core.view.MenuItemCompat
@@ -26,7 +28,9 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityUserContribBinding
 import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
@@ -39,6 +43,8 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.languages.WikipediaLanguagesActivity
+import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.*
 import org.wikipedia.views.SearchAndFilterActionProvider
 import org.wikipedia.views.WikiErrorView
@@ -56,6 +62,22 @@ class UserContribListActivity : BaseActivity() {
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
+
+    private val requestLanguageChange = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            it.data?.let { intent ->
+                if (intent.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
+                    val pos = intent.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
+                    if (pos < WikipediaApp.instance.languageState.appLanguageCodes.size) {
+                        viewModel.langCode = WikipediaApp.instance.languageState.appLanguageCodes[pos]
+                        viewModel.clearCache()
+                        viewModel.loadStats()
+                        editHistoryListAdapter.reload()
+                    }
+                }
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -119,6 +141,21 @@ class UserContribListActivity : BaseActivity() {
 
         if (viewModel.actionModeActive) {
             startSearchActionMode()
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_user_contrib, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_change_language -> {
+                requestLanguageChange.launch(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.USER_CONTRIB_ACTIVITY))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
