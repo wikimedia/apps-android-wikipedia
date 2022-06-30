@@ -11,6 +11,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.*
+import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +32,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.events.*
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
@@ -175,10 +177,15 @@ abstract class BaseActivity : AppCompatActivity() {
 
                 if (dx <= touchSlopPx && dy <= touchSlopPx) {
                     ViewUtil.findClickableViewAtPoint(window.decorView, startTouchX.toInt(), startTouchY.toInt())?.let {
-                        if (touchMillis > ViewConfiguration.getLongPressTimeout()) {
-                            BreadCrumbLogEvent.logLongClick(this@BaseActivity, it)
+                        if (it is TextView && it.movementMethod is LinkMovementMethodExt) {
+                            // If they clicked a link in a TextView, it will be handled by the
+                            // MovementMethod instead of here.
                         } else {
-                            BreadCrumbLogEvent.logClick(this@BaseActivity, it)
+                            if (touchMillis > ViewConfiguration.getLongPressTimeout()) {
+                                BreadCrumbLogEvent.logLongClick(this@BaseActivity, it)
+                            } else {
+                                BreadCrumbLogEvent.logClick(this@BaseActivity, it)
+                            }
                         }
                     }
                 }

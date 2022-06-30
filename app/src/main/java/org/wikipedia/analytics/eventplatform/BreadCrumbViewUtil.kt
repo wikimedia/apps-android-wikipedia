@@ -1,6 +1,6 @@
 package org.wikipedia.analytics.eventplatform
 
-import android.app.Activity
+import android.content.Context
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -53,19 +53,19 @@ object BreadCrumbViewUtil {
         }
     }
 
-    fun getReadableScreenName(activity: Activity): String {
-        val fragName = getFragmentName(activity)
-        return activity.javaClass.simpleName + (if (fragName.isNotEmpty()) ".$fragName" else "")
+    fun getReadableScreenName(context: Context): String {
+        val fragName = getCurrentFragmentName(context)
+        return context.javaClass.simpleName + (if (fragName.isNotEmpty()) ".$fragName" else "")
     }
 
-    private fun getFragmentName(activity: Activity): String {
-        val fragment = getVisibleFragment(activity)
+    private fun getCurrentFragmentName(context: Context): String {
+        val fragment = getVisibleFragment(context)
 
         return when {
-            fragment != null && activity is InitialOnboardingActivity -> {
+            fragment != null && context is InitialOnboardingActivity -> {
                 getInitialOnboardingScreenName(fragment)
             }
-            fragment != null && activity is MainActivity -> {
+            fragment != null && context is MainActivity -> {
                 getMainFragmentTabName(fragment)
             }
             fragment != null -> {
@@ -100,11 +100,11 @@ object BreadCrumbViewUtil {
         return ""
     }
 
-    private fun getVisibleFragment(activity: Activity): Fragment? {
-        if (activity is SingleFragmentActivity<*>) {
-            return activity.supportFragmentManager.findFragmentById(R.id.fragment_container)
-        } else if (activity is FragmentActivity) {
-            val fragments: List<Fragment> = activity.supportFragmentManager.fragments
+    private fun getVisibleFragment(context: Context): Fragment? {
+        if (context is SingleFragmentActivity<*>) {
+            return context.supportFragmentManager.findFragmentById(R.id.fragment_container)
+        } else if (context is FragmentActivity) {
+            val fragments: List<Fragment> = context.supportFragmentManager.fragments
             for (fragment in fragments) {
                 if (fragment.isVisible) return fragment
             }

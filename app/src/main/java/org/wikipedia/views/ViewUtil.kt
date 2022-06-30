@@ -90,14 +90,14 @@ object ViewUtil {
         val location = IntArray(2)
         parentView.getLocationOnScreen(location)
         val rect = Rect(location[0], location[1], location[0] + parentView.width, location[1] + parentView.height)
-        if (rect.contains(x, y)) {
-            if (parentView is ViewGroup && parentView.isVisible) {
+        if (rect.contains(x, y) && parentView.isVisible) {
+            if (parentView is ViewGroup) {
                 for (i in parentView.childCount - 1 downTo 0) {
                     val v = parentView.getChildAt(i)
                     findClickableViewAtPoint(v, x, y)?.let { return it }
                 }
             }
-            if (parentView.isVisible && parentView.isEnabled && parentView.isClickable) {
+            if (parentView.isEnabled && parentView.isClickable) {
                 return parentView
             }
         }

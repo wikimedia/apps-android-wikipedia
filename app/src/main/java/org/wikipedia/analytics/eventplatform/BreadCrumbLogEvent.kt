@@ -1,9 +1,7 @@
 package org.wikipedia.analytics.eventplatform
 
-import android.app.Activity
 import android.content.Context
 import android.view.View
-import android.widget.Checkable
 import androidx.appcompat.widget.SwitchCompat
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -27,26 +25,26 @@ class BreadCrumbLogEvent(
     companion object {
         private const val STREAM_NAME = "android.breadcrumbs_event"
 
-        fun logClick(activity: Activity, view: View) {
-            if (activity is SettingsActivity) {
+        fun logClick(context: Context, view: View) {
+            if (context is SettingsActivity) {
                 return
             }
             val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
             val str = viewReadableName + "." + if (view is SwitchCompat) (if (!view.isChecked) "on" else "off") else "click"
-            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), str))
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), str))
         }
 
-        fun logLongClick(activity: Activity, view: View) {
+        fun logLongClick(context: Context, view: View) {
             val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
-            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), "$viewReadableName.longclick"))
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), "$viewReadableName.longclick"))
         }
 
-        fun logScreenShown(activity: Activity) {
-            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), "show"))
+        fun logScreenShown(context: Context) {
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), "show"))
         }
 
-        fun logBackPress(activity: Activity) {
-            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(activity), "back"))
+        fun logBackPress(context: Context) {
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), "back"))
         }
 
         fun logTooltipShown(context: Context, anchor: View) {
