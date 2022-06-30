@@ -23,7 +23,7 @@ object BreadCrumbViewUtil {
 
     fun getReadableNameForView(view: View): String {
         if (view.parent is RecyclerView) {
-            val position = (view.parent as RecyclerView).getChildViewHolder(view).layoutPosition + 1
+            val position = (view.parent as RecyclerView).findContainingViewHolder(view)?.bindingAdapterPosition ?: 0
             if (view is ListCardItemView) {
                 var currentParent = view.parent
                 while (currentParent !is ListCardView<*>) {
