@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
@@ -19,7 +18,6 @@ class UserContribItemView(context: Context) : FrameLayout(context) {
     interface Listener {
         fun onClick()
         fun onLongClick()
-        fun onUserNameClick(v: View)
     }
 
     var listener: Listener? = null

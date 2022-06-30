@@ -352,13 +352,6 @@ class UserContribListActivity : BaseActivity() {
         }
 
         override fun onLongClick() { }
-
-        override fun onUserNameClick(v: View) {
-            // UserTalkPopupHelper.show(this@UserContribListActivity, bottomSheetPresenter,
-            //        PageTitle(UserAliasData.valueFor(viewModel.langCode),
-            //                revision.user, viewModel.wikiSite), revision.isAnon, v,
-            //        Constants.InvokeSource.DIFF_ACTIVITY, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS)
-        }
     }
 
     private inner class SearchCallback : SearchActionModeCallback() {
