@@ -295,6 +295,10 @@
             android:name=".talk.TalkReplyActivity" />
 
         <activity
+            android:name=".talk.ArchivedTalkPagesActivity"
+            android:theme="@style/AppTheme.ActionBar" />
+
+        <activity
             android:name=".diff.ArticleEditDetailsActivity" />
 
         <activity

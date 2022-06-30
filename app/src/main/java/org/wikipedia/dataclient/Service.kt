@@ -59,6 +59,18 @@ interface Service {
         @Query("gsroffset") gsrOffset: String?
     ): Observable<MwQueryResponse>
 
+    @GET(
+        MW_API_PREFIX + "action=query&converttitles=" +
+                "&prop=description|pageprops|info&ppprop=mainpage|disambiguation" +
+                "&generator=search&gsrnamespace=0&gsrwhat=text" +
+                "&inprop=varianttitles" +
+                "&gsrinfo=&gsrprop=redirecttitle&pilicense=any"
+    )
+    suspend fun searchSubPages(@Query("gsrsearch") searchTerm: String?,
+                               @Query("gsrlimit") gsrLimit: Int,
+                               @Query("continue") cont: String?,
+                               @Query("gsroffset") gsrOffset: String?): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
     fun prefixSearchUsers(
             @Query("auprefix") prefix: String,
