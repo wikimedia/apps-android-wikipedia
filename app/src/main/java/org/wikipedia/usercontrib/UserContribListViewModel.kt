@@ -12,6 +12,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.UserContribution
+import org.wikipedia.page.Namespace
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
@@ -21,10 +22,11 @@ import java.util.*
 
 class UserContribListViewModel(bundle: Bundle) : ViewModel() {
 
-    val editHistoryStatsData = MutableLiveData<Resource<UserContribStats>>()
+    val userContribStatsData = MutableLiveData<Resource<UserContribStats>>()
 
     var userName: String = bundle.getString(UserContribListActivity.INTENT_EXTRA_USER_NAME)!!
     var langCode: String = WikipediaApp.instance.appOrSystemLanguageCode
+    var nsFilter: Namespace? = null
 
     val wikiSite
         get() = WikiSite.forLanguageCode(langCode)
@@ -68,7 +70,7 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
         }) {
             withContext(Dispatchers.IO) {
                 val userInfo = ServiceFactory.get(wikiSite).userInfo(userName).query?.users!![0]
-                editHistoryStatsData.postValue(Resource.Success(UserContribStats(userInfo.editCount, userInfo.registrationDate)))
+                userContribStatsData.postValue(Resource.Success(UserContribStats(userInfo.editCount, userInfo.registrationDate)))
             }
         }
     }
@@ -84,7 +86,7 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
                     return LoadResult.Page(cachedContribs, null, cachedContinueKey)
                 }
 
-                val response = ServiceFactory.get(wikiSite).getUserContrib(userName, 500, params.key)
+                val response = ServiceFactory.get(wikiSite).getUserContrib(userName, 500, nsFilter?.code(), null, params.key)
                 val contribs = response.query?.userContributions!!
 
                 cachedContinueKey = response.continuation?.ucContinuation

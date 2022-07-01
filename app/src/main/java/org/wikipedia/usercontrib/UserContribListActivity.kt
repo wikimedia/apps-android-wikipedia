@@ -135,7 +135,7 @@ class UserContribListActivity : BaseActivity() {
             }
         }
 
-        viewModel.editHistoryStatsData.observe(this) {
+        viewModel.userContribStatsData.observe(this) {
             if (it is Resource.Success) {
                 editHistoryStatsAdapter.notifyItemChanged(0)
                 editHistorySearchBarAdapter.notifyItemChanged(0)
@@ -177,7 +177,7 @@ class UserContribListActivity : BaseActivity() {
     }
 
     fun showFilterOverflowMenu() {
-        val editCountsValue = viewModel.editHistoryStatsData.value
+        val editCountsValue = viewModel.userContribStatsData.value
         if (editCountsValue is Resource.Success) {
             val anchorView = if (actionMode != null && searchActionModeCallback.searchAndFilterActionProvider != null)
                 searchActionModeCallback.searchBarFilterIcon!! else if (editHistorySearchBarAdapter.viewHolder != null)
@@ -305,7 +305,7 @@ class UserContribListActivity : BaseActivity() {
 
     private inner class StatsViewHolder constructor(private val view: UserContribStatsView) : RecyclerView.ViewHolder(view) {
         fun bindItem() {
-            val statsFlowValue = viewModel.editHistoryStatsData.value
+            val statsFlowValue = viewModel.userContribStatsData.value
             if (statsFlowValue is Resource.Success) {
                 view.setup(viewModel.userName, statsFlowValue.data)
             }
@@ -327,7 +327,7 @@ class UserContribListActivity : BaseActivity() {
         }
 
         fun bindItem() {
-            val statsFlowValue = viewModel.editHistoryStatsData.value
+            val statsFlowValue = viewModel.userContribStatsData.value
             if (statsFlowValue is Resource.Success) {
                 binding.root.setCardBackgroundColor(
                     ResourceUtil.getThemedColor(this@UserContribListActivity, R.attr.color_group_22)
