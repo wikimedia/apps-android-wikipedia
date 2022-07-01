@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
@@ -13,6 +12,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.core.view.MenuItemCompat
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import androidx.lifecycle.lifecycleScope
@@ -42,12 +42,15 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.*
 import org.wikipedia.views.SearchAndFilterActionProvider
+import org.wikipedia.views.ViewUtil
 import org.wikipedia.views.WikiErrorView
+import java.util.*
 
 class UserContribListActivity : BaseActivity() {
 
@@ -70,6 +73,7 @@ class UserContribListActivity : BaseActivity() {
                     val pos = intent.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
                     if (pos < WikipediaApp.instance.languageState.appLanguageCodes.size) {
                         viewModel.langCode = WikipediaApp.instance.languageState.appLanguageCodes[pos]
+                        updateLangButton()
                         viewModel.clearCache()
                         viewModel.loadStats()
                         editHistoryListAdapter.reload()
@@ -86,7 +90,7 @@ class UserContribListActivity : BaseActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.title = ""
 
-        binding.titleView.isVisible = false
+        binding.titleView.isInvisible = true
         binding.titleView.text = getString(R.string.user_contrib_activity_title, StringUtil.fromHtml(viewModel.userName))
 
         binding.editHistoryRefreshContainer.setOnRefreshListener {
@@ -99,9 +103,14 @@ class UserContribListActivity : BaseActivity() {
         binding.editHistoryRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                binding.titleView.isVisible = binding.editHistoryRecycler.computeVerticalScrollOffset() > recyclerView.getChildAt(0).height
+                binding.titleView.isInvisible = binding.editHistoryRecycler.computeVerticalScrollOffset() <= recyclerView.getChildAt(0).height
             }
         })
+
+        binding.langButtonContainer.setOnClickListener {
+            requestLanguageChange.launch(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.USER_CONTRIB_ACTIVITY))
+        }
+        updateLangButton()
 
         lifecycleScope.launchWhenCreated {
             editHistoryListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
@@ -144,19 +153,11 @@ class UserContribListActivity : BaseActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_user_contrib, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_change_language -> {
-                requestLanguageChange.launch(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.USER_CONTRIB_ACTIVITY))
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
+    private fun updateLangButton() {
+        binding.langButtonText.text = viewModel.langCode.uppercase(Locale.ENGLISH)
+        ViewUtil.formatLangButton(binding.langButtonText, binding.langButtonText.text.toString(),
+                SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+        FeedbackUtil.setButtonLongPressToast(binding.langButtonContainer)
     }
 
     private fun setupAdapters() {
