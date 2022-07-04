@@ -115,6 +115,7 @@
   <string name="page_edit_history_filter_by_user">Правки участников (%s)</string>
   <string name="page_edit_history_filter_by_anon">Анонимные правки (%s)</string>
   <string name="page_edit_history_filter_by_bot">Правки ботов (%s)</string>
+  <string name="page_edit_history_empty_search_message">Попробуйте изменить &lt;a href=\"#\"&gt;фильтры&lt;/a&gt;, чтобы увидеть больше правок</string>
   <string name="menu_page_show_tabs">Показать вкладки</string>
   <string name="menu_page_other_languages">Изменить язык</string>
   <string name="menu_page_find_in_page">Найти в статье</string>
@@ -1166,12 +1167,20 @@
   <string name="talk_overflow_sort_by">Сортировать по</string>
   <string name="talk_overflow_sort_date_published">Дата публикации</string>
   <string name="talk_overflow_sort_topic_name">Название темы</string>
+  <string name="talk_list_item_overflow_subscribe">Подписаться</string>
+  <string name="talk_list_item_overflow_mark_as_read">Пометить как прочитанное</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Пометить как непрочитанное</string>
+  <string name="talk_list_item_overflow_share">Поделиться</string>
+  <string name="talk_list_item_last_comment_date">Последний комментарий: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Всего ответов</string>
+  <string name="talk_footer_about_this_talk_page">Об этой странице обсуждения</string>
   <string name="menu_option_share_talk_discussion">Поделиться обсуждением</string>
   <string name="menu_option_share_talk_page">Поделиться страницей обсуждения</string>
   <string name="menu_option_share_edit">Поделиться правкой</string>
   <string name="menu_option_user_profile">Профиль %s</string>
   <string name="menu_option_user_contributions">Вклад участника %s</string>
   <string name="menu_option_edit_source">Править код</string>
+  <string name="talk_menu_copy_text">Скопировать текст</string>
   <string name="watchlist_details_watching_label">Слежу</string>
   <string name="watchlist_details_watch_label">Следить</string>
   <string name="watchlist_details_next_edit">Следующая правка</string>
@@ -1223,4 +1232,5 @@
   <string name="action_item_categories">Категории</string>
   <string name="category_tab_articles">Статьи</string>
   <string name="category_tab_subcategories">Подкатегории</string>
+  <string name="search_namespaces">Пространства имён</string>
 </resources>
