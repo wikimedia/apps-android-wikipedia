@@ -24,7 +24,7 @@ class ArchivedTalkPagesViewModel(bundle: Bundle) : ViewModel() {
         override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, PageTitle> {
             return try {
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
-                        .searchSubPages(pageTitle.prefixedText, params.loadSize, params.key?.gcmContinuation, params.key?.gsroffset.toString())
+                        .searchSubPages(pageTitle.prefixedText, params.loadSize, params.key?.gpsoffset?.toString().orEmpty().ifEmpty { "1" }, pageTitle.prefixedText)
                 if (response.query == null) {
                     return LoadResult.Page(emptyList(), null, null)
                 }
