@@ -279,6 +279,9 @@
   <string name="edit_undo">실행 취소</string>
   <string name="edit_redo">다시 실행</string>
   <string name="edit_rollback">일괄 되돌리기</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="other">%s바이트</item>
+  </plurals>
   <string name="edit_zoom_in">확대</string>
   <string name="edit_zoom_out">축소</string>
   <string name="edit_summary_tag_typo">오타를 고침</string>
@@ -422,6 +425,7 @@
   <string name="error_blocked_expiry">차단 해제일: %s</string>
   <string name="error_blocked_id">차단 ID: %s</string>
   <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;님 이나 다른 &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;관리자&lt;/a&gt;와 차단에 관해 의논할 수 있습니다.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">도구 모음 사용자 지정</string>
   <string name="error_blocked_footer_no_blocker">&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;관리자&lt;/a&gt;와 차단에 관해 의논할 수 있습니다.</string>
   <string name="crash_report_activity_title">애플리케이션 오류</string>
   <string name="crash_report_relaunch_or_quit">죄송합니다,  위키백과 앱이 오류가 발생하여 종료되었습니다.\n\n다시 시작하거나 나가시겠습니까?</string>
@@ -1083,15 +1087,44 @@
   <string name="talk_share_talk_page">위키백과 - 토론 문서의 토론</string>
   <string name="talk_edit_disclaimer">이것은 토론 문서입니다. 문서 지침을 준수해 주시고 4개의 물결표를 입력하여 게시글에 꼭 서명해 주세요: 위키텍스트를 사용하여 게시할 때 ~~~~를 입력합니다.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://ko.wikipedia.org/wiki/위키백과:토론_문서_지침\"&gt;위키백과:토론 문서 지침&lt;/a&gt;</string>
   <string name="talk_search_hint">메시지 검색</string>
+  <string name="talk_search_topics_hint">주제 검색</string>
+  <string name="talk_search_find_in_talk_topics_hint">토론 문서 주제에서 찾기</string>
   <string name="talk_overflow_sort_by">정렬 기준</string>
   <string name="talk_overflow_sort_date_published">게시일</string>
+  <string name="talk_overflow_sort_date_updated">업데이트된 날짜</string>
   <string name="talk_overflow_sort_topic_name">주제 이름</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="other">답변 표시 (%d개)</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="other">답변 숨기기 (%d개)</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">\"%s\"에 구독됨</string>
+  <string name="talk_thread_unsubscribed_from">\"%s\"의 구독이 해지됨</string>
+  <string name="talk_list_item_overflow_subscribe">구독</string>
+  <string name="talk_list_item_overflow_subscribed">구독됨</string>
+  <string name="talk_list_item_overflow_mark_as_read">읽은 것으로 표시</string>
+  <string name="talk_list_item_overflow_mark_as_unread">읽지 않은 것으로 표시</string>
+  <string name="talk_list_item_overflow_share">공유</string>
+  <string name="talk_list_item_last_comment_date">마지막 댓글: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">전체 답변</string>
+  <string name="talk_list_item_user_icon_content_description">사용자 아이콘</string>
+  <string name="talk_list_item_swipe_mark_as_read">읽음</string>
+  <string name="talk_list_item_swipe_mark_as_unread">읽지 않음</string>
+  <string name="talk_footer_about_this_talk_page">이 토론 문서에 대해</string>
+  <string name="talk_footer_view_edit_history">편집 역사 보기</string>
+  <string name="talk_footer_view_user_page">사용자 문서 보기</string>
+  <string name="talk_footer_view_article">문서 보기</string>
   <string name="menu_option_share_talk_discussion">토론 공유하기</string>
   <string name="menu_option_share_talk_page">토론 문서 공유</string>
   <string name="menu_option_share_edit">편집 공유</string>
   <string name="menu_option_user_profile">%s님의 정보</string>
   <string name="menu_option_user_contributions">%s님의 기여</string>
   <string name="menu_option_edit_source">원본 편집</string>
+  <string name="menu_option_user_page">%s님의 사용자 문서</string>
+  <string name="talk_menu_copy_text">텍스트 복사</string>
+  <string name="talk_menu_expand_threads">스레드 펼치기</string>
+  <string name="talk_menu_collapse_threads">스레드 접기</string>
   <string name="watchlist_details_watching_label">주시 중</string>
   <string name="watchlist_details_watch_label">주시</string>
   <string name="watchlist_details_next_edit">다음 편집</string>
@@ -1152,4 +1185,6 @@
   <string name="category_tab_subcategories">하위 분류</string>
   <string name="category_empty">이 분류에 문서가 없습니다.</string>
   <string name="subcategory_empty">이 분류에 하위 분류가 없습니다.</string>
+  <string name="search_namespaces">이름공간</string>
+  <string name="revision_initial_none">없음 (이것이 첫 판입니다)</string>
 </resources>
