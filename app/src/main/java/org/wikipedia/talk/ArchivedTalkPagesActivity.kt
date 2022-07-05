@@ -53,7 +53,7 @@ class ArchivedTalkPagesActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = viewModel.pageTitle.displayText
+        supportActionBar?.title = StringUtil.removeHTMLTags(viewModel.pageTitle.displayText)
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
@@ -71,7 +71,7 @@ class ArchivedTalkPagesActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 archivedTalkPagesLoadFooter.loadState = it.append
                 val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && archivedTalkPagesAdapter.itemCount == 0)
                 if (showEmpty) {
-                    archivedTalkPagesConcatAdapter.addAdapter(EmptyItemAdapter(R.string.category_empty))
+                    archivedTalkPagesConcatAdapter.addAdapter(EmptyItemAdapter(R.string.archive_empty))
                 }
             }
         }
@@ -168,7 +168,7 @@ class ArchivedTalkPagesActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private inner class ArchivedTalkPageItemHolder constructor(val view: PageItemView<PageTitle>) : RecyclerView.ViewHolder(view) {
         fun bindItem(title: PageTitle) {
             view.item = title
-            view.setTitle(if (title.namespace() !== Namespace.CATEGORY) title.displayText else StringUtil.removeUnderscores(title.text))
+            view.setTitle(title.displayText)
             view.setImageUrl(title.thumbUrl)
             view.setImageVisible(!title.thumbUrl.isNullOrEmpty())
             view.setDescription(title.description)
@@ -190,11 +190,11 @@ class ArchivedTalkPagesActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     companion object {
-        const val EXTRA_TITLE = "categoryTitle"
+        const val EXTRA_TITLE = "talkTopicTitle"
 
-        fun newIntent(context: Context, categoryTitle: PageTitle): Intent {
+        fun newIntent(context: Context, talkTopicTitle: PageTitle): Intent {
             return Intent(context, ArchivedTalkPagesActivity::class.java)
-                    .putExtra(EXTRA_TITLE, categoryTitle)
+                    .putExtra(EXTRA_TITLE, talkTopicTitle)
         }
     }
 }

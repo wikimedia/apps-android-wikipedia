@@ -256,6 +256,10 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                 }
                 return true
             }
+            R.id.menu_archive -> {
+                startActivity(ArchivedTalkPagesActivity.newIntent(this, viewModel.pageTitle))
+                return true
+            }
             else -> return super.onOptionsItemSelected(item)
         }
     }

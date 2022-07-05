@@ -90,6 +90,7 @@
     <string name="menu_page_new_tab">New tab</string>
     <string name="menu_page_reading_lists">Reading lists</string>
     <string name="menu_page_recently_viewed">Recently viewed</string>
+    <string name="menu_page_archive">Archive</string>
 
     <!-- Long press menu -->
     <string name="menu_long_press_open_page">Open</string>
@@ -1273,5 +1274,6 @@
     <string name="subcategory_empty">No subcategories found in this category.</string>
     <string name="search_namespaces">Namespaces</string>
     <string name="revision_initial_none">None (this is the first revision)</string>
+    <string name="archive_empty">No archived pages found.</string>
 
 </resources>
