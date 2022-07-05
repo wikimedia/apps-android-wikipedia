@@ -20,13 +20,13 @@ class SamplingConfigTest {
 
     @Test
     fun testSamplingConfigDeserializationDefaultRateOnly() {
-        val json = "{\"identifier\": \"device\"}"
+        val json = "{\"unit\": \"device\"}"
         assertDeserializedValues(json, 1.0, SamplingConfig.UNIT_DEVICE)
     }
 
     @Test
     fun testSamplingConfigDeserializationNoDefaults() {
-        val json = "{\"rate\": 0.325, \"identifier\": \"pageview\"}"
+        val json = "{\"rate\": 0.325, \"unit\": \"pageview\"}"
         assertDeserializedValues(json, 0.325, SamplingConfig.UNIT_PAGEVIEW)
     }
 
