@@ -290,28 +290,28 @@ object EventPlatformClient {
             if (samplingConfig.rate == 0.0) {
                 return false
             }
-            val inSample = getSamplingValue(samplingConfig.getIdentifier()) < samplingConfig.rate
+            val inSample = getSamplingValue(samplingConfig.unit) < samplingConfig.rate
             SAMPLING_CACHE[stream] = inSample
             return inSample
         }
 
         /**
-         * @param identifier identifier type from sampling config
+         * @param unit Unit type from sampling config
          * @return a floating point value between 0.0 and 1.0 (inclusive)
          */
-        fun getSamplingValue(identifier: SamplingConfig.Identifier): Double {
-            val token = getSamplingId(identifier).substring(0, 8)
+        fun getSamplingValue(unit: String): Double {
+            val token = getSamplingId(unit).substring(0, 8)
             return token.toLong(16).toDouble() / 0xFFFFFFFFL.toDouble()
         }
 
-        fun getSamplingId(identifier: SamplingConfig.Identifier): String {
-            if (identifier === SamplingConfig.Identifier.SESSION) {
+        fun getSamplingId(unit: String): String {
+            if (unit === SamplingConfig.UNIT_SESSION) {
                 return AssociationController.sessionId
             }
-            if (identifier === SamplingConfig.Identifier.PAGEVIEW) {
+            if (unit === SamplingConfig.UNIT_PAGEVIEW) {
                 return AssociationController.pageViewId
             }
-            if (identifier === SamplingConfig.Identifier.DEVICE) {
+            if (unit === SamplingConfig.UNIT_DEVICE) {
                 return Prefs.appInstallId.orEmpty()
             }
             throw RuntimeException("Bad identifier type")

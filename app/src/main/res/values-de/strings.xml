@@ -1015,14 +1015,14 @@
   <string name="onboarding_get_started">Anfangen</string>
   <string name="onboarding_maybe_later">Vielleicht später</string>
   <string name="onboarding_explore_title">Neue Wege zum Entdecken</string>
-  <string name="onboarding_explore_text">Tauche in das Wikipedia-Kaninchenloch ein mit einem ständig aktuellen Entdecken-Feed.&lt;br/&gt; &lt;b&gt;Passe&lt;/b&gt; den Feed deinen Interessen an – ob er dir historische Ereignisse &lt;b&gt;An diesem Tag&lt;/b&gt; nahebringt oder wirf den Würfel mit &lt;b&gt;Zufällig&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Tauche in die Wikipedia-Welt ein. Bleib mit einem ständig aktuellen Entdecken-Feed auf dem Laufenden.&lt;br/&gt; &lt;b&gt;Passe&lt;/b&gt; den Feed deinen Interessen an – ob er dir historische Ereignisse &lt;b&gt;An diesem Tag&lt;/b&gt; nahebringt oder wirf den Würfel mit &lt;b&gt;Zufällig&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Leselisten mit Synchronisierung</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kannst Leselisten von Artikeln erstellen, die du später lesen möchtest, auch wenn du offline bist. &lt;br/&gt;Melde dich bei deinem Wikipedia-Benutzerkonto an, um deine Leselisten zu synchronisieren. &lt;a href=\"#login\"&gt;Wikipedia beitreten&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Anonymisierte Daten senden</string>
   <string name="onboarding_analytics_offline_text">Hilf uns dabei, die App zu verbessern, indem du uns wissen lässt, wie du sie nutzt. Die gesammelten Daten sind anonym. &lt;a href=\"#privacy\"&gt;Mehr erfahren&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Nutzungsdaten senden</string>
   <string name="onboarding_got_it">Verstanden</string>
-  <string name="onboarding_multilingual_secondary_text">Wir haben das Folgende auf deinem Gerät gefunden:</string>
+  <string name="onboarding_multilingual_secondary_text">Wir haben die folgenden Sprachen auf deinem Gerät gefunden:</string>
   <string name="onboarding_multilingual_add_language_text">Sprachen hinzufügen oder bearbeiten</string>
   <string name="onboarding_welcome_title_v2">Die freie Enzyklopädie\n… in über 300 Sprachen</string>
   <string name="app_shortcuts_random">Zufällig</string>

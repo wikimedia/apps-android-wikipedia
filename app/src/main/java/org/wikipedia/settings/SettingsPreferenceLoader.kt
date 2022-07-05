@@ -10,7 +10,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.LoginFunnel
-import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
@@ -28,7 +27,6 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         }
         findPreference(R.string.preference_key_sync_reading_lists).onPreferenceChangeListener = SyncReadingListsListener()
         findPreference(R.string.preference_key_eventlogging_opt_in).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference: Preference, newValue: Any ->
-            BreadCrumbLogEvent.logSettingsSelection(activity, preference.title.toString())
             if (!(newValue as Boolean)) {
                 Prefs.appInstallId = null
             }
@@ -37,13 +35,11 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         loadPreferences(R.xml.preferences_about)
         updateLanguagePrefSummary()
         findPreference(R.string.preference_key_language).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            BreadCrumbLogEvent.logSettingsSelection(activity, it.title.toString())
             activity.startActivityForResult(WikipediaLanguagesActivity.newIntent(activity, Constants.InvokeSource.SETTINGS),
                     Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
             true
         }
         findPreference(R.string.preference_key_customize_explore_feed).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            BreadCrumbLogEvent.logSettingsSelection(activity, it.title.toString())
             activity.startActivityForResult(ConfigureActivity.newIntent(activity, Constants.InvokeSource.NAV_MENU.ordinal),
                     Constants.ACTIVITY_REQUEST_FEED_CONFIGURE)
             true
@@ -51,13 +47,11 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         findPreference(R.string.preference_key_color_theme).let {
             it.setSummary(WikipediaApp.instance.currentTheme.nameId)
             it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                BreadCrumbLogEvent.logSettingsSelection(activity, it.title.toString())
                 activity.startActivity(ThemeFittingRoomActivity.newIntent(activity))
                 true
             }
         }
         findPreference(R.string.preference_key_about_wikipedia_app).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            BreadCrumbLogEvent.logSettingsSelection(activity, it.title.toString())
             activity.startActivity(Intent(activity, AboutActivity::class.java))
             true
         }
