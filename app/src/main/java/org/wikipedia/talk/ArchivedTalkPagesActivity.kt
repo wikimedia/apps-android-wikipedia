@@ -24,7 +24,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityArchivedTalkPagesBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
-import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
@@ -177,7 +176,9 @@ class ArchivedTalkPagesActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private inner class ItemCallback : PageItemView.Callback<PageTitle?> {
         override fun onClick(item: PageTitle?) {
-            // TODO: implement it
+            item?.let {
+                startActivity(TalkTopicsActivity.newIntent(this@ArchivedTalkPagesActivity, it, InvokeSource.ARCHIVED_TALK_ACTIVITY))
+            }
         }
 
         override fun onLongClick(item: PageTitle?): Boolean {
