@@ -1,35 +1,18 @@
 package org.wikipedia.analytics.eventplatform
 
-import androidx.annotation.VisibleForTesting
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
  * Represents the sampling config component of a stream configuration.
- *
- * The boxed Double type is used instead of the double primitive because its value may be null,
- * which denotes that the stream should always be *included*.
  */
 @Serializable
-class SamplingConfig {
-
-    @Serializable
-    enum class Identifier {
-        @SerialName("pageview") PAGEVIEW,
-        @SerialName("session") SESSION,
-        @SerialName("device") DEVICE
-    }
-
-    private var identifier: Identifier? = null
-    var rate = 1.0
-
-    @VisibleForTesting
-    constructor(rate: Double, identifier: Identifier?) {
-        this.rate = rate
-        this.identifier = identifier
-    }
-
-    fun getIdentifier(): Identifier {
-        return identifier ?: Identifier.SESSION
+class SamplingConfig(
+        val rate: Double = 1.0,
+        val unit: String = UNIT_SESSION
+) {
+    companion object {
+        const val UNIT_PAGEVIEW = "pageview"
+        const val UNIT_SESSION = "session"
+        const val UNIT_DEVICE = "device"
     }
 }

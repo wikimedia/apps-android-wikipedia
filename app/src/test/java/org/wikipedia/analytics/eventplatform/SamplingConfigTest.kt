@@ -9,30 +9,30 @@ class SamplingConfigTest {
     @Test
     fun testSamplingConfigDeserializationDefaults() {
         val json = "{}"
-        assertDeserializedValues(json, 1.0, SamplingConfig.Identifier.SESSION)
+        assertDeserializedValues(json, 1.0, SamplingConfig.UNIT_SESSION)
     }
 
     @Test
     fun testSamplingConfigDeserializationDefaultIdentifierOnly() {
         val json = "{\"rate\": 0.5}"
-        assertDeserializedValues(json, 0.5, SamplingConfig.Identifier.SESSION)
+        assertDeserializedValues(json, 0.5, SamplingConfig.UNIT_SESSION)
     }
 
     @Test
     fun testSamplingConfigDeserializationDefaultRateOnly() {
         val json = "{\"identifier\": \"device\"}"
-        assertDeserializedValues(json, 1.0, SamplingConfig.Identifier.DEVICE)
+        assertDeserializedValues(json, 1.0, SamplingConfig.UNIT_DEVICE)
     }
 
     @Test
     fun testSamplingConfigDeserializationNoDefaults() {
         val json = "{\"rate\": 0.325, \"identifier\": \"pageview\"}"
-        assertDeserializedValues(json, 0.325, SamplingConfig.Identifier.PAGEVIEW)
+        assertDeserializedValues(json, 0.325, SamplingConfig.UNIT_PAGEVIEW)
     }
 
-    private fun assertDeserializedValues(json: String, rate: Double, identifier: SamplingConfig.Identifier) {
+    private fun assertDeserializedValues(json: String, rate: Double, unit: String) {
         val config = JsonUtil.decodeFromString<SamplingConfig>(json)!!
         MatcherAssert.assertThat(config.rate, CoreMatchers.equalTo(rate))
-        MatcherAssert.assertThat(config.getIdentifier(), CoreMatchers.equalTo(identifier))
+        MatcherAssert.assertThat(config.unit, CoreMatchers.equalTo(unit))
     }
 }
