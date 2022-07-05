@@ -210,6 +210,12 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
     val userInfo: Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights")
+    suspend fun userInfo(@Query("ususers") userName: String): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&meta=globaluserinfo&guiprop=editcount|groups|rights")
+    suspend fun globalUserInfo(@Query("guiuser") userName: String): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=rights")
     suspend fun userRights(): MwQueryResponse
 
