@@ -106,7 +106,7 @@ class EventPlatformClientTest {
     @Test
     fun testAlwaysInSample() {
         EventPlatformClient.setStreamConfig(
-            StreamConfig("alwaysInSample", SamplingConfig(1.0, null), null)
+            StreamConfig("alwaysInSample", SamplingConfig(1.0), null)
         )
         MatcherAssert.assertThat(
             SamplingController.isInSample(TestEvent("alwaysInSample")),
@@ -117,7 +117,7 @@ class EventPlatformClientTest {
     @Test
     fun testNeverInSample() {
         EventPlatformClient.setStreamConfig(
-            StreamConfig("neverInSample", SamplingConfig(0.0, null), null)
+            StreamConfig("neverInSample", SamplingConfig(0.0), null)
         )
         MatcherAssert.assertThat(
             SamplingController.isInSample(TestEvent("neverInSample")),
@@ -127,13 +127,13 @@ class EventPlatformClientTest {
 
     @Test
     fun testSamplingControllerGetSamplingValue() {
-        val deviceVal = SamplingController.getSamplingValue(SamplingConfig.Identifier.DEVICE)
+        val deviceVal = SamplingController.getSamplingValue(SamplingConfig.UNIT_DEVICE)
         MatcherAssert.assertThat(deviceVal, Matchers.greaterThanOrEqualTo(0.0))
         MatcherAssert.assertThat(deviceVal, Matchers.lessThanOrEqualTo(1.0))
-        val pageViewVal = SamplingController.getSamplingValue(SamplingConfig.Identifier.PAGEVIEW)
+        val pageViewVal = SamplingController.getSamplingValue(SamplingConfig.UNIT_PAGEVIEW)
         MatcherAssert.assertThat(pageViewVal, Matchers.greaterThanOrEqualTo(0.0))
         MatcherAssert.assertThat(pageViewVal, Matchers.lessThanOrEqualTo(1.0))
-        val sessionVal = SamplingController.getSamplingValue(SamplingConfig.Identifier.SESSION)
+        val sessionVal = SamplingController.getSamplingValue(SamplingConfig.UNIT_SESSION)
         MatcherAssert.assertThat(sessionVal, Matchers.greaterThanOrEqualTo(0.0))
         MatcherAssert.assertThat(sessionVal, Matchers.lessThanOrEqualTo(1.0))
     }
@@ -141,13 +141,13 @@ class EventPlatformClientTest {
     @Test
     fun testSamplingControllerGetSamplingId() {
         MatcherAssert.assertThat(
-            SamplingController.getSamplingId(SamplingConfig.Identifier.DEVICE), CoreMatchers.`is`(CoreMatchers.notNullValue())
+            SamplingController.getSamplingId(SamplingConfig.UNIT_DEVICE), CoreMatchers.`is`(CoreMatchers.notNullValue())
         )
         MatcherAssert.assertThat(
-            SamplingController.getSamplingId(SamplingConfig.Identifier.PAGEVIEW), CoreMatchers.`is`(CoreMatchers.notNullValue())
+            SamplingController.getSamplingId(SamplingConfig.UNIT_PAGEVIEW), CoreMatchers.`is`(CoreMatchers.notNullValue())
         )
         MatcherAssert.assertThat(
-            SamplingController.getSamplingId(SamplingConfig.Identifier.SESSION), CoreMatchers.`is`(CoreMatchers.notNullValue())
+            SamplingController.getSamplingId(SamplingConfig.UNIT_SESSION), CoreMatchers.`is`(CoreMatchers.notNullValue())
         )
     }
 
