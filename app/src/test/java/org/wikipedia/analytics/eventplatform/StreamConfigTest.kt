@@ -24,7 +24,7 @@ class StreamConfigTest {
         MatcherAssert.assertThat(streamConfig.topicPrefixes, CoreMatchers.`is`(listOf("eqiad.", "codfw.")))
         MatcherAssert.assertThat(streamConfig.topics, CoreMatchers.`is`(listOf("eqiad.test.event", "codfw.test.event")))
         val samplingConfig = streamConfig.samplingConfig
-        MatcherAssert.assertThat(samplingConfig!!.getIdentifier(), CoreMatchers.`is`(SamplingConfig.Identifier.DEVICE))
+        MatcherAssert.assertThat(samplingConfig!!.unit, CoreMatchers.`is`(SamplingConfig.UNIT_DEVICE))
         MatcherAssert.assertThat(samplingConfig.rate, CoreMatchers.`is`(0.5))
     }
 
