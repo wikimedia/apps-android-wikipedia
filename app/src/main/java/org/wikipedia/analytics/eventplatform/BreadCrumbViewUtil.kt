@@ -1,8 +1,7 @@
 package org.wikipedia.analytics.eventplatform
 
-import android.app.Activity
+import android.content.Context
 import android.view.View
-import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -20,11 +19,11 @@ import org.wikipedia.onboarding.InitialOnboardingFragment
 import org.wikipedia.onboarding.InitialOnboardingFragment.OnboardingPage
 
 object BreadCrumbViewUtil {
+    private const val VIEW_UNNAMED = "unnamed"
 
     fun getReadableNameForView(view: View): String {
-        if (view.parent != null && view.parent is RecyclerView) {
-            val position =
-                    (view.parent as RecyclerView).getChildViewHolder(view).layoutPosition + 1
+        if (view.parent is RecyclerView) {
+            val position = (view.parent as RecyclerView).findContainingViewHolder(view)?.bindingAdapterPosition ?: 0
             if (view is ListCardItemView) {
                 var currentParent = view.parent
                 while (currentParent !is ListCardView<*>) {
@@ -32,43 +31,41 @@ object BreadCrumbViewUtil {
                         currentParent = currentParent.parent
                     } else {
                         // ListItemView is not in a CardView
-                        return view.context.getString(R.string.breadcrumb_view_with_position, getReadableNameForView(view.parent as RecyclerView), position)
+                        return getReadableNameForView(view.parent as RecyclerView) + "." + position
                     }
                 }
-                return view.context.getString(R.string.breadcrumb_view_with_position, currentParent.javaClass.simpleName, position)
+                return currentParent.javaClass.simpleName + "." + position
             }
             // Returning only recyclerview name and click position for non-cardView recyclerViews
-            return view.context.getString(R.string.breadcrumb_view_with_position, getReadableNameForView(view.parent as RecyclerView), position)
+            return getReadableNameForView(view.parent as RecyclerView) + "." + position
         }
-        return if (view.id == View.NO_ID) view.context.getString(R.string.breadcrumb_view_unnamed) else getViewResourceName(view)
+        return if (view.id == View.NO_ID) VIEW_UNNAMED else getViewResourceName(view)
     }
 
     private fun getViewResourceName(view: View): String {
         return try {
-            if (view is SwitchCompat) {
-                return view.context.getString(R.string.breadcrumb_switch_view_click, view.resources.getResourceEntryName(view.id), if (!view.isChecked) view.context.getString(R.string.breadcrumb_switch_view_state_on) else view.context.getString(R.string.breadcrumb_switch_view_state_off))
-            }
             if (view.id == R.id.footerActionButton) {
                 return (view as MaterialButton).text.toString()
             }
             view.resources.getResourceEntryName(view.id)
         } catch (e: Exception) {
-            view.context.getString(R.string.breadcrumb_view_unnamed)
+            VIEW_UNNAMED
         }
     }
 
-    fun getReadableScreenName(activity: Activity): String {
-        return activity.getString(R.string.breadcrumb_screen_fragment_name, activity.javaClass.simpleName, getFragmentName(activity))
+    fun getReadableScreenName(context: Context): String {
+        val fragName = getCurrentFragmentName(context)
+        return context.javaClass.simpleName + (if (fragName.isNotEmpty()) ".$fragName" else "")
     }
 
-    private fun getFragmentName(activity: Activity): String {
-        val fragment = getVisibleFragment(activity)
+    private fun getCurrentFragmentName(context: Context): String {
+        val fragment = getVisibleFragment(context)
 
         return when {
-            fragment != null && activity is InitialOnboardingActivity -> {
+            fragment != null && context is InitialOnboardingActivity -> {
                 getInitialOnboardingScreenName(fragment)
             }
-            fragment != null && activity is MainActivity -> {
+            fragment != null && context is MainActivity -> {
                 getMainFragmentTabName(fragment)
             }
             fragment != null -> {
@@ -103,11 +100,11 @@ object BreadCrumbViewUtil {
         return ""
     }
 
-    private fun getVisibleFragment(activity: Activity): Fragment? {
-        if (activity is SingleFragmentActivity<*>) {
-            return activity.supportFragmentManager.findFragmentById(R.id.fragment_container)
-        } else if (activity is FragmentActivity) {
-            val fragments: List<Fragment> = activity.supportFragmentManager.fragments
+    private fun getVisibleFragment(context: Context): Fragment? {
+        if (context is SingleFragmentActivity<*>) {
+            return context.supportFragmentManager.findFragmentById(R.id.fragment_container)
+        } else if (context is FragmentActivity) {
+            val fragments: List<Fragment> = context.supportFragmentManager.fragments
             for (fragment in fragments) {
                 if (fragment.isVisible) return fragment
             }
