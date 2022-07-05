@@ -198,7 +198,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
         if (!goToTopic) {
             menu!!.findItem(R.id.menu_change_language).isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
-            menu.findItem(R.id.menu_read_article).isVisible = viewModel.pageTitle.namespace() != Namespace.USER_TALK
+            menu.findItem(R.id.menu_read_article).isVisible = viewModel.pageTitle.namespace() != Namespace.USER_TALK && invokeSource != Constants.InvokeSource.ARCHIVED_TALK_ACTIVITY
             menu.findItem(R.id.menu_view_user_page).isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
             menu.findItem(R.id.menu_view_user_page).title = getString(R.string.menu_option_user_page, StringUtil.removeNamespace(viewModel.pageTitle.displayText))
 
@@ -376,8 +376,10 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
         binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
         binding.toolbarTitle.isVisible = !goToTopic
-        binding.toolbarTitle.movementMethod = LinkMovementMethodExt { _ ->
-            goToPage()
+        if (invokeSource != Constants.InvokeSource.ARCHIVED_TALK_ACTIVITY) {
+            binding.toolbarTitle.movementMethod = LinkMovementMethodExt { _ ->
+                goToPage()
+            }
         }
         RichTextUtil.removeUnderlinesFromLinks(binding.toolbarTitle)
         FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
