@@ -158,7 +158,7 @@
             android:textSize="14sp"
             android:text="@string/read_more_section"
             android:layout_marginTop="8dp"
-            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
             tools:text="Lorem ipsum" />
 
     </LinearLayout>
