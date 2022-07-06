@@ -7,9 +7,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.log.L
 
 class ArchivedTalkPagesViewModel(bundle: Bundle) : ViewModel() {
 
