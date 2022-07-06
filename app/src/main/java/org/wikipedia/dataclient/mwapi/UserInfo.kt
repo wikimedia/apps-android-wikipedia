@@ -28,7 +28,7 @@ class UserInfo : BlockInfo() {
         return groups?.toSet() ?: emptySet()
     }
 
-    val latestContribution: Date
+    val latestContribDate: Date
         get() {
             var date = Date(0)
             if (!latestContrib.isNullOrEmpty()) {

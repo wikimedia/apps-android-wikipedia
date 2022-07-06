@@ -10,11 +10,8 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.view.MenuItem
-import android.view.MotionEvent
-import android.view.View
-import android.view.View.OnTouchListener
-import android.view.ViewConfiguration
+import android.view.*
+import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -35,6 +32,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.events.*
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
@@ -50,12 +48,16 @@ import kotlin.math.abs
 
 abstract class BaseActivity : AppCompatActivity() {
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
-    private lateinit var breadcrumbTouchListener: BreadcrumbTouchListener
     private val networkStateReceiver = NetworkStateReceiver()
     private var previousNetworkState = WikipediaApp.instance.isOnline
     private val disposables = CompositeDisposable()
     private var currentTooltip: Balloon? = null
     private var imageZoomHelper: ImageZoomHelper? = null
+
+    private var startTouchX = 0f
+    private var startTouchY = 0f
+    private var startTouchMillis = 0L
+    private var touchSlopPx = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,12 +95,8 @@ abstract class BaseActivity : AppCompatActivity() {
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
 
+        touchSlopPx = ViewConfiguration.get(this).scaledTouchSlop
         Prefs.localClassName = localClassName
-
-        if (!ReleaseUtil.isProdRelease) {
-            breadcrumbTouchListener = BreadcrumbTouchListener()
-            window.decorView.viewTreeObserver.addOnGlobalLayoutListener { ViewUtil.setTouchListenersToViews(window.decorView, breadcrumbTouchListener) }
-        }
     }
 
     override fun onResumeFragments() {
@@ -164,6 +162,34 @@ abstract class BaseActivity : AppCompatActivity() {
         if (event.actionMasked == MotionEvent.ACTION_DOWN ||
                 event.actionMasked == MotionEvent.ACTION_POINTER_DOWN) {
             dismissCurrentTooltip()
+        }
+
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                startTouchMillis = System.currentTimeMillis()
+                startTouchX = event.x
+                startTouchY = event.y
+            }
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                val touchMillis = System.currentTimeMillis() - startTouchMillis
+                val dx = abs(startTouchX - event.x)
+                val dy = abs(startTouchY - event.y)
+
+                if (dx <= touchSlopPx && dy <= touchSlopPx) {
+                    ViewUtil.findClickableViewAtPoint(window.decorView, startTouchX.toInt(), startTouchY.toInt())?.let {
+                        if (it is TextView && it.movementMethod is LinkMovementMethodExt) {
+                            // If they clicked a link in a TextView, it will be handled by the
+                            // MovementMethod instead of here.
+                        } else {
+                            if (touchMillis > ViewConfiguration.getLongPressTimeout()) {
+                                BreadCrumbLogEvent.logLongClick(this@BaseActivity, it)
+                            } else {
+                                BreadCrumbLogEvent.logClick(this@BaseActivity, it)
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         imageZoomHelper?.let {
@@ -307,37 +333,6 @@ abstract class BaseActivity : AppCompatActivity() {
                     }
                 }
             }
-        }
-    }
-
-    private inner class BreadcrumbTouchListener : OnTouchListener {
-        private var startX = 0f
-        private var startY = 0f
-        private var startMillis = 0L
-        private val touchSlop = ViewConfiguration.get(this@BaseActivity).scaledTouchSlop
-
-        override fun onTouch(view: View, event: MotionEvent): Boolean {
-            when (event.action) {
-                MotionEvent.ACTION_DOWN -> {
-                    startMillis = System.currentTimeMillis()
-                    startX = event.x
-                    startY = event.y
-                }
-                MotionEvent.ACTION_UP -> {
-                    val touchMillis = System.currentTimeMillis() - startMillis
-                    val dx = abs(startX - event.x)
-                    val dy = abs(startY - event.y)
-
-                    if (dx <= touchSlop && dy <= touchSlop && view.isClickable) {
-                        if (touchMillis > ViewConfiguration.getLongPressTimeout()) {
-                            BreadCrumbLogEvent.logLongClick(this@BaseActivity, view)
-                        } else {
-                            BreadCrumbLogEvent.logClick(this@BaseActivity, view)
-                        }
-                    }
-                }
-            }
-            return false
         }
     }
 
