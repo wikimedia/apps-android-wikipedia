@@ -62,7 +62,7 @@ class TalkTopicHolder internal constructor(
             binding.topicLastCommentDate.isVisible = false
             binding.topicContentText.isVisible = false
             val isHeaderTemplate = TalkTopicActivity.isHeaderTemplate(threadItem)
-            binding.otherContentText.isVisible = isHeaderTemplate
+            binding.otherContentContainer.isVisible = isHeaderTemplate
             binding.topicOverflowMenu.isVisible = !isHeaderTemplate
             binding.topicTitleText.isVisible = !isHeaderTemplate
             if (isHeaderTemplate) {
@@ -72,7 +72,7 @@ class TalkTopicHolder internal constructor(
             return
         }
         binding.topicTitleText.isVisible = true
-        binding.otherContentText.isVisible = false
+        binding.otherContentContainer.isVisible = false
 
         // Last comment
         binding.topicContentText.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
