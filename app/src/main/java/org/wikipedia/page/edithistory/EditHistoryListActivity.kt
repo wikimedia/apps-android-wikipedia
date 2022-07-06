@@ -31,7 +31,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
-import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
 import org.wikipedia.databinding.ViewEditHistorySearchBarBinding
@@ -548,7 +547,7 @@ class EditHistoryListActivity : BaseActivity() {
 
         fun newIntent(context: Context, pageTitle: PageTitle): Intent {
             return Intent(context, EditHistoryListActivity::class.java)
-                .putExtra(FilePageActivity.INTENT_EXTRA_PAGE_TITLE, pageTitle)
+                .putExtra(INTENT_EXTRA_PAGE_TITLE, pageTitle)
         }
     }
 }
