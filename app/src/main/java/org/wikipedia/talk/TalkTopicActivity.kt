@@ -450,7 +450,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         const val EXTRA_TOPIC_ID = "topicId"
         const val EXTRA_REPLY_ID = "replyId"
         const val EXTRA_SEARCH_QUERY = "searchQuery"
-        const val HEADER_LEVEL = 99
 
         fun newIntent(context: Context,
                       pageTitle: PageTitle,
@@ -473,7 +472,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         fun isHeaderTemplate(item: ThreadItem?): Boolean {
-            return item?.headingLevel == HEADER_LEVEL
+            return item?.headingLevel == 0 && item.id.isEmpty()
         }
     }
 }
