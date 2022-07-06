@@ -14,11 +14,14 @@ import org.wikipedia.util.log.L
 @SerialName("/analytics/mobile_apps/android_breadcrumbs_event/1.0.0")
 class BreadCrumbLogEvent(
         private val screen_name: String,
-        private val action: String,
-        private val app_primary_language_code: String = WikipediaApp.instance.languageState.appLanguageCode
+        private val action: String
 ) : MobileAppsEvent(STREAM_NAME) {
 
+    // Do NOT join the declaration and assignment to these fields, or they won't be serialized correctly.
+    private val app_primary_language_code: String
+
     init {
+        app_primary_language_code = WikipediaApp.instance.languageState.appLanguageCode
         L.d(">>> $screen_name.$action")
     }
 
