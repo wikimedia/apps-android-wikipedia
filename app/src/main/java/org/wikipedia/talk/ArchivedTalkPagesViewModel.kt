@@ -8,6 +8,7 @@ import androidx.paging.*
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.log.L
 
 class ArchivedTalkPagesViewModel(bundle: Bundle) : ViewModel() {
 
@@ -27,7 +28,7 @@ class ArchivedTalkPagesViewModel(bundle: Bundle) : ViewModel() {
                 }
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
                     .searchSubPages(pageTitle.prefixedText, params.loadSize, params.key?.toString().orEmpty().ifEmpty { "1" }, pageTitle.prefixedText)
-                if (response.query == null) {
+                if (response.query?.pages == null) {
                     return LoadResult.Page(emptyList(), null, null)
                 }
                 val titles = response.query!!.pages!!.map { page ->

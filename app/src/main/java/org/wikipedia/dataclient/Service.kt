@@ -62,7 +62,7 @@ interface Service {
     @GET(
         MW_API_PREFIX + "action=query&redirects=" +
                 "&converttitles=&prop=description|info" +
-                "&pilicense=any&generator=prefixsearch&gpsnamespace=0&list=search&srnamespace=0" +
+                "&generator=prefixsearch&gpsnamespace=0&list=search&srnamespace=0" +
                 "&inprop=varianttitles" +
                 "&srwhat=text&srinfo=suggestion&srprop=&sroffset=0&srlimit=1"
     )
