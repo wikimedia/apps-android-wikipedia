@@ -1181,4 +1181,6 @@
   <string name="subcategory_empty">Tidak ada subkategori di kategori ini.</string>
   <string name="search_namespaces">Ruang nama</string>
   <string name="revision_initial_none">Tidak ada (ini adalah revisi pertama)</string>
+  <string name="onboarding_survey_title">Dapatkah Anda membantu kami meningkatkan orientasi awal?</string>
+  <string name="onboarding_survey_body">Harap membantu kami meningkatkan orientasi awal dan kemudahan mencari fitur-fitur.</string>
 </resources>

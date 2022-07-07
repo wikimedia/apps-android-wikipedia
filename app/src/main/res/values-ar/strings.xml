@@ -1147,4 +1147,6 @@
   <string name="subcategory_empty">لم يُعثر على تصنيفات فرعية في هذا التصنيف.</string>
   <string name="search_namespaces">النطاقات</string>
   <string name="revision_initial_none">لا شيء (هذه هي المراجعة الأولى)</string>
+  <string name="onboarding_survey_title">هل يُمكنك مساعدتنا على تحسين تجربة بدء الاستخدام؟</string>
+  <string name="onboarding_survey_body">يُرجى مساعدتنا على تحسين تجربة بدء الاستخدام واكتشاف المزايا.</string>
 </resources>
