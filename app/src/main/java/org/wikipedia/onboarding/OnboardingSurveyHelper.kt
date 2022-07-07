@@ -53,8 +53,8 @@ object OnboardingSurveyHelper {
     }
 
     private fun fallsWithinDateRange(): Boolean {
-        val endTime = GregorianCalendar(2022, 7, 22)
-        return Calendar.getInstance().toInstant() < endTime.toInstant()
+        val endTime = GregorianCalendar(2022, 6, 22)
+        return Calendar.getInstance().timeInMillis < endTime.timeInMillis
     }
 
     private fun takeUserToSurvey(context: Context) {
