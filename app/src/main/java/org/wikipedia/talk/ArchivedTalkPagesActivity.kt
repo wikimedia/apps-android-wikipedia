@@ -18,16 +18,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityArchivedTalkPagesBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.database.ReadingList
+import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.util.*
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.PageItemView
@@ -49,10 +53,9 @@ class ArchivedTalkPagesActivity : BaseActivity(), LinkPreviewDialog.Callback {
         super.onCreate(savedInstanceState)
         binding = ActivityArchivedTalkPagesBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
+        setSupportActionBar(binding.toolbar)
+        setToolbarTitle(viewModel.pageTitle)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = StringUtil.removeHTMLTags(viewModel.pageTitle.displayText)
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
@@ -74,6 +77,17 @@ class ArchivedTalkPagesActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 }
             }
         }
+    }
+
+    private fun setToolbarTitle(pageTitle: PageTitle) {
+        binding.toolbarTitle.text = StringUtil.fromHtml(getString(R.string.talk_archived_title, "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>"))
+        binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
+        binding.toolbarTitle.movementMethod = LinkMovementMethodExt { _ ->
+            val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(viewModel.pageTitle), HistoryEntry.SOURCE_ARCHIVED_TALK)
+            startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
+        }
+        RichTextUtil.removeUnderlinesFromLinks(binding.toolbarTitle)
+        FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
     }
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {

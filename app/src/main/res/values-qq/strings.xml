@@ -1143,6 +1143,7 @@
   <string name="talk_footer_view_user_page">Label text for view user page option.</string>
   <string name="talk_footer_view_article">Label text for view article option.</string>
   <string name="talk_footer_last_modified">Label for the last modified date of the talk page. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual date and user name.\n\nShould be similar to this MediaWiki messages such as this: {{msg-mw|Mobile-frontend-last-modified-with-user-hours}}</string>
+  <string name="talk_archived_title">Title text for archived talk pages. %s will be replaced by the title of the talk page.</string>
   <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
   <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>
