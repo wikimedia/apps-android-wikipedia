@@ -17,17 +17,18 @@ object OnboardingSurveyHelper {
     private const val privacyPolicyUrl = "https://foundation.wikimedia.org/wiki/Legal:Wikipedia_Android_App_Onboarding_Survey_Privacy_Statement"
 
     fun maybeShowSurvey(activity: Activity) {
-        if (fallsWithinGeoRange() && fallsWithinDateRange()) {
+        if (!Prefs.isOnboardingSurveyShown && fallsWithinGeoRange() && fallsWithinDateRange()) {
             showSurveyDialog(activity)
         }
     }
 
-    fun showSurveyDialog(activity: Activity) {
+    private fun showSurveyDialog(activity: Activity) {
         if (activity.isDestroyed) {
             return
         }
         val dialog = AlertDialog.Builder(activity)
-                .setMessage(StringUtil.fromHtml(activity.getString(R.string.talk_snackbar_survey_text) +
+                .setTitle(R.string.onboarding_survey_title)
+                .setMessage(StringUtil.fromHtml(activity.getString(R.string.onboarding_survey_body) +
                         "<br/><br/><small><a href=\"$privacyPolicyUrl\">" +
                         activity.getString(R.string.privacy_policy_description) + "</a></small>"))
                 .setPositiveButton(R.string.suggested_edits_snackbar_survey_action_text) { _, _ -> takeUserToSurvey(activity) }
@@ -38,6 +39,7 @@ object OnboardingSurveyHelper {
         dialog.findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethodExt { url ->
             CustomTabsUtil.openInCustomTab(activity, url)
         }
+        Prefs.isOnboardingSurveyShown = true
     }
 
     private fun fallsWithinGeoRange(): Boolean {
