@@ -8,7 +8,6 @@ import androidx.paging.*
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.log.L
 
 class ArchivedTalkPagesViewModel(bundle: Bundle) : ViewModel() {
 

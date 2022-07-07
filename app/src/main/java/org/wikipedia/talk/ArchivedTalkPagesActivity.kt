@@ -18,7 +18,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -31,7 +30,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.util.*
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.PageItemView
