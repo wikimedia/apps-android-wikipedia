@@ -1275,4 +1275,6 @@
     <string name="revision_initial_none">None (this is the first revision)</string>
     <string name="user_contrib_activity_title">Contributions of %s</string>
 
+    <string name="onboarding_survey_title">Could you help us improve onboarding?</string>
+    <string name="onboarding_survey_body">Please help us to improve onboarding and discovery of features.</string>
 </resources>

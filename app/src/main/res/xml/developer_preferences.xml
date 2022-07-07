@@ -400,6 +400,10 @@
             android:key="ab_test_notificationIcons"
             android:title="Test group for in-app Notification icons (0, 1, or 2)" />
 
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_onboarding_survey_shown"
+            android:title="@string/preference_key_onboarding_survey_shown" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
