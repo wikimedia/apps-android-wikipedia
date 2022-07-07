@@ -111,21 +111,33 @@
   <string name="search_redirect_from">Перенаправлено с %s</string>
   <string name="page_edit_history_activity_title">История изменений: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Пустое описание изменений</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Искать или отфильтровать правки</string>
+  <string name="page_edit_history_filter_by">Отфильтровать по</string>
   <string name="page_edit_history_filter_by_all">Все правки (%s)</string>
   <string name="page_edit_history_filter_by_user">Правки участников (%s)</string>
   <string name="page_edit_history_filter_by_anon">Анонимные правки (%s)</string>
   <string name="page_edit_history_filter_by_bot">Правки ботов (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Метрики от %1$s до %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d правка с %2$s}</item>
+    <item quantity="few">%1$d правки с %2$s}</item>
+    <item quantity="many">%1$d правок с %2$s}</item>
+    <item quantity="other">%1$d правок с %2$s}</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Попробуйте изменить &lt;a href=\"#\"&gt;фильтры&lt;/a&gt;, чтобы увидеть больше правок</string>
   <string name="menu_page_show_tabs">Показать вкладки</string>
   <string name="menu_page_other_languages">Изменить язык</string>
   <string name="menu_page_find_in_page">Найти в статье</string>
   <string name="menu_page_add_to_watchlist">Добавить в список наблюдения</string>
   <string name="menu_page_watch">Следить</string>
+  <string name="menu_page_unwatch">Перестать следить</string>
   <string name="menu_page_view_talk">Смотреть страницу обсуждения</string>
   <string name="menu_page_talk_page">Страница обсуждения</string>
   <string name="menu_page_view_edit_history">Смотреть историю изменений</string>
   <string name="menu_page_edit_history">История правок</string>
   <string name="menu_page_remove_from_watchlist">Удалить из списка наблюдения</string>
+  <string name="menu_page_watched">Наблюдается</string>
   <string name="edit_section_find_in_page">Найти на странице</string>
   <string name="menu_page_font_and_theme">Шрифт и тема оформления</string>
   <string name="menu_page_add_to_list">Добавить в список для чтения</string>
@@ -321,7 +333,10 @@
   <string name="edit_summary_tag_other_hint">Другие способы, которыми вы улучшили страницу</string>
   <string name="edit_conflict_title">Конфликт редактирования</string>
   <string name="edit_conflict_message">Возник конфликт редактирования, так как страница уже была изменена другим участником. Скопируйте свои изменения, вернитесь и обновите страницу, а затем повторите попытку редактирования.</string>
+  <string name="edit_notices">Уведомления о правках</string>
   <string name="edit_notices_please_read">Пожалуйста, прочтите перед редактированием</string>
+  <string name="edit_notices_show_auto">Показывать уведомления о правках автоматически</string>
+  <string name="edit_notices_tooltip">Нажмите на эту кнопку, чтобы увидеть уведомления о правках для этой статьи.</string>
   <string name="find_next">Найти далее</string>
   <string name="find_previous">Найти ранее</string>
   <string name="find_first_occurence">Это первое совпадение</string>
@@ -373,6 +388,7 @@
   <string name="gallery_save_success">Файл сохранён.</string>
   <string name="gallery_error_video_failed">Не удаётся воспроизвести видео.</string>
   <string name="gallery_save_image_write_permission_rationale">Для сохранения изображений требуется разрешение на запись в хранилище вашего устройства.</string>
+  <string name="gallery_edit_button_content_description">Править подпись к изображению</string>
   <string name="gallery_add_image_caption_button">Добавить описание изображения</string>
   <string name="gallery_add_image_caption_in_language_button">Добавить описание изображения (%s)</string>
   <string name="err_cannot_save_file">Не удаётся сохранить файл</string>
@@ -621,6 +637,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Отмена</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Отмена</string>
   <string name="reading_list_split_dialog_ok_button_text">ОК</string>
+  <string name="reading_list_activity_title">Список чтения: %s</string>
   <string name="user_option_sync_label">Настройки</string>
   <string name="notification_reverted_title">Отменённая правка</string>
   <string name="notification_channel_title">Скачивание статей</string>
@@ -691,6 +708,8 @@
   <string name="notifications_mark_all_as_read">Отметить все как прочитанные</string>
   <string name="notifications_direct_reply_action">Ответить</string>
   <string name="notifications_direct_reply_success">Ответ опубликован.</string>
+  <string name="notifications_mark_all_as_read_message">%d помечено как прочитанное</string>
+  <string name="notifications_mark_all_as_unread_message">%d помечено как непрочитанное</string>
   <plurals name="notifications_mark_as_read_plural">
     <item quantity="one">%d отмечено как прочитанное</item>
     <item quantity="few">%d отмечены как прочитанные</item>
@@ -737,6 +756,8 @@
   <string name="notifications_channel_group_other_description">Другие уведомления от приложения</string>
   <string name="notifications_filter_label">Фильтровать уведомления</string>
   <string name="notifications_filter_icon_content_description">Фильтровать уведомления</string>
+  <string name="notifications_filter_update_app_languages">Обновить языки приложения</string>
+  <string name="notifications_empty_search_message">Чтобы видеть больше уведомлений, попробуйте удалить %s</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d фильтр</item>
     <item quantity="few">%d фильтра</item>
@@ -746,11 +767,20 @@
   <string name="notifications_select_all_filters">Выбрать все фильтры</string>
   <string name="notifications_tab_filter_all">Все</string>
   <string name="notifications_tab_filter_mentions">Упоминания</string>
+  <string name="notifications_search_bar_hint">Искать или отфильтровать уведомления</string>
   <string name="notifications_search_bar_filter_hint">Фильтр уведомлений</string>
   <string name="notifications_menu_mark_as_read">Пометить как прочитанное</string>
   <string name="notifications_menu_mark_as_unread">Пометить как непрочитанное</string>
+  <string name="notifications_swipe_action_read">Прочитано</string>
+  <string name="notifications_swipe_action_unread">Не прочитано</string>
+  <string name="notifications_menu_check_all">Отметить все объекты</string>
+  <string name="notifications_menu_uncheck_all">Снять отметки со всех объектов</string>
   <string name="notifications_wiki_filter_header">Вики фильтр</string>
+  <string name="notifications_type_filter_header">Тип фильтра</string>
   <string name="notifications_all_wikis_text">Все \"вики\"</string>
+  <string name="notifications_all_types_text">Все «типы»</string>
+  <string name="notifications_menu_user_talk_page">Страница обсуждения %s</string>
+  <string name="notifications_offline_disable_message">Эта функция недоступна офлайн.</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_random_article_card_title">Случайная статья</string>
@@ -861,6 +891,7 @@
   <string name="customize_toolbar_title">Настроить панель инструментов</string>
   <string name="customize_toolbar_category_toolbar">Панель инструментов</string>
   <string name="customize_toolbar_category_menu">Меню</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Нажмите на избранные объекты и, удерживая, перенесите их сюда 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Сбросить к настройкам по умолчанию</string>
   <string name="suggested_edits_describe_articles">Описать статьи</string>
   <string name="suggested_edits_caption_images">Описание изображений</string>
@@ -954,6 +985,7 @@
   <string name="suggested_edits_paused_message">Возможность внесения правок отложена до %1$s. Уважаемый %2$s, к сожалению, некоторые из последних изменений, внесённых вами были отменены.</string>
   <string name="suggested_edits_disabled_message">Предлагаемые правки выключены. Уважаемый %s, к сожалению, слишком многие из ваших последних изменений были отменены.</string>
   <string name="suggested_edits_ip_blocked_message">Судя по всему ваш IP-адрес (или диапазон IP-адресов) в данный момент заблокирован для внесения правок в Википедию.</string>
+  <string name="suggested_edits_gate_message">Извините, %s, для использования этой функциональности, вы должны сделать как минимум три правки в одной статье.</string>
   <string name="suggested_edits_editing_tips_link_text">Советы и рекомендации по редактированию</string>
   <string name="suggested_edits_help_page_link_text">Справка по предлагаемым изменениям</string>
   <string name="suggested_edits_edit_streak_label_text">Серия правок</string>
@@ -1049,6 +1081,7 @@
   <string name="file_page_add_image_caption_button">Добавить описание изображения</string>
   <string name="file_page_add_image_tags_button">Добавить теги изображения</string>
   <string name="file_page_suggestion_reason">Предложенная причина</string>
+  <string name="file_page_edit_button_content_description">Править %s</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то некорректное. Возможные причины, почему ваша правка была отменена:</string>
   <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>
@@ -1164,16 +1197,27 @@
   <string name="talk_share_discussion_subject">Википедия — обсуждение в теме «%s»</string>
   <string name="talk_share_talk_page">Википедия — страница обсуждения</string>
   <string name="talk_search_hint">Искать сообщения</string>
+  <string name="talk_search_topics_hint">Искать в темах</string>
   <string name="talk_overflow_sort_by">Сортировать по</string>
   <string name="talk_overflow_sort_date_published">Дата публикации</string>
+  <string name="talk_overflow_sort_date_updated">Дата обновления</string>
   <string name="talk_overflow_sort_topic_name">Название темы</string>
+  <string name="talk_thread_subscribed_to">Подписаны на «%s»</string>
+  <string name="talk_thread_unsubscribed_from">Отписаны от «%s»</string>
   <string name="talk_list_item_overflow_subscribe">Подписаться</string>
+  <string name="talk_list_item_overflow_subscribed">Подписаны</string>
   <string name="talk_list_item_overflow_mark_as_read">Пометить как прочитанное</string>
   <string name="talk_list_item_overflow_mark_as_unread">Пометить как непрочитанное</string>
   <string name="talk_list_item_overflow_share">Поделиться</string>
   <string name="talk_list_item_last_comment_date">Последний комментарий: %s</string>
   <string name="talk_list_item_reply_icon_content_description">Всего ответов</string>
+  <string name="talk_list_item_user_icon_content_description">Значок участника_цы</string>
+  <string name="talk_list_item_swipe_mark_as_read">Прочитано</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Непрочитано</string>
   <string name="talk_footer_about_this_talk_page">Об этой странице обсуждения</string>
+  <string name="talk_footer_view_edit_history">Посмотреть историю правок</string>
+  <string name="talk_footer_view_user_page">Посмотреть личную страницу</string>
+  <string name="talk_footer_view_article">Посмотреть статью</string>
   <string name="menu_option_share_talk_discussion">Поделиться обсуждением</string>
   <string name="menu_option_share_talk_page">Поделиться страницей обсуждения</string>
   <string name="menu_option_share_edit">Поделиться правкой</string>
@@ -1181,6 +1225,8 @@
   <string name="menu_option_user_contributions">Вклад участника %s</string>
   <string name="menu_option_edit_source">Править код</string>
   <string name="talk_menu_copy_text">Скопировать текст</string>
+  <string name="talk_menu_expand_threads">Развернуть ветки</string>
+  <string name="talk_menu_collapse_threads">Свернуть ветки</string>
   <string name="watchlist_details_watching_label">Слежу</string>
   <string name="watchlist_details_watch_label">Следить</string>
   <string name="watchlist_details_next_edit">Следующая правка</string>
@@ -1194,9 +1240,11 @@
   <string name="thank_success_message">Ваше \"Спасибо\" отправлено участнику %s 👍</string>
   <string name="menu_option_view_user_profile">Посмотреть страницу профиля пользователя</string>
   <string name="menu_option_view_user_talk">Смотрите страницу обсуждения</string>
+  <string name="menu_option_view_user_contributions">Посмотреть вклад</string>
   <string name="revision_diff_compare">Сравнить версии</string>
   <string name="revision_diff_compare_title">Сравнить версии: %s</string>
   <string name="revision_diff_from">От:</string>
+  <string name="revision_diff_to">Поучат.:</string>
   <string name="revision_diff_line_num">Строка %d</string>
   <string name="revision_diff_line_nums">Строки с %d-й по %d-ю</string>
   <string name="revision_diff_line_added">Строка добавлена</string>
@@ -1204,9 +1252,11 @@
   <string name="revision_diff_paragraph_added">Абзац добавлен</string>
   <string name="revision_diff_paragraph_removed">Абзац удалён</string>
   <string name="revision_undo_title">Отменить правку</string>
+  <string name="revision_undo_success">Версия была отменена.</string>
   <string name="revision_rollback_dialog_title">Вы уверены, что хотите откатить правки?</string>
   <string name="revision_rollback_success">Совершён откат правок.</string>
   <string name="revision_compare_button">Сравнить</string>
+  <string name="revision_compare_two_only">Можно выбрать только по две версии.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Участник %1$s и его страница обсуждений добавлены в ваш список наблюдения %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Изменить</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">постоянно</string>
@@ -1230,7 +1280,11 @@
   <string name="watchlist_page_protected">Защищено</string>
   <string name="watchlist_page_deleted">Удалено</string>
   <string name="action_item_categories">Категории</string>
+  <string name="page_no_categories">Эта страница не относится ни к одной категории.</string>
   <string name="category_tab_articles">Статьи</string>
   <string name="category_tab_subcategories">Подкатегории</string>
+  <string name="category_empty">Ни одной статьи не найдено в этой категории.</string>
+  <string name="subcategory_empty">Ни одной подкатегории не найдено в этой категории.</string>
   <string name="search_namespaces">Пространства имён</string>
+  <string name="revision_initial_none">Ни одной (это первая версия)</string>
 </resources>

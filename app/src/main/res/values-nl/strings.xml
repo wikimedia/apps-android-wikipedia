@@ -1202,5 +1202,6 @@
   <string name="page_no_categories">Deze pagina staat in geen enkele categorie.</string>
   <string name="category_tab_articles">Artikelen</string>
   <string name="category_tab_subcategories">Ondercategorieën</string>
+  <string name="search_namespaces">Naamruimten</string>
   <string name="revision_initial_none">Geen (dit is de eerste revisie)</string>
 </resources>
