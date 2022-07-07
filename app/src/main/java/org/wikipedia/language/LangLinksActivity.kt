@@ -141,8 +141,10 @@ class LangLinksActivity : BaseActivity() {
             binding.langlinkEmptyView.setEmptyText(R.string.langlinks_no_match)
             binding.langlinksRecycler.adapter = LangLinksAdapter(languageEntries,
                     languageEntries.filter {
-                        it.wikiSite.languageCode == AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE &&
-                                app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE) ||
+                        (it.wikiSite.languageCode == AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE &&
+                                app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE)) ||
+                                (it.wikiSite.languageCode == AppLanguageLookUpTable.BELARUSIAN_TARASK_LANGUAGE_CODE &&
+                                app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE)) ||
                                 app.languageState.appLanguageCodes.contains(it.wikiSite.languageCode)
                     })
             binding.langlinksRecycler.layoutManager = LinearLayoutManager(this)

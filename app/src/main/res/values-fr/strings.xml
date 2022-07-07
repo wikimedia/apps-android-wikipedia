@@ -99,9 +99,9 @@
   <string name="page_edit_history_search_or_filter_edits_hint">Rechercher ou filtrer des modifications</string>
   <string name="page_edit_history_filter_by">Filtrer par</string>
   <string name="page_edit_history_filter_by_all">Toutes les modifications (%s)</string>
-  <string name="page_edit_history_filter_by_user">Modifications par un utilisateur (%s)</string>
+  <string name="page_edit_history_filter_by_user">Modifications par utilisateur (%s)</string>
   <string name="page_edit_history_filter_by_anon">Modifications anonyme (%s)</string>
-  <string name="page_edit_history_filter_by_bot">Modifications par bot (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Modifications par robot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mesures de %1$s à %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d modification depuis %2$s</item>
@@ -348,11 +348,11 @@
   <string name="widget_name_search">Recherche sur Wikipédia</string>
   <string name="wiktionary_no_definitions_found">Aucune définition trouvée.</string>
   <string name="alpha_update_notification_title">Nouvelle mise à jour alpha disponible</string>
-  <string name="alpha_update_notification_text">Touchez pour la télécharger</string>
+  <string name="alpha_update_notification_text">Appuyez pour télécharger</string>
   <string name="dialog_close_description">Fermer</string>
   <string name="preference_title_show_images">Afficher les images</string>
   <string name="preference_summary_show_images">Activer ou désactiver le chargement des images dans les pages. Décochez ce paramètre si votre connexion à Internet est lente ou si votre volume de données est limité.</string>
-  <string name="preference_title_download_only_over_wifi">Télécharger seulement par Wi-Fi</string>
+  <string name="preference_title_download_only_over_wifi">Télécharger seulement par WiFi</string>
   <string name="dialog_title_download_only_over_wifi">Confirmer le téléchargement en utilisant les données mobiles ?</string>
   <string name="dialog_text_download_only_over_wifi">Vous avez activé « Télécharger seulement par Wi-Fi » dans les paramètres. Voulez-vous autoriser l’utilisation de votre plan de données mobiles pour ce téléchargement uniquement ?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Autoriser</string>
@@ -407,9 +407,9 @@
   <string name="page_offline_notice_add_to_reading_list">Astuce : ajoutez l’article à une liste de lecture et il sera téléchargé une fois que vous serez à nouveau connecté.</string>
   <string name="page_offline_notice_last_date">Vous lisez une version hors ligne sauvegardée le %s.</string>
   <string name="button_get_directions">Obtenir les directions</string>
-  <string name="error_no_maps_app">Impossible de trouver un navigateur cartographique qui fournit des directions.</string>
+  <string name="error_no_maps_app">Impossible de trouver une application fournissant des itinéraires.</string>
   <string name="preference_title_customize_explore_feed">Explorer le fil</string>
-  <string name="preference_title_show_link_previews">Afficher les aperçus de lien</string>
+  <string name="preference_title_show_link_previews">Afficher les aperçus de liens</string>
   <string name="preference_summary_customize_explore_feed">Personnaliser le fil d’exploration</string>
   <string name="preference_summary_show_link_previews">Afficher un rapide aperçu des articles en tapant sur les liens.</string>
   <string name="preference_title_collapse_tables">Replier les tableaux</string>
@@ -420,7 +420,7 @@
   <string name="enable_location_service">Activer</string>
   <string name="location_permissions_enable_prompt">Activer les droits de géolocalisation pour voir les endroits proches de vous.</string>
   <string name="location_permissions_enable_action">Activer</string>
-  <string name="error_webview_updating">Le WebView du système Android est actuellement en cours de mise à jour. Veuillez réessayer dans un moment.</string>
+  <string name="error_webview_updating">Le Système WebView Android est actuellement en cours de mise à jour. Veuillez réessayer ultérieurement.</string>
   <plurals name="multi_items_selected">
     <item quantity="one">%d sélectionné</item>
     <item quantity="other">%d sélectionnés</item>
@@ -1235,4 +1235,6 @@
   <string name="subcategory_empty">Aucune sous-catégorie trouvée dans cette catégorie.</string>
   <string name="search_namespaces">Espaces de noms</string>
   <string name="revision_initial_none">Aucune (c’est la première version)</string>
+  <string name="onboarding_survey_title">Pouvez-vous nous aider à améliorer l\'accueil ?</string>
+  <string name="onboarding_survey_body">Merci de nous aider à améliorer l\'accueil et la découverte de certaines fonctionnalités.</string>
 </resources>
