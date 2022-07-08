@@ -47,7 +47,6 @@ object OnboardingSurveyHelper {
         val country = GeoUtil.geoIPCountry.orEmpty()
         return (languages.contains("hi") ||
                 languages.contains("id") ||
-                languages.contains("ja") ||
                 ((languages.contains("ar") || languages.contains("fr")) && (country == "MA" || country == "EG" || country == "ML" || country == "CD")))
     }
 
