@@ -116,7 +116,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.categoryTabLayout.selectTab(binding.categoryTabLayout.getTabAt(if (viewModel.showSubcategories) 1 else 0))
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_category, menu)
         return super.onCreateOptionsMenu(menu)
     }
