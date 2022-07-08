@@ -1191,11 +1191,6 @@
     <string name="talk_list_item_user_icon_content_description">User icon</string>
     <string name="talk_list_item_swipe_mark_as_read">Read</string>
     <string name="talk_list_item_swipe_mark_as_unread">Unread</string>
-    <string name="talk_footer_about_this_talk_page">About this talk page</string>
-    <string name="talk_footer_view_edit_history">View edit history</string>
-    <string name="talk_footer_view_user_page">View user page</string>
-    <string name="talk_footer_view_article">View article</string>
-    <string name="talk_footer_last_modified"><![CDATA[Last edited %1$s by %2$s]]></string>
     <string name="menu_option_share_talk_discussion">Share discussion</string>
     <string name="menu_option_share_talk_page">Share talk page</string>
     <string name="menu_option_share_edit">Share edit</string>
