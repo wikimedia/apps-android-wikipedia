@@ -119,6 +119,7 @@
   <string name="menu_page_new_tab">Menu item text for opening a new tab.</string>
   <string name="menu_page_reading_lists">&gt;Menu item text for opening the reading lists page.</string>
   <string name="menu_page_recently_viewed">&gt;Menu item text for opening the history page.</string>
+  <string name="menu_page_archive">&gt;Menu item text for opening the archive page.</string>
   <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.\n{{Identical|Open}}</string>
   <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab.</string>
   <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipboard for pasting later.</string>
@@ -1142,6 +1143,7 @@
   <string name="talk_footer_view_user_page">Label text for view user page option.</string>
   <string name="talk_footer_view_article">Label text for view article option.</string>
   <string name="talk_footer_last_modified">Label for the last modified date of the talk page. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual date and user name.\n\nShould be similar to this MediaWiki messages such as this: {{msg-mw|Mobile-frontend-last-modified-with-user-hours}}</string>
+  <string name="talk_archived_title">Title text for archived talk pages. %s will be replaced by the title of the talk page.</string>
   <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
   <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>
@@ -1215,6 +1217,7 @@
   <string name="subcategory_empty">Error shown when the current category contains no subcategories.</string>
   <string name="search_namespaces">Hint for selecting the namespace when searching.\n{{Identical|Namespace}}</string>
   <string name="revision_initial_none">Label shown when showing a diff of the first revision of an article (when there is no previous revision to compare with).</string>
+  <string name="archive_empty">Error shown when the current page does not have subpages.</string>
   <string name="onboarding_survey_title">Title for dialog box that leads to a survey.</string>
   <string name="onboarding_survey_body">Body message of dialog box that leads to a survey.</string>
 </resources>
