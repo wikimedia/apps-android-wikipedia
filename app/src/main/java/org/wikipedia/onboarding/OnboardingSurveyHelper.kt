@@ -48,8 +48,7 @@ object OnboardingSurveyHelper {
         return (languages.contains("hi") ||
                 languages.contains("id") ||
                 languages.contains("ja") ||
-                ((languages.contains("ar") || languages.contains("fr")) && (country == "MA" || country == "EG" || country == "ML" || country == "CD")) ||
-                (languages.contains("en") && (country == "IN" || country == "NG")))
+                ((languages.contains("ar") || languages.contains("fr")) && (country == "MA" || country == "EG" || country == "ML" || country == "CD")))
     }
 
     private fun fallsWithinDateRange(): Boolean {
