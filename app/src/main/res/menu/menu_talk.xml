@@ -51,6 +51,11 @@
                 android:icon="@drawable/ic_share"
                 android:title="@string/menu_page_article_share"
                 app:showAsAction="never" />
+            <item
+                android:id="@+id/menu_archive"
+                android:icon="@drawable/ic_baseline_archive_24"
+                android:title="@string/menu_page_archive"
+                app:showAsAction="never" />
         </menu>
     </item>
 </menu>

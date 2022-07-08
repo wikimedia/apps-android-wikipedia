@@ -70,6 +70,7 @@ object Constants {
     enum class InvokeSource(val value: String) {
         ANNOUNCEMENT("announcement"),
         APP_SHORTCUTS("appShortcuts"),
+        ARCHIVED_TALK_ACTIVITY("archivedTalkActivity"),
         BOOKMARK_BUTTON("bookmark"),
         CONTEXT_MENU("contextMenu"),
         DIFF_ACTIVITY("diffActivity"),
