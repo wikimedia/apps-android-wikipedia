@@ -152,18 +152,16 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         return true
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-        menu?.let {
-            it.findItem(R.id.menu_find_in_page)?.isVisible = viewModel.topic?.replies.orEmpty().isNotEmpty()
-            it.findItem(R.id.menu_edit_source)?.isVisible = AccountUtil.isLoggedIn
-            if (viewModel.isExpandable) {
-                val fullyExpanded = viewModel.isFullyExpanded
-                it.findItem(R.id.menu_talk_topic_expand)?.isVisible = !fullyExpanded
-                it.findItem(R.id.menu_talk_topic_collapse)?.isVisible = fullyExpanded
-            } else {
-                it.findItem(R.id.menu_talk_topic_expand)?.isVisible = false
-                it.findItem(R.id.menu_talk_topic_collapse)?.isVisible = false
-            }
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        menu.findItem(R.id.menu_find_in_page)?.isVisible = viewModel.topic?.replies.orEmpty().isNotEmpty()
+        menu.findItem(R.id.menu_edit_source)?.isVisible = AccountUtil.isLoggedIn
+        if (viewModel.isExpandable) {
+            val fullyExpanded = viewModel.isFullyExpanded
+            menu.findItem(R.id.menu_talk_topic_expand)?.isVisible = !fullyExpanded
+            menu.findItem(R.id.menu_talk_topic_collapse)?.isVisible = fullyExpanded
+        } else {
+            menu.findItem(R.id.menu_talk_topic_expand)?.isVisible = false
+            menu.findItem(R.id.menu_talk_topic_collapse)?.isVisible = false
         }
         return super.onPrepareOptionsMenu(menu)
     }
