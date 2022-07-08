@@ -470,7 +470,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         fun isHeaderTemplate(item: ThreadItem?): Boolean {
-            return item?.headingLevel == 0 && item.id.isEmpty()
+            return item?.headingLevel == 0 && item.author.isEmpty() && item.html.isEmpty()
         }
     }
 }
