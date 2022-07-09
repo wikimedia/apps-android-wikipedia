@@ -59,6 +59,14 @@ interface Service {
         @Query("gsroffset") gsrOffset: String?
     ): Observable<MwQueryResponse>
 
+    @GET(
+        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=info" +
+                "&generator=prefixsearch&inprop=varianttitles"
+    )
+    suspend fun prefixSearch(@Query("gpssearch") searchTerm: String?,
+                             @Query("gpslimit") maxResults: Int,
+                             @Query("gpsoffset") gpsOffset: Int?): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
     fun prefixSearchUsers(
             @Query("auprefix") prefix: String,

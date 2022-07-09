@@ -40,7 +40,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 32
-        versionCode 50410
+        versionCode 50412
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -180,8 +180,8 @@ dependencies {
     String mockitoVersion = '3.4.0'
     String leakCanaryVersion = '2.8.1'
     String kotlinCoroutinesVersion = '1.3.9'
-    String firebaseMessagingVersion = '23.0.5'
-    String mlKitVersion = '17.0.3'
+    String firebaseMessagingVersion = '23.0.6'
+    String mlKitVersion = '17.0.4'
     String roomVersion = "2.4.2"
     String espressoVersion = '3.4.0'
     String serialization_version = '1.2.1'

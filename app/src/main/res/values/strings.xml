@@ -90,6 +90,7 @@
     <string name="menu_page_new_tab">New tab</string>
     <string name="menu_page_reading_lists">Reading lists</string>
     <string name="menu_page_recently_viewed">Recently viewed</string>
+    <string name="menu_page_archive">Archive</string>
 
     <!-- Long press menu -->
     <string name="menu_long_press_open_page">Open</string>
@@ -1191,6 +1192,7 @@
     <string name="talk_list_item_user_icon_content_description">User icon</string>
     <string name="talk_list_item_swipe_mark_as_read">Read</string>
     <string name="talk_list_item_swipe_mark_as_unread">Unread</string>
+    <string name="talk_archived_title">Talk archive: %s</string>
     <string name="menu_option_share_talk_discussion">Share discussion</string>
     <string name="menu_option_share_talk_page">Share talk page</string>
     <string name="menu_option_share_edit">Share edit</string>
@@ -1268,6 +1270,7 @@
     <string name="subcategory_empty">No subcategories found in this category.</string>
     <string name="search_namespaces">Namespaces</string>
     <string name="revision_initial_none">None (this is the first revision)</string>
+    <string name="archive_empty">No archived pages found.</string>
 
     <string name="onboarding_survey_title">Could you help us improve onboarding?</string>
     <string name="onboarding_survey_body">Please help us to improve onboarding and discovery of features.</string>
