@@ -91,5 +91,6 @@ class HistoryEntry(
         const val SOURCE_ERROR = 34
         const val SOURCE_EDIT_HISTORY = 35
         const val SOURCE_CATEGORY = 36
+        const val SOURCE_ARCHIVED_TALK = 37
     }
 }
