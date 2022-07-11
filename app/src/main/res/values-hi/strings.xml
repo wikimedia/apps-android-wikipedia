@@ -477,7 +477,7 @@
   <string name="user_option_sync_label">वरीयता</string>
   <string name="notification_reverted_title">संपादन वापस लिया गया</string>
   <string name="notification_channel_description">सिंकिंग प्रगति</string>
-  <string name="notification_syncing_pause_button">रोकें</string>
+  <string name="notification_syncing_pause_button">थामें</string>
   <string name="notification_syncing_resume_button">दुबारा शुरू करें</string>
   <string name="notification_syncing_cancel_button">रद्द करें</string>
   <string name="notification_channel_name" fuzzy="true">सिंक हो रहा है</string>
