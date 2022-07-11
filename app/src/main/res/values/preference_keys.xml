@@ -136,7 +136,6 @@
     <string name="preference_key_talk_topics_sort_mode">talkTopicsSortMode</string>
     <string name="preference_key_reading_focus_mode">readingFocusMode</string>
     <string name="preference_key_edit_history_filter_type">editHistoryFilterType</string>
-    <string name="preference_key_toolbar_tooltip_visible">toolbarTooltipVisible</string>
     <string name="preference_key_talk_topic_expand_all">talkTopicExpandAll</string>
     <string name="preference_key_onboarding_survey_shown">onboardingSurveyShown</string>
 </resources>

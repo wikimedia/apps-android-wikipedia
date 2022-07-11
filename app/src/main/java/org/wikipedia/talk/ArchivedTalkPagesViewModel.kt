@@ -26,7 +26,7 @@ class ArchivedTalkPagesViewModel(bundle: Bundle) : ViewModel() {
                     return LoadResult.Page(emptyList(), null, null)
                 }
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
-                    .searchSubPages(pageTitle.prefixedText, params.loadSize, params.key?.toString().orEmpty().ifEmpty { "1" }, pageTitle.prefixedText)
+                    .prefixSearch(pageTitle.prefixedText + "/", params.loadSize, params.key)
                 if (response.query?.pages == null) {
                     return LoadResult.Page(emptyList(), null, null)
                 }

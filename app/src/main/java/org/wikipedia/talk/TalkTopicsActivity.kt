@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.format.DateUtils
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -28,12 +27,10 @@ import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.databinding.ItemTalkTopicBinding
-import org.wikipedia.databinding.ViewTalkTopicsFooterBinding
 import org.wikipedia.databinding.ViewTalkTopicsHeaderBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.okhttp.HttpStatusException
-import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
@@ -60,7 +57,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     private val concatAdapter = ConcatAdapter()
     private val headerAdapter = HeaderItemAdapter()
     private val talkTopicItemAdapter = TalkTopicItemAdapter()
-    private val footerAdapter = FooterItemAdapter()
     private var funnel: TalkFunnel? = null
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
@@ -290,7 +286,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             binding.talkRecyclerView.adapter = concatAdapter.apply {
                 addAdapter(0, headerAdapter)
                 addAdapter(1, talkTopicItemAdapter)
-                addAdapter(2, footerAdapter)
             }
         }
 
@@ -332,7 +327,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                 binding.talkNewTopicButton.isEnabled = true
                 binding.talkNewTopicButton.alpha = 1.0f
             }
-            footerAdapter.notifyItemChanged(0)
             talkTopicItemAdapter.notifyDataSetChanged()
         }
         funnel?.logOpenTalk()
@@ -423,12 +417,10 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         if (actionMode == null) {
             concatAdapter.apply {
                 addAdapter(0, headerAdapter)
-                addAdapter(2, footerAdapter)
             }
         } else {
             concatAdapter.apply {
                 removeAdapter(headerAdapter)
-                removeAdapter(footerAdapter)
             }
         }
     }
@@ -473,44 +465,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             } ?: run {
                 binding.talkLeadImageContainer.isVisible = false
             }
-        }
-    }
-
-    private inner class FooterItemAdapter : RecyclerView.Adapter<FooterViewHolder>() {
-        override fun onBindViewHolder(holder: FooterViewHolder, position: Int) { }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FooterViewHolder {
-            return FooterViewHolder(ViewTalkTopicsFooterBinding.inflate(layoutInflater, parent, false))
-        }
-
-        override fun getItemCount(): Int { return 1 }
-    }
-
-    private inner class FooterViewHolder constructor(binding: ViewTalkTopicsFooterBinding) : RecyclerView.ViewHolder(binding.root) {
-        init {
-            // Update last modified date
-            viewModel.lastRevision?.let { revision ->
-                binding.lastModifiedText.text = StringUtil.fromHtml(getString(R.string.talk_footer_last_modified,
-                    DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
-                        System.currentTimeMillis(), 0L), revision.user))
-
-                binding.viewEditHistoryContainer.setOnClickListener {
-                    startActivity(ArticleEditDetailsActivity.newIntent(this@TalkTopicsActivity, viewModel.pageTitle, revision.revId))
-                }
-            }
-
-            binding.viewPageContainer.setOnClickListener {
-                goToPage()
-            }
-
-            if (viewModel.pageTitle.namespace() == Namespace.USER_TALK) {
-                binding.viewPageIcon.setImageResource(R.drawable.ic_user_avatar)
-                binding.viewPageTitle.text = getString(R.string.talk_footer_view_user_page)
-            } else {
-                binding.viewPageIcon.setImageResource(R.drawable.ic_article_ltr_ooui)
-                binding.viewPageTitle.text = getString(R.string.talk_footer_view_article)
-            }
-            binding.viewPageContent.text = StringUtil.fromHtml(StringUtil.removeNamespace(viewModel.pageTitle.displayText))
         }
     }
 
