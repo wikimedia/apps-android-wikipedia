@@ -86,6 +86,7 @@
   <string name="menu_page_new_tab">تابی نوێ</string>
   <string name="menu_page_reading_lists">پێڕستەکانی خوێندنەوە</string>
   <string name="menu_page_recently_viewed">لەم دواییە بینراوە</string>
+  <string name="menu_page_archive">ئەرشیڤ</string>
   <string name="menu_long_press_open_page">بیکەرەوە</string>
   <string name="menu_long_press_open_in_new_tab">کردنەوە لە تابێکی نوێ</string>
   <string name="menu_long_press_copy_page">لەبەرگرتنەوەی ناونیشانی بەستەر</string>
