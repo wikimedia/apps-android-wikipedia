@@ -1238,6 +1238,4 @@
   <string name="search_namespaces">Espaces de noms</string>
   <string name="revision_initial_none">Aucune (c’est la première version)</string>
   <string name="archive_empty">Aucune page archivée trouvée.</string>
-  <string name="onboarding_survey_title">Pouvez-vous nous aider à améliorer l’accueil ?</string>
-  <string name="onboarding_survey_body">Merci de nous aider à améliorer l’accueil et l’intégration des arrivants et la découverte des fonctionnalités.</string>
 </resources>

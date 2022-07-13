@@ -1213,6 +1213,4 @@
   <string name="search_namespaces">Hint for selecting the namespace when searching.\n{{Identical|Namespace}}</string>
   <string name="revision_initial_none">Label shown when showing a diff of the first revision of an article (when there is no previous revision to compare with).</string>
   <string name="archive_empty">Error shown when the current page does not have subpages.</string>
-  <string name="onboarding_survey_title">Title for dialog box that leads to a survey.</string>
-  <string name="onboarding_survey_body">Body message of dialog box that leads to a survey.</string>
 </resources>

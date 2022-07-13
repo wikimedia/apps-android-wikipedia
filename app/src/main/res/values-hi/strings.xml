@@ -576,6 +576,4 @@
   <string name="revision_compare_button">तुलना करें</string>
   <string name="revision_compare_two_only">केवल दो संशोधनों का चयन किया जा सकता है।</string>
   <string name="category_tab_articles">लेख</string>
-  <string name="onboarding_survey_title">क्या आप ऑनबोर्डिंग प्रोसेस को बेहतर बनाने में हमारी मदद कर सकते हैं?</string>
-  <string name="onboarding_survey_body">कृपया ऑनबोर्डिंग प्रोसेस को बेहतर बनाने और सुविधाओं को खोजे जाने लायक बनाने में हमारी मदद करें.</string>
 </resources>

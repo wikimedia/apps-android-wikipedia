@@ -1195,6 +1195,4 @@
   <string name="search_namespaces">Именски простори</string>
   <string name="revision_initial_none">Ниедна (ова е првата преработка)</string>
   <string name="archive_empty">Нема архивирани страници.</string>
-  <string name="onboarding_survey_title">Би сакале ли да ни помогнете да го подобриме приемот на новодојденци?</string>
-  <string name="onboarding_survey_body">Помогнете ни да го подобриме приемот на новодојденци и откривањето на функции.</string>
 </resources>
