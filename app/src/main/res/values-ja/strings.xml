@@ -1103,6 +1103,4 @@
   <string name="subcategory_empty">このカテゴリに下位カテゴリはありませんでした。</string>
   <string name="search_namespaces">名前空間</string>
   <string name="archive_empty">アーカイブされたページが見つかりません。</string>
-  <string name="onboarding_survey_title">オンボーディングの改善にご協力いただけませんか？</string>
-  <string name="onboarding_survey_body">オンボーディングと機能発見の向上にご協力ください。</string>
 </resources>
