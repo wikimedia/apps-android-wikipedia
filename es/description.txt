@@ -1,4 +1,4 @@
-La aplicación oficial Wikipedia para Android está diseñada para ayudar a encontrar, descubrir y explorar el conocimiento en Wikipedia. Resuelva una apuesta con un amigo haciendo una búsqueda rápida a través de la aplicación, o búsqueda en artículos destacados, imágenes, artículos recomendados y más, utilizando la  exploración. Con más de 39 millones de artículos en casi 300 idiomas, su enciclopedia gratuita en línea está ahora al alcance de su mano.
+La aplicación oficial Wikipedia para Android está diseñada para ayudar a encontrar, descubrir y explorar el conocimiento en Wikipedia. Resuelva una apuesta con un amigo haciendo una búsqueda rápida a través de la aplicación, o búsqueda en artículos destacados, imágenes, artículos recomendados y más, utilizando la exploración. Con más de 39 millones de artículos en casi 300 idiomas, su enciclopedia gratuita en línea está ahora al alcance de su mano.
 
 Características:
 

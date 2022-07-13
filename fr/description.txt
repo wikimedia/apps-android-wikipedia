@@ -2,25 +2,25 @@ Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie
 
 Fonctions :
 
-Explorez les flux - Le nouveau flux "Explorer" propose des recommandations et une mise à jour constante du contenu Wikipédia directement sur l'écran d'accueil, y compris des articles sur les tendances, des actualités, des suggestions de lecture et plus encore.
+Explorez les flux — Le nouveau flux « Explorer » propose des recommandations et une mise à jour constante du contenu Wikipédia directement sur l'écran d'accueil, y compris des articles sur les tendances, des actualités, des suggestions de lecture et plus encore.
 
-Recherche par la voix intégrée - Trouvez facilement ce que vous cherchez avec une grande barre de recherche en haut de l'application, incluant l'activation de la recherche vocale sur votre appareil.
+Recherche par la voix intégrée — Trouvez facilement ce que vous cherchez avec une grande barre de recherche en haut de l'application, incluant l'activation de la recherche vocale sur votre appareil.
 
-Proche - Apprenez plus sur ce qu'il y a autour de vous en sélectionnant des points sur une carte interactive pour voir les articles associés à votre position actuelle et proche.
+Proche — Apprenez plus sur ce qu'il y a autour de vous en sélectionnant des points sur une carte interactive pour voir les articles associés à votre position actuelle et proche.
 
-Prise en charge linguistique - Changez facilement à la lecture de n’importe quelle langue de Wikipédia, soit en changeant la langue de l’article courant, soit en changeant votre langue préférée lors d’une recherche.
+Prise en charge linguistique — Changez facilement à la lecture de n’importe quelle langue de Wikipédia, soit en changeant la langue de l’article courant, soit en changeant votre langue préférée lors d’une recherche.
 
-Aperçu des liens - Touchez un article pour avoir un aperçu, sans perdre l'endroit où vous lisiez. Appuyez et maintenez un lien pour l'ouvrir dans un nouvel onglet, vous permettant de continuer à lire votre article sans perdre l'endroit où vous lisiez, et passez au nouvel onglet dès que vous être prêt.
+Aperçu des liens — Touchez un article pour avoir un aperçu, sans perdre l'endroit où vous lisiez. Appuyez et maintenez un lien pour l'ouvrir dans un nouvel onglet, vous permettant de continuer à lire votre article sans perdre l'endroit où vous lisiez, et passez au nouvel onglet dès que vous être prêt.
 
-Table des matières - Glissez votre doigt à gauche sur n'importe quel article pour faire apparaître la table des matières, qui vous permet de passer d'une section de l'article à une autre facilement.
+Table des matières — Glissez votre doigt à gauche sur n'importe quel article pour faire apparaître la table des matières, qui vous permet de passer d'une section de l'article à une autre facilement.
 
-Listes de lecture - Organisez les articles que vous trouvez dans des listes de lectures, que vous pouvez accéder même en hors-ligne. Créez autant de listes que vous voulez, donnez leur des noms personnalisés et des descriptions, et remplissez-les avec des articles de wiki de n'importe quelle langue.
+Listes de lecture — Organisez les articles que vous trouvez dans des listes de lectures, que vous pouvez accéder même en hors-ligne. Créez autant de listes que vous voulez, donnez leur des noms personnalisés et des descriptions, et remplissez-les avec des articles de wiki de n'importe quelle langue.
 
-Galerie d'images - Tapez sur une image pour la voir en plein-écran et en haute résolution, avec des options via glissement du doigt pour rechercher d'autres images.
+Galerie d'images — Tapez sur une image pour la voir en plein-écran et en haute résolution, avec des options via glissement du doigt pour rechercher d'autres images.
 
-Définitions de Wikitionnaire – Tapez et maintenez pour surligner un mot, puis tapez le bouton « Définir » pour voir une définition du mot de Wikitionnaire.
+Définitions de Wikitionnaire — Tapez et maintenez pour surligner un mot, puis tapez le bouton « Définir » pour voir une définition du mot de Wikitionnaire.
 
-Wikipédia Zero – Accéder à Wikipédia sur Android sans frais avec les opérateurs mobile participants. (liens des opérateurs participants).
+Wikipédia Zero — Accéder à Wikipédia sur Android sans frais avec les opérateurs mobile participants. (liens des opérateurs participants).
 
 Envoyez-nous des retours à propos de l'application ! Dans le menu, appuyez sur « Paramètres », puis « À propos de l'application Wikipédia », enfin « Envoyer un avis sur l'application ».
 
