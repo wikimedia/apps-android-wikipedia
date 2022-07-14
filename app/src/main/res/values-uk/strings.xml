@@ -1147,7 +1147,6 @@
   <string name="talk_overflow_sort_topic_name">Назва теми</string>
   <string name="talk_list_item_swipe_mark_as_read">Читати</string>
   <string name="talk_list_item_swipe_mark_as_unread">Непрочитане</string>
-  <string name="talk_footer_about_this_talk_page">Про цю сторінку обговорення</string>
   <string name="menu_option_share_talk_discussion">Поділіться обговоренням</string>
   <string name="menu_option_share_talk_page">Поділіться сторінкою обговорення</string>
   <string name="menu_option_share_edit">Поділитися редагуванням</string>

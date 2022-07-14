@@ -1198,11 +1198,6 @@
   <string name="talk_list_item_user_icon_content_description">סמל משתמש</string>
   <string name="talk_list_item_swipe_mark_as_read">סימון כהודעה שנקראה</string>
   <string name="talk_list_item_swipe_mark_as_unread">סימון כהודעה שלא נקראה</string>
-  <string name="talk_footer_about_this_talk_page">אודות דף השיחה הזה</string>
-  <string name="talk_footer_view_edit_history">הצגת היסטוריית עריכות</string>
-  <string name="talk_footer_view_user_page">הצגת דף המשתמש</string>
-  <string name="talk_footer_view_article">הצגת הערך</string>
-  <string name="talk_footer_last_modified">נערך לאחרונה ב־%1$s על־ידי %2$s</string>
   <string name="talk_archived_title">ארכיון שיחה: %s</string>
   <string name="menu_option_share_talk_discussion">שיתוף דיון</string>
   <string name="menu_option_share_talk_page">שיתוף דף שיחה</string>

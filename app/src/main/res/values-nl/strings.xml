@@ -117,6 +117,7 @@
   <string name="menu_page_new_tab">Nieuw tabblad</string>
   <string name="menu_page_reading_lists">Leeslijsten</string>
   <string name="menu_page_recently_viewed">Onlangs bekeken</string>
+  <string name="menu_page_archive">Archief</string>
   <string name="menu_long_press_open_page">Openen</string>
   <string name="menu_long_press_open_in_new_tab">In nieuw tabblad openen</string>
   <string name="menu_long_press_copy_page">Linkadres kopiëren</string>
@@ -1133,11 +1134,7 @@
   <string name="talk_list_item_user_icon_content_description">Gebruikerspictogram</string>
   <string name="talk_list_item_swipe_mark_as_read">Gelezen</string>
   <string name="talk_list_item_swipe_mark_as_unread">Ongelezen</string>
-  <string name="talk_footer_about_this_talk_page">Over deze overlegpagina</string>
-  <string name="talk_footer_view_edit_history">Bewerkgeschiedenis bekijken</string>
-  <string name="talk_footer_view_user_page">Gebruikerspagina bekijken</string>
-  <string name="talk_footer_view_article">Artikel bekijken</string>
-  <string name="talk_footer_last_modified">Laatst bewerkt om %1$s door %2$s</string>
+  <string name="talk_archived_title">Overlegarchief: %s</string>
   <string name="menu_option_share_talk_discussion">Deel overleg</string>
   <string name="menu_option_share_talk_page">Overlegpagina delen</string>
   <string name="menu_option_share_edit">Bewerking delen</string>
@@ -1204,4 +1201,5 @@
   <string name="category_tab_subcategories">Ondercategorieën</string>
   <string name="search_namespaces">Naamruimten</string>
   <string name="revision_initial_none">Geen (dit is de eerste revisie)</string>
+  <string name="archive_empty">Geen gearchiveerde pagina\'s gevonden.</string>
 </resources>

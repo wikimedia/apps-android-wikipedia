@@ -360,8 +360,6 @@
   <string name="talk_snackbar_undo">Annudda</string>
   <string name="talk_list_item_overflow_share">Cumpartzi</string>
   <string name="talk_list_item_swipe_mark_as_read">Ligi</string>
-  <string name="talk_footer_view_edit_history">Biri sa cronologia de is càmbius</string>
-  <string name="talk_footer_view_user_page">Biri sa pàgina de chistionu</string>
   <string name="menu_option_user_contributions">%s contribudus de s\'impreadori</string>
   <string name="menu_option_edit_source">Muda su còdixi wiki</string>
   <string name="watchlist_details_watch_label">Càstia</string>
