@@ -1132,11 +1132,6 @@
   <string name="talk_list_item_user_icon_content_description">Icona d\'usuari</string>
   <string name="talk_list_item_swipe_mark_as_read">Llegit</string>
   <string name="talk_list_item_swipe_mark_as_unread">No llegit</string>
-  <string name="talk_footer_about_this_talk_page">Quant a aquesta pàgina de discussió</string>
-  <string name="talk_footer_view_edit_history">Mostra l\'historial d\'edició</string>
-  <string name="talk_footer_view_user_page">Mostra la pàgina d\'usuari</string>
-  <string name="talk_footer_view_article">Mostra l\'article</string>
-  <string name="talk_footer_last_modified">Darrera edició el %1$s per %2$s</string>
   <string name="menu_option_share_talk_discussion">Comparteix la discussió</string>
   <string name="menu_option_share_talk_page">Comparteix la pàgina de discussió</string>
   <string name="menu_option_share_edit">Comparteix l\'edició</string>
