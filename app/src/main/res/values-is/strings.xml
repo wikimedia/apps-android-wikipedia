@@ -1114,11 +1114,6 @@
   <string name="talk_list_item_user_icon_content_description">Táknmynd notanda</string>
   <string name="talk_list_item_swipe_mark_as_read">Lesið</string>
   <string name="talk_list_item_swipe_mark_as_unread">Ólesið</string>
-  <string name="talk_footer_about_this_talk_page">Um þessa spjallsíðu</string>
-  <string name="talk_footer_view_edit_history">Skoða breytingaskrá</string>
-  <string name="talk_footer_view_user_page">Skoða notandasíðu</string>
-  <string name="talk_footer_view_article">Skoða grein</string>
-  <string name="talk_footer_last_modified">Síðast breytt %1$s af %2$s</string>
   <string name="menu_option_share_talk_discussion">Deila umræðu</string>
   <string name="menu_option_share_talk_page">Deila spjallsíðu</string>
   <string name="menu_option_share_edit">Deila breytingu</string>

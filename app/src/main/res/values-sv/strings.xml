@@ -1125,11 +1125,6 @@
   <string name="talk_list_item_user_icon_content_description">Användarikon</string>
   <string name="talk_list_item_swipe_mark_as_read">Läst</string>
   <string name="talk_list_item_swipe_mark_as_unread">Oläst</string>
-  <string name="talk_footer_about_this_talk_page">Om denna diskussionssida</string>
-  <string name="talk_footer_view_edit_history">Visa redigeringshistorik</string>
-  <string name="talk_footer_view_user_page">Visa användarsida</string>
-  <string name="talk_footer_view_article">Visa artikel</string>
-  <string name="talk_footer_last_modified">Senast redigerad %1$s av %2$s</string>
   <string name="menu_option_share_talk_discussion">Dela diskussion</string>
   <string name="menu_option_share_talk_page">Dela diskussionssida</string>
   <string name="menu_option_share_edit">Dela redigering</string>

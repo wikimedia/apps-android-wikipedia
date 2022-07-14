@@ -1059,10 +1059,6 @@
   <string name="talk_list_item_user_icon_content_description">Ikona użytkownika</string>
   <string name="talk_list_item_swipe_mark_as_read">Przeczytane</string>
   <string name="talk_list_item_swipe_mark_as_unread">Nieprzeczytane</string>
-  <string name="talk_footer_about_this_talk_page">O tej stronie dyskusji</string>
-  <string name="talk_footer_view_edit_history">Wyświetl historię edycji</string>
-  <string name="talk_footer_view_user_page">Wyświetl stronę użytkownika</string>
-  <string name="talk_footer_view_article">Wyświetl artykuł</string>
   <string name="menu_option_share_talk_discussion">Udostępnij dyskusję</string>
   <string name="menu_option_share_talk_page">Udostępnij stronę dyskusji</string>
   <string name="menu_option_share_edit">Udostępnij edycję</string>
