@@ -218,8 +218,8 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         snackbar.setAction(R.string.history_item_delete_undo) {
             lifecycleScope.launch(Dispatchers.IO) {
                 AppDatabase.instance.historyEntryDao().insert(entries)
+                withContext(Dispatchers.Main) { reloadHistoryItems() }
             }
-            reloadHistoryItems()
         }
         snackbar.show()
     }
