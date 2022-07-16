@@ -75,7 +75,8 @@ class ContributionDetailsFragment : Fragment() {
         } else {
             ViewUtil.loadImageWithRoundedCorners(binding.contributionImage, contribution.imageUrl)
         }
-        binding.dateTimeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_date_time_label), DateUtil.getTimeAndDateString(contribution.date), -1)
+        binding.dateTimeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_date_time_label),
+            DateUtil.getTimeAndDateString(requireContext(), contribution.date), -1)
         setTypeSpecificData()
     }
 

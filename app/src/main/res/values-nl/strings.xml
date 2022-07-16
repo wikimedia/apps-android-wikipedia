@@ -4,6 +4,7 @@
 * Ciell
 * Danieldegroot2
 * Dbrant
+* Dnlweijers
 * Dutchy45
 * Elroy
 * Encycloon
@@ -116,6 +117,7 @@
   <string name="menu_page_new_tab">Nieuw tabblad</string>
   <string name="menu_page_reading_lists">Leeslijsten</string>
   <string name="menu_page_recently_viewed">Onlangs bekeken</string>
+  <string name="menu_page_archive">Archief</string>
   <string name="menu_long_press_open_page">Openen</string>
   <string name="menu_long_press_open_in_new_tab">In nieuw tabblad openen</string>
   <string name="menu_long_press_copy_page">Linkadres kopiëren</string>
@@ -281,6 +283,11 @@
   <string name="edit_preview">Voorvertoning</string>
   <string name="edit_undo">Ongedaan maken</string>
   <string name="edit_redo">Opnieuw uitvoeren</string>
+  <string name="edit_rollback">Terugdraaien</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s byte</item>
+    <item quantity="other">%s bytes</item>
+  </plurals>
   <string name="edit_zoom_in">Inzoomen</string>
   <string name="edit_zoom_out">Uitzoomen</string>
   <string name="edit_summary_tag_typo">Spelfout gecorrigeerd</string>
@@ -1127,11 +1134,7 @@
   <string name="talk_list_item_user_icon_content_description">Gebruikerspictogram</string>
   <string name="talk_list_item_swipe_mark_as_read">Gelezen</string>
   <string name="talk_list_item_swipe_mark_as_unread">Ongelezen</string>
-  <string name="talk_footer_about_this_talk_page">Over deze overlegpagina</string>
-  <string name="talk_footer_view_edit_history">Bewerkgeschiedenis bekijken</string>
-  <string name="talk_footer_view_user_page">Gebruikerspagina bekijken</string>
-  <string name="talk_footer_view_article">Artikel bekijken</string>
-  <string name="talk_footer_last_modified">Laatst bewerkt om %1$s door %2$s</string>
+  <string name="talk_archived_title">Overlegarchief: %s</string>
   <string name="menu_option_share_talk_discussion">Deel overleg</string>
   <string name="menu_option_share_talk_page">Overlegpagina delen</string>
   <string name="menu_option_share_edit">Bewerking delen</string>
@@ -1166,6 +1169,8 @@
   <string name="revision_diff_line_added">Regel toegevoegd</string>
   <string name="revision_diff_line_removed">Regel verwijderd</string>
   <string name="revision_undo_success">De versie is ongedaan gemaakt.</string>
+  <string name="revision_rollback_dialog_title">weet je zeker dat je de bewerkingen wil terugdraaien?</string>
+  <string name="revision_rollback_success">Bewerkingen omgedraaid.</string>
   <string name="revision_compare_button">Vergelijken</string>
   <string name="revision_compare_two_only">Slechts twee versies kunnen worden geselecteerd.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s en zijn overlegpagina zijn toegevoegd aan uw volglijst %2$s.</string>
@@ -1194,5 +1199,7 @@
   <string name="page_no_categories">Deze pagina staat in geen enkele categorie.</string>
   <string name="category_tab_articles">Artikelen</string>
   <string name="category_tab_subcategories">Ondercategorieën</string>
+  <string name="search_namespaces">Naamruimten</string>
   <string name="revision_initial_none">Geen (dit is de eerste revisie)</string>
+  <string name="archive_empty">Geen gearchiveerde pagina\'s gevonden.</string>
 </resources>

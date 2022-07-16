@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.format.DateUtils
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -28,12 +27,10 @@ import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.databinding.ItemTalkTopicBinding
-import org.wikipedia.databinding.ViewTalkTopicsFooterBinding
 import org.wikipedia.databinding.ViewTalkTopicsHeaderBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.okhttp.HttpStatusException
-import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
@@ -54,14 +51,12 @@ import org.wikipedia.watchlist.WatchlistExpiryDialog
 
 class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     private lateinit var binding: ActivityTalkTopicsBinding
-    private lateinit var pageTitle: PageTitle
     private lateinit var invokeSource: Constants.InvokeSource
     private lateinit var notificationButtonView: NotificationButtonView
-    private val viewModel: TalkTopicsViewModel by viewModels { TalkTopicsViewModel.Factory(intent.getParcelableExtra(EXTRA_PAGE_TITLE)) }
+    private val viewModel: TalkTopicsViewModel by viewModels { TalkTopicsViewModel.Factory(intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!) }
     private val concatAdapter = ConcatAdapter()
     private val headerAdapter = HeaderItemAdapter()
     private val talkTopicItemAdapter = TalkTopicItemAdapter()
-    private val footerAdapter = FooterItemAdapter()
     private var funnel: TalkFunnel? = null
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
@@ -77,21 +72,20 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                         funnel?.logChangeLanguage()
 
                         val newNamespace = when {
-                            pageTitle.namespace() == Namespace.USER -> {
+                            viewModel.pageTitle.namespace() == Namespace.USER -> {
                                 UserAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCodes[pos])
                             }
-                            pageTitle.namespace() == Namespace.USER_TALK -> {
+                            viewModel.pageTitle.namespace() == Namespace.USER_TALK -> {
                                 UserTalkAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCodes[pos])
                             }
-                            else -> pageTitle.namespace
+                            else -> viewModel.pageTitle.namespace
                         }
 
-                        pageTitle = PageTitle(newNamespace, StringUtil.removeNamespace(pageTitle.prefixedText),
+                        val newPageTitle = PageTitle(newNamespace, StringUtil.removeNamespace(viewModel.pageTitle.prefixedText),
                             WikiSite.forLanguageCode(WikipediaApp.instance.languageState.appLanguageCodes[pos]))
 
                         resetViews()
-                        viewModel.pageTitle = pageTitle
-                        viewModel.loadTopics()
+                        viewModel.updatePageTitle(newPageTitle)
                     }
                 }
             }
@@ -131,7 +125,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         goToTopic = intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)
-        pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false, skipSearchBar = true))
         binding.talkRecyclerView.itemAnimator = null
@@ -154,7 +147,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
         binding.talkNewTopicButton.setOnClickListener {
             funnel?.logNewTopicClick()
-            requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, pageTitle, null, null, invokeSource))
+            requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, viewModel.pageTitle, null, null, invokeSource))
         }
 
         binding.talkRefreshView.setOnRefreshListener {
@@ -191,19 +184,19 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         searchActionModeCallback.searchActionProvider?.selectAllQueryTexts()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         if (!goToTopic) {
             menuInflater.inflate(R.menu.menu_talk, menu)
         }
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
         if (!goToTopic) {
-            menu!!.findItem(R.id.menu_change_language).isVisible = pageTitle.namespace() == Namespace.USER_TALK
-            menu.findItem(R.id.menu_read_article).isVisible = pageTitle.namespace() != Namespace.USER_TALK
-            menu.findItem(R.id.menu_view_user_page).isVisible = pageTitle.namespace() == Namespace.USER_TALK
-            menu.findItem(R.id.menu_view_user_page).title = getString(R.string.menu_option_user_page, StringUtil.removeNamespace(pageTitle.displayText))
+            menu.findItem(R.id.menu_change_language).isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
+            menu.findItem(R.id.menu_read_article).isVisible = viewModel.pageTitle.namespace() != Namespace.USER_TALK && invokeSource != Constants.InvokeSource.ARCHIVED_TALK_ACTIVITY
+            menu.findItem(R.id.menu_view_user_page).isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
+            menu.findItem(R.id.menu_view_user_page).title = getString(R.string.menu_option_user_page, StringUtil.removeNamespace(viewModel.pageTitle.displayText))
 
             val notificationMenuItem = menu.findItem(R.id.menu_notifications)
             val watchMenuItem = menu.findItem(R.id.menu_watch)
@@ -246,17 +239,21 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                 return true
             }
             R.id.menu_view_edit_history -> {
-                startActivity(EditHistoryListActivity.newIntent(this, pageTitle))
+                startActivity(EditHistoryListActivity.newIntent(this, viewModel.pageTitle))
                 return true
             }
             R.id.menu_talk_topic_share -> {
-                ShareUtil.shareText(this, getString(R.string.talk_share_talk_page), pageTitle.uri)
+                ShareUtil.shareText(this, getString(R.string.talk_share_talk_page), viewModel.pageTitle.uri)
                 return true
             }
             R.id.menu_watch -> {
                 if (AccountUtil.isLoggedIn) {
                     viewModel.watchOrUnwatch(WatchlistExpiry.NEVER, viewModel.isWatched)
                 }
+                return true
+            }
+            R.id.menu_archive -> {
+                startActivity(ArchivedTalkPagesActivity.newIntent(this, viewModel.pageTitle))
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
@@ -274,7 +271,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
     private fun resetViews() {
         invalidateOptionsMenu()
-        L10nUtil.setConditionalLayoutDirection(binding.talkContentsView, pageTitle.wikiSite.languageCode)
+        L10nUtil.setConditionalLayoutDirection(binding.talkContentsView, viewModel.pageTitle.wikiSite.languageCode)
         binding.talkProgressBar.isVisible = true
         binding.talkErrorView.isVisible = false
         binding.talkEmptyContainer.isVisible = false
@@ -282,8 +279,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnSuccess(pageTitle: PageTitle, threadItems: List<ThreadItem>) {
-        // Update page title and start the funnel
-        this.pageTitle = pageTitle
         funnel = TalkFunnel(pageTitle, invokeSource)
         setToolbarTitle(pageTitle)
 
@@ -291,7 +286,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             binding.talkRecyclerView.adapter = concatAdapter.apply {
                 addAdapter(0, headerAdapter)
                 addAdapter(1, talkTopicItemAdapter)
-                addAdapter(2, footerAdapter)
             }
         }
 
@@ -333,7 +327,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                 binding.talkNewTopicButton.isEnabled = true
                 binding.talkNewTopicButton.alpha = 1.0f
             }
-            footerAdapter.notifyItemChanged(0)
             talkTopicItemAdapter.notifyDataSetChanged()
         }
         funnel?.logOpenTalk()
@@ -365,7 +358,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnUndoSave(undoneSubject: CharSequence, undoneBody: CharSequence) {
-        requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, pageTitle, null, null, invokeSource, undoneSubject, undoneBody))
+        requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, viewModel.pageTitle, null, null, invokeSource, undoneSubject, undoneBody))
     }
 
     private fun updateOnWatch() {
@@ -377,8 +370,10 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
         binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
         binding.toolbarTitle.isVisible = !goToTopic
-        binding.toolbarTitle.movementMethod = LinkMovementMethodExt { _ ->
-            goToPage()
+        if (invokeSource != Constants.InvokeSource.ARCHIVED_TALK_ACTIVITY) {
+            binding.toolbarTitle.movementMethod = LinkMovementMethodExt { _ ->
+                goToPage()
+            }
         }
         RichTextUtil.removeUnderlinesFromLinks(binding.toolbarTitle)
         FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
@@ -396,17 +391,17 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun goToPage() {
-        val entry = HistoryEntry(getNonTalkPageTitle(pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
+        val entry = HistoryEntry(getNonTalkPageTitle(viewModel.pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
         startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
     }
 
     private fun showWatchlistSnackbar() {
         if (!viewModel.isWatched) {
-            FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, viewModel.pageTitle?.displayText))
+            FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, viewModel.pageTitle.displayText))
         } else if (viewModel.isWatched) {
             val snackbar = FeedbackUtil.makeSnackbar(this,
                 getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                    viewModel.pageTitle?.displayText,
+                    viewModel.pageTitle.displayText,
                     getString(viewModel.lastWatchExpiry.stringId)))
             if (!viewModel.watchlistExpiryChanged) {
                 snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
@@ -422,12 +417,10 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         if (actionMode == null) {
             concatAdapter.apply {
                 addAdapter(0, headerAdapter)
-                addAdapter(2, footerAdapter)
             }
         } else {
             concatAdapter.apply {
                 removeAdapter(headerAdapter)
-                removeAdapter(footerAdapter)
             }
         }
     }
@@ -465,49 +458,13 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         }
 
         fun bindItem() {
-            binding.talkLeadImageContainer.isVisible = pageTitle.namespace() != Namespace.USER_TALK
-            pageTitle.thumbUrl?.let {
-                binding.talkLeadImage.contentDescription = StringUtil.removeNamespace(pageTitle.displayText)
+            binding.talkLeadImageContainer.isVisible = viewModel.pageTitle.namespace() != Namespace.USER_TALK
+            viewModel.pageTitle.thumbUrl?.let {
+                binding.talkLeadImage.contentDescription = StringUtil.removeNamespace(viewModel.pageTitle.displayText)
                 binding.talkLeadImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
+            } ?: run {
+                binding.talkLeadImageContainer.isVisible = false
             }
-        }
-    }
-
-    private inner class FooterItemAdapter : RecyclerView.Adapter<FooterViewHolder>() {
-        override fun onBindViewHolder(holder: FooterViewHolder, position: Int) { }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FooterViewHolder {
-            return FooterViewHolder(ViewTalkTopicsFooterBinding.inflate(layoutInflater, parent, false))
-        }
-
-        override fun getItemCount(): Int { return 1 }
-    }
-
-    private inner class FooterViewHolder constructor(binding: ViewTalkTopicsFooterBinding) : RecyclerView.ViewHolder(binding.root) {
-        init {
-            // Update last modified date
-            viewModel.lastRevision?.let { revision ->
-                binding.lastModifiedText.text = StringUtil.fromHtml(getString(R.string.talk_footer_last_modified,
-                    DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
-                        System.currentTimeMillis(), 0L), revision.user))
-
-                binding.viewEditHistoryContainer.setOnClickListener {
-                    startActivity(ArticleEditDetailsActivity.newIntent(this@TalkTopicsActivity, pageTitle, revision.revId))
-                }
-            }
-
-            binding.viewPageContainer.setOnClickListener {
-                goToPage()
-            }
-
-            if (pageTitle.namespace() == Namespace.USER_TALK) {
-                binding.viewPageIcon.setImageResource(R.drawable.ic_user_avatar)
-                binding.viewPageTitle.text = getString(R.string.talk_footer_view_user_page)
-            } else {
-                binding.viewPageIcon.setImageResource(R.drawable.ic_article_ltr_ooui)
-                binding.viewPageTitle.text = getString(R.string.talk_footer_view_article)
-            }
-            binding.viewPageContent.text = StringUtil.fromHtml(StringUtil.removeNamespace(pageTitle.displayText))
         }
     }
 

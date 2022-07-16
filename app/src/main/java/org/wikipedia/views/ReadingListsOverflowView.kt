@@ -63,7 +63,7 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
             if (!it.isNullOrEmpty()) {
                 try {
                     binding.readingListsOverflowLastSync.text = context.getString(R.string.reading_list_menu_last_sync,
-                            DateUtil.getTimeAndDateString(it))
+                            DateUtil.getTimeAndDateString(context, it))
                 } catch (e: ParseException) {
                     // ignore
                 }

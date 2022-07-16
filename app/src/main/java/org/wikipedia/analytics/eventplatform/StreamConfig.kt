@@ -32,7 +32,7 @@ class StreamConfig {
     val topicPrefixes: List<String> = emptyList()
     val topics: List<String> = emptyList()
 
-    @SerialName("sampling")
+    @SerialName("sample")
     var samplingConfig: SamplingConfig? = null
 
     init {

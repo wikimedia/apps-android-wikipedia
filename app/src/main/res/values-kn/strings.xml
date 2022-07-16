@@ -39,12 +39,18 @@
   <string name="history_item_delete_undo">ರದ್ದುಗೊಳಿಸಿ</string>
   <string name="notification_archive_undo">ರದ್ದುಗೊಳಿಸಿ</string>
   <string name="history_list_title">ಇತಿಹಾಸ</string>
+  <string name="image_content_description">ಚಿತ್ರ: %s</string>
+  <string name="page_content_description">ಪುಟ: %s</string>
   <string name="dialog_title_clear_history">ಬ್ರೌಸಿಂಗ್ ಇತಿಹಾಸವನ್ನು ಅಳಿಸಿ</string>
   <string name="dialog_message_clear_history_yes">ಹೌದು</string>
   <string name="dialog_message_clear_history_no">ಇಲ್ಲ</string>
   <string name="share_via">ಮೂಲಕ ಹಂಚು</string>
   <string name="image_share_via">ಮೂಲಕ ಹಂಚು</string>
   <string name="search_redirect_from">%s ಇಂದ ಪುನರ್ನಿರ್ದೇಶಿತ</string>
+  <string name="page_edit_history_filter_by_all">ಎಲ್ಲಾ ಸಂಪಾದನೆಗಳು (%s)</string>
+  <string name="page_edit_history_filter_by_user">ಬಳಕೆದಾರರ ಸಂಪಾದನೆಗಳು (%s)</string>
+  <string name="page_edit_history_filter_by_anon">ಅನಾಮಧೇಯ ಸಂಪಾದನೆಗಳು (%s)</string>
+  <string name="page_edit_history_filter_by_bot">ಬಾಟ್ ಸಂಪಾದನೆಗಳು (%s)</string>
   <string name="menu_page_show_tabs">ಮೇಜನ್ನು ತೋರಿಸಿ</string>
   <string name="menu_page_other_languages">ಭಾಷೆ ಬದಲಾಯಿಸಿ</string>
   <string name="menu_page_find_in_page">ಲೇಖನದಲ್ಲಿ ಹುಡುಕಿ</string>
@@ -149,6 +155,7 @@
   <string name="create_account_ip_block_message">ಕ್ಷಮಿಸಿ, ಪ್ರಸ್ತುತ ನಿಮ್ಮ ಐಪಿ ವಿಳಾಸವು ಹೊಸ ಖಾತೆಯನ್ನು ರಚಿಸುವುದರಿಂದ ನಿರ್ಬಂಧಿತವಾಗಿದೆ.</string>
   <string name="create_account_ip_block_details">ವಿವರಗಳು</string>
   <string name="preferences_general_heading">ಸಾಮಾನ್ಯ</string>
+  <string name="preferences_account_heading">ಖಾತೆ</string>
   <string name="create_account_account_created_toast">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಲಾಯಿತು!</string>
   <string name="preferences_heading_experimental">ಪ್ರಾಯೋಗಿಕ</string>
   <string name="preferences_privacy_settings_heading">ಗೋಪ್ಯತೆ</string>
@@ -181,6 +188,10 @@
   <string name="edit_next">ಮುಂದೆ</string>
   <string name="edit_done">ಪ್ರಕಟಿಸು</string>
   <string name="edit_preview">ಮುನ್ನೋಟ</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s ಬೈಟ್</item>
+    <item quantity="other">%s ಬೈಟ್‌ಗಳು</item>
+  </plurals>
   <string name="edit_summary_tag_typo">ಕಾಗುಣಿತ ತಿದ್ದಿದೆ</string>
   <string name="edit_summary_tag_grammar">ವ್ಯಾಕರಣ ತಿದ್ದಿದೆ</string>
   <string name="edit_summary_tag_links">ಕೊಂಡಿಗಳನ್ನು ಸೇರಿಸಿದೆ</string>
@@ -191,6 +202,10 @@
   <string name="page_similar_titles">ಇದೇ ರೀತಿಯ ಪುಟಗಳು</string>
   <string name="search_recent_header">ಇತ್ತೀಚೆಗಿನ ಹುಡುಕಾಟಗಳು:</string>
   <string name="search_results_count_zero">ಯಾವ ಫಲಿತಾಂಶಗಳೂ ಇಲ್ಲ</string>
+  <plurals name="search_results_count">
+    <item quantity="one">೧ ಫಲಿತಾಂಶ</item>
+    <item quantity="other">%d ಫಲಿತಾಂಶಗಳು</item>
+  </plurals>
   <string name="clear_recent_searches_confirm_yes">ಹೌದು</string>
   <string name="clear_recent_searches_confirm_no">ಇಲ್ಲ</string>
   <string name="table_other">ಹೆಚ್ಚಿನ ಮಾಹಿತಿ</string>
@@ -310,16 +325,24 @@
   <string name="preference_title_notification_login_fail">ಲಾಗ್ ಇನ್</string>
   <string name="preference_summary_notification_login_fail">ನಿಮ್ಮ ಲಾಗ್ ಇನ್ ಚಟುವಟಿಕೆಗಳು</string>
   <string name="preference_title_notification_user_talk">ಚರ್ಚೆಪುಟ</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">ವಿಕಿಪೀಡಿಯ</string>
+  <string name="notifications_channel_group_other_title">ಇತರ</string>
+  <string name="notifications_tab_filter_all">ಎಲ್ಲಾ</string>
   <string name="view_featured_image_card_title">ದಿನದ ಚಿತ್ರ</string>
   <string name="view_featured_image_card_download">ಡೌನ್‍ಲೋಡ್</string>
   <string name="view_featured_image_card_share">ಹಂಚು</string>
   <string name="view_card_news_title">ಸುದ್ದಿಯಲ್ಲಿ</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">ನಿನ್ನೆ</item>
+    <item quantity="other">%d ದಿನಗಳ ಹಿಂದೆ</item>
+  </plurals>
   <string name="view_continue_reading_card_subtitle_today">ಇಂದು</string>
   <string name="view_static_card_save_button_label">ಉಳಿಸಿ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ಸರಿ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">ರದ್ದು ಮಾಡು</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ಸರಿ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ರದ್ದು ಮಾಡು</string>
+  <string name="tabs_activity_title">ಟ್ಯಾಬ್‌ಗಳು</string>
   <string name="description_edit_article_description_label">ಲೇಖನ</string>
   <string name="description_edit_save">ಪ್ರಕಟಿಸು</string>
   <string name="description_edit_read">ಓದು</string>
@@ -357,6 +380,10 @@
     <item quantity="one">ಕಾಣಿಕೆ</item>
     <item quantity="other">ಕಾಣಿಕೆಗಳು</item>
   </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d ದಿನ</item>
+    <item quantity="other">%d ದಿನಗಳು</item>
+  </plurals>
   <string name="suggested_edits_learn_more">ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ</string>
   <string name="suggested_edits_task_new">ಹೊಸ</string>
   <string name="suggested_edits_reactivation_notification_title">ಸೂಚಿಸಲ್ಪಟ್ಟ ಸಂಪಾದನೆಗಳು</string>
@@ -388,6 +415,10 @@
   <string name="this_year">ಈ ವರ್ಷ</string>
   <string name="on_this_day_dialog_next_month">ಮುಂದಿನ ತಿಂಗಳು</string>
   <string name="on_this_day_dialog_previous_month">ಹಿಂದಿನ ತಿಂಗಳು</string>
+  <plurals name="diff_years">
+    <item quantity="one">ಹಿಂದಿನ ವರ್ಷ</item>
+    <item quantity="other">%d ವರ್ಷಗಳ ಹಿಂದೆ</item>
+  </plurals>
   <string name="languages_list_activity_title">ಭಾಷೆಯನ್ನು ಸೇರಿಸಿ</string>
   <string name="languages_list_suggested_text">ಸೂಚಿಸಲ್ಪಟ್ಟ</string>
   <string name="languages_list_all_text">ಎಲ್ಲಾ ಭಾಷೆಗಳು</string>

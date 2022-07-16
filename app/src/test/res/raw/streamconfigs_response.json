@@ -13,8 +13,8 @@
         "codfw.test.event"
       ],
       "destination_event_service": "eventgate-analytics-external",
-      "sampling": {
-        "identifier": "device",
+      "sample": {
+        "unit": "device",
         "rate": 0.5
       }
     }

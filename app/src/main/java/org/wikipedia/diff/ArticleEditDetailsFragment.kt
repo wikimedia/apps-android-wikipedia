@@ -176,7 +176,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (it is Resource.Success) {
                 setLoadingState()
                 viewModel.getRevisionDetails(it.data.rollback?.revision ?: 0)
-                FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_undo_success), FeedbackUtil.LENGTH_DEFAULT).show()
+                FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_rollback_success), FeedbackUtil.LENGTH_DEFAULT).show()
                 editFunnel?.logRollbackSuccess(it.data.rollback?.revision ?: -1)
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
@@ -324,7 +324,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun updateAfterRevisionFetchSuccess() {
         if (viewModel.revisionFrom != null) {
             binding.usernameFromButton.text = viewModel.revisionFrom!!.user
-            binding.revisionFromTimestamp.text = DateUtil.getTimeAndDateString(DateUtil.iso8601DateParse(viewModel.revisionFrom!!.timeStamp))
+            binding.revisionFromTimestamp.text = DateUtil.getTimeAndDateString(requireContext(), viewModel.revisionFrom!!.timeStamp)
             binding.revisionFromEditComment.text = StringUtil.fromHtml(viewModel.revisionFrom!!.parsedcomment.trim())
             binding.revisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
             binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
@@ -343,7 +343,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         viewModel.revisionTo?.let {
             binding.usernameToButton.text = it.user
-            binding.revisionToTimestamp.text = DateUtil.getTimeAndDateString(DateUtil.iso8601DateParse(it.timeStamp))
+            binding.revisionToTimestamp.text = DateUtil.getTimeAndDateString(requireContext(), it.timeStamp)
             binding.overlayRevisionToTimestamp.text = binding.revisionToTimestamp.text
             binding.revisionToEditComment.text = StringUtil.fromHtml(it.parsedcomment.trim())
         }

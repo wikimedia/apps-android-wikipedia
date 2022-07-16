@@ -59,6 +59,14 @@ interface Service {
         @Query("gsroffset") gsrOffset: String?
     ): Observable<MwQueryResponse>
 
+    @GET(
+        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=info" +
+                "&generator=prefixsearch&inprop=varianttitles"
+    )
+    suspend fun prefixSearch(@Query("gpssearch") searchTerm: String?,
+                             @Query("gpslimit") maxResults: Int,
+                             @Query("gpsoffset") gpsOffset: Int?): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
     fun prefixSearchUsers(
             @Query("auprefix") prefix: String,
@@ -209,6 +217,12 @@ interface Service {
 
     @get:GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
     val userInfo: Observable<MwQueryResponse>
+
+    @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights")
+    suspend fun userInfo(@Query("ususers") userName: String): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&meta=globaluserinfo&guiprop=editcount|groups|rights")
+    suspend fun globalUserInfo(@Query("guiuser") userName: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=rights")
     suspend fun userRights(): MwQueryResponse
