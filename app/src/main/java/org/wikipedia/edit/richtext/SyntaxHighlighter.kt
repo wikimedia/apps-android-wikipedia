@@ -29,7 +29,6 @@ class SyntaxHighlighter(
             SyntaxRule("[[", "]]", SyntaxRuleStyle.INTERNAL_LINK),
             SyntaxRule("[", "]", SyntaxRuleStyle.EXTERNAL_LINK),
             SyntaxRule("<", ">", SyntaxRuleStyle.REF),
-            SyntaxRule("'''''", "'''''", SyntaxRuleStyle.BOLD_ITALIC),
             SyntaxRule("'''", "'''", SyntaxRuleStyle.BOLD),
             SyntaxRule("''", "''", SyntaxRuleStyle.ITALIC),
             SyntaxRule("=====", "=====", SyntaxRuleStyle.HEADING_SMALL),
@@ -133,74 +132,60 @@ class SyntaxHighlighter(
             var i = 0
             while (i < textChars.size) {
                 var newSpanInfo: SpanExtents
-                var incrementDone = false
-                for (syntaxItem in syntaxRules) {
-                    if (i + syntaxItem.startChars.size > textChars.size) {
+                var completed = false
+
+                for (rule in syntaxRules) {
+                    if (i + rule.endChars.size > textChars.size) {
                         continue
                     }
-                    if (syntaxItem.isStartEndSame) {
-                        var pass = true
-                        for (j in 0 until syntaxItem.startChars.size) {
-                            if (textChars[i + j] != syntaxItem.startChars[j]) {
-                                pass = false
-                                break
-                            }
+                    var pass = true
+                    for (j in 0 until rule.endChars.size) {
+                        if (textChars[i + j] != rule.endChars[j]) {
+                            pass = false
+                            break
                         }
-                        if (pass) {
-                            if (spanStack.size > 0 && spanStack.peek().syntaxRule == syntaxItem) {
-                                newSpanInfo = spanStack.pop()
-                                newSpanInfo.end = i + syntaxItem.startChars.size
-                                spansToSet.add(newSpanInfo)
-                            } else {
-                                val sp = syntaxItem.spanStyle.createSpan(context, i, syntaxItem)
-                                spanStack.push(sp)
-                            }
-                            i += syntaxItem.startChars.size
-                            incrementDone = true
-                        }
-                    } else {
-                        var pass = true
-                        for (j in 0 until syntaxItem.startChars.size) {
-                            if (textChars[i + j] != syntaxItem.startChars[j]) {
-                                pass = false
-                                break
-                            }
-                        }
-                        if (pass) {
-                            val sp = syntaxItem.spanStyle.createSpan(context, i, syntaxItem)
-                            spanStack.push(sp)
-                            i += syntaxItem.startChars.size
-                            incrementDone = true
-                        }
-                        // skip the check of end symbol when start symbol is found at end of the text
-                        if (i + syntaxItem.startChars.size > textChars.size) {
-                            continue
-                        }
-                        pass = true
-                        for (j in 0 until syntaxItem.endChars.size) {
-                            if (textChars[i + j] != syntaxItem.endChars[j]) {
-                                pass = false
-                                break
-                            }
-                        }
-                        if (pass) {
-                            if (spanStack.size > 0 && spanStack.peek().syntaxRule == syntaxItem) {
-                                newSpanInfo = spanStack.pop()
-                                newSpanInfo.end = i + syntaxItem.endChars.size
-                                spansToSet.add(newSpanInfo)
-                            }
-                            i += syntaxItem.endChars.size
-                            incrementDone = true
+                    }
+                    if (pass) {
+                        val sr = spanStack.find { it.syntaxRule == rule }
+                        if (sr != null) {
+                            newSpanInfo = sr
+                            spanStack.remove(sr)
+                            newSpanInfo.end = i + rule.endChars.size
+                            spansToSet.add(newSpanInfo)
+                            i += rule.endChars.size - 1
+                            completed = true
+                            break
                         }
                     }
                 }
-                if (cancelled) {
-                    break
+
+                if (!completed) {
+                    for (rule in syntaxRules) {
+                        if (i + rule.startChars.size > textChars.size) {
+                            continue
+                        }
+                        var pass = true
+                        for (j in 0 until rule.startChars.size) {
+                            if (textChars[i + j] != rule.startChars[j]) {
+                                pass = false
+                                break
+                            }
+                        }
+                        if (pass) {
+                            val sp = rule.spanStyle.createSpan(context, i, rule)
+                            spanStack.push(sp)
+                            i += rule.startChars.size - 1
+                            break
+                        }
+                    }
+                    if (cancelled) {
+                        break
+                    }
                 }
-                if (!incrementDone) {
-                    i++
-                }
+
+                i++
             }
+            spansToSet.sortWith { a, b -> a.syntaxRule.spanStyle.compareTo(b.syntaxRule.spanStyle) }
             return spansToSet
         }
     }

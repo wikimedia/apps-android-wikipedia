@@ -26,6 +26,7 @@
 * Patriccck
 * Patrik L.
 * Robins7
+* Spotter
 * Tereza
 * Vojtěch Dostál
 * Walter Klosse
@@ -74,6 +75,8 @@
   <string name="share_via">Sdílet přes</string>
   <string name="image_share_via">Sdílet přes</string>
   <string name="search_redirect_from">Přesměrováno z %s</string>
+  <string name="page_edit_history_activity_title">Historie revizí: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="menu_page_show_tabs">Ukázat záložky</string>
   <string name="menu_page_other_languages">Změnit jazyk</string>
   <string name="menu_page_find_in_page">Najít v článku</string>

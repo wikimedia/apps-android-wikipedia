@@ -3,7 +3,6 @@ package org.wikipedia.page
 import android.view.Gravity
 import android.view.View
 import org.wikipedia.R
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil.dpToPx
 import org.wikipedia.util.DimenUtil.getDimension
 import org.wikipedia.views.ObservableWebView
@@ -14,7 +13,8 @@ import org.wikipedia.views.ViewAnimations.ensureTranslationY
 class ViewHideHandler(private val hideableView: View,
                       private val anchoredView: View?,
                       private val gravity: Int,
-                      private val updateElevation: Boolean = true) :
+                      private val updateElevation: Boolean = true,
+                      private val shouldAlwaysShow: () -> Boolean) :
         ObservableWebView.OnScrollChangeListener, OnUpOrCancelMotionEventListener, OnDownMotionEventListener, ObservableWebView.OnClickListener {
 
     private lateinit var webView: ObservableWebView
@@ -38,7 +38,7 @@ class ViewHideHandler(private val hideableView: View,
         if (!enabled) {
             return
         }
-        if (gravity == Gravity.TOP && Prefs.toolbarTooltipVisible) {
+        if (gravity == Gravity.TOP && shouldAlwaysShow()) {
             ensureDisplayed()
             return
         }

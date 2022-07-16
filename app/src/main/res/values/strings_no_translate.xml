@@ -17,25 +17,6 @@
     <string name="prov_share_text">sfta1</string>
     <string name="prov_share_link">sfla1</string>
 
-    <!-- Search -->
-    <string name="intent_share_search_label">@string/search_hint</string>
-
-    <!-- Long press menu -->
-    <string name="menu_long_press_share_page">@string/menu_page_share</string>
-    <string name="menu_long_press_add_to_list">@string/menu_page_add_to_list</string>
-    <string name="menu_long_press_add_to_default_list">@string/menu_page_add_to_default_list</string>
-
-    <!-- Link preview menu -->
-    <string name="menu_link_preview_copy_link">@string/menu_long_press_copy_page</string>
-    <string name="menu_link_preview_share_page">@string/menu_page_share</string>
-    <string name="menu_link_preview_add_to_list">@string/menu_page_add_to_list</string>
-    <string name="menu_link_preview_add_to_default_list">@string/menu_page_add_to_default_list</string>
-
-    <!-- The Feed -->
-    <string name="nav_item_feed">@string/feed</string>
-    <string name="feed_undo_dismiss_card">@string/reading_list_item_delete_undo</string>
-    <!-- /The Feed -->
-
     <!-- Find in page -->
     <string name="find_in_page_result">%1$d/%2$d</string>
 
@@ -53,9 +34,6 @@
     ]]></string>
     <!-- /Description editing -->
 
-    <!-- Bullet Point -->
-    <string name="reading_lists_onboarding_bullet_point">\u2022 &#160;&#160;&#160;</string>
-
     <!-- Transition names -->
     <string name="transition_news_item">newsItemTransition</string>
     <string name="transition_search_bar">searchBarTransition</string>
@@ -71,7 +49,6 @@
     <string name="text_size_percent">%d%%</string>
     <string name="onboarding_option_string">%1$s.\t\t%2$s</string>
     <string name="language_data">multilingual</string>
-    <string name="empty" />
     <string name="suggested_edits_image_file_page_commons_link">https://commons.wikimedia.org/wiki/%s</string>
     <string name="page_moved">move</string>
     <string name="page_deleted">delete</string>
@@ -84,18 +61,4 @@
     <!-- Tag ids for SwipeableItemTouchHelper -->
     <string name="tag_icon_key">tagIconKey</string>
     <string name="tag_text_key">tagTextKey</string>
-
-    <!-- Breadcrumbs -->
-    <string name="breadcrumb_view_with_position">%s item %d</string>
-    <string name="breadcrumb_view_click">%s click</string>
-    <string name="breadcrumb_view_long_click">%s long click</string>
-    <string name="breadcrumb_switch_view_click">%s turn %s</string>
-    <string name="breadcrumb_switch_view_state_on">on</string>
-    <string name="breadcrumb_switch_view_state_off">off</string>
-    <string name="breadcrumb_screen_shown">shown</string>
-    <string name="breadcrumb_screen_back_press">back press</string>
-    <string name="breadcrumb_screen_swiped_to">swiped to</string>
-    <string name="breadcrumb_screen_fragment_name">%s screen %s</string>
-    <string name="breadcrumb_view_unnamed">unnamed</string>
-    <string name="breadcrumb_tooltip_shown_on_view">tooltip shown on %s</string>
 </resources>

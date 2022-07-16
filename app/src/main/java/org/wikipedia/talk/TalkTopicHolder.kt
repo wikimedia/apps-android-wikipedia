@@ -16,7 +16,6 @@ import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.page.Namespace
-import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.*
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
@@ -26,14 +25,13 @@ import java.util.*
 class TalkTopicHolder internal constructor(
         private val binding: ItemTalkTopicBinding,
         private val context: Context,
-        private val pageTitle: PageTitle,
         private val viewModel: TalkTopicsViewModel,
         private val invokeSource: Constants.InvokeSource
 ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
 
     private lateinit var threadItem: ThreadItem
 
-    fun bindItem(item: ThreadItem, position: Int) {
+    fun bindItem(item: ThreadItem) {
         item.seen = viewModel.topicSeen(item)
         threadItem = item
         binding.topicTitleText.text = RichTextUtil.stripHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }
@@ -50,20 +48,34 @@ class TalkTopicHolder internal constructor(
             itemView.setTag(R.string.tag_icon_key, R.drawable.ic_outline_email_24)
         }
 
+        binding.topicOverflowMenu.setOnClickListener {
+            showOverflowMenu(it)
+        }
+
         val allReplies = threadItem.allReplies
 
         if (allReplies.isEmpty()) {
-            binding.topicContentText.isVisible = false
             binding.topicUserIcon.isVisible = false
             binding.topicUsername.isVisible = false
             binding.topicReplyIcon.isVisible = false
             binding.topicReplyNumber.isVisible = false
             binding.topicLastCommentDate.isVisible = false
+            binding.topicContentText.isVisible = false
+            val isHeaderTemplate = TalkTopicActivity.isHeaderTemplate(threadItem)
+            binding.otherContentText.isVisible = isHeaderTemplate
+            binding.topicOverflowMenu.isVisible = !isHeaderTemplate
+            binding.topicTitleText.isVisible = !isHeaderTemplate
+            if (isHeaderTemplate) {
+                binding.otherContentText.text = RichTextUtil.stripHtml(StringUtil.removeStyleTags(threadItem.othercontent)).trim().replace("\n", " ")
+                StringUtil.highlightAndBoldenText(binding.otherContentText, viewModel.currentSearchQuery, true, Color.YELLOW)
+            }
             return
         }
+        binding.topicTitleText.isVisible = true
+        binding.otherContentText.isVisible = false
 
         // Last comment
-        binding.topicContentText.isVisible = pageTitle.namespace() == Namespace.USER_TALK
+        binding.topicContentText.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
         binding.topicContentText.text = RichTextUtil.stripHtml(allReplies.last().html).trim().replace("\n", " ")
         binding.topicContentText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_text_color))
         StringUtil.highlightAndBoldenText(binding.topicContentText, viewModel.currentSearchQuery, true, Color.YELLOW)
@@ -73,8 +85,8 @@ class TalkTopicHolder internal constructor(
         val usernameText = allReplies.maxByOrNull { it.date ?: Date() }?.author.orEmpty() + (if (usersInvolved > 1) " +$usersInvolved" else "")
         val usernameColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.colorAccent
         binding.topicUsername.text = usernameText
-        binding.topicUserIcon.isVisible = pageTitle.namespace() == Namespace.USER_TALK
-        binding.topicUsername.isVisible = pageTitle.namespace() == Namespace.USER_TALK
+        binding.topicUserIcon.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
+        binding.topicUsername.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
         binding.topicUsername.setTextColor(ResourceUtil.getThemedColor(context, usernameColor))
         ImageViewCompat.setImageTintList(binding.topicUserIcon, ResourceUtil.getThemedColorStateList(context, usernameColor))
         StringUtil.highlightAndBoldenText(binding.topicUsername, viewModel.currentSearchQuery, true, Color.YELLOW)
@@ -89,25 +101,24 @@ class TalkTopicHolder internal constructor(
         ImageViewCompat.setImageTintList(binding.topicReplyIcon, ResourceUtil.getThemedColorStateList(context, replyNumberColor))
 
         // Last comment date
-        val lastCommentDate = allReplies.mapNotNull { it.date }.maxOrNull()?.run { DateUtil.getDateAndTime(this) }
+        val lastCommentDate = allReplies.mapNotNull { it.date }.maxOrNull()?.run { DateUtil.getDateAndTime(context, this) }
         val lastCommentColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.secondary_text_color
         binding.topicLastCommentDate.text = context.getString(R.string.talk_list_item_last_comment_date, lastCommentDate)
         binding.topicLastCommentDate.isVisible = lastCommentDate != null
         binding.topicLastCommentDate.setTextColor(ResourceUtil.getThemedColor(context, lastCommentColor))
-
-        // Overflow menu
-        binding.topicOverflowMenu.setOnClickListener {
-            showOverflowMenu(it)
-        }
     }
 
     override fun onClick(v: View?) {
         markAsSeen(true)
-        context.startActivity(TalkTopicActivity.newIntent(context, pageTitle, threadItem.name, null, viewModel.currentSearchQuery, invokeSource))
+        context.startActivity(TalkTopicActivity.newIntent(context, viewModel.pageTitle, threadItem.name, threadItem.id, null, viewModel.currentSearchQuery, invokeSource))
     }
 
     override fun onSwipe() {
         markAsSeen()
+    }
+
+    override fun isSwipeable(): Boolean {
+        return !TalkTopicActivity.isHeaderTemplate(threadItem)
     }
 
     private fun markAsSeen(force: Boolean = false) {
@@ -134,7 +145,7 @@ class TalkTopicHolder internal constructor(
 
                 override fun shareClick() {
                     ShareUtil.shareText(context, context.getString(R.string.talk_share_discussion_subject,
-                        threadItem.html.ifEmpty { context.getString(R.string.talk_no_subject) }), pageTitle.uri + "#" + StringUtil.addUnderscores(threadItem.html))
+                        threadItem.html.ifEmpty { context.getString(R.string.talk_no_subject) }), viewModel.pageTitle.uri + "#" + StringUtil.addUnderscores(threadItem.html))
                 }
             })
         }
