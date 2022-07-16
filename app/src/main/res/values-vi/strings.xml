@@ -136,7 +136,7 @@
   <string name="dialog_message_leaving_edit_stay">Ở lại</string>
   <string name="menu_show_toc">Mục lục</string>
   <string name="search_no_results_found">Không tìm thấy kết quả</string>
-  <string name="search_reading_list_no_results">Không tìm thấy kết quả trong \"%s\"</string>
+  <string name="search_reading_list_no_results">Không tìm thấy kết quả trong “%s”</string>
   <string name="search_reading_lists_no_results">Không tìm thấy kết quả trong danh sách đọc</string>
   <string name="search_history_no_results">Không tìm thấy kết quả trong lịch sử</string>
   <string name="edit_section_captcha_message">Để giúp tránh các sửa đổi spam tự động, xin vui lòng nhập các từ xuất hiện ở dưới</string>
@@ -199,7 +199,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">Bỏ qua việc cung cấp địa chỉ thư điện tử</string>
   <string name="email_recommendation_dialog_create_with_email_action">Đặt địa chỉ thư điện tử</string>
   <string name="create_account_button">Mở tài khoản</string>
-  <string name="create_account_name_unavailable">Tên người dùng \"%s\" không sẵn có. Xin hãy chọn một cái tên khác.</string>
+  <string name="create_account_name_unavailable">Tên người dùng “%s” không sẵn có. Xin hãy chọn một cái tên khác.</string>
   <string name="create_account_ip_block_message">Đáng tiếc, địa chỉ IP của bạn hiện đang được cấm không được mở tài khoản mới.</string>
   <string name="create_account_ip_block_help_url">https://vi.wikipedia.org/wiki/Trợ_giúp:Tôi_đã_bị_cấm</string>
   <string name="create_account_ip_block_details">Chi tiết</string>
@@ -318,7 +318,7 @@
   <string name="preference_summary_show_images">Bật/tắt việc tải các hình ảnh trong trang. Tắt hình ảnh nếu có kết nối mạng chậm hoặc dữ liệu bị hạn chế.</string>
   <string name="preference_title_download_only_over_wifi">Chỉ tải xuống qua Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Bạn có chắc chắn muốn tải về qua dữ liệu di động?</string>
-  <string name="dialog_text_download_only_over_wifi">Bạn đã bật \"Chỉ tải xuống qua Wi-Fi\" trong tùy chọn. Bạn có muốn cho phép sử dụng dữ liệu di động cho tác vụ tải về này nói riêng?</string>
+  <string name="dialog_text_download_only_over_wifi">Bạn đã bật “Chỉ tải xuống qua Wi-Fi” trong tùy chọn. Bạn có muốn cho phép sử dụng dữ liệu di động cho tác vụ tải về này nói riêng?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Cho phép</string>
   <string name="read_more_section">Đọc tiếp</string>
   <string name="about_article_section">Thông tin về bài viết</string>
@@ -466,7 +466,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d trên 1 bài có sẵn ngoại tuyến, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d trên %2$d bài có sẵn ngoại tuyến, %3$.2f MB</string>
   <string name="reading_list_sort">Sắp xếp</string>
-  <string name="reading_list_sort_ellipsis">Sắp xếp theo...</string>
+  <string name="reading_list_sort_ellipsis">Sắp xếp theo…</string>
   <string name="reading_list_sort_by_name">Sắp xếp theo tên</string>
   <string name="reading_list_sort_by_name_desc">Sắp xếp theo tên (ngược)</string>
   <string name="reading_list_sort_by_recent">Sắp xếp theo ngày được thêm (mới nhất)</string>
@@ -764,7 +764,7 @@
   <string name="description_edit_voice_input_description">Dữ liệu giọng nói đầu vào.</string>
   <string name="description_too_short">Văn bản quá ngắn.</string>
   <string name="description_ends_with_punctuation">Văn bản không được kết thúc bằng dấu chấm câu.</string>
-  <string name="description_starts_with_article">Không bắt đầu với các bài viết bằng \"a\" hoặc \"the\".</string>
+  <string name="description_starts_with_article">Không bắt đầu với các loại từ như “cái”, “chiếc”, …</string>
   <string name="description_starts_with_uppercase">Bắt đầu bằng một chữ cái thường trừ khi từ đầu tiên là danh từ riêng.</string>
   <string name="description_starts_with_lowercase">Tránh chữ hoa ở đầu lời tóm lược.</string>
   <string name="description_is_in_different_language">Văn bản có vẻ bằng một ngôn ngữ sai. Ngôn ngữ phải là %s.</string>

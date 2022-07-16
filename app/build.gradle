@@ -25,7 +25,7 @@ def computeVersionName(label) {
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 32
 
     compileOptions {
         sourceCompatibility = JAVA_VERSION
@@ -39,8 +39,8 @@ android {
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdkVersion 21
-        targetSdkVersion 31
-        versionCode 50403
+        targetSdkVersion 32
+        versionCode 50413
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -78,11 +78,7 @@ android {
         dev { java.srcDirs += 'src/extra/java' }
         custom { java.srcDirs += 'src/extra/java' }
 
-        test {
-            java.srcDirs += 'src/testlib/java'
-        }
         androidTest {
-            java.srcDirs += 'src/testlib/java'
             assets.srcDirs += files("$projectDir/schemas".toString())
         }
     }
@@ -184,8 +180,8 @@ dependencies {
     String mockitoVersion = '3.4.0'
     String leakCanaryVersion = '2.8.1'
     String kotlinCoroutinesVersion = '1.3.9'
-    String firebaseMessagingVersion = '23.0.4'
-    String mlKitVersion = '17.0.3'
+    String firebaseMessagingVersion = '23.0.6'
+    String mlKitVersion = '17.0.4'
     String roomVersion = "2.4.2"
     String espressoVersion = '3.4.0'
     String serialization_version = '1.2.1'
@@ -195,12 +191,12 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version"
 
-    implementation "com.google.android.material:material:1.6.0"
-    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation "com.google.android.material:material:1.6.1"
+    implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation "androidx.collection:collection-ktx:1.2.0"
-    implementation "androidx.core:core-ktx:1.7.0"
+    implementation "androidx.core:core-ktx:1.8.0"
     implementation "androidx.browser:browser:1.4.0"
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation "androidx.fragment:fragment-ktx:1.4.1"
     implementation "androidx.paging:paging-runtime-ktx:3.1.1"
     implementation "androidx.palette:palette-ktx:1.0.0"

@@ -75,7 +75,8 @@ class ContributionDetailsFragment : Fragment() {
         } else {
             ViewUtil.loadImageWithRoundedCorners(binding.contributionImage, contribution.imageUrl)
         }
-        binding.dateTimeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_date_time_label), DateUtil.getTimeAndDateString(contribution.date), -1)
+        binding.dateTimeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_date_time_label),
+            DateUtil.getTimeAndDateString(requireContext(), contribution.date), -1)
         setTypeSpecificData()
     }
 
@@ -110,7 +111,7 @@ class ContributionDetailsFragment : Fragment() {
                 else resources.getQuantityString(R.plurals.suggested_edits_added_contribution_label, contribution.sizeDiff, contribution.sizeDiff)
                 binding.pageViewsDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_views, getString(R.string.suggested_edits_contribution_article_label)),
                         contribution.pageViews.toString(), R.drawable.ic_trending_up_black_24dp)
-                binding.typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.description_edit_text_hint), R.drawable.ic_article_description)
+                binding.typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.description_edit_text_hint), R.drawable.ic_article_ltr_ooui)
                 binding.languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.instance.languageState.getAppLanguageCanonicalName(contribution.wikiSite.languageCode))
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
@@ -132,7 +133,7 @@ class ContributionDetailsFragment : Fragment() {
                 binding.contributionCategory.text = getString(R.string.suggested_edits_contribution_article_label)
                 binding.contributionDiffText.text = if (contribution.sizeDiff < 0) resources.getQuantityString(R.plurals.suggested_edits_removed_contribution_label, abs(contribution.sizeDiff), abs(contribution.sizeDiff))
                 else resources.getQuantityString(R.plurals.suggested_edits_added_contribution_label, contribution.sizeDiff, contribution.sizeDiff)
-                binding.typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.suggested_edits_contribution_article_label), R.drawable.ic_article_description)
+                binding.typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.suggested_edits_contribution_article_label), R.drawable.ic_article_ltr_ooui)
                 binding.pageViewsDetailView.setLabelAndDetail()
                 binding.languageDetailView.setLabelAndDetail()
             }

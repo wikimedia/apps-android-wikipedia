@@ -70,10 +70,10 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         binding.profileImage.visibility = if (binding.userNameText.isVisible) View.VISIBLE else View.INVISIBLE
         binding.timeStampText.isVisible = item.date != null
         item.date?.let {
-            binding.timeStampText.text = DateUtil.getTimeAndDateString(it)
+            binding.timeStampText.text = DateUtil.getTimeAndDateString(context, it)
             StringUtil.highlightAndBoldenText(binding.timeStampText, searchQuery, true, Color.YELLOW)
         }
-        binding.bodyText.text = StringUtil.fromHtml(item.html).trim()
+        binding.bodyText.text = StringUtil.fromHtml(StringUtil.removeStyleTags(item.html)).trim()
         RichTextUtil.removeUnderlinesFromLinks(binding.bodyText)
         StringUtil.highlightAndBoldenText(binding.bodyText, searchQuery, true, Color.YELLOW)
         binding.bodyText.movementMethod = movementMethod
@@ -89,14 +89,14 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
             return
         }
 
-        if (item.level > 1) {
-            binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_22)
-            binding.replyButton.iconTint = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
-            binding.replyButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
-        } else {
+        if (item.isFirstTopLevel) {
             binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
             binding.replyButton.iconTint = ColorStateList.valueOf(Color.WHITE)
             binding.replyButton.setTextColor(Color.WHITE)
+        } else {
+            binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_22)
+            binding.replyButton.iconTint = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
+            binding.replyButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
         }
 
         binding.topDivider.isVisible = item.level <= 2
@@ -137,7 +137,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
                     true
                 }
                 R.id.menu_copy_text -> {
-                    ClipboardUtil.setPlainText(context, text = StringUtil.fromHtml(item.html))
+                    ClipboardUtil.setPlainText(context, text = StringUtil.fromHtml(StringUtil.removeStyleTags(item.html)))
                     FeedbackUtil.showMessage(context as Activity, R.string.text_copied)
                     true
                 }

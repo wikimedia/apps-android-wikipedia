@@ -222,6 +222,7 @@
   <string name="edit_preview">Kucken ouni ze späicheren</string>
   <string name="edit_undo">Réckgängeg maachen</string>
   <string name="edit_redo">Widderhuelen</string>
+  <string name="edit_rollback">Zrécksetzen</string>
   <string name="edit_zoom_in">Vergréisseren</string>
   <string name="edit_zoom_out"> Verklengeren</string>
   <string name="edit_summary_tag_typo">Tippfeeler verbessert</string>
@@ -753,6 +754,8 @@
   <string name="revision_diff_paragraph_removed">Abschnitt ewechgeholl</string>
   <string name="revision_undo_title">Ännerung zrécksetzen</string>
   <string name="revision_undo_success">D\'Versioun gouf réckgängeg gemaach.</string>
+  <string name="revision_rollback_dialog_title">Sidd Dir sécher datt Dir dës Ännerungen zrécksetze wëllt?</string>
+  <string name="revision_rollback_success">Ännerung zréckgesat.</string>
   <string name="revision_compare_button">Vergläichen</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Änneren</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
@@ -775,4 +778,5 @@
   <string name="category_tab_articles">Artikelen</string>
   <string name="category_tab_subcategories">Ënnerkategorien</string>
   <string name="category_empty">Keng Artikelen an dëser Kategorie fonnt.</string>
+  <string name="search_namespaces">Nummraim</string>
 </resources>

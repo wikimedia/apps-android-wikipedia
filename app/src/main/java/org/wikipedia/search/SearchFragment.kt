@@ -168,6 +168,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             binding.searchLanguageScrollViewContainer.visibility = View.GONE
             binding.searchLangButtonContainer.visibility = View.VISIBLE
             initLangButton()
+            recentSearchesFragment.onLangCodeChanged()
         }
     }
 
@@ -202,6 +203,10 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     override fun onAddLanguageClicked() {
         onLangButtonClick()
+    }
+
+    override fun getLangCode(): String {
+        return searchLanguageCode
     }
 
     override fun setSearchText(text: CharSequence) {
@@ -355,6 +360,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         }
         searchLanguageCode = selectedLanguageCode
         searchResultsFragment.setLayoutDirection(searchLanguageCode)
+        recentSearchesFragment.onLangCodeChanged()
         startSearch(query, true)
     }
 

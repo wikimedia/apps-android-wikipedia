@@ -94,20 +94,24 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, datePattern)
     }
 
-    fun getShortDayWithTimeString(date: Date): String {
-        return getDateStringWithSkeletonPattern(date, "MMM d HH:mm")
+    fun getShortDayWithTimeString(context: Context, dateStr: String): String {
+        val datePattern = if (DateFormat.is24HourFormat(context)) "MMM d HH:mm" else "MMM d hh:mm a"
+        return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), datePattern)
     }
 
-    fun getTimeAndDateString(date: Date): String {
-        return getDateStringWithSkeletonPattern(date, "HH:mm, MMM d, yyyy")
+    fun getTimeAndDateString(context: Context, date: Date): String {
+        val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm, MMM d, yyyy" else "hh:mm a, MMM d, yyyy"
+        return getDateStringWithSkeletonPattern(date, datePattern)
     }
 
-    fun getTimeAndDateString(dateStr: String): String {
-        return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "HH:mm, MMM d, yyyy")
+    fun getTimeAndDateString(context: Context, dateStr: String): String {
+        val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm, MMM d, yyyy" else "hh:mm a, MMM d, yyyy"
+        return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), datePattern)
     }
 
-    fun getDateAndTime(date: Date): String {
-        return getCachedDateFormat("MMM d, yyyy, HH:mm", Locale.getDefault(), false).format(date)
+    fun getDateAndTime(context: Context, date: Date): String {
+        val datePattern = if (DateFormat.is24HourFormat(context)) "MMM d, yyyy, HH:mm" else "MMM d, yyyy, hh:mm a"
+        return getCachedDateFormat(datePattern, Locale.getDefault(), false).format(date)
     }
 
     @Synchronized

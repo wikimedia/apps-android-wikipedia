@@ -11,7 +11,6 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.edit.Edit
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
@@ -24,7 +23,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.TalkTopicsSortOverflowView
 import org.wikipedia.watchlist.WatchlistExpiry
 
-class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : ViewModel() {
+class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boolean) : ViewModel() {
 
     private val talkPageDao = AppDatabase.instance.talkPageSeenDao()
     private val handler = CoroutineExceptionHandler { _, throwable ->
@@ -35,9 +34,9 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
     }
 
     private val watchlistFunnel = WatchlistFunnel()
-    private var resolveTitleRequired = false
     val threadItems = mutableListOf<ThreadItem>()
     var sortedThreadItems = listOf<ThreadItem>()
+    var lastRevision: MwQueryPage.Revision? = null
     var watchlistExpiryChanged = false
     var isWatched = false
     var hasWatchlistExpiry = false
@@ -61,13 +60,9 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
     }
 
     fun loadTopics() {
-        if (pageTitle == null) {
-            return
-        }
-        val pageTitle = pageTitle?.copy()!!
-
         // Determine whether we need to resolve the PageTitle, since the calling activity might
         // have given us a non-Talk page, and we need to prepend the correct namespace.
+        var resolveTitleRequired = false
         if (pageTitle.namespace.isEmpty()) {
             pageTitle.namespace = TalkAliasData.valueFor(pageTitle.wikiSite.languageCode)
         } else if (pageTitle.isUserPage) {
@@ -109,20 +104,22 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
 
             threadItems.clear()
             threadItems.addAll(discussionToolsInfoResponse.await().pageInfo?.threads ?: emptyList())
+            lastRevision = lastModifiedResponse.await().query?.firstPage()?.revisions?.firstOrNull()
             sortAndFilterThreadItems()
 
             isWatched = watchStatus.watched
             hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
 
-            uiState.value = UiState.LoadTopic(pageTitle, threadItems, lastModifiedResponse.await())
+            uiState.value = UiState.LoadTopic(pageTitle, threadItems)
         }
     }
 
+    fun updatePageTitle(pageTitle: PageTitle) {
+        this.pageTitle = pageTitle.copy()
+        loadTopics()
+    }
+
     fun undoSave(newRevisionId: Long, undoneSubject: CharSequence, undoneBody: CharSequence) {
-        if (pageTitle == null) {
-            return
-        }
-        val pageTitle = pageTitle!!
         viewModelScope.launch(editHandler) {
             val token = withContext(Dispatchers.IO) {
                 CsrfTokenClient.getToken(pageTitle.wikiSite).blockingFirst()
@@ -151,14 +148,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
     }
 
     private fun threadSha(threadItem: ThreadItem?): String? {
-        return threadItem?.let { it.name + "|" + it.allReplies.map { reply -> reply.timestamp }.maxOrNull() }
+        return threadItem?.let { it.id + "|" + it.allReplies.map { reply -> reply.timestamp }.maxOrNull() }
     }
 
     fun subscribeTopic(commentName: String, subscribed: Boolean) {
-        if (pageTitle == null) {
-            return
-        }
-        val pageTitle = pageTitle!!
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
             val token = withContext(Dispatchers.IO) {
                 CsrfTokenClient.getToken(pageTitle.wikiSite).blockingFirst()
@@ -188,25 +181,26 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
                 threadItems.sortBy { it.replies.lastOrNull()?.date }
             }
         }
-        sortedThreadItems = threadItems.filter { it.html.contains(currentSearchQuery.orEmpty(), true) ||
-                it.allReplies.any { reply -> reply.html.contains(currentSearchQuery.orEmpty(), true) ||
+
+        // Regardless of sort order, always put header template at the top, if we have one.
+        val headerItem = threadItems.find { it.othercontent.isNotEmpty() && TalkTopicActivity.isHeaderTemplate(it) }
+        if (headerItem != null) {
+            threadItems.remove(headerItem)
+            threadItems.add(0, headerItem)
+        }
+
+        sortedThreadItems = threadItems.filter { it.plainText.contains(currentSearchQuery.orEmpty(), true) ||
+                it.plainOtherContent.contains(currentSearchQuery.orEmpty(), true) ||
+                it.allReplies.any { reply -> reply.plainText.contains(currentSearchQuery.orEmpty(), true) ||
                         reply.author.contains(currentSearchQuery.orEmpty(), true) } }
     }
 
     suspend fun isSubscribed(commentName: String): Boolean {
-        if (pageTitle == null) {
-            return false
-        }
-        val pageTitle = pageTitle!!
         val response = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(commentName)
         return response.subscriptions[commentName] == 1
     }
 
     fun watchOrUnwatch(expiry: WatchlistExpiry, unwatch: Boolean) {
-        if (pageTitle == null) {
-            return
-        }
-        val pageTitle = pageTitle!!
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
             withContext(Dispatchers.IO) {
                 if (expiry != WatchlistExpiry.NEVER) {
@@ -244,18 +238,17 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?, var sidePanel: Boolean) : V
         }
     }
 
-    class Factory(private val pageTitle: PageTitle?, private val sidePanel: Boolean = false) : ViewModelProvider.Factory {
+    class Factory(private val pageTitle: PageTitle, private val sidePanel: Boolean = false) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return TalkTopicsViewModel(pageTitle, sidePanel) as T
+            return TalkTopicsViewModel(pageTitle.copy(), sidePanel) as T
         }
     }
 
     open class UiState {
         data class UpdateNamespace(val pageTitle: PageTitle) : UiState()
         data class LoadTopic(val pageTitle: PageTitle,
-                             val threadItems: List<ThreadItem>,
-                             val lastModifiedResponse: MwQueryResponse) : UiState()
+                             val threadItems: List<ThreadItem>) : UiState()
         data class LoadError(val throwable: Throwable) : UiState()
         data class UndoEdit(val edit: Edit, val undoneSubject: CharSequence, val undoneBody: CharSequence) : UiState()
         data class DoWatch(val isWatched: Boolean, val hasWatchlistExpiry: Boolean) : UiState()

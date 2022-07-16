@@ -80,6 +80,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private val listDialogDismissListener = DialogInterface.OnDismissListener { pageFragment.updateBookmarkAndMenuOptionsFromDao() }
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
+    private var isTooltipShowing = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -122,11 +123,12 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             TabActivity.captureFirstTabBitmap(pageFragment.containerView, pageFragment.title?.prefixedText.orEmpty())
             startActivityForResult(TabActivity.newIntentFromPageActivity(this), Constants.ACTIVITY_REQUEST_BROWSE_TABS)
         }
-        toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP)
+        toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP) { isTooltipShowing }
         FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
         binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
             pageFragment.showOverflowMenu(it)
             pageFragment.articleInteractionEvent?.logMoreClick()
+            Prefs.showOneTimeCustomizeToolbarTooltip = false
         }
 
         binding.pageToolbarButtonNotifications.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
@@ -669,20 +671,20 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             FeedbackUtil.getTooltip(
                 this,
                 getString(R.string.theme_chooser_menu_item_short_tooltip),
-                arrowAnchorPadding = -DimenUtil.roundedDpToPx(6f),
-                topOrBottomMargin = -12,
+                arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
+                topOrBottomMargin = 0,
                 aboveOrBelow = true,
                 autoDismiss = false,
                 showDismissButton = true
             ).apply {
                 setOnBalloonDismissListener {
                     Prefs.showOneTimeCustomizeToolbarTooltip = false
-                    Prefs.toolbarTooltipVisible = false
+                    isTooltipShowing = false
                 }
                 BreadCrumbLogEvent.logTooltipShown(this@PageActivity, binding.pageToolbarButtonShowOverflowMenu)
                 showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
                 setCurrentTooltip(this)
-                Prefs.toolbarTooltipVisible = true
+                isTooltipShowing = true
             }
         }
     }

@@ -108,6 +108,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
         clearContents()
+        setHasOptionsMenu(true)
     }
 
     private fun Group.addOnClickListener(listener: View.OnClickListener) {
@@ -127,11 +128,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         setUpTasks()
         refreshContents()
         SuggestedEditsFunnel.get().resume()
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        setHasOptionsMenu(true)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -191,14 +187,14 @@ class SuggestedEditsTasksFragment : Fragment() {
                     totalContributions += commonsResponse.query?.userInfo!!.editCount
                     totalContributions += homeSiteResponse.query?.userInfo!!.editCount
 
-                    latestEditDate = wikidataResponse.query?.userInfo!!.latestContribution
+                    latestEditDate = wikidataResponse.query?.userInfo!!.latestContribDate
 
-                    if (commonsResponse.query?.userInfo!!.latestContribution.after(latestEditDate)) {
-                        latestEditDate = commonsResponse.query?.userInfo!!.latestContribution
+                    if (commonsResponse.query?.userInfo!!.latestContribDate.after(latestEditDate)) {
+                        latestEditDate = commonsResponse.query?.userInfo!!.latestContribDate
                     }
 
-                    if (homeSiteResponse.query?.userInfo!!.latestContribution.after(latestEditDate)) {
-                        latestEditDate = homeSiteResponse.query?.userInfo!!.latestContribution
+                    if (homeSiteResponse.query?.userInfo!!.latestContribDate.after(latestEditDate)) {
+                        latestEditDate = homeSiteResponse.query?.userInfo!!.latestContribDate
                     }
 
                     val contributions = (wikidataResponse.query!!.userContributions +
@@ -414,7 +410,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask = SuggestedEditsTask()
         addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
-        addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
+        addDescriptionsTask.imageDrawable = R.drawable.ic_article_ltr_ooui
         addDescriptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addDescriptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)
 

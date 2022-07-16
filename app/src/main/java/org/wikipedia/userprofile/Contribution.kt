@@ -12,6 +12,7 @@ import java.util.*
 class Contribution(
     val qNumber: String,
     val revId: Long,
+    val ns: Int,
     var apiTitle: String,
     var displayTitle: String,
     var description: String,
