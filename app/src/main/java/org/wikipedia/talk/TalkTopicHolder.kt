@@ -63,17 +63,13 @@ class TalkTopicHolder internal constructor(
             binding.topicContentText.isVisible = false
             val isHeaderTemplate = TalkTopicActivity.isHeaderTemplate(threadItem)
             binding.otherContentContainer.isVisible = isHeaderTemplate
-            binding.topicOverflowMenu.isVisible = !isHeaderTemplate
-            binding.topicTitleText.isVisible = !isHeaderTemplate
             if (isHeaderTemplate) {
                 binding.otherContentText.text = RichTextUtil.stripHtml(StringUtil.removeStyleTags(threadItem.othercontent)).trim().replace("\n", " ")
                 StringUtil.highlightAndBoldenText(binding.otherContentText, viewModel.currentSearchQuery, true, Color.YELLOW)
             }
             return
         }
-        binding.topicTitleText.isVisible = true
         binding.otherContentContainer.isVisible = false
-        binding.topicOverflowMenu.isVisible = true
 
         // Last comment
         binding.topicContentText.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
@@ -104,7 +100,7 @@ class TalkTopicHolder internal constructor(
         // Last comment date
         val lastCommentDate = allReplies.mapNotNull { it.date }.maxOrNull()?.run { DateUtil.getDateAndTime(context, this) }
         val lastCommentColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.secondary_text_color
-        binding.topicLastCommentDate.text = context.getString(R.string.talk_list_item_last_comment_date, lastCommentDate)
+        binding.topicLastCommentDate.text = lastCommentDate
         binding.topicLastCommentDate.isVisible = lastCommentDate != null
         binding.topicLastCommentDate.setTextColor(ResourceUtil.getThemedColor(context, lastCommentColor))
     }

@@ -24,8 +24,6 @@
             android:textStyle="bold"
             android:lineSpacingExtra="5sp"
             android:textColorLink="?attr/colorAccent"
-            android:maxLines="1"
-            android:ellipsize="end"
             app:layout_constraintTop_toTopOf="@id/topicOverflowMenu"
             app:layout_constraintBottom_toBottomOf="@id/topicOverflowMenu"
             app:layout_constraintStart_toStartOf="parent"
@@ -123,11 +121,10 @@
             android:textSize="14sp"
             android:text="@string/talk_list_item_last_comment_date"
             android:lineSpacingExtra="8sp"
-            android:paddingVertical="8dp"
+            android:padding="8dp"
             app:layout_constraintTop_toTopOf="@id/topicReplyNumber"
             app:layout_constraintBottom_toBottomOf="@id/topicReplyNumber"
             app:layout_constraintStart_toEndOf="@id/topicReplyNumber"
-            app:layout_constraintEnd_toEndOf="parent"
             tools:text="Lorem ipsum" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
