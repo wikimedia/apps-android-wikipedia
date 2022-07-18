@@ -73,6 +73,7 @@ class TalkTopicHolder internal constructor(
         }
         binding.topicTitleText.isVisible = true
         binding.otherContentContainer.isVisible = false
+        binding.topicOverflowMenu.isVisible = true
 
         // Last comment
         binding.topicContentText.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
