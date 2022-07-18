@@ -51,14 +51,11 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         ObservableWebView.OnClickListener, ObservableWebView.OnScrollChangeListener, OnContentHeightChangedListener {
 
     private val binding = (fragment.requireActivity() as PageActivity).binding
-    private var talkViewModel: TalkTopicsViewModel? = null
-    private val talkTopicsAdapter = TalkTopicItemAdapter()
     private val scrollerViewParams = FrameLayout.LayoutParams(DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE), DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE))
     private val webView = fragment.webView
     private val tocAdapter = ToCAdapter()
     private var rtl = false
     private var currentItemSelected = 0
-    private var currentTalkSortMode = Prefs.talkTopicsSortMode
     private var funnel = ToCInteractionFunnel(WikipediaApp.instance, WikipediaApp.instance.wikiSite, 0, 0)
     private var articleTocInteractionEvent: ArticleTocInteractionEvent? = null
 
@@ -104,82 +101,10 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
             override fun onDrawerClosed(drawerView: View) {
                 super.onDrawerClosed(drawerView)
-                enableToCorTalkTopics(true)
             }
         })
 
-        binding.talkTitleView.setOnClickListener { openTalkPage() }
-        binding.talkFullscreenButton.setOnClickListener { openTalkPage() }
-        binding.talkLastModified.setOnClickListener { _ ->
-            talkViewModel?.let {
-                fragment.startActivity(ArticleEditDetailsActivity.newIntent(fragment.requireContext(), it.pageTitle, it.lastRevision!!.revId))
-            }
-        }
-
         setScrollerPosition()
-        enableToCorTalkTopics()
-    }
-
-    private fun setupTalkTopics(pageTitle: PageTitle) {
-        binding.talkProgressBar.isVisible = true
-        binding.talkErrorView.visibility = View.GONE
-        binding.talkEmptyContainer.visibility = View.GONE
-
-        binding.talkRecyclerView.layoutManager = LinearLayoutManager(fragment.requireContext())
-        binding.talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 120))
-        binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(fragment.requireContext(), R.attr.side_panel_list_separator_drawable, drawStart = true, drawEnd = false))
-        binding.talkRecyclerView.adapter = talkTopicsAdapter
-        binding.talkErrorView.backClickListener = View.OnClickListener {
-            hide()
-        }
-
-        if (talkViewModel == null) {
-            talkViewModel = TalkTopicsViewModel(pageTitle.copy(), true)
-
-            fragment.lifecycleScope.launchWhenCreated {
-                talkViewModel?.uiState?.collect {
-                    when (it) {
-                        is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle)
-                        is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
-                    }
-                }
-            }
-        } else {
-            talkViewModel?.updatePageTitle(pageTitle)
-        }
-    }
-
-    private fun updateOnSuccess(pageTitle: PageTitle) {
-        binding.talkTitleView.text = StringUtil.fromHtml(pageTitle.displayText)
-
-        talkViewModel?.lastRevision?.let {
-            binding.talkLastModified.text = StringUtil.fromHtml(fragment.getString(R.string.talk_last_modified,
-                DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(it.timeStamp).time,
-                    System.currentTimeMillis(), 0L), it.user))
-            binding.talkLastModified.isVisible = true
-        }
-
-        binding.talkErrorView.visibility = View.GONE
-        binding.talkProgressBar.visibility = View.GONE
-        binding.talkRecyclerView.visibility = View.VISIBLE
-        binding.talkRecyclerView.adapter?.notifyDataSetChanged()
-    }
-
-    private fun updateOnError(throwable: Throwable) {
-        binding.talkRecyclerView.visibility = View.GONE
-        if (throwable is HttpStatusException && throwable.code == 404) {
-            binding.talkEmptyContainer.visibility = View.VISIBLE
-        } else {
-            binding.talkLastModified.visibility = View.GONE
-            binding.talkErrorView.visibility = View.VISIBLE
-            binding.talkErrorView.setError(throwable)
-        }
-    }
-
-    private fun openTalkPage() {
-        talkViewModel?.let {
-            fragment.startActivity(TalkTopicsActivity.newIntent(fragment.requireContext(), it.pageTitle, Constants.InvokeSource.PAGE_ACTIVITY))
-        }
     }
 
     @SuppressLint("RtlHardcoded")
@@ -195,9 +120,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         funnel = ToCInteractionFunnel(WikipediaApp.instance, page.title.wikiSite, page.pageProperties.pageId, tocAdapter.count)
         articleTocInteractionEvent = ArticleTocInteractionEvent(page.pageProperties.pageId, page.title.wikiSite.dbName(), tocAdapter.count)
         articleTocInteractionEvent?.logClick()
-        if (ReleaseUtil.isPreBetaRelease) {
-            setupTalkTopics(page.title)
-        }
     }
 
     private fun scrollToSection(section: Section?) {
@@ -217,24 +139,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         articleTocInteractionEvent?.scrollStart()
     }
 
-    private fun enableToCorTalkTopics(enableToC: Boolean = true) {
-        binding.tocContainer.isVisible = enableToC
-        binding.talkTopicsContainer.isVisible = !enableToC
-
-        if (!enableToC && currentTalkSortMode != Prefs.talkTopicsSortMode) {
-            currentTalkSortMode = Prefs.talkTopicsSortMode
-            talkTopicsAdapter.notifyDataSetChanged()
-        }
-    }
-
     fun showToC() {
-        enableToCorTalkTopics(true)
-        binding.navigationDrawer.openDrawer(binding.sidePanelContainer)
-        onStartShow()
-    }
-
-    fun showTalkTopics() {
-        enableToCorTalkTopics(false)
         binding.navigationDrawer.openDrawer(binding.sidePanelContainer)
         onStartShow()
     }
@@ -251,10 +156,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     }
 
     fun setEnabled(enabled: Boolean) {
-        if (binding.talkTopicsContainer.isVisible) {
-            binding.navigationDrawer.setSlidingEnabled(true)
-            return
-        }
         if (enabled) {
             setScrollerPosition()
             binding.navigationDrawer.setSlidingEnabled(true)
@@ -423,21 +324,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
         override fun onVerticalScroll(dy: Float) {
             onScrollerMoved(dy, true)
-        }
-    }
-
-    inner class TalkTopicItemAdapter : RecyclerView.Adapter<TalkTopicHolder>() {
-        override fun getItemCount(): Int {
-            return talkViewModel?.sortedThreadItems?.size ?: 0
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkTopicHolder {
-            return TalkTopicHolder(ItemTalkTopicBinding.inflate(fragment.layoutInflater, parent, false),
-                fragment.requireContext(), talkViewModel!!, Constants.InvokeSource.PAGE_ACTIVITY)
-        }
-
-        override fun onBindViewHolder(holder: TalkTopicHolder, pos: Int) {
-             holder.bindItem(talkViewModel!!.sortedThreadItems[pos])
         }
     }
 
