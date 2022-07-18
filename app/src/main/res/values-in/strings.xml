@@ -1103,11 +1103,6 @@
   <string name="talk_list_item_user_icon_content_description">Ikon pengguna</string>
   <string name="talk_list_item_swipe_mark_as_read">Dibaca</string>
   <string name="talk_list_item_swipe_mark_as_unread">Belum dibaca</string>
-  <string name="talk_footer_about_this_talk_page">Tentang halaman pembicaraan ini</string>
-  <string name="talk_footer_view_edit_history">Lihat riwayat suntingan</string>
-  <string name="talk_footer_view_user_page">Lihat halaman pengguna</string>
-  <string name="talk_footer_view_article">Lihat artikel</string>
-  <string name="talk_footer_last_modified">Terakhir disunting %1$s oleh %2$s</string>
   <string name="menu_option_share_talk_discussion">Bagikan diskusi</string>
   <string name="menu_option_share_talk_page">Bagikan halaman pembicaraan</string>
   <string name="menu_option_share_edit">Bagikan hasil suntingan</string>
@@ -1181,6 +1176,4 @@
   <string name="subcategory_empty">Tidak ada subkategori di kategori ini.</string>
   <string name="search_namespaces">Ruang nama</string>
   <string name="revision_initial_none">Tidak ada (ini adalah revisi pertama)</string>
-  <string name="onboarding_survey_title">Dapatkah Anda membantu kami meningkatkan orientasi awal?</string>
-  <string name="onboarding_survey_body">Harap membantu kami meningkatkan orientasi awal dan kemudahan mencari fitur-fitur.</string>
 </resources>

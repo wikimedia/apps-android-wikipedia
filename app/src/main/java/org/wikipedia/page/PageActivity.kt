@@ -42,7 +42,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
-import org.wikipedia.onboarding.OnboardingSurveyHelper
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.search.SearchActivity
@@ -335,7 +334,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         removeTransitionAnimState()
         maybeShowWatchlistTooltip()
         maybeShowThemeTooltip()
-        OnboardingSurveyHelper.maybeShowSurvey(this)
     }
 
     override fun onPageDismissBottomSheet() {

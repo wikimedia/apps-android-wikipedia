@@ -113,6 +113,7 @@
   <string name="menu_page_new_tab">새 탭</string>
   <string name="menu_page_reading_lists">읽기 목록</string>
   <string name="menu_page_recently_viewed">최근에 읽음</string>
+  <string name="menu_page_archive">보존</string>
   <string name="menu_long_press_open_page">열기</string>
   <string name="menu_long_press_open_in_new_tab">새 탭에 링크 열기</string>
   <string name="menu_long_press_copy_page">링크 주소 복사</string>
@@ -1111,10 +1112,7 @@
   <string name="talk_list_item_user_icon_content_description">사용자 아이콘</string>
   <string name="talk_list_item_swipe_mark_as_read">읽음</string>
   <string name="talk_list_item_swipe_mark_as_unread">읽지 않음</string>
-  <string name="talk_footer_about_this_talk_page">이 토론 문서에 대해</string>
-  <string name="talk_footer_view_edit_history">편집 역사 보기</string>
-  <string name="talk_footer_view_user_page">사용자 문서 보기</string>
-  <string name="talk_footer_view_article">문서 보기</string>
+  <string name="talk_archived_title">토론 보존: %s</string>
   <string name="menu_option_share_talk_discussion">토론 공유하기</string>
   <string name="menu_option_share_talk_page">토론 문서 공유</string>
   <string name="menu_option_share_edit">편집 공유</string>
@@ -1187,4 +1185,5 @@
   <string name="subcategory_empty">이 분류에 하위 분류가 없습니다.</string>
   <string name="search_namespaces">이름공간</string>
   <string name="revision_initial_none">없음 (이것이 첫 판입니다)</string>
+  <string name="archive_empty">보존된 문서가 없습니다.</string>
 </resources>

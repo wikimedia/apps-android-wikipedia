@@ -21,6 +21,7 @@
 * Vlad5250
 * Vlnt
 * Ата
+* Пан Хаунд
 -->
 <resources>
   <string name="app_name_prod">Вікіпедія</string>
@@ -66,6 +67,11 @@
   <string name="image_share_via">Поділитися через</string>
   <string name="search_redirect_from">Перенаправлено з %s</string>
   <string name="page_edit_history_activity_title">Історія ревізії: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Порожній підсумок редагувань</string>
+  <string name="page_edit_history_filter_by">Фільтрувати за</string>
+  <string name="page_edit_history_filter_by_anon">Одночасні зміни ( %s )</string>
+  <string name="page_edit_history_filter_by_bot">Редагування бота (%s)</string>
   <string name="menu_page_show_tabs">Показати вкладки</string>
   <string name="menu_page_other_languages">Змінити мову</string>
   <string name="menu_page_find_in_page">Знайти у статті</string>
@@ -1139,6 +1145,8 @@
   <string name="talk_overflow_sort_by">Сортувати за</string>
   <string name="talk_overflow_sort_date_published">Дата публікації</string>
   <string name="talk_overflow_sort_topic_name">Назва теми</string>
+  <string name="talk_list_item_swipe_mark_as_read">Читати</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Непрочитане</string>
   <string name="menu_option_share_talk_discussion">Поділіться обговоренням</string>
   <string name="menu_option_share_talk_page">Поділіться сторінкою обговорення</string>
   <string name="menu_option_share_edit">Поділитися редагуванням</string>
