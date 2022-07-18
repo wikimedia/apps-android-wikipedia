@@ -152,18 +152,16 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         return true
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-        menu?.let {
-            it.findItem(R.id.menu_find_in_page)?.isVisible = viewModel.topic?.replies.orEmpty().isNotEmpty()
-            it.findItem(R.id.menu_edit_source)?.isVisible = AccountUtil.isLoggedIn
-            if (viewModel.isExpandable) {
-                val fullyExpanded = viewModel.isFullyExpanded
-                it.findItem(R.id.menu_talk_topic_expand)?.isVisible = !fullyExpanded
-                it.findItem(R.id.menu_talk_topic_collapse)?.isVisible = fullyExpanded
-            } else {
-                it.findItem(R.id.menu_talk_topic_expand)?.isVisible = false
-                it.findItem(R.id.menu_talk_topic_collapse)?.isVisible = false
-            }
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        menu.findItem(R.id.menu_find_in_page)?.isVisible = viewModel.topic?.replies.orEmpty().isNotEmpty()
+        menu.findItem(R.id.menu_edit_source)?.isVisible = AccountUtil.isLoggedIn
+        if (viewModel.isExpandable) {
+            val fullyExpanded = viewModel.isFullyExpanded
+            menu.findItem(R.id.menu_talk_topic_expand)?.isVisible = !fullyExpanded
+            menu.findItem(R.id.menu_talk_topic_collapse)?.isVisible = fullyExpanded
+        } else {
+            menu.findItem(R.id.menu_talk_topic_expand)?.isVisible = false
+            menu.findItem(R.id.menu_talk_topic_collapse)?.isVisible = false
         }
         return super.onPrepareOptionsMenu(menu)
     }
@@ -318,7 +316,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private inner class HeaderViewHolder constructor(private val view: TalkThreadHeaderView) : RecyclerView.ViewHolder(view), TalkThreadHeaderView.Callback {
         fun bindItem() {
-            view.bind(viewModel.pageTitle, viewModel.topic!!, viewModel.subscribed, linkMovementMethod, viewModel.currentSearchQuery)
+            view.bind(viewModel.pageTitle, viewModel.topic, viewModel.subscribed, linkMovementMethod, viewModel.currentSearchQuery)
             view.callback = this
         }
 
@@ -450,7 +448,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         const val EXTRA_TOPIC_ID = "topicId"
         const val EXTRA_REPLY_ID = "replyId"
         const val EXTRA_SEARCH_QUERY = "searchQuery"
-        const val HEADER_LEVEL = 99
 
         fun newIntent(context: Context,
                       pageTitle: PageTitle,
@@ -473,7 +470,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         fun isHeaderTemplate(item: ThreadItem?): Boolean {
-            return item?.headingLevel == HEADER_LEVEL
+            return item?.headingLevel == 0 && item.author.isEmpty() && item.html.isEmpty()
         }
     }
 }

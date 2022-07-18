@@ -1,10 +1,8 @@
-package org.wikipedia.categories
+package org.wikipedia.talk
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -18,126 +16,76 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.databinding.ActivityCategoryBinding
+import org.wikipedia.databinding.ActivityArchivedTalkPagesBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
-import org.wikipedia.page.Namespace
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.database.ReadingList
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.*
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.WikiErrorView
 
-class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
-    private lateinit var binding: ActivityCategoryBinding
+class ArchivedTalkPagesActivity : BaseActivity(), LinkPreviewDialog.Callback {
+    private lateinit var binding: ActivityArchivedTalkPagesBinding
 
-    private val categoryMembersAdapter = CategoryMembersAdapter()
-    private val categoryMembersLoadHeader = LoadingItemAdapter { categoryMembersAdapter.retry(); }
-    private val categoryMembersLoadFooter = LoadingItemAdapter { categoryMembersAdapter.retry(); }
-    private val categoryMembersConcatAdapter = categoryMembersAdapter.withLoadStateHeaderAndFooter(categoryMembersLoadHeader, categoryMembersLoadFooter)
-    private val subcategoriesAdapter = CategoryMembersAdapter()
-    private val subcategoriesLoadHeader = LoadingItemAdapter { subcategoriesAdapter.retry() }
-    private val subcategoriesLoadFooter = LoadingItemAdapter { subcategoriesAdapter.retry() }
-    private val subcategoriesConcatAdapter = subcategoriesAdapter.withLoadStateHeaderAndFooter(subcategoriesLoadHeader, subcategoriesLoadFooter)
+    private val archivedTalkPagesAdapter = ArchivedTalkPagesAdapter()
+    private val archivedTalkPagesLoadHeader = LoadingItemAdapter { archivedTalkPagesAdapter.retry(); }
+    private val archivedTalkPagesLoadFooter = LoadingItemAdapter { archivedTalkPagesAdapter.retry(); }
+    private val archivedTalkPagesConcatAdapter = archivedTalkPagesAdapter.withLoadStateHeaderAndFooter(archivedTalkPagesLoadHeader, archivedTalkPagesLoadFooter)
 
     private val itemCallback = ItemCallback()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
-    private val viewModel: CategoryActivityViewModel by viewModels { CategoryActivityViewModel.Factory(intent.extras!!) }
+    private val viewModel: ArchivedTalkPagesViewModel by viewModels { ArchivedTalkPagesViewModel.Factory(intent.extras!!) }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCategoryBinding.inflate(layoutInflater)
+        binding = ActivityArchivedTalkPagesBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
+        setSupportActionBar(binding.toolbar)
+        setToolbarTitle(viewModel.pageTitle)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = viewModel.pageTitle.displayText
 
-        binding.categoryRecycler.layoutManager = LinearLayoutManager(this)
-        binding.categoryRecycler.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
-        binding.categoryRecycler.adapter = categoryMembersConcatAdapter
-
-        lifecycleScope.launch {
-            viewModel.categoryMembersFlow.collectLatest {
-                categoryMembersAdapter.submitData(it)
-            }
-        }
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
+        binding.recyclerView.adapter = archivedTalkPagesConcatAdapter
 
         lifecycleScope.launch {
-            viewModel.subcategoriesFlow.collectLatest {
-                subcategoriesAdapter.submitData(it)
+            viewModel.archivedTalkPagesFlow.collectLatest {
+                archivedTalkPagesAdapter.submitData(it)
             }
         }
 
         lifecycleScope.launchWhenCreated {
-            categoryMembersAdapter.loadStateFlow.collectLatest {
-                categoryMembersLoadHeader.loadState = it.refresh
-                categoryMembersLoadFooter.loadState = it.append
-                val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && categoryMembersAdapter.itemCount == 0)
+            archivedTalkPagesAdapter.loadStateFlow.collectLatest {
+                archivedTalkPagesLoadHeader.loadState = it.refresh
+                archivedTalkPagesLoadFooter.loadState = it.append
+                val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && archivedTalkPagesAdapter.itemCount == 0)
                 if (showEmpty) {
-                    categoryMembersConcatAdapter.addAdapter(EmptyItemAdapter(R.string.category_empty))
+                    archivedTalkPagesConcatAdapter.addAdapter(EmptyItemAdapter(R.string.archive_empty))
                 }
             }
         }
-
-        lifecycleScope.launchWhenCreated {
-            subcategoriesAdapter.loadStateFlow.collectLatest {
-                subcategoriesLoadHeader.loadState = it.refresh
-                subcategoriesLoadFooter.loadState = it.append
-                val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && subcategoriesAdapter.itemCount == 0)
-                if (showEmpty) {
-                    subcategoriesConcatAdapter.addAdapter(EmptyItemAdapter(R.string.subcategory_empty))
-                }
-            }
-        }
-
-        binding.categoryTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab) {
-                viewModel.showSubcategories = tab.position == 1
-                if (viewModel.showSubcategories) {
-                    binding.categoryRecycler.adapter = subcategoriesConcatAdapter
-                } else {
-                    binding.categoryRecycler.adapter = categoryMembersConcatAdapter
-                }
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab) {}
-            override fun onTabReselected(tab: TabLayout.Tab) {}
-        })
-        binding.categoryTabLayout.selectTab(binding.categoryTabLayout.getTabAt(if (viewModel.showSubcategories) 1 else 0))
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_category, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_categories -> {
-                bottomSheetPresenter.show(supportFragmentManager, CategoryDialog.newInstance(viewModel.pageTitle))
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+    private fun setToolbarTitle(pageTitle: PageTitle) {
+        binding.toolbarTitle.text = StringUtil.fromHtml(getString(R.string.talk_archived_title, "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>"))
+        binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
+        binding.toolbarTitle.movementMethod = LinkMovementMethodExt { _ ->
+            val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(viewModel.pageTitle), HistoryEntry.SOURCE_ARCHIVED_TALK)
+            startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
         }
-    }
-
-    private fun loadPage(title: PageTitle) {
-        if (viewModel.showSubcategories) {
-            startActivity(newIntent(this, title))
-        } else {
-            val entry = HistoryEntry(title, HistoryEntry.SOURCE_CATEGORY)
-            bottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry, null))
-        }
+        RichTextUtil.removeUnderlinesFromLinks(binding.toolbarTitle)
+        FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
     }
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
@@ -179,7 +127,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         override fun getItemCount(): Int { return 1 }
     }
 
-    private inner class CategoryMemberDiffCallback : DiffUtil.ItemCallback<PageTitle>() {
+    private inner class ArchivedTalkPagesDiffCallback : DiffUtil.ItemCallback<PageTitle>() {
         override fun areItemsTheSame(oldItem: PageTitle, newItem: PageTitle): Boolean {
             return oldItem.prefixedText == newItem.prefixedText && oldItem.namespace == newItem.namespace
         }
@@ -189,16 +137,16 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
     }
 
-    private inner class CategoryMembersAdapter : PagingDataAdapter<PageTitle, RecyclerView.ViewHolder>(CategoryMemberDiffCallback()) {
-        override fun onCreateViewHolder(parent: ViewGroup, pos: Int): CategoryItemHolder {
-            val view = PageItemView<PageTitle>(this@CategoryActivity)
+    private inner class ArchivedTalkPagesAdapter : PagingDataAdapter<PageTitle, RecyclerView.ViewHolder>(ArchivedTalkPagesDiffCallback()) {
+        override fun onCreateViewHolder(parent: ViewGroup, pos: Int): ArchivedTalkPageItemHolder {
+            val view = PageItemView<PageTitle>(this@ArchivedTalkPagesActivity)
             view.callback = itemCallback
-            return CategoryItemHolder(view)
+            return ArchivedTalkPageItemHolder(view)
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             getItem(position)?.let {
-                (holder as CategoryItemHolder).bindItem(it)
+                (holder as ArchivedTalkPageItemHolder).bindItem(it)
             }
         }
     }
@@ -228,10 +176,10 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
     }
 
-    private inner class CategoryItemHolder constructor(val view: PageItemView<PageTitle>) : RecyclerView.ViewHolder(view) {
+    private inner class ArchivedTalkPageItemHolder constructor(val view: PageItemView<PageTitle>) : RecyclerView.ViewHolder(view) {
         fun bindItem(title: PageTitle) {
             view.item = title
-            view.setTitle(if (title.namespace() !== Namespace.CATEGORY) title.displayText else StringUtil.removeUnderscores(title.text))
+            view.setTitle(title.displayText)
             view.setImageUrl(title.thumbUrl)
             view.setImageVisible(!title.thumbUrl.isNullOrEmpty())
             view.setDescription(title.description)
@@ -240,7 +188,9 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private inner class ItemCallback : PageItemView.Callback<PageTitle?> {
         override fun onClick(item: PageTitle?) {
-            item?.let { loadPage(it) }
+            item?.let {
+                startActivity(TalkTopicsActivity.newIntent(this@ArchivedTalkPagesActivity, it, InvokeSource.ARCHIVED_TALK_ACTIVITY))
+            }
         }
 
         override fun onLongClick(item: PageTitle?): Boolean {
@@ -253,11 +203,11 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     companion object {
-        const val EXTRA_TITLE = "categoryTitle"
+        const val EXTRA_TITLE = "talkTopicTitle"
 
-        fun newIntent(context: Context, categoryTitle: PageTitle): Intent {
-            return Intent(context, CategoryActivity::class.java)
-                    .putExtra(EXTRA_TITLE, categoryTitle)
+        fun newIntent(context: Context, talkTopicTitle: PageTitle): Intent {
+            return Intent(context, ArchivedTalkPagesActivity::class.java)
+                    .putExtra(EXTRA_TITLE, talkTopicTitle)
         }
     }
 }

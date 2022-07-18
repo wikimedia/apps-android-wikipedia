@@ -66,6 +66,25 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
         )
     }
 
+    fun logRollbackAttempt() {
+        log(
+            "action", "rollbackAttempt"
+        )
+    }
+
+    fun logRollbackSuccess(revID: Long) {
+        log(
+            "action", "rollbackSuccess",
+            "revID", revID
+        )
+    }
+
+    fun logRollbackFailure() {
+        log(
+            "action", "rollbackFailure"
+        )
+    }
+
     open fun logAbuseFilterWarning(code: String?) {
         log(
                 "action", "abuseFilterWarning",
@@ -129,6 +148,6 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
 
     companion object {
         private const val SCHEMA_NAME = "MobileWikiAppEdit"
-        private const val REV_ID = 20710930
+        private const val REV_ID = 23442324
     }
 }

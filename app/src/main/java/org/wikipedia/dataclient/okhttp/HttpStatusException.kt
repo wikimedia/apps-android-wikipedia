@@ -29,7 +29,15 @@ class HttpStatusException : IOException {
         try {
             rsp.body?.let {
                 if (it.contentType().toString().contains("json")) {
-                    serviceError = RbServiceError.create(it.string())
+                    val body = it.string()
+                    if (body.contains("\$schema")) {
+                        // This is likely an error from the Event service, and should not be parsed
+                        // as a Rest Service error. Just keep the whole body of the error as the
+                        // exception message.
+                        message = body
+                    } else {
+                        serviceError = RbServiceError.create(body)
+                    }
                 }
             }
         } catch (e: Exception) {

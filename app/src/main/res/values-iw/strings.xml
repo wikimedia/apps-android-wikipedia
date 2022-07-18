@@ -108,6 +108,7 @@
   <string name="menu_page_new_tab">לשונית חדשה</string>
   <string name="menu_page_reading_lists">רשימות קריאה</string>
   <string name="menu_page_recently_viewed">הוצגו לאחרונה</string>
+  <string name="menu_page_archive">ארכיון</string>
   <string name="menu_long_press_open_page">פתיחה</string>
   <string name="menu_long_press_open_in_new_tab">פתיחת קישור בלשונית חדשה</string>
   <string name="menu_long_press_copy_page">העתקת כתובת הקישור</string>
@@ -275,6 +276,13 @@
   <string name="edit_preview">תצוגה מקדימה</string>
   <string name="edit_undo">ביטול</string>
   <string name="edit_redo">ביצוע חוזר</string>
+  <string name="edit_rollback">שחזור</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">בית אחד</item>
+    <item quantity="two">%s בתים</item>
+    <item quantity="many">%s בתים</item>
+    <item quantity="other">%s בתים</item>
+  </plurals>
   <string name="edit_zoom_in">התקרבות</string>
   <string name="edit_zoom_out">התרחקות</string>
   <string name="edit_summary_tag_typo">תיקנתי טעות הקלדה</string>
@@ -1190,11 +1198,7 @@
   <string name="talk_list_item_user_icon_content_description">סמל משתמש</string>
   <string name="talk_list_item_swipe_mark_as_read">סימון כהודעה שנקראה</string>
   <string name="talk_list_item_swipe_mark_as_unread">סימון כהודעה שלא נקראה</string>
-  <string name="talk_footer_about_this_talk_page">אודות דף השיחה הזה</string>
-  <string name="talk_footer_view_edit_history">הצגת היסטוריית עריכות</string>
-  <string name="talk_footer_view_user_page">הצגת דף המשתמש</string>
-  <string name="talk_footer_view_article">הצגת הערך</string>
-  <string name="talk_footer_last_modified">נערך לאחרונה ב־%1$s על־ידי %2$s</string>
+  <string name="talk_archived_title">ארכיון שיחה: %s</string>
   <string name="menu_option_share_talk_discussion">שיתוף דיון</string>
   <string name="menu_option_share_talk_page">שיתוף דף שיחה</string>
   <string name="menu_option_share_edit">לשתף את העריכה</string>
@@ -1234,6 +1238,8 @@
   <string name="revision_undo_message">זה יבטל את העריכה שנעשתה בגרסת הערך שמוצגת כאן.</string>
   <string name="revision_undo_reason">כדי להמשיך, נא לספק סיבה לביטול העריכה הזאת:</string>
   <string name="revision_undo_success">הגרסה בוטלה.</string>
+  <string name="revision_rollback_dialog_title">האם ברצונך באמת לשחזר את העריכות?</string>
+  <string name="revision_rollback_success">העריכות שוחזרו.</string>
   <string name="revision_compare_button">השוואה</string>
   <string name="revision_compare_two_only">ניתן לבחור שתי גרסאות בלבד.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">הדף %1$s ודף השיחה שלו נוספו לרשימת המעקב שלך %2$s.</string>
@@ -1266,4 +1272,5 @@
   <string name="subcategory_empty">לא נמצאו קטגוריות־משנה בקטגוריה הזאת.</string>
   <string name="search_namespaces">מרחבי שם</string>
   <string name="revision_initial_none">אין (זאת הגרסה הראשונה)</string>
+  <string name="archive_empty">לא נמצאו דפים בארכיון.</string>
 </resources>

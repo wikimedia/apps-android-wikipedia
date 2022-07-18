@@ -168,6 +168,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             binding.searchLanguageScrollViewContainer.visibility = View.GONE
             binding.searchLangButtonContainer.visibility = View.VISIBLE
             initLangButton()
+            recentSearchesFragment.onLangCodeChanged()
         }
     }
 

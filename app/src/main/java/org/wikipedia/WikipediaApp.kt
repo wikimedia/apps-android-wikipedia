@@ -2,11 +2,14 @@ package org.wikipedia
 
 import android.annotation.SuppressLint
 import android.app.Application
+import android.content.Intent
 import android.content.IntentFilter
+import android.content.pm.PackageManager
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Handler
 import android.os.StrictMode
+import android.speech.RecognizerIntent
 import android.text.TextUtils
 import android.view.Window
 import android.webkit.WebView
@@ -127,6 +130,16 @@ class WikipediaApp : Application() {
 
     val isAnyActivityResumed
         get() = activityLifecycleHandler.isAnyActivityResumed
+
+    val voiceRecognitionAvailable by lazy {
+        try {
+            val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+            packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY).isNotEmpty()
+        } catch (e: Exception) {
+            L.e(e)
+            false
+        }
+    }
 
     init {
         instance = this

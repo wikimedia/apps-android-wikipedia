@@ -269,6 +269,11 @@
   <string name="edit_preview">Förhandsgranska</string>
   <string name="edit_undo">Ångra</string>
   <string name="edit_redo">Gör om</string>
+  <string name="edit_rollback">Rulla tillbaka</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s byte</item>
+    <item quantity="other">%s byte</item>
+  </plurals>
   <string name="edit_zoom_in">Zooma in</string>
   <string name="edit_zoom_out">Zooma ut</string>
   <string name="edit_summary_tag_typo">Rättade felstavning</string>
@@ -1120,11 +1125,6 @@
   <string name="talk_list_item_user_icon_content_description">Användarikon</string>
   <string name="talk_list_item_swipe_mark_as_read">Läst</string>
   <string name="talk_list_item_swipe_mark_as_unread">Oläst</string>
-  <string name="talk_footer_about_this_talk_page">Om denna diskussionssida</string>
-  <string name="talk_footer_view_edit_history">Visa redigeringshistorik</string>
-  <string name="talk_footer_view_user_page">Visa användarsida</string>
-  <string name="talk_footer_view_article">Visa artikel</string>
-  <string name="talk_footer_last_modified">Senast redigerad %1$s av %2$s</string>
   <string name="menu_option_share_talk_discussion">Dela diskussion</string>
   <string name="menu_option_share_talk_page">Dela diskussionssida</string>
   <string name="menu_option_share_edit">Dela redigering</string>
@@ -1164,6 +1164,8 @@
   <string name="revision_undo_message">Detta kommer att göra ändringarna som syns i revisionen/revisionerna av artikeln som visas här ogjorda.</string>
   <string name="revision_undo_reason">För att fortsätta, vänligen ange en orsak för att återställa den här redigeringen:</string>
   <string name="revision_undo_success">Versionen återställdes.</string>
+  <string name="revision_rollback_dialog_title">Är du säker på att du vill rulla tillbaka redigeringarna?</string>
+  <string name="revision_rollback_success">Redigeringar rullades tillbaka.</string>
   <string name="revision_compare_button">Jämför</string>
   <string name="revision_compare_two_only">Endast två versioner kan markeras.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s och dess diskussionssida har lagts till i din bevakningslista %2$s.</string>
@@ -1194,5 +1196,6 @@
   <string name="category_tab_subcategories">Underkategorier</string>
   <string name="category_empty">Inga artiklar hittades i den här kategorin.</string>
   <string name="subcategory_empty">Inga underkategorier hittades i den här kategorin.</string>
+  <string name="search_namespaces">Namnrymder</string>
   <string name="revision_initial_none">Ingen (detta är den första versionen)</string>
 </resources>
