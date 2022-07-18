@@ -666,7 +666,7 @@
     <item quantity="one">%d filtr</item>
     <item quantity="few">%d filtry</item>
     <item quantity="many">%d filtrów</item>
-    <item quantity="other"/>
+    <item quantity="other">%d filtrów</item>
   </plurals>
   <string name="notifications_select_all_filters">Zaznacz wszystkie filtry</string>
   <string name="notifications_tab_filter_all">Wszystkie</string>
@@ -1064,13 +1064,13 @@
     <item quantity="one">Pokaż odpowiedź</item>
     <item quantity="few">Pokaż odpowiedzi (%d)</item>
     <item quantity="many">Pokaż odpowiedzi (%d)</item>
-    <item quantity="other"/>
+    <item quantity="other">Pokaż odpowiedzi (%d)</item>
   </plurals>
   <plurals name="talk_hide_replies_count">
     <item quantity="one">Ukryj odpowiedź</item>
     <item quantity="few">Ukryj odpowiedzi (%d)</item>
     <item quantity="many">Ukryj odpowiedzi (%d)</item>
-    <item quantity="other"/>
+    <item quantity="other">Ukryj odpowiedzi (%d)</item>
   </plurals>
   <string name="talk_thread_subscribed_to">Zasubskrybowano „%s”</string>
   <string name="talk_thread_unsubscribed_from">Anulowano subskrypcję „%s”</string>
