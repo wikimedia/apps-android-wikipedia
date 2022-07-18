@@ -1273,6 +1273,4 @@
     <string name="user_contrib_activity_title">Contributions of %s</string>
     <string name="archive_empty">No archived pages found.</string>
 
-    <string name="onboarding_survey_title">Could you help us improve onboarding?</string>
-    <string name="onboarding_survey_body">Please help us to improve onboarding and discovery of features.</string>
 </resources>

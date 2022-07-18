@@ -1120,7 +1120,6 @@
   <string name="talk_search_topics_hint">Temas de búsqueda</string>
   <string name="talk_list_item_overflow_subscribe">Subscribirse</string>
   <string name="talk_list_item_user_icon_content_description">Icono de usuario</string>
-  <string name="talk_footer_last_modified">Última edición %1$s por %2$s</string>
   <string name="menu_option_share_talk_discussion">Compartir discusión</string>
   <string name="menu_option_share_talk_page">Compartir página de discusión</string>
   <string name="menu_option_share_edit">Compartir edición</string>

@@ -1137,11 +1137,6 @@
   <string name="talk_list_item_user_icon_content_description">使用者圖像</string>
   <string name="talk_list_item_swipe_mark_as_read">已讀</string>
   <string name="talk_list_item_swipe_mark_as_unread">未讀</string>
-  <string name="talk_footer_about_this_talk_page">關於此討論頁</string>
-  <string name="talk_footer_view_edit_history">檢視編輯歷史</string>
-  <string name="talk_footer_view_user_page">檢視使用者頁面</string>
-  <string name="talk_footer_view_article">檢視條目</string>
-  <string name="talk_footer_last_modified">由%2$s在 %1$s 所做的最後一次編輯</string>
   <string name="menu_option_share_talk_discussion">分享討論</string>
   <string name="menu_option_share_talk_page">分享討論頁</string>
   <string name="menu_option_share_edit">分享編輯</string>

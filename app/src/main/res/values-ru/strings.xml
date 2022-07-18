@@ -1214,10 +1214,6 @@
   <string name="talk_list_item_user_icon_content_description">Значок участника_цы</string>
   <string name="talk_list_item_swipe_mark_as_read">Прочитано</string>
   <string name="talk_list_item_swipe_mark_as_unread">Непрочитано</string>
-  <string name="talk_footer_about_this_talk_page">Об этой странице обсуждения</string>
-  <string name="talk_footer_view_edit_history">Посмотреть историю правок</string>
-  <string name="talk_footer_view_user_page">Посмотреть личную страницу</string>
-  <string name="talk_footer_view_article">Посмотреть статью</string>
   <string name="menu_option_share_talk_discussion">Поделиться обсуждением</string>
   <string name="menu_option_share_talk_page">Поделиться страницей обсуждения</string>
   <string name="menu_option_share_edit">Поделиться правкой</string>

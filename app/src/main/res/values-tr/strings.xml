@@ -1133,11 +1133,6 @@
   <string name="talk_list_item_user_icon_content_description">Kullanıcı simgesi</string>
   <string name="talk_list_item_swipe_mark_as_read">Okundu</string>
   <string name="talk_list_item_swipe_mark_as_unread">Okunmamış</string>
-  <string name="talk_footer_about_this_talk_page">Bu tartışma sayfası hakkında</string>
-  <string name="talk_footer_view_edit_history">Düzenleme geçmişini görüntüle</string>
-  <string name="talk_footer_view_user_page">Kullanıcı sayfasını görüntüle</string>
-  <string name="talk_footer_view_article">Maddeye bak</string>
-  <string name="talk_footer_last_modified">Son düzenleme %1$s tarihinde %2$s tarafından yapıldı</string>
   <string name="menu_option_share_talk_discussion">Tartışmayı paylaş</string>
   <string name="menu_option_share_talk_page">Tartışma sayfasını paylaş</string>
   <string name="menu_option_share_edit">Değişikliği paylaş</string>
