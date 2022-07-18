@@ -662,6 +662,12 @@
   <string name="notifications_filter_icon_content_description">Filtruj powiadomienia</string>
   <string name="notifications_filter_update_app_languages">Zaktualizuj języki aplikacji</string>
   <string name="notifications_empty_search_message">Spróbuj usunąć %s, aby zobaczyć więcej powiadomień</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d filtr</item>
+    <item quantity="few">%d filtry</item>
+    <item quantity="many">%d filtrów</item>
+    <item quantity="other"/>
+  </plurals>
   <string name="notifications_select_all_filters">Zaznacz wszystkie filtry</string>
   <string name="notifications_tab_filter_all">Wszystkie</string>
   <string name="notifications_tab_filter_mentions">Wzmianki</string>
@@ -883,11 +889,13 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Ile dni z rzędu dokonywałeś edycji. Jeśli od jakiegoś czasu nie wniosłeś wkładu, pokazuje datę ostatniej edycji.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Łączna liczba odsłon stron elementów, do których przyczyniłeś się w ciągu ostatnich 30 dni.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Na podstawie tego, ile razy jeden z Twoich wkładów został cofnięty (cofnięty przez innego redaktora). Cofnięte zmiany: %d.</string>
+  <string name="suggested_edits_paused_message">Sugerowane zmiany są wstrzymane do %1$s. Przepraszamy %2$s, niektóre z Twoich ostatnich wpisów zostały cofnięte.</string>
   <string name="suggested_edits_disabled_message">Sugerowane zmiany są wyłączone. Przepraszamy %s, zbyt wiele Twoich ostatnich wpisów zostało cofniętych.</string>
   <string name="suggested_edits_ip_blocked_message">Wygląda na to, że twój adres IP (lub zakres adresów) jest obecnie zablokowany na Wikipedii.</string>
   <string name="suggested_edits_gate_message">Przepraszamy %s, aby skorzystać z tej funkcji musisz dokonać co najmniej trzech edycji bezpośrednio w artykule.</string>
   <string name="suggested_edits_editing_tips_link_text">Porady i wskazówki dotyczące edytowania</string>
   <string name="suggested_edits_help_page_link_text">Strona pomocy dot. sugerowanych zmian</string>
+  <string name="suggested_edits_edit_streak_label_text">Edytuj pasmo</string>
   <string name="suggested_edits_views_label_text">Odsłony</string>
   <string name="suggested_edits_quality_label_text">Edycja jakości</string>
   <string name="suggested_edits_quality_perfect_text">Idealna</string>
@@ -908,6 +916,7 @@
   <string name="suggested_edits_last_edited">Ostatnia edycja</string>
   <string name="suggested_edits_last_edited_never">Nigdy</string>
   <string name="suggested_edits_task_new">nowe</string>
+  <string name="suggested_edits_cc0_notice">Publikując, zgadzasz się na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniasz ten wkład na podstawie &lt;a href=\"%2$s\"&gt;Licencji CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Sugerowane edycje</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Dziękujemy za edycję Wikipedii! Dlaczego nie kontynuować od miejsca, w którym skończyłeś?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Masz chwilę na dalsze ulepszanie Wikipedii? Sprawdź te sugestie dotyczące edycji.</string>
@@ -1043,12 +1052,28 @@
   <string name="talk_snackbar_survey_action_text">Rozpocznij</string>
   <string name="talk_share_discussion_subject">Wikipedia - dyskusja na temat strony dyskusji \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - dyskusje na stronie rozmowy</string>
+  <string name="talk_edit_disclaimer">To jest strona dyskusji. Przestrzegaj wytycznych dotyczących strony dyskusji i pamiętaj, aby podpisywać swoje wpisy, wpisując cztery tyldy: ~~~~ podczas umieszczania wpisu przy użyciu wikitekstu.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Wytyczne dotyczące strony dyskusji&lt;/a&gt;</string>
   <string name="talk_search_hint">Przeszukuj wiadomości</string>
   <string name="talk_search_topics_hint">Szukaj tematów</string>
+  <string name="talk_search_find_in_talk_topics_hint">Znajdź w temacie strony dyskusji</string>
   <string name="talk_overflow_sort_by">Sortuj według</string>
   <string name="talk_overflow_sort_date_published">Data opublikowania</string>
   <string name="talk_overflow_sort_date_updated">Data aktualizacji</string>
   <string name="talk_overflow_sort_topic_name">Nazwa tematu</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Pokaż odpowiedź</item>
+    <item quantity="few">Pokaż odpowiedzi (%d)</item>
+    <item quantity="many">Pokaż odpowiedzi (%d)</item>
+    <item quantity="other"/>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Ukryj odpowiedź</item>
+    <item quantity="few">Ukryj odpowiedzi (%d)</item>
+    <item quantity="many">Ukryj odpowiedzi (%d)</item>
+    <item quantity="other"/>
+  </plurals>
+  <string name="talk_thread_subscribed_to">Zasubskrybowano „%s”</string>
+  <string name="talk_thread_unsubscribed_from">Anulowano subskrypcję „%s”</string>
   <string name="talk_list_item_overflow_subscribe">Subskrybuj</string>
   <string name="talk_list_item_overflow_subscribed">Zasubskrybowany</string>
   <string name="talk_list_item_overflow_mark_as_read">Oznacz jako przeczytane</string>
@@ -1059,6 +1084,7 @@
   <string name="talk_list_item_user_icon_content_description">Ikona użytkownika</string>
   <string name="talk_list_item_swipe_mark_as_read">Przeczytane</string>
   <string name="talk_list_item_swipe_mark_as_unread">Nieprzeczytane</string>
+  <string name="talk_archived_title">Archiwum rozmów: %s</string>
   <string name="menu_option_share_talk_discussion">Udostępnij dyskusję</string>
   <string name="menu_option_share_talk_page">Udostępnij stronę dyskusji</string>
   <string name="menu_option_share_edit">Udostępnij edycję</string>
@@ -1066,6 +1092,7 @@
   <string name="menu_option_user_contributions">Wkład %s</string>
   <string name="menu_option_edit_source">Edycja źródła</string>
   <string name="menu_option_user_page">Strona użytkownika %s</string>
+  <string name="menu_option_find_in_talk_page_topic">Znajdź w temacie strony dyskusji</string>
   <string name="talk_menu_copy_text">Skopiuj tekst</string>
   <string name="talk_menu_expand_threads">Rozwiń wątki</string>
   <string name="talk_menu_collapse_threads">Zwiń wątki</string>

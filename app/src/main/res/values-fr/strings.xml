@@ -120,7 +120,7 @@
   <string name="menu_page_edit_history">Historique des modifications</string>
   <string name="menu_page_remove_from_watchlist">Supprimer de la liste de suivi</string>
   <string name="menu_page_watched">Suivi</string>
-  <string name="edit_section_find_in_page">Trouver dans la page</string>
+  <string name="edit_section_find_in_page">Rechercher dans la page</string>
   <string name="menu_page_font_and_theme">Police et thème</string>
   <string name="menu_page_add_to_list">Ajouter à la liste de lecture</string>
   <string name="menu_page_add_to_default_list">Enregistrer</string>
