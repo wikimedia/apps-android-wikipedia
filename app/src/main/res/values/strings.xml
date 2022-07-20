@@ -1127,6 +1127,7 @@
     <string name="wikitext_bold">Bold</string>
     <string name="wikitext_italic">Italic</string>
     <string name="wikitext_link">Link</string>
+    <string name="wikitext_insert_media">Insert media</string>
     <string name="wikitext_bulleted_list">Bulleted list</string>
     <string name="wikitext_numbered_list">Numbered list</string>
     <string name="wikitext_template">Template</string>
