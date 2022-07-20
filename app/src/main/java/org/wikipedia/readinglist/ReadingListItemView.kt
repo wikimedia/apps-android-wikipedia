@@ -1,27 +1,36 @@
 package org.wikipedia.readinglist
 
 import android.content.Context
+import android.net.Uri
 import android.util.AttributeSet
+import android.util.Patterns
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.ViewGroup
 import androidx.annotation.StyleRes
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.TextViewCompat
 import com.itextpdf.text.*
+import com.itextpdf.text.pdf.PdfReader
 import com.itextpdf.text.pdf.PdfWriter
 import com.itextpdf.text.pdf.draw.LineSeparator
+import com.itextpdf.text.pdf.parser.PdfTextExtractor
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemReadingListBinding
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.*
+import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 import java.io.File
 import java.io.FileOutputStream
+import java.util.*
 
 
 class ReadingListItemView : ConstraintLayout {
@@ -211,6 +220,45 @@ class ReadingListItemView : ConstraintLayout {
         document.close()
     }
 
+    private fun importPDF() {
+        val filePath = WikipediaApp.instance.filesDir.absolutePath + File.separator + "export.pdf"
+        val pdfReader = PdfReader(filePath)
+        val pdfContents = mutableListOf<PageTitle>()
+        for (page in 1..1) {
+            val urlsFromPage = extractUrls(PdfTextExtractor.getTextFromPage(pdfReader, page))
+            urlsFromPage.forEach {
+                val uri = Uri.parse(it)
+                val pageTitle = PageTitle.titleForUri(uri, WikiSite(uri))
+                pdfContents.add(pageTitle)
+            }
+        }
+        val selectedLists = BooleanArray(pdfContents.size)
+
+
+        AlertDialog.Builder(context)
+            .setTitle(R.string.reading_list_import_to_list)
+            .setPositiveButton(R.string.reading_list_remove_list_dialog_ok_button_text) { _, _ ->
+                // TODO: implement this
+            }
+            .setNegativeButton(R.string.reading_list_remove_from_list_dialog_cancel_button_text, null)
+            .setMultiChoiceItems(pdfContents.map { it.displayText }.toTypedArray(), selectedLists) { _, which, checked ->
+                selectedLists[which] = checked
+            }
+            .create()
+            .show()
+
+    }
+
+    fun extractUrls(input: String): List<String> {
+        val webMatcher = Patterns.WEB_URL.matcher(input)
+        val links = mutableListOf<String>()
+        while (webMatcher.find()) {
+            val res = webMatcher.group()
+            links.add(res)
+        }
+        return links
+    }
+
     private inner class OverflowMenuClickListener constructor(private val list: ReadingList?) : PopupMenu.OnMenuItemClickListener {
         override fun onMenuItemClick(item: MenuItem): Boolean {
             when (item.itemId) {
@@ -232,6 +280,10 @@ class ReadingListItemView : ConstraintLayout {
                 }
                 R.id.menu_reading_list_export -> {
                     exportToPDF()
+                    return true
+                }
+                R.id.menu_reading_list_import -> {
+                    importPDF()
                     return true
                 }
                 else -> return false

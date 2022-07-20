@@ -490,6 +490,7 @@
     <string name="reading_list_menu_rename">Edit name/description</string>
     <string name="reading_list_menu_export">Export list</string>
     <string name="reading_list_menu_import">Import list</string>
+    <string name="reading_list_import_to_list">Import pages to list</string>
     <string name="reading_list_action_menu_remove_from_offline">Remove from offline</string>
     <string name="reading_list_action_menu_save_for_offline">Save for offline</string>
     <string name="reading_list_action_menu_remove_all_from_offline">Remove all from offline</string>

@@ -11,4 +11,6 @@
         android:title="@string/reading_list_menu_delete"/>
     <item android:id="@+id/menu_reading_list_export"
         android:title="@string/reading_list_menu_export"/>
+    <item android:id="@+id/menu_reading_list_import"
+        android:title="@string/reading_list_menu_import"/>
 </menu>
