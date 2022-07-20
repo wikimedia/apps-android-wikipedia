@@ -10,14 +10,19 @@ import androidx.annotation.StyleRes
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.TextViewCompat
+import com.itextpdf.text.*
+import com.itextpdf.text.pdf.PdfWriter
+import com.itextpdf.text.pdf.draw.LineSeparator
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemReadingListBinding
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
+import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.util.*
 import org.wikipedia.views.ViewUtil
+import java.io.File
+import java.io.FileOutputStream
+
 
 class ReadingListItemView : ConstraintLayout {
     interface Callback {
@@ -163,6 +168,49 @@ class ReadingListItemView : ConstraintLayout {
         return readingList.sizeBytesFromPages / 1.coerceAtLeast(resources.getInteger(R.integer.reading_list_item_size_bytes_per_unit)).toFloat()
     }
 
+    private fun exportToPDF() {
+        val document = Document()
+        val filePath = WikipediaApp.instance.filesDir.absolutePath + File.separator + "export.pdf"
+                PdfWriter.getInstance(document, FileOutputStream(filePath))
+        document.open()
+
+        document.pageSize = PageSize.A4
+        document.addCreationDate()
+        document.addAuthor("Wikipedia app")
+        document.addCreator("Wikipedia app")
+
+        val lineSeparator = LineSeparator()
+        lineSeparator.lineColor = BaseColor(0, 0, 0, 68)
+
+        val titleFont = Font(Font.FontFamily.HELVETICA, 36.0f, Font.NORMAL, BaseColor.BLACK)
+        val titleChunk = Chunk("Reading list - ${readingList?.title}", titleFont)
+        val titleParagraph = Paragraph(titleChunk)
+        titleParagraph.alignment = Element.ALIGN_CENTER
+
+        document.add(titleParagraph)
+        document.add(Paragraph("\n"))
+        document.add(lineSeparator)
+
+        val contentFont = Font(Font.FontFamily.HELVETICA, 18.0f, Font.NORMAL, BaseColor.BLACK)
+        val linkFont = Font(Font.FontFamily.COURIER, 12.0f, Font.NORMAL, BaseColor.BLUE)
+
+        readingList?.pages?.forEach {
+            val pageTitle = ReadingListPage.toPageTitle(it)
+            val contentChunk = Chunk(pageTitle.displayText, contentFont)
+            val contentParagraph = Paragraph(contentChunk)
+            val linkChunk = Chunk(pageTitle.uri, linkFont)
+            val linkParagraph = Paragraph(linkChunk)
+            document.add(Paragraph("\n"))
+            document.add(contentParagraph)
+            document.add(linkParagraph)
+            document.add(Paragraph("\n"))
+            document.add(lineSeparator)
+            document.add(Paragraph("\n"))
+        }
+
+        document.close()
+    }
+
     private inner class OverflowMenuClickListener constructor(private val list: ReadingList?) : PopupMenu.OnMenuItemClickListener {
         override fun onMenuItemClick(item: MenuItem): Boolean {
             when (item.itemId) {
@@ -180,6 +228,10 @@ class ReadingListItemView : ConstraintLayout {
                 }
                 R.id.menu_reading_list_remove_all_offline -> {
                     list?.let { callback?.onRemoveAllOffline(it) }
+                    return true
+                }
+                R.id.menu_reading_list_export -> {
+                    exportToPDF()
                     return true
                 }
                 else -> return false
