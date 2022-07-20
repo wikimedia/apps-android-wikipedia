@@ -2,6 +2,7 @@ package org.wikipedia.readinglist
 
 import android.content.Context
 import android.net.Uri
+import android.os.Environment
 import android.util.AttributeSet
 import android.util.Patterns
 import android.view.Gravity
@@ -19,19 +20,15 @@ import com.itextpdf.text.pdf.PdfWriter
 import com.itextpdf.text.pdf.draw.LineSeparator
 import com.itextpdf.text.pdf.parser.PdfTextExtractor
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemReadingListBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.*
-import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 import java.io.File
 import java.io.FileOutputStream
-import java.util.*
-
 
 class ReadingListItemView : ConstraintLayout {
     interface Callback {
@@ -179,8 +176,9 @@ class ReadingListItemView : ConstraintLayout {
 
     private fun exportToPDF() {
         val document = Document()
-        val filePath = WikipediaApp.instance.filesDir.absolutePath + File.separator + "export.pdf"
-                PdfWriter.getInstance(document, FileOutputStream(filePath))
+        val filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).path + File.separator + "export.pdf"
+
+        PdfWriter.getInstance(document, FileOutputStream(filePath))
         document.open()
 
         document.pageSize = PageSize.A4
@@ -221,7 +219,7 @@ class ReadingListItemView : ConstraintLayout {
     }
 
     private fun importPDF() {
-        val filePath = WikipediaApp.instance.filesDir.absolutePath + File.separator + "export.pdf"
+        val filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).path + File.separator + "export.pdf"
         val pdfReader = PdfReader(filePath)
         val pdfContents = mutableListOf<PageTitle>()
         for (page in 1..1) {
@@ -234,7 +232,6 @@ class ReadingListItemView : ConstraintLayout {
         }
         val selectedLists = BooleanArray(pdfContents.size)
 
-
         AlertDialog.Builder(context)
             .setTitle(R.string.reading_list_import_to_list)
             .setPositiveButton(R.string.reading_list_remove_list_dialog_ok_button_text) { _, _ ->
@@ -246,7 +243,6 @@ class ReadingListItemView : ConstraintLayout {
             }
             .create()
             .show()
-
     }
 
     fun extractUrls(input: String): List<String> {
