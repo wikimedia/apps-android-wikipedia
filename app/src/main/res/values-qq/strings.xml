@@ -499,6 +499,9 @@
   <string name="reading_list_sort_by_created_desc">Menu option to sort reading lists from oldest to newest, based on the date the items were created.</string>
   <string name="reading_list_menu_delete">Button label to delete the current reading list.</string>
   <string name="reading_list_menu_rename">Menu item for changing the name and description of a reading list.</string>
+  <string name="reading_list_menu_export">Menu item for exporting the reading list.</string>
+  <string name="reading_list_menu_import">Menu item for importing the reading list.</string>
+  <string name="reading_list_import_to_list">Title of the dialog that allows user to import selected pages to list.</string>
   <string name="reading_list_action_menu_remove_from_offline">Label for a menu option allowing the user to remove selected articles from offline storage</string>
   <string name="reading_list_action_menu_save_for_offline">Label for a menu option allowing the user to save article content for offline availability</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Label for a menu option allowing the user to remove all articles in a reading list from offline storage</string>
