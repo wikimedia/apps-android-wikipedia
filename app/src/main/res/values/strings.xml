@@ -1134,6 +1134,35 @@
     <string name="wikitext_reference">Reference</string>
     <string name="wikitext_preview_link">Preview link</string>
 
+    <!-- Insert media -->
+    <string name="insert_media_title">Insert media</string>
+    <string name="insert_media_search_description">Select a file from Wikimedia Commons</string>
+    <string name="insert_media_settings">Media settings</string>
+    <string name="insert_media_settings_uploaded_image">Uploaded image</string>
+    <string name="insert_media_settings_caption">Caption</string>
+    <string name="insert_media_settings_caption_description">Label that shows next to the item for all readers</string>
+    <string name="insert_media_settings_alternative_text">Alternative text</string>
+    <string name="insert_media_settings_alternative_text_description">Text description for readers who cannot see the image</string>
+    <string name="insert_media_advanced_settings">Advanced settings</string>
+    <string name="insert_media_advanced_settings_wrap_image">Wrap text around image</string>
+    <string name="insert_media_advanced_settings_image_position">Image position</string>
+    <string name="insert_media_advanced_settings_image_position_right">Right</string>
+    <string name="insert_media_advanced_settings_image_position_left">Left</string>
+    <string name="insert_media_advanced_settings_image_position_center">Center</string>
+    <string name="insert_media_advanced_settings_image_type">Image type</string>
+    <string name="insert_media_advanced_settings_image_type_thumbnail">Thumbnail</string>
+    <string name="insert_media_advanced_settings_image_type_frameless">Frameless</string>
+    <string name="insert_media_advanced_settings_image_type_frame">Frame</string>
+    <string name="insert_media_advanced_settings_image_type_basic">Basic</string>
+    <string name="insert_media_advanced_settings_image_type_tip">You can set how the media item appears on the page. This should be the thumbnail format to be consistent with other pages in almost all cases.</string>
+    <string name="insert_media_advanced_settings_image_size">Image size</string>
+    <string name="insert_media_advanced_settings_image_size_custom">Custom</string>
+    <string name="insert_media_advanced_settings_image_size_custom_width">Width</string>
+    <string name="insert_media_advanced_settings_image_size_custom_height">Height</string>
+    <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
+    <string name="insert_media_insert_button">Insert</string>
+    <!-- /Insert media -->
+
     <string name="main_drawer_help">Help</string>
     <string name="main_drawer_login">Log in / join Wikipedia</string>
     <string name="main_tooltip_text">Hi %s, did you know that everyone can edit Wikipedia?</string>
