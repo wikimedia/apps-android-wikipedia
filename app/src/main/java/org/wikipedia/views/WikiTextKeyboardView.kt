@@ -64,6 +64,10 @@ class WikiTextKeyboardView : FrameLayout {
             editText?.inputConnection?.commitText("\n# ", 1)
         }
 
+        binding.wikitextButtonInsertMedia.setOnClickListener {
+            // TODO: open activity and receive data from activity
+        }
+
         binding.wikitextButtonPreviewLink.setOnClickListener {
             editText?.inputConnection?.let { inputConnection ->
                 var title: String? = null

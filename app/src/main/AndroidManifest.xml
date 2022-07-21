@@ -318,6 +318,11 @@
             android:name=".page.edithistory.EditHistoryListActivity"
             android:theme="@style/AppTheme" />
 
+        <activity
+            android:name=".edit.insertmedia.InsertMediaActivity"
+            android:label="@string/insert_media_title"
+            android:theme="@style/AppTheme.ActionBar"/>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
