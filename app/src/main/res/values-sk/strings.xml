@@ -278,7 +278,7 @@
     <item quantity="one">%s bajt.</item>
     <item quantity="few">%s bajty.</item>
     <item quantity="many">%s bajtov.</item>
-    <item quantity="other">.</item>
+    <item quantity="other">%s bajtov.</item>
   </plurals>
   <string name="edit_zoom_in">Priblížiť</string>
   <string name="edit_zoom_out">Oddialiť</string>
