@@ -35,7 +35,7 @@ import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.WikiErrorView
 
-class ArchivedTalkPagesActivity : BaseActivity(), LinkPreviewDialog.Callback {
+class ArchivedTalkPagesActivity : BaseActivity() {
     private lateinit var binding: ActivityArchivedTalkPagesBinding
 
     private val archivedTalkPagesAdapter = ArchivedTalkPagesAdapter()
@@ -44,7 +44,6 @@ class ArchivedTalkPagesActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val archivedTalkPagesConcatAdapter = archivedTalkPagesAdapter.withLoadStateHeaderAndFooter(archivedTalkPagesLoadHeader, archivedTalkPagesLoadFooter)
 
     private val itemCallback = ItemCallback()
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val viewModel: ArchivedTalkPagesViewModel by viewModels { ArchivedTalkPagesViewModel.Factory(intent.extras!!) }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -86,23 +85,6 @@ class ArchivedTalkPagesActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
         RichTextUtil.removeUnderlinesFromLinks(binding.toolbarTitle)
         FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
-    }
-
-    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
-        startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, entry.title) else PageActivity.newIntentForCurrentTab(this, entry, entry.title, false))
-    }
-
-    override fun onLinkPreviewCopyLink(title: PageTitle) {
-        ClipboardUtil.setPlainText(this, text = title.uri)
-        FeedbackUtil.showMessage(this, R.string.address_copied)
-    }
-
-    override fun onLinkPreviewAddToList(title: PageTitle) {
-        bottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, InvokeSource.LINK_PREVIEW_MENU)
-    }
-
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(this, title)
     }
 
     private inner class LoadingItemAdapter(private val retry: () -> Unit) : LoadStateAdapter<LoadingViewHolder>() {
