@@ -23,11 +23,9 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityArchivedTalkPagesBinding
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.*
