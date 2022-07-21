@@ -15,6 +15,7 @@
 * Kokoko-H
 * LaMagiaaa
 * Los688
+* Makoto Asai
 * Marine-Blue
 * MathXplore
 * Mirinano
@@ -96,6 +97,12 @@
   <string name="page_edit_history_minor_edit">&lt;b&gt;細&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">編集の要約を空にする</string>
   <string name="page_edit_history_search_or_filter_edits_hint">編集を検索またはフィルタリングする</string>
+  <string name="page_edit_history_filter_by">絞り込みの条件：</string>
+  <string name="page_edit_history_filter_by_all">すべての編集（ %s ）</string>
+  <string name="page_edit_history_filter_by_user">ユーザー編集（ %s ）</string>
+  <string name="page_edit_history_filter_by_anon">すべての編集（ %s ）</string>
+  <string name="page_edit_history_filter_by_bot">ボットの編集 (%s)</string>
+  <string name="page_edit_history_metrics_content_description">%1$s から %2$s までの指標。</string>
   <string name="menu_page_show_tabs">タブを表示</string>
   <string name="menu_page_other_languages">他の言語で読む</string>
   <string name="menu_page_find_in_page">ページ内検索</string>
