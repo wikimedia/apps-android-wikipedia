@@ -1239,5 +1239,5 @@
   <string name="insert_media_advanced_settings_image_size_custom_width">Label of the custom image width.</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">Label of the custom image height.</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">Label of the custom image size suffix.</string>
-  <string name="insert_media_insert_button">Button of inseting the image to the editor.</string>
+  <string name="insert_media_insert_button">Button of inserting the image to the editor.</string>
 </resources>
