@@ -24,8 +24,8 @@
             android:textStyle="bold"
             android:lineSpacingExtra="5sp"
             android:textColorLink="?attr/colorAccent"
-            app:layout_constraintTop_toTopOf="@id/topicOverflowMenu"
-            app:layout_constraintBottom_toBottomOf="@id/topicOverflowMenu"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/topicOverflowMenu"
             tools:text="Lorem ipsum" />
@@ -38,6 +38,7 @@
             android:contentDescription="@string/abc_action_menu_overflow_description"
             android:paddingVertical="12dp"
             android:layout_marginEnd="-16dp"
+            android:layout_marginTop="-4dp"
             app:tint="?attr/secondary_text_color"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -98,9 +99,8 @@
             <ImageView
                 android:id="@+id/topicReplyIcon"
                 android:layout_width="16dp"
-                android:layout_height="32dp"
+                android:layout_height="16dp"
                 android:contentDescription="@string/talk_list_item_reply_icon_content_description"
-                android:paddingVertical="8dp"
                 app:tint="?attr/primary_text_color"
                 app:srcCompat="@drawable/ic_reply_24" />
 
@@ -113,7 +113,6 @@
                 android:textStyle="bold"
                 android:lineSpacingExtra="8sp"
                 android:layout_marginHorizontal="8dp"
-                android:paddingVertical="8dp"
                 tools:text="Lorem ipsum" />
 
             <TextView
@@ -124,7 +123,6 @@
                 android:textSize="14sp"
                 android:text="@string/talk_list_item_last_comment_date"
                 android:lineSpacingExtra="8sp"
-                android:paddingBottom="8dp"
                 tools:text="Lorem ipsum" />
 
         </LinearLayout>
