@@ -9,6 +9,7 @@ import android.text.TextUtils
 import android.text.TextWatcher
 import android.view.*
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
@@ -20,7 +21,6 @@ import androidx.core.widget.doAfterTextChanged
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -86,6 +86,16 @@ class EditSectionActivity : BaseActivity() {
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var actionMode: ActionMode? = null
     private val disposables = CompositeDisposable()
+
+    private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+            updateEditLicenseText()
+            funnel.logLoginSuccess()
+            FeedbackUtil.showMessage(this, R.string.login_success_toast)
+        } else {
+            funnel.logLoginFailure()
+        }
+    }
 
     private val editTokenThenSave: Unit
         get() {
@@ -194,22 +204,9 @@ class EditSectionActivity : BaseActivity() {
                 funnel.logLoginAttempt()
                 val loginIntent = LoginActivity.newIntent(this@EditSectionActivity,
                         LoginFunnel.SOURCE_EDIT, funnel.sessionToken)
-                startActivityForResult(loginIntent, Constants.ACTIVITY_REQUEST_LOGIN)
+                requestLogin.launch(loginIntent)
             } else {
                 UriUtil.handleExternalLink(this@EditSectionActivity, url.toUri())
-            }
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN) {
-            if (resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-                updateEditLicenseText()
-                funnel.logLoginSuccess()
-                FeedbackUtil.showMessage(this, R.string.login_success_toast)
-            } else {
-                funnel.logLoginFailure()
             }
         }
     }
@@ -549,7 +546,7 @@ class EditSectionActivity : BaseActivity() {
                         // Populate edit notices, but filter out anonymous edit warnings, since
                         // we show that type of warning ourselves when previewing.
                         editNotices.addAll(it.visualeditor?.notices.orEmpty()
-                                .filterKeys { key -> key != "anoneditwarning" }
+                                .filterKeys { key -> key.startsWith("editnotice") }
                                 .values.filter { str -> StringUtil.fromHtml(str).trim().isNotEmpty() })
                         invalidateOptionsMenu()
                         if (Prefs.autoShowEditNotices) {
