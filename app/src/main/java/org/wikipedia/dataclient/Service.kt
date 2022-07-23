@@ -67,6 +67,21 @@ interface Service {
                              @Query("gpslimit") maxResults: Int,
                              @Query("gpsoffset") gpsOffset: Int?): MwQueryResponse
 
+    @GET(
+        MW_API_PREFIX + "action=query&converttitles=" +
+                "&prop=description|pageimages|pageprops|info&ppprop=mainpage|disambiguation" +
+                "&generator=search&gsrnamespace=0&gsrwhat=text" +
+                "&inprop=varianttitles" +
+                "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
+                PREFERRED_THUMB_SIZE
+    )
+    suspend fun fullTextSearch(
+        @Query("gsrsearch") searchTerm: String?,
+        @Query("continue") cont: String?,
+        @Query("gsroffset") gsrOffset: String?,
+        @Query("gsrlimit") gsrLimit: Int
+    ): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
     fun prefixSearchUsers(
             @Query("auprefix") prefix: String,
