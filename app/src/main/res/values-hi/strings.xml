@@ -382,7 +382,7 @@
   <string name="article_menu_bar_language_button">भाषा</string>
   <string name="article_menu_bar_search_button">खोजें</string>
   <string name="article_menu_bar_theme_button">थीम</string>
-  <string name="article_menu_bar_contents_button">विषय सूची</string>
+  <string name="article_menu_bar_contents_button">सामग्री</string>
   <string name="article_header_edit_hint">सम्पादित करें</string>
   <string name="article_header_edit_description">लेख वर्णन सम्पादित करें</string>
   <string name="article_header_edit_lead_section">परिचय सम्पादित करें</string>

@@ -1,47 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Dbrant
+* Duke of Wikipädia
 * Karapananguasú Kururú Teremembé
 -->
 <resources>
-  <string name="app_name_prod">Wikipediya</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
-  <string name="wikimedia">Wikimediya</string>
-  <string name="nav_item_back">Uiwiri</string>
-  <string name="page_tabs_back">Uiwiri</string>
-  <string name="search_hint">Usikári Wikipediya upé</string>
-  <string name="search_hint_voice_search">Usikári kuruka rupí</string>
-  <string name="search_hint_search_languages">Usikári yepé nhẽẽga</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Uyumuá çe kamakaçawa\'etá</string>
-  <string name="nav_item_suggested_edits">Murupiawa\'etá</string>
+  <string name="app_name_prod">Wikipédiya</string>
+  <string name="app_name_beta">Wikipédiya Beta</string>
+  <string name="app_name_alpha">Wikipédiya Alpha</string>
+  <string name="wikimedia">Wikimédiya</string>
+  <string name="nav_item_back">Yuirisawa</string>
+  <string name="page_tabs_back">Yuirisawa</string>
+  <string name="nav_item_forward">Tenundé</string>
+  <string name="search_hint">Usikari Wikipédiya upé</string>
+  <string name="search_hint_voice_search">Usikari kuruka rupí</string>
+  <string name="search_hint_search_languages">Usikari yepé nheenga</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Uyumuá se akamakasawa-itá</string>
+  <string name="nav_item_suggested_edits">Murupiawa-itá</string>
   <string name="nav_item_more">Yawá píri</string>
-  <string name="nav_item_search">Usikári</string>
-  <string name="error_network_error">Ti uyumuru\'ana uyumũdi internet upé.</string>
-  <string name="page_error_retry">Uçaá amũ ruê</string>
-  <string name="card_offline_error_retry">Uçaá amũ ruê</string>
-  <string name="storage_access_error_retry">Uçaá amũ ruê</string>
-  <string name="article_load_error_retry">Uçaá amũ ruê</string>
-  <string name="offline_load_error_retry">Uçaá amũ ruê</string>
-  <string name="page_error_back_to_main">Uiwiri</string>
-  <string name="error_back">Uiwiri</string>
-  <string name="menu_clear_all_history">Umuéu marãduwapawa</string>
-  <string name="history_item_deleted">%s umuçaka\'ana marãduwapawa çui</string>
+  <string name="nav_item_search">Usikari</string>
+  <string name="error_network_error">Yaputíwana nití Internet upé.</string>
+  <string name="page_error_retry">Saã yuíri</string>
+  <string name="card_offline_error_retry">Saã yuíri</string>
+  <string name="storage_access_error_retry">Saã yuíri</string>
+  <string name="article_load_error_retry">Saã yuíri</string>
+  <string name="offline_load_error_retry">Saã yuíri</string>
+  <string name="page_error_back_to_main">Muyuirisawa</string>
+  <string name="error_back">Muyuirisawa</string>
+  <string name="error_next">Tenundewara</string>
+  <string name="menu_clear_all_history">Umuwéu maranduwapawa</string>
+  <string name="history_item_deleted">%s umusaka ana maranduwapawa suí</string>
   <string name="history_item_delete_undo">Muyuíri</string>
   <string name="notification_archive_undo">Muyuíri</string>
-  <string name="app_settings">Mburipawa yumukaturuçawa\'etá</string>
-  <string name="history_list_title">Marãduwapawa</string>
-  <string name="image_content_description">Çãgawa: %s</string>
-  <string name="page_content_description">Sowa: %s</string>
-  <string name="wikimedia_commons">Wikimediya Commons</string>
-  <string name="wikidata">Wikiyedata</string>
-  <string name="dialog_title_clear_history">Umuéu sikáriçawa marãduwapawa</string>
+  <string name="app_settings">App musatambika</string>
+  <string name="history_list_title">Mumbeusawa</string>
+  <string name="image_content_description">Sangawa: %s</string>
+  <string name="page_content_description">Papera: %s</string>
+  <string name="wikimedia_commons">Wikimédiya Commons</string>
+  <string name="wikidata">Wikidata</string>
+  <string name="dialog_title_clear_history">Umuwéu sikarisawa mumbeusawa</string>
   <string name="dialog_message_clear_history_yes">Ẽẽ</string>
-  <string name="dialog_message_clear_history_no">Ãã</string>
-  <string name="share_via">Umuĩ yawá rupí</string>
-  <string name="image_share_via">Umuĩ yawá rupí</string>
-  <string name="search_redirect_from">Amũmupika\'ana %s çuiwara</string>
-  <string name="menu_page_other_languages">Umuterié nhẽẽga</string>
+  <string name="dialog_message_clear_history_no">Umbaá</string>
+  <string name="share_via">Muputawa rupí</string>
+  <string name="image_share_via">Muputawa rupí</string>
+  <string name="search_redirect_from">Amupika ana %s suiwara</string>
+  <string name="menu_page_other_languages">Remutirika nheenga</string>
   <string name="menu_page_add_to_watchlist">Umburipíri sowa\'etá xipiana kamakaçawa upé</string>
   <string name="menu_page_watch">Uxipiá</string>
   <string name="menu_page_view_talk">Umaã murũgetaçawa sowa</string>

@@ -90,6 +90,7 @@
   <string name="menu_page_new_tab">Nýr flipi</string>
   <string name="menu_page_reading_lists">Leslistar</string>
   <string name="menu_page_recently_viewed">Nýlega skoðað</string>
+  <string name="menu_page_archive">Safn</string>
   <string name="menu_long_press_open_page">Opna</string>
   <string name="menu_long_press_open_in_new_tab">Opna í nýjum flipa</string>
   <string name="menu_long_press_copy_page">Afrita vistfang tengils</string>
@@ -1114,6 +1115,7 @@
   <string name="talk_list_item_user_icon_content_description">Táknmynd notanda</string>
   <string name="talk_list_item_swipe_mark_as_read">Lesið</string>
   <string name="talk_list_item_swipe_mark_as_unread">Ólesið</string>
+  <string name="talk_archived_title">Safn spjallsíðna: %s</string>
   <string name="menu_option_share_talk_discussion">Deila umræðu</string>
   <string name="menu_option_share_talk_page">Deila spjallsíðu</string>
   <string name="menu_option_share_edit">Deila breytingu</string>
@@ -1187,4 +1189,5 @@
   <string name="subcategory_empty">Engir undirflokkar fundust í þessum flokki.</string>
   <string name="search_namespaces">Nafnrými</string>
   <string name="revision_initial_none">Ekkert (þetta er fyrsta yfirferðin)</string>
+  <string name="archive_empty">Engar síður fundust í safni.</string>
 </resources>
