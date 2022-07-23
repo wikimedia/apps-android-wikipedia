@@ -42,7 +42,6 @@ class InsertMediaActivity : BaseActivity() {
     private val insertMediaConcatAdapter = insertMediaAdapter.withLoadStateHeaderAndFooter(insertMediaLoadHeader, insertMediaLoadFooter)
 
     private val itemCallback = ItemCallback()
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val viewModel: InsertMediaViewModel by viewModels { InsertMediaViewModel.Factory(intent.extras!!) }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
