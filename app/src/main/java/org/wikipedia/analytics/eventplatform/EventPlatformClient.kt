@@ -305,16 +305,17 @@ object EventPlatformClient {
         }
 
         fun getSamplingId(unit: String): String {
-            if (unit === SamplingConfig.UNIT_SESSION) {
+            if (unit == SamplingConfig.UNIT_SESSION) {
                 return AssociationController.sessionId
             }
-            if (unit === SamplingConfig.UNIT_PAGEVIEW) {
+            if (unit == SamplingConfig.UNIT_PAGEVIEW) {
                 return AssociationController.pageViewId
             }
-            if (unit === SamplingConfig.UNIT_DEVICE) {
+            if (unit == SamplingConfig.UNIT_DEVICE) {
                 return Prefs.appInstallId.orEmpty()
             }
-            throw RuntimeException("Bad identifier type")
+            L.e("Bad identifier type")
+            return UUID.randomUUID().toString()
         }
     }
 }

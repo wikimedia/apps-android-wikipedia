@@ -48,6 +48,10 @@ class TalkFunnel constructor(private val title: PageTitle, private val invokeSou
         log("action", "open_sort")
     }
 
+    fun logOpenArchive() {
+        log("action", "open_archive")
+    }
+
     fun logSortOrderPublished(ascendingOrder: Boolean) {
         val order = if (ascendingOrder) "ascending" else "descending"
         log("action", "sort_order_published_$order")
