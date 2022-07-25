@@ -13,7 +13,7 @@ jobs:
     - uses: actions/setup-java@v2
       with:
         distribution: 'temurin'
-        java-version: '17'
+        java-version: '11'
     - uses: gradle/gradle-build-action@v2
     - name: Checkout submodules
       run: git submodule update --init --recursive
