@@ -17,6 +17,7 @@
 * Lluis tgn
 * Macofe
 * Mguix
+* Paucabot
 * SMP
 * Skurz0
 * Ssola
@@ -92,7 +93,7 @@
   <string name="menu_page_view_talk">Mostra la pàgina de discussió</string>
   <string name="menu_page_talk_page">Pàgina de discussió</string>
   <string name="menu_page_view_edit_history">Mostra l\'historial de modificacions</string>
-  <string name="menu_page_edit_history">Modifica l\'historial</string>
+  <string name="menu_page_edit_history">Historial d\'edicions</string>
   <string name="menu_page_remove_from_watchlist">Suprimeix de la llista de seguiment</string>
   <string name="menu_page_watched">Seguida</string>
   <string name="edit_section_find_in_page">Cerca a la pàgina</string>
