@@ -9,8 +9,8 @@ gen-external-apklibs
 
 # Gradle
 .gradle
-/local.properties
-/build
+local.properties
+build
 
 # IDE files
 *.iml
