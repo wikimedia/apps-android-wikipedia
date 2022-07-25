@@ -17,6 +17,7 @@
 * Lluis tgn
 * Macofe
 * Mguix
+* Paucabot
 * SMP
 * Skurz0
 * Ssola
@@ -92,7 +93,7 @@
   <string name="menu_page_view_talk">Mostra la pàgina de discussió</string>
   <string name="menu_page_talk_page">Pàgina de discussió</string>
   <string name="menu_page_view_edit_history">Mostra l\'historial de modificacions</string>
-  <string name="menu_page_edit_history">Modifica l\'historial</string>
+  <string name="menu_page_edit_history">Historial d\'edicions</string>
   <string name="menu_page_remove_from_watchlist">Suprimeix de la llista de seguiment</string>
   <string name="menu_page_watched">Seguida</string>
   <string name="edit_section_find_in_page">Cerca a la pàgina</string>
@@ -108,6 +109,7 @@
   <string name="menu_page_new_tab">Pestanya nova</string>
   <string name="menu_page_reading_lists">Llistes de lectura</string>
   <string name="menu_page_recently_viewed">Vist recentment</string>
+  <string name="menu_page_archive">Arxiu</string>
   <string name="menu_long_press_open_page">Obre</string>
   <string name="menu_long_press_open_in_new_tab">Obre en una pestanya nova</string>
   <string name="menu_long_press_copy_page">Copia l\'adreça de l\'enllaç</string>
@@ -1132,6 +1134,7 @@
   <string name="talk_list_item_user_icon_content_description">Icona d\'usuari</string>
   <string name="talk_list_item_swipe_mark_as_read">Llegit</string>
   <string name="talk_list_item_swipe_mark_as_unread">No llegit</string>
+  <string name="talk_archived_title">Arxiu de la discussió: %s</string>
   <string name="menu_option_share_talk_discussion">Comparteix la discussió</string>
   <string name="menu_option_share_talk_page">Comparteix la pàgina de discussió</string>
   <string name="menu_option_share_edit">Comparteix l\'edició</string>
@@ -1205,4 +1208,5 @@
   <string name="subcategory_empty">No s\'han trobat subcategories en la categoria.</string>
   <string name="search_namespaces">Espais de noms</string>
   <string name="revision_initial_none">Cap (és la primera revisió)</string>
+  <string name="archive_empty">No s\'ha trobat cap pàgina arxivada.</string>
 </resources>
