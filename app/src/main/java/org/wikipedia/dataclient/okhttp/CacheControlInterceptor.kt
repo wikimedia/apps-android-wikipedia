@@ -14,6 +14,8 @@ internal class CacheControlInterceptor : Interceptor {
         val rsp = chain.proceed(chain.request())
         val builder = rsp.newBuilder()
 
+        // Override the Cache-Control header of this response, but only if it's not "private",
+        // since private responses could contain session tokens which should not be cached.
         if (!rsp.cacheControl.isPrivate && rsp.cacheControl.mustRevalidate) {
             // Override the Cache-Control header with just a max-age directive.
             // Usually the server gives us a "must-revalidate" directive, which forces us to attempt
