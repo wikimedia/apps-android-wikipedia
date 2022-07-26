@@ -45,6 +45,7 @@ import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.*
+import org.wikipedia.util.log.L
 import org.wikipedia.views.*
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
@@ -196,7 +197,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             menu.findItem(R.id.menu_change_language).isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
             menu.findItem(R.id.menu_read_article).isVisible = viewModel.pageTitle.namespace() != Namespace.USER_TALK && invokeSource != Constants.InvokeSource.ARCHIVED_TALK_ACTIVITY
             menu.findItem(R.id.menu_view_user_page).isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
-            menu.findItem(R.id.menu_view_user_page).title = getString(R.string.menu_option_user_page, StringUtil.removeNamespace(viewModel.pageTitle.displayText))
+            menu.findItem(R.id.menu_view_user_page).title = getString(R.string.menu_option_user_page, StringUtil.removeNamespace(StringUtil.removeUnderscores(viewModel.pageTitle.prefixedText)))
 
             val notificationMenuItem = menu.findItem(R.id.menu_notifications)
             val watchMenuItem = menu.findItem(R.id.menu_watch)
@@ -368,7 +369,8 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
-        binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
+        // FIXME: solve this redundant namespace issue in PageTitle.
+        binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(StringUtil.removeUnderscores(pageTitle.prefixedText))}</a>")
         binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
         binding.toolbarTitle.isVisible = !goToTopic
         if (invokeSource != Constants.InvokeSource.ARCHIVED_TALK_ACTIVITY) {
