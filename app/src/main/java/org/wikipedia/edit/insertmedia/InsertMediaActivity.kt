@@ -14,6 +14,7 @@ import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collectLatest
@@ -21,11 +22,13 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityInsertMediaBinding
+import org.wikipedia.databinding.ItemInsertMediaBinding
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.search.SearchResult
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.PageItemView
+import org.wikipedia.views.ViewUtil
 import org.wikipedia.views.WikiErrorView
 
 class InsertMediaActivity : BaseActivity() {
@@ -44,7 +47,7 @@ class InsertMediaActivity : BaseActivity() {
         binding = ActivityInsertMediaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.layoutManager = GridLayoutManager(this, 3)
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
         binding.recyclerView.adapter = insertMediaConcatAdapter
 
@@ -100,9 +103,7 @@ class InsertMediaActivity : BaseActivity() {
 
     private inner class InsertMediaAdapter : PagingDataAdapter<SearchResult, RecyclerView.ViewHolder>(InsertMediaDiffCallback()) {
         override fun onCreateViewHolder(parent: ViewGroup, pos: Int): InsertMediaItemHolder {
-            val view = PageItemView<SearchResult>(this@InsertMediaActivity)
-            view.callback = itemCallback
-            return InsertMediaItemHolder(view)
+            return InsertMediaItemHolder(ItemInsertMediaBinding.inflate(layoutInflater))
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -137,13 +138,11 @@ class InsertMediaActivity : BaseActivity() {
         }
     }
 
-    private inner class InsertMediaItemHolder constructor(val view: PageItemView<SearchResult>) : RecyclerView.ViewHolder(view) {
+    private inner class InsertMediaItemHolder constructor(val binding: ItemInsertMediaBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindItem(title: SearchResult) {
-            view.item = title
-            view.setTitle(title.pageTitle.displayText)
-            view.setImageUrl(title.pageTitle.thumbUrl)
-            view.setImageVisible(!title.pageTitle.thumbUrl.isNullOrEmpty())
-            view.setDescription(title.pageTitle.description)
+            // TODO: fix image display issue
+            ViewUtil.loadImage(binding.imageView, title.pageTitle.thumbUrl)
+            binding.imageDescription.text = title.pageTitle.description
         }
     }
 
