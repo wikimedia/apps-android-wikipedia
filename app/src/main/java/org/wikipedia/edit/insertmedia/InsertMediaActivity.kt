@@ -18,17 +18,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityInsertMediaBinding
-import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
-import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.*
+import org.wikipedia.search.SearchResult
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.WikiErrorView
@@ -36,7 +31,7 @@ import org.wikipedia.views.WikiErrorView
 class InsertMediaActivity : BaseActivity() {
     private lateinit var binding: ActivityInsertMediaBinding
 
-    private val insertMediaAdapter = ArchivedTalkPagesAdapter()
+    private val insertMediaAdapter = InsertMediaAdapter()
     private val insertMediaLoadHeader = LoadingItemAdapter { insertMediaAdapter.retry(); }
     private val insertMediaLoadFooter = LoadingItemAdapter { insertMediaAdapter.retry(); }
     private val insertMediaConcatAdapter = insertMediaAdapter.withLoadStateHeaderAndFooter(insertMediaLoadHeader, insertMediaLoadFooter)
@@ -56,7 +51,7 @@ class InsertMediaActivity : BaseActivity() {
         binding.recyclerView.adapter = insertMediaConcatAdapter
 
         lifecycleScope.launch {
-            viewModel.archivedTalkPagesFlow.collectLatest {
+            viewModel.insertMediaFlow.collectLatest {
                 insertMediaAdapter.submitData(it)
             }
         }
@@ -95,26 +90,26 @@ class InsertMediaActivity : BaseActivity() {
         override fun getItemCount(): Int { return 1 }
     }
 
-    private inner class ArchivedTalkPagesDiffCallback : DiffUtil.ItemCallback<PageTitle>() {
-        override fun areItemsTheSame(oldItem: PageTitle, newItem: PageTitle): Boolean {
-            return oldItem.prefixedText == newItem.prefixedText && oldItem.namespace == newItem.namespace
+    private inner class InsertMediaDiffCallback : DiffUtil.ItemCallback<SearchResult>() {
+        override fun areItemsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {
+            return oldItem.pageTitle.prefixedText == newItem.pageTitle.prefixedText && oldItem.pageTitle.namespace == newItem.pageTitle.namespace
         }
 
-        override fun areContentsTheSame(oldItem: PageTitle, newItem: PageTitle): Boolean {
+        override fun areContentsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {
             return areItemsTheSame(oldItem, newItem)
         }
     }
 
-    private inner class ArchivedTalkPagesAdapter : PagingDataAdapter<PageTitle, RecyclerView.ViewHolder>(ArchivedTalkPagesDiffCallback()) {
-        override fun onCreateViewHolder(parent: ViewGroup, pos: Int): ArchivedTalkPageItemHolder {
-            val view = PageItemView<PageTitle>(this@InsertMediaActivity)
+    private inner class InsertMediaAdapter : PagingDataAdapter<SearchResult, RecyclerView.ViewHolder>(InsertMediaDiffCallback()) {
+        override fun onCreateViewHolder(parent: ViewGroup, pos: Int): InsertMediaItemHolder {
+            val view = PageItemView<SearchResult>(this@InsertMediaActivity)
             view.callback = itemCallback
-            return ArchivedTalkPageItemHolder(view)
+            return InsertMediaItemHolder(view)
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             getItem(position)?.let {
-                (holder as ArchivedTalkPageItemHolder).bindItem(it)
+                (holder as InsertMediaItemHolder).bindItem(it)
             }
         }
     }
@@ -144,26 +139,26 @@ class InsertMediaActivity : BaseActivity() {
         }
     }
 
-    private inner class ArchivedTalkPageItemHolder constructor(val view: PageItemView<PageTitle>) : RecyclerView.ViewHolder(view) {
-        fun bindItem(title: PageTitle) {
+    private inner class InsertMediaItemHolder constructor(val view: PageItemView<SearchResult>) : RecyclerView.ViewHolder(view) {
+        fun bindItem(title: SearchResult) {
             view.item = title
-            view.setTitle(title.displayText)
-            view.setImageUrl(title.thumbUrl)
-            view.setImageVisible(!title.thumbUrl.isNullOrEmpty())
-            view.setDescription(title.description)
+            view.setTitle(title.pageTitle.displayText)
+            view.setImageUrl(title.pageTitle.thumbUrl)
+            view.setImageVisible(!title.pageTitle.thumbUrl.isNullOrEmpty())
+            view.setDescription(title.pageTitle.description)
         }
     }
 
-    private inner class ItemCallback : PageItemView.Callback<PageTitle?> {
-        override fun onClick(item: PageTitle?) {
+    private inner class ItemCallback : PageItemView.Callback<SearchResult?> {
+        override fun onClick(item: SearchResult?) {
             // TODO: toggle
         }
 
-        override fun onLongClick(item: PageTitle?): Boolean {
+        override fun onLongClick(item: SearchResult?): Boolean {
             return false
         }
 
-        override fun onActionClick(item: PageTitle?, view: View) {}
+        override fun onActionClick(item: SearchResult?, view: View) {}
 
         override fun onListChipClick(readingList: ReadingList) {}
     }

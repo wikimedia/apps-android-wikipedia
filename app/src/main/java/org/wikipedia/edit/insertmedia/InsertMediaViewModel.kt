@@ -16,7 +16,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
     val pageTitle = bundle.getParcelable<PageTitle>(InsertMediaActivity.EXTRA_TITLE)!!
     val searchQuery = bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!
-    val archivedTalkPagesFlow = Pager(PagingConfig(pageSize = 10)) {
+    val insertMediaFlow = Pager(PagingConfig(pageSize = 10)) {
         InsertMediaPagingSource(pageTitle, searchQuery)
     }.flow.cachedIn(viewModelScope)
 
