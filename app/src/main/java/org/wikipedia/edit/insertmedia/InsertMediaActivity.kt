@@ -169,11 +169,13 @@ class InsertMediaActivity : BaseActivity() {
     }
 
     companion object {
-        const val EXTRA_TITLE = "talkTopicTitle"
+        const val EXTRA_TITLE = "pageTitle"
+        const val EXTRA_SEARCH_QUERY = "searchQuery"
 
-        fun newIntent(context: Context, talkTopicTitle: PageTitle): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle, searchQuery: String): Intent {
             return Intent(context, InsertMediaActivity::class.java)
-                    .putExtra(EXTRA_TITLE, talkTopicTitle)
+                    .putExtra(EXTRA_TITLE, pageTitle)
+                    .putExtra(EXTRA_SEARCH_QUERY, searchQuery)
         }
     }
 }

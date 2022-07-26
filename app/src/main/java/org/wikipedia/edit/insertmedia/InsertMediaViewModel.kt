@@ -7,41 +7,43 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
+import org.wikipedia.search.SearchResult
+import org.wikipedia.search.SearchResults
 
 class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
     val pageTitle = bundle.getParcelable<PageTitle>(InsertMediaActivity.EXTRA_TITLE)!!
+    val searchQuery = bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!
     val archivedTalkPagesFlow = Pager(PagingConfig(pageSize = 10)) {
-        ArchivedTalkPagesPagingSource(pageTitle)
+        InsertMediaPagingSource(pageTitle, searchQuery)
     }.flow.cachedIn(viewModelScope)
 
-    class ArchivedTalkPagesPagingSource(
-            val pageTitle: PageTitle
-    ) : PagingSource<Int, PageTitle>() {
-        override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PageTitle> {
+    class InsertMediaPagingSource(
+            val pageTitle: PageTitle,
+            val searchQuery: String,
+    ) : PagingSource<MwQueryResponse.Continuation, SearchResult>() {
+        override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, SearchResult> {
             return try {
-                // The default offset is 0 but we send the initial offset from 1 to prevent showing the same talk page from the results.
-                if (params.key == 0) {
-                    return LoadResult.Page(emptyList(), null, null)
-                }
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
-                    .prefixSearch(pageTitle.prefixedText + "/", params.loadSize, params.key)
+                    .fullTextSearch(searchQuery, params.key?.gsroffset.toString(), params.loadSize, params.key?.continuation)
                 if (response.query?.pages == null) {
                     return LoadResult.Page(emptyList(), null, null)
                 }
-                val titles = response.query!!.pages!!.map { page ->
-                    PageTitle(page.title, pageTitle.wikiSite).also {
-                        it.displayText = page.displayTitle(pageTitle.wikiSite.languageCode)
-                    }
+
+                return response.query?.pages?.let { list ->
+                    val results = list.sortedBy { it.index }.map { SearchResult(it, pageTitle.wikiSite) }
+                    LoadResult.Page(results, response.continuation, null)
+                } ?: run {
+                    LoadResult.Page(emptyList(), null, null)
                 }
-                LoadResult.Page(titles, null, response.continuation?.gpsoffset)
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }
         }
 
-        override fun getRefreshKey(state: PagingState<Int, PageTitle>): Int? {
+        override fun getRefreshKey(state: PagingState<MwQueryResponse.Continuation, SearchResult>): MwQueryResponse.Continuation? {
             return null
         }
     }
