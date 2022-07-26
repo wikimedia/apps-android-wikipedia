@@ -10,9 +10,9 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:contentDescription="@null"
-        android:scaleType="fitCenter"/>
+        android:layout_height="200dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="@null"/>
 
     <TextView
         android:id="@+id/imageDescription"

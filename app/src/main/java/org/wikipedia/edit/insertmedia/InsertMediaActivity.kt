@@ -141,7 +141,7 @@ class InsertMediaActivity : BaseActivity() {
     private inner class InsertMediaItemHolder constructor(val binding: ItemInsertMediaBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindItem(title: SearchResult) {
             // TODO: fix image display issue
-            ViewUtil.loadImage(binding.imageView, title.pageTitle.thumbUrl)
+            ViewUtil.loadImageWithRoundedCorners(binding.imageView, title.pageTitle.thumbUrl)
             binding.imageDescription.text = title.pageTitle.description
         }
     }
