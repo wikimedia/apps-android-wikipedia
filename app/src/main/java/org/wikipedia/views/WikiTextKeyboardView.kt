@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.inputmethod.InputConnection
 import android.widget.FrameLayout
 import org.wikipedia.databinding.ViewWikitextKeyboardBinding
+import org.wikipedia.edit.insertmedia.InsertMediaActivity
+import org.wikipedia.page.PageTitle
 
 class WikiTextKeyboardView : FrameLayout {
     fun interface Callback {
@@ -16,6 +18,7 @@ class WikiTextKeyboardView : FrameLayout {
     private val binding = ViewWikitextKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
     var callback: Callback? = null
     var editText: PlainPasteEditText? = null
+    var pageTitle: PageTitle? = null
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -66,6 +69,9 @@ class WikiTextKeyboardView : FrameLayout {
 
         binding.wikitextButtonInsertMedia.setOnClickListener {
             // TODO: open activity and receive data from activity
+            pageTitle?.let {
+                context.startActivity(InsertMediaActivity.newIntent(context, it.prefixedText))
+            }
         }
 
         binding.wikitextButtonPreviewLink.setOnClickListener {

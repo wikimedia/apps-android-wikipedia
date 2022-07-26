@@ -169,6 +169,7 @@ class EditSectionActivity : BaseActivity() {
             }
         }
         binding.editKeyboardOverlay.editText = binding.editSectionText
+        binding.editKeyboardOverlay.pageTitle = pageTitle
         binding.editKeyboardOverlay.callback = WikiTextKeyboardView.Callback {
             bottomSheetPresenter.show(supportFragmentManager,
                     LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(it, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null))

@@ -43,8 +43,6 @@ class InsertMediaActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityInsertMediaBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
@@ -62,7 +60,7 @@ class InsertMediaActivity : BaseActivity() {
                 insertMediaLoadFooter.loadState = it.append
                 val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && insertMediaAdapter.itemCount == 0)
                 if (showEmpty) {
-                    insertMediaConcatAdapter.addAdapter(EmptyItemAdapter(R.string.archive_empty))
+                    insertMediaConcatAdapter.addAdapter(EmptyItemAdapter(R.string.search_no_results_found))
                 }
             }
         }
@@ -122,7 +120,7 @@ class InsertMediaActivity : BaseActivity() {
             errorView.isVisible = loadState is LoadState.Error
             errorView.retryClickListener = View.OnClickListener { retry() }
             if (loadState is LoadState.Error) {
-                errorView.setError(loadState.error, viewModel.pageTitle)
+                errorView.setError(loadState.error)
             }
         }
     }
@@ -164,12 +162,10 @@ class InsertMediaActivity : BaseActivity() {
     }
 
     companion object {
-        const val EXTRA_TITLE = "pageTitle"
         const val EXTRA_SEARCH_QUERY = "searchQuery"
 
-        fun newIntent(context: Context, pageTitle: PageTitle, searchQuery: String): Intent {
+        fun newIntent(context: Context, searchQuery: String): Intent {
             return Intent(context, InsertMediaActivity::class.java)
-                    .putExtra(EXTRA_TITLE, pageTitle)
                     .putExtra(EXTRA_SEARCH_QUERY, searchQuery)
         }
     }
