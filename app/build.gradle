@@ -15,6 +15,19 @@ static def computeVersionName(versionCode, label) {
     return "2.7.${versionCode}-${label}-${(new Date()).format('yyyy-MM-dd')}"
 }
 
+static def getResLangList() {
+    var langList = [ "en" ]
+    new File("app/src/main/res").listFiles().each {
+        if (it.isDirectory()) {
+            var files = it.listFiles()
+            if (it.name != "values-qq" && it.name != "values" && !it.name.contains("x+old") && files.find(f -> f.name == "strings.xml")) {
+                langList.add(it.name.replace("values-", ""))
+            }
+        }
+    }
+    return langList
+}
+
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
 
 android {
@@ -45,6 +58,8 @@ android {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
             }
         }
+
+        resConfigs getResLangList()
 
         dimension 'default'
         signingConfig signingConfigs.debug
