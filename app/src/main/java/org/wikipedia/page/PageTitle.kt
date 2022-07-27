@@ -51,8 +51,12 @@ data class PageTitle(
     var namespace: String
         get() = _namespace.orEmpty()
         set(value) {
+            // Remove the current namespace from displayText, if it exists.
+            if (!_namespace.isNullOrEmpty() && !_displayText.isNullOrEmpty() && _displayText.orEmpty().startsWith(_namespace!!)) {
+                _displayText = StringUtil.removeNamespace(_displayText!!)
+            }
             _namespace = value
-            // TODO: fix the issue when entering an user talk page from a user page in PageActivity
+            // And prepend the new namespace onto displayText.
             _displayText = if (value.isEmpty()) _displayText else StringUtil.removeUnderscores(value) + ":" + _displayText
         }
 
