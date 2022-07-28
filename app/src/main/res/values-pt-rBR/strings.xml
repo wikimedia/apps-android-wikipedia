@@ -12,6 +12,7 @@
 * Deskana
 * Dianakc
 * Dr03ramos
+* Duke of Wikipädia
 * EVinente
 * Eduardo Addad de Oliveira
 * Eduardoaddad
@@ -72,6 +73,7 @@
   <string name="search_tab_tooltip">Toque no ícone novamente para começar a digitar diretamente um termo de pesquisa.</string>
   <string name="history_list_title">Histórico</string>
   <string name="image_content_description">Imagem: %s</string>
+  <string name="page_content_description">Página: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
@@ -82,6 +84,14 @@
   <string name="image_share_via">Compartilhar via</string>
   <string name="search_redirect_from">Redirecionado de %s</string>
   <string name="page_edit_history_activity_title">Historial de revisões: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Resumo de edição vazio</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Pesquisar ou filtrar edições</string>
+  <string name="page_edit_history_filter_by">Filtrar por</string>
+  <string name="page_edit_history_filter_by_all">Todas as edições (%s)</string>
+  <string name="page_edit_history_filter_by_user">Edições do usuário (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Edições anônimas (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Edições de robôs (%s)</string>
   <string name="menu_page_show_tabs">Mostrar guias</string>
   <string name="menu_page_other_languages">Alterar idioma</string>
   <string name="menu_page_find_in_page">Encontre no artigo</string>

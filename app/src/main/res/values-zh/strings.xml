@@ -190,7 +190,7 @@
   <string name="login_in_progress_dialog_message">正在登录…</string>
   <string name="login_success_toast">登录成功！</string>
   <string name="reset_password_title">设置您的密码</string>
-  <string name="reset_password_description">您使用了通过电子邮件发送的临时密码登录。要完成登录，您必须在此设置一个新密码。</string>
+  <string name="reset_password_description">您使用了临时密码登录。要完成登录，您必须在此设置一个新密码。</string>
   <string name="reset_password_hint">新密码</string>
   <string name="reset_password_button">保存并登录</string>
   <string name="preference_title_logout">退出</string>
