@@ -6,6 +6,7 @@
 * Xelgen
 * Աշոտ1997
 * Դավիթ Սարոյան
+* Սերգեյ Սաֆարյան
 -->
 <resources>
   <string name="app_name_prod">Վիքիպեդիա</string>
@@ -67,10 +68,10 @@
   <string name="feed_card_add_to_default_list">Հիշել</string>
   <string name="menu_page_share">Կիսվել հղումով</string>
   <string name="menu_page_open_a_new_tab">Բացել նոր ներդիրում</string>
-  <string name="menu_page_new_tab">Նոր էջանշանը</string>
+  <string name="menu_page_new_tab">Նոր ներդիր</string>
   <string name="menu_page_reading_lists">Ընթերցացանկեր</string>
   <string name="menu_page_recently_viewed">Վերջերս դիտած</string>
-  <string name="menu_page_archive">Արխիվ</string>
+  <string name="menu_page_archive">Պահոց</string>
   <string name="menu_long_press_open_page">Բացել</string>
   <string name="menu_long_press_open_in_new_tab">Բացել նոր ներդիրում</string>
   <string name="menu_long_press_copy_page">Պատճենել հղման հասցեն</string>
@@ -189,7 +190,7 @@
   <string name="gallery_add_image_caption_button">Ավելացրել պատկերի նկարագրություն</string>
   <string name="gallery_fair_use_license">Արդար օգտագործում</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">Փակել</string>
-  <string name="menu_new_tab">Նոր էջանշանը</string>
+  <string name="menu_new_tab">Նոր ներդիր</string>
   <string name="close_all_tabs_confirm_yes">Այո</string>
   <string name="close_all_tabs_confirm_no">Ոչ</string>
   <string name="button_continue_to_article">Կարդալ հոդված</string>
@@ -298,8 +299,8 @@
   <string name="description_edit_success_did_you_know">Դուք գիտեի՞ք</string>
   <string name="description_edit_tutorial_title_descriptions">Հոդվածների նկարագրություններ</string>
   <string name="description_edit_tutorial_button_label_start_editing">Սկսել խմբագրել</string>
-  <string name="customize_toolbar_category_toolbar">Գործիքադարակ</string>
-  <string name="customize_toolbar_category_menu">Մենյու</string>
+  <string name="customize_toolbar_category_toolbar">Գործիքագոտի</string>
+  <string name="customize_toolbar_category_menu">Ընտրացանկ</string>
   <string name="suggested_edits_describe_articles">Նկարագրեք հոդվածները</string>
   <string name="suggested_edits_add_translation_button">Նոր թարգմանություն</string>
   <string name="suggested_edits_edit_translation_button">Խմբագրել թարգմանություն</string>
