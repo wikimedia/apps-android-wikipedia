@@ -13,7 +13,7 @@ import org.wikipedia.search.SearchResult
 
 class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
-    val searchQuery = bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!
+    var searchQuery = bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!
     val insertMediaFlow = Pager(PagingConfig(pageSize = 10)) {
         InsertMediaPagingSource(searchQuery)
     }.flow.cachedIn(viewModelScope)
@@ -25,7 +25,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             return try {
                 val wikiSite = WikiSite(Service.COMMONS_URL)
                 val response = ServiceFactory.get(wikiSite)
-                    .fullTextSearch(searchQuery, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
+                    .fullTextSearch("File: $searchQuery", params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
 
                 return response.query?.pages?.let { list ->
                     val results = list.sortedBy { it.index }.map { SearchResult(it, wikiSite) }
