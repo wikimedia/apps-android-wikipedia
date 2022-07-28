@@ -38,6 +38,7 @@ class InsertMediaActivity : BaseActivity() {
     private val insertMediaLoadHeader = LoadingItemAdapter { insertMediaAdapter.retry(); }
     private val insertMediaLoadFooter = LoadingItemAdapter { insertMediaAdapter.retry(); }
     private val insertMediaConcatAdapter = insertMediaAdapter.withLoadStateHeaderAndFooter(insertMediaLoadHeader, insertMediaLoadFooter)
+    private val insertMediaHeaderAdapter = HeaderItemAdapter()
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
 
@@ -142,7 +143,7 @@ class InsertMediaActivity : BaseActivity() {
         fun bindItem(title: SearchResult) {
             // TODO: fix image display issue
             ViewUtil.loadImageWithRoundedCorners(binding.imageView, title.pageTitle.thumbUrl)
-            binding.imageDescription.text = title.pageTitle.description
+            binding.imageDescription.text = title.pageTitle.displayText
         }
     }
 
