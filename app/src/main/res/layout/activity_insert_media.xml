@@ -10,8 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="16dp">
+        android:orientation="vertical">
 
         <FrameLayout
             android:id="@+id/imageInfoContainer"
@@ -23,59 +22,60 @@
                 android:id="@+id/emptyImageContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
 
                 <ImageView
-                    android:layout_width="400dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="?attr/image_tags_onboarding_image"
                     android:contentDescription="@string/insert_media_search_description" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:text="@string/insert_media_search_description" />
 
             </LinearLayout>
 
-            <LinearLayout
+            <FrameLayout
                 android:id="@+id/selectedImageContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:visibility="gone">
 
                 <org.wikipedia.views.FaceAndColorDetectImageView
                     android:id="@+id/selectedImage"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:scaleType="centerCrop"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="fitCenter"
+                    android:src="?attr/image_tags_onboarding_image"
                     android:contentDescription="@string/insert_media_settings_uploaded_image"/>
-
-                <org.wikipedia.views.AppTextView
-                    android:id="@+id/selectedImageDescription"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fadeScrollbars="false"
-                    android:maxHeight="128dp"
-                    android:scrollbarStyle="insideInset"
-                    android:scrollbars="vertical"
-                    android:textColor="@color/base90"
-                    android:textColorLink="@color/base90"
-                    android:textIsSelectable="true"
-                    tools:text="Sample image description text" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/black38"
-                    android:paddingStart="@dimen/activity_horizontal_margin"
-                    android:paddingTop="16dp"
-                    android:paddingEnd="@dimen/activity_horizontal_margin"
-                    android:paddingBottom="16dp">
+                    android:padding="8dp"
+                    android:layout_gravity="bottom"
+                    android:orientation="vertical">
+
+                    <org.wikipedia.views.AppTextView
+                        android:id="@+id/selectedImageDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fadeScrollbars="false"
+                        android:maxHeight="128dp"
+                        android:scrollbarStyle="insideInset"
+                        android:scrollbars="vertical"
+                        android:textColor="@color/base90"
+                        android:textColorLink="@color/base90"
+                        android:textIsSelectable="true"
+                        android:textSize="14sp"
+                        tools:text="Sample image description text" />
 
                     <LinearLayout
                         android:id="@+id/licenseContainer"
@@ -109,23 +109,24 @@
                             android:visibility="gone"
                             app:tint="@color/white70"
                             tools:src="@drawable/ic_license_sharealike" />
+
+                        <org.wikipedia.views.AppTextView
+                            android:id="@+id/creditText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:layout_marginStart="8dp"
+                            android:textColor="@color/white70"
+                            android:textColorLink="@color/white70"
+                            android:textIsSelectable="true"
+                            tools:text="Credits" />
                     </LinearLayout>
 
-                    <org.wikipedia.views.AppTextView
-                        android:id="@+id/creditText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ellipsize="end"
-                        android:maxLines="2"
-                        android:layout_marginStart="8dp"
-                        android:textColor="@color/white70"
-                        android:textColorLink="@color/white70"
-                        android:textIsSelectable="true"
-                        tools:text="Credits" />
                 </LinearLayout>
 
-            </LinearLayout>
+            </FrameLayout>
 
         </FrameLayout>
 
@@ -145,7 +146,7 @@
             <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:contentDescription="@string/talk_search_topics_hint"
+                android:contentDescription="@string/insert_media_search_hint"
                 android:scaleType="center"
                 app:srcCompat="@drawable/ic_search_white_24dp"
                 app:tint="?attr/material_theme_de_emphasised_color" />
@@ -156,7 +157,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="48dp"
                 android:layout_marginEnd="48dp"
-                android:text="@string/talk_search_topics_hint"
+                android:text="@string/insert_media_search_hint"
                 android:textColor="?attr/material_theme_secondary_color"/>
 
         </org.wikipedia.views.WikiCardView>
