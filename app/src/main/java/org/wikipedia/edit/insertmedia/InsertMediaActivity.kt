@@ -45,6 +45,8 @@ class InsertMediaActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityInsertMediaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.title = getString(R.string.insert_media_title)
 
         binding.recyclerView.layoutManager = GridLayoutManager(this, 3)
         binding.recyclerView.adapter = insertMediaConcatAdapter

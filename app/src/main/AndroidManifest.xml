@@ -320,8 +320,7 @@
 
         <activity
             android:name=".edit.insertmedia.InsertMediaActivity"
-            android:label="@string/insert_media_title"
-            android:theme="@style/AppTheme.ActionBar"/>
+            android:label="@string/insert_media_title"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
