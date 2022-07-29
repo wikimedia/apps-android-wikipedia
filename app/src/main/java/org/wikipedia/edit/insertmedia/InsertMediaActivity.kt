@@ -25,10 +25,8 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityInsertMediaBinding
 import org.wikipedia.databinding.ItemInsertMediaBinding
-import org.wikipedia.databinding.ViewInsertMediaHeaderBinding
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.search.SearchResult
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.*
 
 class InsertMediaActivity : BaseActivity() {
@@ -38,7 +36,6 @@ class InsertMediaActivity : BaseActivity() {
     private val insertMediaLoadHeader = LoadingItemAdapter { insertMediaAdapter.retry(); }
     private val insertMediaLoadFooter = LoadingItemAdapter { insertMediaAdapter.retry(); }
     private val insertMediaConcatAdapter = insertMediaAdapter.withLoadStateHeaderAndFooter(insertMediaLoadHeader, insertMediaLoadFooter)
-    private val insertMediaHeaderAdapter = HeaderItemAdapter()
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
 
@@ -144,34 +141,6 @@ class InsertMediaActivity : BaseActivity() {
             // TODO: fix image display issue
             ViewUtil.loadImageWithRoundedCorners(binding.imageView, title.pageTitle.thumbUrl)
             binding.imageDescription.text = title.pageTitle.displayText
-        }
-    }
-
-    private inner class HeaderItemAdapter : RecyclerView.Adapter<HeaderViewHolder>() {
-        override fun onBindViewHolder(holder: HeaderViewHolder, position: Int) {
-            holder.bindItem()
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeaderViewHolder {
-            return HeaderViewHolder(ViewInsertMediaHeaderBinding.inflate(layoutInflater, parent, false))
-        }
-
-        override fun getItemCount(): Int { return 1 }
-    }
-
-    private inner class HeaderViewHolder constructor(private val binding: ViewInsertMediaHeaderBinding) : RecyclerView.ViewHolder(binding.root) {
-        init {
-            binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(this@InsertMediaActivity, R.attr.color_group_22))
-
-            binding.searchContainer.setOnClickListener {
-                if (actionMode == null) {
-                    actionMode = startSupportActionMode(searchActionModeCallback)
-                }
-            }
-        }
-
-        fun bindItem() {
-            // TODO: implement this
         }
     }
 
