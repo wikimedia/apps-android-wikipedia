@@ -109,6 +109,18 @@
   <string name="page_edit_history_activity_title">修订历史：%s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">空编辑摘要</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">搜索或筛选编辑</string>
+  <string name="page_edit_history_filter_by">筛选依</string>
+  <string name="page_edit_history_filter_by_all">所有编辑数（%s）</string>
+  <string name="page_edit_history_filter_by_user">用户编辑数（%s）</string>
+  <string name="page_edit_history_filter_by_anon">匿名编辑数（%s）</string>
+  <string name="page_edit_history_filter_by_bot">机器人编辑数（%s）</string>
+  <string name="page_edit_history_metrics_content_description">自 %1$s 到 %2$s 期间的指标</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">自 %2$s 共 %1$d 次编辑</item>
+    <item quantity="other">自 %2$s 共 %1$d 次编辑</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">尝试更改&lt;a href=\"#\"&gt;过滤器&lt;/a&gt;来查看更多编辑</string>
   <string name="menu_page_show_tabs">显示标签页</string>
   <string name="menu_page_other_languages">更改语言</string>
   <string name="menu_page_find_in_page">在条目中查找</string>
@@ -134,6 +146,7 @@
   <string name="menu_page_new_tab">新标签页</string>
   <string name="menu_page_reading_lists">阅读列表</string>
   <string name="menu_page_recently_viewed">最近访问</string>
+  <string name="menu_page_archive">存档</string>
   <string name="menu_long_press_open_page">打开</string>
   <string name="menu_long_press_open_in_new_tab">在新标签页中打开</string>
   <string name="menu_long_press_copy_page">复制链接地址</string>
@@ -151,6 +164,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。</string>
   <string name="edit_save_action_license_anon">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。编辑历史会显示您设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;后编辑，可以更好地保护您的隐私。</string>
+  <string name="edit_anon_warning">编辑将以您设备的 IP 地址发布。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;，您将拥有更多隐私。</string>
   <string name="preference_title_language">维基百科语言</string>
   <string name="langlinks_filter_hint">搜索</string>
   <string name="langlinks_empty">该页面没有其他语言版本。</string>
@@ -300,6 +314,11 @@
   <string name="edit_preview">预览</string>
   <string name="edit_undo">撤销</string>
   <string name="edit_redo">重做</string>
+  <string name="edit_rollback">回退</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s 字节</item>
+    <item quantity="other">%s 字节</item>
+  </plurals>
   <string name="edit_zoom_in">放大</string>
   <string name="edit_zoom_out">缩小</string>
   <string name="edit_summary_tag_typo">修正笔误</string>
@@ -443,6 +462,7 @@
   <string name="error_blocked_expiry">该区块已过期：%s</string>
   <string name="error_blocked_id">屏蔽ID：%s</string>
   <string name="error_blocked_footer">你可以联系&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;或另一个&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;&lt;/a&gt;来讨论这个区块</string>
+  <string name="theme_chooser_menu_item_short_tooltip">自定义您的工具栏</string>
   <string name="error_blocked_footer_no_blocker">你可以联系&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;&lt;/a&gt;来讨论这个区块</string>
   <string name="crash_report_activity_title">应用错误</string>
   <string name="crash_report_relaunch_or_quit">我们很抱歉，维基百科应用发生了一个错误，并已终止。\n\n您要重启还是退出？</string>
@@ -810,6 +830,7 @@
   <string name="description_starts_with_uppercase">除非第一个单词是专有名词，否则请以小写字母开头。</string>
   <string name="description_starts_with_lowercase">避免以小写字母开头。</string>
   <string name="description_is_in_different_language">文本似乎不是用预期的语言写的，语言应该是%s。</string>
+  <string name="description_verification_notice">请确认您的描述在%1$s中。如果您编写的描述在%2$s中，请忽略此通知。</string>
   <string name="description_edit_success_saved">条目描述已发布！</string>
   <string name="description_edit_success_saved_snackbar">条目描述已发布！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">条目描述已发布！（%s）</string>
@@ -828,10 +849,13 @@
   <string name="description_edit_tutorial_button_label_start_editing">开始编辑</string>
   <string name="description_edit_tutorial_promise">我保证在编辑时不滥用此功能</string>
   <string name="customize_toolbar_title">自定义工具栏</string>
+  <string name="customize_toolbar_shortcut_description_text">选择您认为最有用的5个快捷方式来自定义底部工具栏。</string>
   <string name="customize_toolbar_category_toolbar">工具栏</string>
   <string name="customize_toolbar_category_menu">菜单</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">将您喜欢的物品拖放到这里👋</string>
   <string name="customize_toolbar_reset_to_default_button">重置到默认</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">按住拖拽图标移动项目</string>
+  <string name="customize_toolbar_item_default_tooltip">按下并拖拽一个要重新定位的项目</string>
   <string name="suggested_edits_describe_articles">描述条目</string>
   <string name="suggested_edits_caption_images">说明图像</string>
   <string name="suggested_edits_tag_images">标记图像</string>
@@ -922,6 +946,7 @@
   <string name="suggested_edits_paused_message">建议编辑已暂停，直到%1$s。抱歉%2$s，您最近的一些贡献已经被回退了。</string>
   <string name="suggested_edits_disabled_message">建议编辑已被禁用。抱歉 %s，您近期的贡献有太多被回退了。</string>
   <string name="suggested_edits_ip_blocked_message">看样子您目前所使用的IP地址（或地址段）被禁止编辑维基百科。</string>
+  <string name="suggested_edits_gate_message">抱歉，%s，您必须直接在条目中至少做出3次编辑才能使用此功能。</string>
   <string name="suggested_edits_editing_tips_link_text">编辑提示与技巧</string>
   <string name="suggested_edits_help_page_link_text">建议编辑帮助页面</string>
   <string name="suggested_edits_edit_streak_label_text">连续编辑纪录</string>
@@ -1111,14 +1136,45 @@
   <string name="talk_share_discussion_subject">维基百科 - 讨论页上“%s”主题的讨论</string>
   <string name="talk_share_talk_page">维基百科 - 讨论页上的讨论</string>
   <string name="talk_edit_disclaimer">这是一个讨论页。请遵守讨论页指引，并记得在使用 wikitext 发布内容时通过输入四个波浪线：~~~~，来在您发布的内容里产生您的签名。&lt;br&gt;&lt;br&gt;&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:討論頁指引\"&gt;维基百科:讨论页指引&lt;/a&gt;</string>
+  <string name="talk_search_hint">搜索消息</string>
+  <string name="talk_search_topics_hint">搜索主题</string>
+  <string name="talk_search_find_in_talk_topics_hint">在讨论页主题中查找</string>
   <string name="talk_overflow_sort_by">排序方式</string>
+  <string name="talk_overflow_sort_date_published">发布日期</string>
+  <string name="talk_overflow_sort_date_updated">更新日期</string>
   <string name="talk_overflow_sort_topic_name">主题页面</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">显示回复</item>
+    <item quantity="other">显示%d个回复</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">隐藏回复</item>
+    <item quantity="other">隐藏%d个回复</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">已订阅“%s”</string>
+  <string name="talk_thread_unsubscribed_from">已从“%s”取消订阅</string>
+  <string name="talk_list_item_overflow_subscribe">订阅</string>
+  <string name="talk_list_item_overflow_subscribed">已订阅</string>
+  <string name="talk_list_item_overflow_mark_as_read">标记为已读</string>
+  <string name="talk_list_item_overflow_mark_as_unread">标记为未读</string>
+  <string name="talk_list_item_overflow_share">分享</string>
+  <string name="talk_list_item_last_comment_date">最新发言：%s</string>
+  <string name="talk_list_item_reply_icon_content_description">回复总数</string>
+  <string name="talk_list_item_user_icon_content_description">用户图标</string>
+  <string name="talk_list_item_swipe_mark_as_read">已读</string>
+  <string name="talk_list_item_swipe_mark_as_unread">未读</string>
+  <string name="talk_archived_title">讨论存档：%s</string>
   <string name="menu_option_share_talk_discussion">分享讨论</string>
   <string name="menu_option_share_talk_page">分享讨论页</string>
   <string name="menu_option_share_edit">分享编辑</string>
   <string name="menu_option_user_profile">%s的个人资料</string>
   <string name="menu_option_user_contributions">%s的贡献</string>
   <string name="menu_option_edit_source">编辑源代码</string>
+  <string name="menu_option_user_page">%s的用户页</string>
+  <string name="menu_option_find_in_talk_page_topic">在讨论页主题中查找</string>
+  <string name="talk_menu_copy_text">复制文本</string>
+  <string name="talk_menu_expand_threads">展开讨论串</string>
+  <string name="talk_menu_collapse_threads">折叠讨论串</string>
   <string name="watchlist_details_watching_label">已监视</string>
   <string name="watchlist_details_watch_label">监视</string>
   <string name="watchlist_details_next_edit">下一编辑</string>
@@ -1137,8 +1193,20 @@
   <string name="revision_diff_compare_title">比较不同修订版本：%s</string>
   <string name="revision_diff_from">发件人：</string>
   <string name="revision_diff_to">收件人：</string>
+  <string name="revision_diff_line_num">第%d行</string>
+  <string name="revision_diff_line_nums">第%d到第%d行</string>
+  <string name="revision_diff_line_added">已添加行</string>
+  <string name="revision_diff_line_removed">已移除行</string>
+  <string name="revision_diff_paragraph_added">已添加段落</string>
+  <string name="revision_diff_paragraph_removed">已移除段落</string>
   <string name="revision_undo_title">撤销编辑</string>
+  <string name="revision_undo_message">这将会撤销此处展示的条目修订所做出的更改。</string>
+  <string name="revision_undo_reason">若要继续，请提供撤销此编辑的原因：</string>
+  <string name="revision_undo_success">已撤消修订。</string>
+  <string name="revision_rollback_dialog_title">确定要回退这些编辑吗？</string>
+  <string name="revision_rollback_success">已回退编辑。</string>
   <string name="revision_compare_button">比较</string>
+  <string name="revision_compare_two_only">只能选择两个修订。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s及其讨论页已添加到您的监视列表，持续时间%2$s。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">更改</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">永久</string>
@@ -1167,4 +1235,7 @@
   <string name="category_tab_subcategories">子分类</string>
   <string name="category_empty">此分类中未发现条目</string>
   <string name="subcategory_empty">此分类未发现子分类</string>
+  <string name="search_namespaces">命名空间</string>
+  <string name="revision_initial_none">无差异（这是第一个修订版本）</string>
+  <string name="archive_empty">未找到存档页面。</string>
 </resources>
