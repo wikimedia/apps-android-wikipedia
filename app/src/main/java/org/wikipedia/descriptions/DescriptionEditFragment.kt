@@ -469,7 +469,7 @@ class DescriptionEditFragment : Fragment() {
         }
 
         fun wikiUsesLocalDescriptions(lang: String): Boolean {
-            return lang == "en" || lang == "test"
+            return lang == "en"
         }
     }
 }
