@@ -52,9 +52,15 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     private lateinit var invokeSource: InvokeSource
     private val disposables = CompositeDisposable()
     private var updatingFont = false
+    private var isEditing = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogThemeChooserBinding.inflate(inflater, container, false)
+
+        isEditing = requireArguments().getBoolean(EXTRA_IS_EDITING)
+        if (isEditing) {
+            updateForEditing()
+        }
         binding.buttonDecreaseTextSize.setOnClickListener(FontSizeButtonListener(FontSizeAction.DECREASE))
         binding.buttonIncreaseTextSize.setOnClickListener(FontSizeButtonListener(FontSizeAction.INCREASE))
         FeedbackUtil.setButtonLongPressToast(binding.buttonDecreaseTextSize, binding.buttonIncreaseTextSize)
@@ -72,6 +78,15 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
                 if (!fromUser) {
                     return
                 }
+
+
+                val currentMultiplier = Prefs.editingTextSizeMultiplier
+                Prefs.editingTextSizeMultiplier = binding.textSizeSeekBar.value
+                updateFontSize()
+
+
+
+
                 val currentMultiplier = Prefs.textSizeMultiplier
                 val changed = app.setFontSizeMultiplier(binding.textSizeSeekBar.value)
                 if (changed) {
@@ -108,13 +123,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         appearanceSettingInteractionEvent = AppearanceSettingInteractionEvent(invokeSource)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        if (requireArguments().getBoolean(EXTRA_IS_EDITING)) {
-            updateForEditing()
-        }
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         disposables.clear()
@@ -131,14 +139,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         binding.readingFocusModeContainer.isVisible = false
         binding.themeChooserReadingFocusModeDescription.isVisible = false
         binding.fontFamilyContainer.isVisible = false
-    }
-
-    private fun updateThemeButtonState() {
-        binding.themeChooserDarkModeDimImagesSwitch.isEnabled = binding.themeChooserDarkModeDimImagesSwitch.isEnabled
-        binding.buttonThemeBlack.isEnabled = binding.buttonThemeBlack.isEnabled && (app.currentTheme == Theme.BLACK)
-        binding.buttonThemeDark.isEnabled = binding.buttonThemeDark.isEnabled && (app.currentTheme == Theme.DARK)
-        binding.buttonThemeLight.isEnabled = app.currentTheme == Theme.LIGHT
-        binding.buttonThemeSepia.isEnabled = app.currentTheme == Theme.SEPIA
     }
 
     private fun onToggleDimImages(enabled: Boolean) {
@@ -201,7 +201,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         updateThemeButtons()
         updateDimImagesSwitch()
         updateMatchSystemThemeSwitch()
-        updateThemeButtonState()
 
         binding.themeChooserReadingFocusModeSwitch.isChecked = Prefs.readingFocusModeEnabled
     }
@@ -217,7 +216,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateFontSize() {
-        val multiplier = Prefs.textSizeMultiplier
+        val multiplier = if (isEditing) Prefs.editingTextSizeMultiplier else Prefs.textSizeMultiplier
         binding.textSizeSeekBar.value = multiplier
         val percentStr = getString(R.string.text_size_percent,
                 (100 * (1 + multiplier * DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor))).toInt())
@@ -276,23 +275,33 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     private inner class FontSizeButtonListener(private val action: FontSizeAction) : View.OnClickListener {
         override fun onClick(view: View) {
-            val currentMultiplier = Prefs.textSizeMultiplier
-            val changed = when (action) {
-                FontSizeAction.INCREASE -> {
-                    app.setFontSizeMultiplier(Prefs.textSizeMultiplier + 1)
-                }
-                FontSizeAction.DECREASE -> {
-                    app.setFontSizeMultiplier(Prefs.textSizeMultiplier - 1)
-                }
-                FontSizeAction.RESET -> {
-                    app.setFontSizeMultiplier(0)
-                }
-            }
-            if (changed) {
-                updatingFont = true
+            if (isEditing) {
+                val currentMultiplier = Prefs.editingTextSizeMultiplier
+                Prefs.editingTextSizeMultiplier = app.constrainFontSizeMultiplier(when (action) {
+                    FontSizeAction.INCREASE -> currentMultiplier + 1
+                    FontSizeAction.DECREASE -> currentMultiplier - 1
+                    FontSizeAction.RESET -> 0
+                })
                 updateFontSize()
-                funnel.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
-                appearanceSettingInteractionEvent.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
+            } else {
+                val currentMultiplier = Prefs.textSizeMultiplier
+                val changed = when (action) {
+                    FontSizeAction.INCREASE -> {
+                        app.setFontSizeMultiplier(Prefs.textSizeMultiplier + 1)
+                    }
+                    FontSizeAction.DECREASE -> {
+                        app.setFontSizeMultiplier(Prefs.textSizeMultiplier - 1)
+                    }
+                    FontSizeAction.RESET -> {
+                        app.setFontSizeMultiplier(0)
+                    }
+                }
+                if (changed) {
+                    updatingFont = true
+                    updateFontSize()
+                    funnel.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
+                    appearanceSettingInteractionEvent.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
+                }
             }
         }
     }
