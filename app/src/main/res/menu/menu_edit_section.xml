@@ -10,13 +10,9 @@
         android:icon="@drawable/ic_find_in_page_24px"
         android:title="@string/menu_page_find_in_page"
         app:showAsAction="always" />
-    <item android:id="@+id/menu_edit_zoom_in"
-        android:icon="@drawable/ic_zoom_in_themed_24dp"
+    <item android:id="@+id/menu_edit_theme"
+        android:icon="@drawable/ic_icon_format_size"
         android:title="@string/edit_zoom_in"
-        app:showAsAction="always" />
-    <item android:id="@+id/menu_edit_zoom_out"
-        android:icon="@drawable/ic_zoom_out_themed_24dp"
-        android:title="@string/edit_zoom_out"
         app:showAsAction="always" />
     <item
         android:id="@+id/menu_save_section"

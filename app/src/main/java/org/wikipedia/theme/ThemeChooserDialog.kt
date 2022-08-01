@@ -11,6 +11,7 @@ import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.button.MaterialButton
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -49,7 +50,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     private lateinit var funnel: AppearanceChangeFunnel
     private lateinit var appearanceSettingInteractionEvent: AppearanceSettingInteractionEvent
     private lateinit var invokeSource: InvokeSource
-    private var isMobileWeb: Boolean = false
     private val disposables = CompositeDisposable()
     private var updatingFont = false
 
@@ -104,9 +104,15 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        isMobileWeb = requireArguments().getBoolean(EXTRA_IS_MOBILE_WEB)
         funnel = AppearanceChangeFunnel(app, app.wikiSite, invokeSource)
         appearanceSettingInteractionEvent = AppearanceSettingInteractionEvent(invokeSource)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if (requireArguments().getBoolean(EXTRA_IS_EDITING)) {
+            updateForEditing()
+        }
     }
 
     override fun onDestroyView() {
@@ -120,35 +126,19 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         callback()?.onCancelThemeChooser()
     }
 
-    private fun disableButtonsOnMobileWeb() {
-        binding.textSizeSeekBar.isEnabled = !isMobileWeb
-        binding.buttonDecreaseTextSize.isEnabled = !isMobileWeb
-        binding.buttonIncreaseTextSize.isEnabled = !isMobileWeb
-        binding.buttonFontFamilySerif.isEnabled = !isMobileWeb
-        binding.buttonFontFamilySansSerif.isEnabled = !isMobileWeb
-        binding.themeChooserMatchSystemThemeSwitch.isEnabled = !isMobileWeb
-        binding.themeChooserDarkModeDimImagesSwitch.isEnabled = !isMobileWeb && binding.themeChooserDarkModeDimImagesSwitch.isEnabled
-        binding.themeChooserReadingFocusModeSwitch.isEnabled = !isMobileWeb
-        binding.buttonThemeBlack.isEnabled = binding.buttonThemeBlack.isEnabled && (app.currentTheme == Theme.BLACK || !isMobileWeb)
-        binding.buttonThemeDark.isEnabled = binding.buttonThemeDark.isEnabled && (app.currentTheme == Theme.DARK || !isMobileWeb)
-        binding.buttonThemeLight.isEnabled = app.currentTheme == Theme.LIGHT || !isMobileWeb
-        binding.buttonThemeSepia.isEnabled = app.currentTheme == Theme.SEPIA || !isMobileWeb
+    private fun updateForEditing() {
+        binding.themeChooserDarkModeDimImagesSwitch.isVisible = false
+        binding.readingFocusModeContainer.isVisible = false
+        binding.themeChooserReadingFocusModeDescription.isVisible = false
+        binding.fontFamilyContainer.isVisible = false
+    }
 
-        if (isMobileWeb) {
-            val textColor = ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_61)
-            binding.buttonDecreaseTextSize.setTextColor(textColor)
-            binding.buttonIncreaseTextSize.setTextColor(textColor)
-            binding.buttonFontFamilySerif.setTextColor(textColor)
-            binding.buttonFontFamilySerif.setTextColor(textColor)
-            binding.themeChooserMatchSystemThemeSwitch.setTextColor(textColor)
-            binding.themeChooserDarkModeDimImagesSwitch.setTextColor(textColor)
-            binding.themeChooserReadingFocusModeSwitch.setTextColor(textColor)
-            binding.themeChooserReadingFocusModeDescription.setTextColor(textColor)
-            updateThemeButtonAlpha(binding.buttonThemeBlack, !binding.buttonThemeBlack.isEnabled)
-            updateThemeButtonAlpha(binding.buttonThemeDark, !binding.buttonThemeDark.isEnabled)
-            updateThemeButtonAlpha(binding.buttonThemeLight, !binding.buttonThemeLight.isEnabled)
-            updateThemeButtonAlpha(binding.buttonThemeSepia, !binding.buttonThemeSepia.isEnabled)
-        }
+    private fun updateThemeButtonState() {
+        binding.themeChooserDarkModeDimImagesSwitch.isEnabled = binding.themeChooserDarkModeDimImagesSwitch.isEnabled
+        binding.buttonThemeBlack.isEnabled = binding.buttonThemeBlack.isEnabled && (app.currentTheme == Theme.BLACK)
+        binding.buttonThemeDark.isEnabled = binding.buttonThemeDark.isEnabled && (app.currentTheme == Theme.DARK)
+        binding.buttonThemeLight.isEnabled = app.currentTheme == Theme.LIGHT
+        binding.buttonThemeSepia.isEnabled = app.currentTheme == Theme.SEPIA
     }
 
     private fun onToggleDimImages(enabled: Boolean) {
@@ -211,7 +201,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         updateThemeButtons()
         updateDimImagesSwitch()
         updateMatchSystemThemeSwitch()
-        disableButtonsOnMobileWeb()
+        updateThemeButtonState()
 
         binding.themeChooserReadingFocusModeSwitch.isChecked = Prefs.readingFocusModeEnabled
     }
@@ -321,13 +311,13 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     companion object {
-        private const val EXTRA_IS_MOBILE_WEB = "isMobileWeb"
+        private const val EXTRA_IS_EDITING = "isEditing"
         private val BUTTON_STROKE_WIDTH = DimenUtil.roundedDpToPx(2f)
 
-        fun newInstance(source: InvokeSource, isMobileWeb: Boolean = false): ThemeChooserDialog {
+        fun newInstance(source: InvokeSource, isEditing: Boolean = false): ThemeChooserDialog {
             return ThemeChooserDialog().apply {
                 arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
-                    EXTRA_IS_MOBILE_WEB to isMobileWeb)
+                        EXTRA_IS_EDITING to isEditing)
             }
         }
     }

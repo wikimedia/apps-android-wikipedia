@@ -110,6 +110,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/fontFamilyContainer"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -146,6 +147,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/readingFocusModeContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 

@@ -21,6 +21,7 @@ import androidx.core.widget.doAfterTextChanged
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -51,6 +52,7 @@ import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.settings.Prefs
+import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.EditNoticesDialog
@@ -391,16 +393,15 @@ class EditSectionActivity : BaseActivity() {
                 clickNextButton()
                 true
             }
-            R.id.menu_edit_zoom_in -> {
-                Prefs.editingTextSizeExtra = Prefs.editingTextSizeExtra + 1
-                updateTextSize()
+            R.id.menu_edit_theme -> {
+                bottomSheetPresenter.show(supportFragmentManager, ThemeChooserDialog.newInstance(Constants.InvokeSource.EDIT_ACTIVITY, true))
                 true
             }
-            R.id.menu_edit_zoom_out -> {
-                Prefs.editingTextSizeExtra = Prefs.editingTextSizeExtra - 1
-                updateTextSize()
-                true
-            }
+            //R.id.menu_edit_zoom_out -> {
+            //    Prefs.editingTextSizeExtra = Prefs.editingTextSizeExtra - 1
+            //    updateTextSize()
+            //    true
+            //}
             R.id.menu_find_in_editor -> {
                 showFindInEditor()
                 true
@@ -418,8 +419,7 @@ class EditSectionActivity : BaseActivity() {
         val item = menu.findItem(R.id.menu_save_section)
 
         menu.findItem(R.id.menu_edit_notices).isVisible = editNotices.isNotEmpty() && !editPreviewFragment.isActive
-        menu.findItem(R.id.menu_edit_zoom_in).isVisible = !editPreviewFragment.isActive
-        menu.findItem(R.id.menu_edit_zoom_out).isVisible = !editPreviewFragment.isActive
+        menu.findItem(R.id.menu_edit_theme).isVisible = !editPreviewFragment.isActive
         menu.findItem(R.id.menu_find_in_editor).isVisible = !editPreviewFragment.isActive
         item.title = getString(if (editPreviewFragment.isActive) R.string.edit_done else R.string.edit_next)
         if (editingAllowed && binding.viewProgressBar.isGone) {
