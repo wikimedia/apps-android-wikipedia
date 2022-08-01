@@ -24,10 +24,10 @@
                 android:id="@+id/edit_section_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="monospace"
                 android:imeOptions="actionNone|flagNoExtractUi"
                 android:inputType="textMultiLine"
                 android:scrollbars="vertical"
+                android:lineSpacingExtra="6dp"
                 style="@style/EditSectionTextInputLayoutStyle" />
         </ScrollView>
 
