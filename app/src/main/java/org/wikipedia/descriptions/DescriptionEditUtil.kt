@@ -8,7 +8,7 @@ object DescriptionEditUtil {
     private const val DESCRIPTION_SOURCE_WIKIDATA = "central"
 
     fun isEditAllowed(page: Page): Boolean {
-        return if (page.title.wikiSite.languageCode == "en") {
+        return if (page.title.wikiSite.languageCode == "en" || page.title.wikiSite.languageCode == "test") {
             // For English Wikipedia, allow editing the description for all articles, since the
             // edit will go directly into the article instead of Wikidata.
             true

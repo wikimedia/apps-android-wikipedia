@@ -213,6 +213,11 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         binding.viewDescriptionEditReadArticleBarContainer.setOnClickListener { performReadArticleClick() }
     }
 
+    fun setEditAllowed(allowed: Boolean) {
+        enableSaveButton(enabled = allowed, saveInProgress = false)
+        binding.viewDescriptionEditTextLayout.isEnabled = allowed
+    }
+
     fun setSaveState(saving: Boolean) {
         showProgressBar(saving)
         if (saving) {

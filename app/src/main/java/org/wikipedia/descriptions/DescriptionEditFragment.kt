@@ -63,6 +63,7 @@ class DescriptionEditFragment : Fragment() {
     private var sourceSummary: PageSummaryForEdit? = null
     private var targetSummary: PageSummaryForEdit? = null
     private var highlightText: String? = null
+    private var editingAllowed = true
 
     private val disposables = CompositeDisposable()
 
@@ -172,13 +173,25 @@ class DescriptionEditFragment : Fragment() {
 
     private fun loadPageSummaryIfNeeded(savedInstanceState: Bundle?) {
         binding.fragmentDescriptionEditView.showProgressBar(true)
-        if (invokeSource == InvokeSource.PAGE_ACTIVITY && sourceSummary?.extractHtml.isNullOrEmpty()) {
-            disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getSummary(null, pageTitle.prefixedText)
-                    .subscribeOn(Schedulers.io())
+        if ((invokeSource == InvokeSource.PAGE_ACTIVITY || invokeSource == InvokeSource.PAGE_EDIT_PENCIL) && sourceSummary?.extractHtml.isNullOrEmpty()) {
+            editingAllowed = false
+            disposables.add(Observable.zip(ServiceFactory.getRest(pageTitle.wikiSite).getSummary(null, pageTitle.prefixedText),
+                    ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)) { summaryResponse, infoResponse ->
+                Pair(summaryResponse, infoResponse)
+            }.subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate { setUpEditView(savedInstanceState) }
-                    .subscribe({ summary -> sourceSummary?.extractHtml = summary.extractHtml },
-                            { L.e(it) }))
+                    .subscribe({ response ->
+                        val editError = response.second.query?.firstPage()!!.getErrorForAction("edit")
+                        if (editError.isEmpty()) {
+                            editingAllowed = true
+                        } else {
+                            val error = editError[0]
+                            FeedbackUtil.showError(requireActivity(), MwException(error))
+                        }
+                        sourceSummary?.extractHtml = response.first.extractHtml
+                    }, { L.e(it) })
+            )
         } else {
             setUpEditView(savedInstanceState)
         }
@@ -195,6 +208,7 @@ class DescriptionEditFragment : Fragment() {
             binding.fragmentDescriptionEditView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING))
         }
         binding.fragmentDescriptionEditView.showProgressBar(false)
+        binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
     }
 
     private fun callback(): Callback? {
@@ -455,7 +469,7 @@ class DescriptionEditFragment : Fragment() {
         }
 
         fun wikiUsesLocalDescriptions(lang: String): Boolean {
-            return lang == "en"
+            return lang == "en" || lang == "test"
         }
     }
 }
