@@ -48,6 +48,10 @@ class InsertMediaActivity : BaseActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.title = getString(R.string.insert_media_title)
 
+        binding.refreshView.setOnRefreshListener {
+            binding.refreshView.isRefreshing = false
+            insertMediaAdapter.notifyDataSetChanged()
+        }
         binding.recyclerView.layoutManager = GridLayoutManager(this, 3)
         binding.recyclerView.adapter = insertMediaConcatAdapter
 
@@ -140,7 +144,6 @@ class InsertMediaActivity : BaseActivity() {
 
     private inner class InsertMediaItemHolder constructor(val binding: ItemInsertMediaBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindItem(title: SearchResult) {
-            // TODO: fix image display issue
             ViewUtil.loadImageWithRoundedCorners(binding.imageView, title.pageTitle.thumbUrl)
             binding.imageDescription.text = title.pageTitle.displayText
         }
