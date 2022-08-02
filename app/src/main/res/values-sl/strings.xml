@@ -1108,6 +1108,7 @@
   <string name="talk_snackbar_survey_action_text">Začnimo</string>
   <string name="talk_share_discussion_subject">Wikipedija – pogovor o temi pogovorne strani «%s«</string>
   <string name="talk_share_talk_page">Wikipedija – pogovori na pogovorni strani</string>
+  <string name="talk_edit_disclaimer">To je pogovorna stran. Prosimo, upoštevajte smernice za pogovorne strani in komentarje pri urejanju vikibesedila podpišite s štirimi tildami: ~~~~.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://sl.wikipedia.org/wiki/Wikipedija:Smernice za pogovorne strani\"&gt;Wikipedija:Smernice za pogovorne strani&lt;/a&gt;</string>
   <string name="talk_search_hint">Preišči obvestila</string>
   <string name="talk_overflow_sort_by">Razvrsti po</string>
   <string name="talk_overflow_sort_date_published">Datum objave</string>
