@@ -143,9 +143,16 @@ class InsertMediaActivity : BaseActivity() {
     }
 
     private inner class InsertMediaItemHolder constructor(val binding: ItemInsertMediaBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bindItem(title: SearchResult) {
-            ViewUtil.loadImageWithRoundedCorners(binding.imageView, title.pageTitle.thumbUrl)
-            binding.imageDescription.text = title.pageTitle.displayText
+        fun bindItem(searchResult: SearchResult) {
+            ViewUtil.loadImageWithRoundedCorners(binding.imageView, searchResult.pageTitle.thumbUrl)
+            binding.imageDescription.text = searchResult.pageTitle.displayText
+
+            binding.selectedIcon.isVisible = searchResult == viewModel.selectedImage
+
+            binding.root.setOnClickListener {
+                viewModel.selectedImage = searchResult
+                insertMediaAdapter.notifyDataSetChanged()
+            }
         }
     }
 
