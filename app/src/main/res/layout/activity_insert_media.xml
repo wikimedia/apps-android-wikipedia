@@ -63,7 +63,7 @@
                     <org.wikipedia.views.FaceAndColorDetectImageView
                         android:id="@+id/selectedImage"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="200dp"
                         android:layout_gravity="center_horizontal"
                         android:scaleType="fitCenter"
                         android:contentDescription="@string/insert_media_settings_uploaded_image"/>

@@ -73,6 +73,18 @@ class InsertMediaActivity : BaseActivity() {
         }
     }
 
+    private fun showSelectedImage() {
+        viewModel.selectedImage?.let {
+            binding.emptyImageContainer.isVisible = false
+            binding.selectedImageContainer.isVisible = true
+            ViewUtil.loadImageWithRoundedCorners(binding.selectedImage, it.pageTitle.thumbUrl)
+            binding.selectedImageDescription.text = it.pageTitle.displayText
+        } ?: run {
+            binding.emptyImageContainer.isVisible = true
+            binding.selectedImageContainer.isVisible = false
+        }
+    }
+
     private inner class LoadingItemAdapter(private val retry: () -> Unit) : LoadStateAdapter<LoadingViewHolder>() {
         override fun onBindViewHolder(holder: LoadingViewHolder, loadState: LoadState) {
             holder.bindItem(loadState, retry)
@@ -150,7 +162,8 @@ class InsertMediaActivity : BaseActivity() {
             binding.selectedIcon.isVisible = searchResult == viewModel.selectedImage
 
             binding.root.setOnClickListener {
-                viewModel.selectedImage = searchResult
+                viewModel.selectedImage = if (searchResult == viewModel.selectedImage) null else searchResult
+                showSelectedImage()
                 insertMediaAdapter.notifyDataSetChanged()
             }
         }
