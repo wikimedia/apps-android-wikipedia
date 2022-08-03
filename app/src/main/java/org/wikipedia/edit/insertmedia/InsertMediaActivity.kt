@@ -96,7 +96,6 @@ class InsertMediaActivity : BaseActivity() {
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
         val item = menu.findItem(R.id.menu_next)
         item.isEnabled = viewModel.selectedImage != null
-
         val actionBarButtonBinding = ItemEditActionbarButtonBinding.inflate(layoutInflater)
         item.actionView = actionBarButtonBinding.root
         actionBarButtonBinding.editActionbarButtonText.text = item.title
@@ -106,7 +105,6 @@ class InsertMediaActivity : BaseActivity() {
         actionBarButtonBinding.root.tag = item
         actionBarButtonBinding.root.isEnabled = item.isEnabled
         actionBarButtonBinding.root.setOnClickListener { onOptionsItemSelected(it.tag as MenuItem) }
-        
         return super.onPrepareOptionsMenu(menu)
     }
 
