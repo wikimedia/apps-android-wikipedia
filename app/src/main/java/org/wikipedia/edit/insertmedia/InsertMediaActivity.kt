@@ -27,10 +27,8 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityInsertMediaBinding
 import org.wikipedia.databinding.ItemInsertMediaBinding
-import org.wikipedia.gallery.GalleryItemFragment
 import org.wikipedia.gallery.ImageLicense
 import org.wikipedia.history.SearchActionModeCallback
-import org.wikipedia.search.SearchResult
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
@@ -91,6 +89,16 @@ class InsertMediaActivity : BaseActivity() {
         DeviceUtil.setContextClickAsLongClick(binding.licenseContainer)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_insert_media, menu)
+        return true
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        menu.findItem(R.id.menu_next).isEnabled = viewModel.selectedImage != null
+        return super.onPrepareOptionsMenu(menu)
+    }
+
     private fun showSelectedImage() {
         viewModel.selectedImage?.let {
             binding.emptyImageContainer.isVisible = false
@@ -128,7 +136,6 @@ class InsertMediaActivity : BaseActivity() {
         val creditStr = metadata.artist().ifEmpty { metadata.credit() }
 
         binding.creditText.text = StringUtil.fromHtml(creditStr.ifBlank { getString(R.string.gallery_uploader_unknown) })
-
     }
 
     private fun onLicenseClick() {
@@ -227,6 +234,7 @@ class InsertMediaActivity : BaseActivity() {
             binding.root.setOnClickListener {
                 viewModel.selectedImage = if (searchResult == viewModel.selectedImage) null else searchResult
                 showSelectedImage()
+                invalidateOptionsMenu()
                 insertMediaAdapter.notifyDataSetChanged()
             }
         }
