@@ -175,6 +175,8 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.showProgressBar(true)
         if ((invokeSource == InvokeSource.PAGE_ACTIVITY || invokeSource == InvokeSource.PAGE_EDIT_PENCIL) && sourceSummary?.extractHtml.isNullOrEmpty()) {
             editingAllowed = false
+            binding.fragmentDescriptionEditView.setEditAllowed(false)
+            binding.fragmentDescriptionEditView.showProgressBar(true)
             disposables.add(Observable.zip(ServiceFactory.getRest(pageTitle.wikiSite).getSummary(null, pageTitle.prefixedText),
                     ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)) { summaryResponse, infoResponse ->
                 Pair(summaryResponse, infoResponse)

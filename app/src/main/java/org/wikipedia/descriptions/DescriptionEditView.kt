@@ -216,6 +216,10 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     fun setEditAllowed(allowed: Boolean) {
         enableSaveButton(enabled = allowed, saveInProgress = false)
         binding.viewDescriptionEditTextLayout.isEnabled = allowed
+        if (allowed) {
+            binding.viewDescriptionEditText.requestFocus()
+            DeviceUtil.showSoftKeyboard(binding.viewDescriptionEditText)
+        }
     }
 
     fun setSaveState(saving: Boolean) {
