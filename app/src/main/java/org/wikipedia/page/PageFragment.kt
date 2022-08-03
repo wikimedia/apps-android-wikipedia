@@ -346,6 +346,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
+    override fun onEditingFontSizeChanged() { }
+
     override fun wiktionaryShowDialogForTerm(term: String) {
         shareHandler.showWiktionaryDefinition(term)
     }

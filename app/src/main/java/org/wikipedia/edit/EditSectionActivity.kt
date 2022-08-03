@@ -62,7 +62,7 @@ import org.wikipedia.views.WikiTextKeyboardView
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
-class EditSectionActivity : BaseActivity() {
+class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     private lateinit var binding: ActivityEditSectionBinding
     private lateinit var funnel: EditFunnel
     private lateinit var textWatcher: TextWatcher
@@ -397,11 +397,6 @@ class EditSectionActivity : BaseActivity() {
                 bottomSheetPresenter.show(supportFragmentManager, ThemeChooserDialog.newInstance(Constants.InvokeSource.EDIT_ACTIVITY, true))
                 true
             }
-            //R.id.menu_edit_zoom_out -> {
-            //    Prefs.editingTextSizeExtra = Prefs.editingTextSizeExtra - 1
-            //    updateTextSize()
-            //    true
-            //}
             R.id.menu_find_in_editor -> {
                 showFindInEditor()
                 true
@@ -494,8 +489,7 @@ class EditSectionActivity : BaseActivity() {
     }
 
     private fun updateTextSize() {
-        val extra = Prefs.editingTextSizeExtra
-        binding.editSectionText.textSize = WikipediaApp.instance.getFontSize(window) + extra.toFloat()
+        binding.editSectionText.textSize = WikipediaApp.instance.getFontSize(window, editing = true)
     }
 
     private fun resetToStart() {
@@ -683,5 +677,15 @@ class EditSectionActivity : BaseActivity() {
                 .putExtra(EXTRA_TITLE, title)
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
         }
+    }
+
+    override fun onToggleDimImages() { }
+
+    override fun onToggleReadingFocusMode() { }
+
+    override fun onCancelThemeChooser() { }
+
+    override fun onEditingFontSizeChanged() {
+        updateTextSize()
     }
 }

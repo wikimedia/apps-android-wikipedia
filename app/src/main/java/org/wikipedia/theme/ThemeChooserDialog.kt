@@ -40,6 +40,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         fun onToggleDimImages()
         fun onToggleReadingFocusMode()
         fun onCancelThemeChooser()
+        fun onEditingFontSizeChanged()
     }
 
     private enum class FontSizeAction {
@@ -78,23 +79,22 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
                 if (!fromUser) {
                     return
                 }
-
-
-                val currentMultiplier = Prefs.editingTextSizeMultiplier
-                Prefs.editingTextSizeMultiplier = binding.textSizeSeekBar.value
-                updateFontSize()
-
-
-
-
-                val currentMultiplier = Prefs.textSizeMultiplier
-                val changed = app.setFontSizeMultiplier(binding.textSizeSeekBar.value)
-                if (changed) {
-                    updatingFont = true
+                val currentMultiplier: Int
+                if (isEditing) {
+                    currentMultiplier = Prefs.editingTextSizeMultiplier
+                    Prefs.editingTextSizeMultiplier = binding.textSizeSeekBar.value
+                    callback()?.onEditingFontSizeChanged()
                     updateFontSize()
-                    funnel.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
-                    appearanceSettingInteractionEvent.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
+                } else {
+                    currentMultiplier = Prefs.textSizeMultiplier
+                    val changed = app.setFontSizeMultiplier(binding.textSizeSeekBar.value)
+                    if (changed) {
+                        updatingFont = true
+                        updateFontSize()
+                    }
                 }
+                funnel.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
+                appearanceSettingInteractionEvent.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
@@ -275,16 +275,18 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     private inner class FontSizeButtonListener(private val action: FontSizeAction) : View.OnClickListener {
         override fun onClick(view: View) {
+            val currentMultiplier: Int
             if (isEditing) {
-                val currentMultiplier = Prefs.editingTextSizeMultiplier
+                currentMultiplier = Prefs.editingTextSizeMultiplier
                 Prefs.editingTextSizeMultiplier = app.constrainFontSizeMultiplier(when (action) {
                     FontSizeAction.INCREASE -> currentMultiplier + 1
                     FontSizeAction.DECREASE -> currentMultiplier - 1
                     FontSizeAction.RESET -> 0
                 })
+                callback()?.onEditingFontSizeChanged()
                 updateFontSize()
             } else {
-                val currentMultiplier = Prefs.textSizeMultiplier
+                currentMultiplier = Prefs.textSizeMultiplier
                 val changed = when (action) {
                     FontSizeAction.INCREASE -> {
                         app.setFontSizeMultiplier(Prefs.textSizeMultiplier + 1)
@@ -299,10 +301,10 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
                 if (changed) {
                     updatingFont = true
                     updateFontSize()
-                    funnel.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
-                    appearanceSettingInteractionEvent.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
                 }
             }
+            funnel.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
+            appearanceSettingInteractionEvent.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
         }
     }
 

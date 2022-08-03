@@ -253,10 +253,10 @@ class WikipediaApp : Application() {
      * @param window The window on which the font will be displayed.
      * @return Actual current size of the font.
      */
-    fun getFontSize(window: Window): Float {
+    fun getFontSize(window: Window, editing: Boolean = false): Float {
         return DimenUtil.getFontSizeFromSp(window,
-                resources.getDimension(R.dimen.textSize)) * (1.0f + Prefs.textSizeMultiplier
-                * DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor))
+                resources.getDimension(R.dimen.textSize)) * (1.0f + (if (editing) Prefs.editingTextSizeMultiplier else Prefs.textSizeMultiplier) *
+                DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor))
     }
 
     @Synchronized
