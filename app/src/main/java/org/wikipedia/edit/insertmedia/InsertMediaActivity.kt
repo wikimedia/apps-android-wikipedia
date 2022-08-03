@@ -25,8 +25,12 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityInsertMediaBinding
 import org.wikipedia.databinding.ItemInsertMediaBinding
+import org.wikipedia.gallery.GalleryItemFragment
+import org.wikipedia.gallery.ImageLicense
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.search.SearchResult
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.*
 
 class InsertMediaActivity : BaseActivity() {
@@ -79,10 +83,38 @@ class InsertMediaActivity : BaseActivity() {
             binding.selectedImageContainer.isVisible = true
             ViewUtil.loadImageWithRoundedCorners(binding.selectedImage, it.pageTitle.thumbUrl)
             binding.selectedImageDescription.text = it.pageTitle.displayText
+            setLicenseInfo(it)
         } ?: run {
             binding.emptyImageContainer.isVisible = true
             binding.selectedImageContainer.isVisible = false
         }
+    }
+
+    private fun setLicenseInfo(mediaSearchResult: MediaSearchResult) {
+        val metadata = mediaSearchResult.imageInfo?.metadata ?: return
+
+        val license = ImageLicense(metadata.license(), metadata.licenseShortName(), metadata.licenseUrl())
+
+        if (license.licenseIcon == R.drawable.ic_license_by) {
+            binding.licenseIcon.setImageResource(R.drawable.ic_license_cc)
+            binding.licenseIconBy.setImageResource(R.drawable.ic_license_by)
+            binding.licenseIconBy.visibility = View.VISIBLE
+            binding.licenseIconSa.setImageResource(R.drawable.ic_license_sharealike)
+            binding.licenseIconSa.visibility = View.VISIBLE
+        } else {
+            binding.licenseIcon.setImageResource(license.licenseIcon)
+            binding.licenseIconBy.visibility = View.GONE
+            binding.licenseIconSa.visibility = View.GONE
+        }
+
+        binding.licenseIcon.contentDescription = metadata.licenseShortName().ifBlank {
+            getString(R.string.gallery_fair_use_license)
+        }
+        binding.licenseIcon.tag = metadata.licenseUrl()
+        DeviceUtil.setContextClickAsLongClick(binding.licenseContainer)
+        val creditStr = metadata.artist().ifEmpty { metadata.credit() }
+
+        binding.creditText.text = StringUtil.fromHtml(creditStr.ifBlank { getString(R.string.gallery_uploader_unknown) })
     }
 
     private inner class LoadingItemAdapter(private val retry: () -> Unit) : LoadStateAdapter<LoadingViewHolder>() {
