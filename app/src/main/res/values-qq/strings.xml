@@ -463,6 +463,7 @@
   <string name="text_size_percent_default">Label indicating that the current text size is the default size. The %s symbol is replaced with the percentage of the size.</string>
   <string name="text_style_title">Label that describes text style selection\n{{Identical|Font}}</string>
   <string name="theme_category_reading">Label for theme category that contains settings related to reading.</string>
+  <string name="theme_category_editing">Label for theme category that contains settings related to editing.</string>
   <string name="reading_focus_mode">Label for checkbox that enables reading focus mode.</string>
   <string name="reading_focus_mode_detail">Detailed label for checkbox that enables reading focus mode.</string>
   <string name="nav_item_saved">Navigation menu item label for reading lists.</string>

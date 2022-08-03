@@ -7,10 +7,12 @@ import android.view.LayoutInflater
 import android.view.inputmethod.InputConnection
 import android.widget.FrameLayout
 import org.wikipedia.databinding.ViewWikitextKeyboardBinding
+import org.wikipedia.page.PageTitle
 
 class WikiTextKeyboardView : FrameLayout {
-    fun interface Callback {
+    interface Callback {
         fun onPreviewLink(title: String)
+        fun onRequestInsertLink()
     }
 
     private val binding = ViewWikitextKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
@@ -28,7 +30,11 @@ class WikiTextKeyboardView : FrameLayout {
 
         binding.wikitextButtonLink.setOnClickListener {
             editText?.inputConnection?.let {
-                toggleSyntaxAroundCurrentSelection(it, "[[", "]]")
+                if (it.getSelectedText(0).isNullOrEmpty()) {
+                    callback?.onRequestInsertLink()
+                } else {
+                    toggleSyntaxAroundCurrentSelection(it, "[[", "]]")
+                }
             }
         }
 
@@ -111,6 +117,17 @@ class WikiTextKeyboardView : FrameLayout {
 
         binding.wikitextButtonRedo.setOnClickListener {
             editText?.redo()
+        }
+    }
+
+    fun insertLink(title: PageTitle, baseLangCode: String) {
+        editText?.inputConnection?.let {
+            var text = "[["
+            if (title.wikiSite.languageCode != baseLangCode) {
+                text += ":" + title.wikiSite.languageCode + ":"
+            }
+            text += title.displayText + "]]"
+            editText?.inputConnection?.commitText(text, 1)
         }
     }
 

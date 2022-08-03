@@ -12,7 +12,7 @@
         app:showAsAction="always" />
     <item android:id="@+id/menu_edit_theme"
         android:icon="@drawable/ic_icon_format_size"
-        android:title="@string/edit_zoom_in"
+        android:title="@string/menu_page_font_and_theme"
         app:iconTint="?attr/secondary_text_color"
         app:showAsAction="always" />
     <item

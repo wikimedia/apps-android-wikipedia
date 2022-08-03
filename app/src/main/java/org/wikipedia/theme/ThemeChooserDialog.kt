@@ -62,6 +62,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         if (isEditing) {
             updateForEditing()
         }
+        binding.textSettingsCategory.text = getString(if (isEditing) R.string.theme_category_editing else R.string.theme_category_reading)
         binding.buttonDecreaseTextSize.setOnClickListener(FontSizeButtonListener(FontSizeAction.DECREASE))
         binding.buttonIncreaseTextSize.setOnClickListener(FontSizeButtonListener(FontSizeAction.INCREASE))
         FeedbackUtil.setButtonLongPressToast(binding.buttonDecreaseTextSize, binding.buttonIncreaseTextSize)

@@ -51,6 +51,7 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
+import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.*
@@ -88,6 +89,14 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var actionMode: ActionMode? = null
     private val disposables = CompositeDisposable()
+
+    private val requestLinkFromSearch = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == SearchActivity.RESULT_LINK_SUCCESS) {
+            it.data?.getParcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)?.let { title ->
+                binding.editKeyboardOverlay.insertLink(title, pageTitle.wikiSite.languageCode)
+            }
+        }
+    }
 
     private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
@@ -171,9 +180,16 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             }
         }
         binding.editKeyboardOverlay.editText = binding.editSectionText
-        binding.editKeyboardOverlay.callback = WikiTextKeyboardView.Callback {
-            bottomSheetPresenter.show(supportFragmentManager,
-                    LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(it, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null))
+        binding.editKeyboardOverlay.callback = object : WikiTextKeyboardView.Callback {
+            override fun onPreviewLink(title: String) {
+                bottomSheetPresenter.show(supportFragmentManager,
+                        LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null))
+            }
+
+            override fun onRequestInsertLink() {
+                val searchIntent = SearchActivity.newIntent(this@EditSectionActivity, Constants.InvokeSource.EDIT_ACTIVITY, null, true)
+                requestLinkFromSearch.launch(searchIntent)
+            }
         }
         binding.editSectionText.setOnClickListener { finishActionMode() }
         updateTextSize()
