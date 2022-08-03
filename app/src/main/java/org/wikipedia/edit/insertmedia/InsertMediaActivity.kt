@@ -6,6 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -26,13 +27,11 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityInsertMediaBinding
+import org.wikipedia.databinding.ItemEditActionbarButtonBinding
 import org.wikipedia.databinding.ItemInsertMediaBinding
 import org.wikipedia.gallery.ImageLicense
 import org.wikipedia.history.SearchActionModeCallback
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.StringUtil
-import org.wikipedia.util.UriUtil
+import org.wikipedia.util.*
 import org.wikipedia.views.*
 
 class InsertMediaActivity : BaseActivity() {
@@ -95,7 +94,19 @@ class InsertMediaActivity : BaseActivity() {
     }
 
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
-        menu.findItem(R.id.menu_next).isEnabled = viewModel.selectedImage != null
+        val item = menu.findItem(R.id.menu_next)
+        item.isEnabled = viewModel.selectedImage != null
+
+        val actionBarButtonBinding = ItemEditActionbarButtonBinding.inflate(layoutInflater)
+        item.actionView = actionBarButtonBinding.root
+        actionBarButtonBinding.editActionbarButtonText.text = item.title
+        actionBarButtonBinding.editActionbarButtonText.setTextColor(
+            ResourceUtil.getThemedColor(this,
+            if (item.isEnabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
+        actionBarButtonBinding.root.tag = item
+        actionBarButtonBinding.root.isEnabled = item.isEnabled
+        actionBarButtonBinding.root.setOnClickListener { onOptionsItemSelected(it.tag as MenuItem) }
+        
         return super.onPrepareOptionsMenu(menu)
     }
 
