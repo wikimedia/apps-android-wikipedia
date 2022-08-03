@@ -9,27 +9,30 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.search.SearchResult
+import org.wikipedia.page.PageTitle
 
 class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
     var searchQuery = bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!
-    var selectedImage: SearchResult? = null
+    var selectedImage: MediaSearchResult? = null
     val insertMediaFlow = Pager(PagingConfig(pageSize = 10)) {
         InsertMediaPagingSource(searchQuery)
     }.flow.cachedIn(viewModelScope)
 
     class InsertMediaPagingSource(
         val searchQuery: String,
-    ) : PagingSource<MwQueryResponse.Continuation, SearchResult>() {
-        override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, SearchResult> {
+    ) : PagingSource<MwQueryResponse.Continuation, MediaSearchResult>() {
+        override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, MediaSearchResult> {
             return try {
                 val wikiSite = WikiSite(Service.COMMONS_URL)
                 val response = ServiceFactory.get(wikiSite)
                     .fullTextSearchMedia("File: $searchQuery", params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
 
                 return response.query?.pages?.let { list ->
-                    val results = list.sortedBy { it.index }.map { SearchResult(it, wikiSite) }
+                    val results = list.sortedBy { it.index }.map {
+                        val pageTitle = PageTitle(it.title, wikiSite, it.imageInfo()?.thumbUrl)
+                        MediaSearchResult(pageTitle, it.imageInfo())
+                    }
                     LoadResult.Page(results, null, response.continuation)
                 } ?: run {
                     LoadResult.Page(emptyList(), null, null)
@@ -39,7 +42,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             }
         }
 
-        override fun getRefreshKey(state: PagingState<MwQueryResponse.Continuation, SearchResult>): MwQueryResponse.Continuation? {
+        override fun getRefreshKey(state: PagingState<MwQueryResponse.Continuation, MediaSearchResult>): MwQueryResponse.Continuation? {
             return null
         }
     }

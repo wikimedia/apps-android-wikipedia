@@ -107,17 +107,17 @@ class InsertMediaActivity : BaseActivity() {
         override fun getItemCount(): Int { return 1 }
     }
 
-    private inner class InsertMediaDiffCallback : DiffUtil.ItemCallback<SearchResult>() {
-        override fun areItemsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {
+    private inner class InsertMediaDiffCallback : DiffUtil.ItemCallback<MediaSearchResult>() {
+        override fun areItemsTheSame(oldItem: MediaSearchResult, newItem: MediaSearchResult): Boolean {
             return oldItem.pageTitle.prefixedText == newItem.pageTitle.prefixedText && oldItem.pageTitle.namespace == newItem.pageTitle.namespace
         }
 
-        override fun areContentsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {
+        override fun areContentsTheSame(oldItem: MediaSearchResult, newItem: MediaSearchResult): Boolean {
             return areItemsTheSame(oldItem, newItem)
         }
     }
 
-    private inner class InsertMediaAdapter : PagingDataAdapter<SearchResult, RecyclerView.ViewHolder>(InsertMediaDiffCallback()) {
+    private inner class InsertMediaAdapter : PagingDataAdapter<MediaSearchResult, RecyclerView.ViewHolder>(InsertMediaDiffCallback()) {
         override fun onCreateViewHolder(parent: ViewGroup, pos: Int): InsertMediaItemHolder {
             return InsertMediaItemHolder(ItemInsertMediaBinding.inflate(layoutInflater))
         }
@@ -155,7 +155,7 @@ class InsertMediaActivity : BaseActivity() {
     }
 
     private inner class InsertMediaItemHolder constructor(val binding: ItemInsertMediaBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bindItem(searchResult: SearchResult) {
+        fun bindItem(searchResult: MediaSearchResult) {
             ViewUtil.loadImageWithRoundedCorners(binding.imageView, searchResult.pageTitle.thumbUrl)
             binding.imageDescription.text = searchResult.pageTitle.displayText
 
