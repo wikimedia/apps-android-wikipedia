@@ -1,7 +1,9 @@
 package org.wikipedia.edit.insertmedia
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
@@ -30,7 +32,9 @@ import org.wikipedia.gallery.ImageLicense
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.search.SearchResult
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.views.*
 
 class InsertMediaActivity : BaseActivity() {
@@ -54,7 +58,7 @@ class InsertMediaActivity : BaseActivity() {
 
         binding.refreshView.setOnRefreshListener {
             binding.refreshView.isRefreshing = false
-            insertMediaAdapter.notifyDataSetChanged()
+            insertMediaAdapter.refresh()
         }
         binding.recyclerView.layoutManager = GridLayoutManager(this, 3)
         binding.recyclerView.adapter = insertMediaConcatAdapter
@@ -75,6 +79,16 @@ class InsertMediaActivity : BaseActivity() {
                 }
             }
         }
+
+        binding.licenseContainer.setOnClickListener { onLicenseClick() }
+        binding.licenseContainer.setOnLongClickListener { onLicenseLongClick() }
+        binding.searchInputField.text = viewModel.searchQuery
+        binding.searchContainer.setOnClickListener {
+            if (actionMode == null) {
+                actionMode = startSupportActionMode(searchActionModeCallback)
+            }
+        }
+        DeviceUtil.setContextClickAsLongClick(binding.licenseContainer)
     }
 
     private fun showSelectedImage() {
@@ -82,7 +96,7 @@ class InsertMediaActivity : BaseActivity() {
             binding.emptyImageContainer.isVisible = false
             binding.selectedImageContainer.isVisible = true
             ViewUtil.loadImageWithRoundedCorners(binding.selectedImage, it.pageTitle.thumbUrl)
-            binding.selectedImageDescription.text = it.pageTitle.displayText
+            binding.selectedImageDescription.text = StringUtil.removeHTMLTags(it.imageInfo?.metadata?.imageDescription().orEmpty().ifEmpty { it.pageTitle.displayText })
             setLicenseInfo(it)
         } ?: run {
             binding.emptyImageContainer.isVisible = true
@@ -111,10 +125,27 @@ class InsertMediaActivity : BaseActivity() {
             getString(R.string.gallery_fair_use_license)
         }
         binding.licenseIcon.tag = metadata.licenseUrl()
-        DeviceUtil.setContextClickAsLongClick(binding.licenseContainer)
         val creditStr = metadata.artist().ifEmpty { metadata.credit() }
 
         binding.creditText.text = StringUtil.fromHtml(creditStr.ifBlank { getString(R.string.gallery_uploader_unknown) })
+
+    }
+
+    private fun onLicenseClick() {
+        if (binding.licenseIcon.contentDescription == null) {
+            return
+        }
+        FeedbackUtil.showMessageAsPlainText((binding.licenseIcon.context as Activity),
+            binding.licenseIcon.contentDescription)
+    }
+
+    private fun onLicenseLongClick(): Boolean {
+        val licenseUrl = binding.licenseIcon.tag as String
+        if (licenseUrl.isNotEmpty()) {
+            UriUtil.handleExternalLink(this@InsertMediaActivity,
+                Uri.parse(UriUtil.resolveProtocolRelativeUrl(licenseUrl)))
+        }
+        return true
     }
 
     private inner class LoadingItemAdapter(private val retry: () -> Unit) : LoadStateAdapter<LoadingViewHolder>() {
@@ -189,7 +220,7 @@ class InsertMediaActivity : BaseActivity() {
     private inner class InsertMediaItemHolder constructor(val binding: ItemInsertMediaBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindItem(searchResult: MediaSearchResult) {
             ViewUtil.loadImageWithRoundedCorners(binding.imageView, searchResult.pageTitle.thumbUrl)
-            binding.imageDescription.text = searchResult.pageTitle.displayText
+            binding.imageDescription.text = StringUtil.removeHTMLTags(searchResult.imageInfo?.metadata?.imageDescription().orEmpty().ifEmpty { searchResult.pageTitle.displayText })
 
             binding.selectedIcon.isVisible = searchResult == viewModel.selectedImage
 
@@ -213,22 +244,25 @@ class InsertMediaActivity : BaseActivity() {
                     override fun onQueryTextFocusChange() {
                     }
                 })
-
             val menuItem = menu.add(searchHintString)
-
             MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
-
             actionMode = mode
+            binding.imageInfoContainer.isVisible = false
+            binding.searchContainer.isVisible = false
             return super.onCreateActionMode(mode, menu)
         }
 
         override fun onQueryChange(s: String) {
-            viewModel.searchQuery = s
+            viewModel.searchQuery = s.ifEmpty { viewModel.originalSearchQuery }
+            insertMediaAdapter.refresh()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
+            binding.imageInfoContainer.isVisible = true
+            binding.searchContainer.isVisible = true
+            binding.searchInputField.text = viewModel.searchQuery
         }
 
         override fun getSearchHintString(): String {

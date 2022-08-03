@@ -20,131 +20,124 @@
             android:layout_height="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways" />
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/imageInfoContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_marginBottom="16dp"
             app:layout_scrollFlags="scroll|enterAlways">
 
-            <FrameLayout
-                android:id="@+id/imageInfoContainer"
+            <LinearLayout
+                android:id="@+id/emptyImageContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="?attr/image_tags_onboarding_image"
+                    android:contentDescription="@string/insert_media_search_description" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:textSize="16sp"
+                    android:text="@string/insert_media_search_description" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/selectedImageContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <org.wikipedia.views.FaceAndColorDetectImageView
+                    android:id="@+id/selectedImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/insert_media_settings_uploaded_image"/>
 
                 <LinearLayout
-                    android:id="@+id/emptyImageContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center_horizontal">
+                    android:background="@color/black38"
+                    android:padding="8dp"
+                    android:layout_gravity="bottom"
+                    android:orientation="vertical">
 
-                    <ImageView
+                    <org.wikipedia.views.AppTextView
+                        android:id="@+id/selectedImageDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fadeScrollbars="false"
+                        android:maxHeight="128dp"
+                        android:scrollbarStyle="insideInset"
+                        android:scrollbars="vertical"
+                        android:textColor="@color/base90"
+                        android:textColorLink="@color/base90"
+                        android:textIsSelectable="true"
+                        android:textSize="14sp"
+                        tools:text="Sample image description text" />
+
+                    <LinearLayout
+                        android:id="@+id/licenseContainer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="?attr/image_tags_onboarding_image"
-                        android:contentDescription="@string/insert_media_search_description" />
+                        android:layout_marginTop="4dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="32dp"
-                        android:textSize="16sp"
-                        android:text="@string/insert_media_search_description" />
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/licenseIcon"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:contentDescription="@null"
+                            app:tint="@color/white70"
+                            tools:src="@drawable/ic_license_cc" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/licenseIconBy"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginStart="4dp"
+                            android:contentDescription="@null"
+                            android:visibility="gone"
+                            app:tint="@color/white70"
+                            tools:src="@drawable/ic_license_by" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/licenseIconSa"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginStart="4dp"
+                            android:contentDescription="@null"
+                            android:visibility="gone"
+                            app:tint="@color/white70"
+                            tools:src="@drawable/ic_license_sharealike" />
+
+                        <org.wikipedia.views.AppTextView
+                            android:id="@+id/creditText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:layout_marginStart="8dp"
+                            android:textColor="@color/white70"
+                            android:textColorLink="@color/white70"
+                            android:textIsSelectable="true"
+                            tools:text="Credits" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <FrameLayout
-                    android:id="@+id/selectedImageContainer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone">
-
-                    <org.wikipedia.views.FaceAndColorDetectImageView
-                        android:id="@+id/selectedImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_gravity="center_horizontal"
-                        android:scaleType="fitCenter"
-                        android:contentDescription="@string/insert_media_settings_uploaded_image"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/black38"
-                        android:padding="8dp"
-                        android:layout_gravity="bottom"
-                        android:orientation="vertical">
-
-                        <org.wikipedia.views.AppTextView
-                            android:id="@+id/selectedImageDescription"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fadeScrollbars="false"
-                            android:maxHeight="128dp"
-                            android:scrollbarStyle="insideInset"
-                            android:scrollbars="vertical"
-                            android:textColor="@color/base90"
-                            android:textColorLink="@color/base90"
-                            android:textIsSelectable="true"
-                            android:textSize="14sp"
-                            tools:text="Sample image description text" />
-
-                        <LinearLayout
-                            android:id="@+id/licenseContainer"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp">
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/licenseIcon"
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:contentDescription="@null"
-                                app:tint="@color/white70"
-                                tools:src="@drawable/ic_license_cc" />
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/licenseIconBy"
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:layout_marginStart="4dp"
-                                android:contentDescription="@null"
-                                android:visibility="gone"
-                                app:tint="@color/white70"
-                                tools:src="@drawable/ic_license_by" />
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/licenseIconSa"
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:layout_marginStart="4dp"
-                                android:contentDescription="@null"
-                                android:visibility="gone"
-                                app:tint="@color/white70"
-                                tools:src="@drawable/ic_license_sharealike" />
-
-                            <org.wikipedia.views.AppTextView
-                                android:id="@+id/creditText"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:maxLines="2"
-                                android:layout_marginStart="8dp"
-                                android:textColor="@color/white70"
-                                android:textColorLink="@color/white70"
-                                android:textIsSelectable="true"
-                                tools:text="Credits" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </FrameLayout>
-
             </FrameLayout>
 
-        </LinearLayout>
+        </FrameLayout>
 
         <org.wikipedia.views.WikiCardView
             android:id="@+id/search_container"
@@ -168,6 +161,7 @@
                 app:tint="?attr/material_theme_de_emphasised_color" />
 
             <TextView
+                android:id="@+id/searchInputField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"

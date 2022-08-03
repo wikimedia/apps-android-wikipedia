@@ -14,6 +14,7 @@ import org.wikipedia.page.PageTitle
 class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
     var searchQuery = bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!
+    val originalSearchQuery = searchQuery
     var selectedImage: MediaSearchResult? = null
     val insertMediaFlow = Pager(PagingConfig(pageSize = 10)) {
         InsertMediaPagingSource(searchQuery)
