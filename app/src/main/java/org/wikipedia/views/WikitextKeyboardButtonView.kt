@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.core.content.withStyledAttributes
+import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewWikitextKeyboardButtonBinding
 import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
@@ -13,9 +14,13 @@ import org.wikipedia.util.ResourceUtil.getThemedAttributeId
 import org.wikipedia.util.ResourceUtil.getThemedColor
 
 class WikitextKeyboardButtonView constructor(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
+    val binding = ViewWikitextKeyboardButtonBinding.inflate(LayoutInflater.from(context), this)
+
+    var notchVisible
+        get() = binding.topNotch.isVisible
+        set(value) { binding.topNotch.isVisible = value }
 
     init {
-        val binding = ViewWikitextKeyboardButtonBinding.inflate(LayoutInflater.from(context), this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         attrs?.let {
             context.withStyledAttributes(it, R.styleable.WikitextKeyboardButtonView) {

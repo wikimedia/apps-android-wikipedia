@@ -132,6 +132,21 @@ class WikiTextKeyboardView : FrameLayout {
         }
     }
 
+    fun onAfterFormattingShown() {
+        binding.wikitextButtonHeading.notchVisible = false
+        binding.wikitextButtonTextFormat.notchVisible = true
+    }
+
+    fun onAfterHeadingsShown() {
+        binding.wikitextButtonTextFormat.notchVisible = false
+        binding.wikitextButtonHeading.notchVisible = true
+    }
+
+    fun onAfterOverlaysHidden() {
+        binding.wikitextButtonTextFormat.notchVisible = false
+        binding.wikitextButtonHeading.notchVisible = false
+    }
+
     companion object {
 
         fun toggleSyntaxAroundCurrentSelection(editText: EditText?, ic: InputConnection, prefix: String, suffix: String) {

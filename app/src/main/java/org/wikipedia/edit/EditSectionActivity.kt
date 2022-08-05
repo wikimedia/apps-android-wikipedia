@@ -142,6 +142,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             hideAllSyntaxModals()
             binding.editKeyboardOverlayHeadingsContainer.isVisible = true
             binding.overlayDivider.isVisible = true
+            binding.editKeyboardOverlay.onAfterHeadingsShown()
         }
 
         override fun onRequestFormatting() {
@@ -152,6 +153,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             hideAllSyntaxModals()
             binding.editKeyboardOverlayFormattingContainer.isVisible = true
             binding.overlayDivider.isVisible = true
+            binding.editKeyboardOverlay.onAfterFormattingShown()
         }
 
         override fun onSyntaxOverlayClicked() {
@@ -665,6 +667,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         binding.editKeyboardOverlayHeadingsContainer.isVisible = false
         binding.editKeyboardOverlayFormattingContainer.isVisible = false
         binding.overlayDivider.isVisible = false
+        binding.editKeyboardOverlay.onAfterOverlaysHidden()
     }
 
     fun showProgressBar(enable: Boolean) {

@@ -19,13 +19,13 @@ class WikiTextKeyboardFormattingView : FrameLayout {
     init {
         binding.wikitextButtonBold.setOnClickListener {
             editText?.inputConnection?.let {
-                WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "''", "''")
+                WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "'''", "'''")
                 callback?.onSyntaxOverlayClicked()
             }
         }
         binding.wikitextButtonItalic.setOnClickListener {
             editText?.inputConnection?.let {
-                WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "'''", "'''")
+                WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "''", "''")
                 callback?.onSyntaxOverlayClicked()
             }
         }

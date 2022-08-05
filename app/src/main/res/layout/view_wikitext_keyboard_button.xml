@@ -39,4 +39,14 @@
         android:textSize="9sp"
         tools:text="Link" />
 
+    <ImageView
+        android:id="@+id/top_notch"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_gravity="center_horizontal"
+        app:srcCompat="@drawable/shape_notch_down"
+        app:tint="?attr/material_theme_secondary_color"
+        android:visibility="gone"
+        android:contentDescription="@null" />
+
 </merge>
