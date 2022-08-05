@@ -1,18 +1,21 @@
-package org.wikipedia.views
+package org.wikipedia.edit
 
 import android.content.Context
 import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.inputmethod.InputConnection
+import android.widget.EditText
 import android.widget.FrameLayout
 import org.wikipedia.databinding.ViewWikitextKeyboardBinding
 import org.wikipedia.page.PageTitle
+import org.wikipedia.views.PlainPasteEditText
 
 class WikiTextKeyboardView : FrameLayout {
     interface Callback {
         fun onPreviewLink(title: String)
         fun onRequestInsertLink()
+        fun onSyntaxOverlayClicked()
     }
 
     private val binding = ViewWikitextKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
@@ -33,32 +36,32 @@ class WikiTextKeyboardView : FrameLayout {
                 if (it.getSelectedText(0).isNullOrEmpty()) {
                     callback?.onRequestInsertLink()
                 } else {
-                    toggleSyntaxAroundCurrentSelection(it, "[[", "]]")
+                    toggleSyntaxAroundCurrentSelection(editText, it, "[[", "]]")
                 }
             }
         }
 
         binding.wikitextButtonItalic.setOnClickListener {
             editText?.inputConnection?.let {
-                toggleSyntaxAroundCurrentSelection(it, "''", "''")
+                toggleSyntaxAroundCurrentSelection(editText, it, "''", "''")
             }
         }
 
         binding.wikitextButtonBold.setOnClickListener {
             editText?.inputConnection?.let {
-                toggleSyntaxAroundCurrentSelection(it, "'''", "'''")
+                toggleSyntaxAroundCurrentSelection(editText, it, "'''", "'''")
             }
         }
 
         binding.wikitextButtonTemplate.setOnClickListener {
             editText?.inputConnection?.let {
-                toggleSyntaxAroundCurrentSelection(it, "{{", "}}")
+                toggleSyntaxAroundCurrentSelection(editText, it, "{{", "}}")
             }
         }
 
         binding.wikitextButtonRef.setOnClickListener {
             editText?.inputConnection?.let {
-                toggleSyntaxAroundCurrentSelection(it, "<ref>", "</ref>")
+                toggleSyntaxAroundCurrentSelection(editText, it, "<ref>", "</ref>")
             }
         }
 
@@ -131,58 +134,61 @@ class WikiTextKeyboardView : FrameLayout {
         }
     }
 
-    private fun toggleSyntaxAroundCurrentSelection(ic: InputConnection, prefix: String, suffix: String) {
-        editText?.let {
-            if (it.selectionStart == it.selectionEnd) {
-                val before = ic.getTextBeforeCursor(prefix.length, 0)
-                val after = ic.getTextAfterCursor(suffix.length, 0)
-                if (before != null && before.toString() == prefix && after != null && after.toString() == suffix) {
-                    // the cursor is actually inside the exact syntax, so negate it.
-                    ic.deleteSurroundingText(prefix.length, suffix.length)
+    companion object {
+
+        fun toggleSyntaxAroundCurrentSelection(editText: EditText?, ic: InputConnection, prefix: String, suffix: String) {
+            editText?.let {
+                if (it.selectionStart == it.selectionEnd) {
+                    val before = ic.getTextBeforeCursor(prefix.length, 0)
+                    val after = ic.getTextAfterCursor(suffix.length, 0)
+                    if (before != null && before.toString() == prefix && after != null && after.toString() == suffix) {
+                        // the cursor is actually inside the exact syntax, so negate it.
+                        ic.deleteSurroundingText(prefix.length, suffix.length)
+                    } else {
+                        // nothing highlighted, so just insert link syntax, and place the cursor in the center.
+                        ic.commitText(prefix + suffix, 1)
+                        ic.commitText("", -suffix.length)
+                    }
                 } else {
-                    // nothing highlighted, so just insert link syntax, and place the cursor in the center.
-                    ic.commitText(prefix + suffix, 1)
-                    ic.commitText("", -suffix.length)
+                    var selection = ic.getSelectedText(0) ?: return
+                    selection = if (selection.toString().startsWith(prefix) && selection.toString().endsWith(suffix)) {
+                        // the highlighted text is already a link, so toggle the link away.
+                        selection.subSequence(prefix.length, selection.length - suffix.length)
+                    } else {
+                        // put link syntax around the highlighted text.
+                        prefix + selection + suffix
+                    }
+                    ic.commitText(selection, 1)
+                    ic.setSelection(it.selectionStart - selection.length, it.selectionEnd)
                 }
-            } else {
-                var selection = ic.getSelectedText(0) ?: return
-                selection = if (selection.toString().startsWith(prefix) && selection.toString().endsWith(suffix)) {
-                    // the highlighted text is already a link, so toggle the link away.
-                    selection.subSequence(prefix.length, selection.length - suffix.length)
-                } else {
-                    // put link syntax around the highlighted text.
-                    prefix + selection + suffix
-                }
-                ic.commitText(selection, 1)
-                ic.setSelection(it.selectionStart - selection.length, it.selectionEnd)
             }
         }
-    }
 
-    @Suppress("SameParameterValue")
-    private fun lastIndexOf(str: String, subStr: String): Int {
-        var index = -1
-        var a = 0
-        while (a < str.length) {
-            val i = str.indexOf(subStr, a)
-            if (i >= 0) {
-                index = i
-                a = i + 1
-            } else {
-                break
+        @Suppress("SameParameterValue")
+        fun lastIndexOf(str: String, subStr: String): Int {
+            var index = -1
+            var a = 0
+            while (a < str.length) {
+                val i = str.indexOf(subStr, a)
+                if (i >= 0) {
+                    index = i
+                    a = i + 1
+                } else {
+                    break
+                }
             }
+            return index
         }
-        return index
-    }
 
-    private fun trimPunctuation(str: String): String {
-        var newStr = str
-        while (newStr.startsWith(".") || newStr.startsWith(",") || newStr.startsWith(";") || newStr.startsWith("?") || newStr.startsWith("!")) {
-            newStr = newStr.substring(1)
+        fun trimPunctuation(str: String): String {
+            var newStr = str
+            while (newStr.startsWith(".") || newStr.startsWith(",") || newStr.startsWith(";") || newStr.startsWith("?") || newStr.startsWith("!")) {
+                newStr = newStr.substring(1)
+            }
+            while (newStr.endsWith(".") || newStr.endsWith(",") || newStr.endsWith(";") || newStr.endsWith("?") || newStr.endsWith("!")) {
+                newStr = newStr.substring(0, newStr.length - 1)
+            }
+            return newStr
         }
-        while (newStr.endsWith(".") || newStr.endsWith(",") || newStr.endsWith(";") || newStr.endsWith("?") || newStr.endsWith("!")) {
-            newStr = newStr.substring(0, newStr.length - 1)
-        }
-        return newStr
     }
 }

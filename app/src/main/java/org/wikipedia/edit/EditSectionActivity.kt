@@ -59,7 +59,6 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.EditNoticesDialog
 import org.wikipedia.views.ViewAnimations
 import org.wikipedia.views.ViewUtil
-import org.wikipedia.views.WikiTextKeyboardView
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
@@ -124,6 +123,36 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         UriUtil.visitInExternalBrowser(this, Uri.parse(UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite, urlStr)))
     }
 
+    private val syntaxButtonCallback = object : WikiTextKeyboardView.Callback {
+        override fun onPreviewLink(title: String) {
+            bottomSheetPresenter.show(supportFragmentManager,
+                    LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null))
+        }
+
+        override fun onRequestInsertLink() {
+
+
+
+
+
+
+            binding.editKeyboardOverlayHeadingsContainer.isVisible = !binding.editKeyboardOverlayHeadingsContainer.isVisible
+
+
+
+
+
+
+
+            //val searchIntent = SearchActivity.newIntent(this@EditSectionActivity, Constants.InvokeSource.EDIT_ACTIVITY, null, true)
+            //requestLinkFromSearch.launch(searchIntent)
+        }
+
+        override fun onSyntaxOverlayClicked() {
+            hideAllSyntaxModals()
+        }
+    }
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditSectionBinding.inflate(layoutInflater)
@@ -180,23 +209,17 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             }
         }
         binding.editKeyboardOverlay.editText = binding.editSectionText
-        binding.editKeyboardOverlay.callback = object : WikiTextKeyboardView.Callback {
-            override fun onPreviewLink(title: String) {
-                bottomSheetPresenter.show(supportFragmentManager,
-                        LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null))
-            }
+        binding.editKeyboardOverlay.callback = syntaxButtonCallback
+        binding.editKeyboardOverlayHeadings.editText = binding.editSectionText
+        binding.editKeyboardOverlayHeadings.callback = syntaxButtonCallback
 
-            override fun onRequestInsertLink() {
-                val searchIntent = SearchActivity.newIntent(this@EditSectionActivity, Constants.InvokeSource.EDIT_ACTIVITY, null, true)
-                requestLinkFromSearch.launch(searchIntent)
-            }
-        }
         binding.editSectionText.setOnClickListener { finishActionMode() }
         updateTextSize()
 
         // set focus to the EditText, but keep the keyboard hidden until the user changes the cursor location:
         binding.editSectionText.requestFocus()
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+        hideAllSyntaxModals()
     }
 
     public override fun onStart() {
@@ -613,6 +636,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         scrollToHighlight(textToHighlight)
         binding.editSectionText.isEnabled = editingAllowed
         binding.editKeyboardOverlay.isVisible = editingAllowed
+        hideAllSyntaxModals()
     }
 
     private fun scrollToHighlight(highlightText: String?) {
@@ -627,6 +651,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 }
             }
         }
+    }
+
+    private fun hideAllSyntaxModals() {
+        binding.editKeyboardOverlayHeadingsContainer.isVisible = false
     }
 
     fun showProgressBar(enable: Boolean) {
