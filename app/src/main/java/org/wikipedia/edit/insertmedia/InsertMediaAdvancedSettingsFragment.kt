@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentInsertMediaAdvancedSettingsBinding
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 
 class InsertMediaAdvancedSettingsFragment : Fragment() {
 
@@ -15,6 +16,7 @@ class InsertMediaAdvancedSettingsFragment : Fragment() {
     private var _binding: FragmentInsertMediaAdvancedSettingsBinding? = null
     private val binding get() = _binding!!
     private val viewModel get() = (requireActivity() as InsertMediaActivity).viewModel
+    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     val isActive get() = binding.root.visibility == View.VISIBLE
 
