@@ -1141,8 +1141,10 @@
     <string name="insert_media_settings">Media settings</string>
     <string name="insert_media_settings_uploaded_image">Uploaded image</string>
     <string name="insert_media_settings_caption">Caption</string>
+    <string name="insert_media_settings_caption_hint">How does this image relate to the article?</string>
     <string name="insert_media_settings_caption_description">Label that shows next to the item for all readers</string>
     <string name="insert_media_settings_alternative_text">Alternative text</string>
+    <string name="insert_media_settings_alternative_text_hint">Describe this image</string>
     <string name="insert_media_settings_alternative_text_description">Text description for readers who cannot see the image</string>
     <string name="insert_media_advanced_settings">Advanced settings</string>
     <string name="insert_media_advanced_settings_wrap_image">Wrap text around image</string>

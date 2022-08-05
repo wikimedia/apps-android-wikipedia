@@ -32,10 +32,13 @@ import org.wikipedia.databinding.ItemInsertMediaBinding
 import org.wikipedia.gallery.ImageLicense
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.util.*
-import org.wikipedia.views.*
+import org.wikipedia.views.SearchActionProvider
+import org.wikipedia.views.ViewUtil
+import org.wikipedia.views.WikiErrorView
 
 class InsertMediaActivity : BaseActivity() {
     private lateinit var binding: ActivityInsertMediaBinding
+    private lateinit var insertMediaPreviewFragment: InsertMediaPreviewFragment
 
     private val insertMediaAdapter = InsertMediaAdapter()
     private val insertMediaLoadHeader = LoadingItemAdapter { insertMediaAdapter.retry(); }
@@ -77,6 +80,8 @@ class InsertMediaActivity : BaseActivity() {
             }
         }
 
+        insertMediaPreviewFragment = supportFragmentManager.findFragmentById(R.id.insertMediaPreviewFragment) as InsertMediaPreviewFragment
+
         binding.licenseContainer.setOnClickListener { onLicenseClick() }
         binding.licenseContainer.setOnLongClickListener { onLicenseLongClick() }
         binding.searchInputField.text = viewModel.searchQuery
@@ -106,6 +111,30 @@ class InsertMediaActivity : BaseActivity() {
         actionBarButtonBinding.root.isEnabled = item.isEnabled
         actionBarButtonBinding.root.setOnClickListener { onOptionsItemSelected(it.tag as MenuItem) }
         return super.onPrepareOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_next -> {
+                showPreviewFragment()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onBackPressed() {
+        if (insertMediaPreviewFragment.handleBackPressed()) {
+            binding.imageInfoContainer.isVisible = true
+            binding.searchContainer.isVisible = true
+            return
+        }
+    }
+
+    private fun showPreviewFragment() {
+        binding.imageInfoContainer.isVisible = false
+        binding.searchContainer.isVisible = false
+        insertMediaPreviewFragment.show()
     }
 
     private fun showSelectedImage() {

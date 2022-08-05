@@ -1220,8 +1220,10 @@
   <string name="insert_media_settings">Title of the media settings scree.</string>
   <string name="insert_media_settings_uploaded_image">Label of the uploaded image.</string>
   <string name="insert_media_settings_caption">Label of the caption of the image.</string>
+  <string name="insert_media_settings_caption_hint">Hint text of the text field for the caption of the image.</string>
   <string name="insert_media_settings_caption_description">Description of where the caption will be located.</string>
   <string name="insert_media_settings_alternative_text">Label of the alternative text.</string>
+  <string name="insert_media_settings_alternative_text_hint">Hint text of the text field for the alternative text.</string>
   <string name="insert_media_settings_alternative_text_description">Description of the alternative usage.</string>
   <string name="insert_media_advanced_settings">Button label of advanced settings.</string>
   <string name="insert_media_advanced_settings_wrap_image">Label of an option that user can wrap the text around the image.</string>
