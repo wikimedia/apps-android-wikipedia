@@ -198,12 +198,25 @@
             android:orientation="vertical">
 
             <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/insertMediaPreviewFragment"
-                android:name="org.wikipedia.edit.insertmedia.InsertMediaPreviewFragment"
+                android:id="@+id/insertMediaSettingsFragment"
+                android:name="org.wikipedia.edit.insertmedia.InsertMediaSettingsFragment"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                tools:layout="@layout/fragment_preview_edit" />
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/insertMediaAdvancedSettingsFragment"
+                android:name="org.wikipedia.edit.insertmedia.InsertMediaAdvancedSettingsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
         </LinearLayout>
 

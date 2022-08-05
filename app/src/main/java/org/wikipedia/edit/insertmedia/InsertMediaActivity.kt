@@ -38,7 +38,8 @@ import org.wikipedia.views.WikiErrorView
 
 class InsertMediaActivity : BaseActivity() {
     private lateinit var binding: ActivityInsertMediaBinding
-    private lateinit var insertMediaPreviewFragment: InsertMediaPreviewFragment
+    private lateinit var insertMediaSettingsFragment: InsertMediaSettingsFragment
+    private lateinit var insertMediaAdvancedSettingsFragment: InsertMediaAdvancedSettingsFragment
 
     private val insertMediaAdapter = InsertMediaAdapter()
     private val insertMediaLoadHeader = LoadingItemAdapter { insertMediaAdapter.retry(); }
@@ -80,7 +81,8 @@ class InsertMediaActivity : BaseActivity() {
             }
         }
 
-        insertMediaPreviewFragment = supportFragmentManager.findFragmentById(R.id.insertMediaPreviewFragment) as InsertMediaPreviewFragment
+        insertMediaSettingsFragment = supportFragmentManager.findFragmentById(R.id.insertMediaSettingsFragment) as InsertMediaSettingsFragment
+        insertMediaAdvancedSettingsFragment = supportFragmentManager.findFragmentById(R.id.insertMediaAdvancedSettingsFragment) as InsertMediaAdvancedSettingsFragment
 
         binding.licenseContainer.setOnClickListener { onLicenseClick() }
         binding.licenseContainer.setOnLongClickListener { onLicenseLongClick() }
@@ -116,7 +118,7 @@ class InsertMediaActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_next -> {
-                showPreviewFragment()
+                showMediaSettingsFragment()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -124,19 +126,30 @@ class InsertMediaActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        if (insertMediaPreviewFragment.handleBackPressed()) {
+        if (insertMediaSettingsFragment.handleBackPressed()) {
             binding.imageInfoContainer.isVisible = true
             binding.searchContainer.isVisible = true
             supportActionBar?.title = getString(R.string.insert_media_title)
             return
         }
+        if (insertMediaAdvancedSettingsFragment.handleBackPressed()) {
+            insertMediaSettingsFragment.show()
+            return
+        }
         super.onBackPressed()
     }
 
-    private fun showPreviewFragment() {
+    private fun showMediaSettingsFragment() {
         binding.imageInfoContainer.isVisible = false
         binding.searchContainer.isVisible = false
-        insertMediaPreviewFragment.show()
+        insertMediaSettingsFragment.show()
+    }
+
+    fun showMediaAdvancedSettingsFragment() {
+        binding.imageInfoContainer.isVisible = false
+        binding.searchContainer.isVisible = false
+        insertMediaSettingsFragment.hide(false)
+        insertMediaAdvancedSettingsFragment.show()
     }
 
     private fun showSelectedImage() {

@@ -111,7 +111,8 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:background="?attr/list_separator_drawable"
-            android:layout_marginVertical="16dp"/>
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
 
         <TextView
             android:id="@+id/advancedSettings"
@@ -121,7 +122,8 @@
             android:textColor="?attr/material_theme_de_emphasised_color"
             android:textSize="12sp"
             android:text="@string/insert_media_advanced_settings"
-            android:background="?attr/selectableItemBackground"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp"
             tools:text="Article" />
 
     </LinearLayout>
