@@ -37,6 +37,8 @@ class InsertMediaPreviewFragment : Fragment() {
     fun hide() {
         ViewAnimations.fadeOut(binding.root) {
             requireActivity().invalidateOptionsMenu()
+            ViewUtil.loadImageWithRoundedCorners(binding.imageView, null)
+            binding.mediaDescription.text = null
         }
     }
 
