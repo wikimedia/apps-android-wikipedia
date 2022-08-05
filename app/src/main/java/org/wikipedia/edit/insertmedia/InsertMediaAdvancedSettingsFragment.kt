@@ -28,13 +28,11 @@ class InsertMediaAdvancedSettingsFragment : Fragment() {
         binding.root.isVisible = true
         activity.invalidateOptionsMenu()
         activity.supportActionBar?.title = getString(R.string.insert_media_advanced_settings)
-        // TODO: implement this
     }
 
     fun hide() {
         binding.root.isVisible = false
         activity.invalidateOptionsMenu()
-        // TODO: implement this
     }
 
     fun handleBackPressed(): Boolean {

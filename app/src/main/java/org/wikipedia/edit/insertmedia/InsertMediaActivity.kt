@@ -101,17 +101,16 @@ class InsertMediaActivity : BaseActivity() {
     }
 
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
-        val item = menu.findItem(R.id.menu_next)
-        item.isEnabled = viewModel.selectedImage != null
-        val actionBarButtonBinding = ItemEditActionbarButtonBinding.inflate(layoutInflater)
-        item.actionView = actionBarButtonBinding.root
-        actionBarButtonBinding.editActionbarButtonText.text = item.title
-        actionBarButtonBinding.editActionbarButtonText.setTextColor(
-            ResourceUtil.getThemedColor(this,
-            if (item.isEnabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
-        actionBarButtonBinding.root.tag = item
-        actionBarButtonBinding.root.isEnabled = item.isEnabled
-        actionBarButtonBinding.root.setOnClickListener { onOptionsItemSelected(it.tag as MenuItem) }
+        val menuNextItem = menu.findItem(R.id.menu_next)
+        val menuSaveItem = menu.findItem(R.id.menu_save)
+        val menuInsertItem = menu.findItem(R.id.menu_insert)
+        menuNextItem.isVisible = !insertMediaSettingsFragment.isActive && !insertMediaAdvancedSettingsFragment.isActive
+        menuSaveItem.isVisible = insertMediaAdvancedSettingsFragment.isActive
+        menuInsertItem.isVisible = insertMediaSettingsFragment.isActive
+        menuNextItem.isEnabled = viewModel.selectedImage != null
+        applyActionBarButtonStyle(menuNextItem)
+        applyActionBarButtonStyle(menuInsertItem)
+        applyActionBarButtonStyle(menuSaveItem)
         return super.onPrepareOptionsMenu(menu)
     }
 
@@ -137,6 +136,18 @@ class InsertMediaActivity : BaseActivity() {
             return
         }
         super.onBackPressed()
+    }
+
+    private fun applyActionBarButtonStyle(menuItem: MenuItem) {
+        val actionBarButtonBinding = ItemEditActionbarButtonBinding.inflate(layoutInflater)
+        menuItem.actionView = actionBarButtonBinding.root
+        actionBarButtonBinding.editActionbarButtonText.text = menuItem.title
+        actionBarButtonBinding.editActionbarButtonText.setTextColor(
+            ResourceUtil.getThemedColor(this,
+                if (menuItem.isEnabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
+        actionBarButtonBinding.root.tag = menuItem
+        actionBarButtonBinding.root.isEnabled = menuItem.isEnabled
+        actionBarButtonBinding.root.setOnClickListener { onOptionsItemSelected(it.tag as MenuItem) }
     }
 
     private fun showMediaSettingsFragment() {

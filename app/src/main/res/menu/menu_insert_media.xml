@@ -7,4 +7,12 @@
         android:enabled="false"
         android:title="@string/edit_next"
         app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/menu_save"
+        android:title="@string/article_menu_bar_save_button"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/menu_insert"
+        android:title="@string/insert_media_insert_button"
+        app:showAsAction="always|withText" />
 </menu>
