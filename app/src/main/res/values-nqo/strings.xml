@@ -830,6 +830,7 @@
   <string name="file_page_activity_title">ߞߐߕߐ߯ ߞߐߜߍ</string>
   <string name="file_page_add_image_caption_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߝߊ߬ߙߊ߫</string>
   <string name="file_page_add_image_tags_button">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ ߟߎ߬ ߝߙߊ߬</string>
+  <string name="file_page_suggestion_reason">ߞߎ߲߬ߦߌ߬ߘߊ߬ߟߌ ߞߎ߲߭</string>
   <string name="file_page_edit_button_content_description">%s ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="description_edit_revert_subtitle">ߌ ߞߎߟߎ߲ߖߋ߫ ߥߞߌߔߋߘߌߦߊ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊ߫߹</string>
   <string name="description_edit_revert_intro">ߊ߲ ߞߵߊ߬ ߟߐ߲߫ ߞߴߌ ߦߴߌ ߛߋߞߏ ߞߍ߫ ߟߊ߫߸ ߒ߬ߞߊ߬ ߡߊ߬ߝߟߍ߬ߟߌ߬ߟߊ ߘߏ߫ ߟߎ߫ ߞߎߛߎ߲ߣߍ߲߫ ߦߋ߫. ߏ߭ ߞߎ߲߭ ߘߌ߫ ߛߋ߫ ߞߍ߫ ߟߊ߫ ߡߍ߲ ߘߌ߫߸ ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߟߊߕߊ߲߬ߞߊ߬ߣߍ߲߫ ߘߌ߫ ߞߵߊ߬ ߡߊߛߐ߬ߘߐ߲߬:</string>
@@ -961,6 +962,8 @@
   <string name="menu_option_user_page">%s ߟߊ߫ ߞߐߜߍ߫ ߟߊߓߊ߯ߙߕߊ</string>
   <string name="menu_option_find_in_talk_page_topic">ߊ߬ ߟߊߛߐ߬ߘߐ߲߬ ߞߎߡߊ߫ ߞߐߜߍ ߝߐߡߊ ߟߎ߫ ߘߐ߫</string>
   <string name="talk_menu_copy_text">ߞߟߏߜߍ ߓߊߓߌ߬ߟߊ߫</string>
+  <string name="talk_menu_expand_threads">ߖߎ߬ߟߎ ߘߐߦߙߌߥߊ߫</string>
+  <string name="talk_menu_collapse_threads">ߖߎ߬ߟߎ ߘߐߘߏ߲߬</string>
   <string name="watchlist_details_watching_label">ߘߐߜߍߟߌ ߦߴߌ ߘߐ߫</string>
   <string name="watchlist_details_watch_label">ߊ߬ ߘߐߜߍ߫</string>
   <string name="watchlist_details_next_edit">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߢߍߕߊ</string>
@@ -989,6 +992,8 @@
   <string name="revision_undo_message">ߏ߬ ߘߌ߫ ߡߝߊ߬ߟߋ߲߬ߠߌ߲߫ ߠߎ߫ ߖߏ߬ߛߌ߫ ߡߍ߲ ߠߎ߬ ߛߌ߲ߘߌ߫ ߘߊ߫ ߟߢߊ߬ߟߌ(ߟߎ߫) ߘߐ߫ ߞߎߡߘߊ߫ ߘߐ߫ ߡߍ߲ ߦߌ߬ߘߊ߬ߣߍ߲߫ ߦߋ߫ ߦߊ߲߬ ߣߌ߲߬.</string>
   <string name="revision_undo_reason">ߖߐ߲߬ߛߊ߫ ߞߵߊ߬ ߘߊߓߊ߲߫߸ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߣߌ߲߬ ߘߐߛߊ߬ߟߌ ߕߎ߬ߙߎ ߡߊߛߐ߫ ߦߊ߲߬ ߖߊ߰ߣߌ߲߫:</string>
   <string name="revision_undo_success">ߟߢߊ߬ߟߌ ߓߘߊ߫ ߘߐߛߊ߬.</string>
+  <string name="revision_rollback_dialog_title">ߌ ߘߍ߲߬ߞߣߍ߬ߦߊ߬ߣߍ߲߫ ߦߋ߫ ߞߴߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߟߊߕߊ߲߬ߞߌ߫؟</string>
+  <string name="revision_rollback_success">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߫ ߠߊߕߊ߲߬ߞߌ߬ߣߍ߲ ߠߎ߬</string>
   <string name="revision_compare_button">ߞߵߊ߬ ߟߊ߫ ߢߐ߲߮ ߡߊ߬</string>
   <string name="revision_compare_two_only">ߟߢߊ߬ߟߌ߫ ߝߌ߬ߟߊ߬ ߘߐߙߐ߲߫ ߠߋ߬ ߘߌ߫ ߛߋ߫ ߓߊߕߐ߬ߡߐ߲߫ ߠߊ߫.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ߣߴߊ߬ ߞߎߡߊߢߐ߲߯ߦߊ߫ ߞߐߜߍ ߟߎ߬ ߓߘߊ߫ ߓߊ߲߫ ߓߌ߬ߟߊ߬ ߟߴߌ ߟߊ߫ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫ %2$s ߟߊ߫</string>
@@ -1019,4 +1024,7 @@
   <string name="category_tab_subcategories">ߦߌߟߡߊߟߋ߲ ߠߎ߬</string>
   <string name="category_empty">ߞߎߡߘߊ߫ ߟߎ߫ ߡߊ߫ ߛߐ߬ߘߐ߲߫ ߦߌߟߡߊ ߣߌ߲߬ ߘߐ߫</string>
   <string name="subcategory_empty">ߦߌߟߡߊߟߋ߲߫ ߡߊ߫ ߛߐ߬ߘߐ߲߫ ߦߌߟߡߊ ߣߌ߲߬ ߘߐ߫.</string>
+  <string name="search_namespaces">ߕߐ߯ߛߓߍ ߞߣߍ</string>
+  <string name="revision_initial_none">ߝߏߦߊ߲߫ (ߟߢߊ߬ߟߌ߫ ߝߟߐ ߟߋ߬ ߦߋ߫ ߣߌ߲߬ ߘߌ߫)</string>
+  <string name="archive_empty">ߞߐߜߍ߫ ߟߊߡߙߊ߬ߣߍ߲߫ ߡߊ߫ ߛߐ߬ߘߐ߲߫.</string>
 </resources>
