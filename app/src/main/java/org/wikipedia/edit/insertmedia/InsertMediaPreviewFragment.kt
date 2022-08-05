@@ -6,25 +6,31 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import org.wikipedia.databinding.FragmentPreviewInsertMediaBinding
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewAnimations
+import org.wikipedia.views.ViewUtil
 
 class InsertMediaPreviewFragment : Fragment() {
 
     private var _binding: FragmentPreviewInsertMediaBinding? = null
     private val binding get() = _binding!!
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private val viewModel get() = (requireActivity() as InsertMediaActivity).viewModel
 
     val isActive get() = binding.root.visibility == View.VISIBLE
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPreviewInsertMediaBinding.inflate(layoutInflater, container, false)
+
         return binding.root
     }
 
     fun show() {
         ViewAnimations.fadeIn(binding.root) {
             requireActivity().invalidateOptionsMenu()
+            viewModel.selectedImage?.let {
+                ViewUtil.loadImageWithRoundedCorners(binding.imageView, it.pageTitle.thumbUrl)
+                binding.mediaDescription.text = StringUtil.removeHTMLTags(it.imageInfo?.metadata?.imageDescription().orEmpty().ifEmpty { it.pageTitle.displayText })
+            }
         }
     }
 

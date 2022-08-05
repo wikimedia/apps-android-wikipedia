@@ -73,6 +73,7 @@
             android:layout_marginTop="16dp"
             android:gravity="start"
             android:textAlignment="viewStart"
+            android:tooltipText="@string/insert_media_settings_caption"
             android:hint="@string/insert_media_settings_caption_hint"
             app:helperText="@string/insert_media_settings_caption_description">
 

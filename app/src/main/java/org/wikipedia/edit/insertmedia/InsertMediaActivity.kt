@@ -47,7 +47,7 @@ class InsertMediaActivity : BaseActivity() {
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
 
-    private val viewModel: InsertMediaViewModel by viewModels { InsertMediaViewModel.Factory(intent.extras!!) }
+    val viewModel: InsertMediaViewModel by viewModels { InsertMediaViewModel.Factory(intent.extras!!) }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
