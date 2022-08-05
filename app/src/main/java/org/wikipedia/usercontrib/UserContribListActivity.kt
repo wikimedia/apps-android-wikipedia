@@ -55,12 +55,12 @@ import java.util.*
 class UserContribListActivity : BaseActivity() {
 
     private lateinit var binding: ActivityUserContribBinding
-    private val editHistoryListAdapter = EditHistoryListAdapter()
-    private val editHistoryStatsAdapter = StatsItemAdapter()
-    private val editHistorySearchBarAdapter = SearchBarAdapter()
-    private val editHistoryEmptyMessagesAdapter = EmptyMessagesAdapter()
-    private val loadHeader = LoadingItemAdapter { editHistoryListAdapter.retry() }
-    private val loadFooter = LoadingItemAdapter { editHistoryListAdapter.retry() }
+    private val userContribListAdapter = UserContribListAdapter()
+    private val userContribStatsAdapter = StatsItemAdapter()
+    private val userContribSearchBarAdapter = SearchBarAdapter()
+    private val userContribEmptyMessagesAdapter = EmptyMessagesAdapter()
+    private val loadHeader = LoadingItemAdapter { userContribListAdapter.retry() }
+    private val loadFooter = LoadingItemAdapter { userContribListAdapter.retry() }
     private val viewModel: UserContribListViewModel by viewModels { UserContribListViewModel.Factory(intent.extras!!) }
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var actionMode: ActionMode? = null
@@ -76,7 +76,7 @@ class UserContribListActivity : BaseActivity() {
                         updateLangButton()
                         viewModel.clearCache()
                         viewModel.loadStats()
-                        editHistoryListAdapter.reload()
+                        userContribListAdapter.reload()
                     }
                 }
             }
@@ -93,17 +93,17 @@ class UserContribListActivity : BaseActivity() {
         binding.titleView.isInvisible = true
         binding.titleView.text = getString(R.string.user_contrib_activity_title, StringUtil.fromHtml(viewModel.userName))
 
-        binding.editHistoryRefreshContainer.setOnRefreshListener {
+        binding.refreshContainer.setOnRefreshListener {
             viewModel.clearCache()
-            editHistoryListAdapter.reload()
+            userContribListAdapter.reload()
         }
 
-        binding.editHistoryRecycler.layoutManager = LinearLayoutManager(this)
+        binding.userContribRecycler.layoutManager = LinearLayoutManager(this)
         setupAdapters()
-        binding.editHistoryRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.userContribRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                binding.titleView.isInvisible = binding.editHistoryRecycler.computeVerticalScrollOffset() <= recyclerView.getChildAt(0).height
+                binding.titleView.isInvisible = binding.userContribRecycler.computeVerticalScrollOffset() <= recyclerView.getChildAt(0).height
             }
         })
 
@@ -113,38 +113,38 @@ class UserContribListActivity : BaseActivity() {
         updateLangButton()
 
         lifecycleScope.launchWhenCreated {
-            editHistoryListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
+            userContribListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
                     .filter { it.refresh is LoadState.NotLoading }
                     .collectLatest {
-                        if (binding.editHistoryRefreshContainer.isRefreshing) {
-                            binding.editHistoryRefreshContainer.isRefreshing = false
+                        if (binding.refreshContainer.isRefreshing) {
+                            binding.refreshContainer.isRefreshing = false
                         }
                     }
         }
 
         lifecycleScope.launchWhenCreated {
-            editHistoryListAdapter.loadStateFlow.collectLatest {
+            userContribListAdapter.loadStateFlow.collectLatest {
                 loadHeader.loadState = it.refresh
                 loadFooter.loadState = it.append
-                val showEmpty = (it.append is LoadState.NotLoading && it.source.refresh is LoadState.NotLoading && editHistoryListAdapter.itemCount == 0)
+                val showEmpty = (it.append is LoadState.NotLoading && it.source.refresh is LoadState.NotLoading && userContribListAdapter.itemCount == 0)
                 if (showEmpty) {
-                    (binding.editHistoryRecycler.adapter as ConcatAdapter).addAdapter(editHistoryEmptyMessagesAdapter)
+                    (binding.userContribRecycler.adapter as ConcatAdapter).addAdapter(userContribEmptyMessagesAdapter)
                 } else {
-                    (binding.editHistoryRecycler.adapter as ConcatAdapter).removeAdapter(editHistoryEmptyMessagesAdapter)
+                    (binding.userContribRecycler.adapter as ConcatAdapter).removeAdapter(userContribEmptyMessagesAdapter)
                 }
             }
         }
 
         viewModel.userContribStatsData.observe(this) {
             if (it is Resource.Success) {
-                editHistoryStatsAdapter.notifyItemChanged(0)
-                editHistorySearchBarAdapter.notifyItemChanged(0)
+                userContribStatsAdapter.notifyItemChanged(0)
+                userContribSearchBarAdapter.notifyItemChanged(0)
             }
         }
 
         lifecycleScope.launch {
             viewModel.userContribFlow.collectLatest {
-                editHistoryListAdapter.submitData(it)
+                userContribListAdapter.submitData(it)
             }
         }
 
@@ -162,12 +162,12 @@ class UserContribListActivity : BaseActivity() {
 
     private fun setupAdapters() {
         if (actionMode != null) {
-            binding.editHistoryRecycler.adapter = editHistoryListAdapter.withLoadStateFooter(loadFooter)
+            binding.userContribRecycler.adapter = userContribListAdapter.withLoadStateFooter(loadFooter)
         } else {
-            binding.editHistoryRecycler.adapter =
-                editHistoryListAdapter.withLoadStateHeaderAndFooter(loadHeader, loadFooter).also {
-                    it.addAdapter(0, editHistoryStatsAdapter)
-                    it.addAdapter(1, editHistorySearchBarAdapter)
+            binding.userContribRecycler.adapter =
+                    userContribListAdapter.withLoadStateHeaderAndFooter(loadHeader, loadFooter).also {
+                    it.addAdapter(0, userContribStatsAdapter)
+                    it.addAdapter(1, userContribSearchBarAdapter)
                 }
         }
     }
@@ -180,12 +180,13 @@ class UserContribListActivity : BaseActivity() {
         val editCountsValue = viewModel.userContribStatsData.value
         if (editCountsValue is Resource.Success) {
             val anchorView = if (actionMode != null && searchActionModeCallback.searchAndFilterActionProvider != null)
-                searchActionModeCallback.searchBarFilterIcon!! else if (editHistorySearchBarAdapter.viewHolder != null)
-                    editHistorySearchBarAdapter.viewHolder!!.binding.filterByButton else binding.root
-            UserContribFilterOverflowView(this@UserContribListActivity).show(anchorView, editCountsValue.data) {
+                searchActionModeCallback.searchBarFilterIcon!! else if (userContribSearchBarAdapter.viewHolder != null)
+                userContribSearchBarAdapter.viewHolder!!.binding.filterByButton else binding.root
+            UserContribFilterOverflowView(this@UserContribListActivity).show(anchorView) {
                 setupAdapters()
-                editHistoryListAdapter.reload()
-                editHistorySearchBarAdapter.notifyItemChanged(0)
+                viewModel.clearCache()
+                userContribListAdapter.reload()
+                userContribSearchBarAdapter.notifyItemChanged(0)
                 actionMode?.let {
                     searchActionModeCallback.updateFilterIconAndText()
                 }
@@ -241,7 +242,7 @@ class UserContribListActivity : BaseActivity() {
         }
     }
 
-    private inner class EditHistoryDiffCallback : DiffUtil.ItemCallback<UserContribListViewModel.UserContribItemModel>() {
+    private inner class UserContribDiffCallback : DiffUtil.ItemCallback<UserContribListViewModel.UserContribItemModel>() {
         override fun areContentsTheSame(oldItem: UserContribListViewModel.UserContribItemModel, newItem: UserContribListViewModel.UserContribItemModel): Boolean {
             if (oldItem is UserContribListViewModel.UserContribSeparator && newItem is UserContribListViewModel.UserContribSeparator) {
                 return oldItem.date == newItem.date
@@ -256,8 +257,8 @@ class UserContribListActivity : BaseActivity() {
         }
     }
 
-    private inner class EditHistoryListAdapter :
-            PagingDataAdapter<UserContribListViewModel.UserContribItemModel, RecyclerView.ViewHolder>(EditHistoryDiffCallback()) {
+    private inner class UserContribListAdapter :
+            PagingDataAdapter<UserContribListViewModel.UserContribItemModel, RecyclerView.ViewHolder>(UserContribDiffCallback()) {
 
         fun reload() {
             submitData(lifecycle, PagingData.empty())
@@ -276,7 +277,7 @@ class UserContribListActivity : BaseActivity() {
             return if (viewType == VIEW_TYPE_SEPARATOR) {
                 SeparatorViewHolder(layoutInflater.inflate(R.layout.item_edit_history_separator, parent, false))
             } else {
-                EditHistoryListItemHolder(UserContribItemView(this@UserContribListActivity))
+                UserContribListItemHolder(UserContribItemView(this@UserContribListActivity))
             }
         }
 
@@ -284,7 +285,7 @@ class UserContribListActivity : BaseActivity() {
             val item = getItem(position)
             if (holder is SeparatorViewHolder) {
                 holder.bindItem((item as UserContribListViewModel.UserContribSeparator).date)
-            } else if (holder is EditHistoryListItemHolder) {
+            } else if (holder is UserContribListItemHolder) {
                 holder.bindItem((item as UserContribListViewModel.UserContribItem).item)
             }
         }
@@ -347,13 +348,13 @@ class UserContribListActivity : BaseActivity() {
         }
 
         private fun updateFilterCount() {
-            if (Prefs.editHistoryFilterType.isEmpty()) {
+            if (Prefs.userContribFilterNs < 0) {
                 binding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(binding.filterByButton,
                     ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.color_group_9))
             } else {
                 binding.filterCount.visibility = View.VISIBLE
-                binding.filterCount.text = (if (Prefs.editHistoryFilterType.isNotEmpty()) 1 else 0).toString()
+                binding.filterCount.text = 1.toString()
                 ImageViewCompat.setImageTintList(binding.filterByButton,
                     ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.colorAccent))
             }
@@ -370,12 +371,11 @@ class UserContribListActivity : BaseActivity() {
         fun bindItem() {
             binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.page_edit_history_empty_search_message))
             RichTextUtil.removeUnderlinesFromLinks(binding.emptySearchMessage)
-            binding.searchEmptyText.isVisible = actionMode != null
-            binding.searchEmptyContainer.isVisible = Prefs.editHistoryFilterType.isNotEmpty()
+            binding.searchEmptyContainer.isVisible = Prefs.userContribFilterNs >= 0
         }
     }
 
-    private inner class EditHistoryListItemHolder constructor(private val view: UserContribItemView) : RecyclerView.ViewHolder(view), UserContribItemView.Listener {
+    private inner class UserContribListItemHolder constructor(private val view: UserContribItemView) : RecyclerView.ViewHolder(view), UserContribItemView.Listener {
         private lateinit var contrib: UserContribution
 
         fun bindItem(contrib: UserContribution) {
@@ -412,7 +412,7 @@ class UserContribListActivity : BaseActivity() {
                     }
 
                     override fun getExcludedFilterCount(): Int {
-                        return if (Prefs.editHistoryFilterType.isNotEmpty()) 1 else 0
+                        return if (Prefs.userContribFilterNs >= 0) 1 else 0
                     }
 
                     override fun getFilterIconContentDescription(): Int {
@@ -434,14 +434,14 @@ class UserContribListActivity : BaseActivity() {
         override fun onQueryChange(s: String) {
             viewModel.currentQuery = s
             setupAdapters()
-            editHistoryListAdapter.reload()
+            userContribListAdapter.reload()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
             viewModel.currentQuery = ""
-            editHistoryListAdapter.reload()
+            userContribListAdapter.reload()
             viewModel.actionModeActive = false
             setupAdapters()
         }

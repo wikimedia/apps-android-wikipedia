@@ -10,11 +10,13 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.core.widget.PopupWindowCompat
-import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewUserContribFilterOverflowBinding
-import org.wikipedia.dataclient.restbase.EditCount
+import org.wikipedia.page.Namespace
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.StringUtil
+import org.wikipedia.staticdata.TalkAliasData
+import org.wikipedia.staticdata.UserAliasData
+import org.wikipedia.staticdata.UserTalkAliasData
 
 class UserContribFilterOverflowView(context: Context) : FrameLayout(context) {
 
@@ -30,7 +32,7 @@ class UserContribFilterOverflowView(context: Context) : FrameLayout(context) {
         setButtonsListener()
     }
 
-    fun show(anchorView: View, editCounts: UserContribListViewModel.UserContribStats, callback: Callback?) {
+    fun show(anchorView: View, callback: Callback?) {
         this.callback = callback
         popupWindowHost = PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true)
@@ -43,37 +45,47 @@ class UserContribFilterOverflowView(context: Context) : FrameLayout(context) {
             popupWindowHost = null
         }
 
-        binding.filterByAll.text = context.getString(R.string.page_edit_history_filter_by_all, StringUtil.getPageViewText(context, editCounts.totalEdits.toLong()))
-        binding.filterByUser.text = context.getString(R.string.page_edit_history_filter_by_user, StringUtil.getPageViewText(context, editCounts.totalEdits.toLong()))
-        binding.filterByAnon.text = context.getString(R.string.page_edit_history_filter_by_anon, StringUtil.getPageViewText(context, editCounts.totalEdits.toLong()))
-        binding.filterByBot.text = context.getString(R.string.page_edit_history_filter_by_bot, StringUtil.getPageViewText(context, editCounts.totalEdits.toLong()))
+        binding.nsUserText.text = UserAliasData.valueFor(WikipediaApp.instance.appOrSystemLanguageCode)
+        binding.nsTalkText.text = TalkAliasData.valueFor(WikipediaApp.instance.appOrSystemLanguageCode)
+        binding.nsUserTalkText.text = UserTalkAliasData.valueFor(WikipediaApp.instance.appOrSystemLanguageCode)
         updateSelectedItem()
     }
 
     private fun updateSelectedItem() {
-        binding.filterByAllSelected.visibility = View.INVISIBLE
-        binding.filterByAnonSelected.visibility = View.INVISIBLE
-        binding.filterByUserSelected.visibility = View.INVISIBLE
-        binding.filterByBotSelected.visibility = View.INVISIBLE
+        binding.nsNoneCheckIcon.visibility = View.INVISIBLE
+        binding.nsArticleCheckIcon.visibility = View.INVISIBLE
+        binding.nsTalkCheckIcon.visibility = View.INVISIBLE
+        binding.nsUserCheckIcon.visibility = View.INVISIBLE
+        binding.nsUserTalkCheckIcon.visibility = View.INVISIBLE
 
-        when (Prefs.editHistoryFilterType) {
-            EditCount.EDIT_TYPE_ANONYMOUS -> { binding.filterByAnonSelected.visibility = View.VISIBLE }
-            EditCount.EDIT_TYPE_EDITORS -> { binding.filterByUserSelected.visibility = View.VISIBLE }
-            else -> { binding.filterByAllSelected.visibility = View.VISIBLE }
+        when (Prefs.userContribFilterNs) {
+            Namespace.MAIN.code() -> { binding.nsArticleCheckIcon.visibility = View.VISIBLE }
+            Namespace.TALK.code() -> { binding.nsTalkCheckIcon.visibility = View.VISIBLE }
+            Namespace.USER.code() -> { binding.nsUserCheckIcon.visibility = View.VISIBLE }
+            Namespace.USER_TALK.code() -> { binding.nsUserTalkCheckIcon.visibility = View.VISIBLE }
+            else -> { binding.nsNoneCheckIcon.visibility = View.VISIBLE }
         }
     }
 
     private fun setButtonsListener() {
-        binding.filterByAllButton.setOnClickListener {
-            Prefs.editHistoryFilterType = ""
+        binding.nsNoneButton.setOnClickListener {
+            Prefs.userContribFilterNs = -1
             onSelected()
         }
-        binding.filterByUserButton.setOnClickListener {
-            Prefs.editHistoryFilterType = EditCount.EDIT_TYPE_EDITORS
+        binding.nsArticleButton.setOnClickListener {
+            Prefs.userContribFilterNs = Namespace.MAIN.code()
             onSelected()
         }
-        binding.filterByAnonButton.setOnClickListener {
-            Prefs.editHistoryFilterType = EditCount.EDIT_TYPE_ANONYMOUS
+        binding.nsTalkButton.setOnClickListener {
+            Prefs.userContribFilterNs = Namespace.TALK.code()
+            onSelected()
+        }
+        binding.nsUserButton.setOnClickListener {
+            Prefs.userContribFilterNs = Namespace.USER.code()
+            onSelected()
+        }
+        binding.nsUserTalkButton.setOnClickListener {
+            Prefs.userContribFilterNs = Namespace.USER_TALK.code()
             onSelected()
         }
     }

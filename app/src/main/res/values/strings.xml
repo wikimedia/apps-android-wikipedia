@@ -1272,5 +1272,8 @@
     <string name="revision_initial_none">None (this is the first revision)</string>
     <string name="user_contrib_activity_title">Contributions of %s</string>
     <string name="archive_empty">No archived pages found.</string>
+    <string name="user_contrib_filter_ns">Filter by namespace</string>
+    <string name="user_contrib_filter_all">All edits</string>
+    <string name="namespace_article">Article</string>
 
 </resources>
