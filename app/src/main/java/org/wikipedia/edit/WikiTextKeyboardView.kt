@@ -15,6 +15,8 @@ class WikiTextKeyboardView : FrameLayout {
     interface Callback {
         fun onPreviewLink(title: String)
         fun onRequestInsertLink()
+        fun onRequestHeading()
+        fun onRequestFormatting()
         fun onSyntaxOverlayClicked()
     }
 
@@ -41,16 +43,12 @@ class WikiTextKeyboardView : FrameLayout {
             }
         }
 
-        binding.wikitextButtonItalic.setOnClickListener {
-            editText?.inputConnection?.let {
-                toggleSyntaxAroundCurrentSelection(editText, it, "''", "''")
-            }
+        binding.wikitextButtonTextFormat.setOnClickListener {
+            callback?.onRequestFormatting()
         }
 
-        binding.wikitextButtonBold.setOnClickListener {
-            editText?.inputConnection?.let {
-                toggleSyntaxAroundCurrentSelection(editText, it, "'''", "'''")
-            }
+        binding.wikitextButtonHeading.setOnClickListener {
+            callback?.onRequestHeading()
         }
 
         binding.wikitextButtonTemplate.setOnClickListener {

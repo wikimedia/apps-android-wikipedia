@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
-import androidx.core.view.isVisible
 import org.wikipedia.databinding.ViewWikitextKeyboardHeadingsBinding
 import org.wikipedia.views.PlainPasteEditText
 
@@ -18,10 +17,6 @@ class WikiTextKeyboardHeadingsView : FrameLayout {
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     init {
-
-
-        binding.divider.isVisible = true
-
         binding.wikitextButtonH2.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "==", "==")

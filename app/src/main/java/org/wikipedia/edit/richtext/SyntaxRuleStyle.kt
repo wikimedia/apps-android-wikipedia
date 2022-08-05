@@ -43,6 +43,36 @@ enum class SyntaxRuleStyle {
             return StyleSpanEx(Typeface.ITALIC, spanStart, syntaxItem)
         }
     },
+    UNDERLINE {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return UnderlineSpanEx(spanStart, syntaxItem)
+        }
+    },
+    STRIKETHROUGH {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return StrikethroughSpanEx(spanStart, syntaxItem)
+        }
+    },
+    TEXT_LARGE {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return RelativeSizeSpanEx(1.25f, spanStart, syntaxItem)
+        }
+    },
+    TEXT_SMALL {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return RelativeSizeSpanEx(0.75f, spanStart, syntaxItem)
+        }
+    },
+    SUPERSCRIPT {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return SuperscriptSpanEx(spanStart, syntaxItem)
+        }
+    },
+    SUBSCRIPT {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return SubscriptSpanEx(spanStart, syntaxItem)
+        }
+    },
     HEADING_LARGE {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
             return RelativeSizeSpanEx(1.5f, spanStart, syntaxItem)

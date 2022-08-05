@@ -7,18 +7,18 @@
     android:orientation="horizontal">
 
     <org.wikipedia.views.WikitextKeyboardButtonView
-        android:id="@+id/wikitext_button_bold"
+        android:id="@+id/wikitext_button_text_format"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:buttonHint="@string/wikitext_bold"
-        app:buttonImage="@drawable/ic_format_bold_black_24dp" />
+        app:buttonHint="Formatting"
+        app:buttonImage="@drawable/ic_text_format_24" />
 
     <org.wikipedia.views.WikitextKeyboardButtonView
-        android:id="@+id/wikitext_button_italic"
+        android:id="@+id/wikitext_button_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:buttonHint="@string/wikitext_italic"
-        app:buttonImage="@drawable/ic_format_italic_black_24dp" />
+        app:buttonHint="Heading"
+        app:buttonImage="@drawable/ic_headline_24" />
 
     <View
         android:layout_width="0.5dp"

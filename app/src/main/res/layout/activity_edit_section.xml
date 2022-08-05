@@ -14,22 +14,24 @@
         android:visibility="gone"
         tools:visibility="visible">
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/edit_section_scroll"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:descendantFocusability="blocksDescendants">
 
             <org.wikipedia.views.PlainPasteEditText
                 android:id="@+id/edit_section_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants"
                 android:imeOptions="actionNone|flagNoExtractUi"
                 android:inputType="textMultiLine"
                 android:scrollbars="vertical"
                 android:lineSpacingExtra="6dp"
                 style="@style/EditSectionTextInputLayoutStyle" />
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
         <HorizontalScrollView
             android:id="@+id/edit_keyboard_overlay_headings_container"
@@ -46,6 +48,28 @@
                 android:layout_height="wrap_content" />
 
         </HorizontalScrollView>
+
+        <HorizontalScrollView
+            android:id="@+id/edit_keyboard_overlay_formatting_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/colorBackground"
+            android:elevation="12dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp">
+
+            <org.wikipedia.edit.WikiTextKeyboardFormattingView
+                android:id="@+id/edit_keyboard_overlay_formatting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </HorizontalScrollView>
+
+        <View
+            android:id="@+id/overlay_divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/material_theme_border_color" />
 
         <HorizontalScrollView
             android:id="@+id/edit_keyboard_overlay_container"

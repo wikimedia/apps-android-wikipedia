@@ -130,26 +130,32 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
 
         override fun onRequestInsertLink() {
+            val searchIntent = SearchActivity.newIntent(this@EditSectionActivity, Constants.InvokeSource.EDIT_ACTIVITY, null, true)
+            requestLinkFromSearch.launch(searchIntent)
+        }
 
+        override fun onRequestHeading() {
+            if (binding.editKeyboardOverlayHeadingsContainer.isVisible) {
+                hideAllSyntaxModals()
+                return
+            }
+            hideAllSyntaxModals()
+            binding.editKeyboardOverlayHeadingsContainer.isVisible = true
+            binding.overlayDivider.isVisible = true
+        }
 
-
-
-
-
-            binding.editKeyboardOverlayHeadingsContainer.isVisible = !binding.editKeyboardOverlayHeadingsContainer.isVisible
-
-
-
-
-
-
-
-            //val searchIntent = SearchActivity.newIntent(this@EditSectionActivity, Constants.InvokeSource.EDIT_ACTIVITY, null, true)
-            //requestLinkFromSearch.launch(searchIntent)
+        override fun onRequestFormatting() {
+            if (binding.editKeyboardOverlayFormattingContainer.isVisible) {
+                hideAllSyntaxModals()
+                return
+            }
+            hideAllSyntaxModals()
+            binding.editKeyboardOverlayFormattingContainer.isVisible = true
+            binding.overlayDivider.isVisible = true
         }
 
         override fun onSyntaxOverlayClicked() {
-            hideAllSyntaxModals()
+            // hideAllSyntaxModals()
         }
     }
 
@@ -210,6 +216,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
         binding.editKeyboardOverlay.editText = binding.editSectionText
         binding.editKeyboardOverlay.callback = syntaxButtonCallback
+        binding.editKeyboardOverlayFormatting.editText = binding.editSectionText
+        binding.editKeyboardOverlayFormatting.callback = syntaxButtonCallback
         binding.editKeyboardOverlayHeadings.editText = binding.editSectionText
         binding.editKeyboardOverlayHeadings.callback = syntaxButtonCallback
 
@@ -655,6 +663,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
     private fun hideAllSyntaxModals() {
         binding.editKeyboardOverlayHeadingsContainer.isVisible = false
+        binding.editKeyboardOverlayFormattingContainer.isVisible = false
+        binding.overlayDivider.isVisible = false
     }
 
     fun showProgressBar(enable: Boolean) {
