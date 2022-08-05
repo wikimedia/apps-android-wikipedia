@@ -127,8 +127,10 @@ class InsertMediaActivity : BaseActivity() {
         if (insertMediaPreviewFragment.handleBackPressed()) {
             binding.imageInfoContainer.isVisible = true
             binding.searchContainer.isVisible = true
+            supportActionBar?.title = getString(R.string.insert_media_title)
             return
         }
+        super.onBackPressed()
     }
 
     private fun showPreviewFragment() {
