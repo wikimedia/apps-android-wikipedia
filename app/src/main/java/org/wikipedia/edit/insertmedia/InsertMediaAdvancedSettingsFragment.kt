@@ -9,8 +9,9 @@ import androidx.fragment.app.Fragment
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentInsertMediaAdvancedSettingsBinding
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.util.log.L
 
-class InsertMediaAdvancedSettingsFragment : Fragment() {
+class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePositionDialog.Callback {
 
     private lateinit var activity: InsertMediaActivity
     private var _binding: FragmentInsertMediaAdvancedSettingsBinding? = null
@@ -23,6 +24,19 @@ class InsertMediaAdvancedSettingsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentInsertMediaAdvancedSettingsBinding.inflate(layoutInflater, container, false)
         activity = (requireActivity() as InsertMediaActivity)
+
+        binding.imagePositionButton.setOnClickListener {
+            bottomSheetPresenter.show(childFragmentManager, InsertMediaImagePositionDialog.newInstance())
+        }
+
+        binding.imageTypeButton.setOnClickListener {
+
+        }
+
+        binding.imageSizeButton.setOnClickListener {
+
+        }
+
         return binding.root
     }
 
@@ -48,5 +62,17 @@ class InsertMediaAdvancedSettingsFragment : Fragment() {
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
+    }
+
+    override fun onSaveImagePosition() {
+        L.d("onSaveImagePosition called")
+        L.d("onSaveImagePosition ${viewModel.imagePosition}")
+        val newButtonText = when (viewModel.imagePosition) {
+            InsertMediaViewModel.IMAGE_POSITION_RIGHT -> R.string.insert_media_advanced_settings_image_position_right
+            InsertMediaViewModel.IMAGE_POSITION_CENTER -> R.string.insert_media_advanced_settings_image_position_center
+            InsertMediaViewModel.IMAGE_POSITION_LEFT -> R.string.insert_media_advanced_settings_image_position_left
+            else -> R.string.insert_media_advanced_settings_image_position_left
+        }
+        binding.imagePositionButton.text = getString(newButtonText)
     }
 }

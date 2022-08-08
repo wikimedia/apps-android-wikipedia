@@ -16,6 +16,10 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
     var searchQuery = bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!
     val originalSearchQuery = searchQuery
     var selectedImage: MediaSearchResult? = null
+    var imagePosition = IMAGE_POSITION_RIGHT
+    var imageType = IMAGE_TYPE_THUMBNAIL
+    var imageSize = IMAGE_SIZE
+
     val insertMediaFlow = Pager(PagingConfig(pageSize = 10)) {
         InsertMediaPagingSource(searchQuery)
     }.flow.cachedIn(viewModelScope)
@@ -53,5 +57,17 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return InsertMediaViewModel(bundle) as T
         }
+    }
+
+    companion object {
+        const val IMAGE_POSITION_NONE = "none"
+        const val IMAGE_POSITION_CENTER = "center"
+        const val IMAGE_POSITION_LEFT = "left"
+        const val IMAGE_POSITION_RIGHT = "right"
+        const val IMAGE_TYPE_THUMBNAIL = "thumb"
+        const val IMAGE_TYPE_FRAMELESS = "frameless"
+        const val IMAGE_TYPE_FRAME = "frame"
+        const val IMAGE_TYPE_BASIC = "basic"
+        const val IMAGE_SIZE = "220x124px"
     }
 }

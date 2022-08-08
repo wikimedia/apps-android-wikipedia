@@ -1152,6 +1152,7 @@
     <string name="insert_media_advanced_settings_image_position_right">Right</string>
     <string name="insert_media_advanced_settings_image_position_left">Left</string>
     <string name="insert_media_advanced_settings_image_position_center">Center</string>
+    <string name="insert_media_advanced_settings_image_position_none">None</string>
     <string name="insert_media_advanced_settings_image_type">Image type</string>
     <string name="insert_media_advanced_settings_image_type_thumbnail">Thumbnail</string>
     <string name="insert_media_advanced_settings_image_type_frameless">Frameless</string>

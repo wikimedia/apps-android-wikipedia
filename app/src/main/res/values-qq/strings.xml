@@ -1231,6 +1231,7 @@
   <string name="insert_media_advanced_settings_image_position_right">Menu option of setting the image position to the right.</string>
   <string name="insert_media_advanced_settings_image_position_left">Menu option of setting the image position to the left.</string>
   <string name="insert_media_advanced_settings_image_position_center">Menu option of setting the image position to the center.</string>
+  <string name="insert_media_advanced_settings_image_position_none">Menu option that indicates the image does not have a specific position.</string>
   <string name="insert_media_advanced_settings_image_type">Label of an option that user set the image type.</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Menu option of setting the image type in thumbnail.</string>
   <string name="insert_media_advanced_settings_image_type_frameless">Menu option of setting the image type in frameless.</string>
