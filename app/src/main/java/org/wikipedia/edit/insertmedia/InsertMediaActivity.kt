@@ -86,7 +86,7 @@ class InsertMediaActivity : BaseActivity() {
 
         binding.licenseContainer.setOnClickListener { onLicenseClick() }
         binding.licenseContainer.setOnLongClickListener { onLicenseLongClick() }
-        binding.searchInputField.text = viewModel.searchQuery
+        binding.searchInputField.text = StringUtil.removeUnderscores(viewModel.searchQuery)
         binding.searchContainer.setOnClickListener {
             if (actionMode == null) {
                 actionMode = startSupportActionMode(searchActionModeCallback)
