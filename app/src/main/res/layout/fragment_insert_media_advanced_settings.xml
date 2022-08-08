@@ -23,14 +23,13 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="@string/insert_media_advanced_settings_wrap_image"
-            android:textColor="?attr/primary_text_color" />
+            android:textColor="?attr/primary_text_color"
+            android:layout_marginBottom="8dp"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="?attr/list_separator_drawable"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"/>
+            android:background="?attr/list_separator_drawable"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,15 +40,20 @@
                 android:id="@+id/imagePosition"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.7"
                 android:textColor="?attr/primary_text_color"
                 android:text="@string/insert_media_advanced_settings_image_position" />
 
             <TextView
                 android:id="@+id/imagePositionButton"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:paddingVertical="16dp"
+                android:textAlignment="textEnd"
                 android:textColor="?attr/colorAccent"
+                android:fontFamily="sans-serif-medium"
+                android:background="?android:attr/selectableItemBackground"
                 android:text="@string/insert_media_advanced_settings_image_position_right" />
 
         </LinearLayout>
@@ -57,8 +61,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="?attr/list_separator_drawable"
-            android:layout_marginVertical="16dp"/>
+            android:background="?attr/list_separator_drawable"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,15 +72,20 @@
                 android:id="@+id/imageType"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.7"
                 android:textColor="?attr/primary_text_color"
                 android:text="@string/insert_media_advanced_settings_image_type" />
 
             <TextView
                 android:id="@+id/imageTypeButton"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:paddingVertical="16dp"
+                android:textAlignment="textEnd"
+                android:fontFamily="sans-serif-medium"
                 android:textColor="?attr/colorAccent"
+                android:background="?android:attr/selectableItemBackground"
                 android:text="@string/insert_media_advanced_settings_image_type_thumbnail" />
 
         </LinearLayout>
@@ -85,8 +93,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="?attr/list_separator_drawable"
-            android:layout_marginVertical="16dp"/>
+            android:background="?attr/list_separator_drawable"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -97,15 +104,20 @@
                 android:id="@+id/imageSize"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.7"
                 android:textColor="?attr/primary_text_color"
                 android:text="@string/insert_media_advanced_settings_image_size" />
 
             <TextView
                 android:id="@+id/imageSizeButton"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:paddingVertical="16dp"
+                android:textAlignment="textEnd"
+                android:fontFamily="sans-serif-medium"
                 android:textColor="?attr/colorAccent"
+                android:background="?android:attr/selectableItemBackground"
                 android:text="@string/insert_media_advanced_settings_image_size_custom" />
 
         </LinearLayout>

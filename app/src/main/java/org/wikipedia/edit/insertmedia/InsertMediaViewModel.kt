@@ -68,6 +68,6 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
         const val IMAGE_TYPE_FRAMELESS = "frameless"
         const val IMAGE_TYPE_FRAME = "frame"
         const val IMAGE_TYPE_BASIC = "basic"
-        const val IMAGE_SIZE = "220x124px"
+        const val IMAGE_SIZE = "220x124"
     }
 }

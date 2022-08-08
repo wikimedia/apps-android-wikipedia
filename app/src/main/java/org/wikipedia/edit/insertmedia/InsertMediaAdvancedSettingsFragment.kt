@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentInsertMediaAdvancedSettingsBinding
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
-import org.wikipedia.util.log.L
 
-class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePositionDialog.Callback {
+class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePositionDialog.Callback,
+    InsertMediaImageTypeDialog.Callback, InsertMediaImageSizeDialog.Callback {
 
     private lateinit var activity: InsertMediaActivity
     private var _binding: FragmentInsertMediaAdvancedSettingsBinding? = null
@@ -30,11 +30,11 @@ class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePosition
         }
 
         binding.imageTypeButton.setOnClickListener {
-
+            bottomSheetPresenter.show(childFragmentManager, InsertMediaImageTypeDialog.newInstance())
         }
 
         binding.imageSizeButton.setOnClickListener {
-
+            bottomSheetPresenter.show(childFragmentManager, InsertMediaImageSizeDialog.newInstance())
         }
 
         return binding.root
@@ -65,8 +65,6 @@ class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePosition
     }
 
     override fun onSaveImagePosition() {
-        L.d("onSaveImagePosition called")
-        L.d("onSaveImagePosition ${viewModel.imagePosition}")
         val newButtonText = when (viewModel.imagePosition) {
             InsertMediaViewModel.IMAGE_POSITION_RIGHT -> R.string.insert_media_advanced_settings_image_position_right
             InsertMediaViewModel.IMAGE_POSITION_CENTER -> R.string.insert_media_advanced_settings_image_position_center
@@ -74,5 +72,21 @@ class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePosition
             else -> R.string.insert_media_advanced_settings_image_position_left
         }
         binding.imagePositionButton.text = getString(newButtonText)
+    }
+
+    override fun onSaveImageType() {
+        val newButtonText = when (viewModel.imageType) {
+            InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL -> R.string.insert_media_advanced_settings_image_type_thumbnail
+            InsertMediaViewModel.IMAGE_TYPE_FRAME -> R.string.insert_media_advanced_settings_image_type_frame
+            InsertMediaViewModel.IMAGE_TYPE_FRAMELESS -> R.string.insert_media_advanced_settings_image_type_frameless
+            else -> R.string.insert_media_advanced_settings_image_type_basic
+        }
+        binding.imageTypeButton.text = getString(newButtonText)
+    }
+
+    override fun onSaveImageSize() {
+        val newButtonText = if (viewModel.imageSize == InsertMediaViewModel.IMAGE_SIZE)
+            R.string.insert_media_advanced_settings_image_size_default else R.string.insert_media_advanced_settings_image_size_custom
+        binding.imageSizeButton.text = getString(newButtonText)
     }
 }

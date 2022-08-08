@@ -27,7 +27,6 @@
             style="@android:style/TextAppearance"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
             android:layout_weight="1"
             android:tag="text"
             android:text="@string/insert_media_advanced_settings_image_type_thumbnail" />
@@ -50,7 +49,6 @@
             style="@android:style/TextAppearance"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
             android:layout_weight="1"
             android:tag="text"
             android:text="@string/insert_media_advanced_settings_image_type_frame" />
@@ -73,7 +71,6 @@
             style="@android:style/TextAppearance"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
             android:layout_weight="1"
             android:tag="text"
             android:text="@string/insert_media_advanced_settings_image_type_frameless" />
@@ -96,7 +93,6 @@
             style="@android:style/TextAppearance"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
             android:layout_weight="1"
             android:tag="text"
             android:text="@string/insert_media_advanced_settings_image_type_basic" />
@@ -117,7 +113,7 @@
         android:layout_marginHorizontal="24dp"
         android:tag="text"
         android:textSize="12sp"
-        android:layout_marginTop="8dp"
+        android:layout_marginVertical="16dp"
         android:text="@string/insert_media_advanced_settings_image_type_tip" />
 
 </LinearLayout>

@@ -1239,6 +1239,7 @@
   <string name="insert_media_advanced_settings_image_type_basic">Menu option of setting the image type in basic.</string>
   <string name="insert_media_advanced_settings_image_type_tip">Description and suggestion of how the image type works.</string>
   <string name="insert_media_advanced_settings_image_size">Label of an option that user set the image size.</string>
+  <string name="insert_media_advanced_settings_image_size_default">Menu option of setting the default size for the image.</string>
   <string name="insert_media_advanced_settings_image_size_custom">Menu option of customizing the image size.</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">Label of the custom image width.</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">Label of the custom image height.</string>

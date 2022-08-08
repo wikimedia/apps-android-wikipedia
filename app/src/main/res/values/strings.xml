@@ -1160,6 +1160,7 @@
     <string name="insert_media_advanced_settings_image_type_basic">Basic</string>
     <string name="insert_media_advanced_settings_image_type_tip">You can set how the media item appears on the page. This should be the thumbnail format to be consistent with other pages in almost all cases.</string>
     <string name="insert_media_advanced_settings_image_size">Image size</string>
+    <string name="insert_media_advanced_settings_image_size_default">Default</string>
     <string name="insert_media_advanced_settings_image_size_custom">Custom</string>
     <string name="insert_media_advanced_settings_image_size_custom_width">Width</string>
     <string name="insert_media_advanced_settings_image_size_custom_height">Height</string>
