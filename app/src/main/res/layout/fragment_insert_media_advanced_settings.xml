@@ -42,7 +42,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="sans-serif-medium"
                 android:textColor="?attr/primary_text_color"
                 android:text="@string/insert_media_advanced_settings_image_position" />
 
@@ -50,7 +49,6 @@
                 android:id="@+id/imagePositionButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
                 android:textColor="?attr/colorAccent"
                 android:text="@string/insert_media_advanced_settings_image_position_right" />
 
@@ -72,7 +70,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="sans-serif-medium"
                 android:textColor="?attr/primary_text_color"
                 android:text="@string/insert_media_advanced_settings_image_type" />
 
@@ -80,7 +77,6 @@
                 android:id="@+id/imageTypeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
                 android:textColor="?attr/colorAccent"
                 android:text="@string/insert_media_advanced_settings_image_type_thumbnail" />
 
@@ -102,7 +98,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="sans-serif-medium"
                 android:textColor="?attr/primary_text_color"
                 android:text="@string/insert_media_advanced_settings_image_size" />
 
@@ -110,7 +105,6 @@
                 android:id="@+id/imageSizeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
                 android:textColor="?attr/colorAccent"
                 android:text="@string/insert_media_advanced_settings_image_size_custom" />
 
