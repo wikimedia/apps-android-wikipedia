@@ -40,6 +40,13 @@ class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePosition
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        onUpdateImagePosition()
+        onUpdateImageType()
+        onUpdateImageSize()
+    }
+
     fun show() {
         binding.root.isVisible = true
         activity.invalidateOptionsMenu()
@@ -64,7 +71,7 @@ class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePosition
         super.onDestroyView()
     }
 
-    override fun onSaveImagePosition() {
+    override fun onUpdateImagePosition() {
         val newButtonText = when (viewModel.imagePosition) {
             InsertMediaViewModel.IMAGE_POSITION_RIGHT -> R.string.insert_media_advanced_settings_image_position_right
             InsertMediaViewModel.IMAGE_POSITION_CENTER -> R.string.insert_media_advanced_settings_image_position_center
@@ -74,7 +81,7 @@ class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePosition
         binding.imagePositionButton.text = getString(newButtonText)
     }
 
-    override fun onSaveImageType() {
+    override fun onUpdateImageType() {
         val newButtonText = when (viewModel.imageType) {
             InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL -> R.string.insert_media_advanced_settings_image_type_thumbnail
             InsertMediaViewModel.IMAGE_TYPE_FRAME -> R.string.insert_media_advanced_settings_image_type_frame
@@ -84,8 +91,8 @@ class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePosition
         binding.imageTypeButton.text = getString(newButtonText)
     }
 
-    override fun onSaveImageSize() {
-        val newButtonText = if (viewModel.imageSize == InsertMediaViewModel.IMAGE_SIZE)
+    override fun onUpdateImageSize() {
+        val newButtonText = if (viewModel.imageSize == InsertMediaViewModel.IMAGE_SIZE_DEFAULT)
             R.string.insert_media_advanced_settings_image_size_default else R.string.insert_media_advanced_settings_image_size_custom
         binding.imageSizeButton.text = getString(newButtonText)
     }

@@ -13,7 +13,7 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 
 class InsertMediaImagePositionDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
-        fun onSaveImagePosition()
+        fun onUpdateImagePosition()
     }
 
     private var _binding: DialogInsertMediaPositionBinding? = null
@@ -72,7 +72,7 @@ class InsertMediaImagePositionDialog : ExtendedBottomSheetDialogFragment() {
             resetAllOptions()
             updateOptionView(view, true)
             viewModel.imagePosition = view.tag.toString()
-            callback()?.onSaveImagePosition()
+            callback()?.onUpdateImagePosition()
             dismiss()
         }
     }

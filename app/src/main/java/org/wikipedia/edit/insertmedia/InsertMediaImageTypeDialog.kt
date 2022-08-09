@@ -13,7 +13,7 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 
 class InsertMediaImageTypeDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
-        fun onSaveImageType()
+        fun onUpdateImageType()
     }
 
     private var _binding: DialogInsertMediaTypeBinding? = null
@@ -73,7 +73,7 @@ class InsertMediaImageTypeDialog : ExtendedBottomSheetDialogFragment() {
             resetAllOptions()
             updateOptionView(view, true)
             viewModel.imageType = view.tag.toString()
-            callback()?.onSaveImageType()
+            callback()?.onUpdateImageType()
             dismiss()
         }
     }

@@ -120,6 +120,10 @@ class InsertMediaActivity : BaseActivity() {
                 showMediaSettingsFragment()
                 true
             }
+            R.id.menu_save -> {
+                onBackPressed()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

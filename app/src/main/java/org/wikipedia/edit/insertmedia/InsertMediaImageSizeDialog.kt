@@ -1,5 +1,6 @@
 package org.wikipedia.edit.insertmedia
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +8,11 @@ import android.view.ViewGroup
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.databinding.DialogInsertMediaSizeBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.util.log.L
 
 class InsertMediaImageSizeDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
-        fun onSaveImageSize()
+        fun onUpdateImageSize()
     }
 
     private var _binding: DialogInsertMediaSizeBinding? = null
@@ -20,7 +22,36 @@ class InsertMediaImageSizeDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogInsertMediaSizeBinding.inflate(inflater, container, false)
+        setCustomSizeFields()
+        binding.imageSizeCustomSwitch.isChecked = viewModel.imageSize != InsertMediaViewModel.IMAGE_SIZE_DEFAULT
+        binding.imageSizeCustomHeightLayout.isEnabled = binding.imageSizeCustomSwitch.isChecked
+        binding.imageSizeCustomWidthLayout.isEnabled = binding.imageSizeCustomSwitch.isChecked
+        binding.imageSizeCustomSwitch.setOnCheckedChangeListener { _, b -> onToggleCustomSize(b) }
         return binding.root
+    }
+
+    private fun onToggleCustomSize(enabled: Boolean) {
+        binding.imageSizeCustomHeightLayout.isEnabled = enabled
+        binding.imageSizeCustomWidthLayout.isEnabled = enabled
+        if (!enabled) {
+            // Reset to default value
+            viewModel.imageSize = InsertMediaViewModel.IMAGE_SIZE_DEFAULT
+            setCustomSizeFields()
+        }
+    }
+
+    private fun setCustomSizeFields() {
+        val customImageSize = viewModel.imageSize.split("x")
+        binding.imageSizeCustomWidthText.setText(customImageSize[0])
+        binding.imageSizeCustomHeightText.setText(customImageSize[1])
+    }
+
+    override fun onDismiss(dialogInterface: DialogInterface) {
+        super.onDismiss(dialogInterface)
+        L.d("DialogDismiss 1 " + viewModel.imageSize )
+        viewModel.imageSize = binding.imageSizeCustomWidthText.text.toString() + "x" + binding.imageSizeCustomHeightText.text.toString()
+        L.d("DialogDismiss 2 " + viewModel.imageSize )
+        callback()?.onUpdateImageSize()
     }
 
     override fun onDestroyView() {

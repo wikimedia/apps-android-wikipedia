@@ -18,7 +18,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
     var selectedImage: MediaSearchResult? = null
     var imagePosition = IMAGE_POSITION_RIGHT
     var imageType = IMAGE_TYPE_THUMBNAIL
-    var imageSize = IMAGE_SIZE
+    var imageSize = IMAGE_SIZE_DEFAULT
 
     val insertMediaFlow = Pager(PagingConfig(pageSize = 10)) {
         InsertMediaPagingSource(searchQuery)
@@ -68,6 +68,6 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
         const val IMAGE_TYPE_FRAMELESS = "frameless"
         const val IMAGE_TYPE_FRAME = "frame"
         const val IMAGE_TYPE_BASIC = "basic"
-        const val IMAGE_SIZE = "220x124"
+        const val IMAGE_SIZE_DEFAULT = "220x124"
     }
 }
