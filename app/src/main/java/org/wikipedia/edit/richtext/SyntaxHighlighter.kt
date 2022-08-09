@@ -30,19 +30,19 @@ class SyntaxHighlighter(
             SyntaxRule("{{", "}}", SyntaxRuleStyle.TEMPLATE),
             SyntaxRule("[[", "]]", SyntaxRuleStyle.INTERNAL_LINK),
             SyntaxRule("[", "]", SyntaxRuleStyle.EXTERNAL_LINK),
-            SyntaxRule("<big>", "</big>", SyntaxRuleStyle.TEXT_LARGE),
-            SyntaxRule("<small>", "</small>", SyntaxRuleStyle.TEXT_SMALL),
-            SyntaxRule("<sub>", "</sub>", SyntaxRuleStyle.SUBSCRIPT),
-            SyntaxRule("<sup>", "</sup>", SyntaxRuleStyle.SUPERSCRIPT),
+            //SyntaxRule("<big>", "</big>", SyntaxRuleStyle.TEXT_LARGE),
+            //SyntaxRule("<small>", "</small>", SyntaxRuleStyle.TEXT_SMALL),
+            //SyntaxRule("<sub>", "</sub>", SyntaxRuleStyle.SUBSCRIPT),
+            //SyntaxRule("<sup>", "</sup>", SyntaxRuleStyle.SUPERSCRIPT),
             SyntaxRule("<u>", "</u>", SyntaxRuleStyle.UNDERLINE),
             SyntaxRule("<s>", "</s>", SyntaxRuleStyle.STRIKETHROUGH),
             SyntaxRule("<", ">", SyntaxRuleStyle.REF),
             SyntaxRule("'''", "'''", SyntaxRuleStyle.BOLD),
             SyntaxRule("''", "''", SyntaxRuleStyle.ITALIC),
-            SyntaxRule("=====", "=====", SyntaxRuleStyle.HEADING_SMALL),
-            SyntaxRule("====", "====", SyntaxRuleStyle.HEADING_SMALL),
-            SyntaxRule("===", "===", SyntaxRuleStyle.HEADING_MEDIUM),
-            SyntaxRule("==", "==", SyntaxRuleStyle.HEADING_LARGE),
+            //SyntaxRule("=====", "=====", SyntaxRuleStyle.HEADING_SMALL),
+            //SyntaxRule("====", "====", SyntaxRuleStyle.HEADING_SMALL),
+            //SyntaxRule("===", "===", SyntaxRuleStyle.HEADING_MEDIUM),
+            //SyntaxRule("==", "==", SyntaxRuleStyle.HEADING_LARGE),
     )
 
     private var searchText: String? = null
@@ -124,6 +124,7 @@ class SyntaxHighlighter(
                         syntaxHighlightListener?.findTextMatches(findTextList)
                     }
                     time = System.currentTimeMillis() - time
+
                     L.d("Took $time ms to remove ${oldSpans.size} spans and add ${newSpans.size} new.")
                 }) { L.e(it) })
     }

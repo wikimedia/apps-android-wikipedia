@@ -9,7 +9,7 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import org.wikipedia.databinding.ViewWikitextKeyboardBinding
 import org.wikipedia.page.PageTitle
-import org.wikipedia.views.PlainPasteEditText
+import org.wikipedia.views.SyntaxHighlightableEditText
 
 class WikiTextKeyboardView : FrameLayout {
     interface Callback {
@@ -22,7 +22,7 @@ class WikiTextKeyboardView : FrameLayout {
 
     private val binding = ViewWikitextKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
     var callback: Callback? = null
-    var editText: PlainPasteEditText? = null
+    var editText: SyntaxHighlightableEditText? = null
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)

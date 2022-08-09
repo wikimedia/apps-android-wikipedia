@@ -5,12 +5,12 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import org.wikipedia.databinding.ViewWikitextKeyboardFormattingBinding
-import org.wikipedia.views.PlainPasteEditText
+import org.wikipedia.views.SyntaxHighlightableEditText
 
 class WikiTextKeyboardFormattingView : FrameLayout {
     private val binding = ViewWikitextKeyboardFormattingBinding.inflate(LayoutInflater.from(context), this)
     var callback: WikiTextKeyboardView.Callback? = null
-    var editText: PlainPasteEditText? = null
+    var editText: SyntaxHighlightableEditText? = null
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
