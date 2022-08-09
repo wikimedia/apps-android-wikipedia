@@ -14,7 +14,7 @@
         android:visibility="gone"
         tools:visibility="visible">
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/edit_section_scroll"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -29,7 +29,7 @@
                 android:inputType="textMultiLine"
                 android:scrollbars="vertical"
                 style="@style/EditSectionTextInputLayoutStyle" />
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
         <HorizontalScrollView
             android:id="@+id/edit_keyboard_overlay_container"

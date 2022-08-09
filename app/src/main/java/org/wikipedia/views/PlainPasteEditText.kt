@@ -8,15 +8,15 @@ import android.util.AttributeSet
 import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
+import android.widget.EditText
 import androidx.core.view.ContentInfoCompat
 import androidx.core.view.ViewCompat
-import com.google.android.material.textfield.TextInputEditText
 import org.wikipedia.edit.richtext.SpanExtents
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.richtext.SyntaxHighlighter.OnSyntaxHighlightListener
 import java.util.*
 
-open class PlainPasteEditText : TextInputEditText {
+open class PlainPasteEditText : EditText {
     interface FindListener {
         fun onFinished(activeMatchOrdinal: Int, numberOfMatches: Int, textPosition: Int, findingNext: Boolean)
     }
@@ -36,6 +36,7 @@ open class PlainPasteEditText : TextInputEditText {
         ViewCompat.setOnReceiveContentListener(this, arrayOf("text/*"), null)
     }
 
+    /*
     override fun onReceiveContent(payload: ContentInfoCompat): ContentInfoCompat? {
         // Do not allow pasting of formatted text! We do this by replacing the contents of the clip
         // with plain text.
@@ -46,6 +47,7 @@ open class PlainPasteEditText : TextInputEditText {
             .build()
         return super.onReceiveContent(updatedPayload)
     }
+    */
 
     override fun onCreateInputConnection(outAttrs: EditorInfo): InputConnection? {
         inputConnection = super.onCreateInputConnection(outAttrs)

@@ -46,7 +46,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
         binding.inputEditText.listener = this
         binding.userListRecycler.layoutManager = LinearLayoutManager(context)
         binding.userListRecycler.adapter = UserNameAdapter()
-        binding.inputEditText.isTextInputLayoutFocusedRectEnabled = false
+        //binding.inputEditText.isTextInputLayoutFocusedRectEnabled = false
     }
 
     override fun onDetachedFromWindow() {
