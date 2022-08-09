@@ -114,13 +114,14 @@ open class SyntaxHighlightableEditText : EditText {
             lineContainsNewlineChar[i] = text[layout.getLineEnd(i) - 1] == '\n'
             if (lineContainsNewlineChar[i]) {
                 var j = i - 1
-                while (j >= 0 && !lineContainsNewlineChar[j]) {
-                    j--
-                }
+                while (j >= 0 && !lineContainsNewlineChar[j]) { j-- }
                 renderedLineBeginsActualLine[j + 1] = true
             }
         }
-        renderedLineBeginsActualLine[lineCount - 1] = true
+
+        var j = lineCount - 1
+        while (j >= 0 && !lineContainsNewlineChar[j]) { j-- }
+        renderedLineBeginsActualLine[j + 1] = true
 
         var actualLine = 0
         for (i in renderedLineBeginsActualLine.indices) {

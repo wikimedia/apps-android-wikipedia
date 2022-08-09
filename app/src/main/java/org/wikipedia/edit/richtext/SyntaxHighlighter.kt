@@ -9,8 +9,8 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.wikipedia.util.log.L
 import org.wikipedia.edit.SyntaxHighlightableEditText
+import org.wikipedia.util.log.L
 import java.util.*
 import java.util.concurrent.Callable
 import java.util.concurrent.TimeUnit
