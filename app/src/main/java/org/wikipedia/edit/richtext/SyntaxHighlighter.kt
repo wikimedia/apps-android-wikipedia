@@ -46,24 +46,18 @@ class SyntaxHighlighter(
 
     init {
         textBox.doAfterTextChanged { runHighlightTasks(1000) }
+
+        scrollView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            runHighlightTasks(500)
+        }
     }
 
     private fun runHighlightTasks(delayMillis: Long) {
         currentHighlightTask?.cancel()
-
-
-
-
-
-
-
-
         disposables.clear()
         disposables.add(Observable.timer(delayMillis, TimeUnit.MILLISECONDS)
                 .flatMap {
-
                     if (textBox.layout == null) {
-                        L.d(">>>>>>>>>> e")
                         throw IllegalArgumentException()
                     }
 

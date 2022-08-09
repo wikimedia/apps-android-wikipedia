@@ -4,17 +4,16 @@ import android.graphics.Rect
 import android.view.ActionMode
 import android.view.MenuItem
 import android.view.View
-import android.widget.ScrollView
 import androidx.core.widget.NestedScrollView
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.views.FindInPageActionProvider
 import org.wikipedia.views.FindInPageActionProvider.FindInPageListener
-import org.wikipedia.views.PlainPasteEditText
+import org.wikipedia.views.SyntaxHighlightableEditText
 
 class FindInEditorActionProvider(private val scrollView: NestedScrollView,
-                                 private val textView: PlainPasteEditText,
+                                 private val textView: SyntaxHighlightableEditText,
                                  private val syntaxHighlighter: SyntaxHighlighter,
                                  private val actionMode: ActionMode) : FindInPageActionProvider(textView.context), FindInPageListener {
     private var searchQuery: String? = null
@@ -33,7 +32,7 @@ class FindInEditorActionProvider(private val scrollView: NestedScrollView,
     }
 
     private fun findInPage(text: String) {
-        textView.findListener = object : PlainPasteEditText.FindListener {
+        textView.findListener = object : SyntaxHighlightableEditText.FindListener {
             override fun onFinished(activeMatchOrdinal: Int, numberOfMatches: Int, textPosition: Int, findingNext: Boolean) {
                 setMatchesResults(activeMatchOrdinal, numberOfMatches)
                 textView.setSelection(textPosition, textPosition + text.length)
