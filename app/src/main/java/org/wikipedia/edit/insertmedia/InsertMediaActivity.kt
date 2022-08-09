@@ -159,7 +159,6 @@ class InsertMediaActivity : BaseActivity() {
         }
     }
 
-
     private fun combineMediaWikitext(): String {
         viewModel.selectedImage?.pageTitle?.prefixedText?.let {
             var wikiText = "[[$it|${viewModel.imageSize}px|${viewModel.imageType}|${viewModel.imagePosition}"
