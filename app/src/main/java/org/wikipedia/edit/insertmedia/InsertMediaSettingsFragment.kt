@@ -19,8 +19,8 @@ class InsertMediaSettingsFragment : Fragment() {
     private val viewModel get() = activity.viewModel
 
     val isActive get() = binding.root.visibility == View.VISIBLE
-    val alternativeText get() = binding.mediaAlternativeText.text.toString()
-    val captionText get() = binding.mediaCaptionText.text.toString()
+    val alternativeText get() = binding.mediaAlternativeText.text.toString().trim()
+    val captionText get() = binding.mediaCaptionText.text.toString().trim()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentInsertMediaSettingsBinding.inflate(layoutInflater, container, false)

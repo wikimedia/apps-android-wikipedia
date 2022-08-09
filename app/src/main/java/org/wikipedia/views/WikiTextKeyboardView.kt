@@ -1,11 +1,13 @@
 package org.wikipedia.views
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.inputmethod.InputConnection
 import android.widget.FrameLayout
+import androidx.activity.result.ActivityResultLauncher
 import org.wikipedia.databinding.ViewWikitextKeyboardBinding
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.page.PageTitle
@@ -16,6 +18,7 @@ class WikiTextKeyboardView : FrameLayout {
     }
 
     private val binding = ViewWikitextKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
+    var activityResultLauncher: ActivityResultLauncher<Intent>? = null
     var callback: Callback? = null
     var editText: PlainPasteEditText? = null
     var pageTitle: PageTitle? = null
@@ -68,9 +71,8 @@ class WikiTextKeyboardView : FrameLayout {
         }
 
         binding.wikitextButtonInsertMedia.setOnClickListener {
-            // TODO: open activity and receive data from activity
             pageTitle?.let {
-                context.startActivity(InsertMediaActivity.newIntent(context, it.prefixedText))
+                activityResultLauncher?.launch(InsertMediaActivity.newIntent(context, it.prefixedText))
             }
         }
 
