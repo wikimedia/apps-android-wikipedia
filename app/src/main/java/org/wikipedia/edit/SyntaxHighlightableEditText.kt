@@ -39,7 +39,7 @@ open class SyntaxHighlightableEditText : EditText {
     private val lineNumberHelper = LineNumberHelper()
     private val lineNumberPaint = TextPaint()
 
-    var scrollView: View? = null
+    lateinit var scrollView: View
     var inputConnection: InputConnection? = null
     var findListener: FindListener? = null
     var allowScrollToCursor = true
@@ -66,7 +66,6 @@ open class SyntaxHighlightableEditText : EditText {
     }
 
     override fun onDraw(canvas: Canvas?) {
-
         if (prevLineCount != lineCount) {
             prevLineHeight = lineHeight
             prevLineCount = lineCount
@@ -74,26 +73,26 @@ open class SyntaxHighlightableEditText : EditText {
         }
 
         // if showLineNumbers
-        if (true) {
-            val wrapContent = true // isWrapContent
+        if (true && layout != null) {
+            val wrapContent = true // TODO: make wrap content optional?
 
+            val firstLine = layout.getLineForVertical(scrollView.scrollY)
+            val lastLine = layout.getLineForVertical(scrollView.scrollY + scrollView.height)
+            var curX = layout.getLineTop(firstLine) + prevLineHeight
 
-            //layout.getLineForVertical()
-
-            for (i in 0 until prevLineCount) {
-                if (!wrapContent || lineNumberHelper.goodLines[i]) {
-                    val lineNum = lineNumberHelper.realLines[i]
-
-                    canvas?.drawText(lineNum.toString(),
+            var prevNum = -1
+            for (i in firstLine..lastLine) {
+                val num = lineNumberHelper.realLines[i]
+                if (!wrapContent || prevNum != num) {
+                    prevNum = num
+                    canvas?.drawText(num.toString(),
                             DimenUtil.dpToPx(24f),
-                            (paddingTop + prevLineHeight * (i + 1)).toFloat(),
+                            curX.toFloat(),
                             lineNumberPaint)
                 }
+                curX += prevLineHeight
             }
         }
-
-
-
         super.onDraw(canvas)
     }
 

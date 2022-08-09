@@ -52,6 +52,7 @@ class SyntaxHighlighter(
 
     init {
         textBox.doAfterTextChanged { runHighlightTasks(1000) }
+        textBox.scrollView = scrollView
 
         scrollView.setOnScrollChangeListener { _, _, _, _, _ ->
             runHighlightTasks(500)
