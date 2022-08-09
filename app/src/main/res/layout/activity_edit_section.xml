@@ -19,18 +19,19 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:scrollbars="vertical"
             android:descendantFocusability="blocksDescendants">
 
-            <org.wikipedia.views.PlainPasteEditText
+            <org.wikipedia.views.SyntaxHighlightableEditText
                 android:id="@+id/edit_section_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:descendantFocusability="blocksDescendants"
                 android:imeOptions="actionNone|flagNoExtractUi"
                 android:inputType="textMultiLine"
-                android:scrollbars="vertical"
                 android:lineSpacingExtra="6dp"
                 style="@style/EditSectionTextInputLayoutStyle" />
+
         </androidx.core.widget.NestedScrollView>
 
         <HorizontalScrollView

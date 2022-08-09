@@ -4,6 +4,7 @@ import android.content.Context
 import android.text.Spanned
 import android.widget.EditText
 import androidx.core.text.getSpans
+import androidx.core.widget.NestedScrollView
 import androidx.core.widget.doAfterTextChanged
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -17,6 +18,7 @@ import java.util.concurrent.TimeUnit
 class SyntaxHighlighter(
     private var context: Context,
     private val textBox: EditText,
+    private val scrollView: NestedScrollView,
     private var syntaxHighlightListener: OnSyntaxHighlightListener? = null
 ) {
     interface OnSyntaxHighlightListener {
@@ -50,14 +52,39 @@ class SyntaxHighlighter(
 
     init {
         textBox.doAfterTextChanged { runHighlightTasks(1000) }
+
+        scrollView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            runHighlightTasks(500)
+        }
     }
 
     private fun runHighlightTasks(delayMillis: Long) {
         currentHighlightTask?.cancel()
-        currentHighlightTask = SyntaxHighlightTask(textBox.text)
         disposables.clear()
         disposables.add(Observable.timer(delayMillis, TimeUnit.MILLISECONDS)
                 .flatMap {
+                    if (textBox.layout == null) {
+                        throw IllegalArgumentException()
+                    }
+
+                    val lineHeight = textBox.lineHeight
+
+                    var firstVisibleLine = scrollView.scrollY / lineHeight
+                    if (firstVisibleLine < 0) firstVisibleLine = 0
+
+                    var lastVisibleLine = (scrollView.scrollY + scrollView.height) / lineHeight
+                    if (lastVisibleLine < firstVisibleLine) lastVisibleLine = firstVisibleLine
+                    else if (lastVisibleLine >= textBox.lineCount) lastVisibleLine = textBox.lineCount - 1
+
+                    val firstVisibleIndex = textBox.layout.getLineStart(firstVisibleLine)
+                    val lastVisibleIndex = textBox.layout.getLineEnd(lastVisibleLine)
+
+                    L.d(">>> $firstVisibleLine : $lastVisibleLine")
+
+                    val textToHighlight = textBox.text.substring(firstVisibleIndex, lastVisibleIndex)
+
+                    currentHighlightTask = SyntaxHighlightTask(textToHighlight, firstVisibleIndex)
+
                     Observable.zip<MutableList<SpanExtents>, List<SpanExtents>, List<SpanExtents>>(Observable.fromCallable(currentHighlightTask!!),
                             if (searchText.isNullOrEmpty()) Observable.just(emptyList())
                             else Observable.fromCallable(SyntaxHighlightSearchMatchesTask(textBox.text, searchText!!, selectedMatchResultPosition))) { f, s ->
@@ -65,6 +92,7 @@ class SyntaxHighlighter(
                         f
                     }
                 }
+                .retry(10)
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result ->
@@ -117,7 +145,7 @@ class SyntaxHighlighter(
         textBox.text.clearSpans()
     }
 
-    private inner class SyntaxHighlightTask constructor(private val text: CharSequence) : Callable<MutableList<SpanExtents>> {
+    private inner class SyntaxHighlightTask constructor(private val text: CharSequence, private val startOffset: Int) : Callable<MutableList<SpanExtents>> {
         private var cancelled = false
 
         fun cancel() {
@@ -190,6 +218,10 @@ class SyntaxHighlighter(
                 }
 
                 i++
+            }
+            spansToSet.forEach {
+                it.start += startOffset
+                it.end += startOffset
             }
             spansToSet.sortWith { a, b -> a.syntaxRule.spanStyle.compareTo(b.syntaxRule.spanStyle) }
             return spansToSet

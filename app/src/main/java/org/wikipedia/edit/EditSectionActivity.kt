@@ -172,7 +172,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         sectionAnchor = intent.getStringExtra(EXTRA_SECTION_ANCHOR)
         textToHighlight = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
         supportActionBar?.title = ""
-        syntaxHighlighter = SyntaxHighlighter(this, binding.editSectionText)
+        syntaxHighlighter = SyntaxHighlighter(this, binding.editSectionText, binding.editSectionScroll)
         binding.editSectionScroll.isSmoothScrollingEnabled = false
         captchaHandler = CaptchaHandler(this, pageTitle.wikiSite, binding.captchaContainer.root,
                 binding.editSectionText, "", null)
