@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentInsertMediaAdvancedSettingsBinding
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.util.ResourceUtil
 
 class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePositionDialog.Callback,
     InsertMediaImageTypeDialog.Callback, InsertMediaImageSizeDialog.Callback {
@@ -37,6 +38,9 @@ class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePosition
             bottomSheetPresenter.show(childFragmentManager, InsertMediaImageSizeDialog.newInstance())
         }
 
+        binding.wrapImageSwitch.isChecked = viewModel.imagePosition != InsertMediaViewModel.IMAGE_POSITION_NONE
+        binding.wrapImageSwitch.setOnCheckedChangeListener { _, b -> onToggleWrapImage(b) }
+
         return binding.root
     }
 
@@ -45,6 +49,11 @@ class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePosition
         onUpdateImagePosition()
         onUpdateImageType()
         onUpdateImageSize()
+    }
+
+    private fun onToggleWrapImage(enabled: Boolean) {
+        viewModel.imagePosition = if (enabled) InsertMediaViewModel.IMAGE_POSITION_RIGHT else InsertMediaViewModel.IMAGE_POSITION_NONE
+        onUpdateImagePosition()
     }
 
     fun show() {
@@ -76,8 +85,11 @@ class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePosition
             InsertMediaViewModel.IMAGE_POSITION_RIGHT -> R.string.insert_media_advanced_settings_image_position_right
             InsertMediaViewModel.IMAGE_POSITION_CENTER -> R.string.insert_media_advanced_settings_image_position_center
             InsertMediaViewModel.IMAGE_POSITION_LEFT -> R.string.insert_media_advanced_settings_image_position_left
-            else -> R.string.insert_media_advanced_settings_image_position_left
+            else -> R.string.insert_media_advanced_settings_image_position_none
         }
+        binding.imagePositionButton.isEnabled = viewModel.imagePosition != InsertMediaViewModel.IMAGE_POSITION_NONE
+        binding.imagePositionButton.setTextColor(ResourceUtil.getThemedColor(requireContext(),
+            if (binding.imagePositionButton.isEnabled) R.attr.colorAccent else R.attr.color_group_59))
         binding.imagePositionButton.text = getString(newButtonText)
     }
 

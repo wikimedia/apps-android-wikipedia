@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.databinding.DialogInsertMediaSizeBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
-import org.wikipedia.util.log.L
 
 class InsertMediaImageSizeDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
@@ -18,7 +17,6 @@ class InsertMediaImageSizeDialog : ExtendedBottomSheetDialogFragment() {
     private var _binding: DialogInsertMediaSizeBinding? = null
     private val binding get() = _binding!!
     private val viewModel get() = (requireActivity() as InsertMediaActivity).viewModel
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogInsertMediaSizeBinding.inflate(inflater, container, false)
@@ -48,9 +46,7 @@ class InsertMediaImageSizeDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onDismiss(dialogInterface: DialogInterface) {
         super.onDismiss(dialogInterface)
-        L.d("DialogDismiss 1 " + viewModel.imageSize )
         viewModel.imageSize = binding.imageSizeCustomWidthText.text.toString() + "x" + binding.imageSizeCustomHeightText.text.toString()
-        L.d("DialogDismiss 2 " + viewModel.imageSize )
         callback()?.onUpdateImageSize()
     }
 
