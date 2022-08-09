@@ -28,11 +28,6 @@ enum class SyntaxRuleStyle {
             return ColorSpanEx(getThemedColor(ctx, R.attr.green_highlight_color), Color.TRANSPARENT, spanStart, syntaxItem)
         }
     },
-    BOLD_ITALIC {
-        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return StyleSpanEx(Typeface.BOLD_ITALIC, spanStart, syntaxItem)
-        }
-    },
     BOLD {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
             return StyleSpanEx(Typeface.BOLD, spanStart, syntaxItem)
@@ -55,12 +50,12 @@ enum class SyntaxRuleStyle {
     },
     TEXT_LARGE {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return RelativeSizeSpanEx(1.25f, spanStart, syntaxItem)
+            return RelativeSizeSpanEx(1.2f, spanStart, syntaxItem)
         }
     },
     TEXT_SMALL {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return RelativeSizeSpanEx(0.75f, spanStart, syntaxItem)
+            return RelativeSizeSpanEx(0.8f, spanStart, syntaxItem)
         }
     },
     SUPERSCRIPT {
@@ -75,17 +70,17 @@ enum class SyntaxRuleStyle {
     },
     HEADING_LARGE {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return RelativeSizeSpanEx(1.5f, spanStart, syntaxItem)
+            return RelativeSizeSpanEx(1.3f, spanStart, syntaxItem)
         }
     },
     HEADING_MEDIUM {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return RelativeSizeSpanEx(1.3f, spanStart, syntaxItem)
+            return RelativeSizeSpanEx(1.2f, spanStart, syntaxItem)
         }
     },
     HEADING_SMALL {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return RelativeSizeSpanEx(1.2f, spanStart, syntaxItem)
+            return RelativeSizeSpanEx(1.1f, spanStart, syntaxItem)
         }
     },
     SEARCH_MATCHES {

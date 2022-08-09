@@ -2,7 +2,6 @@ package org.wikipedia.edit.richtext
 
 import android.content.Context
 import android.text.Spanned
-import android.widget.EditText
 import androidx.core.text.getSpans
 import androidx.core.widget.NestedScrollView
 import androidx.core.widget.doAfterTextChanged
@@ -11,13 +10,14 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.util.log.L
+import org.wikipedia.views.SyntaxHighlightableEditText
 import java.util.*
 import java.util.concurrent.Callable
 import java.util.concurrent.TimeUnit
 
 class SyntaxHighlighter(
     private var context: Context,
-    private val textBox: EditText,
+    private val textBox: SyntaxHighlightableEditText,
     private val scrollView: NestedScrollView,
     private var syntaxHighlightListener: OnSyntaxHighlightListener? = null
 ) {
@@ -30,19 +30,19 @@ class SyntaxHighlighter(
             SyntaxRule("{{", "}}", SyntaxRuleStyle.TEMPLATE),
             SyntaxRule("[[", "]]", SyntaxRuleStyle.INTERNAL_LINK),
             SyntaxRule("[", "]", SyntaxRuleStyle.EXTERNAL_LINK),
-            //SyntaxRule("<big>", "</big>", SyntaxRuleStyle.TEXT_LARGE),
-            //SyntaxRule("<small>", "</small>", SyntaxRuleStyle.TEXT_SMALL),
-            //SyntaxRule("<sub>", "</sub>", SyntaxRuleStyle.SUBSCRIPT),
-            //SyntaxRule("<sup>", "</sup>", SyntaxRuleStyle.SUPERSCRIPT),
+            SyntaxRule("<big>", "</big>", SyntaxRuleStyle.TEXT_LARGE),
+            SyntaxRule("<small>", "</small>", SyntaxRuleStyle.TEXT_SMALL),
+            SyntaxRule("<sub>", "</sub>", SyntaxRuleStyle.SUBSCRIPT),
+            SyntaxRule("<sup>", "</sup>", SyntaxRuleStyle.SUPERSCRIPT),
             SyntaxRule("<u>", "</u>", SyntaxRuleStyle.UNDERLINE),
             SyntaxRule("<s>", "</s>", SyntaxRuleStyle.STRIKETHROUGH),
             SyntaxRule("<", ">", SyntaxRuleStyle.REF),
             SyntaxRule("'''", "'''", SyntaxRuleStyle.BOLD),
             SyntaxRule("''", "''", SyntaxRuleStyle.ITALIC),
-            //SyntaxRule("=====", "=====", SyntaxRuleStyle.HEADING_SMALL),
-            //SyntaxRule("====", "====", SyntaxRuleStyle.HEADING_SMALL),
-            //SyntaxRule("===", "===", SyntaxRuleStyle.HEADING_MEDIUM),
-            //SyntaxRule("==", "==", SyntaxRuleStyle.HEADING_LARGE),
+            SyntaxRule("=====", "=====", SyntaxRuleStyle.HEADING_SMALL),
+            SyntaxRule("====", "====", SyntaxRuleStyle.HEADING_SMALL),
+            SyntaxRule("===", "===", SyntaxRuleStyle.HEADING_MEDIUM),
+            SyntaxRule("==", "==", SyntaxRuleStyle.HEADING_LARGE),
     )
 
     private var searchText: String? = null
@@ -97,6 +97,7 @@ class SyntaxHighlighter(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result ->
                     syntaxHighlightListener?.syntaxHighlightResults(result)
+                    textBox.allowScrollToCursor = false
 
                     var time = System.currentTimeMillis()
                     val oldSpans = textBox.text.getSpans<SpanExtents>().toMutableList()
@@ -124,6 +125,12 @@ class SyntaxHighlighter(
                         syntaxHighlightListener?.findTextMatches(findTextList)
                     }
                     time = System.currentTimeMillis() - time
+
+                    textBox.postDelayed({
+                        if (textBox.isAttachedToWindow) {
+                            textBox.allowScrollToCursor = true
+                        }
+                    }, 500)
 
                     L.d("Took $time ms to remove ${oldSpans.size} spans and add ${newSpans.size} new.")
                 }) { L.e(it) })

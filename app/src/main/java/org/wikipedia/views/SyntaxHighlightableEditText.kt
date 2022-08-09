@@ -29,6 +29,7 @@ open class SyntaxHighlightableEditText : EditText {
     private var syntaxHighlighter: SyntaxHighlighter? = null
     var inputConnection: InputConnection? = null
     var findListener: FindListener? = null
+    var allowScrollToCursor = true
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -37,6 +38,13 @@ open class SyntaxHighlightableEditText : EditText {
     init {
         // The MIME type(s) need to be set for onReceiveContent() to be called.
         ViewCompat.setOnReceiveContentListener(this, arrayOf("text/*"), null)
+    }
+
+    override fun bringPointIntoView(offset: Int): Boolean {
+        if (!allowScrollToCursor) {
+            return false
+        }
+        return super.bringPointIntoView(offset)
     }
 
     override fun onCreateInputConnection(outAttrs: EditorInfo): InputConnection? {

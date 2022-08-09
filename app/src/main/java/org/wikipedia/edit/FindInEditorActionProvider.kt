@@ -4,7 +4,6 @@ import android.graphics.Rect
 import android.view.ActionMode
 import android.view.MenuItem
 import android.view.View
-import androidx.core.widget.NestedScrollView
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
@@ -12,7 +11,7 @@ import org.wikipedia.views.FindInPageActionProvider
 import org.wikipedia.views.FindInPageActionProvider.FindInPageListener
 import org.wikipedia.views.SyntaxHighlightableEditText
 
-class FindInEditorActionProvider(private val scrollView: NestedScrollView,
+class FindInEditorActionProvider(private val scrollView: View,
                                  private val textView: SyntaxHighlightableEditText,
                                  private val syntaxHighlighter: SyntaxHighlighter,
                                  private val actionMode: ActionMode) : FindInPageActionProvider(textView.context), FindInPageListener {
