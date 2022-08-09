@@ -9,12 +9,12 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.activity.viewModels
-import androidx.annotation.StringRes
 import androidx.appcompat.view.ActionMode
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
@@ -22,6 +22,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.appbar.AppBarLayout
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.R
@@ -75,9 +76,7 @@ class InsertMediaActivity : BaseActivity() {
                 insertMediaLoadHeader.loadState = it.refresh
                 insertMediaLoadFooter.loadState = it.append
                 val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && insertMediaAdapter.itemCount == 0)
-                if (showEmpty) {
-                    insertMediaConcatAdapter.addAdapter(EmptyItemAdapter(R.string.search_no_results_found))
-                }
+                binding.emptyMessage.isVisible = showEmpty
             }
         }
 
@@ -92,6 +91,7 @@ class InsertMediaActivity : BaseActivity() {
                 actionMode = startSupportActionMode(searchActionModeCallback)
             }
         }
+        adjustRefreshViewLayoutParams(false)
         DeviceUtil.setContextClickAsLongClick(binding.licenseContainer)
     }
 
@@ -118,6 +118,7 @@ class InsertMediaActivity : BaseActivity() {
         return when (item.itemId) {
             R.id.menu_next -> {
                 showMediaSettingsFragment()
+                adjustRefreshViewLayoutParams(true)
                 true
             }
             R.id.menu_save -> {
@@ -141,6 +142,7 @@ class InsertMediaActivity : BaseActivity() {
             binding.imageInfoContainer.isVisible = true
             binding.searchContainer.isVisible = true
             supportActionBar?.title = getString(R.string.insert_media_title)
+            adjustRefreshViewLayoutParams(false)
             return
         }
         if (insertMediaAdvancedSettingsFragment.handleBackPressed()) {
@@ -149,6 +151,14 @@ class InsertMediaActivity : BaseActivity() {
         }
         super.onBackPressed()
     }
+
+    private fun adjustRefreshViewLayoutParams(removeLayoutBehavior: Boolean) {
+        binding.scrollableContainer.updateLayoutParams<CoordinatorLayout.LayoutParams> {
+            behavior = if (removeLayoutBehavior) null else AppBarLayout.ScrollingViewBehavior()
+            topMargin = if (removeLayoutBehavior) DimenUtil.getToolbarHeightPx(this@InsertMediaActivity) else 0
+        }
+    }
+
 
     private fun combineMediaWikitext(): String {
         viewModel.selectedImage?.pageTitle?.prefixedText?.let {
@@ -261,18 +271,6 @@ class InsertMediaActivity : BaseActivity() {
         }
     }
 
-    private inner class EmptyItemAdapter(@StringRes private val text: Int) : RecyclerView.Adapter<EmptyViewHolder>() {
-        override fun onBindViewHolder(holder: EmptyViewHolder, position: Int) {
-            holder.bindItem(text)
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmptyViewHolder {
-            return EmptyViewHolder(layoutInflater.inflate(R.layout.item_list_progress, parent, false))
-        }
-
-        override fun getItemCount(): Int { return 1 }
-    }
-
     private inner class InsertMediaDiffCallback : DiffUtil.ItemCallback<MediaSearchResult>() {
         override fun areItemsTheSame(oldItem: MediaSearchResult, newItem: MediaSearchResult): Boolean {
             return oldItem.pageTitle.prefixedText == newItem.pageTitle.prefixedText && oldItem.pageTitle.namespace == newItem.pageTitle.namespace
@@ -308,18 +306,6 @@ class InsertMediaActivity : BaseActivity() {
         }
     }
 
-    private inner class EmptyViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindItem(@StringRes text: Int) {
-            val errorView = itemView.findViewById<WikiErrorView>(R.id.errorView)
-            val progressBar = itemView.findViewById<View>(R.id.progressBar)
-            val emptyMessage = itemView.findViewById<TextView>(R.id.emptyMessage)
-            progressBar.isVisible = false
-            errorView.isVisible = false
-            emptyMessage.text = getString(text)
-            emptyMessage.isVisible = true
-        }
-    }
-
     private inner class InsertMediaItemHolder constructor(val binding: ItemInsertMediaBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindItem(searchResult: MediaSearchResult) {
             ViewUtil.loadImageWithRoundedCorners(binding.imageView, searchResult.pageTitle.thumbUrl)
@@ -329,6 +315,7 @@ class InsertMediaActivity : BaseActivity() {
 
             binding.root.setOnClickListener {
                 viewModel.selectedImage = if (searchResult == viewModel.selectedImage) null else searchResult
+                actionMode?.finish()
                 showSelectedImage()
                 invalidateOptionsMenu()
                 insertMediaAdapter.notifyDataSetChanged()

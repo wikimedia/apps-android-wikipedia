@@ -175,6 +175,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout
+        android:id="@+id/scrollableContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -191,6 +192,15 @@
                 android:scrollbars="vertical"/>
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <TextView
+            android:id="@+id/emptyMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_gravity="top|center"
+            android:text="@string/search_no_results_found"
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="match_parent"
