@@ -3,18 +3,25 @@ package org.wikipedia.edit
 import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Paint
 import android.os.SystemClock
 import android.text.InputType
+import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.ContentInfo
 import android.view.KeyEvent
+import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
 import android.widget.EditText
 import androidx.core.view.ViewCompat
+import org.wikipedia.R
 import org.wikipedia.edit.richtext.SpanExtents
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.richtext.SyntaxHighlighter.OnSyntaxHighlightListener
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import java.util.*
 
@@ -27,6 +34,12 @@ open class SyntaxHighlightableEditText : EditText {
     private val findInPageTextPositionList: MutableList<Int> = ArrayList()
     private var findInPageCurrentTextPosition = 0
     private var syntaxHighlighter: SyntaxHighlighter? = null
+    private var prevLineCount = -1
+    private var prevLineHeight = 0
+    private val lineNumberHelper = LineNumberHelper()
+    private val lineNumberPaint = TextPaint()
+
+    var scrollView: View? = null
     var inputConnection: InputConnection? = null
     var findListener: FindListener? = null
     var allowScrollToCursor = true
@@ -38,6 +51,11 @@ open class SyntaxHighlightableEditText : EditText {
     init {
         // The MIME type(s) need to be set for onReceiveContent() to be called.
         ViewCompat.setOnReceiveContentListener(this, arrayOf("text/*"), null)
+
+        lineNumberPaint.isAntiAlias = true
+        lineNumberPaint.textAlign = Paint.Align.RIGHT
+        lineNumberPaint.textSize = this.textSize * 0.8f
+        lineNumberPaint.color = ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color)
     }
 
     override fun bringPointIntoView(offset: Int): Boolean {
@@ -45,6 +63,38 @@ open class SyntaxHighlightableEditText : EditText {
             return false
         }
         return super.bringPointIntoView(offset)
+    }
+
+    override fun onDraw(canvas: Canvas?) {
+
+        if (prevLineCount != lineCount) {
+            prevLineHeight = lineHeight
+            prevLineCount = lineCount
+            lineNumberHelper.computeLines(0, prevLineCount, layout, text.toString())
+        }
+
+        // if showLineNumbers
+        if (true) {
+            val wrapContent = true // isWrapContent
+
+
+            //layout.getLineForVertical()
+
+            for (i in 0 until prevLineCount) {
+                if (!wrapContent || lineNumberHelper.goodLines[i]) {
+                    val lineNum = lineNumberHelper.realLines[i]
+
+                    canvas?.drawText(lineNum.toString(),
+                            DimenUtil.dpToPx(24f),
+                            (paddingTop + prevLineHeight * (i + 1)).toFloat(),
+                            lineNumberPaint)
+                }
+            }
+        }
+
+
+
+        super.onDraw(canvas)
     }
 
     override fun onCreateInputConnection(outAttrs: EditorInfo): InputConnection? {

@@ -9,7 +9,6 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import org.wikipedia.databinding.ViewWikitextKeyboardBinding
 import org.wikipedia.page.PageTitle
-import org.wikipedia.views.SyntaxHighlightableEditText
 
 class WikiTextKeyboardView : FrameLayout {
     interface Callback {

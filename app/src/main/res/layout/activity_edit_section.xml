@@ -28,6 +28,7 @@
                 android:imeOptions="actionNone|flagNoExtractUi"
                 android:inputType="textMultiLine"
                 android:lineSpacingExtra="6dp"
+                android:paddingStart="24dp"
                 style="@style/EditSectionTextInputLayoutStyle" />
 
         </androidx.core.widget.NestedScrollView>

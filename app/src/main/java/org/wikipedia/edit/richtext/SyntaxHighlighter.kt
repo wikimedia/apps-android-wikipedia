@@ -53,7 +53,7 @@ class SyntaxHighlighter(
     init {
         textBox.doAfterTextChanged { runHighlightTasks(1000) }
 
-        scrollView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+        scrollView.setOnScrollChangeListener { _, _, _, _, _ ->
             runHighlightTasks(500)
         }
     }
@@ -67,12 +67,10 @@ class SyntaxHighlighter(
                         throw IllegalArgumentException()
                     }
 
-                    val lineHeight = textBox.lineHeight
-
-                    var firstVisibleLine = scrollView.scrollY / lineHeight
+                    var firstVisibleLine = textBox.layout.getLineForVertical(scrollView.scrollY)
                     if (firstVisibleLine < 0) firstVisibleLine = 0
 
-                    var lastVisibleLine = (scrollView.scrollY + scrollView.height) / lineHeight
+                    var lastVisibleLine = textBox.layout.getLineForVertical(scrollView.scrollY + scrollView.height)
                     if (lastVisibleLine < firstVisibleLine) lastVisibleLine = firstVisibleLine
                     else if (lastVisibleLine >= textBox.lineCount) lastVisibleLine = textBox.lineCount - 1
 

@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import org.wikipedia.databinding.ViewWikitextKeyboardFormattingBinding
-import org.wikipedia.views.SyntaxHighlightableEditText
 
 class WikiTextKeyboardFormattingView : FrameLayout {
     private val binding = ViewWikitextKeyboardFormattingBinding.inflate(LayoutInflater.from(context), this)
