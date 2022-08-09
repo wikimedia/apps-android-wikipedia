@@ -124,6 +124,14 @@ class InsertMediaActivity : BaseActivity() {
                 onBackPressed()
                 true
             }
+            R.id.menu_insert -> {
+                Intent().let {
+                    it.putExtra(RESULT_WIKITEXT, combineMediaWikitext())
+                    setResult(RESULT_INSERT_MEDIA_SUCCESS, it)
+                    finish()
+                }
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -140,6 +148,26 @@ class InsertMediaActivity : BaseActivity() {
             return
         }
         super.onBackPressed()
+    }
+
+    private fun combineMediaWikitext(): String {
+        viewModel.selectedImage?.pageTitle?.prefixedText?.let {
+            var wikiText = "[[$it|${viewModel.imageSize}px|${viewModel.imageType}|${viewModel.imagePosition}"
+
+            if (insertMediaSettingsFragment.alternativeText.isNotEmpty()) {
+                wikiText += "|alt=${insertMediaSettingsFragment.alternativeText}"
+            }
+
+            if (insertMediaSettingsFragment.captionText.isNotEmpty()) {
+                wikiText += "|${insertMediaSettingsFragment.captionText}"
+            }
+
+            wikiText += "]]"
+
+            return wikiText
+        } ?: run {
+            return ""
+        }
     }
 
     private fun applyActionBarButtonStyle(menuItem: MenuItem) {
@@ -352,6 +380,8 @@ class InsertMediaActivity : BaseActivity() {
 
     companion object {
         const val EXTRA_SEARCH_QUERY = "searchQuery"
+        const val RESULT_WIKITEXT = "insertMediaWikitext"
+        const val RESULT_INSERT_MEDIA_SUCCESS = 100
 
         fun newIntent(context: Context, searchQuery: String): Intent {
             return Intent(context, InsertMediaActivity::class.java)
