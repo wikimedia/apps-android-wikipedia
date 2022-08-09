@@ -21,7 +21,7 @@
             android:layout_weight="1"
             android:scrollbars="vertical">
 
-            <org.wikipedia.views.SyntaxHighlightableEditText
+            <org.wikipedia.edit.SyntaxHighlightableEditText
                 android:id="@+id/edit_section_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

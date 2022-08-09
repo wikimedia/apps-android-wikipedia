@@ -10,7 +10,7 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.util.log.L
-import org.wikipedia.views.SyntaxHighlightableEditText
+import org.wikipedia.edit.SyntaxHighlightableEditText
 import java.util.*
 import java.util.concurrent.Callable
 import java.util.concurrent.TimeUnit

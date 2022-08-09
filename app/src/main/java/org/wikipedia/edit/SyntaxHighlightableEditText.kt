@@ -1,4 +1,4 @@
-package org.wikipedia.views
+package org.wikipedia.edit
 
 import android.annotation.SuppressLint
 import android.content.ClipData
