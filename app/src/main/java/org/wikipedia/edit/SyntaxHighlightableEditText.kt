@@ -7,6 +7,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.os.SystemClock
 import android.text.InputType
+import android.text.Layout
 import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.ContentInfo
@@ -36,10 +37,11 @@ open class SyntaxHighlightableEditText : EditText {
     private var syntaxHighlighter: SyntaxHighlighter? = null
     private var prevLineCount = -1
     private var prevLineHeight = 0
-    private val lineNumberHelper = LineNumberHelper()
     private val lineNumberPaint = TextPaint()
 
     lateinit var scrollView: View
+    private lateinit var actualLineFromRenderedLine: IntArray
+
     var inputConnection: InputConnection? = null
     var findListener: FindListener? = null
     var allowScrollToCursor = true
@@ -69,11 +71,11 @@ open class SyntaxHighlightableEditText : EditText {
         if (prevLineCount != lineCount) {
             prevLineHeight = lineHeight
             prevLineCount = lineCount
-            lineNumberHelper.computeLines(0, prevLineCount, layout, text.toString())
+            computeLineNumbers(prevLineCount, layout, text.toString())
         }
 
-        // if showLineNumbers
-        if (true && layout != null) {
+        val showLineNumbers = true // TODO: make line number optional?
+        if (showLineNumbers && layout != null) {
             val wrapContent = true // TODO: make wrap content optional?
 
             val firstLine = layout.getLineForVertical(scrollView.scrollY)
@@ -82,11 +84,11 @@ open class SyntaxHighlightableEditText : EditText {
 
             var prevNum = -1
             for (i in firstLine..lastLine) {
-                val num = lineNumberHelper.realLines[i]
+                val num = actualLineFromRenderedLine[i]
                 if (!wrapContent || prevNum != num) {
                     prevNum = num
                     canvas?.drawText(num.toString(),
-                            DimenUtil.dpToPx(24f),
+                            DimenUtil.dpToPx(28f),
                             curX.toFloat(),
                             lineNumberPaint)
                 }
@@ -94,6 +96,39 @@ open class SyntaxHighlightableEditText : EditText {
             }
         }
         super.onDraw(canvas)
+    }
+
+    private fun computeLineNumbers(lineCount: Int, layout: Layout, text: String?) {
+        val lineContainsNewlineChar = BooleanArray(lineCount)
+
+        if (text.isNullOrEmpty() || lineCount == 0) {
+            actualLineFromRenderedLine = IntArray(1)
+            actualLineFromRenderedLine[0] = 1
+            return
+        }
+
+        val renderedLineBeginsActualLine = BooleanArray(lineCount)
+        actualLineFromRenderedLine = IntArray(lineCount)
+
+        for (i in 0 until lineCount) {
+            lineContainsNewlineChar[i] = text[layout.getLineEnd(i) - 1] == '\n'
+            if (lineContainsNewlineChar[i]) {
+                var j = i - 1
+                while (j >= 0 && !lineContainsNewlineChar[j]) {
+                    j--
+                }
+                renderedLineBeginsActualLine[j + 1] = true
+            }
+        }
+        renderedLineBeginsActualLine[lineCount - 1] = true
+
+        var actualLine = 0
+        for (i in renderedLineBeginsActualLine.indices) {
+            if (renderedLineBeginsActualLine[i]) {
+                actualLine++
+            }
+            actualLineFromRenderedLine[i] = actualLine
+        }
     }
 
     override fun onCreateInputConnection(outAttrs: EditorInfo): InputConnection? {
