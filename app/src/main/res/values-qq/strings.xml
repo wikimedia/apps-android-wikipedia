@@ -1214,4 +1214,7 @@
   <string name="revision_initial_none">Label shown when showing a diff of the first revision of an article (when there is no previous revision to compare with).</string>
   <string name="user_contrib_activity_title">Title of screen that lists the contributions of a user to the current wiki. The %s symbol is replaced with the user name.</string>
   <string name="archive_empty">Error shown when the current page does not have subpages.</string>
+  <string name="user_contrib_filter_ns">Label for menu that allows to filter contributions by namespace.</string>
+  <string name="user_contrib_filter_all">Label for showing all contributions, regardless of namespace.</string>
+  <string name="namespace_article">Label for showing contributions to the Main (article) namespace.</string>
 </resources>
