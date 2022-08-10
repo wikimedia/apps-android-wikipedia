@@ -24,7 +24,6 @@ import org.wikipedia.edit.richtext.SyntaxHighlighter.OnSyntaxHighlightListener
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
-import java.util.*
 
 @SuppressLint("AppCompatCustomView")
 open class SyntaxHighlightableEditText : EditText {
@@ -32,7 +31,7 @@ open class SyntaxHighlightableEditText : EditText {
         fun onFinished(activeMatchOrdinal: Int, numberOfMatches: Int, textPosition: Int, findingNext: Boolean)
     }
 
-    private val findInPageTextPositionList: MutableList<Int> = ArrayList()
+    private val findInPageTextPositionList = mutableListOf<Int>()
     private var findInPageCurrentTextPosition = 0
     private var syntaxHighlighter: SyntaxHighlighter? = null
     private var prevLineCount = -1
