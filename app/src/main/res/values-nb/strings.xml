@@ -109,6 +109,7 @@
   <string name="on_this_day_page_share">Del</string>
   <string name="reading_list_page_share">Del</string>
   <string name="menu_text_select_edit_here">Rediger her</string>
+  <string name="menu_edit_article">Rediger artikkel</string>
   <string name="last_updated_text">Sist oppdatert %s</string>
   <string name="talk_page_link_text">Vis diskusjonssiden</string>
   <string name="edit_history_link_text">Vis redigeringshistorikk</string>
@@ -268,6 +269,11 @@
   <string name="edit_preview">Forhåndsvis</string>
   <string name="edit_undo">Angre</string>
   <string name="edit_redo">Gjør om</string>
+  <string name="edit_rollback">Tilbakestill</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s byte</item>
+    <item quantity="other">%s byte</item>
+  </plurals>
   <string name="edit_zoom_in">Forstørr</string>
   <string name="edit_zoom_out">Forminsk</string>
   <string name="edit_summary_tag_typo">Fikset typo</string>
@@ -411,6 +417,7 @@
   <string name="error_blocked_expiry">Blokkeringen utløper: %s</string>
   <string name="error_blocked_id">Blokkerings-ID: %s</string>
   <string name="error_blocked_footer">Du kan kontakte &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eller en annen &lt;a href=\"https://no.wikipedia.org/wiki/Wikipedia:Administratorer\"&gt;administrator&lt;/a&gt; for å diskutere blokkeringen.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Tilpass verktøylinje</string>
   <string name="error_blocked_footer_no_blocker">Du kan kontakte en &lt;a href=\"https://no.wikipedia.org/wiki/Wikipedia:Administratorer\"&gt;administrator&lt;/a&gt; for å diskutere blokkeringen.</string>
   <string name="crash_report_activity_title">Applikasjonsfeil</string>
   <string name="crash_report_relaunch_or_quit">Wikipedia-appen avsluttet på grunn av en feil.\n\nVil du prøve å starte den på nytt eller avslutte?</string>
@@ -1094,6 +1101,14 @@
   <string name="talk_overflow_sort_by">Sorter etter</string>
   <string name="talk_overflow_sort_date_published">Dato publisert</string>
   <string name="talk_overflow_sort_topic_name">Emnenavn</string>
+  <string name="talk_list_item_overflow_mark_as_read">Merk som lest</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Merk som ulest</string>
+  <string name="talk_list_item_overflow_share">Del</string>
+  <string name="talk_list_item_last_comment_date">Siste kommentar: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Antall svar</string>
+  <string name="talk_list_item_user_icon_content_description">Brukerikon</string>
+  <string name="talk_list_item_swipe_mark_as_read">Lest</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Ulest</string>
   <string name="menu_option_share_talk_discussion">Del diskusjon</string>
   <string name="menu_option_share_talk_page">Del diskusjonsside</string>
   <string name="menu_option_share_edit">Del redigering</string>
