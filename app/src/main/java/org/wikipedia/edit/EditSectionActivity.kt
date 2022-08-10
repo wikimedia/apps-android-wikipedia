@@ -2,6 +2,7 @@ package org.wikipedia.edit
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
@@ -224,7 +225,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         binding.editKeyboardOverlayHeadings.callback = syntaxButtonCallback
 
         binding.editSectionText.setOnClickListener { finishActionMode() }
-        updateTextSize()
+        onEditingPrefsChanged()
 
         // set focus to the EditText, but keep the keyboard hidden until the user changes the cursor location:
         binding.editSectionText.requestFocus()
@@ -443,6 +444,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 true
             }
             R.id.menu_edit_theme -> {
+                binding.editSectionText.enqueueNoScrollingLayoutChange()
                 bottomSheetPresenter.show(supportFragmentManager, ThemeChooserDialog.newInstance(Constants.InvokeSource.EDIT_ACTIVITY, true))
                 true
             }
@@ -742,7 +744,12 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
     override fun onCancelThemeChooser() { }
 
-    override fun onEditingFontSizeChanged() {
+    override fun onEditingPrefsChanged() {
+        binding.editSectionText.enqueueNoScrollingLayoutChange()
         updateTextSize()
+        syntaxHighlighter.enabled = Prefs.editSyntaxHighlightEnabled
+        binding.editSectionText.typeface = if (Prefs.editMonoSpaceFontEnabled) Typeface.MONOSPACE else Typeface.DEFAULT
+        binding.editSectionText.showLineNumbers = Prefs.editLineNumbersEnabled
+        binding.editSectionText.invalidate()
     }
 }

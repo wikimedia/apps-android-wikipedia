@@ -40,7 +40,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         fun onToggleDimImages()
         fun onToggleReadingFocusMode()
         fun onCancelThemeChooser()
-        fun onEditingFontSizeChanged()
+        fun onEditingPrefsChanged()
     }
 
     private enum class FontSizeAction {
@@ -57,11 +57,9 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogThemeChooserBinding.inflate(inflater, container, false)
-
         isEditing = requireArguments().getBoolean(EXTRA_IS_EDITING)
-        if (isEditing) {
-            updateForEditing()
-        }
+        updateComponents()
+
         binding.textSettingsCategory.text = getString(if (isEditing) R.string.theme_category_editing else R.string.theme_category_reading)
         binding.buttonDecreaseTextSize.setOnClickListener(FontSizeButtonListener(FontSizeAction.DECREASE))
         binding.buttonIncreaseTextSize.setOnClickListener(FontSizeButtonListener(FontSizeAction.INCREASE))
@@ -72,9 +70,11 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         binding.buttonThemeSepia.setOnClickListener(ThemeButtonListener(Theme.SEPIA))
         binding.buttonFontFamilySansSerif.setOnClickListener(FontFamilyListener())
         binding.buttonFontFamilySerif.setOnClickListener(FontFamilyListener())
+
         binding.themeChooserDarkModeDimImagesSwitch.setOnCheckedChangeListener { _, b -> onToggleDimImages(b) }
         binding.themeChooserMatchSystemThemeSwitch.setOnCheckedChangeListener { _, b -> onToggleMatchSystemTheme(b) }
         binding.themeChooserReadingFocusModeSwitch.setOnCheckedChangeListener { _, b -> onToggleReadingFocusMode(b) }
+
         binding.textSizeSeekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, value: Int, fromUser: Boolean) {
                 if (!fromUser) {
@@ -84,7 +84,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
                 if (isEditing) {
                     currentMultiplier = Prefs.editingTextSizeMultiplier
                     Prefs.editingTextSizeMultiplier = binding.textSizeSeekBar.value
-                    callback()?.onEditingFontSizeChanged()
+                    callback()?.onEditingPrefsChanged()
                     updateFontSize()
                 } else {
                     currentMultiplier = Prefs.textSizeMultiplier
@@ -101,7 +101,20 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
             override fun onStopTrackingTouch(seekBar: SeekBar) {}
         })
-        updateComponents()
+
+        binding.syntaxHighlightSwitch.setOnCheckedChangeListener { _, isChecked ->
+            Prefs.editSyntaxHighlightEnabled = isChecked
+            callback()?.onEditingPrefsChanged()
+        }
+        binding.monospaceFontSwitch.setOnCheckedChangeListener { _, isChecked ->
+            Prefs.editMonoSpaceFontEnabled = isChecked
+            callback()?.onEditingPrefsChanged()
+        }
+        binding.showLineNumbersSwitch.setOnCheckedChangeListener { _, isChecked ->
+            Prefs.editLineNumbersEnabled = isChecked
+            callback()?.onEditingPrefsChanged()
+        }
+
         disableBackgroundDim()
         requireDialog().window?.let {
             DeviceUtil.setNavigationBarColor(it, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
@@ -136,10 +149,14 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateForEditing() {
-        binding.themeChooserDarkModeDimImagesSwitch.isVisible = false
-        binding.readingFocusModeContainer.isVisible = false
-        binding.themeChooserReadingFocusModeDescription.isVisible = false
-        binding.fontFamilyContainer.isVisible = false
+        binding.themeChooserDarkModeDimImagesSwitch.isVisible = !isEditing
+        binding.readingFocusModeContainer.isVisible = !isEditing
+        binding.themeChooserReadingFocusModeDescription.isVisible = !isEditing
+        binding.fontFamilyContainer.isVisible = !isEditing
+
+        binding.syntaxHighlightSwitch.isVisible = isEditing
+        binding.monospaceFontSwitch.isVisible = isEditing
+        binding.showLineNumbersSwitch.isVisible = isEditing
     }
 
     private fun onToggleDimImages(enabled: Boolean) {
@@ -202,8 +219,13 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         updateThemeButtons()
         updateDimImagesSwitch()
         updateMatchSystemThemeSwitch()
+        updateForEditing()
 
         binding.themeChooserReadingFocusModeSwitch.isChecked = Prefs.readingFocusModeEnabled
+
+        binding.syntaxHighlightSwitch.isChecked = Prefs.editSyntaxHighlightEnabled
+        binding.monospaceFontSwitch.isChecked = Prefs.editMonoSpaceFontEnabled
+        binding.showLineNumbersSwitch.isChecked = Prefs.editLineNumbersEnabled
     }
 
     private fun updateMatchSystemThemeSwitch() {
@@ -284,7 +306,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
                     FontSizeAction.DECREASE -> currentMultiplier - 1
                     FontSizeAction.RESET -> 0
                 })
-                callback()?.onEditingFontSizeChanged()
+                callback()?.onEditingPrefsChanged()
                 updateFontSize()
             } else {
                 currentMultiplier = Prefs.textSizeMultiplier

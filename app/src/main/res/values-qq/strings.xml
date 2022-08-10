@@ -466,6 +466,9 @@
   <string name="theme_category_editing">Label for theme category that contains settings related to editing.</string>
   <string name="reading_focus_mode">Label for checkbox that enables reading focus mode.</string>
   <string name="reading_focus_mode_detail">Detailed label for checkbox that enables reading focus mode.</string>
+  <string name="editing_syntax_highlight_label">Label for checkbox that enables or disables syntax highlighting when editing.</string>
+  <string name="editing_line_numbers_label">Label for checkbox that enables or disables showing line numbers when editing.</string>
+  <string name="editing_monospace_font_label">Label for checkbox that enables or disables using a monospace font when editing.</string>
   <string name="nav_item_saved">Navigation menu item label for reading lists.</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
   <string name="reading_list_move_to">Menu item label for moving the current article to a reading list.</string>

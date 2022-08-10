@@ -110,6 +110,31 @@
 
             </LinearLayout>
 
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/syntax_highlight_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical"
+                android:text="@string/editing_syntax_highlight_label"
+                android:textColor="?attr/primary_text_color" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/show_line_numbers_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/editing_line_numbers_label"
+                android:textColor="?attr/primary_text_color" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/monospace_font_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/editing_monospace_font_label"
+                android:textColor="?attr/primary_text_color" />
+
             <LinearLayout
                 android:id="@+id/fontFamilyContainer"
                 android:layout_width="300dp"

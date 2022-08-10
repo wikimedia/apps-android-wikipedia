@@ -50,6 +50,20 @@ class SyntaxHighlighter(
     private val disposables = CompositeDisposable()
     private var currentHighlightTask: SyntaxHighlightTask? = null
 
+    var enabled = true
+        set(value) {
+            field = value
+            if (!value) {
+                currentHighlightTask?.cancel()
+                disposables.clear()
+                textBox.text.getSpans<SpanExtents>().forEach {
+                    textBox.text.removeSpan(it)
+                }
+            } else {
+                runHighlightTasks(500)
+            }
+        }
+
     init {
         textBox.doAfterTextChanged { runHighlightTasks(1000) }
         textBox.scrollView = scrollView
@@ -62,6 +76,9 @@ class SyntaxHighlighter(
     private fun runHighlightTasks(delayMillis: Long) {
         currentHighlightTask?.cancel()
         disposables.clear()
+        if (!enabled) {
+            return
+        }
         disposables.add(Observable.timer(delayMillis, TimeUnit.MILLISECONDS)
                 .flatMap {
                     if (textBox.layout == null) {
@@ -96,7 +113,7 @@ class SyntaxHighlighter(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result ->
                     syntaxHighlightListener?.syntaxHighlightResults(result)
-                    textBox.allowScrollToCursor = false
+                    textBox.enqueueNoScrollingLayoutChange()
 
                     var time = System.currentTimeMillis()
                     val oldSpans = textBox.text.getSpans<SpanExtents>().toMutableList()
@@ -124,12 +141,6 @@ class SyntaxHighlighter(
                         syntaxHighlightListener?.findTextMatches(findTextList)
                     }
                     time = System.currentTimeMillis() - time
-
-                    textBox.postDelayed({
-                        if (textBox.isAttachedToWindow) {
-                            textBox.allowScrollToCursor = true
-                        }
-                    }, 500)
 
                     L.d("Took $time ms to remove ${oldSpans.size} spans and add ${newSpans.size} new.")
                 }) { L.e(it) })

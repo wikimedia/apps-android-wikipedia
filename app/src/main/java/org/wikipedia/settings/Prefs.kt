@@ -601,4 +601,16 @@ object Prefs {
     var talkTopicExpandOrCollapseByDefault
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_talk_topic_expand_all, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_talk_topic_expand_all, value)
+
+    var editSyntaxHighlightEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_syntax_highlight, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_syntax_highlight, value)
+
+    var editMonoSpaceFontEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_monospace_font, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_monospace_font, value)
+
+    var editLineNumbersEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_line_numbers, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_line_numbers, value)
 }

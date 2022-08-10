@@ -25,10 +25,10 @@
                 android:id="@+id/edit_section_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:imeOptions="actionNone|flagNoExtractUi"
                 android:inputType="textMultiLine"
                 android:lineSpacingExtra="6dp"
-                android:paddingStart="32dp"
                 style="@style/EditSectionTextInputLayoutStyle" />
 
         </androidx.core.widget.NestedScrollView>

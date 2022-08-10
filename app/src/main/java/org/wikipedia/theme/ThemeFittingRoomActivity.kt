@@ -40,7 +40,7 @@ class ThemeFittingRoomActivity : SingleFragmentActivity<ThemeFittingRoomFragment
         finish()
     }
 
-    override fun onEditingFontSizeChanged() { }
+    override fun onEditingPrefsChanged() { }
 
     companion object {
         fun newIntent(context: Context): Intent {
