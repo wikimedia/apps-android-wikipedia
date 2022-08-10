@@ -1217,4 +1217,5 @@
   <string name="user_contrib_filter_ns">Label for menu that allows to filter contributions by namespace.</string>
   <string name="user_contrib_filter_all">Label for showing all contributions, regardless of namespace.</string>
   <string name="namespace_article">Label for showing contributions to the Main (article) namespace.</string>
+  <string name="user_contrib_current">Label indicating that this contribution is the current revision of the article.</string>
 </resources>

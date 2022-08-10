@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemUserContribBinding
 import org.wikipedia.dataclient.mwapi.UserContribution
@@ -54,6 +55,7 @@ class UserContribItemView(context: Context) : FrameLayout(context) {
             binding.editSummary.text = if (contrib.minor) StringUtil.fromHtml(context.getString(R.string.page_edit_history_minor_edit, contrib.comment)) else contrib.comment
             StringUtil.highlightAndBoldenText(binding.editSummary, currentQuery, true, Color.YELLOW)
         }
+        binding.currentIndicator.isVisible = contrib.top
         binding.editHistoryTimeText.text = DateUtil.getTimeString(context, contrib.date())
         StringUtil.highlightAndBoldenText(binding.diffText, currentQuery, true, Color.YELLOW)
         StringUtil.highlightAndBoldenText(binding.articleTitle, currentQuery, true, Color.YELLOW)
