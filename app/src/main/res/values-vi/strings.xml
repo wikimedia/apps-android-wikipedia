@@ -103,6 +103,7 @@
   <string name="menu_page_new_tab">Tab mới</string>
   <string name="menu_page_reading_lists">Danh sách đọc</string>
   <string name="menu_page_recently_viewed">Đã xem gần đây</string>
+  <string name="menu_page_archive">Lưu trữ</string>
   <string name="menu_long_press_open_page">Mở</string>
   <string name="menu_long_press_open_in_new_tab">Mở trong thẻ mới</string>
   <string name="menu_long_press_copy_page">Chép địa chỉ liên kết</string>
