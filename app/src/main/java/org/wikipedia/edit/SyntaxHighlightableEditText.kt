@@ -102,7 +102,6 @@ open class SyntaxHighlightableEditText : EditText {
 
             val firstLine = layout.getLineForVertical(scrollView.scrollY)
             val lastLine = layout.getLineForVertical(scrollView.scrollY + scrollView.height)
-            var curX = layout.getLineTop(firstLine) + prevLineHeight
 
             var prevNum = -1
             for (i in firstLine..lastLine) {
@@ -110,11 +109,10 @@ open class SyntaxHighlightableEditText : EditText {
                 if (!wrapContent || prevNum != num) {
                     prevNum = num
                     canvas?.drawText(num.toString(),
-                            if (isRtl) (width - paddingWithLineNumbers + lineNumberGapWidth).toFloat() else (paddingWithLineNumbers - lineNumberGapWidth).toFloat(),
-                            curX.toFloat(),
+                            (if (isRtl) width - paddingWithLineNumbers + lineNumberGapWidth else paddingWithLineNumbers - lineNumberGapWidth).toFloat(),
+                            layout.getLineBottom(i).toFloat(),
                             lineNumberPaint)
                 }
-                curX += prevLineHeight
             }
         }
         super.onDraw(canvas)
