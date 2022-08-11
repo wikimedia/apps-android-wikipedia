@@ -5,7 +5,9 @@ import android.content.ClipData
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.os.Build
 import android.os.SystemClock
+import android.text.Editable
 import android.text.InputType
 import android.text.Layout
 import android.text.TextPaint
@@ -156,6 +158,14 @@ open class SyntaxHighlightableEditText : EditText {
         setPaddingRelative(if (showLineNumbers) paddingWithLineNumbers else paddingWithoutLineNumbers, paddingTop, paddingEnd, paddingBottom)
     }
 
+    override fun getText(): Editable {
+        // A bug pre-P makes getText() crash if called before the first setText due to a cast, so
+        // retrieve the editable text.
+        return (if (Build.VERSION.SDK_INT >= 28) {
+            super.getText()
+        } else super.getEditableText()) ?: Editable.Factory.getInstance().newEditable("")
+    }
+
     override fun onCreateInputConnection(outAttrs: EditorInfo): InputConnection? {
         inputConnection = super.onCreateInputConnection(outAttrs)
 
@@ -214,9 +224,7 @@ open class SyntaxHighlightableEditText : EditText {
 
                 override fun findTextMatches(spanExtents: List<SpanExtents>) {
                     findInPageTextPositionList.clear()
-                    text?.let {
-                        findInPageTextPositionList.addAll(spanExtents.map { span -> it.getSpanStart(span) })
-                    }
+                    findInPageTextPositionList.addAll(spanExtents.map { span -> text.getSpanStart(span) })
                     onFinished(false, listener)
                 }
             })

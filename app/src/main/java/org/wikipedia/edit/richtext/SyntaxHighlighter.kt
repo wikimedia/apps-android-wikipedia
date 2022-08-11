@@ -56,9 +56,7 @@ class SyntaxHighlighter(
             if (!value) {
                 currentHighlightTask?.cancel()
                 disposables.clear()
-                textBox.text.getSpans<SpanExtents>().forEach {
-                    textBox.text.removeSpan(it)
-                }
+                textBox.text.getSpans<SpanExtents>().forEach { textBox.text.removeSpan(it) }
             } else {
                 runHighlightTasks(500)
             }
