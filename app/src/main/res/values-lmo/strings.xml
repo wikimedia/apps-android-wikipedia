@@ -98,7 +98,7 @@
   <string name="edit_section_captcha_request_an_account_message">Te riesset minga a vedè l\'imagin? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Ciama on utenza&lt;/a&gt;</string>
   <string name="title_captcha">Met denter el CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toca el CAPTCHA per caregà de noeuv</string>
-  <string name="nav_item_login">Va dent in Wikipedia</string>
+  <string name="nav_item_login">Và dent in Wikipedia</string>
   <string name="login_username_hint">Nom de l\'utent</string>
   <string name="login_password_hint">Parolla ciav</string>
   <string name="account_creation_password_hint">Parolla ciav</string>
