@@ -36,7 +36,6 @@ import org.wikipedia.util.log.L
 open class SyntaxHighlightableEditText : EditText {
 
     private var prevLineCount = -1
-    private var prevLineHeight = 0
     private val lineNumberPaint = TextPaint()
     private val lineNumberBackgroundPaint = Paint()
     private val isRtl: Boolean
@@ -91,7 +90,6 @@ open class SyntaxHighlightableEditText : EditText {
 
     override fun onDraw(canvas: Canvas?) {
         if (prevLineCount != lineCount) {
-            prevLineHeight = lineHeight
             prevLineCount = lineCount
             computeLineNumbers(prevLineCount, layout, text.toString())
         }
@@ -107,6 +105,7 @@ open class SyntaxHighlightableEditText : EditText {
                 Rect(0, 0, paddingWithLineNumbers - lineNumberGapWidth / 2, height)
             canvas?.drawRect(gutterRect, lineNumberBackgroundPaint)
 
+            // paint the line numbers, by getting each line position from the Layout.
             var prevNum = -1
             for (i in firstLine..lastLine) {
                 val num = actualLineFromRenderedLine[i]
