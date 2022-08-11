@@ -58,6 +58,11 @@ enum class SyntaxRuleStyle {
             return RelativeSizeSpanEx(0.8f, spanStart, syntaxItem)
         }
     },
+    CODE {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return TypefaceSpanEx(Typeface.MONOSPACE, spanStart, syntaxItem)
+        }
+    },
     SUPERSCRIPT {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
             return SuperscriptSpanEx(spanStart, syntaxItem)

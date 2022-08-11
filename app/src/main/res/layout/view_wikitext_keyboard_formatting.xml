@@ -85,6 +85,13 @@
             app:buttonHint="@string/wikitext_italic"
             app:buttonImage="@drawable/ic_text_small_24" />
 
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_italic"
+            app:buttonImage="@drawable/ic_code_24" />
+
     </LinearLayout>
 
 </merge>

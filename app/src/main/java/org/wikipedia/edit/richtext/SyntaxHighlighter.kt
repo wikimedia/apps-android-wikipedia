@@ -28,6 +28,7 @@ class SyntaxHighlighter(
             SyntaxRule("<small>", "</small>", SyntaxRuleStyle.TEXT_SMALL),
             SyntaxRule("<sub>", "</sub>", SyntaxRuleStyle.SUBSCRIPT),
             SyntaxRule("<sup>", "</sup>", SyntaxRuleStyle.SUPERSCRIPT),
+            SyntaxRule("<code>", "</code>", SyntaxRuleStyle.CODE),
             SyntaxRule("<u>", "</u>", SyntaxRuleStyle.UNDERLINE),
             SyntaxRule("<s>", "</s>", SyntaxRuleStyle.STRIKETHROUGH),
             SyntaxRule("<", ">", SyntaxRuleStyle.REF),

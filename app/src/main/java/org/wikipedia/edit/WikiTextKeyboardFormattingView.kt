@@ -64,5 +64,11 @@ class WikiTextKeyboardFormattingView : FrameLayout {
                 callback?.onSyntaxOverlayClicked()
             }
         }
+        binding.wikitextButtonCode.setOnClickListener {
+            editText?.inputConnection?.let {
+                WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "<code>", "</code>")
+                callback?.onSyntaxOverlayClicked()
+            }
+        }
     }
 }

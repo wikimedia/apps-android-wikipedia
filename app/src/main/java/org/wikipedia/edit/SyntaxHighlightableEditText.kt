@@ -148,6 +148,7 @@ open class SyntaxHighlightableEditText : EditText {
         while (j >= 0 && !lineContainsNewlineChar[j]) { j-- }
         renderedLineBeginsActualLine[j + 1] = true
 
+        // and build the actual mapping of rendered lines to actual lines.
         var actualLine = 0
         for (i in renderedLineBeginsActualLine.indices) {
             if (renderedLineBeginsActualLine[i]) {
