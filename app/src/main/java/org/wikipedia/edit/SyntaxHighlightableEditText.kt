@@ -5,6 +5,7 @@ import android.content.ClipData
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.graphics.Rect
 import android.os.Build
 import android.os.SystemClock
 import android.text.Editable
@@ -25,7 +26,11 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 
 /**
- *
+ * Notice that this view inherits from the platform EditText class, instead of AppCompatEditText.
+ * This is because AppCompatEditText actually has very poor performance when displaying large
+ * amounts of text. Inheriting directly from the base EditText provides a vast improvement in
+ * performance, but it means we need to keep an eye on the source code of AppCompatEditText, in
+ * case we need to copy over any useful compatibility logic.
  */
 @SuppressLint("AppCompatCustomView")
 open class SyntaxHighlightableEditText : EditText {
@@ -33,10 +38,11 @@ open class SyntaxHighlightableEditText : EditText {
     private var prevLineCount = -1
     private var prevLineHeight = 0
     private val lineNumberPaint = TextPaint()
+    private val lineNumberBackgroundPaint = Paint()
     private val isRtl: Boolean
     private val paddingWithoutLineNumbers = DimenUtil.roundedDpToPx(8f)
-    private val paddingWithLineNumbers = DimenUtil.roundedDpToPx(32f)
-    private val lineNumberGapWidth = DimenUtil.roundedDpToPx(6f)
+    private val paddingWithLineNumbers = DimenUtil.roundedDpToPx(36f)
+    private val lineNumberGapWidth = DimenUtil.roundedDpToPx(8f)
     private var allowScrollToCursor = true
 
     lateinit var scrollView: View
@@ -64,6 +70,7 @@ open class SyntaxHighlightableEditText : EditText {
         lineNumberPaint.textAlign = if (isRtl) Paint.Align.LEFT else Paint.Align.RIGHT
         lineNumberPaint.textSize = this.textSize * 0.8f
         lineNumberPaint.color = ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color)
+        lineNumberBackgroundPaint.color = ResourceUtil.getThemedColor(context, R.attr.chip_background_color)
     }
 
     fun enqueueNoScrollingLayoutChange() {
@@ -95,6 +102,11 @@ open class SyntaxHighlightableEditText : EditText {
             val firstLine = layout.getLineForVertical(scrollView.scrollY)
             val lastLine = layout.getLineForVertical(scrollView.scrollY + scrollView.height)
 
+            // paint the gutter area with a slightly different color than text background.
+            val gutterRect = if (isRtl) Rect(width - paddingWithLineNumbers + lineNumberGapWidth / 2, 0, width, height) else
+                Rect(0, 0, paddingWithLineNumbers - lineNumberGapWidth / 2, height)
+            canvas?.drawRect(gutterRect, lineNumberBackgroundPaint)
+
             var prevNum = -1
             for (i in firstLine..lastLine) {
                 val num = actualLineFromRenderedLine[i]
@@ -122,6 +134,7 @@ open class SyntaxHighlightableEditText : EditText {
         val renderedLineBeginsActualLine = BooleanArray(lineCount)
         actualLineFromRenderedLine = IntArray(lineCount)
 
+        // iterate through rendered lines, and take note of ones that end with a newline char.
         for (i in 0 until lineCount) {
             lineContainsNewlineChar[i] = text[layout.getLineEnd(i) - 1] == '\n'
             if (lineContainsNewlineChar[i]) {
@@ -131,6 +144,7 @@ open class SyntaxHighlightableEditText : EditText {
             }
         }
 
+        // handle the case of the last line, which doesn't end with a newline char.
         var j = lineCount - 1
         while (j >= 0 && !lineContainsNewlineChar[j]) { j-- }
         renderedLineBeginsActualLine[j + 1] = true
