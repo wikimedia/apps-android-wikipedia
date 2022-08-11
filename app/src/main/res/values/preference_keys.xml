@@ -141,4 +141,5 @@
     <string name="preference_key_edit_syntax_highlight">editSyntaxHighlight</string>
     <string name="preference_key_edit_monospace_font">editMonospaceFont</string>
     <string name="preference_key_edit_line_numbers">editLineNumbers</string>
+    <string name="preference_key_edit_typing_suggestions">editTypingSuggestions</string>
 </resources>

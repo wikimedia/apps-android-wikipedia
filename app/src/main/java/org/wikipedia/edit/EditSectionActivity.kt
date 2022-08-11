@@ -9,6 +9,7 @@ import android.os.Handler
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.view.*
+import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -58,7 +59,6 @@ import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.EditNoticesDialog
-import org.wikipedia.views.ViewAnimations
 import org.wikipedia.views.ViewUtil
 import java.io.IOException
 import java.util.concurrent.TimeUnit
@@ -748,6 +748,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         binding.editSectionText.enqueueNoScrollingLayoutChange()
         updateTextSize()
         syntaxHighlighter.enabled = Prefs.editSyntaxHighlightEnabled
+        binding.editSectionText.inputType = EditorInfo.TYPE_CLASS_TEXT or EditorInfo.TYPE_TEXT_FLAG_MULTI_LINE or
+                (if (Prefs.editTypingSuggestionsEnabled) 0 else (EditorInfo.TYPE_TEXT_FLAG_NO_SUGGESTIONS or EditorInfo.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD))
         binding.editSectionText.typeface = if (Prefs.editMonoSpaceFontEnabled) Typeface.MONOSPACE else Typeface.DEFAULT
         binding.editSectionText.showLineNumbers = Prefs.editLineNumbersEnabled
         binding.editSectionText.invalidate()

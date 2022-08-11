@@ -613,4 +613,8 @@ object Prefs {
     var editLineNumbersEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_line_numbers, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_line_numbers, value)
+
+    var editTypingSuggestionsEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_typing_suggestions, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_typing_suggestions, value)
 }

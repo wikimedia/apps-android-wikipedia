@@ -455,6 +455,7 @@
     <string name="editing_syntax_highlight_label">Syntax highlighting</string>
     <string name="editing_line_numbers_label">Show line numbers</string>
     <string name="editing_monospace_font_label">Use monospace font</string>
+    <string name="editing_typing_suggestions">Show typing suggestions</string>
     <!-- /Theme -->
 
     <!-- Reading lists -->

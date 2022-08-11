@@ -114,6 +114,10 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             Prefs.editLineNumbersEnabled = isChecked
             callback()?.onEditingPrefsChanged()
         }
+        binding.typingSuggestionsSwitch.setOnCheckedChangeListener { _, isChecked ->
+            Prefs.editTypingSuggestionsEnabled = isChecked
+            callback()?.onEditingPrefsChanged()
+        }
 
         disableBackgroundDim()
         requireDialog().window?.let {
@@ -157,6 +161,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         binding.syntaxHighlightSwitch.isVisible = isEditing
         binding.monospaceFontSwitch.isVisible = isEditing
         binding.showLineNumbersSwitch.isVisible = isEditing
+        binding.typingSuggestionsSwitch.isVisible = isEditing
     }
 
     private fun onToggleDimImages(enabled: Boolean) {
@@ -226,6 +231,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         binding.syntaxHighlightSwitch.isChecked = Prefs.editSyntaxHighlightEnabled
         binding.monospaceFontSwitch.isChecked = Prefs.editMonoSpaceFontEnabled
         binding.showLineNumbersSwitch.isChecked = Prefs.editLineNumbersEnabled
+        binding.typingSuggestionsSwitch.isChecked = Prefs.editTypingSuggestionsEnabled
     }
 
     private fun updateMatchSystemThemeSwitch() {
