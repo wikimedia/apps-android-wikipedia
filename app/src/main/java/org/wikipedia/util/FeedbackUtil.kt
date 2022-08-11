@@ -191,7 +191,7 @@ object FeedbackUtil {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
             setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
             setArrowOrientationRules(ArrowOrientationRules.ALIGN_ANCHOR)
-            setArrowSize(24)
+            setArrowSize(16)
             setMarginLeft(8)
             setMarginRight(8)
             setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)
