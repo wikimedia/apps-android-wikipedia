@@ -167,6 +167,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         binding = ActivityEditSectionBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
+        supportActionBar?.elevation = DimenUtil.dpToPx(4f)
 
         pageTitle = intent.getParcelableExtra(EXTRA_TITLE)!!
         sectionID = intent.getIntExtra(EXTRA_SECTION_ID, -1)
