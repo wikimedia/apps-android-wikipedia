@@ -4,12 +4,12 @@ import android.graphics.Rect
 import android.view.ActionMode
 import android.view.MenuItem
 import android.view.View
-import org.wikipedia.edit.richtext.SpanExtents
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.views.FindInPageActionProvider
 import org.wikipedia.views.FindInPageActionProvider.FindInPageListener
+import java.util.*
 
 class FindInEditorActionProvider(private val scrollView: View,
                                  private val textView: SyntaxHighlightableEditText,
@@ -35,22 +35,22 @@ class FindInEditorActionProvider(private val scrollView: View,
 
     override fun onFindNextClicked() {
         currentResultIndex = if (currentResultIndex == resultPositions.size - 1) 0 else ++currentResultIndex
-        scrollAndHighlightCurrentResult()
+        scrollToCurrentResult()
     }
 
     override fun onFindNextLongClicked() {
         currentResultIndex = resultPositions.size - 1
-        scrollAndHighlightCurrentResult()
+        scrollToCurrentResult()
     }
 
     override fun onFindPrevClicked() {
         currentResultIndex = if (currentResultIndex == 0) resultPositions.size - 1 else --currentResultIndex
-        scrollAndHighlightCurrentResult()
+        scrollToCurrentResult()
     }
 
     override fun onFindPrevLongClicked() {
         currentResultIndex = 0
-        scrollAndHighlightCurrentResult()
+        scrollToCurrentResult()
     }
 
     override fun onCloseClicked() {
@@ -61,19 +61,21 @@ class FindInEditorActionProvider(private val scrollView: View,
     override fun onSearchTextChanged(text: String?) {
         searchQuery = if (text.isNullOrEmpty()) null else text
         currentResultIndex = 0
-        syntaxHighlighter.applyFindTextSyntax(searchQuery, object : SyntaxHighlighter.OnFindTextListener {
-            override fun findTextMatches(spanExtents: List<SpanExtents>) {
-                resultPositions.clear()
-                resultPositions.addAll(spanExtents.map { textView.text.getSpanStart(it) })
-                scrollToCurrentResult()
-            }
-        })
-    }
+        resultPositions.clear()
 
-    private fun scrollAndHighlightCurrentResult() {
+        searchQuery?.let {
+            val searchTextLower = it.lowercase(Locale.getDefault())
+            val textLower = textView.text.toString().lowercase(Locale.getDefault())
+            var position = 0
+            do {
+                position = textLower.indexOf(searchTextLower, position)
+                if (position >= 0) {
+                    resultPositions.add(position)
+                    position += searchTextLower.length
+                }
+            } while (position >= 0)
+        }
         scrollToCurrentResult()
-        textView.requestFocus()
-        syntaxHighlighter.setSelectedMatchResultPosition(searchQuery, currentResultIndex)
     }
 
     private fun scrollToCurrentResult() {
@@ -83,5 +85,6 @@ class FindInEditorActionProvider(private val scrollView: View,
         val r = Rect()
         textView.getFocusedRect(r)
         scrollView.scrollTo(0, r.top - DimenUtil.roundedDpToPx(32f))
+        syntaxHighlighter.setSearchQueryInfo(resultPositions, searchQuery.orEmpty().length, currentResultIndex)
     }
 }

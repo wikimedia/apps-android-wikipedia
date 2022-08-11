@@ -20,10 +20,6 @@ class SyntaxHighlighter(
     private val textBox: SyntaxHighlightableEditText,
     private val scrollView: NestedScrollView) {
 
-    interface OnFindTextListener {
-        fun findTextMatches(spanExtents: List<SpanExtents>)
-    }
-
     private val syntaxRules = listOf(
             SyntaxRule("{{", "}}", SyntaxRuleStyle.TEMPLATE),
             SyntaxRule("[[", "]]", SyntaxRuleStyle.INTERNAL_LINK),
@@ -46,6 +42,10 @@ class SyntaxHighlighter(
     private val disposables = CompositeDisposable()
     private var currentHighlightTask: SyntaxHighlightTask? = null
 
+    private var searchQueryPositions: List<Int>? = null
+    private var searchQueryLength = 0
+    private var searchQueryPositionIndex = 0
+
     var enabled = true
         set(value) {
             field = value
@@ -54,23 +54,20 @@ class SyntaxHighlighter(
                 disposables.clear()
                 textBox.text.getSpans<SpanExtents>().forEach { textBox.text.removeSpan(it) }
             } else {
-                runHighlightTasks(500)
+                runHighlightTasks(HIGHLIGHT_DELAY_MILLIS)
             }
         }
 
     init {
-        textBox.doAfterTextChanged { runHighlightTasks(1000) }
+        textBox.doAfterTextChanged { runHighlightTasks(HIGHLIGHT_DELAY_MILLIS * 2) }
         textBox.scrollView = scrollView
 
         scrollView.setOnScrollChangeListener { _, _, _, _, _ ->
-            runHighlightTasks(500)
+            runHighlightTasks(HIGHLIGHT_DELAY_MILLIS)
         }
     }
 
-    private fun runHighlightTasks(delayMillis: Long,
-                                  searchText: String? = null,
-                                  searchTextIndex: Int = 0,
-                                  findTextListener: OnFindTextListener? = null) {
+    private fun runHighlightTasks(delayMillis: Long) {
 
         currentHighlightTask?.cancel()
         disposables.clear()
@@ -97,8 +94,8 @@ class SyntaxHighlighter(
                     currentHighlightTask = SyntaxHighlightTask(textToHighlight, firstVisibleIndex)
 
                     Observable.zip<MutableList<SpanExtents>, List<SpanExtents>, List<SpanExtents>>(Observable.fromCallable(currentHighlightTask!!),
-                            if (searchText.isNullOrEmpty()) Observable.just(emptyList())
-                            else Observable.fromCallable(SyntaxHighlightSearchMatchesTask(textBox.text, searchText, searchTextIndex))) { f, s ->
+                            if (searchQueryPositions.isNullOrEmpty()) Observable.just(emptyList())
+                            else Observable.fromCallable(SyntaxHighlightSearchMatchesTask(firstVisibleIndex, textToHighlight.length))) { f, s ->
                         f.addAll(s)
                         f
                     }
@@ -124,28 +121,23 @@ class SyntaxHighlighter(
                     }
                     oldSpans.removeAll(dupes)
 
-                    for (sp in oldSpans) {
-                        textBox.text.removeSpan(sp)
-                    }
-                    val findTextList = newSpans
-                            .onEach { textBox.text.setSpan(it, it.start, it.end, Spanned.SPAN_INCLUSIVE_INCLUSIVE) }
-                            .filter { it.syntaxRule.spanStyle == SyntaxRuleStyle.SEARCH_MATCHES } // and add our new spans
+                    oldSpans.forEach { textBox.text.removeSpan(it) }
+                    newSpans.forEach { textBox.text.setSpan(it, it.start, it.end, Spanned.SPAN_INCLUSIVE_INCLUSIVE) }
 
-                    if (!searchText.isNullOrEmpty()) {
-                        findTextListener?.findTextMatches(findTextList)
-                    }
                     time = System.currentTimeMillis() - time
-
                     L.d("Took $time ms to remove ${oldSpans.size} spans and add ${newSpans.size} new.")
                 }) { L.e(it) })
     }
 
-    fun applyFindTextSyntax(searchText: String?, listener: OnFindTextListener?) {
-        runHighlightTasks(500, searchText, 0, listener)
+    fun setSearchQueryInfo(searchQueryPositions: List<Int>?, searchQueryLength: Int, searchQueryPositionIndex: Int) {
+        this.searchQueryPositions = searchQueryPositions
+        this.searchQueryLength = searchQueryLength
+        this.searchQueryPositionIndex = searchQueryPositionIndex
+        runHighlightTasks(0)
     }
 
-    fun setSelectedMatchResultPosition(searchText: String?, searchTextIndex: Int) {
-        runHighlightTasks(0, searchText, searchTextIndex)
+    fun clearSearchQueryInfo() {
+        setSearchQueryInfo(null, 0, 0)
     }
 
     fun cleanup() {
@@ -236,31 +228,30 @@ class SyntaxHighlighter(
         }
     }
 
-    private inner class SyntaxHighlightSearchMatchesTask constructor(text: CharSequence, searchText: String, private val selectedMatchResultPosition: Int) : Callable<List<SpanExtents>> {
-        private val searchText = searchText.lowercase(Locale.getDefault())
-        private val text = text.toString().lowercase(Locale.getDefault())
-
+    private inner class SyntaxHighlightSearchMatchesTask constructor(private val startOffset: Int, private val textLength: Int) : Callable<List<SpanExtents>> {
         override fun call(): List<SpanExtents> {
             val spansToSet = mutableListOf<SpanExtents>()
             val syntaxItem = SyntaxRule("", "", SyntaxRuleStyle.SEARCH_MATCHES)
-            var position = 0
-            var matches = 0
-            do {
-                position = text.indexOf(searchText, position)
-                if (position >= 0) {
-                    val newSpanInfo = if (matches == selectedMatchResultPosition) {
-                        SyntaxRuleStyle.SEARCH_MATCH_SELECTED.createSpan(context, position, syntaxItem)
-                    } else {
-                        SyntaxRuleStyle.SEARCH_MATCHES.createSpan(context, position, syntaxItem)
+
+            searchQueryPositions?.let {
+                for (i in it.indices) {
+                    if (it[i] >= startOffset && it[i] < startOffset + textLength) {
+                        val newSpanInfo = if (i == searchQueryPositionIndex) {
+                            SyntaxRuleStyle.SEARCH_MATCH_SELECTED.createSpan(context, it[i], syntaxItem)
+                        } else {
+                            SyntaxRuleStyle.SEARCH_MATCHES.createSpan(context, it[i], syntaxItem)
+                        }
+                        newSpanInfo.start = it[i]
+                        newSpanInfo.end = it[i] + searchQueryLength
+                        spansToSet.add(newSpanInfo)
                     }
-                    newSpanInfo.start = position
-                    newSpanInfo.end = position + searchText.length
-                    spansToSet.add(newSpanInfo)
-                    position += searchText.length
-                    matches++
                 }
-            } while (position >= 0)
+            }
             return spansToSet
         }
+    }
+
+    companion object {
+        const val HIGHLIGHT_DELAY_MILLIS = 500L
     }
 }

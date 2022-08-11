@@ -519,7 +519,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             }
 
             override fun onDestroyActionMode(mode: ActionMode) {
-                syntaxHighlighter.applyFindTextSyntax(null, null)
+                syntaxHighlighter.clearSearchQueryInfo()
                 binding.editSectionText.setSelection(binding.editSectionText.selectionStart,
                         binding.editSectionText.selectionStart)
             }
