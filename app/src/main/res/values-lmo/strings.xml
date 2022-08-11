@@ -63,7 +63,7 @@
   <string name="menu_long_press_open_in_new_tab">Derva in \'na scheda noeuva</string>
   <string name="menu_long_press_copy_page">Copia l\'adress del conligament</string>
   <string name="menu_text_select_define">Definizzion</string>
-  <string name="on_this_day_page_share">Spartiss in gir</string>
+  <string name="on_this_day_page_share">Condivid</string>
   <string name="reading_list_page_share">Spartiss in \'na lista de lettura</string>
   <string name="menu_text_select_edit_here">Modifega chichinscì</string>
   <string name="last_updated_text">Darera atualizazzion %s</string>
@@ -98,7 +98,7 @@
   <string name="edit_section_captcha_request_an_account_message">Te riesset minga a vedè l\'imagin? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Ciama on utenza&lt;/a&gt;</string>
   <string name="title_captcha">Met denter el CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toca el CAPTCHA per caregà de noeuv</string>
-  <string name="nav_item_login">Va dent in Wikipedia</string>
+  <string name="nav_item_login">Và dent in Wikipedia</string>
   <string name="login_username_hint">Nom de l\'utent</string>
   <string name="login_password_hint">Parolla ciav</string>
   <string name="account_creation_password_hint">Parolla ciav</string>
@@ -217,7 +217,7 @@
   <string name="edit_summary_tag_other">Alter</string>
   <string name="edit_summary_tag_other_hint">Alter manere cont i quae te podet migliorà la pagina</string>
   <string name="edit_conflict_title">Conflit de edizzion</string>
-  <string name="edit_conflict_message">La pagina l\'è stada sgiamò modifica de un\'alter utent e l\'è in confrlit con la toa modifica. Copia i modifiche, torna indrée e sgiorna la pagina, quindi proeuva a modificà de noeuv.</string>
+  <string name="edit_conflict_message">La pagina l\'è stada sgiamò modifica de un\'alter utent e l\'è in conflit con la toa modifica. Copia i modifiche, torna indrée e atualiza la pagina, quindi proeuva a modificà de noeuv.</string>
   <string name="find_next">Troeuva el prossim</string>
   <string name="find_previous">Troeuva precedent</string>
   <string name="find_first_occurence">Questchì l\'è el prim avveniment</string>
@@ -238,7 +238,7 @@
   <string name="clear_recent_searches_confirm">Te se sicur de vorè scancelà la cronologia di ricerche recente?</string>
   <string name="clear_recent_searches_confirm_yes">Sì</string>
   <string name="clear_recent_searches_confirm_no">Nò</string>
-  <string name="gallery_menu_share">Spartiss con di alter person</string>
+  <string name="gallery_menu_share">Condivid</string>
   <string name="gallery_save_progress">Adrée a descaregà el fail...</string>
   <string name="gallery_save_success">Fail salvad.</string>
   <string name="gallery_edit_button_content_description">Modifega l\'insegna de l\'imagin</string>
