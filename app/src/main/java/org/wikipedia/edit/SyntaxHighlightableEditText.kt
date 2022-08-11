@@ -20,9 +20,6 @@ import android.view.inputmethod.InputConnection
 import android.widget.EditText
 import androidx.core.view.ViewCompat
 import org.wikipedia.R
-import org.wikipedia.edit.richtext.SpanExtents
-import org.wikipedia.edit.richtext.SyntaxHighlighter
-import org.wikipedia.edit.richtext.SyntaxHighlighter.OnSyntaxHighlightListener
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -32,13 +29,7 @@ import org.wikipedia.util.log.L
  */
 @SuppressLint("AppCompatCustomView")
 open class SyntaxHighlightableEditText : EditText {
-    interface FindListener {
-        fun onFinished(activeMatchOrdinal: Int, numberOfMatches: Int, textPosition: Int, findingNext: Boolean)
-    }
 
-    private val findInPageTextPositionList = mutableListOf<Int>()
-    private var findInPageCurrentTextPosition = 0
-    private var syntaxHighlighter: SyntaxHighlighter? = null
     private var prevLineCount = -1
     private var prevLineHeight = 0
     private val lineNumberPaint = TextPaint()
@@ -52,7 +43,6 @@ open class SyntaxHighlightableEditText : EditText {
     private lateinit var actualLineFromRenderedLine: IntArray
 
     var inputConnection: InputConnection? = null
-    var findListener: FindListener? = null
 
     var showLineNumbers = true
         set(value) {
@@ -212,61 +202,5 @@ open class SyntaxHighlightableEditText : EditText {
             it.sendKeyEvent(KeyEvent(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(),
                     KeyEvent.ACTION_UP, KeyEvent.KEYCODE_Z, 0, KeyEvent.META_CTRL_ON or KeyEvent.META_SHIFT_ON))
         }
-    }
-
-    fun findInEditor(targetText: String?, syntaxHighlighter: SyntaxHighlighter) {
-        findListener?.let { listener ->
-            this.syntaxHighlighter = syntaxHighlighter
-            findInPageCurrentTextPosition = 0
-            // apply find text syntax
-            syntaxHighlighter.applyFindTextSyntax(targetText, object : OnSyntaxHighlightListener {
-                override fun syntaxHighlightResults(spanExtents: List<SpanExtents>) { }
-
-                override fun findTextMatches(spanExtents: List<SpanExtents>) {
-                    findInPageTextPositionList.clear()
-                    findInPageTextPositionList.addAll(spanExtents.map { span -> text.getSpanStart(span) })
-                    onFinished(false, listener)
-                }
-            })
-        }
-    }
-
-    fun findNext() {
-        find(true)
-    }
-
-    fun findPrevious() {
-        find(false)
-    }
-
-    fun findFirstOrLast(isFirst: Boolean) {
-        findListener?.let {
-            findInPageCurrentTextPosition = if (isFirst) 0 else findInPageTextPositionList.size - 1
-            onFinished(true, it)
-            syntaxHighlighter!!.setSelectedMatchResultPosition(findInPageCurrentTextPosition)
-        }
-    }
-
-    private fun find(isNext: Boolean) {
-        findListener?.let {
-            findInPageCurrentTextPosition = if (isNext) {
-                if (findInPageCurrentTextPosition == findInPageTextPositionList.size - 1) 0 else ++findInPageCurrentTextPosition
-            } else {
-                if (findInPageCurrentTextPosition == 0) findInPageTextPositionList.size - 1 else --findInPageCurrentTextPosition
-            }
-            onFinished(true, it)
-            syntaxHighlighter!!.setSelectedMatchResultPosition(findInPageCurrentTextPosition)
-        }
-    }
-
-    fun clearMatches(syntaxHighlighter: SyntaxHighlighter) {
-        findInEditor(null, syntaxHighlighter)
-    }
-
-    private fun onFinished(findingNext: Boolean, listener: FindListener) {
-        listener.onFinished(findInPageCurrentTextPosition,
-                findInPageTextPositionList.size,
-                if (findInPageTextPositionList.isEmpty()) 0 else findInPageTextPositionList[findInPageCurrentTextPosition],
-                findingNext)
     }
 }

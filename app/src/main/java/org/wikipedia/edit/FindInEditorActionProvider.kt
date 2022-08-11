@@ -4,6 +4,7 @@ import android.graphics.Rect
 import android.view.ActionMode
 import android.view.MenuItem
 import android.view.View
+import org.wikipedia.edit.richtext.SpanExtents
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
@@ -14,6 +15,9 @@ class FindInEditorActionProvider(private val scrollView: View,
                                  private val textView: SyntaxHighlightableEditText,
                                  private val syntaxHighlighter: SyntaxHighlighter,
                                  private val actionMode: ActionMode) : FindInPageActionProvider(textView.context), FindInPageListener {
+
+    private val resultPositions = mutableListOf<Int>()
+    private var currentResultIndex = 0
     private var searchQuery: String? = null
 
     init {
@@ -29,37 +33,24 @@ class FindInEditorActionProvider(private val scrollView: View,
         return view
     }
 
-    private fun findInPage(text: String) {
-        textView.findListener = object : SyntaxHighlightableEditText.FindListener {
-            override fun onFinished(activeMatchOrdinal: Int, numberOfMatches: Int, textPosition: Int, findingNext: Boolean) {
-                setMatchesResults(activeMatchOrdinal, numberOfMatches)
-                textView.setSelection(textPosition, textPosition + text.length)
-                val r = Rect()
-                textView.getFocusedRect(r)
-                val scrollTopOffset = 32
-                scrollView.scrollTo(0, r.top - DimenUtil.roundedDpToPx(scrollTopOffset.toFloat()))
-                if (findingNext) {
-                    textView.requestFocus()
-                }
-            }
-        }
-        textView.findInEditor(text, syntaxHighlighter)
-    }
-
     override fun onFindNextClicked() {
-        textView.findNext()
+        currentResultIndex = if (currentResultIndex == resultPositions.size - 1) 0 else ++currentResultIndex
+        scrollAndHighlightCurrentResult()
     }
 
     override fun onFindNextLongClicked() {
-        textView.findFirstOrLast(false)
+        currentResultIndex = resultPositions.size - 1
+        scrollAndHighlightCurrentResult()
     }
 
     override fun onFindPrevClicked() {
-        textView.findPrevious()
+        currentResultIndex = if (currentResultIndex == 0) resultPositions.size - 1 else --currentResultIndex
+        scrollAndHighlightCurrentResult()
     }
 
     override fun onFindPrevLongClicked() {
-        textView.findFirstOrLast(true)
+        currentResultIndex = 0
+        scrollAndHighlightCurrentResult()
     }
 
     override fun onCloseClicked() {
@@ -68,12 +59,29 @@ class FindInEditorActionProvider(private val scrollView: View,
     }
 
     override fun onSearchTextChanged(text: String?) {
-        if (!text.isNullOrEmpty()) {
-            findInPage(text)
-        } else {
-            textView.clearMatches(syntaxHighlighter)
-            syntaxHighlighter.applyFindTextSyntax(text, null)
-        }
-        searchQuery = text
+        searchQuery = if (text.isNullOrEmpty()) null else text
+        currentResultIndex = 0
+        syntaxHighlighter.applyFindTextSyntax(searchQuery, object : SyntaxHighlighter.OnFindTextListener {
+            override fun findTextMatches(spanExtents: List<SpanExtents>) {
+                resultPositions.clear()
+                resultPositions.addAll(spanExtents.map { textView.text.getSpanStart(it) })
+                scrollToCurrentResult()
+            }
+        })
+    }
+
+    private fun scrollAndHighlightCurrentResult() {
+        scrollToCurrentResult()
+        textView.requestFocus()
+        syntaxHighlighter.setSelectedMatchResultPosition(searchQuery, currentResultIndex)
+    }
+
+    private fun scrollToCurrentResult() {
+        setMatchesResults(currentResultIndex, resultPositions.size)
+        val textPosition = if (resultPositions.isEmpty()) 0 else resultPositions[currentResultIndex]
+        textView.setSelection(textPosition, textPosition + searchQuery.orEmpty().length)
+        val r = Rect()
+        textView.getFocusedRect(r)
+        scrollView.scrollTo(0, r.top - DimenUtil.roundedDpToPx(32f))
     }
 }

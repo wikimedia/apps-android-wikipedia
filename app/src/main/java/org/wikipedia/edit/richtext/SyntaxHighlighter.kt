@@ -18,11 +18,9 @@ import java.util.concurrent.TimeUnit
 class SyntaxHighlighter(
     private var context: Context,
     private val textBox: SyntaxHighlightableEditText,
-    private val scrollView: NestedScrollView,
-    private var syntaxHighlightListener: OnSyntaxHighlightListener? = null
-) {
-    interface OnSyntaxHighlightListener {
-        fun syntaxHighlightResults(spanExtents: List<SpanExtents>)
+    private val scrollView: NestedScrollView) {
+
+    interface OnFindTextListener {
         fun findTextMatches(spanExtents: List<SpanExtents>)
     }
 
@@ -45,8 +43,6 @@ class SyntaxHighlighter(
             SyntaxRule("==", "==", SyntaxRuleStyle.HEADING_LARGE),
     )
 
-    private var searchText: String? = null
-    private var selectedMatchResultPosition = 0
     private val disposables = CompositeDisposable()
     private var currentHighlightTask: SyntaxHighlightTask? = null
 
@@ -71,7 +67,11 @@ class SyntaxHighlighter(
         }
     }
 
-    private fun runHighlightTasks(delayMillis: Long) {
+    private fun runHighlightTasks(delayMillis: Long,
+                                  searchText: String? = null,
+                                  searchTextIndex: Int = 0,
+                                  findTextListener: OnFindTextListener? = null) {
+
         currentHighlightTask?.cancel()
         disposables.clear()
         if (!enabled) {
@@ -93,15 +93,12 @@ class SyntaxHighlighter(
                     val firstVisibleIndex = textBox.layout.getLineStart(firstVisibleLine)
                     val lastVisibleIndex = textBox.layout.getLineEnd(lastVisibleLine)
 
-                    L.d(">>> $firstVisibleLine : $lastVisibleLine")
-
                     val textToHighlight = textBox.text.substring(firstVisibleIndex, lastVisibleIndex)
-
                     currentHighlightTask = SyntaxHighlightTask(textToHighlight, firstVisibleIndex)
 
                     Observable.zip<MutableList<SpanExtents>, List<SpanExtents>, List<SpanExtents>>(Observable.fromCallable(currentHighlightTask!!),
                             if (searchText.isNullOrEmpty()) Observable.just(emptyList())
-                            else Observable.fromCallable(SyntaxHighlightSearchMatchesTask(textBox.text, searchText!!, selectedMatchResultPosition))) { f, s ->
+                            else Observable.fromCallable(SyntaxHighlightSearchMatchesTask(textBox.text, searchText, searchTextIndex))) { f, s ->
                         f.addAll(s)
                         f
                     }
@@ -110,7 +107,6 @@ class SyntaxHighlighter(
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result ->
-                    syntaxHighlightListener?.syntaxHighlightResults(result)
                     textBox.enqueueNoScrollingLayoutChange()
 
                     var time = System.currentTimeMillis()
@@ -136,7 +132,7 @@ class SyntaxHighlighter(
                             .filter { it.syntaxRule.spanStyle == SyntaxRuleStyle.SEARCH_MATCHES } // and add our new spans
 
                     if (!searchText.isNullOrEmpty()) {
-                        syntaxHighlightListener?.findTextMatches(findTextList)
+                        findTextListener?.findTextMatches(findTextList)
                     }
                     time = System.currentTimeMillis() - time
 
@@ -144,16 +140,12 @@ class SyntaxHighlighter(
                 }) { L.e(it) })
     }
 
-    fun applyFindTextSyntax(searchText: String?, listener: OnSyntaxHighlightListener?) {
-        this.searchText = searchText
-        syntaxHighlightListener = listener
-        setSelectedMatchResultPosition(0)
-        runHighlightTasks(500)
+    fun applyFindTextSyntax(searchText: String?, listener: OnFindTextListener?) {
+        runHighlightTasks(500, searchText, 0, listener)
     }
 
-    fun setSelectedMatchResultPosition(selectedMatchResultPosition: Int) {
-        this.selectedMatchResultPosition = selectedMatchResultPosition
-        runHighlightTasks(0)
+    fun setSelectedMatchResultPosition(searchText: String?, searchTextIndex: Int) {
+        runHighlightTasks(0, searchText, searchTextIndex)
     }
 
     fun cleanup() {
