@@ -41,11 +41,7 @@ class MwServiceError(val code: String? = null,
     }
 
     @Serializable
-    class Data(
-        val messages: List<Message>? = null,
-        val blockinfo: BlockInfo? = null,
-        val abusefilter: AbuseFilter? = null
-    )
+    class Data(val messages: List<Message>? = null, val blockinfo: BlockInfo? = null)
 
     @Serializable
     class Message(val name: String?, val html: String = "")
@@ -75,12 +71,5 @@ class MwServiceError(val code: String? = null,
                 val expiry = DateUtil.iso8601DateParse(blockExpiry)
                 return expiry.after(now)
             }
-    }
-
-    @Serializable
-    open class AbuseFilter {
-        val id: String = ""
-        val description: String = ""
-        val actions: List<String> = emptyList()
     }
 }
