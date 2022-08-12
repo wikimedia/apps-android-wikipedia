@@ -62,6 +62,8 @@ class InsertMediaActivity : BaseActivity() {
             binding.refreshView.isRefreshing = false
             insertMediaAdapter.refresh()
         }
+
+        binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(this@InsertMediaActivity, R.attr.color_group_22))
         binding.recyclerView.layoutManager = GridLayoutManager(this, 3)
         binding.recyclerView.adapter = insertMediaConcatAdapter
 
