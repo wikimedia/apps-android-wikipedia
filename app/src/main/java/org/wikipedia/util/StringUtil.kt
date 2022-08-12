@@ -250,4 +250,17 @@ object StringUtil {
     fun getDiffBytesText(context: Context, diffSize: Int): String {
         return context.resources.getQuantityString(R.plurals.edit_diff_bytes, diffSize.absoluteValue, if (diffSize > 0) "+$diffSize" else diffSize.toString())
     }
+
+    fun parseLinkNameFromWikitext(text: String): String {
+        var linkText = ""
+        if (text.length <= 2 || !text.startsWith("[[")) { return linkText }
+
+        var i = 2
+        while (i < text.length) {
+            if (text[i] == ']' || text[i] == '|') { break }
+            linkText += text[i]
+            i++
+        }
+        return linkText
+    }
 }

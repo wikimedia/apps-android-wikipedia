@@ -21,6 +21,9 @@ import android.view.inputmethod.InputConnection
 import android.widget.EditText
 import androidx.core.view.ViewCompat
 import org.wikipedia.R
+import org.wikipedia.edit.richtext.SpanExtents
+import org.wikipedia.edit.richtext.SyntaxRule
+import org.wikipedia.edit.richtext.SyntaxRuleStyle
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -79,6 +82,21 @@ open class SyntaxHighlightableEditText : EditText {
                 allowScrollToCursor = true
             }
         }, 1000)
+    }
+
+    override fun onSelectionChanged(selStart: Int, selEnd: Int) {
+        super.onSelectionChanged(selStart, selEnd)
+        if (selStart != selEnd) { return }
+
+        // Check if the cursor is inside a Link span, and if so, notify our callback.
+        val spans = text.getSpans(selStart, selEnd, SpanExtents::class.java)
+
+        val linkSpan = spans.toList().lastOrNull { it.syntaxRule.spanStyle == SyntaxRuleStyle.INTERNAL_LINK }
+        linkSpan?.let {
+            val linkText = text.substring(text.getSpanStart(linkSpan), text.getSpanEnd(linkSpan))
+
+            L.d(">>>>>>> $linkText")
+        }
     }
 
     override fun bringPointIntoView(offset: Int): Boolean {
