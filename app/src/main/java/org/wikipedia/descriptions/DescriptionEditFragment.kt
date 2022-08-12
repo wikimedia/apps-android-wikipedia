@@ -103,7 +103,7 @@ class DescriptionEditFragment : Fragment() {
         Prefs.isSuggestedEditsReactivationPassStageOne = false
         SuggestedEditsFunnel.get().success(action)
         binding.fragmentDescriptionEditView.setSaveState(false)
-        if (Prefs.showDescriptionEditSuccessPrompt && invokeSource == InvokeSource.PAGE_ACTIVITY) {
+        if (Prefs.showDescriptionEditSuccessPrompt && invokeSource != InvokeSource.SUGGESTED_EDITS) {
             editSuccessLauncher.launch(DescriptionEditSuccessActivity.newIntent(requireContext(), invokeSource))
             Prefs.showDescriptionEditSuccessPrompt = false
         } else {
