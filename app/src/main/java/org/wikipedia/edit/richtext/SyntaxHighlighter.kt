@@ -42,6 +42,8 @@ class SyntaxHighlighter(
 
     private val disposables = CompositeDisposable()
     private var currentHighlightTask: SyntaxHighlightTask? = null
+    private var lastScrollY = -1
+    private val highlightOnScrollRunnable = Runnable { postHighlightOnScroll() }
 
     private var searchQueryPositions: List<Int>? = null
     private var searchQueryLength = 0
@@ -59,13 +61,11 @@ class SyntaxHighlighter(
             }
         }
 
+
     init {
         textBox.doAfterTextChanged { runHighlightTasks(HIGHLIGHT_DELAY_MILLIS * 2) }
         textBox.scrollView = scrollView
-
-        scrollView.setOnScrollChangeListener { _, _, _, _, _ ->
-            runHighlightTasks(HIGHLIGHT_DELAY_MILLIS)
-        }
+        postHighlightOnScroll()
     }
 
     private fun runHighlightTasks(delayMillis: Long) {
@@ -142,8 +142,17 @@ class SyntaxHighlighter(
     }
 
     fun cleanup() {
+        scrollView.removeCallbacks(highlightOnScrollRunnable)
         disposables.clear()
         textBox.text.clearSpans()
+    }
+
+    private fun postHighlightOnScroll() {
+        if (lastScrollY != scrollView.scrollY) {
+            lastScrollY = scrollView.scrollY
+            runHighlightTasks(0)
+        }
+        scrollView.postDelayed(highlightOnScrollRunnable, HIGHLIGHT_DELAY_MILLIS)
     }
 
     private inner class SyntaxHighlightTask constructor(private val text: CharSequence, private val startOffset: Int) : Callable<MutableList<SpanExtents>> {
