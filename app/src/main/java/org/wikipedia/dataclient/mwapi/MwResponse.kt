@@ -12,8 +12,8 @@ abstract class MwResponse {
 
     init {
         if (errors?.isNotEmpty() == true) {
-            // prioritize "blocked" errors over others.
-            throw MwException(errors.firstOrNull { it.title.contains("blocked") } ?: errors.first())
+            // prioritize "blocked" or "abusefilter" errors over others.
+            throw MwException(errors.firstOrNull { it.title.contains("blocked") || it.title.startsWith("abusefilter-") } ?: errors.first())
         }
     }
 }
