@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_width="140dp"
+    tools:layout_height="100dp"
+    tools:parentTag="android.widget.FrameLayout">
+
+    <ImageView
+        android:id="@+id/previewImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:contentDescription="@null" />
+
+    <LinearLayout
+        android:id="@+id/previewArticleContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp">
+
+        <TextView
+            android:id="@+id/previewArticleTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="?attr/material_theme_primary_color"
+            tools:text="Lorem ipsum" />
+
+        <TextView
+            android:id="@+id/previewArticleSummary"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:textSize="10sp"
+            android:textColor="?attr/material_theme_primary_color"
+            tools:text="Lorem ipsum" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/brokenLinkImage"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ic_link_off_24"
+        app:tint="?attr/colorError"
+        android:contentDescription="@null" />
+
+</merge>

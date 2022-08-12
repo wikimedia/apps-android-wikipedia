@@ -63,7 +63,7 @@ import org.wikipedia.views.ViewUtil
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
-class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
+class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, SyntaxHighlightableEditText.Listener {
     private lateinit var binding: ActivityEditSectionBinding
     private lateinit var funnel: EditFunnel
     private lateinit var textWatcher: TextWatcher
@@ -224,6 +224,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         binding.editKeyboardOverlayFormatting.callback = syntaxButtonCallback
         binding.editKeyboardOverlayHeadings.editText = binding.editSectionText
         binding.editKeyboardOverlayHeadings.callback = syntaxButtonCallback
+        binding.editSectionText.listener = this
+        binding.floatingPreview.isVisible = false
 
         binding.editSectionText.setOnClickListener { finishActionMode() }
         onEditingPrefsChanged()
@@ -721,21 +723,42 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
     }
 
-    companion object {
-        private const val EXTRA_KEY_SECTION_TEXT_MODIFIED = "sectionTextModified"
-        private const val EXTRA_KEY_TEMPORARY_WIKITEXT_STORED = "hasTemporaryWikitextStored"
-        private const val EXTRA_KEY_EDITING_ALLOWED = "editingAllowed"
-        const val EXTRA_TITLE = "org.wikipedia.edit_section.title"
-        const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
-        const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
-        const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight"
-
-        fun newIntent(context: Context, sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String? = null): Intent {
-            return Intent(context, EditSectionActivity::class.java)
-                .putExtra(EXTRA_SECTION_ID, sectionId)
-                .putExtra(EXTRA_SECTION_ANCHOR, sectionAnchor)
-                .putExtra(EXTRA_TITLE, title)
-                .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
+    override fun onInternalLinkSelected(text: String) {
+        if (text.isEmpty()) {
+            binding.floatingPreview.isVisible = false
+        } else {
+            val title = PageTitle(text, pageTitle.wikiSite)
+            if (title.isFilePage) {
+                disposables.add(
+                        ServiceFactory.get(title.wikiSite).getImageInfo(title.prefixedText, title.wikiSite.languageCode)
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe({
+                                    it.query?.firstPage()?.imageInfo()?.thumbUrl?.let { url ->
+                                        binding.floatingPreview.isVisible = true
+                                        binding.floatingPreview.showImagePreview(url)
+                                    }
+                                }, {
+                                    binding.floatingPreview.isVisible = true
+                                    binding.floatingPreview.showBrokenLink()
+                                    L.e(it)
+                                })
+                )
+            } else {
+                disposables.add(
+                        ServiceFactory.getRest(title.wikiSite).getSummary(null, title.prefixedText)
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe({
+                                    binding.floatingPreview.isVisible = true
+                                    binding.floatingPreview.showArticlePreview(it.displayTitle, it.extract.orEmpty())
+                                }, {
+                                    binding.floatingPreview.isVisible = true
+                                    binding.floatingPreview.showBrokenLink()
+                                    L.e(it)
+                                })
+                )
+            }
         }
     }
 
@@ -754,5 +777,23 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         binding.editSectionText.typeface = if (Prefs.editMonoSpaceFontEnabled) Typeface.MONOSPACE else Typeface.DEFAULT
         binding.editSectionText.showLineNumbers = Prefs.editLineNumbersEnabled
         binding.editSectionText.invalidate()
+    }
+
+    companion object {
+        private const val EXTRA_KEY_SECTION_TEXT_MODIFIED = "sectionTextModified"
+        private const val EXTRA_KEY_TEMPORARY_WIKITEXT_STORED = "hasTemporaryWikitextStored"
+        private const val EXTRA_KEY_EDITING_ALLOWED = "editingAllowed"
+        const val EXTRA_TITLE = "org.wikipedia.edit_section.title"
+        const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
+        const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
+        const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight"
+
+        fun newIntent(context: Context, sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String? = null): Intent {
+            return Intent(context, EditSectionActivity::class.java)
+                .putExtra(EXTRA_SECTION_ID, sectionId)
+                .putExtra(EXTRA_SECTION_ANCHOR, sectionAnchor)
+                .putExtra(EXTRA_TITLE, title)
+                .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
+        }
     }
 }

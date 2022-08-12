@@ -22,10 +22,10 @@ import android.widget.EditText
 import androidx.core.view.ViewCompat
 import org.wikipedia.R
 import org.wikipedia.edit.richtext.SpanExtents
-import org.wikipedia.edit.richtext.SyntaxRule
 import org.wikipedia.edit.richtext.SyntaxRuleStyle
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 /**
@@ -38,6 +38,10 @@ import org.wikipedia.util.log.L
 @SuppressLint("AppCompatCustomView")
 open class SyntaxHighlightableEditText : EditText {
 
+    interface Listener {
+        fun onInternalLinkSelected(text: String)
+    }
+
     private var prevLineCount = -1
     private val lineNumberPaint = TextPaint()
     private val lineNumberBackgroundPaint = Paint()
@@ -46,10 +50,12 @@ open class SyntaxHighlightableEditText : EditText {
     private val paddingWithLineNumbers = DimenUtil.roundedDpToPx(36f)
     private val lineNumberGapWidth = DimenUtil.roundedDpToPx(8f)
     private var allowScrollToCursor = true
+    private var curLinkUnderCursor = ""
 
     lateinit var scrollView: View
     private lateinit var actualLineFromRenderedLine: IntArray
 
+    var listener: Listener? = null
     var inputConnection: InputConnection? = null
 
     var showLineNumbers = true
@@ -86,16 +92,17 @@ open class SyntaxHighlightableEditText : EditText {
 
     override fun onSelectionChanged(selStart: Int, selEnd: Int) {
         super.onSelectionChanged(selStart, selEnd)
-        if (selStart != selEnd) { return }
+        if (selStart != selEnd || listener == null) { return }
 
         // Check if the cursor is inside a Link span, and if so, notify our callback.
-        val spans = text.getSpans(selStart, selEnd, SpanExtents::class.java)
-
-        val linkSpan = spans.toList().lastOrNull { it.syntaxRule.spanStyle == SyntaxRuleStyle.INTERNAL_LINK }
-        linkSpan?.let {
-            val linkText = text.substring(text.getSpanStart(linkSpan), text.getSpanEnd(linkSpan))
-
-            L.d(">>>>>>> $linkText")
+        var linkText = ""
+        text.getSpans(selStart, selEnd, SpanExtents::class.java).toList()
+                .lastOrNull { it.syntaxRule.spanStyle == SyntaxRuleStyle.INTERNAL_LINK }?.let {
+                    linkText = StringUtil.parseLinkNameFromWikitext(text.substring(text.getSpanStart(it), text.getSpanEnd(it))).trim()
+                }
+        if (linkText != curLinkUnderCursor) {
+            curLinkUnderCursor = linkText
+            listener?.onInternalLinkSelected(curLinkUnderCursor)
         }
     }
 

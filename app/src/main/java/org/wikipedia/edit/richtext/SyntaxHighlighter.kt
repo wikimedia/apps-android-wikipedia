@@ -61,7 +61,6 @@ class SyntaxHighlighter(
             }
         }
 
-
     init {
         textBox.doAfterTextChanged { runHighlightTasks(HIGHLIGHT_DELAY_MILLIS * 2) }
         textBox.scrollView = scrollView
