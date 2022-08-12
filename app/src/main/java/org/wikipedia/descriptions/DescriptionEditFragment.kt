@@ -336,6 +336,7 @@ class DescriptionEditFragment : Fragment() {
                             editFailed(RuntimeException("Received unrecognized description edit response"), true)
                         }
                     }) { caught ->
+                        L.d("Error message " + caught)
                         if (caught is MwException) {
                             val error = caught.error
                             if (error.badLoginState() || error.badToken()) {
