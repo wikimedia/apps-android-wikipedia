@@ -1275,10 +1275,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             updateProgressBar(false)
         }
 
-        override fun onError() {
+        override fun onError(code: Int, extra: Int) {
             if (avPlayer?.isPlaying == true) {
                 avPlayer?.stop()
             }
+            FeedbackUtil.showMessage(this@PageFragment, getString(R.string.media_playback_error, code.toString()))
             updateProgressBar(false)
         }
     }

@@ -61,7 +61,7 @@ class MediaPlayerImplementation {
         }
 
         override fun onError(mp: MediaPlayer, what: Int, extra: Int): Boolean {
-            callback.onError()
+            callback.onError(what, extra)
             return true
         }
     }
