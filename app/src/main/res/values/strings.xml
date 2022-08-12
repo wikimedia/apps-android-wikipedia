@@ -1271,6 +1271,6 @@
     <string name="search_namespaces">Namespaces</string>
     <string name="revision_initial_none">None (this is the first revision)</string>
     <string name="archive_empty">No archived pages found.</string>
-    <string name="media_playback_error">Error playing media: %s</string>
+    <string name="media_playback_error">Error playing media.</string>
 
 </resources>

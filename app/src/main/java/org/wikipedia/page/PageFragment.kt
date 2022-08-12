@@ -1279,7 +1279,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             if (avPlayer?.isPlaying == true) {
                 avPlayer?.stop()
             }
-            FeedbackUtil.showMessage(this@PageFragment, getString(R.string.media_playback_error, code.toString()))
+            FeedbackUtil.showMessage(this@PageFragment, R.string.media_playback_error)
             updateProgressBar(false)
         }
     }
