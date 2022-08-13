@@ -85,8 +85,6 @@ class InsertMediaActivity : BaseActivity() {
         insertMediaSettingsFragment = supportFragmentManager.findFragmentById(R.id.insertMediaSettingsFragment) as InsertMediaSettingsFragment
         insertMediaAdvancedSettingsFragment = supportFragmentManager.findFragmentById(R.id.insertMediaAdvancedSettingsFragment) as InsertMediaAdvancedSettingsFragment
 
-        binding.licenseContainer.setOnClickListener { onLicenseClick() }
-        binding.licenseContainer.setOnLongClickListener { onLicenseLongClick() }
         binding.searchInputField.text = StringUtil.removeUnderscores(viewModel.searchQuery)
         binding.searchContainer.setOnClickListener {
             if (actionMode == null) {
@@ -94,7 +92,6 @@ class InsertMediaActivity : BaseActivity() {
             }
         }
         adjustRefreshViewLayoutParams(false)
-        DeviceUtil.setContextClickAsLongClick(binding.licenseContainer)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -211,55 +208,10 @@ class InsertMediaActivity : BaseActivity() {
             binding.emptyImageContainer.isVisible = false
             binding.selectedImageContainer.isVisible = true
             ViewUtil.loadImageWithRoundedCorners(binding.selectedImage, it.pageTitle.thumbUrl)
-            binding.selectedImageDescription.text = StringUtil.removeHTMLTags(it.imageInfo?.metadata?.imageDescription().orEmpty().ifEmpty { it.pageTitle.displayText })
-            setLicenseInfo(it)
         } ?: run {
             binding.emptyImageContainer.isVisible = true
             binding.selectedImageContainer.isVisible = false
         }
-    }
-
-    private fun setLicenseInfo(mediaSearchResult: MediaSearchResult) {
-        val metadata = mediaSearchResult.imageInfo?.metadata ?: return
-
-        val license = ImageLicense(metadata.license(), metadata.licenseShortName(), metadata.licenseUrl())
-
-        if (license.licenseIcon == R.drawable.ic_license_by) {
-            binding.licenseIcon.setImageResource(R.drawable.ic_license_cc)
-            binding.licenseIconBy.setImageResource(R.drawable.ic_license_by)
-            binding.licenseIconBy.visibility = View.VISIBLE
-            binding.licenseIconSa.setImageResource(R.drawable.ic_license_sharealike)
-            binding.licenseIconSa.visibility = View.VISIBLE
-        } else {
-            binding.licenseIcon.setImageResource(license.licenseIcon)
-            binding.licenseIconBy.visibility = View.GONE
-            binding.licenseIconSa.visibility = View.GONE
-        }
-
-        binding.licenseIcon.contentDescription = metadata.licenseShortName().ifBlank {
-            getString(R.string.gallery_fair_use_license)
-        }
-        binding.licenseIcon.tag = metadata.licenseUrl()
-        val creditStr = metadata.artist().ifEmpty { metadata.credit() }
-
-        binding.creditText.text = StringUtil.fromHtml(creditStr.ifBlank { getString(R.string.gallery_uploader_unknown) })
-    }
-
-    private fun onLicenseClick() {
-        if (binding.licenseIcon.contentDescription == null) {
-            return
-        }
-        FeedbackUtil.showMessageAsPlainText((binding.licenseIcon.context as Activity),
-            binding.licenseIcon.contentDescription)
-    }
-
-    private fun onLicenseLongClick(): Boolean {
-        val licenseUrl = binding.licenseIcon.tag as String
-        if (licenseUrl.isNotEmpty()) {
-            UriUtil.handleExternalLink(this@InsertMediaActivity,
-                Uri.parse(UriUtil.resolveProtocolRelativeUrl(licenseUrl)))
-        }
-        return true
     }
 
     private inner class LoadingItemAdapter(private val retry: () -> Unit) : LoadStateAdapter<LoadingViewHolder>() {
@@ -336,6 +288,8 @@ class InsertMediaActivity : BaseActivity() {
                     override fun onQueryTextFocusChange() {
                     }
                 })
+            searchActionProvider?.setQueryText(viewModel.searchQuery)
+            searchActionProvider?.selectAllQueryTexts()
             val menuItem = menu.add(searchHintString)
             MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
             actionMode = mode
@@ -358,7 +312,7 @@ class InsertMediaActivity : BaseActivity() {
         }
 
         override fun getSearchHintString(): String {
-            return viewModel.searchQuery
+            return StringUtil.removeUnderscores(viewModel.searchQuery)
         }
 
         override fun getParentContext(): Context {
