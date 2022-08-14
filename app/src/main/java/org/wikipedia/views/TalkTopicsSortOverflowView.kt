@@ -88,21 +88,21 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
     private fun setButtonsListener() {
         binding.sortByDatePublishedButton.setOnClickListener {
             dismissPopupWindowHost()
-            val ascendingOrder = currentSortMode != SORT_BY_DATE_PUBLISHED_DESCENDING
+            val ascendingOrder = currentSortMode == SORT_BY_DATE_PUBLISHED_ASCENDING
             funnel?.logSortOrderPublished(ascendingOrder)
-            callback?.sortByClicked(if (ascendingOrder) SORT_BY_DATE_PUBLISHED_ASCENDING else SORT_BY_DATE_PUBLISHED_DESCENDING)
+            callback?.sortByClicked(if (ascendingOrder) SORT_BY_DATE_PUBLISHED_DESCENDING else SORT_BY_DATE_PUBLISHED_ASCENDING)
         }
         binding.sortByTopicNameButton.setOnClickListener {
             dismissPopupWindowHost()
-            val ascendingOrder = currentSortMode != SORT_BY_TOPIC_NAME_DESCENDING
+            val ascendingOrder = currentSortMode == SORT_BY_TOPIC_NAME_ASCENDING
             funnel?.logSortOrderTopic(ascendingOrder)
-            callback?.sortByClicked(if (currentSortMode == SORT_BY_TOPIC_NAME_DESCENDING) SORT_BY_TOPIC_NAME_ASCENDING else SORT_BY_TOPIC_NAME_DESCENDING)
+            callback?.sortByClicked(if (ascendingOrder) SORT_BY_TOPIC_NAME_DESCENDING else SORT_BY_TOPIC_NAME_ASCENDING)
         }
         binding.sortByDateUpdatedButton.setOnClickListener {
             dismissPopupWindowHost()
-            val ascendingOrder = currentSortMode != SORT_BY_DATE_UPDATED_DESCENDING
+            val ascendingOrder = currentSortMode == SORT_BY_DATE_UPDATED_ASCENDING
             funnel?.logSortOrderUpdated(ascendingOrder)
-            callback?.sortByClicked(if (currentSortMode == SORT_BY_DATE_UPDATED_DESCENDING) SORT_BY_DATE_UPDATED_ASCENDING else SORT_BY_DATE_UPDATED_DESCENDING)
+            callback?.sortByClicked(if (ascendingOrder) SORT_BY_DATE_UPDATED_DESCENDING else SORT_BY_DATE_UPDATED_ASCENDING)
         }
     }
 

@@ -43,7 +43,7 @@ class PreferenceMultiLine : Preference {
 
     @SuppressLint("RestrictedApi")
     override fun performClick() {
-        BreadCrumbLogEvent.logSettingsSelection(context, key)
+        BreadCrumbLogEvent.logSettingsSelection(context, if (!key.isNullOrEmpty()) key else title.toString())
         super.performClick()
     }
 }
