@@ -60,7 +60,7 @@ object EventPlatformClient {
      */
     @Synchronized
     fun submit(event: Event) {
-        if (!SamplingController.isInSample(event) || (event is BreadCrumbLogEvent && ReleaseUtil.isProdRelease)) {
+        if (!SamplingController.isInSample(event)) {
             return
         }
         OutputBuffer.schedule(event)
@@ -308,16 +308,17 @@ object EventPlatformClient {
         }
 
         fun getSamplingId(unit: String): String {
-            if (unit === SamplingConfig.UNIT_SESSION) {
+            if (unit == SamplingConfig.UNIT_SESSION) {
                 return AssociationController.sessionId
             }
-            if (unit === SamplingConfig.UNIT_PAGEVIEW) {
+            if (unit == SamplingConfig.UNIT_PAGEVIEW) {
                 return AssociationController.pageViewId
             }
-            if (unit === SamplingConfig.UNIT_DEVICE) {
+            if (unit == SamplingConfig.UNIT_DEVICE) {
                 return Prefs.appInstallId.orEmpty()
             }
-            throw RuntimeException("Bad identifier type")
+            L.e("Bad identifier type")
+            return UUID.randomUUID().toString()
         }
     }
 }

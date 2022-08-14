@@ -304,7 +304,7 @@
   <string name="edit_summary_tag_other_hint">Andere Wege, wie du die Seite verbessert hast</string>
   <string name="edit_conflict_title">Bearbeitungskonflikt</string>
   <string name="edit_conflict_message">Die Seite wurde bereits von einem anderen Benutzer verändert und kollidiert mit deiner Bearbeitung. Bitte kopiere deine Bearbeitungen, gehe zurück, aktualisiere die Seite und versuche die Bearbeitung erneut.</string>
-  <string name="edit_notices">Bearbeitungsnotizen</string>
+  <string name="edit_notices">Bearbeitungshinweise</string>
   <string name="edit_notices_please_read">Bitte vor der Bearbeitung lesen</string>
   <string name="edit_notices_show_auto">Automatische Anzeige von Bearbeitungshinweisen</string>
   <string name="edit_notices_tooltip">Tippe auf diese Schaltfläche, um die Bearbeitungshinweise für diesen Artikel anzuzeigen.</string>
@@ -830,7 +830,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Mit dem Bearbeiten anfangen</string>
   <string name="description_edit_tutorial_promise">Ich verspreche, dass ich diese Funktion nicht missbrauchen werde.</string>
   <string name="customize_toolbar_title">Werkzeugleiste anpassen</string>
-  <string name="customize_toolbar_shortcut_description_text">Passe die untere Symbolleiste mit 5 Tastaturkürzel an, die du am hilfreichsten findest.</string>
+  <string name="customize_toolbar_shortcut_description_text">Passe die untere Symbolleiste mit 5 Tastaturkürzeln an, die du am hilfreichsten findest.</string>
   <string name="customize_toolbar_category_toolbar">Werkzeugleiste</string>
   <string name="customize_toolbar_category_menu">Menü</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Ziehen deine Lieblingsobjekte hierher 👋.</string>

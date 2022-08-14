@@ -86,12 +86,18 @@
   <string name="page_edit_history_activity_title">Versiegeschiedenis: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Lege bewerkingssamenvatting</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Zoek of filter bewerkingen</string>
   <string name="page_edit_history_filter_by">Filteren op</string>
   <string name="page_edit_history_filter_by_all">Alle bewerkingen (%s)</string>
+  <string name="page_edit_history_filter_by_user">Gebruikersbewerkingen (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonieme bewerkingen (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Botbewerkingen (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Statistieken van %1$s tot %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d bewerking sinds %2$s</item>
     <item quantity="other">%1$d bewerkingen sinds %2$s</item>
   </plurals>
+  <string name="page_edit_history_empty_search_message">Probeer &lt;a href=\"#\"&gt;filters&lt;/a&gt; te wijzigen om meer bewerkingen te zien</string>
   <string name="menu_page_show_tabs">Tabbladen weergeven</string>
   <string name="menu_page_other_languages">Taal wijzigen</string>
   <string name="menu_page_find_in_page">Zoek in artikel</string>
@@ -125,6 +131,7 @@
   <string name="on_this_day_page_share">Delen</string>
   <string name="reading_list_page_share">Delen</string>
   <string name="menu_text_select_edit_here">Hier bewerken</string>
+  <string name="menu_edit_article">Artikel bewerken</string>
   <string name="last_updated_text">%s voor het laatst bijgewerkt</string>
   <string name="talk_page_link_text">Bekijk overlegpagina</string>
   <string name="edit_history_link_text">Bekijk bewerkingsgeschiedenis</string>
@@ -134,6 +141,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie.</string>
   <string name="edit_save_action_license_anon">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie. Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt;, hebt u meer privacy.</string>
+  <string name="edit_anon_warning">Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u &lt;a href=\"https://#login\"&gt;inlogt&lt;/a&gt;, heeft u meer privacy.</string>
   <string name="preference_title_language">Wikipediatalen</string>
   <string name="langlinks_filter_hint">Zoeken</string>
   <string name="langlinks_empty">Deze pagina is niet beschikbaar in andere talen.</string>
@@ -827,6 +835,8 @@
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Sleep je favoriete items hierheen 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Reset naar standaard</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Houd het sleeppictogram ingedrukt om het item te verplaatsen</string>
+  <string name="customize_toolbar_item_default_tooltip">Druk op een item en sleep het om het te verplaatsen</string>
   <string name="suggested_edits_describe_articles">Beschrijf artikelen</string>
   <string name="suggested_edits_caption_images">Bijschrift afbeeldingen</string>
   <string name="suggested_edits_tag_images">Afbeeldingen labelen</string>
@@ -917,6 +927,7 @@
   <string name="suggested_edits_paused_message">Voorgestelde bewerkingen zijn gepauzeerd tot %1$s. Sorry %2$s, maar sommige van uw recente bijdragen zijn teruggedraaid.</string>
   <string name="suggested_edits_disabled_message">Voorgestelde bewerkingen is uitgeschakeld. Sorry %s, maar te veel van uw recente bijdragen zijn teruggedraaid.</string>
   <string name="suggested_edits_ip_blocked_message">Het lijkt erop dat uw IP-adres (of assortiment van IP-adressen) momenteel geblokkeerd is van het bewerken van Wikipedia.</string>
+  <string name="suggested_edits_gate_message">Sorry, %s, u moet ten minste drie bewerkingen rechtstreeks in een artikel maken om deze functie te gebruiken.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips en tricks voor bewerken</string>
   <string name="suggested_edits_help_page_link_text">Hulppagina voorgestelde bewerkingen</string>
   <string name="suggested_edits_edit_streak_label_text">Bewerkingen reeks</string>
@@ -1110,6 +1121,7 @@
   <string name="talk_edit_disclaimer">Dit is een overlegpagina. Respecteer de richtlijnen van de overlegpagina en vergeet niet om uw berichten te ondertekenen door vier tildes te typen: ~~~~ wanneer u een bericht plaatst met wikitekst.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/ Wikipedia:Talk_page_guidelines\"&gt;Richtlijnen voor overlegpagina\'s&lt;/a&gt; op de Engelstalige Wikipedia</string>
   <string name="talk_search_hint">Berichten zoeken</string>
   <string name="talk_search_topics_hint">Zoeken naar onderwerpen</string>
+  <string name="talk_search_find_in_talk_topics_hint">Zoek in overlegpagina-onderwerp</string>
   <string name="talk_overflow_sort_by">Sorteren op</string>
   <string name="talk_overflow_sort_date_published">Publicatiedatum</string>
   <string name="talk_overflow_sort_date_updated">Bijgewerkt op</string>
@@ -1168,6 +1180,11 @@
   <string name="revision_diff_line_nums">Regels %d–%d</string>
   <string name="revision_diff_line_added">Regel toegevoegd</string>
   <string name="revision_diff_line_removed">Regel verwijderd</string>
+  <string name="revision_diff_paragraph_added">Alinea toegevoegd</string>
+  <string name="revision_diff_paragraph_removed">Alinea verwijderd</string>
+  <string name="revision_undo_title">Bewerken ongedaan maken</string>
+  <string name="revision_undo_message">Hiermee worden de wijzigingen ongedaan gemaakt door de revisie(s) van het hier getoonde artikel.</string>
+  <string name="revision_undo_reason">Geef om door te gaan een reden op waarom u deze bewerking ongedaan wilt maken:</string>
   <string name="revision_undo_success">De versie is ongedaan gemaakt.</string>
   <string name="revision_rollback_dialog_title">weet je zeker dat je de bewerkingen wil terugdraaien?</string>
   <string name="revision_rollback_success">Bewerkingen omgedraaid.</string>
@@ -1199,6 +1216,8 @@
   <string name="page_no_categories">Deze pagina staat in geen enkele categorie.</string>
   <string name="category_tab_articles">Artikelen</string>
   <string name="category_tab_subcategories">Ondercategorieën</string>
+  <string name="category_empty">Geen artikelen gevonden in deze categorie.</string>
+  <string name="subcategory_empty">Geen subcategorieën gevonden in deze categorie.</string>
   <string name="search_namespaces">Naamruimten</string>
   <string name="revision_initial_none">Geen (dit is de eerste revisie)</string>
   <string name="archive_empty">Geen gearchiveerde pagina\'s gevonden.</string>
