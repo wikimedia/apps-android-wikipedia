@@ -12,7 +12,7 @@ import org.wikipedia.feed.mainpage.MainPageClient
 import org.wikipedia.feed.random.RandomClient
 import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient
 import org.wikipedia.model.EnumCode
-import org.wikipedia.model.EnumCodeMap
+import org.wikipedia.model.enumSetAllOf
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 
@@ -85,9 +85,7 @@ enum class FeedContentType(private val code: Int,
     }
 
     companion object {
-        private val MAP = EnumCodeMap(FeedContentType::class.java)
-
-        fun of(code: Int): FeedContentType { return MAP[code] }
+        private val SET = enumSetAllOf<FeedContentType>()
 
         val aggregatedLanguages: List<String>
             get() {

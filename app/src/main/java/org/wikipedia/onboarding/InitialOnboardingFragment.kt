@@ -16,7 +16,8 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.model.EnumCode
-import org.wikipedia.model.EnumCodeMap
+import org.wikipedia.model.enumSetAllOf
+import org.wikipedia.model.get
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
@@ -114,13 +115,14 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
         }
 
         companion object {
-            private val MAP = EnumCodeMap(OnboardingPage::class.java)
+            private val SET = enumSetAllOf<OnboardingPage>()
+
             fun of(code: Int): OnboardingPage {
-                return MAP[code]
+                return SET[code]
             }
 
             fun size(): Int {
-                return MAP.size()
+                return SET.size
             }
         }
     }

@@ -11,13 +11,12 @@ import org.wikipedia.notifications.NotificationFilterActivity
 import org.wikipedia.settings.Prefs
 
 class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REV_ID) {
-
     override fun preprocessSessionToken(eventData: JSONObject) {}
 
     fun done() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val notificationManagerCompat = NotificationManagerCompat.from(app)
-            val toggleMap = NotificationCategory.MAP.valueIterator().asSequence().associate {
+            val toggleMap = NotificationCategory.SET.associate {
                 val importance = notificationManagerCompat.getNotificationChannel(it.id)?.importance
                 // TODO: figure out the "Show notifications" status
                 it.id to (importance != NotificationManagerCompat.IMPORTANCE_NONE &&

@@ -19,7 +19,8 @@ import org.wikipedia.feed.suggestededits.SuggestedEditsCardView
 import org.wikipedia.feed.topread.TopReadCardView
 import org.wikipedia.feed.view.FeedCardView
 import org.wikipedia.model.EnumCode
-import org.wikipedia.model.EnumCodeMap
+import org.wikipedia.model.enumSetAllOf
+import org.wikipedia.model.get
 
 enum class CardType constructor(private val code: Int,
                                 private val contentType: FeedContentType? = null) : EnumCode {
@@ -139,10 +140,10 @@ enum class CardType constructor(private val code: Int,
     }
 
     companion object {
-        private val MAP = EnumCodeMap(CardType::class.java)
+        private val SET = enumSetAllOf<CardType>()
 
         fun of(code: Int): CardType {
-            return MAP[code]
+            return SET[code]
         }
     }
 }

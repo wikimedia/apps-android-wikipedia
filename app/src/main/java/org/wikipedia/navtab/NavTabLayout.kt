@@ -8,9 +8,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class NavTabLayout constructor(context: Context, attrs: AttributeSet) : BottomNavigationView(context, attrs) {
     init {
         menu.clear()
-        for (i in 0 until NavTab.size()) {
-            val navTab = NavTab.of(i)
-            menu.add(Menu.NONE, navTab.id(), i, navTab.text()).setIcon(navTab.icon())
+        NavTab.SET.forEachIndexed { index, navTab ->
+            menu.add(Menu.NONE, navTab.id(), index, navTab.text()).setIcon(navTab.icon())
         }
     }
 }

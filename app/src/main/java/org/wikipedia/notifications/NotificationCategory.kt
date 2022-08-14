@@ -10,7 +10,8 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.model.EnumCode
-import org.wikipedia.model.EnumCodeMap
+import org.wikipedia.model.enumSetAllOf
+import org.wikipedia.model.get
 import org.wikipedia.util.log.L
 
 private const val GROUP_WIKIPEDIA_NOTIFICATIONS: String = "WIKIPEDIA_NOTIFICATIONS"
@@ -45,18 +46,17 @@ enum class NotificationCategory constructor(val id: String,
     }
 
     companion object {
-
         private val MENTIONS_GROUP = listOf(MENTION, EDIT_USER_TALK, EMAIL_USER, USER_RIGHTS, REVERTED)
         val FILTERS_GROUP = listOf(EDIT_USER_TALK, MENTION, EMAIL_USER, REVERTED, USER_RIGHTS, EDIT_THANK, MILESTONE_EDIT, LOGIN_FAIL, SYSTEM, ARTICLE_LINKED)
 
-        val MAP = EnumCodeMap(NotificationCategory::class.java)
+        val SET = enumSetAllOf<NotificationCategory>()
 
         private fun findOrNull(id: String): NotificationCategory? {
-            return MAP.valueIterator().asSequence().firstOrNull { id == it.id || id.startsWith(it.id) }
+            return SET.firstOrNull { id == it.id || id.startsWith(it.id) }
         }
 
         fun find(id: String): NotificationCategory {
-            return findOrNull(id) ?: MAP[0]
+            return findOrNull(id) ?: SET[0]
         }
 
         fun isMentionsGroup(category: String): Boolean {
@@ -97,7 +97,7 @@ enum class NotificationCategory constructor(val id: String,
             notificationManagerCompat.deleteNotificationChannel("READING_LIST_SYNCING_CHANNEL")
             notificationManagerCompat.deleteNotificationChannel("SYNCING_CHANNEL")
 
-            val notificationChannels = MAP.valueIterator().asSequence().toList().mapNotNull {
+            val notificationChannels = SET.mapNotNull {
                 val notificationChannelCompat = notificationManagerCompat.getNotificationChannelCompat(it.id)
                 if (notificationChannelCompat == null) {
                     NotificationChannelCompat.Builder(it.id, it.importance)

@@ -3,9 +3,9 @@ package org.wikipedia.page
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.model.EnumCode
-import org.wikipedia.model.EnumCodeMap
+import org.wikipedia.model.enumSetAllOf
+import org.wikipedia.model.get
 import org.wikipedia.staticdata.*
-import java.util.*
 
 /** An enumeration describing the different possible namespace codes. Do not attempt to use this
  * class to preserve URL path information such as Talk: or User: or localization.
@@ -168,7 +168,7 @@ enum class Namespace(private val code: Int) : EnumCode {
 
     companion object {
         private const val TALK_MASK = 0x1
-        private val MAP = EnumCodeMap(Namespace::class.java)
+        private val SET = enumSetAllOf<Namespace>()
 
         @JvmStatic
         fun fromLegacyString(wiki: WikiSite, name: String?): Namespace {
@@ -196,7 +196,7 @@ enum class Namespace(private val code: Int) : EnumCode {
 
         @JvmStatic
         fun of(code: Int): Namespace {
-            return MAP[code]
+            return SET[code]
         }
     }
 }
