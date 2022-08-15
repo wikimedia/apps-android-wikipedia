@@ -1133,7 +1133,7 @@
   <string name="menu_option_user_profile">%s sin profil</string>
   <string name="menu_option_user_contributions">%s sine bidrag</string>
   <string name="menu_option_edit_source">Rediger kilde</string>
-  <string name="menu_option_user_page">{{GRAMMAR:genitive|%s}} brukerside</string>
+  <string name="menu_option_user_page">%s brukerside</string>
   <string name="menu_option_find_in_talk_page_topic">Finn i diskusjonssideemne</string>
   <string name="talk_menu_copy_text">Kopier tekst</string>
   <string name="talk_menu_expand_threads">Utvid tråder</string>
