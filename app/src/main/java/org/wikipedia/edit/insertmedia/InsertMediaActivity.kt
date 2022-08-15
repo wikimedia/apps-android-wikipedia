@@ -28,19 +28,19 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityInsertMediaBinding
 import org.wikipedia.databinding.ItemEditActionbarButtonBinding
 import org.wikipedia.databinding.ItemInsertMediaBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.views.FaceAndColorDetectImageView
-import org.wikipedia.views.SearchActionProvider
-import org.wikipedia.views.ViewUtil
-import org.wikipedia.views.WikiErrorView
+import org.wikipedia.views.*
 
 class InsertMediaActivity : BaseActivity() {
     private lateinit var binding: ActivityInsertMediaBinding
@@ -210,9 +210,9 @@ class InsertMediaActivity : BaseActivity() {
 
     private fun showSelectedImage() {
         viewModel.selectedImage?.let {
+            ImageZoomHelper.setViewZoomable(binding.selectedImage)
             binding.emptyImageContainer.isVisible = false
             binding.selectedImageContainer.isVisible = true
-            ViewUtil.loadImageWithRoundedCorners(binding.selectedImage, it.pageTitle.thumbUrl)
             binding.selectedImage.loadImage(
                 Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it.pageTitle.thumbUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)),
                 roundedCorners = false, cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
@@ -234,6 +234,12 @@ class InsertMediaActivity : BaseActivity() {
 
                     override fun onImageFailed() {}
                 })
+
+            binding.imageInfoButton.setOnClickListener { _ ->
+                val pageTitle = it.pageTitle
+                pageTitle.wikiSite = WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)
+                startActivity(FilePageActivity.newIntent(this@InsertMediaActivity, pageTitle))
+            }
         } ?: run {
             binding.emptyImageContainer.isVisible = true
             binding.selectedImageContainer.isVisible = false

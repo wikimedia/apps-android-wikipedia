@@ -30,7 +30,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
         override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, MediaSearchResult> {
             return try {
                 val wikiSite = WikiSite(Service.COMMONS_URL)
-                val response = ServiceFactory.get(wikiSite)
+                val response = ServiceFactory.get(WikiSite(Service.COMMONS_URL))
                     .fullTextSearchMedia("File: $searchQuery", params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
 
                 return response.query?.pages?.let { list ->
