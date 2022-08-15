@@ -91,7 +91,7 @@ enum class FeedContentType(private val code: Int,
             get() {
                 val appLangCodes = WikipediaApp.instance.languageState.appLanguageCodes
                 val list = mutableListOf<String>()
-                values().filter { it.isEnabled }.forEach { type ->
+                SET.filter { it.isEnabled }.forEach { type ->
                     list.addAll(appLangCodes.filter {
                         (type.langCodesSupported.isEmpty() || type.langCodesSupported.contains(it)) &&
                                 !type.langCodesDisabled.contains(it) && !list.contains(it)
@@ -101,20 +101,10 @@ enum class FeedContentType(private val code: Int,
             }
 
         fun saveState() {
-            val enabledList = mutableListOf<Boolean>()
-            val orderList = mutableListOf<Int>()
-            val langSupportedMap = mutableMapOf<Int, List<String>>()
-            val langDisabledMap = mutableMapOf<Int, List<String>>()
-            values().forEach {
-                enabledList.add(it.isEnabled)
-                orderList.add(it.order)
-                langSupportedMap[it.code] = it.langCodesSupported
-                langDisabledMap[it.code] = it.langCodesDisabled
-            }
-            Prefs.feedCardsEnabled = enabledList
-            Prefs.feedCardsOrder = orderList
-            Prefs.feedCardsLangSupported = langSupportedMap
-            Prefs.feedCardsLangDisabled = langDisabledMap
+            Prefs.feedCardsEnabled = SET.map { it.isEnabled }
+            Prefs.feedCardsOrder = SET.map { it.order }
+            Prefs.feedCardsLangSupported = SET.associate { it.code to it.langCodesSupported }
+            Prefs.feedCardsLangDisabled = SET.associate { it.code to it.langCodesDisabled }
         }
 
         fun restoreState() {
@@ -122,7 +112,7 @@ enum class FeedContentType(private val code: Int,
             val orderList = Prefs.feedCardsOrder
             val langSupportedMap = Prefs.feedCardsLangSupported
             val langDisabledMap = Prefs.feedCardsLangDisabled
-            values().forEachIndexed { i, type ->
+            SET.forEachIndexed { i, type ->
                 type.isEnabled = enabledList.getOrElse(i) { true }
                 type.order = orderList.getOrElse(i) { i }
                 type.langCodesSupported.clear()
