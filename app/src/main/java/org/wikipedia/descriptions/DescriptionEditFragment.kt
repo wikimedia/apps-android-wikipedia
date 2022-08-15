@@ -173,7 +173,8 @@ class DescriptionEditFragment : Fragment() {
 
     private fun loadPageSummaryIfNeeded(savedInstanceState: Bundle?) {
         binding.fragmentDescriptionEditView.showProgressBar(true)
-        if ((invokeSource == InvokeSource.PAGE_ACTIVITY || invokeSource == InvokeSource.PAGE_EDIT_PENCIL) && sourceSummary?.extractHtml.isNullOrEmpty()) {
+        if ((invokeSource == InvokeSource.PAGE_ACTIVITY || invokeSource == InvokeSource.PAGE_EDIT_PENCIL ||
+                    invokeSource == InvokeSource.PAGE_EDIT_HIGHLIGHT) && sourceSummary?.extractHtml.isNullOrEmpty()) {
             editingAllowed = false
             binding.fragmentDescriptionEditView.setEditAllowed(false)
             binding.fragmentDescriptionEditView.showProgressBar(true)

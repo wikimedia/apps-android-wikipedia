@@ -1274,4 +1274,5 @@
   <string name="search_namespaces">Простори назв</string>
   <string name="revision_initial_none">Немає (це перша версія)</string>
   <string name="archive_empty">Архівованих сторінок не знайдено.</string>
+  <string name="media_playback_error">Помилка відтворення медіа.</string>
 </resources>
