@@ -1,9 +1,7 @@
 package org.wikipedia.edit.insertmedia
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -30,7 +28,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityInsertMediaBinding
 import org.wikipedia.databinding.ItemEditActionbarButtonBinding
 import org.wikipedia.databinding.ItemInsertMediaBinding
-import org.wikipedia.gallery.ImageLicense
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.util.*
 import org.wikipedia.views.SearchActionProvider
