@@ -57,17 +57,18 @@
                 android:layout_height="wrap_content"
                 android:visibility="gone">
 
-                    <FrameLayout
-                        android:id="@+id/imageViewPlaceholder"
+                <FrameLayout
+                    android:id="@+id/imageViewContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp">
+
+                    <org.wikipedia.views.FaceAndColorDetectImageView
+                        android:id="@+id/selectedImage"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <ImageView
-                            android:id="@+id/selectedImage"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:contentDescription="@string/insert_media_settings_uploaded_image"
-                            android:scaleType="fitCenter"/>
-                    </FrameLayout>
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="@string/insert_media_settings_uploaded_image"/>
 
                     <ImageView
                         android:id="@+id/imageInfoButton"
@@ -81,6 +82,8 @@
                         android:contentDescription="@null"
                         app:srcCompat="@drawable/ic_crop_free_24"
                         app:tint="@android:color/white" />
+
+                </FrameLayout>
 
             </FrameLayout>
 

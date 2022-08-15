@@ -2,6 +2,7 @@ package org.wikipedia.edit.insertmedia
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -18,12 +19,14 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.paging.PagingDataAdapter
+import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityInsertMediaBinding
@@ -31,8 +34,10 @@ import org.wikipedia.databinding.ItemEditActionbarButtonBinding
 import org.wikipedia.databinding.ItemInsertMediaBinding
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.views.FaceAndColorDetectImageView
 import org.wikipedia.views.SearchActionProvider
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.views.WikiErrorView
@@ -208,16 +213,27 @@ class InsertMediaActivity : BaseActivity() {
             binding.emptyImageContainer.isVisible = false
             binding.selectedImageContainer.isVisible = true
             ViewUtil.loadImageWithRoundedCorners(binding.selectedImage, it.pageTitle.thumbUrl)
-            it.imageInfo?.let { imageInfo ->
-                binding.imageViewPlaceholder.layoutParams = FrameLayout.LayoutParams(
-                    binding.root.width,
-                    ViewUtil.adjustImagePlaceholderHeight(
-                        binding.root.width.toFloat(),
-                        imageInfo.thumbWidth.toFloat(),
-                        imageInfo.thumbHeight.toFloat()
-                    )
-                )
-            }
+            binding.selectedImage.loadImage(
+                Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it.pageTitle.thumbUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)),
+                roundedCorners = false, cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
+                    override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
+                        if (!isDestroyed) {
+                            val params = binding.imageInfoButton.layoutParams as FrameLayout.LayoutParams
+                            val containerAspect = binding.imageViewContainer.width.toFloat() / binding.imageViewContainer.height.toFloat()
+                            val bmpAspect = bmpWidth.toFloat() / bmpHeight.toFloat()
+
+                            if (bmpAspect > containerAspect) {
+                                params.marginEnd = DimenUtil.roundedDpToPx(8f)
+                            } else {
+                                val width = binding.imageViewContainer.height.toFloat() * bmpAspect
+                                params.marginEnd = DimenUtil.roundedDpToPx(8f) + (binding.imageViewContainer.width / 2 - width.toInt() / 2)
+                            }
+                            binding.imageInfoButton.layoutParams = params
+                        }
+                    }
+
+                    override fun onImageFailed() {}
+                })
         } ?: run {
             binding.emptyImageContainer.isVisible = true
             binding.selectedImageContainer.isVisible = false
