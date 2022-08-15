@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -29,7 +30,9 @@ import org.wikipedia.databinding.ActivityInsertMediaBinding
 import org.wikipedia.databinding.ItemEditActionbarButtonBinding
 import org.wikipedia.databinding.ItemInsertMediaBinding
 import org.wikipedia.history.SearchActionModeCallback
-import org.wikipedia.util.*
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.SearchActionProvider
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.views.WikiErrorView
@@ -205,6 +208,16 @@ class InsertMediaActivity : BaseActivity() {
             binding.emptyImageContainer.isVisible = false
             binding.selectedImageContainer.isVisible = true
             ViewUtil.loadImageWithRoundedCorners(binding.selectedImage, it.pageTitle.thumbUrl)
+            it.imageInfo?.let { imageInfo ->
+                binding.imageViewPlaceholder.layoutParams = FrameLayout.LayoutParams(
+                    binding.root.width,
+                    ViewUtil.adjustImagePlaceholderHeight(
+                        binding.root.width.toFloat(),
+                        imageInfo.thumbWidth.toFloat(),
+                        imageInfo.thumbHeight.toFloat()
+                    )
+                )
+            }
         } ?: run {
             binding.emptyImageContainer.isVisible = true
             binding.selectedImageContainer.isVisible = false
