@@ -687,6 +687,7 @@
   <string name="description_edit_license_notice">ߣߌ߫ ߒ ߘߌ߫ ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲߫߸ ߒ ߘߌ߬ߢߍ߬ߣߍ߲߫ ߦߋ߫ &lt;a href=\"%1$s\"&gt;ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߛߙߊߕߌ&lt;/a&gt; ߡߊ߬߸ ߊ߬ ߣߌ߫ ߞߊ߬ ߒ ߠߊ߫ ߓߟߏߡߊߜߍ߲ ߠߊߓߌ߬ߟߊ߬ ߣߡߌߛߊߓߊߟߌߦߊ߫ ߓߟߏߡߊ߬&lt;a href=\"%2$s\"&gt;ߞߐߡߐ߲ ߠߊ߫ ߟߊ߬ߘߊ߲߬ߠߌ߲߬CC0&lt;/a&gt; ߣߴߊ߬ ߕߌ߰ߦߊ ߘߊߞߘߐ߫.</string>
   <string name="description_edit_voice_input_description">ߡߍ߲ߞߊ߲߫ ߠߊߘߏ߲</string>
   <string name="description_too_short">ߛߓߍߟߌ ߛߘߎ߬ߡߊ߲߬ ߞߏߖߎ߰.</string>
+  <string name="description_ends_with_punctuation">ߛߓߍߟߌ ߕߍ߫ ߞߎ߲߭ߝߊ߰ ߟߊ߫ ߕߏ߲ߘߋߦߊߟߌ ߡߊ߬.</string>
   <string name="description_edit_success_saved">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߓߘߊ߫ ߟߊߥߊ߲߬ߞߊ߫߹</string>
   <string name="description_edit_success_saved_snackbar">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߓߘߊ߫ ߟߊߥߊ߲߬ߞߊ߫߹</string>
   <string name="description_edit_success_saved_in_lang_snackbar">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߓߘߊ߫ ߟߊߥߊ߲߬ߞߊ߫߹ (%s)</string>

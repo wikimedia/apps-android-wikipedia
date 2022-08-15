@@ -116,6 +116,7 @@
   <string name="menu_page_new_tab">Uusi välilehti</string>
   <string name="menu_page_reading_lists">Lukulistat</string>
   <string name="menu_page_recently_viewed">Äskettäin katsotut</string>
+  <string name="menu_page_archive">Arkisto</string>
   <string name="menu_long_press_open_page">Avaa</string>
   <string name="menu_long_press_open_in_new_tab">Avaa uudessa välilehdessä</string>
   <string name="menu_long_press_copy_page">Kopioi linkin osoite</string>
