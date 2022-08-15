@@ -24,8 +24,8 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
                 android:scaleType="centerInside"
                 android:contentDescription="@null"/>
 
@@ -41,7 +41,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
                     android:textColor="?attr/material_theme_de_emphasised_color"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="6sp"
                     android:text="@string/insert_media_settings_uploaded_image"
                     tools:text="Article" />
 
@@ -71,6 +72,10 @@
             android:gravity="start"
             android:textAlignment="viewStart"
             android:hint="@string/insert_media_settings_caption"
+            app:endIconDrawable="@drawable/ic_mic_black_24dp"
+            app:endIconTint="?attr/material_theme_de_emphasised_color"
+            app:endIconContentDescription="@string/description_edit_voice_input_description"
+            app:endIconMode="custom"
             app:helperText="@string/insert_media_settings_caption_description">
 
             <org.wikipedia.views.PlainPasteEditText
@@ -93,6 +98,10 @@
             android:gravity="start"
             android:textAlignment="viewStart"
             android:hint="@string/insert_media_settings_alternative_text"
+            app:endIconDrawable="@drawable/ic_mic_black_24dp"
+            app:endIconTint="?attr/material_theme_de_emphasised_color"
+            app:endIconContentDescription="@string/description_edit_voice_input_description"
+            app:endIconMode="custom"
             app:helperText="@string/insert_media_settings_alternative_text_description">
 
             <org.wikipedia.views.PlainPasteEditText

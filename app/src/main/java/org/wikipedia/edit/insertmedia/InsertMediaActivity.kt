@@ -61,6 +61,7 @@ class InsertMediaActivity : BaseActivity() {
         binding = ActivityInsertMediaBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+        setImageZoomHelper()
         supportActionBar?.title = getString(R.string.insert_media_title)
 
         binding.refreshView.setOnRefreshListener {
