@@ -132,7 +132,7 @@
   <string name="edit_section_captcha_request_an_account_message">Ali ne morete videti slike? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Zahtevajte račun&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ponovite zgornje besede</string>
   <string name="title_captcha">Vnesite CAPTCHA</string>
-  <string name="edit_section_captcha_reload">Tapnite CAPTCHA za ponovno nalaganje</string>
+  <string name="edit_section_captcha_reload">Tapnite CAPTCHA, da se znova naloži</string>
   <string name="nav_item_login">Prijava v Wikipedijo</string>
   <string name="login_username_hint">Uporabniško ime</string>
   <string name="login_password_hint">Geslo</string>
@@ -767,7 +767,7 @@
   <string name="description_edit_translate_article_description_label_per_language">Opis članka (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Opis članka (%s)</string>
   <string name="description_edit_add_caption_label">Opis slike</string>
-  <string name="description_edit_add_caption_hint">Napis k sliki</string>
+  <string name="description_edit_add_caption_hint">Opis slike</string>
   <string name="description_edit_translate_caption_label_per_language">Napis k sliki (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Napis k sliki (%s)</string>
   <string name="description_edit_save">Objavi</string>
@@ -882,7 +882,7 @@
   <string name="suggested_edits_task_action_text_add">Dodaj</string>
   <string name="suggested_edits_task_action_text_translate">Prevedi</string>
   <string name="suggested_edits_image_captions">Napisi k slikam</string>
-  <string name="suggested_edits_image_tags">Oznake slik</string>
+  <string name="suggested_edits_image_tags">Oznake slike</string>
   <string name="suggested_edits_image_tags_publishing">Objavljam</string>
   <string name="suggested_edits_image_tags_published">Objavljeno</string>
   <string name="suggested_edits_image_tags_onboarding_title">Označevanje slik omogoča, da jih je lažje najti.</string>

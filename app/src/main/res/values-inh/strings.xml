@@ -514,7 +514,7 @@
   <string name="reading_list_articles_moved_to_named">%1$d статья чуяьккхай %2$s яхача мугӀама чу</string>
   <string name="reading_list_delete_confirm">Боккъонца безам бий хьа %s яха мугӀам дӀабаккха?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Чувала(яла), синхронизаци хьалсогаргйолаш</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Ража чу вала(яла), хьа дешара мугӀамаш хьа аккаунта чу дӀаяздергдолаш.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Система чу вала(-яла), хьа дешара мугӀамаш хьа аккаунта чу дӀаяздергдолаш.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Эшац</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Чувáла/яла</string>
   <string name="reading_list_turned_sync_off_dialog_title">Дешара мугӀама синхронизаци дӀайоаяьй</string>
@@ -736,7 +736,7 @@
   <string name="view_featured_article_card_title">Хержа статья</string>
   <string name="view_static_card_save_button_label">ДӀайила</string>
   <string name="feed_configure_activity_title">Лентай оттамаш хувца</string>
-  <string name="feed_configure_menu_reset">Тхьовра хиннача тайпара хургдолаш юхахьаметтаоттае луттаргаш</string>
+  <string name="feed_configure_menu_reset">Юхаметтаоттае фильтраш юххьанца мо</string>
   <string name="feed_configure_menu_select_all">Дерригаш хьагойта</string>
   <string name="feed_configure_menu_deselect_all">Дерригаш дӀакъайладаха</string>
   <string name="feed_configure_language_warning">Лентай деррига карточкаш дац хьахьувкхаш массадолча меттала. Оттамашка дӀаоттаде йиш я малагӀча метта Википеден разделашкара карточкаш хьагойта деза.</string>
@@ -1189,7 +1189,7 @@
   <string name="watchlist_expiry_dialog_one_month">1 бутт</string>
   <string name="watchlist_expiry_dialog_three_months">3 бутт</string>
   <string name="watchlist_expiry_dialog_six_months">6 бутт</string>
-  <string name="watchlist_empty">Хьа зем бара мугӀама чу статьяш яц.</string>
+  <string name="watchlist_empty">Хьа зем-мугӀама чу статьяш яц.</string>
   <string name="watchlist_filter_all">Деррига</string>
   <string name="watchlist_filter_talk">Къамаьл</string>
   <string name="watchlist_filter_pages">ОагӀонаш</string>

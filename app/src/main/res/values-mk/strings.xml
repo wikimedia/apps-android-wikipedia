@@ -1190,4 +1190,5 @@
   <string name="search_namespaces">Именски простори</string>
   <string name="revision_initial_none">Ниедна (ова е првата преработка)</string>
   <string name="archive_empty">Нема архивирани страници.</string>
+  <string name="media_playback_error">Грешка при пуштањето на снимката.</string>
 </resources>
