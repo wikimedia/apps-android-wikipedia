@@ -740,7 +740,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, SyntaxH
                                     }
                                 }, {
                                     binding.floatingPreview.isVisible = true
-                                    binding.floatingPreview.showBrokenLink()
+                                    binding.floatingPreview.showBrokenLink(title.displayText)
                                     L.e(it)
                                 })
                 )
@@ -754,7 +754,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, SyntaxH
                                     binding.floatingPreview.showArticlePreview(it.displayTitle, it.extract.orEmpty())
                                 }, {
                                     binding.floatingPreview.isVisible = true
-                                    binding.floatingPreview.showBrokenLink()
+                                    binding.floatingPreview.showBrokenLink(title.displayText)
                                     L.e(it)
                                 })
                 )

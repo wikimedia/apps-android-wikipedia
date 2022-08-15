@@ -17,7 +17,8 @@ class WikiTextFloatingPreviewView : FrameLayout {
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     fun showImagePreview(thumbUrl: String) {
-        binding.previewArticleContainer.isVisible = false
+        binding.previewArticleTitle.isVisible = false
+        binding.previewArticleSummary.isVisible = false
         binding.brokenLinkImage.isVisible = false
         binding.previewImage.isVisible = true
         ViewUtil.loadImage(binding.previewImage, thumbUrl)
@@ -26,14 +27,17 @@ class WikiTextFloatingPreviewView : FrameLayout {
     fun showArticlePreview(title: String, summary: String) {
         binding.previewImage.isVisible = false
         binding.brokenLinkImage.isVisible = false
-        binding.previewArticleContainer.isVisible = true
+        binding.previewArticleTitle.isVisible = true
+        binding.previewArticleSummary.isVisible = true
         binding.previewArticleTitle.text = StringUtil.fromHtml(title)
         binding.previewArticleSummary.text = StringUtil.fromHtml(summary)
     }
 
-    fun showBrokenLink() {
+    fun showBrokenLink(title: String) {
         binding.previewImage.isVisible = false
-        binding.previewArticleContainer.isVisible = false
+        binding.previewArticleSummary.isVisible = false
         binding.brokenLinkImage.isVisible = true
+        binding.previewArticleTitle.isVisible = true
+        binding.previewArticleTitle.text = StringUtil.fromHtml(title)
     }
 }
