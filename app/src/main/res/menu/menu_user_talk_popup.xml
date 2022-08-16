@@ -6,7 +6,7 @@
         android:id="@+id/menu_user_profile_page"
         android:icon="@drawable/ic_user_avatar"
         app:iconTint="?attr/secondary_text_color"
-        android:title="@string/menu_option_view_user_profile" />
+        android:title="@string/menu_option_view_user_page" />
     <item
         android:id="@+id/menu_user_talk_page"
         android:icon="@drawable/ic_user_talk"
