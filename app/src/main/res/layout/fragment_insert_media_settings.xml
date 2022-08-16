@@ -50,12 +50,12 @@
                     android:id="@+id/mediaDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="6dp"
                     android:layout_marginBottom="8dp"
                     android:ellipsize="end"
                     android:gravity="start"
                     android:lineSpacingExtra="6sp"
-                    android:maxLines="4"
+                    android:maxLines="2"
                     android:textColor="?attr/material_theme_primary_color"
                     android:textSize="16sp"
                     tools:text="Lorem ipsum" />
@@ -128,11 +128,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
-            android:textColor="?attr/material_theme_de_emphasised_color"
-            android:textSize="12sp"
+            android:textColor="?android:attr/textColorTertiary"
+            android:textSize="14sp"
             android:text="@string/insert_media_advanced_settings"
+            android:textAllCaps="true"
+            android:letterSpacing="0.04"
             android:background="?android:attr/selectableItemBackground"
             android:padding="8dp"
+            android:layout_gravity="center"
             tools:text="Article" />
 
     </LinearLayout>

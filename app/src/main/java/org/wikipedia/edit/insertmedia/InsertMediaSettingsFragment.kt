@@ -68,13 +68,12 @@ class InsertMediaSettingsFragment : Fragment() {
         }
     }
 
-
     fun show() {
         binding.root.isVisible = true
         activity.invalidateOptionsMenu()
         activity.supportActionBar?.title = getString(R.string.insert_media_settings)
         viewModel.selectedImage?.let {
-            ViewUtil.loadImageWithRoundedCorners(binding.imageView, it.pageTitle.thumbUrl)
+            ViewUtil.loadImageWithRoundedCorners(binding.imageView, it.pageTitle.thumbUrl, true)
             binding.mediaDescription.text = StringUtil.removeHTMLTags(it.imageInfo?.metadata?.imageDescription().orEmpty().ifEmpty { it.pageTitle.displayText })
         }
     }
