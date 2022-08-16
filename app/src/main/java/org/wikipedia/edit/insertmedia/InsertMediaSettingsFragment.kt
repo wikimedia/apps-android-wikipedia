@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentInsertMediaSettingsBinding
-import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.suggestededits.PageSummaryForEdit
