@@ -12,9 +12,15 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentInsertMediaSettingsBinding
+import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.views.ImagePreviewDialog
 import org.wikipedia.views.ViewUtil
 
 class InsertMediaSettingsFragment : Fragment() {
@@ -24,6 +30,7 @@ class InsertMediaSettingsFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel get() = activity.viewModel
     private var currentVoiceInputParentLayout: View? = null
+    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     val isActive get() = binding.root.visibility == View.VISIBLE
     val alternativeText get() = binding.mediaAlternativeText.text.toString().trim()
@@ -55,6 +62,14 @@ class InsertMediaSettingsFragment : Fragment() {
         }
         binding.advancedSettings.setOnClickListener {
             activity.showMediaAdvancedSettingsFragment()
+        }
+        binding.imageInfoContainer.setOnClickListener {
+            viewModel.selectedImage?.let {
+                val summary = PageSummaryForEdit(it.pageTitle.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode, it.pageTitle,
+                    it.pageTitle.displayText, RichTextUtil.stripHtml(it.imageInfo!!.metadata!!.imageDescription()), it.imageInfo.thumbUrl)
+                bottomSheetPresenter.show(childFragmentManager,
+                    ImagePreviewDialog.newInstance(summary))
+            }
         }
         return binding.root
     }
