@@ -263,6 +263,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bridge.execute(JavaScriptActionHandler.pauseAllMedia())
         if (avPlayer?.isPlaying == true) {
             avPlayer?.stop()
+            updateProgressBar(false)
         }
         activeTimer.pause()
         addTimeSpentReading(activeTimer.elapsedSec)
@@ -1276,8 +1277,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             updateProgressBar(false)
         }
 
-        override fun onError() {
-            avPlayer?.stop()
+        override fun onError(code: Int, extra: Int) {
+            if (avPlayer?.isPlaying == true) {
+                avPlayer?.stop()
+            }
+            FeedbackUtil.showMessage(this@PageFragment, R.string.media_playback_error)
             updateProgressBar(false)
         }
     }
