@@ -152,7 +152,7 @@ class ReadingListSyncAdapter : JobIntentService() {
                 }
                 if (remoteList.isDefault && localList != null && !localList.isDefault) {
                     L.logRemoteError(RuntimeException("Unexpected: remote default list corresponds to local non-default list."))
-                    localList = AppDatabase.instance.readingListDao().defaultList
+                    localList = AppDatabase.instance.readingListDao().getDefaultList()
                 }
                 if (remoteList.isDeleted) {
                     if (localList != null && !localList.isDefault) {
@@ -169,7 +169,7 @@ class ReadingListSyncAdapter : JobIntentService() {
                     L.d("Creating local list " + remoteList.name())
                     localList = if (remoteList.isDefault) {
                         L.logRemoteError(RuntimeException("Unexpected: local default list no longer matches remote."))
-                        AppDatabase.instance.readingListDao().defaultList
+                        AppDatabase.instance.readingListDao().getDefaultList()
                     } else {
                         AppDatabase.instance.readingListDao().createList(remoteList.name(), remoteList.description())
                     }
