@@ -15,7 +15,9 @@ import androidx.core.content.FileProvider
 import kotlinx.coroutines.*
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
+import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.DateUtil.getFeedCardDateString
 import org.wikipedia.util.log.L
 import java.io.File
@@ -95,7 +97,12 @@ object ShareUtil {
         val shareFolder = getClearShareFolder(context) ?: return null
         shareFolder.mkdirs()
         val bytes = FileUtil.compressBmpToJpg(bmp)
-        return FileUtil.writeToFile(bytes, File(shareFolder, cleanFileName(imageFileName)))
+        var fileName = cleanFileName(imageFileName)
+        // ensure file name ends with .jpg
+        if (!fileName.endsWith(".jpg")) {
+            fileName = "$fileName.jpg"
+        }
+        return FileUtil.writeToFile(bytes, File(shareFolder, fileName))
     }
 
     private fun createImageShareIntent(subject: String, text: String, uri: Uri): Intent {
@@ -144,10 +151,6 @@ object ShareUtil {
         fileNameStr = fileNameStr.replace("%2[0-9A-F]".toRegex(), "_")
                 .replace("[^0-9a-zA-Z-_.]".toRegex(), "_")
                 .replace("_+".toRegex(), "_")
-        // ensure file name ends with .jpg
-        if (!fileNameStr.endsWith(".jpg")) {
-            fileNameStr = "$fileNameStr.jpg"
-        }
         return fileNameStr
     }
 
@@ -196,5 +199,32 @@ object ShareUtil {
 
     private fun isSelfComponentName(componentName: ComponentName): Boolean {
         return componentName.packageName.matches(APP_PACKAGE_REGEX.toRegex())
+    }
+
+    fun shareReadingList(context: Context, readingList: ReadingList?) {
+        if (readingList == null) {
+            return
+        }
+        try {
+            val payload = JsonUtil.encodeToString(readingList)
+            val shareFolder = getClearShareFolder(context)
+            shareFolder!!.mkdirs()
+            val f = File(shareFolder, cleanFileName(readingList.title) + ".wikilist")
+            val fo = f.outputStream()
+            fo.write(payload!!.encodeToByteArray())
+            fo.flush()
+            fo.close()
+
+            val intent = Intent(Intent.ACTION_SEND)
+                    .putExtra(Intent.EXTRA_SUBJECT, "Reading list: " + readingList.title)
+                    .putExtra(Intent.EXTRA_TEXT, "Hi! I'd like to share my reading list with you. Please tap on the attached file to open it in the Wikipedia app.")
+                    .putExtra(Intent.EXTRA_STREAM, getUriFromFile(context, f))
+                    .setType("application/json")
+
+            context.startActivity(intent)
+        }
+        catch (e: Exception) {
+            L.e(e)
+        }
     }
 }

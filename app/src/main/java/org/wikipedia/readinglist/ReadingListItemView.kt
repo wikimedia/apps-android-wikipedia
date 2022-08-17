@@ -26,6 +26,8 @@ class ReadingListItemView : ConstraintLayout {
         fun onDelete(readingList: ReadingList)
         fun onSaveAllOffline(readingList: ReadingList)
         fun onRemoveAllOffline(readingList: ReadingList)
+        fun onShare(readingList: ReadingList)
+        fun onExportCsv(readingList: ReadingList)
     }
 
     enum class Description {
@@ -180,6 +182,14 @@ class ReadingListItemView : ConstraintLayout {
                 }
                 R.id.menu_reading_list_remove_all_offline -> {
                     list?.let { callback?.onRemoveAllOffline(it) }
+                    return true
+                }
+                R.id.menu_reading_list_share -> {
+                    list?.let { callback?.onShare(it) }
+                    return true
+                }
+                R.id.menu_reading_list_export_csv -> {
+                    list?.let { callback?.onExportCsv(it) }
                     return true
                 }
                 else -> return false

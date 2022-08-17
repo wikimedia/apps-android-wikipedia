@@ -182,6 +182,14 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
                 }
                 true
             }
+            R.id.menu_reading_list_share -> {
+                ShareUtil.shareReadingList(requireActivity(), readingList)
+                true
+            }
+            R.id.menu_reading_list_export_csv -> {
+                // TODO
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -611,6 +619,14 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
                 update()
             }
         }
+
+        override fun onShare(readingList: ReadingList) {
+            ShareUtil.shareReadingList(requireActivity(), readingList)
+        }
+
+        override fun onExportCsv(readingList: ReadingList) {
+            // TODO
+        }
     }
 
     private inner class ReadingListItemCallback : ReadingListItemView.Callback {
@@ -636,6 +652,14 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
 
         override fun onRemoveAllOffline(readingList: ReadingList) {
             ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) { setSearchQuery() }
+        }
+
+        override fun onShare(readingList: ReadingList) {
+            ShareUtil.shareReadingList(requireActivity(), readingList)
+        }
+
+        override fun onExportCsv(readingList: ReadingList) {
+            // TODO
         }
     }
 

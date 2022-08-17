@@ -11,6 +11,7 @@ import org.wikipedia.settings.Prefs
 import java.io.Serializable
 import java.util.*
 
+@kotlinx.serialization.Serializable
 @Entity
 data class ReadingListPage(
     val wiki: WikiSite,
