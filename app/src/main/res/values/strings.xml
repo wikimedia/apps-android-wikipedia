@@ -1214,7 +1214,7 @@
     <string name="thank_dialog_positive_button_text">Send thanks</string>
     <string name="thank_dialog_negative_button_text">Cancel</string>
     <string name="thank_success_message">Your \'Thanks\' was sent to %s 👍</string>
-    <string name="menu_option_view_user_page">View user page</string>
+    <string name="menu_option_view_user_profile">View user page</string>
     <string name="menu_option_view_user_talk">View talk page</string>
     <string name="menu_option_view_user_contributions">View user contributions</string>
     <string name="revision_diff_compare">Compare revisions</string>
