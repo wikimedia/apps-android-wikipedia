@@ -48,9 +48,6 @@ class InsertMediaActivity : BaseActivity() {
     private lateinit var insertMediaAdvancedSettingsFragment: InsertMediaAdvancedSettingsFragment
 
     private val insertMediaAdapter = InsertMediaAdapter()
-    private val insertMediaLoadHeader = LoadingItemAdapter { insertMediaAdapter.retry(); }
-    private val insertMediaLoadFooter = LoadingItemAdapter { insertMediaAdapter.retry(); }
-    private val insertMediaConcatAdapter = insertMediaAdapter.withLoadStateHeaderAndFooter(insertMediaLoadHeader, insertMediaLoadFooter)
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
 
@@ -71,7 +68,7 @@ class InsertMediaActivity : BaseActivity() {
 
         binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(this@InsertMediaActivity, R.attr.color_group_22))
         binding.recyclerView.layoutManager = GridLayoutManager(this, 3)
-        binding.recyclerView.adapter = insertMediaConcatAdapter
+        binding.recyclerView.adapter = insertMediaAdapter
 
         lifecycleScope.launch {
             viewModel.insertMediaFlow.collectLatest {
@@ -81,8 +78,7 @@ class InsertMediaActivity : BaseActivity() {
 
         lifecycleScope.launchWhenCreated {
             insertMediaAdapter.loadStateFlow.collectLatest {
-                insertMediaLoadHeader.loadState = it.refresh
-                insertMediaLoadFooter.loadState = it.append
+                binding.progressBar.isVisible = it.append is LoadState.Loading || it.refresh is LoadState.Loading
                 val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && insertMediaAdapter.itemCount == 0)
                 binding.emptyMessage.isVisible = showEmpty
             }
@@ -210,13 +206,14 @@ class InsertMediaActivity : BaseActivity() {
     }
 
     private fun showSelectedImage() {
+        binding.toolbarContainer.setExpanded(true)
         viewModel.selectedImage?.let {
             ImageZoomHelper.setViewZoomable(binding.selectedImage)
             binding.emptyImageContainer.isVisible = false
             binding.selectedImageContainer.isVisible = true
             binding.selectedImage.loadImage(
                 Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it.pageTitle.thumbUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)),
-                roundedCorners = false, cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
+                roundedCorners = false, cropped = false, emptyPlaceholder = true, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
                     override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
                         if (!isDestroyed) {
                             val params = binding.imageInfoButton.layoutParams as FrameLayout.LayoutParams
