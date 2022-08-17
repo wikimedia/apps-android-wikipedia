@@ -1,7 +1,6 @@
 package org.wikipedia.edit
 
 import android.annotation.SuppressLint
-import android.content.ClipData
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
@@ -13,7 +12,6 @@ import android.text.InputType
 import android.text.Layout
 import android.text.TextPaint
 import android.util.AttributeSet
-import android.view.ContentInfo
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -23,7 +21,6 @@ import androidx.core.view.ViewCompat
 import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.log.L
 
 /**
  * Notice that this view inherits from the platform EditText class, instead of AppCompatEditText.
@@ -189,23 +186,6 @@ open class SyntaxHighlightableEditText : EditText {
             outAttrs.imeOptions = outAttrs.imeOptions and EditorInfo.IME_FLAG_NO_ENTER_ACTION.inv()
         }
         return inputConnection
-    }
-
-    override fun onReceiveContent(payload: ContentInfo): ContentInfo? {
-        var newPayload = payload
-        try {
-            // Do not allow pasting of formatted text! We do this by replacing the contents of the clip
-            // with plain text.
-            val clip = payload.clip
-            val lastClipText = clip.getItemAt(clip.itemCount - 1).coerceToText(context).toString()
-
-            newPayload = ContentInfo.Builder(payload)
-                    .setClip(ClipData.newPlainText(null, lastClipText))
-                    .build()
-        } catch (e: Exception) {
-            L.e(e)
-        }
-        return super.onReceiveContent(newPayload)
     }
 
     fun undo() {
