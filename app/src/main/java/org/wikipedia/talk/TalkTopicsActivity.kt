@@ -253,6 +253,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                 return true
             }
             R.id.menu_archive -> {
+                funnel?.logOpenArchive()
                 startActivity(ArchivedTalkPagesActivity.newIntent(this, viewModel.pageTitle))
                 return true
             }

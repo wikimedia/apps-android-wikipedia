@@ -159,7 +159,7 @@
   <string name="create_account_ip_block_message">За съжаление вашият IP адрес към момента е блокиран за създаване на нови сметки.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Детайли</string>
-  <string name="preferences_general_heading">Общи</string>
+  <string name="preferences_general_heading">Основни</string>
   <string name="wikipedia_app_faq">Често задавани въпроси за приложението на Уикипедия</string>
   <string name="send_feedback">Изпращане на отзив за приложението</string>
   <string name="create_account_account_created_toast">Сметката е създадена!</string>
@@ -643,6 +643,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По възможност един ред, от две до дванадесет думи</string>
   <string name="description_edit_tutorial_button_label_start_editing">Започнете да редактирате</string>
   <string name="description_edit_tutorial_promise">Започвайки, обещавам да не злоупотребявам с тази функция.</string>
+  <string name="customize_toolbar_category_menu">Меню</string>
   <string name="suggested_edits_review_description">Преглед на описание на статия</string>
   <string name="suggested_edits_add_description_button">Добавяне на описание</string>
   <string name="suggested_edits_edit_description_button">Редактиране на описанието</string>
@@ -831,6 +832,7 @@
   <string name="text_input_dialog_ok_button_text">Добре</string>
   <string name="text_input_dialog_cancel_button_text">Отказ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Отказ</string>
+  <string name="talk_new_topic">Нова тема</string>
   <string name="watchlist_details_watch_label">Наблюдение</string>
   <string name="thank_label">Благодарност</string>
   <string name="thank_dialog_negative_button_text">Отказ</string>
@@ -839,4 +841,6 @@
   <string name="watchlist_expiry_dialog_three_months">3 месеца</string>
   <string name="watchlist_filter_talk">Беседа</string>
   <string name="watchlist_filter_pages">Страници</string>
+  <string name="action_item_categories">Категории</string>
+  <string name="category_tab_articles">Статии</string>
 </resources>

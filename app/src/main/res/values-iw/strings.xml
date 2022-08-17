@@ -1273,4 +1273,5 @@
   <string name="search_namespaces">מרחבי שם</string>
   <string name="revision_initial_none">אין (זאת הגרסה הראשונה)</string>
   <string name="archive_empty">לא נמצאו דפים בארכיון.</string>
+  <string name="media_playback_error">שגיאה בנגינת מדיה.</string>
 </resources>
