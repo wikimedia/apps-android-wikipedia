@@ -72,17 +72,13 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage WHERE remoteId < 1")
     fun getAllPagesToBeSynced(): List<ReadingListPage>
 
-    val allPagesToBeSaved
-        get() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
+    fun getAllPagesToBeSaved() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
 
-    val allPagesToBeForcedSave
-        get() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE, true)
+    fun getAllPagesToBeForcedSave() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE, true)
 
-    val allPagesToBeUnsaved
-        get() = getPagesByStatus(ReadingListPage.STATUS_SAVED, false)
+    fun getAllPagesToBeUnsaved() = getPagesByStatus(ReadingListPage.STATUS_SAVED, false)
 
-    val allPagesToBeDeleted
-        get() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_DELETE)
+    fun getAllPagesToBeDeleted() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_DELETE)
 
     fun populateListPages(list: ReadingList) {
         list.pages.addAll(getPagesByListId(list.id, ReadingListPage.STATUS_QUEUE_FOR_DELETE))
@@ -96,7 +92,7 @@ interface ReadingListPageDao {
     }
 
     @Transaction
-    private fun addPagesToList(list: ReadingList, pages: List<ReadingListPage>) {
+    fun addPagesToList(list: ReadingList, pages: List<ReadingListPage>) {
         for (page in pages) {
             insertPageIntoDb(list, page)
         }
