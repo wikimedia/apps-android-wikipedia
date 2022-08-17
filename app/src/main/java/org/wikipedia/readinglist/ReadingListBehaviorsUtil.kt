@@ -243,7 +243,7 @@ object ReadingListBehaviorsUtil {
     }
 
     fun addToDefaultList(activity: Activity, title: PageTitle, invokeSource: InvokeSource, addToDefaultListCallback: AddToDefaultListCallback, callback: Callback?) {
-        val defaultList = AppDatabase.instance.readingListDao().defaultList
+        val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
         val addedTitles = AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(defaultList, listOf(title))
         if (addedTitles.isNotEmpty()) {
             ReadingListsFunnel().logAddToList(defaultList, 1, invokeSource)
