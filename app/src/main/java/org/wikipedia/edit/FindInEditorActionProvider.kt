@@ -4,18 +4,20 @@ import android.graphics.Rect
 import android.view.ActionMode
 import android.view.MenuItem
 import android.view.View
-import android.widget.ScrollView
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.views.FindInPageActionProvider
 import org.wikipedia.views.FindInPageActionProvider.FindInPageListener
-import org.wikipedia.views.PlainPasteEditText
+import java.util.*
 
-class FindInEditorActionProvider(private val scrollView: ScrollView,
-                                 private val textView: PlainPasteEditText,
+class FindInEditorActionProvider(private val scrollView: View,
+                                 private val textView: SyntaxHighlightableEditText,
                                  private val syntaxHighlighter: SyntaxHighlighter,
                                  private val actionMode: ActionMode) : FindInPageActionProvider(textView.context), FindInPageListener {
+
+    private val resultPositions = mutableListOf<Int>()
+    private var currentResultIndex = 0
     private var searchQuery: String? = null
 
     init {
@@ -31,37 +33,24 @@ class FindInEditorActionProvider(private val scrollView: ScrollView,
         return view
     }
 
-    private fun findInPage(text: String) {
-        textView.findListener = object : PlainPasteEditText.FindListener {
-            override fun onFinished(activeMatchOrdinal: Int, numberOfMatches: Int, textPosition: Int, findingNext: Boolean) {
-                setMatchesResults(activeMatchOrdinal, numberOfMatches)
-                textView.setSelection(textPosition, textPosition + text.length)
-                val r = Rect()
-                textView.getFocusedRect(r)
-                val scrollTopOffset = 32
-                scrollView.scrollTo(0, r.top - DimenUtil.roundedDpToPx(scrollTopOffset.toFloat()))
-                if (findingNext) {
-                    textView.requestFocus()
-                }
-            }
-        }
-        textView.findInEditor(text, syntaxHighlighter)
-    }
-
     override fun onFindNextClicked() {
-        textView.findNext()
+        currentResultIndex = if (currentResultIndex == resultPositions.size - 1) 0 else ++currentResultIndex
+        scrollToCurrentResult()
     }
 
     override fun onFindNextLongClicked() {
-        textView.findFirstOrLast(false)
+        currentResultIndex = resultPositions.size - 1
+        scrollToCurrentResult()
     }
 
     override fun onFindPrevClicked() {
-        textView.findPrevious()
+        currentResultIndex = if (currentResultIndex == 0) resultPositions.size - 1 else --currentResultIndex
+        scrollToCurrentResult()
     }
 
     override fun onFindPrevLongClicked() {
-        textView.findFirstOrLast(true)
+        currentResultIndex = 0
+        scrollToCurrentResult()
     }
 
     override fun onCloseClicked() {
@@ -70,12 +59,32 @@ class FindInEditorActionProvider(private val scrollView: ScrollView,
     }
 
     override fun onSearchTextChanged(text: String?) {
-        if (!text.isNullOrEmpty()) {
-            findInPage(text)
-        } else {
-            textView.clearMatches(syntaxHighlighter)
-            syntaxHighlighter.applyFindTextSyntax(text, null)
+        searchQuery = if (text.isNullOrEmpty()) null else text
+        currentResultIndex = 0
+        resultPositions.clear()
+
+        searchQuery?.let {
+            val searchTextLower = it.lowercase(Locale.getDefault())
+            val textLower = textView.text.toString().lowercase(Locale.getDefault())
+            var position = 0
+            do {
+                position = textLower.indexOf(searchTextLower, position)
+                if (position >= 0) {
+                    resultPositions.add(position)
+                    position += searchTextLower.length
+                }
+            } while (position >= 0)
         }
-        searchQuery = text
+        scrollToCurrentResult()
+    }
+
+    private fun scrollToCurrentResult() {
+        setMatchesResults(currentResultIndex, resultPositions.size)
+        val textPosition = if (resultPositions.isEmpty()) 0 else resultPositions[currentResultIndex]
+        textView.setSelection(textPosition, textPosition + searchQuery.orEmpty().length)
+        val r = Rect()
+        textView.getFocusedRect(r)
+        scrollView.scrollTo(0, r.top - DimenUtil.roundedDpToPx(32f))
+        syntaxHighlighter.setSearchQueryInfo(resultPositions, searchQuery.orEmpty().length, currentResultIndex)
     }
 }
