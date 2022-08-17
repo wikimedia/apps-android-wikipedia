@@ -3,7 +3,7 @@ package org.wikipedia.media
 class AvPlayer {
     interface Callback {
         fun onSuccess()
-        fun onError()
+        fun onError(code: Int, extra: Int)
     }
 
     private val player = MediaPlayerImplementation()
@@ -19,8 +19,8 @@ class AvPlayer {
                 player.play(callback)
             }
 
-            override fun onError() {
-                callback.onError()
+            override fun onError(code: Int, extra: Int) {
+                callback.onError(code, extra)
             }
         })
     }

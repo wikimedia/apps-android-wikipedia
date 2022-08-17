@@ -33,7 +33,7 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
         currentPage?.let {
             if (messageType == TYPE_EDIT_SECTION) {
                 val sectionId = messagePayload?.run { this[PAYLOAD_SECTION_ID]?.jsonPrimitive?.int } ?: 0
-                if (sectionId == 0 && DescriptionEditUtil.isEditAllowed(it)) {
+                if (sectionId == 0 && DescriptionEditUtil.isEditAllowed(it) && it.isArticle) {
                     val tempView = View(fragment.requireContext())
                     tempView.x = fragment.webView.touchStartX
                     tempView.y = fragment.webView.touchStartY
