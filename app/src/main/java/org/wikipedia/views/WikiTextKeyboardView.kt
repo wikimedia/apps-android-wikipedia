@@ -10,6 +10,7 @@ import android.widget.FrameLayout
 import androidx.activity.result.ActivityResultLauncher
 import org.wikipedia.databinding.ViewWikitextKeyboardBinding
 import org.wikipedia.edit.SyntaxHighlightableEditText
+import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.page.PageTitle
 
 class WikiTextKeyboardView : FrameLayout {
