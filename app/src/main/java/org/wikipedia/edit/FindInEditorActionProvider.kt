@@ -80,7 +80,7 @@ class FindInEditorActionProvider(private val scrollView: View,
 
     private fun scrollToCurrentResult() {
         setMatchesResults(currentResultIndex, resultPositions.size)
-        val textPosition = if (resultPositions.isEmpty()) 0 else resultPositions[currentResultIndex]
+        val textPosition = resultPositions.getOrElse(currentResultIndex) { 0 }
         textView.setSelection(textPosition, textPosition + searchQuery.orEmpty().length)
         val r = Rect()
         textView.getFocusedRect(r)
