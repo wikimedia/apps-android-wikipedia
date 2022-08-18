@@ -17,6 +17,7 @@ import org.wikipedia.databinding.FragmentInsertMediaSettingsBinding
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.suggestededits.PageSummaryForEdit
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ImagePreviewDialog
@@ -90,6 +91,8 @@ class InsertMediaSettingsFragment : Fragment() {
             ViewUtil.loadImageWithRoundedCorners(binding.imageView, it.pageTitle.thumbUrl, true)
             binding.mediaDescription.text = StringUtil.removeHTMLTags(it.imageInfo?.metadata?.imageDescription().orEmpty().ifEmpty { it.pageTitle.displayText })
         }
+        binding.mediaCaptionLayout.requestFocus()
+        DeviceUtil.showSoftKeyboard(binding.mediaCaptionText)
     }
 
     fun hide(reset: Boolean = true) {

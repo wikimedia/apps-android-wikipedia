@@ -10,10 +10,11 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.StringUtil
 
 class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
-    var searchQuery = bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!
+    var searchQuery = StringUtil.removeUnderscores(bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!)
     val originalSearchQuery = searchQuery
     var selectedImage: MediaSearchResult? = null
     var imagePosition = IMAGE_POSITION_RIGHT

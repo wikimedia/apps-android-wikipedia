@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.activity.viewModels
@@ -17,7 +16,6 @@ import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
-import androidx.paging.LoadStateAdapter
 import androidx.paging.PagingDataAdapter
 import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.DiffUtil
@@ -40,7 +38,10 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.views.*
+import org.wikipedia.views.FaceAndColorDetectImageView
+import org.wikipedia.views.ImageZoomHelper
+import org.wikipedia.views.SearchActionProvider
+import org.wikipedia.views.ViewUtil
 
 class InsertMediaActivity : BaseActivity() {
     private lateinit var binding: ActivityInsertMediaBinding
@@ -87,7 +88,7 @@ class InsertMediaActivity : BaseActivity() {
         insertMediaSettingsFragment = supportFragmentManager.findFragmentById(R.id.insertMediaSettingsFragment) as InsertMediaSettingsFragment
         insertMediaAdvancedSettingsFragment = supportFragmentManager.findFragmentById(R.id.insertMediaAdvancedSettingsFragment) as InsertMediaAdvancedSettingsFragment
 
-        binding.searchInputField.text = StringUtil.removeUnderscores(viewModel.searchQuery)
+        binding.searchInputField.text = viewModel.searchQuery
         binding.searchContainer.setOnClickListener {
             if (actionMode == null) {
                 actionMode = startSupportActionMode(searchActionModeCallback)
@@ -233,7 +234,7 @@ class InsertMediaActivity : BaseActivity() {
                     override fun onImageFailed() {}
                 })
 
-            binding.imageInfoButton.setOnClickListener { _ ->
+            binding.selectedImageContainer.setOnClickListener { _ ->
                 val pageTitle = it.pageTitle
                 pageTitle.wikiSite = WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)
                 startActivity(FilePageActivity.newIntent(this@InsertMediaActivity, pageTitle))
@@ -241,16 +242,6 @@ class InsertMediaActivity : BaseActivity() {
         } ?: run {
             binding.emptyImageContainer.isVisible = true
             binding.selectedImageContainer.isVisible = false
-        }
-    }
-
-    private inner class LoadingItemAdapter(private val retry: () -> Unit) : LoadStateAdapter<LoadingViewHolder>() {
-        override fun onBindViewHolder(holder: LoadingViewHolder, loadState: LoadState) {
-            holder.bindItem(loadState, retry)
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState): LoadingViewHolder {
-            return LoadingViewHolder(layoutInflater.inflate(R.layout.item_list_progress, parent, false))
         }
     }
 
@@ -272,19 +263,6 @@ class InsertMediaActivity : BaseActivity() {
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             getItem(position)?.let {
                 (holder as InsertMediaItemHolder).bindItem(it)
-            }
-        }
-    }
-
-    private inner class LoadingViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindItem(loadState: LoadState, retry: () -> Unit) {
-            val errorView = itemView.findViewById<WikiErrorView>(R.id.errorView)
-            val progressBar = itemView.findViewById<View>(R.id.progressBar)
-            progressBar.isVisible = loadState is LoadState.Loading
-            errorView.isVisible = loadState is LoadState.Error
-            errorView.retryClickListener = View.OnClickListener { retry() }
-            if (loadState is LoadState.Error) {
-                errorView.setError(loadState.error)
             }
         }
     }
@@ -342,7 +320,7 @@ class InsertMediaActivity : BaseActivity() {
         }
 
         override fun getSearchHintString(): String {
-            return StringUtil.removeUnderscores(viewModel.searchQuery)
+            return viewModel.searchQuery
         }
 
         override fun getParentContext(): Context {
