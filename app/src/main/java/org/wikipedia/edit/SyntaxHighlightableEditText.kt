@@ -1,7 +1,6 @@
 package org.wikipedia.edit
 
 import android.annotation.SuppressLint
-import android.content.ClipData
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
@@ -18,9 +17,6 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
 import android.widget.EditText
-import androidx.core.view.ContentInfoCompat
-import androidx.core.view.OnReceiveContentListener
-import androidx.core.view.ViewCompat
 import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -33,12 +29,12 @@ import org.wikipedia.util.ResourceUtil
  * case we need to copy over any useful compatibility logic.
  */
 @SuppressLint("AppCompatCustomView")
-class SyntaxHighlightableEditText : EditText, OnReceiveContentListener {
+class SyntaxHighlightableEditText : EditText {
 
     private var prevLineCount = -1
     private val lineNumberPaint = TextPaint()
     private val lineNumberBackgroundPaint = Paint()
-    private val isRtl: Boolean
+    private val isRtl: Boolean = resources.configuration.layoutDirection == LAYOUT_DIRECTION_RTL
     private val paddingWithoutLineNumbers = DimenUtil.roundedDpToPx(8f)
     private val paddingWithLineNumbers = DimenUtil.roundedDpToPx(36f)
     private val lineNumberGapWidth = DimenUtil.roundedDpToPx(8f)
@@ -60,9 +56,6 @@ class SyntaxHighlightableEditText : EditText, OnReceiveContentListener {
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     init {
-        // The MIME type(s) need to be set for onReceiveContent() to be called.
-        ViewCompat.setOnReceiveContentListener(this, arrayOf("text/*"), this)
-        isRtl = resources.configuration.layoutDirection == LAYOUT_DIRECTION_RTL
         applyPaddingForLineNumbers()
 
         // TODO: this is temporary, and will be controlled by a preference in the next release.
@@ -189,16 +182,6 @@ class SyntaxHighlightableEditText : EditText, OnReceiveContentListener {
             outAttrs.imeOptions = outAttrs.imeOptions and EditorInfo.IME_FLAG_NO_ENTER_ACTION.inv()
         }
         return inputConnection
-    }
-
-    override fun onReceiveContent(view: View, payload: ContentInfoCompat): ContentInfoCompat {
-        // Do not allow pasting of formatted text! We do this by replacing the contents of the clip
-        // with plain text.
-        val clip = payload.clip
-        val lastClipText = clip.getItemAt(clip.itemCount - 1).coerceToText(context).toString()
-        return ContentInfoCompat.Builder(payload)
-                .setClip(ClipData.newPlainText(null, lastClipText))
-                .build()
     }
 
     fun undo() {
