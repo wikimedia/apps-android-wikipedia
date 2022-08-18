@@ -48,7 +48,7 @@ class MediaDownloadReceiver : BroadcastReceiver() {
         performDownloadRequest(context, fileUrl.toUri(), targetDirectoryType, saveFilename, mediaInfo.mime)
     }
 
-    private fun performDownloadRequest(context: Context, uri: Uri, targetDirectoryType: String,
+    fun performDownloadRequest(context: Context, uri: Uri, targetDirectoryType: String,
                                        targetFileName: String, mimeType: String?) {
         context.getSystemService<DownloadManager>()?.let { downloadManager ->
             val targetSubfolderName = WikipediaApp.instance.getString(R.string.app_name)
@@ -58,7 +58,7 @@ class MediaDownloadReceiver : BroadcastReceiver() {
 
             // creates the directory if it doesn't exist else it's harmless
             targetFolder.mkdir()
-            val request = DownloadManager.Request(uri)
+            val request = DownloadManager.  Request(uri)
             request.setDestinationUri(targetFile.toUri())
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
             if (mimeType != null) {

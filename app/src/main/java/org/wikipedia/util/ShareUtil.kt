@@ -1,6 +1,8 @@
 package org.wikipedia.util
 
+import android.app.DownloadManager
 import android.content.ComponentName
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.pm.LabeledIntent
@@ -8,19 +10,29 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
+import android.os.Environment
 import android.os.Parcelable
 import android.os.TransactionTooLargeException
+import android.provider.MediaStore
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
 import androidx.core.content.FileProvider
 import kotlinx.coroutines.*
 import org.wikipedia.BuildConfig
+import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.gallery.MediaDownloadReceiver
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.main.MainActivity
+import org.wikipedia.notifications.NotificationCategory
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver
+import org.wikipedia.notifications.NotificationPresenter
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.DateUtil.getFeedCardDateString
 import org.wikipedia.util.log.L
 import java.io.File
+import java.io.OutputStreamWriter
 
 object ShareUtil {
     private const val APP_PACKAGE_REGEX = "org\\.wikipedia.*"
@@ -201,6 +213,9 @@ object ShareUtil {
         return componentName.packageName.matches(APP_PACKAGE_REGEX.toRegex())
     }
 
+
+
+
     fun shareReadingList(context: Context, readingList: ReadingList?) {
         if (readingList == null) {
             return
@@ -222,8 +237,62 @@ object ShareUtil {
                     .setType("application/json")
 
             context.startActivity(intent)
+        } catch (e: Exception) {
+            L.e(e)
         }
-        catch (e: Exception) {
+    }
+
+    fun exportReadingListCsv(context: Context, readingList: ReadingList?, downloadReceiver: MediaDownloadReceiver) {
+        if (readingList == null) {
+            return
+        }
+        try {
+            val fileName = cleanFileName(readingList.title) + ".csv"
+
+            /*
+            val shareFolder = getClearShareFolder(context)
+            shareFolder!!.mkdirs()
+            val f = File(shareFolder, fileName)
+            val writer = OutputStreamWriter(f.outputStream())
+
+            readingList.pages.forEach {
+                writer.appendLine(it.displayTitle + ", " + it.apiTitle)
+            }
+            writer.flush()
+            writer.close()
+            */
+
+            val contentResolver = context.contentResolver
+            val contentValues = ContentValues()
+            contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
+            contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "text/csv")
+            contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS)
+            val uri = contentResolver.insert(MediaStore.Downloads.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY), contentValues)
+            contentResolver.openOutputStream(uri!!).use { stream ->
+                OutputStreamWriter(stream).use { writer ->
+                    readingList.pages.forEach {
+                        writer.appendLine(it.displayTitle + ", " + it.apiTitle)
+                    }
+                    writer.flush()
+                }
+            }
+
+            val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
+
+            val builder = NotificationCompat.Builder(context, NotificationCategory.MENTION.id)
+                    .setDefaults(NotificationCompat.DEFAULT_ALL)
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .setAutoCancel(true)
+
+            val notificationText = "Your reading list was exported successfully to your Downloads."
+
+            NotificationPresenter.showNotification(context, builder, 0,
+                    "Exported \"" + readingList.title + "\"",
+                    notificationText,
+                    notificationText,
+                    null,
+                    R.drawable.ic_icon_list, R.color.accent50, intent)
+        } catch (e: Exception) {
             L.e(e)
         }
     }

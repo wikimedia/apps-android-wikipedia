@@ -417,6 +417,14 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         override fun onRemoveAllOffline(readingList: ReadingList) {
             ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) { updateLists(currentSearchQuery, true) }
         }
+
+        override fun onShare(readingList: ReadingList) {
+            TODO("Not yet implemented")
+        }
+
+        override fun onExportCsv(readingList: ReadingList) {
+            TODO("Not yet implemented")
+        }
     }
 
     private inner class ReadingListPageItemCallback : PageItemView.Callback<ReadingListPage?> {
