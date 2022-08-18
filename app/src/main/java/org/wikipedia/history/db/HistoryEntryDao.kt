@@ -1,39 +1,38 @@
 package org.wikipedia.history.db
 
 import androidx.room.*
-import io.reactivex.rxjava3.core.Completable
 import org.wikipedia.history.HistoryEntry
 
 @Dao
 interface HistoryEntryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertEntry(entry: HistoryEntry)
+    suspend fun insertEntry(entry: HistoryEntry)
 
     @Query("SELECT * FROM HistoryEntry WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
-    fun findEntryBySearchTerm(term: String): HistoryEntry?
+    suspend fun findEntryBySearchTerm(term: String): HistoryEntry?
 
     @Query("SELECT * FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND apiTitle = :apiTitle LIMIT 1")
-    fun findEntryBy(authority: String, lang: String, apiTitle: String): HistoryEntry?
+    suspend fun findEntryBy(authority: String, lang: String, apiTitle: String): HistoryEntry?
 
     @Query("DELETE FROM HistoryEntry")
-    fun deleteAll(): Completable
+    suspend fun deleteAll()
 
     @Query("DELETE FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND namespace = :namespace AND apiTitle = :apiTitle")
-    fun deleteBy(authority: String, lang: String, namespace: String?, apiTitle: String)
+    suspend fun deleteBy(authority: String, lang: String, namespace: String?, apiTitle: String)
 
     @Transaction
-    fun insert(entries: List<HistoryEntry>) {
+    suspend fun insert(entries: List<HistoryEntry>) {
         entries.forEach {
             insertEntry(it)
         }
     }
 
-    fun delete(entry: HistoryEntry) {
+    suspend fun delete(entry: HistoryEntry) {
         deleteBy(entry.authority, entry.lang, entry.namespace, entry.apiTitle)
     }
 
     @Transaction
-    fun upsertWithTimeSpent(entry: HistoryEntry, timeSpent: Int) {
+    suspend fun upsertWithTimeSpent(entry: HistoryEntry, timeSpent: Int) {
         val curEntry = findEntryBy(entry.authority, entry.lang, entry.apiTitle)
         if (curEntry != null) {
             curEntry.timeSpentSec += timeSpent
