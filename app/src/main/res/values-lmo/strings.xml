@@ -39,8 +39,8 @@
   <string name="dialog_message_clear_history">Chesschì el scancelarà tuta la cronologia ne navigazzion e \'l sararà su tucc i schede adee averte. Te see sicur?</string>
   <string name="dialog_message_clear_history_yes">Sì</string>
   <string name="dialog_message_clear_history_no">Nò</string>
-  <string name="share_via">Spartiss con alter persone per mezz de</string>
-  <string name="image_share_via">Spartiss con alter persone per mezz de</string>
+  <string name="share_via">Condivid per mez de</string>
+  <string name="image_share_via">Condivid per via de</string>
   <string name="search_redirect_from">Redirezzion de %s</string>
   <string name="menu_page_show_tabs">Mostra schede</string>
   <string name="menu_page_other_languages">Cambia lengua</string>

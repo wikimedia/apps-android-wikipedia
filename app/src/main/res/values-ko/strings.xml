@@ -1186,4 +1186,5 @@
   <string name="search_namespaces">이름공간</string>
   <string name="revision_initial_none">없음 (이것이 첫 판입니다)</string>
   <string name="archive_empty">보존된 문서가 없습니다.</string>
+  <string name="media_playback_error">미디어를 재생하는 동안 오류가 발생했습니다.</string>
 </resources>

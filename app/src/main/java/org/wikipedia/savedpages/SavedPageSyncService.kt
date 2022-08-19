@@ -43,13 +43,13 @@ class SavedPageSyncService : JobIntentService() {
             // Reading list sync was started in the meantime, so bail.
             return
         }
-        val pagesToSave = AppDatabase.instance.readingListPageDao().allPagesToBeForcedSave.toMutableList()
+        val pagesToSave = AppDatabase.instance.readingListPageDao().getAllPagesToBeForcedSave().toMutableList()
         if ((!Prefs.isDownloadOnlyOverWiFiEnabled || DeviceUtil.isOnWiFi) &&
                 Prefs.isDownloadingReadingListArticlesEnabled) {
-            pagesToSave.addAll(AppDatabase.instance.readingListPageDao().allPagesToBeSaved)
+            pagesToSave.addAll(AppDatabase.instance.readingListPageDao().getAllPagesToBeSaved())
         }
-        val pagesToUnSave = AppDatabase.instance.readingListPageDao().allPagesToBeUnsaved
-        val pagesToDelete = AppDatabase.instance.readingListPageDao().allPagesToBeDeleted
+        val pagesToUnSave = AppDatabase.instance.readingListPageDao().getAllPagesToBeUnsaved()
+        val pagesToDelete = AppDatabase.instance.readingListPageDao().getAllPagesToBeDeleted()
         var shouldSendSyncEvent = false
         try {
             for (page in pagesToDelete) {
