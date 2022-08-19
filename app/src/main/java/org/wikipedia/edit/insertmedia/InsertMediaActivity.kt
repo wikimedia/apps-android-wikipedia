@@ -215,6 +215,7 @@ class InsertMediaActivity : BaseActivity() {
             ImageZoomHelper.setViewZoomable(binding.selectedImage)
             binding.emptyImageContainer.isVisible = false
             binding.selectedImageContainer.isVisible = true
+            binding.progressBar.isVisible = true
             binding.selectedImage.loadImage(
                 Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it.pageTitle.thumbUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)),
                 roundedCorners = false, cropped = false, emptyPlaceholder = true, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
@@ -231,10 +232,15 @@ class InsertMediaActivity : BaseActivity() {
                                 params.marginEnd = DimenUtil.roundedDpToPx(8f) + (binding.imageViewContainer.width / 2 - width.toInt() / 2)
                             }
                             binding.imageInfoButton.layoutParams = params
+                            binding.progressBar.isVisible = false
                         }
                     }
 
-                    override fun onImageFailed() {}
+                    override fun onImageFailed() {
+                        if (!isDestroyed) {
+                            binding.progressBar.isVisible = false
+                        }
+                    }
                 })
 
             binding.selectedImageContainer.setOnClickListener { _ ->
