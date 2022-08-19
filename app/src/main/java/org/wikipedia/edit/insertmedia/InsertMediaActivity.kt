@@ -159,6 +159,8 @@ class InsertMediaActivity : BaseActivity() {
             behavior = if (removeLayoutBehavior) null else AppBarLayout.ScrollingViewBehavior()
             topMargin = if (removeLayoutBehavior) DimenUtil.getToolbarHeightPx(this@InsertMediaActivity) else 0
         }
+        (binding.toolbar.layoutParams as AppBarLayout.LayoutParams).scrollFlags = if (removeLayoutBehavior) AppBarLayout.LayoutParams.SCROLL_FLAG_NO_SCROLL else
+            AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS or AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
     }
 
     private fun combineMediaWikitext(): String {
