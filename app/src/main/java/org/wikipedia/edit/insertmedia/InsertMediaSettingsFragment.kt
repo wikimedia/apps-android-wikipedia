@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -69,6 +70,11 @@ class InsertMediaSettingsFragment : Fragment() {
                     it.pageTitle.displayText, RichTextUtil.stripHtml(it.imageInfo!!.metadata!!.imageDescription()), it.imageInfo.thumbUrl)
                 bottomSheetPresenter.show(childFragmentManager,
                     ImagePreviewDialog.newInstance(summary))
+            }
+        }
+        binding.mediaCaptionText.addTextChangedListener {
+            if (!activity.isDestroyed) {
+                activity.invalidateOptionsMenu()
             }
         }
         return binding.root
