@@ -111,7 +111,8 @@ class InsertMediaActivity : BaseActivity() {
         menuInsertItem.isVisible = insertMediaSettingsFragment.isActive
         menuNextItem.isEnabled = viewModel.selectedImage != null
         applyActionBarButtonStyle(menuNextItem, menuNextItem.isEnabled)
-        applyActionBarButtonStyle(menuInsertItem, insertMediaSettingsFragment.captionText.isNotEmpty())
+        applyActionBarButtonStyle(menuInsertItem, insertMediaSettingsFragment.captionText.isNotEmpty() ||
+                insertMediaSettingsFragment.alternativeText.isNotEmpty())
         applyActionBarButtonStyle(menuSaveItem, menuSaveItem.isEnabled)
         return super.onPrepareOptionsMenu(menu)
     }

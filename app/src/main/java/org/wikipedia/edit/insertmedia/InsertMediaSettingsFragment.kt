@@ -77,6 +77,11 @@ class InsertMediaSettingsFragment : Fragment() {
                 activity.invalidateOptionsMenu()
             }
         }
+        binding.mediaAlternativeText.addTextChangedListener {
+            if (!activity.isDestroyed) {
+                activity.invalidateOptionsMenu()
+            }
+        }
         return binding.root
     }
 
