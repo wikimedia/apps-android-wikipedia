@@ -1261,6 +1261,14 @@
     <string name="watchlist_page_deleted">Deleted</string>
     <!-- /Watchlist -->
 
+    <!-- Preview edit -->
+    <string name="preview_edit_title">Preview edit</string>
+    <string name="preview_edit_summarize_edit_title">Summarize edit</string>
+    <string name="preview_edit_minor_edit">This is a minor edit</string>
+    <string name="preview_edit_watch_this_page">Watch this page</string>
+    <string name="preview_edit_learn_more">Learn more about edit summaries</string>
+    <!-- /Preview edit -->
+
     <string name="action_item_categories">Categories</string>
     <string name="page_no_categories">This page does not belong to any categories.</string>
     <string name="category_tab_articles">Articles</string>
