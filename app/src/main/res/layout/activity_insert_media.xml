@@ -23,21 +23,21 @@
         <FrameLayout
             android:id="@+id/imageInfoContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="180dp"
             android:background="?attr/color_group_22"
             app:layout_scrollFlags="scroll|enterAlways">
 
             <LinearLayout
                 android:id="@+id/emptyImageContainer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="16dp"
                 android:orientation="vertical"
                 android:gravity="center_horizontal">
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="80dp"
                     android:src="?attr/image_tags_onboarding_image"
                     android:layout_marginTop="16dp"
                     android:contentDescription="@string/insert_media_search_description" />
@@ -54,13 +54,13 @@
             <FrameLayout
                 android:id="@+id/selectedImageContainer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:visibility="gone">
 
                 <FrameLayout
                     android:id="@+id/imageViewContainer"
                     android:layout_width="match_parent"
-                    android:layout_height="180dp">
+                    android:layout_height="match_parent">
 
                     <org.wikipedia.views.FaceAndColorDetectImageView
                         android:id="@+id/selectedImage"
