@@ -119,6 +119,7 @@
   <string name="menu_page_new_tab">Menu item text for opening a new tab.</string>
   <string name="menu_page_reading_lists">&gt;Menu item text for opening the reading lists page.</string>
   <string name="menu_page_recently_viewed">&gt;Menu item text for opening the history page.</string>
+  <string name="menu_page_archive">&gt;Menu item text for opening the archive page.</string>
   <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.\n{{Identical|Open}}</string>
   <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab.</string>
   <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipboard for pasting later.</string>
@@ -193,7 +194,7 @@
   <string name="search_empty_message">Brief explanation that there are currently no Search entries to look at. Just to fill an empty screen. This usually happens when a user just deleted search entries.</string>
   <string name="search_empty_message_multilingual_upgrade">Suggestion text encouraging users to add more languages to the app to read in.</string>
   <string name="delete_selected_items">Menu item hint for deleting selected items in a list.</string>
-  <string name="wp_stylized">A stylized string saying \"Wikipedia\". Used before wp_tag_line if no image representation exists. Usually the first and last characters are within big tags, if this fits the Wikipedia logo in your language.</string>
+  <string name="wp_stylized">A stylized string saying \"Wikipedia\". Used before wp_tag_line if no image representation exists. Usually the first and last characters are within &lt;code&gt;&amp;lt;big&amp;gt;...&amp;lt;/big&amp;gt;&lt;/code&gt; tags, if this fits the Wikipedia logo in your language.</string>
   <string name="create_account_username_hint">{{Identical|Username}}</string>
   <string name="login_dont_have_account">Label asking the user if they do not yet have an account.</string>
   <string name="login_join_wikipedia">Button label that lets the user create a new account on Wikipedia.</string>
@@ -286,6 +287,11 @@
   <string name="edit_preview">Header text to show above the preview of the edited article.\n{{Identical|Preview}}</string>
   <string name="edit_undo">Button label to undo the previous text that was typed.</string>
   <string name="edit_redo">Button label to redo the previous text that was typed.</string>
+  <string name="edit_rollback">Button label to rollback the article to the previous revision.</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">Text for the revisions difference in bytes. %s will be replaced by the positive one or negative one.</item>
+    <item quantity="other">Text for the revisions difference in bytes. %s will be replaced by the number of bytes.</item>
+  </plurals>
   <string name="edit_zoom_in">Button label to increase the text size in the editor window.</string>
   <string name="edit_zoom_out">Button label to decrease the text size in the editor window.</string>
   <string name="edit_summary_tag_typo">Clickable summary tag for fixing a typo. A part of a list that includes:\n* {{msg-wm|Wikipedia-android-strings-edit summary tag typo}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag grammar}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag links}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag other}}</string>
@@ -939,14 +945,14 @@
     <item quantity="other">Label text for indicating how many contributions a user has made. For many contributions.</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
-    <item quantity="one">Label text to show the length of the edit streak in number of days. %d is for one dat.</item>
-    <item quantity="other">Label text to show the length of the edit streak in number of days. %d is for many days</item>
+    <item quantity="one">Label text to show the length of the edit streak in number of days. %d is for one day.</item>
+    <item quantity="other">Label text to show the length of the edit streak in number of days. %d is for many days.</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Title for card that introduces Suggested edits.</string>
   <string name="suggested_edits_what_is_text">Body text for card that introduces Suggested edits.</string>
   <string name="suggested_edits_learn_more">Button text for navigating to additional information for the user.</string>
   <string name="suggested_edits_paused_title">Title for card that explains that this feature is currently paused.</string>
-  <string name="suggested_edits_disabled_title">Title for card that explains that this feature is currently disabled.</string>
+  <string name="suggested_edits_disabled_title">Title for card that explains that this feature is currently disabled.\n{{Identical|Disabled}}</string>
   <string name="suggested_edits_ip_blocked_title">Title for card that explains that the IP address of the user is blocked.</string>
   <string name="suggested_edits_last_edited">This refers to the date when the user made their last edit.</string>
   <string name="suggested_edits_last_edited_never">Displayed when the user has never made an edit.\n\n{{Identical|Never}}</string>
@@ -1132,17 +1138,12 @@
   <string name="talk_list_item_user_icon_content_description">Content description of the user icon.</string>
   <string name="talk_list_item_swipe_mark_as_read">Label text for the swipe gesture that markes the item as read.</string>
   <string name="talk_list_item_swipe_mark_as_unread">Label text for the swipe gesture that markes the item as unread.</string>
-  <string name="talk_footer_about_this_talk_page">Title text for the footer section in the talk page.</string>
-  <string name="talk_footer_view_edit_history">Label text for view edit history option.</string>
-  <string name="talk_footer_view_user_page">Label text for view user page option.</string>
-  <string name="talk_footer_view_article">Label text for view article option.</string>
-  <string name="talk_footer_last_modified">Label for the last modified date of the talk page. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual date and user name.\n\nShould be similar to this MediaWiki messages such as this: {{msg-mw|Mobile-frontend-last-modified-with-user-hours}}</string>
+  <string name="talk_archived_title">Title text for archived talk pages. %s will be replaced by the title of the talk page.</string>
   <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
   <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>
-  <string name="menu_option_user_profile">Menu option label for user\'s profile page. %s indicating the username.</string>
   <string name="menu_option_user_contributions">Menu option label for user contributions screen. %s indicating the username.</string>
-  <string name="menu_option_edit_source">Menu option label for editing the page.</string>
+  <string name="menu_option_edit_source">Menu option label for editing the page.\n{{Identical|Edit source}}</string>
   <string name="menu_option_user_page">Menu option label for the user page. %s indicating the username.</string>
   <string name="menu_option_find_in_talk_page_topic">Menu option label for finding in talk page topic.</string>
   <string name="talk_menu_copy_text">Menu label for copying the text of the current reply.</string>
@@ -1176,6 +1177,8 @@
   <string name="revision_undo_message">Dialog message explaining that the selected revision will be undone.</string>
   <string name="revision_undo_reason">Dialog message requesting a reason for undoing the selected revision.</string>
   <string name="revision_undo_success">Message shown when an edit was undone successfully.</string>
+  <string name="revision_rollback_dialog_title">Title of the rollback dialog.</string>
+  <string name="revision_rollback_success">Message shown when edits were reverted successfully.</string>
   <string name="revision_compare_button">Button label for comparing two revisions.</string>
   <string name="revision_compare_two_only">Error message when the user attempts to select more than two revisions for comparison.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Message shown when the article is added to Watchlist. The %1$s symbol will be replaced by the article title and the %2$s symbol will be replaced by the time period.</string>
@@ -1206,6 +1209,8 @@
   <string name="category_tab_subcategories">Label for tab that lists all the subcategories of a category.</string>
   <string name="category_empty">Error shown when the current category contains no articles.</string>
   <string name="subcategory_empty">Error shown when the current category contains no subcategories.</string>
-  <string name="search_namespaces">Hint for selecting the namespace when searching.</string>
+  <string name="search_namespaces">Hint for selecting the namespace when searching.\n{{Identical|Namespace}}</string>
   <string name="revision_initial_none">Label shown when showing a diff of the first revision of an article (when there is no previous revision to compare with).</string>
+  <string name="archive_empty">Error shown when the current page does not have subpages.</string>
+  <string name="media_playback_error">Error shown when the selected media could not be played.</string>
 </resources>

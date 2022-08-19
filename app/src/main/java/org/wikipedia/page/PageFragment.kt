@@ -20,6 +20,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.graphics.Insets
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textview.MaterialTextView
@@ -27,6 +28,10 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
@@ -204,7 +209,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
         }
 
-        bottomBarHideHandler = ViewHideHandler(binding.pageActionsTabLayout, null, Gravity.BOTTOM, updateElevation = false)
+        bottomBarHideHandler = ViewHideHandler(binding.pageActionsTabLayout, null, Gravity.BOTTOM, updateElevation = false) { false }
         bottomBarHideHandler.setScrollView(webView)
         bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
 
@@ -263,6 +268,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bridge.execute(JavaScriptActionHandler.pauseAllMedia())
         if (avPlayer?.isPlaying == true) {
             avPlayer?.stop()
+            updateProgressBar(false)
         }
         activeTimer.pause()
         addTimeSpentReading(activeTimer.elapsedSec)
@@ -437,10 +443,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     sections.add(0, Section(0, 0, model.title?.displayText.orEmpty(), model.title?.displayText.orEmpty(), ""))
                     page.sections = sections
                 }
-            }
 
-            model.title?.let {
-                sidePanelHandler.setupForNewPage(model.page)
+                sidePanelHandler.setupForNewPage(page)
                 sidePanelHandler.setEnabled(true)
             }
         }
@@ -459,7 +463,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             return
         }
         if (title.namespace() === Namespace.USER_TALK || title.namespace() === Namespace.TALK) {
-            startTalkTopicActivity(title)
+            startTalkTopicsActivity(title)
             return
         } else if (title.namespace() == Namespace.CATEGORY) {
             startActivity(CategoryActivity.newIntent(requireActivity(), title))
@@ -500,7 +504,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun openInNewTab(title: PageTitle, entry: HistoryEntry, position: Int) {
         val selectedTabPosition = app.tabList.firstOrNull { it.backStackPositionTitle != null &&
-                it.backStackPositionTitle == title }?.let { app.tabList.indexOf(it) } ?: -1
+                title.matches(it.backStackPositionTitle) }?.let { app.tabList.indexOf(it) } ?: -1
 
         if (selectedTabPosition >= 0) {
             return
@@ -565,9 +569,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun addTimeSpentReading(timeSpentSec: Int) {
         model.curEntry?.let {
-            Completable.fromCallable { AppDatabase.instance.historyEntryDao().upsertWithTimeSpent(it, timeSpentSec) }
-                .subscribeOn(Schedulers.io())
-                .subscribe({}) { L.e(it) }
+            lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
+                withContext(Dispatchers.IO) {
+                    AppDatabase.instance.historyEntryDao().upsertWithTimeSpent(it, timeSpentSec)
+                }
+            }
         }
     }
 
@@ -584,8 +590,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    private fun startTalkTopicActivity(pageTitle: PageTitle) {
-        startActivity(TalkTopicsActivity.newIntent(requireActivity(), pageTitle, InvokeSource.PAGE_ACTIVITY))
+    private fun startTalkTopicsActivity(title: PageTitle, stripUrlFragment: Boolean = false) {
+        val talkTitle = title.copy()
+        if (stripUrlFragment) {
+            talkTitle.fragment = null
+        }
+        startActivity(TalkTopicsActivity.newIntent(requireActivity(), talkTitle, InvokeSource.PAGE_ACTIVITY))
     }
 
     private fun startGalleryActivity(fileName: String) {
@@ -825,7 +835,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 when (payload["itemType"]?.jsonPrimitive?.content) {
                     "talkPage" -> model.title?.run {
                         articleInteractionEvent?.logTalkPageArticleClick()
-                        startTalkTopicActivity(this)
+                        startTalkTopicsActivity(this, true)
                     }
                     "languages" -> startLangLinksActivity()
                     "lastEdited" -> {
@@ -1139,7 +1149,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun clearActivityActionBarTitle() {
+   private fun clearActivityActionBarTitle() {
         val currentActivity = requireActivity()
         if (currentActivity is PageActivity) {
             currentActivity.clearActionBarTitle()
@@ -1272,8 +1282,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             updateProgressBar(false)
         }
 
-        override fun onError() {
-            avPlayer?.stop()
+        override fun onError(code: Int, extra: Int) {
+            if (avPlayer?.isPlaying == true) {
+                avPlayer?.stop()
+            }
+            FeedbackUtil.showMessage(this@PageFragment, R.string.media_playback_error)
             updateProgressBar(false)
         }
     }
@@ -1425,7 +1438,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onViewTalkPageSelected() {
             title?.let {
-                startActivity(TalkTopicsActivity.newIntent(requireContext(), it, InvokeSource.PAGE_ACTIVITY))
+                startTalkTopicsActivity(it, true)
             }
             articleInteractionEvent?.logTalkPageClick()
         }

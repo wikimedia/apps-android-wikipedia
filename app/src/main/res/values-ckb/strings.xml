@@ -86,6 +86,7 @@
   <string name="menu_page_new_tab">تابی نوێ</string>
   <string name="menu_page_reading_lists">پێڕستەکانی خوێندنەوە</string>
   <string name="menu_page_recently_viewed">لەم دواییە بینراوە</string>
+  <string name="menu_page_archive">ئەرشیڤ</string>
   <string name="menu_long_press_open_page">بیکەرەوە</string>
   <string name="menu_long_press_open_in_new_tab">کردنەوە لە تابێکی نوێ</string>
   <string name="menu_long_press_copy_page">لەبەرگرتنەوەی ناونیشانی بەستەر</string>
@@ -602,7 +603,7 @@
   <string name="notifications_swipe_action_unread">نەخوێندراوە</string>
   <string name="notifications_menu_user_talk_page">پەڕەی وتووێژی %s</string>
   <string name="view_because_you_read_card_title">لەبەرەوەی خوێندتەوە</string>
-  <string name="view_random_card_title">وتارێک بە ھەڵکەوت</string>
+  <string name="view_random_card_title">ھەڕەمەکێنەر</string>
   <string name="view_random_article_card_title">وتارێک بەھەڵکەوت</string>
   <string name="view_top_read_card_title">زۆرترین خوێندراوە</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d ھەزار</string>

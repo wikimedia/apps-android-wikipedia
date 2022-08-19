@@ -60,10 +60,14 @@
   <string name="menu_page_other_languages">ဘာသာစကား ပြောင်းလဲရန်</string>
   <string name="menu_page_find_in_page">စာမျက်နှာတွင် ရှာဖွေရန်</string>
   <string name="menu_page_add_to_watchlist">စောင့်ကြည့်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
+  <string name="menu_page_watch">စောင့်ကြည့်ရန်</string>
+  <string name="menu_page_unwatch">စောင့်မကြည့်ပါနှင့်</string>
   <string name="menu_page_view_talk">ဆွေးနွေးချက်စာမျက်နှာကို ကြည့်ရန်</string>
+  <string name="menu_page_talk_page">ဆွေးနွေးချက် စာမျက်နှာ</string>
   <string name="menu_page_view_edit_history">တည်းဖြတ်မှု ရာဇဝင် ကြည့်ရန်</string>
   <string name="menu_page_edit_history">တည်းဖြတ်မှု ရာဇဝင်</string>
   <string name="menu_page_remove_from_watchlist">စောင့်ကြည့်စာရင်းမှ ဖယ်ရှားရန်</string>
+  <string name="menu_page_watched">စောင့်ကြည့်ပြီး</string>
   <string name="edit_section_find_in_page">စာမျက်နှာတွင် ရှာဖွေရန်</string>
   <string name="menu_page_font_and_theme">ဖောင့်နှင့် အသွင်အပြင်</string>
   <string name="menu_page_add_to_list">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
@@ -71,10 +75,13 @@
   <string name="feed_card_add_to_list">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
   <string name="feed_card_add_to_default_list">သိမ်းရန်</string>
   <string name="menu_page_share">လင့်ခ်ကို မျှဝေရန်</string>
+  <string name="menu_article_share">ဆောင်းပါးကိုမျှဝေရန်</string>
+  <string name="menu_page_article_share">မျှဝေ</string>
   <string name="menu_page_open_a_new_tab">tab အသစ်တွင် ဖွင့်ရန်</string>
   <string name="menu_page_new_tab">tab အသစ်</string>
   <string name="menu_page_reading_lists">စာရင်းများကို ဖတ်နေသည်</string>
   <string name="menu_page_recently_viewed">မကြာသေခင်က ကြည့်ခဲ့သော</string>
+  <string name="menu_page_archive">မော်ကွန်း</string>
   <string name="menu_long_press_open_page">ဖွင့်ပါ</string>
   <string name="menu_long_press_open_in_new_tab">tab အသစ်တွင် ဖွင့်ရန်</string>
   <string name="menu_long_press_copy_page">ဝက်ဘ်လိပ်စာကို ကူးယူရန်</string>
@@ -82,6 +89,7 @@
   <string name="on_this_day_page_share">မျှဝေ</string>
   <string name="reading_list_page_share">မျှဝေ</string>
   <string name="menu_text_select_edit_here">ဤနေရာတွင် တည်းဖြတ်ရန်</string>
+  <string name="menu_edit_article">ဆောင်းပါးကို တည်းဖြတ်ရန်</string>
   <string name="last_updated_text">နောက်ဆုံးပြင်ခဲ့ချိန် %s</string>
   <string name="talk_page_link_text">ဆွေးနွေးချက်စာမျက်နှာကို ကြည့်ရန်</string>
   <string name="edit_history_link_text">တည်းဖြတ်မှု ရာဇဝင် ကြည့်ရန်</string>
@@ -297,6 +305,7 @@
   <string name="gallery_save_success">ဖိုင်အားသိမ်းပြီး။</string>
   <string name="gallery_error_video_failed">ဗီဒီယိုကို ဖွင့်၍ မရနိုင်ပါ။</string>
   <string name="gallery_save_image_write_permission_rationale">ပုံများအား သိမ်းဆည်းရန် သင့်စက်ရှိ သိုလှောင်မှုတွင် ရေးသားနိုင်ရန် ခွင့်ပြုချက် လိုအပ်သည်။</string>
+  <string name="gallery_edit_button_content_description">ရုပ်ပုံ ပုံစာ ပြင်ဆင်ရန်</string>
   <string name="gallery_add_image_caption_button">ရုပ်ပုံ ပုံစာ ပေါင်းထည့်ရန်</string>
   <string name="gallery_add_image_caption_in_language_button">ရုပ်ပုံ ပုံစာ ပေါင်းထည့်ရန် (%s)</string>
   <string name="err_cannot_save_file">ဖိုင်အား မသိမ်းဆည်းနိုင်ပါ</string>
@@ -899,9 +908,12 @@
   <string name="talk_subject_empty">အကြောင်းအရာ ဗလာဖြစ်၍ မရပါ။</string>
   <string name="talk_snackbar_undo">နောက်ပြန် ပြန်ပြင်ရန်</string>
   <string name="talk_last_modified">%2$s မှ &lt;b&gt;%1$s အကြာက နောက်ဆုံးတည်းဖြတ်ခဲ့သည်&lt;/b&gt;</string>
+  <string name="talk_snackbar_survey_action_text">စတင်ပါ</string>
+  <string name="talk_list_item_overflow_share">မျှဝေ</string>
   <string name="menu_option_share_edit">တည်းဖြတ်မှုကိုမျှဝေရန်</string>
   <string name="menu_option_user_profile">%s ၏ ပရိုဖိုင်</string>
   <string name="menu_option_user_contributions">%s ၏ ပံ့ပိုးမှုများ</string>
+  <string name="menu_option_edit_source">ရင်းမြစ်ကို တည်းဖြတ်ရန်</string>
   <string name="watchlist_details_watching_label">စောင့်ကြည့်နေသည်</string>
   <string name="watchlist_details_watch_label">စောင့်ကြည့်ရန်</string>
   <string name="watchlist_details_next_edit">နောက်တည်းဖြတ်မှု</string>
@@ -930,4 +942,9 @@
   <string name="watchlist_page_moved">ရွေ့ပြောင်းခဲ့</string>
   <string name="watchlist_page_protected">ကာကွယ်ခဲ့သည်</string>
   <string name="watchlist_page_deleted">ဖျက်ပြီးပြီ</string>
+  <string name="action_item_categories">ကဏ္ဍများ</string>
+  <string name="category_tab_articles">ဆောင်းပါးများ</string>
+  <string name="category_tab_subcategories">ကဏ္ဍခွဲများ</string>
+  <string name="category_empty">ဤကဏ္ဍတွင် ဆောင်းပါးများ မတွေ့ပါ။</string>
+  <string name="search_namespaces">အမည်ညွှန်းများ</string>
 </resources>

@@ -120,6 +120,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         updateEditLicenseText()
         setSaveButtonEnabled(false)
         setToolbarTitle(viewModel.pageTitle)
+        L10nUtil.setConditionalLayoutDirection(binding.talkScrollContainer, viewModel.pageTitle.wikiSite.languageCode)
 
         if (viewModel.topic != null) {
             binding.replyInputView.userNameHints = setOf(viewModel.topic!!.author)
@@ -149,7 +150,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             binding.replySubjectLayout.isVisible = false
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_reply_hint)
             binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
-            binding.replyInputView.maybePrepopulateUserName()
+            binding.replyInputView.maybePrepopulateUserName(AccountUtil.userName.orEmpty(), viewModel.pageTitle)
             binding.talkScrollContainer.post {
                 if (!isDestroyed) {
                     binding.replyInputView.editText.requestFocus()

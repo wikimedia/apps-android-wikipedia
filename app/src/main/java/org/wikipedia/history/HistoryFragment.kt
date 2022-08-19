@@ -16,6 +16,7 @@ import androidx.appcompat.view.ActionMode
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updateMarginsRelative
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +24,10 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -140,10 +145,15 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     }
 
     private fun onClearHistoryClick() {
-        disposables.add(AppDatabase.instance.historyEntryDao().deleteAll()
-                .subscribeOn(Schedulers.io())
-                .doAfterTerminate { reloadHistoryItems() }
-                .subscribe())
+        lifecycleScope.launch {
+            try {
+                withContext(Dispatchers.IO) {
+                    AppDatabase.instance.historyEntryDao().deleteAll()
+                }
+            } finally {
+                reloadHistoryItems()
+            }
+        }
     }
 
     private fun finishActionMode() {
@@ -191,7 +201,9 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         val selectedEntryList = mutableListOf<HistoryEntry>()
         for (entry in selectedEntries) {
             selectedEntryList.add(entry)
-            AppDatabase.instance.historyEntryDao().delete(entry)
+            runBlocking(Dispatchers.IO) {
+                AppDatabase.instance.historyEntryDao().delete(entry)
+            }
         }
         selectedEntries.clear()
         if (selectedEntryList.isNotEmpty()) {
@@ -204,8 +216,10 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         val message = if (entries.size == 1) getString(R.string.history_item_deleted, entries[0].title.displayText) else getString(R.string.history_items_deleted, entries.size)
         val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), message)
         snackbar.setAction(R.string.history_item_delete_undo) {
-            AppDatabase.instance.historyEntryDao().insert(entries)
-            reloadHistoryItems()
+            lifecycleScope.launch(Dispatchers.IO) {
+                AppDatabase.instance.historyEntryDao().insert(entries)
+                withContext(Dispatchers.Main) { reloadHistoryItems() }
+            }
         }
         snackbar.show()
     }
@@ -313,6 +327,8 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             selectedEntries.add(entry)
             deleteSelectedPages()
         }
+
+        override fun isSwipeable(): Boolean { return true }
     }
 
     private inner class HistoryEntryItemAdapter : RecyclerView.Adapter<DefaultViewHolder<*>>() {

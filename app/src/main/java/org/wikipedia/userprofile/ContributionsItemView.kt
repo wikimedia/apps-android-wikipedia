@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemSuggestedEditsContributionsBinding
+import org.wikipedia.page.Namespace
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 import org.wikipedia.util.DimenUtil
@@ -53,8 +54,8 @@ class ContributionsItemView constructor(context: Context, attrs: AttributeSet? =
         }
     }
 
-    fun setIcon(contributionType: Int) {
-        when (contributionType) {
+    fun setIcon(contribution: Contribution) {
+        when (contribution.editType) {
             EDIT_TYPE_IMAGE_CAPTION -> {
                 binding.contributionIcon.setImageResource(R.drawable.ic_image_caption)
             }
@@ -62,7 +63,13 @@ class ContributionsItemView constructor(context: Context, attrs: AttributeSet? =
                 binding.contributionIcon.setImageResource(R.drawable.ic_image_tag)
             }
             else -> {
-                binding.contributionIcon.setImageResource(R.drawable.ic_article_description)
+                val icon = when (contribution.ns) {
+                    Namespace.TALK.code() -> R.drawable.ic_icon_speech_bubbles_ooui_ltr
+                    Namespace.USER_TALK.code() -> R.drawable.ic_user_talk
+                    Namespace.USER.code() -> R.drawable.ic_user_avatar
+                    else -> R.drawable.ic_article_ltr_ooui
+                }
+                binding.contributionIcon.setImageResource(icon)
             }
         }
     }

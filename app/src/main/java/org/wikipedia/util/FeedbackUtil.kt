@@ -146,7 +146,7 @@ object FeedbackUtil {
         val toast = Toast.makeText(view.context, text, duration)
         val v = LayoutInflater.from(view.context).inflate(R.layout.abc_tooltip, null)
         val message = v.findViewById<TextView>(R.id.message)
-        message.text = text
+        message.text = StringUtil.removeHTMLTags(text.toString())
         message.maxLines = Int.MAX_VALUE
         toast.view = v
         val location = IntArray(2)
@@ -191,7 +191,7 @@ object FeedbackUtil {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
             setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
             setArrowOrientationRules(ArrowOrientationRules.ALIGN_ANCHOR)
-            setArrowSize(24)
+            setArrowSize(16)
             setMarginLeft(8)
             setMarginRight(8)
             setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)

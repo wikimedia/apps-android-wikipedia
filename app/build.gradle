@@ -1,9 +1,11 @@
-apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-parcelize'
-apply plugin: 'kotlinx-serialization'
-apply plugin: 'kotlin-kapt'
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlinx-serialization'
+    id 'com.google.devtools.ksp'
+}
 
 // Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
 final File PROD_PROPS_FILE = new File(System.getProperty('user.home'), '.sign/signing.properties')
@@ -11,21 +13,14 @@ final File REPO_PROPS_FILE = new File('repo.properties')
 final Properties PROD_PROPS = loadProperties(PROD_PROPS_FILE)
 final Properties REPO_PROPS = loadProperties(REPO_PROPS_FILE)
 
-
-def static getDate() {
-    def date = new Date()
-    def formattedDate = date.format('yyyy-MM-dd')
-    return formattedDate
-}
-
-def computeVersionName(label) {
-    return "2.7.${android.defaultConfig.versionCode}-${label}-${date}"
+static def computeVersionName(versionCode, label) {
+    return "2.7.${versionCode}-${label}-${(new Date()).format('yyyy-MM-dd')}"
 }
 
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 32
 
     compileOptions {
         sourceCompatibility = JAVA_VERSION
@@ -39,18 +34,16 @@ android {
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdkVersion 21
-        targetSdkVersion 31
-        versionCode 50404
+        targetSdkVersion 32
+        versionCode 50418
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
 
         vectorDrawables.useSupportLibrary = true
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
-            }
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas".toString())
         }
 
         dimension 'default'
@@ -78,11 +71,7 @@ android {
         dev { java.srcDirs += 'src/extra/java' }
         custom { java.srcDirs += 'src/extra/java' }
 
-        test {
-            java.srcDirs += 'src/testlib/java'
-        }
         androidTest {
-            java.srcDirs += 'src/testlib/java'
             assets.srcDirs += files("$projectDir/schemas".toString())
         }
     }
@@ -113,7 +102,7 @@ android {
 
     productFlavors {
         dev {
-            versionName computeVersionName('dev')
+            versionName computeVersionName(defaultConfig.versionCode, 'dev')
             applicationIdSuffix '.dev'
             buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.beta.wmflabs.org"'
             buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.beta.wmflabs.org"'
@@ -125,24 +114,24 @@ android {
             buildConfigField "String", "TEST_LOGIN_PASSWORD", TEST_LOGIN_PASSWORD != null ? "\"${TEST_LOGIN_PASSWORD}\"" : '"Bar"'
         }
         prod {
-            versionName computeVersionName('r')
+            versionName computeVersionName(defaultConfig.versionCode, 'r')
             signingConfig signingConfigs.prod
         }
         alpha {
-            versionName computeVersionName('alpha')
+            versionName computeVersionName(defaultConfig.versionCode, 'alpha')
             applicationIdSuffix '.alpha'
         }
         beta {
-            versionName computeVersionName('beta')
+            versionName computeVersionName(defaultConfig.versionCode, 'beta')
             applicationIdSuffix '.beta'
             signingConfig signingConfigs.prod
         }
         fdroid {
-            versionName computeVersionName('fdroid')
+            versionName computeVersionName(defaultConfig.versionCode, 'fdroid')
             signingConfig signingConfigs.prod
         }
         custom {
-            versionName computeVersionName(customChannel)
+            versionName computeVersionName(defaultConfig.versionCode, customChannel)
             // next line is for injecting a custom channel value into the custom/AndroidManifest.xml
             manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
             signingConfig signingConfigs.prod
@@ -184,9 +173,9 @@ dependencies {
     String mockitoVersion = '3.4.0'
     String leakCanaryVersion = '2.8.1'
     String kotlinCoroutinesVersion = '1.3.9'
-    String firebaseMessagingVersion = '23.0.4'
-    String mlKitVersion = '17.0.3'
-    String roomVersion = "2.4.2"
+    String firebaseMessagingVersion = '23.0.6'
+    String mlKitVersion = '17.0.4'
+    String roomVersion = "2.4.3"
     String espressoVersion = '3.4.0'
     String serialization_version = '1.2.1'
 
@@ -195,11 +184,11 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version"
 
-    implementation "com.google.android.material:material:1.6.0"
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation "androidx.core:core-ktx:1.7.0"
+    implementation "com.google.android.material:material:1.6.1"
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation "androidx.core:core-ktx:1.8.0"
     implementation "androidx.browser:browser:1.4.0"
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation "androidx.fragment:fragment-ktx:1.4.1"
     implementation "androidx.paging:paging-runtime-ktx:3.1.1"
     implementation "androidx.palette:palette-ktx:1.0.0"
@@ -217,7 +206,7 @@ dependencies {
 
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     implementation "com.github.bumptech.glide:okhttp3-integration:$glideVersion"
-    kapt("com.github.bumptech.glide:compiler:$glideVersion")
+    ksp("com.github.bumptech.glide:compiler:$glideVersion")
 
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
@@ -232,7 +221,7 @@ dependencies {
 
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor "androidx.room:room-compiler:$roomVersion"
-    kapt("androidx.room:room-compiler:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
     implementation "androidx.room:room-rxjava3:$roomVersion"
 

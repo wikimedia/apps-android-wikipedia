@@ -49,7 +49,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
 
     fun setContents(itemRevision: MwQueryPage.Revision, currentQuery: String?) {
         val diffSize = itemRevision.diffSize
-        binding.diffText.text = String.format(if (diffSize != 0) "%+d" else "%d", diffSize)
+        binding.diffText.text = StringUtil.getDiffBytesText(context, diffSize)
         if (diffSize >= 0) {
             binding.diffText.setTextColor(if (diffSize > 0) ContextCompat.getColor(context, R.color.green50)
             else ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))
@@ -78,6 +78,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
     fun setSelectedState(selectedState: Int) {
         val colorDefault = ResourceUtil.getThemedColor(context, R.attr.paper_color)
         val colorSecondary = ResourceUtil.getThemedColorStateList(context, R.attr.material_theme_secondary_color)
+        val colorUsername = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_9)
         val colorFrom = ResourceUtil.getThemedColor(context, R.attr.colorAccent)
         val colorTo = ResourceUtil.getThemedColor(context, R.attr.color_group_68)
         binding.selectButton.isVisible = selectedState != EditHistoryListViewModel.SELECT_INACTIVE
@@ -89,8 +90,8 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
             binding.cardView.setDefaultBorder()
             binding.cardView.setCardBackgroundColor(colorDefault)
             binding.userNameText.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_22)
-            binding.userNameText.setTextColor(colorSecondary)
-            binding.userNameText.iconTint = colorSecondary
+            binding.userNameText.setTextColor(colorUsername)
+            binding.userNameText.iconTint = colorUsername
             binding.editHistoryTimeText.setTextColor(colorSecondary)
         } else if (selectedState == EditHistoryListViewModel.SELECT_FROM) {
             binding.selectButton.setImageResource(R.drawable.ic_check_circle_black_24dp)
