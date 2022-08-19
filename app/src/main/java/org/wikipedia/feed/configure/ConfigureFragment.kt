@@ -99,13 +99,13 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_feed_configure_select_all -> {
-                FeedContentType.values().map { it.isEnabled = true }
+                FeedContentType.SET.forEach { it.isEnabled = true }
                 touch()
                 binding.contentTypesRecycler.adapter?.notifyDataSetChanged()
                 true
             }
             R.id.menu_feed_configure_deselect_all -> {
-                FeedContentType.values().map { it.isEnabled = false }
+                FeedContentType.SET.forEach { it.isEnabled = false }
                 touch()
                 binding.contentTypesRecycler.adapter?.notifyDataSetChanged()
                 true
@@ -123,7 +123,7 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
 
     private fun prepareContentTypeList() {
         orderedContentTypes.clear()
-        orderedContentTypes.addAll(FeedContentType.values())
+        orderedContentTypes.addAll(FeedContentType.SET)
         orderedContentTypes.sortBy { it.order }
         // Remove items for which there are no available languages
         val i = orderedContentTypes.iterator()

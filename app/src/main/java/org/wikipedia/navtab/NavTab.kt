@@ -53,6 +53,7 @@ enum class NavTab constructor(private val text: Int, private val id: Int, privat
     }
 
     companion object {
+        @JvmField
         val SET = enumSetAllOf<NavTab>()
 
         fun of(code: Int): NavTab {

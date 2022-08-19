@@ -106,7 +106,8 @@ enum class PageActionItem constructor(val id: Int,
     }
 
     companion object {
-        private val SET = enumSetAllOf<PageActionItem>()
+        @JvmField
+        val SET = enumSetAllOf<PageActionItem>()
 
         private fun findOrNull(id: Int): PageActionItem? {
             return SET.find { id == it.id || id == it.viewId }

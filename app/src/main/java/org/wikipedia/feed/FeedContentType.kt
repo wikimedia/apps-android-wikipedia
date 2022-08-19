@@ -85,7 +85,8 @@ enum class FeedContentType(private val code: Int,
     }
 
     companion object {
-        private val SET = enumSetAllOf<FeedContentType>()
+        @JvmField
+        val SET = enumSetAllOf<FeedContentType>()
 
         val aggregatedLanguages: List<String>
             get() {

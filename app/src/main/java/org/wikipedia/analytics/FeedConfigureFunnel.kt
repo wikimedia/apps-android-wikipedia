@@ -14,7 +14,7 @@ class FeedConfigureFunnel(app: WikipediaApp, wiki: WikiSite?, private val source
 
     fun done(orderedContentTypes: List<FeedContentType>) {
         val orderedList = orderedContentTypes.map { it.code() }
-        val enabledList = FeedContentType.values().map { if (it.isEnabled) 1 else 0 }
+        val enabledList = FeedContentType.SET.map { if (it.isEnabled) 1 else 0 }
         val enabledMap = app.languageState.appLanguageCodes.associateWith { enabledList }
         log(
                 "source", source,
