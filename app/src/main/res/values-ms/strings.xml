@@ -892,7 +892,6 @@
   <string name="talk_message_empty">Pesanan jangan dibiarkan kosong.</string>
   <string name="talk_subject_empty">Subjek jangan dibiarkan kosong.</string>
   <string name="menu_option_share_edit">Kongsi suntingan</string>
-  <string name="menu_option_user_profile">Profil %s</string>
   <string name="menu_option_user_contributions">Sumbangan %s</string>
   <string name="watchlist_details_watch_label">Pantau</string>
   <string name="thank_label">Terima kasih</string>

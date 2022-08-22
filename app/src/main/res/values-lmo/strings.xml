@@ -26,7 +26,7 @@
   <string name="offline_load_error_retry">Proeuva an\'mò</string>
   <string name="page_error_back_to_main">Torna indrée</string>
   <string name="error_back">Torna indrée</string>
-  <string name="menu_clear_all_history">Scancela la cronologia</string>
+  <string name="menu_clear_all_history">Scancella la storia</string>
   <string name="history_item_deleted">%s tolt via de la cronologia</string>
   <string name="history_items_deleted">%d vos tolte via de la cronologia</string>
   <string name="history_item_delete_undo">Torna a \'me che l\'era inanz</string>
@@ -39,8 +39,8 @@
   <string name="dialog_message_clear_history">Chesschì el scancelarà tuta la cronologia ne navigazzion e \'l sararà su tucc i schede adee averte. Te see sicur?</string>
   <string name="dialog_message_clear_history_yes">Sì</string>
   <string name="dialog_message_clear_history_no">Nò</string>
-  <string name="share_via">Spartiss con alter persone per mezz de</string>
-  <string name="image_share_via">Spartiss con alter persone per mezz de</string>
+  <string name="share_via">Condivid per mez de</string>
+  <string name="image_share_via">Condivid per via de</string>
   <string name="search_redirect_from">Redirezzion de %s</string>
   <string name="menu_page_show_tabs">Mostra schede</string>
   <string name="menu_page_other_languages">Cambia lengua</string>
@@ -63,7 +63,7 @@
   <string name="menu_long_press_open_in_new_tab">Derva in \'na scheda noeuva</string>
   <string name="menu_long_press_copy_page">Copia l\'adress del conligament</string>
   <string name="menu_text_select_define">Definizzion</string>
-  <string name="on_this_day_page_share">Spartiss in gir</string>
+  <string name="on_this_day_page_share">Condivid</string>
   <string name="reading_list_page_share">Spartiss in \'na lista de lettura</string>
   <string name="menu_text_select_edit_here">Modifega chichinscì</string>
   <string name="last_updated_text">Darera atualizazzion %s</string>
@@ -98,7 +98,7 @@
   <string name="edit_section_captcha_request_an_account_message">Te riesset minga a vedè l\'imagin? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Ciama on utenza&lt;/a&gt;</string>
   <string name="title_captcha">Met denter el CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toca el CAPTCHA per caregà de noeuv</string>
-  <string name="nav_item_login">Va dent in Wikipedia</string>
+  <string name="nav_item_login">Và dent in Wikipedia</string>
   <string name="login_username_hint">Nom de l\'utent</string>
   <string name="login_password_hint">Parolla ciav</string>
   <string name="account_creation_password_hint">Parolla ciav</string>
@@ -129,7 +129,7 @@
   <string name="history_offline_articles_toast">Di vos in la cronologia i podarissen vesser minga visibel quand che te see minga conness.</string>
   <string name="search_empty_message">Cerca e lensg l\'enciclpedia libera in la toa lengua.</string>
   <string name="search_empty_message_multilingual_upgrade">Cerca in Wikipedia in diverse lengue</string>
-  <string name="delete_selected_items">Scancela i element selezionad</string>
+  <string name="delete_selected_items">Scancella i element selezionad</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom de l\'utent</string>
   <string name="login_dont_have_account">Te see nananmò registrad?</string>
@@ -217,7 +217,7 @@
   <string name="edit_summary_tag_other">Alter</string>
   <string name="edit_summary_tag_other_hint">Alter manere cont i quae te podet migliorà la pagina</string>
   <string name="edit_conflict_title">Conflit de edizzion</string>
-  <string name="edit_conflict_message">La pagina l\'è stada sgiamò modifica de un\'alter utent e l\'è in confrlit con la toa modifica. Copia i modifiche, torna indrée e sgiorna la pagina, quindi proeuva a modificà de noeuv.</string>
+  <string name="edit_conflict_message">La pagina l\'è stada sgiamò modifica de un\'alter utent e l\'è in conflit con la toa modifica. Copia i modifiche, torna indrée e atualiza la pagina, quindi proeuva a modificà de noeuv.</string>
   <string name="find_next">Troeuva el prossim</string>
   <string name="find_previous">Troeuva precedent</string>
   <string name="find_first_occurence">Questchì l\'è el prim avveniment</string>
@@ -238,7 +238,7 @@
   <string name="clear_recent_searches_confirm">Te se sicur de vorè scancelà la cronologia di ricerche recente?</string>
   <string name="clear_recent_searches_confirm_yes">Sì</string>
   <string name="clear_recent_searches_confirm_no">Nò</string>
-  <string name="gallery_menu_share">Spartiss con di alter person</string>
+  <string name="gallery_menu_share">Condivid</string>
   <string name="gallery_save_progress">Adrée a descaregà el fail...</string>
   <string name="gallery_save_success">Fail salvad.</string>
   <string name="gallery_edit_button_content_description">Modifega l\'insegna de l\'imagin</string>

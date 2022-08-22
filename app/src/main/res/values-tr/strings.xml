@@ -1151,7 +1151,6 @@
   <string name="menu_option_share_talk_discussion">Tartışmayı paylaş</string>
   <string name="menu_option_share_talk_page">Tartışma sayfasını paylaş</string>
   <string name="menu_option_share_edit">Değişikliği paylaş</string>
-  <string name="menu_option_user_profile">%s kullanıcısının bilgileri</string>
   <string name="menu_option_user_contributions">%s kullanıcısının katkıları</string>
   <string name="menu_option_edit_source">Kaynağı düzenle</string>
   <string name="menu_option_user_page">%s kullanıcı sayfası</string>
@@ -1170,7 +1169,7 @@
   <string name="thank_dialog_positive_button_text">Teşekkür gönder</string>
   <string name="thank_dialog_negative_button_text">İptal</string>
   <string name="thank_success_message">\'Teşekkür\'ün %s kullanıcısına gönderildi</string>
-  <string name="menu_option_view_user_profile">Kullanıcı profili sayfasını görüntüle</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Kullanıcı profili sayfasını görüntüle</string>
   <string name="menu_option_view_user_talk">Tartışma sayfasını görüntüle</string>
   <string name="menu_option_view_user_contributions">Kullanıcı katkılarını görüntüle</string>
   <string name="revision_diff_compare">Düzeltmeleri karşılaştır</string>

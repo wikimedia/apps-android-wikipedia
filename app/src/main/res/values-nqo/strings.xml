@@ -6,6 +6,7 @@
 * Lancine.kounfantoh.fofana
 * MuratTheTurkish
 * Youssoufkadialy
+* ߒߓߋ߫ ߝߏߝߣߊ߫
 -->
 <resources>
   <string name="app_name_prod">ߥߞߌߔߘߋߞߎ</string>
@@ -192,11 +193,13 @@
   <string name="create_account_account_created_toast">ߖߊ߬ߕߋ߬ߘߊ ߓߘߊ߫ ߛߌ߲ߘߌ߫߹</string>
   <string name="preferences_heading_syncing">ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߦߴߌ ߘߐ߫</string>
   <string name="preferences_heading_data_usage">ߕߎ߬ߡߊ߬ߘߊ ߟߊߓߊ߯ߙߊߟߌ</string>
+  <string name="preferences_heading_experimental">ߡߊߝߍߣߍ߲ߕߊ</string>
   <string name="preference_title_sync_reading_lists_from_account">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߫ ߦߴߌ ߘߐ߫</string>
   <string name="preference_title_download_reading_list_articles">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߦߌߟߡߊ ߟߊ߬ߖߌ߰ߒ߬ߞߎ߲߬ߠߌ߲</string>
   <string name="preference_summary_sync_reading_lists">ߌ ߟߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߫ ߞߐߟߊ߲߫ ߓߐߣߍ߲ߢߐ߲߰ߡߊ ߟߎ߬ ߞߣߐ߫߸ ߞߵߊ߬ߟߎ߬ ߟߊߞߎ߲߬ߘߎ߫ ߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ߫ ߖߊ߬ߕߋ߬ߘߊ ߞߣߐ߫.</string>
   <string name="preference_summary_sync_reading_lists_from_account">ߌ ߟߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߫ ߞߍߟߊ߲߫ ߓߐߣߍ߲ߢߐ߲߰ߡߊ ߟߎ߬ ߕߍ߫߸ ߊ߬ߟߎ߬ ߟߊߞߎ߲߬ߘߎ ߟߴߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ %s ߞߣߐ߫</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">ߞߊ߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ߣߍ߲ ߠߎ߬ ߛߋ߲߬ߓߐ߫  \"%s\" ߘߐ߫؟</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">ߏ߬ ߘߌߣߊ߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߛߙߍߘߍ߫ ߕߎ߬ߡߊ߬ߢߐ߰ߦߊ߬ߣߍ߲߫ ߘߝߊߣߍ߲ ߠߎ߬ ߓߍ߯ ߖߏ߰ߛߌ߫ ߞߊ߬ ߓߐ߫ ߥߎߟߊߟߊ߫ ߟߊߡߙߊߟߌ ߟߎ߬ ߘߐ߫. ߞߊ߬ ߛߙߍߘߍ߫ ߕߎ߬ߡߊ߬ߢߐ߰ߦߊ߬ߣߍ߲ ߓߍ߯ ߖߏ߲߫ ߌ ߟߊ߫ ߖߊ߬ߕߋ߬ߘߊ «%s» ߟߊ߫؟</string>
   <string name="preferences_privacy_settings_heading">ߜߎ߲߬ߘߎ߬ߢߐ߲߰ߦߊ</string>
   <string name="preference_title_eventlogging_opt_in">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߘߊ߲߬ߕߍ߰ߟߌ ߗߋ߫</string>
   <string name="preference_title_auto_upload_crash_reports">ߗߌߙߏ߲ߠߌ߲ ߘߊ߲߬ߕߍ߰ߟߌ ߗߋ߫</string>
@@ -687,6 +690,7 @@
   <string name="description_edit_license_notice">ߣߌ߫ ߒ ߘߌ߫ ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲߫߸ ߒ ߘߌ߬ߢߍ߬ߣߍ߲߫ ߦߋ߫ &lt;a href=\"%1$s\"&gt;ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߛߙߊߕߌ&lt;/a&gt; ߡߊ߬߸ ߊ߬ ߣߌ߫ ߞߊ߬ ߒ ߠߊ߫ ߓߟߏߡߊߜߍ߲ ߠߊߓߌ߬ߟߊ߬ ߣߡߌߛߊߓߊߟߌߦߊ߫ ߓߟߏߡߊ߬&lt;a href=\"%2$s\"&gt;ߞߐߡߐ߲ ߠߊ߫ ߟߊ߬ߘߊ߲߬ߠߌ߲߬CC0&lt;/a&gt; ߣߴߊ߬ ߕߌ߰ߦߊ ߘߊߞߘߐ߫.</string>
   <string name="description_edit_voice_input_description">ߡߍ߲ߞߊ߲߫ ߠߊߘߏ߲</string>
   <string name="description_too_short">ߛߓߍߟߌ ߛߘߎ߬ߡߊ߲߬ ߞߏߖߎ߰.</string>
+  <string name="description_ends_with_punctuation">ߛߓߍߟߌ ߕߍ߫ ߞߎ߲߭ߝߊ߰ ߟߊ߫ ߕߏ߲ߘߋߦߊߟߌ ߡߊ߬.</string>
   <string name="description_edit_success_saved">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߓߘߊ߫ ߟߊߥߊ߲߬ߞߊ߫߹</string>
   <string name="description_edit_success_saved_snackbar">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߓߘߊ߫ ߟߊߥߊ߲߬ߞߊ߫߹</string>
   <string name="description_edit_success_saved_in_lang_snackbar">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߓߘߊ߫ ߟߊߥߊ߲߬ߞߊ߫߹ (%s)</string>
@@ -830,6 +834,7 @@
   <string name="file_page_activity_title">ߞߐߕߐ߯ ߞߐߜߍ</string>
   <string name="file_page_add_image_caption_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߝߊ߬ߙߊ߫</string>
   <string name="file_page_add_image_tags_button">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ ߟߎ߬ ߝߙߊ߬</string>
+  <string name="file_page_suggestion_reason">ߞߎ߲߬ߦߌ߬ߘߊ߬ߟߌ ߞߎ߲߭</string>
   <string name="file_page_edit_button_content_description">%s ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="description_edit_revert_subtitle">ߌ ߞߎߟߎ߲ߖߋ߫ ߥߞߌߔߋߘߌߦߊ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊ߫߹</string>
   <string name="description_edit_revert_intro">ߊ߲ ߞߵߊ߬ ߟߐ߲߫ ߞߴߌ ߦߴߌ ߛߋߞߏ ߞߍ߫ ߟߊ߫߸ ߒ߬ߞߊ߬ ߡߊ߬ߝߟߍ߬ߟߌ߬ߟߊ ߘߏ߫ ߟߎ߫ ߞߎߛߎ߲ߣߍ߲߫ ߦߋ߫. ߏ߭ ߞߎ߲߭ ߘߌ߫ ߛߋ߫ ߞߍ߫ ߟߊ߫ ߡߍ߲ ߘߌ߫߸ ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߟߊߕߊ߲߬ߞߊ߬ߣߍ߲߫ ߘߌ߫ ߞߵߊ߬ ߡߊߛߐ߬ߘߐ߲߬:</string>
@@ -955,12 +960,13 @@
   <string name="menu_option_share_talk_discussion">ߘߊߘߐߖߊߥߏ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_option_share_talk_page">ߞߎߡߊ߫ ߞߐߜߍ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_option_share_edit">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊߖߍ߲ߛߍ߲߫</string>
-  <string name="menu_option_user_profile">%s ߢߊߞߙߍ</string>
   <string name="menu_option_user_contributions">%s ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߠߎ߬</string>
   <string name="menu_option_edit_source">ߓߐߖߎ ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="menu_option_user_page">%s ߟߊ߫ ߞߐߜߍ߫ ߟߊߓߊ߯ߙߕߊ</string>
   <string name="menu_option_find_in_talk_page_topic">ߊ߬ ߟߊߛߐ߬ߘߐ߲߬ ߞߎߡߊ߫ ߞߐߜߍ ߝߐߡߊ ߟߎ߫ ߘߐ߫</string>
   <string name="talk_menu_copy_text">ߞߟߏߜߍ ߓߊߓߌ߬ߟߊ߫</string>
+  <string name="talk_menu_expand_threads">ߖߎ߬ߟߎ ߘߐߦߙߌߥߊ߫</string>
+  <string name="talk_menu_collapse_threads">ߖߎ߬ߟߎ ߘߐߘߏ߲߬</string>
   <string name="watchlist_details_watching_label">ߘߐߜߍߟߌ ߦߴߌ ߘߐ߫</string>
   <string name="watchlist_details_watch_label">ߊ߬ ߘߐߜߍ߫</string>
   <string name="watchlist_details_next_edit">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߢߍߕߊ</string>
@@ -972,7 +978,7 @@
   <string name="thank_dialog_positive_button_text">\'ߌ ߣߌ߫ ߗߋ\' ߗߋ߫</string>
   <string name="thank_dialog_negative_button_text">ߊ߬ ߘߐߛߊ߬</string>
   <string name="thank_success_message">ߌ ߟߊ߫ ߓߏߙߌߞߊߓߌߟߊ ߓߘߊ߫ ߗߋ߫ %s ߡߊ߬ 👍</string>
-  <string name="menu_option_view_user_profile">ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ ߢߊߞߙߍ߫ ߞߐߜߍ ߦߋ߫</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ ߢߊߞߙߍ߫ ߞߐߜߍ ߦߋ߫</string>
   <string name="menu_option_view_user_talk">ߞߎߡߊ߫ ߞߐߜߍ ߦߋ߫</string>
   <string name="menu_option_view_user_contributions">ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ ߟߊ߫ ߓߟߏߡߊߜߍ߲ ߠߎ߬ ߦߋ߫</string>
   <string name="revision_diff_compare">ߟߢߊ߬ߟߌ ߟߎ߬ ߟߊߢߐ߲߮ߡߊ߬</string>
@@ -989,6 +995,8 @@
   <string name="revision_undo_message">ߏ߬ ߘߌ߫ ߡߝߊ߬ߟߋ߲߬ߠߌ߲߫ ߠߎ߫ ߖߏ߬ߛߌ߫ ߡߍ߲ ߠߎ߬ ߛߌ߲ߘߌ߫ ߘߊ߫ ߟߢߊ߬ߟߌ(ߟߎ߫) ߘߐ߫ ߞߎߡߘߊ߫ ߘߐ߫ ߡߍ߲ ߦߌ߬ߘߊ߬ߣߍ߲߫ ߦߋ߫ ߦߊ߲߬ ߣߌ߲߬.</string>
   <string name="revision_undo_reason">ߖߐ߲߬ߛߊ߫ ߞߵߊ߬ ߘߊߓߊ߲߫߸ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߣߌ߲߬ ߘߐߛߊ߬ߟߌ ߕߎ߬ߙߎ ߡߊߛߐ߫ ߦߊ߲߬ ߖߊ߰ߣߌ߲߫:</string>
   <string name="revision_undo_success">ߟߢߊ߬ߟߌ ߓߘߊ߫ ߘߐߛߊ߬.</string>
+  <string name="revision_rollback_dialog_title">ߌ ߘߍ߲߬ߞߣߍ߬ߦߊ߬ߣߍ߲߫ ߦߋ߫ ߞߴߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߟߊߕߊ߲߬ߞߌ߫؟</string>
+  <string name="revision_rollback_success">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߫ ߠߊߕߊ߲߬ߞߌ߬ߣߍ߲ ߠߎ߬</string>
   <string name="revision_compare_button">ߞߵߊ߬ ߟߊ߫ ߢߐ߲߮ ߡߊ߬</string>
   <string name="revision_compare_two_only">ߟߢߊ߬ߟߌ߫ ߝߌ߬ߟߊ߬ ߘߐߙߐ߲߫ ߠߋ߬ ߘߌ߫ ߛߋ߫ ߓߊߕߐ߬ߡߐ߲߫ ߠߊ߫.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ߣߴߊ߬ ߞߎߡߊߢߐ߲߯ߦߊ߫ ߞߐߜߍ ߟߎ߬ ߓߘߊ߫ ߓߊ߲߫ ߓߌ߬ߟߊ߬ ߟߴߌ ߟߊ߫ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫ %2$s ߟߊ߫</string>
@@ -1019,4 +1027,7 @@
   <string name="category_tab_subcategories">ߦߌߟߡߊߟߋ߲ ߠߎ߬</string>
   <string name="category_empty">ߞߎߡߘߊ߫ ߟߎ߫ ߡߊ߫ ߛߐ߬ߘߐ߲߫ ߦߌߟߡߊ ߣߌ߲߬ ߘߐ߫</string>
   <string name="subcategory_empty">ߦߌߟߡߊߟߋ߲߫ ߡߊ߫ ߛߐ߬ߘߐ߲߫ ߦߌߟߡߊ ߣߌ߲߬ ߘߐ߫.</string>
+  <string name="search_namespaces">ߕߐ߯ߛߓߍ ߞߣߍ</string>
+  <string name="revision_initial_none">ߝߏߦߊ߲߫ (ߟߢߊ߬ߟߌ߫ ߝߟߐ ߟߋ߬ ߦߋ߫ ߣߌ߲߬ ߘߌ߫)</string>
+  <string name="archive_empty">ߞߐߜߍ߫ ߟߊߡߙߊ߬ߣߍ߲߫ ߡߊ߫ ߛߐ߬ߘߐ߲߫.</string>
 </resources>

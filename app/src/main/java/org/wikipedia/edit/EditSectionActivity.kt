@@ -54,7 +54,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.EditNoticesDialog
-import org.wikipedia.views.ViewAnimations
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.views.WikiTextKeyboardView
 import java.io.IOException
@@ -124,7 +123,7 @@ class EditSectionActivity : BaseActivity() {
         sectionAnchor = intent.getStringExtra(EXTRA_SECTION_ANCHOR)
         textToHighlight = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
         supportActionBar?.title = ""
-        syntaxHighlighter = SyntaxHighlighter(this, binding.editSectionText)
+        syntaxHighlighter = SyntaxHighlighter(this, binding.editSectionText, binding.editSectionScroll)
         binding.editSectionScroll.isSmoothScrollingEnabled = false
         captchaHandler = CaptchaHandler(this, pageTitle.wikiSite, binding.captchaContainer.root,
                 binding.editSectionText, "", null)
@@ -473,7 +472,7 @@ class EditSectionActivity : BaseActivity() {
             }
 
             override fun onDestroyActionMode(mode: ActionMode) {
-                binding.editSectionText.clearMatches(syntaxHighlighter)
+                syntaxHighlighter.clearSearchQueryInfo()
                 binding.editSectionText.setSelection(binding.editSectionText.selectionStart,
                         binding.editSectionText.selectionStart)
             }
@@ -513,9 +512,11 @@ class EditSectionActivity : BaseActivity() {
 
     private fun fetchSectionText() {
         if (sectionWikitext == null) {
+            showProgressBar(true)
             disposables.add(ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, if (sectionID >= 0) sectionID else null)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
+                    .doOnTerminate { showProgressBar(false) }
                     .subscribe({ response ->
                         val firstPage = response.query?.firstPage()!!
                         val rev = firstPage.revisions[0]
@@ -533,10 +534,9 @@ class EditSectionActivity : BaseActivity() {
                         }
                         displaySectionText()
                         maybeShowEditSourceDialog()
-                    }) { throwable ->
-                        showProgressBar(false)
-                        showError(throwable)
-                        L.e(throwable)
+                    }) {
+                        showError(it)
+                        L.e(it)
                     })
             disposables.add(ServiceFactory.get(pageTitle.wikiSite).getVisualEditorMetadata(pageTitle.prefixedText)
                     .subscribeOn(Schedulers.io())
@@ -545,7 +545,7 @@ class EditSectionActivity : BaseActivity() {
                         editNotices.clear()
                         // Populate edit notices, but filter out anonymous edit warnings, since
                         // we show that type of warning ourselves when previewing.
-                        editNotices.addAll(it.visualeditor?.notices.orEmpty()
+                        editNotices.addAll(it.visualeditor?.getEditNotices().orEmpty()
                                 .filterKeys { key -> key.startsWith("editnotice") }
                                 .values.filter { str -> StringUtil.fromHtml(str).trim().isNotEmpty() })
                         invalidateOptionsMenu()
@@ -554,9 +554,7 @@ class EditSectionActivity : BaseActivity() {
                         } else {
                             maybeShowEditNoticesTooltip()
                         }
-                    }, {
-                        L.e(it)
-                    }))
+                    }, { L.e(it) }))
         } else {
             displaySectionText()
         }
@@ -599,7 +597,8 @@ class EditSectionActivity : BaseActivity() {
 
     private fun displaySectionText() {
         binding.editSectionText.setText(sectionWikitext)
-        ViewAnimations.crossFade(binding.viewProgressBar, binding.editSectionContainer)
+        showProgressBar(false)
+        binding.editSectionContainer.isVisible = true
         scrollToHighlight(textToHighlight)
         binding.editSectionText.isEnabled = editingAllowed
         binding.editKeyboardOverlay.isVisible = editingAllowed

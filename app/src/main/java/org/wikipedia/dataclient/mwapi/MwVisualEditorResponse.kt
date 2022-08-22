@@ -1,6 +1,10 @@
 package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.decodeFromJsonElement
+import org.wikipedia.json.JsonUtil
 
 @Serializable
 class MwVisualEditorResponse : MwResponse() {
@@ -8,6 +12,10 @@ class MwVisualEditorResponse : MwResponse() {
 
     @Serializable
     class VisualEditorData {
-        val notices: Map<String, String>? = null
+        private val notices: JsonElement? = null
+
+        fun getEditNotices(): Map<String, String>? {
+            return if (notices != null && notices is JsonObject) JsonUtil.json.decodeFromJsonElement(notices) else null
+        }
     }
 }

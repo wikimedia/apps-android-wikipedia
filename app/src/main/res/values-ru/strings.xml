@@ -151,6 +151,7 @@
   <string name="menu_page_new_tab">Новая вкладка</string>
   <string name="menu_page_reading_lists">Списки для чтения</string>
   <string name="menu_page_recently_viewed">Недавно просмотрено</string>
+  <string name="menu_page_archive">Архив</string>
   <string name="menu_long_press_open_page">Открыть</string>
   <string name="menu_long_press_open_in_new_tab">Открыть в новой вкладке</string>
   <string name="menu_long_press_copy_page">Скопировать адрес ссылки</string>
@@ -168,6 +169,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Отправляя свои изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Публикуя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Правки будут привязаны к IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуйтесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
+  <string name="edit_anon_warning">Правки будут подписаны IP-адресом вашего устройства. У вас будет больше приватности, если вы &lt;a href=\"https://#login\"&gt;войдёте в систему&lt;/a&gt;.</string>
   <string name="preference_title_language">Языки Википедии</string>
   <string name="langlinks_filter_hint">Поиск</string>
   <string name="langlinks_empty">Эта страница недоступна на других языках.</string>
@@ -470,6 +472,7 @@
   <string name="error_blocked_expiry">Истечение срока действия блока: %s</string>
   <string name="error_blocked_id">Идентификация блока: %s</string>
   <string name="error_blocked_footer">Вы можете связаться с &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или другим &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Настройте свою панель инструментов</string>
   <string name="error_blocked_footer_no_blocker">Вы можете связаться с &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
   <string name="crash_report_activity_title">Ошибка приложения</string>
   <string name="crash_report_relaunch_or_quit">Сожалеем, но в приложении Википедии случилась ошибка, в результате чего оно было закрыто.\n\nВы хотите перезапустить его или выйти?</string>
@@ -497,6 +500,8 @@
   <string name="text_size_percent_default">%s (по умолчанию)</string>
   <string name="text_style_title">Шрифт</string>
   <string name="theme_category_reading">Чтение</string>
+  <string name="reading_focus_mode">Режим чтения</string>
+  <string name="reading_focus_mode_detail">Скрывает функциональность редактирования и инструменты при скроллинге</string>
   <string name="nav_item_saved">Сохранено</string>
   <string name="reading_list_save_to">Добавить в список для чтения</string>
   <string name="reading_list_move_to">Перенести в список для чтения</string>
@@ -708,6 +713,7 @@
   <string name="notifications_mark_all_as_read">Отметить все как прочитанные</string>
   <string name="notifications_direct_reply_action">Ответить</string>
   <string name="notifications_direct_reply_success">Ответ опубликован.</string>
+  <string name="notifications_direct_reply_error">Не удалось автоматически опубликовать ответ.</string>
   <string name="notifications_mark_all_as_read_message">%d помечено как прочитанное</string>
   <string name="notifications_mark_all_as_unread_message">%d помечено как непрочитанное</string>
   <plurals name="notifications_mark_as_read_plural">
@@ -1214,10 +1220,10 @@
   <string name="talk_list_item_user_icon_content_description">Значок участника_цы</string>
   <string name="talk_list_item_swipe_mark_as_read">Прочитано</string>
   <string name="talk_list_item_swipe_mark_as_unread">Непрочитано</string>
+  <string name="talk_archived_title">Архив обсуждения: %s</string>
   <string name="menu_option_share_talk_discussion">Поделиться обсуждением</string>
   <string name="menu_option_share_talk_page">Поделиться страницей обсуждения</string>
   <string name="menu_option_share_edit">Поделиться правкой</string>
-  <string name="menu_option_user_profile">Профиль %s</string>
   <string name="menu_option_user_contributions">Вклад участника %s</string>
   <string name="menu_option_edit_source">Править код</string>
   <string name="talk_menu_copy_text">Скопировать текст</string>
@@ -1234,7 +1240,7 @@
   <string name="thank_dialog_positive_button_text">Отправить благодарность</string>
   <string name="thank_dialog_negative_button_text">Отмена</string>
   <string name="thank_success_message">Ваше \"Спасибо\" отправлено участнику %s 👍</string>
-  <string name="menu_option_view_user_profile">Посмотреть страницу профиля пользователя</string>
+  <string name="menu_option_view_user_profile">Посмотреть страницу участника</string>
   <string name="menu_option_view_user_talk">Смотрите страницу обсуждения</string>
   <string name="menu_option_view_user_contributions">Посмотреть вклад</string>
   <string name="revision_diff_compare">Сравнить версии</string>
