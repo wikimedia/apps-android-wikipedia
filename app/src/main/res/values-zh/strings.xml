@@ -223,7 +223,7 @@
   <string name="delete_selected_items">删除所选项目</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">用户名</string>
-  <string name="login_dont_have_account">还没有帐号？</string>
+  <string name="login_dont_have_account">还没有账号？</string>
   <string name="login_join_wikipedia">加入维基百科</string>
   <string name="login_forgot_password">忘记密码了？</string>
   <string name="create_account_already_have">已经有账户了？</string>
@@ -1167,7 +1167,6 @@
   <string name="menu_option_share_talk_discussion">分享讨论</string>
   <string name="menu_option_share_talk_page">分享讨论页</string>
   <string name="menu_option_share_edit">分享编辑</string>
-  <string name="menu_option_user_profile">%s的个人资料</string>
   <string name="menu_option_user_contributions">%s的贡献</string>
   <string name="menu_option_edit_source">编辑源代码</string>
   <string name="menu_option_user_page">%s的用户页</string>
@@ -1186,7 +1185,7 @@
   <string name="thank_dialog_positive_button_text">发送感谢</string>
   <string name="thank_dialog_negative_button_text">取消</string>
   <string name="thank_success_message">您的“感谢”已发给%s 👍</string>
-  <string name="menu_option_view_user_profile">查看用户个人资料页面</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">查看用户个人资料页面</string>
   <string name="menu_option_view_user_talk">查看讨论页</string>
   <string name="menu_option_view_user_contributions">查看用户贡献</string>
   <string name="revision_diff_compare">比较不同修订版本</string>

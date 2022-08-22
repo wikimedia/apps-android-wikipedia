@@ -921,7 +921,6 @@
   <string name="menu_option_share_talk_discussion">وتووێژ بڵاو بکەرەوە</string>
   <string name="menu_option_share_talk_page">پەڕەی وتووێژ بڵاو بکەرەوە</string>
   <string name="menu_option_share_edit">دەستکاری بڵاو بکەرەوە</string>
-  <string name="menu_option_user_profile">پڕۆفایڵی %s</string>
   <string name="menu_option_user_contributions">بەشدارییەکانی %s</string>
   <string name="menu_option_edit_source">دەستکاریی سەرچاوە</string>
   <string name="watchlist_details_watching_label">چاودێریکردن</string>
@@ -935,7 +934,7 @@
   <string name="thank_dialog_positive_button_text">سپاس بکە</string>
   <string name="thank_dialog_negative_button_text">ھەڵوەشاندنەوە</string>
   <string name="thank_success_message">%s سپاسی لێ کرا 👍</string>
-  <string name="menu_option_view_user_profile">پەڕەی زانیاریی بەکارھێنەر ببینە</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">پەڕەی زانیاریی بەکارھێنەر ببینە</string>
   <string name="menu_option_view_user_talk">بینینی پەڕەی وتووێژ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s و پەڕەی وتووێژەکەی زیاد کران بۆ پێڕستی چاودێریت %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">گۆڕین</string>

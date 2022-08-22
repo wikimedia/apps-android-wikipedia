@@ -1140,7 +1140,6 @@
   <string name="menu_option_share_talk_discussion">分享討論</string>
   <string name="menu_option_share_talk_page">分享討論頁</string>
   <string name="menu_option_share_edit">分享編輯</string>
-  <string name="menu_option_user_profile">%s基本資料</string>
   <string name="menu_option_user_contributions">%s的貢獻</string>
   <string name="menu_option_edit_source">編輯原始碼</string>
   <string name="menu_option_user_page">%s的使用者頁面</string>
@@ -1159,7 +1158,7 @@
   <string name="thank_dialog_positive_button_text">發送感謝</string>
   <string name="thank_dialog_negative_button_text">取消</string>
   <string name="thank_success_message">您的感謝已發送給%s 👍</string>
-  <string name="menu_option_view_user_profile">檢視使用者個人檔案頁面</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">檢視使用者個人檔案頁面</string>
   <string name="menu_option_view_user_talk">檢視討論頁</string>
   <string name="menu_option_view_user_contributions">檢視使用者貢獻</string>
   <string name="revision_diff_compare">比較修訂</string>

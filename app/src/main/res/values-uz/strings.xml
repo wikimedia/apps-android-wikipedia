@@ -1088,7 +1088,6 @@
   <string name="menu_option_share_talk_discussion">Munozarani ulashmoq</string>
   <string name="menu_option_share_talk_page">Muhokama sahifasini ulashmoq</string>
   <string name="menu_option_share_edit">Tahrirlashni ulashmoq</string>
-  <string name="menu_option_user_profile">%sʼning profili</string>
   <string name="menu_option_user_contributions">%sning hissalari</string>
   <string name="menu_option_edit_source">Manbasini tahrirlash</string>
   <string name="watchlist_details_watching_label">Kuzatilmoqda</string>
@@ -1102,7 +1101,7 @@
   <string name="thank_dialog_positive_button_text">Tashakkur bildirmoq</string>
   <string name="thank_dialog_negative_button_text">Bekor qilmoq</string>
   <string name="thank_success_message">Sizning «Tashakkur»ingiz %sga bildirildi 👍</string>
-  <string name="menu_option_view_user_profile">Foydalanuvchi profili sahifasini koʻrish</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Foydalanuvchi profili sahifasini koʻrish</string>
   <string name="menu_option_view_user_talk">Munozara sahifasini koʻrish</string>
   <string name="menu_option_view_user_contributions">Foydalanuvchi hissasini koʻrmoq</string>
   <string name="revision_diff_compare">Tahrirlarni solishtirimoq</string>

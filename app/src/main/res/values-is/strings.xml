@@ -1119,7 +1119,6 @@
   <string name="menu_option_share_talk_discussion">Deila umræðu</string>
   <string name="menu_option_share_talk_page">Deila spjallsíðu</string>
   <string name="menu_option_share_edit">Deila breytingu</string>
-  <string name="menu_option_user_profile">Notandasnið fyrir %s</string>
   <string name="menu_option_user_contributions">Framlög frá %s</string>
   <string name="menu_option_edit_source">Breyta frumtexta</string>
   <string name="menu_option_user_page">Notandasíða fyrir %s</string>
@@ -1138,7 +1137,7 @@
   <string name="thank_dialog_positive_button_text">Senda þakkir</string>
   <string name="thank_dialog_negative_button_text">Hætta við</string>
   <string name="thank_success_message">Þakkarskilaboðin þín voru send til %s 👍</string>
-  <string name="menu_option_view_user_profile">Skoða notandasíðu notandans</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Skoða notandasíðu notandans</string>
   <string name="menu_option_view_user_talk">Skoða spjallsíðu</string>
   <string name="menu_option_view_user_contributions">Skoða framlög notanda</string>
   <string name="revision_diff_compare">Bera saman útgáfur</string>
