@@ -511,8 +511,8 @@
     <item quantity="one">O pellgargañ ur pennad</item>
     <item quantity="two">O pellgargañ 2 bennad</item>
     <item quantity="few">O pellgargañ %1$d pennad</item>
-    <item quantity="many">O pellgargañ %1$ pennad</item>
-    <item quantity="other">O pellgargañ %1$ pennad</item>
+    <item quantity="many">O pellgargañ %1$d pennad</item>
+    <item quantity="other">O pellgargañ %1$d pennad</item>
   </plurals>
   <plurals name="notification_syncing_description">
     <item quantity="one">Chom a ra ur pennad</item>
