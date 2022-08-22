@@ -4,15 +4,22 @@ import android.content.Context
 import android.icu.text.RelativeDateTimeFormatter
 import android.os.Build
 import android.text.format.DateFormat
+import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.toJavaLocalDateTime
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.UtcDate
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
+import java.time.temporal.TemporalAccessor
 import java.util.*
+import java.util.concurrent.ConcurrentHashMap
 
 object DateUtil {
     private val DATE_FORMATS = HashMap<String, SimpleDateFormat>()
+    private val DATE_TIME_FORMATTERS = ConcurrentHashMap<String, DateTimeFormatter>()
 
     // TODO: Switch to DateTimeFormatter when minSdk = 26.
     @Synchronized
@@ -65,8 +72,8 @@ object DateUtil {
         return getExtraShortDateString(date.time)
     }
 
-    fun getMDYDateString(date: Date): String {
-        return getDateStringWithSkeletonPattern(date, "MM/dd/yyyy")
+    fun getMDYDateString(localDateTime: LocalDateTime): String {
+        return getDateStringWithSkeletonPattern(localDateTime.toJavaLocalDateTime(), "MM/dd/yyyy")
     }
 
     fun getMonthOnlyDateString(date: Date): String {
@@ -112,6 +119,18 @@ object DateUtil {
     fun getDateAndTime(context: Context, date: Date): String {
         val datePattern = if (DateFormat.is24HourFormat(context)) "MMM d, yyyy, HH:mm" else "MMM d, yyyy, hh:mm a"
         return getCachedDateFormat(datePattern, Locale.getDefault(), false).format(date)
+    }
+
+    private fun getDateStringWithSkeletonPattern(temporalAccessor: TemporalAccessor, pattern: String): String {
+        return getCachedDateTimeFormatter(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern),
+            Locale.getDefault(), false).format(temporalAccessor)
+    }
+
+    private fun getCachedDateTimeFormatter(pattern: String, locale: Locale, utc: Boolean): DateTimeFormatter {
+        return DATE_TIME_FORMATTERS.getOrPut(pattern) {
+            val dtf = DateTimeFormatter.ofPattern(pattern, locale)
+            if (utc) dtf.withZone(ZoneOffset.UTC) else dtf
+        }
     }
 
     @Synchronized

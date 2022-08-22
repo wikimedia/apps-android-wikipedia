@@ -17,6 +17,8 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.datetime.*
+import kotlinx.datetime.TimeZone
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -26,7 +28,6 @@ import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentSuggestedEditsTasksBinding
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.login.LoginActivity
@@ -58,7 +59,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private var isPausedOrDisabled = false
     private var totalPageviews = 0L
     private var totalContributions = 0
-    private var latestEditDate = Date()
+    private var latestEditInstant = Clock.System.now()
     private var latestEditStreak = 0
     private var revertSeverity = 0
 
@@ -170,32 +171,23 @@ class SuggestedEditsTasksFragment : Fragment() {
                 ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 UserContributionsStats.getEditCountsObservable()) { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
-                    var blockInfo: MwServiceError.BlockInfo? = null
-                    when {
-                        wikidataResponse.query?.userInfo!!.isBlocked -> blockInfo =
-                            wikidataResponse.query?.userInfo!!
-                        commonsResponse.query?.userInfo!!.isBlocked -> blockInfo =
-                            commonsResponse.query?.userInfo!!
-                        homeSiteResponse.query?.userInfo!!.isBlocked -> blockInfo =
-                            homeSiteResponse.query?.userInfo!!
+                    val wikidataInfo = wikidataResponse.query?.userInfo!!
+                    val commonsInfo = commonsResponse.query?.userInfo!!
+                    val homeSiteInfo = homeSiteResponse.query?.userInfo!!
+                    val blockInfo = when {
+                        wikidataInfo.isBlocked -> wikidataInfo
+                        commonsInfo.isBlocked -> commonsInfo
+                        homeSiteInfo.isBlocked -> homeSiteInfo
+                        else -> null
                     }
                     if (blockInfo != null) {
                         blockMessage = ThrowableUtil.getBlockMessageHtml(blockInfo)
                     }
 
-                    totalContributions += wikidataResponse.query?.userInfo!!.editCount
-                    totalContributions += commonsResponse.query?.userInfo!!.editCount
-                    totalContributions += homeSiteResponse.query?.userInfo!!.editCount
+                    totalContributions += wikidataInfo.editCount + commonsInfo.editCount + homeSiteInfo.editCount
 
-                    latestEditDate = wikidataResponse.query?.userInfo!!.latestContribDate
-
-                    if (commonsResponse.query?.userInfo!!.latestContribDate.after(latestEditDate)) {
-                        latestEditDate = commonsResponse.query?.userInfo!!.latestContribDate
-                    }
-
-                    if (homeSiteResponse.query?.userInfo!!.latestContribDate.after(latestEditDate)) {
-                        latestEditDate = homeSiteResponse.query?.userInfo!!.latestContribDate
-                    }
+                    latestEditInstant = maxOf(wikidataInfo.latestContribInstant,
+                        commonsInfo.latestContribInstant, homeSiteInfo.latestContribInstant)
 
                     val contributions = (wikidataResponse.query!!.userContributions +
                             commonsResponse.query!!.userContributions +
@@ -260,7 +252,11 @@ class SuggestedEditsTasksFragment : Fragment() {
         setUserStatsViewsAndTooltips()
 
         if (latestEditStreak < 2) {
-            binding.editStreakStatsView.setTitle(if (latestEditDate.time > 0) DateUtil.getMDYDateString(latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
+            binding.editStreakStatsView.setTitle(if (latestEditInstant > Instant.DISTANT_PAST) {
+                DateUtil.getMDYDateString(latestEditInstant.toLocalDateTime(TimeZone.currentSystemDefault()))
+            } else {
+                resources.getString(R.string.suggested_edits_last_edited_never)
+            })
             binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_last_edited))
         } else {
             binding.editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
