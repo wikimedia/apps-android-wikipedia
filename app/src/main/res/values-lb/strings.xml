@@ -744,7 +744,7 @@
   <string name="view_user_page">Benotzersäit weisen</string>
   <string name="thank_dialog_positive_button_text">Merci soen</string>
   <string name="thank_dialog_negative_button_text">Ofbriechen</string>
-  <string name="menu_option_view_user_profile">Benotzerprofil weisen</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Benotzerprofil weisen</string>
   <string name="menu_option_view_user_talk">Diskussiounssäit weisen</string>
   <string name="menu_option_view_user_contributions">Benotzerkontributioune weisen</string>
   <string name="revision_diff_compare">Versioune vergläichen</string>

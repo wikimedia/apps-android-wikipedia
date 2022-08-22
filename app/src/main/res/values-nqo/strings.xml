@@ -6,6 +6,7 @@
 * Lancine.kounfantoh.fofana
 * MuratTheTurkish
 * Youssoufkadialy
+* ߒߓߋ߫ ߝߏߝߣߊ߫
 -->
 <resources>
   <string name="app_name_prod">ߥߞߌߔߘߋߞߎ</string>
@@ -192,11 +193,13 @@
   <string name="create_account_account_created_toast">ߖߊ߬ߕߋ߬ߘߊ ߓߘߊ߫ ߛߌ߲ߘߌ߫߹</string>
   <string name="preferences_heading_syncing">ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߦߴߌ ߘߐ߫</string>
   <string name="preferences_heading_data_usage">ߕߎ߬ߡߊ߬ߘߊ ߟߊߓߊ߯ߙߊߟߌ</string>
+  <string name="preferences_heading_experimental">ߡߊߝߍߣߍ߲ߕߊ</string>
   <string name="preference_title_sync_reading_lists_from_account">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߫ ߦߴߌ ߘߐ߫</string>
   <string name="preference_title_download_reading_list_articles">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߦߌߟߡߊ ߟߊ߬ߖߌ߰ߒ߬ߞߎ߲߬ߠߌ߲</string>
   <string name="preference_summary_sync_reading_lists">ߌ ߟߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߫ ߞߐߟߊ߲߫ ߓߐߣߍ߲ߢߐ߲߰ߡߊ ߟߎ߬ ߞߣߐ߫߸ ߞߵߊ߬ߟߎ߬ ߟߊߞߎ߲߬ߘߎ߫ ߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ߫ ߖߊ߬ߕߋ߬ߘߊ ߞߣߐ߫.</string>
   <string name="preference_summary_sync_reading_lists_from_account">ߌ ߟߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߫ ߞߍߟߊ߲߫ ߓߐߣߍ߲ߢߐ߲߰ߡߊ ߟߎ߬ ߕߍ߫߸ ߊ߬ߟߎ߬ ߟߊߞߎ߲߬ߘߎ ߟߴߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ %s ߞߣߐ߫</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">ߞߊ߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ߣߍ߲ ߠߎ߬ ߛߋ߲߬ߓߐ߫  \"%s\" ߘߐ߫؟</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">ߏ߬ ߘߌߣߊ߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߛߙߍߘߍ߫ ߕߎ߬ߡߊ߬ߢߐ߰ߦߊ߬ߣߍ߲߫ ߘߝߊߣߍ߲ ߠߎ߬ ߓߍ߯ ߖߏ߰ߛߌ߫ ߞߊ߬ ߓߐ߫ ߥߎߟߊߟߊ߫ ߟߊߡߙߊߟߌ ߟߎ߬ ߘߐ߫. ߞߊ߬ ߛߙߍߘߍ߫ ߕߎ߬ߡߊ߬ߢߐ߰ߦߊ߬ߣߍ߲ ߓߍ߯ ߖߏ߲߫ ߌ ߟߊ߫ ߖߊ߬ߕߋ߬ߘߊ «%s» ߟߊ߫؟</string>
   <string name="preferences_privacy_settings_heading">ߜߎ߲߬ߘߎ߬ߢߐ߲߰ߦߊ</string>
   <string name="preference_title_eventlogging_opt_in">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߘߊ߲߬ߕߍ߰ߟߌ ߗߋ߫</string>
   <string name="preference_title_auto_upload_crash_reports">ߗߌߙߏ߲ߠߌ߲ ߘߊ߲߬ߕߍ߰ߟߌ ߗߋ߫</string>
@@ -957,7 +960,6 @@
   <string name="menu_option_share_talk_discussion">ߘߊߘߐߖߊߥߏ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_option_share_talk_page">ߞߎߡߊ߫ ߞߐߜߍ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_option_share_edit">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊߖߍ߲ߛߍ߲߫</string>
-  <string name="menu_option_user_profile">%s ߢߊߞߙߍ</string>
   <string name="menu_option_user_contributions">%s ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߠߎ߬</string>
   <string name="menu_option_edit_source">ߓߐߖߎ ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="menu_option_user_page">%s ߟߊ߫ ߞߐߜߍ߫ ߟߊߓߊ߯ߙߕߊ</string>
@@ -976,7 +978,7 @@
   <string name="thank_dialog_positive_button_text">\'ߌ ߣߌ߫ ߗߋ\' ߗߋ߫</string>
   <string name="thank_dialog_negative_button_text">ߊ߬ ߘߐߛߊ߬</string>
   <string name="thank_success_message">ߌ ߟߊ߫ ߓߏߙߌߞߊߓߌߟߊ ߓߘߊ߫ ߗߋ߫ %s ߡߊ߬ 👍</string>
-  <string name="menu_option_view_user_profile">ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ ߢߊߞߙߍ߫ ߞߐߜߍ ߦߋ߫</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ ߢߊߞߙߍ߫ ߞߐߜߍ ߦߋ߫</string>
   <string name="menu_option_view_user_talk">ߞߎߡߊ߫ ߞߐߜߍ ߦߋ߫</string>
   <string name="menu_option_view_user_contributions">ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ ߟߊ߫ ߓߟߏߡߊߜߍ߲ ߠߎ߬ ߦߋ߫</string>
   <string name="revision_diff_compare">ߟߢߊ߬ߟߌ ߟߎ߬ ߟߊߢߐ߲߮ߡߊ߬</string>

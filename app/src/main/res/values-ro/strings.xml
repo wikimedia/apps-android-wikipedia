@@ -1159,7 +1159,6 @@
   <string name="menu_option_share_talk_discussion">Distribuie discuție</string>
   <string name="menu_option_share_talk_page">Distribuie pagină de discuție</string>
   <string name="menu_option_share_edit">Distribuie modificarea</string>
-  <string name="menu_option_user_profile">Profilul lui %s</string>
   <string name="menu_option_user_contributions">Contribuțiile lui %s</string>
   <string name="menu_option_edit_source">Modificare sursă</string>
   <string name="menu_option_user_page">%s pagina utilizatorului</string>
@@ -1178,7 +1177,7 @@
   <string name="thank_dialog_positive_button_text">Trimite mulțumiri</string>
   <string name="thank_dialog_negative_button_text">Anulează</string>
   <string name="thank_success_message">Mulțumirea dvs. a fost trimisă către %s 👍</string>
-  <string name="menu_option_view_user_profile">Vizualizați pagina de profil de utilizator</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Vizualizați pagina de profil de utilizator</string>
   <string name="menu_option_view_user_talk">Vezi pagina de discuții</string>
   <string name="menu_option_view_user_contributions">Vezi contribuțiile utilizatorului</string>
   <string name="revision_diff_compare">Compară modificările</string>

@@ -1150,7 +1150,6 @@
   <string name="menu_option_share_talk_discussion">اشتراک‌گذاری گفتگو</string>
   <string name="menu_option_share_talk_page">اشتراک‌گذاری صفحهٔ بحث</string>
   <string name="menu_option_share_edit">اشتراک‌گذاری ویرایش</string>
-  <string name="menu_option_user_profile">رخ‌نمای %s</string>
   <string name="menu_option_user_contributions">مشارکت‌های %s</string>
   <string name="menu_option_edit_source">ویرایش مبدأ</string>
   <string name="menu_option_user_page">صفحهٔ کاربری %s</string>
@@ -1169,7 +1168,7 @@
   <string name="thank_dialog_positive_button_text">ارسال تشکر</string>
   <string name="thank_dialog_negative_button_text">لغو</string>
   <string name="thank_success_message">«تشکر» شما به %s فرستاده شد 👍</string>
-  <string name="menu_option_view_user_profile">مشاهدهٔ صفحهٔ پروفایل کاربر</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">مشاهدهٔ صفحهٔ پروفایل کاربر</string>
   <string name="menu_option_view_user_talk">مشاهدهٔ صفحهٔ بحث</string>
   <string name="menu_option_view_user_contributions">مشاهدهٔ مشارکت‌های کاربر</string>
   <string name="revision_diff_compare">مقایسهٔ نسخه‌ها</string>

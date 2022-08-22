@@ -1199,7 +1199,6 @@
   <string name="menu_option_share_talk_discussion">Zdieľať diskusiu</string>
   <string name="menu_option_share_talk_page">Zdieľať diskusnú stránku</string>
   <string name="menu_option_share_edit">Zdieľať úpravu</string>
-  <string name="menu_option_user_profile">Profil používateľa %s</string>
   <string name="menu_option_user_contributions">Príspevky používateľa %s</string>
   <string name="menu_option_edit_source">Upraviť zdroj</string>
   <string name="menu_option_user_page">Stránka používateľa %s</string>
@@ -1218,7 +1217,7 @@
   <string name="thank_dialog_positive_button_text">Poslať poďakovanie</string>
   <string name="thank_dialog_negative_button_text">Zrušiť</string>
   <string name="thank_success_message">Vaše poďakovanie bolo poslané používateľovi/ke %s 👍</string>
-  <string name="menu_option_view_user_profile">Zobraziť stránku používateľa</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Zobraziť stránku používateľa</string>
   <string name="menu_option_view_user_talk">Zobraziť diskusnú stránku</string>
   <string name="menu_option_view_user_contributions">Zobraziť príspevky používateľa</string>
   <string name="revision_diff_compare">Porovnať revízie</string>
