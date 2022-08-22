@@ -32,7 +32,6 @@ import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.PageDownloadEvent
-import org.wikipedia.gallery.MediaDownloadReceiver
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.main.MainActivity
@@ -70,7 +69,6 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
     private val searchActionModeCallback = SearchCallback()
     private val multiSelectActionModeCallback = MultiSelectCallback()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
-    private val downloadReceiver = MediaDownloadReceiver()
     private var toolbarExpanded = true
     private var displayedLists = mutableListOf<Any>()
     private var currentSearchQuery: String? = null
@@ -185,11 +183,11 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
                 true
             }
             R.id.menu_reading_list_share -> {
-                ShareUtil.shareReadingList(requireActivity(), readingList)
+                ReadingListsShareHelper.shareReadingList(requireActivity(), readingList)
                 true
             }
             R.id.menu_reading_list_export_csv -> {
-                ShareUtil.exportReadingListCsv(requireActivity(), readingList, downloadReceiver)
+                ReadingListsShareHelper.exportReadingListCsv(requireActivity(), readingList)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -623,11 +621,11 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         }
 
         override fun onShare(readingList: ReadingList) {
-            ShareUtil.shareReadingList(requireActivity(), readingList)
+            ReadingListsShareHelper.shareReadingList(requireActivity(), readingList)
         }
 
         override fun onExportCsv(readingList: ReadingList) {
-            ShareUtil.exportReadingListCsv(requireActivity(), readingList, downloadReceiver)
+            ReadingListsShareHelper.exportReadingListCsv(requireActivity(), readingList)
         }
     }
 
@@ -657,11 +655,11 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         }
 
         override fun onShare(readingList: ReadingList) {
-            ShareUtil.shareReadingList(requireActivity(), readingList)
+            ReadingListsShareHelper.shareReadingList(requireActivity(), readingList)
         }
 
         override fun onExportCsv(readingList: ReadingList) {
-            ShareUtil.exportReadingListCsv(requireActivity(), readingList, downloadReceiver)
+            ReadingListsShareHelper.exportReadingListCsv(requireActivity(), readingList)
         }
     }
 

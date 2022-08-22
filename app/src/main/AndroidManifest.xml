@@ -85,6 +85,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:mimeType="*/*" />
+                <data android:mimeType="application/octet-stream" />
+                <data android:mimeType="application/wikipedia" />
+                <data android:mimeType="application/vnd.wikipedia" />
+                <data android:mimeType="application/vnd.ms-pki.wikipedia" />
+                <data android:pathPattern=".*\\.wikipedia" />
+                <data android:pathPattern=".*\\..*\\.wikipedia" />
+                <data android:pathPattern=".*\\..*\\..*\\.wikipedia" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".page.PageActivity"
@@ -319,7 +335,7 @@
             android:theme="@style/AppTheme" />
 
         <provider
-            android:name="androidx.core.content.FileProvider"
+            android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
