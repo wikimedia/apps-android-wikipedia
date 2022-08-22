@@ -11,13 +11,6 @@ import androidx.core.view.ViewCompat
 import com.google.android.material.textfield.TextInputEditText
 
 open class PlainPasteEditText : TextInputEditText {
-    interface FindListener {
-        fun onFinished(activeMatchOrdinal: Int, numberOfMatches: Int, textPosition: Int, findingNext: Boolean)
-    }
-
-    var inputConnection: InputConnection? = null
-    var findListener: FindListener? = null
-
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
@@ -39,8 +32,6 @@ open class PlainPasteEditText : TextInputEditText {
     }
 
     override fun onCreateInputConnection(outAttrs: EditorInfo): InputConnection? {
-        inputConnection = super.onCreateInputConnection(outAttrs)
-
         // For multiline EditTexts that specify a done keyboard action, unset the no carriage return
         // flag which otherwise limits the EditText to a single line
         val multilineInput = inputType and InputType.TYPE_TEXT_FLAG_MULTI_LINE == InputType.TYPE_TEXT_FLAG_MULTI_LINE
@@ -48,6 +39,6 @@ open class PlainPasteEditText : TextInputEditText {
         if (actionDone && multilineInput) {
             outAttrs.imeOptions = outAttrs.imeOptions and EditorInfo.IME_FLAG_NO_ENTER_ACTION.inv()
         }
-        return inputConnection
+        return super.onCreateInputConnection(outAttrs)
     }
 }

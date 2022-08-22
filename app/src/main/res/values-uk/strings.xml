@@ -1203,7 +1203,6 @@
   <string name="menu_option_share_talk_discussion">Поділіться обговоренням</string>
   <string name="menu_option_share_talk_page">Поділіться сторінкою обговорення</string>
   <string name="menu_option_share_edit">Поділитися редагуванням</string>
-  <string name="menu_option_user_profile">Профіль %s</string>
   <string name="menu_option_user_contributions">Внесок %s</string>
   <string name="menu_option_edit_source">Редагувати код</string>
   <string name="menu_option_user_page">Сторінка користувача %s</string>
@@ -1222,7 +1221,7 @@
   <string name="thank_dialog_positive_button_text">Надіслати подяку</string>
   <string name="thank_dialog_negative_button_text">Скасувати</string>
   <string name="thank_success_message">Ваша подяка надіслана до %s 👍</string>
-  <string name="menu_option_view_user_profile">Дивитися сторінку профілю користувача</string>
+  <string name="menu_option_view_user_profile">Дивитися сторінку користувача</string>
   <string name="menu_option_view_user_talk">Переглянути сторінку обговорення</string>
   <string name="menu_option_view_user_contributions">Переглянути внесок користувача</string>
   <string name="revision_diff_compare">Порівняння версій</string>
@@ -1274,4 +1273,5 @@
   <string name="search_namespaces">Простори назв</string>
   <string name="revision_initial_none">Немає (це перша версія)</string>
   <string name="archive_empty">Архівованих сторінок не знайдено.</string>
+  <string name="media_playback_error">Помилка відтворення медіа.</string>
 </resources>

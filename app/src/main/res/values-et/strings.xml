@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Kareyac
 * MidnightRaver
 * Misosoof
 * Patriccck
@@ -15,6 +16,7 @@
   <string name="page_error_retry">Proovi uuesti</string>
   <string name="menu_clear_all_history">Tühjenda ajalugu</string>
   <string name="dialog_title_clear_history">Sirvimisajaloo kustutamine</string>
+  <string name="dialog_message_clear_history_yes">Jah</string>
   <string name="share_via">Vali jagamisviis:</string>
   <string name="menu_page_other_languages">Vaheta keelt</string>
   <string name="menu_page_find_in_page" fuzzy="true">Otsi lehelt</string>
@@ -75,6 +77,7 @@
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundationi&lt;/a&gt; toode</string>
   <string name="about_activity_title">Teave</string>
   <string name="edit_abandon_confirm">Lehekülg on muudetud. Kas oled kindel, et soovid väljuda muudatusi salvestamata?</string>
+  <string name="edit_abandon_confirm_yes">Jah</string>
   <string name="user_blocked_from_editing_title">Tõkestatud</string>
   <string name="user_logged_in_blocked_from_editing">Sinu kasutajakontolt on selles vikis muudatuste tegemine tõkestatud.</string>
   <string name="user_anon_blocked_from_editing">Sinu IP-aadressilt on muudatuste tegemine tõkestatud.</string>
@@ -89,7 +92,10 @@
   <string name="edit_summary_tag_other_hint">Muud viisid, kuidas lehekülge muutsid</string>
   <string name="find_next">Otsi järgmine</string>
   <string name="find_previous">Otsi eelmine</string>
+  <string name="clear_recent_searches_confirm_yes">Jah</string>
   <string name="table_close">Sulge</string>
+  <string name="close_all_tabs_confirm_yes">Jah</string>
   <string name="saved_list_empty_title" fuzzy="true">Lugemisnimekirjad puuduvad</string>
   <string name="reading_lists_empty_message" fuzzy="true">Salvesta artiklid lugemisnimekirja, et vaadata neid hiljem, ka internetiühenduseta.</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Jah</string>
 </resources>

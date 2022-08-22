@@ -1147,7 +1147,6 @@
   <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
   <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>
-  <string name="menu_option_user_profile">Menu option label for user\'s profile page. %s indicating the username.</string>
   <string name="menu_option_user_contributions">Menu option label for user contributions screen. %s indicating the username.</string>
   <string name="menu_option_edit_source">Menu option label for editing the page.\n{{Identical|Edit source}}</string>
   <string name="menu_option_user_page">Menu option label for the user page. %s indicating the username.</string>
@@ -1218,4 +1217,5 @@
   <string name="search_namespaces">Hint for selecting the namespace when searching.\n{{Identical|Namespace}}</string>
   <string name="revision_initial_none">Label shown when showing a diff of the first revision of an article (when there is no previous revision to compare with).</string>
   <string name="archive_empty">Error shown when the current page does not have subpages.</string>
+  <string name="media_playback_error">Error shown when the selected media could not be played.</string>
 </resources>
