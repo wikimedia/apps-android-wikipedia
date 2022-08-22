@@ -961,8 +961,8 @@
   <string name="suggested_edits_task_new">neu</string>
   <string name="suggested_edits_cc0_notice">Durch die Veröffentlichung stimmen Sie den &lt;a href=\"%1$s\"&gt; Nutzungsbedingungen&lt;/a&gt; zu und geben diesen Beitrag unwiderruflich unter der &lt;a href=\"%2$s\"&gt; CC0-Lizenz &lt;/a&gt; frei.</string>
   <string name="suggested_edits_reactivation_notification_title">Vorgeschlagene Bearbeitungen</string>
-  <string name="suggested_edits_reactivation_notification_stage_one">Danke für die Bearbeitung von Wikipedia! Warum machen Sie nicht dort weiter, wo Sie aufgehört haben?</string>
-  <string name="suggested_edits_reactivation_notification_stage_two">Hast Du eine Minute Zeit, um Wikipedia weiter zu verbessern? Siehe Dich diese Bearbeitungsvorschläge an.</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Danke für die Bearbeitung von Wikipedia! Warum machst du nicht dort weiter, wo du aufgehört hast?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Hast du eine Minute Zeit, um mit der Verbesserung von Wikipedia fortzufahren? Sieh dir diese Bearbeitungsvorschläge an.</string>
   <string name="suggested_edits_contributions_screen_title">Beiträge von %s</string>
   <string name="suggested_edits_contribution_language_label">Sprache</string>
   <string name="suggested_edits_contribution_date_time_label">Datum/Uhrzeit</string>
@@ -1150,7 +1150,6 @@
   <string name="menu_option_share_talk_discussion">Diskussion teilen</string>
   <string name="menu_option_share_talk_page">Diskussionsseite teilen</string>
   <string name="menu_option_share_edit">Bearbeitung teilen</string>
-  <string name="menu_option_user_profile">Profil von %s</string>
   <string name="menu_option_user_contributions">Beiträge von %s</string>
   <string name="menu_option_edit_source">Quelltext bearbeiten</string>
   <string name="menu_option_user_page">Benutzerseite von %s</string>
@@ -1169,7 +1168,7 @@
   <string name="thank_dialog_positive_button_text">Danke senden</string>
   <string name="thank_dialog_negative_button_text">Abbrechen</string>
   <string name="thank_success_message">Dein Danke wurde an %s gesendet 👍</string>
-  <string name="menu_option_view_user_profile">Benutzerprofil anzeigen</string>
+  <string name="menu_option_view_user_profile">Benutzerseite ansehen</string>
   <string name="menu_option_view_user_talk">Diskussionsseite anzeigen</string>
   <string name="menu_option_view_user_contributions">Benutzerbeiträge anzeigen</string>
   <string name="revision_diff_compare">Versionen vergleichen</string>
@@ -1221,4 +1220,5 @@
   <string name="search_namespaces">Namensräume</string>
   <string name="revision_initial_none">Keine (dies ist die erste Version)</string>
   <string name="archive_empty">Keine archivierten Seiten gefunden.</string>
+  <string name="media_playback_error">Fehler beim Abspielen von Medien.</string>
 </resources>

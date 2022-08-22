@@ -802,7 +802,6 @@
   <string name="menu_option_share_talk_discussion">আলোচনা শ্বেয়াৰ কৰক</string>
   <string name="menu_option_share_talk_page">আলোচনা পৃষ্ঠা শ্বেয়াৰ কৰক</string>
   <string name="menu_option_share_edit">সম্পাদনা শ্বেয়াৰ কৰক</string>
-  <string name="menu_option_user_profile">%s-ৰ প্ৰ\'ফাইল</string>
   <string name="menu_option_user_contributions">%s-ৰ বৰঙণি</string>
   <string name="menu_option_edit_source">উৎস সম্পাদনা কৰক</string>
   <string name="watchlist_details_watching_label">চকু ৰাখি আছে</string>
@@ -816,7 +815,7 @@
   <string name="thank_dialog_positive_button_text">ধন্যবাদ জ্ঞাপন কৰক</string>
   <string name="thank_dialog_negative_button_text">বাতিল কৰক</string>
   <string name="thank_success_message">আপোনাৰ \'ধন্যবাদ\' %s-লৈ প্ৰেৰণ কৰা হ\'ল 👍</string>
-  <string name="menu_option_view_user_profile">ব্যৱহাৰকাৰীৰ প্ৰ\'ফাইল পৃষ্ঠা চাওক</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">ব্যৱহাৰকাৰীৰ প্ৰ\'ফাইল পৃষ্ঠা চাওক</string>
   <string name="menu_option_view_user_talk">আলোচনা পৃষ্ঠা চাওক</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s আৰু ইয়াৰ আলোচনা পৃষ্ঠাখন %2$s আপোনাৰ চোৱাসূচীত যোগ কৰা হৈছে।</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">সলাওক</string>
