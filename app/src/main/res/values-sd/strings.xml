@@ -991,7 +991,6 @@
   <string name="menu_option_share_talk_discussion">بحث ونڊيو</string>
   <string name="menu_option_share_talk_page">بحث صفحو ونڊيو</string>
   <string name="menu_option_share_edit">سنوار ونڊيو</string>
-  <string name="menu_option_user_profile">%s جو پروفائيل</string>
   <string name="menu_option_user_contributions">%s جون ڀاڱيداريون</string>
   <string name="menu_option_edit_source">ذريعو سنواريو</string>
   <string name="watchlist_details_watching_label">نظر۾رکندي</string>
@@ -1005,7 +1004,7 @@
   <string name="thank_dialog_positive_button_text">مھرباني چئو</string>
   <string name="thank_dialog_negative_button_text">رد ڪريو</string>
   <string name="thank_success_message">توھان جي \'مھرباني\' %s ڏانھن موڪلي وئي 👍</string>
-  <string name="menu_option_view_user_profile">واپرائيندڙ جو پروفائيل صفحو ڏسو</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">واپرائيندڙ جو پروفائيل صفحو ڏسو</string>
   <string name="menu_option_view_user_talk">بحث صفحو ڏسو</string>
   <string name="menu_option_view_user_contributions">واپرائيندڙ جون ڀاڱيداريون ڏسو</string>
   <string name="revision_diff_compare">ورجاءَ ڀيٽيو</string>

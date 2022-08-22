@@ -19,7 +19,6 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
 import android.widget.EditText
-import androidx.core.view.ViewCompat
 import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -33,12 +32,12 @@ import org.wikipedia.util.log.L
  * case we need to copy over any useful compatibility logic.
  */
 @SuppressLint("AppCompatCustomView")
-open class SyntaxHighlightableEditText : EditText {
+class SyntaxHighlightableEditText : EditText {
 
     private var prevLineCount = -1
     private val lineNumberPaint = TextPaint()
     private val lineNumberBackgroundPaint = Paint()
-    private val isRtl: Boolean
+    private val isRtl: Boolean = resources.configuration.layoutDirection == LAYOUT_DIRECTION_RTL
     private val paddingWithoutLineNumbers = DimenUtil.roundedDpToPx(8f)
     private val paddingWithLineNumbers = DimenUtil.roundedDpToPx(36f)
     private val lineNumberGapWidth = DimenUtil.roundedDpToPx(8f)
@@ -60,9 +59,6 @@ open class SyntaxHighlightableEditText : EditText {
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     init {
-        // The MIME type(s) need to be set for onReceiveContent() to be called.
-        ViewCompat.setOnReceiveContentListener(this, arrayOf("text/*"), null)
-        isRtl = resources.configuration.layoutDirection == LAYOUT_DIRECTION_RTL
         applyPaddingForLineNumbers()
 
         lineNumberPaint.isAntiAlias = true
@@ -79,6 +75,11 @@ open class SyntaxHighlightableEditText : EditText {
                 allowScrollToCursor = true
             }
         }, 1000)
+    }
+
+    fun enableTypingSuggestions(enabled: Boolean) {
+        inputType = EditorInfo.TYPE_CLASS_TEXT or EditorInfo.TYPE_TEXT_FLAG_MULTI_LINE or
+                (if (enabled) 0 else (EditorInfo.TYPE_TEXT_FLAG_NO_SUGGESTIONS or EditorInfo.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD))
     }
 
     override fun bringPointIntoView(offset: Int): Boolean {

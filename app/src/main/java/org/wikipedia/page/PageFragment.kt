@@ -20,6 +20,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.graphics.Insets
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textview.MaterialTextView
@@ -27,6 +28,10 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
@@ -566,9 +571,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun addTimeSpentReading(timeSpentSec: Int) {
         model.curEntry?.let {
-            Completable.fromCallable { AppDatabase.instance.historyEntryDao().upsertWithTimeSpent(it, timeSpentSec) }
-                .subscribeOn(Schedulers.io())
-                .subscribe({}) { L.e(it) }
+            lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
+                withContext(Dispatchers.IO) {
+                    AppDatabase.instance.historyEntryDao().upsertWithTimeSpent(it, timeSpentSec)
+                }
+            }
         }
     }
 

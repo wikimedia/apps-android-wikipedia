@@ -905,7 +905,7 @@
   <string name="talk_snackbar_undo">Опозови</string>
   <string name="thank_dialog_positive_button_text">Захвали се</string>
   <string name="thank_dialog_negative_button_text">Откажи</string>
-  <string name="menu_option_view_user_profile">Прикажи страницу уредника</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Прикажи страницу уредника</string>
   <string name="menu_option_view_user_talk">Прикажи страницу за разговор</string>
   <string name="menu_option_view_user_contributions">Прикажи доприносе</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">трајно</string>
