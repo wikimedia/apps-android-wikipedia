@@ -1213,4 +1213,8 @@
   <string name="revision_initial_none">Label shown when showing a diff of the first revision of an article (when there is no previous revision to compare with).</string>
   <string name="archive_empty">Error shown when the current page does not have subpages.</string>
   <string name="media_playback_error">Error shown when the selected media could not be played.</string>
+  <string name="description_edit_learn_more">Label text for information about article descriptions.</string>
+  <string name="description_edit_image_caption_learn_more">Label text for information about Image Captions.</string>
+  <string name="description_edit_description_learn_more_url">URL that points to a page on mediawiki that contains guidelines for writing article descriptions.</string>
+  <string name="description_edit_image_caption_learn_more_url">URL that points to a page on mediawiki that contains guidelines for writing Image captions.</string>
 </resources>

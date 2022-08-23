@@ -180,6 +180,23 @@
                         </com.google.android.material.textfield.TextInputLayout>
                     </FrameLayout>
 
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/learnMoreButton"
+                        style="@style/FlatButton.Small.Transparent"
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="12dp"
+                        android:fontFamily="sans-serif"
+                        android:letterSpacing="0"
+                        android:text="@string/description_edit_learn_more"
+                        android:textAlignment="viewStart"
+                        android:textAllCaps="false"
+                        android:textColor="?attr/colorAccent"
+                        android:textSize="16sp"
+                        app:icon="@drawable/ic_open_in_new_black_24px"
+                        app:iconGravity="end"
+                        app:iconPadding="12dp"
+                        app:iconSize="16dp"
+                        app:iconTint="?attr/colorAccent" />
                 </LinearLayout>
             </ScrollView>
 
