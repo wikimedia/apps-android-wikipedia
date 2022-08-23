@@ -17,7 +17,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/paper_color"
-            android:minWidth="220dp"
             android:orientation="vertical">
 
             <TextView
@@ -57,6 +56,13 @@
                     android:text="@string/user_contrib_filter_all"
                     android:textColor="?attr/primary_text_color" />
 
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_mode_edit_white_24dp"
+                    app:tint="?android:attr/textColorTertiary"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -86,6 +92,13 @@
                     android:text="@string/namespace_article"
                     android:textColor="?attr/primary_text_color" />
 
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_article_ltr_ooui"
+                    app:tint="?android:attr/textColorTertiary"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -113,6 +126,13 @@
                     android:layout_weight="1"
                     android:textSize="16sp"
                     android:textColor="?attr/primary_text_color" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_notification_article_talk"
+                    app:tint="?android:attr/textColorTertiary"/>
 
             </LinearLayout>
 
@@ -142,6 +162,13 @@
                     android:textSize="16sp"
                     android:textColor="?attr/primary_text_color" />
 
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_user_avatar"
+                    app:tint="?android:attr/textColorTertiary"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -169,6 +196,13 @@
                     android:layout_weight="1"
                     android:textSize="16sp"
                     android:textColor="?attr/primary_text_color" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_notification_user_talk"
+                    app:tint="?android:attr/textColorTertiary"/>
 
             </LinearLayout>
 
