@@ -1202,7 +1202,6 @@
   <string name="menu_option_share_talk_discussion">שיתוף דיון</string>
   <string name="menu_option_share_talk_page">שיתוף דף שיחה</string>
   <string name="menu_option_share_edit">לשתף את העריכה</string>
-  <string name="menu_option_user_profile">הפרופיל של %s</string>
   <string name="menu_option_user_contributions">התרומות של %s</string>
   <string name="menu_option_edit_source">עריכת קוד מקור</string>
   <string name="menu_option_user_page">דף השיחה של %s</string>
@@ -1221,7 +1220,7 @@
   <string name="thank_dialog_positive_button_text">לשלוח תודה</string>
   <string name="thank_dialog_negative_button_text">ביטול</string>
   <string name="thank_success_message">התודה שלך נשלחה למשתמש %s 👍</string>
-  <string name="menu_option_view_user_profile">הצגת דף פרופיל משתמש</string>
+  <string name="menu_option_view_user_profile">הצגת דף משתמש</string>
   <string name="menu_option_view_user_talk">הצגת דף שיחה</string>
   <string name="menu_option_view_user_contributions">הצגת תרומות משתמש</string>
   <string name="revision_diff_compare">השוואת גרסאות</string>
@@ -1273,4 +1272,5 @@
   <string name="search_namespaces">מרחבי שם</string>
   <string name="revision_initial_none">אין (זאת הגרסה הראשונה)</string>
   <string name="archive_empty">לא נמצאו דפים בארכיון.</string>
+  <string name="media_playback_error">שגיאה בנגינת מדיה.</string>
 </resources>

@@ -77,6 +77,18 @@ class DescriptionEditFragment : Fragment() {
         }
     }
 
+    private val editSuccessLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        callback()?.onDescriptionEditSuccess()
+    }
+
+    private val voiceSearchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        val voiceSearchResult = it.data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+        if (it.resultCode == Activity.RESULT_OK && voiceSearchResult != null) {
+            val text = voiceSearchResult.first()
+            binding.fragmentDescriptionEditView.description = text
+        }
+    }
+
     private val successRunnable = Runnable {
         if (!isAdded) {
             return@Runnable
@@ -91,9 +103,8 @@ class DescriptionEditFragment : Fragment() {
         Prefs.isSuggestedEditsReactivationPassStageOne = false
         SuggestedEditsFunnel.get().success(action)
         binding.fragmentDescriptionEditView.setSaveState(false)
-        if (Prefs.showDescriptionEditSuccessPrompt && invokeSource == InvokeSource.PAGE_ACTIVITY) {
-            startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext(), invokeSource),
-                    Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS)
+        if (Prefs.showDescriptionEditSuccessPrompt && invokeSource != InvokeSource.SUGGESTED_EDITS) {
+            editSuccessLauncher.launch(DescriptionEditSuccessActivity.newIntent(requireContext(), invokeSource))
             Prefs.showDescriptionEditSuccessPrompt = false
         } else {
             val intent = Intent()
@@ -156,24 +167,14 @@ class DescriptionEditFragment : Fragment() {
         outState.putBoolean(ARG_REVIEWING, binding.fragmentDescriptionEditView.showingReviewContent())
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS) {
-            callback()?.onDescriptionEditSuccess()
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_VOICE_SEARCH &&
-                resultCode == Activity.RESULT_OK && data != null &&
-                data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
-            val text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)!![0]
-            binding.fragmentDescriptionEditView.description = text
-        }
-    }
-
     private fun cancelCalls() {
         disposables.clear()
     }
 
     private fun loadPageSummaryIfNeeded(savedInstanceState: Bundle?) {
         binding.fragmentDescriptionEditView.showProgressBar(true)
-        if ((invokeSource == InvokeSource.PAGE_ACTIVITY || invokeSource == InvokeSource.PAGE_EDIT_PENCIL) && sourceSummary?.extractHtml.isNullOrEmpty()) {
+        if ((invokeSource == InvokeSource.PAGE_ACTIVITY || invokeSource == InvokeSource.PAGE_EDIT_PENCIL ||
+                    invokeSource == InvokeSource.PAGE_EDIT_HIGHLIGHT) && sourceSummary?.extractHtml.isNullOrEmpty()) {
             editingAllowed = false
             binding.fragmentDescriptionEditView.setEditAllowed(false)
             binding.fragmentDescriptionEditView.showProgressBar(true)
@@ -421,10 +422,9 @@ class DescriptionEditFragment : Fragment() {
         }
 
         override fun onVoiceInputClick() {
-            val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
-                    .putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
             try {
-                startActivityForResult(intent, Constants.ACTIVITY_REQUEST_VOICE_SEARCH)
+                voiceSearchLauncher.launch(Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+                    .putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM))
             } catch (a: ActivityNotFoundException) {
                 FeedbackUtil.showMessage(requireActivity(), R.string.error_voice_search_not_available)
             }

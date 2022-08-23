@@ -1150,7 +1150,6 @@
   <string name="menu_option_share_talk_discussion">Compartilhar discussão</string>
   <string name="menu_option_share_talk_page">Compartilhar página de discussão</string>
   <string name="menu_option_share_edit">Compartilhar edição</string>
-  <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuições de %s</string>
   <string name="menu_option_edit_source">Editar código-fonte</string>
   <string name="menu_option_user_page">%s página de usuário</string>
@@ -1169,7 +1168,7 @@
   <string name="thank_dialog_positive_button_text">Enviar agradecimento</string>
   <string name="thank_dialog_negative_button_text">Cancelar</string>
   <string name="thank_success_message">O seu \'agradecimento\' foi enviado para %s 👍</string>
-  <string name="menu_option_view_user_profile">Ver página de perfil do usuário</string>
+  <string name="menu_option_view_user_profile">Ver página de usuário</string>
   <string name="menu_option_view_user_talk">Ver página de discussão</string>
   <string name="menu_option_view_user_contributions">Ver contribuições do usuário</string>
   <string name="revision_diff_compare">Comparar revisões</string>
