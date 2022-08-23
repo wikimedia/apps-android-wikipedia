@@ -27,6 +27,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         fun talkClick()
         fun settingsClick()
         fun watchlistClick()
+        fun contribsClick()
     }
 
     private var _binding: ViewMainDrawerBinding? = null
@@ -60,6 +61,12 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         binding.mainDrawerSettingsContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerSettingsContainer)
             callback()?.settingsClick()
+            dismiss()
+        }
+
+        binding.mainDrawerContribsContainer.setOnClickListener {
+            BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerContribsContainer)
+            callback()?.contribsClick()
             dismiss()
         }
 
@@ -99,6 +106,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             binding.mainDrawerLoginOpenExternalIcon.visibility = View.VISIBLE
             binding.mainDrawerTalkContainer.visibility = View.VISIBLE
             binding.mainDrawerWatchlistContainer.visibility = View.VISIBLE
+            binding.mainDrawerContribsContainer.visibility = View.VISIBLE
         } else {
             binding.mainDrawerAccountAvatar.setImageResource(R.drawable.ic_login_24px)
             ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.colorAccent))
@@ -109,6 +117,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             binding.mainDrawerLoginOpenExternalIcon.visibility = View.GONE
             binding.mainDrawerTalkContainer.visibility = View.GONE
             binding.mainDrawerWatchlistContainer.visibility = View.GONE
+            binding.mainDrawerContribsContainer.visibility = View.GONE
         }
     }
 
