@@ -1,6 +1,7 @@
 package org.wikipedia.usercontrib
 
 import android.content.Context
+import android.text.method.MovementMethod
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewUserContribStatsBinding
-import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
@@ -24,9 +25,10 @@ class UserContribStatsView constructor(context: Context, attrs: AttributeSet? = 
         setPadding(padding, 0, padding, 0)
     }
 
-    fun setup(userName: String, stats: UserContribListViewModel.UserContribStats) {
+    fun setup(userName: String, stats: UserContribListViewModel.UserContribStats, movementMethod: MovementMethod, userPageTitle: PageTitle) {
         binding.userNameView.text = StringUtil.fromHtml(context.getString(R.string.user_contrib_activity_title,
-                "<a href=\"#\">$userName</a>"))
+                "<a href='" + userPageTitle.uri + "'>$userName</a>"))
+        binding.userNameView.movementMethod = movementMethod
         RichTextUtil.removeUnderlinesFromLinks(binding.userNameView)
 
         if (stats.totalEdits >= 0) {
@@ -36,10 +38,6 @@ class UserContribStatsView constructor(context: Context, attrs: AttributeSet? = 
                     stats.totalEdits, stats.totalEdits, regYear)
         } else {
             binding.editCountsView.isVisible = false
-        }
-
-        binding.userNameView.movementMethod = LinkMovementMethodExt { _ ->
-            // context.startActivity(PageActivity.newIntentForNewTab(context, HistoryEntry(pageTitle, HistoryEntry.SOURCE_EDIT_HISTORY), pageTitle))
         }
     }
 }

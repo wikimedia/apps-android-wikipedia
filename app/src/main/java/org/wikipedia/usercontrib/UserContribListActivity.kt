@@ -35,10 +35,13 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityUserContribBinding
 import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
 import org.wikipedia.databinding.ViewEditHistorySearchBarBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
@@ -46,6 +49,7 @@ import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
+import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.*
 import org.wikipedia.views.SearchAndFilterActionProvider
 import org.wikipedia.views.ViewUtil
@@ -55,6 +59,7 @@ import java.util.*
 class UserContribListActivity : BaseActivity() {
 
     private lateinit var binding: ActivityUserContribBinding
+    private lateinit var linkHandler: UserContribLinkHandler
     private val userContribListAdapter = UserContribListAdapter()
     private val userContribStatsAdapter = StatsItemAdapter()
     private val userContribSearchBarAdapter = SearchBarAdapter()
@@ -65,6 +70,10 @@ class UserContribListActivity : BaseActivity() {
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
+
+    private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
+        linkHandler.onUrlClick(url, title, linkText, x, y)
+    }
 
     private val requestLanguageChange = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
@@ -92,6 +101,8 @@ class UserContribListActivity : BaseActivity() {
 
         binding.titleView.isInvisible = true
         binding.titleView.text = getString(R.string.user_contrib_activity_title, StringUtil.fromHtml(viewModel.userName))
+        linkHandler = UserContribLinkHandler(this)
+        linkHandler.wikiSite = viewModel.wikiSite
 
         binding.refreshContainer.setOnRefreshListener {
             viewModel.clearCache()
@@ -155,6 +166,7 @@ class UserContribListActivity : BaseActivity() {
 
     private fun updateLangButton() {
         binding.langButtonText.text = viewModel.langCode.uppercase(Locale.ENGLISH)
+        linkHandler.wikiSite = viewModel.wikiSite
         ViewUtil.formatLangButton(binding.langButtonText, binding.langButtonText.text.toString(),
                 SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
         FeedbackUtil.setButtonLongPressToast(binding.langButtonContainer)
@@ -308,7 +320,7 @@ class UserContribListActivity : BaseActivity() {
         fun bindItem() {
             val statsFlowValue = viewModel.userContribStatsData.value
             if (statsFlowValue is Resource.Success) {
-                view.setup(viewModel.userName, statsFlowValue.data)
+                view.setup(viewModel.userName, statsFlowValue.data, linkMovementMethod, UriUtil.getUserPageTitle(viewModel.userName, viewModel.langCode))
             }
         }
     }
@@ -456,6 +468,36 @@ class UserContribListActivity : BaseActivity() {
 
         fun updateFilterIconAndText() {
             searchAndFilterActionProvider?.updateFilterIconAndText()
+        }
+    }
+
+    internal inner class UserContribLinkHandler internal constructor(context: Context) : LinkHandler(context) {
+        private var lastX: Int = 0
+        private var lastY: Int = 0
+
+        fun onUrlClick(url: String, title: String?, linkText: String, x: Int, y: Int) {
+            lastX = x
+            lastY = y
+            super.onUrlClick(url, title, linkText)
+        }
+
+        override fun onMediaLinkClicked(title: PageTitle) {
+            // TODO
+        }
+
+        override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
+            // TODO
+        }
+
+        override lateinit var wikiSite: WikiSite
+
+        override fun onPageLinkClicked(anchor: String, linkText: String) {
+            // TODO
+        }
+
+        override fun onInternalLinkClicked(title: PageTitle) {
+            UserTalkPopupHelper.show(this@UserContribListActivity, bottomSheetPresenter, title, false, lastX, lastY,
+                    Constants.InvokeSource.TALK_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC, showContribs = false)
         }
     }
 
