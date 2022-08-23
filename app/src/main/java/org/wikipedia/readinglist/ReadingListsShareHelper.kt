@@ -1,14 +1,17 @@
 package org.wikipedia.readinglist
 
 import android.app.DownloadManager
+import android.content.ContentResolver
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.os.Environment
 import android.provider.MediaStore
+import android.webkit.MimeTypeMap
 import androidx.core.app.NotificationCompat
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
+import org.wikipedia.WikipediaFileProvider
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPresenter
@@ -40,7 +43,7 @@ object ReadingListsShareHelper {
                     .putExtra(Intent.EXTRA_SUBJECT, "Reading list: " + readingList.title)
                     .putExtra(Intent.EXTRA_TEXT, "Hi! I'd like to share my reading list with you. Please tap on the attached file to open it in the Wikipedia app.")
                     .putExtra(Intent.EXTRA_STREAM, ShareUtil.getUriFromFile(context, f))
-                    .setType("application/x-wikipedia")
+                    .setType(WikipediaFileProvider.WIKIPEDIA_MIME_TYPE)
 
             context.startActivity(intent)
         } catch (e: Exception) {
