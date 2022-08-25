@@ -1185,7 +1185,7 @@
   <string name="thank_dialog_positive_button_text">发送感谢</string>
   <string name="thank_dialog_negative_button_text">取消</string>
   <string name="thank_success_message">您的“感谢”已发给%s 👍</string>
-  <string name="menu_option_view_user_profile" fuzzy="true">查看用户个人资料页面</string>
+  <string name="menu_option_view_user_profile">查看用户页面</string>
   <string name="menu_option_view_user_talk">查看讨论页</string>
   <string name="menu_option_view_user_contributions">查看用户贡献</string>
   <string name="revision_diff_compare">比较不同修订版本</string>
