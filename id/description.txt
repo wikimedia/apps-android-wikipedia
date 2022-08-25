@@ -8,6 +8,16 @@ Pencarian suara - cari dengan mudah apa yang anda inginkan dengan kolom pencaria
 
 Terdekat - Pelajari lebih lanjut tentang apa yang ada didekatmu dengan memilih tempat di peta interaktif untuk melihat artikel terkait dengan lokasi saat ini dan lokasi terdekat.
 
+Dukungan bahasa - Beralih dengan mulus untuk membaca Wikipedia yang didukung bahasa apa pun, baik dengan mengubah bahasa artikel saat ini, atau mengubah bahasa pencarian pilihan Anda saat mencari.
+
+Pratinjau tautan - Ketuk artikel untuk mempratinjaunya, tanpa kehilangan tempat Anda dalam apa yang sedang Anda baca. Tekan dan tahan tautan untuk membukanya di tab baru, memungkinkan Anda terus membaca artikel saat ini tanpa kehilangan tempat, dan beralih ke tab baru saat Anda siap.
+
+Daftar isi - geser ke kiri pada artikel mana pun untuk menampilkan daftar isi, yang memungkinkan Anda melompat ke bagian artikel dengan mudah.
+
+Daftar bacaan - Atur artikel yang Anda jelajahi ke dalam daftar bacaan, yang dapat Anda akses bahkan ketika Anda sedang offline. Buat daftar sebanyak yang Anda suka, beri nama dan deskripsi khusus, dan isi dengan artikel dari wiki bahasa apa pun.
+
+Galeri gambar - Ketuk pada gambar untuk melihat gambar dalam layar penuh dalam resolusi tinggi, dengan opsi untuk menggeser untuk menelusuri gambar tambahan.
+
 Kodenya 100% sumber terbuka. Jika Anda memiliki pengalaman dengan Java dan Android SDK, maka kami menantikan kontribusi Anda! https://github.com/wikimedia/apps-android-wikipedia
 
 TOS: https://m.wikimediafoundation.org/wiki/Terms_of_Use
