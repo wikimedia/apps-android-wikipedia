@@ -1123,7 +1123,6 @@
   <string name="menu_option_share_talk_discussion">Compartir discusión</string>
   <string name="menu_option_share_talk_page">Compartir página de discusión</string>
   <string name="menu_option_share_edit">Compartir edición</string>
-  <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuciones de %s</string>
   <string name="menu_option_edit_source">Editar código</string>
   <string name="watchlist_details_watching_label">Vigilando</string>

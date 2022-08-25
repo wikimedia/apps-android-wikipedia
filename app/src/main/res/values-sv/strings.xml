@@ -1130,7 +1130,6 @@
   <string name="menu_option_share_talk_discussion">Dela diskussion</string>
   <string name="menu_option_share_talk_page">Dela diskussionssida</string>
   <string name="menu_option_share_edit">Dela redigering</string>
-  <string name="menu_option_user_profile">%ss profil</string>
   <string name="menu_option_user_contributions">%ss bidrag</string>
   <string name="menu_option_edit_source">Redigera källa</string>
   <string name="menu_option_user_page">%ss användarsida</string>
@@ -1149,7 +1148,7 @@
   <string name="thank_dialog_positive_button_text">Skicka tack</string>
   <string name="thank_dialog_negative_button_text">Avbryt</string>
   <string name="thank_success_message">Ditt tack skickades till %s 👍</string>
-  <string name="menu_option_view_user_profile">Visa användarens profilsida</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Visa användarens profilsida</string>
   <string name="menu_option_view_user_talk">Visa diskussionssida</string>
   <string name="menu_option_view_user_contributions">Visa användarbidrag</string>
   <string name="revision_diff_compare">Jämför versioner</string>

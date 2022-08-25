@@ -459,7 +459,6 @@
   <string name="onboarding_maybe_later">მოგვიანაფათ შილებე</string>
   <string name="main_tooltip_watchlist_title">კონტროლიშ ერკებული</string>
   <string name="talk_snackbar_survey_action_text">დოჭყაფა</string>
-  <string name="menu_option_user_profile">%s-შ მუნაჩემეფი</string>
   <string name="menu_option_user_contributions">მახვარებუშ: %s მიშნაღელი თია</string>
   <string name="watchlist_details_watching_label">გინმაჯინე</string>
   <string name="watchlist_details_watch_label">გეგნაჯინი</string>
