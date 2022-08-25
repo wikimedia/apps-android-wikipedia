@@ -792,7 +792,6 @@
   <string name="talk_reply_subject">Temo</string>
   <string name="talk_snackbar_undo">Malfari</string>
   <string name="talk_overflow_sort_by">Ordigi laŭ</string>
-  <string name="menu_option_user_profile">Profilo de %s</string>
   <string name="menu_option_user_contributions">Kontribuoj de %s</string>
   <string name="thank_label">Danki</string>
   <string name="thank_dialog_negative_button_text">Nuligi</string>

@@ -1150,7 +1150,6 @@
   <string name="menu_option_share_talk_discussion">Deel overleg</string>
   <string name="menu_option_share_talk_page">Overlegpagina delen</string>
   <string name="menu_option_share_edit">Bewerking delen</string>
-  <string name="menu_option_user_profile">Profiel van %s</string>
   <string name="menu_option_user_contributions">Bijdragen van %s</string>
   <string name="menu_option_edit_source">Bron bewerken</string>
   <string name="menu_option_user_page">Gebruikerspagina van %s</string>
@@ -1169,7 +1168,7 @@
   <string name="thank_dialog_positive_button_text">Bedankje sturen</string>
   <string name="thank_dialog_negative_button_text">Annuleren</string>
   <string name="thank_success_message">Uw bedankje is verstuurd naar %s 👍</string>
-  <string name="menu_option_view_user_profile">Bekijk gebruiker profiel pagina</string>
+  <string name="menu_option_view_user_profile">Gebruikerspagina bekijken</string>
   <string name="menu_option_view_user_talk">Bekijk overlegpagina</string>
   <string name="menu_option_view_user_contributions">Gebruikersbijdragen bekijken</string>
   <string name="revision_diff_compare">Versies vergelijken</string>
@@ -1221,4 +1220,5 @@
   <string name="search_namespaces">Naamruimten</string>
   <string name="revision_initial_none">Geen (dit is de eerste revisie)</string>
   <string name="archive_empty">Geen gearchiveerde pagina\'s gevonden.</string>
+  <string name="media_playback_error">Fout bij het afspelen van media.</string>
 </resources>
