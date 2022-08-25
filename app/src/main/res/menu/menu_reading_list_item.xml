@@ -9,8 +9,12 @@
         android:title="@string/reading_list_action_menu_remove_all_from_offline"/>
     <item android:id="@+id/menu_reading_list_delete"
         android:title="@string/reading_list_menu_delete"/>
-    <item android:id="@+id/menu_reading_list_share"
-        android:title="Share..."/>
+    <item android:id="@+id/menu_reading_list_share1"
+        android:title="Share (appl/json)..."/>
+    <item android:id="@+id/menu_reading_list_share2"
+        android:title="Share (appl/vnd)..."/>
+    <item android:id="@+id/menu_reading_list_share3"
+        android:title="Share (txt/pl)..."/>
     <item android:id="@+id/menu_reading_list_export_csv"
-        android:title="Export to CSV..."/>
+        android:title="Export as CSV..."/>
 </menu>

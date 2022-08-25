@@ -11,10 +11,13 @@ import androidx.core.content.FileProvider
  */
 class WikipediaFileProvider : FileProvider(R.xml.file_paths) {
     override fun getType(uri: Uri): String? {
-        return if (uri.toString().endsWith(".wikipedia")) WIKIPEDIA_MIME_TYPE else super.getType(uri)
+        return if (uri.toString().endsWith(".wikipedia")) sharingMimeType else super.getType(uri)
     }
 
     companion object {
         const val WIKIPEDIA_MIME_TYPE = "application/json"
+
+        var sharingMimeType = WIKIPEDIA_MIME_TYPE
+
     }
 }

@@ -7,7 +7,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Environment
 import android.provider.MediaStore
-import android.webkit.MimeTypeMap
 import androidx.core.app.NotificationCompat
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
@@ -25,10 +24,13 @@ object ReadingListsShareHelper {
 
     const val EXPORT_FILE_EXTENSION = "wikipedia"
 
-    fun shareReadingList(context: Context, readingList: ReadingList?) {
+    fun shareReadingList(context: Context, readingList: ReadingList?, mimeType: String = "application/json") {
         if (readingList == null) {
             return
         }
+
+        WikipediaFileProvider.sharingMimeType = mimeType
+
         try {
             val payload = JsonUtil.encodeToString(ReadingListToExportedData(readingList))
             val shareFolder = ShareUtil.getClearShareFolder(context)
@@ -43,7 +45,7 @@ object ReadingListsShareHelper {
                     .putExtra(Intent.EXTRA_SUBJECT, "Reading list: " + readingList.title)
                     .putExtra(Intent.EXTRA_TEXT, "Hi! I'd like to share my reading list with you. Please tap on the attached file to open it in the Wikipedia app.")
                     .putExtra(Intent.EXTRA_STREAM, ShareUtil.getUriFromFile(context, f))
-                    .setType(WikipediaFileProvider.WIKIPEDIA_MIME_TYPE)
+                    .setType("text/plain")
 
             context.startActivity(intent)
         } catch (e: Exception) {
