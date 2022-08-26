@@ -194,7 +194,7 @@ class EditSectionActivity : BaseActivity() {
     }
 
     private fun updateEditLicenseText() {
-        val editLicenseText = ActivityCompat.requireViewById<TextView>(this, R.id.edit_section_license_text)
+        val editLicenseText = ActivityCompat.requireViewById<TextView>(this, R.id.licenseText)
         editLicenseText.text = StringUtil.fromHtml(getString(if (isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
                 getString(R.string.terms_of_use_url),
                 getString(R.string.cc_by_sa_3_url)))
@@ -219,7 +219,8 @@ class EditSectionActivity : BaseActivity() {
         var summaryText = if (sectionAnchor.isEmpty() || sectionAnchor == pageTitle.prefixedText) {
             if (pageTitle.wikiSite.languageCode == "en") "/* top */" else ""
         } else "/* ${StringUtil.removeUnderscores(sectionAnchor)} */ "
-        summaryText += editPreviewFragment.summary
+        // TODO: implement this
+        // summaryText += editPreviewFragment.summary
         // Summaries are plaintext, so remove any HTML that's made its way into the summary
         summaryText = StringUtil.removeHTMLTags(summaryText)
         if (!isFinishing) {
@@ -366,7 +367,8 @@ class EditSectionActivity : BaseActivity() {
                 // we're showing the custom edit summary window, so close it and
                 // apply the provided summary.
                 editSummaryFragment.hide()
-                editPreviewFragment.setCustomSummary(editSummaryFragment.summary)
+                // TODO: implement this
+                // editPreviewFragment.setCustomSummary(editSummaryFragment.summary)
             }
             editPreviewFragment.isActive -> {
                 // we're showing the Preview window, which means that the next step is to save it!
