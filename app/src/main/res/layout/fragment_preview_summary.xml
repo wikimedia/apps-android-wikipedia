@@ -60,11 +60,13 @@
             android:text="@string/preview_edit_minor_edit"/>
 
         <ImageView
+            android:id="@+id/minorEditHelpButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:padding="12dp"
             android:src="@drawable/ic_info_outline_black_24dp"
             android:contentDescription="@string/preview_edit_minor_edit"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             app:tint="?attr/color_group_59"/>
 
     </LinearLayout>
@@ -82,11 +84,13 @@
             android:text="@string/preview_edit_watch_this_page"/>
 
         <ImageView
+            android:id="@+id/watchPageHelpButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:padding="12dp"
             android:src="@drawable/ic_info_outline_black_24dp"
             android:contentDescription="@string/preview_edit_watch_this_page"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             app:tint="?attr/color_group_59" />
 
     </LinearLayout>

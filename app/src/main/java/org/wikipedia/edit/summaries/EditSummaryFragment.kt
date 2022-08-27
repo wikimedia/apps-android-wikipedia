@@ -3,6 +3,7 @@ package org.wikipedia.edit.summaries
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.view.KeyEvent
@@ -12,12 +13,21 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.R
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentPreviewSummaryBinding
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewAnimations
 
 class EditSummaryFragment : Fragment() {
@@ -58,7 +68,31 @@ class EditSummaryFragment : Fragment() {
             launchVoiceInput()
         }
 
+        binding.learnMoreButton.setOnClickListener {
+            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.preview_edit_learn_more_url)))
+        }
+
+        binding.minorEditHelpButton.setOnClickListener {
+            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.preview_edit_minor_edit_url)))
+        }
+
+        binding.watchPageHelpButton.setOnClickListener {
+            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.preview_edit_watch_this_page_url)))
+        }
+
+        getWatchedStatus()
+
         return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        editSummaryHandler = EditSummaryHandler(binding.root, binding.editSummaryText, title)
+    }
+
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
     }
 
     private fun launchVoiceInput() {
@@ -70,14 +104,20 @@ class EditSummaryFragment : Fragment() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        editSummaryHandler = EditSummaryHandler(binding.root, binding.editSummaryText, title)
-    }
-
-    override fun onDestroyView() {
-        _binding = null
-        super.onDestroyView()
+    private fun getWatchedStatus() {
+        if (AccountUtil.isLoggedIn) {
+            lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                L.e(throwable)
+            }) {
+                withContext(Dispatchers.IO) {
+                    val page = ServiceFactory.get(title.wikiSite)
+                        .getWatchedStatus(title.prefixedText).query?.firstPage()!!
+                    binding.watchPageCheckBox.isChecked = page.watched
+                }
+            }
+        } else {
+            binding.watchPageCheckBox.isEnabled = false
+        }
     }
 
     fun show() {
