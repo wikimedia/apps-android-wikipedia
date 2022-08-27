@@ -16,19 +16,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:background="?android:windowBackground"
-            android:gravity="center_vertical"
-            android:paddingStart="16dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="10dp"
-            android:text="@string/edit_preview"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
         <org.wikipedia.views.ObservableWebView
             android:id="@+id/edit_preview_webview"
             android:layout_width="match_parent"

@@ -1215,6 +1215,7 @@
   <string name="media_playback_error">Error shown when the selected media could not be played.</string>
   <string name="preview_edit_title">Title of the preview edit screen.</string>
   <string name="preview_edit_summarize_edit_title">Title of the summarize edit screen.</string>
+  <string name="preview_edit_summarize_edit_hint">Hint text for edit summaries text field.</string>
   <string name="preview_edit_minor_edit">Label text of the checkbox that indicates the current edit is a minor edit.</string>
   <string name="preview_edit_watch_this_page">Label text of the checkbox that helps to watch the page after publishing.</string>
   <string name="preview_edit_learn_more">Label text of the link to learn more about edit summaries.</string>

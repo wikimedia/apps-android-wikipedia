@@ -364,17 +364,13 @@ class EditSectionActivity : BaseActivity() {
     fun clickNextButton() {
         when {
             editSummaryFragment.isActive -> {
-                // we're showing the custom edit summary window, so close it and
-                // apply the provided summary.
-                editSummaryFragment.hide()
-                // TODO: implement this
-                // editPreviewFragment.setCustomSummary(editSummaryFragment.summary)
-            }
-            editPreviewFragment.isActive -> {
-                // we're showing the Preview window, which means that the next step is to save it!
                 editTokenThenSave
                 funnel.logSaveAttempt()
                 EditAttemptStepEvent.logSaveAttempt(pageTitle)
+            }
+            editPreviewFragment.isActive -> {
+                editSummaryFragment.show()
+                supportActionBar?.title = getString(R.string.preview_edit_summarize_edit_title)
             }
             else -> {
                 // we must be showing the editing window, so show the Preview.
@@ -382,6 +378,7 @@ class EditSectionActivity : BaseActivity() {
                 editPreviewFragment.showPreview(pageTitle, binding.editSectionText.text.toString())
                 funnel.logPreview()
                 EditAttemptStepEvent.logSaveIntent(pageTitle)
+                supportActionBar?.title = getString(R.string.preview_edit_title)
             }
         }
     }
@@ -422,7 +419,7 @@ class EditSectionActivity : BaseActivity() {
         menu.findItem(R.id.menu_edit_zoom_in).isVisible = !editPreviewFragment.isActive
         menu.findItem(R.id.menu_edit_zoom_out).isVisible = !editPreviewFragment.isActive
         menu.findItem(R.id.menu_find_in_editor).isVisible = !editPreviewFragment.isActive
-        item.title = getString(if (editPreviewFragment.isActive) R.string.edit_done else R.string.edit_next)
+        item.title = getString(if (editSummaryFragment.isActive) R.string.edit_done else R.string.edit_next)
         if (editingAllowed && binding.viewProgressBar.isGone) {
             item.isEnabled = sectionTextModified
         } else {
@@ -647,10 +644,12 @@ class EditSectionActivity : BaseActivity() {
             binding.viewEditSectionError.visibility = View.GONE
         }
         if (editSummaryFragment.handleBackPressed()) {
+            supportActionBar?.title = getString(R.string.preview_edit_title)
             return
         }
         if (editPreviewFragment.isActive) {
             editPreviewFragment.hide(binding.editSectionContainer)
+            supportActionBar?.title = null
             return
         }
         DeviceUtil.hideSoftKeyboard(this)
