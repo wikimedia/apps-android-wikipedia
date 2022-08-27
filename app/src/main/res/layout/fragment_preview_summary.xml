@@ -39,6 +39,14 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/editSummaryTagsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        app:flexWrap="wrap"
+        app:justifyContent="flex_start" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,6 +64,7 @@
             android:layout_height="48dp"
             android:padding="12dp"
             android:src="@drawable/ic_info_outline_black_24dp"
+            android:contentDescription="@string/preview_edit_minor_edit"
             app:tint="?attr/color_group_59"/>
 
     </LinearLayout>
@@ -77,8 +86,27 @@
             android:layout_height="48dp"
             android:padding="12dp"
             android:src="@drawable/ic_info_outline_black_24dp"
+            android:contentDescription="@string/preview_edit_watch_this_page"
             app:tint="?attr/color_group_59" />
 
     </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/learnMoreButton"
+        style="@style/FlatButton.Small.Transparent"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="16dp"
+        android:fontFamily="sans-serif"
+        android:letterSpacing="0"
+        android:text="@string/preview_edit_learn_more"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="?attr/colorAccent"
+        android:textSize="16sp"
+        app:icon="@drawable/ic_open_in_new_black_24px"
+        app:iconGravity="end"
+        app:iconPadding="12dp"
+        app:iconSize="24dp"
+        app:iconTint="?attr/colorAccent" />
 
 </LinearLayout>

@@ -58,9 +58,6 @@ class EditSummaryFragment : Fragment() {
             launchVoiceInput()
         }
 
-        if (savedInstanceState != null) {
-            binding.editSummaryText.setText(savedInstanceState.getString(KEY_SUMMARY_TEXT))
-        }
         return binding.root
     }
 
@@ -106,18 +103,9 @@ class EditSummaryFragment : Fragment() {
         return false
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putString(KEY_SUMMARY_TEXT, binding.editSummaryText.text.toString())
-    }
-
     fun saveSummary() {
         if (binding.editSummaryText.length() > 0) {
             editSummaryHandler.persistSummary()
         }
-    }
-
-    companion object {
-        private const val KEY_SUMMARY_TEXT = "summaryText"
     }
 }
