@@ -596,7 +596,6 @@
   <string name="talk_reply_hint">Susun tanggepan</string>
   <string name="talk_message_hint">Susun séwala</string>
   <string name="talk_message_empty">Séwala tan prasida puyung</string>
-  <string name="menu_option_user_profile">%s profil</string>
   <string name="menu_option_user_contributions">%s\'s pituut</string>
   <string name="watchlist_details_watching_label">Ngawasin</string>
   <string name="watchlist_details_watch_label">Awasin</string>

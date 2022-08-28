@@ -1080,7 +1080,6 @@
   <string name="menu_option_share_talk_discussion">شارك النقاش</string>
   <string name="menu_option_share_talk_page">شارك صفحة النقاش</string>
   <string name="menu_option_share_edit">شارك التعديل</string>
-  <string name="menu_option_user_profile">ملف %s</string>
   <string name="menu_option_user_contributions">مساهمات %s</string>
   <string name="menu_option_edit_source">عدل المصدر</string>
   <string name="menu_option_user_page">%s صفحة المستخدم</string>
@@ -1098,7 +1097,7 @@
   <string name="thank_dialog_positive_button_text">إرسال شكر</string>
   <string name="thank_dialog_negative_button_text">ألغ</string>
   <string name="thank_success_message">أُرسل \"شكرك\" إلى %s 👍</string>
-  <string name="menu_option_view_user_profile">اعرض صفحة المستخدم</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">اعرض صفحة المستخدم</string>
   <string name="menu_option_view_user_talk">اعرض صفحة النقاش</string>
   <string name="menu_option_view_user_contributions">اعرض مساهمات المستخدم</string>
   <string name="revision_diff_compare">مقارنة المراجعات</string>

@@ -10,7 +10,6 @@ import android.webkit.WebView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import io.reactivex.rxjava3.disposables.CompositeDisposable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.EditFunnel
@@ -44,7 +43,6 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     private lateinit var otherTag: EditSummaryTag
     private lateinit var funnel: EditFunnel
     private val summaryTags = mutableListOf<EditSummaryTag>()
-    private val disposables = CompositeDisposable()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     val isActive get() = binding.editPreviewContainer.visibility == View.VISIBLE
 
@@ -186,7 +184,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         bridge.addListener("reference") { _, messagePayload ->
             (JsonUtil.decodeFromString<PageReferences>(messagePayload.toString()))?.let {
                 references = it
-                if (!references.referencesGroup.isNullOrEmpty()) {
+                if (references.referencesGroup.isNotEmpty()) {
                     bottomSheetPresenter.show(childFragmentManager, ReferenceDialog())
                 }
             }
@@ -194,7 +192,6 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     }
 
     override fun onDestroyView() {
-        disposables.clear()
         binding.editPreviewWebview.clearAllListeners()
         (binding.editPreviewWebview.parent as ViewGroup).removeView(binding.editPreviewWebview)
         bridge.cleanup()

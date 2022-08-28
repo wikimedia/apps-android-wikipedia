@@ -920,7 +920,6 @@
   <string name="menu_option_share_talk_discussion">ဖန်းဖြယ် အိုင်ကိုမ်ချက်</string>
   <string name="menu_option_share_talk_page">ဖန်းဖြယ် အိုင်ကိုမ်ဒေါ့ꩻရီလိတ်မဲ့ငါ</string>
   <string name="menu_option_share_edit">ဖန်းဖြယ်မွဉ်းဖျင်မုꩻ</string>
-  <string name="menu_option_user_profile">%s ပရိုဖုဲင်</string>
   <string name="menu_option_user_contributions">%s စွဲးကမ်းခွုမ်မာꩻသားဖိုင်ႏ</string>
   <string name="watchlist_details_watching_label">အဝ်ႏအိုင်ထွား</string>
   <string name="watchlist_details_watch_label">ပွေားထွား</string>
