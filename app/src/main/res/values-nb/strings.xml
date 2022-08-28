@@ -4,6 +4,7 @@
 * Chameleon222
 * Citadell
 * Danmichaelo
+* Dbrant
 * Jeblad
 * JohSan65
 * Jon Harald Søby
@@ -1130,7 +1131,6 @@
   <string name="menu_option_share_talk_discussion">Del diskusjon</string>
   <string name="menu_option_share_talk_page">Del diskusjonsside</string>
   <string name="menu_option_share_edit">Del redigering</string>
-  <string name="menu_option_user_profile">%s sin profil</string>
   <string name="menu_option_user_contributions">%s sine bidrag</string>
   <string name="menu_option_edit_source">Rediger kilde</string>
   <string name="menu_option_user_page">%s brukerside</string>
@@ -1149,7 +1149,7 @@
   <string name="thank_dialog_positive_button_text">Send takk</string>
   <string name="thank_dialog_negative_button_text">Avbryt</string>
   <string name="thank_success_message">Din takk ble sendt til %s 👍</string>
-  <string name="menu_option_view_user_profile">Vis brukerens profilside</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Vis brukerens profilside</string>
   <string name="menu_option_view_user_talk">Vis diskusjonsside</string>
   <string name="menu_option_view_user_contributions">Vis brukerbidrag</string>
   <string name="revision_diff_compare">Sammenlign revisjoner</string>
