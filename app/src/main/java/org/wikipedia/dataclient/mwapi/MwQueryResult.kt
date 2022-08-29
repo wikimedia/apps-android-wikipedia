@@ -64,7 +64,8 @@ class MwQueryResult {
     }
 
     fun captchaId(): String? {
-        return amInfo?.requests?.find { it.id.orEmpty().contains("CaptchaAuthenticationRequest") }?.fields?.get("captchaId")?.value
+        val key = "captchaId"
+        return amInfo?.requests?.find { it.fields?.containsKey(key) == true }?.fields?.get(key)?.value
     }
 
     fun getUserResponse(userName: String): UserInfo? {
