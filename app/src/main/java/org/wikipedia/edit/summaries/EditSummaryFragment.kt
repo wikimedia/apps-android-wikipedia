@@ -137,17 +137,18 @@ class EditSummaryFragment : Fragment() {
 
     private fun addChip(@StringRes editSummaryResource: Int): Chip {
         val chip = Chip(requireContext())
-        chip.text = getString(editSummaryResource)
+        val editSummary = getString(editSummaryResource)
+        chip.text = editSummary
         chip.textAlignment = View.TEXT_ALIGNMENT_CENTER
         chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
         chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
         chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
         chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color))
         chip.typeface = chipTypeFace
-        chip.iconEndPadding = 0f
         chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
         chip.setOnClickListener {
-            // TODO: append text to edit field
+            // Clear the text field and insert the text
+            binding.editSummaryText.setText(editSummary)
         }
         chip.setEnsureMinTouchTargetSize(true)
         chip.ensureAccessibleTouchTarget(DimenUtil.dpToPx(48f).toInt())

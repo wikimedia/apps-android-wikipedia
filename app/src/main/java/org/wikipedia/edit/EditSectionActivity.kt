@@ -366,6 +366,7 @@ class EditSectionActivity : BaseActivity() {
                 editTokenThenSave
                 funnel.logSaveAttempt()
                 EditAttemptStepEvent.logSaveAttempt(pageTitle)
+                supportActionBar?.title = getString(R.string.preview_edit_summarize_edit_title)
             }
             editPreviewFragment.isActive -> {
                 editSummaryFragment.show()
