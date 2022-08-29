@@ -34,6 +34,12 @@ class UserContribFilterOverflowView(context: Context) : FrameLayout(context) {
 
     fun show(anchorView: View, callback: Callback?) {
         this.callback = callback
+
+        binding.nsUserText.text = UserAliasData.valueFor(WikipediaApp.instance.appOrSystemLanguageCode)
+        binding.nsTalkText.text = TalkAliasData.valueFor(WikipediaApp.instance.appOrSystemLanguageCode)
+        binding.nsUserTalkText.text = UserTalkAliasData.valueFor(WikipediaApp.instance.appOrSystemLanguageCode)
+        updateSelectedItem()
+
         popupWindowHost = PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true)
         popupWindowHost?.let {
@@ -44,11 +50,6 @@ class UserContribFilterOverflowView(context: Context) : FrameLayout(context) {
         popupWindowHost?.setOnDismissListener {
             popupWindowHost = null
         }
-
-        binding.nsUserText.text = UserAliasData.valueFor(WikipediaApp.instance.appOrSystemLanguageCode)
-        binding.nsTalkText.text = TalkAliasData.valueFor(WikipediaApp.instance.appOrSystemLanguageCode)
-        binding.nsUserTalkText.text = UserTalkAliasData.valueFor(WikipediaApp.instance.appOrSystemLanguageCode)
-        updateSelectedItem()
     }
 
     private fun updateSelectedItem() {
