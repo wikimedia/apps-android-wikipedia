@@ -308,7 +308,8 @@ interface Service {
         @Field("token") token: String,
         @Field("captchaid") captchaId: String?,
         @Field("captchaword") captchaWord: String?,
-        @Field("minor") minor: Boolean? = null
+        @Field("minor") minor: Boolean? = null,
+        @Field("watchlist") watchlist: String? = null,
     ): Observable<Edit>
 
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
