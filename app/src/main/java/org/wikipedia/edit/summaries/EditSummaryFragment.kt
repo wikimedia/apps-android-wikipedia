@@ -41,6 +41,7 @@ class EditSummaryFragment : Fragment() {
     lateinit var localizeSummaryTags: SparseArray<String>
 
     val summary get() = binding.editSummaryText.text.toString()
+    val isMinorEdit get() = binding.minorEditCheckBox.isChecked
     val isActive get() = binding.root.visibility == View.VISIBLE
 
     private val chipTypeFace = Typeface.create("sans-serif-medium", Typeface.NORMAL)
