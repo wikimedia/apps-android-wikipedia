@@ -427,14 +427,8 @@ class EditSectionActivity : BaseActivity() {
         } else {
             item.isEnabled = false
         }
-        val actionBarButtonBinding = ItemEditActionbarButtonBinding.inflate(layoutInflater)
-        item.actionView = actionBarButtonBinding.root
-        actionBarButtonBinding.editActionbarButtonText.text = item.title
-        actionBarButtonBinding.editActionbarButtonText.setTextColor(ResourceUtil.getThemedColor(this,
-                if (item.isEnabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
-        actionBarButtonBinding.root.tag = item
-        actionBarButtonBinding.root.isEnabled = item.isEnabled
-        actionBarButtonBinding.root.setOnClickListener { onOptionsItemSelected(it.tag as MenuItem) }
+        val summaryFilledOrNotActive = if (editSummaryFragment.isActive) editSummaryFragment.summary.isNotEmpty() else true
+        applyActionBarButtonStyle(item, item.isEnabled && summaryFilledOrNotActive)
         return true
     }
 
@@ -444,6 +438,18 @@ class EditSectionActivity : BaseActivity() {
             // since we disabled the close button in the AndroidManifest.xml, we need to manually setup a close button when in an action mode if long pressed on texts.
             ViewUtil.setCloseButtonInActionMode(this@EditSectionActivity, mode)
         }
+    }
+
+    private fun applyActionBarButtonStyle(menuItem: MenuItem, emphasize: Boolean) {
+        val actionBarButtonBinding = ItemEditActionbarButtonBinding.inflate(layoutInflater)
+        menuItem.actionView = actionBarButtonBinding.root
+        actionBarButtonBinding.editActionbarButtonText.text = menuItem.title
+        actionBarButtonBinding.editActionbarButtonText.setTextColor(
+            ResourceUtil.getThemedColor(this,
+                if (emphasize) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
+        actionBarButtonBinding.root.tag = menuItem
+        actionBarButtonBinding.root.isEnabled = menuItem.isEnabled
+        actionBarButtonBinding.root.setOnClickListener { onOptionsItemSelected(it.tag as MenuItem) }
     }
 
     fun showError(caught: Throwable?) {

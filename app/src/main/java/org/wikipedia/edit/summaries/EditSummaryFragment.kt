@@ -15,6 +15,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.StringRes
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.chip.Chip
@@ -70,6 +71,12 @@ class EditSummaryFragment : Fragment() {
                 (requireActivity() as EditSectionActivity).clickNextButton()
             }
             false
+        }
+
+        binding.editSummaryText.addTextChangedListener {
+            if (!requireActivity().isDestroyed) {
+                requireActivity().invalidateOptionsMenu()
+            }
         }
 
         binding.editSummaryTextLayout.setEndIconOnClickListener {
