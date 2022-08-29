@@ -114,6 +114,7 @@
   <string name="menu_page_new_tab">新分頁</string>
   <string name="menu_page_reading_lists">閱讀清單</string>
   <string name="menu_page_recently_viewed">近期檢視</string>
+  <string name="menu_page_archive">存檔</string>
   <string name="menu_long_press_open_page">開啟</string>
   <string name="menu_long_press_open_in_new_tab">在新分頁開啟</string>
   <string name="menu_long_press_copy_page">複製連結網址</string>
@@ -1137,6 +1138,7 @@
   <string name="talk_list_item_user_icon_content_description">使用者圖像</string>
   <string name="talk_list_item_swipe_mark_as_read">已讀</string>
   <string name="talk_list_item_swipe_mark_as_unread">未讀</string>
+  <string name="talk_archived_title">討論存檔：%s</string>
   <string name="menu_option_share_talk_discussion">分享討論</string>
   <string name="menu_option_share_talk_page">分享討論頁</string>
   <string name="menu_option_share_edit">分享編輯</string>
@@ -1158,7 +1160,7 @@
   <string name="thank_dialog_positive_button_text">發送感謝</string>
   <string name="thank_dialog_negative_button_text">取消</string>
   <string name="thank_success_message">您的感謝已發送給%s 👍</string>
-  <string name="menu_option_view_user_profile" fuzzy="true">檢視使用者個人檔案頁面</string>
+  <string name="menu_option_view_user_profile">檢視使用者頁面</string>
   <string name="menu_option_view_user_talk">檢視討論頁</string>
   <string name="menu_option_view_user_contributions">檢視使用者貢獻</string>
   <string name="revision_diff_compare">比較修訂</string>
@@ -1209,4 +1211,6 @@
   <string name="subcategory_empty">在此分類中找不到子分類。</string>
   <string name="search_namespaces">命名空間</string>
   <string name="revision_initial_none">無差異（這是第一個修訂版本）</string>
+  <string name="archive_empty">找不到存檔頁面。</string>
+  <string name="media_playback_error">播放媒體時出錯。</string>
 </resources>
