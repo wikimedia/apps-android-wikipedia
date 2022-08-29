@@ -43,14 +43,14 @@
         android:id="@+id/editSummaryTagsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginHorizontal="8dp"
         app:flexWrap="wrap"
         app:justifyContent="flex_start" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp">
+        android:layout_marginHorizontal="8dp">
 
         <CheckBox
             android:id="@+id/minorEditCheckBox"
@@ -74,7 +74,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp">
+        android:layout_marginHorizontal="8dp">
 
         <CheckBox
             android:id="@+id/watchPageCheckBox"
@@ -99,7 +99,7 @@
         android:id="@+id/learnMoreButton"
         style="@style/FlatButton.Small.Transparent"
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginHorizontal="8dp"
         android:fontFamily="sans-serif"
         android:letterSpacing="0"
         android:text="@string/preview_edit_learn_more"

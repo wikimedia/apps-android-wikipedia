@@ -3,17 +3,21 @@ package org.wikipedia.edit.summaries
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import android.util.SparseArray
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.chip.Chip
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,9 +28,7 @@ import org.wikipedia.databinding.FragmentPreviewSummaryBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.UriUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewAnimations
 
@@ -36,9 +38,13 @@ class EditSummaryFragment : Fragment() {
 
     private lateinit var editSummaryHandler: EditSummaryHandler
     lateinit var title: PageTitle
+    lateinit var localizeSummaryTags: SparseArray<String>
 
     val summary get() = binding.editSummaryText.text.toString()
     val isActive get() = binding.root.visibility == View.VISIBLE
+
+    private val chipTypeFace = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+    private val summaryTagStrings = intArrayOf(R.string.edit_summary_tag_typo, R.string.edit_summary_tag_grammar, R.string.edit_summary_tag_links)
 
     private val voiceSearchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         val voiceSearchResult = it.data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
@@ -82,6 +88,9 @@ class EditSummaryFragment : Fragment() {
 
         getWatchedStatus()
 
+        localizeSummaryTags = L10nUtil.getStringsForArticleLanguage(title, summaryTagStrings)
+        addEditSummaries()
+
         return binding.root
     }
 
@@ -118,6 +127,39 @@ class EditSummaryFragment : Fragment() {
         } else {
             binding.watchPageCheckBox.isEnabled = false
         }
+    }
+
+    private fun addEditSummaries() {
+        summaryTagStrings.forEach {
+            addChip(it)
+        }
+    }
+
+    private fun addChip(@StringRes editSummaryResource: Int): Chip {
+        val chip = Chip(requireContext())
+        chip.text = getString(editSummaryResource)
+        chip.textAlignment = View.TEXT_ALIGNMENT_CENTER
+        chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+        chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
+        chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+        chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color))
+        chip.typeface = chipTypeFace
+        chip.iconEndPadding = 0f
+        chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
+        chip.setOnClickListener {
+            // TODO: append text to edit field
+        }
+        chip.setEnsureMinTouchTargetSize(true)
+        chip.ensureAccessibleTouchTarget(DimenUtil.dpToPx(48f).toInt())
+
+        // add some padding to the Chip, since our container view doesn't support item spacing yet.
+        val params = ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        val margin = DimenUtil.roundedDpToPx(4f)
+        params.setMargins(margin, 0, margin, 0)
+        chip.layoutParams = params
+
+        binding.editSummaryTagsContainer.addView(chip)
+        return chip
     }
 
     fun show() {
