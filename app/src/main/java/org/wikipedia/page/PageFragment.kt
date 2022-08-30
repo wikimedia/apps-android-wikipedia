@@ -163,7 +163,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
     private val foregroundTabPosition get() = app.tabList.size
     private val tabLayoutOffsetParams get() = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.pageActionsTabLayout.height)
-    val currentTab get() = app.tabList.last()!!
+    val currentTab get() = app.tabList.last()
     val title get() = model.title
     val page get() = model.page
     val historyEntry get() = model.curEntry
@@ -290,10 +290,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageActionsTabLayout.update()
         updateQuickActionsAndMenuOptions()
         articleInteractionEvent?.resume()
-    }
-
-    fun getPageActionTabLayout(): PageActionTabLayout {
-        return binding.pageActionsTabLayout
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -502,7 +498,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun selectedTabPosition(title: PageTitle): Int {
+    private fun selectedTabPosition(title: PageTitle): Int {
         return app.tabList.firstOrNull { it.backStackPositionTitle != null &&
                 title.matches(it.backStackPositionTitle) }?.let { app.tabList.indexOf(it) } ?: -1
     }
