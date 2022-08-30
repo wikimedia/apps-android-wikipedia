@@ -35,7 +35,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 32
-        versionCode 50418
+        versionCode 50419
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -169,11 +169,11 @@ dependencies {
 
     String okHttpVersion = '4.8.1'
     String retrofitVersion = '2.9.0'
-    String glideVersion = '4.11.0'
+    String glideVersion = '4.13.2'
     String mockitoVersion = '3.4.0'
     String leakCanaryVersion = '2.8.1'
     String kotlinCoroutinesVersion = '1.3.9'
-    String firebaseMessagingVersion = '23.0.6'
+    String firebaseMessagingVersion = '23.0.7'
     String mlKitVersion = '17.0.4'
     String roomVersion = "2.4.3"
     String espressoVersion = '3.4.0'
@@ -185,11 +185,11 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version"
 
     implementation "com.google.android.material:material:1.6.1"
-    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation "androidx.core:core-ktx:1.8.0"
     implementation "androidx.browser:browser:1.4.0"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation "androidx.fragment:fragment-ktx:1.4.1"
+    implementation "androidx.fragment:fragment-ktx:1.5.2"
     implementation "androidx.paging:paging-runtime-ktx:3.1.1"
     implementation "androidx.palette:palette-ktx:1.0.0"
     implementation "androidx.preference:preference-ktx:1.2.0"

@@ -33,8 +33,8 @@
   <string name="menu_clear_all_history">مسح ليسطوريك</string>
   <string name="history_item_deleted">تحيدات %s من ليسطوريك</string>
   <string name="history_items_deleted">تحيدات %d مقالة من ليسطوريك</string>
-  <string name="history_item_delete_undo">ماتليتش</string>
-  <string name="notification_archive_undo">ماتليتش</string>
+  <string name="history_item_delete_undo">رجّع</string>
+  <string name="notification_archive_undo">رجّع</string>
   <string name="app_settings">لپاراميطر ديال لاپليكاسيون</string>
   <string name="search_tab_tooltip">برك على لإيكون عاوتاني باش تبدا نيشان فالتقلاب.</string>
   <string name="history_list_title">ليسطوريك</string>
