@@ -41,6 +41,7 @@ class SyntaxHighlightableEditText : EditText {
     private val paddingWithoutLineNumbers = DimenUtil.roundedDpToPx(8f)
     private val paddingWithLineNumbers = DimenUtil.roundedDpToPx(36f)
     private val lineNumberGapWidth = DimenUtil.roundedDpToPx(8f)
+    private val gutterRect = Rect()
     private var allowScrollToCursor = true
 
     lateinit var scrollView: View
@@ -89,6 +90,16 @@ class SyntaxHighlightableEditText : EditText {
         return super.bringPointIntoView(offset)
     }
 
+
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+        super.onLayout(changed, left, top, right, bottom)
+        if (isRtl) {
+            gutterRect.set(width - paddingWithLineNumbers + lineNumberGapWidth / 2, 0, width, height)
+        } else {
+            gutterRect.set(0, 0, paddingWithLineNumbers - lineNumberGapWidth / 2, height)
+        }
+    }
+
     override fun onDraw(canvas: Canvas?) {
         if (prevLineCount != lineCount) {
             prevLineCount = lineCount
@@ -102,8 +113,6 @@ class SyntaxHighlightableEditText : EditText {
             val lastLine = layout.getLineForVertical(scrollView.scrollY + scrollView.height)
 
             // paint the gutter area with a slightly different color than text background.
-            val gutterRect = if (isRtl) Rect(width - paddingWithLineNumbers + lineNumberGapWidth / 2, 0, width, height) else
-                Rect(0, 0, paddingWithLineNumbers - lineNumberGapWidth / 2, height)
             canvas?.drawRect(gutterRect, lineNumberBackgroundPaint)
 
             // paint the line numbers, by getting each line position from the Layout.
