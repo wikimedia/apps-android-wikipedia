@@ -42,13 +42,19 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.flexbox.FlexboxLayout
-            android:id="@+id/editSummaryTagsContainer"
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
-            app:flexWrap="wrap"
-            app:justifyContent="flex_start" />
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/editSummaryTagsContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"/>
+
+        </HorizontalScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
