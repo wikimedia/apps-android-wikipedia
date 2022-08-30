@@ -2,6 +2,7 @@ package org.wikipedia.savedpages
 
 import android.content.Intent
 import androidx.core.app.JobIntentService
+import androidx.core.os.postDelayed
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -312,22 +313,21 @@ class SavedPageSyncService : JobIntentService() {
     companion object {
         // Unique job ID for this service (do not duplicate).
         private const val JOB_ID = 1000
-        private const val ENQUEUE_DELAY_MILLIS = 2000
+        private const val ENQUEUE_DELAY_MILLIS = 2000L
+        private const val TOKEN = "syncSavedPages"
         const val SUMMARY_PROGRESS = 10
         const val MOBILE_HTML_SECTION_PROGRESS = 20
         const val MEDIA_LIST_PROGRESS = 30
-
-        private val ENQUEUE_RUNNABLE = Runnable {
-            enqueueWork(WikipediaApp.instance,
-                    SavedPageSyncService::class.java, JOB_ID, Intent(WikipediaApp.instance, SavedPageSyncService::class.java))
-        }
 
         fun enqueue() {
             if (ReadingListSyncAdapter.inProgress()) {
                 return
             }
-            WikipediaApp.instance.mainThreadHandler.removeCallbacks(ENQUEUE_RUNNABLE)
-            WikipediaApp.instance.mainThreadHandler.postDelayed(ENQUEUE_RUNNABLE, ENQUEUE_DELAY_MILLIS.toLong())
+            WikipediaApp.instance.mainThreadHandler.removeCallbacksAndMessages(TOKEN)
+            WikipediaApp.instance.mainThreadHandler.postDelayed(ENQUEUE_DELAY_MILLIS, TOKEN) {
+                enqueueWork(WikipediaApp.instance, SavedPageSyncService::class.java, JOB_ID,
+                    Intent(WikipediaApp.instance, SavedPageSyncService::class.java))
+            }
         }
 
         fun sendSyncEvent(showMessage: Boolean = false) {
