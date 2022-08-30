@@ -18,6 +18,8 @@ Daftar bacaan - Atur artikel yang Anda jelajahi ke dalam daftar bacaan, yang dap
 
 Galeri gambar - Ketuk pada gambar untuk melihat gambar dalam layar penuh dalam resolusi tinggi, dengan opsi untuk menggeser untuk menelusuri gambar tambahan.
 
+Definisi dari Wiktionary - Tekan-dan-tahan untuk menyorot kata, lalu tekan tombol "Definisi" untuk melihat definisi kata tersebut dari Wiktionary.
+
 Kodenya 100% sumber terbuka. Jika Anda memiliki pengalaman dengan Java dan Android SDK, maka kami menantikan kontribusi Anda! https://github.com/wikimedia/apps-android-wikipedia
 
 TOS: https://m.wikimediafoundation.org/wiki/Terms_of_Use
