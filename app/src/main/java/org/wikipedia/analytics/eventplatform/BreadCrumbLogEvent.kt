@@ -2,6 +2,7 @@ package org.wikipedia.analytics.eventplatform
 
 import android.content.Context
 import android.view.View
+import android.widget.CheckBox
 import androidx.appcompat.widget.SwitchCompat
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -33,7 +34,11 @@ class BreadCrumbLogEvent(
                 return
             }
             val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
-            val str = viewReadableName + "." + if (view is SwitchCompat) (if (!view.isChecked) "on" else "off") else "click"
+            val str = "$viewReadableName." + when (view) {
+                is SwitchCompat -> if (!view.isChecked) "on" else "off"
+                is CheckBox -> if (!view.isChecked) "on" else "off"
+                else -> "click"
+            }
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), str))
         }
 
