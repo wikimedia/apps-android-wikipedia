@@ -18,7 +18,6 @@ import org.wikipedia.util.StringUtil
 class UserContribItemView(context: Context) : FrameLayout(context) {
     interface Listener {
         fun onClick()
-        fun onLongClick()
     }
 
     var listener: Listener? = null
@@ -28,10 +27,6 @@ class UserContribItemView(context: Context) : FrameLayout(context) {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         binding.clickTargetView.setOnClickListener {
             listener?.onClick()
-        }
-        binding.clickTargetView.setOnLongClickListener {
-            listener?.onLongClick()
-            true
         }
     }
 

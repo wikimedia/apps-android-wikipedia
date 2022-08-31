@@ -400,8 +400,6 @@ class UserContribListActivity : BaseActivity() {
             startActivity(ArticleEditDetailsActivity.newIntent(this@UserContribListActivity,
                     PageTitle(contrib.title, viewModel.wikiSite), contrib.revid))
         }
-
-        override fun onLongClick() { }
     }
 
     private inner class SearchCallback : SearchActionModeCallback() {
