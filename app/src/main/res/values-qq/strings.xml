@@ -31,6 +31,7 @@
 * Shirayuki
 * ShockD
 * Tacsipacsi
+* Tomato Cream
 * Trizek (WMF)
 * Verdy p
 * Wladek92
@@ -119,7 +120,7 @@
   <string name="menu_page_new_tab">Menu item text for opening a new tab.</string>
   <string name="menu_page_reading_lists">&gt;Menu item text for opening the reading lists page.</string>
   <string name="menu_page_recently_viewed">&gt;Menu item text for opening the history page.</string>
-  <string name="menu_page_archive">&gt;Menu item text for opening the archive page.</string>
+  <string name="menu_page_archive">Menu item text for opening the archive page.</string>
   <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.\n{{Identical|Open}}</string>
   <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab.</string>
   <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipboard for pasting later.</string>
@@ -1075,6 +1076,7 @@
   <string name="wikitext_bold">Button label for making the selected text bold.</string>
   <string name="wikitext_italic">Button label for making the selected text italic.</string>
   <string name="wikitext_link">Button label for making the selected text into a link.\n{{Identical|Link}}</string>
+  <string name="wikitext_insert_media">Button label for adding a media at the current cursor position.</string>
   <string name="wikitext_bulleted_list">Button label for starting a bulleted list at the current cursor position.</string>
   <string name="wikitext_numbered_list">Button label for starting a numbered list at the current cursor position.</string>
   <string name="wikitext_template">Button label for making the selected text into a template.\n{{Identical|Template}}</string>
@@ -1217,6 +1219,35 @@
   <string name="user_contrib_filter_all">Label for showing all contributions, regardless of namespace.</string>
   <string name="namespace_article">Label for showing contributions to the Main (article) namespace.</string>
   <string name="user_contrib_current">Label indicating that this contribution is the current revision of the article.</string>
+  <string name="insert_media_title">Title of the insert media screen.</string>
+  <string name="insert_media_search_description">Message saying that the user can select a file from Wikimedia Commons.</string>
+  <string name="insert_media_search_hint">Hint label for the insert media search field.</string>
+  <string name="insert_media_settings">Title of the media settings scree.</string>
+  <string name="insert_media_settings_uploaded_image">Label of the uploaded image.</string>
+  <string name="insert_media_settings_caption">Label of the caption of the image.</string>
+  <string name="insert_media_settings_caption_description">Description of where the caption will be located.</string>
+  <string name="insert_media_settings_alternative_text">Label of the alternative text.</string>
+  <string name="insert_media_settings_alternative_text_description">Description of the alternative usage.</string>
+  <string name="insert_media_advanced_settings">Button label of advanced settings.</string>
+  <string name="insert_media_advanced_settings_wrap_image">Label of an option that user can wrap the text around the image.</string>
+  <string name="insert_media_advanced_settings_image_position">Label of an option that user set the image position.</string>
+  <string name="insert_media_advanced_settings_image_position_right">Menu option of setting the image position to the right.</string>
+  <string name="insert_media_advanced_settings_image_position_left">Menu option of setting the image position to the left.</string>
+  <string name="insert_media_advanced_settings_image_position_center">Menu option of setting the image position to the center.</string>
+  <string name="insert_media_advanced_settings_image_position_none">Menu option that indicates the image does not have a specific position.</string>
+  <string name="insert_media_advanced_settings_image_type">Label of an option that user set the image type.</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Menu option of setting the image type in thumbnail.</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Menu option of setting the image type in frameless.</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Menu option of setting the image type in frame.</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Menu option of setting the image type in basic.</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Description and suggestion of how the image type works.</string>
+  <string name="insert_media_advanced_settings_image_size">Label of an option that user set the image size.</string>
+  <string name="insert_media_advanced_settings_image_size_default">Menu option of setting the default size for the image.</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Menu option of customizing the image size.</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Label of the custom image width.</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Label of the custom image height.</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">Label of the custom image size suffix.</string>
+  <string name="insert_media_insert_button">Button of inserting the image to the editor.</string>
   <string name="media_playback_error">Error shown when the selected media could not be played.</string>
   <string name="user_contrib_menu_label">Menu label for accessing the contributions of the current user.</string>
 </resources>
