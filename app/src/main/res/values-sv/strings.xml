@@ -102,6 +102,7 @@
   <string name="menu_page_new_tab">Ny flik</string>
   <string name="menu_page_reading_lists">Läslistor</string>
   <string name="menu_page_recently_viewed">Nyligen lästa</string>
+  <string name="menu_page_archive">Arkiv</string>
   <string name="menu_long_press_open_page">Öppna</string>
   <string name="menu_long_press_open_in_new_tab">Öppna i ny flik</string>
   <string name="menu_long_press_copy_page">Kopiera länkadress</string>
@@ -1125,10 +1126,10 @@
   <string name="talk_list_item_user_icon_content_description">Användarikon</string>
   <string name="talk_list_item_swipe_mark_as_read">Läst</string>
   <string name="talk_list_item_swipe_mark_as_unread">Oläst</string>
+  <string name="talk_archived_title">Diskussionsarkiv: %s</string>
   <string name="menu_option_share_talk_discussion">Dela diskussion</string>
   <string name="menu_option_share_talk_page">Dela diskussionssida</string>
   <string name="menu_option_share_edit">Dela redigering</string>
-  <string name="menu_option_user_profile">%ss profil</string>
   <string name="menu_option_user_contributions">%ss bidrag</string>
   <string name="menu_option_edit_source">Redigera källa</string>
   <string name="menu_option_user_page">%ss användarsida</string>
@@ -1147,7 +1148,7 @@
   <string name="thank_dialog_positive_button_text">Skicka tack</string>
   <string name="thank_dialog_negative_button_text">Avbryt</string>
   <string name="thank_success_message">Ditt tack skickades till %s 👍</string>
-  <string name="menu_option_view_user_profile">Visa användarens profilsida</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Visa användarens profilsida</string>
   <string name="menu_option_view_user_talk">Visa diskussionssida</string>
   <string name="menu_option_view_user_contributions">Visa användarbidrag</string>
   <string name="revision_diff_compare">Jämför versioner</string>
@@ -1198,4 +1199,5 @@
   <string name="subcategory_empty">Inga underkategorier hittades i den här kategorin.</string>
   <string name="search_namespaces">Namnrymder</string>
   <string name="revision_initial_none">Ingen (detta är den första versionen)</string>
+  <string name="archive_empty">Inga arkivsidor hittades.</string>
 </resources>

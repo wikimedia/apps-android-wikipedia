@@ -59,7 +59,7 @@ object EventPlatformClient {
      */
     @Synchronized
     fun submit(event: Event) {
-        if (!SamplingController.isInSample(event) || (event is BreadCrumbLogEvent && ReleaseUtil.isProdRelease)) {
+        if (!SamplingController.isInSample(event)) {
             return
         }
         OutputBuffer.schedule(event)

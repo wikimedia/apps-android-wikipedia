@@ -1082,7 +1082,6 @@
   <string name="menu_option_share_talk_discussion">Oszd meg a vitát</string>
   <string name="menu_option_share_talk_page">Vitalap megosztása</string>
   <string name="menu_option_share_edit">Szerkesztés megosztása</string>
-  <string name="menu_option_user_profile">%s profilja</string>
   <string name="menu_option_user_contributions">%s közreműködései</string>
   <string name="menu_option_edit_source">Forrás szerkesztése</string>
   <string name="watchlist_details_watching_label">Figyelve</string>
@@ -1096,7 +1095,7 @@
   <string name="thank_dialog_positive_button_text">Köszönet elküldése</string>
   <string name="thank_dialog_negative_button_text">Mégse</string>
   <string name="thank_success_message">A köszöneted elküldve %s részére 👍</string>
-  <string name="menu_option_view_user_profile">Szerkesztői profillap megtekintése</string>
+  <string name="menu_option_view_user_profile">Szerkesztőlap megtekintése</string>
   <string name="menu_option_view_user_talk">Vitalap megtekintése</string>
   <string name="menu_option_view_user_contributions">Szerkesztő közreműködéseinek megtekintése</string>
   <string name="revision_diff_compare">Lapváltozatok összehasonlítása</string>
@@ -1141,4 +1140,5 @@
   <string name="category_tab_subcategories">Alkategóriák</string>
   <string name="category_empty">Ebben a kategóriában nem található szócikk.</string>
   <string name="subcategory_empty">Ebben a kategóriában nincsenek alkategóriák.</string>
+  <string name="media_playback_error">Hiba a média lejátszása közben.</string>
 </resources>

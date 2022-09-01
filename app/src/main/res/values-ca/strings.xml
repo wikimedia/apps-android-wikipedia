@@ -1138,7 +1138,6 @@
   <string name="menu_option_share_talk_discussion">Comparteix la discussió</string>
   <string name="menu_option_share_talk_page">Comparteix la pàgina de discussió</string>
   <string name="menu_option_share_edit">Comparteix l\'edició</string>
-  <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribucions de %s</string>
   <string name="menu_option_edit_source">Modifica el codi</string>
   <string name="menu_option_user_page">Pàgina d\'usuari de %s</string>
@@ -1157,7 +1156,7 @@
   <string name="thank_dialog_positive_button_text">Envia agraïments</string>
   <string name="thank_dialog_negative_button_text">Cancel·la</string>
   <string name="thank_success_message">S\'han enviat els agraïments a %s 👍</string>
-  <string name="menu_option_view_user_profile">Mosta la pàgina de perfil d\'usuari</string>
+  <string name="menu_option_view_user_profile">Mostra la pàgina d\'usuari</string>
   <string name="menu_option_view_user_talk">Mosta la pàgina de discussió</string>
   <string name="menu_option_view_user_contributions">Mostra les contribucions de l\'usuari</string>
   <string name="revision_diff_compare">Compara les revisions</string>
@@ -1209,4 +1208,5 @@
   <string name="search_namespaces">Espais de noms</string>
   <string name="revision_initial_none">Cap (és la primera revisió)</string>
   <string name="archive_empty">No s\'ha trobat cap pàgina arxivada.</string>
+  <string name="media_playback_error">Error de reproducció multimèdia</string>
 </resources>

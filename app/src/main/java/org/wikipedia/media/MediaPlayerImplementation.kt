@@ -38,10 +38,7 @@ class MediaPlayerImplementation {
     }
 
     fun stop() {
-        // Do not call MediaPlayer.stop(). This requires going through the whole lifecycle again.
-        // Also, seek triggers playback, so call before pausing.
-        player.seekTo(0)
-        pause()
+        player.stop()
     }
 
     private fun setDataSource(path: String): Boolean {
@@ -64,7 +61,7 @@ class MediaPlayerImplementation {
         }
 
         override fun onError(mp: MediaPlayer, what: Int, extra: Int): Boolean {
-            callback.onError()
+            callback.onError(what, extra)
             return true
         }
     }

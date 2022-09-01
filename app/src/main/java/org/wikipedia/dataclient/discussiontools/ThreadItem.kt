@@ -43,7 +43,13 @@ class ThreadItem(
         }
 
     @IgnoredOnParcel @Transient val date = try {
-        DateUtil.iso8601DateParse(timestamp)
+        if (timestamp.contains("T")) {
+            // Assume a ISO 8601 timestamp
+            DateUtil.iso8601DateParse(timestamp)
+        } else {
+            // Assume a DB timestamp
+            DateUtil.dbDateParse(timestamp)
+        }
     } catch (e: Exception) {
         e.printStackTrace()
         null

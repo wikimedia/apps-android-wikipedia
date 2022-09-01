@@ -14,22 +14,24 @@
         android:visibility="gone"
         tools:visibility="visible">
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/edit_section_scroll"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:scrollbars="vertical">
 
-            <org.wikipedia.views.PlainPasteEditText
+            <org.wikipedia.edit.SyntaxHighlightableEditText
                 android:id="@+id/edit_section_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
                 android:fontFamily="monospace"
                 android:imeOptions="actionNone|flagNoExtractUi"
                 android:inputType="textMultiLine"
-                android:scrollbars="vertical"
                 style="@style/EditSectionTextInputLayoutStyle" />
-        </ScrollView>
+
+        </androidx.core.widget.NestedScrollView>
 
         <HorizontalScrollView
             android:id="@+id/edit_keyboard_overlay_container"

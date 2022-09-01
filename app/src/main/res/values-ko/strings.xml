@@ -1116,7 +1116,6 @@
   <string name="menu_option_share_talk_discussion">토론 공유하기</string>
   <string name="menu_option_share_talk_page">토론 문서 공유</string>
   <string name="menu_option_share_edit">편집 공유</string>
-  <string name="menu_option_user_profile">%s님의 정보</string>
   <string name="menu_option_user_contributions">%s님의 기여</string>
   <string name="menu_option_edit_source">원본 편집</string>
   <string name="menu_option_user_page">%s님의 사용자 문서</string>
@@ -1134,7 +1133,7 @@
   <string name="thank_dialog_positive_button_text">감사 표현하기</string>
   <string name="thank_dialog_negative_button_text">취소</string>
   <string name="thank_success_message">%s님에게 감사를 표했습니다 👍</string>
-  <string name="menu_option_view_user_profile">사용자 프로필 페이지 보기</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">사용자 프로필 페이지 보기</string>
   <string name="menu_option_view_user_talk">토론 문서 보기</string>
   <string name="menu_option_view_user_contributions">사용자 기여 보기</string>
   <string name="revision_diff_compare">판 비교</string>
@@ -1186,4 +1185,5 @@
   <string name="search_namespaces">이름공간</string>
   <string name="revision_initial_none">없음 (이것이 첫 판입니다)</string>
   <string name="archive_empty">보존된 문서가 없습니다.</string>
+  <string name="media_playback_error">미디어를 재생하는 동안 오류가 발생했습니다.</string>
 </resources>

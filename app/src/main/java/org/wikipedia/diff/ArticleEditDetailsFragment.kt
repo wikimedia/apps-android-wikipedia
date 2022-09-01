@@ -356,7 +356,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
 
         binding.thankButton.isEnabled = true
-        binding.thankButton.isVisible = AccountUtil.isLoggedIn && !AccountUtil.userName.equals(viewModel.revisionTo?.user)
+        binding.thankButton.isVisible = AccountUtil.isLoggedIn &&
+                !AccountUtil.userName.equals(viewModel.revisionTo?.user) &&
+                viewModel.revisionTo?.isAnon == false
         binding.revisionDetailsView.isVisible = true
         binding.errorView.isVisible = false
     }
