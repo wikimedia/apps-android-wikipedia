@@ -256,11 +256,11 @@ class InsertMediaActivity : BaseActivity() {
 
     private inner class InsertMediaDiffCallback : DiffUtil.ItemCallback<MediaSearchResult>() {
         override fun areItemsTheSame(oldItem: MediaSearchResult, newItem: MediaSearchResult): Boolean {
-            return oldItem.pageTitle.prefixedText == newItem.pageTitle.prefixedText && oldItem.pageTitle.namespace == newItem.pageTitle.namespace
+            return oldItem == newItem
         }
 
         override fun areContentsTheSame(oldItem: MediaSearchResult, newItem: MediaSearchResult): Boolean {
-            return areItemsTheSame(oldItem, newItem)
+            return oldItem.pageTitle.prefixedText == newItem.pageTitle.prefixedText && oldItem.pageTitle.namespace == newItem.pageTitle.namespace
         }
     }
 

@@ -177,11 +177,15 @@ class EditSectionActivity : BaseActivity() {
             }
         }
         binding.editKeyboardOverlay.editText = binding.editSectionText
-        binding.editKeyboardOverlay.pageTitle = pageTitle
-        binding.editKeyboardOverlay.activityResultLauncher = requestInsertMedia
-        binding.editKeyboardOverlay.callback = WikiTextKeyboardView.Callback {
-            bottomSheetPresenter.show(supportFragmentManager,
-                    LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(it, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null))
+        binding.editKeyboardOverlay.callback = object : WikiTextKeyboardView.Callback {
+            override fun onPreviewLink(title: String) {
+                bottomSheetPresenter.show(supportFragmentManager,
+                        LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null))
+            }
+
+            override fun onRequestInsertMedia() {
+                requestInsertMedia.launch(InsertMediaActivity.newIntent(this@EditSectionActivity, pageTitle.prefixedText))
+            }
         }
         binding.editSectionText.setOnClickListener { finishActionMode() }
         updateTextSize()
