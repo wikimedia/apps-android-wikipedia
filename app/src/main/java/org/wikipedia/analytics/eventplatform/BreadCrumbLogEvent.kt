@@ -3,6 +3,7 @@ package org.wikipedia.analytics.eventplatform
 import android.content.Context
 import android.view.View
 import android.widget.CheckBox
+import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -63,6 +64,12 @@ class BreadCrumbLogEvent(
         fun logSettingsSelection(context: Context, title: String, newValue: Any? = null) {
             val str = title + "." + if (newValue is Boolean) (if (newValue == true) "on" else "off") else "click"
             EventPlatformClient.submit(BreadCrumbLogEvent(context.javaClass.simpleName.orEmpty(), str))
+        }
+
+        fun logInputField(context: Context, view: View) {
+            val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
+            val str = "$viewReadableName." + (view as TextView).text
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), str))
         }
     }
 }
