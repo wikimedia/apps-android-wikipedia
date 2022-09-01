@@ -10,8 +10,9 @@ import org.wikipedia.databinding.ViewWikitextKeyboardBinding
 import org.wikipedia.edit.SyntaxHighlightableEditText
 
 class WikiTextKeyboardView : FrameLayout {
-    fun interface Callback {
+    interface Callback {
         fun onPreviewLink(title: String)
+        fun onRequestInsertMedia()
     }
 
     private val binding = ViewWikitextKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
@@ -63,6 +64,10 @@ class WikiTextKeyboardView : FrameLayout {
 
         binding.wikitextButtonListNumbered.setOnClickListener {
             editText?.inputConnection?.commitText("\n# ", 1)
+        }
+
+        binding.wikitextButtonInsertMedia.setOnClickListener {
+            callback?.onRequestInsertMedia()
         }
 
         binding.wikitextButtonPreviewLink.setOnClickListener {
