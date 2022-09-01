@@ -1213,7 +1213,12 @@
   <string name="subcategory_empty">Error shown when the current category contains no subcategories.</string>
   <string name="search_namespaces">Hint for selecting the namespace when searching.\n{{Identical|Namespace}}</string>
   <string name="revision_initial_none">Label shown when showing a diff of the first revision of an article (when there is no previous revision to compare with).</string>
+  <string name="user_contrib_activity_title">Title of screen that lists the contributions of a user to the current wiki. The %s symbol is replaced with the user name.</string>
   <string name="archive_empty">Error shown when the current page does not have subpages.</string>
+  <string name="user_contrib_filter_ns">Label for menu that allows to filter contributions by namespace.</string>
+  <string name="user_contrib_filter_all">Label for showing all contributions, regardless of namespace.</string>
+  <string name="namespace_article">Label for showing contributions to the Main (article) namespace.</string>
+  <string name="user_contrib_current">Label indicating that this contribution is the current revision of the article.</string>
   <string name="insert_media_title">Title of the insert media screen.</string>
   <string name="insert_media_search_description">Message saying that the user can select a file from Wikimedia Commons.</string>
   <string name="insert_media_search_hint">Hint label for the insert media search field.</string>
@@ -1244,4 +1249,5 @@
   <string name="insert_media_advanced_settings_image_size_custom_px">Label of the custom image size suffix.</string>
   <string name="insert_media_insert_button">Button of inserting the image to the editor.</string>
   <string name="media_playback_error">Error shown when the selected media could not be played.</string>
+  <string name="user_contrib_menu_label">Menu label for accessing the contributions of the current user.</string>
 </resources>

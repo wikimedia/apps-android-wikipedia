@@ -271,7 +271,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
 
     private fun wantResultFromItemClick(): Boolean {
         val source = requireActivity().intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
-        return source != null && (source == InvokeSource.SEARCH || source == InvokeSource.TALK_ACTIVITY)
+        return source != null && (source == InvokeSource.SEARCH || source == InvokeSource.TALK_ACTIVITY || source == InvokeSource.USER_CONTRIB_ACTIVITY)
     }
 
     private fun setMultiSelectEnabled(enabled: Boolean) {

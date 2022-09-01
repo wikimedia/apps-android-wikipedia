@@ -332,6 +332,15 @@ interface Service {
         @Query("uccontinue") uccontinue: String?
     ): Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags")
+    suspend fun getUserContrib(
+            @Query("ucuser") username: String,
+            @Query("uclimit") maxCount: Int,
+            @Query("ucnamespace") ns: Int?,
+            @Query("ucshow") filter: String?,
+            @Query("uccontinue") uccontinue: String?
+    ): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
     fun getPageViewsForTitles(@Query("titles") titles: String): Observable<MwQueryResponse>
 
