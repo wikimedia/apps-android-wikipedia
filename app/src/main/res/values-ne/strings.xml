@@ -409,7 +409,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_split_dialog_ok_button_text">हुन्छ</string>
-  <string name="user_option_sync_label">प्राथमिकताहरू</string>
+  <string name="user_option_sync_label">अभिरुचीहरू</string>
   <string name="notification_reverted_title">उल्ट्याइएको सम्पादन</string>
   <string name="notification_channel_description">डाउनलोड प्रगति</string>
   <string name="notification_syncing_pause_button">रोक्नुहोस्</string>
