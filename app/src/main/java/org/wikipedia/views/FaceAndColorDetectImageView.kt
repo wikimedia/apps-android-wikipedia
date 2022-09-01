@@ -34,7 +34,7 @@ class FaceAndColorDetectImageView constructor(context: Context, attrs: Attribute
         return path.endsWith(".jpg") || path.endsWith(".jpeg")
     }
 
-    fun loadImage(uri: Uri?, roundedCorners: Boolean = false, cropped: Boolean = true, listener: OnImageLoadListener? = null) {
+    fun loadImage(uri: Uri?, roundedCorners: Boolean = false, cropped: Boolean = true, emptyPlaceholder: Boolean = false, listener: OnImageLoadListener? = null) {
         val placeholder = ViewUtil.getPlaceholderDrawable(context)
         if (!Prefs.isImageDownloadEnabled || uri == null) {
             setImageDrawable(placeholder)
@@ -42,7 +42,7 @@ class FaceAndColorDetectImageView constructor(context: Context, attrs: Attribute
         }
         var builder = Glide.with(this)
                 .load(uri)
-                .placeholder(placeholder)
+                .placeholder(if (emptyPlaceholder) null else placeholder)
                 .error(placeholder)
                 .downsample(DownsampleStrategy.CENTER_INSIDE)
         if (listener != null) {

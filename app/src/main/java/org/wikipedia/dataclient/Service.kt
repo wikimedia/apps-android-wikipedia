@@ -52,7 +52,7 @@ interface Service {
                 "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
                 PREFERRED_THUMB_SIZE
     )
-    fun fullTextSearch(
+    fun fullTextSearchMedia(
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsrlimit") gsrLimit: Int,
         @Query("continue") cont: String?,
@@ -66,6 +66,21 @@ interface Service {
     suspend fun prefixSearch(@Query("gpssearch") searchTerm: String?,
                              @Query("gpslimit") maxResults: Int,
                              @Query("gpsoffset") gpsOffset: Int?): MwQueryResponse
+
+    @GET(
+        MW_API_PREFIX + "action=query&converttitles=" +
+                "&prop=imageinfo" +
+                "&generator=search&gsrnamespace=0&gsrwhat=text" +
+                "&iiprop=timestamp|user|url|mime|extmetadata" +
+                "&gsrinfo=&gsrprop=redirecttitle&iiurlwidth=" +
+                PREFERRED_THUMB_SIZE
+    )
+    suspend fun fullTextSearchMedia(
+        @Query("gsrsearch") searchTerm: String?,
+        @Query("gsroffset") gsrOffset: String?,
+        @Query("gsrlimit") gsrLimit: Int,
+        @Query("continue") cont: String?
+    ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
     fun prefixSearchUsers(
