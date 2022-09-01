@@ -1,27 +1,22 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.content.Intent
 import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.inputmethod.InputConnection
 import android.widget.FrameLayout
-import androidx.activity.result.ActivityResultLauncher
 import org.wikipedia.databinding.ViewWikitextKeyboardBinding
 import org.wikipedia.edit.SyntaxHighlightableEditText
-import org.wikipedia.edit.insertmedia.InsertMediaActivity
-import org.wikipedia.page.PageTitle
 
 class WikiTextKeyboardView : FrameLayout {
-    fun interface Callback {
+    interface Callback {
         fun onPreviewLink(title: String)
+        fun onRequestInsertMedia()
     }
 
     private val binding = ViewWikitextKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
-    var activityResultLauncher: ActivityResultLauncher<Intent>? = null
     var callback: Callback? = null
-    var pageTitle: PageTitle? = null
     var editText: SyntaxHighlightableEditText? = null
 
     constructor(context: Context) : super(context)
@@ -72,9 +67,7 @@ class WikiTextKeyboardView : FrameLayout {
         }
 
         binding.wikitextButtonInsertMedia.setOnClickListener {
-            pageTitle?.let {
-                activityResultLauncher?.launch(InsertMediaActivity.newIntent(context, it.prefixedText))
-            }
+            callback?.onRequestInsertMedia()
         }
 
         binding.wikitextButtonPreviewLink.setOnClickListener {
