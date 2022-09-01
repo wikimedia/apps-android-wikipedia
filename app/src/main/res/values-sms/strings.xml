@@ -41,9 +41,11 @@
   <string name="feed_card_add_to_default_list">Ruõkk</string>
   <string name="menu_page_share">Jueʹjj liiŋk</string>
   <string name="menu_page_article_share">Jueʹjj</string>
+  <string name="menu_page_open_a_new_tab">Ääʹved ođđ kõskklõõst</string>
   <string name="menu_page_reading_lists">Lookkâmliist</string>
   <string name="menu_page_archive">Arkiiv</string>
   <string name="menu_long_press_open_page">Ääʹved</string>
+  <string name="menu_long_press_open_in_new_tab">Ääʹved ođđ kõskklõõstâst</string>
   <string name="menu_long_press_copy_page">Kopiââʹst liiŋk addrõõzz</string>
   <string name="on_this_day_page_share">Jueʹjj</string>
   <string name="reading_list_page_share">Jueʹjj</string>
@@ -58,6 +60,7 @@
   <string name="dialog_message_edit_failed">Muuttâs ij oʹnnstam!</string>
   <string name="dialog_message_edit_failed_retry">Ǩiččlõõđ oʹđđest</string>
   <string name="dialog_message_edit_failed_cancel">Jõõsk</string>
+  <string name="menu_show_toc">Siiskâžlooǥǥtõs</string>
   <string name="search_no_results_found">Ni mâiʹd ij käunnʼjam</string>
   <string name="nav_item_login">Ǩeeʹrjtõõđ sizz Wikipediaaʹje</string>
   <string name="login_username_hint">Õõʹnninõmm</string>
@@ -111,6 +114,7 @@
   <string name="edit_done">Õlmstââʹtt</string>
   <string name="edit_preview">Ouddǩiõččmõš</string>
   <string name="edit_undo">Kååʹmet</string>
+  <string name="edit_summary_tag_other">Jeeʹres õʹhtteǩeässmõš</string>
   <string name="search_results_count_zero">Ni mâiʹd ij käunnʼjam</string>
   <string name="table_other">Lââʹssteâđ</string>
   <string name="preference_title_show_images">Čuäʹjet kaartid</string>
@@ -179,6 +183,7 @@
   <string name="preference_title_notification_login_fail">Ǩeeʹrjtõõđ sizz</string>
   <string name="preference_title_notification_user_talk">Saǥstõõllâmseidd</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
+  <string name="notifications_channel_group_other_title">Jeeʹres saaǥǥ</string>
   <string name="notifications_tab_filter_all">Puk</string>
   <string name="view_random_article_card_title">Håʹt mii artikkel</string>
   <string name="view_main_page_card_title">Täʹbbe Wikipediast</string>
