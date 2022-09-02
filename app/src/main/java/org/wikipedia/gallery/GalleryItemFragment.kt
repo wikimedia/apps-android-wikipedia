@@ -149,16 +149,10 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
     }
 
     private fun handleImageSaveRequest() {
-        when {
-            ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED -> {
-                saveImage()
-            }
-            shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE) -> {
-                FeedbackUtil.showMessage(requireActivity(), R.string.gallery_save_image_write_permission_rationale)
-            }
-            else -> {
-                requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            }
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            saveImage()
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
     }
 

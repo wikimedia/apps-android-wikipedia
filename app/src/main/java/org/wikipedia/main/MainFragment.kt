@@ -102,9 +102,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
         if (isGranted) {
-            pendingDownloadImage?.let {
-                download(it)
-            }
+            pendingDownloadImage?.let { download(it) }
         } else {
             FeedbackUtil.showMessage(this, R.string.gallery_save_image_write_permission_rationale)
         }
@@ -362,16 +360,10 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     override fun onFeedDownloadImage(image: FeaturedImage) {
         pendingDownloadImage = image
-        when {
-            ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED -> {
-                download(image)
-            }
-            shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE) -> {
-                FeedbackUtil.showMessage(this, R.string.gallery_save_image_write_permission_rationale)
-            }
-            else -> {
-                requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            }
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            download(image)
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
     }
 
