@@ -419,7 +419,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onShare(readingList: ReadingList) {
-            TODO("Not yet implemented")
+            ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
         }
     }
 
