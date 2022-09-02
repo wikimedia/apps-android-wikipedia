@@ -256,9 +256,9 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     @SuppressLint("RequiresFeature")
     private fun setPreviewContents(contents: LinkPreviewContents) {
         if (!contents.extract.isNullOrEmpty()) {
-
             binding.linkPreviewExtractWebview.setBackgroundColor(Color.TRANSPARENT)
             binding.linkPreviewExtractWebview.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null)
+            binding.linkPreviewExtractWebview.settings
             if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
                 WebSettingsCompat.setForceDark(
                     binding.linkPreviewExtractWebview.settings,
