@@ -1,15 +1,20 @@
 package org.wikipedia.page.linkpreview
 
+import android.annotation.SuppressLint
 import android.app.ActivityOptions
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.os.bundleOf
+import androidx.webkit.WebSettingsCompat
+import androidx.webkit.WebViewFeature
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -248,9 +253,20 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
     }
 
+    @SuppressLint("RequiresFeature")
     private fun setPreviewContents(contents: LinkPreviewContents) {
         if (!contents.extract.isNullOrEmpty()) {
-            binding.linkPreviewExtract.text = StringUtil.fromHtml(contents.extract)
+
+            binding.linkPreviewExtractWebview.setBackgroundColor(Color.TRANSPARENT)
+            binding.linkPreviewExtractWebview.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null)
+            if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+                WebSettingsCompat.setForceDark(
+                    binding.linkPreviewExtractWebview.settings,
+                    if (WikipediaApp.instance.currentTheme.isDark)
+                        WebSettingsCompat.FORCE_DARK_ON else WebSettingsCompat.FORCE_DARK_OFF
+                )
+            }
+            binding.linkPreviewExtractWebview.loadData(contents.extract, "text/html", "UTF-8")
         }
         contents.title.thumbUrl?.let {
             binding.linkPreviewThumbnail.visibility = View.VISIBLE
