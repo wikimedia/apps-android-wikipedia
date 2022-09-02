@@ -266,7 +266,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                         WebSettingsCompat.FORCE_DARK_ON else WebSettingsCompat.FORCE_DARK_OFF
                 )
             }
-            binding.linkPreviewExtractWebview.loadData(contents.extract, "text/html", "UTF-8")
+            binding.linkPreviewExtractWebview.loadData("<div style='line-height: 150%'>${contents.extract}</div>", "text/html", "UTF-8")
         }
         contents.title.thumbUrl?.let {
             binding.linkPreviewThumbnail.visibility = View.VISIBLE

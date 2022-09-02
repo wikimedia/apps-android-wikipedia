@@ -88,7 +88,7 @@
                     android:id="@+id/link_preview_extract_webview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp" />
+                    android:layout_marginHorizontal="8dp" />
 
                 <org.wikipedia.gallery.GalleryThumbnailScrollView
                     android:id="@+id/link_preview_thumbnail_gallery"
