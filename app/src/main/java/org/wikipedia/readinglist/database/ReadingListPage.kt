@@ -8,6 +8,7 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.StringUtil
 import java.io.Serializable
 import java.util.*
 
@@ -49,7 +50,7 @@ data class ReadingListPage(
 
     fun accentAndCaseInvariantTitle(): String {
         if (accentAndCaseInvariantTitle == null) {
-            accentAndCaseInvariantTitle = StringUtils.stripAccents(displayTitle).lowercase(Locale.getDefault())
+            accentAndCaseInvariantTitle = StringUtils.stripAccents(StringUtil.fromHtml(displayTitle).toString()).lowercase(Locale.getDefault())
         }
         return accentAndCaseInvariantTitle!!
     }
