@@ -13,7 +13,10 @@
   <string name="page_tabs_back">Кирегә</string>
   <string name="nav_item_forward">Алга</string>
   <string name="search_hint">Википедиядә эзләү</string>
+  <string name="search_hint_voice_search">Тавыш белән эзләү</string>
   <string name="search_hint_search_languages">Тел буенча эзләү</string>
+  <string name="nav_item_suggested_edits">Төзәтмәләр</string>
+  <string name="nav_item_search">Эзләү</string>
   <string name="error_network_error">Интернетка тоташтырып булмый.</string>
   <string name="page_error_retry">Кабатлау</string>
   <string name="card_offline_error_retry">Кабатлау</string>
@@ -28,6 +31,11 @@
   <string name="history_item_delete_undo">Кире кайтару</string>
   <string name="notification_archive_undo">Кире кайтару</string>
   <string name="app_settings">Кушымта көйләнмәләре</string>
+  <string name="history_list_title">Тарих</string>
+  <string name="image_content_description">Сурәт: %s</string>
+  <string name="page_content_description">Бит: %s</string>
+  <string name="wikimedia_commons">Викиҗыентык</string>
+  <string name="wikidata">Викимәгълүмат</string>
   <string name="dialog_title_clear_history">Карау тарихын бушату</string>
   <string name="dialog_message_clear_history_yes">Әйе</string>
   <string name="dialog_message_clear_history_no">Юк</string>
@@ -37,6 +45,8 @@
   <string name="menu_page_show_tabs">Өстәмәләрне курсәтү</string>
   <string name="menu_page_other_languages">Телне сайлау</string>
   <string name="menu_page_find_in_page" fuzzy="true">Биттә табу</string>
+  <string name="menu_page_watch">Күзәтү</string>
+  <string name="menu_page_unwatch">Күзәтмәү</string>
   <string name="edit_section_find_in_page">Биттә табу</string>
   <string name="menu_page_font_and_theme">Шрифтны һәм бизәлешне үзгәртү</string>
   <string name="menu_page_add_to_list">Уку исемлегенә өстәү</string>

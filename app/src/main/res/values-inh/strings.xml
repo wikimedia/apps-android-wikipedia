@@ -1164,7 +1164,7 @@
   <string name="thank_dialog_positive_button_text">Баркал дӀадахийта</string>
   <string name="thank_dialog_negative_button_text">Эшац</string>
   <string name="thank_success_message">Хьа \"Баркал\" %s яхачунга дӀадахийтад 👍</string>
-  <string name="menu_option_view_user_profile" fuzzy="true">Доакъашхочун оагӀонга хьажар</string>
+  <string name="menu_option_view_user_profile">Доакъашхочун оагӀонга хьажар</string>
   <string name="menu_option_view_user_talk">Къамаьла оагӀонга хьажар</string>
   <string name="menu_option_view_user_contributions">Доакъашхочун къахьегамага хьажар</string>
   <string name="revision_diff_compare">Кепаш вӀаший йиста</string>

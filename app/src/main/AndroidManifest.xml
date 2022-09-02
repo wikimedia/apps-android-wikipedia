@@ -336,6 +336,14 @@
             android:name=".page.edithistory.EditHistoryListActivity"
             android:theme="@style/AppTheme" />
 
+        <activity
+            android:name=".usercontrib.UserContribListActivity"
+            android:theme="@style/AppTheme" />
+            
+        <activity
+            android:name=".edit.insertmedia.InsertMediaActivity"
+            android:label="@string/insert_media_title"/>
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"
