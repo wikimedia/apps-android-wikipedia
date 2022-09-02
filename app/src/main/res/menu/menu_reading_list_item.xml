@@ -10,5 +10,5 @@
     <item android:id="@+id/menu_reading_list_delete"
         android:title="@string/reading_list_menu_delete"/>
     <item android:id="@+id/menu_reading_list_share"
-        android:title="Share..."/>
+        android:title="@string/reading_list_share_menu_label"/>
 </menu>

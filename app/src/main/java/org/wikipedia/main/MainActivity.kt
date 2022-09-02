@@ -4,8 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
@@ -19,7 +17,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.log.L
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
     private lateinit var binding: ActivityMainBinding
@@ -33,22 +30,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        intent.data?.let {
-            L.d(">>>>>> " + intent.type)
-            L.d(">>>>>> " + it.toString())
-            if (intent.type == "application/json") {
-
-                AlertDialog.Builder(this)
-                        .setTitle("Reading list received!")
-                        .setMessage("TODO: do something with it!")
-                        .setPositiveButton("OK", null)
-                        .create()
-                        .show()
-
-                //Toast.makeText(this, "Reading list received! (TODO: do something with it...)", Toast.LENGTH_LONG).show()
-            }
-        }
 
         setImageZoomHelper()
         if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null) {

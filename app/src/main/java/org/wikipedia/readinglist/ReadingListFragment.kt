@@ -183,7 +183,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
                 true
             }
             R.id.menu_reading_list_share -> {
-                ReadingListsShareHelper.shareReadingList(requireActivity(), readingList)
+                ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -617,7 +617,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         }
 
         override fun onShare(readingList: ReadingList) {
-            ReadingListsShareHelper.shareReadingList(requireActivity(), readingList)
+            ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
         }
     }
 
@@ -647,7 +647,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         }
 
         override fun onShare(readingList: ReadingList) {
-            ReadingListsShareHelper.shareReadingList(requireActivity(), readingList)
+            ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
         }
     }
 

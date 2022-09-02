@@ -1250,4 +1250,6 @@
   <string name="insert_media_insert_button">Button of inserting the image to the editor.</string>
   <string name="media_playback_error">Error shown when the selected media could not be played.</string>
   <string name="user_contrib_menu_label">Menu label for accessing the contributions of the current user.</string>
+  <string name="reading_list_share_menu_label">Menu label for sharing the selected reading list.</string>
+  <string name="reading_list_share_message">Message that is sent to a recipient when sharing a reading list. The %s symbol is replaced with the name of the reading list.</string>
 </resources>

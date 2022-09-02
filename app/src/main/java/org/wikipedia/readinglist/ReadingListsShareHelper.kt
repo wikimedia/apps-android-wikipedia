@@ -1,84 +1,88 @@
 package org.wikipedia.readinglist
 
-import android.content.Context
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.*
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.json.JsonUtil
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.Resource
-import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
-import java.io.File
 
 object ReadingListsShareHelper {
 
-    fun shareReadingList(context: Context, readingList: ReadingList?) {
+    fun shareReadingList(activity: AppCompatActivity, readingList: ReadingList?) {
         if (readingList == null) {
             return
         }
-        try {
+        activity.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+            FeedbackUtil.showError(activity, throwable)
+        }) {
+            val wikiPageTitlesMap = mutableMapOf<String, MutableList<String>>()
 
-
-            var shortUrl = ""
-
-            CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, throwable ->
-                L.e(throwable)
-            }) {
-
-                val param = readingListToUrlParam(readingList)
-                val url = "https://mediawiki.org/wiki/ReadingList/?list=$param"
-
-                shortUrl = ServiceFactory.get(WikipediaApp.instance.wikiSite).shortenUrl(url).shortenUrl?.shortUrl.orEmpty()
-
-
-                val intent = Intent(Intent.ACTION_SEND)
-                        .putExtra(Intent.EXTRA_SUBJECT, "Reading list: " + readingList.title)
-                        .putExtra(Intent.EXTRA_TEXT, "Hi! I'd like to share my reading list with you: $shortUrl")
-                        .setType("text/plain")
-                context.startActivity(intent)
-
+            readingList.pages.forEach {
+                wikiPageTitlesMap.getOrPut(it.lang) { mutableListOf() }.add(it.apiTitle)
             }
 
-            /*
-            val payload = JsonUtil.encodeToString(ReadingListToExportedData(readingList))
-            val shareFolder = ShareUtil.getClearShareFolder(context)
-            shareFolder!!.mkdirs()
-            val f = File(shareFolder, ShareUtil.cleanFileName(readingList.title) + "." + EXPORT_FILE_EXTENSION)
-            val fo = f.outputStream()
-            fo.write(payload!!.encodeToByteArray())
-            fo.flush()
-            fo.close()
+            val wikiPageIdsMap = mutableMapOf<String, MutableMap<String, Int>>()
+
+            wikiPageTitlesMap.keys.forEach { wikiLang ->
+                val titleList = wikiPageTitlesMap[wikiLang].orEmpty()
+                val pages = ServiceFactory.get(WikiSite.forLanguageCode(wikiLang)).getPageIds(titleList.joinToString("|")).query?.pages!!
+                pages.forEach { page ->
+                    wikiPageIdsMap.getOrPut(wikiLang) { mutableMapOf() }[StringUtil.addUnderscores(page.title)] = page.pageId
+                }
+            }
+
+            val param = readingListToUrlParam(readingList, wikiPageIdsMap)
+            val url = "https://www.mediawiki.org/wiki/Wikimedia_Apps/Reading_List?list=$param"
+
+            val shortUrl = ServiceFactory.get(WikipediaApp.instance.wikiSite).shortenUrl(url).shortenUrl?.shortUrl.orEmpty()
 
             val intent = Intent(Intent.ACTION_SEND)
-                    .putExtra(Intent.EXTRA_SUBJECT, "Reading list: " + readingList.title)
-                    .putExtra(Intent.EXTRA_TEXT, "Hi! I'd like to share my reading list with you. Please tap on the attached file to open it in the Wikipedia app.")
-                    .putExtra(Intent.EXTRA_STREAM, ShareUtil.getUriFromFile(context, f))
+                    // .putExtra(Intent.EXTRA_SUBJECT, "Reading list: " + readingList.title)
+                    .putExtra(Intent.EXTRA_TEXT, activity.getString(R.string.reading_list_share_message, readingList.title) + ":" + shortUrl)
                     .setType("text/plain")
-
-            context.startActivity(intent)
-            */
-
-
-
-        } catch (e: Exception) {
-            L.e(e)
+            activity.startActivity(intent)
         }
     }
 
-    private fun readingListToUrlParam(readingList: ReadingList): String {
+    private fun readingListToUrlParam(readingList: ReadingList, pageIdMap: Map<String, Map<String, Int>>): String {
         val str = StringBuilder()
         str.append(UriUtil.encodeURL(readingList.title))
         str.append("|")
         str.append(UriUtil.encodeURL(readingList.description.orEmpty()))
-        str.append("|")
-        readingList.pages.forEach {
-            str.append(it.lang)
-            str.append(":")
-            str.append(UriUtil.encodeURL(it.apiTitle))
-            str.append("|")
+
+        val totalPageIdList = pageIdMap.values.flatMap { it.values }.toMutableList()
+
+        readingList.pages.forEach { page ->
+            pageIdMap[page.lang]?.get(page.apiTitle)?.let {
+                str.append("|")
+                str.append(page.lang)
+                str.append(":")
+                str.append(it)
+                totalPageIdList.remove(it)
+            }
+        }
+        totalPageIdList.forEach { id ->
+            var lang: String? = null
+            pageIdMap.keys.forEach { key ->
+                if (pageIdMap[key]?.containsValue(id) == true) {
+                    lang = key
+                }
+            }
+            if (lang != null) {
+                str.append("|")
+                str.append(lang)
+                str.append(":")
+                str.append(id)
+            }
         }
         return str.toString()
     }
