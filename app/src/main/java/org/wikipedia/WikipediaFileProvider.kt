@@ -8,5 +8,4 @@ import androidx.core.content.FileProvider
  * reliable and will causes (sic) crashes on some devices."
  * https://developer.android.com/reference/androidx/core/content/FileProvider
  */
-class WikipediaFileProvider : FileProvider(R.xml.file_paths) {
-}
+class WikipediaFileProvider : FileProvider(R.xml.file_paths)
