@@ -182,20 +182,8 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
                 }
                 true
             }
-            R.id.menu_reading_list_share1 -> {
-                ReadingListsShareHelper.shareReadingList(requireActivity(), readingList, "application/json")
-                true
-            }
-            R.id.menu_reading_list_share2 -> {
-                ReadingListsShareHelper.shareReadingList(requireActivity(), readingList, "application/vnd.wikipedia")
-                true
-            }
-            R.id.menu_reading_list_share3 -> {
-                ReadingListsShareHelper.shareReadingList(requireActivity(), readingList, "text/plain")
-                true
-            }
-            R.id.menu_reading_list_export_csv -> {
-                ReadingListsShareHelper.exportReadingListCsv(requireActivity(), readingList)
+            R.id.menu_reading_list_share -> {
+                ReadingListsShareHelper.shareReadingList(requireActivity(), readingList)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -628,12 +616,8 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
             }
         }
 
-        override fun onShare(readingList: ReadingList, mimeType: String) {
-            ReadingListsShareHelper.shareReadingList(requireActivity(), readingList, mimeType)
-        }
-
-        override fun onExportCsv(readingList: ReadingList) {
-            ReadingListsShareHelper.exportReadingListCsv(requireActivity(), readingList)
+        override fun onShare(readingList: ReadingList) {
+            ReadingListsShareHelper.shareReadingList(requireActivity(), readingList)
         }
     }
 
@@ -662,12 +646,8 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
             ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) { setSearchQuery() }
         }
 
-        override fun onShare(readingList: ReadingList, mimeType: String) {
-            ReadingListsShareHelper.shareReadingList(requireActivity(), readingList, mimeType)
-        }
-
-        override fun onExportCsv(readingList: ReadingList) {
-            ReadingListsShareHelper.exportReadingListCsv(requireActivity(), readingList)
+        override fun onShare(readingList: ReadingList) {
+            ReadingListsShareHelper.shareReadingList(requireActivity(), readingList)
         }
     }
 

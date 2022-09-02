@@ -345,7 +345,7 @@
             android:label="@string/insert_media_title"/>
 
         <provider
-            android:name=".WikipediaFileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">

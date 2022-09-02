@@ -58,7 +58,7 @@ class MediaDownloadReceiver : BroadcastReceiver() {
 
             // creates the directory if it doesn't exist else it's harmless
             targetFolder.mkdir()
-            val request = DownloadManager.  Request(uri)
+            val request = DownloadManager.Request(uri)
             request.setDestinationUri(targetFile.toUri())
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
             if (mimeType != null) {

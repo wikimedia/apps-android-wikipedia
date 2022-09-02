@@ -26,8 +26,7 @@ class ReadingListItemView : ConstraintLayout {
         fun onDelete(readingList: ReadingList)
         fun onSaveAllOffline(readingList: ReadingList)
         fun onRemoveAllOffline(readingList: ReadingList)
-        fun onShare(readingList: ReadingList, mimeType: String)
-        fun onExportCsv(readingList: ReadingList)
+        fun onShare(readingList: ReadingList)
     }
 
     enum class Description {
@@ -184,20 +183,8 @@ class ReadingListItemView : ConstraintLayout {
                     list?.let { callback?.onRemoveAllOffline(it) }
                     return true
                 }
-                R.id.menu_reading_list_share1 -> {
-                    list?.let { callback?.onShare(it, "application/json") }
-                    return true
-                }
-                R.id.menu_reading_list_share2 -> {
-                    list?.let { callback?.onShare(it, "application/vnd.wikipedia") }
-                    return true
-                }
-                R.id.menu_reading_list_share3 -> {
-                    list?.let { callback?.onShare(it, "text/plain") }
-                    return true
-                }
-                R.id.menu_reading_list_export_csv -> {
-                    list?.let { callback?.onExportCsv(it) }
+                R.id.menu_reading_list_share -> {
+                    list?.let { callback?.onShare(it) }
                     return true
                 }
                 else -> return false
