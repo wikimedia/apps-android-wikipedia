@@ -48,7 +48,7 @@ class MediaDownloadReceiver : BroadcastReceiver() {
         performDownloadRequest(context, fileUrl.toUri(), targetDirectoryType, saveFilename, mediaInfo.mime)
     }
 
-    fun performDownloadRequest(context: Context, uri: Uri, targetDirectoryType: String,
+    private fun performDownloadRequest(context: Context, uri: Uri, targetDirectoryType: String,
                                        targetFileName: String, mimeType: String?) {
         context.getSystemService<DownloadManager>()?.let { downloadManager ->
             val targetSubfolderName = WikipediaApp.instance.getString(R.string.app_name)

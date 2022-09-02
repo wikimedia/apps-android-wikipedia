@@ -81,7 +81,7 @@ object ShareUtil {
                 context.resources.getString(R.string.image_share_via))
     }
 
-    fun getUriFromFile(context: Context, file: File?): Uri? {
+    private fun getUriFromFile(context: Context, file: File?): Uri? {
         if (file == null) {
             return null
         }
@@ -95,12 +95,7 @@ object ShareUtil {
         val shareFolder = getClearShareFolder(context) ?: return null
         shareFolder.mkdirs()
         val bytes = FileUtil.compressBmpToJpg(bmp)
-        var fileName = cleanFileName(imageFileName)
-        // ensure file name ends with .jpg
-        if (!fileName.endsWith(".jpg")) {
-            fileName = "$fileName.jpg"
-        }
-        return FileUtil.writeToFile(bytes, File(shareFolder, fileName))
+        return FileUtil.writeToFile(bytes, File(shareFolder, cleanFileName(imageFileName)))
     }
 
     private fun createImageShareIntent(subject: String, text: String, uri: Uri): Intent {
@@ -143,12 +138,16 @@ object ShareUtil {
         else context.getExternalFilesDir(null)!!
     }
 
-    fun cleanFileName(fileName: String): String {
+    private fun cleanFileName(fileName: String): String {
         // Google+ doesn't like file names that have characters %28, %29, %2C
         var fileNameStr = fileName
         fileNameStr = fileNameStr.replace("%2[0-9A-F]".toRegex(), "_")
                 .replace("[^0-9a-zA-Z-_.]".toRegex(), "_")
                 .replace("_+".toRegex(), "_")
+        // ensure file name ends with .jpg
+        if (!fileNameStr.endsWith(".jpg")) {
+            fileNameStr = "$fileNameStr.jpg"
+        }
         return fileNameStr
     }
 

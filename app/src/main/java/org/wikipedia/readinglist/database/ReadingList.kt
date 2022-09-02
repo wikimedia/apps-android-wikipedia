@@ -11,7 +11,6 @@ import java.util.*
 
 // TODO: create default reading list upon initial DB creation.
 
-@kotlinx.serialization.Serializable
 @Entity
 class ReadingList(
     var listTitle: String,
