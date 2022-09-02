@@ -176,6 +176,12 @@ interface Service {
             @Query("amargs") args: String?
     ): MwQueryResponse
 
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=shortenurl")
+    suspend fun shortenUrl(
+            @Field("url") url: String,
+    ): ShortenUrlResponse
+
     // ------- CSRF, Login, and Create Account -------
 
     @Headers("Cache-Control: no-cache")
