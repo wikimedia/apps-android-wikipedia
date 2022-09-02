@@ -13,8 +13,6 @@ import android.view.ViewGroup
 import android.webkit.WebView
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.os.bundleOf
-import androidx.webkit.WebSettingsCompat
-import androidx.webkit.WebViewFeature
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -258,15 +256,9 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         if (!contents.extract.isNullOrEmpty()) {
             binding.linkPreviewExtractWebview.setBackgroundColor(Color.TRANSPARENT)
             binding.linkPreviewExtractWebview.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null)
-            binding.linkPreviewExtractWebview.settings
-            if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
-                WebSettingsCompat.setForceDark(
-                    binding.linkPreviewExtractWebview.settings,
-                    if (WikipediaApp.instance.currentTheme.isDark)
-                        WebSettingsCompat.FORCE_DARK_ON else WebSettingsCompat.FORCE_DARK_OFF
-                )
-            }
-            binding.linkPreviewExtractWebview.loadData("<div style='line-height: 150%'>${contents.extract}</div>", "text/html", "UTF-8")
+            // Color hex code from android:textColorPrimary
+            val colorHex = if (WikipediaApp.instance.currentTheme.isDark) "#f8f9fa" else "#202122"
+            binding.linkPreviewExtractWebview.loadDataWithBaseURL(null, "<div style='line-height: 150%; color: $colorHex'>${contents.extract}</div>", "text/html", "UTF-8", null)
         }
         contents.title.thumbUrl?.let {
             binding.linkPreviewThumbnail.visibility = View.VISIBLE
