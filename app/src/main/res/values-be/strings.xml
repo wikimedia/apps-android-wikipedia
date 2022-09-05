@@ -10,6 +10,7 @@
 * Mechanizatar
 * MuratTheTurkish
 * SimondR
+* Tomato Cream
 * Unomano
 * ZlyiLev
 -->
@@ -45,6 +46,8 @@
   <string name="app_settings">Настройкі</string>
   <string name="search_tab_tooltip">Пстрыкніце іконку зноў, каб пачаць увод пошукавага запыту.</string>
   <string name="history_list_title">Гісторыя</string>
+  <string name="image_content_description">Выява: %s</string>
+  <string name="page_content_description">Старонка: %s</string>
   <string name="wikimedia_commons">Вікісховішча</string>
   <string name="wikidata">Вікідадзеныя</string>
   <string name="dialog_title_clear_history">Ачысціць гісторыю праглядаў</string>
@@ -54,13 +57,27 @@
   <string name="share_via">Апублікаваць праз</string>
   <string name="image_share_via">Падзяліцца праз</string>
   <string name="search_redirect_from">Перанакіравана з %s</string>
+  <string name="page_edit_history_activity_title">Гісторыя версіяў: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;д&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Пустое тлумачэнне праўкі</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Пошук або фільтраванне правак</string>
+  <string name="page_edit_history_filter_by">Фільтраваць па</string>
+  <string name="page_edit_history_filter_by_all">Усе праўкі (%s)</string>
+  <string name="page_edit_history_filter_by_user">Праўкі ўдзельніка (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Ананімныя праўкі (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Правкі ботаў (%s)</string>
   <string name="menu_page_show_tabs">Паказаць укладкі</string>
   <string name="menu_page_other_languages">Змяніць мову</string>
   <string name="menu_page_find_in_page">Знайсці ў артыкуле</string>
   <string name="menu_page_add_to_watchlist">Дадаць у спіс назірання</string>
+  <string name="menu_page_watch">Назіраць</string>
+  <string name="menu_page_unwatch">Не назіраць</string>
   <string name="menu_page_view_talk">Гл. старонку размоў</string>
+  <string name="menu_page_talk_page">Старонка размоў</string>
   <string name="menu_page_view_edit_history">Гл. гісторыю правак</string>
+  <string name="menu_page_edit_history">Гісторыя правак</string>
   <string name="menu_page_remove_from_watchlist">Выдаліць са спіса назірання</string>
+  <string name="menu_page_watched">Назіраецца</string>
   <string name="edit_section_find_in_page">Знайсці на старонцы</string>
   <string name="menu_page_font_and_theme">Змяненне шрыфту і афармлення</string>
   <string name="menu_page_add_to_list">Дадаць у спіс для чытання</string>
@@ -68,10 +85,13 @@
   <string name="feed_card_add_to_list">Дадаць у спіс для чытання</string>
   <string name="feed_card_add_to_default_list">Захаваць</string>
   <string name="menu_page_share">Падзяліцца спасылкай</string>
+  <string name="menu_article_share">Падзяліцца артыкулам</string>
+  <string name="menu_page_article_share">Падзяліцца</string>
   <string name="menu_page_open_a_new_tab">Адкрыць новую ўкладку</string>
   <string name="menu_page_new_tab">Новая ўкладка</string>
   <string name="menu_page_reading_lists">Спісы для чытання</string>
   <string name="menu_page_recently_viewed">Нядаўна прагледжана</string>
+  <string name="menu_page_archive">Архіў</string>
   <string name="menu_long_press_open_page">Адкрыць</string>
   <string name="menu_long_press_open_in_new_tab">Адкрыць у новай укладцы</string>
   <string name="menu_long_press_copy_page">Скапіяваць адрас спасылкі</string>
@@ -79,6 +99,7 @@
   <string name="on_this_day_page_share">Падзяліцца</string>
   <string name="reading_list_page_share">Падзяліцца</string>
   <string name="menu_text_select_edit_here">Правіць тут</string>
+  <string name="menu_edit_article">Правіць артыкул</string>
   <string name="last_updated_text">Апошняе абнаўленне %s</string>
   <string name="talk_page_link_text">Гл. старонку размоў</string>
   <string name="edit_history_link_text">Гл. гісторыю правак</string>
@@ -154,10 +175,11 @@
   <string name="dialog_create_account_checking_progress">Праверка</string>
   <string name="create_account_email_hint">Адрас электроннай пошты (не абавязкова)</string>
   <string name="create_account_password_repeat_hint">Паўтарыце пароль</string>
+  <string name="create_account_password_is_username">Пароль не можа супадаць з імем удзельніка</string>
   <string name="create_account_passwords_mismatch_error">Паролі не супадаюць</string>
   <string name="create_account_email_error">Няслушны адрас электроннай пошты</string>
   <string name="create_account_username_error">Недапушчальныя сімвалы ў імені ўдзельніка</string>
-  <string name="create_account_password_error" fuzzy="true">Недапушчальны пароль</string>
+  <string name="create_account_password_error">Пароль мусіць мець прынамсі 8 сімвалаў</string>
   <string name="create_account_generic_error">Немагчыма стварыць рахунак</string>
   <string name="create_account_next">Далей</string>
   <string name="email_recommendation_dialog_title">Стварыць уліковы запіс без электроннай пошты?</string>

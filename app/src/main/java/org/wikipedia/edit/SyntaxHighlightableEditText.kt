@@ -145,7 +145,7 @@ class SyntaxHighlightableEditText : EditText {
         }
 
         // handle the case of the last line, which doesn't end with a newline char.
-        var j = lineCount - 1
+        var j = lineCount - 2
         while (j >= 0 && !lineContainsNewlineChar[j]) { j-- }
         renderedLineBeginsActualLine[j + 1] = true
 
