@@ -1137,7 +1137,6 @@
   <string name="menu_option_share_talk_discussion">Jaa keskustelu</string>
   <string name="menu_option_share_talk_page">Jaa keskustelusivu</string>
   <string name="menu_option_share_edit">Jaa muokkaus</string>
-  <string name="menu_option_user_profile">Käyttäjän %s profiili</string>
   <string name="menu_option_user_contributions">Käyttäjän %s muokkaukset</string>
   <string name="menu_option_edit_source">Muokkaa wikitekstiä</string>
   <string name="menu_option_user_page">Käyttäjän %s käyttäjäsivu</string>
@@ -1154,7 +1153,7 @@
   <string name="thank_dialog_positive_button_text">Lähetä kiitokset</string>
   <string name="thank_dialog_negative_button_text">Peruuta</string>
   <string name="thank_success_message">Kiitoksesi lähetettiin käyttäjälle %s 👍</string>
-  <string name="menu_option_view_user_profile">Tarkastele käyttäjäprofiilia</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Tarkastele käyttäjäprofiilia</string>
   <string name="menu_option_view_user_talk">Näytä keskustelusivu</string>
   <string name="menu_option_view_user_contributions">Tarkastele käyttäjän muokkauksia</string>
   <string name="revision_diff_compare">Vertaile versioita</string>

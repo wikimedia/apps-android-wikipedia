@@ -45,9 +45,9 @@
   <string name="page_tabs_back">Kembali</string>
   <string name="nav_item_forward">Teruskan</string>
   <string name="search_hint">Telusuri Wikipedia</string>
-  <string name="search_hint_voice_search">Pencarian input suara</string>
+  <string name="search_hint_voice_search">Pencarian melalui suara</string>
   <string name="search_hint_search_languages">Cari bahasa</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Sortir daftar saya</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Saring daftar saya</string>
   <string name="nav_item_suggested_edits">Suntingan</string>
   <string name="nav_item_more">Selebihnya</string>
   <string name="nav_item_search">Cari</string>
@@ -118,6 +118,7 @@
   <string name="menu_page_new_tab">Tab baru</string>
   <string name="menu_page_reading_lists">Daftar bacaan</string>
   <string name="menu_page_recently_viewed">Baru saja dilihat</string>
+  <string name="menu_page_archive">Arsip</string>
   <string name="menu_long_press_open_page">Buka</string>
   <string name="menu_long_press_open_in_new_tab">Buka di tab baru</string>
   <string name="menu_long_press_copy_page">Salin alamat pranala</string>
@@ -353,7 +354,7 @@
   <string name="gallery_save_image_write_permission_rationale">Izin untuk menulis ke penyimpanan di perangkat Anda dibutuhkan untuk menyimpan gambar.</string>
   <string name="gallery_edit_button_content_description">Sunting takarir gambar</string>
   <string name="gallery_add_image_caption_button">Tambahkan takarir gambar</string>
-  <string name="gallery_add_image_caption_in_language_button">Tambahkan takarir gambar %s</string>
+  <string name="gallery_add_image_caption_in_language_button">Tambahkan takarir gambar (%s)</string>
   <string name="err_cannot_save_file">Tidak dapat menyimpan berkas</string>
   <string name="expand_refs">Ketuk untuk memperluas</string>
   <string name="cc_logo">Lisensi Creative Commons</string>
@@ -1103,13 +1104,13 @@
   <string name="talk_list_item_user_icon_content_description">Ikon pengguna</string>
   <string name="talk_list_item_swipe_mark_as_read">Dibaca</string>
   <string name="talk_list_item_swipe_mark_as_unread">Belum dibaca</string>
+  <string name="talk_archived_title">Arsip pembicaraan: %s</string>
   <string name="menu_option_share_talk_discussion">Bagikan diskusi</string>
   <string name="menu_option_share_talk_page">Bagikan halaman pembicaraan</string>
   <string name="menu_option_share_edit">Bagikan hasil suntingan</string>
-  <string name="menu_option_user_profile">%s profil</string>
   <string name="menu_option_user_contributions">%s kontribusi</string>
   <string name="menu_option_edit_source">Sunting sumber</string>
-  <string name="menu_option_user_page" fuzzy="true">Halaman pengguna %s</string>
+  <string name="menu_option_user_page">Halaman pengguna %s</string>
   <string name="menu_option_find_in_talk_page_topic">Cari di topik halaman pembicaraan</string>
   <string name="talk_menu_copy_text">Salin teks</string>
   <string name="talk_menu_expand_threads">Buka utas</string>
@@ -1125,7 +1126,7 @@
   <string name="thank_dialog_positive_button_text">Kirim ucapan terima kasih</string>
   <string name="thank_dialog_negative_button_text">Batalkan</string>
   <string name="thank_success_message">\'Terima kasih\' anda telah dikirim kepada %s</string>
-  <string name="menu_option_view_user_profile">Lihat halaman profil pengguna</string>
+  <string name="menu_option_view_user_profile">Lihat halaman pengguna</string>
   <string name="menu_option_view_user_talk">Lihat halaman pembicaraan</string>
   <string name="menu_option_view_user_contributions">Lihat kontribusi pengguna</string>
   <string name="revision_diff_compare">Bandingkan revisi</string>
@@ -1176,4 +1177,6 @@
   <string name="subcategory_empty">Tidak ada subkategori di kategori ini.</string>
   <string name="search_namespaces">Ruang nama</string>
   <string name="revision_initial_none">Tidak ada (ini adalah revisi pertama)</string>
+  <string name="archive_empty">Halaman yang diarsipkan tidak ditemukan.</string>
+  <string name="media_playback_error">Terjadi kesalahan saat memutar media.</string>
 </resources>

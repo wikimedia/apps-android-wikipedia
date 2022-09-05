@@ -1088,7 +1088,6 @@
   <string name="menu_option_share_talk_discussion">Udostępnij dyskusję</string>
   <string name="menu_option_share_talk_page">Udostępnij stronę dyskusji</string>
   <string name="menu_option_share_edit">Udostępnij edycję</string>
-  <string name="menu_option_user_profile">Profil %s</string>
   <string name="menu_option_user_contributions">Wkład %s</string>
   <string name="menu_option_edit_source">Edycja źródła</string>
   <string name="menu_option_user_page">Strona użytkownika %s</string>
@@ -1107,7 +1106,7 @@
   <string name="thank_dialog_positive_button_text">Wyślij podziękowanie</string>
   <string name="thank_dialog_negative_button_text">Anuluj</string>
   <string name="thank_success_message">Twoje podziękowanie zostało wysłane do %s 👍</string>
-  <string name="menu_option_view_user_profile">Wyświetl stronę profilu użytkownika</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Wyświetl stronę profilu użytkownika</string>
   <string name="menu_option_view_user_talk">Wyświetl stronę dyskusji</string>
   <string name="menu_option_view_user_contributions">Wyświetl wkład użytkownika</string>
   <string name="revision_diff_compare">Porównaj wersje</string>

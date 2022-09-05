@@ -17,7 +17,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.staticdata.UserTalkAliasData
-import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.usercontrib.UserContribListActivity
 
 @SuppressLint("RestrictedApi")
 object UserTalkPopupHelper {
@@ -32,7 +32,7 @@ object UserTalkPopupHelper {
 
     fun show(activity: AppCompatActivity, bottomSheetPresenter: ExclusiveBottomSheetPresenter,
              title: PageTitle, anon: Boolean, x: Int, y: Int, invokeSource: Constants.InvokeSource,
-             historySource: Int) {
+             historySource: Int, showContribs: Boolean = true) {
         if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
             activity.startActivity(TalkTopicsActivity.newIntent(activity, title, invokeSource))
         } else if (title.namespace() == Namespace.USER) {
@@ -42,7 +42,7 @@ object UserTalkPopupHelper {
             anchorView.y = (y - rootView.top).toFloat()
             (rootView as ViewGroup).addView(anchorView)
 
-            val helper = getPopupHelper(activity, title, anon, anchorView, invokeSource, historySource)
+            val helper = getPopupHelper(activity, title, anon, anchorView, invokeSource, historySource, showContribs)
             helper.setOnDismissListener {
                 rootView.removeView(anchorView)
             }
@@ -56,7 +56,7 @@ object UserTalkPopupHelper {
 
     private fun getPopupHelper(activity: Activity, title: PageTitle, anon: Boolean,
                                anchorView: View, invokeSource: Constants.InvokeSource,
-                               historySource: Int): MenuPopupHelper {
+                               historySource: Int, showContribs: Boolean = true): MenuPopupHelper {
         val builder = MenuBuilder(activity)
         activity.menuInflater.inflate(R.menu.menu_user_talk_popup, builder)
         builder.setCallback(object : MenuBuilder.Callback {
@@ -71,7 +71,7 @@ object UserTalkPopupHelper {
                         activity.startActivity(TalkTopicsActivity.newIntent(activity, newTitle, invokeSource))
                     }
                     R.id.menu_user_contributions_page -> {
-                        FeedbackUtil.showUserContributionsPage(activity, title.text, title.wikiSite.languageCode)
+                        activity.startActivity(UserContribListActivity.newIntent(activity, title.text))
                     }
                 }
                 return true
@@ -81,6 +81,7 @@ object UserTalkPopupHelper {
         })
 
         builder.findItem(R.id.menu_user_profile_page).isVisible = !anon
+        builder.findItem(R.id.menu_user_contributions_page).isVisible = showContribs
         val helper = MenuPopupHelper(activity, builder, anchorView)
         helper.setForceShowIcon(true)
         return helper
