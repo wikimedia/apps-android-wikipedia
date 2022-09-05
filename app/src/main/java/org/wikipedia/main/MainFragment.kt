@@ -64,6 +64,7 @@ import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NotificationButtonView
@@ -444,6 +445,12 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         if (AccountUtil.isLoggedIn) {
             WatchlistFunnel().logViewWatchlist()
             startActivity(WatchlistActivity.newIntent(requireActivity()))
+        }
+    }
+
+    override fun contribsClick() {
+        if (AccountUtil.isLoggedIn) {
+            startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName.orEmpty()))
         }
     }
 

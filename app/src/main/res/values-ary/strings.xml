@@ -62,6 +62,7 @@
   <string name="menu_page_other_languages">بدّل اللغة</string>
   <string name="menu_page_find_in_page">قلّب فلمقال</string>
   <string name="menu_page_add_to_watchlist">زيد ف ليستة د لمراقبة</string>
+  <string name="menu_page_watch">حضي</string>
   <string name="menu_page_view_talk">شوف صفحة ديال لهضرة</string>
   <string name="menu_page_view_edit_history">شوف ليسطوريك ديال تبدال</string>
   <string name="menu_page_remove_from_watchlist">حيد من ليستة د لمراقبة</string>
@@ -72,10 +73,12 @@
   <string name="feed_card_add_to_list">زيد ل ليستة ديال لقراية</string>
   <string name="feed_card_add_to_default_list">سجّل</string>
   <string name="menu_page_share">پارطاجي الرابط</string>
+  <string name="menu_page_article_share">پارطاجي</string>
   <string name="menu_page_open_a_new_tab">حل تبويب جديد</string>
   <string name="menu_page_new_tab">تبويب جديد</string>
   <string name="menu_page_reading_lists">ليسطات ديال لقراية</string>
   <string name="menu_page_recently_viewed">شفتيها مؤخراً</string>
+  <string name="menu_page_archive">أرشيڤ</string>
   <string name="menu_long_press_open_page">حل</string>
   <string name="menu_long_press_open_in_new_tab">حل فتبويب جديد</string>
   <string name="menu_long_press_copy_page">كوپي لادريسا ديال الرابط</string>

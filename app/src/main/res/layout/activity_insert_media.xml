@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/notifications_coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/toolbarContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/paper_color"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/ToolbarStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways" />
+
+        <FrameLayout
+            android:id="@+id/imageInfoContainer"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="?attr/color_group_22"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <LinearLayout
+                android:id="@+id/emptyImageContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:src="?attr/image_tags_onboarding_image"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@string/insert_media_search_description" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    android:textSize="16sp"
+                    android:text="@string/insert_media_search_description" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/selectedImageContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <FrameLayout
+                    android:id="@+id/imageViewContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <org.wikipedia.views.FaceAndColorDetectImageView
+                        android:id="@+id/selectedImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="@string/insert_media_settings_uploaded_image"/>
+
+                    <ImageView
+                        android:id="@+id/imageInfoButton"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="4dp"
+                        android:padding="4dp"
+                        android:background="@drawable/rounded_4dp_fill"
+                        android:contentDescription="@null"
+                        app:srcCompat="@drawable/ic_crop_free_24"
+                        app:tint="@android:color/white" />
+
+                </FrameLayout>
+
+            </FrameLayout>
+
+        </FrameLayout>
+
+        <org.wikipedia.views.WikiCardView
+            android:id="@+id/search_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:transitionName="@string/transition_search_bar"
+            app:elevation="0dp"
+            app:radius="22dp">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="@string/insert_media_search_hint"
+                android:scaleType="center"
+                app:srcCompat="@drawable/ic_search_white_24dp"
+                app:tint="?attr/material_theme_de_emphasised_color" />
+
+            <TextView
+                android:id="@+id/searchInputField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="48dp"
+                android:layout_marginEnd="48dp"
+                android:text="@string/insert_media_search_hint"
+                android:textColor="?attr/material_theme_secondary_color"/>
+
+        </org.wikipedia.views.WikiCardView>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginTop="-7dp"
+        android:indeterminate="true" />
+
+    <FrameLayout
+        android:id="@+id/scrollableContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refreshView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"/>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <TextView
+            android:id="@+id/emptyMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_gravity="top|center"
+            android:text="@string/search_no_results_found"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/insertMediaSettingsFragment"
+                android:name="org.wikipedia.edit.insertmedia.InsertMediaSettingsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/insertMediaAdvancedSettingsFragment"
+                android:name="org.wikipedia.edit.insertmedia.InsertMediaAdvancedSettingsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
