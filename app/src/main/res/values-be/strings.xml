@@ -321,7 +321,22 @@
   <string name="error_page_does_not_exist">Няма такой старонкі</string>
   <string name="view_wiki_error_message_offline">Немагчыма падлучыцца да Інтэрнэту</string>
   <string name="reference_title">Заўвага %s</string>
+  <string name="reference_list_title">Зноскі</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Зацьмяненне выяваў (у Цёмнай тэме)</string>
   <string name="preference_title_prefer_offline_content">Перавага офлайн змесціву</string>
+  <string name="preference_summary_prefer_offline_content">Эканомце выкарыстанне дадзеных, загружаючы артыкулы, даступныя ў аўтаномным рэжыме, а не заўсёды загружаючы апошнюю версію артыкула</string>
+  <string name="page_footer_license_text">Змест даступны на ўмовах $1, калі не пазначана іншае</string>
+  <string name="empty_tab_title">Новая ўкладка</string>
+  <string name="menu_save_all_tabs">Захаваць усе ўкладкі</string>
+  <string name="error_blocked_title">Ваша імя карыстальніка або IP-адрас заблакіраваны.</string>
+  <string name="error_blocked_by">Блакаванне зроблена ўдзельнікам &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Прычына: %s</string>
+  <string name="error_blocked_start">Пачатак блакавання: %s</string>
+  <string name="error_blocked_expiry">Сканчэнне блакавання: %s</string>
+  <string name="error_blocked_id">Ідэнтыфікатар блакавання: %s</string>
+  <string name="error_blocked_footer">Вы можаце звязацца з &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; або з іншым &lt;a href=\"https://be.wikipedia.org/wiki/Вікіпедыя: Адміністратары\"&gt;адміністратарам&lt;/a&gt;, каб абмеркаваць блакіроўку.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Наладзьце панэль інструментаў</string>
+  <string name="error_blocked_footer_no_blocker">Вы можаце звязацца з &lt;a href=\"https://be.wikipedia.org/wiki/Вікіпедыя: Адміністратары\"&gt;адміністратарам&lt;/a&gt;, каб абмеркаваць блакіроўку.</string>
   <string name="crash_report_quit">Выхад</string>
   <string name="article_header_edit_hint">Правіць...</string>
   <string name="article_header_edit_description">Правіць апісанне артыкула</string>
