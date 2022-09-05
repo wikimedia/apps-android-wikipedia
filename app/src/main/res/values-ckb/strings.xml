@@ -58,6 +58,8 @@
   <string name="image_share_via">ھاوبەشکردن لەڕێی</string>
   <string name="search_redirect_from">ڕەوانەکراوە لە %s</string>
   <string name="page_edit_history_activity_title">مێژووی پێداچوونەوە: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;ب&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">کورتەی دەستکاریی بەتاڵ</string>
   <string name="page_edit_history_search_or_filter_edits_hint">دەستکارییەکان بگەڕێ یان بپاڵێوە</string>
   <string name="page_edit_history_filter_by_all">ھەموو دەستکارییەکان (%s)</string>
   <string name="page_edit_history_filter_by_user">دەستکارییەکانی یەکارھێنەر (%s)</string>
@@ -237,7 +239,7 @@
   <string name="about_translators_heading">وەرگێڕەکان</string>
   <string name="about_translators_translatewiki">ئەم نەرمەواڵەیە وەرگێڕدراوە لەلایەن وەرگێڕە خۆبەخشەکان لە &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">مۆڵەت</string>
-  <string name="about_app_license" fuzzy="true">کۆدی سەرچاوە بەردەستە لە &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license">کۆدی سەرچاوە بەردەستە لە &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">بەرھەمی &lt;a href=\"https://wikimediafoundation.org/\"&gt;دامەزراوەی ویکیمیدیا&lt;/a&gt;</string>
   <string name="about_activity_title">دەربارە</string>
   <string name="edit_abandon_confirm">پەڕەکە گۆڕدراوە. دڵنیای کە دەتەوێت بچیە دەرەوە بەبێ پاشەکەوتکردنی گۆڕانکارییەکان؟</string>
@@ -252,6 +254,7 @@
   <string name="edit_preview">پێشبینین</string>
   <string name="edit_undo">پووچەڵکردنەوە</string>
   <string name="edit_redo">کردنەوە</string>
+  <string name="edit_rollback">گەڕاندنەوە</string>
   <string name="edit_zoom_in">گەورەکردنەوە</string>
   <string name="edit_zoom_out">بچووککردنەوە</string>
   <string name="edit_summary_tag_typo">چاککردنی ھەڵەی نووسین</string>
@@ -589,12 +592,14 @@
   <string name="preference_title_notification_user_talk">پەڕەی وتووێژ</string>
   <string name="preference_summary_notification_user_talk">پەیام و وەڵامدانەوەکان لە پەڕەکانی وتووێژ</string>
   <string name="preference_title_notification_user_rights">گۆڕانەکانی مافەکانی بەکارھێنەر</string>
+  <string name="preference_category_display_settings">ڕێکخستنەکانی پێشاندان</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">ویکیپیدیا</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">ئاگادارییەکان لە ویکیپیدیاوە</string>
   <string name="notifications_channel_group_other_title">ھیتر</string>
   <string name="notifications_channel_group_other_description">ئاگادارییەکانی تر لە بەرنامەکەوە</string>
   <string name="notifications_filter_label">پاڵاوتنی ھۆشدارەکان</string>
   <string name="notifications_filter_update_app_languages">نوێکردنەوەی زمانەکانی بەرنامە</string>
+  <string name="notifications_select_all_filters">ھەموو فیلتەرەکان دیاری بکە</string>
   <string name="notifications_tab_filter_all">ھەموو</string>
   <string name="notifications_tab_filter_mentions">بانگکردنەکان</string>
   <string name="notifications_menu_mark_as_read">نیشانکردن وەک خوێندراوە</string>
@@ -934,8 +939,14 @@
   <string name="thank_dialog_positive_button_text">سپاس بکە</string>
   <string name="thank_dialog_negative_button_text">ھەڵوەشاندنەوە</string>
   <string name="thank_success_message">%s سپاسی لێ کرا 👍</string>
-  <string name="menu_option_view_user_profile" fuzzy="true">پەڕەی زانیاریی بەکارھێنەر ببینە</string>
+  <string name="menu_option_view_user_profile">پەڕەی بەکارھێنەر ببینە</string>
   <string name="menu_option_view_user_talk">بینینی پەڕەی وتووێژ</string>
+  <string name="revision_diff_from">لە:</string>
+  <string name="revision_diff_to">بۆ:</string>
+  <string name="revision_diff_paragraph_added">پەڕەگراف زیاد کرا</string>
+  <string name="revision_diff_paragraph_removed">پەڕەگراف لابرا</string>
+  <string name="revision_undo_title">دەستکارییەکە پووچەڵ بکەوە</string>
+  <string name="revision_rollback_success">دەستکارییەکان گەڕێندرانەوە.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s و پەڕەی وتووێژەکەی زیاد کران بۆ پێڕستی چاودێریت %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">گۆڕین</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">بە ھەمیشەیی</string>
@@ -958,4 +969,8 @@
   <string name="watchlist_page_moved">گواستراوە</string>
   <string name="watchlist_page_protected">پارێزراوە</string>
   <string name="watchlist_page_deleted">سڕدراو</string>
+  <string name="action_item_categories">پۆلەكان</string>
+  <string name="category_tab_articles">وتارەکان</string>
+  <string name="category_tab_subcategories">ژێرپۆلەکان</string>
+  <string name="search_namespaces">بۆشاییناوەکان</string>
 </resources>

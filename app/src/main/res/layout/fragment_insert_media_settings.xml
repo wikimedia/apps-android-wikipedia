@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/insertMediaPreviewContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:windowBackground"
+    android:orientation="vertical"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="16dp">
+
+        <LinearLayout
+            android:id="@+id/imageInfoContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:scaleType="centerInside"
+                android:contentDescription="@null"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="vertical"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="?android:attr/textColorTertiary"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="6sp"
+                    android:text="@string/insert_media_settings_uploaded_image"
+                    tools:text="Article" />
+
+                <TextView
+                    android:id="@+id/mediaDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="8dp"
+                    android:ellipsize="end"
+                    android:gravity="start"
+                    android:lineSpacingExtra="6sp"
+                    android:maxLines="2"
+                    android:textColor="?attr/material_theme_primary_color"
+                    android:textSize="16sp"
+                    tools:text="Lorem ipsum" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/mediaCaptionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="start"
+            android:textAlignment="viewStart"
+            android:hint="@string/insert_media_settings_caption"
+            app:endIconDrawable="@drawable/ic_mic_black_24dp"
+            app:endIconTint="?attr/material_theme_de_emphasised_color"
+            app:endIconContentDescription="@string/description_edit_voice_input_description"
+            app:endIconMode="custom"
+            app:helperTextTextColor="?android:attr/textColorTertiary"
+            app:helperText="@string/insert_media_settings_caption_description">
+
+            <org.wikipedia.views.PlainPasteEditText
+                android:id="@+id/mediaCaptionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="flagNoExtractUi|actionDone"
+                android:inputType="textMultiLine"
+                android:lineSpacingExtra="6sp"
+                android:maxLength="@integer/description_max_chars"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/mediaAlternativeTextLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="start"
+            android:textAlignment="viewStart"
+            android:hint="@string/insert_media_settings_alternative_text"
+            app:endIconDrawable="@drawable/ic_mic_black_24dp"
+            app:endIconTint="?attr/material_theme_de_emphasised_color"
+            app:endIconContentDescription="@string/description_edit_voice_input_description"
+            app:endIconMode="custom"
+            app:helperTextTextColor="?android:attr/textColorTertiary"
+            app:helperText="@string/insert_media_settings_alternative_text_description">
+
+            <org.wikipedia.views.PlainPasteEditText
+                android:id="@+id/mediaAlternativeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="flagNoExtractUi|actionDone"
+                android:inputType="textMultiLine"
+                android:lineSpacingExtra="6sp"
+                android:maxLength="@integer/description_max_chars"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/list_separator_drawable"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/advancedSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="?android:attr/textColorTertiary"
+            android:textSize="14sp"
+            android:text="@string/insert_media_advanced_settings"
+            android:textAllCaps="true"
+            android:letterSpacing="0.04"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp"
+            android:layout_gravity="center"
+            tools:text="Article" />
+
+    </LinearLayout>
+
+</ScrollView>
