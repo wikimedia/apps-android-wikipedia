@@ -1058,7 +1058,6 @@
   <string name="menu_option_share_talk_discussion">చర్చను పంచుకోండి</string>
   <string name="menu_option_share_talk_page">చర్చ పేజీని పంచుకోండి</string>
   <string name="menu_option_share_edit">దిద్దుబాటును పంచుకోండి</string>
-  <string name="menu_option_user_profile">%s ప్రొఫైలు</string>
   <string name="menu_option_user_contributions">%s మార్పుచేర్పులు</string>
   <string name="menu_option_edit_source">మూలపాఠ్యాన్ని సవరించండి</string>
   <string name="watchlist_details_watching_label">వీక్షిస్తున్నారు</string>
@@ -1072,7 +1071,7 @@
   <string name="thank_dialog_positive_button_text">ధన్యవాదాలు పంపించు</string>
   <string name="thank_dialog_negative_button_text">రద్దుచేయి</string>
   <string name="thank_success_message">మీ \'ధన్యవాదాలను\' %s కు పంపించాం 👍</string>
-  <string name="menu_option_view_user_profile">వాడుకరి ప్రొఫైలు పేజీ చూడండి</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">వాడుకరి ప్రొఫైలు పేజీ చూడండి</string>
   <string name="menu_option_view_user_talk">చర్చ పేజీ చూడండి</string>
   <string name="menu_option_view_user_contributions">వాడుకరి రచనలను చూపించు</string>
   <string name="revision_diff_compare">కూర్పులను పోల్చు</string>

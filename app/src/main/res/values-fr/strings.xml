@@ -271,7 +271,7 @@
   <string name="privacy_policy_description">Politique de confidentialité</string>
   <string name="terms_of_use_description">Conditions d’utilisation</string>
   <string name="about_wikipedia_url">https://fr.wikipedia.org/wiki/Wikipédia:À_propos_de_Wikipédia</string>
-  <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/fr</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy/fr</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/fr</string>
@@ -342,7 +342,7 @@
   <string name="clear_recent_searches_confirm_no">Non</string>
   <string name="error_browser_not_found">Impossible d’ouvrir la page web (aucune application de navigateur trouvée).</string>
   <string name="table_infobox">Faits en bref</string>
-  <string name="table_other">Plus d’informations</string>
+  <string name="table_other">Davantage d’informations</string>
   <string name="table_close">Fermer</string>
   <string name="widget_name_featured_page">Page mise en avant de Wikipédia</string>
   <string name="widget_title_featured_page">Page mise en avant aujourd’hui :</string>
@@ -563,7 +563,7 @@
   <string name="reading_list_article_save_in_progress">L’article est en cours de téléchargement, et il sera disponible hors connexion quand ce sera terminé.</string>
   <string name="reading_list_articles_added_to_named">%1$d articles ajoutés à %2$s</string>
   <string name="reading_list_articles_moved_to_named">%1$d articles déplacés vers %2$s</string>
-  <string name="reading_list_delete_confirm">Êtes-vous sûr de vouloir supprimer %s ?</string>
+  <string name="reading_list_delete_confirm">Êtes-vous sûr(e) de vouloir supprimer %s ?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Connectez-vous pour activer la synchronisation</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Connectez-vous pour permettre à vos listes de lecture d’être enregistrée dans votre compte.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annuler</string>
@@ -899,7 +899,7 @@
   <string name="suggested_edits_image_preview_dialog_date">Date</string>
   <string name="suggested_edits_image_preview_dialog_source">Source/Photographe</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licence</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Plus d’informations</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Davantage d’informations</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Page du fichier sur Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Page du fichier sur Wikipédia</string>
   <string name="suggested_edits_article_cta_image_tags">Ajouter des balises d’image</string>
@@ -1162,7 +1162,6 @@
   <string name="menu_option_share_talk_discussion">Partager la discussion</string>
   <string name="menu_option_share_talk_page">Partager la page de discussion</string>
   <string name="menu_option_share_edit">Partager la modification</string>
-  <string name="menu_option_user_profile">Profil de %s</string>
   <string name="menu_option_user_contributions">Contributions de %s</string>
   <string name="menu_option_edit_source">Modifier le wikicode</string>
   <string name="menu_option_user_page">Page utilisateur de %s</string>
@@ -1181,7 +1180,7 @@
   <string name="thank_dialog_positive_button_text">Envoyer des remerciements</string>
   <string name="thank_dialog_negative_button_text">Annuler</string>
   <string name="thank_success_message">Votre remerciement a été envoyé à %s. 👍</string>
-  <string name="menu_option_view_user_profile">Afficher la page du profil utilisateur</string>
+  <string name="menu_option_view_user_profile">Afficher la page d’utilisateur</string>
   <string name="menu_option_view_user_talk">Afficher la page de discussion</string>
   <string name="menu_option_view_user_contributions">Afficher les contributions de l’utilisateur</string>
   <string name="revision_diff_compare">Comparer les révisions</string>

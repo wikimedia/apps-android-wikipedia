@@ -5,7 +5,9 @@ import android.view.*
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -38,7 +40,8 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.NotificationButtonView
 import java.util.*
 
-class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistItemView.Callback, WatchlistLanguagePopupView.Callback {
+class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistItemView.Callback,
+        WatchlistLanguagePopupView.Callback, MenuProvider {
     private var _binding: FragmentWatchlistBinding? = null
 
     private lateinit var notificationButtonView: NotificationButtonView
@@ -62,6 +65,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         binding.watchlistRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         binding.watchlistRefreshView.setOnRefreshListener { fetchWatchlist(true) }
@@ -75,23 +79,17 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         funnel.logOpenWatchlist()
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         disposables.clear()
         _binding = null
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_watchlist, menu)
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu) {
-        super.onPrepareOptionsMenu(menu)
+    override fun onPrepareMenu(menu: Menu) {
         menu.findItem(R.id.menu_change_language).isVisible = WikipediaApp.instance.languageState.appLanguageCodes.size > 1
 
         val notificationMenuItem = menu.findItem(R.id.menu_notifications)
@@ -113,14 +111,14 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         updateNotificationDot(false)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onMenuItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_change_language -> {
                 val overflowView = WatchlistLanguagePopupView(requireContext())
                 overflowView.show(ActivityCompat.requireViewById(requireActivity(), R.id.menu_change_language), this)
                 true
             }
-            else -> super.onOptionsItemSelected(item)
+            else -> false
         }
     }
 
