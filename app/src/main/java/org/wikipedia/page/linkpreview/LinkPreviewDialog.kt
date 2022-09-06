@@ -258,7 +258,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             binding.linkPreviewExtractWebview.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null)
             // Color hex code from android:textColorPrimary
             val colorHex = if (WikipediaApp.instance.currentTheme.isDark) "#f8f9fa" else "#202122"
-            binding.linkPreviewExtractWebview.loadDataWithBaseURL(null, "<div style='line-height: 150%; color: $colorHex'>${contents.extract}</div>", "text/html", "UTF-8", null)
+            binding.linkPreviewExtractWebview.loadDataWithBaseURL(null, "${JavaScriptActionHandler.getCssStyles(pageTitle.wikiSite)}<div style=\"line-height: 150%; color: $colorHex\">${contents.extract}</div>", "text/html", "UTF-8", null)
         }
         contents.title.thumbUrl?.let {
             binding.linkPreviewThumbnail.visibility = View.VISIBLE
