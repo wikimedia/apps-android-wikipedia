@@ -185,6 +185,7 @@ class UserMentionEditText : PlainPasteEditText {
                 if (name.length > 1 && name.startsWith("@")) {
                     name = name.substring(1)
                 }
+                name = name.trim()
                 name = "[[" + UserAliasData.valueFor(wikiSite.languageCode) + ":" + name + "|@" + name + "]]"
                 str = str.replaceRange(pairs[i].first, pairs[i].second, name)
 
