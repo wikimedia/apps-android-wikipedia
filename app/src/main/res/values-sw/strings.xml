@@ -5,6 +5,7 @@
 * MuratTheTurkish
 * Obsuser
 * Rance
+* Wangombe
 * Yasen igra
 -->
 <resources>
@@ -165,6 +166,7 @@
   <string name="wikitext_link">Kiungo</string>
   <string name="wikitext_template">Kigezo</string>
   <string name="wikitext_reference">Marejeo</string>
+  <string name="insert_media_advanced_settings_image_position_right">Kulia</string>
   <string name="custom_date_picker_dialog_ok_button_text">Sawa</string>
   <string name="text_input_dialog_ok_button_text">Sawa</string>
   <string name="text_input_dialog_cancel_button_text">Ghairi</string>
