@@ -70,7 +70,9 @@ data class ReadingListPage(
         }
 
         fun toPageTitle(page: ReadingListPage): PageTitle {
-            return PageTitle(page.apiTitle, page.wiki, page.thumbUrl, page.description, page.displayTitle)
+            val wiki = page.wiki
+            wiki.languageCode = page.lang
+            return PageTitle(page.apiTitle, wiki, page.thumbUrl, page.description, page.displayTitle)
         }
     }
 }
