@@ -1,15 +1,12 @@
 package org.wikipedia.activity
 
-import android.Manifest
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
 import android.view.*
 import android.widget.TextView
 import androidx.annotation.ColorInt
@@ -41,7 +38,6 @@ import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.util.*
-import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
 import kotlin.math.abs
@@ -143,21 +139,6 @@ abstract class BaseActivity : AppCompatActivity() {
         BreadCrumbLogEvent.logBackPress(this)
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
-                                            grantResults: IntArray) {
-        when (requestCode) {
-            Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION -> if (!PermissionUtil.isPermitted(grantResults)) {
-                L.i("Write permission was denied by user")
-                if (PermissionUtil.shouldShowWritePermissionRationale(this)) {
-                    showStoragePermissionSnackbar()
-                } else {
-                    showAppSettingSnackbar()
-                }
-            }
-            else -> super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        }
-    }
-
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         if (event.actionMasked == MotionEvent.ACTION_DOWN ||
                 event.actionMasked == MotionEvent.ACTION_POINTER_DOWN) {
@@ -214,30 +195,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected open fun onGoOffline() {}
     protected open fun onGoOnline() {}
-    private fun requestStoragePermission() {
-        Prefs.setAskedForPermissionOnce(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        PermissionUtil.requestWriteStorageRuntimePermissions(this@BaseActivity,
-                Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION)
-    }
-
-    private fun showStoragePermissionSnackbar() {
-        val snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.offline_read_permission_rationale))
-        snackbar.setAction(R.string.storage_access_error_retry) { requestStoragePermission() }
-        snackbar.show()
-    }
-
-    private fun showAppSettingSnackbar() {
-        val snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.offline_read_final_rationale))
-        snackbar.setAction(R.string.app_settings) { goToSystemAppSettings() }
-        snackbar.show()
-    }
-
-    private fun goToSystemAppSettings() {
-        val appSettings = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName"))
-        appSettings.addCategory(Intent.CATEGORY_DEFAULT)
-        appSettings.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        startActivity(appSettings)
-    }
 
     private inner class NetworkStateReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
