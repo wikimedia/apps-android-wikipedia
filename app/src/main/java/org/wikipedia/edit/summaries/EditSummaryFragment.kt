@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Typeface
-import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.util.SparseArray
@@ -15,6 +14,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.StringRes
+import androidx.core.widget.TextViewCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -84,15 +84,15 @@ class EditSummaryFragment : Fragment() {
         }
 
         binding.learnMoreButton.setOnClickListener {
-            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.preview_edit_learn_more_url)))
+            CustomTabsUtil.openInCustomTab(requireContext(), getString(R.string.preview_edit_learn_more_url))
         }
 
         binding.minorEditHelpButton.setOnClickListener {
-            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.preview_edit_minor_edit_url)))
+            CustomTabsUtil.openInCustomTab(requireContext(), getString(R.string.preview_edit_minor_edit_url))
         }
 
         binding.watchPageHelpButton.setOnClickListener {
-            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.preview_edit_watch_this_page_url)))
+            CustomTabsUtil.openInCustomTab(requireContext(), getString(R.string.preview_edit_watch_this_page_url))
         }
 
         getWatchedStatus()
@@ -135,6 +135,7 @@ class EditSummaryFragment : Fragment() {
             }
         } else {
             binding.watchPageCheckBox.isEnabled = false
+            binding.watchPageCheckBox.alpha = 0.5f
         }
     }
 
@@ -148,19 +149,14 @@ class EditSummaryFragment : Fragment() {
         val chip = Chip(requireContext())
         val editSummary = getString(editSummaryResource)
         chip.text = editSummary
-        chip.textAlignment = View.TEXT_ALIGNMENT_CENTER
+        TextViewCompat.setTextAppearance(chip, R.style.CustomChipStyle)
         chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-        chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
-        chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-        chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color))
-        chip.typeface = chipTypeFace
         chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
         chip.setOnClickListener {
             // Clear the text field and insert the text
             binding.editSummaryText.setText(editSummary)
+            binding.editSummaryText.setSelection(editSummary.length)
         }
-        chip.setEnsureMinTouchTargetSize(true)
-        chip.ensureAccessibleTouchTarget(DimenUtil.dpToPx(48f).toInt())
 
         // add some padding to the Chip, since our container view doesn't support item spacing yet.
         val params = ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)

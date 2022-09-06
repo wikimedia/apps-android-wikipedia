@@ -396,6 +396,7 @@ class EditSectionActivity : BaseActivity() {
                 funnel.logPreview()
                 EditAttemptStepEvent.logSaveIntent(pageTitle)
                 supportActionBar?.title = getString(R.string.preview_edit_title)
+                setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
             }
         }
     }
@@ -675,6 +676,7 @@ class EditSectionActivity : BaseActivity() {
             supportActionBar?.title = null
             return
         }
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
         DeviceUtil.hideSoftKeyboard(this)
         if (sectionTextModified) {
             val alert = AlertDialog.Builder(this)
