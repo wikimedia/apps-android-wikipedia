@@ -8,6 +8,7 @@
 * Parbat subedi
 * Suniltheblue
 * पर्वत सुबेदी
+* बडा काजी
 * राम प्रसाद जोशी
 * सरोज कुमार ढकाल
 * हिमाल सुबेदी
@@ -654,6 +655,7 @@
   <string name="wikitext_template">ढाँचा</string>
   <string name="wikitext_reference">सन्दर्भ</string>
   <string name="wikitext_preview_link">लिङ्क पूर्वावलोकन</string>
+  <string name="insert_media_advanced_settings_image_position_left">बायाँ</string>
   <string name="main_drawer_help">सहायता</string>
   <string name="main_drawer_login">विकिपिडियामा लग इन/सहभागी हुनुहोस्</string>
   <string name="main_tooltip_text" fuzzy="true">%s, जो कसैले पनि विकिपिडिया सम्पादन गर्न सक्नुहुन्छ भन्ने थाह थियो?</string>
