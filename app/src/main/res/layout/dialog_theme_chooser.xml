@@ -120,19 +120,19 @@
                 android:textColor="?attr/primary_text_color" />
 
             <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/show_line_numbers_switch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="@string/editing_line_numbers_label"
-                android:textColor="?attr/primary_text_color" />
-
-            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/typing_suggestions_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="@string/editing_typing_suggestions"
+                android:textColor="?attr/primary_text_color" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/show_line_numbers_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/editing_line_numbers_label"
                 android:textColor="?attr/primary_text_color" />
 
             <androidx.appcompat.widget.SwitchCompat

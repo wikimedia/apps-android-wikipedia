@@ -615,7 +615,7 @@ object Prefs {
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_monospace_font, value)
 
     var editLineNumbersEnabled
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_line_numbers, true)
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_line_numbers, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_line_numbers, value)
 
     var editTypingSuggestionsEnabled
