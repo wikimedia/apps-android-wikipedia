@@ -95,8 +95,8 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
                     return LoadResult.Page(cachedContribs, null, cachedContinueKey)
                 }
 
-                val nsFilter = Prefs.userContribFilterNs
-                val response = ServiceFactory.get(wikiSite).getUserContrib(userName, 500, if (nsFilter >= 0) nsFilter else null, null, params.key)
+                val nsFilter = Prefs.userContribFilterNs.joinToString("|")
+                val response = ServiceFactory.get(wikiSite).getUserContrib(userName, 500, nsFilter.ifEmpty { null }, null, params.key)
                 val contribs = response.query?.userContributions!!
 
                 cachedContinueKey = response.continuation?.ucContinuation

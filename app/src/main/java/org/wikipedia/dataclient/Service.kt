@@ -345,7 +345,7 @@ interface Service {
     suspend fun getUserContrib(
             @Query("ucuser") username: String,
             @Query("uclimit") maxCount: Int,
-            @Query("ucnamespace") ns: Int?,
+            @Query("ucnamespace") ns: String?,
             @Query("ucshow") filter: String?,
             @Query("uccontinue") uccontinue: String?
     ): MwQueryResponse

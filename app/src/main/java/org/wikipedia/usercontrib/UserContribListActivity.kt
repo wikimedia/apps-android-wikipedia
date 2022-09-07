@@ -160,20 +160,24 @@ class UserContribListActivity : BaseActivity() {
 
     private fun updateLangButton() {
         linkHandler.wikiSite = viewModel.wikiSite
-        if (viewModel.langCode == Constants.WIKI_CODE_WIKIDATA) {
-            binding.langButtonText.isVisible = false
-            binding.langButtonIcon.setImageResource(R.drawable.ic_wikidata_logo)
-            binding.langButtonIcon.isVisible = true
-        } else if (viewModel.langCode == Constants.WIKI_CODE_COMMONS) {
-            binding.langButtonText.isVisible = false
-            binding.langButtonIcon.setImageResource(R.drawable.ic_commons_logo)
-            binding.langButtonIcon.isVisible = true
-        } else {
-            binding.langButtonText.isVisible = true
-            binding.langButtonIcon.isVisible = false
-            binding.langButtonText.text = viewModel.langCode.uppercase(Locale.ENGLISH)
-            ViewUtil.formatLangButton(binding.langButtonText, binding.langButtonText.text.toString(),
-                    SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+        when (viewModel.langCode) {
+            Constants.WIKI_CODE_WIKIDATA -> {
+                binding.langButtonText.isVisible = false
+                binding.langButtonIcon.setImageResource(R.drawable.ic_wikidata_logo)
+                binding.langButtonIcon.isVisible = true
+            }
+            Constants.WIKI_CODE_COMMONS -> {
+                binding.langButtonText.isVisible = false
+                binding.langButtonIcon.setImageResource(R.drawable.ic_commons_logo)
+                binding.langButtonIcon.isVisible = true
+            }
+            else -> {
+                binding.langButtonText.isVisible = true
+                binding.langButtonIcon.isVisible = false
+                binding.langButtonText.text = viewModel.langCode.uppercase(Locale.ENGLISH)
+                ViewUtil.formatLangButton(binding.langButtonText, binding.langButtonText.text.toString(),
+                        SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+            }
         }
         FeedbackUtil.setButtonLongPressToast(binding.langButtonContainer)
     }
@@ -366,13 +370,13 @@ class UserContribListActivity : BaseActivity() {
         }
 
         private fun updateFilterCount() {
-            if (Prefs.userContribFilterNs < 0) {
+            if (Prefs.userContribFilterNs.isEmpty()) {
                 binding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(binding.filterByButton,
                     ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.color_group_9))
             } else {
                 binding.filterCount.visibility = View.VISIBLE
-                binding.filterCount.text = 1.toString()
+                binding.filterCount.text = Prefs.userContribFilterNs.size.toString()
                 ImageViewCompat.setImageTintList(binding.filterByButton,
                     ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.colorAccent))
             }
@@ -389,7 +393,7 @@ class UserContribListActivity : BaseActivity() {
         fun bindItem() {
             binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.page_edit_history_empty_search_message))
             RichTextUtil.removeUnderlinesFromLinks(binding.emptySearchMessage)
-            binding.searchEmptyContainer.isVisible = Prefs.userContribFilterNs >= 0
+            binding.searchEmptyContainer.isVisible = Prefs.userContribFilterNs.isNotEmpty()
         }
     }
 
@@ -428,7 +432,7 @@ class UserContribListActivity : BaseActivity() {
                     }
 
                     override fun getExcludedFilterCount(): Int {
-                        return if (Prefs.userContribFilterNs >= 0) 1 else 0
+                        return Prefs.userContribFilterNs.size
                     }
 
                     override fun getFilterIconContentDescription(): Int {

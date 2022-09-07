@@ -137,5 +137,5 @@
     <string name="preference_key_reading_focus_mode">readingFocusMode</string>
     <string name="preference_key_edit_history_filter_type">editHistoryFilterType</string>
     <string name="preference_key_talk_topic_expand_all">talkTopicExpandAll</string>
-    <string name="preference_key_user_contrib_filter_ns">userContribFilterNs</string>
+    <string name="preference_key_user_contrib_filter_ns">userContribFilterNamespaces</string>
 </resources>
