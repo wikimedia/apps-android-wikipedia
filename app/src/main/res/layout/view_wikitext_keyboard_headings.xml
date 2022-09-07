@@ -2,8 +2,8 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    tools:layout_width="wrap_content"
+    tools:layout_height="wrap_content"
     tools:parentTag="android.widget.FrameLayout">
 
     <LinearLayout
@@ -67,6 +67,31 @@
             android:textSize="12sp"
             android:textStyle="bold"/>
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="?attr/color_group_60" />
+
+        <ImageView
+            android:id="@+id/close_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:background="?attr/selectableItemBackground"
+            app:srcCompat="@drawable/ic_close_black_24dp"
+            app:tint="?attr/colorAccent"
+            android:contentDescription="@null" />
+
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/transparent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/color_group_60" />
 
 </merge>

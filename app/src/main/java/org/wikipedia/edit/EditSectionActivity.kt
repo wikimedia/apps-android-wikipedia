@@ -148,13 +148,12 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
 
         override fun onRequestHeading() {
-            if (binding.editKeyboardOverlayHeadingsContainer.isVisible) {
+            if (binding.editKeyboardOverlayHeadings.isVisible) {
                 hideAllSyntaxModals()
                 return
             }
             hideAllSyntaxModals()
-            binding.editKeyboardOverlayHeadingsContainer.isVisible = true
-            binding.overlayDivider.isVisible = true
+            binding.editKeyboardOverlayHeadings.isVisible = true
             binding.editKeyboardOverlay.onAfterHeadingsShown()
         }
 
@@ -165,12 +164,11 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             }
             hideAllSyntaxModals()
             binding.editKeyboardOverlayFormattingContainer.isVisible = true
-            binding.overlayDivider.isVisible = true
             binding.editKeyboardOverlay.onAfterFormattingShown()
         }
 
-        override fun onSyntaxOverlayClicked() {
-            // hideAllSyntaxModals()
+        override fun onSyntaxOverlayCollapse() {
+            hideAllSyntaxModals()
         }
     }
 
@@ -679,9 +677,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     }
 
     private fun hideAllSyntaxModals() {
-        binding.editKeyboardOverlayHeadingsContainer.isVisible = false
+        binding.editKeyboardOverlayHeadings.isVisible = false
         binding.editKeyboardOverlayFormattingContainer.isVisible = false
-        binding.overlayDivider.isVisible = false
         binding.editKeyboardOverlay.onAfterOverlaysHidden()
     }
 

@@ -17,10 +17,10 @@ class WikiTextKeyboardView : FrameLayout {
         fun onRequestInsertLink()
         fun onRequestHeading()
         fun onRequestFormatting()
-        fun onSyntaxOverlayClicked()
+        fun onSyntaxOverlayCollapse()
     }
 
-    private val binding = ViewWikitextKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
+    private val binding = ViewWikitextKeyboardBinding.inflate(LayoutInflater.from(context), this)
     var callback: Callback? = null
     var editText: SyntaxHighlightableEditText? = null
 
@@ -31,7 +31,8 @@ class WikiTextKeyboardView : FrameLayout {
     init {
         binding.wikitextButtonUndo.visibility = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) VISIBLE else GONE
         binding.wikitextButtonRedo.visibility = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) VISIBLE else GONE
-        binding.wikitextUndoRedoSeparator.visibility = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) VISIBLE else GONE
+        binding.wikitextButtonTextFormat.setExpandable(true)
+        binding.wikitextButtonHeading.setExpandable(true)
 
         binding.wikitextButtonLink.setOnClickListener {
             editText?.inputConnection?.let {
@@ -137,18 +138,18 @@ class WikiTextKeyboardView : FrameLayout {
     }
 
     fun onAfterFormattingShown() {
-        binding.wikitextButtonHeading.notchVisible = false
-        binding.wikitextButtonTextFormat.notchVisible = true
+        binding.wikitextButtonHeading.setExpanded(false)
+        binding.wikitextButtonTextFormat.setExpanded(true)
     }
 
     fun onAfterHeadingsShown() {
-        binding.wikitextButtonTextFormat.notchVisible = false
-        binding.wikitextButtonHeading.notchVisible = true
+        binding.wikitextButtonTextFormat.setExpanded(false)
+        binding.wikitextButtonHeading.setExpanded(true)
     }
 
     fun onAfterOverlaysHidden() {
-        binding.wikitextButtonTextFormat.notchVisible = false
-        binding.wikitextButtonHeading.notchVisible = false
+        binding.wikitextButtonTextFormat.setExpanded(false)
+        binding.wikitextButtonHeading.setExpanded(false)
     }
 
     companion object {

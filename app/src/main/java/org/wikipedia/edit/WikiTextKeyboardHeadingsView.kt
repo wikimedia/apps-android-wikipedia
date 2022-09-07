@@ -16,28 +16,27 @@ class WikiTextKeyboardHeadingsView : FrameLayout {
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     init {
+        binding.closeButton.setOnClickListener {
+            callback?.onSyntaxOverlayCollapse()
+        }
         binding.wikitextButtonH2.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "==", "==")
-                callback?.onSyntaxOverlayClicked()
             }
         }
         binding.wikitextButtonH3.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "===", "===")
-                callback?.onSyntaxOverlayClicked()
             }
         }
         binding.wikitextButtonH4.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "====", "====")
-                callback?.onSyntaxOverlayClicked()
             }
         }
         binding.wikitextButtonH5.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "=====", "=====")
-                callback?.onSyntaxOverlayClicked()
             }
         }
     }

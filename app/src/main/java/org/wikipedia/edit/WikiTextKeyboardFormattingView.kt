@@ -16,58 +16,52 @@ class WikiTextKeyboardFormattingView : FrameLayout {
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     init {
+        binding.closeButton.setOnClickListener {
+            callback?.onSyntaxOverlayCollapse()
+        }
         binding.wikitextButtonBold.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "'''", "'''")
-                callback?.onSyntaxOverlayClicked()
             }
         }
         binding.wikitextButtonItalic.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "''", "''")
-                callback?.onSyntaxOverlayClicked()
             }
         }
         binding.wikitextButtonUnderline.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "<u>", "</u>")
-                callback?.onSyntaxOverlayClicked()
             }
         }
         binding.wikitextButtonStrikethrough.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "<s>", "</s>")
-                callback?.onSyntaxOverlayClicked()
             }
         }
         binding.wikitextButtonSup.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "<sup>", "</sup>")
-                callback?.onSyntaxOverlayClicked()
             }
         }
         binding.wikitextButtonSub.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "<sub>", "</sub>")
-                callback?.onSyntaxOverlayClicked()
             }
         }
         binding.wikitextButtonTextLarge.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "<big>", "</big>")
-                callback?.onSyntaxOverlayClicked()
             }
         }
         binding.wikitextButtonTextSmall.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "<small>", "</small>")
-                callback?.onSyntaxOverlayClicked()
             }
         }
         binding.wikitextButtonCode.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "<code>", "</code>")
-                callback?.onSyntaxOverlayClicked()
             }
         }
     }
