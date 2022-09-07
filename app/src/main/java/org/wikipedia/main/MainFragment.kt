@@ -1,17 +1,21 @@
 package org.wikipedia.main
 
+import android.Manifest
 import android.app.Activity
 import android.app.ActivityOptions
 import android.app.DownloadManager
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.util.Pair
 import android.view.*
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -66,7 +70,6 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.*
-import org.wikipedia.util.log.L
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
 import org.wikipedia.watchlist.WatchlistActivity
@@ -96,6 +99,14 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     // ask for permission to download a featured image from the feed, we'll have to hold
     // the image we're waiting for permission to download as a bit of state here. :(
     private var pendingDownloadImage: FeaturedImage? = null
+
+    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+        if (isGranted) {
+            pendingDownloadImage?.let { download(it) }
+        } else {
+            FeedbackUtil.showMessage(this, R.string.gallery_save_image_write_permission_rationale)
+        }
+    }
 
     val currentFragment get() = (binding.mainViewPager.adapter as NavTabFragmentPagerAdapter).getFragmentAt(binding.mainViewPager.currentItem)
 
@@ -200,21 +211,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)
-        }
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        when (requestCode) {
-            Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION -> if (PermissionUtil.isPermitted(grantResults)) {
-                pendingDownloadImage?.let {
-                    download(it)
-                }
-            } else {
-                setPendingDownload(null)
-                L.d("Write permission was denied by user")
-                FeedbackUtil.showMessage(this, R.string.gallery_save_image_write_permission_rationale)
-            }
-            else -> super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         }
     }
 
@@ -363,11 +359,11 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     override fun onFeedDownloadImage(image: FeaturedImage) {
-        if (!PermissionUtil.hasWriteExternalStoragePermission(requireContext())) {
-            setPendingDownload(image)
-            requestWriteExternalStoragePermission()
-        } else {
+        pendingDownloadImage = image
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             download(image)
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
     }
 
@@ -498,18 +494,9 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     private fun download(image: FeaturedImage) {
-        setPendingDownload(null)
+        pendingDownloadImage = null
         downloadReceiver.download(requireContext(), image)
         FeedbackUtil.showMessage(this, R.string.gallery_save_progress)
-    }
-
-    private fun setPendingDownload(image: FeaturedImage?) {
-        pendingDownloadImage = image
-    }
-
-    private fun requestWriteExternalStoragePermission() {
-        PermissionUtil.requestWriteStorageRuntimePermissions(this,
-                Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION)
     }
 
     fun openSearchActivity(source: InvokeSource, query: String?, transitionView: View?) {
