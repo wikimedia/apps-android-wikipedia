@@ -38,7 +38,7 @@ class SyntaxHighlightableEditText : EditText {
     private val lineNumberPaint = TextPaint()
     private val lineNumberBackgroundPaint = Paint()
     private val isRtl: Boolean = resources.configuration.layoutDirection == LAYOUT_DIRECTION_RTL
-    private val paddingWithoutLineNumbers = DimenUtil.roundedDpToPx(8f)
+    private val paddingWithoutLineNumbers = DimenUtil.roundedDpToPx(12f)
     private val paddingWithLineNumbers = DimenUtil.roundedDpToPx(36f)
     private val lineNumberGapWidth = DimenUtil.roundedDpToPx(8f)
     private val gutterRect = Rect()

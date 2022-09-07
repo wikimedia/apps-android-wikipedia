@@ -15,9 +15,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
 import androidx.core.os.postDelayed
-import androidx.core.view.isGone
-import androidx.core.view.isVisible
-import androidx.core.view.postDelayed
+import androidx.core.view.*
 import androidx.core.widget.doAfterTextChanged
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -237,6 +235,19 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
         binding.editSectionText.setOnClickListener { finishActionMode() }
         onEditingPrefsChanged()
+
+        binding.editSectionContainer.viewTreeObserver.addOnGlobalLayoutListener {
+            binding.editSectionContainer.post {
+                if (!isDestroyed) {
+                    if (window.decorView.height - binding.editSectionContainer.height > DimenUtil.roundedDpToPx(150f)) {
+                        binding.editKeyboardOverlayContainer.isVisible = true
+                    } else {
+                        hideAllSyntaxModals()
+                        binding.editKeyboardOverlayContainer.isVisible = false
+                    }
+                }
+            }
+        }
 
         // set focus to the EditText, but keep the keyboard hidden until the user changes the cursor location:
         binding.editSectionText.requestFocus()
