@@ -13,6 +13,7 @@ import org.wikipedia.page.PageTitle
 class WikiTextKeyboardView : FrameLayout {
     interface Callback {
         fun onPreviewLink(title: String)
+        fun onRequestInsertMedia()
         fun onRequestInsertLink()
         fun onRequestHeading()
         fun onRequestFormatting()
@@ -68,6 +69,10 @@ class WikiTextKeyboardView : FrameLayout {
 
         binding.wikitextButtonListNumbered.setOnClickListener {
             editText?.inputConnection?.commitText("\n# ", 1)
+        }
+
+        binding.wikitextButtonInsertMedia.setOnClickListener {
+            callback?.onRequestInsertMedia()
         }
 
         binding.wikitextButtonPreviewLink.setOnClickListener {

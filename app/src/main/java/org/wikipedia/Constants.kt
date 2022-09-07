@@ -106,7 +106,8 @@ object Constants {
         TOOLBAR("toolbar"),
         VOICE("voice"),
         WATCHLIST_ACTIVITY("watchlist"),
-        WIDGET("widget")
+        WIDGET("widget"),
+        USER_CONTRIB_ACTIVITY("userContribActivity"),
     }
 
     enum class ImageEditType(name: String) {
