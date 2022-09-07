@@ -1,6 +1,8 @@
 package org.wikipedia.language
 
 import android.content.Context
+import org.wikipedia.Constants
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
@@ -123,6 +125,14 @@ class AppLanguageState(context: Context) {
         if (_appLanguageCodes.size > 1) {
             _appLanguageCodes.removeAll(codes)
             Prefs.appLanguageCodeList = _appLanguageCodes
+        }
+    }
+
+    fun getWikiLanguageName(langCode: String): String {
+        return when (langCode) {
+            Constants.WIKI_CODE_COMMONS -> WikipediaApp.instance.getString(R.string.wikimedia_commons)
+            Constants.WIKI_CODE_WIKIDATA -> WikipediaApp.instance.getString(R.string.wikidata)
+            else -> getAppLanguageCanonicalName(langCode).orEmpty().ifEmpty { langCode }
         }
     }
 

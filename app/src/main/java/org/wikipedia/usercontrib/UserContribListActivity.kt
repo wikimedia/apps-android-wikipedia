@@ -47,8 +47,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.*
 import org.wikipedia.views.SearchAndFilterActionProvider
@@ -78,16 +76,12 @@ class UserContribListActivity : BaseActivity() {
     private val requestLanguageChange = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
             it.data?.let { intent ->
-                if (intent.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
-                    val pos = intent.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
-                    if (pos < WikipediaApp.instance.languageState.appLanguageCodes.size) {
-                        viewModel.langCode = WikipediaApp.instance.languageState.appLanguageCodes[pos]
-                        updateLangButton()
-                        viewModel.clearCache()
-                        viewModel.loadStats()
-                        userContribListAdapter.reload()
-                    }
-                }
+                viewModel.langCode = intent.getStringExtra(UserContribWikiSelectActivity.INTENT_EXTRA_SELECT_LANG_CODE).orEmpty()
+                        .ifEmpty { WikipediaApp.instance.appOrSystemLanguageCode }
+                updateLangButton()
+                viewModel.clearCache()
+                viewModel.loadStats()
+                userContribListAdapter.reload()
             }
         }
     }
@@ -119,7 +113,7 @@ class UserContribListActivity : BaseActivity() {
         })
 
         binding.langButtonContainer.setOnClickListener {
-            requestLanguageChange.launch(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.USER_CONTRIB_ACTIVITY))
+            requestLanguageChange.launch(UserContribWikiSelectActivity.newIntent(this, viewModel.langCode))
         }
         updateLangButton()
 
@@ -320,7 +314,8 @@ class UserContribListActivity : BaseActivity() {
         fun bindItem() {
             val statsFlowValue = viewModel.userContribStatsData.value
             if (statsFlowValue is Resource.Success) {
-                view.setup(viewModel.userName, statsFlowValue.data, linkMovementMethod, UriUtil.getUserPageTitle(viewModel.userName, viewModel.langCode))
+                view.setup(viewModel.userName, statsFlowValue.data, linkMovementMethod, UriUtil.getUserPageTitle(viewModel.userName, viewModel.langCode),
+                        WikipediaApp.instance.languageState.getWikiLanguageName(viewModel.langCode))
             }
         }
     }

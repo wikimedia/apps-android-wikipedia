@@ -8,7 +8,9 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.map
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.UserContribution
@@ -27,8 +29,13 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
     var userName: String = bundle.getString(UserContribListActivity.INTENT_EXTRA_USER_NAME)!!
     var langCode: String = WikipediaApp.instance.appOrSystemLanguageCode
 
-    val wikiSite
-        get() = WikiSite.forLanguageCode(langCode)
+    val wikiSite get(): WikiSite {
+        return when (langCode) {
+            Constants.WIKI_CODE_COMMONS -> { WikiSite(Service.COMMONS_URL) }
+            Constants.WIKI_CODE_WIKIDATA -> { WikiSite(Service.WIKIDATA_URL) }
+            else -> { WikiSite.forLanguageCode(langCode) }
+        }
+    }
 
     var currentQuery = ""
     var actionModeActive = false
