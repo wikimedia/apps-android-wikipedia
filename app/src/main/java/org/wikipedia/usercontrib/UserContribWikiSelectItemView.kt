@@ -39,7 +39,7 @@ class UserContribWikiSelectItemView constructor(context: Context, attrs: Attribu
 
     fun setContents(item: UserContribWikiSelectActivity.Item, checked: Boolean) {
         this.item = item
-        binding.wikiTitle.text = getTitleFor(item.itemCode)
+        binding.wikiTitle.text = WikipediaApp.instance.languageState.getWikiLanguageName(item.itemCode)
         binding.itemCheck.isVisible = checked
         getTitleCodeFor(item.itemCode)?.let {
             binding.languageCode.text = it
@@ -73,13 +73,5 @@ class UserContribWikiSelectItemView constructor(context: Context, attrs: Attribu
     private fun getTitleCodeFor(itemCode: String): String? {
         return if (itemCode == Constants.WIKI_CODE_COMMONS || itemCode == Constants.WIKI_CODE_WIKIDATA) null
         else itemCode
-    }
-
-    private fun getTitleFor(itemCode: String): String {
-        return when (itemCode) {
-            Constants.WIKI_CODE_COMMONS -> context.getString(R.string.wikimedia_commons)
-            Constants.WIKI_CODE_WIKIDATA -> context.getString(R.string.wikidata)
-            else -> WikipediaApp.instance.languageState.getAppLanguageCanonicalName(itemCode).orEmpty()
-        }
     }
 }
