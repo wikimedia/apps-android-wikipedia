@@ -25,7 +25,7 @@ class UserContribStatsView constructor(context: Context, attrs: AttributeSet? = 
         setPadding(padding, 0, padding, 0)
     }
 
-    fun setup(userName: String, stats: UserContribListViewModel.UserContribStats, movementMethod: MovementMethod, userPageTitle: PageTitle, wikiName: String) {
+    fun setup(userName: String, stats: UserContribListViewModel.UserContribStats, movementMethod: MovementMethod, userPageTitle: PageTitle) {
         binding.userNameView.text = StringUtil.fromHtml(context.getString(R.string.user_contrib_activity_title,
                 "<a href='" + userPageTitle.uri + "'>$userName</a>"))
         binding.userNameView.movementMethod = movementMethod
@@ -35,7 +35,7 @@ class UserContribStatsView constructor(context: Context, attrs: AttributeSet? = 
             val regYear = DateUtil.getYearOnlyDateString(stats.registrationDate)
             binding.editCountsView.isVisible = true
             binding.editCountsView.text = context.resources.getQuantityString(R.plurals.edits_since_year_per_wiki,
-                    stats.totalEdits, stats.totalEdits, regYear, wikiName)
+                    stats.totalEdits, stats.totalEdits, regYear, stats.projectName)
         } else {
             binding.editCountsView.isVisible = false
         }

@@ -75,8 +75,11 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
             L.e(throwable)
         }) {
             withContext(Dispatchers.IO) {
-                val userInfo = ServiceFactory.get(wikiSite).userInfo(userName).query?.users!![0]
-                userContribStatsData.postValue(Resource.Success(UserContribStats(userInfo.editCount, userInfo.registrationDate)))
+                val messageName = "project-localized-name-${wikiSite.dbName()}"
+                val query = ServiceFactory.get(wikiSite).userInfoWithMessages(userName, messageName).query
+
+                userContribStatsData.postValue(Resource.Success(UserContribStats(query?.users!![0].editCount,
+                        query.users[0].registrationDate, query.allmessages.orEmpty().getOrNull(0)?.content.orEmpty().ifEmpty { wikiSite.dbName() })))
             }
         }
     }
@@ -115,7 +118,7 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
     open class UserContribItemModel
     class UserContribItem(val item: UserContribution) : UserContribItemModel()
     class UserContribSeparator(val date: String) : UserContribItemModel()
-    class UserContribStats(val totalEdits: Int, val registrationDate: Date) : UserContribItemModel()
+    class UserContribStats(val totalEdits: Int, val registrationDate: Date, val projectName: String) : UserContribItemModel()
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")

@@ -314,8 +314,7 @@ class UserContribListActivity : BaseActivity() {
         fun bindItem() {
             val statsFlowValue = viewModel.userContribStatsData.value
             if (statsFlowValue is Resource.Success) {
-                view.setup(viewModel.userName, statsFlowValue.data, linkMovementMethod, UriUtil.getUserPageTitle(viewModel.userName, viewModel.langCode),
-                        WikipediaApp.instance.languageState.getWikiLanguageName(viewModel.langCode))
+                view.setup(viewModel.userName, statsFlowValue.data, linkMovementMethod, UriUtil.getUserPageTitle(viewModel.userName, viewModel.langCode))
             }
         }
     }
