@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import org.wikipedia.databinding.ViewWikitextKeyboardHeadingsBinding
+import org.wikipedia.util.FeedbackUtil
 
 class WikiTextKeyboardHeadingsView : FrameLayout {
     private val binding = ViewWikitextKeyboardHeadingsBinding.inflate(LayoutInflater.from(context), this)
@@ -19,6 +20,7 @@ class WikiTextKeyboardHeadingsView : FrameLayout {
         binding.closeButton.setOnClickListener {
             callback?.onSyntaxOverlayCollapse()
         }
+        FeedbackUtil.setButtonLongPressToast(binding.closeButton)
         binding.wikitextButtonH2.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "==", "==")

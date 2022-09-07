@@ -87,7 +87,7 @@
             android:background="?attr/selectableItemBackground"
             app:srcCompat="@drawable/ic_close_black_24dp"
             app:tint="?attr/colorAccent"
-            android:contentDescription="@null" />
+            android:contentDescription="@string/table_close" />
 
     </LinearLayout>
 

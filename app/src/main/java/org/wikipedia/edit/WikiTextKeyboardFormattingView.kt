@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import org.wikipedia.databinding.ViewWikitextKeyboardFormattingBinding
+import org.wikipedia.util.FeedbackUtil
 
 class WikiTextKeyboardFormattingView : FrameLayout {
     private val binding = ViewWikitextKeyboardFormattingBinding.inflate(LayoutInflater.from(context), this)
@@ -19,6 +20,7 @@ class WikiTextKeyboardFormattingView : FrameLayout {
         binding.closeButton.setOnClickListener {
             callback?.onSyntaxOverlayCollapse()
         }
+        FeedbackUtil.setButtonLongPressToast(binding.closeButton)
         binding.wikitextButtonBold.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "'''", "'''")
