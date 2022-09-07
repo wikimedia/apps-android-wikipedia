@@ -3,7 +3,6 @@ package org.wikipedia.edit.summaries
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.graphics.Typeface
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.util.SparseArray
@@ -38,15 +37,14 @@ class EditSummaryFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var editSummaryHandler: EditSummaryHandler
+    private lateinit var localizeSummaryTags: SparseArray<String>
     lateinit var title: PageTitle
-    lateinit var localizeSummaryTags: SparseArray<String>
 
     val summary get() = binding.editSummaryText.text.toString()
     val isMinorEdit get() = binding.minorEditCheckBox.isChecked
     val watchThisPage get() = binding.watchPageCheckBox.isChecked
     val isActive get() = binding.root.visibility == View.VISIBLE
 
-    private val chipTypeFace = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private val summaryTagStrings = intArrayOf(R.string.edit_summary_tag_typo, R.string.edit_summary_tag_grammar, R.string.edit_summary_tag_links)
 
     private val voiceSearchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {

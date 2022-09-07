@@ -119,12 +119,7 @@
             android:textAlignment="viewStart"
             android:textAllCaps="false"
             android:textColor="?attr/colorAccent"
-            android:textSize="16sp"
-            app:icon="@drawable/ic_open_in_new_black_24px"
-            app:iconGravity="end"
-            app:iconPadding="12dp"
-            app:iconSize="24dp"
-            app:iconTint="?attr/colorAccent" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
