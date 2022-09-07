@@ -71,21 +71,6 @@
             android:textSize="12sp"
             android:textStyle="bold"/>
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="?attr/color_group_60" />
-
-        <ImageView
-            android:id="@+id/close_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="12dp"
-            android:background="?attr/selectableItemBackground"
-            app:srcCompat="@drawable/ic_close_black_24dp"
-            app:tint="?attr/colorAccent"
-            android:contentDescription="@string/table_close" />
-
     </LinearLayout>
 
     <View
@@ -97,5 +82,23 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?attr/color_group_60" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="48dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="48dp"
+        android:background="?attr/color_group_60" />
+
+    <ImageView
+        android:id="@+id/close_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="12dp"
+        android:layout_gravity="end"
+        android:background="?attr/selectableItemBackground"
+        app:srcCompat="@drawable/ic_close_black_24dp"
+        app:tint="?attr/colorAccent"
+        android:contentDescription="@string/table_close" />
 
 </merge>
