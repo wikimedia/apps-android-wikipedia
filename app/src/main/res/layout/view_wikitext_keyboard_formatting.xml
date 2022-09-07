@@ -58,14 +58,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:buttonHint="@string/wikitext_italic"
-            app:buttonImage="@drawable/ic_text_large_24" />
+            app:buttonImage="@drawable/ic_oojs_text_bigger" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
             android:id="@+id/wikitext_button_text_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:buttonHint="@string/wikitext_italic"
-            app:buttonImage="@drawable/ic_text_small_24" />
+            app:buttonImage="@drawable/ic_oojs_text_smaller" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
             android:id="@+id/wikitext_button_code"
