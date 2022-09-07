@@ -15,7 +15,7 @@
             android:id="@+id/wikitext_button_text_format"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonHint="Formatting"
+            app:buttonHint="@string/wikitext_formatting"
             app:buttonImage="@drawable/ic_format_bold_black_24dp" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:buttonText="H1"
-            app:buttonHint="Headings" />
+            app:buttonHint="@string/wikitext_headings" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
             android:id="@+id/wikitext_button_list_bulleted"
@@ -54,13 +54,6 @@
             app:buttonImage="@drawable/ic_redo_themed_24dp" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
-            android:id="@+id/wikitext_button_insert_media"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:buttonHint="@string/wikitext_insert_media"
-            app:buttonImage="@drawable/ic_image_themed_24dp" />
-
-        <org.wikipedia.views.WikitextKeyboardButtonView
             android:id="@+id/wikitext_button_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,11 +61,18 @@
             app:buttonImage="@drawable/ic_link_black_24dp" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_insert_media"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_insert_media"
+            app:buttonImage="@drawable/ic_image_themed_24dp" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
             android:id="@+id/wikitext_button_template"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:buttonHint="@string/wikitext_template"
-            app:buttonImage="@drawable/ic_oojs_ui_icon_code" />
+            app:buttonImage="@drawable/ic_puzzle" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
             android:id="@+id/wikitext_button_ref"

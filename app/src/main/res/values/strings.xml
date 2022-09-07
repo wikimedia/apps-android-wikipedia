@@ -1131,7 +1131,16 @@
 
     <string name="wikitext_bold">Bold</string>
     <string name="wikitext_italic">Italic</string>
+    <string name="wikitext_underline">Underline</string>
+    <string name="wikitext_strikethrough">Strikethrough</string>
+    <string name="wikitext_sup">Superscript</string>
+    <string name="wikitext_sub">Subscript</string>
+    <string name="wikitext_large">Large text</string>
+    <string name="wikitext_small">Small text</string>
+    <string name="wikitext_code">Code</string>
     <string name="wikitext_link">Link</string>
+    <string name="wikitext_formatting">Formatting</string>
+    <string name="wikitext_headings">Headings</string>
     <string name="wikitext_insert_media">Insert media</string>
     <string name="wikitext_bulleted_list">Bulleted list</string>
     <string name="wikitext_numbered_list">Numbered list</string>

@@ -1080,6 +1080,15 @@
   <string name="content_description_for_page_indicator">Label of content description for tutorial page. %1$d will be replaced by the current number of pages and %2$d will be replaced by the total number of pages.</string>
   <string name="wikitext_bold">Button label for making the selected text bold.</string>
   <string name="wikitext_italic">Button label for making the selected text italic.</string>
+  <string name="wikitext_underline">Button label for underlining the selected text.</string>
+  <string name="wikitext_strikethrough">Button label for making the selected text as strikethrough.</string>
+  <string name="wikitext_sup">Button label for making the selected text as superscript.</string>
+  <string name="wikitext_sub">Button label for making the selected text as subscript.</string>
+  <string name="wikitext_large">Button label for making the selected text large.</string>
+  <string name="wikitext_small">Button label for making the selected text small.</string>
+  <string name="wikitext_code">Button label for putting the selected text in a code tag.</string>
+  <string name="wikitext_formatting">Button label for showing options for formatting text.</string>
+  <string name="wikitext_headings">Button label for showing options for inserting headings into the text.</string>
   <string name="wikitext_link">Button label for making the selected text into a link.\n{{Identical|Link}}</string>
   <string name="wikitext_insert_media">Button label for adding a media at the current cursor position.</string>
   <string name="wikitext_bulleted_list">Button label for starting a bulleted list at the current cursor position.</string>

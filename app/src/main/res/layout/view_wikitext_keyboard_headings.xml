@@ -38,7 +38,7 @@
             android:textColor="?attr/material_theme_primary_color"
             android:text="H3"
             tools:ignore="HardcodedText"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"/>
 
         <TextView
@@ -53,7 +53,7 @@
             android:textColor="?attr/material_theme_primary_color"
             android:text="H4"
             tools:ignore="HardcodedText"
-            android:textSize="14sp"
+            android:textSize="18sp"
             android:textStyle="bold"/>
 
         <TextView
@@ -68,7 +68,7 @@
             android:textColor="?attr/material_theme_primary_color"
             android:text="H5"
             tools:ignore="HardcodedText"
-            android:textSize="12sp"
+            android:textSize="18sp"
             android:textStyle="bold"/>
 
     </LinearLayout>

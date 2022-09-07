@@ -29,49 +29,49 @@
             android:id="@+id/wikitext_button_underline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonHint="@string/wikitext_italic"
+            app:buttonHint="@string/wikitext_underline"
             app:buttonImage="@drawable/ic_underlined_24" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
             android:id="@+id/wikitext_button_strikethrough"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonHint="@string/wikitext_italic"
+            app:buttonHint="@string/wikitext_strikethrough"
             app:buttonImage="@drawable/ic_strikethrough_24" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
             android:id="@+id/wikitext_button_sup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonHint="@string/wikitext_italic"
+            app:buttonHint="@string/wikitext_sup"
             app:buttonImage="@drawable/ic_superscript_24" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
             android:id="@+id/wikitext_button_sub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonHint="@string/wikitext_italic"
+            app:buttonHint="@string/wikitext_sub"
             app:buttonImage="@drawable/ic_subscript_24" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
             android:id="@+id/wikitext_button_text_large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonHint="@string/wikitext_italic"
+            app:buttonHint="@string/wikitext_large"
             app:buttonImage="@drawable/ic_oojs_text_bigger" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
             android:id="@+id/wikitext_button_text_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonHint="@string/wikitext_italic"
+            app:buttonHint="@string/wikitext_small"
             app:buttonImage="@drawable/ic_oojs_text_smaller" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
             android:id="@+id/wikitext_button_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonHint="@string/wikitext_italic"
+            app:buttonHint="@string/wikitext_code"
             app:buttonImage="@drawable/ic_code_24" />
 
         <View
