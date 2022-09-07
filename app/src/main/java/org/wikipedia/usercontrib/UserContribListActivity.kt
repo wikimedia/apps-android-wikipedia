@@ -159,10 +159,22 @@ class UserContribListActivity : BaseActivity() {
     }
 
     private fun updateLangButton() {
-        binding.langButtonText.text = viewModel.langCode.uppercase(Locale.ENGLISH)
         linkHandler.wikiSite = viewModel.wikiSite
-        ViewUtil.formatLangButton(binding.langButtonText, binding.langButtonText.text.toString(),
-                SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+        if (viewModel.langCode == Constants.WIKI_CODE_WIKIDATA) {
+            binding.langButtonText.isVisible = false
+            binding.langButtonIcon.setImageResource(R.drawable.ic_wikidata_logo)
+            binding.langButtonIcon.isVisible = true
+        } else if (viewModel.langCode == Constants.WIKI_CODE_COMMONS) {
+            binding.langButtonText.isVisible = false
+            binding.langButtonIcon.setImageResource(R.drawable.ic_commons_logo)
+            binding.langButtonIcon.isVisible = true
+        } else {
+            binding.langButtonText.isVisible = true
+            binding.langButtonIcon.isVisible = false
+            binding.langButtonText.text = viewModel.langCode.uppercase(Locale.ENGLISH)
+            ViewUtil.formatLangButton(binding.langButtonText, binding.langButtonText.text.toString(),
+                    SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+        }
         FeedbackUtil.setButtonLongPressToast(binding.langButtonContainer)
     }
 

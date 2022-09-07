@@ -56,6 +56,17 @@
                     android:focusable="false"
                     android:fontFamily="sans-serif-medium"
                     android:textColor="@android:color/white" />
+
+                <ImageView
+                    android:id="@+id/langButtonIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:clickable="false"
+                    android:focusable="false"
+                    app:tint="?attr/material_theme_secondary_color"
+                    android:contentDescription="@null" />
+
             </FrameLayout>
 
         </LinearLayout>
