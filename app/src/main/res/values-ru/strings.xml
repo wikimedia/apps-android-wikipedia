@@ -1238,6 +1238,12 @@
   <string name="talk_overflow_sort_date_published">Дата публикации</string>
   <string name="talk_overflow_sort_date_updated">Дата обновления</string>
   <string name="talk_overflow_sort_topic_name">Название темы</string>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Скрыть ответ</item>
+    <item quantity="few">Скрыть ответы (%d)</item>
+    <item quantity="many">Скрыть ответы (%d)</item>
+    <item quantity="other">Скрыть ответы (%d)</item>
+  </plurals>
   <string name="talk_thread_subscribed_to">Подписаны на «%s»</string>
   <string name="talk_thread_unsubscribed_from">Отписаны от «%s»</string>
   <string name="talk_list_item_overflow_subscribe">Подписаться</string>
