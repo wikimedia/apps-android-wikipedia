@@ -387,6 +387,20 @@
   <string name="wikitext_template">Կաղապար</string>
   <string name="wikitext_reference">Ծանոթագրություն</string>
   <string name="wikitext_preview_link">Հղման նախադիտում</string>
+  <string name="insert_media_title">Տեղադրեք մեդիա</string>
+  <string name="insert_media_search_hint">Որոնել մեդիա</string>
+  <string name="insert_media_settings_alternative_text">Այլընտրանքային տեքստ</string>
+  <string name="insert_media_advanced_settings">Լրացուցիչ կարգավորումներ</string>
+  <string name="insert_media_advanced_settings_image_position_right">Աջից</string>
+  <string name="insert_media_advanced_settings_image_position_left">Ձախից</string>
+  <string name="insert_media_advanced_settings_image_position_center">Մեջտեղով</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Մանրապատկեր</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Անշրջանակ</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Շրջանակով</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Հիմնական</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Լայնք</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Բարձրություն</string>
+  <string name="insert_media_insert_button">Ավելացնել</string>
   <string name="main_drawer_help">Օգնություն</string>
   <string name="main_drawer_login">Մուտք գործել / միացել Վիքիպեդիային</string>
   <string name="main_tooltip_action_button">Սկսել</string>
@@ -426,4 +440,9 @@
   <string name="watchlist_filter_pages">Էջեր</string>
   <string name="watchlist_page_protected">Պաշտպանված է</string>
   <string name="search_namespaces">Անվանատարածքներ</string>
+  <string name="user_contrib_filter_ns">Զտել ըստ անվանատարածքի</string>
+  <string name="user_contrib_filter_all">Բոլոր խմբագրումները</string>
+  <string name="namespace_article">Հոդված</string>
+  <string name="user_contrib_current">ընթացիկ</string>
+  <string name="user_contrib_menu_label">Ներդրումներ</string>
 </resources>

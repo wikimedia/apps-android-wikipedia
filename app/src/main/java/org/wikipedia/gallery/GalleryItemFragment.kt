@@ -1,11 +1,15 @@
 package org.wikipedia.gallery
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.MediaController
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.load.DataSource
@@ -46,6 +50,14 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
     var imageTitle: PageTitle? = null
     var mediaPage: MwQueryPage? = null
     val mediaInfo get() = mediaPage?.imageInfo()
+
+    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+        if (isGranted) {
+            saveImage()
+        } else {
+            FeedbackUtil.showMessage(requireActivity(), R.string.gallery_save_image_write_permission_rationale)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -137,17 +149,11 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
     }
 
     private fun handleImageSaveRequest() {
-        if (!PermissionUtil.hasWriteExternalStoragePermission(requireActivity())) {
-            requestWriteExternalStoragePermission()
-        } else {
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             saveImage()
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
-    }
-
-    private fun requestWriteExternalStoragePermission() {
-        PermissionUtil.requestWriteStorageRuntimePermissions(this,
-            Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION
-        )
     }
 
     private fun loadMedia() {
@@ -277,19 +283,6 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
                     }
                 }
             }[requireContext()]
-        }
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        if (requestCode == Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION) {
-            if (PermissionUtil.isPermitted(grantResults)) {
-                saveImage()
-            } else {
-                L.e("Write permission was denied by user")
-                FeedbackUtil.showMessage(requireActivity(), R.string.gallery_save_image_write_permission_rationale)
-            }
-        } else {
-            throw RuntimeException("unexpected permission request code $requestCode")
         }
     }
 

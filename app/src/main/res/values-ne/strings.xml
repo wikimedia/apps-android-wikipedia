@@ -8,6 +8,7 @@
 * Parbat subedi
 * Suniltheblue
 * पर्वत सुबेदी
+* बडा काजी
 * राम प्रसाद जोशी
 * सरोज कुमार ढकाल
 * हिमाल सुबेदी
@@ -60,6 +61,8 @@
   <string name="menu_page_show_tabs">ट्याबहरू देखाउनुहोस्</string>
   <string name="menu_page_other_languages">भाषा परिवर्तन गर्नुहोस्</string>
   <string name="menu_page_find_in_page" fuzzy="true">पृष्ठमा खोज्नुहोस्</string>
+  <string name="menu_page_add_to_watchlist">अवलोकनसूचीमा थप्नुहोस्</string>
+  <string name="menu_page_unwatch">अवलोकनसूचीबाट हटाउनुहोस्</string>
   <string name="menu_page_view_talk">वार्तालाप पृष्ठ हेर्नुहोस्</string>
   <string name="menu_page_talk_page">वार्तालाप</string>
   <string name="menu_page_view_edit_history">सम्पादन इतिहास हेर्नुहोस्</string>
@@ -126,7 +129,7 @@
   <string name="reading_lists_sync_login">प्रवेश</string>
   <string name="create_account_login">प्रवेश</string>
   <string name="menu_login">प्रवेश</string>
-  <string name="login_activity_title" fuzzy="true">विकिपिडियामा प्रवेश गर्नुहोस्</string>
+  <string name="login_activity_title">प्रवेश गर्नुहोस्</string>
   <string name="login_in_progress_dialog_message">तपाईलाई प्रवेश गराउँदै…</string>
   <string name="login_success_toast">प्रवेश भयो!</string>
   <string name="reset_password_title">तपाईको प्रवेश शब्द लेख्नुहोस्</string>
@@ -239,6 +242,7 @@
   <string name="edit_summary_tag_other">अन्य</string>
   <string name="edit_summary_tag_other_hint">तपाईँले पृष्ठमा सुधार गर्नुभएका अन्य तरिकाहरू</string>
   <string name="edit_conflict_title">सम्पादन द्वन्द</string>
+  <string name="edit_notices">सूचनाहरू सम्पादन गर्नुहाेस्</string>
   <string name="edit_notices_please_read">कृपया सम्पादन गर्नु अघि पढ्नुहोस्</string>
   <string name="find_next">अर्को खोज्नुहोस्</string>
   <string name="find_previous">पछिल्लो खोज्नुहोस्</string>
@@ -409,7 +413,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_split_dialog_ok_button_text">हुन्छ</string>
-  <string name="user_option_sync_label">प्राथमिकताहरू</string>
+  <string name="user_option_sync_label">अभिरुचीहरू</string>
   <string name="notification_reverted_title">उल्ट्याइएको सम्पादन</string>
   <string name="notification_channel_description">डाउनलोड प्रगति</string>
   <string name="notification_syncing_pause_button">रोक्नुहोस्</string>
@@ -654,6 +658,7 @@
   <string name="wikitext_template">ढाँचा</string>
   <string name="wikitext_reference">सन्दर्भ</string>
   <string name="wikitext_preview_link">लिङ्क पूर्वावलोकन</string>
+  <string name="insert_media_advanced_settings_image_position_left">बायाँ</string>
   <string name="main_drawer_help">सहायता</string>
   <string name="main_drawer_login">विकिपिडियामा लग इन/सहभागी हुनुहोस्</string>
   <string name="main_tooltip_text" fuzzy="true">%s, जो कसैले पनि विकिपिडिया सम्पादन गर्न सक्नुहुन्छ भन्ने थाह थियो?</string>
