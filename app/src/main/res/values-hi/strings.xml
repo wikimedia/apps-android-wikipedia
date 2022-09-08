@@ -507,7 +507,7 @@
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%d लेख को %s से हटाया गया</item>
-    <item quantity="other">% d लेखों को %s से हटाया गया</item>
+    <item quantity="other">%d लेखों को %s से हटाया गया</item>
   </plurals>
   <string name="reading_list_items_deleted">%d लेख सूची से हटाये गए</string>
   <string name="reading_lists_item_deleted">%s को सूचियों से हटाया गया</string>
