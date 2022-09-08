@@ -922,10 +922,10 @@
   <string name="suggested_edits_quality_bad_text">Slaba</string>
   <string name="suggested_edits_label">Predlagana urejanja</string>
   <plurals name="suggested_edits_contribution">
-    <item quantity="one">prispevek</item>
-    <item quantity="two">prispevki</item>
-    <item quantity="few">prispevki</item>
-    <item quantity="other">prispevki</item>
+    <item quantity="one">Prispevek</item>
+    <item quantity="two">Prispevki</item>
+    <item quantity="few">Prispevki</item>
+    <item quantity="other">Prispevki</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d dan</item>

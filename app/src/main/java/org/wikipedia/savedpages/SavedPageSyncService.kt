@@ -164,10 +164,6 @@ class SavedPageSyncService : JobIntentService() {
                     Observable.zip(Observable.just(rsp),
                             reqMediaList(pageTitle, revision),
                             reqMobileHTML(pageTitle)) { summaryRsp, mediaListRsp, mobileHTMLRsp ->
-                        page.downloadProgress = SUMMARY_PROGRESS
-                        app.bus.post(PageDownloadEvent(page))
-                        page.downloadProgress = MOBILE_HTML_SECTION_PROGRESS
-                        app.bus.post(PageDownloadEvent(page))
                         page.downloadProgress = MEDIA_LIST_PROGRESS
                         app.bus.post(PageDownloadEvent(page))
                         val fileUrls = mutableSetOf<String>()
@@ -316,7 +312,6 @@ class SavedPageSyncService : JobIntentService() {
         private const val ENQUEUE_DELAY_MILLIS = 2000L
         private const val TOKEN = "syncSavedPages"
         const val SUMMARY_PROGRESS = 10
-        const val MOBILE_HTML_SECTION_PROGRESS = 20
         const val MEDIA_LIST_PROGRESS = 30
 
         fun enqueue() {
