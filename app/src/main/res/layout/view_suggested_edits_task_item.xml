@@ -68,13 +68,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/taskDescription"
-            app:layout_constraintStart_toStartOf="@id/taskDescription"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:flow_horizontalGap="8dp"
-            android:layout_marginStart="-4dp"
-            app:flow_horizontalStyle="packed"
-            app:flow_horizontalBias="0"
+            app:flow_horizontalAlign="center"
             app:flow_wrapMode="chain"
             app:constraint_referenced_ids="primaryButton,secondaryButton"/>
 
