@@ -3,6 +3,7 @@ package org.wikipedia.edit.summaries
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.util.SparseArray
@@ -82,15 +83,15 @@ class EditSummaryFragment : Fragment() {
         }
 
         binding.learnMoreButton.setOnClickListener {
-            CustomTabsUtil.openInCustomTab(requireContext(), getString(R.string.preview_edit_learn_more_url))
+            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.preview_edit_learn_more_url)))
         }
 
         binding.minorEditHelpButton.setOnClickListener {
-            CustomTabsUtil.openInCustomTab(requireContext(), getString(R.string.preview_edit_minor_edit_url))
+            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.preview_edit_minor_edit_url)))
         }
 
         binding.watchPageHelpButton.setOnClickListener {
-            CustomTabsUtil.openInCustomTab(requireContext(), getString(R.string.preview_edit_watch_this_page_url))
+            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.preview_edit_watch_this_page_url)))
         }
 
         getWatchedStatus()
