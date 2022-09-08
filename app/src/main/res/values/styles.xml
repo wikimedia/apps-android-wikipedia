@@ -115,6 +115,11 @@
         <item name="titleTextAppearance">@style/ToolBarTitleText</item>
     </style>
 
+    <style name="ToolbarStyleSmall" parent="ToolbarStyle">
+        <item name="titleTextStyle">@style/ToolBarTitleTextSmall</item>
+        <item name="titleTextAppearance">@style/ToolBarTitleTextSmall</item>
+    </style>
+
     <style name="ToolbarPopupTheme" parent="ThemeOverlay.MaterialComponents">
         <item name="android:backgroundTint">?android:colorBackground</item>
         <item name="android:textColor">?attr/color_group_9</item>
@@ -134,6 +139,10 @@
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ToolBarTitleTextSmall" parent="ToolBarTitleText">
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">

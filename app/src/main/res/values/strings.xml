@@ -1131,11 +1131,44 @@
     <string name="wikitext_bold">Bold</string>
     <string name="wikitext_italic">Italic</string>
     <string name="wikitext_link">Link</string>
+    <string name="wikitext_insert_media">Insert media</string>
     <string name="wikitext_bulleted_list">Bulleted list</string>
     <string name="wikitext_numbered_list">Numbered list</string>
     <string name="wikitext_template">Template</string>
     <string name="wikitext_reference">Reference</string>
     <string name="wikitext_preview_link">Preview link</string>
+
+    <!-- Insert media -->
+    <string name="insert_media_title">Insert media</string>
+    <string name="insert_media_search_description">Select a file from Wikimedia Commons</string>
+    <string name="insert_media_search_hint">Search media</string>
+    <string name="insert_media_settings">Media settings</string>
+    <string name="insert_media_settings_uploaded_image">Uploaded image</string>
+    <string name="insert_media_settings_caption">Caption</string>
+    <string name="insert_media_settings_caption_description">Label that shows next to the item for all readers</string>
+    <string name="insert_media_settings_alternative_text">Alternative text</string>
+    <string name="insert_media_settings_alternative_text_description">Text description for readers who cannot see the image</string>
+    <string name="insert_media_advanced_settings">Advanced settings</string>
+    <string name="insert_media_advanced_settings_wrap_image">Wrap text around image</string>
+    <string name="insert_media_advanced_settings_image_position">Image position</string>
+    <string name="insert_media_advanced_settings_image_position_right">Right</string>
+    <string name="insert_media_advanced_settings_image_position_left">Left</string>
+    <string name="insert_media_advanced_settings_image_position_center">Center</string>
+    <string name="insert_media_advanced_settings_image_position_none">None</string>
+    <string name="insert_media_advanced_settings_image_type">Image type</string>
+    <string name="insert_media_advanced_settings_image_type_thumbnail">Thumbnail</string>
+    <string name="insert_media_advanced_settings_image_type_frameless">Frameless</string>
+    <string name="insert_media_advanced_settings_image_type_frame">Frame</string>
+    <string name="insert_media_advanced_settings_image_type_basic">Basic</string>
+    <string name="insert_media_advanced_settings_image_type_tip">You can set how the media item appears on the page. This should be the thumbnail format to be consistent with other pages in almost all cases.</string>
+    <string name="insert_media_advanced_settings_image_size">Image size</string>
+    <string name="insert_media_advanced_settings_image_size_default">Default</string>
+    <string name="insert_media_advanced_settings_image_size_custom">Custom</string>
+    <string name="insert_media_advanced_settings_image_size_custom_width">Width</string>
+    <string name="insert_media_advanced_settings_image_size_custom_height">Height</string>
+    <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
+    <string name="insert_media_insert_button">Insert</string>
+    <!-- /Insert media -->
 
     <string name="main_drawer_help">Help</string>
     <string name="main_drawer_login">Log in / join Wikipedia</string>
@@ -1273,7 +1306,13 @@
     <string name="subcategory_empty">No subcategories found in this category.</string>
     <string name="search_namespaces">Namespaces</string>
     <string name="revision_initial_none">None (this is the first revision)</string>
+    <string name="user_contrib_activity_title">Contributions of %s</string>
     <string name="archive_empty">No archived pages found.</string>
+    <string name="user_contrib_filter_ns">Filter by namespace</string>
+    <string name="user_contrib_filter_all">All edits</string>
+    <string name="namespace_article">Article</string>
+    <string name="user_contrib_current">current</string>
     <string name="media_playback_error">Error playing media.</string>
+    <string name="user_contrib_menu_label">Contributions</string>
 
 </resources>
