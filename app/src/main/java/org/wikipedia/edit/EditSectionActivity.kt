@@ -209,7 +209,7 @@ class EditSectionActivity : BaseActivity() {
     }
 
     private fun updateEditLicenseText() {
-        val editLicenseText = ActivityCompat.requireViewById<TextView>(this, R.id.edit_section_license_text)
+        val editLicenseText = ActivityCompat.requireViewById<TextView>(this, R.id.licenseText)
         editLicenseText.text = StringUtil.fromHtml(getString(if (isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
                 getString(R.string.terms_of_use_url),
                 getString(R.string.cc_by_sa_3_url)))
@@ -231,10 +231,12 @@ class EditSectionActivity : BaseActivity() {
 
     private fun doSave(token: String) {
         val sectionAnchor = StringUtil.addUnderscores(StringUtil.removeHTMLTags(sectionAnchor.orEmpty()))
+        val isMinorEdit = if (editSummaryFragment.isMinorEdit) true else null
+        val watchThisPage = if (editSummaryFragment.watchThisPage) "watch" else "unwatch"
         var summaryText = if (sectionAnchor.isEmpty() || sectionAnchor == pageTitle.prefixedText) {
             if (pageTitle.wikiSite.languageCode == "en") "/* top */" else ""
         } else "/* ${StringUtil.removeUnderscores(sectionAnchor)} */ "
-        summaryText += editPreviewFragment.summary
+         summaryText += editSummaryFragment.summary
         // Summaries are plaintext, so remove any HTML that's made its way into the summary
         summaryText = StringUtil.removeHTMLTags(summaryText)
         if (!isFinishing) {
@@ -244,7 +246,7 @@ class EditSectionActivity : BaseActivity() {
                 if (sectionID >= 0) sectionID.toString() else null, null, summaryText, if (isLoggedIn) "user" else null,
                 binding.editSectionText.text.toString(), null, currentRevision, token,
                 if (captchaHandler.isActive) captchaHandler.captchaId() else "null",
-                if (captchaHandler.isActive) captchaHandler.captchaWord() else "null")
+                if (captchaHandler.isActive) captchaHandler.captchaWord() else "null", isMinorEdit, watchThisPage)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result ->
@@ -378,16 +380,14 @@ class EditSectionActivity : BaseActivity() {
     fun clickNextButton() {
         when {
             editSummaryFragment.isActive -> {
-                // we're showing the custom edit summary window, so close it and
-                // apply the provided summary.
-                editSummaryFragment.hide()
-                editPreviewFragment.setCustomSummary(editSummaryFragment.summary)
-            }
-            editPreviewFragment.isActive -> {
-                // we're showing the Preview window, which means that the next step is to save it!
                 editTokenThenSave
                 funnel.logSaveAttempt()
                 EditAttemptStepEvent.logSaveAttempt(pageTitle)
+                supportActionBar?.title = getString(R.string.preview_edit_summarize_edit_title)
+            }
+            editPreviewFragment.isActive -> {
+                editSummaryFragment.show()
+                supportActionBar?.title = getString(R.string.preview_edit_summarize_edit_title)
             }
             else -> {
                 // we must be showing the editing window, so show the Preview.
@@ -395,6 +395,8 @@ class EditSectionActivity : BaseActivity() {
                 editPreviewFragment.showPreview(pageTitle, binding.editSectionText.text.toString())
                 funnel.logPreview()
                 EditAttemptStepEvent.logSaveIntent(pageTitle)
+                supportActionBar?.title = getString(R.string.preview_edit_title)
+                setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
             }
         }
     }
@@ -435,20 +437,14 @@ class EditSectionActivity : BaseActivity() {
         menu.findItem(R.id.menu_edit_zoom_in).isVisible = !editPreviewFragment.isActive
         menu.findItem(R.id.menu_edit_zoom_out).isVisible = !editPreviewFragment.isActive
         menu.findItem(R.id.menu_find_in_editor).isVisible = !editPreviewFragment.isActive
-        item.title = getString(if (editPreviewFragment.isActive) R.string.edit_done else R.string.edit_next)
+        item.title = getString(if (editSummaryFragment.isActive) R.string.edit_done else R.string.edit_next)
         if (editingAllowed && binding.viewProgressBar.isGone) {
             item.isEnabled = sectionTextModified
         } else {
             item.isEnabled = false
         }
-        val actionBarButtonBinding = ItemEditActionbarButtonBinding.inflate(layoutInflater)
-        item.actionView = actionBarButtonBinding.root
-        actionBarButtonBinding.editActionbarButtonText.text = item.title
-        actionBarButtonBinding.editActionbarButtonText.setTextColor(ResourceUtil.getThemedColor(this,
-                if (item.isEnabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
-        actionBarButtonBinding.root.tag = item
-        actionBarButtonBinding.root.isEnabled = item.isEnabled
-        actionBarButtonBinding.root.setOnClickListener { onOptionsItemSelected(it.tag as MenuItem) }
+        val summaryFilledOrNotActive = if (editSummaryFragment.isActive) editSummaryFragment.summary.isNotEmpty() else true
+        applyActionBarButtonStyle(item, item.isEnabled && summaryFilledOrNotActive)
         return true
     }
 
@@ -458,6 +454,18 @@ class EditSectionActivity : BaseActivity() {
             // since we disabled the close button in the AndroidManifest.xml, we need to manually setup a close button when in an action mode if long pressed on texts.
             ViewUtil.setCloseButtonInActionMode(this@EditSectionActivity, mode)
         }
+    }
+
+    private fun applyActionBarButtonStyle(menuItem: MenuItem, emphasize: Boolean) {
+        val actionBarButtonBinding = ItemEditActionbarButtonBinding.inflate(layoutInflater)
+        menuItem.actionView = actionBarButtonBinding.root
+        actionBarButtonBinding.editActionbarButtonText.text = menuItem.title
+        actionBarButtonBinding.editActionbarButtonText.setTextColor(
+            ResourceUtil.getThemedColor(this,
+                if (emphasize) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
+        actionBarButtonBinding.root.tag = menuItem
+        actionBarButtonBinding.root.isEnabled = menuItem.isEnabled
+        actionBarButtonBinding.root.setOnClickListener { onOptionsItemSelected(it.tag as MenuItem) }
     }
 
     fun showError(caught: Throwable?) {
@@ -662,12 +670,15 @@ class EditSectionActivity : BaseActivity() {
             binding.viewEditSectionError.visibility = View.GONE
         }
         if (editSummaryFragment.handleBackPressed()) {
+            supportActionBar?.title = getString(R.string.preview_edit_title)
             return
         }
         if (editPreviewFragment.isActive) {
             editPreviewFragment.hide(binding.editSectionContainer)
+            supportActionBar?.title = null
             return
         }
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
         DeviceUtil.hideSoftKeyboard(this)
         if (sectionTextModified) {
             val alert = AlertDialog.Builder(this)
