@@ -95,6 +95,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
 
     override fun onDestroyView() {
         disposables.clear()
+        binding.image.setOnMatrixChangeListener(null)
         binding.image.setOnClickListener(null)
         binding.videoThumbnail.setOnClickListener(null)
         _binding = null
