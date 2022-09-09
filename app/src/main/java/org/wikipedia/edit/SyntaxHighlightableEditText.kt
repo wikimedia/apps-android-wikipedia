@@ -19,6 +19,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
 import android.widget.EditText
+import androidx.annotation.RequiresApi
 import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -192,6 +193,7 @@ class SyntaxHighlightableEditText : EditText {
         return inputConnection
     }
 
+    @RequiresApi(Build.VERSION_CODES.S)
     override fun onReceiveContent(payload: ContentInfo): ContentInfo? {
         var newPayload = payload
         try {
@@ -199,7 +201,6 @@ class SyntaxHighlightableEditText : EditText {
             // with plain text.
             val clip = payload.clip
             val lastClipText = clip.getItemAt(clip.itemCount - 1).coerceToText(context).toString()
-
             newPayload = ContentInfo.Builder(payload)
                     .setClip(ClipData.newPlainText(null, lastClipText))
                     .build()
