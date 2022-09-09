@@ -2,6 +2,7 @@ package org.wikipedia.edit
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
@@ -239,7 +240,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         binding.editSectionContainer.viewTreeObserver.addOnGlobalLayoutListener {
             binding.editSectionContainer.post {
                 if (!isDestroyed) {
-                    if (window.decorView.height - binding.editSectionContainer.height > DimenUtil.roundedDpToPx(150f)) {
+                    if (isHardKeyboardAttached() || window.decorView.height - binding.editSectionContainer.height > DimenUtil.roundedDpToPx(150f)) {
                         binding.editKeyboardOverlayContainer.isVisible = true
                     } else {
                         hideAllSyntaxModals()
@@ -266,6 +267,12 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         binding.editSectionText.removeTextChangedListener(textWatcher)
         syntaxHighlighter.cleanup()
         super.onDestroy()
+    }
+
+    private fun isHardKeyboardAttached(): Boolean {
+        return (resources.configuration.hardKeyboardHidden == Configuration.KEYBOARDHIDDEN_NO &&
+                resources.configuration.keyboard != Configuration.KEYBOARD_UNDEFINED &&
+                resources.configuration.keyboard != Configuration.KEYBOARD_NOKEYS)
     }
 
     private fun updateEditLicenseText() {
@@ -706,14 +713,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     fun showProgressBar(enable: Boolean) {
         binding.viewProgressBar.isVisible = enable
         invalidateOptionsMenu()
-    }
-
-    /**
-     * Shows the custom edit summary input fragment, where the user may enter a summary
-     * that's different from the standard summary tags.
-     */
-    fun showCustomSummary() {
-        editSummaryFragment.show()
     }
 
     override fun onBackPressed() {
