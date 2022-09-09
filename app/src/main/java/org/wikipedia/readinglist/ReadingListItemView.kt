@@ -182,8 +182,16 @@ class ReadingListItemView : ConstraintLayout {
                     list?.let { callback?.onRemoveAllOffline(it) }
                     return true
                 }
+                R.id.menu_reading_list_export -> {
+                    exportListAsCsv()
+                    return true
+                }
                 else -> return false
             }
         }
+    }
+
+    private fun exportListAsCsv() {
+        TODO("Not yet implemented")
     }
 }
