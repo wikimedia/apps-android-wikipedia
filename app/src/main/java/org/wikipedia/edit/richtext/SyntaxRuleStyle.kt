@@ -3,6 +3,8 @@ package org.wikipedia.edit.richtext
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.util.ResourceUtil.getThemedColor
@@ -59,6 +61,7 @@ enum class SyntaxRuleStyle {
         }
     },
     CODE {
+        @RequiresApi(Build.VERSION_CODES.P)
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
             return TypefaceSpanEx(Typeface.MONOSPACE, spanStart, syntaxItem)
         }
