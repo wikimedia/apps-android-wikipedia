@@ -4,6 +4,8 @@
 * Chameleon222
 * Citadell
 * Danmichaelo
+* Dbrant
+* Gabriel Kielland
 * Jeblad
 * JohSan65
 * Jon Harald Søby
@@ -1063,11 +1065,40 @@
   <string name="wikitext_bold">Fet</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Lenke</string>
+  <string name="wikitext_insert_media">Sett inn media</string>
   <string name="wikitext_bulleted_list">Punktliste</string>
   <string name="wikitext_numbered_list">Nummerert liste</string>
   <string name="wikitext_template">Mal</string>
   <string name="wikitext_reference">Referanse</string>
   <string name="wikitext_preview_link">Forhåndsvis lenke</string>
+  <string name="insert_media_title">Sett inn media</string>
+  <string name="insert_media_search_description">Velg en fil fra Wikimedia Commons</string>
+  <string name="insert_media_search_hint">Mediesøk</string>
+  <string name="insert_media_settings">Mediainnstillinger</string>
+  <string name="insert_media_settings_uploaded_image">Last opp bilde</string>
+  <string name="insert_media_settings_caption">Beskrivelse</string>
+  <string name="insert_media_settings_alternative_text">Alternativ tekst</string>
+  <string name="insert_media_settings_alternative_text_description">Tekstbeskrivelse for lesere som ikke kan se bildet</string>
+  <string name="insert_media_advanced_settings">Avanserte innstillinger</string>
+  <string name="insert_media_advanced_settings_wrap_image">Bryt teksten omkring et bilde</string>
+  <string name="insert_media_advanced_settings_image_position">Bildeposisjon</string>
+  <string name="insert_media_advanced_settings_image_position_right">Høyre</string>
+  <string name="insert_media_advanced_settings_image_position_left">Venstre</string>
+  <string name="insert_media_advanced_settings_image_position_center">Midtstilt</string>
+  <string name="insert_media_advanced_settings_image_position_none">Ingen</string>
+  <string name="insert_media_advanced_settings_image_type">Bildetype</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Miniatyrbilde</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Uten ramme</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Ramme</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Grunnleggende</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Du kan velge hvordan medieobjektet skal vises på siden. I de aller fleste tilfeller vil miniatyrbilde være det beste valget.</string>
+  <string name="insert_media_advanced_settings_image_size">Bildestørrelse</string>
+  <string name="insert_media_advanced_settings_image_size_default">Standard</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Egendefinert</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Bredde</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Høyde</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
+  <string name="insert_media_insert_button">Sett inn</string>
   <string name="main_drawer_help">Hjelp</string>
   <string name="main_drawer_login">Logg inn / bli med på Wikipedia</string>
   <string name="main_tooltip_text">Hei %s, visste du at hvem som helst kan redigere Wikipedia?</string>
@@ -1130,7 +1161,6 @@
   <string name="menu_option_share_talk_discussion">Del diskusjon</string>
   <string name="menu_option_share_talk_page">Del diskusjonsside</string>
   <string name="menu_option_share_edit">Del redigering</string>
-  <string name="menu_option_user_profile">%s sin profil</string>
   <string name="menu_option_user_contributions">%s sine bidrag</string>
   <string name="menu_option_edit_source">Rediger kilde</string>
   <string name="menu_option_user_page">%s brukerside</string>
@@ -1149,7 +1179,7 @@
   <string name="thank_dialog_positive_button_text">Send takk</string>
   <string name="thank_dialog_negative_button_text">Avbryt</string>
   <string name="thank_success_message">Din takk ble sendt til %s 👍</string>
-  <string name="menu_option_view_user_profile">Vis brukerens profilside</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Vis brukerens profilside</string>
   <string name="menu_option_view_user_talk">Vis diskusjonsside</string>
   <string name="menu_option_view_user_contributions">Vis brukerbidrag</string>
   <string name="revision_diff_compare">Sammenlign revisjoner</string>
@@ -1200,5 +1230,11 @@
   <string name="subcategory_empty">Ingen underkategorier funnet i denne kategorien.</string>
   <string name="search_namespaces">Navnerom</string>
   <string name="revision_initial_none">Ingen (dette er den første revisjonen)</string>
+  <string name="user_contrib_activity_title">Bidrag av %s</string>
   <string name="archive_empty">Ingen arkiverte sider funnet.</string>
+  <string name="user_contrib_filter_ns">Filter etter navnerom</string>
+  <string name="user_contrib_filter_all">Alle redigeringer</string>
+  <string name="namespace_article">Artikkel</string>
+  <string name="user_contrib_current">gjeldende</string>
+  <string name="user_contrib_menu_label">Bidrag</string>
 </resources>

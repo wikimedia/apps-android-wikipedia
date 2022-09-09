@@ -922,10 +922,10 @@
   <string name="suggested_edits_quality_bad_text">Slaba</string>
   <string name="suggested_edits_label">Predlagana urejanja</string>
   <plurals name="suggested_edits_contribution">
-    <item quantity="one">prispevek</item>
-    <item quantity="two">prispevki</item>
-    <item quantity="few">prispevki</item>
-    <item quantity="other">prispevki</item>
+    <item quantity="one">Prispevek</item>
+    <item quantity="two">Prispevki</item>
+    <item quantity="few">Prispevki</item>
+    <item quantity="other">Prispevki</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d dan</item>
@@ -1126,7 +1126,6 @@
   <string name="menu_option_share_talk_discussion">Deli pogovor</string>
   <string name="menu_option_share_talk_page">Deli pogovorno stran</string>
   <string name="menu_option_share_edit">Deli urejanje</string>
-  <string name="menu_option_user_profile">Profil uporabnika/ce %s</string>
   <string name="menu_option_user_contributions">Prispevki uporabnika/ce %s</string>
   <string name="menu_option_edit_source">Uredi vir</string>
   <string name="watchlist_details_watching_label">Spremljam</string>
@@ -1140,7 +1139,7 @@
   <string name="thank_dialog_positive_button_text">Pošlji zahvalo</string>
   <string name="thank_dialog_negative_button_text">Prekliči</string>
   <string name="thank_success_message">Uporabniku/ci %s ste poslali zahvalo 👍</string>
-  <string name="menu_option_view_user_profile">Ogled uporabnikove profilne strani</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Ogled uporabnikove profilne strani</string>
   <string name="menu_option_view_user_talk">Ogled pogovorne strani</string>
   <string name="menu_option_view_user_contributions">Ogled uporabnikovih prispevkov</string>
   <string name="revision_diff_compare">Primerjava redakcij</string>

@@ -1,55 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Arystanbek
+* Darzz
 * Fontan 030
 * MuratTheTurkish
 -->
 <resources>
   <string name="app_name_prod">Уикипедия</string>
-  <string name="app_name_beta">Уикипедия Бета</string>
-  <string name="app_name_alpha">Уикипедия Альфа</string>
-  <string name="wikimedia">Wikimedia</string>
-  <string name="nav_item_back">Кері қайту</string>
-  <string name="page_tabs_back">Кері</string>
+  <string name="app_name_beta">Уикипедия (бета)</string>
+  <string name="app_name_alpha">Уикипедия (альфа)</string>
+  <string name="wikimedia">Уикимедиа</string>
+  <string name="nav_item_back">Артқа</string>
+  <string name="page_tabs_back">Артқа</string>
   <string name="nav_item_forward">Алға</string>
   <string name="search_hint">Уикипедиядан іздеу</string>
-  <string name="error_network_error" fuzzy="true">Желі байланысы жоқ :(</string>
+  <string name="search_hint_voice_search">Дауыспен іздеу</string>
+  <string name="search_hint_search_languages">Тіл іздеу</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Тізімдерімді сүзу</string>
+  <string name="nav_item_suggested_edits">Өңдемелер</string>
+  <string name="nav_item_more">Тағы</string>
+  <string name="nav_item_search">Іздеу</string>
+  <string name="error_network_error">Интернет қосылымы жоқ.</string>
   <string name="page_error_retry">Қайталау</string>
+  <string name="card_offline_error_retry">Қайталау</string>
+  <string name="article_load_error_retry">Қайталау</string>
+  <string name="offline_load_error_retry">Қайталау</string>
+  <string name="error_next">Келесі</string>
   <string name="menu_clear_all_history">Тарихын тазалау</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Шолу тарихын тазалайсыз ба?</string>
+  <string name="history_item_deleted">%s тарихтан жойылған</string>
+  <string name="history_items_deleted">%d мақала тарихтан жойылған</string>
+  <string name="history_item_delete_undo">Болдырмау</string>
+  <string name="app_settings">Қосымшаны баптау</string>
+  <string name="search_tab_tooltip">Іздегіңіз келгенін тікелей жаза бастау үшін белгішені қайта басыңыз.</string>
+  <string name="history_list_title">Тарих</string>
+  <string name="image_content_description">Сурет: %s</string>
+  <string name="page_content_description">Бет: %s</string>
+  <string name="wikimedia_commons">Уикимедиа Ортаққоры</string>
+  <string name="wikidata">Уикидерек</string>
+  <string name="dialog_title_clear_history">Шолу тарихын тазарту</string>
+  <string name="dialog_message_clear_history">Бұл бүкіл шолу тарихын тазартып, ашылып тұрған қойындыларды жабады. Жалғастырғыңыз келе ме?</string>
   <string name="dialog_message_clear_history_yes">Иә</string>
   <string name="dialog_message_clear_history_no">Жоқ</string>
   <string name="share_via">Арқылы бөлісу:</string>
+  <string name="search_redirect_from">%s бетінен бағытталды</string>
+  <string name="page_edit_history_activity_title">Нұсқа тарихы: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;ш&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Бос өңдеме түйіні</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Өңдеме іздеу немесе сүзу</string>
+  <string name="page_edit_history_filter_by_all">Барлық өңдеме (%s)</string>
+  <string name="page_edit_history_filter_by_user">Қатысушы өңдемелері (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Аноним өңдемелері (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Бот өңдемелері (%s)</string>
   <string name="on_this_day_page_share">Бөлісу</string>
   <string name="reading_list_page_share">Бөлісу</string>
   <string name="last_updated_text">Соңғы жаңартылуы: %s</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Сақтасаңыз &lt;a href=\"%1$s\"&gt;Қолдану шарттарымен&lt;/a&gt; келсіскеніңіз болып табылады және &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы аясында үлесіңізді қайтарымсыз жариялайсыз.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Сақтасаңыз &lt;a href=\"%1$s\"&gt;Қолдану шарттарымен&lt;/a&gt; келсіскеніңіз болып табылады және &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы аясында үлесіңізді қайтарымсыз жариялайсыз. Өңдемелеріңіз сіздің құрылғыңыздың IP мекенжайымен анықталады. Егер сіз&lt;a href=\"https://#login\"&gt;кірсеңіз&lt;/a&gt; сізде көбірек құпиялық   болады.</string>
-  <string name="preference_title_language" fuzzy="true">Уикипедия тілі</string>
+  <string name="preference_title_language">Уикипедия тілдері</string>
   <string name="langlinks_filter_hint">Іздеу</string>
-  <string name="langlinks_empty">Бұл бет басқа тілдерде қолдетімді емес.</string>
-  <string name="langlinks_no_match" fuzzy="true">Сіздің сұранысыңызға сәйкес тілдер табылмады.</string>
+  <string name="langlinks_empty">Бұл бет басқа тілдерде қолжетімді емес.</string>
+  <string name="langlinks_no_match">Тіл табылмады</string>
   <string name="langlinks_activity_title">Басқа тілдер</string>
-  <string name="menu_save_changes" fuzzy="true">Өзгерістерді сақтау</string>
-  <string name="edit_saved_successfully" fuzzy="true">Өңдеме сақталды!</string>
+  <string name="langlinks_your_wikipedia_languages">Сіздің Уикипедия тілдеріңіз</string>
+  <string name="menu_save_changes">Өзгерістерді жариялау</string>
+  <string name="edit_saved_successfully">Өңдеме жарияланды!</string>
   <string name="dialog_message_edit_failed">Өңделмеді!</string>
   <string name="dialog_message_edit_failed_retry">Қайталау</string>
-  <string name="dialog_message_edit_failed_cancel">Қажет емес</string>
+  <string name="dialog_message_edit_failed_cancel">Болдырмау</string>
   <string name="dialog_message_leaving_edit" fuzzy="true">Өзгерістеріңіз сақталмады. Бұл беттен кеткеніңізге сенімдісіз бе?</string>
-  <string name="dialog_message_leaving_edit_leave">Кету</string>
+  <string name="dialog_message_leaving_edit_leave">Шығу</string>
   <string name="dialog_message_leaving_edit_stay">Қалу</string>
   <string name="menu_show_toc">Мазмұны</string>
-  <string name="search_no_results_found">Ешбір нәтиже табылмады</string>
+  <string name="search_no_results_found">Нәтиже табылмады</string>
   <string name="edit_section_captcha_message">Автоматтандырылған спамнан қорғану үшін, төменде көрсетілген сөздерді енгізіңіз</string>
   <string name="edit_section_captcha_hint">Жоғарыдағы сөздерді қайталаңыз</string>
   <string name="title_captcha">CAPTCHA-ны енгізіңіз</string>
-  <string name="nav_item_login" fuzzy="true">Кіру</string>
-  <string name="login_username_hint">Қатысушы есімі</string>
-  <string name="login_password_hint">Құпия сөз</string>
+  <string name="nav_item_login">Уикипедияға кіру</string>
+  <string name="login_username_hint">Қатысушы аты</string>
+  <string name="login_password_hint">Құпиясөз</string>
+  <string name="account_creation_password_hint">Құпиясөз</string>
+  <string name="login_2fa_hint">Екі факторлы аутентификация коды</string>
+  <string name="login_2fa_other_workflow_error_msg">Екі факторлы аутентификация қажет! Негізгі іс-әрекетке қайтып, 2FA токеніңізбен кіріп қайталаңыз.</string>
+  <string name="onboarding_card_login">Кіру</string>
+  <string name="page_editing_login">Кіру</string>
+  <string name="reading_lists_sync_login">Кіру</string>
+  <string name="create_account_login">Кіру</string>
   <string name="menu_login">Кіру</string>
-  <string name="login_activity_title" fuzzy="true">Уикипедияға кіру</string>
+  <string name="login_activity_title">Кіру</string>
   <string name="login_in_progress_dialog_message">Кірудесіз...</string>
-  <string name="login_success_toast" fuzzy="true">Кірдіңіз!</string>
+  <string name="login_success_toast">Кірдіңіз!</string>
   <string name="preference_title_logout">Шығу</string>
   <string name="toast_logout_complete">Жүйеден шықтыңыз</string>
   <string name="logout_dialog_cancel_button_text">Болдырмау</string>

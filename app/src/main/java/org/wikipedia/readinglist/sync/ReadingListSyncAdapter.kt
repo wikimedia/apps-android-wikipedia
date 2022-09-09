@@ -438,10 +438,10 @@ class ReadingListSyncAdapter : JobIntentService() {
             localPage.thumbUrl = remotePage.summary.thumbnailUrl
         }
         if (updateOnly) {
-            L.d("Updating local page " + localPage.displayTitle)
+            L.d("Updating local page " + localPage.apiTitle)
             AppDatabase.instance.readingListPageDao().updateReadingListPage(localPage)
         } else {
-            L.d("Creating local page " + localPage.displayTitle)
+            L.d("Creating local page " + localPage.apiTitle)
             AppDatabase.instance.readingListPageDao().addPagesToList(listForPage, listOf(localPage), false)
         }
     }
@@ -454,7 +454,7 @@ class ReadingListSyncAdapter : JobIntentService() {
                 return
             }
         }
-        L.d("Deleting local page " + localPage.displayTitle)
+        L.d("Deleting local page " + localPage.apiTitle)
         AppDatabase.instance.readingListPageDao().markPagesForDeletion(listForPage, listOf(localPage), false)
     }
 

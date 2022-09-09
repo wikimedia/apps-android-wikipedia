@@ -160,7 +160,7 @@ class CreateAccountActivity : BaseActivity() {
                     if ("PASS" == response.status) {
                         finishWithUserResult(response.user)
                     } else {
-                        throw CreateAccountException(response.message)
+                        throw CreateAccountException(StringUtil.removeStyleTags(response.message))
                     }
                 }) { caught ->
                     L.e(caught.toString())
