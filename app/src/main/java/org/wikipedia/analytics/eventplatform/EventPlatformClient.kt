@@ -1,5 +1,6 @@
 package org.wikipedia.analytics.eventplatform
 
+import androidx.core.os.postDelayed
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
@@ -104,13 +105,13 @@ object EventPlatformClient {
          * When an item is added to QUEUE, wait this many ms before sending.
          * If another item is added to QUEUE during this time, reset the countdown.
          */
-        private const val WAIT_MS = 30000
+        private const val WAIT_MS = 30000L
         private const val MAX_QUEUE_SIZE = 128
-        private val SEND_RUNNABLE = Runnable { sendAllScheduled() }
+        private const val TOKEN = "sendScheduled"
 
         @Synchronized
         fun sendAllScheduled() {
-            WikipediaApp.instance.mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
+            WikipediaApp.instance.mainThreadHandler.removeCallbacksAndMessages(TOKEN)
             if (ENABLED) {
                 send()
                 QUEUE.clear()
@@ -132,8 +133,10 @@ object EventPlatformClient {
                     sendAllScheduled()
                 } else {
                     // The arrival of a new item interrupts the timer and resets the countdown.
-                    WikipediaApp.instance.mainThreadHandler.removeCallbacks(SEND_RUNNABLE)
-                    WikipediaApp.instance.mainThreadHandler.postDelayed(SEND_RUNNABLE, WAIT_MS.toLong())
+                    WikipediaApp.instance.mainThreadHandler.removeCallbacksAndMessages(TOKEN)
+                    WikipediaApp.instance.mainThreadHandler.postDelayed(WAIT_MS, TOKEN) {
+                        sendAllScheduled()
+                    }
                 }
             }
         }
