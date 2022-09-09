@@ -9,6 +9,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="48dp"
+        android:layout_marginTop="1dp"
         android:orientation="horizontal">
 
         <TextView
@@ -87,13 +88,14 @@
         android:layout_width="1dp"
         android:layout_height="48dp"
         android:layout_gravity="end"
-        android:layout_marginEnd="48dp"
+        android:layout_marginEnd="49dp"
         android:background="?attr/color_group_60" />
 
     <ImageView
         android:id="@+id/close_button"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:layout_marginTop="1dp"
         android:padding="12dp"
         android:layout_gravity="end"
         android:background="?attr/selectableItemBackground"

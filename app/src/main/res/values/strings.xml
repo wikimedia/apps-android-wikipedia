@@ -1139,6 +1139,7 @@
     <string name="wikitext_small">Small text</string>
     <string name="wikitext_code">Code</string>
     <string name="wikitext_link">Link</string>
+    <string name="wikitext_heading_n">Sub-heading %d</string>
     <string name="wikitext_formatting">Formatting</string>
     <string name="wikitext_headings">Headings</string>
     <string name="wikitext_insert_media">Insert media</string>
