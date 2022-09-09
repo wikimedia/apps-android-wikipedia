@@ -2,21 +2,22 @@ package org.wikipedia.readinglist
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.ViewGroup
 import androidx.annotation.StyleRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.TextViewCompat
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemReadingListBinding
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
+import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.util.*
 import org.wikipedia.views.ViewUtil
 
 class ReadingListItemView : ConstraintLayout {
@@ -183,7 +184,7 @@ class ReadingListItemView : ConstraintLayout {
                     return true
                 }
                 R.id.menu_reading_list_export -> {
-                    exportListAsCsv()
+                    handlePermissionsAndExport()
                     return true
                 }
                 else -> return false
@@ -191,7 +192,25 @@ class ReadingListItemView : ConstraintLayout {
         }
     }
 
+    private fun handlePermissionsAndExport() {
+        if (!PermissionUtil.hasWriteExternalStoragePermission(context as AppCompatActivity)) {
+            requestWriteExternalStoragePermission()
+        } else {
+            exportListAsCsv()
+        }
+    }
+
+    private fun requestWriteExternalStoragePermission() {
+        PermissionUtil.requestWriteStorageRuntimePermissions(context as AppCompatActivity,
+            Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION)
+    }
+
     private fun exportListAsCsv() {
-        TODO("Not yet implemented")
+        readingList?.pages?.forEach {
+            val pageTitle = ReadingListPage.toPageTitle(it)
+            val uri = pageTitle.uri
+            val language = pageTitle.wikiSite.languageCode
+            Log.e("####", pageTitle.prefixedText + ",\t" + language + ",\t" + uri)
+        }
     }
 }
