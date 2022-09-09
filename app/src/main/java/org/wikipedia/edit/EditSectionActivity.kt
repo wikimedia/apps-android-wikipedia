@@ -184,7 +184,7 @@ class EditSectionActivity : BaseActivity() {
             }
 
             override fun onRequestInsertMedia() {
-                requestInsertMedia.launch(InsertMediaActivity.newIntent(this@EditSectionActivity, pageTitle.prefixedText))
+                requestInsertMedia.launch(InsertMediaActivity.newIntent(this@EditSectionActivity, pageTitle.displayText))
             }
         }
         binding.editSectionText.setOnClickListener { finishActionMode() }
@@ -544,7 +544,9 @@ class EditSectionActivity : BaseActivity() {
                         val firstPage = response.query?.firstPage()!!
                         val rev = firstPage.revisions[0]
 
-                        pageTitle = PageTitle(firstPage.title, pageTitle.wikiSite)
+                        pageTitle = PageTitle(firstPage.title, pageTitle.wikiSite).apply {
+                            this.displayText = pageTitle.displayText
+                        }
                         sectionWikitext = rev.content
                         currentRevision = rev.revId
 

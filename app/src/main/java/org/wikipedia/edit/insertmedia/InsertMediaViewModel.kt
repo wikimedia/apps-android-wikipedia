@@ -14,7 +14,7 @@ import org.wikipedia.util.StringUtil
 
 class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
-    var searchQuery = StringUtil.removeUnderscores(bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!)
+    var searchQuery = StringUtil.removeHTMLTags(StringUtil.removeUnderscores(bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!))
     val originalSearchQuery = searchQuery
     var selectedImage: MediaSearchResult? = null
     var imagePosition = IMAGE_POSITION_RIGHT
