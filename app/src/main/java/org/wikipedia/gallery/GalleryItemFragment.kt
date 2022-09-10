@@ -33,6 +33,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
+import kotlin.math.abs
 
 class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
     interface Callback {
@@ -78,12 +79,10 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
             }
             (requireActivity() as GalleryActivity).toggleControls()
         }
-        val imageScale = binding.image.scale
         binding.image.setOnMatrixChangeListener {
-            if (!isAdded) {
-                return@setOnMatrixChangeListener
+            if (isAdded) {
+                binding.image.setAllowParentInterceptOnEdge(abs(binding.image.scale - 1f) < 0.01f)
             }
-            (requireActivity() as GalleryActivity).setViewPagerEnabled(imageScale <= 1f)
         }
         return binding.root
     }
@@ -96,6 +95,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
 
     override fun onDestroyView() {
         disposables.clear()
+        binding.image.setOnMatrixChangeListener(null)
         binding.image.setOnClickListener(null)
         binding.videoThumbnail.setOnClickListener(null)
         _binding = null
