@@ -1,8 +1,8 @@
 package org.wikipedia.readinglist
 
 import android.content.Context
+import android.os.Environment
 import android.util.AttributeSet
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -19,6 +19,8 @@ import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.*
 import org.wikipedia.views.ViewUtil
+import java.io.File
+import java.io.FileOutputStream
 
 class ReadingListItemView : ConstraintLayout {
     interface Callback {
@@ -206,11 +208,25 @@ class ReadingListItemView : ConstraintLayout {
     }
 
     private fun exportListAsCsv() {
-        readingList?.pages?.forEach {
-            val pageTitle = ReadingListPage.toPageTitle(it)
-            val uri = pageTitle.uri
-            val language = pageTitle.wikiSite.languageCode
-            Log.e("####", pageTitle.prefixedText + ",\t" + language + ",\t" + uri)
+        if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            return
+        }
+        val appExportsDir =
+            File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "wikipedia_exported_files")
+        if (!appExportsDir.exists()) {
+            appExportsDir.mkdirs()
+        }
+        val csvFile = File(appExportsDir.path + "/" + readingList?.listTitle + ".csv")
+        readingList?.let {
+            it.pages.forEach {
+                val pageTitle = ReadingListPage.toPageTitle(it)
+                val uri = pageTitle.uri
+                val language = pageTitle.wikiSite.languageCode
+                FileOutputStream(csvFile, true).bufferedWriter().use { writer ->
+                    writer.write(pageTitle.prefixedText + "," + language + "," + uri)
+                    writer.newLine()
+                }
+            }
         }
     }
 }
