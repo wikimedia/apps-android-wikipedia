@@ -4,10 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.databinding.ActivityMainBinding
@@ -22,6 +22,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     private lateinit var binding: ActivityMainBinding
 
     private var controlNavTabInFragment = false
+    private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { }
 
     override fun inflateAndSetContentView() {
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -38,8 +39,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             Prefs.isMultilingualSearchTooltipShown = false
 
             // Use startActivityForResult to avoid preload the Feed contents before finishing the initial onboarding.
-            // The ACTIVITY_REQUEST_INITIAL_ONBOARDING has not been used in any onActivityResult
-            startActivityForResult(InitialOnboardingActivity.newIntent(this), Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING)
+            onboardingLauncher.launch(InitialOnboardingActivity.newIntent(this))
         }
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.nav_tab_background_color))
         setSupportActionBar(binding.mainToolbar)
