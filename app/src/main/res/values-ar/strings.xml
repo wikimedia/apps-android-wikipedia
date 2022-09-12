@@ -6,6 +6,7 @@
 * Asaifm
 * Asma
 * Dbrant
+* Dr-Taher
 * Dr. Mohammed
 * Elbasyouny
 * Esraa Ismail
@@ -1135,6 +1136,15 @@
   <string name="watchlist_page_moved">نُقلت</string>
   <string name="watchlist_page_protected">محمية</string>
   <string name="watchlist_page_deleted">حُذفت</string>
+  <string name="preview_edit_title">معاينة التعديل</string>
+  <string name="preview_edit_summarize_edit_title">تلخيص التحرير</string>
+  <string name="preview_edit_summarize_edit_hint">كيف حسّنت الصفحة؟</string>
+  <string name="preview_edit_minor_edit">هذا تعديل طفيف</string>
+  <string name="preview_edit_minor_edit_url">https://en.wikipedia.org/wiki/Help:Minor_edit</string>
+  <string name="preview_edit_watch_this_page">راقب هذه الصفحة</string>
+  <string name="preview_edit_watch_this_page_url">https://en.wikipedia.org/wiki/Help:Watchlist</string>
+  <string name="preview_edit_learn_more">تعرف على المزيد حول ملخص التحرير</string>
+  <string name="preview_edit_learn_more_url">https://en.wikipedia.org/wiki/Help:Edit_summary</string>
   <string name="action_item_categories">التصنيفات</string>
   <string name="page_no_categories">لا تنتمي هذه الصفحة إلى أية تصنيفات.</string>
   <string name="category_tab_articles">المقالات</string>
