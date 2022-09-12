@@ -48,6 +48,14 @@
   <string name="search_redirect_from">Redirezzion de %s</string>
   <string name="page_edit_history_activity_title">Storia di revision: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Oget de la modifica voeui</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Cerca o filtra i modifiche</string>
+  <string name="page_edit_history_filter_by">Filtra per</string>
+  <string name="page_edit_history_filter_by_all">Tute i modifeghe (%s)</string>
+  <string name="page_edit_history_filter_by_user">Modifiche de l\'utent (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Modifeghe che se sa nò el nome de quell ch\'je ha fade (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Modifiche di bot (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Statisteghe dal %1$s al %2$s</string>
   <string name="menu_page_show_tabs">Mostra schede</string>
   <string name="menu_page_other_languages">Cambia lengua</string>
   <string name="menu_page_find_in_page">Troeuva in la vos</string>
