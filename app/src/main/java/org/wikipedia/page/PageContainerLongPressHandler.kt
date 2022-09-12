@@ -12,7 +12,7 @@ class PageContainerLongPressHandler(private val fragment: PageFragment) : WebVie
     }
 
     override fun onOpenInNewTab(entry: HistoryEntry) {
-        fragment.openInNewBackgroundTab(entry.title, entry)
+        fragment.openInNewBackgroundTab(entry.title, entry, openFromExistingTab = true)
     }
 
     override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {

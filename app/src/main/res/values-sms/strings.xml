@@ -13,6 +13,7 @@
   <string name="nav_item_suggested_edits">Muttâz</string>
   <string name="nav_item_more">Lââʹzz</string>
   <string name="nav_item_search">Ooʒʒ</string>
+  <string name="error_network_error">Vââʹǩǩ: Internetta õhttummuš ij oʹnnstam.</string>
   <string name="page_error_retry">Ǩiččlõõđ oʹđđest</string>
   <string name="card_offline_error_retry">Ǩiččlõõđ oʹđđest</string>
   <string name="storage_access_error_retry">Ǩiččlõõđ oʹđđest</string>
@@ -42,6 +43,7 @@
   <string name="menu_page_share">Jueʹjj liiŋk</string>
   <string name="menu_page_article_share">Jueʹjj</string>
   <string name="menu_page_open_a_new_tab">Ääʹved ođđ kõskklõõst</string>
+  <string name="menu_page_new_tab">Ođđ kõskklõstt</string>
   <string name="menu_page_reading_lists">Lookkâmliist</string>
   <string name="menu_page_archive">Arkiiv</string>
   <string name="menu_long_press_open_page">Ääʹved</string>
@@ -81,7 +83,7 @@
   <string name="logged_out_in_background_cancel">Jõõsk</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Õõʹnninõmm</string>
-  <string name="login_forgot_password">Väjldõʹttiǩ-a peittsääʹn?</string>
+  <string name="login_forgot_password">Väjldõʹttiǩ-a ton jiijjad peittsääʹn?</string>
   <string name="create_account_already_have">Lij-a tuʹst juʹn tobdldõk?</string>
   <string name="create_account_activity_title">Raaj tobdldõõǥǥ</string>
   <string name="create_account_email_hint">E-pååʹštaddrõs (vaʹlljeemnallšem)</string>
@@ -131,6 +133,7 @@
   <string name="err_cannot_save_file">Teâttõõzz ruõkkmõš ij oʹnnstam</string>
   <string name="cc_logo">Creative Commons -liseʹnss</string>
   <string name="captcha_image">CAPTCHA-kaart</string>
+  <string name="menu_new_tab">Ođđ kõskklõstt</string>
   <string name="tool_tip_bookmark_icon_title">Lââʹzzet lookkâmliʹstte</string>
   <string name="page_view_in_browser">Čuäʹjet seeid neʹttlookkjest</string>
   <string name="format_error_server_message">Saakk: \"%s\"</string>
@@ -140,6 +143,7 @@
   <string name="error_page_does_not_exist">Tät seidd ij kaunnu</string>
   <string name="reference_title">Teâttkäivv %s</string>
   <string name="reference_list_title">Teâttkääiv</string>
+  <string name="empty_tab_title">Ođđ kõskklõstt</string>
   <string name="article_menu_bar_save_button">Ruõkk</string>
   <string name="article_menu_bar_language_button">Ǩiõll</string>
   <string name="article_menu_bar_search_button">Ooʒʒ</string>
@@ -292,6 +296,7 @@
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s da tõn saǥstõõllâmseeid lââʹzzteš tuu valvvâmliʹstte %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Muuʹtt</string>
   <string name="watchlist_page_removed_from_watchlist_snackbar">%s da tõn saǥstõõllâmseeid jaukkeeš tuu valvvâmliistâst.</string>
+  <string name="watchlist_expiry_dialog_one_month">1 määnpââʹjj</string>
   <string name="watchlist_filter_talk">Saǥstõõllâmseidd</string>
   <string name="watchlist_filter_pages">Artikkelseeid</string>
   <string name="watchlist_page_protected">Suõjjuum</string>
