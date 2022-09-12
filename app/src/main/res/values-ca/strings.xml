@@ -1233,11 +1233,11 @@
   <string name="preview_edit_summarize_edit_title">Resumeix l\'edició</string>
   <string name="preview_edit_summarize_edit_hint">Com heu millorat la pàgina?</string>
   <string name="preview_edit_minor_edit">Aquesta és una modificació menor</string>
-  <string name="preview_edit_minor_edit_url">https://ca.wikipedia.org/wiki/Ajuda:Edici%C3%B3_menor</string>
+  <string name="preview_edit_minor_edit_url">https://ca.wikipedia.org/wiki/Ajuda:Edició_menor</string>
   <string name="preview_edit_watch_this_page">Vigila aquesta pàgina</string>
-  <string name="preview_edit_watch_this_page_url">https://ca.wikipedia.org/wiki/Ajuda:Vigilar_p%C3%A0gines</string>
+  <string name="preview_edit_watch_this_page_url">https://ca.wikipedia.org/wiki/Ajuda:Vigilar_pàgines</string>
   <string name="preview_edit_learn_more">Més informació dels resums d\'edició</string>
-  <string name="preview_edit_learn_more_url">https://ca.wikipedia.org/wiki/Ajuda:Resum_de_la_modificaci%C3%B3</string>
+  <string name="preview_edit_learn_more_url">https://ca.wikipedia.org/wiki/Ajuda:Resum_de_la_modificació</string>
   <string name="action_item_categories">Categories</string>
   <string name="page_no_categories">La pàgina no pertany a cap categoria.</string>
   <string name="category_tab_articles">Articles</string>
