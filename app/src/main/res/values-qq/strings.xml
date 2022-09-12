@@ -1094,8 +1094,8 @@
   <string name="insert_media_advanced_settings">Button label of advanced settings.</string>
   <string name="insert_media_advanced_settings_wrap_image">Label of an option that user can wrap the text around the image.</string>
   <string name="insert_media_advanced_settings_image_position">Label of an option that user set the image position.</string>
-  <string name="insert_media_advanced_settings_image_position_right">Menu option of setting the image position to the right.</string>
-  <string name="insert_media_advanced_settings_image_position_left">Menu option of setting the image position to the left.</string>
+  <string name="insert_media_advanced_settings_image_position_right">Menu option of setting the image position to the right.\n{{identical|Right}}</string>
+  <string name="insert_media_advanced_settings_image_position_left">Menu option of setting the image position to the left.\n{{identical|Left}}</string>
   <string name="insert_media_advanced_settings_image_position_center">Menu option of setting the image position to the center.</string>
   <string name="insert_media_advanced_settings_image_position_none">Menu option that indicates the image does not have a specific position.</string>
   <string name="insert_media_advanced_settings_image_type">Label of an option that user set the image type.</string>
@@ -1107,8 +1107,8 @@
   <string name="insert_media_advanced_settings_image_size">Label of an option that user set the image size.</string>
   <string name="insert_media_advanced_settings_image_size_default">Menu option of setting the default size for the image.</string>
   <string name="insert_media_advanced_settings_image_size_custom">Menu option of customizing the image size.</string>
-  <string name="insert_media_advanced_settings_image_size_custom_width">Label of the custom image width.</string>
-  <string name="insert_media_advanced_settings_image_size_custom_height">Label of the custom image height.</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Label of the custom image width.\n{{identical|Width}}</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Label of the custom image height.\n{{identical|Height}}</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">Label of the custom image size suffix.</string>
   <string name="insert_media_insert_button">Button of inserting the image to the editor.</string>
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
@@ -1234,6 +1234,15 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.\n\n{{Identical|Deleted}}</string>
+  <string name="preview_edit_title">Title of the preview edit screen.</string>
+  <string name="preview_edit_summarize_edit_title">Title of the summarize edit screen.</string>
+  <string name="preview_edit_summarize_edit_hint">Hint text for edit summaries text field.</string>
+  <string name="preview_edit_minor_edit">Label text of the checkbox that indicates the current edit is a minor edit.</string>
+  <string name="preview_edit_minor_edit_url">URL leading to the help page of the minor edit. If you can find the appropriate language specific URL of the mobile site please do so. You may be able to find it easily by going to https://en.wikipedia.org/wiki/Help:Minor_edit and clicking the interlanguage link.</string>
+  <string name="preview_edit_watch_this_page">Label text of the checkbox that helps to watch the page after publishing.</string>
+  <string name="preview_edit_watch_this_page_url">URL leading to the help page of the Watchlist. If you can find the appropriate language specific URL of the mobile site please do so. You may be able to find it easily by going to https://en.wikipedia.org/wiki/Help:Watchlist and clicking the interlanguage link.</string>
+  <string name="preview_edit_learn_more">Label text of the link to learn more about edit summaries.</string>
+  <string name="preview_edit_learn_more_url">URL leading to the help page of the edit summary. If you can find the appropriate language specific URL of the mobile site please do so. You may be able to find it easily by going to https://en.wikipedia.org/wiki/Help:Edit_summary and clicking the interlanguage link.</string>
   <string name="action_item_categories">Label for menu item for viewing the categories to which an article belongs.</string>
   <string name="page_no_categories">Error message saying that the article does not belong to any categories.</string>
   <string name="category_tab_articles">Label for tab that lists all the articles in a category.</string>
