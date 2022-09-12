@@ -41,6 +41,7 @@ class EditSummaryFragment : Fragment() {
     private lateinit var localizeSummaryTags: SparseArray<String>
     lateinit var title: PageTitle
 
+    val summaryText get() = binding.editSummaryText
     val summary get() = binding.editSummaryText.text.toString()
     val isMinorEdit get() = binding.minorEditCheckBox.isChecked
     val watchThisPage get() = binding.watchPageCheckBox.isChecked
