@@ -465,12 +465,12 @@
   <string name="page_footer_license_text">Если не указано иное, содержание доступно в соответствии с $1.</string>
   <string name="empty_tab_title">Новая вкладка</string>
   <string name="menu_save_all_tabs">Сохранить все вкладки</string>
-  <string name="error_blocked_title">Ваше имя пользователя или IP адрес заблокировано</string>
+  <string name="error_blocked_title">Ваше имя участника или IP-адрес заблокированы.</string>
   <string name="error_blocked_by">Блокировка была сделана участником &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
-  <string name="error_blocked_reason">причина дона: %s</string>
-  <string name="error_blocked_start">\nНачало блока:%s</string>
-  <string name="error_blocked_expiry">Истечение срока действия блока: %s</string>
-  <string name="error_blocked_id">Идентификация блока: %s</string>
+  <string name="error_blocked_reason">Указанная причина: %s</string>
+  <string name="error_blocked_start">Начало блокировки: %s</string>
+  <string name="error_blocked_expiry">Окончание блокировки: %s</string>
+  <string name="error_blocked_id">Идентификатор блокировки: %s</string>
   <string name="error_blocked_footer">Вы можете связаться с &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или другим &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Настройте свою панель инструментов</string>
   <string name="error_blocked_footer_no_blocker">Вы можете связаться с &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
@@ -712,6 +712,7 @@
   <string name="notifications_mark_unread">Отметить как непрочитанное</string>
   <string name="notifications_mark_all_as_read">Отметить все как прочитанные</string>
   <string name="notifications_direct_reply_action">Ответить</string>
+  <string name="notifications_direct_reply_progress">Отправка ответа участнику %s…</string>
   <string name="notifications_direct_reply_success">Ответ опубликован.</string>
   <string name="notifications_direct_reply_error">Не удалось автоматически опубликовать ответ.</string>
   <string name="notifications_mark_all_as_read_message">%d помечено как прочитанное</string>
@@ -1238,6 +1239,12 @@
   <string name="talk_overflow_sort_date_published">Дата публикации</string>
   <string name="talk_overflow_sort_date_updated">Дата обновления</string>
   <string name="talk_overflow_sort_topic_name">Название темы</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Показать ответ</item>
+    <item quantity="few">Показать ответы (%d)</item>
+    <item quantity="many">Показать ответы (%d)</item>
+    <item quantity="other">Показать ответы (%d)</item>
+  </plurals>
   <plurals name="talk_hide_replies_count">
     <item quantity="one">Скрыть ответ</item>
     <item quantity="few">Скрыть ответы (%d)</item>
@@ -1317,6 +1324,13 @@
   <string name="watchlist_page_moved">Перемещено</string>
   <string name="watchlist_page_protected">Защищено</string>
   <string name="watchlist_page_deleted">Удалено</string>
+  <string name="preview_edit_title">Предварительный просмотр правки</string>
+  <string name="preview_edit_summarize_edit_hint">Как вы улучшили эту страницу?</string>
+  <string name="preview_edit_minor_edit">Это малая правка</string>
+  <string name="preview_edit_minor_edit_url">https://ru.wikipedia.org/wiki/Википедия:Малые_изменения</string>
+  <string name="preview_edit_watch_this_page">Наблюдать за этой страницей</string>
+  <string name="preview_edit_watch_this_page_url">https://ru.wikipedia.org/wiki/Служебная:Список_наблюдения</string>
+  <string name="preview_edit_learn_more_url">https://ru.wikipedia.org/wiki/Википедия:Описание_изменений</string>
   <string name="action_item_categories">Категории</string>
   <string name="page_no_categories">Эта страница не относится ни к одной категории.</string>
   <string name="category_tab_articles">Статьи</string>
