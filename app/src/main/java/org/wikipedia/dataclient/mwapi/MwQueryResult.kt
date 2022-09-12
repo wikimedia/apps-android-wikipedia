@@ -24,9 +24,9 @@ class MwQueryResult {
 
     private val redirects: MutableList<Redirect>? = null
     private val converted: MutableList<ConvertedTitle>? = null
-    private val users: List<UserInfo>? = null
     private val tokens: Tokens? = null
     private val echomarkread: MarkReadResponse? = null
+    val users: List<UserInfo>? = null
     val pages: MutableList<MwQueryPage>? = null
     val echomarkseen: MarkReadResponse? = null
     val notifications: NotificationList? = null
@@ -70,7 +70,7 @@ class MwQueryResult {
 
     fun getUserResponse(userName: String): UserInfo? {
         // MediaWiki user names are case sensitive, but the first letter is always capitalized.
-        return users?.find { userName.capitalize(Locale.getDefault()) == it.name }
+        return users?.find { userName.capitalize(Locale.getDefault()) == it?.name }
     }
 
     fun langLinks(): MutableList<PageTitle> {

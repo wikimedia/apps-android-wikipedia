@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:background="?attr/paper_color">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:paddingHorizontal="16dp"
+        android:text="@string/insert_media_advanced_settings_image_type"
+        android:textSize="14sp"
+        android:textColor="?android:attr/textColorPrimary"
+        android:lineSpacingExtra="7sp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_vertical"
+        android:background="?attr/color_group_60"/>
+
+    <LinearLayout
+        android:id="@+id/imageTypeThumbnail"
+        style="@style/SideDrawerMenuItem">
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:tag="text"
+            android:text="@string/insert_media_advanced_settings_image_type_thumbnail" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            android:tag="check"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_check_black_24dp"
+            app:tint="?attr/colorAccent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/imageTypeFrame"
+        style="@style/SideDrawerMenuItem">
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:tag="text"
+            android:text="@string/insert_media_advanced_settings_image_type_frame" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            android:tag="check"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_check_black_24dp"
+            app:tint="?attr/colorAccent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/imageTypeFrameless"
+        style="@style/SideDrawerMenuItem">
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:tag="text"
+            android:text="@string/insert_media_advanced_settings_image_type_frameless" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            android:tag="check"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_check_black_24dp"
+            app:tint="?attr/colorAccent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/imageTypeBasic"
+        style="@style/SideDrawerMenuItem">
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:tag="text"
+            android:text="@string/insert_media_advanced_settings_image_type_basic" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            android:tag="check"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_check_black_24dp"
+            app:tint="?attr/colorAccent" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:tag="text"
+        android:textSize="12sp"
+        android:layout_margin="16dp"
+        android:text="@string/insert_media_advanced_settings_image_type_tip" />
+
+</LinearLayout>

@@ -40,6 +40,7 @@ import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwParseResponse
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
+import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
@@ -94,6 +95,14 @@ class EditSectionActivity : BaseActivity() {
             FeedbackUtil.showMessage(this, R.string.login_success_toast)
         } else {
             funnel.logLoginFailure()
+        }
+    }
+
+    private val requestInsertMedia = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == InsertMediaActivity.RESULT_INSERT_MEDIA_SUCCESS) {
+            it.data?.let { intent ->
+                binding.editSectionText.inputConnection?.commitText("${intent.getStringExtra(InsertMediaActivity.RESULT_WIKITEXT)}", 1)
+            }
         }
     }
 
@@ -169,9 +178,15 @@ class EditSectionActivity : BaseActivity() {
             }
         }
         binding.editKeyboardOverlay.editText = binding.editSectionText
-        binding.editKeyboardOverlay.callback = WikiTextKeyboardView.Callback {
-            bottomSheetPresenter.show(supportFragmentManager,
-                    LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(it, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null))
+        binding.editKeyboardOverlay.callback = object : WikiTextKeyboardView.Callback {
+            override fun onPreviewLink(title: String) {
+                bottomSheetPresenter.show(supportFragmentManager,
+                        LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null))
+            }
+
+            override fun onRequestInsertMedia() {
+                requestInsertMedia.launch(InsertMediaActivity.newIntent(this@EditSectionActivity, pageTitle.displayText))
+            }
         }
         binding.editSectionText.setOnClickListener { finishActionMode() }
         updateTextSize()
@@ -384,6 +399,7 @@ class EditSectionActivity : BaseActivity() {
                 funnel.logPreview()
                 EditAttemptStepEvent.logSaveIntent(pageTitle)
                 supportActionBar?.title = getString(R.string.preview_edit_title)
+                setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
             }
         }
     }
@@ -531,7 +547,9 @@ class EditSectionActivity : BaseActivity() {
                         val firstPage = response.query?.firstPage()!!
                         val rev = firstPage.revisions[0]
 
-                        pageTitle = PageTitle(firstPage.title, pageTitle.wikiSite)
+                        pageTitle = PageTitle(firstPage.title, pageTitle.wikiSite).apply {
+                            this.displayText = pageTitle.displayText
+                        }
                         sectionWikitext = rev.content
                         currentRevision = rev.revId
 
@@ -663,6 +681,7 @@ class EditSectionActivity : BaseActivity() {
             supportActionBar?.title = null
             return
         }
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
         DeviceUtil.hideSoftKeyboard(this)
         if (sectionTextModified) {
             val alert = AlertDialog.Builder(this)

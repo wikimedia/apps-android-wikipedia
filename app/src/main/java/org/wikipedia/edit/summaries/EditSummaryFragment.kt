@@ -3,7 +3,6 @@ package org.wikipedia.edit.summaries
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
@@ -15,6 +14,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.StringRes
+import androidx.core.widget.TextViewCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -38,6 +38,7 @@ class EditSummaryFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var editSummaryHandler: EditSummaryHandler
+    private lateinit var localizeSummaryTags: SparseArray<String>
     lateinit var title: PageTitle
     lateinit var localizeSummaryTags: SparseArray<String>
 
@@ -47,7 +48,6 @@ class EditSummaryFragment : Fragment() {
     val watchThisPage get() = binding.watchPageCheckBox.isChecked
     val isActive get() = binding.root.visibility == View.VISIBLE
 
-    private val chipTypeFace = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private val summaryTagStrings = intArrayOf(R.string.edit_summary_tag_typo, R.string.edit_summary_tag_grammar, R.string.edit_summary_tag_links)
 
     private val voiceSearchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -136,6 +136,7 @@ class EditSummaryFragment : Fragment() {
             }
         } else {
             binding.watchPageCheckBox.isEnabled = false
+            binding.watchPageCheckBox.alpha = 0.5f
         }
     }
 
@@ -149,19 +150,14 @@ class EditSummaryFragment : Fragment() {
         val chip = Chip(requireContext())
         val editSummary = getString(editSummaryResource)
         chip.text = editSummary
-        chip.textAlignment = View.TEXT_ALIGNMENT_CENTER
+        TextViewCompat.setTextAppearance(chip, R.style.CustomChipStyle)
         chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-        chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
-        chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-        chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color))
-        chip.typeface = chipTypeFace
         chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
         chip.setOnClickListener {
             // Clear the text field and insert the text
             binding.editSummaryText.setText(editSummary)
+            binding.editSummaryText.setSelection(editSummary.length)
         }
-        chip.setEnsureMinTouchTargetSize(true)
-        chip.ensureAccessibleTouchTarget(DimenUtil.dpToPx(48f).toInt())
 
         // add some padding to the Chip, since our container view doesn't support item spacing yet.
         val params = ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
