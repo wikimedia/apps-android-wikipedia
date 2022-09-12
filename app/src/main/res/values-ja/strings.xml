@@ -12,6 +12,7 @@
 * Hzy980512
 * Kanon und wikipedia
 * Kkairri
+* Kokage si
 * Kokoko-H
 * LaMagiaaa
 * Los688
@@ -95,7 +96,7 @@
   <string name="search_redirect_from">%s から転送されました</string>
   <string name="page_edit_history_activity_title">変更履歴: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;細&lt;/b&gt; %s</string>
-  <string name="page_edit_history_comment_placeholder">編集の要約を空にする</string>
+  <string name="page_edit_history_comment_placeholder">編集の要約がありません</string>
   <string name="page_edit_history_search_or_filter_edits_hint">編集を検索またはフィルタリングする</string>
   <string name="page_edit_history_filter_by">絞り込みの条件：</string>
   <string name="page_edit_history_filter_by_all">すべての編集（ %s ）</string>
@@ -103,6 +104,10 @@
   <string name="page_edit_history_filter_by_anon">すべての編集（ %s ）</string>
   <string name="page_edit_history_filter_by_bot">ボットの編集 (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s から %2$s までの指標。</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="other">%2$s以来%1$d回の編集</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">さらに版を表示するには、&lt;a href=\"#\"&gt;フィルター&lt;/a&gt;を変更してみてください</string>
   <string name="menu_page_show_tabs">タブを表示</string>
   <string name="menu_page_other_languages">他の言語で読む</string>
   <string name="menu_page_find_in_page">ページ内検索</string>
@@ -112,6 +117,7 @@
   <string name="menu_page_view_talk">ノートを表示</string>
   <string name="menu_page_talk_page">トークページ</string>
   <string name="menu_page_view_edit_history">編集履歴を表示</string>
+  <string name="menu_page_edit_history">編集履歴</string>
   <string name="menu_page_remove_from_watchlist">ウォッチリストから除去</string>
   <string name="menu_page_watched">既読</string>
   <string name="edit_section_find_in_page">ページ内検索</string>
@@ -127,7 +133,7 @@
   <string name="menu_page_new_tab">新しいタブ</string>
   <string name="menu_page_reading_lists">あとで読むリスト</string>
   <string name="menu_page_recently_viewed">最近見たページ</string>
-  <string name="menu_page_archive">アーカイブする</string>
+  <string name="menu_page_archive">アーカイブ</string>
   <string name="menu_long_press_open_page">開く</string>
   <string name="menu_long_press_open_in_new_tab">新しいタブで開く</string>
   <string name="menu_long_press_copy_page">リンクのアドレスをコピー</string>
@@ -295,6 +301,9 @@
   <string name="edit_undo">取り消す</string>
   <string name="edit_redo">やり直す</string>
   <string name="edit_rollback">巻き戻し</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="other">%sバイト</item>
+  </plurals>
   <string name="edit_zoom_in">拡大</string>
   <string name="edit_zoom_out">縮小</string>
   <string name="edit_summary_tag_typo">タイプミスを修正</string>
@@ -304,6 +313,7 @@
   <string name="edit_summary_tag_other_hint">ページのその他の改善</string>
   <string name="edit_conflict_title">編集の競合</string>
   <string name="edit_conflict_message">このページは他のユーザーによって変更されており、あなたの編集と競合しています。編集中のテキストをコピーして、戻ってページを読み込み直した上で、再度編集してください。</string>
+  <string name="edit_notices_please_read">編集する前にお読みください</string>
   <string name="find_next">次を検索</string>
   <string name="find_previous">前を検索</string>
   <string name="find_first_occurence">これが1件目です</string>
@@ -353,6 +363,7 @@
   <string name="gallery_save_success">ファイルを保存しました。</string>
   <string name="gallery_error_video_failed">動画を再生できませんでした。</string>
   <string name="gallery_save_image_write_permission_rationale">ストレージに書き込む許可は画像の保存に必要になります。</string>
+  <string name="gallery_edit_button_content_description">画像キャプションを編集</string>
   <string name="gallery_add_image_caption_button">画像キャプションを追加</string>
   <string name="gallery_add_image_caption_in_language_button">画像キャプションを追加 (%s)</string>
   <string name="err_cannot_save_file">ファイルを保存できません</string>
@@ -413,6 +424,7 @@
   <string name="error_message_generic">エラーが発生しました</string>
   <string name="view_link_preview_error_button_dismiss">閉じる</string>
   <string name="error_page_does_not_exist">このページは存在しません</string>
+  <string name="error_user_page_does_not_exist">ウィキペディアには正確にこの名前に一致する&lt;a href=\"%1$s\"&gt;利用者ページ&lt;/a&gt;がありません。一般的には、このページは&lt;b&gt;%2$s&lt;/b&gt;によって作成され編集されるべきです。疑問があるならば、「%3$s」が存在することを確かめてください。</string>
   <string name="view_wiki_error_message_offline">インターネットに接続できません</string>
   <string name="view_wiki_error_message_timeout">ウィキペディアに接続できません。ネットワーク接続を確認するか、後ほどもう一度お試しください。</string>
   <string name="reference_title">%s 参照</string>
@@ -458,6 +470,9 @@
   <string name="text_size_decrease">テキストサイズを縮小します</string>
   <string name="text_size_percent_default">%s (既定)</string>
   <string name="text_style_title">フォント</string>
+  <string name="theme_category_reading">閲覧</string>
+  <string name="reading_focus_mode">閲覧集中モード</string>
+  <string name="reading_focus_mode_detail">編集機能とスクロール時の下部のツールバーを隠します</string>
   <string name="nav_item_saved">保存済み</string>
   <string name="reading_list_save_to">あとで読むリストに保存</string>
   <string name="reading_list_move_to">あとで読むリストに保存</string>
@@ -466,8 +481,8 @@
   <string name="reading_list_article_added_to_named">%1$sを %2$sに加える。</string>
   <string name="reading_list_article_added_to_default_list">%s を保存しました。リストに追加しますか?</string>
   <string name="reading_list_article_moved_to_named">%1$sを%2$sに保存しました</string>
-  <string name="reading_list_article_already_exists_message">完了しました! %1$sは%2$sに含まれています。</string>
-  <string name="reading_list_articles_already_exist_message">完了しました! 指定した記事はすべて%sに収納されています。</string>
+  <string name="reading_list_article_already_exists_message">大丈夫！%2$sは既に%1$sに含まれています。</string>
+  <string name="reading_list_articles_already_exist_message">大丈夫！指定した記事はすべて既に%sに含まれています。</string>
   <string name="reading_list_added_view_button">リストを表示</string>
   <string name="reading_list_add_to_list_button">リストに追加</string>
   <plurals name="format_reading_list_statistical_summary">
@@ -475,8 +490,7 @@
     <item quantity="other">%1$d記事、%2$.2f MB</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
-    <item quantity="one">1件の記事のうち%1$d件がオフラインで利用可能です、%3$.2f MB</item>
-    <item quantity="other">%2$d件の記事のうち%1$dがオフラインで利用可能です、%3$.2f MB</item>
+    <item quantity="other">%2$d件中%1$d件の記事がオフラインで利用可能です、%3$.2f MB</item>
   </plurals>
   <string name="format_reading_list_statistical_summary_singular">1件の記事、%1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d記事、%2$.2f MB</string>
@@ -586,6 +600,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">キャンセル</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">キャンセル</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_activity_title">あとで読むリスト：%s</string>
   <string name="user_option_sync_label">設定</string>
   <string name="notification_reverted_title">編集が差し戻されました</string>
   <string name="notification_channel_title">ページのダウンロード中</string>
@@ -640,6 +655,18 @@
   <string name="notification_preferences_title">通知の設定</string>
   <string name="notifications_mark_unread">未読にする</string>
   <string name="notifications_mark_all_as_read">すべて既読にする</string>
+  <string name="notifications_direct_reply_action">返信</string>
+  <string name="notifications_direct_reply_progress">%sへの返信を投稿しています…</string>
+  <string name="notifications_direct_reply_success">返信を投稿しました。</string>
+  <string name="notifications_direct_reply_error">返信を自動的に投稿できませんでした。</string>
+  <string name="notifications_mark_all_as_read_message">%d件を既読にしました</string>
+  <string name="notifications_mark_all_as_unread_message">%d件を未読にしました</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="other">%d件を既読にしました</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="other">%d件を未読にしました</item>
+  </plurals>
   <string name="watchlist_title">ウォッチリスト</string>
   <string name="preference_title_notification_poll">通知に投票</string>
   <string name="preference_summary_notification_poll">バックグラウンドで新規通知をチェックするのにアプリがデータ通信するのを許可する</string>
@@ -658,20 +685,47 @@
   <string name="preference_summary_notification_mention">誰かが特定のページであなたに言及しました</string>
   <string name="preference_title_notification_user_talk">トークページ</string>
   <string name="preference_summary_notification_user_talk">トークページからのメッセージと返信</string>
+  <string name="preference_title_notification_email_user">メールの受信</string>
+  <string name="preference_summary_notification_email_user">誰かがウィキを通じてあなたにメールを送信しました</string>
+  <string name="preference_title_notification_user_rights">利用者権限の変更</string>
+  <string name="preference_summary_notification_user_rights">あなたの利用者権限が変更されたときに受け取ります</string>
+  <string name="preference_title_notification_article_linked">作成した記事へのリンク</string>
+  <string name="preference_summary_notification_article_linked">あなたが作成したページへの新しいリンクが作成されたときに受け取ります</string>
   <string name="preference_category_push_notifications">プッシュ通知</string>
   <string name="preference_title_customize_push_notifications">プッシュ通知をカスタマイズ</string>
   <string name="preference_category_display_settings">表示設定</string>
+  <string name="preference_title_hide_read_notifications">既読の通知を隠す</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">ウィキペディア</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">ウィキペディアからの通知</string>
   <string name="notifications_channel_group_other_title">その他</string>
   <string name="notifications_channel_group_other_description">アプリからのその他の通知</string>
+  <string name="notifications_filter_label">通知にフィルターをかける</string>
+  <string name="notifications_filter_update_app_languages">アプリの言語を更新する</string>
+  <string name="notifications_empty_search_message">さらに通知を表示するには、%sを除去してみてください</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="other">%d件のフィルター</item>
+  </plurals>
+  <string name="notifications_select_all_filters">すべてのフィルターを選択</string>
   <string name="notifications_tab_filter_all">すべて</string>
   <string name="notifications_tab_filter_mentions">メンション</string>
-  <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
+  <string name="notifications_search_bar_hint">通知を検索またはフィルターをかける</string>
+  <string name="notifications_search_bar_filter_hint">通知フィルター</string>
+  <string name="notifications_menu_mark_as_read">既読にする</string>
+  <string name="notifications_menu_mark_as_unread">未読にする</string>
+  <string name="notifications_swipe_action_read">既読</string>
+  <string name="notifications_swipe_action_unread">未読</string>
+  <string name="notifications_wiki_filter_header">ウィキフィルター</string>
+  <string name="notifications_type_filter_header">種類フィルター</string>
+  <string name="notifications_all_wikis_text">すべての「ウィキ」</string>
+  <string name="notifications_all_types_text">すべての「種類」</string>
+  <string name="notifications_menu_user_talk_page">%sのトークページ</string>
+  <string name="notifications_offline_disable_message">この機能はオフラインでは利用できません。</string>
+  <string name="view_because_you_read_card_title">閲覧履歴からのおすすめ</string>
   <string name="view_random_card_title">おまかせ表示</string>
-  <string name="view_random_article_card_title">ランダム記事</string>
+  <string name="view_random_article_card_title">おまかせ表示</string>
   <string name="view_random_article_card_action">おまかせ表示をもっと見る</string>
   <string name="view_top_read_card_title">よく読まれている記事</string>
+  <string name="view_top_read_card_action">よく読まれている記事をもっと見る</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d千</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d百</string>
   <string name="view_next_random_article">別のおまかせ記事を読む</string>
@@ -722,6 +776,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">キャンセル</string>
   <string name="feed_accessibility_card_text">フィード一覧はこれで最後です。</string>
   <string name="feed_accessibility_card_load_more_button">さらに読み込む</string>
+  <string name="top_read_activity_title">%sのよく読まれている記事</string>
+  <string name="tabs_activity_title">タブ</string>
   <string name="description_edit_text_hint">記事の説明</string>
   <string name="description_edit_article_description_label">記事</string>
   <string name="description_edit_translate_article_description_label_per_language">記事の説明 (%s)</string>
@@ -769,9 +825,13 @@
   <string name="description_edit_tutorial_button_label_start_editing">編集を開始</string>
   <string name="description_edit_tutorial_promise">この機能を悪用しないことを約束して、スタートする。</string>
   <string name="customize_toolbar_title">ツールバーをカスタマイズする</string>
+  <string name="customize_toolbar_shortcut_description_text">自分が最も役に立つと思う5つのショートカットで下部のツールバーをカスタマイズします。</string>
   <string name="customize_toolbar_category_toolbar">ツールバー</string>
   <string name="customize_toolbar_category_menu">メニュー</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">ここに好きな項目をドラッグ・アンド・ドロップしてください👋</string>
   <string name="customize_toolbar_reset_to_default_button">初期状態にリセットする</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">ドラッグアイコンを長押しして項目を移動します</string>
+  <string name="customize_toolbar_item_default_tooltip">項目を押してドラッグすることで再配置します</string>
   <string name="suggested_edits_describe_articles">記事の説明</string>
   <string name="suggested_edits_caption_images">画像キャプション</string>
   <string name="suggested_edits_tag_images">画像にタグを付ける</string>
@@ -862,6 +922,7 @@
   <string name="suggested_edits_paused_message">編集提案は%1$sまで保留されました。あいにくですが、%2$sさんの最近の投稿は巻き戻しが数件続いています。</string>
   <string name="suggested_edits_disabled_message">編集提案は無効にされました。申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎました。</string>
   <string name="suggested_edits_ip_blocked_message">ご使用のIPアドレスまたはIPアドレスの範囲は現在ウィキペディアの編集からブロックされているようです。</string>
+  <string name="suggested_edits_gate_message">%sさん、申し訳ありませんが、この機能を利用するには少なくとも3回、記事を直接編集する必要があります。</string>
   <string name="suggested_edits_editing_tips_link_text">編集のヒントとコツ</string>
   <string name="suggested_edits_help_page_link_text">編集提案のヘルプページ</string>
   <string name="suggested_edits_edit_streak_label_text">連続編集</string>
@@ -1015,11 +1076,36 @@
   <string name="wikitext_bold">太字</string>
   <string name="wikitext_italic">斜体</string>
   <string name="wikitext_link">リンク</string>
+  <string name="wikitext_insert_media">メディアを挿入</string>
   <string name="wikitext_bulleted_list">番号なし箇条書き</string>
   <string name="wikitext_numbered_list">番号付き箇条書き</string>
   <string name="wikitext_template">テンプレート</string>
   <string name="wikitext_reference">参考資料</string>
   <string name="wikitext_preview_link">リンクをプレビュー</string>
+  <string name="insert_media_title">メディアを挿入</string>
+  <string name="insert_media_search_description">ウィキメディアコモンズからファイルを選択</string>
+  <string name="insert_media_search_hint">メディアを検索</string>
+  <string name="insert_media_settings">メディア設定</string>
+  <string name="insert_media_settings_uploaded_image">アップロード済み画像</string>
+  <string name="insert_media_settings_caption">キャプション</string>
+  <string name="insert_media_settings_alternative_text">代替テキスト</string>
+  <string name="insert_media_advanced_settings">高度な設定</string>
+  <string name="insert_media_advanced_settings_image_position">画像の位置</string>
+  <string name="insert_media_advanced_settings_image_position_right">右</string>
+  <string name="insert_media_advanced_settings_image_position_left">左</string>
+  <string name="insert_media_advanced_settings_image_position_center">中央</string>
+  <string name="insert_media_advanced_settings_image_position_none">なし</string>
+  <string name="insert_media_advanced_settings_image_type">画像の種類</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">サムネイル</string>
+  <string name="insert_media_advanced_settings_image_type_frame">フレーム</string>
+  <string name="insert_media_advanced_settings_image_type_basic">基本</string>
+  <string name="insert_media_advanced_settings_image_size">画像サイズ</string>
+  <string name="insert_media_advanced_settings_image_size_default">既定</string>
+  <string name="insert_media_advanced_settings_image_size_custom">カスタム</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">幅</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">高さ</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">ピクセル</string>
+  <string name="insert_media_insert_button">挿入</string>
   <string name="main_drawer_help">ヘルプ</string>
   <string name="main_drawer_login">ログイン / ウィキペディアに参加する</string>
   <string name="main_tooltip_text">%sさん、ウィキペディアは誰でも編集できることをご存知でしたか?</string>
@@ -1039,8 +1125,8 @@
   <string name="talk_add_reply">返信</string>
   <string name="talk_no_subject">(件名なし)</string>
   <string name="talk_reply_subject">件名</string>
-  <string name="talk_reply_hint">返事を組み立てる</string>
-  <string name="talk_message_hint">メッセージを組み立てる</string>
+  <string name="talk_reply_hint">返事を書く</string>
+  <string name="talk_message_hint">メッセージを作成する</string>
   <string name="talk_message_empty">メッセージを空にすることはできません。</string>
   <string name="talk_subject_empty">件名を空にすることはできません。</string>
   <string name="talk_response_submitted">返信が送信されました。</string>
@@ -1050,23 +1136,42 @@
   <string name="talk_snackbar_survey_action_text">始める</string>
   <string name="talk_search_hint">メッセージを検索する</string>
   <string name="talk_search_topics_hint">トピックを選択</string>
+  <string name="talk_search_find_in_talk_topics_hint">トークページのトピックを探す</string>
   <string name="talk_overflow_sort_by">並び順:</string>
   <string name="talk_overflow_sort_date_published">公開日</string>
+  <string name="talk_overflow_sort_date_updated">更新日</string>
   <string name="talk_overflow_sort_topic_name">トピック名</string>
-  <string name="talk_list_item_overflow_subscribed">購読</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="other">返信を表示（%d件）</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="other">返信を隠す（%d件）</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">「%s」を購読しました</string>
+  <string name="talk_thread_unsubscribed_from">「%s」の購読を解除しました</string>
+  <string name="talk_list_item_overflow_subscribe">購読</string>
+  <string name="talk_list_item_overflow_subscribed">購読済み</string>
   <string name="talk_list_item_overflow_mark_as_read">既読にする</string>
   <string name="talk_list_item_overflow_mark_as_unread">未読にする</string>
   <string name="talk_list_item_overflow_share">共有</string>
   <string name="talk_list_item_user_icon_content_description">利用者アイコン</string>
   <string name="talk_list_item_swipe_mark_as_read">閲覧</string>
   <string name="talk_list_item_swipe_mark_as_unread">未読</string>
+  <string name="menu_option_share_talk_discussion">議論を共有</string>
+  <string name="menu_option_share_talk_page">トークページを共有</string>
   <string name="menu_option_share_edit">編集をシェア</string>
   <string name="menu_option_user_contributions">%s の投稿記録</string>
   <string name="menu_option_edit_source">ソースを編集</string>
+  <string name="menu_option_user_page">%sの利用者ページ</string>
+  <string name="menu_option_find_in_talk_page_topic">トークページのトピックを探す</string>
   <string name="talk_menu_copy_text">テキストをコピー</string>
   <string name="talk_menu_expand_threads">スレッドを展開</string>
+  <string name="talk_menu_collapse_threads">スレッドを折りたたむ</string>
   <string name="watchlist_details_watch_label">ウォッチ</string>
+  <string name="watchlist_details_next_edit">次の版</string>
+  <string name="watchlist_details_prev_edit">前の版</string>
   <string name="thank_label">感謝</string>
+  <string name="view_user_page">利用者ページを表示</string>
   <string name="thank_dialog_title_text">感謝を公に示す</string>
   <string name="thank_dialog_text">\'感謝\' はウィキペディアを編集する編集者へ感謝を示す簡単な方法です。\'感謝\' は元に戻すことはできず、誰でも見ることができます。</string>
   <string name="thank_dialog_positive_button_text">感謝を示す</string>
@@ -1076,20 +1181,38 @@
   <string name="menu_option_view_user_talk">トークページを見る</string>
   <string name="menu_option_view_user_contributions">利用者の投稿記録を閲覧する</string>
   <string name="revision_diff_compare">版を比較</string>
-  <string name="revision_diff_from">差出人:</string>
-  <string name="revision_diff_to">宛先:</string>
+  <string name="revision_diff_compare_title">版の比較：%s</string>
+  <string name="revision_diff_from">古い版：</string>
+  <string name="revision_diff_to">新しい版：</string>
+  <string name="revision_diff_line_num">%d行目</string>
+  <string name="revision_diff_line_nums">%d–%d行目</string>
+  <string name="revision_diff_line_added">行を追加</string>
+  <string name="revision_diff_line_removed">行を除去</string>
+  <string name="revision_diff_paragraph_added">段落を追加</string>
+  <string name="revision_diff_paragraph_removed">段落を除去</string>
   <string name="revision_undo_title">編集を取り消す</string>
+  <string name="revision_undo_message">これにより、ここに表示されている記事の版で行われた変更が取り消されます。</string>
   <string name="revision_undo_reason">操作を続ける場合、編集を取り消す理由を記入してください。</string>
   <string name="revision_undo_success">この版は取り消されました。</string>
+  <string name="revision_rollback_dialog_title">本当に編集を巻き戻しますか？</string>
   <string name="revision_rollback_success">編集が差し戻されました</string>
   <string name="revision_compare_button">比較</string>
   <string name="revision_compare_two_only">2つの版しか選べません</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$sとそのトークページをウォッチリストへ%2$s追加しました。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">変更</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s とそのトークぺーj比は正常にウォッチリストから削除されました。</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">恒久的に</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1週間</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1か月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3か月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6か月</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%sとそのトークぺージをウォッチリストから除去しました。</string>
+  <string name="watchlist_expiry_dialog_title">ウォッチリストの期間を選択してください</string>
+  <string name="watchlist_expiry_dialog_permanent">恒久的</string>
   <string name="watchlist_expiry_dialog_one_week">1週間</string>
   <string name="watchlist_expiry_dialog_one_month">1ヵ月</string>
   <string name="watchlist_expiry_dialog_three_months">3ヵ月</string>
   <string name="watchlist_expiry_dialog_six_months">6ヵ月</string>
+  <string name="watchlist_empty">ウォッチリストに記事がありません。</string>
   <string name="watchlist_filter_all">すべて</string>
   <string name="watchlist_filter_talk">トーク</string>
   <string name="watchlist_filter_pages">ページ</string>
@@ -1097,6 +1220,15 @@
   <string name="watchlist_page_moved">移動</string>
   <string name="watchlist_page_protected">保護</string>
   <string name="watchlist_page_deleted">削除</string>
+  <string name="preview_edit_title">編集のプレビュー</string>
+  <string name="preview_edit_summarize_edit_title">編集の要約</string>
+  <string name="preview_edit_summarize_edit_hint">どのようにこのページを改善しましたか？</string>
+  <string name="preview_edit_minor_edit">これは細部の編集です</string>
+  <string name="preview_edit_minor_edit_url">https://ja.wikipedia.org/wiki/Help:%E7%B4%B0%E9%83%A8%E3%81%AE%E7%B7%A8%E9%9B%86</string>
+  <string name="preview_edit_watch_this_page">このページをウォッチする</string>
+  <string name="preview_edit_watch_this_page_url">https://ja.wikipedia.org/wiki/Help:%E3%82%A6%E3%82%A9%E3%83%83%E3%83%81%E3%83%AA%E3%82%B9%E3%83%88</string>
+  <string name="preview_edit_learn_more">編集の要約についてもっと知る</string>
+  <string name="preview_edit_learn_more_url">https://ja.wikipedia.org/wiki/Help:%E8%A6%81%E7%B4%84%E6%AC%84</string>
   <string name="action_item_categories">カテゴリ</string>
   <string name="page_no_categories">このページはどのカテゴリにも属していません。</string>
   <string name="category_tab_articles">記事</string>
@@ -1104,5 +1236,13 @@
   <string name="category_empty">このカテゴリには記事がありませんでした</string>
   <string name="subcategory_empty">このカテゴリに下位カテゴリはありませんでした。</string>
   <string name="search_namespaces">名前空間</string>
+  <string name="revision_initial_none">なし（これが初版です）</string>
+  <string name="user_contrib_activity_title">%sの投稿</string>
   <string name="archive_empty">アーカイブされたページが見つかりません。</string>
+  <string name="user_contrib_filter_ns">名前空間によるフィルター</string>
+  <string name="user_contrib_filter_all">すべての編集</string>
+  <string name="namespace_article">記事</string>
+  <string name="user_contrib_current">現在の版</string>
+  <string name="media_playback_error">メディア再生でエラー。</string>
+  <string name="user_contrib_menu_label">投稿記録</string>
 </resources>

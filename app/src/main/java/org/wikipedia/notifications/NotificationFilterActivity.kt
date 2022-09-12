@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
@@ -22,20 +23,17 @@ class NotificationFilterActivity : BaseActivity() {
 
     private lateinit var binding: ActivityNotificationsFiltersBinding
 
+    private val languageChooserLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        setResult(ACTIVITY_RESULT_LANGUAGES_CHANGED)
+        setUpRecyclerView()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNotificationsFiltersBinding.inflate(layoutInflater)
         setResult(RESULT_OK)
         setUpRecyclerView()
         setContentView(binding.root)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
-            setResult(ACTIVITY_RESULT_LANGUAGES_CHANGED)
-            setUpRecyclerView()
-        }
     }
 
     private fun setUpRecyclerView() {
@@ -85,7 +83,7 @@ class NotificationFilterActivity : BaseActivity() {
         }
 
         override fun onCheckedChanged(filter: Filter?) {
-            startActivityForResult(WikipediaLanguagesActivity.newIntent(this@NotificationFilterActivity, Constants.InvokeSource.NOTIFICATION), Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
+            languageChooserLauncher.launch(WikipediaLanguagesActivity.newIntent(this@NotificationFilterActivity, Constants.InvokeSource.NOTIFICATION))
         }
     }
 
