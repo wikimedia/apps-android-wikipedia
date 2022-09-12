@@ -40,7 +40,6 @@ class EditSummaryFragment : Fragment() {
     private lateinit var editSummaryHandler: EditSummaryHandler
     private lateinit var localizeSummaryTags: SparseArray<String>
     lateinit var title: PageTitle
-    lateinit var localizeSummaryTags: SparseArray<String>
 
     val summaryText get() = binding.editSummaryText
     val summary get() = binding.editSummaryText.text.toString()
