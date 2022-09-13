@@ -1,6 +1,5 @@
 package org.wikipedia.page.linkpreview
 
-import android.annotation.SuppressLint
 import android.app.ActivityOptions
 import android.content.DialogInterface
 import android.content.Intent
@@ -251,11 +250,10 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
     }
 
-    @SuppressLint("RequiresFeature")
     private fun setPreviewContents(contents: LinkPreviewContents) {
         if (!contents.extract.isNullOrEmpty()) {
             binding.linkPreviewExtractWebview.setBackgroundColor(Color.TRANSPARENT)
-            val colorHex = Integer.toHexString(ResourceUtil.getThemedColor(requireContext(), android.R.attr.textColorPrimary)).substring(2)
+            val colorHex = ResourceUtil.colorToCssString(ResourceUtil.getThemedColor(requireContext(), android.R.attr.textColorPrimary))
             binding.linkPreviewExtractWebview.loadDataWithBaseURL(null, "${JavaScriptActionHandler.getCssStyles(pageTitle.wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\">${contents.extract}</div>", "text/html", "UTF-8", null)
         }
         contents.title.thumbUrl?.let {
