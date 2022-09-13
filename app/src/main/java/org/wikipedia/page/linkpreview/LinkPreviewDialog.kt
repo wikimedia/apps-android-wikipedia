@@ -35,6 +35,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
@@ -254,9 +255,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private fun setPreviewContents(contents: LinkPreviewContents) {
         if (!contents.extract.isNullOrEmpty()) {
             binding.linkPreviewExtractWebview.setBackgroundColor(Color.TRANSPARENT)
-            // Color hex code from android:textColorPrimary
-            val colorHex = if (WikipediaApp.instance.currentTheme.isDark) "#f8f9fa" else "#202122"
-            binding.linkPreviewExtractWebview.loadDataWithBaseURL(null, "${JavaScriptActionHandler.getCssStyles(pageTitle.wikiSite)}<div style=\"line-height: 150%; color: $colorHex\">${contents.extract}</div>", "text/html", "UTF-8", null)
+            val colorHex = Integer.toHexString(ResourceUtil.getThemedColor(requireContext(), android.R.attr.textColorPrimary)).substring(2)
+            binding.linkPreviewExtractWebview.loadDataWithBaseURL(null, "${JavaScriptActionHandler.getCssStyles(pageTitle.wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\">${contents.extract}</div>", "text/html", "UTF-8", null)
         }
         contents.title.thumbUrl?.let {
             binding.linkPreviewThumbnail.visibility = View.VISIBLE
