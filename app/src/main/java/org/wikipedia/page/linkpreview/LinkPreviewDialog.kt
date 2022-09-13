@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebView
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.os.bundleOf
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -255,7 +254,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private fun setPreviewContents(contents: LinkPreviewContents) {
         if (!contents.extract.isNullOrEmpty()) {
             binding.linkPreviewExtractWebview.setBackgroundColor(Color.TRANSPARENT)
-            binding.linkPreviewExtractWebview.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null)
             // Color hex code from android:textColorPrimary
             val colorHex = if (WikipediaApp.instance.currentTheme.isDark) "#f8f9fa" else "#202122"
             binding.linkPreviewExtractWebview.loadDataWithBaseURL(null, "${JavaScriptActionHandler.getCssStyles(pageTitle.wikiSite)}<div style=\"line-height: 150%; color: $colorHex\">${contents.extract}</div>", "text/html", "UTF-8", null)
