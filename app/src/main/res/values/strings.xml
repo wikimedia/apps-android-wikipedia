@@ -808,6 +808,10 @@
     <string name="description_edit_license_notice"><![CDATA[By changing the article description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="description_edit_helper_text_lowercase_warning">usually begin with a lowercase letter</string>
     <string name="description_edit_voice_input_description">Voice input</string>
+    <string name="description_edit_learn_more">Learn more about article descriptions</string>
+    <string name="description_edit_image_caption_learn_more">Learn more about image captions</string>
+    <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+    <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
 
     <string name="description_too_short">The text is too short.</string>
     <string name="description_ends_with_punctuation">The text must not end with punctuation.</string>
