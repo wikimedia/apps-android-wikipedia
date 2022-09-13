@@ -1237,6 +1237,7 @@
     <string name="menu_option_edit_source">Edit source</string>
     <string name="menu_option_user_page">%s user page</string>
     <string name="menu_option_find_in_talk_page_topic">Find in talk page topic</string>
+    <string name="menu_option_copy_link_to_clipboard">Copy link to clipboard</string>
     <string name="talk_menu_copy_text">Copy text</string>
     <string name="talk_menu_expand_threads">Expand threads</string>
     <string name="talk_menu_collapse_threads">Collapse threads</string>
