@@ -1177,6 +1177,7 @@
   <string name="menu_option_edit_source">Menu option label for editing the page.\n{{Identical|Edit source}}</string>
   <string name="menu_option_user_page">Menu option label for the user page. %s indicating the username.</string>
   <string name="menu_option_find_in_talk_page_topic">Menu option label for finding in talk page topic.</string>
+  <string name="menu_option_copy_link_to_clipboard">Menu item for copying a link to the system clipboard for pasting later.</string>
   <string name="talk_menu_copy_text">Menu label for copying the text of the current reply.</string>
   <string name="talk_menu_expand_threads">Menu label for expanding all the threads in the conversation.</string>
   <string name="talk_menu_collapse_threads">Menu label for collapsing all the threads in the conversation.</string>
