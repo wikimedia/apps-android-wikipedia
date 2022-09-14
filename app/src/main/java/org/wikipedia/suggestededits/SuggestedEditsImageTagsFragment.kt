@@ -25,9 +25,11 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentSuggestedEditsImageTagsItemBinding
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
 import org.wikipedia.page.PageTitle
@@ -92,6 +94,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             if (Prefs.showImageZoomTooltip) {
                 Prefs.showImageZoomTooltip = false
                 FeedbackUtil.showToastOverView(binding.imageView, getString(R.string.suggested_edits_image_zoom_tooltip), Toast.LENGTH_LONG)
+            } else {
+                val pageTitle = pageTitle
+                pageTitle.wikiSite = WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)
+                startActivity(FilePageActivity.newIntent(requireContext(), pageTitle))
             }
         }
 
