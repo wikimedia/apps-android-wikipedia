@@ -249,7 +249,7 @@
   <string name="settings_item_preferences">設定</string>
   <string name="settings_activity_title">設定</string>
   <string name="about_description">關於維基百科應用程式</string>
-  <string name="privacy_policy_description">隱私政策</string>
+  <string name="privacy_policy_description">隱私權政策</string>
   <string name="terms_of_use_description">使用條款</string>
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:關於</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
