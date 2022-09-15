@@ -124,11 +124,11 @@
   <string name="account_creation_password_hint">प्रवेश</string>
   <string name="login_2fa_hint">दुई चरण प्रामाणिकरण अङ्क</string>
   <string name="login_2fa_other_workflow_error_msg">दुई चरण प्रामाणिकरण आवश्यक! कृपया मुख्य गतिविधि फर्कनुहोस् 2FA प्रतिक प्रयोग गरेर प्रवेश गर्नुहोस् र पुन: प्रयास गर्नुहोस्।</string>
-  <string name="onboarding_card_login">प्रवेश</string>
-  <string name="page_editing_login">प्रवेश</string>
-  <string name="reading_lists_sync_login">प्रवेश</string>
-  <string name="create_account_login">प्रवेश</string>
-  <string name="menu_login">प्रवेश</string>
+  <string name="onboarding_card_login">प्रवेश गर्नुहोस्</string>
+  <string name="page_editing_login">प्रवेश गर्नुहोस्</string>
+  <string name="reading_lists_sync_login">प्रवेश गर्नुहोस्</string>
+  <string name="create_account_login">प्रवेश गर्नुहोस्</string>
+  <string name="menu_login">प्रवेश गर्नुहोस्</string>
   <string name="login_activity_title">प्रवेश गर्नुहोस्</string>
   <string name="login_in_progress_dialog_message">तपाईलाई प्रवेश गराउँदै…</string>
   <string name="login_success_toast">प्रवेश भयो!</string>
