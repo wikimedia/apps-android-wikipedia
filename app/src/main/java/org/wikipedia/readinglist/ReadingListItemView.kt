@@ -1,13 +1,13 @@
 package org.wikipedia.readinglist
 
 import android.Manifest
+import android.app.DownloadManager
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Environment
-import android.os.FileObserver
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -215,7 +215,6 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
         }
     }
 
-    lateinit var observer: FileObserver
     private fun exportListAsCsv() {
         val appExportsFolderName = WikipediaApp.instance.getString(R.string.app_name)
         val downloadsFolder =
@@ -225,49 +224,31 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
         exportsFolder.mkdir()
         FeedbackUtil.showMessage(activity, R.string.reading_list_export_strated_message)
 
-        assignObserverForExport(exportsFolder)
-
-        FileOutputStream(csvFile, true).bufferedWriter().use {
-            it.write(context.getString(R.string.reading_list_csv_headers))
-            it.newLine()
-        }
-        readingList?.let {
-            it.pages.forEach { page ->
-                val pageTitle = ReadingListPage.toPageTitle(page)
-                val uri = pageTitle.uri
-                val language = pageTitle.wikiSite.languageCode
-                FileOutputStream(csvFile, true).bufferedWriter().use { writer ->
+        FileOutputStream(csvFile, true).bufferedWriter().use { writer ->
+            writer.write(context.getString(R.string.reading_list_csv_headers))
+            writer.newLine()
+            readingList?.let {
+                it.pages.forEach { page ->
+                    val pageTitle = ReadingListPage.toPageTitle(page)
+                    val uri = pageTitle.uri
+                    val language = pageTitle.wikiSite.languageCode
                     writer.write(context.getString(R.string.reading_list_csv_entry, getSanitizedPageTitle(StringUtil.removeUnderscores(pageTitle.prefixedText)), language, uri))
                     writer.newLine()
                 }
             }
         }
+        val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
+        context.getSystemService<NotificationManager>()?.notify(id, getNotificationBuilder(intent, readingList?.listTitle!!).build())
+        FeedbackUtil.showMessage(activity, R.string.reading_list_export_completed_message)
     }
 
     private fun getSanitizedPageTitle(title: String): String {
-        return if (title.contains(",")) {
-            context.getString(R.string.reading_list_csv_comma_title, title)
+        val sanitizedTitle: String = StringUtil.removeUnderscores(title)
+        return if (sanitizedTitle.contains(",")) {
+            context.getString(R.string.reading_list_csv_comma_title, sanitizedTitle)
         } else {
-            title
+            sanitizedTitle
         }
-    }
-
-    private fun assignObserverForExport(appExportsDir: File) {
-        observer = object : FileObserver(appExportsDir.path, ALL_EVENTS) {
-            override fun onEvent(event: Int, file: String?) {
-                if (event == CLOSE_WRITE) {
-                    observer.stopWatching()
-                    val intent = Intent()
-                    intent.action = Intent.ACTION_GET_CONTENT
-                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                    val uri = ShareUtil.getUriFromFile(context, appExportsDir)
-                    intent.setDataAndType(uri, "resource/folder")
-                    context.getSystemService<NotificationManager>()?.notify(id, getNotificationBuilder(intent, readingList?.listTitle!!).build())
-                    FeedbackUtil.showMessage(activity, R.string.reading_list_export_completed_message)
-                }
-            }
-        }
-        observer.startWatching()
     }
 
     private fun getNotificationBuilder(intent: Intent, listName: String): NotificationCompat.Builder {
