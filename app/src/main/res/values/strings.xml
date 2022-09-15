@@ -588,7 +588,7 @@
     <string name="reading_list_notification_title">Export list</string>
     <string name="reading_list_notification_text">List: %s</string>
     <string name="reading_list_notification_detailed_text">Reading list %s has been exported</string>
-    <string name="reading_list_export_message">Exporting list…</string>
+    <string name="reading_list_export_strated_message">Exporting list…</string>
     <string name="reading_list_export_completed_message">List exported</string>
     <string name="reading_list_csv_headers">Title, Language ,Link</string>
     <!-- /Reading lists -->

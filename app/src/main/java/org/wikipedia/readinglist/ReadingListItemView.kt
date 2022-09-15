@@ -223,7 +223,7 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
         val exportsFolder = File(downloadsFolder, appExportsFolderName)
         val csvFile = File(exportsFolder, readingList?.listTitle + ".csv")
         exportsFolder.mkdir()
-        FeedbackUtil.showMessage(activity, R.string.reading_list_export_message)
+        FeedbackUtil.showMessage(activity, R.string.reading_list_export_strated_message)
 
         assignObserverForExport(exportsFolder)
 
