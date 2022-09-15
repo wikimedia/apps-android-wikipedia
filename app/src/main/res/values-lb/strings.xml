@@ -718,6 +718,9 @@
   <string name="insert_media_advanced_settings">Erweidert Astellungen</string>
   <string name="insert_media_advanced_settings_image_position_right">Riets</string>
   <string name="insert_media_advanced_settings_image_position_left">Lenks</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Ouni Rumm</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Rumm</string>
+  <string name="insert_media_advanced_settings_image_size">Gréisst vum Bild</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">Breet</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">Héicht</string>
   <string name="main_drawer_help">Hëllef</string>
@@ -792,4 +795,8 @@
   <string name="category_tab_subcategories">Ënnerkategorien</string>
   <string name="category_empty">Keng Artikelen an dëser Kategorie fonnt.</string>
   <string name="search_namespaces">Nummraim</string>
+  <string name="user_contrib_activity_title">Kontributioune vum %s</string>
+  <string name="user_contrib_filter_all">All Ännerungen</string>
+  <string name="namespace_article">Artikel</string>
+  <string name="user_contrib_menu_label">Kontributiounen</string>
 </resources>
