@@ -1,7 +1,10 @@
 package org.wikipedia.readinglist
 
 import android.Manifest
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Environment
 import android.os.FileObserver
@@ -13,11 +16,16 @@ import android.view.ViewGroup
 import androidx.annotation.StyleRes
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.getSystemService
 import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ItemReadingListBinding
+import org.wikipedia.notifications.NotificationCategory
+import org.wikipedia.notifications.NotificationPresenter
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.*
@@ -41,7 +49,7 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
     private val binding = ItemReadingListBinding.inflate(LayoutInflater.from(context), this)
     private var readingList: ReadingList? = null
     private val imageViews = listOf(binding.itemImage1, binding.itemImage2, binding.itemImage3, binding.itemImage4)
-    private val activity:BaseActivity = context as BaseActivity
+    private val activity: BaseActivity = context as BaseActivity
     var callback: Callback? = null
 
     constructor(context: Context) : super(context)
@@ -209,26 +217,18 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
 
     lateinit var observer: FileObserver
     private fun exportListAsCsv() {
-        if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-            return
-        }
-        val appExportsDir =
-            File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "wikipedia_exported_files")
-        if (!appExportsDir.exists()) {
-            appExportsDir.mkdirs()
-        }
-        val csvFile = File(appExportsDir.path + "/" + readingList?.listTitle + ".csv")
-       observer = object :FileObserver(appExportsDir, ALL_EVENTS) {
+        val appExportsFolderName = WikipediaApp.instance.getString(R.string.app_name)
+        val downloadsFolder =
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+        val exportsFolder = File(downloadsFolder, appExportsFolderName)
+        val csvFile = File(exportsFolder, readingList?.listTitle + ".csv")
+        exportsFolder.mkdir()
+        FeedbackUtil.showMessage(activity, R.string.reading_list_export_message)
 
-           override fun onEvent(event: Int, file: String?) {
-               if(event== CREATE) {
+        assignObserverForExport(exportsFolder)
 
-               }
-           }
-       }
-       observer.startWatching();
         FileOutputStream(csvFile, true).bufferedWriter().use {
-            it.write("pageTitle, language ,link")
+            it.write(context.getString(R.string.reading_list_csv_headers))
             it.newLine()
         }
         readingList?.let {
@@ -237,11 +237,51 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
                 val uri = pageTitle.uri
                 val language = pageTitle.wikiSite.languageCode
                 FileOutputStream(csvFile, true).bufferedWriter().use { writer ->
-                    writer.write(pageTitle.prefixedText + "," + language + "," + uri)
+                    writer.write(context.getString(R.string.reading_list_csv_entry, getSanitizedPageTitle(StringUtil.removeUnderscores(pageTitle.prefixedText)), language, uri))
                     writer.newLine()
                 }
             }
         }
+    }
+
+    private fun getSanitizedPageTitle(title: String): String {
+        return if (title.contains(",")) {
+            context.getString(R.string.reading_list_csv_comma_title, title)
+        } else {
+            title
+        }
+    }
+
+    private fun assignObserverForExport(appExportsDir: File) {
+        observer = object : FileObserver(appExportsDir.path, ALL_EVENTS) {
+            override fun onEvent(event: Int, file: String?) {
+                if (event == CLOSE_WRITE) {
+                    observer.stopWatching()
+                    val intent = Intent()
+                    intent.action = Intent.ACTION_GET_CONTENT
+                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                    val uri = ShareUtil.getUriFromFile(context, appExportsDir)
+                    intent.setDataAndType(uri, "resource/folder")
+                    context.getSystemService<NotificationManager>()?.notify(id, getNotificationBuilder(intent, readingList?.listTitle!!).build())
+                    FeedbackUtil.showMessage(activity, R.string.reading_list_export_completed_message)
+                }
+            }
+        }
+        observer.startWatching()
+    }
+
+    private fun getNotificationBuilder(intent: Intent, listName: String): NotificationCompat.Builder {
+        return NotificationCompat.Builder(context, NotificationCategory.SYSTEM.id)
+            .setDefaults(NotificationCompat.DEFAULT_ALL)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setAutoCancel(true)
+            .setContentTitle(context.getString(R.string.reading_list_notification_title))
+            .setContentText(context.getString(R.string.reading_list_notification_text, listName))
+            .setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags))
+            .setLargeIcon(NotificationPresenter.drawNotificationBitmap(context, R.color.accent50, R.drawable.ic_download_in_progress, ""))
+            .setSmallIcon(R.drawable.ic_wikipedia_w)
+            .setColor(ContextCompat.getColor(context, R.color.accent50))
+            .setStyle(NotificationCompat.BigTextStyle().bigText(context.getString(R.string.reading_list_notification_detailed_text, listName)))
     }
 
     override fun onPermissionResult(isGranted: Boolean) {

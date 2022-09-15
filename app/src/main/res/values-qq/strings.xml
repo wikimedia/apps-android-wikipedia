@@ -1264,4 +1264,8 @@
   <string name="description_edit_image_caption_learn_more_url">URL that points to a page on mediawiki that contains guidelines for writing Image captions.</string>
   <string name="user_contrib_menu_label">Menu label for accessing the contributions of the current user.</string>
   <string name="reading_list_menu_export">Label text to export a reading list.</string>
+  <string name="reading_list_notification_title">Notification title text for reading list export.</string>
+  <string name="reading_list_notification_text">Notification description text for reading list export. %s represents the reading list name</string>
+  <string name="reading_list_notification_detailed_text">Notification detailed description text for reading list export. %s represents the reading list name.</string>
+  <string name="reading_list_csv_headers">Header titles for lists in the exported csv files.</string>
 </resources>
