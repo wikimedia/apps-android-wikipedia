@@ -1,19 +1,22 @@
 package org.wikipedia.readinglist
 
+import android.Manifest
 import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Environment
+import android.os.FileObserver
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.ViewGroup
 import androidx.annotation.StyleRes
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.widget.TextViewCompat
-import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ItemReadingListBinding
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -22,7 +25,7 @@ import org.wikipedia.views.ViewUtil
 import java.io.File
 import java.io.FileOutputStream
 
-class ReadingListItemView : ConstraintLayout {
+class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
     interface Callback {
         fun onClick(readingList: ReadingList)
         fun onRename(readingList: ReadingList)
@@ -38,6 +41,7 @@ class ReadingListItemView : ConstraintLayout {
     private val binding = ItemReadingListBinding.inflate(LayoutInflater.from(context), this)
     private var readingList: ReadingList? = null
     private val imageViews = listOf(binding.itemImage1, binding.itemImage2, binding.itemImage3, binding.itemImage4)
+    private val activity:BaseActivity = context as BaseActivity
     var callback: Callback? = null
 
     constructor(context: Context) : super(context)
@@ -52,6 +56,7 @@ class ReadingListItemView : ConstraintLayout {
         isFocusable = true
         clearThumbnails()
         DeviceUtil.setContextClickAsLongClick(this)
+        activity.callback = this
 
         setOnClickListener {
             readingList?.let {
@@ -195,18 +200,14 @@ class ReadingListItemView : ConstraintLayout {
     }
 
     private fun handlePermissionsAndExport() {
-        if (!PermissionUtil.hasWriteExternalStoragePermission(context as AppCompatActivity)) {
-            requestWriteExternalStoragePermission()
-        } else {
+        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             exportListAsCsv()
+        } else {
+            activity.requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
     }
 
-    private fun requestWriteExternalStoragePermission() {
-        PermissionUtil.requestWriteStorageRuntimePermissions(context as AppCompatActivity,
-            Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION)
-    }
-
+    lateinit var observer: FileObserver
     private fun exportListAsCsv() {
         if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             return
@@ -217,9 +218,22 @@ class ReadingListItemView : ConstraintLayout {
             appExportsDir.mkdirs()
         }
         val csvFile = File(appExportsDir.path + "/" + readingList?.listTitle + ".csv")
+       observer = object :FileObserver(appExportsDir, ALL_EVENTS) {
+
+           override fun onEvent(event: Int, file: String?) {
+               if(event== CREATE) {
+
+               }
+           }
+       }
+       observer.startWatching();
+        FileOutputStream(csvFile, true).bufferedWriter().use {
+            it.write("pageTitle, language ,link")
+            it.newLine()
+        }
         readingList?.let {
-            it.pages.forEach {
-                val pageTitle = ReadingListPage.toPageTitle(it)
+            it.pages.forEach { page ->
+                val pageTitle = ReadingListPage.toPageTitle(page)
                 val uri = pageTitle.uri
                 val language = pageTitle.wikiSite.languageCode
                 FileOutputStream(csvFile, true).bufferedWriter().use { writer ->
@@ -227,6 +241,14 @@ class ReadingListItemView : ConstraintLayout {
                     writer.newLine()
                 }
             }
+        }
+    }
+
+    override fun onPermissionResult(isGranted: Boolean) {
+        if (isGranted) {
+           exportListAsCsv()
+        } else {
+            FeedbackUtil.showMessage(activity, R.string.reading_list_export_write_permission_rationale)
         }
     }
 }

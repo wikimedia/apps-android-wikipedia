@@ -9,6 +9,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -30,7 +31,9 @@ import org.wikipedia.events.*
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.readinglist.ReadingListItemView.Callback
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
+import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.recurring.RecurringTasksExecutor
@@ -43,6 +46,9 @@ import org.wikipedia.views.ViewUtil
 import kotlin.math.abs
 
 abstract class BaseActivity : AppCompatActivity() {
+    interface Callback {
+        fun onPermissionResult(isGranted: Boolean)
+    }
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
     private val networkStateReceiver = NetworkStateReceiver()
     private var previousNetworkState = WikipediaApp.instance.isOnline
@@ -54,7 +60,11 @@ abstract class BaseActivity : AppCompatActivity() {
     private var startTouchY = 0f
     private var startTouchMillis = 0L
     private var touchSlopPx = 0
+    var callback: Callback? = null
 
+    val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+            callback?.onPermissionResult(isGranted)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         exclusiveBusMethods = ExclusiveBusConsumer()
