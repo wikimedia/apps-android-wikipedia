@@ -713,7 +713,7 @@
   <string name="notifications_mark_unread">Отметить как непрочитанное</string>
   <string name="notifications_mark_all_as_read">Отметить все как прочитанные</string>
   <string name="notifications_direct_reply_action">Ответить</string>
-  <string name="notifications_direct_reply_progress">Отправка ответа {{GENDER:%s|участнику|участнице|участнику_це}} %s…</string>
+  <string name="notifications_direct_reply_progress">Отправка ответа участнику %s…</string>
   <string name="notifications_direct_reply_success">Ответ опубликован.</string>
   <string name="notifications_direct_reply_error">Не удалось автоматически опубликовать ответ.</string>
   <string name="notifications_mark_all_as_read_message">%d помечено как прочитанное</string>
