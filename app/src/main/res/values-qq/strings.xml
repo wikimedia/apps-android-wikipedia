@@ -1003,7 +1003,6 @@
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>
-  <string name="file_page_suggestion_reason">Suggestion reason title text of the file summary shown in the file page.</string>
   <string name="file_page_edit_button_content_description">Content description for the edit button in file page. The \"%s\" symbol is replaced with the name of the description type.\n\n{{Identical|Edit}}</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
@@ -1181,6 +1180,7 @@
   <string name="menu_option_edit_source">Menu option label for editing the page.\n{{Identical|Edit source}}</string>
   <string name="menu_option_user_page">Menu option label for the user page. %s indicating the username.</string>
   <string name="menu_option_find_in_talk_page_topic">Menu option label for finding in talk page topic.</string>
+  <string name="menu_option_copy_link_to_clipboard">Menu item for copying a link to the system clipboard for pasting later.</string>
   <string name="talk_menu_copy_text">Menu label for copying the text of the current reply.</string>
   <string name="talk_menu_expand_threads">Menu label for expanding all the threads in the conversation.</string>
   <string name="talk_menu_collapse_threads">Menu label for collapsing all the threads in the conversation.</string>
