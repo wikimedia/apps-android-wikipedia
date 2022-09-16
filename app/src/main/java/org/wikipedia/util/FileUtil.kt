@@ -44,6 +44,7 @@ object FileUtil {
                 val exportsFolder = File(downloadsFolder, appExportsFolderName)
                 val csvFile = File(exportsFolder, filename)
                 exportsFolder.mkdir()
+                csvFile.delete() //To overwrite when file exists
                 FileOutputStream(csvFile, true).bufferedWriter().use { writer ->
                     writer.write(stringBuilder.toString())
                 }
