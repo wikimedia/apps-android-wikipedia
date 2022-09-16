@@ -601,4 +601,8 @@ object Prefs {
     var userContribFilterNs
         get() = PrefsIoUtil.getInt(R.string.preference_key_user_contrib_filter_ns, -1)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_user_contrib_filter_ns, value)
+
+    var importReadingListsDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_import_reading_lists_dialog_shown, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_import_reading_lists_dialog_shown, value)
 }

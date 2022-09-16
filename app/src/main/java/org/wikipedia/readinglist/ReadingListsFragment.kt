@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.fragment.app.Fragment
@@ -258,6 +259,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             maybeShowListLimitMessage()
             updateEmptyState(searchQuery)
             maybeDeleteListFromIntent()
+            maybeShowImportReadingListsDialog()
             currentSearchQuery = searchQuery
         }
     }
@@ -540,6 +542,25 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             } else {
                 ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity())
             }
+        }
+    }
+
+    private fun maybeShowImportReadingListsDialog() {
+        if (!Prefs.importReadingListsDialogShown) {
+            binding.swipeRefreshLayout.postDelayed({
+                if (isAdded) {
+                    // TODO: update the dialog content with a proper "preview"
+                    AlertDialog.Builder(requireContext())
+                        .setTitle(R.string.shareable_reading_lists_import_dialog_title)
+                        .setMessage(R.string.shareable_reading_lists_import_dialog_content)
+                        .setPositiveButton(R.string.shareable_reading_lists_import_dialog_confirm) { _, _ ->
+                            // TODO: import
+                        }
+                        .setNegativeButton(R.string.shareable_reading_lists_import_dialog_cancel, null)
+                        .show()
+                    Prefs.importReadingListsDialogShown = true
+                }
+            }, 1000)
         }
     }
 

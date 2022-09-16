@@ -40,6 +40,7 @@ import org.wikipedia.events.ChangeTextSizeEvent
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
+import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
@@ -442,6 +443,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     // TODO: we can use either from parameter or fragment.
                     val encodedListFromParameter = uri.getQueryParameter("list")
                     val encodedListFromFragment = title.fragment
+                    Prefs.importReadingListsDialogShown = false
+                    startActivity(MainActivity.newIntent(this).putExtra(Constants.INTENT_EXTRA_IMPORT_READING_LISTS, true))
                 }
                 // Special cases:
                 // If the link is to a page in the "donate." or "thankyou." domains (e.g. a "thank you" page
