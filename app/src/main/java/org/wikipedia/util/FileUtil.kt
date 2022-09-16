@@ -1,8 +1,16 @@
 package org.wikipedia.util
 
+import android.content.ContentValues
+import android.content.Context
 import android.graphics.Bitmap
+import android.os.Build
+import android.os.Environment
+import android.provider.MediaStore
+import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.FileOutputStream
 import java.io.InputStream
 
 object FileUtil {
@@ -17,6 +25,32 @@ object FileUtil {
             fo.close()
         }
         return destinationFile
+    }
+
+    fun createFileInDownloadsFolder(context: Context, filename: String, stringBuilder: StringBuilder) {
+        val appExportsFolderName = WikipediaApp.instance.getString(R.string.app_name)
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                val contentResolver = context.contentResolver
+                val contentValues = ContentValues()
+                contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
+                contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "text/csv")
+                contentValues.put(MediaStore.Images.Media.RELATIVE_PATH, "Download${File.separator}$appExportsFolderName")
+                contentResolver.insert(MediaStore.Downloads.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY), contentValues)?.let { uri ->
+                    contentResolver.openOutputStream(uri)?.use { it.write(stringBuilder.toString().toByteArray()) }
+                }
+            } else {
+                val downloadsFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+                val exportsFolder = File(downloadsFolder, appExportsFolderName)
+                val csvFile = File(exportsFolder, filename)
+                exportsFolder.mkdir()
+                FileOutputStream(csvFile, true).bufferedWriter().use { writer ->
+                    writer.write(stringBuilder.toString())
+                }
+            }
+        } catch (e: Exception) {
+            //ignore
+        }
     }
 
     fun compressBmpToJpg(bitmap: Bitmap): ByteArrayOutputStream {

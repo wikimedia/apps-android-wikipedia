@@ -4,10 +4,13 @@ import android.Manifest
 import android.app.DownloadManager
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Environment
+import android.provider.MediaStore
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -208,7 +211,7 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
     }
 
     private fun handlePermissionsAndExport() {
-        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q || ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             exportListAsCsv()
         } else {
             activity.requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -216,30 +219,21 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
     }
 
     private fun exportListAsCsv() {
-        val appExportsFolderName = WikipediaApp.instance.getString(R.string.app_name)
-        val downloadsFolder =
-            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-        val exportsFolder = File(downloadsFolder, appExportsFolderName)
-        val csvFile = File(exportsFolder, readingList?.listTitle + ".csv")
-        exportsFolder.mkdir()
-        FeedbackUtil.showMessage(activity, R.string.reading_list_export_strated_message)
-
-        FileOutputStream(csvFile, true).bufferedWriter().use { writer ->
-            writer.write(context.getString(R.string.reading_list_csv_headers))
-            writer.newLine()
+        val stringBuilder = StringBuilder(context.getString(R.string.reading_list_csv_headers)).appendLine()
             readingList?.let {
+                FeedbackUtil.showMessage(activity, R.string.reading_list_export_strated_message)
                 it.pages.forEach { page ->
                     val pageTitle = ReadingListPage.toPageTitle(page)
                     val uri = pageTitle.uri
                     val language = pageTitle.wikiSite.languageCode
-                    writer.write(context.getString(R.string.reading_list_csv_entry, getSanitizedPageTitle(StringUtil.removeUnderscores(pageTitle.prefixedText)), language, uri))
-                    writer.newLine()
+                    stringBuilder.append(context.getString(R.string.reading_list_csv_entry, getSanitizedPageTitle(StringUtil.removeUnderscores(pageTitle.prefixedText)), language, uri)).appendLine()
                 }
-            }
+                val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
+                FileUtil.createFileInDownloadsFolder(context, "${readingList?.listTitle}.csv",stringBuilder)
+                context.getSystemService<NotificationManager>()?.notify(id, getNotificationBuilder(intent, readingList?.listTitle!!).build())
+                FeedbackUtil.showMessage(activity, R.string.reading_list_export_completed_message)
         }
-        val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
-        context.getSystemService<NotificationManager>()?.notify(id, getNotificationBuilder(intent, readingList?.listTitle!!).build())
-        FeedbackUtil.showMessage(activity, R.string.reading_list_export_completed_message)
+
     }
 
     private fun getSanitizedPageTitle(title: String): String {
