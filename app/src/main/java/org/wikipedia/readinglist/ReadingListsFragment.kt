@@ -546,21 +546,18 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun maybeShowImportReadingListsDialog() {
+        // TODO: check why the app exit
         if (!Prefs.importReadingListsDialogShown) {
-            binding.swipeRefreshLayout.postDelayed({
-                if (isAdded) {
-                    // TODO: update the dialog content with a proper "preview"
-                    AlertDialog.Builder(requireContext())
-                        .setTitle(R.string.shareable_reading_lists_import_dialog_title)
-                        .setMessage(R.string.shareable_reading_lists_import_dialog_content)
-                        .setPositiveButton(R.string.shareable_reading_lists_import_dialog_confirm) { _, _ ->
-                            // TODO: import
-                        }
-                        .setNegativeButton(R.string.shareable_reading_lists_import_dialog_cancel, null)
-                        .show()
-                    Prefs.importReadingListsDialogShown = true
+            // TODO: update the dialog content with a proper "preview"
+            AlertDialog.Builder(requireContext())
+                .setTitle(R.string.shareable_reading_lists_import_dialog_title)
+                .setMessage(R.string.shareable_reading_lists_import_dialog_content)
+                .setPositiveButton(R.string.shareable_reading_lists_import_dialog_confirm) { _, _ ->
+                    // TODO: import
                 }
-            }, 1000)
+                .setNegativeButton(R.string.shareable_reading_lists_import_dialog_cancel, null)
+                .show()
+            Prefs.importReadingListsDialogShown = true
         }
     }
 
