@@ -138,6 +138,7 @@
     <string name="preference_key_edit_history_filter_type">editHistoryFilterType</string>
     <string name="preference_key_talk_topic_expand_all">talkTopicExpandAll</string>
     <string name="preference_key_user_contrib_filter_ns">userContribFilterNs</string>
+    <string name="preference_key_import_reading_lists_new_install_dialog_shown">importReadingListsNewInstallDialogShown</string>
     <string name="preference_key_import_reading_lists_dialog_shown">importReadingListsDialogShown</string>
     <string name="preference_key_import_reading_lists_data">importReadingListsData</string>
 </resources>

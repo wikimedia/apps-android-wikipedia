@@ -546,7 +546,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun maybeShowImportReadingListsDialog() {
-        // TODO: check why the app exit
         if (!Prefs.importReadingListsDialogShown) {
             // TODO: update the dialog content with a proper "preview"
             val encodedList = Prefs.importReadingListsData

@@ -15,6 +15,7 @@ import android.speech.RecognizerIntent
 import android.util.Pair
 import android.view.*
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
@@ -32,6 +33,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.events.ImportReadingListsEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.feed.image.FeaturedImage
@@ -529,6 +531,20 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         }
     }
 
+    private fun maybeShowImportReadingListsNewInstallDialog() {
+        if (!Prefs.importReadingListsNewInstallDialogShown) {
+            AlertDialog.Builder(requireContext())
+                .setTitle(R.string.shareable_reading_lists_new_install_dialog_title)
+                .setMessage(R.string.shareable_reading_lists_new_install_dialog_content)
+                .setPositiveButton(R.string.shareable_reading_lists_new_install_dialog_learn_more) { _, _ ->
+                    // TODO: open external browser
+                }
+                .setNegativeButton(R.string.shareable_reading_lists_new_install_dialog_got_it, null)
+                .show()
+            Prefs.importReadingListsNewInstallDialogShown = true
+        }
+    }
+
     private fun maybeShowEditsTooltip() {
         if (currentFragment !is SuggestedEditsTasksFragment && Prefs.showSuggestedEditsTooltip &&
                 Prefs.exploreFeedVisitCount >= SHOW_EDITS_SNACKBAR_COUNT) {
@@ -571,6 +587,8 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         override fun accept(event: Any) {
             if (event is LoggedOutInBackgroundEvent) {
                 refreshContents()
+            } else if (event is ImportReadingListsEvent) {
+                maybeShowImportReadingListsNewInstallDialog()
             }
         }
     }
