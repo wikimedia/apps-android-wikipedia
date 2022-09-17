@@ -605,4 +605,8 @@ object Prefs {
     var importReadingListsDialogShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_import_reading_lists_dialog_shown, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_import_reading_lists_dialog_shown, value)
+
+    var importReadingListsData
+        get() = PrefsIoUtil.getString(R.string.preference_key_import_reading_lists_data, null)
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_import_reading_lists_data, value)
 }

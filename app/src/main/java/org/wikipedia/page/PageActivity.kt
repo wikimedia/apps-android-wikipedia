@@ -444,7 +444,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     val encodedListFromParameter = uri.getQueryParameter("list")
                     val encodedListFromFragment = title.fragment
                     Prefs.importReadingListsDialogShown = false
-                    startActivity(MainActivity.newIntent(this).putExtra(Constants.INTENT_EXTRA_IMPORT_READING_LISTS, true))
+                    Prefs.importReadingListsData = encodedListFromParameter
+                    startActivity(MainActivity.newIntent(this).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        .putExtra(Constants.INTENT_EXTRA_IMPORT_READING_LISTS, true))
+                    finish()
+                    return
                 }
                 // Special cases:
                 // If the link is to a page in the "donate." or "thankyou." domains (e.g. a "thank you" page
