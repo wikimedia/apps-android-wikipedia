@@ -20,6 +20,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.graphics.Insets
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textview.MaterialTextView
@@ -27,6 +28,10 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
@@ -158,7 +163,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
     private val foregroundTabPosition get() = app.tabList.size
     private val tabLayoutOffsetParams get() = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.pageActionsTabLayout.height)
-    val currentTab get() = app.tabList.last()!!
+    val currentTab get() = app.tabList.last()
     val title get() = model.title
     val page get() = model.page
     val historyEntry get() = model.curEntry
@@ -204,7 +209,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
         }
 
-        bottomBarHideHandler = ViewHideHandler(binding.pageActionsTabLayout, null, Gravity.BOTTOM, updateElevation = false)
+        bottomBarHideHandler = ViewHideHandler(binding.pageActionsTabLayout, null, Gravity.BOTTOM, updateElevation = false) { false }
         bottomBarHideHandler.setScrollView(webView)
         bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
 
@@ -263,6 +268,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bridge.execute(JavaScriptActionHandler.pauseAllMedia())
         if (avPlayer?.isPlaying == true) {
             avPlayer?.stop()
+            updateProgressBar(false)
         }
         activeTimer.pause()
         addTimeSpentReading(activeTimer.elapsedSec)
@@ -284,10 +290,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageActionsTabLayout.update()
         updateQuickActionsAndMenuOptions()
         articleInteractionEvent?.resume()
-    }
-
-    fun getPageActionTabLayout(): PageActionTabLayout {
-        return binding.pageActionsTabLayout
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -496,11 +498,17 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    private fun openInNewTab(title: PageTitle, entry: HistoryEntry, position: Int) {
-        val selectedTabPosition = app.tabList.firstOrNull { it.backStackPositionTitle != null &&
+    private fun selectedTabPosition(title: PageTitle): Int {
+        return app.tabList.firstOrNull { it.backStackPositionTitle != null &&
                 title.matches(it.backStackPositionTitle) }?.let { app.tabList.indexOf(it) } ?: -1
+    }
 
+    private fun openInNewTab(title: PageTitle, entry: HistoryEntry, position: Int, openFromExistingTab: Boolean = false) {
+        val selectedTabPosition = selectedTabPosition(title)
         if (selectedTabPosition >= 0) {
+            if (openFromExistingTab) {
+                setCurrentTabAndReset(selectedTabPosition)
+            }
             return
         }
         tabFunnel.logOpenInNew(app.tabList.size)
@@ -563,9 +571,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun addTimeSpentReading(timeSpentSec: Int) {
         model.curEntry?.let {
-            Completable.fromCallable { AppDatabase.instance.historyEntryDao().upsertWithTimeSpent(it, timeSpentSec) }
-                .subscribeOn(Schedulers.io())
-                .subscribe({}) { L.e(it) }
+            lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
+                withContext(Dispatchers.IO) {
+                    AppDatabase.instance.historyEntryDao().upsertWithTimeSpent(it, timeSpentSec)
+                }
+            }
         }
     }
 
@@ -910,12 +920,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bridge.execute(JavaScriptActionHandler.setFooter(model))
     }
 
-    fun openInNewBackgroundTab(title: PageTitle, entry: HistoryEntry) {
+    fun openInNewBackgroundTab(title: PageTitle, entry: HistoryEntry, openFromExistingTab: Boolean = false) {
         if (app.tabCount == 0) {
             openInNewTab(title, entry, foregroundTabPosition)
             pageFragmentLoadState.loadFromBackStack()
         } else {
-            openInNewTab(title, entry, backgroundTabPosition)
+            openInNewTab(title, entry, backgroundTabPosition, openFromExistingTab)
             (requireActivity() as PageActivity).animateTabsButton()
         }
     }
@@ -926,8 +936,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun openFromExistingTab(title: PageTitle, entry: HistoryEntry) {
-        val selectedTabPosition = app.tabList.firstOrNull { it.backStackPositionTitle != null &&
-                it.backStackPositionTitle == title }?.let { app.tabList.indexOf(it) } ?: -1
+        val selectedTabPosition = selectedTabPosition(title)
 
         if (selectedTabPosition == -1) {
             loadPage(title, entry, pushBackStack = true, squashBackstack = false)
@@ -1141,7 +1150,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun clearActivityActionBarTitle() {
+   private fun clearActivityActionBarTitle() {
         val currentActivity = requireActivity()
         if (currentActivity is PageActivity) {
             currentActivity.clearActionBarTitle()
@@ -1274,8 +1283,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             updateProgressBar(false)
         }
 
-        override fun onError() {
-            avPlayer?.stop()
+        override fun onError(code: Int, extra: Int) {
+            if (avPlayer?.isPlaying == true) {
+                avPlayer?.stop()
+            }
+            FeedbackUtil.showMessage(this@PageFragment, R.string.media_playback_error)
             updateProgressBar(false)
         }
     }

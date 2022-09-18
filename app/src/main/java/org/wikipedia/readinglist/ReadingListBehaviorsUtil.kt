@@ -49,7 +49,7 @@ object ReadingListBehaviorsUtil {
     private val exceptionHandler = CoroutineExceptionHandler { _, exception -> L.w(exception) }
 
     fun getListsContainPage(readingListPage: ReadingListPage) =
-            allReadingLists.filter { list -> list.pages.any { it.displayTitle == readingListPage.displayTitle } }
+            allReadingLists.filter { list -> list.pages.any { it.apiTitle == readingListPage.apiTitle } }
 
     fun savePagesForOffline(activity: Activity, selectedPages: List<ReadingListPage>, callback: Callback) {
         if (Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi) {
@@ -243,7 +243,7 @@ object ReadingListBehaviorsUtil {
     }
 
     fun addToDefaultList(activity: Activity, title: PageTitle, invokeSource: InvokeSource, addToDefaultListCallback: AddToDefaultListCallback, callback: Callback?) {
-        val defaultList = AppDatabase.instance.readingListDao().defaultList
+        val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
         val addedTitles = AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(defaultList, listOf(title))
         if (addedTitles.isNotEmpty()) {
             ReadingListsFunnel().logAddToList(defaultList, 1, invokeSource)
@@ -317,8 +317,8 @@ object ReadingListBehaviorsUtil {
                 result.add(lastListItemIndex++, list)
             }
             list.pages.forEach { page ->
-                if (page.displayTitle.lowercase(Locale.getDefault()).contains(normalizedQuery)) {
-                    if (result.none { it is ReadingListPage && it.displayTitle == page.displayTitle }) {
+                if (page.accentAndCaseInvariantTitle().contains(normalizedQuery)) {
+                    if (result.none { it is ReadingListPage && it.lang == page.lang && it.apiTitle == page.apiTitle }) {
                         result.add(page)
                     }
                 }

@@ -6,6 +6,7 @@
 * Asaifm
 * Asma
 * Dbrant
+* Dr-Taher
 * Dr. Mohammed
 * Elbasyouny
 * Esraa Ismail
@@ -116,6 +117,7 @@
   <string name="menu_page_new_tab">تبويب جديد</string>
   <string name="menu_page_reading_lists">قوائم القراءة</string>
   <string name="menu_page_recently_viewed">طالعتها مؤخرًا</string>
+  <string name="menu_page_archive">الأرشيف</string>
   <string name="menu_long_press_open_page">افتح</string>
   <string name="menu_long_press_open_in_new_tab">افتح في تبويب جديد</string>
   <string name="menu_long_press_copy_page">انسخ عنوان الوصلة</string>
@@ -293,7 +295,7 @@
   <string name="edit_conflict_message">تم تعديل الصفحة بالفعل من قبل مستخدم مختلف، وتتعارض مع تعديلك; الرجاء نسخ التعديلات، والعودة وتحديث الصفحة، ثم حاول التعديل مرة أخرى.</string>
   <string name="edit_notices">ملاحظات التحرير</string>
   <string name="edit_notices_please_read">فضلًا اقرأ قبل التعديل</string>
-  <string name="edit_notices_show_auto">أظهر ملاحظات التعديل آليًّا</string>
+  <string name="edit_notices_show_auto">أظهر ملاحظات التحرير آليًّا</string>
   <string name="edit_notices_tooltip">اضغط هذا الزر لمطالعة ملاحظات التحرير لهذه المقالة.</string>
   <string name="find_next">البحث عن التالي</string>
   <string name="find_previous">البحث عن السابق</string>
@@ -794,6 +796,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">ابدأ التعديل</string>
   <string name="description_edit_tutorial_promise">ببدئي، أنا أعد بعدم إساءة استخدام هذه الميزة.</string>
   <string name="customize_toolbar_title">تخصيص شريط الأدوات</string>
+  <string name="customize_toolbar_shortcut_description_text">خصّص شريط الأدوات السفلي بخمسة اختصارات تجدها الأكثر فائدةً.</string>
   <string name="customize_toolbar_category_toolbar">شريط الأدوات</string>
   <string name="customize_toolbar_category_menu">القائمة</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">اسحب وأسقط العناصر المُفضلة لك هنا 👋</string>
@@ -1075,15 +1078,9 @@
   <string name="talk_list_item_user_icon_content_description">أيقونة المستخدم</string>
   <string name="talk_list_item_swipe_mark_as_read">اقرأ</string>
   <string name="talk_list_item_swipe_mark_as_unread">غير مقروءة</string>
-  <string name="talk_footer_about_this_talk_page">حول صفحة النقاش هذه</string>
-  <string name="talk_footer_view_edit_history">عرض تاريخ التعديل</string>
-  <string name="talk_footer_view_user_page">عرض صفحة المستخدم</string>
-  <string name="talk_footer_view_article">عرض المقالة</string>
-  <string name="talk_footer_last_modified">التعديل الأخير %1$s بواسطة %2$s</string>
   <string name="menu_option_share_talk_discussion">شارك النقاش</string>
   <string name="menu_option_share_talk_page">شارك صفحة النقاش</string>
   <string name="menu_option_share_edit">شارك التعديل</string>
-  <string name="menu_option_user_profile">ملف %s</string>
   <string name="menu_option_user_contributions">مساهمات %s</string>
   <string name="menu_option_edit_source">عدل المصدر</string>
   <string name="menu_option_user_page">%s صفحة المستخدم</string>
@@ -1101,7 +1098,7 @@
   <string name="thank_dialog_positive_button_text">إرسال شكر</string>
   <string name="thank_dialog_negative_button_text">ألغ</string>
   <string name="thank_success_message">أُرسل \"شكرك\" إلى %s 👍</string>
-  <string name="menu_option_view_user_profile">اعرض صفحة المستخدم</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">اعرض صفحة المستخدم</string>
   <string name="menu_option_view_user_talk">اعرض صفحة النقاش</string>
   <string name="menu_option_view_user_contributions">اعرض مساهمات المستخدم</string>
   <string name="revision_diff_compare">مقارنة المراجعات</string>
@@ -1139,6 +1136,15 @@
   <string name="watchlist_page_moved">نُقلت</string>
   <string name="watchlist_page_protected">محمية</string>
   <string name="watchlist_page_deleted">حُذفت</string>
+  <string name="preview_edit_title">معاينة التعديل</string>
+  <string name="preview_edit_summarize_edit_title">تلخيص التحرير</string>
+  <string name="preview_edit_summarize_edit_hint">كيف حسّنت الصفحة؟</string>
+  <string name="preview_edit_minor_edit">هذا تعديل طفيف</string>
+  <string name="preview_edit_minor_edit_url">https://en.wikipedia.org/wiki/Help:Minor_edit</string>
+  <string name="preview_edit_watch_this_page">راقب هذه الصفحة</string>
+  <string name="preview_edit_watch_this_page_url">https://en.wikipedia.org/wiki/Help:Watchlist</string>
+  <string name="preview_edit_learn_more">تعرف على المزيد حول ملخص التحرير</string>
+  <string name="preview_edit_learn_more_url">https://en.wikipedia.org/wiki/Help:Edit_summary</string>
   <string name="action_item_categories">التصنيفات</string>
   <string name="page_no_categories">لا تنتمي هذه الصفحة إلى أية تصنيفات.</string>
   <string name="category_tab_articles">المقالات</string>

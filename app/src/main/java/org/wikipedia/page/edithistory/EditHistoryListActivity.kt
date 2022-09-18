@@ -31,7 +31,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
-import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
 import org.wikipedia.databinding.ViewEditHistorySearchBarBinding
@@ -170,11 +169,11 @@ class EditHistoryListActivity : BaseActivity() {
     private fun updateCompareStateItems() {
         binding.compareFromCard.isVisible = viewModel.selectedRevisionFrom != null
         if (viewModel.selectedRevisionFrom != null) {
-            binding.compareFromText.text = DateUtil.getShortDayWithTimeString(DateUtil.iso8601DateParse(viewModel.selectedRevisionFrom!!.timeStamp))
+            binding.compareFromText.text = DateUtil.getShortDayWithTimeString(viewModel.selectedRevisionFrom!!.timeStamp)
         }
         binding.compareToCard.isVisible = viewModel.selectedRevisionTo != null
         if (viewModel.selectedRevisionTo != null) {
-            binding.compareToText.text = DateUtil.getShortDayWithTimeString(DateUtil.iso8601DateParse(viewModel.selectedRevisionTo!!.timeStamp))
+            binding.compareToText.text = DateUtil.getShortDayWithTimeString(viewModel.selectedRevisionTo!!.timeStamp)
         }
         enableCompareButton(binding.compareConfirmButton, viewModel.selectedRevisionFrom != null && viewModel.selectedRevisionTo != null)
     }
@@ -548,7 +547,7 @@ class EditHistoryListActivity : BaseActivity() {
 
         fun newIntent(context: Context, pageTitle: PageTitle): Intent {
             return Intent(context, EditHistoryListActivity::class.java)
-                .putExtra(FilePageActivity.INTENT_EXTRA_PAGE_TITLE, pageTitle)
+                .putExtra(INTENT_EXTRA_PAGE_TITLE, pageTitle)
         }
     }
 }

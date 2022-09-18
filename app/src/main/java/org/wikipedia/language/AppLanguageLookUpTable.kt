@@ -74,6 +74,8 @@ class AppLanguageLookUpTable(context: Context) {
                 name = Locale.CHINESE.getDisplayName(Locale.CHINESE)
             } else if (code == NORWEGIAN_LEGACY_LANGUAGE_CODE) {
                 name = localizedNames.getOrNull(indexOfCode(NORWEGIAN_BOKMAL_LANGUAGE_CODE))
+            } else if (code == BELARUSIAN_TARASK_LANGUAGE_CODE) {
+                name = localizedNames.getOrNull(indexOfCode(BELARUSIAN_LEGACY_LANGUAGE_CODE))
             }
         }
         return name

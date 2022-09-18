@@ -26,6 +26,7 @@
 * Lorelai87
 * Macofe
 * Mannivu
+* Maracajá Teremembé
 * Marty5550
 * Nastoshka
 * Nemo bis
@@ -43,6 +44,7 @@
 * Stefano
 * SuperVirtual
 * The Polish
+* Vivbod
 * Yacine Boussoufa
 -->
 <resources>
@@ -128,6 +130,7 @@
   <string name="menu_page_new_tab">Nuova scheda</string>
   <string name="menu_page_reading_lists">Elenchi di lettura</string>
   <string name="menu_page_recently_viewed">Visitato di recente</string>
+  <string name="menu_page_archive">Archivio</string>
   <string name="menu_long_press_open_page">Apri</string>
   <string name="menu_long_press_open_in_new_tab">Apri in una nuova scheda</string>
   <string name="menu_long_press_copy_page">Copia l\'indirizzo del collegamento</string>
@@ -295,6 +298,11 @@
   <string name="edit_preview">Anteprima</string>
   <string name="edit_undo">Annulla</string>
   <string name="edit_redo">Ripeti</string>
+  <string name="edit_rollback">Ripristina</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s byte</item>
+    <item quantity="other">%s byte</item>
+  </plurals>
   <string name="edit_zoom_in">Ingrandisci</string>
   <string name="edit_zoom_out">Rimpicciolisci</string>
   <string name="edit_summary_tag_typo">Corretto errore di battitura</string>
@@ -1084,11 +1092,35 @@
   <string name="wikitext_bold">Grassetto</string>
   <string name="wikitext_italic">Corsivo</string>
   <string name="wikitext_link">Collegamento</string>
+  <string name="wikitext_insert_media">Inserisci un file multimediale</string>
   <string name="wikitext_bulleted_list">Elenco puntato</string>
   <string name="wikitext_numbered_list">Elenco numerato</string>
   <string name="wikitext_template">Template</string>
   <string name="wikitext_reference">Riferimento</string>
   <string name="wikitext_preview_link">Anteprima collegamento</string>
+  <string name="insert_media_title">Inserisci un file multimediale</string>
+  <string name="insert_media_search_description">Seleziona un file da Wikimedia Commons</string>
+  <string name="insert_media_settings">Impostazioni file multimediali</string>
+  <string name="insert_media_settings_uploaded_image">Immagine caricata</string>
+  <string name="insert_media_settings_caption">Didascalia</string>
+  <string name="insert_media_settings_caption_description">Etichetta che appare vicino all\'elemento per tutti i lettori</string>
+  <string name="insert_media_settings_alternative_text">Testo alternativo</string>
+  <string name="insert_media_advanced_settings">Impostazioni avanzate</string>
+  <string name="insert_media_advanced_settings_image_position">Posizione immagine</string>
+  <string name="insert_media_advanced_settings_image_position_right">Destra</string>
+  <string name="insert_media_advanced_settings_image_position_left">Sinistra</string>
+  <string name="insert_media_advanced_settings_image_position_center">Centro</string>
+  <string name="insert_media_advanced_settings_image_type">Tipo immagine</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Miniatura</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Senza cornice</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Base</string>
+  <string name="insert_media_advanced_settings_image_size">Dimensione immagine</string>
+  <string name="insert_media_advanced_settings_image_size_default">Predefinito</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Personalizzato</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Larghezza</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Altezza</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
+  <string name="insert_media_insert_button">Inserisci</string>
   <string name="main_drawer_help">Aiuto</string>
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
   <string name="main_tooltip_text">Ciao %s, sapevi che tutti possono modificare Wikipedia?</string>
@@ -1147,15 +1179,9 @@
   <string name="talk_list_item_user_icon_content_description">Icona utente</string>
   <string name="talk_list_item_swipe_mark_as_read">Lette</string>
   <string name="talk_list_item_swipe_mark_as_unread">Non lette</string>
-  <string name="talk_footer_about_this_talk_page">A proposito di questa pagina di discussione</string>
-  <string name="talk_footer_view_edit_history">Vedi cronologia delle modifiche</string>
-  <string name="talk_footer_view_user_page">Visualizza la pagina utente</string>
-  <string name="talk_footer_view_article">Visualizza voce</string>
-  <string name="talk_footer_last_modified">Ultima modifica %1$s di %2$s</string>
   <string name="menu_option_share_talk_discussion">Condividi discussione</string>
   <string name="menu_option_share_talk_page">Condividi pagina di discussione</string>
   <string name="menu_option_share_edit">Condividi modifica</string>
-  <string name="menu_option_user_profile">Profilo di %s</string>
   <string name="menu_option_user_contributions">Contributi di %s</string>
   <string name="menu_option_edit_source">Modifica wikitesto</string>
   <string name="menu_option_user_page">%s pagina utente</string>
@@ -1172,7 +1198,7 @@
   <string name="thank_dialog_positive_button_text">Invia ringraziamento</string>
   <string name="thank_dialog_negative_button_text">Annulla</string>
   <string name="thank_success_message">Il tuo \'ringraziamento\' è stato inviato a %s 👍</string>
-  <string name="menu_option_view_user_profile">Visualizza pagina profilo dell\'utente</string>
+  <string name="menu_option_view_user_profile">Vedi la pagina utente</string>
   <string name="menu_option_view_user_talk">Vedi la pagina di discussione</string>
   <string name="menu_option_view_user_contributions">Visualizza i contributi degli utenti</string>
   <string name="revision_diff_compare">Confronta versioni</string>
@@ -1221,4 +1247,10 @@
   <string name="subcategory_empty">Nessuna sottocategoria trovata in questa categoria.</string>
   <string name="search_namespaces">Namespace</string>
   <string name="revision_initial_none">Nessuna (questa è la prima versione)</string>
+  <string name="user_contrib_activity_title">Contributi di %s</string>
+  <string name="user_contrib_filter_ns">Filtra per namespace</string>
+  <string name="user_contrib_filter_all">Tutte le modifiche</string>
+  <string name="namespace_article">Voce</string>
+  <string name="user_contrib_current">attuale</string>
+  <string name="user_contrib_menu_label">Contributi</string>
 </resources>

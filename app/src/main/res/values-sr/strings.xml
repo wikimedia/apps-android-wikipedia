@@ -14,6 +14,7 @@
 * Rancher
 * Srdjan m
 * Srđan
+* Vlad5250
 * Zoranzoki21
 * Милан Јелисавчић
 * Сербијана
@@ -905,7 +906,7 @@
   <string name="talk_snackbar_undo">Опозови</string>
   <string name="thank_dialog_positive_button_text">Захвали се</string>
   <string name="thank_dialog_negative_button_text">Откажи</string>
-  <string name="menu_option_view_user_profile">Прикажи страницу уредника</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Прикажи страницу уредника</string>
   <string name="menu_option_view_user_talk">Прикажи страницу за разговор</string>
   <string name="menu_option_view_user_contributions">Прикажи доприносе</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">трајно</string>
@@ -927,6 +928,12 @@
   <string name="watchlist_page_moved">Премештено</string>
   <string name="watchlist_page_protected">Заштићено</string>
   <string name="watchlist_page_deleted">Избрисано</string>
+  <string name="preview_edit_summarize_edit_hint">Како сте побољшали ову страницу?</string>
+  <string name="preview_edit_minor_edit">Ово је мања измена</string>
+  <string name="preview_edit_minor_edit_url">https://sr.wikipedia.org/wiki/Помоћ:Мања_измена</string>
+  <string name="preview_edit_watch_this_page">Надгледај ову страницу</string>
+  <string name="preview_edit_watch_this_page_url">https://sr.wikipedia.org/wiki/Помоћ:Надгледање_страница</string>
+  <string name="preview_edit_learn_more_url">https://sr.wikipedia.org/wiki/Помоћ:Опис_измене</string>
   <string name="action_item_categories">Категорије</string>
   <string name="page_no_categories">Ова страница није категорисана.</string>
   <string name="category_tab_articles">Чланци</string>

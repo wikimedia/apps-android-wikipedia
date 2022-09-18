@@ -146,7 +146,7 @@
   <string name="create_account_passwords_mismatch_error">Паролите не съвпадат</string>
   <string name="create_account_email_error">Неправилен имейл адрес</string>
   <string name="create_account_username_error">Невалидни знаци в потребителското име</string>
-  <string name="create_account_password_error" fuzzy="true">Паролата е невалидна</string>
+  <string name="create_account_password_error">Паролата е трябва да се състои поне от 8 знака</string>
   <string name="create_account_generic_error">Не може да бъде създадена сметка</string>
   <string name="create_account_next">Следваща</string>
   <string name="email_recommendation_dialog_title">Създаване на сметка без е-поща?</string>
@@ -159,7 +159,7 @@
   <string name="create_account_ip_block_message">За съжаление вашият IP адрес към момента е блокиран за създаване на нови сметки.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Детайли</string>
-  <string name="preferences_general_heading">Общи</string>
+  <string name="preferences_general_heading">Основни</string>
   <string name="wikipedia_app_faq">Често задавани въпроси за приложението на Уикипедия</string>
   <string name="send_feedback">Изпращане на отзив за приложението</string>
   <string name="create_account_account_created_toast">Сметката е създадена!</string>
@@ -205,7 +205,7 @@
   <string name="about_translators_heading">Преводачи</string>
   <string name="about_translators_translatewiki">Това приложение е преведено от доброволните преводачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценз</string>
-  <string name="about_app_license" fuzzy="true">Програмният код е достъпен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценз &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Освен ако друго не е упоменато, съдържанието е достъпно под лиценз &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Програмният код е достъпен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценз &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Освен ако друго не е упоменато, съдържанието е достъпно под лиценз &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт на &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фондация Уикимедия&lt;/a&gt;</string>
   <string name="about_activity_title">Относно</string>
   <string name="edit_abandon_confirm">Страницата е била променена. Сигурни ли сте, че искате да излезете, без да запазите промените си?</string>
@@ -547,7 +547,7 @@
   <string name="preference_title_notification_mention">Споменаване</string>
   <string name="preference_summary_notification_mention">Някой Ви споменава на страница</string>
   <string name="preference_title_notification_user_talk">Беседа</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">Съобщения от беседи на страници</string>
+  <string name="preference_summary_notification_user_talk">Съобщения и отговори от беседи на страници</string>
   <string name="view_because_you_read_card_title">Защото сте чели</string>
   <string name="view_random_card_title">Случайна статия</string>
   <string name="view_random_article_card_title">Случайна статия</string>
@@ -643,6 +643,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По възможност един ред, от две до дванадесет думи</string>
   <string name="description_edit_tutorial_button_label_start_editing">Започнете да редактирате</string>
   <string name="description_edit_tutorial_promise">Започвайки, обещавам да не злоупотребявам с тази функция.</string>
+  <string name="customize_toolbar_category_menu">Меню</string>
   <string name="suggested_edits_review_description">Преглед на описание на статия</string>
   <string name="suggested_edits_add_description_button">Добавяне на описание</string>
   <string name="suggested_edits_edit_description_button">Редактиране на описанието</string>
@@ -831,6 +832,7 @@
   <string name="text_input_dialog_ok_button_text">Добре</string>
   <string name="text_input_dialog_cancel_button_text">Отказ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Отказ</string>
+  <string name="talk_new_topic">Нова тема</string>
   <string name="watchlist_details_watch_label">Наблюдение</string>
   <string name="thank_label">Благодарност</string>
   <string name="thank_dialog_negative_button_text">Отказ</string>
@@ -839,4 +841,6 @@
   <string name="watchlist_expiry_dialog_three_months">3 месеца</string>
   <string name="watchlist_filter_talk">Беседа</string>
   <string name="watchlist_filter_pages">Страници</string>
+  <string name="action_item_categories">Категории</string>
+  <string name="category_tab_articles">Статии</string>
 </resources>

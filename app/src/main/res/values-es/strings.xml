@@ -5,6 +5,7 @@
 * Agusbou2015
 * Amaia
 * Anarhistička Maca
+* AnupamM
 * Asierog
 * Athena in Wonderland
 * Bruno44101
@@ -16,6 +17,7 @@
 * Csbotero
 * Danniel07
 * DannyS712
+* DarkGames26
 * David.novella
 * Destinid10 2
 * Dgstranz
@@ -1083,11 +1085,41 @@
   <string name="wikitext_bold">Negrita</string>
   <string name="wikitext_italic">Cursiva</string>
   <string name="wikitext_link">Enlace</string>
+  <string name="wikitext_insert_media">Insertar multimedia</string>
   <string name="wikitext_bulleted_list">Lista con viñetas</string>
   <string name="wikitext_numbered_list">Lista numerada</string>
   <string name="wikitext_template">Plantilla</string>
   <string name="wikitext_reference">Referencia</string>
   <string name="wikitext_preview_link">Previsualizar enlace</string>
+  <string name="insert_media_title">Insertar multimedia</string>
+  <string name="insert_media_search_description">Seleccionar un archivo de Wikimedia Commons</string>
+  <string name="insert_media_search_hint">Busce media</string>
+  <string name="insert_media_settings">Configuración multimedia</string>
+  <string name="insert_media_settings_uploaded_image">Imagen cargada</string>
+  <string name="insert_media_settings_caption">Leyenda</string>
+  <string name="insert_media_settings_caption_description">Etiqueta que se muestra junto al elemento para todos los lectores</string>
+  <string name="insert_media_settings_alternative_text">Texto alternativo</string>
+  <string name="insert_media_settings_alternative_text_description">Descripción de texto para lectores quiénes no pueden ver la imagen</string>
+  <string name="insert_media_advanced_settings">Configuraciones avanzadas</string>
+  <string name="insert_media_advanced_settings_wrap_image">Envolver el texto alrededor de la imagen</string>
+  <string name="insert_media_advanced_settings_image_position">Posición de imagen</string>
+  <string name="insert_media_advanced_settings_image_position_right">Derecha</string>
+  <string name="insert_media_advanced_settings_image_position_left">Izquierda</string>
+  <string name="insert_media_advanced_settings_image_position_center">Centro</string>
+  <string name="insert_media_advanced_settings_image_position_none">Ninguno</string>
+  <string name="insert_media_advanced_settings_image_type">Tipo de imagen</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Miniatura</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Sin marco</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Marco</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Básico</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Puedes establecer cómo aparece el elemento multimedia en la página. Este debe ser el formato de miniatura para ser consistente con otras páginas en casi todos los casos.</string>
+  <string name="insert_media_advanced_settings_image_size">Tamaño de la imagen</string>
+  <string name="insert_media_advanced_settings_image_size_default">Predeterminado</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Personalizado</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Anchura</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Altura</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
+  <string name="insert_media_insert_button">Inserte</string>
   <string name="main_drawer_help">Ayuda</string>
   <string name="main_drawer_login">Iniciar sesión / unirse a Wikipedia</string>
   <string name="main_tooltip_text">Hola, %s, ¿sabías que todos pueden editar Wikipedia?</string>
@@ -1120,11 +1152,9 @@
   <string name="talk_search_topics_hint">Temas de búsqueda</string>
   <string name="talk_list_item_overflow_subscribe">Subscribirse</string>
   <string name="talk_list_item_user_icon_content_description">Icono de usuario</string>
-  <string name="talk_footer_last_modified">Última edición %1$s por %2$s</string>
   <string name="menu_option_share_talk_discussion">Compartir discusión</string>
   <string name="menu_option_share_talk_page">Compartir página de discusión</string>
   <string name="menu_option_share_edit">Compartir edición</string>
-  <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuciones de %s</string>
   <string name="menu_option_edit_source">Editar código</string>
   <string name="watchlist_details_watching_label">Vigilando</string>
@@ -1178,4 +1208,10 @@
   <string name="action_item_categories">Categorías</string>
   <string name="category_tab_articles">Artículos</string>
   <string name="category_tab_subcategories">Subcategorías</string>
+  <string name="user_contrib_activity_title">Contribuciones de %s</string>
+  <string name="user_contrib_filter_ns">Filtrar por espacio de nombres</string>
+  <string name="user_contrib_filter_all">Todas las ediciones</string>
+  <string name="namespace_article">Artículo</string>
+  <string name="user_contrib_current">Actual</string>
+  <string name="user_contrib_menu_label">Contribuciones</string>
 </resources>

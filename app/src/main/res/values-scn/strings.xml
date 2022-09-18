@@ -322,6 +322,8 @@
   <string name="talk_title">Discussioni</string>
   <string name="talk_user_title">Discussioni: %s</string>
   <string name="talk_new_topic">Argumentu novu</string>
+  <string name="talk_page_empty">Sta pàggina di discussioni è vacanti.</string>
+  <string name="talk_message_empty">Lu missaggiu nun pò èssiri vacanti.</string>
   <string name="talk_snackbar_undo">Annulla</string>
   <string name="talk_share_discussion_subject">Wikipedia –  discussioni supra l\'argumentu \"%s\" dâ pàggina di discussioni</string>
   <string name="talk_share_talk_page">Wikipedia – discussioni supra la pàggina di discussioni</string>
@@ -329,13 +331,12 @@
   <string name="menu_option_share_talk_discussion">Cunnividi discussioni</string>
   <string name="menu_option_share_talk_page">Cunnividi pàggina di discussioni</string>
   <string name="menu_option_share_edit">Cunnividi canciamentu</string>
-  <string name="menu_option_user_profile">Prufilu di %s</string>
   <string name="menu_option_user_contributions">Cuntribbuti di %s</string>
   <string name="menu_option_edit_source">Cancia surgenti</string>
   <string name="watchlist_details_watch_label">Talìa</string>
   <string name="view_user_page">Talìa la pàggina di l\'utenti</string>
   <string name="thank_dialog_negative_button_text">Annulla</string>
-  <string name="menu_option_view_user_profile">Talìa la pàggina prufilu di l\'utenti</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Talìa la pàggina prufilu di l\'utenti</string>
   <string name="menu_option_view_user_talk">Talìa la pàggina di discussioni</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cancia</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">pi 1 simana</string>

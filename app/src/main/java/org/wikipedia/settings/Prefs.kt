@@ -594,11 +594,11 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_edit_history_filter_type, null).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_edit_history_filter_type, value)
 
-    var toolbarTooltipVisible
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_toolbar_tooltip_visible, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_toolbar_tooltip_visible, value)
-
     var talkTopicExpandOrCollapseByDefault
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_talk_topic_expand_all, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_talk_topic_expand_all, value)
+
+    var userContribFilterNs
+        get() = PrefsIoUtil.getInt(R.string.preference_key_user_contrib_filter_ns, -1)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_user_contrib_filter_ns, value)
 }

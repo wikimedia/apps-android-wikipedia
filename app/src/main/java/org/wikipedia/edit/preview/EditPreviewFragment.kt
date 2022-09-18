@@ -10,7 +10,6 @@ import android.webkit.WebView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import io.reactivex.rxjava3.disposables.CompositeDisposable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.EditFunnel
@@ -23,14 +22,12 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.edit.EditSectionActivity
-import org.wikipedia.edit.summaries.EditSummaryTag
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.*
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.ViewAnimations
 
@@ -41,10 +38,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
 
     private lateinit var bridge: CommunicationBridge
     private lateinit var references: PageReferences
-    private lateinit var otherTag: EditSummaryTag
     private lateinit var funnel: EditFunnel
-    private val summaryTags = mutableListOf<EditSummaryTag>()
-    private val disposables = CompositeDisposable()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     val isActive get() = binding.editPreviewContainer.visibility == View.VISIBLE
 
@@ -56,33 +50,6 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     override val referencesGroup get() = references.referencesGroup
     override val selectedReferenceIndex get() = references.selectedIndex
 
-    /**
-     * Gets the overall edit summary, as specified by the user by clicking various tags,
-     * and/or entering a custom summary.
-     * @return Summary of the edit. If the user clicked more than one summary tag,
-     * they will be separated by commas.
-     */
-    val summary: String
-        get() {
-            val summaryStr = StringBuilder()
-            for (tag in summaryTags) {
-                if (!tag.selected) {
-                    continue
-                }
-                if (summaryStr.isNotEmpty()) {
-                    summaryStr.append(", ")
-                }
-                summaryStr.append(tag)
-            }
-            if (otherTag.selected) {
-                if (summaryStr.isNotEmpty()) {
-                    summaryStr.append(", ")
-                }
-                summaryStr.append(otherTag)
-            }
-            return summaryStr.toString()
-        }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPreviewEditBinding.inflate(layoutInflater, container, false)
         bridge = CommunicationBridge(this)
@@ -93,52 +60,8 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         linkHandler = EditLinkHandler(requireContext())
         initWebView()
 
-        // build up summary tags...
-        val summaryTagStrings = intArrayOf(R.string.edit_summary_tag_typo,
-            R.string.edit_summary_tag_grammar, R.string.edit_summary_tag_links)
-        val strings = L10nUtil.getStringsForArticleLanguage(pageTitle, summaryTagStrings)
-
-        summaryTags.clear()
-        for (i in summaryTagStrings) {
-            val tag = EditSummaryTag(requireActivity())
-            tag.text = strings.get(i)
-            tag.tag = i
-            tag.setOnClickListener { view ->
-                funnel.logEditSummaryTap(view.tag as Int)
-                tag.isSelected = !tag.selected
-            }
-            binding.editSummaryTagsContainer.addView(tag)
-            summaryTags.add(tag)
-        }
-
-        otherTag = EditSummaryTag(requireActivity())
-        otherTag.text = L10nUtil.getStringForArticleLanguage(pageTitle, R.string.edit_summary_tag_other)
-        binding.editSummaryTagsContainer.addView(otherTag)
-        otherTag.setOnClickListener {
-            funnel.logEditSummaryTap(R.string.edit_summary_tag_other)
-            if (otherTag.selected) {
-                otherTag.isSelected = false
-            } else {
-                (requireActivity() as EditSectionActivity).showCustomSummary()
-            }
-        }
-
-        if (savedInstanceState != null) {
-            for (i in summaryTags.indices) {
-                summaryTags[i].isSelected = savedInstanceState.getBoolean(KEY_SUMMARY_TAG.plus(i), false)
-            }
-            if (savedInstanceState.containsKey(KEY_OTHER_TAG)) {
-                otherTag.isSelected = true
-                otherTag.text = savedInstanceState.getString(KEY_OTHER_TAG)
-            }
-        }
         binding.editPreviewContainer.visibility = View.GONE
         return binding.root
-    }
-
-    fun setCustomSummary(summary: String) {
-        otherTag.text = summary.ifEmpty { getString(R.string.edit_summary_tag_other) }
-        otherTag.isSelected = summary.isNotEmpty()
     }
 
     /**
@@ -186,7 +109,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         bridge.addListener("reference") { _, messagePayload ->
             (JsonUtil.decodeFromString<PageReferences>(messagePayload.toString()))?.let {
                 references = it
-                if (!references.referencesGroup.isNullOrEmpty()) {
+                if (references.referencesGroup.isNotEmpty()) {
                     bottomSheetPresenter.show(childFragmentManager, ReferenceDialog())
                 }
             }
@@ -194,7 +117,6 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     }
 
     override fun onDestroyView() {
-        disposables.clear()
         binding.editPreviewWebview.clearAllListeners()
         (binding.editPreviewWebview.parent as ViewGroup).removeView(binding.editPreviewWebview)
         bridge.cleanup()
@@ -208,16 +130,6 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
      */
     fun hide(toView: View) {
         ViewAnimations.crossFade(binding.editPreviewContainer, toView) { requireActivity().invalidateOptionsMenu() }
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        for (i in summaryTags.indices) {
-            outState.putBoolean(KEY_SUMMARY_TAG.plus(i), summaryTags[i].selected)
-        }
-        if (otherTag.selected) {
-            outState.putString(KEY_OTHER_TAG, otherTag.toString())
-        }
     }
 
     inner class EditLinkHandler constructor(context: Context) : LinkHandler(context) {
@@ -272,10 +184,5 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         override var wikiSite: WikiSite
             get() = model.title!!.wikiSite
             set(wikiSite) {}
-    }
-
-    companion object {
-        private const val KEY_OTHER_TAG = "otherTag"
-        private const val KEY_SUMMARY_TAG = "summaryTag"
     }
 }

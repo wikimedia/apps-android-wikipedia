@@ -8,6 +8,7 @@ import android.view.MotionEvent
 import android.widget.TextView
 import androidx.core.text.getSpans
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 
@@ -59,6 +60,8 @@ class LinkMovementMethodExt : LinkMovementMethod {
                 }
                 L.d(linkText)
                 val url = UriUtil.decodeURL(links[0].url)
+
+                BreadCrumbLogEvent.logClick(widget.context, widget)
 
                 handler?.run {
                     onUrlClick(url)

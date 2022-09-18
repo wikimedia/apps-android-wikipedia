@@ -25,13 +25,13 @@ class MwQueryResult {
     @SerialName("wikimediaeditortaskscounts") val editorTaskCounts: EditorTaskCounts? = null
     @SerialName("recentchanges") val recentChanges: List<RecentChange>? = null
     @SerialName("usercontribs") val userContributions: List<UserContribution> = emptyList()
-    @SerialName("allusers") val allUsers: List<User>? = null
+    @SerialName("allusers") val allUsers: List<UserInfo>? = null
 
     private val redirects: MutableList<Redirect>? = null
     private val converted: MutableList<ConvertedTitle>? = null
-    private val users: List<ListUserResponse>? = null
     private val tokens: Tokens? = null
     private val echomarkread: MarkReadResponse? = null
+    val users: List<UserInfo>? = null
     val pages: MutableList<MwQueryPage>? = null
     val echomarkseen: MarkReadResponse? = null
     val notifications: NotificationList? = null
@@ -69,12 +69,13 @@ class MwQueryResult {
     }
 
     fun captchaId(): String? {
-        return amInfo?.requests?.find { "CaptchaAuthenticationRequest" == it.id }?.fields?.get("captchaId")?.value
+        val key = "captchaId"
+        return amInfo?.requests?.find { it.fields?.containsKey(key) == true }?.fields?.get(key)?.value
     }
 
-    fun getUserResponse(userName: String): ListUserResponse? {
+    fun getUserResponse(userName: String): UserInfo? {
         // MediaWiki user names are case sensitive, but the first letter is always capitalized.
-        return users?.find { userName.capitalize(Locale.getDefault()) == it.name }
+        return users?.find { userName.capitalize(Locale.getDefault()) == it?.name }
     }
 
     fun langLinks(): MutableList<PageTitle> {
@@ -236,12 +237,6 @@ class MwQueryResult {
     @Serializable
     class Namespace {
         val id: Int = 0
-        val name: String = ""
-    }
-
-    @Serializable
-    class User {
-        val userid: Int = 0
         val name: String = ""
     }
 

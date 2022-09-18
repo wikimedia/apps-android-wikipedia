@@ -26,6 +26,7 @@
 * Patriccck
 * Patrik L.
 * Robins7
+* Spotter
 * Tereza
 * Vojtěch Dostál
 * Walter Klosse
@@ -74,6 +75,8 @@
   <string name="share_via">Sdílet přes</string>
   <string name="image_share_via">Sdílet přes</string>
   <string name="search_redirect_from">Přesměrováno z %s</string>
+  <string name="page_edit_history_activity_title">Historie revizí: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="menu_page_show_tabs">Ukázat záložky</string>
   <string name="menu_page_other_languages">Změnit jazyk</string>
   <string name="menu_page_find_in_page">Najít v článku</string>
@@ -987,7 +990,6 @@
   <string name="talk_share_discussion_subject">Wikipedie - diskuse na diskusní stránce k tématu „%s“</string>
   <string name="talk_share_talk_page">Wikipedie - diskuse na diskusní stránce</string>
   <string name="menu_option_share_edit">Sdílet editaci</string>
-  <string name="menu_option_user_profile">Profil uživatele %s</string>
   <string name="menu_option_user_contributions">Příspěvky uživatele/uživatelky %s</string>
   <string name="watchlist_details_watching_label">Sledujete</string>
   <string name="watchlist_details_watch_label">Sledovat</string>
@@ -997,6 +999,7 @@
   <string name="thank_dialog_positive_button_text">Odeslat poděkování</string>
   <string name="thank_dialog_negative_button_text">Storno</string>
   <string name="thank_success_message">Poděkování bylo odesláno uživateli/uživatelce %s 👍</string>
+  <string name="menu_option_view_user_profile">Zobrazit uživatelskou stránku</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Stránka „%1$s“ a její diskusní stránka byly přidány do sledovaných stránek %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Změnit</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">trvale</string>

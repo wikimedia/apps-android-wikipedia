@@ -105,6 +105,7 @@
   <string name="menu_page_new_tab">Nová karta</string>
   <string name="menu_page_reading_lists">Zoznamy na prečítanie</string>
   <string name="menu_page_recently_viewed">Naposledy navštívené</string>
+  <string name="menu_page_archive">Archív</string>
   <string name="menu_long_press_open_page">Otvoriť</string>
   <string name="menu_long_press_open_in_new_tab">Otvoriť na novej karte</string>
   <string name="menu_long_press_copy_page">Skopírovať adresu odkazu</string>
@@ -272,6 +273,13 @@
   <string name="edit_preview">Náhľad</string>
   <string name="edit_undo">Späť</string>
   <string name="edit_redo">Znova</string>
+  <string name="edit_rollback">Vrátiť späť</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s bajt.</item>
+    <item quantity="few">%s bajty.</item>
+    <item quantity="many">%s bajtov.</item>
+    <item quantity="other">%s bajtov.</item>
+  </plurals>
   <string name="edit_zoom_in">Priblížiť</string>
   <string name="edit_zoom_out">Oddialiť</string>
   <string name="edit_summary_tag_typo">Opravený preklep</string>
@@ -419,6 +427,7 @@
   <string name="error_blocked_expiry">Koniec blokovania: %s</string>
   <string name="error_blocked_id">ID bloku: %s</string>
   <string name="error_blocked_footer">Môžete kontaktovať &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; alebo iného &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrátora&lt;/a&gt; pre diskutovanie o bloku.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Prispôsobte si panel nástrojov</string>
   <string name="error_blocked_footer_no_blocker">Môžete kontaktovať a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrátora&lt;/a&gt; pre diskutovanie o bloku.</string>
   <string name="crash_report_activity_title">Chyba aplikácie</string>
   <string name="crash_report_relaunch_or_quit">Ospravedlňujeme sa, aplikácia Wikipédia narazila na chybu a bola ukončená.\n\nChceli by ste začať odznova alebo aplikáciu ukončiť?</string>
@@ -844,6 +853,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Začať s úpravami</string>
   <string name="description_edit_tutorial_promise">Sľubujem, že nezneužijem túto funkciu.</string>
   <string name="customize_toolbar_title">Prispôsobiť panel nástrojov</string>
+  <string name="customize_toolbar_shortcut_description_text">Prispôsobte si spodný panel s nástrojmi pomocou 5 skratiek, ktoré považujete za najužitočnejšie.</string>
   <string name="customize_toolbar_category_toolbar">Panel nástrojov</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Chyťte a pretiahnite svoje obľúbené položky sem</string>
@@ -1185,15 +1195,10 @@
   <string name="talk_list_item_user_icon_content_description">Ikona používateľa</string>
   <string name="talk_list_item_swipe_mark_as_read">Prečítané</string>
   <string name="talk_list_item_swipe_mark_as_unread">Neprečítané</string>
-  <string name="talk_footer_about_this_talk_page">O tejto diskusnej stránke</string>
-  <string name="talk_footer_view_edit_history">Zobraziť históriu úprav</string>
-  <string name="talk_footer_view_user_page">Zobraziť stránku používateľa</string>
-  <string name="talk_footer_view_article">Zobraziť článok</string>
-  <string name="talk_footer_last_modified">Posledná úprava %1$s; upravil/a %2$s</string>
+  <string name="talk_archived_title">Archív rozhovoru: %s</string>
   <string name="menu_option_share_talk_discussion">Zdieľať diskusiu</string>
   <string name="menu_option_share_talk_page">Zdieľať diskusnú stránku</string>
   <string name="menu_option_share_edit">Zdieľať úpravu</string>
-  <string name="menu_option_user_profile">Profil používateľa %s</string>
   <string name="menu_option_user_contributions">Príspevky používateľa %s</string>
   <string name="menu_option_edit_source">Upraviť zdroj</string>
   <string name="menu_option_user_page">Stránka používateľa %s</string>
@@ -1212,7 +1217,7 @@
   <string name="thank_dialog_positive_button_text">Poslať poďakovanie</string>
   <string name="thank_dialog_negative_button_text">Zrušiť</string>
   <string name="thank_success_message">Vaše poďakovanie bolo poslané používateľovi/ke %s 👍</string>
-  <string name="menu_option_view_user_profile">Zobraziť stránku používateľa</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Zobraziť stránku používateľa</string>
   <string name="menu_option_view_user_talk">Zobraziť diskusnú stránku</string>
   <string name="menu_option_view_user_contributions">Zobraziť príspevky používateľa</string>
   <string name="revision_diff_compare">Porovnať revízie</string>
@@ -1229,6 +1234,8 @@
   <string name="revision_undo_message">Toto vráti naspäť úpravu urobenú revíziou artikla zobrazeného tu.</string>
   <string name="revision_undo_reason">Pre pokračovanie prosím zadajte dôvod prečo chcete úpravu vrátiť späť:</string>
   <string name="revision_undo_success">Revízia bola vrátená späť.</string>
+  <string name="revision_rollback_dialog_title">Naozaj chcete vrátiť úpravy späť?</string>
+  <string name="revision_rollback_success">Úpravy boli vrátené.</string>
   <string name="revision_compare_button">Porovnať</string>
   <string name="revision_compare_two_only">Vybrané môžu byť len dve revízie.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Stránka %1$s bola pridaná do Vášho zoznamu sledovaných %2$s</string>
@@ -1259,4 +1266,7 @@
   <string name="category_tab_subcategories">Podkategórie</string>
   <string name="category_empty">V tejto kategórii sa nenašiel žiadny článok.</string>
   <string name="subcategory_empty">V tejto kategórii sa nenašla žiadna podkategória.</string>
+  <string name="search_namespaces">Menné priestory</string>
+  <string name="revision_initial_none">Žiadne (toto je prvá revízia)</string>
+  <string name="archive_empty">Nenašli sa žiadne archivované stránky.</string>
 </resources>

@@ -160,7 +160,7 @@ class CreateAccountActivity : BaseActivity() {
                     if ("PASS" == response.status) {
                         finishWithUserResult(response.user)
                     } else {
-                        throw CreateAccountException(response.message)
+                        throw CreateAccountException(StringUtil.removeStyleTags(response.message))
                     }
                 }) { caught ->
                     L.e(caught.toString())
@@ -293,13 +293,13 @@ class CreateAccountActivity : BaseActivity() {
                     .subscribe({ response ->
                         response.query?.getUserResponse(userName)?.let {
                             binding.createAccountUsername.isErrorEnabled = false
-                            if (it.isBlocked) {
+                            if (it.hasBlockError) {
                                 handleAccountCreationError(it.error)
-                            } else if (!it.cancreate) {
+                            } else if (!it.canCreate) {
                                 binding.createAccountUsername.error = getString(R.string.create_account_name_unavailable, userName)
                             }
                         }
-                    }) { obj -> L.e(obj) })
+                    }) { L.e(it) })
         }
     }
 

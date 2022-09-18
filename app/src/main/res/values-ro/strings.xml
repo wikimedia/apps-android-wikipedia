@@ -1156,15 +1156,9 @@
   <string name="talk_list_item_user_icon_content_description">Pictograma utilizator</string>
   <string name="talk_list_item_swipe_mark_as_read">Citește</string>
   <string name="talk_list_item_swipe_mark_as_unread">Necitit</string>
-  <string name="talk_footer_about_this_talk_page">Despre această pagină de discuție</string>
-  <string name="talk_footer_view_edit_history">Vezi istoricul editărilor</string>
-  <string name="talk_footer_view_user_page">Vezi pagina de utilizator</string>
-  <string name="talk_footer_view_article">Vezi articolul</string>
-  <string name="talk_footer_last_modified">&lt;b&gt;Ultima modificare %1$s&lt;/b&gt; de %2$s</string>
   <string name="menu_option_share_talk_discussion">Distribuie discuție</string>
   <string name="menu_option_share_talk_page">Distribuie pagină de discuție</string>
   <string name="menu_option_share_edit">Distribuie modificarea</string>
-  <string name="menu_option_user_profile">Profilul lui %s</string>
   <string name="menu_option_user_contributions">Contribuțiile lui %s</string>
   <string name="menu_option_edit_source">Modificare sursă</string>
   <string name="menu_option_user_page">%s pagina utilizatorului</string>
@@ -1183,7 +1177,7 @@
   <string name="thank_dialog_positive_button_text">Trimite mulțumiri</string>
   <string name="thank_dialog_negative_button_text">Anulează</string>
   <string name="thank_success_message">Mulțumirea dvs. a fost trimisă către %s 👍</string>
-  <string name="menu_option_view_user_profile">Vizualizați pagina de profil de utilizator</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Vizualizați pagina de profil de utilizator</string>
   <string name="menu_option_view_user_talk">Vezi pagina de discuții</string>
   <string name="menu_option_view_user_contributions">Vezi contribuțiile utilizatorului</string>
   <string name="revision_diff_compare">Compară modificările</string>

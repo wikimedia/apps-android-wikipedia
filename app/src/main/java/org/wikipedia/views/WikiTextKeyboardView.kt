@@ -7,15 +7,17 @@ import android.view.LayoutInflater
 import android.view.inputmethod.InputConnection
 import android.widget.FrameLayout
 import org.wikipedia.databinding.ViewWikitextKeyboardBinding
+import org.wikipedia.edit.SyntaxHighlightableEditText
 
 class WikiTextKeyboardView : FrameLayout {
-    fun interface Callback {
+    interface Callback {
         fun onPreviewLink(title: String)
+        fun onRequestInsertMedia()
     }
 
     private val binding = ViewWikitextKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
     var callback: Callback? = null
-    var editText: PlainPasteEditText? = null
+    var editText: SyntaxHighlightableEditText? = null
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -62,6 +64,10 @@ class WikiTextKeyboardView : FrameLayout {
 
         binding.wikitextButtonListNumbered.setOnClickListener {
             editText?.inputConnection?.commitText("\n# ", 1)
+        }
+
+        binding.wikitextButtonInsertMedia.setOnClickListener {
+            callback?.onRequestInsertMedia()
         }
 
         binding.wikitextButtonPreviewLink.setOnClickListener {

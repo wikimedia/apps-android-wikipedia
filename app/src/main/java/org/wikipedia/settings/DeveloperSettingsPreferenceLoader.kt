@@ -71,7 +71,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             val pages = (0 until numberOfArticles).map {
                 ReadingListPage(PageTitle("Malformed page $it", WikiSite.forLanguageCode("foo")))
             }
-            AppDatabase.instance.readingListPageDao().addPagesToList(AppDatabase.instance.readingListDao().defaultList, pages, true)
+            AppDatabase.instance.readingListPageDao().addPagesToList(AppDatabase.instance.readingListDao().getDefaultList(), pages, true)
             true
         }
         findPreference(R.string.preference_key_missing_description_test).onPreferenceClickListener = Preference.OnPreferenceClickListener {

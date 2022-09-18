@@ -263,7 +263,7 @@
   <string name="clear_recent_searches_confirm_no">မွေးတဝ်း</string>
   <string name="error_browser_not_found">ဗွောင်နွောင်ꩻတဝ်း ဝဲက်လိတ်မဲ့ငါသွူ (မော့ꩻတဝ်း ဗရောင်သာအဲပ်သွူ)။</string>
   <string name="table_infobox">အချက်ဒွောင်ႏဖိုင်ႏ</string>
-  <string name="table_other">အချက်လက်အထဲင်းဖုံႏ</string>
+  <string name="table_other">အချက်လျက်အထဲင်းဖုံႏ</string>
   <string name="table_close">ပေ့ꩻထိုꩻ</string>
   <string name="widget_name_featured_page">ဝီခီပီးဒီးယား လိတ်မဲ့ငါတဲးဝါး</string>
   <string name="widget_title_featured_page">ဟန်ႏနီꩻ လိတ်မဲ့ငါတဲးဝါး-</string>
@@ -733,7 +733,7 @@
   <string name="suggested_edits_no_description">ဖုဲင်ယိုနဝ်ꩻ အွောန်ႏနယ်ချက် အဝ်ႏတဝ်း</string>
   <string name="suggested_edits_license_notice">ပွိုးထဲမ်သော့ꩻ ရောမ်ဖြုဲင်ꩻအွောန်ႏနယ်ချက်ခရာႏယိုတဲင် ခွေသွဉ်း သꩻဖော်ꩻပီစူꩻထွူဒျာႏ &lt;a href=\"%1$s\"&gt;ထူႏသုင်ꩻတာႏအွောန်ႏထွော့ချက်&lt;/a&gt; တောမ်ႏ ခွေစွဲးကမ်းခါꩻမုꩻဖိုင်ႏလဲ့ အီႏဒင်ႏထင်ႏထေပြန်ႏဒျာႏတောမ်ႏ &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; လုဲင်သိဉ်ဆꩻလ့နဝ်ꩻသွူ။</string>
   <string name="suggested_edits_image_caption_license_notice">ပွိုးထဲမ်သော့ꩻ ရုက်ပုင်ႏလိတ်ယိုတဲင် ခွေသွဉ်း သꩻဖော်ꩻပီစူꩻထွူဒျာႏ &lt;a href=\"%1$s\"&gt;ထူႏသုင်ꩻတာႏအွောန်ႏထွော့ချက်ဖိုင်ႏ&lt;/a&gt; တောမ်ႏ ခွေစွဲးကမ်းခါꩻမုꩻဖိုင်ႏလဲ့ အီႏဒင်ႏထင်ႏထေပြန်ႏဒျာႏတောမ်ႏ &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; လုဲင်သိဉ်ဆꩻလ့နဝ်ꩻသွူ။</string>
-  <string name="suggested_edits_menu_info">အချက်လက်</string>
+  <string name="suggested_edits_menu_info">အချက်လျက်</string>
   <string name="suggested_edits_task_add_description_title">ထဲမ်သော့ꩻ ရောမ်ဖြုဲင်ꩻအွောန်ႏနယ်ချက်ခရာႏဖိုင်ႏ</string>
   <string name="suggested_edits_task_image_caption_title">ထဲမ်သော့ꩻ ရုက်ပုင်ႏလိတ်</string>
   <string name="suggested_edits_task_image_caption_description">ထဲမ်သော့ꩻ ကအဝ်ႏလိုႏဒါႏ ရုက်ပုင်ႏလိတ်ဒွောင်ႏဖိုင်ႏ</string>
@@ -763,7 +763,7 @@
   <string name="suggested_edits_image_preview_dialog_date">မွူးနီꩻ</string>
   <string name="suggested_edits_image_preview_dialog_source">အရွီးခိုႏ/တွယ်ႏဓာတ်ပုင်ႏဆရာႏ</string>
   <string name="suggested_edits_image_preview_dialog_licensing">အွောန်ႏထွော့လုဲင်သိဉ်</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">ထဲင်းယင်း အချက်လက်</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">ထဲင်းယင်း အချက်လျက်</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ဖုဲင်လိတ်မဲ့ငါ Wikimedia Commonsကို</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">ဖုဲင်လိတ်မဲ့ငါ ဝီခီပီးဒီးယားကို</string>
   <string name="suggested_edits_article_cta_image_tags">ထဲမ်သော့ꩻ ရုက်ပုင်ႏtag</string>
@@ -810,7 +810,7 @@
   <string name="suggested_edits_paused_title">အိုင်ဆွိုးဆောင်း</string>
   <string name="suggested_edits_disabled_title">ပေ့ꩻခါꩻဒျာႏ</string>
   <string name="suggested_edits_ip_blocked_title">Ip ပေ့ꩻခါꩻဒျာႏသွူ</string>
-  <string name="suggested_edits_last_edited">အဆုဲင်ꩻသွတ်ꩻ မွဉ်းဖျင်ခါꩻလဲဉ်း</string>
+  <string name="suggested_edits_last_edited">မွဉ်းဖျင်ခါꩻလဲဉ်း</string>
   <string name="suggested_edits_last_edited_never">မုဲင်ꩻခါတယဝ်း</string>
   <string name="suggested_edits_task_new">တသာ</string>
   <string name="suggested_edits_reactivation_notification_title">ဖေႏကျံႏညဏ်ႏခါꩻဒါႏ မွဉ်းဖျင်မုꩻဖိုင်ႏ</string>
@@ -920,7 +920,6 @@
   <string name="menu_option_share_talk_discussion">ဖန်းဖြယ် အိုင်ကိုမ်ချက်</string>
   <string name="menu_option_share_talk_page">ဖန်းဖြယ် အိုင်ကိုမ်ဒေါ့ꩻရီလိတ်မဲ့ငါ</string>
   <string name="menu_option_share_edit">ဖန်းဖြယ်မွဉ်းဖျင်မုꩻ</string>
-  <string name="menu_option_user_profile">%s ပရိုဖုဲင်</string>
   <string name="menu_option_user_contributions">%s စွဲးကမ်းခွုမ်မာꩻသားဖိုင်ႏ</string>
   <string name="watchlist_details_watching_label">အဝ်ႏအိုင်ထွား</string>
   <string name="watchlist_details_watch_label">ပွေားထွား</string>

@@ -1079,15 +1079,9 @@
   <string name="talk_list_item_user_icon_content_description">Ikono dil uzero</string>
   <string name="talk_list_item_swipe_mark_as_read">Lektar</string>
   <string name="talk_list_item_swipe_mark_as_unread">Ne-lektita</string>
-  <string name="talk_footer_about_this_talk_page">Pri ca diskuto-pagino</string>
-  <string name="talk_footer_view_edit_history">Vidar redakto-historio</string>
-  <string name="talk_footer_view_user_page">Vidar uzeropagino</string>
-  <string name="talk_footer_view_article">Vidar artiklo</string>
-  <string name="talk_footer_last_modified">Lastafoye redaktita ye %1$s da %2$s</string>
   <string name="menu_option_share_talk_discussion">Partigez diskuto</string>
   <string name="menu_option_share_talk_page">Partigez diskuto-pagino</string>
   <string name="menu_option_share_edit">Partigar redakturo</string>
-  <string name="menu_option_user_profile">personal informo di %s</string>
   <string name="menu_option_user_contributions">Kontributaji di %s</string>
   <string name="menu_option_edit_source">Redaktar fonto</string>
   <string name="menu_option_user_page">%s uzero-pagino</string>
@@ -1106,7 +1100,7 @@
   <string name="thank_dialog_positive_button_text">Dankar</string>
   <string name="thank_dialog_negative_button_text">Nuligar</string>
   <string name="thank_success_message">Vua danko sendesis a %s 👍</string>
-  <string name="menu_option_view_user_profile">Vidar pagino pri profilo dil uzero</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Vidar pagino pri profilo dil uzero</string>
   <string name="menu_option_view_user_talk">Vidar diskuto-pagino</string>
   <string name="menu_option_view_user_contributions">Vidar uzero-kontributaji</string>
   <string name="revision_diff_compare">Komparar revizuri</string>
