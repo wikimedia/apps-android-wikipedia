@@ -280,8 +280,18 @@ object EditingSuggestionsProvider {
                             if (candidate.curRev <= revertCandidateLastRevId) {
                                 continue
                             }
-                            if (candidate.ores == null) {
+                            if (candidate.bot) {
+                                // Bot edits are not likely to be damaging.
                                 continue
+                            }
+                            if (candidate.revFrom == 0L) {
+                                // Can't deal with newly-created pages, for now.
+                                continue
+                            }
+                            if (candidate.ores != null) {
+                                if (!candidate.anon && candidate.ores!!.damagingProb < 0.5) {
+                                    continue
+                                }
                             }
                             revertCandidateCache.push(candidate)
                         }

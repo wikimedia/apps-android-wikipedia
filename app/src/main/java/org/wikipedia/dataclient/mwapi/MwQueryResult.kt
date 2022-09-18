@@ -194,8 +194,8 @@ class MwQueryResult {
         @SerialName("old_revid") val revFrom: Long = 0
         private val rcid: Long = 0
         val user: String = ""
-        private val anon = false
-        private val bot = false
+        val anon = false
+        val bot = false
 
         @SerialName("new") private val isNew = false
         private val minor = false
