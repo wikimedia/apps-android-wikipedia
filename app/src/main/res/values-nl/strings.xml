@@ -1006,7 +1006,6 @@
   <string name="file_page_activity_title">Bestandspagina</string>
   <string name="file_page_add_image_caption_button">Afbeeldingsbijschrift toevoegen</string>
   <string name="file_page_add_image_tags_button">Afbeeldingslabel toevoegen</string>
-  <string name="file_page_suggestion_reason">Reden voor suggestie</string>
   <string name="file_page_edit_button_content_description">Bewerk %s</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
@@ -1236,6 +1235,11 @@
   <string name="watchlist_page_moved">Hernoemd</string>
   <string name="watchlist_page_protected">Beveiligd</string>
   <string name="watchlist_page_deleted">Verwijderd</string>
+  <string name="preview_edit_title">Voorvertoning van de bewerking</string>
+  <string name="preview_edit_summarize_edit_title">Bewerking samenvatten</string>
+  <string name="preview_edit_summarize_edit_hint">Hoe hebt u de pagina verbeterd?</string>
+  <string name="preview_edit_minor_edit">Dit is een kleine bewerking</string>
+  <string name="preview_edit_watch_this_page">Deze pagina volgen</string>
   <string name="action_item_categories">Categorieën</string>
   <string name="page_no_categories">Deze pagina staat in geen enkele categorie.</string>
   <string name="category_tab_articles">Artikelen</string>
