@@ -50,7 +50,7 @@ class SyntaxHighlightableEditText : EditText {
 
     var inputConnection: InputConnection? = null
 
-    var showLineNumbers = true
+    var showLineNumbers = false
         set(value) {
             field = value
             applyPaddingForLineNumbers()
