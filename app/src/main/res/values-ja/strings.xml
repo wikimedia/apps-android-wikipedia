@@ -152,6 +152,7 @@
   <string name="content_license_cc_by_sa">CC 表示-継承 3.0</string>
   <string name="edit_save_action_license_logged_in">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンスの下でコンテンツ再利用を許諾することになります。これは撤回できません。</string>
   <string name="edit_save_action_license_anon">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。編集はあなたのデバイスのIPアドレスと関連付けて記録されます。さらにプライバシーを求める場合は&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;してください。</string>
+  <string name="edit_anon_warning">編集はあなたのデバイスのIPアドレスに帰属します。&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;すれば、よりプライバシーが高まります。</string>
   <string name="preference_title_language">ウィキペディアの言語</string>
   <string name="langlinks_filter_hint">検索</string>
   <string name="langlinks_empty">このページの他の言語版はありません。</string>
@@ -314,7 +315,10 @@
   <string name="edit_summary_tag_other_hint">ページのその他の改善</string>
   <string name="edit_conflict_title">編集の競合</string>
   <string name="edit_conflict_message">このページは他のユーザーによって変更されており、あなたの編集と競合しています。編集中のテキストをコピーして、戻ってページを読み込み直した上で、再度編集してください。</string>
+  <string name="edit_notices">編集の通知</string>
   <string name="edit_notices_please_read">編集する前にお読みください</string>
+  <string name="edit_notices_show_auto">編集の通知を自動的に表示する</string>
+  <string name="edit_notices_tooltip">このボタンをタップすると、この記事の編集の通知が表示されます。</string>
   <string name="find_next">次を検索</string>
   <string name="find_previous">前を検索</string>
   <string name="find_first_occurence">これが1件目です</string>
@@ -715,6 +719,8 @@
   <string name="notifications_menu_mark_as_unread">未読にする</string>
   <string name="notifications_swipe_action_read">既読</string>
   <string name="notifications_swipe_action_unread">未読</string>
+  <string name="notifications_menu_check_all">すべての項目をチェックする</string>
+  <string name="notifications_menu_uncheck_all">すべての項目のチェックを外す</string>
   <string name="notifications_wiki_filter_header">ウィキフィルター</string>
   <string name="notifications_type_filter_header">種類フィルター</string>
   <string name="notifications_all_wikis_text">すべての「ウィキ」</string>
@@ -1157,7 +1163,7 @@
   <string name="talk_list_item_overflow_mark_as_unread">未読にする</string>
   <string name="talk_list_item_overflow_share">共有</string>
   <string name="talk_list_item_user_icon_content_description">利用者アイコン</string>
-  <string name="talk_list_item_swipe_mark_as_read">閲覧</string>
+  <string name="talk_list_item_swipe_mark_as_read">既読</string>
   <string name="talk_list_item_swipe_mark_as_unread">未読</string>
   <string name="menu_option_share_talk_discussion">議論を共有</string>
   <string name="menu_option_share_talk_page">トークページを共有</string>
@@ -1166,9 +1172,11 @@
   <string name="menu_option_edit_source">ソースを編集</string>
   <string name="menu_option_user_page">%sの利用者ページ</string>
   <string name="menu_option_find_in_talk_page_topic">トークページのトピックを探す</string>
+  <string name="menu_option_copy_link_to_clipboard">リンクをクリップボードにコピー</string>
   <string name="talk_menu_copy_text">テキストをコピー</string>
   <string name="talk_menu_expand_threads">スレッドを展開</string>
   <string name="talk_menu_collapse_threads">スレッドを折りたたむ</string>
+  <string name="watchlist_details_watching_label">ウォッチ中</string>
   <string name="watchlist_details_watch_label">ウォッチ</string>
   <string name="watchlist_details_next_edit">次の版</string>
   <string name="watchlist_details_prev_edit">前の版</string>

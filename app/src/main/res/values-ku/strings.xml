@@ -156,6 +156,7 @@
   <string name="reset_password_button">Tomar bike û têkeve</string>
   <string name="preference_title_logout">Derkeve</string>
   <string name="toast_logout_complete">Hate derketin</string>
+  <string name="logout_prompt">Ev wê te ji temamê cîhazên tu niha têketî yî derîne. Tu dixwazî dewam bikî?</string>
   <string name="logout_dialog_cancel_button_text">Betal bike</string>
   <string name="logged_out_in_background_title">Hat derketin</string>
   <string name="logged_out_in_background_dialog">Tu ji Wîkîpediyayê derketi yî. Dixwazî dîsa têkevî?</string>
@@ -163,6 +164,7 @@
   <string name="logged_out_in_background_cancel">Betal bike</string>
   <string name="history_empty_title">Rûpelên ku te di demên dawî de dîtibe tine ne!</string>
   <string name="history_empty_message">Yên ku te xwendiye ji vir bişopîne.</string>
+  <string name="history_offline_articles_toast">Hin gotarên di dîrokê de, dibe ku ne xuyabar bin gava offline bî.</string>
   <string name="search_empty_message">Ansîklopediya azad bi zimanê xwe bixwîne û lê bigere</string>
   <string name="search_empty_message_multilingual_upgrade">Bi zêdetir zimanan lêgerîna Wîkîpediyayê bike</string>
   <string name="delete_selected_items">Hêmanên bijartî jê bibe</string>
@@ -176,6 +178,7 @@
   <string name="dialog_create_account_checking_progress">Tê rastandin</string>
   <string name="create_account_email_hint">E-name (heke bixwazî)</string>
   <string name="create_account_password_repeat_hint">Şîfreyê dîsa binivîse</string>
+  <string name="create_account_password_is_username">Pêborîn nabe ku bi navê bikarhêneriyê re eynî be</string>
   <string name="create_account_passwords_mismatch_error">Şîfre li hev nayên</string>
   <string name="create_account_email_error">Navnîşana enameyê ya derbasdar</string>
   <string name="create_account_username_error">Karakterên nenas ya di navê bikarhêneriyê de</string>
@@ -193,10 +196,23 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Dêtay</string>
   <string name="preferences_general_heading">Giştî</string>
+  <string name="preferences_account_heading">Hesab</string>
   <string name="wikipedia_app_faq">Sepana Wîkîpediyayê PPP</string>
   <string name="send_feedback">Paşragihanê bişîne</string>
   <string name="create_account_account_created_toast">Hesab hate çêkirin!</string>
+  <string name="preferences_heading_syncing">Senkronîzekirin</string>
   <string name="preferences_heading_data_usage">Bikaranîna daneyê</string>
+  <string name="preferences_heading_experimental">Azmûnî</string>
+  <string name="preference_title_sync_reading_lists_from_account">Lîsta xwendinê tê senkronîzekirin</string>
+  <string name="preference_title_download_reading_list_articles">Gotarên lîsta xwendinê daxîne</string>
+  <string name="preference_summary_sync_reading_lists">Lîstên xwendinê li navbera cîhazên cuda senkronîze bike bi qeydkirina wan li hesabê xwe yê Wîkîpediyayê</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Lîstên xwendinê li navbera cîhazên cuda senkronîze bike bi qeydkirina wan li hesabê xwe yê Wîkîpediyayê \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Bila lîsta xwendinê yê senkronîzekirî ji \"%s\" were rakirin?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ev wê lîstên xwendinê yên di berê de senkronîzekirî temamen ji depoya dûr bibe. Bila temamê lîstên senkronîzekirî ji hesabê \"%s\" rake?</string>
+  <string name="preferences_privacy_settings_heading">Veşarîtî</string>
+  <string name="preference_title_eventlogging_opt_in">Raportên bikanînê bişîne</string>
+  <string name="preference_summary_eventlogging_opt_in">Ji bo sepanê çêtir bike, destûr bide Wîkîpediyayê ku agahiyan bicivîne di derbarê bikaranîna te ya sepanê de</string>
+  <string name="preference_title_auto_upload_crash_reports">Raportên xirabûnê bişîne</string>
   <string name="error_can_not_process_link">Nikare vê lînkê nîşan bide</string>
   <string name="page_protected_autoconfirmed">Ev rûpel nîv-parastî ye</string>
   <string name="page_protected_sysop">Ev rûpel bi temamî parastî ye.</string>
