@@ -8,6 +8,7 @@
 * MuratTheTurkish
 * Nersip
 * Nuodas
+* Pavel1513
 * Pofka
 * Tomasdd
 * Zygimantus
@@ -381,4 +382,5 @@
   <string name="talk_message_hint">Kurti žinutę</string>
   <string name="talk_message_empty">Žinutė negali būti tuščia.</string>
   <string name="talk_subject_empty">Tema negali būti tuščia.</string>
+  <string name="menu_option_copy_link_to_clipboard">Kopijuoti nuorodą į iškarpinę</string>
 </resources>
