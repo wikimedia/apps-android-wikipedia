@@ -66,6 +66,14 @@
   <string name="page_edit_history_filter_by_user">Праўкі ўдзельніка (%s)</string>
   <string name="page_edit_history_filter_by_anon">Ананімныя праўкі (%s)</string>
   <string name="page_edit_history_filter_by_bot">Правкі ботаў (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Метрыкі ад %1$s да %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d праўка з %2$s</item>
+    <item quantity="few">%1$d праўкі з %2$s</item>
+    <item quantity="many">%1$d правак з %2$s</item>
+    <item quantity="other">%1$d edits since %2$s</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Паспрабуйце змяніць &lt;a href=\"#\"&gt;фільтры&lt;/a&gt; , каб убачыць больш правак</string>
   <string name="menu_page_show_tabs">Паказаць укладкі</string>
   <string name="menu_page_other_languages">Змяніць мову</string>
   <string name="menu_page_find_in_page">Знайсці ў артыкуле</string>
@@ -109,6 +117,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Публікуючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на неадклікальную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Публікуючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на неадклікальную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Праўкі будуць прывязаны да IP-адрасу вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;аўтарызуйцеся&lt;/a&gt;, то атрымаеце вышэйшы ўзровень прыватнасці.</string>
+  <string name="edit_anon_warning">Рэдакцыі будуць звязаны з IP-адрасам вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце&lt;/a&gt;, у вас будзе больш прыватнасці.</string>
   <string name="preference_title_language">Мовы Вікіпедыі</string>
   <string name="langlinks_filter_hint">Пошук</string>
   <string name="langlinks_empty">Гэтая старонка не даступная на іншых мовах.</string>
@@ -183,7 +192,12 @@
   <string name="create_account_generic_error">Немагчыма стварыць рахунак</string>
   <string name="create_account_next">Далей</string>
   <string name="email_recommendation_dialog_title">Стварыць уліковы запіс без электроннай пошты?</string>
+  <string name="email_recommendation_dialog_message">Нягледзячы на тое, што адрас эл. пошты не абавязковы, ён &lt;b&gt;настойліва рэкамендуецца&lt;/b&gt;, паколькі эл. пошта патрэбна для аднаўлення рахунку, калі вы страціце пароль.</string>
+  <string name="email_recommendation_message">Рэкамендуецца, паколькі для аднаўлення рахунку патрэбна эл. пошта.</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Працягнуць без эл. пошты</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Дадаць адрас эл. пошты</string>
   <string name="create_account_button">Стварыць уліковы запіс</string>
+  <string name="create_account_name_unavailable">Імя ўдзельніка «%s» недаступнае. Выберыце іншае імя.</string>
   <string name="preferences_general_heading">Агульныя</string>
   <string name="wikipedia_app_faq">Частыя пытанні па дадатку Вікіпедыі</string>
   <string name="send_feedback">Зваротная сувязь</string>
