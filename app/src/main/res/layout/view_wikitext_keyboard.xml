@@ -22,7 +22,7 @@
             android:id="@+id/wikitext_button_heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonText="H1"
+            app:buttonText="H2"
             app:buttonHint="@string/wikitext_headings" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
