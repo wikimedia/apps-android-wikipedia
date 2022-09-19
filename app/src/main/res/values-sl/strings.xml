@@ -640,10 +640,10 @@
   <string name="notifications_mark_all_as_read_message">%d označenih kot prebrana</string>
   <string name="notifications_mark_all_as_unread_message">%d označenih kot neprebrana</string>
   <plurals name="notifications_mark_as_read_plural">
-    <item quantity="one">1 označena kot prebrana</item>
+    <item quantity="one">1 označeno kot prebrano</item>
     <item quantity="two">%d označeni kot prebrani</item>
-    <item quantity="few">%d označene kot prebrane</item>
-    <item quantity="other">%d označenih kot prebranih</item>
+    <item quantity="few">%d označena kot prebrana</item>
+    <item quantity="other">%d označenih kot prebrana</item>
   </plurals>
   <plurals name="notifications_mark_as_unread_plural">
     <item quantity="one">1 označeno kot neprebrano</item>
@@ -712,7 +712,7 @@
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">Naloži še en naključni članek</string>
   <string name="view_main_page_card_title">Danes v Wikipediji</string>
-  <string name="view_main_page_card_action">Prikaži glavno stran</string>
+  <string name="view_main_page_card_action">Ogled glavne strani</string>
   <string name="view_featured_image_card_title">Slika dneva</string>
   <string name="view_featured_image_card_download">Prenesi</string>
   <string name="view_featured_image_card_share">Deli</string>
@@ -814,7 +814,7 @@
   <string name="customize_toolbar_category_menu">Meni</string>
   <string name="customize_toolbar_reset_to_default_button">Ponastavi na privzeto</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Za prestavitev predmeta pridržite ikono za povlek</string>
-  <string name="customize_toolbar_item_default_tooltip">Za prestavitev predmeta ga pritisnite in povlecite</string>
+  <string name="customize_toolbar_item_default_tooltip">Element pritisnite in povlecite, da ga prestavite.</string>
   <string name="suggested_edits_describe_articles">Opisovanje člankov</string>
   <string name="suggested_edits_caption_images">Dodajte napise k slikam</string>
   <string name="suggested_edits_tag_images">Označujte slike</string>
@@ -1001,7 +1001,6 @@
   <string name="file_page_activity_title">Stran datoteke</string>
   <string name="file_page_add_image_caption_button">Dodaj napis k sliki</string>
   <string name="file_page_add_image_tags_button">Dodajte sliki oznake</string>
-  <string name="file_page_suggestion_reason">Razlog za predlog</string>
   <string name="file_page_edit_button_content_description">Uredi %s</string>
   <string name="description_edit_revert_subtitle">Hvala za urejanje Wikipedije!</string>
   <string name="description_edit_revert_intro">Vemo, da ste se potrudili po najboljših močeh, vendar je eden od pregledovalcev imel pomisleke. Možni razlogi za vrnitev vašega urejanja so:</string>
@@ -1150,9 +1149,11 @@
   <string name="revision_diff_line_nums">Vrstice %d–%d</string>
   <string name="revision_diff_line_added">Vrstica dodana</string>
   <string name="revision_diff_line_removed">Vrstica odstranjena</string>
-  <string name="revision_diff_paragraph_added">Odstavek dodan</string>
+  <string name="revision_diff_paragraph_added">Dodani odstavek</string>
   <string name="revision_diff_paragraph_removed">Odstavek odstranjen</string>
   <string name="revision_undo_title">Razveljavi urejanje</string>
+  <string name="revision_undo_message">To bo razveljavilo spremembe v tukaj prikazani(h) redakciji(ah).</string>
+  <string name="revision_undo_reason">Za nadaljevanje navedite razlog za razveljavitev tega urejanja:</string>
   <string name="revision_undo_success">Redakcija je bila razveljavljena.</string>
   <string name="revision_rollback_dialog_title">Ali res želite vrniti urejanje?</string>
   <string name="revision_rollback_success">Urejanje vrnjeno.</string>

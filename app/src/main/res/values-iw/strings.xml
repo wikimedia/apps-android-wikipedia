@@ -833,6 +833,10 @@
   <string name="description_edit_license_notice">שינוי תיאור הערך מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">על פי רוב מתחיל באות קטנה</string>
   <string name="description_edit_voice_input_description">קלט קולי</string>
+  <string name="description_edit_learn_more">מידע נוסף על תיאורי ערכים</string>
+  <string name="description_edit_image_caption_learn_more">מידע נוסף על כיתובי תמונה</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">הטקסט קצר מדי.</string>
   <string name="description_ends_with_punctuation">הטקסט לא צריך להסתיים בסימן פיסוק</string>
   <string name="description_starts_with_uppercase">יש להתחיל באות קטנה, אלא אם המילה הראשונה היא שם פרטי.</string>
@@ -1051,7 +1055,6 @@
   <string name="file_page_activity_title">דף קובץ</string>
   <string name="file_page_add_image_caption_button">הוספת כיתוב תמונה</string>
   <string name="file_page_add_image_tags_button">הוספת תגי תמונה</string>
-  <string name="file_page_suggestion_reason">הסיבה להצעה</string>
   <string name="file_page_edit_button_content_description">עריכת %s</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים היה חשד. סיבות אפשריות לכך שהעריכה שלך בוטלה:</string>

@@ -594,6 +594,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">إلغاء</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">إلغاء</string>
   <string name="reading_list_split_dialog_ok_button_text">حسنا</string>
+  <string name="reading_list_activity_title">قائمة القراءة\" %s</string>
   <string name="user_option_sync_label">تفضيلات</string>
   <string name="notification_reverted_title">تعديل ملغى</string>
   <string name="notification_channel_description">تقدم التنزيل</string>
@@ -948,7 +949,6 @@
   <string name="file_page_activity_title">صفحة ملف</string>
   <string name="file_page_add_image_caption_button">إضافة تعليق الصورة</string>
   <string name="file_page_add_image_tags_button">أضف وسوم الصور</string>
-  <string name="file_page_suggestion_reason">سبب الاقتراح</string>
   <string name="file_page_edit_button_content_description">عدِّل %s</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
@@ -1030,6 +1030,7 @@
   <string name="wikitext_template">قالب</string>
   <string name="wikitext_reference">مرجع</string>
   <string name="wikitext_preview_link">معاينة الرابط</string>
+  <string name="insert_media_advanced_settings_image_size">حجم الصورة</string>
   <string name="main_drawer_help">مساعدة</string>
   <string name="main_drawer_login">سجل الدخول / انضم لويكيبيديا</string>
   <string name="main_tooltip_text">مرحبا %s، هل تعلم أنه بإمكان الجميع تحرير ويكيبيديا؟</string>
@@ -1153,4 +1154,6 @@
   <string name="subcategory_empty">لم يُعثر على تصنيفات فرعية في هذا التصنيف.</string>
   <string name="search_namespaces">النطاقات</string>
   <string name="revision_initial_none">لا شيء (هذه هي المراجعة الأولى)</string>
+  <string name="user_contrib_filter_all">كل التعديلات</string>
+  <string name="namespace_article">المقالات</string>
 </resources>

@@ -834,7 +834,6 @@
   <string name="file_page_activity_title">ဖုဲင်လိတ်မဲ့ငါ</string>
   <string name="file_page_add_image_caption_button">ထဲမ်သော့ꩻ ရုက်ပုင်ႏလိတ်</string>
   <string name="file_page_add_image_tags_button">ထဲမ်သော့ꩻ ရုက်ပုင်ႏtag</string>
-  <string name="file_page_suggestion_reason">ဖေႏကျံႏညဏ်ႏခါꩻဒါႏ အကျောင်ꩻပျꩻချက်ဖိုင်ႏ</string>
   <string name="file_page_edit_button_content_description">မွဉ်းဖျင် %s</string>
   <string name="description_edit_revert_subtitle">မွဉ်းဖျင်ဖေႏဒါႏ ဝီခီပီးဒီးယားတာႏ ကေꩻဇူꩻတန်ငါႏသြ!</string>
   <string name="description_edit_login_cancel_button_text">မာꩻတဝ်းဒွုမ်</string>
