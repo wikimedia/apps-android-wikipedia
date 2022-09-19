@@ -16,7 +16,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
 import androidx.core.os.postDelayed
-import androidx.core.view.*
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -699,11 +700,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
         binding.editSectionText.post {
             binding.editSectionScroll.fullScroll(View.FOCUS_DOWN)
-            binding.editSectionText.postDelayed(500) {
-                if (!isDestroyed) {
-                    StringUtil.highlightEditText(binding.editSectionText, sectionWikitext!!, highlightText)
-                }
-            }
+            StringUtil.highlightEditText(binding.editSectionText, sectionWikitext!!, highlightText)
         }
     }
 
