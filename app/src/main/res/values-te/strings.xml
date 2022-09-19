@@ -941,7 +941,6 @@
   <string name="file_page_activity_title">దస్త్రపు పేజీ</string>
   <string name="file_page_add_image_caption_button">బొమ్మకు వ్యాఖ్య చేర్చండి</string>
   <string name="file_page_add_image_tags_button">బొమ్మకు ట్యాగులు చేర్చండి</string>
-  <string name="file_page_suggestion_reason">సూచన చేసిన కారణం</string>
   <string name="file_page_edit_button_content_description">%s దిద్దుబాటు</string>
   <string name="description_edit_revert_subtitle">వికీపీడియాలో మార్పుచేర్పులు చేసినందుకు ధన్యవాదాలు!</string>
   <string name="description_edit_revert_intro">మీ శాయశక్తులా కృషి చేసారని మాకు తెలుసు. అయితే మీ సమీక్షకులకు ఏదో ఆందోళన ఉంది. మీ దిద్దుబాటును తిరగ్గొట్టేందుకు కారణాలు బహుశా ఇవి కావచ్చు:</string>

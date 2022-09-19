@@ -1094,7 +1094,6 @@
   <string name="file_page_activity_title">Страница файла</string>
   <string name="file_page_add_image_caption_button">Добавить описание изображения</string>
   <string name="file_page_add_image_tags_button">Добавить теги изображения</string>
-  <string name="file_page_suggestion_reason">Предложенная причина</string>
   <string name="file_page_edit_button_content_description">Править %s</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то некорректное. Возможные причины, почему ваша правка была отменена:</string>
@@ -1279,6 +1278,7 @@
   <string name="menu_option_edit_source">Править код</string>
   <string name="menu_option_user_page">Страница участника_цы %s</string>
   <string name="menu_option_find_in_talk_page_topic">Найти тему на странице обсуждения</string>
+  <string name="menu_option_copy_link_to_clipboard">Скопировать ссылку в буфер обмена</string>
   <string name="talk_menu_copy_text">Скопировать текст</string>
   <string name="talk_menu_expand_threads">Развернуть ветки</string>
   <string name="talk_menu_collapse_threads">Свернуть ветки</string>
