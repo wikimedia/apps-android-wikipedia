@@ -16,6 +16,7 @@
   <string name="page_tabs_back">Буцах</string>
   <string name="nav_item_forward">Дараах</string>
   <string name="search_hint">Википедиагаас хайх</string>
+  <string name="search_hint_voice_search">Яриагаар хайх</string>
   <string name="search_hint_search_languages">Хэл хайх</string>
   <string name="filter_hint_filter_my_lists_and_articles">Миний жагсаалтыг шүүх</string>
   <string name="nav_item_suggested_edits">Засварууд</string>

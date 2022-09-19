@@ -27,6 +27,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.LoginFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil.isLoggedIn
 import org.wikipedia.captcha.CaptchaHandler
@@ -330,6 +331,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                     }
                 }) { onEditFailure(it) }
         )
+
+        BreadCrumbLogEvent.logInputField(this, editSummaryFragment.summaryText)
     }
 
     @Suppress("SameParameterValue")

@@ -1023,7 +1023,6 @@
   <string name="file_page_activity_title">文件页面</string>
   <string name="file_page_add_image_caption_button">添加图像说明</string>
   <string name="file_page_add_image_tags_button">添加图像标签</string>
-  <string name="file_page_suggestion_reason">建议理由</string>
   <string name="file_page_edit_button_content_description">编辑%s</string>
   <string name="description_edit_revert_subtitle">感谢编辑维基百科！</string>
   <string name="description_edit_revert_intro">我们知道您已尽力而为，但某位审阅者对此表示关注。您的修改被回退的可能原因包括：</string>

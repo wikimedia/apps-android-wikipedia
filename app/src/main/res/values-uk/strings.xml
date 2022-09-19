@@ -832,6 +832,7 @@
   <string name="description_edit_license_notice">Змінюючи опис статті, я погоджуюсь з &lt;a href=\"%1$s\"&gt;Умовами використання&lt;/a&gt; та на невідкличну публікацію моїх редагувань на умовах ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">зазвичай починається з маленької літери</string>
   <string name="description_edit_voice_input_description">Голосове введення</string>
+  <string name="description_edit_learn_more">Докладніше про описи статей</string>
   <string name="description_too_short">Текст закороткий.</string>
   <string name="description_ends_with_punctuation">Текст не має закінчуватися розділовим знаком.</string>
   <string name="description_starts_with_article">Уникайте артиклів на початку, на зразок «a» чи «the».</string>
@@ -1051,7 +1052,6 @@
   <string name="file_page_activity_title">Сторінка файлу</string>
   <string name="file_page_add_image_caption_button">Додати підпис зображення</string>
   <string name="file_page_add_image_tags_button">Додайте теги зображень</string>
-  <string name="file_page_suggestion_reason">Причина пропозиції</string>
   <string name="file_page_edit_button_content_description">Редагувати %s</string>
   <string name="description_edit_revert_subtitle">Дякуємо за редагування Вікіпедії!</string>
   <string name="description_edit_revert_intro">Ми знаємо, що Ви старались як могли, але в одного з перевіряльників виникли сумніви. Ймовірні причини скасування Вашого редагування:</string>
@@ -1132,11 +1132,28 @@
   <string name="wikitext_bold">Жирний</string>
   <string name="wikitext_italic">Курсив</string>
   <string name="wikitext_link">Посилання</string>
+  <string name="wikitext_insert_media">Вставити медіа</string>
   <string name="wikitext_bulleted_list">Маркований список</string>
   <string name="wikitext_numbered_list">Нумерований список</string>
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Примітка</string>
   <string name="wikitext_preview_link">Попередній перегляд посилання</string>
+  <string name="insert_media_title">Вставити медіа</string>
+  <string name="insert_media_search_description">Обрати файл з Вікісховища</string>
+  <string name="insert_media_search_hint">Пошук медіа</string>
+  <string name="insert_media_settings">Параметри медіафайлу</string>
+  <string name="insert_media_settings_uploaded_image">Завантажене зображення</string>
+  <string name="insert_media_settings_caption">Підпис</string>
+  <string name="insert_media_advanced_settings_image_position_right">Праворуч</string>
+  <string name="insert_media_advanced_settings_image_position_center">Центр</string>
+  <string name="insert_media_advanced_settings_image_type">Тип зображення</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Рамка</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Базовий</string>
+  <string name="insert_media_advanced_settings_image_size">Розмір зображення</string>
+  <string name="insert_media_advanced_settings_image_size_default">За замовчуванням</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Ширина</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Висота</string>
+  <string name="insert_media_insert_button">Вставити</string>
   <string name="main_drawer_help">Допомога</string>
   <string name="main_drawer_login">Увійти до Вікіпедії</string>
   <string name="main_tooltip_text">Привіт, %s, чи знаєте ви, що будь-хто може редагувати Вікіпедію?</string>
@@ -1264,6 +1281,8 @@
   <string name="watchlist_page_moved">Перейменовані</string>
   <string name="watchlist_page_protected">Захищені</string>
   <string name="watchlist_page_deleted">Вилучені</string>
+  <string name="preview_edit_summarize_edit_hint">Як Ви поліпшили цю сторінку?</string>
+  <string name="preview_edit_minor_edit">Це незначна зміна</string>
   <string name="action_item_categories">Категорії</string>
   <string name="page_no_categories">Ця сторінка не належить до жодної категорії.</string>
   <string name="category_tab_articles">Статті</string>
@@ -1272,6 +1291,11 @@
   <string name="subcategory_empty">У цій категорії не знайдено підкатегорій.</string>
   <string name="search_namespaces">Простори назв</string>
   <string name="revision_initial_none">Немає (це перша версія)</string>
+  <string name="user_contrib_activity_title">Внески %s</string>
   <string name="archive_empty">Архівованих сторінок не знайдено.</string>
+  <string name="user_contrib_filter_all">Усі редагування</string>
+  <string name="namespace_article">Стаття</string>
+  <string name="user_contrib_current">поточний</string>
   <string name="media_playback_error">Помилка відтворення медіа.</string>
+  <string name="user_contrib_menu_label">Внесок</string>
 </resources>

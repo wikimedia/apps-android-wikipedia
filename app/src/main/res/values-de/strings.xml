@@ -1006,7 +1006,6 @@
   <string name="file_page_activity_title">Dateiseite</string>
   <string name="file_page_add_image_caption_button">Bildunterschrift hinzufügen</string>
   <string name="file_page_add_image_tags_button">Bilder-Tags hinzufügen</string>
-  <string name="file_page_suggestion_reason">Vorschlagsgrund</string>
   <string name="file_page_edit_button_content_description">%s bearbeiten</string>
   <string name="description_edit_revert_subtitle">Vielen Dank für das Bearbeiten von Wikipedia!</string>
   <string name="description_edit_revert_intro">Wir wissen, dass du dein Bestes gegeben hast, aber einer unserer Prüfer hat Bedenken. Mögliche Gründe, warum deine Bearbeitung rückgängig gemacht wurde:</string>

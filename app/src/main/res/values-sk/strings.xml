@@ -1047,7 +1047,6 @@
   <string name="file_page_activity_title">Stránka súboru</string>
   <string name="file_page_add_image_caption_button">Pridať obrázkové titulky</string>
   <string name="file_page_add_image_tags_button">Pridať obrázkové štítky</string>
-  <string name="file_page_suggestion_reason">Dôvody návrhu</string>
   <string name="file_page_edit_button_content_description">Upraviť %s</string>
   <string name="description_edit_revert_subtitle">Ďakujeme za úpravu Wikipédie!</string>
   <string name="description_edit_revert_intro">Vieme, že ste sa snažili, no jeden z našich redaktorov vyjadril obavu. Možné dôvody vrátenia vašej úpravy sú:</string>

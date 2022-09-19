@@ -648,7 +648,6 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Gëschter</string>
   <string name="suggested_edits_encourage_account_creation_title">Wousst Dir datt jidderee Wikipedia ännere kann?</string>
   <string name="suggested_edits_contribution_current_revision_text">Är Ännerung ass elo live op Wikipedia</string>
-  <string name="file_page_suggestion_reason">Grond fir d\'Propos</string>
   <string name="file_page_edit_button_content_description">%s änneren</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
@@ -714,6 +713,15 @@
   <string name="wikitext_numbered_list">Nummeréiert Lëscht</string>
   <string name="wikitext_template">Schabloun</string>
   <string name="wikitext_reference">Referenz</string>
+  <string name="insert_media_settings_alternative_text">Alternativen Text</string>
+  <string name="insert_media_advanced_settings">Erweidert Astellungen</string>
+  <string name="insert_media_advanced_settings_image_position_right">Riets</string>
+  <string name="insert_media_advanced_settings_image_position_left">Lenks</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Ouni Rumm</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Rumm</string>
+  <string name="insert_media_advanced_settings_image_size">Gréisst vum Bild</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Breet</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Héicht</string>
   <string name="main_drawer_help">Hëllef</string>
   <string name="main_tooltip_text_v2">Wousst dir datt jiddwereen Wikipedia ännere kann?</string>
   <string name="main_tooltip_action_button">Fir unzefänken</string>
@@ -774,9 +782,20 @@
   <string name="watchlist_filter_pages">Säiten</string>
   <string name="watchlist_page_moved">Geréckelt</string>
   <string name="watchlist_page_deleted">Geläscht</string>
+  <string name="preview_edit_summarize_edit_title">Resuméiert d\'Ännerung</string>
+  <string name="preview_edit_summarize_edit_hint">Wéi hutt Dir dës Säit verbessert?</string>
+  <string name="preview_edit_minor_edit">Dëst ass eng kleng Ännerung</string>
+  <string name="preview_edit_minor_edit_url">https://en.wikipedia.org/wiki/Help:Minor_edit</string>
+  <string name="preview_edit_watch_this_page">Dës Säit iwwerwaachen</string>
+  <string name="preview_edit_watch_this_page_url">https://en.wikipedia.org/wiki/Help:Watchlist</string>
+  <string name="preview_edit_learn_more">Méi gewuer ginn iwwer d\'Resuméë vun Ännerungen</string>
   <string name="action_item_categories">Kategorien</string>
   <string name="category_tab_articles">Artikelen</string>
   <string name="category_tab_subcategories">Ënnerkategorien</string>
   <string name="category_empty">Keng Artikelen an dëser Kategorie fonnt.</string>
   <string name="search_namespaces">Nummraim</string>
+  <string name="user_contrib_activity_title">Kontributioune vum %s</string>
+  <string name="user_contrib_filter_all">All Ännerungen</string>
+  <string name="namespace_article">Artikel</string>
+  <string name="user_contrib_menu_label">Kontributiounen</string>
 </resources>

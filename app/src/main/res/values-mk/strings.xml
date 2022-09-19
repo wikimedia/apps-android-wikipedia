@@ -774,6 +774,10 @@
   <string name="description_edit_license_notice">Менувајќи го описот на статијата, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
   <string name="description_edit_helper_text_lowercase_warning">обично почнува со мала буква</string>
   <string name="description_edit_voice_input_description">Гласовен внос</string>
+  <string name="description_edit_learn_more">Дознајте повеќе за описи на статии</string>
+  <string name="description_edit_image_caption_learn_more">Дознајте повеќе за толкувања на статии</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Текстот е прекраток.</string>
   <string name="description_ends_with_punctuation">Текстот не смее да завршува со интерпункциски знак.</string>
   <string name="description_starts_with_article">Избегнувајте да започнувате со членовите „a“ и „the“ кога пишувате на англиски.</string>
@@ -975,7 +979,6 @@
   <string name="file_page_activity_title">Податотечна страница</string>
   <string name="file_page_add_image_caption_button">Додај опис на сликата</string>
   <string name="file_page_add_image_tags_button">Додај ознаки на сликата</string>
-  <string name="file_page_suggestion_reason">Причина за предлагање</string>
   <string name="file_page_edit_button_content_description">Уреди %s</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
@@ -1153,6 +1156,7 @@
   <string name="menu_option_edit_source">Уреди извор</string>
   <string name="menu_option_user_page">Корисничка страница на %s</string>
   <string name="menu_option_find_in_talk_page_topic">Најди во разговорната тема</string>
+  <string name="menu_option_copy_link_to_clipboard">Копирај врска во меѓускладот</string>
   <string name="talk_menu_copy_text">Копирај текст</string>
   <string name="talk_menu_expand_threads">Расклопи ги нишките</string>
   <string name="talk_menu_collapse_threads">Склопи ги нишките</string>
@@ -1210,6 +1214,15 @@
   <string name="watchlist_page_moved">Преместена</string>
   <string name="watchlist_page_protected">Заштитена</string>
   <string name="watchlist_page_deleted">Избришана</string>
+  <string name="preview_edit_title">Преглед на уредувањето</string>
+  <string name="preview_edit_summarize_edit_title">Опис на уредувањето</string>
+  <string name="preview_edit_summarize_edit_hint">На кој начин ја подобривте страницава?</string>
+  <string name="preview_edit_minor_edit">Ова е ситна промена</string>
+  <string name="preview_edit_minor_edit_url">https://mk.wikipedia.org/wiki/Помош:Ситна_промена</string>
+  <string name="preview_edit_watch_this_page">Набљудувај ја страницава</string>
+  <string name="preview_edit_watch_this_page_url">https://en.wikipedia.org/wiki/Help:Watchlist</string>
+  <string name="preview_edit_learn_more">Дознајте повеќе за опишувањето на уредувања</string>
+  <string name="preview_edit_learn_more_url">https://en.wikipedia.org/wiki/Help:Edit_summary</string>
   <string name="action_item_categories">Категории</string>
   <string name="page_no_categories">Статијава не припаѓа на ниедна категорија.</string>
   <string name="category_tab_articles">Статии</string>
