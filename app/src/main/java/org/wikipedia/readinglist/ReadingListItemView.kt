@@ -207,13 +207,13 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
     private fun handlePermissionsAndExport() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q ||
             ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-            exportListAsCsv()
+            extractListDataToExport()
         } else {
             activity.requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
     }
 
-    private fun exportListAsCsv() {
+    private fun extractListDataToExport() {
         val stringBuilder = StringBuilder(context.getString(R.string.reading_list_csv_headers)).appendLine()
         readingList?.let {
             it.pages.forEach { page ->
@@ -254,7 +254,7 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
 
     override fun onPermissionResult(isGranted: Boolean) {
         if (isGranted) {
-           exportListAsCsv()
+           extractListDataToExport()
         } else {
             FeedbackUtil.showMessage(activity, R.string.reading_list_export_write_permission_rationale)
         }
