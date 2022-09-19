@@ -14,7 +14,6 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.ViewGroup
 import androidx.annotation.StyleRes
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.NotificationCompat
@@ -197,15 +196,7 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
                     return true
                 }
                 R.id.menu_reading_list_export -> {
-                    AlertDialog.Builder(context)
-                        .setTitle(R.string.reading_list_export_dialog_title)
-                        .setMessage(R.string.reading_list_export_dialog_message)
-                        .setPositiveButton(R.string.reading_list_remove_list_dialog_ok_button_text) { _, _ ->
-                            handlePermissionsAndExport()
-                        }
-                        .setNegativeButton(R.string.reading_list_remove_from_list_dialog_cancel_button_text, null)
-                        .create()
-                        .show()
+                    handlePermissionsAndExport()
                     return true
                 }
                 else -> return false
@@ -214,7 +205,8 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
     }
 
     private fun handlePermissionsAndExport() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q || ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q ||
+            ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             exportListAsCsv()
         } else {
             activity.requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -224,15 +216,14 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
     private fun exportListAsCsv() {
         val stringBuilder = StringBuilder(context.getString(R.string.reading_list_csv_headers)).appendLine()
         readingList?.let {
-            FeedbackUtil.showMessage(activity, R.string.reading_list_export_strated_message)
             it.pages.forEach { page ->
                 val pageTitle = ReadingListPage.toPageTitle(page)
                 val uri = pageTitle.uri
                 val language = pageTitle.wikiSite.languageCode
                 stringBuilder.append(context.getString(R.string.reading_list_csv_entry, getSanitizedPageTitle(StringUtil.removeUnderscores(pageTitle.prefixedText)), language, uri)).appendLine()
             }
-            val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
             FileUtil.createFileInDownloadsFolder(context, "${readingList?.listTitle}.csv", stringBuilder)
+            val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
             context.getSystemService<NotificationManager>()?.notify(id, getNotificationBuilder(intent, readingList?.listTitle!!).build())
             FeedbackUtil.showMessage(activity, R.string.reading_list_export_completed_message)
         }

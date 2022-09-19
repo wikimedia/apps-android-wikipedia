@@ -1271,6 +1271,4 @@
   <string name="reading_list_export_write_permission_rationale">Text asking the user for permission to access their internal storage for exporting reading lists.</string>
   <string name="reading_list_export_strated_message">Text to let the user know that the list export process has started.</string>
   <string name="reading_list_export_completed_message">Text to let the user know that the list export process has been completed.</string>
-  <string name="reading_list_export_dialog_title">Title text for the dialog to allow user to import reading list.</string>
-  <string name="reading_list_export_dialog_message">Message text for the dialog to allow user to import reading list.</string>
 </resources>

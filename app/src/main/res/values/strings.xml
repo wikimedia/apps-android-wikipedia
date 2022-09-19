@@ -591,8 +591,6 @@
     <string name="reading_list_export_strated_message">Exporting list…</string>
     <string name="reading_list_export_completed_message">List exported</string>
     <string name="reading_list_csv_headers">Title, Language ,Link</string>
-    <string name="reading_list_export_dialog_title">Import reading list</string>
-    <string name="reading_list_export_dialog_message">Import the reading list to your device\'s downloads folder</string>
     <!-- /Reading lists -->
 
     <!-- User options -->
