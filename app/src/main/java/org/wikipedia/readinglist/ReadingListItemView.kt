@@ -239,7 +239,7 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
     }
 
     private fun getNotificationBuilder(intent: Intent, listName: String): NotificationCompat.Builder {
-        return NotificationCompat.Builder(context, NotificationCategory.SYSTEM.id)
+        return NotificationCompat.Builder(context, NotificationCategory.MENTION.id)
             .setDefaults(NotificationCompat.DEFAULT_ALL)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
