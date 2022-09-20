@@ -2,6 +2,8 @@ package org.wikipedia.readinglist
 
 import android.animation.LayoutTransition
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -24,6 +26,7 @@ import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListsBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.history.HistoryEntry
@@ -33,6 +36,7 @@ import org.wikipedia.main.MainFragment
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
+import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -42,8 +46,11 @@ import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.*
+import java.io.File
+import java.io.InputStream
 
-class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
+class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback,
+    MainActivity.Callback {
     private var _binding: FragmentReadingListsBinding? = null
     private val binding get() = _binding!!
     private var displayedLists = listOf<Any>()
@@ -61,6 +68,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
+        (activity as MainActivity).importCallback = this
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -176,6 +184,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 AppDatabase.instance.readingListDao().createList(text, description)
                 updateLists()
             }.show()
+        }
+
+        override fun importNewList() {
+                var chooseFile = Intent(Intent.ACTION_GET_CONTENT)
+                chooseFile.type = "*/*"
+                chooseFile = Intent.createChooser(chooseFile, "Choose a file")
+            (activity as MainActivity).filePickerLauncher.launch(chooseFile)
         }
 
         override fun refreshClick() {
@@ -595,6 +610,27 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 Prefs.isReadingListSyncEnabled = true
                 ReadingListSyncAdapter.manualSyncWithRefresh()
             }
+        }
+    }
+
+    override fun onActivityImportResult(uri: Uri) {
+        val inputStr: InputStream = activity?.contentResolver?.openInputStream(uri)!!
+        val file = uri.path?.let { File(it) }
+        var listName = file?.name.orEmpty()
+        listName = listName.substring(0, listName.lastIndexOf('.'))
+        inputStr.bufferedReader().useLines { lines ->
+            val list = lines.toList()
+            val titles = mutableListOf<PageTitle>()
+            for (i in 0 until list.size - 1) {
+                if (i != 0) {
+                    val strArray = list[i].split(",")
+                    val title = StringUtil.addUnderscores(strArray[0])
+                    val languageCode = StringUtil.addUnderscores(strArray[1])
+                    titles.add(PageTitle(title, WikiSite.forLanguageCode(languageCode)))
+                }
+            }
+            val readingList = AppDatabase.instance.readingListDao().createList(listName, "")
+            AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(readingList, titles)
         }
     }
 }
