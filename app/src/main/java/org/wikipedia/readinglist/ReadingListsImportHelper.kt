@@ -21,9 +21,8 @@ object ReadingListsImportHelper {
         val listTitle = UriUtil.decodeURL(readingListInfoArray.removeFirst())
         val listDescription = UriUtil.decodeURL(readingListInfoArray.removeFirst())
         val listPages = mutableListOf<ReadingListPage>()
-        val readingList = ReadingList(listTitle, listDescription)
-
         val pageIdsMap = mutableMapOf<String, MutableList<String>>()
+
         readingListInfoArray.forEach {
             // lang:pageid
             val langPageId = it.split("|")
@@ -36,15 +35,20 @@ object ReadingListsImportHelper {
         }) {
             // Request API by languages
             pageIdsMap.forEach {
-                val response = ServiceFactory.get(WikiSite.forLanguageCode(it.key))
-                    .getPageTitlesByPageId(it.value.joinToString { "|" })
+                val wikiSite = WikiSite.forLanguageCode(it.key)
+                val response = ServiceFactory.get(wikiSite).getPageTitlesByPageId(it.value.joinToString { "|" })
 
+                response.query?.pages?.forEach { page ->
+                    val readingListPage = ReadingListPage(wikiSite, page.namespace(),page.displayTitle(wikiSite.languageCode),
+                        page.title, page.description, page.thumbUrl())
+                    listPages.add(readingListPage)
+                }
             }
         }
 
-        readingList.pages.addAll(listPages)
-
-        return readingList
+        return ReadingList(listTitle, listDescription).apply {
+            pages.addAll(listPages)
+        }
     }
 
     private fun decodeReadingListUrl(encodedUrl: String): String {
