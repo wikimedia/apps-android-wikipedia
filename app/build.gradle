@@ -36,7 +36,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 32
-        versionCode 50419
+        versionCode 50420
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -47,7 +47,6 @@ android {
             arg("room.schemaLocation", "$projectDir/schemas".toString())
         }
 
-        dimension 'default'
         signingConfig signingConfigs.debug
 
         buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"%1$s://%2$s/api/rest_v1/"'

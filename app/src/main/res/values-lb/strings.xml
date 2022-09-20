@@ -648,7 +648,6 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Gëschter</string>
   <string name="suggested_edits_encourage_account_creation_title">Wousst Dir datt jidderee Wikipedia ännere kann?</string>
   <string name="suggested_edits_contribution_current_revision_text">Är Ännerung ass elo live op Wikipedia</string>
-  <string name="file_page_suggestion_reason">Grond fir d\'Propos</string>
   <string name="file_page_edit_button_content_description">%s änneren</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
@@ -718,6 +717,9 @@
   <string name="insert_media_advanced_settings">Erweidert Astellungen</string>
   <string name="insert_media_advanced_settings_image_position_right">Riets</string>
   <string name="insert_media_advanced_settings_image_position_left">Lenks</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Ouni Rumm</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Rumm</string>
+  <string name="insert_media_advanced_settings_image_size">Gréisst vum Bild</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">Breet</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">Héicht</string>
   <string name="main_drawer_help">Hëllef</string>
@@ -792,4 +794,8 @@
   <string name="category_tab_subcategories">Ënnerkategorien</string>
   <string name="category_empty">Keng Artikelen an dëser Kategorie fonnt.</string>
   <string name="search_namespaces">Nummraim</string>
+  <string name="user_contrib_activity_title">Kontributioune vum %s</string>
+  <string name="user_contrib_filter_all">All Ännerungen</string>
+  <string name="namespace_article">Artikel</string>
+  <string name="user_contrib_menu_label">Kontributiounen</string>
 </resources>

@@ -974,7 +974,6 @@
   <string name="file_page_activity_title">Pahina ng file</string>
   <string name="file_page_add_image_caption_button">Mag-caption</string>
   <string name="file_page_add_image_tags_button">Mag-tag ng larawan</string>
-  <string name="file_page_suggestion_reason">Dahilan sa mungkahi</string>
   <string name="file_page_edit_button_content_description">I-edit ang %s</string>
   <string name="description_edit_revert_subtitle">Maraming salamat po sa pag-edit sa Wikipedia!</string>
   <string name="description_edit_revert_intro">Alam namin na ginawa mo ang makakaya mo, pero meron hinaing ang isa aming mga reviewer. Nasa baba ang mga posibleng dahilan kung bakit na-revert ang edit mo:</string>

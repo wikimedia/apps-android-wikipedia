@@ -976,7 +976,6 @@
   <string name="file_page_activity_title">Fayl sahifasi</string>
   <string name="file_page_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="file_page_add_image_tags_button">Rasmga teg qoʻshmoq</string>
-  <string name="file_page_suggestion_reason">Taklif sababi</string>
   <string name="file_page_edit_button_content_description">%sʼni tahrirlamoq</string>
   <string name="description_edit_revert_subtitle">Vikipediyaga hissa qoʻshnagingiz uchun tashakkur!</string>
   <string name="description_edit_revert_intro">Biz sizning qo\'lingizdan kelganicha harakat qilganingizni bilamiz, ammo sharhlovchilardan biri tashvishga tushdi. Tahriringiz qaytarilgan bo\'lishi mumkin bo\'lgan sabablarga quyidagilar kiradi:</string>

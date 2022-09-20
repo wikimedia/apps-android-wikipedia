@@ -940,7 +940,6 @@
   <string name="file_page_activity_title">Strona pliku</string>
   <string name="file_page_add_image_caption_button">Dodaj podpis obrazu</string>
   <string name="file_page_add_image_tags_button">Dodaj tagi obrazu</string>
-  <string name="file_page_suggestion_reason">Powód sugestii</string>
   <string name="file_page_edit_button_content_description">Edycja %s</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_intro">Wiemy, że starałeś się jak najlepiej, ale jeden z recenzentów miał obawy. Możliwe przyczyny cofnięcia edycji obejmują:</string>
