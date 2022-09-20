@@ -1,5 +1,6 @@
 package org.wikipedia.diff
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -7,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import org.wikipedia.analytics.WatchlistFunnel
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -148,7 +150,12 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             diffText.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                if (oldRevisionId > 0) {
+                if (pageTitle.wikiSite.uri.authority == Uri.parse(Service.WIKIDATA_URL).authority) {
+                    // For the special case of Wikidata we return a blank Revision object, since the
+                    // Rest API in Wikidata cannot render diffs properly yet.
+                    // TODO: wait until Wikidata API returns diffs correctly
+                    singleRevisionText.postValue(Resource.Success(Revision()))
+                } else if (oldRevisionId > 0) {
                     diffText.postValue(Resource.Success(ServiceFactory.getCoreRest(pageTitle.wikiSite).getDiff(oldRevisionId, newRevisionId)))
                 } else {
                     singleRevisionText.postValue(Resource.Success(ServiceFactory.getCoreRest(pageTitle.wikiSite).getRevision(newRevisionId)))

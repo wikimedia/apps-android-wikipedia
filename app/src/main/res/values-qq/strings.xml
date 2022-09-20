@@ -94,6 +94,10 @@
     <item quantity="one">Text of showing the year since the article has been created and the total edit counts. Format:\n: &lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\'\'text to display (for one edit)\'\'&lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\nIn the \'\'text to display\'\', the &lt;code&gt;%1$d &lt;/code&gt; will be replaced by the total edit counts, and the &lt;code&gt;%2$s&lt;/code&gt; will be replaced by the year.</item>
     <item quantity="other">Text of showing the year since the article has been created and the total edit counts. Format:\n: &lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\'\'text to display (for two edits or more)\'\'&lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\nIn the \'\'text to display\'\', the &lt;code&gt;%1$d &lt;/code&gt; will be replaced by the total edit counts, and the &lt;code&gt;%2$s&lt;/code&gt; will be replaced by the year.</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">Number of edits made by the user on a certain wiki. The %1$d symbol is replaced by the total edit count, the %2$s symbol is replaced by the year that the user account was created, and the %3$s symbol is replaced by the language of the current wiki.</item>
+    <item quantity="other">Number of edits made by the user on a certain wiki. The %1$d symbol is replaced by the total edit count, the %2$s symbol is replaced by the year that the user account was created, and the %3$s symbol is replaced by the language of the current wiki.</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Empty message text hinting the user to change filters to see more revision history. Please keep the anchor link around the word \"filters\".</string>
   <string name="menu_page_show_tabs">Text hint for the menu button used for showing the list of current tabs.</string>
   <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.\n{{Identical|Change language}}</string>
@@ -1272,4 +1276,5 @@
   <string name="shareable_reading_lists_new_install_dialog_content">Content text for the onboarding import reading list dialog.</string>
   <string name="shareable_reading_lists_new_install_dialog_learn_more">Button label of the onboarding import reading list dialog that opens an external link.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Button label of the onboarding import reading list dialog that dismisses the dialog.</string>
+  <string name="user_contrib_wiki_select">Screen title for viewing the contributions of a user from a selected wiki.</string>
 </resources>
