@@ -59,34 +59,39 @@ class UserContribFilterOverflowView(context: Context) : FrameLayout(context) {
         binding.nsUserCheckIcon.visibility = View.INVISIBLE
         binding.nsUserTalkCheckIcon.visibility = View.INVISIBLE
 
-        when (Prefs.userContribFilterNs) {
-            Namespace.MAIN.code() -> { binding.nsArticleCheckIcon.visibility = View.VISIBLE }
-            Namespace.TALK.code() -> { binding.nsTalkCheckIcon.visibility = View.VISIBLE }
-            Namespace.USER.code() -> { binding.nsUserCheckIcon.visibility = View.VISIBLE }
-            Namespace.USER_TALK.code() -> { binding.nsUserTalkCheckIcon.visibility = View.VISIBLE }
-            else -> { binding.nsNoneCheckIcon.visibility = View.VISIBLE }
+        if (Prefs.userContribFilterNs.isEmpty()) {
+            binding.nsNoneCheckIcon.visibility = View.VISIBLE
+        } else {
+            Prefs.userContribFilterNs.forEach {
+                when (it) {
+                    Namespace.MAIN.code() -> { binding.nsArticleCheckIcon.visibility = View.VISIBLE }
+                    Namespace.TALK.code() -> { binding.nsTalkCheckIcon.visibility = View.VISIBLE }
+                    Namespace.USER.code() -> { binding.nsUserCheckIcon.visibility = View.VISIBLE }
+                    Namespace.USER_TALK.code() -> { binding.nsUserTalkCheckIcon.visibility = View.VISIBLE }
+                }
+            }
         }
     }
 
     private fun setButtonsListener() {
         binding.nsNoneButton.setOnClickListener {
-            Prefs.userContribFilterNs = -1
+            Prefs.userContribFilterNs = emptySet()
             onSelected()
         }
         binding.nsArticleButton.setOnClickListener {
-            Prefs.userContribFilterNs = Namespace.MAIN.code()
+            Prefs.userContribFilterNs = Prefs.userContribFilterNs.plus(Namespace.MAIN.code())
             onSelected()
         }
         binding.nsTalkButton.setOnClickListener {
-            Prefs.userContribFilterNs = Namespace.TALK.code()
+            Prefs.userContribFilterNs = Prefs.userContribFilterNs.plus(Namespace.TALK.code())
             onSelected()
         }
         binding.nsUserButton.setOnClickListener {
-            Prefs.userContribFilterNs = Namespace.USER.code()
+            Prefs.userContribFilterNs = Prefs.userContribFilterNs.plus(Namespace.USER.code())
             onSelected()
         }
         binding.nsUserTalkButton.setOnClickListener {
-            Prefs.userContribFilterNs = Namespace.USER_TALK.code()
+            Prefs.userContribFilterNs = Prefs.userContribFilterNs.plus(Namespace.USER_TALK.code())
             onSelected()
         }
     }
