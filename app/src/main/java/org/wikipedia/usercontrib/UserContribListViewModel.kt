@@ -8,7 +8,9 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.map
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.UserContribution
@@ -27,8 +29,13 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
     var userName: String = bundle.getString(UserContribListActivity.INTENT_EXTRA_USER_NAME)!!
     var langCode: String = WikipediaApp.instance.appOrSystemLanguageCode
 
-    val wikiSite
-        get() = WikiSite.forLanguageCode(langCode)
+    val wikiSite get(): WikiSite {
+        return when (langCode) {
+            Constants.WIKI_CODE_COMMONS -> WikiSite(Service.COMMONS_URL)
+            Constants.WIKI_CODE_WIKIDATA -> WikiSite(Service.WIKIDATA_URL)
+            else -> WikiSite.forLanguageCode(langCode)
+        }
+    }
 
     var currentQuery = ""
     var actionModeActive = false
@@ -68,8 +75,11 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
             L.e(throwable)
         }) {
             withContext(Dispatchers.IO) {
-                val userInfo = ServiceFactory.get(wikiSite).userInfo(userName).query?.users!![0]
-                userContribStatsData.postValue(Resource.Success(UserContribStats(userInfo.editCount, userInfo.registrationDate)))
+                val messageName = "project-localized-name-${wikiSite.dbName()}"
+                val query = ServiceFactory.get(wikiSite).userInfoWithMessages(userName, messageName).query
+
+                userContribStatsData.postValue(Resource.Success(UserContribStats(query?.users!![0].editCount,
+                        query.users[0].registrationDate, query.allmessages.orEmpty().getOrNull(0)?.content.orEmpty().ifEmpty { wikiSite.dbName() })))
             }
         }
     }
@@ -85,8 +95,8 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
                     return LoadResult.Page(cachedContribs, null, cachedContinueKey)
                 }
 
-                val nsFilter = Prefs.userContribFilterNs
-                val response = ServiceFactory.get(wikiSite).getUserContrib(userName, 500, if (nsFilter >= 0) nsFilter else null, null, params.key)
+                val nsFilter = Prefs.userContribFilterNs.joinToString("|")
+                val response = ServiceFactory.get(wikiSite).getUserContrib(userName, 500, nsFilter.ifEmpty { null }, null, params.key)
                 val contribs = response.query?.userContributions!!
 
                 cachedContinueKey = response.continuation?.ucContinuation
@@ -108,7 +118,7 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
     open class UserContribItemModel
     class UserContribItem(val item: UserContribution) : UserContribItemModel()
     class UserContribSeparator(val date: String) : UserContribItemModel()
-    class UserContribStats(val totalEdits: Int, val registrationDate: Date) : UserContribItemModel()
+    class UserContribStats(val totalEdits: Int, val registrationDate: Date, val projectName: String) : UserContribItemModel()
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")

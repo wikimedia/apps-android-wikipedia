@@ -603,8 +603,9 @@ object Prefs {
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_talk_topic_expand_all, value)
 
     var userContribFilterNs
-        get() = PrefsIoUtil.getInt(R.string.preference_key_user_contrib_filter_ns, -1)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_user_contrib_filter_ns, value)
+        get() = JsonUtil.decodeFromString<Set<Int>>(PrefsIoUtil.getString(R.string.preference_key_user_contrib_filter_ns, null))
+                ?: emptySet()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_user_contrib_filter_ns, JsonUtil.encodeToString(value))
 
     var editSyntaxHighlightEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_syntax_highlight, true)

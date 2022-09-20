@@ -62,6 +62,10 @@
         <item quantity="one">%1$d edit since %2$s</item>
         <item quantity="other">%1$d edits since %2$s</item>
     </plurals>
+    <plurals name="edits_since_year_per_wiki">
+        <item quantity="one">%1$d edit since %2$s (%3$s)</item>
+        <item quantity="other">%1$d edits since %2$s (%3$s)</item>
+    </plurals>
     <string name="page_edit_history_empty_search_message"><![CDATA[Try changing <a href="#">filters</a> to see more edits]]></string>
 
     <!-- Page toolbar menu -->
@@ -1341,5 +1345,6 @@
     <string name="user_contrib_current">current</string>
     <string name="media_playback_error">Error playing media.</string>
     <string name="user_contrib_menu_label">Contributions</string>
+    <string name="user_contrib_wiki_select">Contributions to:</string>
 
 </resources>
