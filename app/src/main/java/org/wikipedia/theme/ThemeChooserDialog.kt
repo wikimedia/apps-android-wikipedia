@@ -307,11 +307,12 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             val currentMultiplier: Int
             if (isEditing) {
                 currentMultiplier = Prefs.editingTextSizeMultiplier
-                Prefs.editingTextSizeMultiplier = app.constrainFontSizeMultiplier(when (action) {
-                    FontSizeAction.INCREASE -> currentMultiplier + 1
-                    FontSizeAction.DECREASE -> currentMultiplier - 1
-                    FontSizeAction.RESET -> 0
-                })
+                Prefs.editingTextSizeMultiplier = app.constrainFontSizeMultiplier(
+                        when (action) {
+                            FontSizeAction.INCREASE -> currentMultiplier + 1
+                            FontSizeAction.DECREASE -> currentMultiplier - 1
+                            FontSizeAction.RESET -> 0
+                        })
                 callback()?.onEditingPrefsChanged()
                 updateFontSize()
             } else {

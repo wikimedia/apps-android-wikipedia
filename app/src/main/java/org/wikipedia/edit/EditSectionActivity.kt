@@ -144,8 +144,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
 
         override fun onRequestInsertLink() {
-            val searchIntent = SearchActivity.newIntent(this@EditSectionActivity, Constants.InvokeSource.EDIT_ACTIVITY, null, true)
-            requestLinkFromSearch.launch(searchIntent)
+            requestLinkFromSearch.launch(SearchActivity.newIntent(this@EditSectionActivity, Constants.InvokeSource.EDIT_ACTIVITY, null, true))
         }
 
         override fun onRequestHeading() {
@@ -178,7 +177,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         binding = ActivityEditSectionBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
-        supportActionBar?.elevation = DimenUtil.dpToPx(4f)
 
         pageTitle = intent.getParcelableExtra(EXTRA_TITLE)!!
         sectionID = intent.getIntExtra(EXTRA_SECTION_ID, -1)
@@ -499,6 +497,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         menuInflater.inflate(R.menu.menu_edit_section, menu)
         val item = menu.findItem(R.id.menu_save_section)
 
+        supportActionBar?.elevation = if (editPreviewFragment.isActive) 0f else DimenUtil.dpToPx(4f)
         menu.findItem(R.id.menu_edit_notices).isVisible = editNotices.isNotEmpty() && !editPreviewFragment.isActive
         menu.findItem(R.id.menu_edit_theme).isVisible = !editPreviewFragment.isActive
         menu.findItem(R.id.menu_find_in_editor).isVisible = !editPreviewFragment.isActive
@@ -725,9 +724,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             captchaHandler.cancelCaptcha()
             binding.editSectionCaptchaContainer.visibility = View.GONE
         }
-        if (binding.viewEditSectionError.isVisible) {
-            binding.viewEditSectionError.visibility = View.GONE
-        }
+        binding.viewEditSectionError.isVisible = false
         if (editSummaryFragment.handleBackPressed()) {
             supportActionBar?.title = getString(R.string.preview_edit_title)
             return
