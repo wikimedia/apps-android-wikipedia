@@ -9,6 +9,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +18,10 @@ import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -546,18 +551,32 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun maybeShowImportReadingListsDialog() {
-        if (!Prefs.importReadingListsDialogShown) {
+        val encodedList = Prefs.importReadingListsData
+        if (!Prefs.importReadingListsDialogShown && !encodedList.isNullOrEmpty()) {
             // TODO: update the dialog content with a proper "preview"
-            val encodedList = Prefs.importReadingListsData
             AlertDialog.Builder(requireContext())
                 .setTitle(R.string.shareable_reading_lists_import_dialog_title)
                 .setMessage(R.string.shareable_reading_lists_import_dialog_content)
                 .setPositiveButton(R.string.shareable_reading_lists_import_dialog_confirm) { _, _ ->
-                    // TODO: import
+                    importReadingListAndRefresh(encodedList)
                 }
                 .setNegativeButton(R.string.shareable_reading_lists_import_dialog_cancel, null)
                 .show()
             Prefs.importReadingListsDialogShown = true
+        }
+    }
+
+    private fun importReadingListAndRefresh(encodedList: String) {
+        lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+            FeedbackUtil.showError(requireActivity(), throwable)
+        }) {
+            withContext(Dispatchers.IO) {
+                val readingList = ReadingListsImportHelper.importReadingLists(encodedList)
+                AppDatabase.instance.readingListDao().insertReadingList(readingList)
+                // TODO: show *new* indicator
+                updateLists()
+            }
         }
     }
 
