@@ -230,7 +230,7 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
     }
 
     private fun getSanitizedPageTitle(title: String): String {
-        val sanitizedTitle: String = StringUtil.removeUnderscores(title)
+        val sanitizedTitle = StringUtil.removeUnderscores(title)
         return if (sanitizedTitle.contains(",")) {
             context.getString(R.string.reading_list_csv_comma_title, sanitizedTitle)
         } else {

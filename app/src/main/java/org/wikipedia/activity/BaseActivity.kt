@@ -68,6 +68,7 @@ abstract class BaseActivity : AppCompatActivity() {
     val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
             callback?.onPermissionResult(isGranted)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         exclusiveBusMethods = ExclusiveBusConsumer()
