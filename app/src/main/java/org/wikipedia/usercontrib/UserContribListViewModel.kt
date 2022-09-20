@@ -31,9 +31,9 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
 
     val wikiSite get(): WikiSite {
         return when (langCode) {
-            Constants.WIKI_CODE_COMMONS -> { WikiSite(Service.COMMONS_URL) }
-            Constants.WIKI_CODE_WIKIDATA -> { WikiSite(Service.WIKIDATA_URL) }
-            else -> { WikiSite.forLanguageCode(langCode) }
+            Constants.WIKI_CODE_COMMONS -> WikiSite(Service.COMMONS_URL)
+            Constants.WIKI_CODE_WIKIDATA -> WikiSite(Service.WIKIDATA_URL)
+            else -> WikiSite.forLanguageCode(langCode)
         }
     }
 

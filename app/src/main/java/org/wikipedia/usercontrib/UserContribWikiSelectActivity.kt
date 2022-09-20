@@ -36,8 +36,8 @@ class UserContribWikiSelectActivity : BaseActivity() {
 
     inner class WikiSelectItemViewHolder constructor(itemView: UserContribWikiSelectItemView) :
         DefaultViewHolder<UserContribWikiSelectItemView>(itemView) {
-        fun bindItem(item: Item?) {
-            view.setContents(item!!, item.itemCode == selectLangCode)
+        fun bindItem(item: Item) {
+            view.setContents(item, item.itemCode == selectLangCode)
         }
     }
 
@@ -101,11 +101,11 @@ class UserContribWikiSelectActivity : BaseActivity() {
     inner class Item constructor(val itemCode: String, val imageRes: Int? = null)
 
     companion object {
-        const val INTENT_EXTRA_SELECT_LANG_CODE = "selectLangCode"
-        const val ACTIVITY_RESULT_LANGUAGES_CHANGED = 2
-
         private const val VIEW_TYPE_ITEM = 1
         private const val VIEW_TYPE_ADD_LANGUAGE = 2
+
+        const val INTENT_EXTRA_SELECT_LANG_CODE = "selectLangCode"
+        const val ACTIVITY_RESULT_LANGUAGES_CHANGED = 2
 
         fun newIntent(context: Context, selectLangCode: String): Intent {
             return Intent(context, UserContribWikiSelectActivity::class.java)

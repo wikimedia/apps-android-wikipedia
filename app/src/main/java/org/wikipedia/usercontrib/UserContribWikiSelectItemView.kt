@@ -27,6 +27,7 @@ class UserContribWikiSelectItemView constructor(context: Context, attrs: Attribu
 
     private var item: UserContribWikiSelectActivity.Item? = null
     private var binding = ItemUserContribWikiSelectBinding.inflate(LayoutInflater.from(context), this)
+    private val labelTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     var callback: Callback? = null
 
     init {
@@ -66,7 +67,7 @@ class UserContribWikiSelectItemView constructor(context: Context, attrs: Attribu
         binding.itemCheck.visibility = View.GONE
         binding.wikiTitle.setTextColor(accentColor)
         binding.wikiTitle.text = text.uppercase()
-        binding.wikiTitle.typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+        binding.wikiTitle.typeface = labelTypeface
         binding.wikiTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
     }
 
