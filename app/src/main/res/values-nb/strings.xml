@@ -989,7 +989,6 @@
   <string name="file_page_activity_title">Filside</string>
   <string name="file_page_add_image_caption_button">Legg til bildetekst</string>
   <string name="file_page_add_image_tags_button">Legg til bildeknagger</string>
-  <string name="file_page_suggestion_reason">Forslagsbegrunnelse</string>
   <string name="file_page_edit_button_content_description">Rediger %s</string>
   <string name="description_edit_revert_subtitle">Takk for at du redigerer Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi forstår at du forsøkte ditt beste, men en av korrekturleserne hadde en innvending. Noen mulige årsaker til at redigeringen din ble tilbakestilt kan være:</string>

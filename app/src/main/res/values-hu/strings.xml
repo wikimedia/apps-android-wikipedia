@@ -963,7 +963,6 @@
   <string name="file_page_activity_title">Fájllap</string>
   <string name="file_page_add_image_caption_button">Képaláírás hozzáadása</string>
   <string name="file_page_add_image_tags_button">Képcímkék hozzáadása</string>
-  <string name="file_page_suggestion_reason">Javaslat indoka</string>
   <string name="file_page_edit_button_content_description">%s szerkesztése</string>
   <string name="description_edit_revert_subtitle">Köszönjük, hogy szerkesztetted a Wikipédiát!</string>
   <string name="description_edit_revert_intro">Tudjuk, hogy megtetted a tőled telhetőt, de egy másik szerkesztőnek aggályai voltak a szerkesztéseddel kapcsolatban. Többek között az alábbiak miatt vonhatták vissza a szerkesztésedet:</string>
