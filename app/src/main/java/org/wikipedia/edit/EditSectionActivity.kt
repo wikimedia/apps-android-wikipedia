@@ -16,7 +16,6 @@ import androidx.core.net.toUri
 import androidx.core.os.postDelayed
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import androidx.core.view.postDelayed
 import androidx.core.widget.doAfterTextChanged
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -26,6 +25,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.LoginFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil.isLoggedIn
 import org.wikipedia.captcha.CaptchaHandler
@@ -263,6 +263,8 @@ class EditSectionActivity : BaseActivity() {
                     }
                 }) { onEditFailure(it) }
         )
+
+        BreadCrumbLogEvent.logInputField(this, editSummaryFragment.summaryText)
     }
 
     @Suppress("SameParameterValue")
@@ -635,11 +637,7 @@ class EditSectionActivity : BaseActivity() {
         }
         binding.editSectionText.post {
             binding.editSectionScroll.fullScroll(View.FOCUS_DOWN)
-            binding.editSectionText.postDelayed(500) {
-                if (!isDestroyed) {
-                    StringUtil.highlightEditText(binding.editSectionText, sectionWikitext!!, highlightText)
-                }
-            }
+            StringUtil.highlightEditText(binding.editSectionText, sectionWikitext!!, highlightText)
         }
     }
 

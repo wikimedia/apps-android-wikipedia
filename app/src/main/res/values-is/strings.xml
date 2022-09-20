@@ -975,7 +975,6 @@
   <string name="file_page_activity_title">Síða skráarinnar</string>
   <string name="file_page_add_image_caption_button">Bæta við myndatexta</string>
   <string name="file_page_add_image_tags_button">Bæta við merkjum á myndir</string>
-  <string name="file_page_suggestion_reason">Ástæða fyrir tillögu</string>
   <string name="file_page_edit_button_content_description">Breyta %s</string>
   <string name="description_edit_revert_subtitle">Takk fyrir framlag þitt til Wikipedia!</string>
   <string name="description_edit_revert_intro">Við vitum að þú reyndir þitt besta, en einn í yfirlestrarhópnum var í vafa. Hugsanlegar ástæður fyrir því að breytingunni þinni var hafnað, gætu meðal annars verið:</string>
