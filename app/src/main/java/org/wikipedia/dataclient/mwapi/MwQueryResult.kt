@@ -40,6 +40,7 @@ class MwQueryResult {
     }
 
     fun firstPage(): MwQueryPage? {
+    fun firstPage(): MwQueryPage? {
         return pages?.firstOrNull()
     }
 
