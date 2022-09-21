@@ -63,6 +63,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val overflowCallback = OverflowCallback()
     private var currentSearchQuery: String? = null
+    private var recentImportedReadingList: ReadingList? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -314,7 +315,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private inner class ReadingListItemHolder constructor(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
         fun bindItem(readingList: ReadingList) {
-            view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY)
+            view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY, readingList == recentImportedReadingList)
             view.setSearchQuery(currentSearchQuery)
         }
 
@@ -574,7 +575,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             withContext(Dispatchers.IO) {
                 val readingList = ReadingListsImportHelper.importReadingLists(encodedList)
                 AppDatabase.instance.readingListDao().insertReadingList(readingList)
-                // TODO: show *new* indicator
+                recentImportedReadingList = readingList
                 updateLists()
             }
         }
