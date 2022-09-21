@@ -617,16 +617,32 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         val inputStr: InputStream = activity?.contentResolver?.openInputStream(uri)!!
         val file = uri.path?.let { File(it) }
         var listName = file?.name.orEmpty()
+        if (!file?.path?.contains(WikipediaApp.instance.getString(R.string.app_name))!!
+            || !file.extension.contains("csv")) {
+            FeedbackUtil.showMessage(this, R.string.reading_list_import_failed_not_csv)
+            return
+        }
         listName = listName.substring(0, listName.lastIndexOf('.'))
+        val existingTitles = displayedLists.filterIsInstance<ReadingList>().map { it.title }
+        if (existingTitles.contains(listName)) {
+            // Todo: When  similarly named list exists?
+            return
+        }
         inputStr.bufferedReader().useLines { lines ->
             val list = lines.toList()
             val titles = mutableListOf<PageTitle>()
-            for (i in 0 until list.size - 1) {
+            for (i in list.indices) {
                 if (i != 0) {
                     val strArray = list[i].split(",")
                     val title = StringUtil.addUnderscores(strArray[0])
                     val languageCode = StringUtil.addUnderscores(strArray[1])
                     titles.add(PageTitle(title, WikiSite.forLanguageCode(languageCode)))
+                } else {
+                    //Confirm that the csv file was indeed created by us
+                    if (list[i] != getString(R.string.reading_list_csv_headers)) {
+                        FeedbackUtil.showMessage(this, R.string.reading_list_import_failed_not_csv)
+                        return
+                    }
                 }
             }
             val readingList = AppDatabase.instance.readingListDao().createList(listName, "")
