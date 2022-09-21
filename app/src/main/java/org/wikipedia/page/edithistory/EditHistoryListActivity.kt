@@ -142,9 +142,9 @@ class EditHistoryListActivity : BaseActivity() {
                     editHistoryInteractionEvent = EditHistoryInteractionEvent(viewModel.pageTitle.wikiSite.dbName(), viewModel.pageId)
                     editHistoryInteractionEvent?.logShowHistory()
                 }
-                editHistoryStatsAdapter.notifyItemChanged(0)
-                editHistorySearchBarAdapter.notifyItemChanged(0)
             }
+            editHistoryStatsAdapter.notifyItemChanged(0)
+            editHistorySearchBarAdapter.notifyItemChanged(0)
         }
 
         lifecycleScope.launch {
@@ -348,6 +348,8 @@ class EditHistoryListActivity : BaseActivity() {
             val statsFlowValue = viewModel.editHistoryStatsData.value
             if (statsFlowValue is Resource.Success) {
                 view.setup(viewModel.pageTitle, statsFlowValue.data)
+            } else {
+                view.setup(viewModel.pageTitle, null)
             }
         }
     }
@@ -367,23 +369,23 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         fun bindItem() {
-            val statsFlowValue = viewModel.editHistoryStatsData.value
-            if (statsFlowValue is Resource.Success) {
-                binding.root.setCardBackgroundColor(
-                    ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.color_group_22)
-                )
 
-                itemView.setOnClickListener {
-                    startSearchActionMode()
-                }
+            binding.filterByButton.isVisible = viewModel.editHistoryStatsData.value is Resource.Success
 
-                binding.filterByButton.setOnClickListener {
-                    showFilterOverflowMenu()
-                }
+            binding.root.setCardBackgroundColor(
+                ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.color_group_22)
+            )
 
-                FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
-                binding.root.isVisible = true
+            itemView.setOnClickListener {
+                startSearchActionMode()
             }
+
+            binding.filterByButton.setOnClickListener {
+                showFilterOverflowMenu()
+            }
+
+            FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
+            binding.root.isVisible = true
         }
 
         private fun updateFilterCount() {

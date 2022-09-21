@@ -321,6 +321,11 @@
         <activity
             android:name=".usercontrib.UserContribListActivity"
             android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".usercontrib.UserContribWikiSelectActivity"
+            android:label="@string/user_contrib_wiki_select"
+            android:theme="@style/AppTheme.ActionBar" />
             
         <activity
             android:name=".edit.insertmedia.InsertMediaActivity"

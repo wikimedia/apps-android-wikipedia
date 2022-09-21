@@ -34,8 +34,8 @@ class UserContribStatsView constructor(context: Context, attrs: AttributeSet? = 
         if (stats.totalEdits >= 0) {
             val regYear = DateUtil.getYearOnlyDateString(stats.registrationDate)
             binding.editCountsView.isVisible = true
-            binding.editCountsView.text = context.resources.getQuantityString(R.plurals.page_edit_history_article_edits_since_year,
-                    stats.totalEdits, stats.totalEdits, regYear)
+            binding.editCountsView.text = context.resources.getQuantityString(R.plurals.edits_since_year_per_wiki,
+                    stats.totalEdits, stats.totalEdits, regYear, stats.projectName)
         } else {
             binding.editCountsView.isVisible = false
         }

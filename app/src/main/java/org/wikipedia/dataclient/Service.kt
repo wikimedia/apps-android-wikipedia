@@ -242,6 +242,9 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights")
     suspend fun userInfo(@Query("ususers") userName: String): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights&meta=allmessages")
+    suspend fun userInfoWithMessages(@Query("ususers") userName: String, @Query("ammessages") messages: String): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&meta=globaluserinfo&guiprop=editcount|groups|rights")
     suspend fun globalUserInfo(@Query("guiuser") userName: String): MwQueryResponse
 
@@ -344,7 +347,7 @@ interface Service {
     suspend fun getUserContrib(
             @Query("ucuser") username: String,
             @Query("uclimit") maxCount: Int,
-            @Query("ucnamespace") ns: Int?,
+            @Query("ucnamespace") ns: String?,
             @Query("ucshow") filter: String?,
             @Query("uccontinue") uccontinue: String?
     ): MwQueryResponse
