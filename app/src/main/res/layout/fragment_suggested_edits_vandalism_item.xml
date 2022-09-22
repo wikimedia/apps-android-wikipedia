@@ -91,7 +91,7 @@
                     android:id="@+id/diffRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbars="vertical"/>
+                    android:scrollbars="vertical" />
 
             </LinearLayout>
 
@@ -168,6 +168,18 @@
                 android:backgroundTint="?attr/colorError"
                 android:textColor="@android:color/white"
                 android:text="Should undo" />
+
+            <ImageView
+                android:id="@+id/actionOverflowButton"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical"
+                android:padding="4dp"
+                android:layout_marginStart="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:srcCompat="@drawable/ic_more_vert_white_24dp"
+                app:tint="?attr/material_theme_secondary_color"
+                android:contentDescription="@string/nav_item_more" />
 
         </LinearLayout>
 

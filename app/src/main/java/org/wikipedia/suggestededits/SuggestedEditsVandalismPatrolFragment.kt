@@ -6,15 +6,25 @@ import android.os.Bundle
 import android.view.*
 import android.view.View.*
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.animation.ArgbEvaluatorCompat
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentSuggestedEditsVandalismItemBinding
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.diff.DiffUtil
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.PageActivity
+import org.wikipedia.page.PageTitle
+import org.wikipedia.page.edithistory.EditHistoryListActivity
+import org.wikipedia.staticdata.UserTalkAliasData
+import org.wikipedia.talk.TalkTopicActivity
+import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.*
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
@@ -77,6 +87,35 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
                 }
                 .setNegativeButton(android.R.string.cancel, null)
                 .show()
+        }
+
+        binding.actionOverflowButton.setOnClickListener {
+            PopupMenu(requireActivity(), binding.actionOverflowButton).run {
+                inflate(R.menu.menu_vandalism_options)
+                setOnMenuItemClickListener {
+                    viewModel.candidate?.let { candidate ->
+                        val title = PageTitle(candidate.title, viewModel.wikiSite)
+                        when (it.itemId) {
+                            R.id.menu_open_page -> {
+                                val entry = HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK)
+                                startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, title))
+                            }
+                            R.id.menu_edit_history -> {
+                                startActivity(EditHistoryListActivity.newIntent(requireActivity(), title))
+                            }
+                            R.id.menu_user_talk_page -> {
+                                startActivity(TalkTopicsActivity.newIntent(requireActivity(), PageTitle(UserTalkAliasData.valueFor(title.wikiSite.languageCode), candidate.user, viewModel.wikiSite),
+                                        Constants.InvokeSource.PAGE_ACTIVITY))
+                            }
+                            R.id.menu_user_contribs -> {
+                                startActivity(UserContribListActivity.newIntent(requireActivity(), candidate.user))
+                            }
+                        }
+                    }
+                    true
+                }
+                show()
+            }
         }
 
         viewModel.candidateLiveData.observe(viewLifecycleOwner) {

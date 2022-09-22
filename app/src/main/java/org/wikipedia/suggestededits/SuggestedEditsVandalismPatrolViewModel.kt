@@ -25,7 +25,8 @@ class SuggestedEditsVandalismPatrolViewModel(private val langCode: String) : Vie
         getCandidate()
     }
 
-    private var candidate: MwQueryResult.RecentChange? = null
+    val wikiSite: WikiSite get() = WikiSite.forLanguageCode(langCode)
+    var candidate: MwQueryResult.RecentChange? = null
 
     fun getCandidate() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -33,7 +34,7 @@ class SuggestedEditsVandalismPatrolViewModel(private val langCode: String) : Vie
         }) {
             withContext(Dispatchers.IO) {
                 candidate = EditingSuggestionsProvider.getNextRevertCandidate(langCode)
-                val diff = ServiceFactory.getCoreRest(WikiSite.forLanguageCode(langCode)).getDiff(candidate!!.revFrom, candidate!!.curRev)
+                val diff = ServiceFactory.getCoreRest(wikiSite).getDiff(candidate!!.revFrom, candidate!!.curRev)
                 candidateLiveData.postValue(Resource.Success(Pair(candidate!!, diff)))
             }
         }
@@ -47,7 +48,7 @@ class SuggestedEditsVandalismPatrolViewModel(private val langCode: String) : Vie
             rollbackResponse.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                val wiki = WikiSite.forLanguageCode(langCode)
+                val wiki = wikiSite
                 val token = ServiceFactory.get(wiki).getToken("rollback").query!!.rollbackToken()!!
                 ServiceFactory.get(wiki).postRollback(candidate!!.title, "", candidate!!.user, token)
                 rollbackResponse.postValue(Resource.Success(Unit))
