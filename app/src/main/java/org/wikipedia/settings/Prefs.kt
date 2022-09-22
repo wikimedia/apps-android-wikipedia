@@ -114,6 +114,10 @@ object Prefs {
         get() = PrefsIoUtil.getInt(R.string.preference_key_text_size_multiplier, 0)
         set(multiplier) = PrefsIoUtil.setInt(R.string.preference_key_text_size_multiplier, multiplier)
 
+    var editingTextSizeMultiplier
+        get() = PrefsIoUtil.getInt(R.string.preference_key_editing_text_size_multiplier, 0)
+        set(multiplier) = PrefsIoUtil.setInt(R.string.preference_key_editing_text_size_multiplier, multiplier)
+
     var isEventLoggingEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_eventlogging_opt_in, true)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_eventlogging_opt_in, enabled)
@@ -602,4 +606,20 @@ object Prefs {
         get() = JsonUtil.decodeFromString<Set<Int>>(PrefsIoUtil.getString(R.string.preference_key_user_contrib_filter_ns, null))
                 ?: emptySet()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_user_contrib_filter_ns, JsonUtil.encodeToString(value))
+
+    var editSyntaxHighlightEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_syntax_highlight, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_syntax_highlight, value)
+
+    var editMonoSpaceFontEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_monospace_font, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_monospace_font, value)
+
+    var editLineNumbersEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_line_numbers, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_line_numbers, value)
+
+    var editTypingSuggestionsEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_typing_suggestions, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_typing_suggestions, value)
 }
