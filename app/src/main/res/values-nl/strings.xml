@@ -97,6 +97,10 @@
     <item quantity="one">%1$d bewerking sinds %2$s</item>
     <item quantity="other">%1$d bewerkingen sinds %2$s</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d bewerking sinds %2$s (%3$s)</item>
+    <item quantity="other">%1$d bewerkingen sinds %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Probeer &lt;a href=\"#\"&gt;filters&lt;/a&gt; te wijzigen om meer bewerkingen te zien</string>
   <string name="menu_page_show_tabs">Tabbladen weergeven</string>
   <string name="menu_page_other_languages">Taal wijzigen</string>
@@ -1178,6 +1182,7 @@
   <string name="menu_option_edit_source">Bron bewerken</string>
   <string name="menu_option_user_page">Gebruikerspagina van %s</string>
   <string name="menu_option_find_in_talk_page_topic">Overlegpagina doorzoeken</string>
+  <string name="menu_option_copy_link_to_clipboard">Koppeling naar klembord kopiëren</string>
   <string name="talk_menu_copy_text">Tekst kopiëren</string>
   <string name="talk_menu_expand_threads">Gesprekken uitklappen</string>
   <string name="talk_menu_collapse_threads">Gesprekken inklappen</string>
@@ -1256,4 +1261,5 @@
   <string name="user_contrib_current">huidige versie</string>
   <string name="media_playback_error">Fout bij het afspelen van media.</string>
   <string name="user_contrib_menu_label">Bijdragen</string>
+  <string name="user_contrib_wiki_select">Bijdragen aan:</string>
 </resources>

@@ -1240,6 +1240,7 @@
   <string name="menu_option_edit_source">עריכת קוד מקור</string>
   <string name="menu_option_user_page">דף השיחה של %s</string>
   <string name="menu_option_find_in_talk_page_topic">חיפוש בנושא דף שיחה</string>
+  <string name="menu_option_copy_link_to_clipboard">העתקת קישור ללוח</string>
   <string name="talk_menu_copy_text">העתקת טקסט</string>
   <string name="talk_menu_expand_threads">הרחבת שרשורים</string>
   <string name="talk_menu_collapse_threads">הסתרת שרשורים</string>
