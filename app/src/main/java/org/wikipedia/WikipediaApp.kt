@@ -207,9 +207,13 @@ class WikipediaApp : Application() {
                 languageState.systemLanguageCode)
     }
 
+    fun constrainFontSizeMultiplier(mult: Int): Int {
+        return mult.coerceIn(resources.getInteger(R.integer.minTextSizeMultiplier),
+                resources.getInteger(R.integer.maxTextSizeMultiplier))
+    }
+
     fun setFontSizeMultiplier(mult: Int): Boolean {
-        val multiplier = mult.coerceIn(resources.getInteger(R.integer.minTextSizeMultiplier),
-            resources.getInteger(R.integer.maxTextSizeMultiplier))
+        val multiplier = constrainFontSizeMultiplier(mult)
         if (multiplier != Prefs.textSizeMultiplier) {
             Prefs.textSizeMultiplier = multiplier
             bus.post(ChangeTextSizeEvent())
@@ -249,10 +253,10 @@ class WikipediaApp : Application() {
      * @param window The window on which the font will be displayed.
      * @return Actual current size of the font.
      */
-    fun getFontSize(window: Window): Float {
+    fun getFontSize(window: Window, editing: Boolean = false): Float {
         return DimenUtil.getFontSizeFromSp(window,
-                resources.getDimension(R.dimen.textSize)) * (1.0f + Prefs.textSizeMultiplier
-                * DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor))
+                resources.getDimension(R.dimen.textSize)) * (1.0f + (if (editing) Prefs.editingTextSizeMultiplier else Prefs.textSizeMultiplier) *
+                DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor))
     }
 
     @Synchronized

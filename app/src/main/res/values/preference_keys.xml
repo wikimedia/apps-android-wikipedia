@@ -6,6 +6,7 @@
     <string name="preference_key_eventlogging_opt_in">eventlogging_opt_in</string>
     <string name="preference_key_reading_app_install_id">readingAppInstallID</string>
     <string name="preference_key_text_size_multiplier">textSizeMultiplier</string>
+    <string name="preference_key_editing_text_size_multiplier">editingTextSizeMultiplier</string>
     <string name="preference_key_color_theme">colorTheme</string>
     <string name="preference_key_previous_color_theme">previousColorTheme</string>
     <string name="preference_key_font_family">fontFamily</string>
@@ -141,4 +142,8 @@
     <string name="preference_key_import_reading_lists_dialog_shown">importReadingListsDialogShown</string>
     <string name="preference_key_import_reading_lists_data">importReadingListsData</string>
     <string name="preference_key_user_contrib_filter_ns">userContribFilterNamespaces</string>
+    <string name="preference_key_edit_syntax_highlight">editSyntaxHighlight</string>
+    <string name="preference_key_edit_monospace_font">editMonospaceFont</string>
+    <string name="preference_key_edit_line_numbers">editLineNumbers</string>
+    <string name="preference_key_edit_typing_suggestions">editTypingSuggestions</string>
 </resources>
