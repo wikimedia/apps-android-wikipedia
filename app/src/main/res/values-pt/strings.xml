@@ -81,6 +81,10 @@
     <item quantity="one">%1$d edição desde %2$s</item>
     <item quantity="other">%1$d edições desde %2$s</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d edição desde %2$s (%3$s)</item>
+    <item quantity="other">%1$d edições desde %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Tente alterar os &lt;a href=\"#\"&gt;filtros&lt;/a&gt; para ver mais edições</string>
   <string name="menu_page_show_tabs">Mostrar separadores</string>
   <string name="menu_page_other_languages">Alterar língua</string>
@@ -995,7 +999,6 @@
   <string name="file_page_activity_title">Página do ficheiro</string>
   <string name="file_page_add_image_caption_button">Adicionar legenda à imagem</string>
   <string name="file_page_add_image_tags_button">Adicionar etiquetas de imagens</string>
-  <string name="file_page_suggestion_reason">Motivo da sugestão</string>
   <string name="file_page_edit_button_content_description">Editar %s</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentou fazer o melhor, mas um dos revisores teve uma preocupação. As possíveis razões pelas quais a sua edição foi desfeita incluem:</string>
@@ -1173,6 +1176,7 @@
   <string name="menu_option_edit_source">Editar fonte</string>
   <string name="menu_option_user_page">Página de utilizador de %s</string>
   <string name="menu_option_find_in_talk_page_topic">Localizar no tópico da página de discussão</string>
+  <string name="menu_option_copy_link_to_clipboard">Copiar hiperligação para a área de transferência</string>
   <string name="talk_menu_copy_text">Copiar texto</string>
   <string name="talk_menu_expand_threads">Expandir tópicos</string>
   <string name="talk_menu_collapse_threads">Recolher tópicos</string>
@@ -1255,4 +1259,5 @@
   <string name="user_contrib_current">atual</string>
   <string name="media_playback_error">Erro na reprodução de multimédia.</string>
   <string name="user_contrib_menu_label">Contribuições</string>
+  <string name="user_contrib_wiki_select">Contribuições em:</string>
 </resources>

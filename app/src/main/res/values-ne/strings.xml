@@ -478,7 +478,7 @@
   <string name="view_static_card_save_button_label">संग्रह गर्नुहोस्</string>
   <string name="feed_configure_menu_reset">पुनर्निर्धारित दृश्य कायम गर्नुहाेस्</string>
   <string name="feed_configure_menu_select_all">सबै देखाउने</string>
-  <string name="feed_configure_menu_deselect_all">सबै लुकाउने</string>
+  <string name="feed_configure_menu_deselect_all">सबै लुकाउनुहोस्</string>
   <string name="feed_item_type_news">समसामयिक घटनाहरूको बारेमा लेखहरू</string>
   <string name="feed_item_type_on_this_day">इतिहासमा आज</string>
   <string name="feed_item_type_because_you_read">तपाईंको इतिहासबाट हालै पढिएको लेखमा आधारित सुझावहरू</string>

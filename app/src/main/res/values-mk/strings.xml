@@ -64,6 +64,10 @@
     <item quantity="one">%1$d уредување од %2$s наваму</item>
     <item quantity="other">%1$d уредувања од %2$s наваму</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d уредување од %2$s наваму (%3$s)</item>
+    <item quantity="other">%1$d уредувања од %2$s наваму (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Изменете ги &lt;a href=\"#\"&gt;филтрите&lt;/a&gt; за да добиете повеќе ставки</string>
   <string name="menu_page_show_tabs">Прикажи јазичиња</string>
   <string name="menu_page_other_languages">Смени јазик</string>
@@ -979,7 +983,6 @@
   <string name="file_page_activity_title">Податотечна страница</string>
   <string name="file_page_add_image_caption_button">Додај опис на сликата</string>
   <string name="file_page_add_image_tags_button">Додај ознаки на сликата</string>
-  <string name="file_page_suggestion_reason">Причина за предлагање</string>
   <string name="file_page_edit_button_content_description">Уреди %s</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
@@ -1157,6 +1160,7 @@
   <string name="menu_option_edit_source">Уреди извор</string>
   <string name="menu_option_user_page">Корисничка страница на %s</string>
   <string name="menu_option_find_in_talk_page_topic">Најди во разговорната тема</string>
+  <string name="menu_option_copy_link_to_clipboard">Копирај врска во меѓускладот</string>
   <string name="talk_menu_copy_text">Копирај текст</string>
   <string name="talk_menu_expand_threads">Расклопи ги нишките</string>
   <string name="talk_menu_collapse_threads">Склопи ги нишките</string>
@@ -1239,4 +1243,5 @@
   <string name="user_contrib_current">тековна</string>
   <string name="media_playback_error">Грешка при пуштањето на снимката.</string>
   <string name="user_contrib_menu_label">Придонеси</string>
+  <string name="user_contrib_wiki_select">Придонеси на:</string>
 </resources>

@@ -18,6 +18,7 @@
 * HajFunk
 * Hikemaniac
 * Hwboehm
+* Justman10000
 * Killarnee
 * Lucas Werkmeister
 * ManuelFranz
@@ -1006,7 +1007,6 @@
   <string name="file_page_activity_title">Dateiseite</string>
   <string name="file_page_add_image_caption_button">Bildunterschrift hinzufügen</string>
   <string name="file_page_add_image_tags_button">Bilder-Tags hinzufügen</string>
-  <string name="file_page_suggestion_reason">Vorschlagsgrund</string>
   <string name="file_page_edit_button_content_description">%s bearbeiten</string>
   <string name="description_edit_revert_subtitle">Vielen Dank für das Bearbeiten von Wikipedia!</string>
   <string name="description_edit_revert_intro">Wir wissen, dass du dein Bestes gegeben hast, aber einer unserer Prüfer hat Bedenken. Mögliche Gründe, warum deine Bearbeitung rückgängig gemacht wurde:</string>
@@ -1083,11 +1083,41 @@
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Link</string>
+  <string name="wikitext_insert_media">Medien einlegen</string>
   <string name="wikitext_bulleted_list">Aufzählungsliste</string>
   <string name="wikitext_numbered_list">Nummerierte Liste</string>
   <string name="wikitext_template">Vorlage</string>
   <string name="wikitext_reference">Einzelnachweis</string>
   <string name="wikitext_preview_link">Vorschau des Links anzeigen</string>
+  <string name="insert_media_title">Medien einfügen</string>
+  <string name="insert_media_search_description">Wähle eine Datei aus Wikimedia Commons</string>
+  <string name="insert_media_search_hint">Medien suchen</string>
+  <string name="insert_media_settings">Medieneinstellungen</string>
+  <string name="insert_media_settings_uploaded_image">Hochgeladenes Bild</string>
+  <string name="insert_media_settings_caption">Beschriftung</string>
+  <string name="insert_media_settings_caption_description">Label, das für alle Leser neben dem Element angezeigt wird</string>
+  <string name="insert_media_settings_alternative_text">Alternativer Text</string>
+  <string name="insert_media_settings_alternative_text_description">Textbeschreibung für Leser, die das Bild nicht sehen können</string>
+  <string name="insert_media_advanced_settings">Erweiterte Einstellungen</string>
+  <string name="insert_media_advanced_settings_wrap_image">Text um das Bild fließen lassen</string>
+  <string name="insert_media_advanced_settings_image_position">Bildposition</string>
+  <string name="insert_media_advanced_settings_image_position_right">Rechts</string>
+  <string name="insert_media_advanced_settings_image_position_left">Links</string>
+  <string name="insert_media_advanced_settings_image_position_center">Zentriert</string>
+  <string name="insert_media_advanced_settings_image_position_none">Keine</string>
+  <string name="insert_media_advanced_settings_image_type">Bildtyp</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Vorschau</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Rahmenlos</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Rahmen</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Basis</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Du kannst festlegen, wie das Medienelement auf der Seite erscheint. Dies sollte in fast allen Fällen das Miniaturformat sein, um mit anderen Seiten konsistent zu sein.</string>
+  <string name="insert_media_advanced_settings_image_size">Bildgröße</string>
+  <string name="insert_media_advanced_settings_image_size_default">Standard</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Benutzerdefiniert</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Breite</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Höhe</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
+  <string name="insert_media_insert_button">Einfügen</string>
   <string name="main_drawer_help">Hilfe</string>
   <string name="main_drawer_login">Anmelden / Wikipedia beitreten</string>
   <string name="main_tooltip_text">%s, wussten Sie das jeder Wikipedia editieren kann?</string>
@@ -1154,6 +1184,7 @@
   <string name="menu_option_edit_source">Quelltext bearbeiten</string>
   <string name="menu_option_user_page">Benutzerseite von %s</string>
   <string name="menu_option_find_in_talk_page_topic">Finde das Thema auf der Diskussionsseite</string>
+  <string name="menu_option_copy_link_to_clipboard">Link in die Zwischenablage kopieren</string>
   <string name="talk_menu_copy_text">Text kopieren</string>
   <string name="talk_menu_expand_threads">Themen ausklappen</string>
   <string name="talk_menu_collapse_threads">Themen einklappen</string>
@@ -1219,6 +1250,12 @@
   <string name="subcategory_empty">Keine Unterkategorien in dieser Kategorie gefunden.</string>
   <string name="search_namespaces">Namensräume</string>
   <string name="revision_initial_none">Keine (dies ist die erste Version)</string>
+  <string name="user_contrib_activity_title">Beiträge von %s</string>
   <string name="archive_empty">Keine archivierten Seiten gefunden.</string>
+  <string name="user_contrib_filter_ns">Nach Namespace filtern</string>
+  <string name="user_contrib_filter_all">Alle Bearbeitungen</string>
+  <string name="namespace_article">Artikel</string>
+  <string name="user_contrib_current">aktuell</string>
   <string name="media_playback_error">Fehler beim Abspielen von Medien.</string>
+  <string name="user_contrib_menu_label">Beiträge</string>
 </resources>
