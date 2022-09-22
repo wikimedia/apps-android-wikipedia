@@ -92,6 +92,7 @@
   <string name="menu_page_new_tab">Nov zavihek</string>
   <string name="menu_page_reading_lists">Bralni seznami</string>
   <string name="menu_page_recently_viewed">Nedavno pregledano</string>
+  <string name="menu_page_archive">Arhiviraj</string>
   <string name="menu_long_press_open_page">Odpri</string>
   <string name="menu_long_press_open_in_new_tab">Odpri na novem zavihku</string>
   <string name="menu_long_press_copy_page">Kopiraj naslov povezave</string>
@@ -497,7 +498,7 @@
   <string name="reading_list_article_make_offline">Članek naj bo na voljo brez povezave</string>
   <string name="reading_list_add_to_other_list">Dodaj na drug bralni seznam</string>
   <string name="reading_list_move_to_other_list">Prestavi na drug bralni seznam</string>
-  <string name="reading_list_move_from_to_other_list">Prestavi iz %s na drug bralni seznam</string>
+  <string name="reading_list_move_from_to_other_list">Prestavi s %s na drug bralni seznam</string>
   <string name="reading_list_remove_from_list">Odstrani s seznama %s</string>
   <string name="reading_list_remove_from_lists">Odstrani z bralnih seznamov</string>
   <string name="reading_list_select_item">Izberi</string>
@@ -786,6 +787,9 @@
   <string name="description_edit_license_notice">S spremembo opisa članka se strinjam s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in nepreklicno objavo svojih prispevkov pod licenco &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">običajno začnite z malo črko</string>
   <string name="description_edit_voice_input_description">Glasovni vnos</string>
+  <string name="description_edit_learn_more">Več o opisih člankov</string>
+  <string name="description_edit_image_caption_learn_more">Več o napisih k slikam</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Besedilo je prekratko.</string>
   <string name="description_ends_with_punctuation">Besedilo se ne sme končati z ločilom.</string>
   <string name="description_starts_with_uppercase">Začnite z malo črko, razen če je prva beseda lastno ime.</string>
@@ -1122,11 +1126,13 @@
   <string name="talk_overflow_sort_by">Razvrsti po</string>
   <string name="talk_overflow_sort_date_published">Datum objave</string>
   <string name="talk_overflow_sort_topic_name">Naslov teme</string>
+  <string name="talk_archived_title">Arhiv pogovora: %s</string>
   <string name="menu_option_share_talk_discussion">Deli pogovor</string>
   <string name="menu_option_share_talk_page">Deli pogovorno stran</string>
   <string name="menu_option_share_edit">Deli urejanje</string>
   <string name="menu_option_user_contributions">Prispevki uporabnika/ce %s</string>
   <string name="menu_option_edit_source">Uredi vir</string>
+  <string name="menu_option_copy_link_to_clipboard">Skopiraj povezavo v odložišče</string>
   <string name="watchlist_details_watching_label">Spremljam</string>
   <string name="watchlist_details_watch_label">Opazuj</string>
   <string name="watchlist_details_next_edit">Naslednje urejanje</string>
@@ -1138,7 +1144,7 @@
   <string name="thank_dialog_positive_button_text">Pošlji zahvalo</string>
   <string name="thank_dialog_negative_button_text">Prekliči</string>
   <string name="thank_success_message">Uporabniku/ci %s ste poslali zahvalo 👍</string>
-  <string name="menu_option_view_user_profile" fuzzy="true">Ogled uporabnikove profilne strani</string>
+  <string name="menu_option_view_user_profile">Ogled uporabnikove strani</string>
   <string name="menu_option_view_user_talk">Ogled pogovorne strani</string>
   <string name="menu_option_view_user_contributions">Ogled uporabnikovih prispevkov</string>
   <string name="revision_diff_compare">Primerjava redakcij</string>
@@ -1181,6 +1187,14 @@
   <string name="watchlist_page_moved">Prestavljeno</string>
   <string name="watchlist_page_protected">Zaščiteno</string>
   <string name="watchlist_page_deleted">Izbrisano</string>
+  <string name="preview_edit_title">Predogled urejanja</string>
+  <string name="preview_edit_summarize_edit_title">Povzetek urejanja</string>
+  <string name="preview_edit_summarize_edit_hint">Kako ste izboljšali to stran?</string>
+  <string name="preview_edit_minor_edit">Manjše urejanje</string>
+  <string name="preview_edit_minor_edit_url">https://sl.wikipedia.org/wiki/Pomo%C4%8D%3AManj%C5%A1e_urejanje?wprov=sfla1</string>
+  <string name="preview_edit_watch_this_page">Opazuj stran</string>
+  <string name="preview_edit_learn_more">Več o povzetkih urejanja</string>
+  <string name="preview_edit_learn_more_url">https://sl.wikipedia.org/wiki/Wikipedija:Povzetek_urejanja</string>
   <string name="action_item_categories">Kategorije</string>
   <string name="page_no_categories">Ta stran ne pripada nobeni kategoriji.</string>
   <string name="category_tab_articles">Članki</string>
@@ -1188,4 +1202,6 @@
   <string name="category_empty">V tej kategoriji ni najdenih člankov.</string>
   <string name="subcategory_empty">V tej kategoriji ni najdenih podkategorij.</string>
   <string name="search_namespaces">Imenski prostori</string>
+  <string name="archive_empty">Ni najdenih arhivskih strani.</string>
+  <string name="user_contrib_wiki_select">Prispevki k:</string>
 </resources>
