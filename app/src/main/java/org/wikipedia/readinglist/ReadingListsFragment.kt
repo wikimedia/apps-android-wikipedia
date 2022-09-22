@@ -568,13 +568,17 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun importReadingListAndRefresh(encodedList: String) {
+        binding.swipeRefreshLayout.isRefreshing = true
+
         lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
             FeedbackUtil.showError(requireActivity(), throwable)
+            binding.swipeRefreshLayout.isRefreshing = false
         }) {
             withContext(Dispatchers.IO) {
                 val readingList = ReadingListsImportHelper.importReadingLists(encodedList)
-                AppDatabase.instance.readingListDao().insertReadingList(readingList)
+                readingList.id = AppDatabase.instance.readingListDao().insertReadingList(readingList)
+                AppDatabase.instance.readingListPageDao().addPagesToList(readingList, readingList.pages)
                 recentImportedReadingList = readingList
                 updateLists()
             }

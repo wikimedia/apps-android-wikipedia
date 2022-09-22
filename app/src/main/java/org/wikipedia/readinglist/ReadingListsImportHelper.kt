@@ -5,6 +5,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
 
 object ReadingListsImportHelper {
 
@@ -19,14 +20,14 @@ object ReadingListsImportHelper {
 
         readingListInfoArray.forEach {
             // lang:pageid
-            val langPageId = it.split("|")
+            val langPageId = it.split(":")
             pageIdsMap.getOrPut(langPageId[0]) { mutableListOf() }.add(langPageId[1])
         }
 
         // Request API by languages
         pageIdsMap.forEach {
             val wikiSite = WikiSite.forLanguageCode(it.key)
-            val response = ServiceFactory.get(wikiSite).getPageTitlesByPageId(it.value.joinToString { "|" })
+            val response = ServiceFactory.get(wikiSite).getPageTitlesByPageId(it.value.joinToString(separator = "|"))
 
             response.query?.pages?.forEach { page ->
                 val readingListPage = ReadingListPage(
@@ -41,9 +42,10 @@ object ReadingListsImportHelper {
             }
         }
 
-        return ReadingList(listTitle, listDescription).apply {
-            pages.addAll(listPages)
-        }
+        val readingList = ReadingList(listTitle, listDescription)
+        readingList.pages.addAll(listPages)
+
+        return readingList
     }
 
     private fun decodeReadingListUrl(encodedUrl: String): String {
