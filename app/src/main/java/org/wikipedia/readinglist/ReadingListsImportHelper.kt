@@ -5,7 +5,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.UriUtil
-import org.wikipedia.util.log.L
 
 object ReadingListsImportHelper {
 

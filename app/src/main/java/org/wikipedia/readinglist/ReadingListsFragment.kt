@@ -576,6 +576,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             binding.swipeRefreshLayout.isRefreshing = false
         }) {
             withContext(Dispatchers.IO) {
+                // TODO: investigate incorrect reading list size
                 val readingList = ReadingListsImportHelper.importReadingLists(encodedList)
                 readingList.id = AppDatabase.instance.readingListDao().insertReadingList(readingList)
                 AppDatabase.instance.readingListPageDao().addPagesToList(readingList, readingList.pages)
