@@ -617,8 +617,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         val inputStr: InputStream = activity?.contentResolver?.openInputStream(uri)!!
         val file = uri.path?.let { File(it) }
         var listName = file?.name.orEmpty()
-        if (!file?.path?.contains(WikipediaApp.instance.getString(R.string.app_name))!!
-            || !file.extension.contains("csv")) {
+        if (!file?.extension?.contains("csv")!!) {
             FeedbackUtil.showMessage(this, R.string.reading_list_import_failed_not_csv)
             return
         }
