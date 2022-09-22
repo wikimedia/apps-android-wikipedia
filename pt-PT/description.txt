@@ -26,14 +26,14 @@ Envie-nos seus comentários sobre a app! No menu, pressione em "Configurações"
 
 O código é 100% fonte aberta. Se tem experiência com Java e Android SDK, estamos ansiosos pelas suas contribuições! https://github.com/wikimedia/apps-android-wikipedia
 
-Ao usar esta app, concorda com a transmissão automática de relatórios de falha para um provedor de serviços terceirizado. Se gostaria de desativar esse recurso, por favor pressione em "Configurações", e desative "Enviar relatórios de falha" na secção privacidade. Explicação das permissões necessárias para pela app: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Ao usar esta aplicação, concorda com a transmissão automática de relatórios de crache para um provedor de serviços de terceiros. Se pretender desativar esta funcionalidade, por favor, pressione em "Definições", e desative "Enviar relatórios de crache" na secção de privacidade. Explicação das permissões necessárias pela aplicação: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
-Política de privacidade: https://m.wikimediafoundation.org/wiki/privacy_policy
+Política de privacidade: https://wikimediafoundation.org/privacy-policy/
 
-Política de privacidade do provedor de serviços de terceiros para relatórios de falha: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+Política de privacidade do provedor de serviços de terceiros para relatórios de crache: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
-Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+Termos de Utilização: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 
-Sobre a Wikimedia Foundation
+Sobre a Fundação Wikimedia
 
 A Wikimedia Foundation é a organização sem fins lucrativos que apoia a Wikipédia e os outros projetos da Wikimedia. A Wikimedia Foundation é uma organização de caridade financiada principalmente através de doações. Para mais informação, visite por favor nosso Web site: https://wikimediafoundation.org/wiki/Home.
