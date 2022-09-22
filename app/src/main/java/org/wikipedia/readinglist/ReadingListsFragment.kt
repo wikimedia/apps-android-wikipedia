@@ -578,9 +578,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             withContext(Dispatchers.IO) {
                 val readingList = ReadingListsImportHelper.importReadingLists(encodedList)
                 readingList.id = AppDatabase.instance.readingListDao().insertReadingList(readingList)
-                AppDatabase.instance.readingListPageDao().addPagesToList(readingList, readingList.pages)
+                AppDatabase.instance.readingListPageDao().addPagesToList(readingList, readingList.pages, true)
                 recentImportedReadingList = readingList
-                updateLists()
             }
         }
     }
