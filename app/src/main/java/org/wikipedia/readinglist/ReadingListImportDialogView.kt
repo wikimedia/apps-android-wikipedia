@@ -11,7 +11,7 @@ import org.wikipedia.views.ViewUtil
 
 class ReadingListImportDialogView : FrameLayout {
 
-    private val binding = DialogImportReadingListBinding.inflate(LayoutInflater.from(context), this, false)
+    private val binding = DialogImportReadingListBinding.inflate(LayoutInflater.from(context), this, true)
     private val imageViews = listOf(binding.itemImage1, binding.itemImage2, binding.itemImage3, binding.itemImage4)
 
     constructor(context: Context) : super(context)
@@ -22,6 +22,11 @@ class ReadingListImportDialogView : FrameLayout {
 
         binding.readingListTitle.text = readingList.listTitle
         binding.readingListNumberOfPages.text = resources.getQuantityString(R.plurals.shareable_reading_lists_import_dialog_content_articles, readingList.pages.size, readingList.pages.size)
+
+        // Set default images
+        imageViews.forEach {
+            ViewUtil.loadImage(it, null)
+        }
 
         readingList.let {
             val thumbUrls = it.pages.mapNotNull { page -> page.thumbUrl }

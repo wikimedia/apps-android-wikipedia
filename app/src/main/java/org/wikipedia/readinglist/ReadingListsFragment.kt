@@ -560,7 +560,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 FeedbackUtil.showError(requireActivity(), throwable)
                 binding.swipeRefreshLayout.isRefreshing = false
             }) {
-                withContext(Dispatchers.IO) {
+                withContext(Dispatchers.Main) {
                     val readingList = ReadingListsImportHelper.importReadingLists(encodedUrl)
                     val dialogView = ReadingListImportDialogView(requireContext())
                     dialogView.setReadingList(readingList)
@@ -572,6 +572,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         .setNegativeButton(R.string.shareable_reading_lists_import_dialog_cancel, null)
                         .show()
                     Prefs.importReadingListsDialogShown = true
+                    binding.swipeRefreshLayout.isRefreshing = false
                 }
             }
         }

@@ -1,125 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:ignore="ContentDescription">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="16dp">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:paddingStart="@dimen/list_item_horizontal_padding"
-            android:paddingTop="8dp"
-            android:paddingEnd="@dimen/list_item_horizontal_padding"
             android:paddingBottom="8dp"
             android:text="@string/shareable_reading_lists_import_dialog_title"
             android:textColor="?attr/primary_text_color"
-            android:textSize="16sp" />
+            android:textStyle="bold"
+            android:textSize="24sp" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="?attr/material_theme_border_color" />
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56.5dp">
-
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_gravity="center_vertical"
+            android:text="@string/shareable_reading_lists_import_dialog_content"
+            android:textColor="?attr/primary_text_color"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="vertical"
+            android:background="@drawable/shape_border_1dp_gray">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/readingListContainer"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/itemImage1"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    style="@style/ImageViewDefault"
+                    android:layout_marginEnd="0.5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/itemImage2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/itemImage2"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    style="@style/ImageViewDefault"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/itemImage3"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    style="@style/ImageViewDefault"
+                    android:layout_marginTop="0.5dp"
+                    app:layout_constraintEnd_toStartOf="@+id/itemImage4"
+                    app:layout_constraintStart_toStartOf="@+id/itemImage1"
+                    app:layout_constraintTop_toBottomOf="@+id/itemImage1" />
+
+                <ImageView
+                    android:id="@+id/itemImage4"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    style="@style/ImageViewDefault"
+                    android:layout_marginStart="0.5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/itemImage3"
+                    app:layout_constraintTop_toTopOf="@+id/itemImage3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
+                android:id="@+id/readingListTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/shareable_reading_lists_import_dialog_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginHorizontal="4dp"
+                android:gravity="center_vertical"
                 android:textColor="?attr/primary_text_color"
-                android:textSize="16sp" />
+                android:textSize="12sp"
+                android:textStyle="bold"/>
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/readingListNumberOfPages"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/color_group_22"
-                android:orientation="vertical">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/readingListContainer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="?paper_color"
-                    android:layout_margin="1dp">
-
-                    <ImageView
-                        android:id="@+id/itemImage1"
-                        style="@style/ImageViewDefault.ReadingListThumbnail"
-                        android:layout_marginEnd="0.5dp"
-                        app:layout_constraintEnd_toStartOf="@+id/itemImage2"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/itemImage2"
-                        style="@style/ImageViewDefault.ReadingListThumbnail"
-                        android:layout_marginEnd="16dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/itemImage3"
-                        style="@style/ImageViewDefault.ReadingListThumbnail"
-                        android:layout_marginTop="0.5dp"
-                        app:layout_constraintEnd_toStartOf="@+id/itemImage4"
-                        app:layout_constraintStart_toStartOf="@+id/itemImage1"
-                        app:layout_constraintTop_toBottomOf="@+id/itemImage1" />
-
-                    <ImageView
-                        android:id="@+id/itemImage4"
-                        style="@style/ImageViewDefault.ReadingListThumbnail"
-                        android:layout_marginStart="0.5dp"
-                        android:layout_marginEnd="16dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/itemImage3"
-                        app:layout_constraintTop_toTopOf="@+id/itemImage3" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <TextView
-                    android:id="@+id/readingListTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingStart="@dimen/list_item_horizontal_padding"
-                    android:paddingTop="8dp"
-                    android:paddingEnd="@dimen/list_item_horizontal_padding"
-                    android:paddingBottom="8dp"
-                    android:textColor="?attr/primary_text_color"
-                    android:textSize="12sp"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/readingListNumberOfPages"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingStart="@dimen/list_item_horizontal_padding"
-                    android:paddingTop="8dp"
-                    android:paddingEnd="@dimen/list_item_horizontal_padding"
-                    android:paddingBottom="8dp"
-                    android:text="@string/shareable_reading_lists_import_dialog_title"
-                    android:textColor="?attr/primary_text_color"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
+                android:layout_marginTop="2dp"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginBottom="4dp"
+                android:gravity="center_vertical"
+                android:text="@string/shareable_reading_lists_import_dialog_title"
+                android:textColor="?attr/primary_text_color"
+                android:textSize="12sp" />
         </LinearLayout>
 
-    </ScrollView>
+    </LinearLayout>
 
-</FrameLayout>
+</ScrollView>
