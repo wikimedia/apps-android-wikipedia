@@ -579,6 +579,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun importReadingListAndRefresh(readingList: ReadingList) {
+        binding.swipeRefreshLayout.isRefreshing = true
         readingList.id = AppDatabase.instance.readingListDao().insertReadingList(readingList)
         AppDatabase.instance.readingListPageDao().addPagesToList(readingList, readingList.pages, true)
         recentImportedReadingList = readingList
