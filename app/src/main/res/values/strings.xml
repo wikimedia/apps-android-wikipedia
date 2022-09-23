@@ -1349,7 +1349,7 @@
 
     <!-- Shareable reading lists -->
     <string name="shareable_reading_lists_import_dialog_title">Import reading list</string>
-    <string name="shareable_reading_lists_import_dialog_content">Are you sure that you want to import this reading list? <br /><b>%s</b></string>
+    <string name="shareable_reading_lists_import_dialog_content">Are you sure that you want to import this reading list?</string>
     <string name="shareable_reading_lists_import_dialog_confirm">Import</string>
     <string name="shareable_reading_lists_import_dialog_cancel">Cancel</string>
     <string name="shareable_reading_lists_new_indicator">*new*</string>
@@ -1358,8 +1358,8 @@
     <string name="shareable_reading_lists_new_install_dialog_learn_more">Learn more</string>
     <string name="shareable_reading_lists_new_install_dialog_got_it">Got it</string>
     <plurals name="shareable_reading_lists_import_dialog_content_articles">
-        <item quantity="one">%1$s: %2$s article</item>
-        <item quantity="other">%1$s: %2$s articles</item>
+        <item quantity="one">%d article</item>
+        <item quantity="other">%d articles</item>
     </plurals>
     <!-- /Shareable reading lists -->
 

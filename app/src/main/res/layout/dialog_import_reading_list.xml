@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/list_item_horizontal_padding"
+            android:paddingTop="8dp"
+            android:paddingEnd="@dimen/list_item_horizontal_padding"
+            android:paddingBottom="8dp"
+            android:text="@string/shareable_reading_lists_import_dialog_title"
+            android:textColor="?attr/primary_text_color"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/material_theme_border_color" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56.5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/shareable_reading_lists_import_dialog_content"
+                android:textColor="?attr/primary_text_color"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/color_group_22"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/readingListContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?paper_color"
+                    android:layout_margin="1dp">
+
+                    <ImageView
+                        android:id="@+id/itemImage1"
+                        style="@style/ImageViewDefault.ReadingListThumbnail"
+                        android:layout_marginEnd="0.5dp"
+                        app:layout_constraintEnd_toStartOf="@+id/itemImage2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/itemImage2"
+                        style="@style/ImageViewDefault.ReadingListThumbnail"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/itemImage3"
+                        style="@style/ImageViewDefault.ReadingListThumbnail"
+                        android:layout_marginTop="0.5dp"
+                        app:layout_constraintEnd_toStartOf="@+id/itemImage4"
+                        app:layout_constraintStart_toStartOf="@+id/itemImage1"
+                        app:layout_constraintTop_toBottomOf="@+id/itemImage1" />
+
+                    <ImageView
+                        android:id="@+id/itemImage4"
+                        style="@style/ImageViewDefault.ReadingListThumbnail"
+                        android:layout_marginStart="0.5dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/itemImage3"
+                        app:layout_constraintTop_toTopOf="@+id/itemImage3" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/readingListTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/list_item_horizontal_padding"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="@dimen/list_item_horizontal_padding"
+                    android:paddingBottom="8dp"
+                    android:textColor="?attr/primary_text_color"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/readingListNumberOfPages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/list_item_horizontal_padding"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="@dimen/list_item_horizontal_padding"
+                    android:paddingBottom="8dp"
+                    android:text="@string/shareable_reading_lists_import_dialog_title"
+                    android:textColor="?attr/primary_text_color"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>
