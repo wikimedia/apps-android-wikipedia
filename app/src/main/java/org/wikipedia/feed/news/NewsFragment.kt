@@ -58,11 +58,13 @@ class NewsFragment : Fragment() {
         binding.headerImageView.loadImage(imageUri)
 
         DeviceUtil.updateStatusBarTheme(requireActivity(), binding.toolbar, true)
-        binding.appBarLayout.addOnOffsetChangedListener(OnOffsetChangedListener { layout, offset ->
-            DeviceUtil.updateStatusBarTheme(requireActivity(), binding.toolbar,
-                layout.totalScrollRange + offset > layout.totalScrollRange / 2)
+        binding.appBarLayout.addOnOffsetChangedListener { layout, offset ->
+            DeviceUtil.updateStatusBarTheme(
+                requireActivity(), binding.toolbar,
+                layout.totalScrollRange + offset > layout.totalScrollRange / 2
+            )
             (requireActivity() as NewsActivity).updateNavigationBarColor()
-        })
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             binding.toolbarContainer.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         }
