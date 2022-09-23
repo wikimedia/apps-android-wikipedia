@@ -554,41 +554,33 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private fun maybeShowImportReadingListsDialog() {
         val encodedUrl = Prefs.importReadingListsData
         if (!Prefs.importReadingListsDialogShown && !encodedUrl.isNullOrEmpty()) {
-            val readingListInfoArray = ReadingListsImportHelper.getReadingListInfoArray(encodedUrl)
-            if (readingListInfoArray.size > 2) {
-                val readingListTitle = UriUtil.decodeURL(readingListInfoArray[0])
-                val numberOfPages = readingListInfoArray.size - 2
-                val message = StringUtil.fromHtml(getString(R.string.shareable_reading_lists_import_dialog_content,
-                    resources.getQuantityString(R.plurals.shareable_reading_lists_import_dialog_content_articles, numberOfPages, readingListTitle, numberOfPages)))
-                // TODO: set view instead of plain message
-                AlertDialog.Builder(requireContext())
-                    .setTitle(R.string.shareable_reading_lists_import_dialog_title)
-                    .setMessage(message)
-                    .setPositiveButton(R.string.shareable_reading_lists_import_dialog_confirm) { _, _ ->
-                        importReadingListAndRefresh(encodedUrl)
-                    }
-                    .setNegativeButton(R.string.shareable_reading_lists_import_dialog_cancel, null)
-                    .show()
-                Prefs.importReadingListsDialogShown = true
+            binding.swipeRefreshLayout.isRefreshing = true
+            lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                L.e(throwable)
+                FeedbackUtil.showError(requireActivity(), throwable)
+                binding.swipeRefreshLayout.isRefreshing = false
+            }) {
+                withContext(Dispatchers.IO) {
+                    val readingList = ReadingListsImportHelper.importReadingLists(encodedUrl)
+                    val dialogView = ReadingListImportDialogView(requireContext())
+                    dialogView.setReadingList(readingList)
+                    AlertDialog.Builder(requireContext())
+                        .setView(dialogView)
+                        .setPositiveButton(R.string.shareable_reading_lists_import_dialog_confirm) { _, _ ->
+                            importReadingListAndRefresh(readingList)
+                        }
+                        .setNegativeButton(R.string.shareable_reading_lists_import_dialog_cancel, null)
+                        .show()
+                    Prefs.importReadingListsDialogShown = true
+                }
             }
         }
     }
 
-    private fun importReadingListAndRefresh(encodedList: String) {
-        binding.swipeRefreshLayout.isRefreshing = true
-
-        lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
-            L.e(throwable)
-            FeedbackUtil.showError(requireActivity(), throwable)
-            binding.swipeRefreshLayout.isRefreshing = false
-        }) {
-            withContext(Dispatchers.IO) {
-                val readingList = ReadingListsImportHelper.importReadingLists(encodedList)
-                readingList.id = AppDatabase.instance.readingListDao().insertReadingList(readingList)
-                AppDatabase.instance.readingListPageDao().addPagesToList(readingList, readingList.pages, true)
-                recentImportedReadingList = readingList
-            }
-        }
+    private fun importReadingListAndRefresh(readingList: ReadingList) {
+        readingList.id = AppDatabase.instance.readingListDao().insertReadingList(readingList)
+        AppDatabase.instance.readingListPageDao().addPagesToList(readingList, readingList.pages, true)
+        recentImportedReadingList = readingList
     }
 
     private fun maybeShowOnboarding(searchQuery: String?) {
