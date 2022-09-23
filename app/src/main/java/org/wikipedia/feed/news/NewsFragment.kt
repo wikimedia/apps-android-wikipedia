@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import org.wikipedia.Constants
@@ -37,6 +38,7 @@ class NewsFragment : Fragment() {
     private var _binding: FragmentNewsBinding? = null
     private val binding get() = _binding!!
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private val viewModel: NewsViewModel by viewModels { NewsViewModel.Factory(requireArguments()) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -46,13 +48,10 @@ class NewsFragment : Fragment() {
         appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         appCompatActivity.supportActionBar?.title = ""
 
-        val item = requireActivity().intent.getParcelableExtra<NewsItem>(NewsActivity.EXTRA_NEWS_ITEM)!!
-        val wiki = requireActivity().intent.getParcelableExtra<WikiSite>(NewsActivity.EXTRA_WIKI)!!
-
-        L10nUtil.setConditionalLayoutDirection(binding.root, wiki.languageCode)
+        L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.wiki.languageCode)
 
         binding.gradientView.background = GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP)
-        val imageUri = item.thumb()
+        val imageUri = viewModel.item.thumb()
         if (imageUri == null) {
             binding.appBarLayout.setExpanded(false, false)
         }
@@ -68,12 +67,12 @@ class NewsFragment : Fragment() {
             binding.toolbarContainer.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         }
 
-        binding.storyTextView.text = RichTextUtil.stripHtml(item.story)
+        binding.storyTextView.text = RichTextUtil.stripHtml(viewModel.item.story)
         binding.newsStoryItemsRecyclerview.layoutManager = LinearLayoutManager(requireContext())
         binding.newsStoryItemsRecyclerview.addItemDecoration(DrawableItemDecoration(requireContext(),
             R.attr.list_separator_drawable))
         binding.newsStoryItemsRecyclerview.isNestedScrollingEnabled = false
-        binding.newsStoryItemsRecyclerview.adapter = RecyclerAdapter(item.linkCards(wiki), Callback())
+        binding.newsStoryItemsRecyclerview.adapter = RecyclerAdapter(viewModel.item.linkCards(viewModel.wiki), Callback())
         return binding.root
     }
 
