@@ -9,9 +9,7 @@ import org.wikipedia.util.UriUtil
 object ReadingListsImportHelper {
 
     suspend fun importReadingLists(encodedUrl: String): ReadingList {
-
-        val decodedString = decodeReadingListUrl(encodedUrl)
-        val readingListInfoArray = decodedString.split("|").toMutableList()
+        val readingListInfoArray = getReadingListInfoArray(encodedUrl).toMutableList()
         val listTitle = UriUtil.decodeURL(readingListInfoArray.removeFirst())
         val listDescription = UriUtil.decodeURL(readingListInfoArray.removeFirst())
         val listPages = mutableListOf<ReadingListPage>()
@@ -45,6 +43,11 @@ object ReadingListsImportHelper {
         readingList.pages.addAll(listPages)
 
         return readingList
+    }
+
+    fun getReadingListInfoArray(encodedUrl: String): List<String> {
+        val decodedString = decodeReadingListUrl(encodedUrl)
+        return decodedString.split("|")
     }
 
     private fun decodeReadingListUrl(encodedUrl: String): String {
