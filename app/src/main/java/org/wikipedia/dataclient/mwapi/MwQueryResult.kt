@@ -161,11 +161,11 @@ class MwQueryResult {
         @SerialName("new") private val isNew = false
         @SerialName("anon") val isAnon = false
         @SerialName("old_revid") private val oldRevid: Long = 0
-        private val pageid = 0
         private val timestamp: String? = null
         private val comment: String? = null
         private val minor = false
         private val bot = false
+        val pageId = 0
         val revid: Long = 0
         val ns = 0
         val title: String = ""
