@@ -3,7 +3,6 @@ package org.wikipedia.page.linkpreview
 import android.app.ActivityOptions
 import android.content.DialogInterface
 import android.content.Intent
-import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,10 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.os.bundleOf
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import androidx.lifecycle.lifecycleScope
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -24,20 +20,19 @@ import org.wikipedia.analytics.LinkPreviewFunnel
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.DialogLinkPreviewBinding
-import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.GalleryThumbnailScrollView.GalleryViewListener
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
+import retrofit2.Response
 
 class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorView.Callback, DialogInterface.OnDismissListener {
     interface Callback {
@@ -58,7 +53,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private var overlayView: LinkPreviewOverlayView? = null
     private var navigateSuccess = false
     private var revision: Long = 0
-    private val disposables = CompositeDisposable()
+    private val viewModel = LinkPreviewViewModel()
 
     private val menuListener = PopupMenu.OnMenuItemClickListener { item ->
         return@OnMenuItemClickListener when (item.itemId) {
@@ -107,10 +102,75 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             }
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, pageTitle.wikiSite.languageCode)
-        loadContent()
+        renderViewStates()
+        viewModel.loadContent(pageTitle)
         funnel = LinkPreviewFunnel(WikipediaApp.instance, historyEntry.source)
         funnel.logLinkClick()
         return binding.root
+    }
+
+    private fun renderViewStates() {
+        lifecycleScope.launchWhenCreated {
+            viewModel.viewState.collect {
+                when (it) {
+                    is LinkPreviewViewState.Loading -> {
+                        binding.linkPreviewProgress.visibility = View.VISIBLE
+                    }
+                    is LinkPreviewViewState.Error -> {
+                        renderErrorState(it.throwable)
+                    }
+                    is LinkPreviewViewState.Content -> {
+                        renderContentState(it.data)
+                    }
+                    is LinkPreviewViewState.Gallery -> {
+                        renderGalleryState(it)
+                    }
+                    is LinkPreviewViewState.Completed -> {
+                        binding.linkPreviewProgress.visibility = View.GONE
+                    }
+                }
+            }
+        }
+    }
+
+    private fun renderGalleryState(it: LinkPreviewViewState.Gallery) {
+        binding.linkPreviewThumbnailGallery.setGalleryList(it.data)
+        binding.linkPreviewThumbnailGallery.listener = galleryViewListener
+    }
+
+    private fun renderContentState(response: Response<PageSummary>) {
+        val summary = response.body()!!
+        funnel.setPageId(summary.pageId)
+        articleLinkPreviewInteractionEvent = ArticleLinkPreviewInteractionEvent(
+            pageTitle.wikiSite.dbName(),
+            summary.pageId,
+            historyEntry.source
+        )
+        articleLinkPreviewInteractionEvent?.logLinkClick()
+        revision = summary.revision
+
+        // Rebuild our PageTitle, since it may have been redirected or normalized.
+        val oldFragment = pageTitle.fragment
+        pageTitle = PageTitle(
+            summary.apiTitle, pageTitle.wikiSite, summary.thumbnailUrl,
+            summary.description, summary.displayTitle
+        )
+
+        // check if our URL was redirected, which might include a URL fragment that leads
+        // to a specific section in the target article.
+        if (!response.raw().request.url.fragment.isNullOrEmpty()) {
+            pageTitle.fragment = response.raw().request.url.fragment
+        } else if (!oldFragment.isNullOrEmpty()) {
+            pageTitle.fragment = oldFragment
+        }
+        binding.linkPreviewTitle.text = StringUtil.fromHtml(summary.displayTitle)
+        showPreview(LinkPreviewContents(summary, pageTitle.wikiSite))
+    }
+
+    private fun renderErrorState(throwable: Throwable) {
+        L.e(throwable)
+        binding.linkPreviewTitle.text = StringUtil.fromHtml(pageTitle.displayText)
+        showError(throwable)
     }
 
     override fun onResume() {
@@ -130,7 +190,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     override fun onDestroyView() {
-        disposables.clear()
+        viewModel.unBind()
         binding.linkPreviewThumbnailGallery.listener = null
         binding.linkPreviewToolbar.setOnClickListener(null)
         binding.linkPreviewOverflowButton.setOnClickListener(null)
@@ -166,65 +226,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         dismiss()
     }
 
-    private fun loadContent() {
-        binding.linkPreviewProgress.visibility = View.VISIBLE
-        disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getSummaryResponse(pageTitle.prefixedText, null, null, null, null, null)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    val summary = response.body()!!
-                    funnel.setPageId(summary.pageId)
-                    articleLinkPreviewInteractionEvent = ArticleLinkPreviewInteractionEvent(pageTitle.wikiSite.dbName(), summary.pageId, historyEntry.source)
-                    articleLinkPreviewInteractionEvent?.logLinkClick()
-                    revision = summary.revision
-
-                    // Rebuild our PageTitle, since it may have been redirected or normalized.
-                    val oldFragment = pageTitle.fragment
-                    pageTitle = PageTitle(summary.apiTitle, pageTitle.wikiSite, summary.thumbnailUrl,
-                            summary.description, summary.displayTitle)
-
-                    // check if our URL was redirected, which might include a URL fragment that leads
-                    // to a specific section in the target article.
-                    if (!response.raw().request.url.fragment.isNullOrEmpty()) {
-                        pageTitle.fragment = response.raw().request.url.fragment
-                    } else if (!oldFragment.isNullOrEmpty()) {
-                        pageTitle.fragment = oldFragment
-                    }
-                    binding.linkPreviewTitle.text = StringUtil.fromHtml(summary.displayTitle)
-                    showPreview(LinkPreviewContents(summary, pageTitle.wikiSite))
-                }) { caught ->
-                    L.e(caught)
-                    binding.linkPreviewTitle.text = StringUtil.fromHtml(pageTitle.displayText)
-                    showError(caught)
-                })
-    }
-
-    private fun loadGallery() {
-        if (Prefs.isImageDownloadEnabled) {
-            disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getMediaList(pageTitle.prefixedText, revision)
-                    .flatMap { mediaList ->
-                        val maxImages = 10
-                        val items = mediaList.getItems("image", "video").asReversed()
-                        val titleList = items.filter { it.showInGallery }.map { it.title }.take(maxImages)
-                        if (titleList.isEmpty()) Observable.empty() else ServiceFactory.get(pageTitle.wikiSite).getImageInfo(titleList.joinToString("|"), pageTitle.wikiSite.languageCode)
-                    }
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate { binding.linkPreviewProgress.visibility = View.GONE }
-                    .subscribe({ response ->
-                        val pageList = response.query?.pages?.filter { it.imageInfo() != null }.orEmpty()
-                        binding.linkPreviewThumbnailGallery.setGalleryList(pageList)
-                        binding.linkPreviewThumbnailGallery.listener = galleryViewListener
-                    }) { caught ->
-                        L.w("Failed to fetch gallery collection.", caught)
-                    })
-        } else {
-            binding.linkPreviewProgress.visibility = View.GONE
-        }
-    }
-
     private fun showPreview(contents: LinkPreviewContents) {
-        loadGallery()
+        viewModel.loadGallery(pageTitle, revision)
         setPreviewContents(contents)
     }
 
