@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:parentTag="android.widget.FrameLayout">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal">
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_bold"
+            app:buttonImage="@drawable/ic_format_bold_black_24dp" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_italic"
+            app:buttonImage="@drawable/ic_format_italic_black_24dp" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_underline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_underline"
+            app:buttonImage="@drawable/ic_underlined_24" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_strikethrough"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_strikethrough"
+            app:buttonImage="@drawable/ic_strikethrough_24" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_sup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_sup"
+            app:buttonImage="@drawable/ic_superscript_24" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_sub"
+            app:buttonImage="@drawable/ic_subscript_24" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_text_large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_large"
+            app:buttonImage="@drawable/ic_oojs_text_bigger" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_text_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_small"
+            app:buttonImage="@drawable/ic_oojs_text_smaller" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_code"
+            app:buttonImage="@drawable/ic_code_24" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="?attr/color_group_60" />
+
+        <ImageView
+            android:id="@+id/close_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:background="?attr/selectableItemBackground"
+            app:srcCompat="@drawable/ic_close_black_24dp"
+            app:tint="?attr/colorAccent"
+            android:contentDescription="@string/table_close" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/transparent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/color_group_60" />
+
+</merge>

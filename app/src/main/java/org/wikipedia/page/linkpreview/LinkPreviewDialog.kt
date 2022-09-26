@@ -3,6 +3,7 @@ package org.wikipedia.page.linkpreview
 import android.app.ActivityOptions
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -33,6 +34,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
@@ -250,7 +252,9 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private fun setPreviewContents(contents: LinkPreviewContents) {
         if (!contents.extract.isNullOrEmpty()) {
-            binding.linkPreviewExtract.text = StringUtil.fromHtml(contents.extract)
+            binding.linkPreviewExtractWebview.setBackgroundColor(Color.TRANSPARENT)
+            val colorHex = ResourceUtil.colorToCssString(ResourceUtil.getThemedColor(requireContext(), android.R.attr.textColorPrimary))
+            binding.linkPreviewExtractWebview.loadDataWithBaseURL(null, "${JavaScriptActionHandler.getCssStyles(pageTitle.wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\">${contents.extract}</div>", "text/html", "UTF-8", null)
         }
         contents.title.thumbUrl?.let {
             binding.linkPreviewThumbnail.visibility = View.VISIBLE
