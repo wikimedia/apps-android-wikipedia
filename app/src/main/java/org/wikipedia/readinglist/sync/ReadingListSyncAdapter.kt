@@ -438,7 +438,7 @@ class ReadingListSyncAdapter : JobIntentService() {
     private fun createOrUpdatePage(listForPage: ReadingList,
                                    remotePage: RemoteReadingListEntry) {
         val remoteTitle = pageTitleFromRemoteEntry(remotePage)
-        var localPage = listForPage.pages.find { ReadingListPage.toPageTitle(it).matches(remoteTitle) }
+        var localPage = listForPage.pages.find { ReadingListPage.toPageTitle(it) == remoteTitle }
         var updateOnly = localPage != null
 
         if (localPage == null) {
