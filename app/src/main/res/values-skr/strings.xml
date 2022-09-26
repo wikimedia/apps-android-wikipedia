@@ -333,7 +333,11 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">منسوخ</string>
   <string name="wikitext_bold">موٹا</string>
   <string name="wikitext_italic">ترچھا</string>
+  <string name="wikitext_underline">ہیٹھاں لکیر</string>
+  <string name="wikitext_sup">اتے لکھت</string>
+  <string name="wikitext_code">کوڈ</string>
   <string name="wikitext_link">ربط</string>
+  <string name="wikitext_headings">سرخیاں</string>
   <string name="wikitext_bulleted_list">ڳولی لڳی تندیر</string>
   <string name="wikitext_numbered_list">عدد لڳی تندیر</string>
   <string name="wikitext_template">سانچہ</string>
