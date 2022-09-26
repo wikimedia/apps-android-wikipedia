@@ -105,7 +105,11 @@ data class WikiSite(
     }
 
     fun dbName(): String {
-        return subdomain().replace("-".toRegex(), "_") + "wiki"
+        return (if (uri.authority.orEmpty().contains("wikidata")) {
+            "wikidata"
+        } else {
+            subdomain().replace("-".toRegex(), "_")
+        }) + "wiki"
     }
 
     companion object {

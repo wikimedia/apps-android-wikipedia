@@ -1144,6 +1144,7 @@
   <string name="insert_media_settings">Параметри медіафайлу</string>
   <string name="insert_media_settings_uploaded_image">Завантажене зображення</string>
   <string name="insert_media_settings_caption">Підпис</string>
+  <string name="insert_media_advanced_settings_image_position">Розташування зображення</string>
   <string name="insert_media_advanced_settings_image_position_right">Праворуч</string>
   <string name="insert_media_advanced_settings_image_position_center">Центр</string>
   <string name="insert_media_advanced_settings_image_type">Тип зображення</string>

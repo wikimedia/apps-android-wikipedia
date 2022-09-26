@@ -94,6 +94,10 @@
     <item quantity="one">Text of showing the year since the article has been created and the total edit counts. Format:\n: &lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\'\'text to display (for one edit)\'\'&lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\nIn the \'\'text to display\'\', the &lt;code&gt;%1$d &lt;/code&gt; will be replaced by the total edit counts, and the &lt;code&gt;%2$s&lt;/code&gt; will be replaced by the year.</item>
     <item quantity="other">Text of showing the year since the article has been created and the total edit counts. Format:\n: &lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\'\'text to display (for two edits or more)\'\'&lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\nIn the \'\'text to display\'\', the &lt;code&gt;%1$d &lt;/code&gt; will be replaced by the total edit counts, and the &lt;code&gt;%2$s&lt;/code&gt; will be replaced by the year.</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">Text showing the total number of edits made by a user since a specified year on a specified wiki.\n\nFormat: &lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;\'\'translated text for a singular number of edits\'\'&lt;/nowiki&gt;&lt;/code&gt;. Within each \'\'translated text\'\':\n\n* &lt;code&gt;%1$d&lt;/code&gt; is replaced by the total edit count (its displayed value also conditions which plural form to be used to select the appropriate \'\'translated text\'\'); when translating to languages that use a singular form for different numbers (e.g. 21, 31... in Slavic languages, not just 1), you \'\'\'must\'\'\' use that symbol inside the translated text to show the actual number!\n* &lt;code&gt;%2$s&lt;/code&gt; is replaced by the year that the user account was created.\n* &lt;code&gt;%3$s&lt;/code&gt; is replaced by the language of the given wiki.</item>
+    <item quantity="other">Text showing the total number of edits made by a user since a specified year on a specified wiki.\n\nFormat: &lt;code&gt;&lt;nowiki&gt;\'\'translated text for a plural number edits\'\'&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;. Within each \'\'translated text\'\':\n\n* &lt;code&gt;%1$d&lt;/code&gt; is replaced by the total edit count (its displayed value also conditions which plural form to be used to select the appropriate \'\'translated text\'\'); when translating to languages that use a singular form for different numbers (e.g. 21, 31... in Slavic languages, not just 1), you \'\'\'must\'\'\' use that symbol inside the translated text to show the actual number!\n* &lt;code&gt;%2$s&lt;/code&gt; is replaced by the year that the user account was created.\n* &lt;code&gt;%3$s&lt;/code&gt; is replaced by the language of the given wiki.</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Empty message text hinting the user to change filters to see more revision history. Please keep the anchor link around the word \"filters\".</string>
   <string name="menu_page_show_tabs">Text hint for the menu button used for showing the list of current tabs.</string>
   <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.\n{{Identical|Change language}}</string>
@@ -464,8 +468,13 @@
   <string name="text_size_percent_default">Label indicating that the current text size is the default size. The %s symbol is replaced with the percentage of the size.</string>
   <string name="text_style_title">Label that describes text style selection\n{{Identical|Font}}</string>
   <string name="theme_category_reading">Label for theme category that contains settings related to reading.</string>
+  <string name="theme_category_editing">Label for theme category that contains settings related to editing.</string>
   <string name="reading_focus_mode">Label for checkbox that enables reading focus mode.</string>
   <string name="reading_focus_mode_detail">Detailed label for checkbox that enables reading focus mode.</string>
+  <string name="editing_syntax_highlight_label">Label for checkbox that enables or disables syntax highlighting when editing.</string>
+  <string name="editing_line_numbers_label">Label for checkbox that enables or disables showing line numbers when editing.</string>
+  <string name="editing_monospace_font_label">Label for checkbox that enables or disables using a monospace font when editing.</string>
+  <string name="editing_typing_suggestions">Label for checkbox that enables or disables typing suggestions when editing.</string>
   <string name="nav_item_saved">Navigation menu item label for reading lists.</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
   <string name="reading_list_move_to">Menu item label for moving the current article to a reading list.</string>
@@ -1078,7 +1087,17 @@
   <string name="content_description_for_page_indicator">Label of content description for tutorial page. %1$d will be replaced by the current number of pages and %2$d will be replaced by the total number of pages.</string>
   <string name="wikitext_bold">Button label for making the selected text bold.</string>
   <string name="wikitext_italic">Button label for making the selected text italic.</string>
+  <string name="wikitext_underline">Button label for underlining the selected text.</string>
+  <string name="wikitext_strikethrough">Button label for making the selected text as strikethrough.</string>
+  <string name="wikitext_sup">Button label for making the selected text as superscript.</string>
+  <string name="wikitext_sub">Button label for making the selected text as subscript.</string>
+  <string name="wikitext_large">Button label for making the selected text large.</string>
+  <string name="wikitext_small">Button label for making the selected text small.</string>
+  <string name="wikitext_code">Button label for putting the selected text in a code tag.</string>
   <string name="wikitext_link">Button label for making the selected text into a link.\n{{Identical|Link}}</string>
+  <string name="wikitext_heading_n">Button label for inserting a heading. The %d symbol is replaced with the level of the heading.</string>
+  <string name="wikitext_formatting">Button label for showing options for formatting text.</string>
+  <string name="wikitext_headings">Button label for showing options for inserting headings into the text.</string>
   <string name="wikitext_insert_media">Button label for adding a media at the current cursor position.</string>
   <string name="wikitext_bulleted_list">Button label for starting a bulleted list at the current cursor position.</string>
   <string name="wikitext_numbered_list">Button label for starting a numbered list at the current cursor position.</string>
@@ -1263,6 +1282,7 @@
   <string name="user_contrib_current">Label indicating that this contribution is the current revision of the article.\n{{identical|Current}}</string>
   <string name="media_playback_error">Error shown when the selected media could not be played.</string>
   <string name="user_contrib_menu_label">Menu label for accessing the contributions of the current user.</string>
+  <string name="user_contrib_wiki_select">Screen title for viewing the contributions of a user from a selected wiki.</string>
   <string name="reading_list_menu_export">Label text to export a reading list.</string>
   <string name="reading_list_notification_title">Notification title text for reading list export.</string>
   <string name="reading_list_notification_text">Notification description text for reading list export. %s represents the reading list name</string>

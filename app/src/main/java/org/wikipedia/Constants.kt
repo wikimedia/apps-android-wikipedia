@@ -100,6 +100,7 @@ object Constants {
         SUGGESTED_EDITS("suggestedEdits"),
         TABS_ACTIVITY("tabsActivity"),
         TALK_ACTIVITY("talkActivity"),
+        EDIT_ACTIVITY("editActivity"),
         TOOLBAR("toolbar"),
         VOICE("voice"),
         WATCHLIST_ACTIVITY("watchlist"),

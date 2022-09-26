@@ -65,6 +65,10 @@ object ResourceUtil {
         MenuItemCompat.setIconTintList(item, getThemedColorStateList(context, colorAttr))
     }
 
+    fun colorToCssString(@ColorInt color: Int): String {
+        return String.format("%08x", (color shl 8) or ((color shr 24) and 0xff))
+    }
+
     @ColorInt
     fun lightenColor(@ColorInt color: Int): Int {
         return ColorUtils.blendARGB(color, Color.WHITE, 0.3f)
