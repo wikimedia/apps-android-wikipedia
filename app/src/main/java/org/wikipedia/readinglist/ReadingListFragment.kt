@@ -182,6 +182,10 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
                 }
                 true
             }
+            R.id.menu_reading_list_share -> {
+                ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -611,6 +615,10 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
                 update()
             }
         }
+
+        override fun onShare(readingList: ReadingList) {
+            ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
+        }
     }
 
     private inner class ReadingListItemCallback : ReadingListItemView.Callback {
@@ -636,6 +644,10 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
 
         override fun onRemoveAllOffline(readingList: ReadingList) {
             ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) { setSearchQuery() }
+        }
+
+        override fun onShare(readingList: ReadingList) {
+            ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
         }
     }
 

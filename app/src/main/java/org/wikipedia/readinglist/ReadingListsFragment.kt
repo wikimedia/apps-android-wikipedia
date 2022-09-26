@@ -425,6 +425,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         override fun onRemoveAllOffline(readingList: ReadingList) {
             ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) { updateLists(currentSearchQuery, true) }
         }
+
+        override fun onShare(readingList: ReadingList) {
+            ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
+        }
     }
 
     private inner class ReadingListPageItemCallback : PageItemView.Callback<ReadingListPage?> {

@@ -1361,6 +1361,8 @@
         <item quantity="one">%d article</item>
         <item quantity="other">%d articles</item>
     </plurals>
+    <string name="reading_list_share_menu_label">Share…</string>
+    <string name="reading_list_share_message">Hi! I\'d like to share my reading list \"%s\" with you:</string>
     <!-- /Shareable reading lists -->
 
 </resources>

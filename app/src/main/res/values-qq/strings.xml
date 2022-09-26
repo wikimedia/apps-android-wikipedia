@@ -1296,4 +1296,6 @@
     <item quantity="other">Text that indicates how many articles in the list. %d will be replaced by the number of pages.</item>
   </plurals>
   <string name="user_contrib_wiki_select">Screen title for viewing the contributions of a user from a selected wiki.</string>
+  <string name="reading_list_share_menu_label">Menu label for sharing the selected reading list.</string>
+  <string name="reading_list_share_message">Message that is sent to a recipient when sharing a reading list. The %s symbol is replaced with the name of the reading list.</string>
 </resources>
