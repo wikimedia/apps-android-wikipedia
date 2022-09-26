@@ -83,6 +83,12 @@
     <item quantity="many">%1$d עריכות מאז %2$s</item>
     <item quantity="other">%1$d עריכות מאז %2$s</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">עריכה אחת מאז %2$s (%3$s)</item>
+    <item quantity="two">שתי עריכות מאז %2$s (%3$s)</item>
+    <item quantity="many">%1$d עריכות מאז %2$s (%3$s)</item>
+    <item quantity="other">%1$d עריכות מאז %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">נא לנסות לשנות את &lt;a href=\"#\"&gt;המסננים&lt;/a&gt; כדי לראות יותר עריכות</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
@@ -459,8 +465,13 @@
   <string name="text_size_percent_default">%s (ברירת מחדל)</string>
   <string name="text_style_title">גופן</string>
   <string name="theme_category_reading">קריאה</string>
+  <string name="theme_category_editing">עריכה</string>
   <string name="reading_focus_mode">מצב קריאה מרוכזת</string>
   <string name="reading_focus_mode_detail">הסתרת אפשרויות עריכה וסרגל הכלים התחתון בגלילה</string>
+  <string name="editing_syntax_highlight_label">צביעת תחביר</string>
+  <string name="editing_line_numbers_label">להציג מספרי שורות</string>
+  <string name="editing_monospace_font_label">להשתמש בגופן ברוחב אחיד</string>
+  <string name="editing_typing_suggestions">הצגת הצעות הקלדה</string>
   <string name="nav_item_saved">נשמר</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_move_to">העברה לרשימת קריאה</string>
@@ -1134,7 +1145,17 @@
   <string name="content_description_for_page_indicator">דף %1$d מתוך %2$d</string>
   <string name="wikitext_bold">בולט</string>
   <string name="wikitext_italic">נטוי</string>
+  <string name="wikitext_underline">קו תחתי</string>
+  <string name="wikitext_strikethrough">קו חוצה</string>
+  <string name="wikitext_sup">כתב עילי</string>
+  <string name="wikitext_sub">כתב תחתי</string>
+  <string name="wikitext_large">טקסט גדול</string>
+  <string name="wikitext_small">טקסט קטן</string>
+  <string name="wikitext_code">קוד</string>
   <string name="wikitext_link">קישור</string>
+  <string name="wikitext_heading_n">כותרת־משנה %d</string>
+  <string name="wikitext_formatting">עיצוב</string>
+  <string name="wikitext_headings">כותרות</string>
   <string name="wikitext_insert_media">הוספת מדיה</string>
   <string name="wikitext_bulleted_list">רשימה עם תבליטים</string>
   <string name="wikitext_numbered_list">רשימה ממוספרת</string>
@@ -1323,4 +1344,5 @@
   <string name="user_contrib_current">נוכחי</string>
   <string name="media_playback_error">שגיאה בנגינת מדיה.</string>
   <string name="user_contrib_menu_label">תרומות</string>
+  <string name="user_contrib_wiki_select">תרומות ל־:</string>
 </resources>
