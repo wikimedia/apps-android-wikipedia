@@ -3,7 +3,8 @@ package org.wikipedia.readinglist
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -41,7 +42,7 @@ object ReadingListsShareHelper {
             }
 
             val param = readingListToUrlParam(readingList, wikiPageIdsMap)
-            val url = "https://www.mediawiki.org/wiki/Wikimedia_Apps/Reading_List?list=$param"
+            val url = "https://${WikipediaApp.instance.wikiSite.dbName()}.wikipedia.org/wiki/Special:ReadingLists?list=$param"
 
             val shortUrl = ServiceFactory.get(WikipediaApp.instance.wikiSite).shortenUrl(url).shortenUrl?.shortUrl.orEmpty()
 
