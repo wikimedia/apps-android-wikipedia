@@ -463,7 +463,7 @@ class ReadingListSyncAdapter : JobIntentService() {
     }
 
     private fun deletePageByTitle(listForPage: ReadingList, title: PageTitle) {
-        var localPage = listForPage.pages.find { ReadingListPage.toPageTitle(it).matches(title) }
+        var localPage = listForPage.pages.find { ReadingListPage.toPageTitle(it) == title }
         if (localPage == null) {
             localPage = AppDatabase.instance.readingListPageDao().getPageByTitle(listForPage, title)
             if (localPage == null) {
