@@ -239,8 +239,24 @@ class ReadingListSyncAdapter : JobIntentService() {
             }
 
             // Do any remote pages need to be deleted?
-            val pageIdsToDelete = mutableListOf<String>()
+            val pageIdsToDelete = mutableSetOf<String>()
             pageIdsToDelete.addAll(pageIdsDeleted)
+
+            // Determine if any articles need to be de-duplicated (because of bugs in previous sync inconsistencies)
+            if (syncEverything) {
+                allLocalLists.forEach { list ->
+                    val distinct = list.pages.distinctBy { pageTitleFromRemoteEntry(remoteEntryFromLocalPage(it)) }
+                    val toRemove = list.pages.toMutableSet()
+                    toRemove.removeAll(distinct.toSet())
+                    if (toRemove.isNotEmpty()) {
+                        toRemove.forEach {
+                            AppDatabase.instance.readingListPageDao().deleteReadingListPage(it)
+                        }
+                        pageIdsToDelete.addAll(createIdsForDeletion(list, toRemove))
+                    }
+                }
+            }
+
             for (id in pageIdsToDelete) {
                 L.d("Deleting remote page id $id")
                 val listAndPageId = id.split(":").toTypedArray()
@@ -422,7 +438,7 @@ class ReadingListSyncAdapter : JobIntentService() {
     private fun createOrUpdatePage(listForPage: ReadingList,
                                    remotePage: RemoteReadingListEntry) {
         val remoteTitle = pageTitleFromRemoteEntry(remotePage)
-        var localPage = listForPage.pages.find { ReadingListPage.toPageTitle(it).matches(remoteTitle) }
+        var localPage = listForPage.pages.find { ReadingListPage.toPageTitle(it) == remoteTitle }
         var updateOnly = localPage != null
 
         if (localPage == null) {
@@ -447,7 +463,7 @@ class ReadingListSyncAdapter : JobIntentService() {
     }
 
     private fun deletePageByTitle(listForPage: ReadingList, title: PageTitle) {
-        var localPage = listForPage.pages.find { ReadingListPage.toPageTitle(it).matches(title) }
+        var localPage = listForPage.pages.find { ReadingListPage.toPageTitle(it) == title }
         if (localPage == null) {
             localPage = AppDatabase.instance.readingListPageDao().getPageByTitle(listForPage, title)
             if (localPage == null) {
@@ -495,11 +511,12 @@ class ReadingListSyncAdapter : JobIntentService() {
             manualSync()
         }
 
+        fun createIdsForDeletion(list: ReadingList, pages: Set<ReadingListPage>): Set<String> {
+            return if (list.remoteId <= 0) emptySet() else pages.map { it.remoteId }.filter { it > 0 }.map { "${list.remoteId}:$it" }.toSet()
+        }
+
         fun manualSyncWithDeletePages(list: ReadingList, pages: List<ReadingListPage>) {
-            if (list.remoteId <= 0) {
-                return
-            }
-            val ids = pages.map { it.remoteId }.filter { it > 0 }.map { "${list.remoteId}:$it" }.toSet()
+            val ids = createIdsForDeletion(list, pages.toSet())
             if (ids.isNotEmpty()) {
                 Prefs.addReadingListPagesDeletedIds(ids)
                 manualSync()
