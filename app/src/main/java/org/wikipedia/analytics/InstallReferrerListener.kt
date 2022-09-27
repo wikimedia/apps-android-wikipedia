@@ -129,7 +129,7 @@ class InstallReferrerListener : InstallReferrerStateListener {
         }
 
         // TODO: get specific parameter from the installReferrer and send a bus event
-        if (refUrl?.contains("ImportReadingLists") == true) {
+        if (refUrl?.contains("import_reading_lists") == true) {
             Prefs.importReadingListsNewInstallDialogShown = false
             WikipediaApp.instance.bus.post(ImportReadingListsEvent())
         }
