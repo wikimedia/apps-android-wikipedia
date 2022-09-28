@@ -133,7 +133,7 @@
   <string name="about_description">وکی پیڈیا ایپ دے بارے</string>
   <string name="privacy_policy_description">رازداری پالیسی</string>
   <string name="terms_of_use_description">ورتݨ شرطاں</string>
-  <string name="about_contributors_heading">ونڳاراں</string>
+  <string name="about_contributors_heading">ونگاراں</string>
   <string name="about_translators_heading">مترجمین</string>
   <string name="about_translators_translatewiki">اس ایپ دا &lt;a href=\"https://translatewiki.net\"&gt;ٹرانسللیٹ وکی ڈاٹ نیٹ&lt;/a&gt; دے رضاکار مترجمین ولوں ترجمہ کیتا ڳیا ہے۔</string>
   <string name="about_app_license_heading">اجازہ</string>
@@ -333,11 +333,21 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">منسوخ</string>
   <string name="wikitext_bold">موٹا</string>
   <string name="wikitext_italic">ترچھا</string>
+  <string name="wikitext_underline">ہیٹھاں لکیر</string>
+  <string name="wikitext_sup">اتے لکھت</string>
+  <string name="wikitext_code">کوڈ</string>
   <string name="wikitext_link">ربط</string>
+  <string name="wikitext_headings">سرخیاں</string>
   <string name="wikitext_bulleted_list">ڳولی لڳی تندیر</string>
   <string name="wikitext_numbered_list">عدد لڳی تندیر</string>
   <string name="wikitext_template">سانچہ</string>
   <string name="wikitext_reference">حوالہ</string>
+  <string name="insert_media_advanced_settings">اعلیٰ ترتیباں</string>
+  <string name="insert_media_advanced_settings_image_position_left">کھٻے</string>
+  <string name="insert_media_advanced_settings_image_position_none">کوئی وی کائنی</string>
+  <string name="insert_media_advanced_settings_image_size">فوٹو دا سائز</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">چوڑائی</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">اُچائی</string>
   <string name="main_drawer_help">مدد</string>
   <string name="custom_date_picker_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="text_input_dialog_ok_button_text">ٹھیک ہے</string>

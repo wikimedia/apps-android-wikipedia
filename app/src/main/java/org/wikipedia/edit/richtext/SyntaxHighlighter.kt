@@ -1,6 +1,7 @@
 package org.wikipedia.edit.richtext
 
 import android.content.Context
+import android.os.Build
 import android.text.Spanned
 import androidx.core.text.getSpans
 import androidx.core.widget.NestedScrollView
@@ -24,6 +25,13 @@ class SyntaxHighlighter(
             SyntaxRule("{{", "}}", SyntaxRuleStyle.TEMPLATE),
             SyntaxRule("[[", "]]", SyntaxRuleStyle.INTERNAL_LINK),
             SyntaxRule("[", "]", SyntaxRuleStyle.EXTERNAL_LINK),
+            SyntaxRule("<big>", "</big>", SyntaxRuleStyle.TEXT_LARGE),
+            SyntaxRule("<small>", "</small>", SyntaxRuleStyle.TEXT_SMALL),
+            SyntaxRule("<sub>", "</sub>", SyntaxRuleStyle.SUBSCRIPT),
+            SyntaxRule("<sup>", "</sup>", SyntaxRuleStyle.SUPERSCRIPT),
+            SyntaxRule("<code>", "</code>", if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) SyntaxRuleStyle.CODE else SyntaxRuleStyle.BOLD),
+            SyntaxRule("<u>", "</u>", SyntaxRuleStyle.UNDERLINE),
+            SyntaxRule("<s>", "</s>", SyntaxRuleStyle.STRIKETHROUGH),
             SyntaxRule("<", ">", SyntaxRuleStyle.REF),
             SyntaxRule("'''", "'''", SyntaxRuleStyle.BOLD),
             SyntaxRule("''", "''", SyntaxRuleStyle.ITALIC),
