@@ -806,6 +806,10 @@
   <string name="description_edit_license_notice">Durch Ändern der Artikelbeschreibungen stimme ich den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und der unwiderruflichen Veröffentlichung meiner Beiträge unter der &lt;a href=\"%2$s\"&gt;Creative-Commons-Lizenz CC0&lt;/a&gt; zu.</string>
   <string name="description_edit_helper_text_lowercase_warning">beginnt normalerweise mit einem Kleinbuchstaben</string>
   <string name="description_edit_voice_input_description">Spracheingabe</string>
+  <string name="description_edit_learn_more">Erfahre mehr über Artikelbeschreibungen</string>
+  <string name="description_edit_image_caption_learn_more">Erfahre mehr über Bildunterschriften</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Der Text ist zu kurz.</string>
   <string name="description_ends_with_punctuation">Der Text darf nicht mit einem Satzzeichen enden.</string>
   <string name="description_starts_with_article">Vermeide Beschreibungen, die mit einem Artikel („Der…“/„Eine…“) beginnen.</string>
@@ -1242,6 +1246,11 @@
   <string name="watchlist_page_moved">Verschoben</string>
   <string name="watchlist_page_protected">Geschützt</string>
   <string name="watchlist_page_deleted">Gelöscht</string>
+  <string name="preview_edit_title">Vorherige Bearbeitung</string>
+  <string name="preview_edit_minor_edit">Dies ist eine geringfügige Änderung</string>
+  <string name="preview_edit_watch_this_page">Diese Seite beobachten</string>
+  <string name="preview_edit_learn_more">Weitere Informationen zum Bearbeiten von Zusammenfassungen</string>
+  <string name="preview_edit_learn_more_url">https://en.wikipedia.org/wiki/Help:Edit_summary</string>
   <string name="action_item_categories">Kategorien</string>
   <string name="page_no_categories">Dieser Artikel gehört zu keiner Kategorie.</string>
   <string name="category_tab_articles">Artikel</string>

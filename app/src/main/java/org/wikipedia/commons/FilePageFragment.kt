@@ -18,6 +18,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
@@ -97,7 +98,7 @@ class FilePageFragment : Fragment(), FilePageView.Callback {
         binding.filePageView.visibility = View.GONE
         binding.progressBar.visibility = View.VISIBLE
 
-        disposables.add(ServiceFactory.get(Constants.commonsWikiSite).getImageInfoWithEntityTerms(pageTitle.prefixedText, pageTitle.wikiSite.languageCode, pageTitle.wikiSite.languageCode)
+        disposables.add(ServiceFactory.get(Constants.commonsWikiSite).getImageInfoWithEntityTerms(pageTitle.prefixedText, pageTitle.wikiSite.languageCode, LanguageUtil.convertToUselangIfNeeded(pageTitle.wikiSite.languageCode))
                 .subscribeOn(Schedulers.io())
                 .flatMap {
                     // set image caption to pageTitle description
