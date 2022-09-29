@@ -11,6 +11,7 @@
 * Bennylin
 * Bramadiarya
 * Cooltey
+* DARMAS BUDI SANTOSO
 * Daud I.F. Argana
 * Dbrant
 * Farras
@@ -256,10 +257,10 @@
   <string name="privacy_policy_description">Kebijakan privasi</string>
   <string name="terms_of_use_description">Ketentuan penggunaan</string>
   <string name="about_wikipedia_url">https://id.wikipedia.org/wiki/Wikipedia:Perihal</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id#Baca_secara_luring_dan_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/id</string>
+  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/id</string>
   <string name="android_app_request_an_account_url">https://id.wikipedia.org/wiki/Wikipedia:Mohon_buatkan_akun</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.id</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -458,8 +459,11 @@
   <string name="text_size_percent_default">%s (Baku)</string>
   <string name="text_style_title">Jenis huruf</string>
   <string name="theme_category_reading">Membaca</string>
+  <string name="theme_category_editing">Editing</string>
   <string name="reading_focus_mode">Mode fokus membaca</string>
   <string name="reading_focus_mode_detail">Sembunyikan fitur penyuntingan dan bilah alat bawah ketika menggulir</string>
+  <string name="editing_syntax_highlight_label">Syntax highlighting</string>
+  <string name="editing_line_numbers_label">Show line numbers</string>
   <string name="nav_item_saved">Tersimpan</string>
   <string name="reading_list_save_to">Simpan ke daftar bacaan</string>
   <string name="reading_list_move_to">Pindahkan ke daftar bacaan</string>
@@ -1042,6 +1046,9 @@
   <string name="wikitext_bold">Tebal</string>
   <string name="wikitext_italic">Cetak miring</string>
   <string name="wikitext_link">Pranala</string>
+  <string name="wikitext_heading_n">Sub-heading %d</string>
+  <string name="wikitext_formatting">Formatting</string>
+  <string name="wikitext_headings">Headings</string>
   <string name="wikitext_insert_media">Sisipkan media</string>
   <string name="wikitext_bulleted_list">Daftar berpoin</string>
   <string name="wikitext_numbered_list">Daftar bernomor</string>

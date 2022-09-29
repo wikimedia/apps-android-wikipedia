@@ -136,4 +136,8 @@ object LanguageUtil {
                 language == "fr" && (StringUtils.equalsAny(first, "le", "la", "les", "un", "une", "des") ||
                 first.startsWith("l'")))
     }
+
+    fun convertToUselangIfNeeded(languageCode: String): String {
+        return if (languageCode == "test") "uselang" else languageCode
+    }
 }

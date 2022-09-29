@@ -1093,7 +1093,7 @@
   <string name="wikitext_sub">Button label for making the selected text as subscript.</string>
   <string name="wikitext_large">Button label for making the selected text large.</string>
   <string name="wikitext_small">Button label for making the selected text small.</string>
-  <string name="wikitext_code">Button label for putting the selected text in a code tag.</string>
+  <string name="wikitext_code">Button label for putting the selected text in a code tag.\n{{identical|Code}}</string>
   <string name="wikitext_link">Button label for making the selected text into a link.\n{{Identical|Link}}</string>
   <string name="wikitext_heading_n">Button label for inserting a heading. The %d symbol is replaced with the level of the heading.</string>
   <string name="wikitext_formatting">Button label for showing options for formatting text.</string>
