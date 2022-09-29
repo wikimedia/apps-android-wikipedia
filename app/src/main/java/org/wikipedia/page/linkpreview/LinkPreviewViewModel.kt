@@ -1,29 +1,34 @@
 package org.wikipedia.page.linkpreview
 
-import android.util.Log
+import android.location.Location
+import android.os.Bundle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.jsoup.select.Collector.collect
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.gallery.MediaList
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
+import org.wikipedia.page.linkpreview.LinkPreviewDialog.Companion.ARG_LOCATION
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 
-class LinkPreviewViewModel : ViewModel() {
+class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
     private val _uiState = MutableStateFlow<LinkPreviewViewState>(LinkPreviewViewState.Loading)
     val uiState = _uiState.asStateFlow()
+    val historyEntry = bundle.getParcelable<HistoryEntry>(LinkPreviewDialog.ARG_ENTRY)!!
+    var pageTitle: PageTitle = historyEntry.title
+    val location = bundle.getParcelable<Location>(ARG_LOCATION)
 
-    fun loadContent(pageTitle: PageTitle) {
+    init {
+        loadContent()
+    }
+
+    fun loadContent() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _uiState.value = LinkPreviewViewState.Error(throwable)
         }) {
@@ -32,19 +37,18 @@ class LinkPreviewViewModel : ViewModel() {
                 val response = ServiceFactory.getRest(pageTitle.wikiSite)
                     .getSummaryResponseSuspend(pageTitle.prefixedText, null, null, null, null, null)
                 _uiState.value = LinkPreviewViewState.Content(response)
-
             }
         }
     }
 
-    fun loadGallery(pageTitle: PageTitle, revision: Long) {
+    fun loadGallery(revision: Long) {
         if (Prefs.isImageDownloadEnabled) {
             viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.w("Failed to fetch gallery collection.", throwable)
             }) {
                 withContext(Dispatchers.IO)
                 {
-                   val mediaList =  ServiceFactory.getRest(pageTitle.wikiSite)
+                    val mediaList = ServiceFactory.getRest(pageTitle.wikiSite)
                         .getMediaListSuspend(pageTitle.prefixedText, revision)
                     val maxImages = 10
                     val items = mediaList.getItems("image", "video").asReversed()
@@ -52,7 +56,7 @@ class LinkPreviewViewModel : ViewModel() {
                         items.filter { it.showInGallery }.map { it.title }.take(maxImages)
                     if (titleList.isEmpty()) _uiState.value = LinkPreviewViewState.Completed
                     else {
-                       val response = ServiceFactory.get(
+                        val response = ServiceFactory.get(
                             pageTitle.wikiSite
                         ).getImageInfoSuspend(
                             titleList.joinToString("|"),
@@ -68,4 +72,13 @@ class LinkPreviewViewModel : ViewModel() {
             _uiState.value = LinkPreviewViewState.Completed
         }
     }
+
+    class Factory(private val bunble: Bundle) : ViewModelProvider.Factory {
+
+        @Suppress("UNCHECKED_CAST")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return LinkPreviewViewModel(bunble) as T
+        }
+    }
+
 }
