@@ -134,8 +134,8 @@
   <string name="dialog_message_leaving_edit_leave">Zapusti</string>
   <string name="dialog_message_leaving_edit_stay">Ostani</string>
   <string name="menu_show_toc">Kazalo vsebine</string>
-  <string name="search_no_results_found">Ni rezultatov</string>
-  <string name="search_reading_list_no_results">Ni rezultatov v \"%s\"</string>
+  <string name="search_no_results_found">Ni najdenih zadetkov</string>
+  <string name="search_reading_list_no_results">V »%s« ni najdenih zadetkov</string>
   <string name="search_reading_lists_no_results">V seznamih branja ni ničesar</string>
   <string name="search_history_no_results">V zgodovini ni bilo mogoče najti ničesar</string>
   <string name="edit_section_captcha_message">Za pomoč pri zaščiti pred smetjem vas prosimo, da vpišete spodaj prikazane besede</string>
@@ -412,8 +412,8 @@
   <string name="error_blocked_title">Vaše uporabniško ime ali IP-naslov je bil(o) blokiran(o).</string>
   <string name="error_blocked_by">Blokiranje je vzpostavil/a &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">Navedeni razlog: %s</string>
-  <string name="error_blocked_start">Začetek blokade: %s</string>
-  <string name="error_blocked_expiry">Potek blokade: %s</string>
+  <string name="error_blocked_start">Začetek blokiranja: %s</string>
+  <string name="error_blocked_expiry">Pretek blokiranja: %s</string>
   <string name="error_blocked_id">ID blokade: %s</string>
   <string name="error_blocked_footer">Za pogovor o blokiranju se lahko obrnete na &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ali drugega &lt;a href=\"https://sl.wikipedia.org/wiki/Wikipedija:Administratorji\"&gt;administratorja&lt;/a&gt;.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Prilagodite svojo orodno vrstico</string>

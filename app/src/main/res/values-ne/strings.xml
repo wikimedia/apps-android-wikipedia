@@ -99,7 +99,7 @@
   <string name="langlinks_empty">यो पृष्ठ अन्य भाषाहरूमा उपलब्ध छैन।</string>
   <string name="langlinks_no_match">कुनै पनि भाषा फेला परेन</string>
   <string name="langlinks_activity_title">अन्य भाषाहरू</string>
-  <string name="langlinks_your_wikipedia_languages">तपाईँका विकिपिडिया भाषाहरू</string>
+  <string name="langlinks_your_wikipedia_languages">तपाईंको विकिपिडिया भाषाहरू</string>
   <string name="menu_save_changes">परिवर्तनहरू प्रकाशित गर्नुहोस्</string>
   <string name="edit_saved_successfully">प्रकाशित भएकोलाई सम्पादन गर्नुहोस्!</string>
   <string name="dialog_message_edit_failed">सम्पादन असफल भयो!</string>
@@ -167,7 +167,7 @@
   <string name="create_account_generic_error">खाता सृजना गर्न सकिएन</string>
   <string name="create_account_next">अर्को</string>
   <string name="email_recommendation_dialog_title">विडाँक ठेगाना विना नै खाता सृजना गर्ने हो?</string>
-  <string name="email_recommendation_dialog_message">इमेल ठेगाना वैकल्पिक भएता पनि, यो &lt;b&gt;अत्यधिक सिफारिश गरिएको छ&lt;/b&gt; ,किनकि तपाईले आफ्नो पासवर्ड गुमाउनु भयो भने इमेल खाता प्रयोग गरि पासवर्ड पुन प्राप्त गर्न सक्नुहुनेछ।</string>
+  <string name="email_recommendation_dialog_message">इमेल ठेगाना वैकल्पिक भएता पनि, यो &lt;b&gt;अत्यधिक सिफारिश गरिएको छ&lt;/b&gt; ,किनकि तपाईंले आफ्नो पासवर्ड गुमाउनु भयो भने इमेल खाता प्रयोग गरि पासवर्ड पुन प्राप्त गर्न सक्नुहुनेछ।</string>
   <string name="email_recommendation_message">सुझाव दिइएको किनभने खाता पुन: प्राप्तिको लागि विडाँक आवश्यक हुन्छ ।</string>
   <string name="email_recommendation_dialog_create_without_email_action">विडाँक बिना नै निरन्तरता दिनुहोस्</string>
   <string name="email_recommendation_dialog_create_with_email_action">विडाँक ठेगाना थप्नुहोस्</string>
@@ -191,7 +191,7 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">यसले पहिले समक्रमण गरिएको अध्ययन सूचीलाई रिमोट भण्डारणबाट हटाउने छ। सबै समक्रमण गरिएको सूचीहरू तपाईको खाता \"%s\" बाट हटाउने हो?</string>
   <string name="preferences_privacy_settings_heading">गोपनीयता</string>
   <string name="preference_title_eventlogging_opt_in">उपयोगसम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
-  <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगलाई अझ राम्रो बनाउन तपाईले अनुप्रयोगको उपयोग कसरी गर्नुहुन्छ भन्नेबारे विकिपिडियालाई जानकारी सङ्कलन गर्ने अनुमति दिनुहोस्</string>
+  <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगलाई अझ राम्रो बनाउन तपाईंले अनुप्रयोगको उपयोग कसरी गर्नुहुन्छ भन्नेबारे विकिपिडियालाई जानकारी सङ्कलन गर्ने अनुमति दिनुहोस्</string>
   <string name="preference_title_auto_upload_crash_reports">खरावी सम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
   <string name="preference_summary_auto_upload_crash_reports">क्र्यास प्रतिवेदनहरू HockeyApp नामक एक तेस्रो-पक्षीय सेवा प्रदायकलाई स्वतः पठाउन अनुप्रयोगलाई अनुमति दिनुहोस् जसले गर्दा हामी अझ छिटो र सरल तरिकाले तपाईंको क्र्यासको समीक्षा गरी उक्त समस्याको समाधान गर्न सक्छौं।</string>
   <string name="editing_error_spamblacklist">रोक लगाइएका डोमेनहरू (%s) को लिङ्क पत्ता लाग्यो। तिनीहरूलाई हटाएर फेरि प्रयास गर्नुहोस्।</string>
@@ -426,7 +426,7 @@
   <string name="notifications_poll_enable_title">जानकारी सक्षम पार्नुहोस्</string>
   <string name="notifications_poll_enable_positive">सक्षम पार्नुहोस्</string>
   <string name="notifications_poll_enable_negative">अहिले हैन</string>
-  <string name="notifications_empty_message">तपाईँका सबै जानकारीहरू पढेर सकियो!</string>
+  <string name="notifications_empty_message">तपाईंको सबै जानकारीहरू पढेर सकियो!</string>
   <string name="notifications_view_archived_button_text">अभिलेख गरिएका जानकारीहरू हेर्नुहोस्</string>
   <string name="notification_preferences_title">जानकारी अभिरुचीहरू</string>
   <string name="notifications_direct_reply_action">जवाफ दिनुहोस्</string>
@@ -514,7 +514,7 @@
   <string name="description_edit_help_about_wikidata">विकिडेटाको बारेमा</string>
   <string name="description_too_short">पाठ धेरै छोटो छ।</string>
   <string name="description_edit_success_saved" fuzzy="true">विवरण प्रकाशित भयो!</string>
-  <string name="description_edit_success_encouragement">तपाईले विकिपिडियालाई सबैको लागि अझ राम्रो बनाउनु भएकाे छ</string>
+  <string name="description_edit_success_encouragement">तपाईंले विकिपिडियालाई सबैको लागि अझ राम्रो बनाउनु भएकाे छ</string>
   <string name="description_edit_success_done">सम्पन्न भयो</string>
   <string name="description_edit_success_did_you_know">के तपाईँलाई थाह छ?</string>
   <string name="description_edit_tutorial_title_descriptions">लेख विवरणहरू</string>
