@@ -3,8 +3,10 @@ package org.wikipedia.page.linkpreview
 import android.app.ActivityOptions
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +31,7 @@ import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
@@ -111,7 +114,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private fun renderViewStates() {
         lifecycleScope.launchWhenCreated {
-            viewModel.viewState.collect {
+            viewModel.uiState.collect {
+                Log.i("fahi",it.toString())
                 when (it) {
                     is LinkPreviewViewState.Loading -> {
                         binding.linkPreviewProgress.visibility = View.VISIBLE
@@ -136,6 +140,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private fun renderGalleryState(it: LinkPreviewViewState.Gallery) {
         binding.linkPreviewThumbnailGallery.setGalleryList(it.data)
         binding.linkPreviewThumbnailGallery.listener = galleryViewListener
+        binding.linkPreviewProgress.visibility = View.GONE
     }
 
     private fun renderContentState(response: Response<PageSummary>) {
@@ -190,7 +195,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     override fun onDestroyView() {
-        viewModel.unBind()
         binding.linkPreviewThumbnailGallery.listener = null
         binding.linkPreviewToolbar.setOnClickListener(null)
         binding.linkPreviewOverflowButton.setOnClickListener(null)

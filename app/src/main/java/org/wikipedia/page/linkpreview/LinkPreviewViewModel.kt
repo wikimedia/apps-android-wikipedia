@@ -1,67 +1,71 @@
 package org.wikipedia.page.linkpreview
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.jsoup.select.Collector.collect
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.gallery.MediaList
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 
 class LinkPreviewViewModel : ViewModel() {
-    private val _viewState = MutableStateFlow<LinkPreviewViewState>(LinkPreviewViewState.Loading)
-    val viewState = _viewState.asStateFlow()
-    private val disposables = CompositeDisposable()
+    private val _uiState = MutableStateFlow<LinkPreviewViewState>(LinkPreviewViewState.Loading)
+    val uiState = _uiState.asStateFlow()
 
     fun loadContent(pageTitle: PageTitle) {
-        disposables.add(
-            ServiceFactory.getRest(pageTitle.wikiSite)
-                .getSummaryResponse(pageTitle.prefixedText, null, null, null, null, null)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    _viewState.value = LinkPreviewViewState.Content(response)
-                }) { caught ->
-                    _viewState.value = LinkPreviewViewState.Error(caught)
-                })
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _uiState.value = LinkPreviewViewState.Error(throwable)
+        }) {
+            withContext(Dispatchers.IO)
+            {
+                val response = ServiceFactory.getRest(pageTitle.wikiSite)
+                    .getSummaryResponseSuspend(pageTitle.prefixedText, null, null, null, null, null)
+                _uiState.value = LinkPreviewViewState.Content(response)
 
+            }
+        }
     }
 
     fun loadGallery(pageTitle: PageTitle, revision: Long) {
         if (Prefs.isImageDownloadEnabled) {
-            disposables.add(ServiceFactory.getRest(pageTitle.wikiSite)
-                .getMediaList(pageTitle.prefixedText, revision)
-                .flatMap { mediaList ->
+            viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+                L.w("Failed to fetch gallery collection.", throwable)
+            }) {
+                withContext(Dispatchers.IO)
+                {
+                   val mediaList =  ServiceFactory.getRest(pageTitle.wikiSite)
+                        .getMediaListSuspend(pageTitle.prefixedText, revision)
                     val maxImages = 10
                     val items = mediaList.getItems("image", "video").asReversed()
                     val titleList =
                         items.filter { it.showInGallery }.map { it.title }.take(maxImages)
-                    if (titleList.isEmpty()) Observable.empty() else ServiceFactory.get(
-                        pageTitle.wikiSite
-                    ).getImageInfo(titleList.joinToString("|"), pageTitle.wikiSite.languageCode)
+                    if (titleList.isEmpty()) _uiState.value = LinkPreviewViewState.Completed
+                    else {
+                       val response = ServiceFactory.get(
+                            pageTitle.wikiSite
+                        ).getImageInfoSuspend(
+                            titleList.joinToString("|"),
+                            pageTitle.wikiSite.languageCode
+                        )
+                        val pageList =
+                            response.query?.pages?.filter { it.imageInfo() != null }.orEmpty()
+                        _uiState.value = LinkPreviewViewState.Gallery(pageList)
+                    }
                 }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate {
-                    _viewState.value = LinkPreviewViewState.Completed
-                }
-                .subscribe({ response ->
-                    val pageList =
-                        response.query?.pages?.filter { it.imageInfo() != null }.orEmpty()
-                    _viewState.value = LinkPreviewViewState.Gallery(pageList)
-                }) { caught ->
-                    L.w("Failed to fetch gallery collection.", caught)
-                })
+            }
         } else {
-            _viewState.value = LinkPreviewViewState.Completed
+            _uiState.value = LinkPreviewViewState.Completed
         }
-    }
-
-    fun unBind() {
-        disposables.clear()
     }
 }
