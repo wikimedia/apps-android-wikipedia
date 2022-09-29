@@ -637,7 +637,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     val languageCode = StringUtil.addUnderscores(strArray[1])
                     titles.add(PageTitle(title, WikiSite.forLanguageCode(languageCode)))
                 } else {
-                    //Confirm that the csv file was indeed created by us
+                    // Confirm that the csv file was indeed created by us
                     if (list[i] != getString(R.string.reading_list_csv_headers)) {
                         FeedbackUtil.showMessage(this, R.string.reading_list_import_failed_not_csv)
                         return
