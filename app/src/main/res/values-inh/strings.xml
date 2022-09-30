@@ -721,12 +721,12 @@
   <string name="view_main_page_card_action">Керттерча оагIонга хьажа</string>
   <string name="view_featured_image_card_title">Таханара сурт</string>
   <string name="view_featured_image_card_download">Хьачудаккха</string>
-  <string name="view_featured_image_card_share">ДӀагойта</string>
-  <string name="menu_feed_card_dismiss">Ер карточка дӀахьуладе</string>
-  <string name="menu_feed_card_dismissed">Карточка дIахьуладаьд.</string>
+  <string name="view_featured_image_card_share">Кхычахьа хьаделла</string>
+  <string name="menu_feed_card_dismiss">ДӀахьуладе ер карточка</string>
+  <string name="menu_feed_card_dismissed">Карточка дӀахьуладаьд.</string>
   <string name="menu_feed_card_edit_card_languages">Карточкий метташ хувца</string>
-  <string name="menu_feed_overflow_label">Кхы а оттамаш</string>
-  <string name="feed_featured_image_share_subject">Викиларман дикагIа дола сурташ</string>
+  <string name="menu_feed_overflow_label">Вожа оттамаш</string>
+  <string name="feed_featured_image_share_subject">Викиларман дикагӀа дола сурташ</string>
   <string name="feed">Лента</string>
   <string name="home">Керттера</string>
   <string name="view_static_card_icon_content_description">Карточка хьарак</string>
