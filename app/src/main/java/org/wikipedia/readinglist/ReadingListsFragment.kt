@@ -623,7 +623,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         inputStr.bufferedReader().useLines { lines ->
-            inputStr.close()
             val list = lines.toList()
             val titles = mutableListOf<PageTitle>()
             for (i in list.indices) {
@@ -640,6 +639,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     }
                 }
             }
+            inputStr.close()
             val readingList = AppDatabase.instance.readingListDao().createList(listName, "")
             AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(readingList, titles)
         }
