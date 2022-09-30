@@ -47,6 +47,7 @@ android {
             arg("room.schemaLocation", "$projectDir/schemas".toString())
         }
 
+        dimension 'default'
         signingConfig signingConfigs.debug
 
         buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"%1$s://%2$s/api/rest_v1/"'
