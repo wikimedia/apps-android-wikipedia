@@ -134,11 +134,6 @@ class FeedFragment : Fragment(), BackPressedHandler {
         Prefs.shouldShowRemoveChineseVariantPrompt = false
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
     override fun onResume() {
         super.onResume()
         showRemoveChineseVariantPrompt()

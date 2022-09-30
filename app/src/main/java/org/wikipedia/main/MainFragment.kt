@@ -16,7 +16,9 @@ import android.util.Pair
 import android.view.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
@@ -76,7 +78,7 @@ import org.wikipedia.watchlist.WatchlistActivity
 import java.io.File
 import java.util.concurrent.TimeUnit
 
-class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback, MenuNavTabDialog.Callback {
+class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback, MenuNavTabDialog.Callback {
     interface Callback {
         fun onTabChanged(tab: NavTab)
         fun updateToolbarElevation(elevate: Boolean)
@@ -113,6 +115,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentMainBinding.inflate(inflater, container, false)
+        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
         binding.mainViewPager.isUserInputEnabled = false
@@ -143,7 +146,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         if (savedInstanceState == null) {
             handleIntent(requireActivity().intent)
         }
-        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -214,13 +216,30 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
+    override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_main, menu)
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu) {
-        super.onPrepareOptionsMenu(menu)
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        val fragment = currentFragment
+        return when (menuItem.itemId) {
+            R.id.menu_search_lists -> {
+                if (fragment is ReadingListsFragment) {
+                    fragment.startSearchActionMode()
+                }
+                true
+            }
+            R.id.menu_overflow_button -> {
+                if (fragment is ReadingListsFragment) {
+                    fragment.showReadingListsOverflowMenu()
+                }
+                true
+            }
+            else -> false
+        }
+    }
+
+    override fun onPrepareMenu(menu: Menu) {
         requestUpdateToolbarElevation()
 
         menu.findItem(R.id.menu_search_lists).isVisible = currentFragment is ReadingListsFragment
