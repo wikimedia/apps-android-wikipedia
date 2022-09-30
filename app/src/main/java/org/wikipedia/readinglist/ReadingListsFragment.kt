@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.OpenableColumns
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -46,7 +47,6 @@ import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.*
-import java.io.File
 import java.io.InputStream
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback,
@@ -615,19 +615,15 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onActivityImportResult(uri: Uri) {
         val inputStr: InputStream = activity?.contentResolver?.openInputStream(uri)!!
-        val file = uri.path?.let { File(it) }
-        var listName = file?.name.orEmpty()
-        if (!file?.extension?.contains("csv")!!) {
-            FeedbackUtil.showMessage(this, R.string.reading_list_import_failed_not_csv)
-            return
-        }
-        listName = listName.substring(0, listName.lastIndexOf('.'))
+        val listName = getListName(uri)
         val existingTitles = displayedLists.filterIsInstance<ReadingList>().map { it.title }
         if (existingTitles.contains(listName)) {
             // Todo: When  similarly named list exists?
             return
         }
+
         inputStr.bufferedReader().useLines { lines ->
+            inputStr.close()
             val list = lines.toList()
             val titles = mutableListOf<PageTitle>()
             for (i in list.indices) {
@@ -637,7 +633,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     val languageCode = StringUtil.addUnderscores(strArray[1])
                     titles.add(PageTitle(title, WikiSite.forLanguageCode(languageCode)))
                 } else {
-                    // Confirm that the csv file was indeed created by us
+                    // Confirm that the csv file was created by us
                     if (list[i] != getString(R.string.reading_list_csv_headers)) {
                         FeedbackUtil.showMessage(this, R.string.reading_list_import_failed_not_csv)
                         return
@@ -647,5 +643,21 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             val readingList = AppDatabase.instance.readingListDao().createList(listName, "")
             AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(readingList, titles)
         }
+    }
+
+    private fun getListName(uri: Uri): String {
+        if (uri.scheme.equals("content")) {
+            activity?.contentResolver?.query(uri, null, null, null, null).use { cursor ->
+                cursor?.let {
+                    val nameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+                    cursor.moveToFirst()
+                    val fileName = cursor.getString(nameIndex)
+                    return fileName.substring(0, fileName.lastIndexOf("."))
+                }
+            }
+        } else if (uri.scheme.equals("file")) {
+            return uri.lastPathSegment.orEmpty()
+        }
+        return ""
     }
 }
