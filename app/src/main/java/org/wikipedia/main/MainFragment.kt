@@ -124,13 +124,14 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             bottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
         }
 
-        binding.mainNavTabLayout.setOnNavigationItemSelectedListener { item ->
-            if (currentFragment is FeedFragment && item.order == 0) {
-                (currentFragment as FeedFragment?)!!.scrollToTop()
+        binding.mainNavTabLayout.setOnItemSelectedListener { item ->
+            val fragment = currentFragment
+            if (fragment is FeedFragment && item.order == 0) {
+                fragment.scrollToTop()
             }
-            if (currentFragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
+            if (fragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
                 openSearchActivity(InvokeSource.NAV_MENU, null, null)
-                return@setOnNavigationItemSelectedListener true
+                return@setOnItemSelectedListener true
             }
             binding.mainViewPager.setCurrentItem(item.order, false)
             true
