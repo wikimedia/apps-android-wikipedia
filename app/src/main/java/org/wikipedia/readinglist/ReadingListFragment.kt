@@ -179,7 +179,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 }
                 true
             }
-            else -> true
+            else -> false
         }
     }
 
