@@ -242,10 +242,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="about_libraries_heading">Kitêbxaneyên bikarhatî</string>
   <string name="about_contributors_heading">Tevkar</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Rûpela tîmê&lt;/a&gt;</string>
   <string name="about_translators_heading">Wergêr</string>
   <string name="about_translators_translatewiki">Ev sepan ji aliyê bikarhênerên xwebexş ve li ser &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.netê&lt;/a&gt; hatiye wergerandin.</string>
   <string name="about_app_license_heading">Destûr</string>
+  <string name="about_app_license">Koda çavkanî berdest e li ser &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; û &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt;ê li bin &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Lîsansa Apache 2.0&lt;/a&gt;. Ger bi awayekî din nehatibe diyarkirin, naverok li bin &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lîsansa Creatice Commons yê Atfkirin-ParvekirinaWekhevan&lt;/a&gt; berdest e.</string>
   <string name="about_wmf">Berhemeke &lt;a href=\"https://wikimediafoundation.org/\"&gt;Weqfa Wîkîmedyayê&lt;/a&gt;</string>
   <string name="about_activity_title">Derbarê</string>
   <string name="edit_abandon_confirm">Ev rûpel hat guhartin. Bi rastî dixwazî bêyî tomarkirina guhartinên xwe derkevî?</string>
@@ -260,13 +263,30 @@
   <string name="edit_preview">Pêşdîtin</string>
   <string name="edit_undo">Betal bike</string>
   <string name="edit_redo">Dîsa bike</string>
+  <string name="edit_rollback">Vegerîne</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s bayt</item>
+    <item quantity="other">%s bayt</item>
+  </plurals>
   <string name="edit_zoom_in">Nêzîk bike</string>
   <string name="edit_zoom_out">Dûr bike</string>
   <string name="edit_summary_tag_typo">Nîvîsên xelet sererast kir</string>
   <string name="edit_summary_tag_grammar">Rêziman sererast kir</string>
   <string name="edit_summary_tag_links">Girêdan lê hatin zêdekirin</string>
   <string name="edit_summary_tag_other">Yên din</string>
+  <string name="edit_summary_tag_other_hint">Rêyên din yê ku te rûpelê bi pêş xistiye</string>
   <string name="edit_conflict_title">Nakokiya guhertinan</string>
+  <string name="edit_conflict_message">Ev rûpel jixwe ji aliyê bikarhênerekî din ve hatiye guhertin, û bi guhertina te nakokî derdikeve holê. Ji kerema xwe guhertinên xwe kopî bike, vegere paş û rûpelê nû bike, di peyî re cardin guhertinê biceribîne.</string>
+  <string name="edit_notices">Agahdariyên guhertinê</string>
+  <string name="edit_notices_please_read">Ji kerema xwe berî guhertinê bixwîne</string>
+  <string name="edit_notices_show_auto">Hişyariyên guhertinê bi otomatîkî nîşan bide</string>
+  <string name="edit_notices_tooltip">Ji bo hişyariyên guhertinê ji bo vê gotarê bibînî, bitepîne ser vê bûtonê.</string>
+  <string name="find_next">Yê din bibîne</string>
+  <string name="find_previous">Yê berî bibîne</string>
+  <string name="find_first_occurence">Ev waqiaya pêşîn e</string>
+  <string name="find_last_occurence">Ev waqiaya dawîn e</string>
+  <string name="article_opened_in_background_tab">Gotar li hilpekîneke paşzemînê hatiye vekirin.</string>
+  <string name="abusefilter_title_warn">Dibe ku ev ne guhertineke avaker be. Tu piştrast î ku tu dixwazî wê biweşînî?</string>
   <string name="abusefilter_title_disallow">Tu nikarî vê guhartinê biweşînî. Ji kerema xwe vegere û wê biguhêre.</string>
   <string name="page_similar_titles">Rûpelên mîna vê</string>
   <string name="search_did_you_mean">Mebesta te \"%s\" bû?</string>

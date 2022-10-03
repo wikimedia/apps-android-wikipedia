@@ -103,7 +103,7 @@
   <string name="page_edit_history_filter_by">絞り込みの条件：</string>
   <string name="page_edit_history_filter_by_all">すべての編集（ %s ）</string>
   <string name="page_edit_history_filter_by_user">ユーザー編集（ %s ）</string>
-  <string name="page_edit_history_filter_by_anon">すべての編集（ %s ）</string>
+  <string name="page_edit_history_filter_by_anon">匿名編集（%s）</string>
   <string name="page_edit_history_filter_by_bot">ボットの編集 (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s から %2$s までの指標。</string>
   <plurals name="page_edit_history_article_edits_since_year">
