@@ -59,6 +59,9 @@
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="other">ona=%1$d modifega dal %2$s</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="other">ona=%1$d modifega dal %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Proeuva a cambià i &lt;a href=\"#\"&gt;filter&lt;/a&gt; per vardà pussee de modifeghe</string>
   <string name="menu_page_show_tabs">Mostra schede</string>
   <string name="menu_page_other_languages">Cambia lengua</string>
@@ -216,6 +219,7 @@
   <string name="page_protected_can_not_edit_anon">El ne rincress, quella pagina chì la po vesser minga modifigada di utent anonim in \'sto moment.</string>
   <string name="page_protected_can_not_edit_title">Quella pagina chì l\'è protesgiuda</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Sgionta a la lista di pagine che te tegnet d\'oeugg</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Stàgh adree a quell che l\'è \'dree a capità ai vos che te interessen. Schiscia in la lista e scerniss foeura &lt;b&gt;Sgionta a la lista di pagine che te tegnet d\'oeugg&lt;/b&gt; per vedé i modifeghe a ona vos.</string>
   <string name="settings_item_preferences">Impostazzion</string>
   <string name="settings_activity_title">Impostazzion</string>
   <string name="about_description">Informazzion sora l\'app de Wikipedia</string>
