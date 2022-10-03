@@ -9,7 +9,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.core.os.bundleOf
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,7 +30,7 @@ import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.MultiSelectActionModeCallback
 import java.util.*
 
-class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callback {
+class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesItemView.Callback {
     private var _binding: FragmentWikipediaLanguagesBinding? = null
     private val binding get() = _binding!!
     private lateinit var itemTouchHelper: ItemTouchHelper
@@ -49,14 +51,10 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
         invokeSource = requireActivity().intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         initialLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty()
         funnel = AppLanguageSettingsFunnel()
+        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         prepareWikipediaLanguagesList()
         setupRecyclerView()
         return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        setHasOptionsMenu(true)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -80,21 +78,21 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
         super.onDestroyView()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_wikipedia_languages, menu)
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.menu_wikipedia_languages, menu)
         if (app.languageState.appLanguageCodes.size <= 1) {
             val overflowMenu = menu.getItem(0)
             overflowMenu.isVisible = false
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onMenuItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_wikipedia_languages_remove -> {
                 beginRemoveLanguageMode()
                 true
             }
-            else -> super.onOptionsItemSelected(item)
+            else -> false
         }
     }
 
