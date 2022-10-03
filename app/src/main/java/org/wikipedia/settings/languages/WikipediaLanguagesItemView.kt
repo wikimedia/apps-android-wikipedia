@@ -14,6 +14,7 @@ import org.wikipedia.databinding.ItemWikipediaLanguageBinding
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 import java.util.*
 
@@ -58,7 +59,7 @@ class WikipediaLanguagesItemView : LinearLayout {
     fun setContents(langCode: String, languageLocalizedName: String?, position: Int) {
         this.position = position
         binding.wikiLanguageOrder.text = (position + 1).toString()
-        binding.wikiLanguageTitle.text = languageLocalizedName.orEmpty().capitalize(Locale.getDefault())
+        binding.wikiLanguageTitle.text = StringUtil.capitalize(languageLocalizedName.orEmpty())
         binding.wikiLanguageCode.text = langCode
         val color = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_63)
         binding.wikiLanguageCode.setTextColor(color)
