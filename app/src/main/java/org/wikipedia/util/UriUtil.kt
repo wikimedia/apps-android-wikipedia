@@ -7,9 +7,12 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.TransactionTooLargeException
 import androidx.annotation.StringRes
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
+import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.log.L
 import java.io.UnsupportedEncodingException
 import java.net.URLDecoder
@@ -152,5 +155,13 @@ object UriUtil {
     /** Removes an optional fragment portion of a URL  */
     fun removeFragment(link: String): String {
         return link.replaceFirst("#.*$".toRegex(), "")
+    }
+
+    fun getUserPageTitle(username: String, languageCode: String): PageTitle {
+        return when (languageCode) {
+            Constants.WIKI_CODE_COMMONS -> { PageTitle(UserAliasData.valueFor("en") + ":" + username, WikiSite(Service.COMMONS_URL)) }
+            Constants.WIKI_CODE_WIKIDATA -> { PageTitle(UserAliasData.valueFor("en") + ":" + username, WikiSite(Service.WIKIDATA_URL)) }
+            else -> { PageTitle(UserAliasData.valueFor(languageCode) + ":" + username, WikiSite.forLanguageCode(languageCode)) }
+        }
     }
 }

@@ -1,6 +1,7 @@
 package org.wikipedia.watchlist
 
 import android.content.Context
+import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -48,9 +49,16 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
 
     fun setItem(item: MwQueryResult.WatchlistItem) {
         this.item = item
+        var isSummaryEmpty = false
         binding.titleText.text = item.title
         binding.langCodeText.text = item.wiki!!.languageCode
-        binding.summaryText.text = StringUtil.fromHtml(item.parsedComment)
+        binding.summaryText.text = StringUtil.fromHtml(item.parsedComment).ifEmpty {
+            isSummaryEmpty = true
+            context.getString(R.string.page_edit_history_comment_placeholder)
+        }
+        binding.summaryText.setTypeface(Typeface.SANS_SERIF, if (isSummaryEmpty) Typeface.ITALIC else Typeface.NORMAL)
+        binding.summaryText.setTextColor(ResourceUtil.getThemedColor(context,
+            if (isSummaryEmpty) R.attr.material_theme_secondary_color else R.attr.material_theme_primary_color))
         binding.timeText.text = DateUtil.getTimeString(context, item.date)
         binding.userNameText.text = item.user
         binding.userNameText.contentDescription = context.getString(R.string.talk_user_title, item.user)

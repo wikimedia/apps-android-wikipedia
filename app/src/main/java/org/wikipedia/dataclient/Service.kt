@@ -52,7 +52,7 @@ interface Service {
                 "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
                 PREFERRED_THUMB_SIZE
     )
-    fun fullTextSearch(
+    fun fullTextSearchMedia(
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsrlimit") gsrLimit: Int,
         @Query("continue") cont: String?,
@@ -66,6 +66,21 @@ interface Service {
     suspend fun prefixSearch(@Query("gpssearch") searchTerm: String?,
                              @Query("gpslimit") maxResults: Int,
                              @Query("gpsoffset") gpsOffset: Int?): MwQueryResponse
+
+    @GET(
+        MW_API_PREFIX + "action=query&converttitles=" +
+                "&prop=imageinfo" +
+                "&generator=search&gsrnamespace=0&gsrwhat=text" +
+                "&iiprop=timestamp|user|url|mime|extmetadata" +
+                "&gsrinfo=&gsrprop=redirecttitle&iiurlwidth=" +
+                PREFERRED_THUMB_SIZE
+    )
+    suspend fun fullTextSearchMedia(
+        @Query("gsrsearch") searchTerm: String?,
+        @Query("gsroffset") gsrOffset: String?,
+        @Query("gsrlimit") gsrLimit: Int,
+        @Query("continue") cont: String?
+    ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
     fun prefixSearchUsers(
@@ -155,11 +170,17 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
     val streamConfigs: Observable<MwStreamConfigsResponse>
 
-    @GET(MW_API_PREFIX + "action=query&meta=allmessages")
+    @GET(MW_API_PREFIX + "action=query&meta=allmessages&amenableparser=1")
     suspend fun getMessages(
             @Query("ammessages") messages: String,
             @Query("amargs") args: String?
     ): MwQueryResponse
+
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=shortenurl")
+    suspend fun shortenUrl(
+            @Field("url") url: String,
+    ): ShortenUrlResponse
 
     // ------- CSRF, Login, and Create Account -------
 
@@ -220,6 +241,9 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights")
     suspend fun userInfo(@Query("ususers") userName: String): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights&meta=allmessages")
+    suspend fun userInfoWithMessages(@Query("ususers") userName: String, @Query("ammessages") messages: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=globaluserinfo&guiprop=editcount|groups|rights")
     suspend fun globalUserInfo(@Query("guiuser") userName: String): MwQueryResponse
@@ -307,7 +331,9 @@ interface Service {
         @Field("baserevid") baseRevId: Long,
         @Field("token") token: String,
         @Field("captchaid") captchaId: String?,
-        @Field("captchaword") captchaWord: String?
+        @Field("captchaword") captchaWord: String?,
+        @Field("minor") minor: Boolean? = null,
+        @Field("watchlist") watchlist: String? = null,
     ): Observable<Edit>
 
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
@@ -316,6 +342,15 @@ interface Service {
         @Query("uclimit") maxCount: Int,
         @Query("uccontinue") uccontinue: String?
     ): Observable<MwQueryResponse>
+
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags")
+    suspend fun getUserContrib(
+            @Query("ucuser") username: String,
+            @Query("uclimit") maxCount: Int,
+            @Query("ucnamespace") ns: String?,
+            @Query("ucshow") filter: String?,
+            @Query("uccontinue") uccontinue: String?
+    ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
     fun getPageViewsForTitles(@Query("titles") titles: String): Observable<MwQueryResponse>

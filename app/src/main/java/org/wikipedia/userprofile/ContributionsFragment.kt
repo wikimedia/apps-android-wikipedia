@@ -19,7 +19,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.time.DateUtils
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -31,6 +30,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_GENERIC
@@ -368,7 +368,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         val yesterday: Calendar = Calendar.getInstance()
         yesterday.add(Calendar.DAY_OF_YEAR, -1)
         return when {
-            DateUtils.isSameDay(Calendar.getInstance().time, date) -> StringUtils.capitalize(getString(R.string.view_continue_reading_card_subtitle_today))
+            DateUtils.isSameDay(Calendar.getInstance().time, date) -> StringUtil.capitalize(getString(R.string.view_continue_reading_card_subtitle_today)).orEmpty()
             DateUtils.isSameDay(yesterday.time, date) -> getString(R.string.suggested_edits_contribution_date_yesterday_text)
             else -> DateUtil.getFeedCardDateString(date)
         }
@@ -477,7 +477,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     contribution.wikiSite.languageCode).subscribeOn(Schedulers.io()),
                     if (contribution.qNumber.isEmpty()) Observable.just(contribution.qNumber) else (
                             ServiceFactory.get(Constants.wikidataWikiSite)
-                                .getWikidataEntityTerms(contribution.qNumber, contribution.wikiSite.languageCode)
+                                .getWikidataEntityTerms(contribution.qNumber, LanguageUtil.convertToUselangIfNeeded(contribution.wikiSite.languageCode))
                                 .subscribeOn(Schedulers.io())
                                 .flatMap { response ->
                                     var label = contribution.qNumber

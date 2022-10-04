@@ -975,7 +975,6 @@
   <string name="file_page_activity_title">Síða skráarinnar</string>
   <string name="file_page_add_image_caption_button">Bæta við myndatexta</string>
   <string name="file_page_add_image_tags_button">Bæta við merkjum á myndir</string>
-  <string name="file_page_suggestion_reason">Ástæða fyrir tillögu</string>
   <string name="file_page_edit_button_content_description">Breyta %s</string>
   <string name="description_edit_revert_subtitle">Takk fyrir framlag þitt til Wikipedia!</string>
   <string name="description_edit_revert_intro">Við vitum að þú reyndir þitt besta, en einn í yfirlestrarhópnum var í vafa. Hugsanlegar ástæður fyrir því að breytingunni þinni var hafnað, gætu meðal annars verið:</string>
@@ -1137,7 +1136,7 @@
   <string name="thank_dialog_positive_button_text">Senda þakkir</string>
   <string name="thank_dialog_negative_button_text">Hætta við</string>
   <string name="thank_success_message">Þakkarskilaboðin þín voru send til %s 👍</string>
-  <string name="menu_option_view_user_profile" fuzzy="true">Skoða notandasíðu notandans</string>
+  <string name="menu_option_view_user_profile">Skoða síðu notandans</string>
   <string name="menu_option_view_user_talk">Skoða spjallsíðu</string>
   <string name="menu_option_view_user_contributions">Skoða framlög notanda</string>
   <string name="revision_diff_compare">Bera saman útgáfur</string>
@@ -1189,4 +1188,5 @@
   <string name="search_namespaces">Nafnrými</string>
   <string name="revision_initial_none">Ekkert (þetta er fyrsta yfirferðin)</string>
   <string name="archive_empty">Engar síður fundust í safni.</string>
+  <string name="media_playback_error">Villa við að spila efni.</string>
 </resources>

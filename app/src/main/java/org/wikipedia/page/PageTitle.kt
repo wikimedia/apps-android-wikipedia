@@ -57,7 +57,7 @@ data class PageTitle(
             }
             _namespace = value
             // And prepend the new namespace onto displayText.
-            _displayText = if (value.isEmpty()) _displayText else StringUtil.removeUnderscores(value) + ":" + _displayText
+            _displayText = if (value.isEmpty() || _displayText.isNullOrEmpty()) _displayText else StringUtil.removeUnderscores(value) + ":" + _displayText
         }
 
     val isFilePage: Boolean
@@ -197,11 +197,20 @@ data class PageTitle(
         )
     }
 
-    fun matches(other: PageTitle?): Boolean {
-        return other != null &&
-                other.prefixedText == prefixedText &&
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is PageTitle) return false
+        return other.prefixedText == prefixedText &&
                 other.namespace == namespace &&
                 other.wikiSite.languageCode == wikiSite.languageCode
+    }
+
+    override fun hashCode(): Int {
+        var result = _namespace?.hashCode() ?: 0
+        result = 31 * result + wikiSite.languageCode.hashCode()
+        result = 31 * result + _text.hashCode()
+        result = 31 * result + (fragment?.hashCode() ?: 0)
+        return result
     }
 
     companion object {

@@ -44,6 +44,7 @@
 * Stefano
 * SuperVirtual
 * The Polish
+* Vivbod
 * Yacine Boussoufa
 -->
 <resources>
@@ -129,6 +130,7 @@
   <string name="menu_page_new_tab">Nuova scheda</string>
   <string name="menu_page_reading_lists">Elenchi di lettura</string>
   <string name="menu_page_recently_viewed">Visitato di recente</string>
+  <string name="menu_page_archive">Archivio</string>
   <string name="menu_long_press_open_page">Apri</string>
   <string name="menu_long_press_open_in_new_tab">Apri in una nuova scheda</string>
   <string name="menu_long_press_copy_page">Copia l\'indirizzo del collegamento</string>
@@ -296,6 +298,11 @@
   <string name="edit_preview">Anteprima</string>
   <string name="edit_undo">Annulla</string>
   <string name="edit_redo">Ripeti</string>
+  <string name="edit_rollback">Ripristina</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s byte</item>
+    <item quantity="other">%s byte</item>
+  </plurals>
   <string name="edit_zoom_in">Ingrandisci</string>
   <string name="edit_zoom_out">Rimpicciolisci</string>
   <string name="edit_summary_tag_typo">Corretto errore di battitura</string>
@@ -467,8 +474,11 @@
   <string name="text_size_percent_default">%s (predefinito)</string>
   <string name="text_style_title">Tipo di carattere</string>
   <string name="theme_category_reading">Lettura</string>
+  <string name="theme_category_editing">Modifica</string>
   <string name="reading_focus_mode">Modalità di messa a fuoco della lettura</string>
   <string name="reading_focus_mode_detail">Nasconde le funzioni di modifica e la barra degli strumenti in basso durante lo scorrimento</string>
+  <string name="editing_syntax_highlight_label">Evidenziazione della sintassi</string>
+  <string name="editing_line_numbers_label">Mostra i numeri di riga</string>
   <string name="nav_item_saved">Salvato</string>
   <string name="reading_list_save_to">Salva nell\'elenco di lettura</string>
   <string name="reading_list_move_to">Sposta nell\'elenco di lettura</string>
@@ -1008,7 +1018,6 @@
   <string name="file_page_activity_title">Pagina del file</string>
   <string name="file_page_add_image_caption_button">Aggiungi didascalia immagine</string>
   <string name="file_page_add_image_tags_button">Aggiungi etichette all\'immagine</string>
-  <string name="file_page_suggestion_reason">Motivo del suggerimento</string>
   <string name="file_page_edit_button_content_description">Modifica %s</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
@@ -1084,12 +1093,46 @@
   <string name="content_description_for_page_indicator">Pagina %1$d di %2$d</string>
   <string name="wikitext_bold">Grassetto</string>
   <string name="wikitext_italic">Corsivo</string>
+  <string name="wikitext_underline">Sottolineato</string>
+  <string name="wikitext_strikethrough">Barrato</string>
+  <string name="wikitext_sup">Apice</string>
+  <string name="wikitext_sub">Pedice</string>
+  <string name="wikitext_large">Testo grande</string>
+  <string name="wikitext_small">Testo piccolo</string>
+  <string name="wikitext_code">Codice</string>
   <string name="wikitext_link">Collegamento</string>
+  <string name="wikitext_heading_n">Sottotitolo %d</string>
+  <string name="wikitext_formatting">Formattazione</string>
+  <string name="wikitext_headings">Intestazioni</string>
+  <string name="wikitext_insert_media">Inserisci un file multimediale</string>
   <string name="wikitext_bulleted_list">Elenco puntato</string>
   <string name="wikitext_numbered_list">Elenco numerato</string>
   <string name="wikitext_template">Template</string>
   <string name="wikitext_reference">Riferimento</string>
   <string name="wikitext_preview_link">Anteprima collegamento</string>
+  <string name="insert_media_title">Inserisci un file multimediale</string>
+  <string name="insert_media_search_description">Seleziona un file da Wikimedia Commons</string>
+  <string name="insert_media_settings">Impostazioni file multimediali</string>
+  <string name="insert_media_settings_uploaded_image">Immagine caricata</string>
+  <string name="insert_media_settings_caption">Didascalia</string>
+  <string name="insert_media_settings_caption_description">Etichetta che appare vicino all\'elemento per tutti i lettori</string>
+  <string name="insert_media_settings_alternative_text">Testo alternativo</string>
+  <string name="insert_media_advanced_settings">Impostazioni avanzate</string>
+  <string name="insert_media_advanced_settings_image_position">Posizione immagine</string>
+  <string name="insert_media_advanced_settings_image_position_right">Destra</string>
+  <string name="insert_media_advanced_settings_image_position_left">Sinistra</string>
+  <string name="insert_media_advanced_settings_image_position_center">Centro</string>
+  <string name="insert_media_advanced_settings_image_type">Tipo immagine</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Miniatura</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Senza cornice</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Base</string>
+  <string name="insert_media_advanced_settings_image_size">Dimensione immagine</string>
+  <string name="insert_media_advanced_settings_image_size_default">Predefinito</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Personalizzato</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Larghezza</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Altezza</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
+  <string name="insert_media_insert_button">Inserisci</string>
   <string name="main_drawer_help">Aiuto</string>
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
   <string name="main_tooltip_text">Ciao %s, sapevi che tutti possono modificare Wikipedia?</string>
@@ -1155,6 +1198,7 @@
   <string name="menu_option_edit_source">Modifica wikitesto</string>
   <string name="menu_option_user_page">%s pagina utente</string>
   <string name="menu_option_find_in_talk_page_topic">Trova nell\'argomento della pagina di discussione</string>
+  <string name="menu_option_copy_link_to_clipboard">Copia il collegamento negli appunti</string>
   <string name="talk_menu_copy_text">Copia testo</string>
   <string name="watchlist_details_watching_label">Osservato</string>
   <string name="watchlist_details_watch_label">Osserva</string>
@@ -1216,4 +1260,10 @@
   <string name="subcategory_empty">Nessuna sottocategoria trovata in questa categoria.</string>
   <string name="search_namespaces">Namespace</string>
   <string name="revision_initial_none">Nessuna (questa è la prima versione)</string>
+  <string name="user_contrib_activity_title">Contributi di %s</string>
+  <string name="user_contrib_filter_ns">Filtra per namespace</string>
+  <string name="user_contrib_filter_all">Tutte le modifiche</string>
+  <string name="namespace_article">Voce</string>
+  <string name="user_contrib_current">attuale</string>
+  <string name="user_contrib_menu_label">Contributi</string>
 </resources>

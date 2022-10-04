@@ -5,6 +5,7 @@
 * Agusbou2015
 * Amaia
 * Anarhistička Maca
+* AnupamM
 * Asierog
 * Athena in Wonderland
 * Bruno44101
@@ -16,6 +17,7 @@
 * Csbotero
 * Danniel07
 * DannyS712
+* DarkGames26
 * David.novella
 * Destinid10 2
 * Dgstranz
@@ -45,6 +47,7 @@
 * Juan Cuartas
 * KATRINE1992
 * Ktranz
+* La Mantis
 * Luisangelrg
 * Luna Brillante 12
 * Macofe
@@ -120,6 +123,7 @@
   <string name="image_share_via">Compartir por</string>
   <string name="search_redirect_from">Redirigido desde %s</string>
   <string name="page_edit_history_activity_title">Historial de revisiones: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Resumen de edición vacío</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Buscar o filtrar ediciones</string>
   <string name="page_edit_history_filter_by">Filtrar por:</string>
@@ -836,6 +840,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una línea, entre dos y doce palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Empezar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, me comprometo a no hacer mal uso de esta funcionalidad.</string>
+  <string name="customize_toolbar_category_menu">Menú</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Pulse el icono de arrastre para mover el elemento</string>
   <string name="customize_toolbar_item_default_tooltip">Pulse y arrastre un elemento para reubicarlo</string>
   <string name="suggested_edits_describe_articles">Describir artículos</string>
@@ -1006,7 +1011,6 @@
   <string name="file_page_activity_title">Página de archivo</string>
   <string name="file_page_add_image_caption_button">Añadir leyenda de imagen</string>
   <string name="file_page_add_image_tags_button">Añadir etiquetas de imagen</string>
-  <string name="file_page_suggestion_reason">Motivo de la sugerencia</string>
   <string name="file_page_edit_button_content_description">Editar %s</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
@@ -1082,12 +1086,43 @@
   <string name="content_description_for_page_indicator">Página %1$d de %2$d</string>
   <string name="wikitext_bold">Negrita</string>
   <string name="wikitext_italic">Cursiva</string>
+  <string name="wikitext_code">Código</string>
   <string name="wikitext_link">Enlace</string>
+  <string name="wikitext_insert_media">Insertar multimedia</string>
   <string name="wikitext_bulleted_list">Lista con viñetas</string>
   <string name="wikitext_numbered_list">Lista numerada</string>
   <string name="wikitext_template">Plantilla</string>
   <string name="wikitext_reference">Referencia</string>
   <string name="wikitext_preview_link">Previsualizar enlace</string>
+  <string name="insert_media_title">Insertar multimedia</string>
+  <string name="insert_media_search_description">Seleccionar un archivo de Wikimedia Commons</string>
+  <string name="insert_media_search_hint">Busce media</string>
+  <string name="insert_media_settings">Configuración multimedia</string>
+  <string name="insert_media_settings_uploaded_image">Imagen cargada</string>
+  <string name="insert_media_settings_caption">Leyenda</string>
+  <string name="insert_media_settings_caption_description">Etiqueta que se muestra junto al elemento para todos los lectores</string>
+  <string name="insert_media_settings_alternative_text">Texto alternativo</string>
+  <string name="insert_media_settings_alternative_text_description">Descripción de texto para lectores quiénes no pueden ver la imagen</string>
+  <string name="insert_media_advanced_settings">Configuraciones avanzadas</string>
+  <string name="insert_media_advanced_settings_wrap_image">Envolver el texto alrededor de la imagen</string>
+  <string name="insert_media_advanced_settings_image_position">Posición de imagen</string>
+  <string name="insert_media_advanced_settings_image_position_right">Derecha</string>
+  <string name="insert_media_advanced_settings_image_position_left">Izquierda</string>
+  <string name="insert_media_advanced_settings_image_position_center">Centro</string>
+  <string name="insert_media_advanced_settings_image_position_none">Ninguno</string>
+  <string name="insert_media_advanced_settings_image_type">Tipo de imagen</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Miniatura</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Sin marco</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Marco</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Básico</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Puedes establecer cómo aparece el elemento multimedia en la página. Este debe ser el formato de miniatura para ser consistente con otras páginas en casi todos los casos.</string>
+  <string name="insert_media_advanced_settings_image_size">Tamaño de la imagen</string>
+  <string name="insert_media_advanced_settings_image_size_default">Predeterminado</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Personalizado</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Anchura</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Altura</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
+  <string name="insert_media_insert_button">Inserte</string>
   <string name="main_drawer_help">Ayuda</string>
   <string name="main_drawer_login">Iniciar sesión / unirse a Wikipedia</string>
   <string name="main_tooltip_text">Hola, %s, ¿sabías que todos pueden editar Wikipedia?</string>
@@ -1120,6 +1155,8 @@
   <string name="talk_search_topics_hint">Temas de búsqueda</string>
   <string name="talk_list_item_overflow_subscribe">Subscribirse</string>
   <string name="talk_list_item_user_icon_content_description">Icono de usuario</string>
+  <string name="talk_list_item_swipe_mark_as_read">Leer</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Sin leer</string>
   <string name="menu_option_share_talk_discussion">Compartir discusión</string>
   <string name="menu_option_share_talk_page">Compartir página de discusión</string>
   <string name="menu_option_share_edit">Compartir edición</string>
@@ -1176,4 +1213,14 @@
   <string name="action_item_categories">Categorías</string>
   <string name="category_tab_articles">Artículos</string>
   <string name="category_tab_subcategories">Subcategorías</string>
+  <string name="search_namespaces">Espacios de nombres</string>
+  <string name="revision_initial_none">Ninguno (esta es la primera revisión)</string>
+  <string name="user_contrib_activity_title">Contribuciones de %s</string>
+  <string name="archive_empty">No se han encontrado páginas archivadas.</string>
+  <string name="user_contrib_filter_ns">Filtrar por espacio de nombres</string>
+  <string name="user_contrib_filter_all">Todas las ediciones</string>
+  <string name="namespace_article">Artículo</string>
+  <string name="user_contrib_current">Actual</string>
+  <string name="media_playback_error">Error al reproducir medios.</string>
+  <string name="user_contrib_menu_label">Contribuciones</string>
 </resources>

@@ -5,6 +5,7 @@
 * GinawaSaHapon
 * Ianlopez1115
 * Jewel457
+* Jojit fb
 * Leeheonjin
 * MuratTheTurkish
 * SHaran (WMF)
@@ -23,7 +24,7 @@
   <string name="search_hint_voice_search">Maghanap gamit boses</string>
   <string name="search_hint_search_languages">Maghanap ng wika</string>
   <string name="filter_hint_filter_my_lists_and_articles">I-filter ang mga listahan ko</string>
-  <string name="nav_item_suggested_edits">Mga edit</string>
+  <string name="nav_item_suggested_edits">Mga binago</string>
   <string name="nav_item_more">Karagdagan</string>
   <string name="nav_item_search">Maghanap</string>
   <string name="error_network_error">Hindi makakonekta sa Internet.</string>
@@ -57,12 +58,12 @@
   <string name="page_edit_history_activity_title">Nakaraang pagbabago: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Walang buod</string>
-  <string name="page_edit_history_search_or_filter_edits_hint">Maghanap o i-filter ang mga edit</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Maghanap o salain ang mga binago</string>
   <string name="page_edit_history_filter_by">I-filter</string>
-  <string name="page_edit_history_filter_by_all">Lahat ng edit (%s)</string>
-  <string name="page_edit_history_filter_by_user">Edit ng tagagamit (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Di kilalang edit (%s)</string>
-  <string name="page_edit_history_filter_by_bot">Edit ng bot (%s)</string>
+  <string name="page_edit_history_filter_by_all">Lahat ng binago (%s)</string>
+  <string name="page_edit_history_filter_by_user">Binago ng tagagamit (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Binago ng di kilalang tagagamit (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Binago ng bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrics mula %1$s hanggang %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d edit simula noong %2$s</item>
@@ -101,8 +102,8 @@
   <string name="menu_text_select_define">Kahulugan</string>
   <string name="on_this_day_page_share">Ibahagi</string>
   <string name="reading_list_page_share">Ibahagi</string>
-  <string name="menu_text_select_edit_here">Mag-edit dito</string>
-  <string name="menu_edit_article">I-edit</string>
+  <string name="menu_text_select_edit_here">Magbago dito</string>
+  <string name="menu_edit_article">Baguhin ang artikulo</string>
   <string name="last_updated_text">Huling na-update noong %s</string>
   <string name="talk_page_link_text">Tingnan ang usapan</string>
   <string name="edit_history_link_text">Tingnan ang nakaraan</string>
@@ -121,7 +122,7 @@
   <string name="langlinks_your_wikipedia_languages">Mga wika mo sa Wikipedia</string>
   <string name="menu_save_changes">Ilathala</string>
   <string name="edit_saved_successfully">Nalathala na!</string>
-  <string name="dialog_message_edit_failed">Bigong ma-edit!</string>
+  <string name="dialog_message_edit_failed">Bigong baguhin!</string>
   <string name="dialog_message_edit_failed_retry">Subukang muli</string>
   <string name="dialog_message_edit_failed_cancel">Ikansela</string>
   <string name="dialog_message_leaving_edit">Di pa nalalathala ang mga pagbabago mo. Sigurado ka bang aalis ka na sa pahinang ito?</string>
@@ -272,11 +273,11 @@
   <string name="edit_summary_tag_links">Nagdagdag ng mga link</string>
   <string name="edit_summary_tag_other">Iba pa</string>
   <string name="edit_summary_tag_other_hint">Ibang mga pagpapahusay sa pahina</string>
-  <string name="edit_conflict_title">Alitan sa edit</string>
-  <string name="edit_conflict_message">Nabago na ang pahinang ito ng ibang tagagamit, na iba sa edit mo. Pakikopya po ang edit niyo, bumalik, at i-refresh ang pahina, pagkatapos, subukang mag-edit uli.</string>
-  <string name="edit_notices">Abiso sa edit</string>
-  <string name="edit_notices_please_read">Pakibasa muna bago mag-edit</string>
-  <string name="edit_notices_show_auto">Kusang ipakita ang mga abiso sa edit</string>
+  <string name="edit_conflict_title">Banggaan sa pagbabago</string>
+  <string name="edit_conflict_message">Nabago na ang pahinang ito ng ibang tagagamit, na iba sa binago mo. Pakikopya ang binago mo, bumalik, at i-refresh ang pahina, pagkatapos, subukang uli na baguhin.</string>
+  <string name="edit_notices">Abiso sa pagbabago</string>
+  <string name="edit_notices_please_read">Pakibasa muna bago baguhin</string>
+  <string name="edit_notices_show_auto">Kusang ipakita ang mga abiso sa pagbago</string>
   <string name="edit_notices_tooltip">Pindutin ang button na ito para makita ang mga abiso sa edit para sa artikulong ito.</string>
   <string name="find_next">Sunod</string>
   <string name="find_previous">Balik</string>
@@ -327,7 +328,7 @@
   <string name="gallery_save_success">Na-save na ang file.</string>
   <string name="gallery_error_video_failed">Di ma-play ang video.</string>
   <string name="gallery_save_image_write_permission_rationale">Kailangan ang permiso sa pagsulat sa storage ng device mo para ma-save ang mga larawan.</string>
-  <string name="gallery_edit_button_content_description">I-edit ang caption ng larawan</string>
+  <string name="gallery_edit_button_content_description">Baguhin ang paliwanag sa larawan</string>
   <string name="gallery_add_image_caption_button">Magdagdag ng caption</string>
   <string name="gallery_add_image_caption_in_language_button">Magdagdag ng caption (%s)</string>
   <string name="err_cannot_save_file">Di ma-save ang file</string>
@@ -419,9 +420,9 @@
   <string name="article_menu_bar_search_button">Maghanap</string>
   <string name="article_menu_bar_theme_button">Tema</string>
   <string name="article_menu_bar_contents_button">Nilalaman</string>
-  <string name="article_header_edit_hint">I-edit...</string>
-  <string name="article_header_edit_description">I-edit ang paglalarawan sa artikulo</string>
-  <string name="article_header_edit_lead_section">I-edit ang panimula</string>
+  <string name="article_header_edit_hint">Baguhin...</string>
+  <string name="article_header_edit_description">Baguhin ang paglalarawan sa artikulo</string>
+  <string name="article_header_edit_lead_section">Baguhin ang ang panimula</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Maliwanag</string>
   <string name="color_theme_dark">Madilim</string>
@@ -471,7 +472,7 @@
   <string name="reading_list_sort_by_created">Ayusin base sa petsa ng paggawa (bago muna)</string>
   <string name="reading_list_sort_by_created_desc">Ayusin base sa petsa ng paggawa (luma muna)</string>
   <string name="reading_list_menu_delete">Burahin</string>
-  <string name="reading_list_menu_rename">I-edit ang pangalan/paglalarawan</string>
+  <string name="reading_list_menu_rename">Baguhin ang pangalan/paglalarawan</string>
   <string name="reading_list_action_menu_remove_from_offline">Tanggalin sa offline</string>
   <string name="reading_list_action_menu_save_for_offline">I-save offline</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Tanggalin lahat sa offline</string>
@@ -568,7 +569,7 @@
   <string name="reading_list_split_dialog_ok_button_text">Sige</string>
   <string name="reading_list_activity_title">Listahan: %s</string>
   <string name="user_option_sync_label">Pagsasaayos</string>
-  <string name="notification_reverted_title">Na-revert na edit</string>
+  <string name="notification_reverted_title">Binalik ang binago</string>
   <string name="notification_channel_title">Dina-download na ang mga artikulo</string>
   <string name="notification_channel_description">Progress ng pag-download</string>
   <string name="notification_syncing_pause_button">Ihinto</string>
@@ -642,9 +643,9 @@
   <string name="preference_title_notification_system">System</string>
   <string name="preference_summary_notification_system">Mga mensahe mula sa system</string>
   <string name="preference_title_notification_milestone">Milestone</string>
-  <string name="preference_summary_notification_milestone">Mga naabot na dami ng edit</string>
+  <string name="preference_summary_notification_milestone">Naabot ang ilang bilang ng pagbabago</string>
   <string name="preference_title_notification_thanks">Nagpasalamat</string>
-  <string name="preference_summary_notification_thanks">May nagpasalamat sa ginawa mong edit</string>
+  <string name="preference_summary_notification_thanks">May nagpasalamat sa binago mo</string>
   <string name="preference_title_notification_revert">Pag-revert</string>
   <string name="preference_summary_notification_revert">Ni-revert ang isa sa mga ambag mo</string>
   <string name="preference_title_notification_login_fail">Pag-login</string>
@@ -708,7 +709,7 @@
   <string name="view_featured_image_card_share">Ibahagi</string>
   <string name="menu_feed_card_dismiss">Itago ang card</string>
   <string name="menu_feed_card_dismissed">Tinago na ang card.</string>
-  <string name="menu_feed_card_edit_card_languages">I-edit ang mga wika ng card</string>
+  <string name="menu_feed_card_edit_card_languages">Baguhin ang kard ng mga wika</string>
   <string name="menu_feed_overflow_label">Karagdagan</string>
   <string name="feed_featured_image_share_subject">Tampok na larawan mula Wikimedia Commons</string>
   <string name="feed">Maglibot</string>
@@ -762,9 +763,9 @@
   <string name="description_edit_read">Basahin</string>
   <string name="description_edit_add_description">Ilarawan ang artikulo</string>
   <string name="description_edit_translate_description">Isalin ang paglalarawan</string>
-  <string name="description_edit_edit_description">I-edit ang paglalarawan</string>
+  <string name="description_edit_edit_description">Baguhin ang paglalarawan ng artikulo</string>
   <string name="description_edit_add_image_caption">Bigyan ng caption ang larawan</string>
-  <string name="description_edit_edit_image_caption">I-edit ang caption</string>
+  <string name="description_edit_edit_image_caption">Baguhin ang paliwanag sa larawan</string>
   <string name="description_edit_translate_image_caption">Isalin ang caption</string>
   <string name="description_edit_cancel_hint">Ikansela</string>
   <string name="description_edit_help_title">Tulong: Paglalarawan sa artikulo</string>
@@ -795,7 +796,7 @@
   <string name="description_edit_tutorial_title_descriptions_summary">Gumagawa ng buod para sa artikulo para matulungan ang gma mambabasa na maintindihan agad ang paksa</string>
   <string name="description_edit_tutorial_keep_it_short">Maiksi lang dapat ito</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Maganda kung isang linya lang, mula dalawa hanggang labindalawang salita</string>
-  <string name="description_edit_tutorial_button_label_start_editing">Mag-edit na</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Baguhin na</string>
   <string name="description_edit_tutorial_promise">Sa pagsisimula, nangangako akong di ko bababuyin ang tampok na ito.</string>
   <string name="customize_toolbar_title">I-customize ang toolbar</string>
   <string name="customize_toolbar_shortcut_description_text">I-customize ang toolbar sa baba gamit ang 5 shortcut na makakatulong sa\'yo.</string>
@@ -810,11 +811,11 @@
   <string name="suggested_edits_tag_images">Mag-tag ng mga larawan</string>
   <string name="suggested_edits_review_description">Irebyu ang paglalarawan</string>
   <string name="suggested_edits_add_description_button">Ilarawan</string>
-  <string name="suggested_edits_edit_description_button">I-edit ang paglalarawan</string>
+  <string name="suggested_edits_edit_description_button">baguhin ang paglalarawan</string>
   <string name="suggested_edits_add_translation_button">Isalin</string>
-  <string name="suggested_edits_edit_translation_button">I-edit ang salin</string>
+  <string name="suggested_edits_edit_translation_button">Baguhin ang salin</string>
   <string name="suggested_edits_add_caption_button">Mag-caption</string>
-  <string name="suggested_edits_edit_caption_button">I-edit ang caption</string>
+  <string name="suggested_edits_edit_caption_button">Baguhin ang paliwanag</string>
   <string name="suggested_edits_review_image_caption">Irebyu ang caption</string>
   <string name="suggested_edits_my_contributions">Mga ambag ko</string>
   <string name="suggested_edits_no_description">Walang paglalarawan ang file na ito</string>
@@ -843,7 +844,7 @@
     <item quantity="one">1 ambag</item>
     <item quantity="other">%d (na) ambag</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">Mga mungkahing edit</string>
+  <string name="suggested_edits_feed_card_title">Mga mungkahing pagbabago</string>
   <string name="suggested_edits_feed_card_add_description_button">Maglarawan</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Maglarawan (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Magsimula</string>
@@ -897,10 +898,10 @@
   <string name="suggested_edits_ip_blocked_message">Mukha yatang kasalukuyang hinaharangan ang IP address mo (o saklaw na mga IP address) mula sa pag-edit sa Wikipedia.</string>
   <string name="suggested_edits_gate_message">Pasensiya na %s, pero dapat di baba sa tatlong edit na ang nagawa mo sa isang artikulo para magamit ito.</string>
   <string name="suggested_edits_editing_tips_link_text">Mga tip at trick sa pag-eedit</string>
-  <string name="suggested_edits_help_page_link_text">Tungkol sa Mga Mungkahing Edit</string>
-  <string name="suggested_edits_edit_streak_label_text">Dalas ng edit</string>
+  <string name="suggested_edits_help_page_link_text">Tulong para sa mga mungkahing pagbabago</string>
+  <string name="suggested_edits_edit_streak_label_text">Dalas ng pagbago</string>
   <string name="suggested_edits_views_label_text">Nakakita</string>
-  <string name="suggested_edits_quality_label_text">Kalidad ng edit</string>
+  <string name="suggested_edits_quality_label_text">Kalidad ng pagbabago</string>
   <string name="suggested_edits_quality_perfect_text">Perpekto</string>
   <string name="suggested_edits_quality_excellent_text">Napakahusay</string>
   <string name="suggested_edits_quality_very_good_text">Mahusay</string>
@@ -909,7 +910,7 @@
   <string name="suggested_edits_quality_sufficient_text">Sakto lang</string>
   <string name="suggested_edits_quality_poor_text">Mahina</string>
   <string name="suggested_edits_quality_bad_text">Masama</string>
-  <string name="suggested_edits_label">Mga mungkahing edit</string>
+  <string name="suggested_edits_label">Mga mungkahing pagbabago</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Ambag</item>
     <item quantity="other">Mga ambag</item>
@@ -918,19 +919,19 @@
     <item quantity="one">%d araw</item>
     <item quantity="other">%d (na) araw</item>
   </plurals>
-  <string name="suggested_edits_what_is_title">Ano ang Mga mungkahing edit?</string>
+  <string name="suggested_edits_what_is_title">Ano ang mga minungkahing pagbabago?</string>
   <string name="suggested_edits_what_is_text">Nagbibigay ng mga opurtunidad ang mga mungkahing edit para sa maliliit pero mahahalagang ambag sa Wikipedia.</string>
   <string name="suggested_edits_learn_more">Matuto pa</string>
   <string name="suggested_edits_paused_title">Nakahinto</string>
   <string name="suggested_edits_disabled_title">Nakasara</string>
   <string name="suggested_edits_ip_blocked_title">Hinaharangan ang IP</string>
-  <string name="suggested_edits_last_edited">Huling nag-edit</string>
+  <string name="suggested_edits_last_edited">Huling nabago</string>
   <string name="suggested_edits_last_edited_never">Hindi pa</string>
   <string name="suggested_edits_task_new">bago</string>
   <string name="suggested_edits_cc0_notice">Sa paglalathala, sumasang-ayon ako sa &lt;a href=\"%1$s\"&gt;Kasunduan sa Paggamit&lt;/a&gt; at walang bawian na ilabas ang mga ambag ko sa ilalim ng lisensiyang &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_reactivation_notification_title">Mga mungkahing edit</string>
+  <string name="suggested_edits_reactivation_notification_title">Mga mungkahing pagbabago</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Salamat sa pag-edit sa Wikipedia! Paano kaya kung magpatuloy ka pa?</string>
-  <string name="suggested_edits_reactivation_notification_stage_two">Makakapag-edit ka ba ngayon sa Wikipedia? Tingnan mo itong mga pwedeng ma-edit.</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Mayroon ka bang sandali para mapabuti ang Wikipedia? Tingnan ang mga maaring baguhin.</string>
   <string name="suggested_edits_contributions_screen_title">Mga ambag ni %s</string>
   <string name="suggested_edits_contribution_language_label">Wika</string>
   <string name="suggested_edits_contribution_date_time_label">Petsa / Oras</string>
@@ -953,7 +954,7 @@
   <string name="suggested_edits_encourage_account_creation_message">Bagong paraan ang mga mungkahing edit para makapag-edit ka sa Wikipedia sa Android. Tinutulungan ka nitong gumawa ng mga maliliit pero mahahalagang ambag sa Wikipedia. Layunin namin na padaliin pa ang pag-edit at gawing mas accessible pa ito sa mas nakakarami! Mag-login o sumali sa Wikipedia para makapagsimula ka na.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Mag-login/sumali sa Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Tag ng larawan</string>
-  <string name="suggested_edits_contribution_current_revision_text">Nananatili sa ngayon ang edit mo sa Wikipedia</string>
+  <string name="suggested_edits_contribution_current_revision_text">Nasa Wikipedia na ang iyong binago</string>
   <string name="suggested_card_more_edits">Dagdag pang mungkahi</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s tag</item>
@@ -974,8 +975,7 @@
   <string name="file_page_activity_title">Pahina ng file</string>
   <string name="file_page_add_image_caption_button">Mag-caption</string>
   <string name="file_page_add_image_tags_button">Mag-tag ng larawan</string>
-  <string name="file_page_suggestion_reason">Dahilan sa mungkahi</string>
-  <string name="file_page_edit_button_content_description">I-edit ang %s</string>
+  <string name="file_page_edit_button_content_description">Baguhin ang %s</string>
   <string name="description_edit_revert_subtitle">Maraming salamat po sa pag-edit sa Wikipedia!</string>
   <string name="description_edit_revert_intro">Alam namin na ginawa mo ang makakaya mo, pero meron hinaing ang isa aming mga reviewer. Nasa baba ang mga posibleng dahilan kung bakit na-revert ang edit mo:</string>
   <string name="description_edit_revert_reason1">di sinunod ng ambag mo ang isa sa mga &lt;a href=\"%1$s\"&gt;patakaran&lt;/a&gt;.</string>
@@ -1058,8 +1058,8 @@
   <string name="wikitext_preview_link">Link sa pagsilip</string>
   <string name="main_drawer_help">Tulong</string>
   <string name="main_drawer_login">Mag-login / Sumali sa Wikipedia</string>
-  <string name="main_tooltip_text">Kamusta %s, alam mo bang pwede i-edit ng kahit sino ang Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Alam mo bang pwedeng i-edit ng kahit sino ang Wikipedia?</string>
+  <string name="main_tooltip_text">Kamusta %s, alam mo bang maaring baguhin ninuman ang Wikipedia?</string>
+  <string name="main_tooltip_text_v2">Alam mo bang pwedeng baguhin ng kahit sinuman ang Wikipedia?</string>
   <string name="main_tooltip_action_button">Magsimula</string>
   <string name="main_tooltip_watchlist_title">Binabantayan</string>
   <string name="main_tooltip_watchlist_text">Maghanap ng mga artikulo at pahinang dati mong dinagdag sa Mga Binabantayan mo sa Karagdagan sa ilalim ng &lt;b&gt;Binabantayan&lt;/b&gt;.</string>
@@ -1081,7 +1081,7 @@
   <string name="talk_subject_empty">Hindi maaaring walang laman ang paksa.</string>
   <string name="talk_response_submitted">Na-post na ang sagot.</string>
   <string name="talk_snackbar_undo">I-undo</string>
-  <string name="menu_option_share_edit">Ibahagi ang edit</string>
+  <string name="menu_option_share_edit">Ibahagi ang pagbabago</string>
   <string name="menu_option_user_contributions">Mga ambag ni %s</string>
   <string name="watchlist_details_watching_label">Binabantayan</string>
   <string name="watchlist_details_watch_label">Bantayán</string>

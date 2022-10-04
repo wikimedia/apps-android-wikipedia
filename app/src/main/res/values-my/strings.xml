@@ -824,7 +824,6 @@
   <string name="suggested_edits_contribution_diff_count_text">{{ဗဟုဝုစ်ကိန်း|တစ်=%1$s သွင်ပြင်လက္ခဏာ|%1$s သွင်ပြင်လက္ခဏာများ}}</string>
   <string name="file_page_activity_title">ဖိုင်စာမျက်နှာ</string>
   <string name="file_page_add_image_caption_button">ရုပ်ပုံ ပုံစာ ပေါင်းထည့်ရန်</string>
-  <string name="file_page_suggestion_reason">အကြံပြုခြင်း အကြောင်းပြချက်</string>
   <string name="file_page_edit_button_content_description">တည်းဖြတ်မှု %s</string>
   <string name="description_edit_revert_subtitle">ဝီကီပီဒီးယား တည်းဖြတ်မှုအတွက် ကျေးဇူးတင်ပါသည်</string>
   <string name="description_edit_revert_intro">သင် အကောင်းဆုံးကြိုးစားခဲ့မှန်း ကျွန်ုပ်တို့ သိရှိပါသည်၊ သို့သော် ပြန်လည်စစ်ဆေးသူများထဲက တစ်ယောက်တွင် စိုးရိမ်မှုတစ်ခု ရှိခဲ့သည်။ သင်၏တည်းဖြတ်မှုကို နောက်ပြန်ပြင်လိုက်သည့် ဖြစ်နိုင်ခြေရှိသော အကြောင်းပြချက်တွင်:</string>

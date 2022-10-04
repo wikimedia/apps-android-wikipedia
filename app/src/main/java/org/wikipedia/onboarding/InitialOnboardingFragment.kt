@@ -1,11 +1,11 @@
 package org.wikipedia.onboarding
 
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.LayoutRes
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -25,21 +25,18 @@ import org.wikipedia.util.UriUtil
 class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callback {
     private var onboardingPageView: OnboardingPageView? = null
 
+    private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+            FeedbackUtil.showMessage(this, R.string.login_success_toast)
+            advancePage()
+        }
+    }
+
     override fun getAdapter(): FragmentStateAdapter {
         return OnboardingPagerAdapter(this)
     }
 
     override val doneButtonText = R.string.onboarding_get_started
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN &&
-                resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            FeedbackUtil.showMessage(this, R.string.login_success_toast)
-            advancePage()
-        } else {
-            super.onActivityResult(requestCode, resultCode, data)
-        }
-    }
 
     override fun onSwitchChange(view: OnboardingPageView, checked: Boolean) {
         if (OnboardingPage.of(view.tag as Int) == OnboardingPage.PAGE_USAGE_DATA) {
@@ -49,9 +46,7 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
 
     override fun onLinkClick(view: OnboardingPageView, url: String) {
         when (url) {
-            "#login" -> startActivityForResult(LoginActivity
-                    .newIntent(requireContext(), LoginFunnel.SOURCE_ONBOARDING),
-                    Constants.ACTIVITY_REQUEST_LOGIN)
+            "#login" -> loginLauncher.launch(LoginActivity.newIntent(requireContext(), LoginFunnel.SOURCE_ONBOARDING))
             "#privacy" -> FeedbackUtil.showPrivacyPolicy(requireContext())
             "#about" -> FeedbackUtil.showAboutWikipedia(requireContext())
             "#offline" -> FeedbackUtil.showOfflineReadingAndData(requireContext())

@@ -8,6 +8,7 @@
 * MuratTheTurkish
 * Nersip
 * Nuodas
+* Pavel1513
 * Pofka
 * Tomasdd
 * Zygimantus
@@ -280,6 +281,11 @@
   <string name="text_size_increase">Padidinti teksto dydį</string>
   <string name="text_size_decrease">Sumažinti teksto dydį</string>
   <string name="text_size_percent_default">%s (Numatytasis)</string>
+  <string name="theme_category_editing">Redagavimas</string>
+  <string name="editing_syntax_highlight_label">Sintaksės paryškinimas</string>
+  <string name="editing_line_numbers_label">Rodyti eilučių numeris</string>
+  <string name="editing_monospace_font_label">Naudokite lygiaplotį (\"monospace\") šriftą</string>
+  <string name="editing_typing_suggestions">Rodyti teksto rinkimo pasiūlymus</string>
   <string name="reading_list_save_to">Įtraukti į skaitymo sąrašą</string>
   <string name="reading_list_create_new">Sukurti naują</string>
   <string name="reading_list_added_view_button">Žiūrėti sąrašą</string>
@@ -371,6 +377,16 @@
   <string name="this_year">Šie metai</string>
   <string name="on_this_day_dialog_next_month">Kitas mėnuo</string>
   <string name="on_this_day_dialog_previous_month">Ankstesnis mėnuo</string>
+  <string name="wikitext_underline">Pabraukti</string>
+  <string name="wikitext_strikethrough">Perbraukta</string>
+  <string name="wikitext_sup">Viršutinis indeksas</string>
+  <string name="wikitext_sub">Apatinis indeksas</string>
+  <string name="wikitext_large">Stambus tekstas</string>
+  <string name="wikitext_small">Smulkus tekstas</string>
+  <string name="wikitext_code">Kodas</string>
+  <string name="wikitext_heading_n">Antrinė antraštė %d</string>
+  <string name="wikitext_formatting">Formatavimas</string>
+  <string name="wikitext_headings">Antraštės</string>
   <string name="talk_title">Aptarimas</string>
   <string name="talk_new_topic">Nauja tema</string>
   <string name="talk_page_empty">Šis aptarimo puslapis tuščias.</string>
@@ -381,4 +397,5 @@
   <string name="talk_message_hint">Kurti žinutę</string>
   <string name="talk_message_empty">Žinutė negali būti tuščia.</string>
   <string name="talk_subject_empty">Tema negali būti tuščia.</string>
+  <string name="menu_option_copy_link_to_clipboard">Kopijuoti nuorodą į iškarpinę</string>
 </resources>

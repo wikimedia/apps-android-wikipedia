@@ -88,7 +88,7 @@ object RichTextUtil {
     }
 
     fun stripHtml(html: String?): String {
-        return StringUtil.fromHtml(html).toString()
+        return StringUtil.fromHtml(StringUtil.removeStyleTags(html.orEmpty())).toString()
     }
 
     fun remove(text: CharSequence, @IntRange(from = 1) start: Int, end: Int): CharSequence {

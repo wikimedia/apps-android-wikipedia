@@ -233,7 +233,7 @@ class SearchResultsFragment : Fragment() {
                                  clearOnSuccess: Boolean) {
         val startTime = System.nanoTime()
         updateProgressBar(true)
-        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode)).fullTextSearch(searchTerm, BATCH_SIZE,
+        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode)).fullTextSearchMedia(searchTerm, BATCH_SIZE,
                 continuation?.continuation, continuation?.gsroffset?.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -301,7 +301,7 @@ class SearchResultsFragment : Fragment() {
                                 response.query?.pages?.let {
                                     return@flatMap Observable.just(response)
                                 }
-                                ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, BATCH_SIZE, null, null)
+                                ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearchMedia(searchTerm, BATCH_SIZE, null, null)
                             }
                 }
                 .subscribeOn(Schedulers.io())
@@ -332,7 +332,7 @@ class SearchResultsFragment : Fragment() {
 
     private fun displayResults(results: List<SearchResult>) {
         for (newResult in results) {
-            val res = totalResults.find { newResult.pageTitle.matches(it.pageTitle) }
+            val res = totalResults.find { newResult.pageTitle == it.pageTitle }
             if (res == null) {
                 totalResults.add(newResult)
             } else if (!newResult.pageTitle.description.isNullOrEmpty()) {

@@ -68,12 +68,8 @@ object ViewUtil {
     fun formatLangButton(langButton: TextView, langCode: String,
                          langButtonTextSizeSmaller: Int, langButtonTextSizeLarger: Int) {
         val langCodeStandardLength = 3
-        val langButtonTextMaxLength = 7
         if (langCode.length > langCodeStandardLength) {
             langButton.textSize = langButtonTextSizeSmaller.toFloat()
-            if (langCode.length > langButtonTextMaxLength) {
-                langButton.text = langCode.substring(0, langButtonTextMaxLength).uppercase(Locale.ENGLISH)
-            }
             return
         }
         langButton.textSize = langButtonTextSizeLarger.toFloat()

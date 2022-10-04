@@ -23,6 +23,7 @@ import org.wikipedia.staticdata.UserAliasData
 import java.nio.charset.StandardCharsets
 import java.text.Collator
 import java.text.Normalizer
+import java.util.*
 import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
 
@@ -126,21 +127,23 @@ object StringUtil {
     }
 
     fun highlightEditText(editText: EditText, parentText: String, highlightText: String) {
-        val words = highlightText.split("\\s+".toRegex()).toTypedArray()
+        val words = highlightText.split("\\s".toRegex()).filter { it.isNotBlank() }
         var pos = 0
+        var firstPos = 0
         for (word in words) {
             pos = parentText.indexOf(word, pos)
             if (pos == -1) {
                 break
+            } else if (firstPos == 0) {
+                firstPos = pos
             }
         }
         if (pos == -1) {
             pos = parentText.indexOf(words.last())
+            firstPos = pos
         }
         if (pos >= 0) {
-            // TODO: Programmatic selection doesn't seem to work with RTL content...
-            editText.setSelection(pos, pos + words.last().length)
-            editText.performLongClick()
+            editText.setSelection(firstPos, pos + words.last().length)
         }
     }
 
@@ -249,5 +252,9 @@ object StringUtil {
 
     fun getDiffBytesText(context: Context, diffSize: Int): String {
         return context.resources.getQuantityString(R.plurals.edit_diff_bytes, diffSize.absoluteValue, if (diffSize > 0) "+$diffSize" else diffSize.toString())
+    }
+
+    fun capitalize(str: String?): String? {
+        return str?.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
     }
 }

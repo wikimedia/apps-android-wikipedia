@@ -1,18 +1,24 @@
 package org.wikipedia.main
 
+import android.Manifest
 import android.app.Activity
 import android.app.ActivityOptions
 import android.app.DownloadManager
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.util.Pair
 import android.view.*
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
@@ -64,15 +70,15 @@ import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.*
-import org.wikipedia.util.log.L
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
 import org.wikipedia.watchlist.WatchlistActivity
 import java.io.File
 import java.util.concurrent.TimeUnit
 
-class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback, MenuNavTabDialog.Callback {
+class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback, MenuNavTabDialog.Callback {
     interface Callback {
         fun onTabChanged(tab: NavTab)
         fun updateToolbarElevation(elevate: Boolean)
@@ -96,11 +102,20 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     // the image we're waiting for permission to download as a bit of state here. :(
     private var pendingDownloadImage: FeaturedImage? = null
 
+    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+        if (isGranted) {
+            pendingDownloadImage?.let { download(it) }
+        } else {
+            FeedbackUtil.showMessage(this, R.string.gallery_save_image_write_permission_rationale)
+        }
+    }
+
     val currentFragment get() = (binding.mainViewPager.adapter as NavTabFragmentPagerAdapter).getFragmentAt(binding.mainViewPager.currentItem)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentMainBinding.inflate(inflater, container, false)
+        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
         binding.mainViewPager.isUserInputEnabled = false
@@ -112,13 +127,14 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             bottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
         }
 
-        binding.mainNavTabLayout.setOnNavigationItemSelectedListener { item ->
-            if (currentFragment is FeedFragment && item.order == 0) {
-                (currentFragment as FeedFragment?)!!.scrollToTop()
+        binding.mainNavTabLayout.setOnItemSelectedListener { item ->
+            val fragment = currentFragment
+            if (fragment is FeedFragment && item.order == 0) {
+                fragment.scrollToTop()
             }
-            if (currentFragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
+            if (fragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
                 openSearchActivity(InvokeSource.NAV_MENU, null, null)
-                return@setOnNavigationItemSelectedListener true
+                return@setOnItemSelectedListener true
             }
             binding.mainViewPager.setCurrentItem(item.order, false)
             true
@@ -131,7 +147,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         if (savedInstanceState == null) {
             handleIntent(requireActivity().intent)
         }
-        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -202,28 +217,30 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         }
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        when (requestCode) {
-            Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION -> if (PermissionUtil.isPermitted(grantResults)) {
-                pendingDownloadImage?.let {
-                    download(it)
-                }
-            } else {
-                setPendingDownload(null)
-                L.d("Write permission was denied by user")
-                FeedbackUtil.showMessage(this, R.string.gallery_save_image_write_permission_rationale)
-            }
-            else -> super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
+    override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_main, menu)
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu) {
-        super.onPrepareOptionsMenu(menu)
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        val fragment = currentFragment
+        return when (menuItem.itemId) {
+            R.id.menu_search_lists -> {
+                if (fragment is ReadingListsFragment) {
+                    fragment.startSearchActionMode()
+                }
+                true
+            }
+            R.id.menu_overflow_button -> {
+                if (fragment is ReadingListsFragment) {
+                    fragment.showReadingListsOverflowMenu()
+                }
+                true
+            }
+            else -> false
+        }
+    }
+
+    override fun onPrepareMenu(menu: Menu) {
         requestUpdateToolbarElevation()
 
         menu.findItem(R.id.menu_search_lists).isVisible = currentFragment is ReadingListsFragment
@@ -362,11 +379,11 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     override fun onFeedDownloadImage(image: FeaturedImage) {
-        if (!PermissionUtil.hasWriteExternalStoragePermission(requireContext())) {
-            setPendingDownload(image)
-            requestWriteExternalStoragePermission()
-        } else {
+        pendingDownloadImage = image
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             download(image)
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
     }
 
@@ -447,6 +464,12 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         }
     }
 
+    override fun contribsClick() {
+        if (AccountUtil.isLoggedIn) {
+            startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName.orEmpty()))
+        }
+    }
+
     fun setBottomNavVisible(visible: Boolean) {
         binding.mainNavTabContainer.visibility = if (visible) View.VISIBLE else View.GONE
     }
@@ -491,18 +514,9 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     private fun download(image: FeaturedImage) {
-        setPendingDownload(null)
+        pendingDownloadImage = null
         downloadReceiver.download(requireContext(), image)
         FeedbackUtil.showMessage(this, R.string.gallery_save_progress)
-    }
-
-    private fun setPendingDownload(image: FeaturedImage?) {
-        pendingDownloadImage = image
-    }
-
-    private fun requestWriteExternalStoragePermission() {
-        PermissionUtil.requestWriteStorageRuntimePermissions(this,
-                Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION)
     }
 
     fun openSearchActivity(source: InvokeSource, query: String?, transitionView: View?) {
