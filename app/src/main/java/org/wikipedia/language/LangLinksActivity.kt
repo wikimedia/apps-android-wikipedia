@@ -247,8 +247,7 @@ class LangLinksActivity : BaseActivity() {
             this.pageTitle = pageTitle
             val languageCode = pageTitle.wikiSite.languageCode
             val localizedLanguageName = app.languageState.getAppLanguageLocalizedName(languageCode)
-            localizedLanguageNameTextView.text = localizedLanguageName?.capitalize(Locale.getDefault())
-                    ?: languageCode
+            localizedLanguageNameTextView.text = StringUtil.capitalize(localizedLanguageName) ?: languageCode
             articleTitleTextView.text = StringUtil.fromHtml(pageTitle.displayText)
             val canonicalName = viewModel.getCanonicalName(languageCode)
             if (canonicalName.isNullOrEmpty() || languageCode == app.languageState.systemLanguageCode) {
