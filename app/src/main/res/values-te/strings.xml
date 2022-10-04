@@ -427,6 +427,7 @@
   <string name="theme_category_reading">పఠనం</string>
   <string name="reading_focus_mode">రీడింగు ఫోకస్ మోడ్</string>
   <string name="reading_focus_mode_detail">స్క్రాల్ చేసేటపుడు దిద్దుబాటు విశేషాలను, అడుగున ఉన్న పరికరాల పట్టీనీ దాస్తుంది</string>
+  <string name="editing_line_numbers_label">వరుస సంఖ్యలు చూపించు</string>
   <string name="nav_item_saved">భద్రపరచబడినవి</string>
   <string name="reading_list_save_to">చదివే జాబితాలో భద్రపరచు</string>
   <string name="reading_list_move_to">చదివే జాబితా లోకి తరలించు</string>
@@ -1014,7 +1015,10 @@
   <string name="content_description_for_page_indicator">%2$d పేజీల్లో %1$d</string>
   <string name="wikitext_bold">బొద్దు</string>
   <string name="wikitext_italic">వాలు</string>
+  <string name="wikitext_underline">క్రీగీత</string>
+  <string name="wikitext_sup">శీర్షాక్షరాలు</string>
   <string name="wikitext_link">లంకెచేయి</string>
+  <string name="wikitext_headings">శీర్షికలు</string>
   <string name="wikitext_bulleted_list">బిందు జాబితా</string>
   <string name="wikitext_numbered_list">సంఖ్యా జాబితా</string>
   <string name="wikitext_template">మూస</string>

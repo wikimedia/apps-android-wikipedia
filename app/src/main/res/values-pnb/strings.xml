@@ -86,8 +86,8 @@
   <string name="edit_section_captcha_hint">اُتے دتے شبداں نوں دواراؤ</string>
   <string name="title_captcha">کیپچا بھرو</string>
   <string name="edit_section_captcha_reload">مڑ لکھیاون واستے کیپچا ٹکورو</string>
-  <string name="nav_item_login">وِکیپیڈیا \'چ داخل ہوۓ</string>
-  <string name="login_username_hint">ورتونکار ناں</string>
+  <string name="nav_item_login">وِکیپیڈیا ‘تے داخل ہوۓ</string>
+  <string name="login_username_hint">ورتنوالے دا ناں</string>
   <string name="login_password_hint">پوچھنا شبد</string>
   <string name="login_2fa_hint">دو پکھی پرماݨیکرن کوڈ</string>
   <string name="onboarding_card_login">لَوگ اِین کرو</string>
@@ -110,7 +110,7 @@
   <string name="history_empty_message">اِتھے جو تسیں پڑھ چکے ہو اُسنوں ٹریک کرو</string>
   <string name="search_empty_message_multilingual_upgrade">وِکیپیڈیا نوں ہوراں بھاشاواں وچ کھوجو</string>
   <string name="delete_selected_items">چݨیاں چیزاں مٹاؤ</string>
-  <string name="create_account_username_hint">ورتونکار ناں</string>
+  <string name="create_account_username_hint">ورتنوالے دا ناں</string>
   <string name="login_dont_have_account">کھاتہ نہیں ہے؟</string>
   <string name="login_join_wikipedia">وِکیپیڈیا وچ شامل ہووو</string>
   <string name="login_forgot_password">آپݨا لنگھ شبد بھل گئے ہو؟</string>
@@ -210,7 +210,7 @@
   <string name="close_all_tabs_confirm_yes">ہاں</string>
   <string name="close_all_tabs_confirm_no">نہیں</string>
   <string name="button_close_tab">ٹیب بند کرو</string>
-  <string name="page_view_in_browser">براؤزر \'چ دیکھو</string>
+  <string name="page_view_in_browser">براؤزر وچ دیکھو</string>
   <string name="format_error_server_message">سنیہا: \"%s\"</string>
   <string name="address_copied">پتا گتے \'تے اُتار دتا گیا ہے۔</string>
   <string name="text_copied">لگھت گتے \'تے اُتاری گئی ہے۔</string>
@@ -267,7 +267,7 @@
   <string name="menu_feed_card_dismiss">اِس کارڈ نوں وہلے کرو</string>
   <string name="menu_feed_card_dismissed">کارڈ لکائیا</string>
   <string name="view_static_card_icon_content_description">کارڈ آئیکون</string>
-  <string name="view_card_news_title">خبراں \'چ</string>
+  <string name="view_card_news_title">خبراں وچ</string>
   <string name="view_continue_reading_card_subtitle_today">اج</string>
   <string name="view_announcement_card_negative_action">نئیں، شکریہ</string>
   <string name="view_static_card_save_button_label">بچاؤ</string>

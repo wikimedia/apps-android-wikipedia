@@ -46,7 +46,7 @@
   <string name="wikimedia_commons">Wikimedijina zbirka</string>
   <string name="wikidata">Wikipodatki</string>
   <string name="dialog_title_clear_history">Izbriši zgodovino brskanja</string>
-  <string name="dialog_message_clear_history">To bo izbrisalo vso zgodovino brskanja in zaprlo vse trenutno odprte zavihke. Ali res želite to storiti?</string>
+  <string name="dialog_message_clear_history">To bo izbrisalo vso zgodovino brskanja in zaprlo vse trenutno odprte zavihke. Ali to res želite storiti?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
   <string name="dialog_message_clear_history_no">Ne</string>
   <string name="share_via">Deli z</string>
@@ -122,7 +122,7 @@
   <string name="preference_title_language">Jeziki Wikipedije</string>
   <string name="langlinks_filter_hint">Iskanje</string>
   <string name="langlinks_empty">Ta stran ni na voljo v drugih jezikih.</string>
-  <string name="langlinks_no_match">Noben jezik ni bil najden</string>
+  <string name="langlinks_no_match">Najden ni bil noben jezik</string>
   <string name="langlinks_activity_title">Drugi jeziki</string>
   <string name="langlinks_your_wikipedia_languages">Wikipedija v vaših jezikih</string>
   <string name="menu_save_changes">Objavi spremembe</string>
@@ -134,8 +134,8 @@
   <string name="dialog_message_leaving_edit_leave">Zapusti</string>
   <string name="dialog_message_leaving_edit_stay">Ostani</string>
   <string name="menu_show_toc">Kazalo vsebine</string>
-  <string name="search_no_results_found">Ni rezultatov</string>
-  <string name="search_reading_list_no_results">Ni rezultatov v \"%s\"</string>
+  <string name="search_no_results_found">Ni najdenih zadetkov</string>
+  <string name="search_reading_list_no_results">V »%s« ni najdenih zadetkov</string>
   <string name="search_reading_lists_no_results">V seznamih branja ni ničesar</string>
   <string name="search_history_no_results">V zgodovini ni bilo mogoče najti ničesar</string>
   <string name="edit_section_captcha_message">Za pomoč pri zaščiti pred smetjem vas prosimo, da vpišete spodaj prikazane besede</string>
@@ -378,8 +378,8 @@
   <string name="preference_title_show_link_previews">Prikazuj predogled povezav</string>
   <string name="preference_summary_customize_explore_feed">Prilagodite vir Raziskovanje</string>
   <string name="preference_summary_show_link_previews">Ob tapkanju povezav prikaži hiter predogled člankov.</string>
-  <string name="preference_title_collapse_tables">Skrči tabele</string>
-  <string name="preference_summary_collapse_tables">Samodejno skrči tabele v člankih, kot so infopolja, sklici in opombe.</string>
+  <string name="preference_title_collapse_tables">Strni preglednice</string>
+  <string name="preference_summary_collapse_tables">Samodejno strni preglednice v člankih, kot so infopolja, sklici in opombe.</string>
   <string name="nav_item_donate">Prispevajte sredstva</string>
   <string name="error_voice_search_not_available">Prepoznava glasu žal ni na voljo.</string>
   <string name="location_service_disabled">Lokacijske storitve so onemogočene.</string>
@@ -412,8 +412,8 @@
   <string name="error_blocked_title">Vaše uporabniško ime ali IP-naslov je bil(o) blokiran(o).</string>
   <string name="error_blocked_by">Blokiranje je vzpostavil/a &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">Navedeni razlog: %s</string>
-  <string name="error_blocked_start">Začetek blokade: %s</string>
-  <string name="error_blocked_expiry">Potek blokade: %s</string>
+  <string name="error_blocked_start">Začetek blokiranja: %s</string>
+  <string name="error_blocked_expiry">Pretek blokiranja: %s</string>
   <string name="error_blocked_id">ID blokade: %s</string>
   <string name="error_blocked_footer">Za pogovor o blokiranju se lahko obrnete na &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ali drugega &lt;a href=\"https://sl.wikipedia.org/wiki/Wikipedija:Administratorji\"&gt;administratorja&lt;/a&gt;.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Prilagodite svojo orodno vrstico</string>
@@ -446,7 +446,7 @@
   <string name="theme_category_reading">Branje</string>
   <string name="theme_category_editing">Urejanje</string>
   <string name="reading_focus_mode">Način za branje</string>
-  <string name="reading_focus_mode_detail">Skrije možnosti urejanja in orodno vrstico na dnu ob pomikanju</string>
+  <string name="reading_focus_mode_detail">Ob pomikanju skrije možnosti urejanja in orodno vrstico na dnu</string>
   <string name="editing_syntax_highlight_label">Označevanje skladnje</string>
   <string name="editing_line_numbers_label">Prikaži številke vrstic</string>
   <string name="editing_monospace_font_label">Uporabi pisavo monospace</string>
@@ -837,7 +837,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Začetek urejanja</string>
   <string name="description_edit_tutorial_promise">Ob začetku obljubljam, da te funkcije ne bom zlorabil/a</string>
   <string name="customize_toolbar_title">Prilagodi orodno vrstico</string>
-  <string name="customize_toolbar_shortcut_description_text">Prilagodite si orodmo vrstico na dnu s 5 povezavami, ki so za vas najuporabnejše.</string>
+  <string name="customize_toolbar_shortcut_description_text">Prilagodite si orodno vrstico na dnu s 5 povezavami, ki so za vas najuporabnejše.</string>
   <string name="customize_toolbar_category_toolbar">Orodna vrstica</string>
   <string name="customize_toolbar_category_menu">Meni</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Povlecite in spustite svoje najljubše predmete sem 👋</string>
@@ -986,8 +986,8 @@
   <plurals name="suggested_edits_contribution_seen_times">
     <item quantity="one">Ogledano enkrat v preteklih 30 dnevih</item>
     <item quantity="two">Ogledano dvakrat v preteklih 30 dnevih</item>
-    <item quantity="few">Ogledano %s v preteklih 30 dnevih.</item>
-    <item quantity="other">Ogledano %s v preteklih 30 dnevih.</item>
+    <item quantity="few">Ogledano %s-krat v preteklih 30 dnevih.</item>
+    <item quantity="other">Ogledano %s-krat v preteklih 30 dnevih.</item>
   </plurals>
   <string name="suggested_edits_contribution_seen_text">%s ogledov v zadnjih 30 dneh.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
@@ -1217,7 +1217,7 @@
   <string name="menu_option_copy_link_to_clipboard">Skopiraj povezavo v odložišče</string>
   <string name="talk_menu_copy_text">Kopiraj besedilo</string>
   <string name="talk_menu_expand_threads">Razširi niti</string>
-  <string name="talk_menu_collapse_threads">Skrči niti</string>
+  <string name="talk_menu_collapse_threads">Strni niti</string>
   <string name="watchlist_details_watching_label">Spremljam</string>
   <string name="watchlist_details_watch_label">Opazuj</string>
   <string name="watchlist_details_next_edit">Naslednje urejanje</string>
