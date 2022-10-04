@@ -76,7 +76,7 @@ class UserContribListActivity : BaseActivity() {
     private val requestLanguageChange = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
             it.data?.let { intent ->
-                viewModel.langCode = intent.getStringExtra(UserContribWikiSelectActivity.INTENT_EXTRA_SELECT_LANG_CODE).orEmpty()
+                viewModel.langCode = intent.getStringExtra(UserContribFilterActivity.INTENT_EXTRA_SELECT_LANG_CODE).orEmpty()
                         .ifEmpty { WikipediaApp.instance.appOrSystemLanguageCode }
                 updateLangButton()
                 viewModel.clearCache()
@@ -113,7 +113,7 @@ class UserContribListActivity : BaseActivity() {
         })
 
         binding.langButtonContainer.setOnClickListener {
-            requestLanguageChange.launch(UserContribWikiSelectActivity.newIntent(this, viewModel.langCode))
+            requestLanguageChange.launch(UserContribFilterActivity.newIntent(this, viewModel.langCode))
         }
         updateLangButton()
 

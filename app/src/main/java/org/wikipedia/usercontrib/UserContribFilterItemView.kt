@@ -19,13 +19,13 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ViewUtil
 
-class UserContribWikiSelectItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+class UserContribFilterItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     interface Callback {
-        fun onSelected(item: UserContribWikiSelectActivity.Item?)
+        fun onSelected(item: UserContribFilterActivity.Item?)
     }
 
-    private var item: UserContribWikiSelectActivity.Item? = null
+    private var item: UserContribFilterActivity.Item? = null
     private var binding = ItemUserContribWikiSelectBinding.inflate(LayoutInflater.from(context), this)
     private val labelTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     var callback: Callback? = null
@@ -38,11 +38,10 @@ class UserContribWikiSelectItemView constructor(context: Context, attrs: Attribu
         }
     }
 
-    fun setContents(item: UserContribWikiSelectActivity.Item, checked: Boolean) {
+    fun setContents(item: UserContribFilterActivity.Item) {
         this.item = item
-        binding.wikiTitle.text = WikipediaApp.instance.languageState.getWikiLanguageName(item.itemCode)
-        binding.itemCheck.isVisible = checked
-        getTitleCodeFor(item.itemCode)?.let {
+        binding.wikiTitle.text = WikipediaApp.instance.languageState.getWikiLanguageName(item.filterCode)
+        getTitleCodeFor(item.filterCode)?.let {
             binding.languageCode.text = it
             binding.languageCode.visibility = View.VISIBLE
             ViewUtil.formatLangButton(binding.languageCode, it, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)

@@ -607,6 +607,10 @@ object Prefs {
                 ?: emptySet()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_user_contrib_filter_ns, JsonUtil.encodeToString(value))
 
+    var userContribFilterLangCode
+        get() = PrefsIoUtil.getString(R.string.preference_key_user_contrib_filter_lang_code, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_user_contrib_filter_lang_code, value)
+
     var editSyntaxHighlightEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_syntax_highlight, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_syntax_highlight, value)
