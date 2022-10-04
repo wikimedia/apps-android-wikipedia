@@ -33,7 +33,7 @@ class LinkPreviewFunnel(app: WikipediaApp, private val source: Int) : TimedFunne
 
     companion object {
         private const val SCHEMA_NAME = "MobileWikiAppLinkPreview"
-        private const val REV_ID = 18531254
+        private const val REV_ID = 23808516
         private const val PROD_LINK_PREVIEW_VERSION = 3
     }
 }

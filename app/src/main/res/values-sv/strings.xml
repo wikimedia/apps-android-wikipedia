@@ -6,6 +6,7 @@
 * Bengtsson96
 * Dbrant
 * Haxpett
+* JohanahoJ
 * Jon Harald Søby
 * Jopparn
 * Josve05a
@@ -785,6 +786,10 @@
   <string name="description_edit_license_notice">Genom att ändra titelbeskrivningen samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">börjar vanligtvis med en liten bokstav</string>
   <string name="description_edit_voice_input_description">Röstinmatning</string>
+  <string name="description_edit_learn_more">Läs mer om artikelbeskrivningar</string>
+  <string name="description_edit_image_caption_learn_more">Läs mer om bildtexter</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sv#Artikelbeskrivningar</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sv#Bildtexter</string>
   <string name="description_too_short">Texten är för kort.</string>
   <string name="description_ends_with_punctuation">Texten får inte sluta med ett skiljetecken.</string>
   <string name="description_starts_with_article">Undvik att inleda med artiklar som \"ett\" eller \"en\".</string>
@@ -986,7 +991,6 @@
   <string name="file_page_activity_title">Filsida</string>
   <string name="file_page_add_image_caption_button">Lägg till bildtext</string>
   <string name="file_page_add_image_tags_button">Lägg till bildtaggar</string>
-  <string name="file_page_suggestion_reason">Förslagsanledning</string>
   <string name="file_page_edit_button_content_description">Redigera %s</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
@@ -1063,11 +1067,41 @@
   <string name="wikitext_bold">Fet</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Länk</string>
+  <string name="wikitext_insert_media">Infoga media</string>
   <string name="wikitext_bulleted_list">Punktlista</string>
   <string name="wikitext_numbered_list">Numrerad lista</string>
   <string name="wikitext_template">Mall</string>
   <string name="wikitext_reference">Referens</string>
   <string name="wikitext_preview_link">Förhandsvisa länk</string>
+  <string name="insert_media_title">Infoga media</string>
+  <string name="insert_media_search_description">Välj en fil från Wikimedia Commons</string>
+  <string name="insert_media_search_hint">Sök efter media</string>
+  <string name="insert_media_settings">Mediainställningar</string>
+  <string name="insert_media_settings_uploaded_image">Uppladdad bild</string>
+  <string name="insert_media_settings_caption">Bildtext</string>
+  <string name="insert_media_settings_caption_description">Etikett som visas intill objektet för alla läsare</string>
+  <string name="insert_media_settings_alternative_text">Alternativ text</string>
+  <string name="insert_media_settings_alternative_text_description">Textbeskrivning för läsare som inte kan se bilden</string>
+  <string name="insert_media_advanced_settings">Avancerade inställningar</string>
+  <string name="insert_media_advanced_settings_wrap_image">Bryt texten omkring bilden</string>
+  <string name="insert_media_advanced_settings_image_position">Bildposition</string>
+  <string name="insert_media_advanced_settings_image_position_right">Höger</string>
+  <string name="insert_media_advanced_settings_image_position_left">Vänster</string>
+  <string name="insert_media_advanced_settings_image_position_center">Center</string>
+  <string name="insert_media_advanced_settings_image_position_none">Ingen</string>
+  <string name="insert_media_advanced_settings_image_type">Bildtyp</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Miniatyrbild</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Ramlös</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Ram</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Enkel</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Du kan ställa in hur mediaobjekt visas på sidan. Detta bör nästan alltid vara i miniatyrformat för att vara konsekvent med andra sidor.</string>
+  <string name="insert_media_advanced_settings_image_size">Bildstorlek</string>
+  <string name="insert_media_advanced_settings_image_size_default">Standard</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Anpassad</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Bredd</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Höjd</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
+  <string name="insert_media_insert_button">Infoga</string>
   <string name="main_drawer_help">Hjälp</string>
   <string name="main_drawer_login">Logga in / skapa konto på Wikipedia</string>
   <string name="main_tooltip_text">Hej, %s. Visste du att alla kan redigera på Wikipedia?</string>
@@ -1148,7 +1182,7 @@
   <string name="thank_dialog_positive_button_text">Skicka tack</string>
   <string name="thank_dialog_negative_button_text">Avbryt</string>
   <string name="thank_success_message">Ditt tack skickades till %s 👍</string>
-  <string name="menu_option_view_user_profile" fuzzy="true">Visa användarens profilsida</string>
+  <string name="menu_option_view_user_profile">Visa användarsidan</string>
   <string name="menu_option_view_user_talk">Visa diskussionssida</string>
   <string name="menu_option_view_user_contributions">Visa användarbidrag</string>
   <string name="revision_diff_compare">Jämför versioner</string>
@@ -1191,6 +1225,15 @@
   <string name="watchlist_page_moved">Flyttades</string>
   <string name="watchlist_page_protected">Skyddades</string>
   <string name="watchlist_page_deleted">Raderades</string>
+  <string name="preview_edit_title">Förhandsgranska redigering</string>
+  <string name="preview_edit_summarize_edit_title">Sammanfatta redigering</string>
+  <string name="preview_edit_summarize_edit_hint">Hur förbättrade du denna sida?</string>
+  <string name="preview_edit_minor_edit">Detta är en mindre ändring</string>
+  <string name="preview_edit_minor_edit_url">https://sv.wikipedia.org/wiki/Wikipedia:Mindre_%C3%A4ndring</string>
+  <string name="preview_edit_watch_this_page">Bevaka denna sida</string>
+  <string name="preview_edit_watch_this_page_url">https://sv.wikipedia.org/wiki/Wikipedia:Bevakningslistan</string>
+  <string name="preview_edit_learn_more">Läs mer om redigeringssammanfattningar</string>
+  <string name="preview_edit_learn_more_url">https://sv.wikipedia.org/wiki/Wikipedia:Sammanfattningsf%C3%A4ltet</string>
   <string name="action_item_categories">Kategorier</string>
   <string name="page_no_categories">Denna sida tillhör inga kategorier.</string>
   <string name="category_tab_articles">Artiklar</string>
@@ -1199,5 +1242,12 @@
   <string name="subcategory_empty">Inga underkategorier hittades i den här kategorin.</string>
   <string name="search_namespaces">Namnrymder</string>
   <string name="revision_initial_none">Ingen (detta är den första versionen)</string>
+  <string name="user_contrib_activity_title">%ss bidrag</string>
   <string name="archive_empty">Inga arkivsidor hittades.</string>
+  <string name="user_contrib_filter_ns">Filtrera efter namnrymd</string>
+  <string name="user_contrib_filter_all">Alla redigeringar</string>
+  <string name="namespace_article">Artikel</string>
+  <string name="user_contrib_current">nuvarande</string>
+  <string name="media_playback_error">Fel uppstod när media spelades upp.</string>
+  <string name="user_contrib_menu_label">Bidrag</string>
 </resources>

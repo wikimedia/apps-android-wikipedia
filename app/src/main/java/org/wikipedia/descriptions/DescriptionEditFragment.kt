@@ -212,6 +212,7 @@ class DescriptionEditFragment : Fragment() {
         }
         binding.fragmentDescriptionEditView.showProgressBar(false)
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
+        binding.fragmentDescriptionEditView.updateInfoText()
     }
 
     private fun callback(): Callback? {

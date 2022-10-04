@@ -1006,7 +1006,6 @@
   <string name="file_page_activity_title">صفحه پرونده</string>
   <string name="file_page_add_image_caption_button">افزودن برنگاشت تصویر</string>
   <string name="file_page_add_image_tags_button">افزودن برچسب‌های تصویر</string>
-  <string name="file_page_suggestion_reason">دلیل پیشنهاد</string>
   <string name="file_page_edit_button_content_description">ویرایش %s</string>
   <string name="description_edit_revert_subtitle">سپاس بابت ویرایش ویکی‌پدیا!</string>
   <string name="description_edit_revert_intro">با وجودی که شما همهٔ تلاشتان را کردید، یکی از ویرایشگران با ویرایش شما مخالف است و آن را واگردانی کرده‌است که دلیل آن:</string>

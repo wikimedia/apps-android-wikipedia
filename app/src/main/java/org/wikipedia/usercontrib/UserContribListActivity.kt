@@ -47,8 +47,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.*
 import org.wikipedia.views.SearchAndFilterActionProvider
@@ -78,16 +76,12 @@ class UserContribListActivity : BaseActivity() {
     private val requestLanguageChange = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
             it.data?.let { intent ->
-                if (intent.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
-                    val pos = intent.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
-                    if (pos < WikipediaApp.instance.languageState.appLanguageCodes.size) {
-                        viewModel.langCode = WikipediaApp.instance.languageState.appLanguageCodes[pos]
-                        updateLangButton()
-                        viewModel.clearCache()
-                        viewModel.loadStats()
-                        userContribListAdapter.reload()
-                    }
-                }
+                viewModel.langCode = intent.getStringExtra(UserContribWikiSelectActivity.INTENT_EXTRA_SELECT_LANG_CODE).orEmpty()
+                        .ifEmpty { WikipediaApp.instance.appOrSystemLanguageCode }
+                updateLangButton()
+                viewModel.clearCache()
+                viewModel.loadStats()
+                userContribListAdapter.reload()
             }
         }
     }
@@ -119,7 +113,7 @@ class UserContribListActivity : BaseActivity() {
         })
 
         binding.langButtonContainer.setOnClickListener {
-            requestLanguageChange.launch(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.USER_CONTRIB_ACTIVITY))
+            requestLanguageChange.launch(UserContribWikiSelectActivity.newIntent(this, viewModel.langCode))
         }
         updateLangButton()
 
@@ -165,10 +159,26 @@ class UserContribListActivity : BaseActivity() {
     }
 
     private fun updateLangButton() {
-        binding.langButtonText.text = viewModel.langCode.uppercase(Locale.ENGLISH)
         linkHandler.wikiSite = viewModel.wikiSite
-        ViewUtil.formatLangButton(binding.langButtonText, binding.langButtonText.text.toString(),
-                SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+        when (viewModel.langCode) {
+            Constants.WIKI_CODE_WIKIDATA -> {
+                binding.langButtonText.isVisible = false
+                binding.langButtonIcon.setImageResource(R.drawable.ic_wikidata_logo)
+                binding.langButtonIcon.isVisible = true
+            }
+            Constants.WIKI_CODE_COMMONS -> {
+                binding.langButtonText.isVisible = false
+                binding.langButtonIcon.setImageResource(R.drawable.ic_commons_logo)
+                binding.langButtonIcon.isVisible = true
+            }
+            else -> {
+                binding.langButtonText.isVisible = true
+                binding.langButtonIcon.isVisible = false
+                binding.langButtonText.text = viewModel.langCode.uppercase(Locale.ENGLISH)
+                ViewUtil.formatLangButton(binding.langButtonText, binding.langButtonText.text.toString(),
+                        SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+            }
+        }
         FeedbackUtil.setButtonLongPressToast(binding.langButtonContainer)
     }
 
@@ -360,13 +370,13 @@ class UserContribListActivity : BaseActivity() {
         }
 
         private fun updateFilterCount() {
-            if (Prefs.userContribFilterNs < 0) {
+            if (Prefs.userContribFilterNs.isEmpty()) {
                 binding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(binding.filterByButton,
                     ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.color_group_9))
             } else {
                 binding.filterCount.visibility = View.VISIBLE
-                binding.filterCount.text = 1.toString()
+                binding.filterCount.text = Prefs.userContribFilterNs.size.toString()
                 ImageViewCompat.setImageTintList(binding.filterByButton,
                     ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.colorAccent))
             }
@@ -383,7 +393,7 @@ class UserContribListActivity : BaseActivity() {
         fun bindItem() {
             binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.page_edit_history_empty_search_message))
             RichTextUtil.removeUnderlinesFromLinks(binding.emptySearchMessage)
-            binding.searchEmptyContainer.isVisible = Prefs.userContribFilterNs >= 0
+            binding.searchEmptyContainer.isVisible = Prefs.userContribFilterNs.isNotEmpty()
         }
     }
 
@@ -422,7 +432,7 @@ class UserContribListActivity : BaseActivity() {
                     }
 
                     override fun getExcludedFilterCount(): Int {
-                        return if (Prefs.userContribFilterNs >= 0) 1 else 0
+                        return Prefs.userContribFilterNs.size
                     }
 
                     override fun getFilterIconContentDescription(): Int {

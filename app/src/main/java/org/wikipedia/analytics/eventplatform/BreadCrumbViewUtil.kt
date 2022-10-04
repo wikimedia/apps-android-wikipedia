@@ -2,6 +2,7 @@ package org.wikipedia.analytics.eventplatform
 
 import android.content.Context
 import android.view.View
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -39,7 +40,15 @@ object BreadCrumbViewUtil {
             // Returning only recyclerview name and click position for non-cardView recyclerViews
             return getReadableNameForView(view.parent as RecyclerView) + "." + position
         }
-        return if (view.id == View.NO_ID) VIEW_UNNAMED else getViewResourceName(view)
+        return if (view.id == View.NO_ID) {
+            if (view is TextView) {
+                view.text.toString()
+            } else {
+                VIEW_UNNAMED
+            }
+        } else {
+            getViewResourceName(view)
+        }
     }
 
     private fun getViewResourceName(view: View): String {
