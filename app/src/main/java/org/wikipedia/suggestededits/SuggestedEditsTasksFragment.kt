@@ -108,7 +108,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
         clearContents()
-        setHasOptionsMenu(true)
     }
 
     private fun Group.addOnClickListener(listener: View.OnClickListener) {
