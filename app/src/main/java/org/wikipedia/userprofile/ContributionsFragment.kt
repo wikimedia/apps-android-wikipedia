@@ -31,6 +31,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_GENERIC
@@ -477,7 +478,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     contribution.wikiSite.languageCode).subscribeOn(Schedulers.io()),
                     if (contribution.qNumber.isEmpty()) Observable.just(contribution.qNumber) else (
                             ServiceFactory.get(Constants.wikidataWikiSite)
-                                .getWikidataEntityTerms(contribution.qNumber, contribution.wikiSite.languageCode)
+                                .getWikidataEntityTerms(contribution.qNumber, LanguageUtil.convertToUselangIfNeeded(contribution.wikiSite.languageCode))
                                 .subscribeOn(Schedulers.io())
                                 .flatMap { response ->
                                     var label = contribution.qNumber

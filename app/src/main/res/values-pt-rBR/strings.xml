@@ -1187,6 +1187,7 @@
   <string name="menu_option_edit_source">Editar código-fonte</string>
   <string name="menu_option_user_page">%s página de usuário</string>
   <string name="menu_option_find_in_talk_page_topic">Localizar no tópico da página de discussão</string>
+  <string name="menu_option_copy_link_to_clipboard">Copiar link para a área de transferência</string>
   <string name="talk_menu_copy_text">Copiar texto</string>
   <string name="talk_menu_expand_threads">Expandir tópicos</string>
   <string name="talk_menu_collapse_threads">Recolher tópicos</string>

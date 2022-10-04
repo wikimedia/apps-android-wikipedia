@@ -50,6 +50,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private var langBtnClicked = false
     private var isSearchActive = false
     private var query: String? = null
+    private var returnLink = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private lateinit var recentSearchesFragment: RecentSearchesFragment
     private lateinit var searchResultsFragment: SearchResultsFragment
@@ -85,6 +86,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         }
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         query = requireArguments().getString(ARG_QUERY)
+        returnLink = requireArguments().getBoolean(SearchActivity.EXTRA_RETURN_LINK, false)
         funnel = SearchFunnel(app, invokeSource)
     }
 
@@ -218,10 +220,16 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             return
         }
         funnel.searchClick(position, searchLanguageCode)
-        val historyEntry = HistoryEntry(item, HistoryEntry.SOURCE_SEARCH)
-        startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.title)
-        else PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.title, false))
-        closeSearch()
+        if (returnLink) {
+            val intent = Intent().putExtra(SearchActivity.EXTRA_RETURN_LINK_TITLE, item)
+            requireActivity().setResult(SearchActivity.RESULT_LINK_SUCCESS, intent)
+            requireActivity().finish()
+        } else {
+            val historyEntry = HistoryEntry(item, HistoryEntry.SOURCE_SEARCH)
+            startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.title)
+            else PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.title, false))
+            closeSearch()
+        }
     }
 
     override fun onSearchAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
@@ -377,11 +385,12 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         const val LANG_BUTTON_TEXT_SIZE_MEDIUM = 10
         const val LANG_BUTTON_TEXT_SIZE_SMALLER = 8
 
-        fun newInstance(source: InvokeSource, query: String?): SearchFragment =
+        fun newInstance(source: InvokeSource, query: String?, returnLink: Boolean = false): SearchFragment =
                 SearchFragment().apply {
                     arguments = bundleOf(
                         Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
-                        ARG_QUERY to query
+                        ARG_QUERY to query,
+                        SearchActivity.EXTRA_RETURN_LINK to returnLink
                     )
                 }
     }

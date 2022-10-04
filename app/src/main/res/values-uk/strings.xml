@@ -1131,7 +1131,9 @@
   <string name="content_description_for_page_indicator">Крок %1$d з %2$d</string>
   <string name="wikitext_bold">Жирний</string>
   <string name="wikitext_italic">Курсив</string>
+  <string name="wikitext_underline">Підкреслення</string>
   <string name="wikitext_link">Посилання</string>
+  <string name="wikitext_formatting">Форматування</string>
   <string name="wikitext_insert_media">Вставити медіа</string>
   <string name="wikitext_bulleted_list">Маркований список</string>
   <string name="wikitext_numbered_list">Нумерований список</string>
@@ -1144,9 +1146,11 @@
   <string name="insert_media_settings">Параметри медіафайлу</string>
   <string name="insert_media_settings_uploaded_image">Завантажене зображення</string>
   <string name="insert_media_settings_caption">Підпис</string>
+  <string name="insert_media_advanced_settings_image_position">Розташування зображення</string>
   <string name="insert_media_advanced_settings_image_position_right">Праворуч</string>
   <string name="insert_media_advanced_settings_image_position_center">Центр</string>
   <string name="insert_media_advanced_settings_image_type">Тип зображення</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Мініатюра</string>
   <string name="insert_media_advanced_settings_image_type_frame">Рамка</string>
   <string name="insert_media_advanced_settings_image_type_basic">Базовий</string>
   <string name="insert_media_advanced_settings_image_size">Розмір зображення</string>
@@ -1281,6 +1285,7 @@
   <string name="watchlist_page_moved">Перейменовані</string>
   <string name="watchlist_page_protected">Захищені</string>
   <string name="watchlist_page_deleted">Вилучені</string>
+  <string name="preview_edit_title">Попередній перегляд редагування</string>
   <string name="preview_edit_summarize_edit_hint">Як Ви поліпшили цю сторінку?</string>
   <string name="preview_edit_minor_edit">Це незначна зміна</string>
   <string name="action_item_categories">Категорії</string>

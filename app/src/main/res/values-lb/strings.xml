@@ -709,7 +709,13 @@
   <string name="content_description_for_page_indicator">Säit %1$d vu(n) %2$d</string>
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
+  <string name="wikitext_underline">Ënnersträichen</string>
+  <string name="wikitext_sup">Exposant</string>
+  <string name="wikitext_large">Groussen Text</string>
+  <string name="wikitext_small">Klengen Text</string>
+  <string name="wikitext_code">Code</string>
   <string name="wikitext_link">Link</string>
+  <string name="wikitext_headings">Iwwerschrëften</string>
   <string name="wikitext_numbered_list">Nummeréiert Lëscht</string>
   <string name="wikitext_template">Schabloun</string>
   <string name="wikitext_reference">Referenz</string>
