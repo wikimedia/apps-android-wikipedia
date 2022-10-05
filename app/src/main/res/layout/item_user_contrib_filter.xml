@@ -19,7 +19,7 @@
         android:textColor="?attr/secondary_text_color" />
 
     <ImageView
-        android:id="@+id/wiki_logo"
+        android:id="@+id/item_logo"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="24dp"
@@ -29,7 +29,7 @@
         app:tint="?attr/material_theme_de_emphasised_color" />
 
     <TextView
-        android:id="@+id/wiki_title"
+        android:id="@+id/item_title"
         style="@style/MaterialListTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

@@ -12,7 +12,7 @@ import androidx.core.widget.ImageViewCompat
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.databinding.ItemUserContribWikiSelectBinding
+import org.wikipedia.databinding.ItemUserContribFilterBinding
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -25,7 +25,7 @@ class UserContribFilterItemView constructor(context: Context, attrs: AttributeSe
     }
 
     private var item: UserContribFilterActivity.Item? = null
-    private var binding = ItemUserContribWikiSelectBinding.inflate(LayoutInflater.from(context), this)
+    private var binding = ItemUserContribFilterBinding.inflate(LayoutInflater.from(context), this)
     private val labelTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     var callback: Callback? = null
 
@@ -39,7 +39,7 @@ class UserContribFilterItemView constructor(context: Context, attrs: AttributeSe
 
     fun setContents(item: UserContribFilterActivity.Item) {
         this.item = item
-        binding.wikiTitle.text = WikipediaApp.instance.languageState.getWikiLanguageName(item.filterCode)
+        binding.itemTitle.text = WikipediaApp.instance.languageState.getWikiLanguageName(item.filterCode)
         getTitleCodeFor(item.filterCode)?.let {
             binding.languageCode.text = it
             binding.languageCode.visibility = View.VISIBLE
@@ -48,25 +48,25 @@ class UserContribFilterItemView constructor(context: Context, attrs: AttributeSe
             binding.languageCode.visibility = View.GONE
         }
         item.imageRes?.let {
-            ImageViewCompat.setImageTintList(binding.wikiLogo, ResourceUtil.getThemedColorStateList(context, R.attr.secondary_text_color))
-            binding.wikiLogo.setImageResource(it)
-            binding.wikiLogo.visibility = View.VISIBLE
+            ImageViewCompat.setImageTintList(binding.itemLogo, ResourceUtil.getThemedColorStateList(context, R.attr.secondary_text_color))
+            binding.itemLogo.setImageResource(it)
+            binding.itemLogo.visibility = View.VISIBLE
         } ?: run {
-            binding.wikiLogo.visibility = View.GONE
+            binding.itemLogo.visibility = View.GONE
         }
     }
 
     fun setSingleLabel(text: String) {
         val accentColor = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
         binding.languageCode.visibility = View.GONE
-        binding.wikiLogo.visibility = View.VISIBLE
-        ImageViewCompat.setImageTintList(binding.wikiLogo, accentColor)
-        binding.wikiLogo.setImageResource(R.drawable.ic_mode_edit_themed_24dp)
+        binding.itemLogo.visibility = View.VISIBLE
+        ImageViewCompat.setImageTintList(binding.itemLogo, accentColor)
+        binding.itemLogo.setImageResource(R.drawable.ic_mode_edit_themed_24dp)
         binding.itemCheck.visibility = View.GONE
-        binding.wikiTitle.setTextColor(accentColor)
-        binding.wikiTitle.text = text.uppercase()
-        binding.wikiTitle.typeface = labelTypeface
-        binding.wikiTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
+        binding.itemTitle.setTextColor(accentColor)
+        binding.itemTitle.text = text.uppercase()
+        binding.itemTitle.typeface = labelTypeface
+        binding.itemTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
     }
 
     private fun getTitleCodeFor(itemCode: String): String? {

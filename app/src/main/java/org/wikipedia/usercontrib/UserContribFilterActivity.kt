@@ -26,7 +26,7 @@ class UserContribFilterActivity : BaseActivity() {
     private lateinit var selectLangCode: String
 
     private val langUpdateLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        binding.recyclerView.adapter = WikiSelectAdapter(this)
+        binding.recyclerView.adapter = ItemAdapter(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,18 +35,18 @@ class UserContribFilterActivity : BaseActivity() {
         selectLangCode = intent.getStringExtra(INTENT_EXTRA_SELECT_LANG_CODE).orEmpty().ifEmpty { WikipediaApp.instance.appOrSystemLanguageCode }
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        binding.recyclerView.adapter = WikiSelectAdapter(this)
+        binding.recyclerView.adapter = ItemAdapter(this)
         setContentView(binding.root)
     }
 
-    inner class WikiSelectItemViewHolder constructor(itemView: UserContribFilterItemView) :
+    inner class ItemViewHolder constructor(itemView: UserContribFilterItemView) :
         DefaultViewHolder<UserContribFilterItemView>(itemView) {
         fun bindItem(item: Item) {
             view.setContents(item)
         }
     }
 
-    private inner class WikiSelectAddLanguageViewHolder constructor(itemView: UserContribFilterItemView) :
+    private inner class AddLanguageViewHolder constructor(itemView: UserContribFilterItemView) :
             DefaultViewHolder<UserContribFilterItemView>(itemView), UserContribFilterItemView.Callback {
         fun bindItem(text: String) {
             (itemView as UserContribFilterItemView).callback = this
@@ -58,7 +58,7 @@ class UserContribFilterActivity : BaseActivity() {
         }
     }
 
-    private inner class WikiSelectAdapter(val context: Context) : RecyclerView.Adapter<DefaultViewHolder<*>>(), UserContribFilterItemView.Callback {
+    private inner class ItemAdapter(val context: Context) : RecyclerView.Adapter<DefaultViewHolder<*>>(), UserContribFilterItemView.Callback {
         private val itemList = mutableListOf<Any>()
 
         init {
@@ -78,12 +78,12 @@ class UserContribFilterActivity : BaseActivity() {
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): DefaultViewHolder<*> {
             return when (type) {
                 VIEW_TYPE_ADD_LANGUAGE -> {
-                    WikiSelectAddLanguageViewHolder(UserContribFilterItemView(context))
+                    AddLanguageViewHolder(UserContribFilterItemView(context))
                 }
                 else -> {
                     val view = UserContribFilterItemView(context)
                     view.callback = this
-                    WikiSelectItemViewHolder(view)
+                    ItemViewHolder(view)
                 }
             }
         }
@@ -100,14 +100,19 @@ class UserContribFilterActivity : BaseActivity() {
 
         override fun onBindViewHolder(holder: DefaultViewHolder<*>, position: Int) {
             when (holder) {
-                is WikiSelectAddLanguageViewHolder -> holder.bindItem(itemList[position] as String)
-                else -> (holder as WikiSelectItemViewHolder).bindItem(itemList[position] as Item)
+                is AddLanguageViewHolder -> holder.bindItem(itemList[position] as String)
+                else -> (holder as ItemViewHolder).bindItem(itemList[position] as Item)
             }
         }
 
         override fun onSelected(item: Item?) {
-            // TODO: save to preference
-            finish()
+            item?.let {
+                if (it.type == FILTER_TYPE_WIKI) {
+
+                } else if (it.type == FILTER_TYPE_NAMESPACE) {
+
+                }
+            }
         }
     }
 
@@ -117,9 +122,6 @@ class UserContribFilterActivity : BaseActivity() {
             val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
             if (filterCode == getString(R.string.notifications_all_types_text)) {
                 return NotificationFilterActivity.allTypesIdList().find { excludedTypeCodes.contains(it) } == null
-            }
-            if (filterCode == getString(R.string.notifications_all_wikis_text)) {
-                return NotificationFilterActivity.allWikisList().find { excludedWikiCodes.contains(it) } == null
             }
             return !excludedWikiCodes.contains(filterCode) && !excludedTypeCodes.contains(filterCode)
         }
@@ -133,7 +135,6 @@ class UserContribFilterActivity : BaseActivity() {
         private const val FILTER_TYPE_NAMESPACE = 1
 
         const val INTENT_EXTRA_SELECT_LANG_CODE = "selectLangCode"
-        const val ACTIVITY_RESULT_LANGUAGES_CHANGED = 2
 
         fun newIntent(context: Context, selectLangCode: String): Intent {
             return Intent(context, UserContribFilterActivity::class.java)
