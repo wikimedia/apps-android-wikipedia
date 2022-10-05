@@ -608,6 +608,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 update()
             }
         }
+
+        override fun onSelectList(readingList: ReadingList) {
+            // ignore
+        }
     }
 
     private inner class ReadingListItemCallback : ReadingListItemView.Callback {
@@ -633,6 +637,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
         override fun onRemoveAllOffline(readingList: ReadingList) {
             ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) { setSearchQuery() }
+        }
+
+        override fun onSelectList(readingList: ReadingList) {
+            // ignore
         }
     }
 

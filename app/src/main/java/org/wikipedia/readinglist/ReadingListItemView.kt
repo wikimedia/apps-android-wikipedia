@@ -37,6 +37,7 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
         fun onDelete(readingList: ReadingList)
         fun onSaveAllOffline(readingList: ReadingList)
         fun onRemoveAllOffline(readingList: ReadingList)
+        fun onSelectList(readingList: ReadingList)
     }
 
     enum class Description {
@@ -195,8 +196,8 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
                     list?.let { callback?.onRemoveAllOffline(it) }
                     return true
                 }
-                R.id.menu_reading_list_export -> {
-                    handlePermissionsAndExport()
+                R.id.menu_reading_list_select -> {
+                    list?.let { callback?.onSelectList(it) }
                     return true
                 }
                 else -> return false

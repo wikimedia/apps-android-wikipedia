@@ -60,6 +60,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private val readingListItemCallback = ReadingListItemCallback()
     private val readingListPageItemCallback = ReadingListPageItemCallback()
     private val searchActionModeCallback = ReadingListsSearchCallback()
+    private val multiSelectExportModeCallback = MultiSelectExportCallback()
     private var actionMode: ActionMode? = null
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val overflowCallback = OverflowCallback()
@@ -421,6 +422,31 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         override fun onRemoveAllOffline(readingList: ReadingList) {
             ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) { updateLists(currentSearchQuery, true) }
         }
+
+        override fun onSelectList(readingList: ReadingList) {
+                beginMultiSelect()
+                toggleSelectList(readingList)
+        }
+    }
+
+    private fun toggleSelectList(list: ReadingList?) {
+            list?.let {
+                it.selected = !it.selected
+                if (selectedListsCount == 0) {
+                    finishActionMode()
+                } else {
+                    actionMode?.title = resources.getQuantityString(R.plurals.multi_items_selected, selectedListsCount, selectedListsCount)
+                }
+                adapter.notifyDataSetChanged()
+            }
+    }
+
+    private fun beginMultiSelect() {
+            (requireActivity() as AppCompatActivity).startSupportActionMode(multiSelectExportModeCallback)
+    }
+
+    private fun finishActionMode() {
+        actionMode?.finish()
     }
 
     private inner class ReadingListPageItemCallback : PageItemView.Callback<ReadingListPage?> {
@@ -479,6 +505,42 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     }
                 }
             }
+        }
+    }
+    private val selectedListsCount get() = displayedLists.count { it is ReadingList && it.selected }
+
+    private inner class MultiSelectExportCallback : MultiSelectActionModeCallback() {
+        override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            super.onCreateActionMode(mode, menu)
+            mode.menuInflater.inflate(R.menu.menu_action_mode_reading_lists, menu)
+            actionMode = mode
+            return true
+        }
+
+        override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
+
+            return super.onPrepareActionMode(mode, menu)
+        }
+
+        override fun onActionItemClicked(mode: ActionMode, menuItem: MenuItem): Boolean {
+            when (menuItem.itemId) {
+                R.id.menu_export_selected -> {
+                    Toast.makeText(context, "Exported", Toast.LENGTH_SHORT).show()
+                    /*markReadItems(selectedItems, false)
+                    finishActionMode()*/
+                    return true
+                }
+            }
+            return false
+        }
+
+        override fun onDeleteSelected() {
+            // ignore
+        }
+
+        override fun onDestroyActionMode(mode: ActionMode) {
+            actionMode = null
+            super.onDestroyActionMode(mode)
         }
     }
 
