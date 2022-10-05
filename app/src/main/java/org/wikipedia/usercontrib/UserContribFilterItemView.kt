@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -40,6 +41,7 @@ class UserContribFilterItemView constructor(context: Context, attrs: AttributeSe
     fun setContents(item: UserContribFilterActivity.Item) {
         this.item = item
         binding.itemTitle.text = WikipediaApp.instance.languageState.getWikiLanguageName(item.filterCode)
+        binding.itemCheck.isVisible = item.isEnabled()
         getTitleCodeFor(item.filterCode)?.let {
             binding.languageCode.text = it
             binding.languageCode.visibility = View.VISIBLE

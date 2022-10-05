@@ -13,6 +13,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityUserContribWikiSelectBinding
 import org.wikipedia.notifications.NotificationFilterActivity
+import org.wikipedia.page.Namespace
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.staticdata.TalkAliasData
@@ -108,11 +109,41 @@ class UserContribFilterActivity : BaseActivity() {
         override fun onSelected(item: Item?) {
             item?.let {
                 if (it.type == FILTER_TYPE_WIKI) {
-
+                    Prefs.userContribFilterLangCode = item.filterCode
                 } else if (it.type == FILTER_TYPE_NAMESPACE) {
-
+                    when (val namespaceCode = getNamespaceCode(item.filterCode)) {
+                        -1 -> { // Select "all"
+                            if (Prefs.userContribFilterNs.isEmpty()) {
+                                Prefs.userContribFilterNs.plus(listOf(
+                                    Namespace.MAIN.code(),
+                                    Namespace.TALK.code(),
+                                    Namespace.USER.code(),
+                                    Namespace.USER_TALK.code()
+                                ))
+                            } else {
+                                Prefs.userContribFilterNs = emptySet()
+                            }
+                        }
+                        else -> {
+                            if (Prefs.userContribFilterNs.contains(namespaceCode)) {
+                                Prefs.userContribFilterNs.minus(namespaceCode)
+                            } else {
+                                Prefs.userContribFilterNs.plus(namespaceCode)
+                            }
+                        }
+                    }
                 }
             }
+        }
+    }
+
+    private fun getNamespaceCode(text: String): Int {
+        return when (text) {
+            getString(R.string.namespace_article) -> Namespace.MAIN.code()
+            TalkAliasData.valueFor(WikipediaApp.instance.appOrSystemLanguageCode) -> Namespace.TALK.code()
+            UserAliasData.valueFor(WikipediaApp.instance.appOrSystemLanguageCode) -> Namespace.USER.code()
+            UserTalkAliasData.valueFor(WikipediaApp.instance.appOrSystemLanguageCode) -> Namespace.USER_TALK.code()
+            else -> -1
         }
     }
 
