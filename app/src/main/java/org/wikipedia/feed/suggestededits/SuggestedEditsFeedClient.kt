@@ -5,7 +5,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
-import org.wikipedia.usercontrib.UserContributionsStats
+import org.wikipedia.usercontrib.UserContribStats
 import java.util.*
 
 class SuggestedEditsFeedClient : FeedClient {
@@ -23,10 +23,10 @@ class SuggestedEditsFeedClient : FeedClient {
         if (age == 0) {
             // In the background, fetch the user's latest contribution stats, so that we can update whether the
             // Suggested Edits feature is paused or disabled, the next time the feed is refreshed.
-            UserContributionsStats.updateStatsInBackground()
+            UserContribStats.updateStatsInBackground()
         }
 
-        if (UserContributionsStats.isDisabled() || UserContributionsStats.maybePauseAndGetEndDate() != null) {
+        if (UserContribStats.isDisabled() || UserContribStats.maybePauseAndGetEndDate() != null) {
             FeedCoordinator.postCardsToCallback(cb, Collections.emptyList())
             return
         }

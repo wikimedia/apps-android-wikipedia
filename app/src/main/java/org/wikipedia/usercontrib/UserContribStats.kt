@@ -12,7 +12,7 @@ import org.wikipedia.settings.Prefs
 import java.util.*
 import kotlin.math.ceil
 
-object UserContributionsStats {
+object UserContribStats {
     private const val REVERT_SEVERITY_PAUSE_THRESHOLD = 5
     private const val REVERT_SEVERITY_DISABLE_THRESHOLD = 7
     private const val PAUSE_DURATION_DAYS = 7
