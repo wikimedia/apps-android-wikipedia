@@ -5,7 +5,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
-import org.wikipedia.userprofile.UserContributionsStats
+import org.wikipedia.usercontrib.UserContributionsStats
 import java.util.*
 
 class SuggestedEditsFeedClient : FeedClient {
