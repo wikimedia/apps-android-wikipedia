@@ -460,8 +460,12 @@
   <string name="text_size_percent_default">%s (oletus)</string>
   <string name="text_style_title">Kirjasin</string>
   <string name="theme_category_reading">Lukeminen</string>
+  <string name="theme_category_editing">Muokkaaminen</string>
   <string name="reading_focus_mode">Lukutila</string>
   <string name="reading_focus_mode_detail">Piilottaa muokkausominaisuudet sekä alapalkin alaspäin vieritettäessä</string>
+  <string name="editing_syntax_highlight_label">Syntaksin korostus</string>
+  <string name="editing_line_numbers_label">Näytä rivinumerot</string>
+  <string name="editing_monospace_font_label">Käytä tasalevyistä fonttia</string>
   <string name="nav_item_saved">Tallennettu</string>
   <string name="reading_list_save_to">Tallenna lukulistaan</string>
   <string name="reading_list_move_to">Siirrä lukulistaan</string>
