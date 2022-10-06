@@ -38,6 +38,7 @@ class UserContribFilterActivity : BaseActivity() {
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = ItemAdapter(this)
+        binding.recyclerView.itemAnimator = null
         setContentView(binding.root)
     }
 
@@ -125,29 +126,28 @@ class UserContribFilterActivity : BaseActivity() {
                 if (it.type == FILTER_TYPE_WIKI) {
                     Prefs.userContribFilterLangCode = item.filterCode
                 } else if (it.type == FILTER_TYPE_NAMESPACE) {
+                    var nsFilter = Prefs.userContribFilterNs
+                    val namespaceList = listOf(Namespace.MAIN.code(), Namespace.TALK.code(), Namespace.USER.code(), Namespace.USER_TALK.code())
                     when (val namespaceCode = getNamespaceCode(item.filterCode)) {
                         -1 -> { // Select "all"
-                            if (Prefs.userContribFilterNs.isEmpty()) {
-                                Prefs.userContribFilterNs.plus(listOf(
-                                    Namespace.MAIN.code(),
-                                    Namespace.TALK.code(),
-                                    Namespace.USER.code(),
-                                    Namespace.USER_TALK.code()
-                                ))
+                            nsFilter = if (nsFilter.isEmpty() || nsFilter.size < namespaceList.size) {
+                                namespaceList.toSet()
                             } else {
-                                Prefs.userContribFilterNs = emptySet()
+                                emptySet()
                             }
                         }
                         else -> {
-                            if (Prefs.userContribFilterNs.contains(namespaceCode)) {
-                                Prefs.userContribFilterNs.minus(namespaceCode)
+                            nsFilter = if (nsFilter.contains(namespaceCode)) {
+                                nsFilter.minus(namespaceCode)
                             } else {
-                                Prefs.userContribFilterNs.plus(namespaceCode)
+                                nsFilter.plus(namespaceCode)
                             }
                         }
                     }
+                    Prefs.userContribFilterNs = nsFilter
                 }
             }
+            notifyItemRangeChanged(0, itemCount)
         }
     }
 
