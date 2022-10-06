@@ -3,7 +3,9 @@ package org.wikipedia.usercontrib
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +14,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityUserContribWikiSelectBinding
-import org.wikipedia.notifications.NotificationFilterActivity
 import org.wikipedia.page.Namespace
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
@@ -47,6 +48,15 @@ class UserContribFilterActivity : BaseActivity() {
         }
     }
 
+    private inner class FilterHeaderViewHolder constructor(itemView: View) :
+        DefaultViewHolder<View>(itemView) {
+        val headerText = itemView.findViewById<TextView>(R.id.filter_header_title)!!
+
+        fun bindItem(filterHeader: String) {
+            headerText.text = filterHeader
+        }
+    }
+
     private inner class AddLanguageViewHolder constructor(itemView: UserContribFilterItemView) :
             DefaultViewHolder<UserContribFilterItemView>(itemView), UserContribFilterItemView.Callback {
         fun bindItem(text: String) {
@@ -78,6 +88,9 @@ class UserContribFilterActivity : BaseActivity() {
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): DefaultViewHolder<*> {
             return when (type) {
+                VIEW_TYPE_HEADER -> {
+                    FilterHeaderViewHolder(layoutInflater.inflate(R.layout.view_notification_filter_header, parent, false))
+                }
                 VIEW_TYPE_ADD_LANGUAGE -> {
                     AddLanguageViewHolder(UserContribFilterItemView(context))
                 }
@@ -101,6 +114,7 @@ class UserContribFilterActivity : BaseActivity() {
 
         override fun onBindViewHolder(holder: DefaultViewHolder<*>, position: Int) {
             when (holder) {
+                is FilterHeaderViewHolder -> holder.bindItem(itemList[position] as String)
                 is AddLanguageViewHolder -> holder.bindItem(itemList[position] as String)
                 else -> (holder as ItemViewHolder).bindItem(itemList[position] as Item)
             }
@@ -149,12 +163,16 @@ class UserContribFilterActivity : BaseActivity() {
 
     inner class Item constructor(val type: Int, val filterCode: String, val imageRes: Int? = null) {
         fun isEnabled(): Boolean {
-            val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
-            val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
-            if (filterCode == getString(R.string.notifications_all_types_text)) {
-                return NotificationFilterActivity.allTypesIdList().find { excludedTypeCodes.contains(it) } == null
+            val nsFilter = Prefs.userContribFilterNs
+            if (filterCode == getString(R.string.user_contrib_filter_all)) {
+                return nsFilter.containsAll(listOf(
+                    Namespace.MAIN.code(),
+                    Namespace.TALK.code(),
+                    Namespace.USER.code(),
+                    Namespace.USER_TALK.code()
+                ))
             }
-            return !excludedWikiCodes.contains(filterCode) && !excludedTypeCodes.contains(filterCode)
+            return Prefs.userContribFilterLangCode == filterCode || nsFilter.contains(getNamespaceCode(filterCode))
         }
     }
 
