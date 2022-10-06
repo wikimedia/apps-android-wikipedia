@@ -622,4 +622,7 @@ object Prefs {
     var editTypingSuggestionsEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_typing_suggestions, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_typing_suggestions, value)
+
+    val useUrlShortenerForSharing
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_url_shorten, true)
 }

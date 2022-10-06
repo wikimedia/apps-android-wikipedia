@@ -334,6 +334,10 @@
             android:key="@string/preference_key_add_malformed_reading_list_page"
             android:title="Add malformed pages to reading list" />
 
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_reading_lists_share_url_shorten"
+            android:title="@string/preference_key_reading_lists_share_url_shorten" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_suggested_edits_category">
