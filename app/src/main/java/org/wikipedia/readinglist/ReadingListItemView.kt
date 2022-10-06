@@ -89,6 +89,7 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
             readingList?.let {
                 PopupMenu(context, anchorView, Gravity.END).let { menu ->
                     menu.menuInflater.inflate(R.menu.menu_reading_list_item, menu.menu)
+                    menu.menu.findItem(R.id.menu_reading_list_select).isVisible = false
                     if (it.isDefault) {
                         menu.menu.findItem(R.id.menu_reading_list_rename).isVisible = false
                         menu.menu.findItem(R.id.menu_reading_list_delete).isVisible = false
@@ -143,6 +144,7 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
                 binding.itemDescription.text = it.description
                 binding.itemDescription.visibility = if (it.description.isNullOrEmpty()) GONE else VISIBLE
             }
+            binding.itemSelectedImage.visibility = if (it.selected) VISIBLE else GONE
         }
     }
 
