@@ -1269,7 +1269,7 @@
   <string name="preview_edit_summarize_edit_title">Bearbeitung zusammenfassen</string>
   <string name="preview_edit_summarize_edit_hint">Wie hast du die Seite verbessert?</string>
   <string name="preview_edit_minor_edit">Dies ist eine geringfügige Änderung</string>
-  <string name="preview_edit_minor_edit_url">https://de.wikipedia.org/wiki/Hilfe:Kleine_%C3%84nderungen</string>
+  <string name="preview_edit_minor_edit_url">https://de.wikipedia.org/wiki/Hilfe:Kleine_Änderungen</string>
   <string name="preview_edit_watch_this_page">Diese Seite beobachten</string>
   <string name="preview_edit_watch_this_page_url">https://de.wikipedia.org/wiki/Hilfe:Beobachtungsliste</string>
   <string name="preview_edit_learn_more">Weitere Informationen zum Bearbeiten von Zusammenfassungen</string>
