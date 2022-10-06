@@ -1,14 +1,15 @@
 package org.wikipedia.page.linkpreview
 
+import android.app.ActivityOptions
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -20,6 +21,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.analytics.LinkPreviewFunnel
+import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.DialogLinkPreviewBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -32,10 +34,10 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
-import java.util.*
 
 class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorView.Callback, DialogInterface.OnDismissListener {
     interface Callback {
@@ -51,6 +53,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private lateinit var historyEntry: HistoryEntry
     private lateinit var pageTitle: PageTitle
     private lateinit var funnel: LinkPreviewFunnel
+    private var articleLinkPreviewInteractionEvent: ArticleLinkPreviewInteractionEvent? = null
     private var location: Location? = null
     private var overlayView: LinkPreviewOverlayView? = null
     private var navigateSuccess = false
@@ -76,12 +79,12 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
     }
     private val galleryViewListener = GalleryViewListener { view, thumbUrl, imageName ->
-        var options: ActivityOptionsCompat? = null
+        var options: ActivityOptions? = null
         view.drawable?.let {
             val hitInfo = JavaScriptActionHandler.ImageHitInfo(0f, 0f, it.intrinsicWidth.toFloat(), it.intrinsicHeight.toFloat(), thumbUrl, false)
             GalleryActivity.setTransitionInfo(hitInfo)
             view.transitionName = requireActivity().getString(R.string.transition_page_gallery)
-            options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), view, requireActivity().getString(R.string.transition_page_gallery))
+            options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), view, requireActivity().getString(R.string.transition_page_gallery))
         }
         startActivityForResult(GalleryActivity.newIntent(requireContext(), pageTitle, imageName,
                 pageTitle.wikiSite, revision, GalleryFunnel.SOURCE_LINK_PREVIEW),
@@ -105,7 +108,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, pageTitle.wikiSite.languageCode)
         loadContent()
-        funnel = LinkPreviewFunnel(WikipediaApp.getInstance(), historyEntry.source)
+        funnel = LinkPreviewFunnel(WikipediaApp.instance, historyEntry.source)
         funnel.logLinkClick()
         return binding.root
     }
@@ -143,6 +146,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         super.onDismiss(dialogInterface)
         if (!navigateSuccess) {
             funnel.logCancel()
+            articleLinkPreviewInteractionEvent?.logCancel()
         }
     }
 
@@ -170,6 +174,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 .subscribe({ response ->
                     val summary = response.body()!!
                     funnel.setPageId(summary.pageId)
+                    articleLinkPreviewInteractionEvent = ArticleLinkPreviewInteractionEvent(pageTitle.wikiSite.dbName(), summary.pageId, historyEntry.source)
+                    articleLinkPreviewInteractionEvent?.logLinkClick()
                     revision = summary.revision
 
                     // Rebuild our PageTitle, since it may have been redirected or normalized.
@@ -246,7 +252,9 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private fun setPreviewContents(contents: LinkPreviewContents) {
         if (!contents.extract.isNullOrEmpty()) {
-            binding.linkPreviewExtract.text = StringUtil.fromHtml(contents.extract)
+            binding.linkPreviewExtractWebview.setBackgroundColor(Color.TRANSPARENT)
+            val colorHex = ResourceUtil.colorToCssString(ResourceUtil.getThemedColor(requireContext(), android.R.attr.textColorPrimary))
+            binding.linkPreviewExtractWebview.loadDataWithBaseURL(null, "${JavaScriptActionHandler.getCssStyles(pageTitle.wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\">${contents.extract}</div>", "text/html", "UTF-8", null)
         }
         contents.title.thumbUrl?.let {
             binding.linkPreviewThumbnail.visibility = View.VISIBLE
@@ -270,6 +278,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private fun goToLinkedPage(inNewTab: Boolean) {
         navigateSuccess = true
         funnel.logNavigate()
+        articleLinkPreviewInteractionEvent?.logNavigate()
         dialog?.dismiss()
         loadPage(pageTitle, historyEntry, inNewTab)
     }

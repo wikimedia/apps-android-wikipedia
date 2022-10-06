@@ -15,6 +15,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwParseResponse
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
@@ -62,12 +63,12 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
     }
 
     private fun getFeaturedArticleInformation(cb: Callback) {
-        val app = WikipediaApp.getInstance()
+        val app = WikipediaApp.instance
         val mainPageTitle = PageTitle(
                 MainPageNameData.valueFor(app.appOrSystemLanguageCode),
                 app.wikiSite)
         val date = DateUtil.getUtcRequestDateFor(0)
-        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getAggregatedFeed(date.year, date.month, date.day)
+        ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getAggregatedFeed(date.year, date.month, date.day)
                 .flatMap { response: AggregatedFeedContent ->
                     if (response.tfa != null) {
                         Observable.just(response.tfa)
@@ -80,7 +81,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                 .flatMap { response ->
                     if (response is MwParseResponse) {
                         L.d("Downloaded page " + mainPageTitle.displayText)
-                        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getSummary(null, findFeaturedArticleTitle(response.text))
+                        ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getSummary(null, findFeaturedArticleTitle(response.text))
                     } else {
                         Observable.just(response as PageSummary)
                     }
@@ -108,8 +109,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                     text.getSpanEnd(span) - text.getSpanStart(span) <= 1) {
                 continue
             }
-            val title = WikipediaApp.getInstance().wikiSite
-                    .titleForInternalLink(UriUtil.decodeURL(span.url))
+            val title = PageTitle.titleForInternalLink(UriUtil.decodeURL(span.url), WikiSite(span.url))
             if (!title.isFilePage && !title.isSpecial) {
                 titleText = title.displayText
                 break
@@ -119,7 +119,6 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
     }
 
     companion object {
-        @JvmStatic
         fun forceUpdateWidget(context: Context) {
             val intent = Intent(context, WidgetProviderFeaturedPage::class.java)
             intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE

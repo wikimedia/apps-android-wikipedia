@@ -12,7 +12,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
-import java.util.*
 
 class UserMentionEditText : PlainPasteEditText {
     interface Listener {
@@ -52,7 +51,7 @@ class UserMentionEditText : PlainPasteEditText {
                 return@doOnTextChanged
             }
             if (count == 1 && start < text.length && text[start] == '@' &&
-                    (start == 0 || (start > 0 && text[start - 1] == ' ')) &&
+                    (start == 0 || (start > 0 && (text[start - 1] == ' ' || text[start - 1] == '\r' || text[start - 1] == '\n'))) &&
                     !isEnteringUserName) {
                 userNameStartPos = start
                 userNameEndPos = userNameStartPos
@@ -60,19 +59,26 @@ class UserMentionEditText : PlainPasteEditText {
             }
 
             if (isEnteringUserName) {
-                val spacePressed = count - before == 1 && start + count - 1 < text.length && start + count - 1 >= 0 &&
-                        text[start + count - 1] == ' '
-                if (spacePressed) {
-                    spacesPressedCount++
-                }
+                if (count - before == 1 && start + count - 1 < text.length && start + count - 1 >= 0) {
+                    val enterPressed = text[start + count - 1] == '\r' || text[start + count - 1] == '\n'
+                    val spacePressed = text[start + count - 1] == ' '
 
-                if (spacePressed && spacesPressedCount > 1) {
-                    onCancelUserNameEntry()
-                } else {
-                    userNameEndPos += (count - before)
-                }
-                if (userNameEndPos <= userNameStartPos) {
-                    onCancelUserNameEntry()
+                    if (enterPressed) {
+                        onCancelUserNameEntry()
+                    } else {
+                        if (spacePressed) {
+                            spacesPressedCount++
+                        }
+
+                        if (spacePressed && spacesPressedCount > 1) {
+                            onCancelUserNameEntry()
+                        } else {
+                            userNameEndPos += (count - before)
+                        }
+                        if (userNameEndPos <= userNameStartPos) {
+                            onCancelUserNameEntry()
+                        }
+                    }
                 }
             }
         }
@@ -171,18 +177,15 @@ class UserMentionEditText : PlainPasteEditText {
 
         val spans = editable.getSpans<UserColorSpan>()
         if (spans.isNotEmpty()) {
+            val pairs = spans.map { MutablePair(editable.getSpanStart(it), editable.getSpanEnd(it)) }
+                .sortedBy { it.first }
 
-            val pairs = mutableListOf<MutablePair<Int, Int>>()
-            spans.forEach {
-                pairs.add(MutablePair(editable.getSpanStart(it), editable.getSpanEnd(it)))
-            }
-            pairs.sortBy { it.first }
-
-            for (i in 0 until pairs.size) {
+            for (i in pairs.indices) {
                 var name = str.substring(pairs[i].first, pairs[i].second)
                 if (name.length > 1 && name.startsWith("@")) {
                     name = name.substring(1)
                 }
+                name = name.trim()
                 name = "[[" + UserAliasData.valueFor(wikiSite.languageCode) + ":" + name + "|@" + name + "]]"
                 str = str.replaceRange(pairs[i].first, pairs[i].second, name)
 

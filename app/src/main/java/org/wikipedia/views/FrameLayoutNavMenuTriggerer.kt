@@ -61,7 +61,7 @@ class FrameLayoutNavMenuTriggerer : FrameLayout {
         private val SWIPE_SLOP_Y = roundedDpToPx(32f)
         private val SWIPE_SLOP_X = roundedDpToPx(100f)
         private var CHILD_VIEW_SCROLLED = false
-        @JvmStatic
+
         fun setChildViewScrolled() {
             CHILD_VIEW_SCROLLED = true
         }

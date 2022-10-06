@@ -7,9 +7,12 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.TransactionTooLargeException
 import androidx.annotation.StringRes
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
+import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.log.L
 import java.io.UnsupportedEncodingException
 import java.net.URLDecoder
@@ -90,7 +93,7 @@ object UriUtil {
     }
 
     fun resolveProtocolRelativeUrl(url: String): String {
-        return if (url.startsWith("//")) WikipediaApp.getInstance().wikiSite.scheme() + ":" + url else url
+        return if (url.startsWith("//")) WikipediaApp.instance.wikiSite.scheme() + ":" + url else url
     }
 
     fun isValidPageLink(uri: Uri): Boolean {
@@ -154,8 +157,11 @@ object UriUtil {
         return link.replaceFirst("#.*$".toRegex(), "")
     }
 
-    fun parseTalkTopicFromFragment(fragment: String): String {
-        val index = fragment.indexOf("Z-")
-        return if (index >= 0) fragment.substring(index + 2) else fragment
+    fun getUserPageTitle(username: String, languageCode: String): PageTitle {
+        return when (languageCode) {
+            Constants.WIKI_CODE_COMMONS -> { PageTitle(UserAliasData.valueFor("en") + ":" + username, WikiSite(Service.COMMONS_URL)) }
+            Constants.WIKI_CODE_WIKIDATA -> { PageTitle(UserAliasData.valueFor("en") + ":" + username, WikiSite(Service.WIKIDATA_URL)) }
+            else -> { PageTitle(UserAliasData.valueFor(languageCode) + ":" + username, WikiSite.forLanguageCode(languageCode)) }
+        }
     }
 }

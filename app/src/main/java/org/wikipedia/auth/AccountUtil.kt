@@ -15,7 +15,6 @@ import java.util.*
 
 object AccountUtil {
 
-    @JvmStatic
     fun updateAccount(response: AccountAuthenticatorResponse?, result: LoginResult) {
         if (createAccount(result.userName!!, result.password!!)) {
             response?.onResult(bundleOf(AccountManager.KEY_ACCOUNT_NAME to result.userName,
@@ -30,59 +29,46 @@ object AccountUtil {
         groups = result.groups
     }
 
-    @JvmStatic
     val isLoggedIn: Boolean
         get() = account() != null
 
-    @JvmStatic
     val userName: String?
         get() {
             val account = account()
             return account?.name
         }
 
-    @JvmStatic
     val password: String?
         get() {
             val account = account()
             return if (account == null) null else accountManager().getPassword(account)
         }
 
-    @JvmStatic
     fun getUserIdForLanguage(code: String): Int {
-        val map = userIds
-        val id = map[code]
-        return id ?: 0
+        return userIds.getOrElse(code) { 0 }
     }
 
-    @JvmStatic
     fun putUserIdForLanguage(code: String, id: Int) {
-        val ids: MutableMap<String, Int> = HashMap()
-        ids.putAll(userIds)
-        ids[code] = id
-        userIds = ids
+        userIds += code to id
     }
 
-    @JvmStatic
     var groups: Set<String>
         get() {
             val account = account() ?: return emptySet()
-            val setStr = accountManager().getUserData(account, WikipediaApp.getInstance().getString(R.string.preference_key_login_groups))
+            val setStr = accountManager().getUserData(account, WikipediaApp.instance.getString(R.string.preference_key_login_groups))
             return if (setStr.isNullOrEmpty()) emptySet() else (JsonUtil.decodeFromString(setStr) ?: emptySet())
         }
         set(groups) {
             val account = account() ?: return
             accountManager().setUserData(account,
-                    WikipediaApp.getInstance().getString(R.string.preference_key_login_groups),
+                    WikipediaApp.instance.getString(R.string.preference_key_login_groups),
                     JsonUtil.encodeToString(groups))
         }
 
-    @JvmStatic
     fun isMemberOf(groups: Set<String?>): Boolean {
         return groups.isNotEmpty() && !Collections.disjoint(groups, AccountUtil.groups)
     }
 
-    @JvmStatic
     fun removeAccount() {
         val account = account()
         if (account != null) {
@@ -94,12 +80,10 @@ object AccountUtil {
         }
     }
 
-    @JvmStatic
     fun supported(account: Account): Boolean {
         return account == account()
     }
 
-    @JvmStatic
     fun account(): Account? {
         return try {
             accountManager().getAccountsByType(accountType()).firstOrNull()
@@ -109,9 +93,8 @@ object AccountUtil {
         }
     }
 
-    @JvmStatic
     fun accountType(): String {
-        return WikipediaApp.getInstance().getString(R.string.account_type)
+        return WikipediaApp.instance.getString(R.string.account_type)
     }
 
     private fun createAccount(userName: String, password: String): Boolean {
@@ -134,17 +117,17 @@ object AccountUtil {
     private var userIds: Map<String, Int>
         get() {
             val account = account() ?: return emptyMap()
-            val mapStr = accountManager().getUserData(account, WikipediaApp.getInstance().getString(R.string.preference_key_login_user_id_map))
+            val mapStr = accountManager().getUserData(account, WikipediaApp.instance.getString(R.string.preference_key_login_user_id_map))
             return if (mapStr.isNullOrEmpty()) emptyMap() else (JsonUtil.decodeFromString(mapStr) ?: emptyMap())
         }
         private set(ids) {
             val account = account() ?: return
             accountManager().setUserData(account,
-                    WikipediaApp.getInstance().getString(R.string.preference_key_login_user_id_map),
+                    WikipediaApp.instance.getString(R.string.preference_key_login_user_id_map),
                     JsonUtil.encodeToString(ids))
         }
 
     private fun accountManager(): AccountManager {
-        return AccountManager.get(WikipediaApp.getInstance())
+        return AccountManager.get(WikipediaApp.instance)
     }
 }

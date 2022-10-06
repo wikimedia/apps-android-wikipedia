@@ -26,6 +26,7 @@ import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.analytics.IntentFunnel
 import org.wikipedia.analytics.LinkPreviewFunnel
 import org.wikipedia.analytics.WatchlistFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityPageBinding
@@ -41,7 +42,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
-import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.search.SearchActivity
@@ -68,7 +68,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     lateinit var binding: ActivityPageBinding
     private lateinit var toolbarHideHandler: ViewHideHandler
     private lateinit var pageFragment: PageFragment
-    private var app = WikipediaApp.getInstance()
+    private var app = WikipediaApp.instance
     private var hasTransitionAnimation = false
     private var wasTransitionShown = false
     private val currentActionModes = mutableSetOf<ActionMode>()
@@ -78,6 +78,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private val listDialogDismissListener = DialogInterface.OnDismissListener { pageFragment.updateBookmarkAndMenuOptionsFromDao() }
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
+    private var isTooltipShowing = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -110,23 +111,28 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         clearActionBarTitle()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.pageToolbarButtonSearch.setOnClickListener {
+            pageFragment.articleInteractionEvent?.logSearchWikipediaClick()
             startActivity(SearchActivity.newIntent(this@PageActivity, InvokeSource.TOOLBAR, null))
         }
         binding.pageToolbarButtonTabs.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
         binding.pageToolbarButtonTabs.updateTabCount(false)
         binding.pageToolbarButtonTabs.setOnClickListener {
-            TabActivity.captureFirstTabBitmap(pageFragment.containerView)
+            pageFragment.articleInteractionEvent?.logTabsClick()
+            TabActivity.captureFirstTabBitmap(pageFragment.containerView, pageFragment.title?.prefixedText.orEmpty())
             startActivityForResult(TabActivity.newIntentFromPageActivity(this), Constants.ACTIVITY_REQUEST_BROWSE_TABS)
         }
-        toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP)
+        toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP) { isTooltipShowing }
         FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
         binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
             pageFragment.showOverflowMenu(it)
+            pageFragment.articleInteractionEvent?.logMoreClick()
+            Prefs.showOneTimeCustomizeToolbarTooltip = false
         }
 
         binding.pageToolbarButtonNotifications.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
         binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
         binding.pageToolbarButtonNotifications.setOnClickListener {
+            pageFragment.articleInteractionEvent?.logNotificationClick()
             if (AccountUtil.isLoggedIn) {
                 startActivity(NotificationActivity.newIntent(this@PageActivity))
             } else if (AnonymousNotificationHelper.isWithinAnonNotificationTime() && !Prefs.lastAnonNotificationLang.isNullOrEmpty()) {
@@ -180,7 +186,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                if (app.haveMainActivity()) {
+                if (app.haveMainActivity) {
                     onBackPressed()
                 } else {
                     pageFragment.goToMainTab()
@@ -233,13 +239,14 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL && resultCode == RESULT_OK) {
             Prefs.isDescriptionEditTutorialEnabled = false
             data?.let {
-                pageFragment.startDescriptionEditActivity(it.getStringExtra(DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT))
+                pageFragment.startDescriptionEditActivity(it.getStringExtra(DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT),
+                        it.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
             }
         } else if ((requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT || requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT ||
                     requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT) && (resultCode == RESULT_OK ||
                     resultCode == DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS)) {
             pageFragment.refreshPage()
-            val editLanguage = pageFragment.leadImageEditLang.orEmpty().ifEmpty { app.language().appLanguageCode }
+            val editLanguage = pageFragment.leadImageEditLang.orEmpty().ifEmpty { app.languageState.appLanguageCode }
             val action = if (data != null && data.hasExtra(Constants.INTENT_EXTRA_ACTION))
                 data.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action?
             else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT) DescriptionEditActivity.Action.ADD_IMAGE_TAGS
@@ -318,6 +325,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onNavMenuSwipeRequest(gravity: Int) {
         if (!isCabOpen && gravity == Gravity.END) {
+            pageFragment.articleInteractionEvent?.logTocSwipe()
             pageFragment.sidePanelHandler.showToC()
         }
     }
@@ -325,6 +333,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
         maybeShowWatchlistTooltip()
+        maybeShowThemeTooltip()
     }
 
     override fun onPageDismissBottomSheet() {
@@ -419,7 +428,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             }
             uri?.let {
                 val wiki = WikiSite(it)
-                val title = wiki.titleForUri(it)
+                val title = PageTitle.titleForUri(it, wiki)
                 val historyEntry = HistoryEntry(title, if (intent.hasExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID))
                     HistoryEntry.SOURCE_NOTIFICATION_SYSTEM else HistoryEntry.SOURCE_EXTERNAL_LINK)
                 // Populate the referrer with the externally-referring URL, e.g. an external Browser URL, if present.
@@ -579,7 +588,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     private fun copyLink(url: String) {
-        ClipboardUtil.setPlainText(this, null, url)
+        ClipboardUtil.setPlainText(this, text = url)
     }
 
     private fun showCopySuccessMessage() {
@@ -648,8 +657,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
                         R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
                 }
-            } else {
-                maybeShowThemeTooltip()
             }
         }
     }
@@ -658,23 +665,26 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         if (!Prefs.showOneTimeCustomizeToolbarTooltip) {
             return
         }
-        val anchorView: View?
-        var aboveOrBelow = true
-        if (Prefs.customizeToolbarMenuOrder.contains(PageActionItem.THEME.id)) {
-            anchorView = binding.pageToolbarButtonShowOverflowMenu
-            aboveOrBelow = false
-        } else {
-            anchorView = pageFragment.getPageActionTabLayout().children.find { it.id == PageActionItem.THEME.hashCode() }
-        }
-        anchorView?.let {
-            it.postDelayed({
-                if (!isDestroyed) {
-                    FeedbackUtil.showTooltip(this, it, getString(R.string.theme_chooser_menu_item_tooltip),
-                            aboveOrBelow = aboveOrBelow, autoDismiss = false, -DimenUtil.roundedDpToPx(8f), 0)
+        enqueueTooltip {
+            FeedbackUtil.getTooltip(
+                this,
+                getString(R.string.theme_chooser_menu_item_short_tooltip),
+                arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
+                topOrBottomMargin = 0,
+                aboveOrBelow = true,
+                autoDismiss = false,
+                showDismissButton = true
+            ).apply {
+                setOnBalloonDismissListener {
+                    Prefs.showOneTimeCustomizeToolbarTooltip = false
+                    isTooltipShowing = false
                 }
-            }, 2000)
+                BreadCrumbLogEvent.logTooltipShown(this@PageActivity, binding.pageToolbarButtonShowOverflowMenu)
+                showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
+                setCurrentTooltip(this)
+                isTooltipShowing = true
+            }
         }
-        Prefs.showOneTimeCustomizeToolbarTooltip = false
     }
 
     private fun enqueueTooltip(runnable: Runnable) {

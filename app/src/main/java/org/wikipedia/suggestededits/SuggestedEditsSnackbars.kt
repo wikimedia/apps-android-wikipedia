@@ -17,20 +17,19 @@ object SuggestedEditsSnackbars {
     private const val MAX_SHOW_PER_SESSION = 2
     private val snackbarSessionMap = mutableMapOf<String, Int>()
 
-    @JvmStatic
     fun show(activity: Activity, action: Action?, sequentialSnackbar: Boolean = true, targetLanguageCode: String? = null,
              enableViewAction: Boolean = false, listener: OpenPageListener? = null) {
-        val app = WikipediaApp.getInstance()
+        val app = WikipediaApp.instance
         if (sequentialSnackbar) {
             val snackbar = FeedbackUtil.makeSnackbar(activity,
                     if ((action == Action.TRANSLATE_DESCRIPTION || action == Action.TRANSLATE_CAPTION) &&
-                            app.language().appLanguageCodes.size > 1) {
+                            app.languageState.appLanguageCodes.size > 1) {
                         activity.getString(
                                 if (action == Action.TRANSLATE_DESCRIPTION) {
                                     R.string.description_edit_success_saved_in_lang_snackbar
                                 } else {
                                     R.string.description_edit_success_saved_image_caption_in_lang_snackbar
-                                }, app.language().getAppLanguageLocalizedName(targetLanguageCode))
+                                }, app.languageState.getAppLanguageLocalizedName(targetLanguageCode))
                     } else {
                         activity.getString(
                                 when (action) {
@@ -38,8 +37,7 @@ object SuggestedEditsSnackbars {
                                     Action.ADD_IMAGE_TAGS -> R.string.description_edit_success_saved_image_tags_snackbar
                                     else -> R.string.description_edit_success_saved_image_caption_snackbar
                                 })
-                    }, FeedbackUtil.LENGTH_DEFAULT)
-
+                    })
             if (enableViewAction && listener != null) {
                 snackbar.setAction(R.string.suggested_edits_article_cta_snackbar_action) { listener.open() }
             }
@@ -61,7 +59,7 @@ object SuggestedEditsSnackbars {
 
     private fun showFeedLinkSnackbar(activity: Activity, action: Action?) {
         if (action != null && getSessionCount(activity, action) < MAX_SHOW_PER_SESSION) {
-            FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.description_edit_success_se_general_feed_link_snackbar), FeedbackUtil.LENGTH_DEFAULT)
+            FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.description_edit_success_se_general_feed_link_snackbar))
                     .setAction(R.string.suggested_edits_tasks_onboarding_get_started) {
                         activity.startActivity(SuggestionsActivity.newIntent(activity, action, Constants.InvokeSource.SNACKBAR_ACTION))
                     }

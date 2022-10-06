@@ -453,13 +453,11 @@
   <string name="suggested_edits_contribution_seen_text">ეკონია 30 დრას %s-შა რე ნაძირებუ.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">გოღა</string>
   <string name="suggested_edits_encourage_account_creation_title">გიჩქუდესო ნამჷ-და, ვიკიპედიაშ რედაქტირაფა მიდგად შეულებუნ?</string>
-  <string name="file_page_suggestion_reason">მერზიაფაშ სამანჯელი</string>
   <string name="size_gb">%.2f გბ</string>
   <string name="onboarding_get_started">დოჭყაფა</string>
   <string name="onboarding_maybe_later">მოგვიანაფათ შილებე</string>
   <string name="main_tooltip_watchlist_title">კონტროლიშ ერკებული</string>
   <string name="talk_snackbar_survey_action_text">დოჭყაფა</string>
-  <string name="menu_option_user_profile">%s-შ მუნაჩემეფი</string>
   <string name="menu_option_user_contributions">მახვარებუშ: %s მიშნაღელი თია</string>
   <string name="watchlist_details_watching_label">გინმაჯინე</string>
   <string name="watchlist_details_watch_label">გეგნაჯინი</string>

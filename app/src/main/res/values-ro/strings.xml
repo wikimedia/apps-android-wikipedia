@@ -29,7 +29,7 @@
   <string name="search_hint">Căutare în Wikipedia</string>
   <string name="search_hint_voice_search">Căutare de intrare vocală</string>
   <string name="search_hint_search_languages">Caută o limbă</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Filtrează-mi lista</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrează lista</string>
   <string name="nav_item_suggested_edits">Editări</string>
   <string name="nav_item_more">Mai mult</string>
   <string name="nav_item_search">Caută</string>
@@ -61,13 +61,34 @@
   <string name="share_via">Distribuire prin</string>
   <string name="image_share_via">Distribuire prin</string>
   <string name="search_redirect_from">Redirecționat de la %s</string>
+  <string name="page_edit_history_activity_title">Istoricul modificărilor: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Rezumatul modificărilor este gol</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Căutați sau filtrați editările</string>
+  <string name="page_edit_history_filter_by">Filtrare după</string>
+  <string name="page_edit_history_filter_by_all">Toate editările (%s)</string>
+  <string name="page_edit_history_filter_by_user">Editări ale utilizatorului (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Editări anon (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Modificări bot (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Valori de la %1$s la %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d modificări de la %2$s</item>
+    <item quantity="few">%1$d modificări de la%2$s</item>
+    <item quantity="other">%1$d modificări de la%2$s</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Încercați să vă schimbați &lt;a href=\"#\"&gt;filters&lt;/a&gt; pentru a vedea mai multe editări</string>
   <string name="menu_page_show_tabs">Arată filele</string>
   <string name="menu_page_other_languages">Schimbă limba</string>
   <string name="menu_page_find_in_page">Găsește în articol</string>
   <string name="menu_page_add_to_watchlist">Adaugă la urmărite</string>
+  <string name="menu_page_watch">Urmărește</string>
+  <string name="menu_page_unwatch">Nu mai urmări</string>
   <string name="menu_page_view_talk">Vezi pagina de discuții</string>
+  <string name="menu_page_talk_page">Pagină de discuții</string>
   <string name="menu_page_view_edit_history">Vezi istoricul editărilor</string>
+  <string name="menu_page_edit_history">Istoric modificări</string>
   <string name="menu_page_remove_from_watchlist">Scoate de la urmărite</string>
+  <string name="menu_page_watched">Urmărit</string>
   <string name="edit_section_find_in_page">Găsiți în pagină</string>
   <string name="menu_page_font_and_theme">Schimbă fontul și tema</string>
   <string name="menu_page_add_to_list">Adaugă la lista de lecturi</string>
@@ -76,6 +97,7 @@
   <string name="feed_card_add_to_default_list">Salvează</string>
   <string name="menu_page_share">Distribuie legătura</string>
   <string name="menu_article_share">Distribuie articolul</string>
+  <string name="menu_page_article_share">Distribuie</string>
   <string name="menu_page_open_a_new_tab">Deschide un tab nou</string>
   <string name="menu_page_new_tab">Filă nouă</string>
   <string name="menu_page_reading_lists">Listă de citit</string>
@@ -87,6 +109,7 @@
   <string name="on_this_day_page_share">Distribuie</string>
   <string name="reading_list_page_share">Distribuie</string>
   <string name="menu_text_select_edit_here">Modifică aici</string>
+  <string name="menu_edit_article">Modifică articol</string>
   <string name="last_updated_text">Ultima actualizare: %s</string>
   <string name="talk_page_link_text">Discuție</string>
   <string name="edit_history_link_text">Vezi istoricul editărilor</string>
@@ -96,6 +119,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Salvând, sunteți de acord cu &lt;a href=\"%1$s\"&gt;Termenii de utilizare&lt;/a&gt; și acceptați să vă publicați irevocabil modificările sub licența &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Salvând, sunteți de acord cu &lt;a href=\"%1$s\"&gt;Termenii de utilizare&lt;/a&gt; și acceptați să vă publicați irevocabil modificările sub licența &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Modificările vor fi atribuite adresei IP a dispozitivului dumneavoastră. Dacă vă &lt;a href=\"https://#login\"&gt;autentificați&lt;/a&gt; veți beneficia de mai multă confidențialitate.</string>
+  <string name="edit_anon_warning">Modificările vor fi atribuite adresei IP a dispozitivului dvs. Dacă vă &lt;a href=\"https://#login\"&gt;conectați&lt;/a&gt;, veți avea mai multă confidențialitate.</string>
   <string name="preference_title_language">Limbile Wikipedia</string>
   <string name="langlinks_filter_hint">Căutare</string>
   <string name="langlinks_empty">Această pagină nu este disponibilă în alte limbi</string>
@@ -162,6 +186,7 @@
   <string name="dialog_create_account_checking_progress">Se verifică</string>
   <string name="create_account_email_hint">E-mail (opțional)</string>
   <string name="create_account_password_repeat_hint">Repetați parola</string>
+  <string name="create_account_password_is_username">Parola nu poate fi aceeași cu numele de utilizator</string>
   <string name="create_account_passwords_mismatch_error">Parolele nu sunt identice</string>
   <string name="create_account_email_error">Adresă de e-mail nevalidă</string>
   <string name="create_account_username_error">Caractere nevalide în numele de utilizator</string>
@@ -244,6 +269,12 @@
   <string name="edit_preview">Previzualizare</string>
   <string name="edit_undo">Anulează</string>
   <string name="edit_redo">Reface</string>
+  <string name="edit_rollback">Revenire</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s byte</item>
+    <item quantity="few">%s bytes</item>
+    <item quantity="other">%s bytes</item>
+  </plurals>
   <string name="edit_zoom_in">Mărește</string>
   <string name="edit_zoom_out">Micșorează</string>
   <string name="edit_summary_tag_typo">Corectat greșeli ortografice</string>
@@ -389,6 +420,7 @@
   <string name="error_blocked_expiry">Expirarea blocării: %s</string>
   <string name="error_blocked_id">ID Blocare: %s</string>
   <string name="error_blocked_footer">Puteţi contacta &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; sau alt &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; pentru a discuta blocarea.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Personalizați-vă bara de instrumente</string>
   <string name="error_blocked_footer_no_blocker">Puteţi contacta un &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; pentru a discuta blocarea.</string>
   <string name="crash_report_activity_title">Eroare aplicație</string>
   <string name="crash_report_relaunch_or_quit">Ne pare rău, aplicația Wikipedia a întâmpinat o eroare și nu mai funcționează.\n\nDoriți să o reporniți sau să o închideți?</string>
@@ -415,6 +447,9 @@
   <string name="text_size_decrease">Scade dimensiunea textului</string>
   <string name="text_size_percent_default">%s (Implicit)</string>
   <string name="text_style_title">Font</string>
+  <string name="theme_category_reading">Lectură</string>
+  <string name="reading_focus_mode">Modul focalizare lectură</string>
+  <string name="reading_focus_mode_detail">Ascunde funcțiile de editare și bara de instrumente de jos pe defilare</string>
   <string name="nav_item_saved">Salvat</string>
   <string name="reading_list_save_to">Salvează în lista de lecturi</string>
   <string name="reading_list_move_to">Accesați lista de citire</string>
@@ -615,6 +650,18 @@
   <string name="notifications_direct_reply_progress">Publicare răspuns lui %s…</string>
   <string name="notifications_direct_reply_success">Răspuns publicat.</string>
   <string name="notifications_direct_reply_error">Nu s-a putut publica răspunsul automat.</string>
+  <string name="notifications_mark_all_as_read_message">%d marcat ca citit</string>
+  <string name="notifications_mark_all_as_unread_message">%d marcat ca necitit</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 marcat ca citit</item>
+    <item quantity="few">%d marcat ca citit</item>
+    <item quantity="other">%d marcat ca citit</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 marcat ca necitit</item>
+    <item quantity="few">%d marcat ca necitit</item>
+    <item quantity="other">%d marcat ca necitit</item>
+  </plurals>
   <string name="watchlist_title">Pagini urmărite</string>
   <string name="preference_title_notification_poll">Activează notificările</string>
   <string name="preference_summary_notification_poll">Permite aplicației să verifice în fundal dacă apar notificări noi.</string>
@@ -651,6 +698,11 @@
   <string name="notifications_filter_icon_content_description">Filtrează notificările</string>
   <string name="notifications_filter_update_app_languages">Actualizează limbile aplicației</string>
   <string name="notifications_empty_search_message">Încercați să eliminați %s pentru a vedea mai multe notificări</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d filtru</item>
+    <item quantity="few">%d filtre</item>
+    <item quantity="other">%d filtre</item>
+  </plurals>
   <string name="notifications_select_all_filters">Selectați toate filtrele</string>
   <string name="notifications_tab_filter_all">Toate</string>
   <string name="notifications_tab_filter_mentions">Menționări</string>
@@ -756,6 +808,7 @@
   <string name="description_starts_with_uppercase">Începeți cu o literă mică exceptând cazul în care primul cuvânt este un substantiv propriu.</string>
   <string name="description_starts_with_lowercase">Evitați începerea cu o literă mică.</string>
   <string name="description_is_in_different_language">Textul pare a fi într-o limbă neașteptată. Limba ar trebui să fie %s.</string>
+  <string name="description_verification_notice">Verificați că descrierea dvs. este în %1$s. Simțiți-vă liber să respingeți această notificare dacă descrierea pe care ați scris-o este în %2$s.</string>
   <string name="description_edit_success_saved">Descrierea articolului publicată!</string>
   <string name="description_edit_success_saved_snackbar">Descrierea articolului publicată!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrierea articolului publicată! (%s)</string>
@@ -773,6 +826,14 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">În mod ideal, o linie, între două până la douăsprezece cuvinte</string>
   <string name="description_edit_tutorial_button_label_start_editing">Începeți modificarea</string>
   <string name="description_edit_tutorial_promise">Începând, promit să nu folosesc greșit această caracteristică.</string>
+  <string name="customize_toolbar_title">Personalizați-vă bara de instrumente</string>
+  <string name="customize_toolbar_shortcut_description_text">\nPersonalizați bara de instrumente de jos cu 5 comenzi rapide pe care le considerați cele mai utile.</string>
+  <string name="customize_toolbar_category_toolbar">Bara de instrumente</string>
+  <string name="customize_toolbar_category_menu">Meniu</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Trageți și plasați articolele preferate aici 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Resetare la valorile implicite</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Țineți apăsată pictograma de glisare pentru a muta elementul</string>
+  <string name="customize_toolbar_item_default_tooltip">Apăsați și trageți un element pentru a-l repoziționa</string>
   <string name="suggested_edits_describe_articles">Descrie articole</string>
   <string name="suggested_edits_caption_images">Descrie imaginile</string>
   <string name="suggested_edits_tag_images">Etichetați imaginile</string>
@@ -864,6 +925,7 @@
   <string name="suggested_edits_paused_message">Editările sugerate sunt întrerupte până %1$s. Scuze, %2$s, o parte din contribuțiile dvs. recente au fost anulate.</string>
   <string name="suggested_edits_disabled_message">Editările sugerate sunt dezactivate. Scuze, %s, prea multe dintre contribuțiile dvs. recente au fost anulate.</string>
   <string name="suggested_edits_ip_blocked_message">Se pare că adresa dvs. IP (sau gama de adrese IP) este momentan blocată de la editarea Wikipediei.</string>
+  <string name="suggested_edits_gate_message">Ne pare rău, %s, trebuie să faceți cel puțin trei modificări direct într-un articol pentru a utiliza această funcție.</string>
   <string name="suggested_edits_editing_tips_link_text">Modificare sfaturi și trucuri</string>
   <string name="suggested_edits_help_page_link_text">Pagina de ajutor pentru modificări sugerate</string>
   <string name="suggested_edits_edit_streak_label_text">Editări neîntrerupte</string>
@@ -950,7 +1012,6 @@
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="file_page_add_image_caption_button">Adaugă legendă pentru imagine</string>
   <string name="file_page_add_image_tags_button">Adaugă etichete pentru imagine</string>
-  <string name="file_page_suggestion_reason">Motivul sugestiei</string>
   <string name="file_page_edit_button_content_description">Editează %s</string>
   <string name="description_edit_revert_subtitle">Mulțumim pentru editarea Wikipedia!</string>
   <string name="description_edit_revert_intro">Știm că ai încercat tot posibilul, dar unul dintre recenzori avea o îndoială. Posibilele motive pentru care modificarea dvs. a fost anulată includ:</string>
@@ -1064,11 +1125,46 @@
   <string name="talk_snackbar_survey_action_text">Începeți</string>
   <string name="talk_share_discussion_subject">Wikipedia - discuție la subiectul „%s” de pe pagină de discuție</string>
   <string name="talk_share_talk_page">Wikipedia - discuții pe pagina de discuție</string>
+  <string name="talk_edit_disclaimer">Aceasta este o pagină de discuție. Vă rugăm să respectați regulile paginii de discuție și nu uitați să vă semnați postările introducând patru tilde: ~~~~ când postați folosind wikitext.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/ Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Instrucțiuni privind pagina de discuții&lt;/a&gt;</string>
+  <string name="talk_search_hint">Căutați mesaje</string>
+  <string name="talk_search_topics_hint">Caută subiecte</string>
+  <string name="talk_search_find_in_talk_topics_hint">Găsiți în subiectul paginii de discuție</string>
+  <string name="talk_overflow_sort_by">Sortare după</string>
+  <string name="talk_overflow_sort_date_published">Data publicării</string>
+  <string name="talk_overflow_sort_date_updated">Data actualizată</string>
+  <string name="talk_overflow_sort_topic_name">Nume subiect</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Afișează răspunsul</item>
+    <item quantity="few">Afișați răspunsurile (%d)</item>
+    <item quantity="other">Afișați răspunsurile (%d)</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Ascunde răspunsul</item>
+    <item quantity="few">Ascunde răspunsurile (%d)</item>
+    <item quantity="other">Ascunde răspunsurile (%d)</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">Te-ai abonat la „%s”</string>
+  <string name="talk_thread_unsubscribed_from">Dezabonat de la „%s”</string>
+  <string name="talk_list_item_overflow_subscribe">Abonare</string>
+  <string name="talk_list_item_overflow_subscribed">Abonare</string>
+  <string name="talk_list_item_overflow_mark_as_read">Marchează ca citit</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Marchează ca necitit</string>
+  <string name="talk_list_item_overflow_share">Distribuie</string>
+  <string name="talk_list_item_last_comment_date">Ultimul comentariu: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Total răspunsuri</string>
+  <string name="talk_list_item_user_icon_content_description">Pictograma utilizator</string>
+  <string name="talk_list_item_swipe_mark_as_read">Citește</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Necitit</string>
   <string name="menu_option_share_talk_discussion">Distribuie discuție</string>
   <string name="menu_option_share_talk_page">Distribuie pagină de discuție</string>
   <string name="menu_option_share_edit">Distribuie modificarea</string>
-  <string name="menu_option_user_profile">Profilul lui %s</string>
   <string name="menu_option_user_contributions">Contribuțiile lui %s</string>
+  <string name="menu_option_edit_source">Modificare sursă</string>
+  <string name="menu_option_user_page">%s pagina utilizatorului</string>
+  <string name="menu_option_find_in_talk_page_topic">Găsiți în subiectul paginii de discuție</string>
+  <string name="talk_menu_copy_text">Copiază textul</string>
+  <string name="talk_menu_expand_threads">Deschide subiectele</string>
+  <string name="talk_menu_collapse_threads">Închide subiectele</string>
   <string name="watchlist_details_watching_label">Urmărire</string>
   <string name="watchlist_details_watch_label">Urmăriți</string>
   <string name="watchlist_details_next_edit">Următoarea modificare</string>
@@ -1080,6 +1176,27 @@
   <string name="thank_dialog_positive_button_text">Trimite mulțumiri</string>
   <string name="thank_dialog_negative_button_text">Anulează</string>
   <string name="thank_success_message">Mulțumirea dvs. a fost trimisă către %s 👍</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">Vizualizați pagina de profil de utilizator</string>
+  <string name="menu_option_view_user_talk">Vezi pagina de discuții</string>
+  <string name="menu_option_view_user_contributions">Vezi contribuțiile utilizatorului</string>
+  <string name="revision_diff_compare">Compară modificările</string>
+  <string name="revision_diff_compare_title">Compară modificările: %s</string>
+  <string name="revision_diff_from">De la:</string>
+  <string name="revision_diff_to">La:</string>
+  <string name="revision_diff_line_num">Linia %d</string>
+  <string name="revision_diff_line_nums">Linii %d–%d</string>
+  <string name="revision_diff_line_added">Linie adăugată</string>
+  <string name="revision_diff_line_removed">Linia a fost scoasă</string>
+  <string name="revision_diff_paragraph_added">Paragraf adăugat</string>
+  <string name="revision_diff_paragraph_removed">Paragraf scos</string>
+  <string name="revision_undo_title">Revino modificare</string>
+  <string name="revision_undo_message">Acest lucru va anula modificările făcute de revizuirea(e) articolului afișat aici.</string>
+  <string name="revision_undo_reason">Pentru a continua, furnizați un motiv pentru anularea acestei modificări:</string>
+  <string name="revision_undo_success">Modificarea a fost anulată.</string>
+  <string name="revision_rollback_dialog_title">Sigur doriți să anulați modificările?</string>
+  <string name="revision_rollback_success">Modificările au fost anulate.</string>
+  <string name="revision_compare_button">Compară</string>
+  <string name="revision_compare_two_only">Trebuie selectate doar două modificări</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s și pagina de discuție a sa au fost adăugate la lista de urmărire a dvs. %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Schimbă</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
@@ -1102,4 +1219,12 @@
   <string name="watchlist_page_moved">Mutat</string>
   <string name="watchlist_page_protected">Protejat</string>
   <string name="watchlist_page_deleted">Șters</string>
+  <string name="action_item_categories">Categorii</string>
+  <string name="page_no_categories">Această pagină nu aparține niciunei categorii.</string>
+  <string name="category_tab_articles">Articole</string>
+  <string name="category_tab_subcategories">Subcategorii</string>
+  <string name="category_empty">Nu s-au găsit articole în această categorie.</string>
+  <string name="subcategory_empty">Nu s-au găsit subcategorii în această categorie.</string>
+  <string name="search_namespaces">Spații de nume</string>
+  <string name="revision_initial_none">Niciuna (aceasta este prima modificare)</string>
 </resources>

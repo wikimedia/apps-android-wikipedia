@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemWatchlistHeaderBinding
 import org.wikipedia.util.ResourceUtil
@@ -47,12 +46,12 @@ class WatchlistHeaderView constructor(context: Context, attrs: AttributeSet? = n
 
     private fun setFilterButtonEnabled(button: TextView) {
         button.setTextColor(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color))
-        button.background = ContextCompat.getDrawable(context, R.drawable.rounded_20dp_accent90_fill)
+        button.setBackgroundResource(R.drawable.rounded_20dp_accent90_fill)
     }
 
     private fun setFilterButtonDisabled(button: TextView) {
         button.setTextColor(ResourceUtil.getThemedColor(context, R.attr.secondary_text_color))
-        button.background = ContextCompat.getDrawable(context, R.drawable.rounded_20dp_base90_fill)
+        button.setBackgroundResource(R.drawable.rounded_20dp_base90_fill)
     }
 
     override fun onClick(v: View?) {

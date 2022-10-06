@@ -8,8 +8,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.textfield.TextInputLayout
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -33,10 +33,31 @@ class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginSource: String
     private var firstStepToken: String? = null
-    private var funnel: LoginFunnel = LoginFunnel(WikipediaApp.getInstance())
+    private var funnel: LoginFunnel = LoginFunnel(WikipediaApp.instance)
     private val loginClient = LoginClient()
     private val loginCallback = LoginCallback()
     private var shouldLogLogin = true
+
+    private val createAccountLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        logLoginStart()
+        when (it.resultCode) {
+            CreateAccountActivity.RESULT_ACCOUNT_CREATED -> {
+                binding.loginUsernameText.editText?.setText(it.data!!.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_USERNAME))
+                binding.loginPasswordInput.editText?.setText(it.data?.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_PASSWORD))
+                funnel.logCreateAccountSuccess()
+                FeedbackUtil.showMessage(this, R.string.create_account_account_created_toast)
+                doLogin()
+            }
+            CreateAccountActivity.RESULT_ACCOUNT_NOT_CREATED -> finish()
+            else -> funnel.logCreateAccountFailure()
+        }
+    }
+
+    private val resetPasswordLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            onLoginSuccess()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,27 +94,6 @@ class LoginActivity : BaseActivity() {
         setResult(RESULT_LOGIN_FAIL)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Constants.ACTIVITY_REQUEST_CREATE_ACCOUNT) {
-            logLoginStart()
-            when (resultCode) {
-                CreateAccountActivity.RESULT_ACCOUNT_CREATED -> {
-                    binding.loginUsernameText.editText?.setText(data!!.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_USERNAME))
-                    binding.loginPasswordInput.editText?.setText(data?.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_PASSWORD))
-                    funnel.logCreateAccountSuccess()
-                    FeedbackUtil.showMessage(this,
-                            R.string.create_account_account_created_toast)
-                    doLogin()
-                }
-                CreateAccountActivity.RESULT_ACCOUNT_NOT_CREATED -> finish()
-                else -> funnel.logCreateAccountFailure()
-            }
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_RESET_PASSWORD && resultCode == RESULT_OK) {
-            onLoginSuccess()
-        }
-    }
-
     override fun onBackPressed() {
         DeviceUtil.hideSoftKeyboard(this)
         super.onBackPressed()
@@ -115,7 +115,7 @@ class LoginActivity : BaseActivity() {
         binding.loginCreateAccountButton.setOnClickListener { startCreateAccountActivity() }
         binding.inflateLoginAndAccount.privacyPolicyLink.setOnClickListener { FeedbackUtil.showPrivacyPolicy(this) }
         binding.inflateLoginAndAccount.forgotPasswordLink.setOnClickListener {
-            val title = PageTitle("Special:PasswordReset", WikipediaApp.getInstance().wikiSite)
+            val title = PageTitle("Special:PasswordReset", WikipediaApp.instance.wikiSite)
             visitInExternalBrowser(this, Uri.parse(title.uri))
         }
     }
@@ -155,7 +155,7 @@ class LoginActivity : BaseActivity() {
 
     private fun startCreateAccountActivity() {
         funnel.logCreateAccountAttempt()
-        startActivityForResult(CreateAccountActivity.newIntent(this, funnel.sessionToken, loginSource), Constants.ACTIVITY_REQUEST_CREATE_ACCOUNT)
+        createAccountLauncher.launch(CreateAccountActivity.newIntent(this, funnel.sessionToken, loginSource))
     }
 
     private fun onLoginSuccess() {
@@ -182,10 +182,10 @@ class LoginActivity : BaseActivity() {
         val twoFactorCode = getText(binding.login2faText)
         showProgressBar(true)
         if (twoFactorCode.isNotEmpty() && !firstStepToken.isNullOrEmpty()) {
-            loginClient.login(WikipediaApp.getInstance().wikiSite, username, password,
+            loginClient.login(WikipediaApp.instance.wikiSite, username, password,
                     null, twoFactorCode, firstStepToken!!, loginCallback)
         } else {
-            loginClient.request(WikipediaApp.getInstance().wikiSite, username, password, loginCallback)
+            loginClient.request(WikipediaApp.instance.wikiSite, username, password, loginCallback)
         }
     }
 
@@ -213,8 +213,7 @@ class LoginActivity : BaseActivity() {
         }
 
         override fun passwordResetPrompt(token: String?) {
-            startActivityForResult(ResetPasswordActivity.newIntent(this@LoginActivity,
-                    getText(binding.loginUsernameText), token), Constants.ACTIVITY_REQUEST_RESET_PASSWORD)
+            resetPasswordLauncher.launch(ResetPasswordActivity.newIntent(this@LoginActivity, getText(binding.loginUsernameText), token))
         }
 
         override fun error(caught: Throwable) {

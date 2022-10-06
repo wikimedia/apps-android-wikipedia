@@ -96,20 +96,17 @@ interface ReadingListDao {
     fun createList(title: String, description: String?): ReadingList {
         if (title.isEmpty()) {
             L.w("Attempted to create list with empty title (default).")
-            return defaultList
+            return getDefaultList()
         }
         return createNewList(title, description)
     }
 
-    val defaultList: ReadingList
-        get() {
-            val lists = getListsWithoutContents()
-            lists.find { it.isDefault }?.run {
-                return this
-            }
+    fun getDefaultList(): ReadingList {
+        return getListsWithoutContents().find { it.isDefault } ?: run {
             L.w("(Re)creating default list.")
-            return createNewList("", WikipediaApp.getInstance().getString(R.string.default_reading_list_description))
+            createNewList("", WikipediaApp.instance.getString(R.string.default_reading_list_description))
         }
+    }
 
     private fun createNewList(title: String, description: String?): ReadingList {
         val protoList = ReadingList(title, description)

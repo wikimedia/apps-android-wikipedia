@@ -1,14 +1,17 @@
 package org.wikipedia.views
 
+import android.app.Activity
 import android.content.Context
+import android.content.ContextWrapper
+import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.text.TextUtils
-import android.view.ActionMode
-import android.view.LayoutInflater
+import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
@@ -25,11 +28,9 @@ import org.wikipedia.util.WhiteBackgroundTransformation
 import java.util.*
 
 object ViewUtil {
-    private val CENTER_CROP_ROUNDED_CORNERS = MultiTransformation(CenterCrop(),
-            WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
+    private val CENTER_CROP_ROUNDED_CORNERS = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
     val ROUNDED_CORNERS = RoundedCorners(roundedDpToPx(15f))
-    val CENTER_CROP_LARGE_ROUNDED_CORNERS = MultiTransformation(CenterCrop(),
-            WhiteBackgroundTransformation(), ROUNDED_CORNERS)
+    val CENTER_CROP_LARGE_ROUNDED_CORNERS = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), ROUNDED_CORNERS)
 
     fun loadImageWithRoundedCorners(view: ImageView, url: String?, largeRoundedSize: Boolean = false) {
         loadImage(view, url, true, largeRoundedSize)
@@ -67,12 +68,8 @@ object ViewUtil {
     fun formatLangButton(langButton: TextView, langCode: String,
                          langButtonTextSizeSmaller: Int, langButtonTextSizeLarger: Int) {
         val langCodeStandardLength = 3
-        val langButtonTextMaxLength = 7
         if (langCode.length > langCodeStandardLength) {
             langButton.textSize = langButtonTextSizeSmaller.toFloat()
-            if (langCode.length > langButtonTextMaxLength) {
-                langButton.text = langCode.substring(0, langButtonTextMaxLength).uppercase(Locale.ENGLISH)
-            }
             return
         }
         langButton.textSize = langButtonTextSizeLarger.toFloat()
@@ -80,5 +77,26 @@ object ViewUtil {
 
     fun adjustImagePlaceholderHeight(containerWidth: Float, thumbWidth: Float, thumbHeight: Float): Int {
         return (Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat() / thumbWidth * thumbHeight * containerWidth / Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat()).toInt()
+    }
+
+    tailrec fun Context.getActivity(): Activity? = this as? Activity
+        ?: (this as? ContextWrapper)?.baseContext?.getActivity()
+
+    fun findClickableViewAtPoint(parentView: View, x: Int, y: Int): View? {
+        val location = IntArray(2)
+        parentView.getLocationOnScreen(location)
+        val rect = Rect(location[0], location[1], location[0] + parentView.width, location[1] + parentView.height)
+        if (rect.contains(x, y) && parentView.isVisible) {
+            if (parentView is ViewGroup) {
+                for (i in parentView.childCount - 1 downTo 0) {
+                    val v = parentView.getChildAt(i)
+                    findClickableViewAtPoint(v, x, y)?.let { return it }
+                }
+            }
+            if (parentView.isEnabled && parentView.isClickable) {
+                return parentView
+            }
+        }
+        return null
     }
 }

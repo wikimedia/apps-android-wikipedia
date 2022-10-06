@@ -3,6 +3,8 @@ package org.wikipedia.categories
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -114,6 +116,21 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.categoryTabLayout.selectTab(binding.categoryTabLayout.getTabAt(if (viewModel.showSubcategories) 1 else 0))
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_category, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_categories -> {
+                bottomSheetPresenter.show(supportFragmentManager, CategoryDialog.newInstance(viewModel.pageTitle))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun loadPage(title: PageTitle) {
         if (viewModel.showSubcategories) {
             startActivity(newIntent(this, title))
@@ -128,7 +145,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     override fun onLinkPreviewCopyLink(title: PageTitle) {
-        ClipboardUtil.setPlainText(this, null, title.uri)
+        ClipboardUtil.setPlainText(this, text = title.uri)
         FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 

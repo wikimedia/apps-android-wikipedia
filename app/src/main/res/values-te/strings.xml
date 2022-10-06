@@ -55,10 +55,17 @@
   <string name="page_edit_history_activity_title">కూర్పుల చరిత్ర: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;చి&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">దిద్దుబాటు సారాంశం ఖాళీగా ఉంది</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">వడపోత దిద్దుబాట్ల కోసం వెతుకండి</string>
+  <string name="page_edit_history_filter_by">ఇలా వడపోయి:</string>
+  <string name="page_edit_history_filter_by_all">దిద్దుబాట్లన్నీ (%s)</string>
+  <string name="page_edit_history_filter_by_user">వాడుకరి దిద్దుబాట్లు (%s)</string>
+  <string name="page_edit_history_filter_by_anon">అజ్ఞాత దిద్దుబాట్లు (%s)</string>
+  <string name="page_edit_history_filter_by_bot">బాట్ల దిద్దుబాట్లు (%s)</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%2$s నుండి %1$d దిద్దుబాటు</item>
     <item quantity="other">%2$s నుండి %1$d దిద్దుబాట్లు</item>
   </plurals>
+  <string name="page_edit_history_empty_search_message">మరిన్ని దిద్దుబాట్లు చూసేందుకు &lt;a href=\"#\"&gt;వడపోతలను&lt;/a&gt; మార్చి చూడండి</string>
   <string name="menu_page_show_tabs">ట్యాబులను చూపించు</string>
   <string name="menu_page_other_languages">భాషను మార్చు</string>
   <string name="menu_page_find_in_page">వ్యాసంలో వెతకండి</string>
@@ -236,7 +243,7 @@
   <string name="about_app_license">సోర్సు కోడు &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; వద్ద &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; కు లోబడి అందుబాటులో ఉంది. ప్రత్యేకించి చెప్పకపోతే, కంటెంటు &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; కు లోబడి అందుబాటులో ఉంది.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;వికీమీడియా ఫౌండేషను&lt;/a&gt; వారి ఉత్పత్తి</string>
   <string name="about_activity_title">గురించి</string>
-  <string name="edit_abandon_confirm">ఈ పేజి సవరించబడింది. మార్పులని భద్రపరచకుండా ఖచ్చితంగా వదిలేయాలని అనుకుంటున్నారా?</string>
+  <string name="edit_abandon_confirm">ఈ పేజీలో మార్పులు చేసారు. మీరు చేసిన మార్పులను భద్రపరచకుండానే వెళ్ళిపోవాలని నిశ్చయించుకున్నారా?</string>
   <string name="edit_abandon_confirm_yes">అవును</string>
   <string name="edit_abandon_confirm_no">కాదు</string>
   <string name="user_blocked_from_editing_title">నిరోధించబడింది</string>
@@ -391,7 +398,6 @@
   <string name="error_blocked_expiry">నిరోధం ముగిసేది: %s</string>
   <string name="error_blocked_id">నిరోధం ఐడీ: %s</string>
   <string name="error_blocked_footer">నిరోధం గురించి చర్చించేందుకు మీరు &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ను గానీ, మరో &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;నిర్వాహకుని&lt;/a&gt; గానీ సంప్రదించవచ్చు.</string>
-  <string name="theme_chooser_menu_item_tooltip">మీ పరికరాల పట్టీని కస్టమైను చేసుకుని, రీడింగు ఫోకస్ మోడ్‌ను ప్రయత్నించండి</string>
   <string name="error_blocked_footer_no_blocker">నిరోధం గురించి చర్చించేందుకు మీరు &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;నిర్వాహకుని&lt;/a&gt; సంప్రదించవచ్చు.</string>
   <string name="crash_report_activity_title">అప్లికేషను లోపం</string>
   <string name="crash_report_relaunch_or_quit">క్షమించాలి, వికీపీడియా యాప్‌కు ఏదో లోపం ఎదురవడంతో, అది అంతమై పోయింది.\n\nమళ్ళీ మొదలెడతారా లేక వెళ్ళిపోతారా?</string>
@@ -421,8 +427,7 @@
   <string name="theme_category_reading">పఠనం</string>
   <string name="reading_focus_mode">రీడింగు ఫోకస్ మోడ్</string>
   <string name="reading_focus_mode_detail">స్క్రాల్ చేసేటపుడు దిద్దుబాటు విశేషాలను, అడుగున ఉన్న పరికరాల పట్టీనీ దాస్తుంది</string>
-  <string name="theme_category_toolbar">పరికరాల పట్టీ</string>
-  <string name="theme_customize_toolbar">పరికరాల పట్టీని కస్టమైజు చెయ్యి</string>
+  <string name="editing_line_numbers_label">వరుస సంఖ్యలు చూపించు</string>
   <string name="nav_item_saved">భద్రపరచబడినవి</string>
   <string name="reading_list_save_to">చదివే జాబితాలో భద్రపరచు</string>
   <string name="reading_list_move_to">చదివే జాబితా లోకి తరలించు</string>
@@ -767,7 +772,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">దిద్దుబాటు మొదలు పెట్టండి</string>
   <string name="description_edit_tutorial_promise">ఈ అంశాన్ని దురుపయోగం చెయ్యనని మాటిస్తూ మొదలెడుతున్నాను.</string>
   <string name="customize_toolbar_title">పరికరాల పట్టీని కస్టమైజు చెయ్యి</string>
-  <string name="customize_toolbar_description_text">మీకు బాగా ఉపయోగం అనిపించే 5 లింకులను అడుగున ఉండే పరికరాల పట్టీలో చేర్చి కస్టమైజు చేసుకోండి.</string>
   <string name="customize_toolbar_category_toolbar">పరికరాల పట్టీ</string>
   <string name="customize_toolbar_category_menu">మెనూ</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">మీకిష్టమైన వాటిని లాక్కొచ్చి ఇక్కడ పడెయ్యండి 👋</string>
@@ -938,7 +942,6 @@
   <string name="file_page_activity_title">దస్త్రపు పేజీ</string>
   <string name="file_page_add_image_caption_button">బొమ్మకు వ్యాఖ్య చేర్చండి</string>
   <string name="file_page_add_image_tags_button">బొమ్మకు ట్యాగులు చేర్చండి</string>
-  <string name="file_page_suggestion_reason">సూచన చేసిన కారణం</string>
   <string name="file_page_edit_button_content_description">%s దిద్దుబాటు</string>
   <string name="description_edit_revert_subtitle">వికీపీడియాలో మార్పుచేర్పులు చేసినందుకు ధన్యవాదాలు!</string>
   <string name="description_edit_revert_intro">మీ శాయశక్తులా కృషి చేసారని మాకు తెలుసు. అయితే మీ సమీక్షకులకు ఏదో ఆందోళన ఉంది. మీ దిద్దుబాటును తిరగ్గొట్టేందుకు కారణాలు బహుశా ఇవి కావచ్చు:</string>
@@ -1012,7 +1015,10 @@
   <string name="content_description_for_page_indicator">%2$d పేజీల్లో %1$d</string>
   <string name="wikitext_bold">బొద్దు</string>
   <string name="wikitext_italic">వాలు</string>
+  <string name="wikitext_underline">క్రీగీత</string>
+  <string name="wikitext_sup">శీర్షాక్షరాలు</string>
   <string name="wikitext_link">లంకెచేయి</string>
+  <string name="wikitext_headings">శీర్షికలు</string>
   <string name="wikitext_bulleted_list">బిందు జాబితా</string>
   <string name="wikitext_numbered_list">సంఖ్యా జాబితా</string>
   <string name="wikitext_template">మూస</string>
@@ -1055,7 +1061,6 @@
   <string name="menu_option_share_talk_discussion">చర్చను పంచుకోండి</string>
   <string name="menu_option_share_talk_page">చర్చ పేజీని పంచుకోండి</string>
   <string name="menu_option_share_edit">దిద్దుబాటును పంచుకోండి</string>
-  <string name="menu_option_user_profile">%s ప్రొఫైలు</string>
   <string name="menu_option_user_contributions">%s మార్పుచేర్పులు</string>
   <string name="menu_option_edit_source">మూలపాఠ్యాన్ని సవరించండి</string>
   <string name="watchlist_details_watching_label">వీక్షిస్తున్నారు</string>
@@ -1069,7 +1074,7 @@
   <string name="thank_dialog_positive_button_text">ధన్యవాదాలు పంపించు</string>
   <string name="thank_dialog_negative_button_text">రద్దుచేయి</string>
   <string name="thank_success_message">మీ \'ధన్యవాదాలను\' %s కు పంపించాం 👍</string>
-  <string name="menu_option_view_user_profile">వాడుకరి ప్రొఫైలు పేజీ చూడండి</string>
+  <string name="menu_option_view_user_profile" fuzzy="true">వాడుకరి ప్రొఫైలు పేజీ చూడండి</string>
   <string name="menu_option_view_user_talk">చర్చ పేజీ చూడండి</string>
   <string name="menu_option_view_user_contributions">వాడుకరి రచనలను చూపించు</string>
   <string name="revision_diff_compare">కూర్పులను పోల్చు</string>

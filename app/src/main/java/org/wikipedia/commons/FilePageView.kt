@@ -11,21 +11,16 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
-import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.commons.FilePageFragment.Companion.ACTIVITY_REQUEST_ADD_IMAGE_CAPTION
-import org.wikipedia.commons.FilePageFragment.Companion.ACTIVITY_REQUEST_ADD_IMAGE_TAGS
 import org.wikipedia.databinding.ViewFilePageBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.suggestededits.PageSummaryForEdit
-import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -36,14 +31,19 @@ import org.wikipedia.views.ViewUtil
 import java.util.*
 
 class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+
+    interface Callback {
+        fun onImageCaptionClick(summaryForEdit: PageSummaryForEdit)
+        fun onImageTagsClick(page: MwQueryPage)
+    }
+
     val binding = ViewFilePageBinding.inflate(LayoutInflater.from(context), this)
 
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
-    fun setup(fragment: Fragment,
-              summaryForEdit: PageSummaryForEdit,
+    fun setup(summaryForEdit: PageSummaryForEdit,
               imageTags: Map<String, List<String>>,
               page: MwQueryPage,
               containerWidth: Int,
@@ -52,8 +52,8 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
               imageFromCommons: Boolean,
               showFilename: Boolean,
               showEditButton: Boolean,
-              suggestionReason: String? = null,
-              action: DescriptionEditActivity.Action? = null) {
+              action: DescriptionEditActivity.Action? = null,
+              callback: Callback? = null) {
 
         loadImage(summaryForEdit, containerWidth, thumbWidth, thumbHeight)
 
@@ -70,24 +70,20 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         binding.detailsContainer.removeAllViews()
 
         if (summaryForEdit.pageTitle.description.isNullOrEmpty() && summaryForEdit.description.isNullOrEmpty() && showEditButton) {
-            addActionButton(context.getString(R.string.file_page_add_image_caption_button), imageCaptionOnClickListener(fragment, summaryForEdit))
+            addActionButton(context.getString(R.string.file_page_add_image_caption_button), imageCaptionOnClickListener(summaryForEdit, callback))
         } else if ((action == DescriptionEditActivity.Action.ADD_CAPTION || action == null) && summaryForEdit.pageTitle.description.isNullOrEmpty()) {
             // Show the image description when a structured caption does not exist.
             addDetail(context.getString(R.string.description_edit_add_caption_label), summaryForEdit.description,
-                if (showEditButton) imageCaptionOnClickListener(fragment, summaryForEdit) else null)
+                if (showEditButton) imageCaptionOnClickListener(summaryForEdit, callback) else null)
         } else {
             addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title,
-                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(getProperLanguageCode(summaryForEdit, imageFromCommons))),
+                    WikipediaApp.instance.languageState.getAppLanguageLocalizedName(getProperLanguageCode(summaryForEdit, imageFromCommons))),
                     if (summaryForEdit.pageTitle.description.isNullOrEmpty()) summaryForEdit.description
-                    else summaryForEdit.pageTitle.description, if (showEditButton) imageCaptionOnClickListener(fragment, summaryForEdit) else null)
+                    else summaryForEdit.pageTitle.description, if (showEditButton) imageCaptionOnClickListener(summaryForEdit, callback) else null)
         }
 
-        if (!suggestionReason.isNullOrEmpty()) {
-            addDetail(context.getString(R.string.file_page_suggestion_reason), suggestionReason.capitalize(Locale.getDefault()))
-        }
-
-        if ((imageTags.isNullOrEmpty() || !imageTags.containsKey(getProperLanguageCode(summaryForEdit, imageFromCommons))) && showEditButton) {
-            addActionButton(context.getString(R.string.file_page_add_image_tags_button), imageTagsOnClickListener(fragment, page))
+        if ((imageTags.isEmpty() || !imageTags.containsKey(getProperLanguageCode(summaryForEdit, imageFromCommons))) && showEditButton) {
+            addActionButton(context.getString(R.string.file_page_add_image_tags_button), imageTagsOnClickListener(page, callback))
         } else {
             addDetail(context.getString(R.string.suggested_edits_image_tags), getImageTags(imageTags, getProperLanguageCode(summaryForEdit, imageFromCommons)))
         }
@@ -118,7 +114,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
 
     private fun getProperLanguageCode(summary: PageSummaryForEdit, imageFromCommons: Boolean): String {
         return if (!imageFromCommons || summary.lang == Constants.WIKI_CODE_COMMONS) {
-            WikipediaApp.getInstance().language().appLanguageCode
+            WikipediaApp.instance.languageState.appLanguageCode
         } else {
             summary.lang
         }
@@ -126,23 +122,24 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
 
     private fun loadImage(summaryForEdit: PageSummaryForEdit, containerWidth: Int, thumbWidth: Int, thumbHeight: Int) {
         ImageZoomHelper.setViewZoomable(binding.imageView)
-        ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(summaryForEdit.thumbnailUrl!!, PREFERRED_GALLERY_IMAGE_SIZE), false, false, true, null)
+        ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(summaryForEdit.thumbnailUrl!!, PREFERRED_GALLERY_IMAGE_SIZE),
+            roundedCorners = false,
+            largeRoundedSize = false,
+            force = true,
+            listener = null
+        )
         binding.imageViewPlaceholder.layoutParams = LayoutParams(containerWidth, ViewUtil.adjustImagePlaceholderHeight(containerWidth.toFloat(), thumbWidth.toFloat(), thumbHeight.toFloat()))
     }
 
-    private fun imageCaptionOnClickListener(fragment: Fragment, summaryForEdit: PageSummaryForEdit): OnClickListener {
+    private fun imageCaptionOnClickListener(summaryForEdit: PageSummaryForEdit, callback: Callback?): OnClickListener {
         return OnClickListener {
-            fragment.startActivityForResult(DescriptionEditActivity.newIntent(context,
-                    summaryForEdit.pageTitle, null, summaryForEdit, null,
-                    DescriptionEditActivity.Action.ADD_CAPTION, InvokeSource.FILE_PAGE_ACTIVITY
-            ), ACTIVITY_REQUEST_ADD_IMAGE_CAPTION)
+            callback?.onImageCaptionClick(summaryForEdit)
         }
     }
 
-    private fun imageTagsOnClickListener(fragment: Fragment, page: MwQueryPage): OnClickListener {
+    private fun imageTagsOnClickListener(page: MwQueryPage, callback: Callback?): OnClickListener {
         return OnClickListener {
-            fragment.startActivityForResult(SuggestedEditsImageTagEditActivity.newIntent(context, page, InvokeSource.FILE_PAGE_ACTIVITY),
-                    ACTIVITY_REQUEST_ADD_IMAGE_TAGS)
+            callback?.onImageTagsClick(page)
         }
     }
 

@@ -14,7 +14,9 @@ internal class CacheControlInterceptor : Interceptor {
         val rsp = chain.proceed(chain.request())
         val builder = rsp.newBuilder()
 
-        if (rsp.cacheControl.mustRevalidate) {
+        // Override the Cache-Control header of this response, but only if it's not "private",
+        // since private responses could contain session tokens which should not be cached.
+        if (!rsp.cacheControl.isPrivate && rsp.cacheControl.mustRevalidate) {
             // Override the Cache-Control header with just a max-age directive.
             // Usually the server gives us a "must-revalidate" directive, which forces us to attempt
             // revalidating from the network even when we're offline, which will cause offline access
@@ -25,9 +27,11 @@ internal class CacheControlInterceptor : Interceptor {
                     (if (rsp.cacheControl.maxAgeSeconds > 0) rsp.cacheControl.maxAgeSeconds else 0))
         }
 
-        // If we're saving the current response to the offline cache, then strip away the Vary header.
+        // If we're saving the current response to the offline cache, then strip away the Vary header,
+        // and explicitly remove any cookies being set.
         if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == chain.request().header(OfflineCacheInterceptor.SAVE_HEADER)) {
             builder.removeHeader("Vary")
+            builder.removeHeader("set-cookie")
         }
 
         return builder.build()

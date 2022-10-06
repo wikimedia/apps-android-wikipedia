@@ -11,6 +11,7 @@
 * Masumrezarock100
 * Md. Golam Mukit Khan
 * MdsShakil
+* Meghmollar2017
 * MuratTheTurkish
 * Nasir8891
 * R4356th
@@ -74,6 +75,20 @@
   <string name="share_via">এর মাধ্যমে শেয়ার</string>
   <string name="image_share_via">এর মাধ্যমে শেয়ার</string>
   <string name="search_redirect_from">%s থেকে পুনর্নির্দেশিত</string>
+  <string name="page_edit_history_activity_title">সংশোধনের ইতিহাস: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;অ&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">খালি সম্পাদনা সারাংশ</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">সম্পাদনা খুঁজুন বা ছাঁকুন</string>
+  <string name="page_edit_history_filter_by">ছাঁকুন</string>
+  <string name="page_edit_history_filter_by_all">সমস্ত সম্পাদনা (%s)</string>
+  <string name="page_edit_history_filter_by_user">ব্যবহারকারীর সম্পাদনা (%s)</string>
+  <string name="page_edit_history_filter_by_anon">বেনামি সম্পাদনা (%s)</string>
+  <string name="page_edit_history_filter_by_bot">বট সম্পাদনা (%s)</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%2$s থেকে %1$dটি সম্পাদনা</item>
+    <item quantity="other">%2$s থেকে %1$dটি সম্পাদনা</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">আরও সম্পাদনা দেখতে &lt;a href=\"#\"&gt;ছাঁকনি&lt;/a&gt; পরিবর্তন করে আবার চেষ্টা করুন</string>
   <string name="menu_page_show_tabs">ট্যাব দেখান</string>
   <string name="menu_page_other_languages">ভাষা পরিবর্তন করুন</string>
   <string name="menu_page_find_in_page">এই পাতায় অনুসন্ধান</string>
@@ -99,6 +114,7 @@
   <string name="menu_page_new_tab">নতুন ট্যাব</string>
   <string name="menu_page_reading_lists">পড়ার তালিকা</string>
   <string name="menu_page_recently_viewed">সম্প্রতি পড়া</string>
+  <string name="menu_page_archive">আর্কাইভ</string>
   <string name="menu_long_press_open_page">খুলুন</string>
   <string name="menu_long_press_open_in_new_tab">নতুন ট্যাবে খুলুন</string>
   <string name="menu_long_press_copy_page">লিঙ্ক ঠিকানা অনুলিপি করো</string>
@@ -106,6 +122,7 @@
   <string name="on_this_day_page_share">শেয়ার করুন</string>
   <string name="reading_list_page_share">শেয়ার করুন</string>
   <string name="menu_text_select_edit_here">এখানে সম্পাদনা করুন</string>
+  <string name="menu_edit_article">নিবন্ধ সম্পাদনা</string>
   <string name="last_updated_text">সর্বশেষ হালনাগাদ %s</string>
   <string name="talk_page_link_text">আলাপ পাতা দেখুন</string>
   <string name="edit_history_link_text">সম্পাদনার ইতিহাস দেখুন</string>
@@ -181,6 +198,7 @@
   <string name="dialog_create_account_checking_progress">যাচাই করা হচ্ছে</string>
   <string name="create_account_email_hint">ইমেইল (ঐচ্ছিক)</string>
   <string name="create_account_password_repeat_hint">পাসওয়ার্ডটি পুনরায় লিখুন</string>
+  <string name="create_account_password_is_username">ব্যবহারকারী নাম ও পাসওয়ার্ড একই হতে পারবে না</string>
   <string name="create_account_passwords_mismatch_error">পাসওয়ার্ড মিলেনি</string>
   <string name="create_account_email_error">ভুল ইমেইল ঠিকানা</string>
   <string name="create_account_username_error">ব্যবহারকারী নামে অবৈধ অক্ষর রয়েছে</string>
@@ -203,7 +221,7 @@
   <string name="send_feedback">অ্যাপ সম্পর্কে প্রতিক্রিয়া জানান</string>
   <string name="create_account_account_created_toast">অ্যাকাউন্ট তৈরি করা হয়েছে!</string>
   <string name="preferences_heading_syncing">সুসংগত করা হচ্ছে</string>
-  <string name="preferences_heading_data_usage">ডাটা ব্যাবহার</string>
+  <string name="preferences_heading_data_usage">উপাত্ত ব্যাবহার</string>
   <string name="preferences_heading_experimental">পরীক্ষামূলক</string>
   <string name="preference_title_sync_reading_lists_from_account">সুসংগত পড়ার তালিকা সক্ষম করুন</string>
   <string name="preference_title_download_reading_list_articles">পড়ার তালিকার নিবন্ধ ডাউনলোড করুন</string>
@@ -235,7 +253,7 @@
   <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/bn</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/bn</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/bn</string>
   <string name="android_app_request_an_account_url">https://bn.wikipedia.org/wiki/উইকিপিডিয়া:অ্যাকাউন্টের_জন্য_অনুরোধ</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.bn</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.bn</string>
@@ -262,6 +280,7 @@
   <string name="edit_preview">প্রাকদর্শন</string>
   <string name="edit_undo">পূর্বাবস্থায় ফেরান</string>
   <string name="edit_redo">পুনরায় করুন</string>
+  <string name="edit_rollback">পুনর্বহাল</string>
   <string name="edit_zoom_in">আরও বড়</string>
   <string name="edit_zoom_out">আরও ছোট</string>
   <string name="edit_summary_tag_typo">বানান ঠিক করা হয়েছে</string>
@@ -331,6 +350,7 @@
   <string name="captcha_image">ক্যাপচা চিত্র</string>
   <string name="gallery_fair_use_license">বৈধ ব্যবহার</string>
   <string name="gallery_uploader_unknown">আপলোডকারী অজানা</string>
+  <string name="gallery_not_available_offline_snackbar">গ্যালারি দৃশ্য অফলাইনে উপলব্ধ নয়।</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">খারিজ করুন</string>
   <string name="menu_new_tab">নতুন ট্যাব</string>
   <string name="menu_close_all_tabs">সব ট্যাব বন্ধ করুন</string>
@@ -342,6 +362,7 @@
   <string name="tab_item_closed">%s বন্ধ হয়েছে।</string>
   <string name="all_tab_items_closed">সকল ট্যাব বন্ধ করা হয়েছে।</string>
   <string name="tool_tip_bookmark_icon_title">পড়ার তালিকায় যোগ করুন</string>
+  <string name="tool_tip_bookmark_icon_text">নিবন্ধটিকে পড়ার তালিকায় সংরক্ষণ করতে বুকমার্ক আইকনে আলতো চাপুন৷</string>
   <string name="page_view_in_browser">ব্রাউজারে পাতা দেখুন</string>
   <string name="tool_tip_lang_button">আপনি অ্যাপের মধ্যে এখন একাধিক উইকিপিডিয়ার ভাষায় অনুসন্ধান করতে এবং পড়তে পারবেন।\n\n\nআরো ভাষা যোগ করতে আইকনে আলতো চাপুন।</string>
   <string name="error_response_malformed">সার্ভার থেকে প্রতিক্রিয়া সঠিকভাবে বিন্যস্ত হয় নি।</string>
@@ -355,6 +376,7 @@
   <string name="button_add_to_reading_list">পড়ার তালিকায় যোগ করুন</string>
   <string name="page_offline_notice_cannot_load_while_offline">নিবন্ধ অফলাইনে থাকাকালীন সময়ে লোড করা যাবে না।</string>
   <string name="page_offline_notice_add_to_reading_list">ইঙ্গিত: নিবন্ধটিকে পড়ার তালিকায় যোগ করে ও আপনি অনলাইনে আসলে এটি ডাউনলোড করা হবে।</string>
+  <string name="page_offline_notice_last_date">আপনি %s-এ সংরক্ষিত নিবন্ধের একটি অফলাইন সংস্করণ দেখতে পাচ্ছেন।</string>
   <string name="button_get_directions">দিক নির্দেশনা পান</string>
   <string name="error_no_maps_app">দিক নির্দেশনা প্রদান করে এমন কোন অ্যাপ্লিকেশন খুঁজে পাওয়া যায়নি।</string>
   <string name="preference_title_customize_explore_feed">অন্বেষণ ফিড</string>
@@ -362,6 +384,7 @@
   <string name="preference_summary_customize_explore_feed">অন্বেষণ ফিড স্বনির্ধারণ করুন</string>
   <string name="preference_summary_show_link_previews">যখন লিঙ্কে টোকা দেয়া হবে তখন দ্রুত নিবন্ধের একটি প্রাকদর্শন দেখাবে।</string>
   <string name="preference_title_collapse_tables">টেবিল সংকোচন</string>
+  <string name="preference_summary_collapse_tables">নিবন্ধে স্বয়ংক্রিয়ভাবে তথ্যছক, তথ্যসূত্র, টীকা প্রভৃতি ভাঁজ করে রাখুন</string>
   <string name="nav_item_donate">দান করুন</string>
   <string name="error_voice_search_not_available">দুঃখিত, কণ্ঠ শনাক্তকরণ উপলব্ধ নয়।</string>
   <string name="location_service_disabled">অবস্থান পরিষেবা অক্ষম।</string>
@@ -379,6 +402,7 @@
   <string name="error_page_does_not_exist">এই পাতার অস্তিত্ব নেই</string>
   <string name="error_user_page_does_not_exist">উইকিপিডিয়ায় হুবহু এই নামে কোনও &lt;a href=\"%1$s\"&gt;ব্যবহারকারী পাতা&lt;/a&gt; নেই। সাধারণত, এই পাতাটি &lt;b&gt;%2$s&lt;/b&gt; কর্তৃক তৈরি ও সম্পাদনা করা উচিত। যদি নিশ্চিত না হোন, তবে যাচাই করুন যে \"%3$s\"-এর অস্তিত্ব রয়েছে।</string>
   <string name="view_wiki_error_message_offline">ইন্টারনেটে সংযোগ করা যাবে না</string>
+  <string name="view_wiki_error_message_timeout">উইকিপিডিয়ার সাথে সংযুক্ত হওয়া যায়নি। আপনার ইন্টারনেট সংযোগ পরীক্ষা করুন ও আবার চেষ্টা করুন</string>
   <string name="reference_title">তথ্যসূত্র %s</string>
   <string name="reference_list_title">তথ্যসূত্র</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">চিত্রের উজ্জ্বলতা হ্রাস (কালো থিমে)</string>
@@ -391,6 +415,9 @@
   <string name="error_blocked_title">আপনার ব্যবহারকারী নাম বা আইপি ঠিকানাকে বাধা দেওয়া হয়েছে।</string>
   <string name="error_blocked_by">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; বাধাটি দিয়েছেন</string>
   <string name="error_blocked_reason">কারণ হিসেবে বলা হয়েছে: %s</string>
+  <string name="error_blocked_start">বাধা শুরুর সময়: %s</string>
+  <string name="error_blocked_expiry">বাধার মেয়াদোত্তীর্ণের সময়: %s</string>
+  <string name="error_blocked_id">বাধা প্রদান আইডি: %s</string>
   <string name="crash_report_activity_title">অ্যাপ্লিকেশন ত্রুটি</string>
   <string name="crash_report_relaunch_or_quit">আমরা দুঃখিত, উইকিপিডিয়া অ্যাপ্লিকেশন একটি ত্রুটির সম্মুখীন হয়েছে এবং বন্ধ হয়ে গেছে।\n\nআপনি কি পুনরারম্ভ বা প্রস্থান করতে চান?</string>
   <string name="crash_report_relaunch">পুনরারম্ভ করুন</string>
@@ -415,7 +442,7 @@
   <string name="text_size_decrease">পাঠ্যের আকার হ্রাস করুন</string>
   <string name="text_size_percent_default">%s (পূর্বনির্ধারিত)</string>
   <string name="text_style_title">ফন্ট</string>
-  <string name="theme_category_toolbar">সরঞ্জামদণ্ড</string>
+  <string name="theme_category_reading">পড়ছেন</string>
   <string name="nav_item_saved">সংরক্ষিত</string>
   <string name="reading_list_save_to">পড়ার তালিকায় সংরক্ষণ করুন</string>
   <string name="reading_list_create_new">নতুন তৈরি করুন</string>
@@ -472,6 +499,7 @@
   <string name="reading_lists_ignore_button">এখন নয়</string>
   <string name="reading_lists_confirm_remote_delete_yes">হ্যাঁ</string>
   <string name="reading_lists_confirm_remote_delete_no">না</string>
+  <string name="reading_list_article_save_in_progress">নিবন্ধটি ডাউনলোড করা হচ্ছে। ডাউনলোড সম্পন্ন হলে নিবন্ধটি অফলাইনে উপলব্ধ হবে।</string>
   <string name="reading_list_articles_added_to_named">%2$s-এ %1$dটি নিবন্ধ যোগ হয়েছে</string>
   <string name="reading_list_delete_confirm">আপনি কি নিশ্চিতভাবে এই %s অপসারণ করতে চান?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">বাতিল</string>
@@ -541,7 +569,21 @@
   <string name="notifications_mark_unread">অপঠিত হিসেবে চিহ্নিত করুন</string>
   <string name="notifications_mark_all_as_read">সব পঠিত হিসেবে চিহ্নিত করুন</string>
   <string name="notifications_direct_reply_action">উত্তর দিন</string>
+  <string name="notifications_direct_reply_progress">%s-কে উত্তর প্রদান করা হচ্ছে…</string>
+  <string name="notifications_direct_reply_success">উত্তর প্রকাশিত হয়েছে।</string>
+  <string name="notifications_direct_reply_error">উত্তর স্বয়ংক্রিয়ভাবে প্রকাশ করা যায়নি।</string>
+  <string name="notifications_mark_all_as_read_message">%dটি পঠিত হিসেবে চিহ্নিত হয়েছে</string>
+  <string name="notifications_mark_all_as_unread_message">%dটি অপঠিত হিসেবে চিহ্নিত হয়েছে</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">১টি পঠিত হিসেবে চিহ্নিত হয়েছে</item>
+    <item quantity="other">%dটি পঠিত হিসেবে চিহ্নিত হয়েছে</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">১টি অপঠিত হিসেবে চিহ্নিত হয়েছে</item>
+    <item quantity="other">%dটি অপঠিত হিসেবে চিহ্নিত হয়েছে</item>
+  </plurals>
   <string name="watchlist_title">নজরতালিকা</string>
+  <string name="preference_summary_notification_poll">পটভূমিতে নতুন বিজ্ঞপ্তি পেয়েছেন কিনা পরীক্ষা করতে অ্যাপটিকে মোবাইল ডাটা ব্যবহারের অনুমতি দিন।</string>
   <string name="preference_title_notification_system">সিস্টেম</string>
   <string name="preference_summary_notification_system">সিস্টেম থেকে বার্তা</string>
   <string name="preference_title_notification_milestone">মাইলফলক</string>
@@ -549,12 +591,17 @@
   <string name="preference_title_notification_revert">প্রত্যাবর্তন</string>
   <string name="preference_summary_notification_revert">আপনার একটি অবদান পুনর্বহাল করা হয়েছে</string>
   <string name="preference_title_notification_login_fail">প্রবেশ</string>
+  <string name="preference_summary_notification_login_fail">আপনার লগ ইন কার্যক্রম</string>
   <string name="preference_title_notification_mention">উল্লেখ</string>
+  <string name="preference_summary_notification_mention">কেউ একটি পৃষ্ঠায় আপনাকে উল্লেখ করেছেন</string>
   <string name="preference_title_notification_user_talk">আলাপ পাতা</string>
+  <string name="preference_summary_notification_user_talk">আলাপ পাতা থেকে বার্তা এবং উত্তর</string>
   <string name="preference_title_notification_email_user">ইমেইল পেয়েছেন</string>
   <string name="preference_summary_notification_email_user">কেউ আপনাকে উইকির মাধ্যমে একটি ইমেল পাঠিয়েছে</string>
   <string name="preference_title_notification_user_rights">ব্যবহারকারী অধিকারের পরিবর্তন</string>
+  <string name="preference_category_push_notifications">পাঠানো বিজ্ঞপ্তি</string>
   <string name="preference_category_display_settings">প্রদর্শন সেটিং</string>
+  <string name="preference_title_hide_read_notifications">পঠিত বিজ্ঞপ্তি লুকান</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">উইকিপিডিয়া</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">উইকিপিডিয়া থেকে বিজ্ঞপ্তি</string>
   <string name="notifications_channel_group_other_title">অন্যান্য</string>
@@ -562,8 +609,10 @@
   <string name="notifications_filter_label">বিজ্ঞপ্তি ছাঁকুন</string>
   <string name="notifications_filter_icon_content_description">বিজ্ঞপ্তি ছাঁকুন</string>
   <string name="notifications_filter_update_app_languages">অ্যাপের ভাষা হালনাগাদ করুন</string>
+  <string name="notifications_select_all_filters">সব ছাঁকনি নির্বাচন করুন</string>
   <string name="notifications_tab_filter_all">সকল</string>
   <string name="notifications_tab_filter_mentions">উল্লেখ</string>
+  <string name="notifications_search_bar_filter_hint">বিজ্ঞপ্তি ছাঁকনি</string>
   <string name="notifications_menu_mark_as_read">পঠিত হিসেবে চিহ্নিত করুন</string>
   <string name="notifications_menu_mark_as_unread">অপঠিত হিসেবে চিহ্নিত করুন</string>
   <string name="notifications_swipe_action_read">পঠিত</string>
@@ -589,6 +638,7 @@
   <string name="view_featured_image_card_share">শেয়ার করুন</string>
   <string name="menu_feed_card_dismiss">এই কার্ড লুকান</string>
   <string name="menu_feed_card_dismissed">কার্ড লুকানো।</string>
+  <string name="menu_feed_card_edit_card_languages">কার্ডের ভাষা সম্পাদনা করুন</string>
   <string name="menu_feed_overflow_label">আরো বিকল্প</string>
   <string name="feed_featured_image_share_subject">উইকিমিডিয়া কমন্স থেকে নির্বাচিত চিত্র</string>
   <string name="feed">অন্বেষণ</string>
@@ -609,6 +659,7 @@
   <string name="feed_configure_menu_reset">মূল দৃশ্যপট পুনঃস্থাপন</string>
   <string name="feed_configure_menu_select_all">সব দেখান</string>
   <string name="feed_configure_menu_deselect_all">সব লুকান</string>
+  <string name="feed_configure_language_warning">লক্ষ্য করুন, সকল ভাষায় সব কার্ড উপলব্ধ নয়। সেটিংস থেকে আপনার নির্বাচিত ভাষা সম্পাদনা করুন।</string>
   <string name="feed_item_type_news">চলমান ঘটনা সম্পর্কিত প্রবন্ধ সমূম</string>
   <string name="feed_item_type_on_this_day">এই দিনের ঐতিহাসিক ঘটনাবলি</string>
   <string name="feed_item_type_because_you_read">আপনার ইতিহাস থেকে সাম্প্রতিক পড়া নিবন্ধের উপর ভিত্তি করে পরামর্শ</string>
@@ -617,6 +668,7 @@
   <string name="feed_item_type_featured_image">উইকিমিডিয়া কমন্স থেকে প্রতিদিনের নির্বাচিত চিত্র</string>
   <string name="feed_item_type_main_page">দৈনিক নির্বাচিত বিষয়বস্তুসহ উইকিপিডিয়ার প্রধান পাতা</string>
   <string name="feed_item_type_randomizer">পড়ার জন্য অনির্ধারিত প্রবন্ধ বের করুন</string>
+  <string name="feed_item_type_suggested_edits">উইকিপিডিয়ায় বিষয়বস্তু যোগের পরামর্শ</string>
   <string name="feed_empty_message">আপনার অন্বেষণ ফিডে আর কিছু নেই</string>
   <string name="feed_configure_onboarding_action">পছন্দকরণ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ঠিক আছে</string>
@@ -624,6 +676,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;আপনার অন্বেষণ ফিড স্বনির্ধারণ করুন&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;আপনি এখন আপনার ফিডে কি প্রদর্শন করাতে চান তা চয়ন করতে পারেন, এবং আপনার পছন্দসই বিষয়বস্তুর ধরনকে অগ্রাধিকার দিতে পারবেন।</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ঠিক আছে</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">বাতিল</string>
+  <string name="feed_accessibility_card_text">আপনি ফিডের একদম শেষে পৌঁছে গেছেন।</string>
   <string name="feed_accessibility_card_load_more_button">আরও লোড করুন</string>
   <string name="top_read_activity_title">%s-এ শীর্ষ পঠিত</string>
   <string name="tabs_activity_title">ট্যাব</string>
@@ -642,6 +695,7 @@
   <string name="description_edit_edit_description">নিবন্ধের বিবরণ সম্পাদনা করুন</string>
   <string name="description_edit_add_image_caption">ছবির ক্যাপশন যোগ করুন</string>
   <string name="description_edit_edit_image_caption">ছবির ক্যাপশন সম্পাদনা করুন</string>
+  <string name="description_edit_translate_image_caption">চিত্রের ক্যাপশন অনুবাদ করুন</string>
   <string name="description_edit_cancel_hint">বাতিল</string>
   <string name="description_edit_help_title">তথ্য: নিবন্ধের বিবরণ</string>
   <string name="description_edit_help_about_wikidata">উইকিউপাত্ত সম্পর্কে</string>
@@ -649,8 +703,17 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/bn</string>
   <string name="description_edit_anon_limit">নিবন্ধের বিবরণ সম্পাদনায় আপনার আগ্রহের জন্য ধন্যবাদ! অতিরিক্ত সম্পাদনা করার জন্য, আপনার উইকিপিডিয়ার অ্যাকাউন্টে প্রবেশ করুন।</string>
   <string name="description_edit_license_notice">নিবন্ধের বিবরণ পরিবর্তন করার দ্বারা, আমি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত ও আমি আমার অবদান &lt;a href=\"%2$s\"&gt;ক্রিয়েটিভ কমন্স সিসি০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশ করছি।</string>
+  <string name="description_edit_helper_text_lowercase_warning">সাধারণত একটি ছোট ছাঁদের অক্ষর দিয়ে শুরু করা উচিত</string>
   <string name="description_edit_voice_input_description">কণ্ঠ ইনপুট</string>
+  <string name="description_too_short">আপনার লেখাটি খুবই ছোট।</string>
+  <string name="description_ends_with_punctuation">বাক্যের শেষে কোনো বিরামচিহ্ন ব্যবহার করা উচিত নয়।</string>
+  <string name="description_starts_with_uppercase">নামবাচক বিশেষ্য না হলে ছোট ছাঁদের অক্ষর দিয়ে শুরু করুন।</string>
+  <string name="description_starts_with_lowercase">ছোট ছাঁদের অক্ষর দিয়ে লেখা শুরু করা পরিহার করুন।</string>
   <string name="description_edit_success_saved">নিবন্ধের বিবরণ প্রকাশিত হয়েছে!</string>
+  <string name="description_edit_success_saved_snackbar">নিবন্ধের বিবরণ প্রকাশিত হয়েছে!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">নিবন্ধের বিবরণ প্রকাশিত হয়েছে! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">চিত্রের ক্যাপশন প্রকাশিত হয়েছে!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">চিত্রের ক্যাপশন প্রকাশিত হয়েছে! (%s)</string>
   <string name="description_edit_success_encouragement">আপনি এইমাত্র সবার জন্য উইকিপিডিয়াকে আরো উত্তম করলেন</string>
   <string name="description_edit_success_done">সম্পন্ন</string>
   <string name="description_edit_success_did_you_know">আপনি জানেন কি?</string>
@@ -663,58 +726,142 @@
   <string name="description_edit_tutorial_promise">শুরু করার দ্বারা, আমি প্রতিজ্ঞা করছি এই বৈশিষ্ট্যের অপব্যবহার করব না।</string>
   <string name="customize_toolbar_category_toolbar">সরঞ্জামদণ্ড</string>
   <string name="customize_toolbar_category_menu">মেনু</string>
+  <string name="customize_toolbar_reset_to_default_button">পূর্বনির্ধারিত অবস্থায় ফেরত যান</string>
+  <string name="suggested_edits_describe_articles">নিবন্ধের বিবরণ যোগ করুন</string>
   <string name="suggested_edits_review_description">নিবন্ধের বিবরণ পর্যালোচনা করুন</string>
   <string name="suggested_edits_add_description_button">বিবরণ যোগ করুন</string>
+  <string name="suggested_edits_edit_description_button">বিবরণ সম্পাদনা করুন</string>
   <string name="suggested_edits_add_translation_button">অনুবাদ করুন</string>
   <string name="suggested_edits_edit_translation_button">অনুবাদ সম্পাদনা করুন</string>
+  <string name="suggested_edits_add_caption_button">একটি ক্যাপশন যোগ করুন</string>
+  <string name="suggested_edits_edit_caption_button">ক্যাপশন সম্পাদনা করুন</string>
   <string name="suggested_edits_my_contributions">আমার অবদান</string>
   <string name="suggested_edits_menu_info">তথ্য</string>
+  <string name="suggested_edits_task_add_description_title">নিবন্ধের বিবরণ যোগ করুন</string>
+  <string name="suggested_edits_task_image_caption_title">ছবির ক্যাপশন যোগ করুন</string>
+  <string name="suggested_edits_task_translate_caption_title">চিত্রের ক্যাপশন অনুবাদ করুন</string>
+  <string name="suggested_edits_task_translate_caption_description">অন্য ভাষায় ক্যাপশন অনুবাদ করুন</string>
+  <string name="suggested_edits_task_multilingual_title">বহুভাষী সম্পাদকদের জন্য আরও কাজ</string>
   <string name="suggested_edits_task_multilingual_negative">আমার জন্য নয়</string>
   <string name="suggested_edits_task_multilingual_positive">ভাষা যোগ করুন</string>
   <string name="suggested_edits_image_caption_summary_title_image">ছবি</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">শিল্পী</string>
+  <string name="suggested_edits_image_caption_summary_title_author">লেখক</string>
   <string name="suggested_edits_image_caption_summary_title_source">উৎস</string>
+  <string name="suggested_edits_image_caption_summary_title_license">লাইসেন্স</string>
   <string name="suggested_edits_image_caption_summary_title_date">তারিখ</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">১টি অবদান</item>
+    <item quantity="other">%dটি অবদান</item>
+  </plurals>
+  <string name="suggested_edits_feed_card_title">পরামর্শকৃত সম্পাদনা</string>
+  <string name="suggested_edits_feed_card_add_description_button">নিবন্ধের বিবরণ যোগ করুন</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">নিবন্ধের বিবরণ যোগ করুন (%s)</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">শুরু করুন</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ছবির ক্যাপশন (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">ফাইল</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">উইকিমিডিয়া কমন্স থেকে ফাইল</string>
+  <string name="suggested_edits_image_preview_dialog_artist">শিল্পী</string>
+  <string name="suggested_edits_image_preview_dialog_tags">ট্যাগসমূহ</string>
   <string name="suggested_edits_image_preview_dialog_date">তারিখ</string>
+  <string name="suggested_edits_image_preview_dialog_source">উৎস/আলোকচিত্রগ্রাহক</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">লাইসেন্স প্রদান</string>
   <string name="suggested_edits_image_preview_dialog_more_info">আরও তথ্য</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">উইকিমিডিয়া কমন্স থেকে ফাইলের পাতা</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">উইকিপিডিয়ায় ফাইলের পাতা</string>
+  <string name="suggested_edits_article_cta_image_tags">ছবিতে ট্যাগ যোগ করুন</string>
+  <string name="suggested_edits_article_cta_image_caption">ছবির ক্যাপশন যোগ করুন</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">ছবির ক্যাপশন যোগ করুন (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">দেখাও</string>
+  <string name="suggested_edits_feed_card_add_image_caption">ছবির ক্যাপশন যোগ করুন</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">ছবির ক্যাপশন যোগ করুন (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">ছবিতে ট্যাগ যোগ করুন</string>
   <string name="suggested_edits_snackbar_survey_text">আপনার সম্পাদনার অভিজ্ঞতা কেমন ছিল? অ্যাপ্লিকেশন সম্পাদনা সম্পর্কে এই জরিপে দয়া করে অংশ নিন।</string>
   <string name="suggested_edits_snackbar_survey_action_text">জরিপে অংশ নিন</string>
   <string name="suggested_edits_task_action_text_add">যোগ করুন</string>
   <string name="suggested_edits_task_action_text_translate">অনুবাদ করুন</string>
   <string name="suggested_edits_image_captions">ছবির ক্যাপশন</string>
+  <string name="suggested_edits_image_tags">চিত্রের ট্যাগ</string>
   <string name="suggested_edits_image_tags_publishing">প্রকাশ করা হচ্ছে</string>
   <string name="suggested_edits_image_tags_published">প্রকাশ করা হয়েছে!</string>
+  <string name="suggested_edits_image_tags_onboarding_title">চিত্রে ট্যাগ যোগ করলে সেগুলো খুঁজে পেতে সুবিধা হয়।</string>
+  <string name="suggested_edits_image_tags_search">ট্যাগ অনুসন্ধান করুন</string>
+  <string name="suggested_edits_image_tags_select_title">আপনি এই চিত্রের জন্য কোনো ট্যাগ নির্বাচন করেননি</string>
+  <string name="suggested_edits_image_tags_add_tag">ট্যাগ যোগ করুন</string>
+  <string name="suggested_edits_encouragement_message">আপনার অবদানের জন্য ধন্যবাদ, %s। নিচে উইকিপিডিয়ায় অবদান রাখার আরও মাধ্যম খুঁজে পাবেন।</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;প্রিয় %s&lt;/b&gt;, নীচে উইকিপিডিয়াকে সমৃদ্ধ করার জন্য তাড়াতাড়ি করা যায় এমন কিছু সহজ উপায় দেওয়া আছে। শুরু করার পরে আপনি জানতে পারবেন যে এখানে আপনার অবদান কতটা অমূল্য। সম্পাদনা শুভ হোক!</string>
+  <string name="suggested_edits_contributions_stat_tooltip">এই পর্যন্ত আপনার মোট সম্পাদনার সংখ্যা।</string>
   <string name="suggested_edits_paused_message">পরামর্শকৃত সম্পাদনা %1$s অবধি বিরত রাখা হয়েছে। দুঃখিত %2$s, আপনার সাম্প্রতিক সম্পাদনাগুলির কয়েকটি প্রত্যাবর্তন করা হয়েছে।</string>
   <string name="suggested_edits_disabled_message">পরামর্শকৃত সম্পাদনা নিষ্ক্রিয় করা হয়েছে। দুঃখিত %s, আপনার সাম্প্রতিক সম্পাদনাগুলির অনেকগুলো প্রত্যাবর্তন করা হয়েছে।</string>
   <string name="suggested_edits_ip_blocked_message">মনে হচ্ছে যে আপনার আইপি ঠিকানা (অথবা আইপি ঠিকানার রেঞ্জটি) কে উইকিপিডিয়াতে সম্পাদনা করা থেকে বাধাদান করা হয়েছে।</string>
+  <string name="suggested_edits_gate_message">দুঃখিত, %s। এই বৈশিষ্ট্য চালু করার জন্য আপনাকে প্রথমে কোনো নিবন্ধে অন্তত তিনটি সম্পাদনা করতে হবে।</string>
+  <string name="suggested_edits_help_page_link_text">পরামর্শকৃত সম্পাদনার সাহায্য পাতা</string>
   <string name="suggested_edits_views_label_text">টি পরিদর্শন</string>
+  <string name="suggested_edits_quality_label_text">সম্পাদনার মান</string>
+  <string name="suggested_edits_quality_perfect_text">নিখুঁত</string>
+  <string name="suggested_edits_quality_excellent_text">চমৎকার</string>
+  <string name="suggested_edits_quality_very_good_text">খুবই ভালো</string>
+  <string name="suggested_edits_quality_good_text">ভালো</string>
+  <string name="suggested_edits_quality_okay_text">ঠিক আছে</string>
+  <string name="suggested_edits_quality_sufficient_text">যথেষ্ট</string>
+  <string name="suggested_edits_quality_poor_text">দুর্বল</string>
+  <string name="suggested_edits_quality_bad_text">খারাপ</string>
   <string name="suggested_edits_label">পরামর্শকৃত সম্পাদনা</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">অবদান</item>
+    <item quantity="other">অবদান</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d দিন</item>
+    <item quantity="other">%d দিন</item>
+  </plurals>
   <string name="suggested_edits_what_is_title">পরামর্শকৃত সম্পাদনা কী?</string>
   <string name="suggested_edits_what_is_text">পরামর্শকৃত সম্পাদনা উইকিপিডিয়াতে ছোট কিন্তু গুরুত্বপূর্ণ অবদান রাখার সুযোগ দেয়।</string>
   <string name="suggested_edits_learn_more">আরও জানুন</string>
   <string name="suggested_edits_paused_title">থামানো হয়েছে</string>
   <string name="suggested_edits_disabled_title">নিস্ক্রিয় করা হয়েছে</string>
   <string name="suggested_edits_ip_blocked_title">আইপি বাধাপ্রাপ্ত</string>
+  <string name="suggested_edits_last_edited">সর্বশেষ সম্পাদিত</string>
   <string name="suggested_edits_last_edited_never">কখনো না</string>
   <string name="suggested_edits_task_new">নতুন</string>
   <string name="suggested_edits_reactivation_notification_title">পরামর্শকৃত সম্পাদনা</string>
+  <string name="suggested_edits_contributions_screen_title">%s-এর অবদান</string>
   <string name="suggested_edits_contribution_language_label">ভাষা</string>
   <string name="suggested_edits_contribution_date_time_label">তারিখ / সময়</string>
+  <string name="suggested_edits_contribution_type_label">অবদানের ধরন</string>
   <string name="suggested_edits_contribution_image_label">চিত্র</string>
   <string name="suggested_edits_contribution_article_label">নিবন্ধ</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">বিগত ৩০ দিনে ১ বার দেখা হয়েছে।</item>
+    <item quantity="other">বিগত ৩০ দিনে %s বার দেখা হয়েছে।</item>
+  </plurals>
+  <string name="suggested_edits_contribution_seen_text">বিগত ৩০ দিনে %s বার দেখা হয়েছে।</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">আপনি %dটি ট্যাগ যোগ করেছেন</item>
+    <item quantity="other">আপনি %dটি ট্যাগ যোগ করেছেন</item>
+  </plurals>
+  <string name="suggested_edits_contribution_date_yesterday_text">গতকাল</string>
+  <string name="suggested_edits_encourage_account_creation_title">আপনি জানেন কি উইকিপিডিয়ায় যে কেউ সম্পাদনা করতে পারে?</string>
   <string name="suggested_edits_encourage_account_creation_message">পরামর্শকৃত সম্পাদনা হল অ্যান্ড্রয়েডে উইকিপিডিয়া সম্পাদনা করার একটি নতুন উপায়। এটি আপনাকে উইকিপিডিয়ায় একটি ছোট কিন্তু গুরুত্বপূর্ণ অবদান রাখতে সাহায্য করে।\nআমাদের লক্ষ্য হল উইকিপিডিয়াতে সম্পাদনা সবার জন্য সহজ ও সুলভ করা! শুরু করার জন্য উইকিপিডিয়াতে প্রবেশ অথবা যোগদান করুন।</string>
   <string name="suggested_edits_encourage_account_creation_login_button">উইকিপিডিয়াতে প্রবেশ করুন / যোগ দিন</string>
+  <string name="suggested_edits_contribution_type_image_tag">চিত্রের ট্যাগ</string>
+  <string name="suggested_edits_contribution_current_revision_text">আপনার সম্পাদনা উইকিপিডিয়ায় প্রকাশিত হয়েছে</string>
+  <string name="suggested_card_more_edits">আরও পরামর্শকৃত সম্পাদনা</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$sটি অক্ষর</item>
     <item quantity="other">%1$sটি অক্ষর</item>
   </plurals>
+  <string name="file_page_activity_title">ফাইলের পাতা</string>
+  <string name="file_page_add_image_caption_button">ছবির ক্যাপশন যোগ করুন</string>
+  <string name="file_page_add_image_tags_button">ছবিতে ট্যাগ যোগ করুন</string>
   <string name="file_page_edit_button_content_description">%s সম্পাদনা করুন</string>
   <string name="description_edit_revert_subtitle">উইকিপিডিয়ায় সম্পাদনা করার জন্য ধন্যবাদ!</string>
   <string name="description_edit_revert_reason1">আপনার অবদান &lt;a href=\"%1$s\"&gt;নীতিমালা&lt;/a&gt; অনুসরণ করেনি।</string>
   <string name="description_edit_revert_reason2">আপনার অবদান পরীক্ষামূলক বা ধ্বংসপ্রবণতামূলক বলে মনে হচ্ছে।</string>
   <string name="description_edit_revert_history">আপনি যদি আগ্রহী হন তাহলে, &lt;a href=\"%1$s\"&gt;সম্পাদনা ইতিহাস&lt;/a&gt; দেখুন।</string>
   <string name="description_edit_login_cancel_button_text">বাতিল</string>
+  <string name="offline_read_permission_rationale">অফলাইন ব্রাউজিংয়ের জন্য আপনার ডিভাইস স্টোরেজে প্রবেশাধিকার প্রয়োজন।</string>
+  <string name="offline_read_final_rationale">অফলাইন গ্রন্থাগার সুবিধা ব্যবহারের জন্য আপনার ডিভাইস স্টোরেজে প্রবেশাধিকার প্রয়োজন।</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
   <string name="onboarding_skip">এড়ান</string>
@@ -769,10 +916,17 @@
   <string name="content_description_for_page_indicator">পাতা %2$d-এর %1$d</string>
   <string name="wikitext_bold">গাঢ়</string>
   <string name="wikitext_italic">বাঁকা</string>
+  <string name="wikitext_link">সংযোগ</string>
+  <string name="wikitext_bulleted_list">বুলেটকৃত তালিকা</string>
+  <string name="wikitext_numbered_list">সংখ্যায়িত তালিকা</string>
   <string name="wikitext_template">টেমপ্লেট</string>
+  <string name="wikitext_reference">তথ্যসূত্র</string>
   <string name="main_drawer_help">সাহায্য</string>
   <string name="main_drawer_login">উইকিপিডিয়াতে প্রবেশ করুন/যোগ দিন</string>
+  <string name="main_tooltip_text">সুধী %s, আপনি জানেন কি উইকিপিডিয়ায় যে কেউ সম্পাদনা করতে পারে?</string>
   <string name="main_tooltip_text_v2">আপনি কি জানেন যে যে-কেউ উইকিপিডিয়া সম্পাদনা করতে পারে?</string>
+  <string name="main_tooltip_action_button">শুরু করুন</string>
+  <string name="main_tooltip_watchlist_title">নজরতালিকা</string>
   <string name="custom_date_picker_dialog_ok_button_text">ঠিক আছে</string>
   <string name="text_input_dialog_ok_button_text">ঠিক আছে</string>
   <string name="text_input_dialog_cancel_button_text">বাতিল</string>
@@ -788,26 +942,58 @@
   <string name="talk_message_hint">বার্তা দিন</string>
   <string name="talk_message_empty">বার্তাটি খালি হতে পারে না।</string>
   <string name="talk_subject_empty">বিষয় খালি হতে পারবে না।</string>
+  <string name="talk_response_submitted">উত্তর প্রকাশিত হয়েছে।</string>
   <string name="talk_snackbar_undo">পূর্বাবস্থায় ফেরত</string>
+  <string name="talk_last_modified">%2$s দ্বারা &lt;b&gt;%1$s ঘণ্টা আগে সর্বশেষ সম্পাদিত&lt;/b&gt;</string>
+  <string name="talk_snackbar_survey_action_text">শুরু করুন</string>
+  <string name="talk_overflow_sort_by">সাজান</string>
+  <string name="talk_overflow_sort_date_updated">তারিখ হালনাগাদ করা হয়েছে</string>
+  <string name="talk_overflow_sort_topic_name">বিষয়ের নাম</string>
+  <string name="talk_list_item_overflow_mark_as_read">পঠিত হিসেবে চিহ্নিত করুন</string>
+  <string name="talk_list_item_overflow_mark_as_unread">অপঠিত হিসাবে চিহ্নিত করুন</string>
+  <string name="talk_list_item_overflow_share">শেয়ার করুন</string>
+  <string name="talk_list_item_last_comment_date">সর্বশেষ মন্তব্য: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">মোট উত্তর</string>
+  <string name="talk_list_item_user_icon_content_description">ব্যবহারকারী আইকন</string>
+  <string name="menu_option_user_contributions">%s-এর অবদান</string>
   <string name="menu_option_edit_source">উৎস সম্পাদনা</string>
+  <string name="watchlist_details_watching_label">নজরতালিকাভুক্ত</string>
+  <string name="watchlist_details_watch_label">নজর রাখুন</string>
+  <string name="watchlist_details_next_edit">পরবর্তী পার্থক্য</string>
+  <string name="watchlist_details_prev_edit">পূর্ববর্তী পার্থক্য</string>
+  <string name="thank_label">ধন্যবাদ</string>
+  <string name="view_user_page">ব্যবহারকারীর পাতা দেখুন</string>
+  <string name="thank_dialog_title_text">সর্বজনীনভাবে \'ধন্যবাদ\' পাঠান</string>
   <string name="thank_dialog_positive_button_text">ধন্যবাদ পাঠান</string>
   <string name="thank_dialog_negative_button_text">বাতিল</string>
   <string name="thank_success_message">আপনার \'ধন্যবাদ\' %s কে পাঠানো হয়েছে 👍</string>
+  <string name="menu_option_view_user_talk">আলাপ পাতা দেখুন</string>
   <string name="menu_option_view_user_contributions">ব্যবহারকারী অবদান দেখুন</string>
   <string name="revision_diff_compare">সংস্করণ তুলনা</string>
   <string name="revision_diff_from">হতে:</string>
   <string name="revision_diff_to">প্রতি:</string>
   <string name="revision_diff_line_added">লাইন যুক্ত হয়েছে</string>
+  <string name="revision_diff_paragraph_added">অনুচ্ছেদ যোগ করা হয়েছে</string>
   <string name="revision_diff_paragraph_removed">অনুচ্ছেদ সরানো হয়েছে</string>
   <string name="revision_undo_title">সম্পাদনা বাতিল করুন</string>
   <string name="revision_undo_reason">চালিয়ে যেতে, অনুগ্রহ করে এই সম্পাদনাটি পূর্বাবস্থায় ফেরত নেয়ার একটি কারণ প্রদান করুন:</string>
+  <string name="revision_rollback_success">সম্পাদনা পুনর্বহাল করা হয়েছে।</string>
+  <string name="revision_compare_button">তুলনা করুন</string>
+  <string name="revision_compare_two_only">শুধুমাত্র দুটি সংশোধন নির্বাচন করা যাবে।</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">পরিবর্তন</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">স্থায়ীভাবে</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">১ সপ্তাহের জন্য</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">১ মাসের জন্য</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">৩ মাসের জন্য</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">৬ মাসের জন্য</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ও এর আলাপ পাতা আপনার নজরতালিকা থেকে সরিয়ে ফেলা হয়েছে।</string>
+  <string name="watchlist_expiry_dialog_title">নজরতালিকার সময়কাল নির্বাচন করুন</string>
   <string name="watchlist_expiry_dialog_permanent">স্থায়ীভাবে</string>
   <string name="watchlist_expiry_dialog_one_week">১ সপ্তাহ</string>
   <string name="watchlist_expiry_dialog_one_month">১ মাস</string>
   <string name="watchlist_expiry_dialog_three_months">৩ মাস</string>
   <string name="watchlist_expiry_dialog_six_months">৬ মাস</string>
+  <string name="watchlist_empty">আপনার নজরতালিকায় কোনও নিবন্ধ নেই।</string>
   <string name="watchlist_filter_all">সব</string>
   <string name="watchlist_filter_talk">আলোচনা</string>
   <string name="watchlist_filter_pages">পাতা</string>
@@ -815,8 +1001,19 @@
   <string name="watchlist_page_moved">স্থানান্তর করা হয়েছে</string>
   <string name="watchlist_page_protected">সুরক্ষিত</string>
   <string name="watchlist_page_deleted">অপসারিত</string>
+  <string name="action_item_categories">বিষয়শ্রেণীসমূহ</string>
   <string name="page_no_categories">এই পাতাটি এখনো কোন বিষয়শ্রেণীর অন্তর্গত নয়।</string>
   <string name="category_tab_articles">নিবন্ধ</string>
+  <string name="category_tab_subcategories">উপবিষয়শ্রেণীসমূহ</string>
   <string name="category_empty">এই বিষয়শ্রেণীতে কোনো নিবন্ধ পাওয়া যায়নি।</string>
   <string name="subcategory_empty">এই বিষয়শ্রেণীতে কোনো উপ-বিষয়শ্রেণী পাওয়া যায়নি।</string>
+  <string name="search_namespaces">নামস্থান</string>
+  <string name="revision_initial_none">কোনটিই নয় (এটি প্রথম সংশোধন)</string>
+  <string name="archive_empty">কোনো সংরক্ষণাগারভুক্ত পৃষ্ঠা পাওয়া যায়নি।</string>
+  <string name="user_contrib_filter_all">সমস্ত সম্পাদনা</string>
+  <string name="namespace_article">নিবন্ধ</string>
+  <string name="user_contrib_current">বর্তমান</string>
+  <string name="media_playback_error">মিডিয়া চালনায় ত্রুটি৷</string>
+  <string name="user_contrib_menu_label">অবদান</string>
+  <string name="user_contrib_wiki_select">এতে অবদান:</string>
 </resources>

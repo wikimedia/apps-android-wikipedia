@@ -26,38 +26,40 @@ import static org.hamcrest.Matchers.nullValue;
     @Test public void testFromInternalLink() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
 
-        assertThat(enwiki.titleForInternalLink("/wiki/India").getPrefixedText(), is("India"));
-        assertThat(enwiki.titleForInternalLink("/wiki/India").getNamespace(), emptyString());
+        assertThat(PageTitle.Companion.titleForInternalLink("/wiki/India", enwiki).getPrefixedText(), is("India"));
+        assertThat(PageTitle.Companion.titleForInternalLink("/wiki/India", enwiki).getNamespace(), emptyString());
 
-        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India").getNamespace(), is("Talk"));
-        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India").getText(), is("India"));
-        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India").getFragment(), nullValue());
+        assertThat(PageTitle.Companion.titleForInternalLink("/wiki/Talk:India", enwiki).getNamespace(), is("Talk"));
+        assertThat(PageTitle.Companion.titleForInternalLink("/wiki/Talk:India", enwiki).getText(), is("India"));
+        assertThat(PageTitle.Companion.titleForInternalLink("/wiki/Talk:India", enwiki).getFragment(), nullValue());
 
-        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#").getNamespace(), is("Talk"));
-        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#").getText(), is("India"));
-        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#").getFragment(), nullValue());
+        assertThat(PageTitle.Companion.titleForInternalLink("/wiki/Talk:India#", enwiki).getNamespace(), is("Talk"));
+        assertThat(PageTitle.Companion.titleForInternalLink("/wiki/Talk:India#", enwiki).getText(), is("India"));
+        assertThat(PageTitle.Companion.titleForInternalLink("/wiki/Talk:India#", enwiki).getFragment(), nullValue());
 
-        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#History").getNamespace(), is("Talk"));
-        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#History").getText(), is("India"));
-        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#History").getFragment(), is("History"));
+        assertThat(PageTitle.Companion.titleForInternalLink("/wiki/Talk:India#History", enwiki).getNamespace(), is("Talk"));
+        assertThat(PageTitle.Companion.titleForInternalLink("/wiki/Talk:India#History", enwiki).getText(), is("India"));
+        assertThat(PageTitle.Companion.titleForInternalLink("/wiki/Talk:India#History", enwiki).getFragment(), is("History"));
     }
 
     @Test public void testCanonicalURL() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
 
-        assertThat(enwiki.titleForInternalLink("/wiki/India").getUri(), is("https://en.wikipedia.org/wiki/India"));
-        assertThat(enwiki.titleForInternalLink("/wiki/India Gate").getUri(), is("https://en.wikipedia.org/wiki/India_Gate"));
-        assertThat(enwiki.titleForInternalLink("/wiki/India's Gate").getUri(), is("https://en.wikipedia.org/wiki/India%27s_Gate"));
+        assertThat(PageTitle.Companion.titleForInternalLink("/wiki/India", enwiki).getUri(), is("https://en.wikipedia.org/wiki/India"));
+        assertThat(PageTitle.Companion.titleForInternalLink("/wiki/India Gate", enwiki).getUri(), is("https://en.wikipedia.org/wiki/India_Gate"));
+        assertThat(PageTitle.Companion.titleForInternalLink("/wiki/India's Gate", enwiki).getUri(), is("https://en.wikipedia.org/wiki/India%27s_Gate"));
     }
 
     @Test public void testVariants() {
+        WikiSite zhwiki = WikiSite.forLanguageCode("zh-hant");
+
         assertThat(new PageTitle("Taiwan", WikiSite.forLanguageCode("en")).getUri(), is("https://en.wikipedia.org/wiki/Taiwan"));
         assertThat(new PageTitle("Taiwan", WikiSite.forLanguageCode("zh")).getUri(), is("https://zh.wikipedia.org/zh/Taiwan"));
         assertThat(new PageTitle("Taiwan", WikiSite.forLanguageCode("zh-hant")).getUri(), is("https://zh.wikipedia.org/zh-hant/Taiwan"));
         assertThat(new PageTitle("Taiwan", WikiSite.forLanguageCode("zh-hans")).getUri(), is("https://zh.wikipedia.org/zh-hans/Taiwan"));
-        assertThat(WikiSite.forLanguageCode("zh-hant").titleForInternalLink("/zh/Taiwan").getUri(), is("https://zh.wikipedia.org/zh-hant/Taiwan"));
-        assertThat(WikiSite.forLanguageCode("zh-hant").titleForInternalLink("/zh-hant/Taiwan").getUri(), is("https://zh.wikipedia.org/zh-hant/Taiwan"));
-        assertThat(WikiSite.forLanguageCode("zh-hant").titleForInternalLink("/wiki/Taiwan").getUri(), is("https://zh.wikipedia.org/zh-hant/Taiwan"));
+        assertThat(PageTitle.Companion.titleForInternalLink("/zh/Taiwan", zhwiki).getUri(), is("https://zh.wikipedia.org/zh-hant/Taiwan"));
+        assertThat(PageTitle.Companion.titleForInternalLink("/zh-hant/Taiwan", zhwiki).getUri(), is("https://zh.wikipedia.org/zh-hant/Taiwan"));
+        assertThat(PageTitle.Companion.titleForInternalLink("/wiki/Taiwan", zhwiki).getUri(), is("https://zh.wikipedia.org/zh-hant/Taiwan"));
     }
 
     @Test public void testWikiSite() {
@@ -69,7 +71,7 @@ import static org.hamcrest.Matchers.nullValue;
     @Test public void testLangAsNamespace() {
         Uri uri = Uri.parse("https://en.wikipedia.org/wiki/fr:Article");
         WikiSite site = new WikiSite(uri);
-        PageTitle title = site.titleForUri(uri);
+        PageTitle title = PageTitle.Companion.titleForUri(uri, site);
         assertThat(title.getWikiSite().authority(), is("fr.wikipedia.org"));
         assertThat(title.getDisplayText(), is("Article"));
     }
@@ -132,5 +134,27 @@ import static org.hamcrest.Matchers.nullValue;
         assertThat(pageTitle.getNamespace(), emptyString());
         assertThat(pageTitle.getText(), is(":"));
         assertThat(pageTitle.getFragment(), nullValue());
+    }
+
+    @Test public void testEquality() {
+        PageTitle title1 = new PageTitle("Test Article", WikiSite.forLanguageCode("en"));
+        PageTitle title2 = new PageTitle("Test Article", WikiSite.forLanguageCode("en"));
+        assertThat(title1.equals(title2), is(true));
+        assertThat(title2.equals(title1), is(true));
+        title2.setDisplayText("TEST ARTICLE");
+        title2.setThumbUrl("http://thumb.url");
+        title2.setExtract("Foo");
+        title2.setDescription("Bar");
+        assertThat(title1.equals(title2), is(true));
+        assertThat(title2.equals(title1), is(true));
+        title2.setNamespace("File");
+        assertThat(title1.equals(title2), is(false));
+        assertThat(title2.equals(title1), is(false));
+
+        title2 = new PageTitle("Test Article", WikiSite.forLanguageCode("ru"));
+        assertThat(title1.equals(title2), is(false));
+        assertThat(title2.equals(title1), is(false));
+
+        assertThat(title1.equals(new Object()), is(false));
     }
 }

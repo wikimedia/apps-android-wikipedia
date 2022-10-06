@@ -1,6 +1,5 @@
 package org.wikipedia.analytics
 
-import androidx.annotation.VisibleForTesting
 import org.json.JSONException
 import org.json.JSONObject
 import org.wikipedia.WikipediaApp
@@ -15,8 +14,6 @@ import java.util.*
 abstract class Funnel @JvmOverloads internal constructor(protected val app: WikipediaApp, private val schemaName: String,
                                                          private val revision: Int, private val sampleRate: Int = SAMPLE_LOG_ALL,
                                                          private val wiki: WikiSite? = null) {
-
-    private val sampleRateRemoteParamName = schemaName + "_rate"
 
     val sessionToken = UUID.randomUUID().toString()
 
@@ -73,7 +70,7 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
      * depending on what they are logging.
      */
     protected fun log(wiki: WikiSite?, vararg params: Any?) {
-        if (ReleaseUtil.isDevRelease || isUserInSamplingGroup(app.appInstallID, getSampleRate())) {
+        if (ReleaseUtil.isDevRelease || isUserInSamplingGroup(app.appInstallID, sampleRate)) {
             val eventData = JSONObject()
             var i = 0
             while (i < params.size) {
@@ -88,15 +85,6 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
             )
             EventLoggingService.instance.log(event.data)
         }
-    }
-
-    /**
-     * @return Sampling rate for this funnel, as given by the remote config parameter for this
-     * funnel (the name of which is defined as "[schema name]_rate"), with a fallback to the
-     * hard-coded sampling rate passed into the constructor.
-     */
-    private fun getSampleRate(): Int {
-        return app.remoteConfig.config.optInt(sampleRateRemoteParamName, sampleRate)
     }
 
     companion object {
@@ -119,10 +107,9 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
          * @return Whether the current user is part of the requested sampling rate bucket.
          */
         @JvmStatic
-        @VisibleForTesting
-        fun isUserInSamplingGroup(appInstallID: String?, sampleRate: Int): Boolean {
+        fun isUserInSamplingGroup(appInstallID: String, sampleRate: Int): Boolean {
             return try {
-                val lastFourDigits = appInstallID!!.substring(appInstallID.length - 4).toInt(16)
+                val lastFourDigits = appInstallID.substring(appInstallID.length - 4).toInt(16)
                 lastFourDigits % sampleRate == 0
             } catch (e: Exception) {
                 // Should never happen, but don't crash just in case.

@@ -43,7 +43,7 @@ class CreateAccountActivity : BaseActivity() {
     private lateinit var captchaHandler: CaptchaHandler
     private lateinit var funnel: CreateAccountFunnel
     private val disposables = CompositeDisposable()
-    private var wiki = WikipediaApp.getInstance().wikiSite
+    private var wiki = WikipediaApp.instance.wikiSite
     private var userNameTextWatcher: TextWatcher? = null
     private val userNameVerifyRunnable = UserNameVerifyRunnable()
 
@@ -57,7 +57,7 @@ class CreateAccountActivity : BaseActivity() {
         // Don't allow user to continue when they're shown a captcha until they fill it in
         NonEmptyValidator(binding.captchaContainer.captchaSubmitButton, binding.captchaContainer.captchaText)
         setClickListeners()
-        funnel = CreateAccountFunnel(WikipediaApp.getInstance(), intent.getStringExtra(LOGIN_REQUEST_SOURCE)!!)
+        funnel = CreateAccountFunnel(WikipediaApp.instance, intent.getStringExtra(LOGIN_REQUEST_SOURCE)!!)
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
             funnel.logStart(intent.getStringExtra(LOGIN_SESSION_TOKEN))
@@ -112,7 +112,7 @@ class CreateAccountActivity : BaseActivity() {
 
     fun handleAccountCreationError(message: String) {
         if (message.contains("blocked")) {
-            FeedbackUtil.makeSnackbar(this, getString(R.string.create_account_ip_block_message), FeedbackUtil.LENGTH_DEFAULT)
+            FeedbackUtil.makeSnackbar(this, getString(R.string.create_account_ip_block_message))
                     .setAction(R.string.create_account_ip_block_details) {
                         visitInExternalBrowser(this,
                                 Uri.parse(getString(R.string.create_account_ip_block_help_url)))
@@ -160,7 +160,7 @@ class CreateAccountActivity : BaseActivity() {
                     if ("PASS" == response.status) {
                         finishWithUserResult(response.user)
                     } else {
-                        throw CreateAccountException(response.message)
+                        throw CreateAccountException(StringUtil.removeStyleTags(response.message))
                     }
                 }) { caught ->
                     L.e(caught.toString())
@@ -293,13 +293,13 @@ class CreateAccountActivity : BaseActivity() {
                     .subscribe({ response ->
                         response.query?.getUserResponse(userName)?.let {
                             binding.createAccountUsername.isErrorEnabled = false
-                            if (it.isBlocked) {
+                            if (it.hasBlockError) {
                                 handleAccountCreationError(it.error)
-                            } else if (!it.cancreate) {
+                            } else if (!it.canCreate) {
                                 binding.createAccountUsername.error = getString(R.string.create_account_name_unavailable, userName)
                             }
                         }
-                    }) { obj -> L.e(obj) })
+                    }) { L.e(it) })
         }
     }
 

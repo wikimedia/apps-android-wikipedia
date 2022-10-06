@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
+import androidx.core.view.MenuProvider
+import androidx.lifecycle.Lifecycle
 import androidx.preference.SwitchPreferenceCompat
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
@@ -14,25 +17,22 @@ import org.wikipedia.events.ReadingListsEnabledStatusEvent
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
 import org.wikipedia.settings.DeveloperSettingsActivity.Companion.newIntent
 
-class SettingsFragment : PreferenceLoaderFragment() {
+class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
     private lateinit var preferenceLoader: SettingsPreferenceLoader
     private val disposables = CompositeDisposable()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
+        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         // TODO: Kick off a sync of reading lists, which will call back to us whether lists
         // are enabled or not. (Not sure if this is necessary yet.)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         disposables.clear()
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        setHasOptionsMenu(true)
     }
 
     override fun loadPreferences() {
@@ -52,23 +52,21 @@ class SettingsFragment : PreferenceLoaderFragment() {
         requireActivity().invalidateOptionsMenu()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_settings, menu)
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.menu_settings, menu)
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu) {
-        super.onPrepareOptionsMenu(menu)
+    override fun onPrepareMenu(menu: Menu) {
         prepareDeveloperSettingsMenuItem(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onMenuItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.developer_settings -> {
                 launchDeveloperSettingsActivity()
                 true
             }
-            else -> super.onOptionsItemSelected(item)
+            else -> false
         }
     }
 

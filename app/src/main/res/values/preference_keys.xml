@@ -6,6 +6,7 @@
     <string name="preference_key_eventlogging_opt_in">eventlogging_opt_in</string>
     <string name="preference_key_reading_app_install_id">readingAppInstallID</string>
     <string name="preference_key_text_size_multiplier">textSizeMultiplier</string>
+    <string name="preference_key_editing_text_size_multiplier">editingTextSizeMultiplier</string>
     <string name="preference_key_color_theme">colorTheme</string>
     <string name="preference_key_previous_color_theme">previousColorTheme</string>
     <string name="preference_key_font_family">fontFamily</string>
@@ -78,7 +79,7 @@
     <string name="preference_key_reading_lists_deleted_ids">readingListsDeletedIds</string>
     <string name="preference_key_reading_list_pages_deleted_ids">readingListPagesDeletedIds</string>
     <string name="preference_key_show_reading_lists_sync_prompt">showReadingListsSyncPrompt</string>
-    <string name="preference_key_reading_lists_first_time_sync">readingListsFirstTimeSync</string>
+    <string name="preference_key_reading_lists_first_time_sync">readingListsFirstTimeSyncV2</string>
     <string name="preference_key_about_wikipedia_app">aboutWikipediaApp</string>
     <string name="preference_key_logout">logOut</string>
     <string name="preference_key_show_remove_chinese_variant_prompt">showRemoveChineseVariantPrompt</string>
@@ -135,4 +136,11 @@
     <string name="preference_key_show_edit_talk_page_source_prompt">showEditTalkPageSourcePrompt</string>
     <string name="preference_key_talk_topics_sort_mode">talkTopicsSortMode</string>
     <string name="preference_key_reading_focus_mode">readingFocusMode</string>
+    <string name="preference_key_edit_history_filter_type">editHistoryFilterType</string>
+    <string name="preference_key_talk_topic_expand_all">talkTopicExpandAll</string>
+    <string name="preference_key_user_contrib_filter_ns">userContribFilterNamespaces</string>
+    <string name="preference_key_edit_syntax_highlight">editSyntaxHighlight</string>
+    <string name="preference_key_edit_monospace_font">editMonospaceFont</string>
+    <string name="preference_key_edit_line_numbers">editLineNumbers</string>
+    <string name="preference_key_edit_typing_suggestions">editTypingSuggestions</string>
 </resources>

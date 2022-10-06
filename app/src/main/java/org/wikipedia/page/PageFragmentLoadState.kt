@@ -6,6 +6,10 @@ import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -41,7 +45,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
     }
 
     private var networkErrorCallback: ErrorCallback? = null
-    private val app = WikipediaApp.getInstance()
+    private val app = WikipediaApp.instance
     private val disposables = CompositeDisposable()
 
     fun load(pushBackStack: Boolean) {
@@ -160,8 +164,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             title.wikiSite.languageCode, UriUtil.encodeURL(title.prefixedText)),
                     if (app.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(title.wikiSite).getWatchedInfo(title.prefixedText)
                     else if (app.isOnline && !AccountUtil.isLoggedIn) AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
-                    else Observable.just(MwQueryResponse()), { first, second -> Pair(first, second) })
-                    .subscribeOn(Schedulers.io())
+                    else Observable.just(MwQueryResponse())) { first, second -> Pair(first, second) }
+                .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pair ->
                         val pageSummaryResponse = pair.first
@@ -196,15 +200,14 @@ class PageFragmentLoadState(private var model: PageViewModel,
     }
 
     private fun checkAnonNotifications(title: PageTitle) {
-        disposables.add(ServiceFactory.get(title.wikiSite).getLastModified(UserTalkAliasData.valueFor(title.wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    if (AnonymousNotificationHelper.anonTalkPageHasRecentMessage(it, title)) {
-                        fragment.showAnonNotification()
-                    }
-                }, { L.e(it) })
-        )
+        CoroutineScope(Dispatchers.Main).launch {
+            val response = withContext(Dispatchers.IO) {
+                ServiceFactory.get(title.wikiSite).getLastModified(UserTalkAliasData.valueFor(title.wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages)
+            }
+            if (AnonymousNotificationHelper.anonTalkPageHasRecentMessage(response, title)) {
+                fragment.showAnonNotification()
+            }
+        }
     }
 
     private fun showPageOfflineMessage(dateHeader: String?) {

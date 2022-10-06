@@ -39,6 +39,7 @@
                 android:background="@drawable/rounded_2dp_fill" />
 
             <TextView
+                android:id="@+id/textSettingsCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:fontFamily="sans-serif-medium"
@@ -73,7 +74,7 @@
                     android:gravity="center_horizontal|bottom"
                     android:paddingBottom="4dp"
                     android:text="T"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/color_group_9"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
@@ -102,14 +103,48 @@
                     android:gravity="center_horizontal|bottom"
                     android:paddingBottom="2dp"
                     android:text="T"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/color_group_9"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
 
             </LinearLayout>
 
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/syntax_highlight_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical"
+                android:text="@string/editing_syntax_highlight_label"
+                android:textColor="?attr/primary_text_color" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/typing_suggestions_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/editing_typing_suggestions"
+                android:textColor="?attr/primary_text_color" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/show_line_numbers_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/editing_line_numbers_label"
+                android:textColor="?attr/primary_text_color" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/monospace_font_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/editing_monospace_font_label"
+                android:textColor="?attr/primary_text_color" />
+
             <LinearLayout
+                android:id="@+id/fontFamilyContainer"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -146,6 +181,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/readingFocusModeContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -244,25 +280,6 @@
                 android:text="@string/theme_chooser_dialog_image_dimming_switch_label"
                 android:textColor="?attr/section_title_color" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/theme_category_toolbar"
-                android:textColor="?attr/primary_text_color"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/customizeFavorites"
-                style="@style/ThemeChooserButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="@string/theme_customize_toolbar"
-                android:textStyle="normal"
-                app:icon="@drawable/ic_chevron_forward_gray"
-                app:iconGravity="end"
-                app:iconTint="?attr/colorAccent" />
         </LinearLayout>
 
     </ScrollView>

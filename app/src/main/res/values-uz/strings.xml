@@ -12,13 +12,13 @@
 -->
 <resources>
   <string name="app_name_prod">Vikipediya</string>
-  <string name="app_name_beta">Vikipedia Beta</string>
+  <string name="app_name_beta">Vikipediya Beta</string>
   <string name="app_name_alpha">Vikipediya Alfa</string>
   <string name="wikimedia">Vikimediya</string>
   <string name="nav_item_back">Orqaga</string>
   <string name="page_tabs_back">Ortga</string>
   <string name="nav_item_forward">Keyingi</string>
-  <string name="search_hint">Vikipedia saytidan izlash</string>
+  <string name="search_hint">Vikipediyadan qidirish</string>
   <string name="search_hint_voice_search">Ovoz bilan izlash</string>
   <string name="search_hint_search_languages">Til bo‘yicha izlash</string>
   <string name="filter_hint_filter_my_lists_and_articles">Ro‘yxatimni filtrlamoq</string>
@@ -37,8 +37,8 @@
   <string name="menu_clear_all_history">Oldingi ro\'yxatni tozalamoq</string>
   <string name="history_item_deleted">%s tarixdan o‘chirildi</string>
   <string name="history_items_deleted">%d ta maqola tarixdan o‘chirildi</string>
-  <string name="history_item_delete_undo">Bekor qilmoq</string>
-  <string name="notification_archive_undo">Bekor qilmoq</string>
+  <string name="history_item_delete_undo">Bekor qilish</string>
+  <string name="notification_archive_undo">Bekor qilish</string>
   <string name="app_settings">Ilova tanlovlari</string>
   <string name="search_tab_tooltip">Qidiruv so‘zini to‘g‘ridan-to‘g‘ri yozishni boshlash uchun ikonkaga yana bir marta bosing.</string>
   <string name="history_list_title">Tarix</string>
@@ -56,15 +56,31 @@
   <string name="page_edit_history_activity_title">Oʻzgarishlar tarixi: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Jami tahrir boʻsh</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Tahrirlarni qidirish yoki filtrlash</string>
+  <string name="page_edit_history_filter_by">Quyidagicha filtrlash</string>
+  <string name="page_edit_history_filter_by_all">Barcha tahrirlar (%s)</string>
+  <string name="page_edit_history_filter_by_user">Foydalanuvchi tahrirlari (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonim tahrirlar (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Bot tahrirlari (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s dan %2$s gacha metrikada</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%2$s dan buyon %1$d ta tahrir</item>
+    <item quantity="other">%2$s dan buyon %1$d ta tahrir</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%2$s (%3$s)dan buyon %1$d ta tahrir</item>
+    <item quantity="other">%2$s (%3$s)dan buyon %1$d ta tahrir</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Batafsil tahrirlarni koʻrish uchun &lt;a href=\"#\"&gt;filtrlarni&lt;/a&gt; sinab koʻring</string>
   <string name="menu_page_show_tabs">Tablarni ko‘rsatish</string>
   <string name="menu_page_other_languages">Boshqa tillarda o‘qish</string>
   <string name="menu_page_find_in_page">Maqoladan izlash</string>
   <string name="menu_page_add_to_watchlist">Kuzatuv roʻyxatiga qoʻshmoq</string>
   <string name="menu_page_watch">Kuzatmoq</string>
+  <string name="menu_page_unwatch">Kuzatmaslik</string>
   <string name="menu_page_view_talk">Munozara sahifani koʻrish</string>
   <string name="menu_page_talk_page">Munozara sahifasi</string>
-  <string name="menu_page_view_edit_history">Tahrirlash tarixini koʻrish</string>
+  <string name="menu_page_view_edit_history">Tahrirlar tarixini koʻrish</string>
   <string name="menu_page_edit_history">Oʻzgarishlar tarixi</string>
   <string name="menu_page_remove_from_watchlist">Kuzatuv roʻyxatidan oʻchirmoq</string>
   <string name="menu_page_watched">Kuzatilgan</string>
@@ -81,6 +97,7 @@
   <string name="menu_page_new_tab">Yangi varaqa</string>
   <string name="menu_page_reading_lists">O‘qilganlar ro‘yxati</string>
   <string name="menu_page_recently_viewed">So‘nggi ko‘rilgan</string>
+  <string name="menu_page_archive">Arxiv</string>
   <string name="menu_long_press_open_page">Ochmoq</string>
   <string name="menu_long_press_open_in_new_tab">Yangi xatcho‘pda ochmoq</string>
   <string name="menu_long_press_copy_page">Havolani nusxalamoq</string>
@@ -88,26 +105,28 @@
   <string name="on_this_day_page_share">Ulashmoq</string>
   <string name="reading_list_page_share">Ulashmoq</string>
   <string name="menu_text_select_edit_here">Bu yerni tahrirlamoq</string>
+  <string name="menu_edit_article">Maqolani tahrirlamoq</string>
   <string name="last_updated_text">%sda oxirgi bor yangilangan</string>
   <string name="talk_page_link_text">Muhokama sahifasini ko‘rmoq</string>
-  <string name="edit_history_link_text">Tahrirlash tarixini ko‘rmoq</string>
+  <string name="edit_history_link_text">Tahrirlar tarixini koʻrish</string>
   <string name="map_view_link_text">Xaritada ko‘rmoq</string>
   <string name="other_languages_indication_text">Boshqa tilda o‘qimoq</string>
   <string name="language_count_link_text">Maqola %d ta tilda mavjud</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Nashr qilish bilan Siz &lt;a href=\"%1$s\"&gt; Foydalanish shartlari &lt;/a&gt;ga va o‘zingizning hissangizni &lt;a href=\"%2$s\"&gt; CC BY-SA 3.0 ostida qaytarib berilmaslikka rozilik bildirasiz. &lt;/a&gt; litsenziyasi.</string>
-  <string name="edit_save_action_license_anon">Nashr qilish bilan Siz &lt;a href=\"%1$s\"&gt; Foydalanish shartlari &lt;/a&gt;ga va o‘z hissangizni &lt;a href=\"%2$s/\"&gt; CC BY-SA ostida qaytarib berilmaslikka rozilik bildirasiz. 3.0 &lt;/a&gt; litsenziyasi. O‘zgarishlar sizning qurilmangiz IP-manziliga tegishli bo‘ladi. Agar Siz &lt;a href=\"https://#login\"&gt; tizimga kirsangiz &lt;/a&gt;, siz ko\'proq shaxsiylikka ega bo‘lasiz.</string>
-  <string name="preference_title_language">Vikipedia tillari</string>
+  <string name="edit_save_action_license_anon">Nashr qilish bilan siz &lt;a href=\"%1$s\"&gt;Foydalanish shartlari&lt;/a&gt;ga va oʻz hissangizni &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; litsenziyasi ostida qaytarib berilmaslikka rozilik bildirasiz. Oʻzgarishlar sizning qurilmangiz IP-manziliga tegishli boʻladi. Agar &lt;a href=\"https://#login\"&gt;tizimga kirsangiz&lt;/a&gt;, koʻproq shaxsiylikka ega boʻlasiz.</string>
+  <string name="edit_anon_warning">Tahrirlar qurilmangiz IP manziliga tegishli boʻladi. Agar Siz tizimga &lt;a href=\"https://#login\"&gt;kirsangiz&lt;/a&gt;, maxfiylikka ega boʻlasiz.</string>
+  <string name="preference_title_language">Vikipediya tillari</string>
   <string name="langlinks_filter_hint">Izlash</string>
   <string name="langlinks_empty">Bu sahifa boshqa tillarda mavjud emas.</string>
   <string name="langlinks_no_match">So‘rovingizga mos til topilmadi</string>
   <string name="langlinks_activity_title">Boshqa tillarda</string>
-  <string name="langlinks_your_wikipedia_languages">Sizning Vikipedia tilingiz</string>
+  <string name="langlinks_your_wikipedia_languages">Sizning Vikipediya tilingiz</string>
   <string name="menu_save_changes">O‘zgarishlarni saqlamoq</string>
   <string name="edit_saved_successfully">Tahrirlash saqlandi!</string>
   <string name="dialog_message_edit_failed">Tahrirni saqlab bo\'lmadi!</string>
   <string name="dialog_message_edit_failed_retry">Qayta urinib koʻrish</string>
-  <string name="dialog_message_edit_failed_cancel">Bekor qilmoq</string>
+  <string name="dialog_message_edit_failed_cancel">Bekor qilish</string>
   <string name="dialog_message_leaving_edit">O‘zgarishlaringiz hali saqlanmagan. Haqiqatan ham ushbu sahifani tark etmoqchimisiz?</string>
   <string name="dialog_message_leaving_edit_leave">Tark etmoq</string>
   <string name="dialog_message_leaving_edit_stay">Qolmoq</string>
@@ -142,11 +161,11 @@
   <string name="preference_title_logout">Chiqmoq</string>
   <string name="toast_logout_complete">Chiqildi</string>
   <string name="logout_prompt">Siz hozirda tizimga kirgan barcha qurilmalarda tizimdan chiqasiz. Davom etishni xohlaysizmi?</string>
-  <string name="logout_dialog_cancel_button_text">Bekor qilmoq</string>
+  <string name="logout_dialog_cancel_button_text">Bekor qilish</string>
   <string name="logged_out_in_background_title">Chiqildi</string>
   <string name="logged_out_in_background_dialog">Siz Vikipediyadan chiqdingiz. Yana kirishni xohlaysizmi?</string>
   <string name="logged_out_in_background_login">Vikipediaga kirish</string>
-  <string name="logged_out_in_background_cancel">Bekor qilmoq</string>
+  <string name="logged_out_in_background_cancel">Bekor qilish</string>
   <string name="history_empty_title">Bu yerda so‘nggi sahifalar yo‘q!</string>
   <string name="history_empty_message">Bu yerda o‘qiganlaringizni kuzatib boring.</string>
   <string name="history_offline_articles_toast">Tarixdagi ba’zi maqolalarni oflayn rejimida ko‘rib bo‘lmaydi.</string>
@@ -244,8 +263,13 @@
   <string name="edit_next">Keyingi</string>
   <string name="edit_done">Saqlamoq</string>
   <string name="edit_preview">Koʻrib chiqish</string>
-  <string name="edit_undo">Bekor qilmoq</string>
+  <string name="edit_undo">Bekor qilish</string>
   <string name="edit_redo">Qaytarmoq</string>
+  <string name="edit_rollback">Eski holiga qaytarish</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s bayt</item>
+    <item quantity="other">%s bayt</item>
+  </plurals>
   <string name="edit_zoom_in">Yaqinlashtirmoq</string>
   <string name="edit_zoom_out">Uzoqlashtirmoq</string>
   <string name="edit_summary_tag_typo">Xatoni tuzatdim</string>
@@ -281,10 +305,10 @@
   <string name="clear_recent_searches_confirm_yes">Ha</string>
   <string name="clear_recent_searches_confirm_no">Yo‘q</string>
   <string name="error_browser_not_found">Veb-sahifani ochib boʻlmadi (brauzer ilovasi mavjud emas).</string>
-  <string name="table_infobox">Tezkor faktlar</string>
+  <string name="table_infobox">Qisqa faktlar</string>
   <string name="table_other">Batafsil maʼlumot</string>
   <string name="table_close">Yopmoq</string>
-  <string name="widget_name_featured_page">Vikipedia afzal koʻrgan sahifa</string>
+  <string name="widget_name_featured_page">Tanlangan sahifa</string>
   <string name="widget_title_featured_page">Bugunning sahifasi:</string>
   <string name="widget_name_search">Vikipediyadan qidirish</string>
   <string name="wiktionary_no_definitions_found">Hech nima topilmadi.</string>
@@ -330,7 +354,7 @@
   <string name="all_tab_items_closed">Barcha xatcho‘plar yopildi.</string>
   <string name="tool_tip_bookmark_icon_title">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
   <string name="tool_tip_bookmark_icon_text">Maqolani o‘qish ro‘yxatiga saqlash uchun xatcho‘p belgisini bosing.</string>
-  <string name="page_view_in_browser">Sahifani brauzerda ochmoq</string>
+  <string name="page_view_in_browser">Sahifani brauzer orqali ochish</string>
   <string name="tool_tip_toc_title">Tezkor murojaat mundarijasi</string>
   <string name="tool_tip_toc_text">Endi tarkibni ochish uchun chapga suring va maqolaning turli bo‘limlariga tez o‘tish uchun ushbu skrlerler tugmachasini bosing.</string>
   <string name="tool_tip_lang_button">Endi ilovada bir nechta Vikipediya tillarida qidirishingiz va o‘qishingiz mumkin.\n\n\nBoshqa tillarni qo‘shish uchun belgini bosing.</string>
@@ -355,7 +379,7 @@
   <string name="preference_summary_show_link_previews">Havolalarni bosish paytida maqolalarni tezda ko‘rib chiqishni ko‘rsating.</string>
   <string name="preference_title_collapse_tables">Xatcho‘plarni yopmoq</string>
   <string name="preference_summary_collapse_tables">Infoboks, ma’lumotnomalar va eslatmalar kabi maqolalardagi jadvallar avtomatik ravishda yopiladi.</string>
-  <string name="nav_item_donate">Xayriya qilmoq</string>
+  <string name="nav_item_donate">Xayriya qilish</string>
   <string name="error_voice_search_not_available">Ovoz aniqlashtirgich mavjud emas.</string>
   <string name="location_service_disabled">Joylashuv xizmatlari o‘chirilgan.</string>
   <string name="enable_location_service">Yoqmoq</string>
@@ -374,7 +398,7 @@
   <string name="view_wiki_error_message_offline">Internetga bog‘lanib bo‘lmadi</string>
   <string name="view_wiki_error_message_timeout">Vikipediyaga ulanib bo‘lmadi. Tarmoq ulanishingizni tekshiring yoki keyinroq qayta urinib ko‘ring</string>
   <string name="reference_title">Izohlar %s</string>
-  <string name="reference_list_title">Izohlar</string>
+  <string name="reference_list_title">Manbalar</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Rasm xiralashishi (tungi temada)</string>
   <string name="preference_title_prefer_offline_content">Oflayn tarkibni afzal ko‘rmoq</string>
   <string name="preference_summary_prefer_offline_content">Har doim maqolaning so‘nggi versiyasini yuklashdan ko‘ra, oflayn rejimda mavjud bo‘lgan maqolalarni yuklash orqali trafigingizni tejang.</string>
@@ -389,7 +413,7 @@
   <string name="error_blocked_expiry">Bloklash muddati: %s</string>
   <string name="error_blocked_id">Bloklashning ID kodi: %s</string>
   <string name="error_blocked_footer">Siz &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; bilan yoki &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; bilan bloklash masalasida murojaat qilishingiz mumkin.</string>
-  <string name="theme_chooser_menu_item_tooltip">Jihozlar panelini moslang va oʻqish rejimini yoqing</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Panelni moslang</string>
   <string name="error_blocked_footer_no_blocker">Siz &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; bilan bloklash boʻyicha bogʻlanishingiz mumkin.</string>
   <string name="crash_report_activity_title">Ilova xatoligi</string>
   <string name="crash_report_relaunch_or_quit">Kechirasiz, Vikipediya ilovasida xatolik yuz berdi va u bekor qilindi.\n\nBoshlashni xohlaysizmi yoki ishdan chiqishni xohlaysizmi?</string>
@@ -417,10 +441,13 @@
   <string name="text_size_percent_default">%s (standart)</string>
   <string name="text_style_title">Shrift</string>
   <string name="theme_category_reading">Oʻqish</string>
+  <string name="theme_category_editing">Tahrirlash</string>
   <string name="reading_focus_mode">Oʻqish rejimi</string>
   <string name="reading_focus_mode_detail">Asosiy tahrirlarni va harakat vaqti quyi panelni berkitmoq</string>
-  <string name="theme_category_toolbar">Panel</string>
-  <string name="theme_customize_toolbar">Panelni moslash</string>
+  <string name="editing_syntax_highlight_label">Sintaksisni taʼkidlash</string>
+  <string name="editing_line_numbers_label">Satr raqamlarini koʻrsatish</string>
+  <string name="editing_monospace_font_label">Monospace shriftidan foydalanish</string>
+  <string name="editing_typing_suggestions">Yozish bo‘yicha takliflarni ko‘rsatish</string>
   <string name="nav_item_saved">Saqlamalar</string>
   <string name="reading_list_save_to">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
   <string name="reading_list_move_to">Oʻqish roʻyxatiga oʻtmoq</string>
@@ -476,7 +503,7 @@
   </plurals>
   <string name="reading_list_items_deleted">%d ta maqola roʻyxatdan oʻchirildi</string>
   <string name="reading_lists_item_deleted">%s roʻyxatdan oʻchirildi</string>
-  <string name="reading_list_item_delete_undo">Bekor qilmoq</string>
+  <string name="reading_list_item_delete_undo">Bekor qilish</string>
   <string name="reading_list_deleted">%s oʻchirildi</string>
   <string name="saved_list_empty_title">Saqlangan sahifalar mavjud emas</string>
   <string name="reading_lists_empty_message">Keyinchalik, hatto oflaynda ham oʻqish uchun maqolalarni roʻyxatga qoʻshing.</string>
@@ -493,7 +520,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Maqola bir nechta roʻyxatdan iborat</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s endi barcha roʻyxatlar uchun oflayn rejimda mavjud boʻlmaydi:</string>
   <string name="reading_lists_sync_reminder_title">Roʻyxatni sinxronlashtirasizmi?</string>
-  <string name="reading_lists_sync_reminder_text">Maqolalar Sizning Vikipedia akkauntingiz bilan sinxronlashtirildi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Batafsil maʼlumot&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Maqolalar sizning Vikipediya akkauntingiz bilan sinxronlashtirildi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Batafsil maʼlumot&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link">Roʻyxatlardan endi barcha qurilmalaringizda sinxron tarzda foydalanishingiz mumkin. Vikipediya hisobingizga kiring va roʻyxatlaringizni saqlashga ruxsat bering.&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Batafsil maʼlumot&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sinxronlashtirmoq</string>
   <string name="reading_list_login_reminder_title">Sinxronlashgan roʻyxatlar</string>
@@ -508,7 +535,7 @@
   <string name="reading_list_delete_confirm">%sni oʻchirib tashlamoqchimisiz?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Tizimga kirmoq</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Roʻyxatlaringizni hisobingizga saqlashga ruxsat berish uchun tizimga kiring.</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Bekor qilmoq</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Bekor qilish</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Kirmoq</string>
   <string name="reading_list_turned_sync_off_dialog_title">Sinxronlash faol emas</string>
   <string name="reading_list_turned_sync_off_dialog_text">Hisobingiz uchun roʻyxat sinxronizatsiyasi oʻchirilgan va tizimga kirgan qurilmalardagi saqlangan maqolalar endi zaxiralanmaydi. Tanlovlar menyusidan roʻyxat sinxronizatsiyasini yoqing.</string>
@@ -544,10 +571,10 @@
   <string name="reading_list_menu_last_sync">Soʻnggi sinxronlashuv: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
-  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Bekor qilmoq</string>
-  <string name="reading_list_delete_dialog_cancel_button_text">Bekor qilmoq</string>
-  <string name="reading_list_remove_from_offline_cancel_button_text">Bekor qilmoq</string>
-  <string name="reading_list_download_using_mobile_data_cancel_button_text">Bekor qilmoq</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Bekor qilish</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Bekor qilish</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Bekor qilish</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Bekor qilish</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_activity_title">%s oʻqilganlar roʻyxati</string>
   <string name="user_option_sync_label">Tanlovlar</string>
@@ -556,7 +583,7 @@
   <string name="notification_channel_description">Yuklab olish jarayoni</string>
   <string name="notification_syncing_pause_button">Pauza</string>
   <string name="notification_syncing_resume_button">Davom etmoq</string>
-  <string name="notification_syncing_cancel_button">Bekor qilmoq</string>
+  <string name="notification_syncing_cancel_button">Bekor qilish</string>
   <string name="notification_syncing_reading_list_channel_title">Sinxronlashgan roʻyxatlar</string>
   <string name="notification_syncing_reading_list_channel_description">Roʻyxatni sinxronlash jarayoni</string>
   <string name="notification_many_unread">%d ta bildirgi oʻqilmagan</string>
@@ -584,7 +611,7 @@
     <item quantity="one">%1$d ta roʻyxat qoldi</item>
     <item quantity="other">%1$d ta roʻyxat qoldi</item>
   </plurals>
-  <string name="notification_echo_channel_description">Vikipedia bildirishnomalari</string>
+  <string name="notification_echo_channel_description">Vikipediya bildirishnomalari</string>
   <string name="notifications_activity_title">Bildirishnomalar</string>
   <string name="notifications_activity_title_archived">Bildirishnomalar (arxivlangan)</string>
   <string name="notifications_search">Bildirishnomalarni izlash</string>
@@ -728,7 +755,7 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Bekor qilmoq</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Kezish tasmangizni moslashtiring&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt; Endi tasmangizda nimani namoyish qilishni tanlashingiz, shuningdek, oʻzingiz yoqtirgan tarkib turlariga ustuvor ahamiyat berishingiz mumkin boʻladi.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
-  <string name="feed_lang_selection_dialog_cancel_button_text">Bekor qilmoq</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Bekor qilish</string>
   <string name="feed_accessibility_card_text">Siz tasmaning eng pastki qismiga yetdingiz.</string>
   <string name="feed_accessibility_card_load_more_button">Batafsil</string>
   <string name="top_read_activity_title">%sda eng koʻp oʻqilgan</string>
@@ -749,7 +776,7 @@
   <string name="description_edit_add_image_caption">Rasmga sarlavha qo‘ymoq</string>
   <string name="description_edit_edit_image_caption">Rasm sarlavhasini oʻzgartirmoq</string>
   <string name="description_edit_translate_image_caption">Rasm sarlavhasini tarjima qilmoq</string>
-  <string name="description_edit_cancel_hint">Bekor qilmoq</string>
+  <string name="description_edit_cancel_hint">Bekor qilish</string>
   <string name="description_edit_help_title">Maʼlumot: Maqola tavsiflari</string>
   <string name="description_edit_help_about_wikidata">Vikidata haqida</string>
   <string name="description_edit_help_wikidata_guide">Tavsiflarni yozish uchun Wikidata qoʻllanmasi</string>
@@ -758,6 +785,10 @@
   <string name="description_edit_license_notice">Maqola tavsifini oʻzgartirib, men &lt;a href=\"%1$s\"&gt; Foydalanish shartlariga&lt;/a&gt; rozilik bildiraman hamda &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; litsenziyasi shartlariga asosan oʻz maqolamni qaytarib olmaslikka roziman.</string>
   <string name="description_edit_helper_text_lowercase_warning">odatda kichik harf bilan boshlanadi</string>
   <string name="description_edit_voice_input_description">Ovoz bilan kiritmoq</string>
+  <string name="description_edit_learn_more">Maqola tavsiflari haqida koʻproq bilib oling</string>
+  <string name="description_edit_image_caption_learn_more">Tasvir izohi haqida batafsil maʼlumot oling</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Matn juda ham qisqa.</string>
   <string name="description_ends_with_punctuation">Matn tinish belgilari bilan tugamasligi kerak.</string>
   <string name="description_starts_with_uppercase">Birinchi soʻz atoqli ot boʻlmasa, kichik harf bilan boshlang.</string>
@@ -782,7 +813,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Tahrirlash</string>
   <string name="description_edit_tutorial_promise">Boshlash bilan men ushbu funktsiyani notoʻgʻri ishlatmaslikka harakat qilaman.</string>
   <string name="customize_toolbar_title">Panelni moslash</string>
-  <string name="customize_toolbar_description_text">Quyi panelda Sizga kerakli boʻlgan 5 ta havolni joylang.</string>
+  <string name="customize_toolbar_shortcut_description_text">Quyi panelda Sizga kerakli boʻlgan 5 ta yorliqni joylashtiring.</string>
   <string name="customize_toolbar_category_toolbar">Panel</string>
   <string name="customize_toolbar_category_menu">Menyu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Kerakli elementlarni bu yerga surib olib keling 👋</string>
@@ -841,7 +872,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Litsenziyalash</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Batafsil</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Wikimedia Commons fayli</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Vikipedia fayli</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Vikipediyada fayl sahifasi</string>
   <string name="suggested_edits_article_cta_image_tags">Rasmga teg qoʻshmoq</string>
   <string name="suggested_edits_article_cta_image_caption">Rasmga sarlavha qo‘ymoq</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Rasmga sarlavha qo‘shmoq (%s)</string>
@@ -852,7 +883,7 @@
   <string name="suggested_edits_snackbar_survey_text">Tahrirlash tajribangiz qanaqa? Iltimos, ilova ichidagi tahrirlash haqidagi soʻrovnomani toʻldiring.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Ishtirok etmoq</string>
   <string name="suggested_edits_task_action_text_add">Qoʻshmoq</string>
-  <string name="suggested_edits_task_action_text_translate">Tarjima qilmoq</string>
+  <string name="suggested_edits_task_action_text_translate">Tarjima qilish</string>
   <string name="suggested_edits_image_captions">Rasm nomi</string>
   <string name="suggested_edits_image_tags">Rasm tegi</string>
   <string name="suggested_edits_image_tags_publishing">Saqlash</string>
@@ -879,6 +910,7 @@
   <string name="suggested_edits_paused_message">Tavsiya etilgan tahrirlar %1$sgacha toʻxtatildi. Kechirasiz, %2$s%, yaqinda qilgan baʼzi hissalaringiz qaytarildi.</string>
   <string name="suggested_edits_disabled_message">Tavsiya etilgan tahrirlar faol emas. Kechirasiz, %s, juda koʻp qoʻshgan narsalaringiz bekor qilindi.</string>
   <string name="suggested_edits_ip_blocked_message">Sizning IP-manzilingiz (yoki IP-manzillar diapazoningiz) hozirda Vikipediyani tahrirlashga toʻsiq qoʻyilganga oʻxshaydi.</string>
+  <string name="suggested_edits_gate_message">Kechirasiz, %s, bu funksiyadan foydalanish uchun to‘g‘ridan-to‘g‘ri maqolaga kamida uchta tahrir qilishingiz lozim.</string>
   <string name="suggested_edits_editing_tips_link_text">Maslahatlar va tavsiyalarni tahrirlash</string>
   <string name="suggested_edits_help_page_link_text">Tavsiya etilganni tahrirlash yordam sahifasi</string>
   <string name="suggested_edits_edit_streak_label_text">Qatorni tahrirlamoq</string>
@@ -957,7 +989,6 @@
   <string name="file_page_activity_title">Fayl sahifasi</string>
   <string name="file_page_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="file_page_add_image_tags_button">Rasmga teg qoʻshmoq</string>
-  <string name="file_page_suggestion_reason">Taklif sababi</string>
   <string name="file_page_edit_button_content_description">%sʼni tahrirlamoq</string>
   <string name="description_edit_revert_subtitle">Vikipediyaga hissa qoʻshnagingiz uchun tashakkur!</string>
   <string name="description_edit_revert_intro">Biz sizning qo\'lingizdan kelganicha harakat qilganingizni bilamiz, ammo sharhlovchilardan biri tashvishga tushdi. Tahriringiz qaytarilgan bo\'lishi mumkin bo\'lgan sabablarga quyidagilar kiradi:</string>
@@ -1003,7 +1034,7 @@
   <string name="languages_list_activity_title">Til qoʻshmoq</string>
   <string name="languages_list_suggested_text">Tavsiya etilgan</string>
   <string name="languages_list_all_text">Barcha tillar</string>
-  <string name="wikipedia_languages_title">Vikipedia tillari</string>
+  <string name="wikipedia_languages_title">Vikipediya tillari</string>
   <string name="wikipedia_languages_your_languages_text">Tanlagan tillaringiz</string>
   <string name="wikipedia_languages_add_language_text">Til qoʻshmoq</string>
   <string name="wikipedia_languages_remove_text">Tilni olib tashlamoq</string>
@@ -1016,29 +1047,69 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Barcha tillarni olib tashlab boʻlmaydi</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Maqolani qidirish va oʻqish uchun kamida bitta Vikipediya tilini saqlang.</string>
   <string name="more_language_options">batafsil</string>
-  <string name="add_wikipedia_languages_text">Vikipedia tillarini qoʻshmoq</string>
+  <string name="add_wikipedia_languages_text">Vikipediya tillarini qoʻshish</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Ilova tillaridan xitoycha variant olib tashlansinmi?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Hozirda sizning ilovalaringiz tillarida anʼanaviy va soddalashtirilgan xitoycha variantlar mavjud. Ilova tillari tanlovlarini yangilaysizmi?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Tillarni tahrilamoq</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Yo‘q, rahmat</string>
-  <string name="remove_language_dialog_cancel_button_text">Bekor qilmoq</string>
+  <string name="remove_language_dialog_cancel_button_text">Bekor qilish</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
   <string name="protected_page_warning_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
-  <string name="account_editing_blocked_dialog_cancel_button_text">Bekor qilmoq</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Bekor qilish</string>
   <string name="edit_type_all">Barcha hissalar</string>
   <string name="content_description_for_page_indicator">%1$d / %2$d sahifa</string>
   <string name="wikitext_bold">Qalin</string>
   <string name="wikitext_italic">Yotiq</string>
+  <string name="wikitext_underline">Tagchiziqli</string>
+  <string name="wikitext_strikethrough">Ustiga chizilgan</string>
+  <string name="wikitext_sup">Yuqori yozuv</string>
+  <string name="wikitext_sub">Ost yozuv</string>
+  <string name="wikitext_large">Katta matn</string>
+  <string name="wikitext_small">Kichik matn</string>
+  <string name="wikitext_code">Kod</string>
   <string name="wikitext_link">Havola</string>
+  <string name="wikitext_heading_n">%d-ostsarlavha</string>
+  <string name="wikitext_formatting">Formatlash</string>
+  <string name="wikitext_headings">Sarlavhalar</string>
+  <string name="wikitext_insert_media">Mediani qoʻymoq</string>
   <string name="wikitext_bulleted_list">Belgili roʻyxat</string>
   <string name="wikitext_numbered_list">Raqamlangan roʻyxat</string>
   <string name="wikitext_template">Andoza</string>
-  <string name="wikitext_reference">Izoh</string>
+  <string name="wikitext_reference">Manba</string>
   <string name="wikitext_preview_link">Koʻrish havolasi</string>
+  <string name="insert_media_title">Mediani qoʻymoq</string>
+  <string name="insert_media_search_description">Wikimedia Commonsʼdan fayl tanlamoq</string>
+  <string name="insert_media_search_hint">Media qidiruvi</string>
+  <string name="insert_media_settings">Media tanlovlari</string>
+  <string name="insert_media_settings_uploaded_image">Yuklangan rasm</string>
+  <string name="insert_media_settings_caption">Izoh</string>
+  <string name="insert_media_settings_caption_description">Barcha oʻquvchilar uchun element yonida koʻrsatiladigan yozuv</string>
+  <string name="insert_media_settings_alternative_text">Muqobil matn</string>
+  <string name="insert_media_settings_alternative_text_description">Rasmni koʻra olmaydigan oʻquvchilar uchun izohli matn</string>
+  <string name="insert_media_advanced_settings">Kengaytirilgan tanlovlar</string>
+  <string name="insert_media_advanced_settings_wrap_image">Rasm atrofiga matnni joylashtirmoq</string>
+  <string name="insert_media_advanced_settings_image_position">Tasvir oʻrni</string>
+  <string name="insert_media_advanced_settings_image_position_right">Oʻngda</string>
+  <string name="insert_media_advanced_settings_image_position_left">Chapda</string>
+  <string name="insert_media_advanced_settings_image_position_center">Markazda</string>
+  <string name="insert_media_advanced_settings_image_position_none">Hech qaysi</string>
+  <string name="insert_media_advanced_settings_image_type">Tasvir turi</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Eskiz</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Ramkasiz</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Ramka</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Asosiy</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Media elementi sahifada qanday koʻrinishini oʻrnatishingiz mumkin. Bu deyarli barcha holatlarda boshqa sahifalar bilan mos keladigan eskiz formati boʻlishi kerak.</string>
+  <string name="insert_media_advanced_settings_image_size">Tasvir oʻlchami</string>
+  <string name="insert_media_advanced_settings_image_size_default">Standart</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Maxsus</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Eni</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Boʻyi</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
+  <string name="insert_media_insert_button">Qoʻyish</string>
   <string name="main_drawer_help">Yordam</string>
   <string name="main_drawer_login">Vikipediaga kirmoq</string>
   <string name="main_tooltip_text">Salom %s, Vikipediyani hamma tahrirlashi mumkinligini bilasizmi?</string>
@@ -1048,8 +1119,8 @@
   <string name="main_tooltip_watchlist_text">Oldin kuzatuv roʻyxatiga qoʻshgan maqolalar va sahifalarni izlab topish uchun Qoʻshimcha menyudagi &lt;b&gt;Kuzatuv roʻyxati&lt;/b&gt; boʻlimini tanlang.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
-  <string name="text_input_dialog_cancel_button_text">Bekor qilmoq</string>
-  <string name="custom_date_picker_dialog_cancel_button_text">Bekor qilmoq</string>
+  <string name="text_input_dialog_cancel_button_text">Bekor qilish</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Bekor qilish</string>
   <string name="talk_title">Munozara</string>
   <string name="talk_user_title">Munozara: %s</string>
   <string name="talk_new_topic">Yangi mavzu</string>
@@ -1071,15 +1142,44 @@
   <string name="talk_share_talk_page">Vikipediya - munozaralar sahifasi</string>
   <string name="talk_edit_disclaimer">Bu munozara sahifasi. Iltimos, munozara sahifasi yoʻriqnomalarini hurmat qiling va toʻrtta tilda belgisini terish orqali postlaringizga imzo qoʻyishni unutmang: vikimatn yordamida joylashda ~~~~.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
   <string name="talk_search_hint">Xabarni izlash</string>
+  <string name="talk_search_topics_hint">Mavzularni qidirmoq</string>
+  <string name="talk_search_find_in_talk_topics_hint">Muhokama sahifasida mavzuni izlamoq</string>
   <string name="talk_overflow_sort_by">Saralash turi</string>
   <string name="talk_overflow_sort_date_published">Sana chop etildi</string>
+  <string name="talk_overflow_sort_date_updated">Yangilangan sana</string>
   <string name="talk_overflow_sort_topic_name">Mavzu nomi</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Javobni koʻrsatish</item>
+    <item quantity="other">(%d) ta javobni koʻrsatish</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Javoblarni yashirish</item>
+    <item quantity="other">(%d) ta javobni yashirish</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">\"%s\"ga obuna boʻlingan</string>
+  <string name="talk_thread_unsubscribed_from">\"%s\"dan obunani bekor qilmoq</string>
+  <string name="talk_list_item_overflow_subscribe">Obuna boʻlmoq</string>
+  <string name="talk_list_item_overflow_subscribed">Obuna boʻlingan</string>
+  <string name="talk_list_item_overflow_mark_as_read">Oʻqilgan deb belgilash</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Oʻqilmagan deb belgilash</string>
+  <string name="talk_list_item_overflow_share">Ulashmoq</string>
+  <string name="talk_list_item_last_comment_date">Oxirgi fikr: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Jami javoblar</string>
+  <string name="talk_list_item_user_icon_content_description">Foydalanuvchi ikonkasi</string>
+  <string name="talk_list_item_swipe_mark_as_read">Oʻqimoq</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Oʻqimaslik</string>
+  <string name="talk_archived_title">Suhbat arxivi: %s</string>
   <string name="menu_option_share_talk_discussion">Munozarani ulashmoq</string>
   <string name="menu_option_share_talk_page">Muhokama sahifasini ulashmoq</string>
   <string name="menu_option_share_edit">Tahrirlashni ulashmoq</string>
-  <string name="menu_option_user_profile">%sʼning profili</string>
   <string name="menu_option_user_contributions">%sning hissalari</string>
   <string name="menu_option_edit_source">Manbasini tahrirlash</string>
+  <string name="menu_option_user_page">%s foydalanuvchi sahifasi</string>
+  <string name="menu_option_find_in_talk_page_topic">Muhokama sahifasida mavzuni izlamoq</string>
+  <string name="menu_option_copy_link_to_clipboard">Nusxa olmoq</string>
+  <string name="talk_menu_copy_text">Matnni nusxalash</string>
+  <string name="talk_menu_expand_threads">Oqimlarni yoymoq</string>
+  <string name="talk_menu_collapse_threads">Oqimni yigʻishtirmoq</string>
   <string name="watchlist_details_watching_label">Kuzatilmoqda</string>
   <string name="watchlist_details_watch_label">Kuzatmoq</string>
   <string name="watchlist_details_next_edit">Keyingi tahrir</string>
@@ -1093,6 +1193,23 @@
   <string name="thank_success_message">Sizning «Tashakkur»ingiz %sga bildirildi 👍</string>
   <string name="menu_option_view_user_profile">Foydalanuvchi profili sahifasini koʻrish</string>
   <string name="menu_option_view_user_talk">Munozara sahifasini koʻrish</string>
+  <string name="menu_option_view_user_contributions">Foydalanuvchi hissasini koʻrmoq</string>
+  <string name="revision_diff_compare">Tahrirlarni solishtirimoq</string>
+  <string name="revision_diff_compare_title">Tahrirlarni solishtirish: %s</string>
+  <string name="revision_diff_from">Bundan:</string>
+  <string name="revision_diff_to">Bunga:</string>
+  <string name="revision_diff_line_num">%d-qator</string>
+  <string name="revision_diff_line_nums">%d-%d qatorlar</string>
+  <string name="revision_diff_line_added">Qator qoʻshildi</string>
+  <string name="revision_diff_line_removed">Qator oʻchirildi</string>
+  <string name="revision_diff_paragraph_added">Paragraf qoʻshildi</string>
+  <string name="revision_diff_paragraph_removed">Paragraf oʻchirildi</string>
+  <string name="revision_undo_title">Tahrirni bekor qilmoq</string>
+  <string name="revision_undo_message">Bu yerda koʻrsatilgan maqolaning tahrir(lar)i tomonidan kiritilgan oʻzgarishlar bekor qilinadi.</string>
+  <string name="revision_undo_reason">Davom etish uchun ushbu tahrirni bekor qilish sababini keltiring:</string>
+  <string name="revision_undo_success">Qayta koʻrib chiqish bekor qilindi.</string>
+  <string name="revision_rollback_dialog_title">Haqiqatan ham tahrirlarni bekor qilmoqchimisiz?</string>
+  <string name="revision_rollback_success">Tahrirlar qaytarildi.</string>
   <string name="revision_compare_button">Solishtirish</string>
   <string name="revision_compare_two_only">Faqat ikkita tahrirni tanlash mumkin.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s va uning munozara sahifasi sizning %2$s-kuzatuvlar roʻyxatigizga qoʻshildi.</string>
@@ -1117,4 +1234,30 @@
   <string name="watchlist_page_moved">Koʻchirilgan</string>
   <string name="watchlist_page_protected">Himoyalangan</string>
   <string name="watchlist_page_deleted">O‘chirilgan</string>
+  <string name="preview_edit_title">Tahrirni oldindan koʻrish</string>
+  <string name="preview_edit_summarize_edit_title">Tahrirni umumiylashtirmoq</string>
+  <string name="preview_edit_summarize_edit_hint">Sahifani yaxshilashga qanday yordam koʻrsatdingiz?</string>
+  <string name="preview_edit_minor_edit">Bu kichik tahrir</string>
+  <string name="preview_edit_minor_edit_url">https://en.wikipedia.org/wiki/Help:Minor_edit</string>
+  <string name="preview_edit_watch_this_page">Sahifani kuzatmoq</string>
+  <string name="preview_edit_watch_this_page_url">https://en.wikipedia.org/wiki/Help:Watchlist</string>
+  <string name="preview_edit_learn_more">Xulosalarni tahrirlash haqida batafsil</string>
+  <string name="preview_edit_learn_more_url">https://en.wikipedia.org/wiki/Help:Edit_summary</string>
+  <string name="action_item_categories">Turkumlar</string>
+  <string name="page_no_categories">Ushbu sahifa bironta turkumga taalluqli emas.</string>
+  <string name="category_tab_articles">Maqolalar</string>
+  <string name="category_tab_subcategories">Ostturkumlar</string>
+  <string name="category_empty">Ushbu turkumda maqolalar topilmadi.</string>
+  <string name="subcategory_empty">Bu turkumda ostturkumlar mavjud emas.</string>
+  <string name="search_namespaces">Nom maydoni</string>
+  <string name="revision_initial_none">Yoʻq (bu birinchi tahrir)</string>
+  <string name="user_contrib_activity_title">%s hissasi</string>
+  <string name="archive_empty">Arxivlangan sahifalar topilmadi.</string>
+  <string name="user_contrib_filter_ns">Nom maydoni boʻyicha filtr</string>
+  <string name="user_contrib_filter_all">Barcha tahrirlar</string>
+  <string name="namespace_article">Maqola</string>
+  <string name="user_contrib_current">joriy</string>
+  <string name="media_playback_error">Mediani ijro etishda xatolik yuz berdi.</string>
+  <string name="user_contrib_menu_label">Hissalar</string>
+  <string name="user_contrib_wiki_select">Qoʻshilgan hissa:</string>
 </resources>

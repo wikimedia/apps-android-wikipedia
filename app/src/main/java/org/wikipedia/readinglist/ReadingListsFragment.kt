@@ -38,10 +38,10 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.*
-import java.util.*
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
     private var _binding: FragmentReadingListsBinding? = null
@@ -70,10 +70,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         binding.recyclerView.adapter = adapter
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable))
         setUpScrollListener()
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
+        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
         binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         binding.swipeRefreshLayout.setOnRefreshListener { refreshSync(this, binding.swipeRefreshLayout) }
-        if (ReadingListSyncAdapter.isDisabledByRemoteConfig) {
+        if (RemoteConfig.config.disableReadingListSync) {
             binding.swipeRefreshLayout.isEnabled = false
         }
         binding.searchEmptyView.visibility = View.GONE
@@ -90,11 +90,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         })
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
     override fun onDestroyView() {
         disposables.clear()
         binding.recyclerView.adapter = null
@@ -106,26 +101,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     override fun onResume() {
         super.onResume()
         updateLists()
+        requireActivity().invalidateOptionsMenu()
     }
 
     override fun onPause() {
         super.onPause()
         actionMode?.finish()
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_search_lists -> {
-                (requireActivity() as AppCompatActivity)
-                        .startSupportActionMode(searchActionModeCallback)
-                true
-            }
-            R.id.menu_overflow_button -> {
-                ReadingListsOverflowView(requireContext()).show((requireActivity() as MainActivity).getToolbar().findViewById(R.id.menu_overflow_button), overflowCallback)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 
     override fun onToggleItemOffline(pageId: Long) {
@@ -209,6 +190,14 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         updateLists(currentSearchQuery, !currentSearchQuery.isNullOrEmpty())
     }
 
+    fun startSearchActionMode() {
+        (requireActivity() as AppCompatActivity).startSupportActionMode(searchActionModeCallback)
+    }
+
+    fun showReadingListsOverflowMenu() {
+        ReadingListsOverflowView(requireContext()).show((requireActivity() as MainActivity).getToolbar().findViewById(R.id.menu_overflow_button), overflowCallback)
+    }
+
     private fun updateLists(searchQuery: String?, forcedRefresh: Boolean) {
         maybeShowOnboarding(searchQuery)
         ReadingListBehaviorsUtil.searchListsAndPages(searchQuery) { lists ->
@@ -233,10 +222,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     if (displayedLists.size <= oldItemPosition || lists.size <= newItemPosition) {
                         return false
                     }
-                    return (displayedLists[oldItemPosition] is ReadingList && lists[newItemPosition] is ReadingList &&
-                            (displayedLists[oldItemPosition] as ReadingList).id == (lists[newItemPosition] as ReadingList).id &&
-                            (displayedLists[oldItemPosition] as ReadingList).pages.size == (lists[newItemPosition] as ReadingList).pages.size &&
-                            (displayedLists[oldItemPosition] as ReadingList).numPagesOffline == (lists[newItemPosition] as ReadingList).numPagesOffline)
+                    return (displayedLists[oldItemPosition] is ReadingList &&
+                            (displayedLists[oldItemPosition] as ReadingList).compareTo(lists[newItemPosition]))
                 }
             })
             // If the number of lists has changed, just invalidate everything, as a
@@ -267,7 +254,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private fun maybeShowListLimitMessage() {
         if (actionMode == null && displayedLists.size >= Constants.MAX_READING_LISTS_LIMIT) {
             val message = getString(R.string.reading_lists_limit_message)
-            FeedbackUtil.makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show()
+            FeedbackUtil.makeSnackbar(requireActivity(), message).show()
         }
     }
 
@@ -551,7 +538,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             return
         }
         if (AccountUtil.isLoggedIn && !Prefs.isReadingListSyncEnabled &&
-                Prefs.isReadingListSyncReminderEnabled && !ReadingListSyncAdapter.isDisabledByRemoteConfig) {
+                Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
             binding.onboardingView.setMessageTitle(getString(R.string.reading_lists_sync_reminder_title))
             binding.onboardingView.setMessageText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)).toString())
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
@@ -561,7 +548,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 Prefs.isReadingListSyncReminderEnabled = false
             }, false)
             binding.onboardingView.visibility = View.VISIBLE
-        } else if (!AccountUtil.isLoggedIn && Prefs.isReadingListLoginReminderEnabled && !ReadingListSyncAdapter.isDisabledByRemoteConfig) {
+        } else if (!AccountUtil.isLoggedIn && Prefs.isReadingListLoginReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
             binding.onboardingView.setMessageTitle(getString(R.string.reading_list_login_reminder_title))
             binding.onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text))
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)

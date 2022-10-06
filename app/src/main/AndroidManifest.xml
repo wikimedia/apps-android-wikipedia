@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.wikipedia"
     android:installLocation="auto"
     tools:node="strict">
     <!--
@@ -48,6 +47,9 @@
         <intent>
             <action android:name="android.intent.action.VIEW" />
             <data android:scheme="https" />
+        </intent>
+        <intent>
+            <action android:name="android.speech.action.RECOGNIZE_SPEECH" />
         </intent>
     </queries>
 
@@ -199,12 +201,12 @@
             android:name=".search.SearchActivity"
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
-            <intent-filter android:label="@string/intent_share_search_label">
+            <intent-filter android:label="@string/search_hint">
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
             </intent-filter>
-            <intent-filter android:label="@string/intent_share_search_label">
+            <intent-filter android:label="@string/search_hint">
                 <action android:name="android.intent.action.PROCESS_TEXT" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
@@ -293,6 +295,12 @@
             android:name=".talk.TalkTopicActivity" />
 
         <activity
+            android:name=".talk.TalkReplyActivity" />
+
+        <activity
+            android:name=".talk.ArchivedTalkPagesActivity" />
+
+        <activity
             android:name=".diff.ArticleEditDetailsActivity" />
 
         <activity
@@ -310,8 +318,21 @@
             android:name=".page.edithistory.EditHistoryListActivity"
             android:theme="@style/AppTheme" />
 
+        <activity
+            android:name=".usercontrib.UserContribListActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".usercontrib.UserContribWikiSelectActivity"
+            android:label="@string/user_contrib_wiki_select"
+            android:theme="@style/AppTheme.ActionBar" />
+            
+        <activity
+            android:name=".edit.insertmedia.InsertMediaActivity"
+            android:label="@string/insert_media_title"/>
+
         <provider
-            android:name="androidx.core.content.FileProvider"
+            android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">

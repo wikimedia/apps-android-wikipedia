@@ -1,13 +1,13 @@
 package org.wikipedia.feed.topread
 
+import android.app.ActivityOptions
 import android.os.Bundle
+import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
-import androidx.core.util.Pair
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.wikipedia.Constants
@@ -89,7 +89,7 @@ class TopReadFragment : Fragment() {
         }
 
         override fun onSelectPage(card: Card, entry: HistoryEntry, sharedElements: Array<Pair<View, String>>) {
-            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
+            val options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
             val intent = PageActivity.newIntentForNewTab(requireContext(), entry, entry.title)
             if (sharedElements.isNotEmpty()) {
                 intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true)

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <TextView
+        android:id="@+id/userNameView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:lineSpacingExtra="4sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="?attr/primary_text_color"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:id="@+id/editCountsView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:lineSpacingExtra="5sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userNameView"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="?green_highlight_color"
+        android:textSize="16sp" />
+
+</merge>

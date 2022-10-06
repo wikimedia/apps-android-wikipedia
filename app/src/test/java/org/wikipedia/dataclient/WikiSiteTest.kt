@@ -265,27 +265,27 @@ class WikiSiteTest {
         val wiki = WikiSite.forLanguageCode("en")
         MatcherAssert.assertThat(
             PageTitle("Main Page", wiki).prefixedText,
-            Matchers.`is`(wiki.titleForInternalLink(null).prefixedText)
+            Matchers.`is`(PageTitle.titleForInternalLink(null, wiki).prefixedText)
         )
         MatcherAssert.assertThat(
             PageTitle("Main Page", wiki).prefixedText,
-            Matchers.`is`(wiki.titleForInternalLink("").prefixedText)
+            Matchers.`is`(PageTitle.titleForInternalLink("", wiki).prefixedText)
         )
         MatcherAssert.assertThat(
             PageTitle("Main Page", wiki).prefixedText,
-            Matchers.`is`(wiki.titleForInternalLink("/wiki/").prefixedText)
+            Matchers.`is`(PageTitle.titleForInternalLink("/wiki/", wiki).prefixedText)
         )
         MatcherAssert.assertThat(
             PageTitle("wiki", wiki).prefixedText,
-            Matchers.`is`(wiki.titleForInternalLink("wiki").prefixedText)
+            Matchers.`is`(PageTitle.titleForInternalLink("wiki", wiki).prefixedText)
         )
         MatcherAssert.assertThat(
             PageTitle("wiki", wiki).prefixedText,
-            Matchers.`is`(wiki.titleForInternalLink("/wiki/wiki").prefixedText)
+            Matchers.`is`(PageTitle.titleForInternalLink("/wiki/wiki", wiki).prefixedText)
         )
         MatcherAssert.assertThat(
             PageTitle("wiki/wiki", wiki).prefixedText,
-            Matchers.`is`(wiki.titleForInternalLink("/wiki/wiki/wiki").prefixedText)
+            Matchers.`is`(PageTitle.titleForInternalLink("/wiki/wiki/wiki", wiki).prefixedText)
         )
     }
 

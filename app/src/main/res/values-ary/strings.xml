@@ -9,7 +9,7 @@
 <resources>
   <string name="app_name_prod">ويكيپيديا</string>
   <string name="app_name_beta">ويكيپيديا بيطا</string>
-  <string name="app_name_alpha">ويكيپيديا الفا</string>
+  <string name="app_name_alpha">ويكيپيديا ألفا</string>
   <string name="wikimedia">ويكيميديا</string>
   <string name="nav_item_back">رجع</string>
   <string name="page_tabs_back">رجع</string>
@@ -17,11 +17,11 @@
   <string name="search_hint">قلّب ف ويكيپيديا</string>
   <string name="search_hint_voice_search">تقلاب ب لهضرة</string>
   <string name="search_hint_search_languages">قلّب على لوغة</string>
-  <string name="filter_hint_filter_my_lists_and_articles">فيلطري لّيسطا دياالي</string>
+  <string name="filter_hint_filter_my_lists_and_articles">فيلتري لّيستة ديالي</string>
   <string name="nav_item_suggested_edits">تبديلات</string>
   <string name="nav_item_more">كتر</string>
   <string name="nav_item_search">قلّب</string>
-  <string name="error_network_error">راك مامكونيكطيش مع لأنطيرنيط</string>
+  <string name="error_network_error">راك مامكونيكطيش مع لأنتيرنيت</string>
   <string name="page_error_retry">عاود جرّب</string>
   <string name="card_offline_error_retry">عاود جرّب</string>
   <string name="storage_access_error_retry">عاود جرّب</string>
@@ -33,12 +33,15 @@
   <string name="menu_clear_all_history">مسح ليسطوريك</string>
   <string name="history_item_deleted">تحيدات %s من ليسطوريك</string>
   <string name="history_items_deleted">تحيدات %d مقالة من ليسطوريك</string>
-  <string name="history_item_delete_undo">ماتليتش</string>
-  <string name="notification_archive_undo">ماتليتش</string>
+  <string name="history_item_delete_undo">رجّع</string>
+  <string name="notification_archive_undo">رجّع</string>
   <string name="app_settings">لپاراميطر ديال لاپليكاسيون</string>
   <string name="search_tab_tooltip">برك على لإيكون عاوتاني باش تبدا نيشان فالتقلاب.</string>
-  <string name="history_list_title">تاريخ</string>
+  <string name="history_list_title">ليسطوريك</string>
   <string name="image_content_description">تصويرة: %s</string>
+  <string name="page_content_description">پاج: %s</string>
+  <string name="wikimedia_commons">ويكيميديا كومنز</string>
+  <string name="wikidata">ويكيداطا</string>
   <string name="dialog_title_clear_history">مسح ليسطوريك</string>
   <string name="dialog_message_clear_history">هادشي غايمسح ڭاع ليسطوريك ديالك، وغايسد ڭاع التبويبات لي محلولين. واش متأكد؟</string>
   <string name="dialog_message_clear_history_yes">آه</string>
@@ -46,10 +49,20 @@
   <string name="share_via">پارطاجي ب</string>
   <string name="image_share_via">پارطاجي ب</string>
   <string name="search_redirect_from">تحولات من %s</string>
+  <string name="page_edit_history_activity_title">ليسطوريك د تّبدال: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;ص&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">مولخّاص ديال تبدال خاوي</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">قلّب ؤلا فيلتري تّبديلات</string>
+  <string name="page_edit_history_filter_by">فيلتري ب</string>
+  <string name="page_edit_history_filter_by_all">جميع تّبديلات (%s)</string>
+  <string name="page_edit_history_filter_by_user">تّبديلات د لخدايمي (%s)</string>
+  <string name="page_edit_history_filter_by_anon">تبديلات لمجهولين (%s)</string>
+  <string name="page_edit_history_filter_by_bot">تبديلات لبوتات (%s)</string>
   <string name="menu_page_show_tabs">ورّي التبويبات</string>
   <string name="menu_page_other_languages">بدّل اللغة</string>
   <string name="menu_page_find_in_page">قلّب فلمقال</string>
   <string name="menu_page_add_to_watchlist">زيد ف ليستة د لمراقبة</string>
+  <string name="menu_page_watch">حضي</string>
   <string name="menu_page_view_talk">شوف صفحة ديال لهضرة</string>
   <string name="menu_page_view_edit_history">شوف ليسطوريك ديال تبدال</string>
   <string name="menu_page_remove_from_watchlist">حيد من ليستة د لمراقبة</string>
@@ -60,10 +73,12 @@
   <string name="feed_card_add_to_list">زيد ل ليستة ديال لقراية</string>
   <string name="feed_card_add_to_default_list">سجّل</string>
   <string name="menu_page_share">پارطاجي الرابط</string>
+  <string name="menu_page_article_share">پارطاجي</string>
   <string name="menu_page_open_a_new_tab">حل تبويب جديد</string>
   <string name="menu_page_new_tab">تبويب جديد</string>
   <string name="menu_page_reading_lists">ليسطات ديال لقراية</string>
   <string name="menu_page_recently_viewed">شفتيها مؤخراً</string>
+  <string name="menu_page_archive">أرشيڤ</string>
   <string name="menu_long_press_open_page">حل</string>
   <string name="menu_long_press_open_in_new_tab">حل فتبويب جديد</string>
   <string name="menu_long_press_copy_page">كوپي لادريسا ديال الرابط</string>
@@ -79,12 +94,12 @@
   <string name="language_count_link_text">موجود ف %d لغة خرى</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">بالنشير، راك قابل على &lt;a href=\"%1$s\"&gt;شروط لإستخدام&lt;/a&gt;، وباللي مغاديش يتنادم معاك لحال الى تنشرات لمساهمة ديالك تحت ليصونص &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
-  <string name="preference_title_language">لغات ويكيپيديا</string>
+  <string name="preference_title_language">لوغات د ويكيپيديا</string>
   <string name="langlinks_filter_hint">قلّب</string>
-  <string name="langlinks_empty">هاد الصفحة ماكايناش ف لغات خرين</string>
+  <string name="langlinks_empty">هاد الصفحة ماكايناش ف لوغات خرين</string>
   <string name="langlinks_no_match">مالقينا تا لغة</string>
-  <string name="langlinks_activity_title">لغات خرين</string>
-  <string name="langlinks_your_wikipedia_languages">لغات ويكيپيديا ديالك</string>
+  <string name="langlinks_activity_title">لوغات خرين</string>
+  <string name="langlinks_your_wikipedia_languages">لوغات د ويكيپيديا ديالك</string>
   <string name="menu_save_changes">نشر التبديلات</string>
   <string name="edit_saved_successfully">التعديل ديالك تنشر!</string>
   <string name="dialog_message_edit_failed">التعديل ماصدقش!</string>
@@ -96,7 +111,7 @@
   <string name="menu_show_toc">طابلو لمحتويات</string>
   <string name="search_no_results_found">تا نتائج ما تلقاو</string>
   <string name="search_reading_list_no_results">تا نتائج ما تلقاو ف \"%s\"</string>
-  <string name="search_reading_lists_no_results">تا نتائج ما تلقاو فليسطات لقراية</string>
+  <string name="search_reading_lists_no_results">تا نتائج ما تلقاو ف ليستات لقراية</string>
   <string name="search_history_no_results">تا نتائج ما تلقاو فليسطوريك</string>
   <string name="edit_section_captcha_message">باش نحميوك من السپام، دخل لكلمات لي كايبانو ليك لتحت</string>
   <string name="edit_section_captcha_request_an_account_message">ماكاتبانش ليك التصويرة؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;طلب كونط&lt;/a&gt;</string>

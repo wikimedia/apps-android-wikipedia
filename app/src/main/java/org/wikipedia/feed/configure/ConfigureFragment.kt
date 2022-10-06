@@ -2,7 +2,9 @@ package org.wikipedia.feed.configure
 
 import android.os.Bundle
 import android.view.*
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,7 +27,7 @@ import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
 import java.util.*
 
-class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
+class ConfigureFragment : Fragment(), MenuProvider, ConfigureItemView.Callback {
 
     private var _binding: FragmentFeedConfigureBinding? = null
     private val binding get() = _binding!!
@@ -37,9 +39,10 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentFeedConfigureBinding.inflate(inflater, container, false)
+        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         setupRecyclerView()
-        funnel = FeedConfigureFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().wikiSite,
+        funnel = FeedConfigureFunnel(WikipediaApp.instance, WikipediaApp.instance.wikiSite,
             requireActivity().intent.getIntExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, -1))
 
         disposables.add(ServiceFactory.getRest(WikiSite("wikimedia.org")).feedAvailability
@@ -74,11 +77,6 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
     override fun onPause() {
         super.onPause()
         FeedContentType.saveState()
@@ -92,11 +90,11 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
         super.onDestroyView()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_feed_configure, menu)
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.menu_feed_configure, menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onMenuItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_feed_configure_select_all -> {
                 FeedContentType.values().map { it.isEnabled = true }
@@ -117,7 +115,7 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
                 touch()
                 true
             }
-            else -> super.onOptionsItemSelected(item)
+            else -> false
         }
     }
 
@@ -141,7 +139,7 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
             if (supportedLanguages.isEmpty()) {
                 continue
             }
-            val atLeastOneSupported = WikipediaApp.getInstance().language().appLanguageCodes.any { supportedLanguages.contains(it) }
+            val atLeastOneSupported = WikipediaApp.instance.languageState.appLanguageCodes.any { supportedLanguages.contains(it) }
             if (!atLeastOneSupported) {
                 i.remove()
             }

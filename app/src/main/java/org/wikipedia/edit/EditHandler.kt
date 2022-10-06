@@ -33,7 +33,7 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
         currentPage?.let {
             if (messageType == TYPE_EDIT_SECTION) {
                 val sectionId = messagePayload?.run { this[PAYLOAD_SECTION_ID]?.jsonPrimitive?.int } ?: 0
-                if (sectionId == 0 && DescriptionEditUtil.isEditAllowed(it)) {
+                if (sectionId == 0 && DescriptionEditUtil.isEditAllowed(it) && it.isArticle) {
                     val tempView = View(fragment.requireContext())
                     tempView.x = fragment.webView.touchStartX
                     tempView.y = fragment.webView.touchStartY
@@ -47,7 +47,7 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
                     startEditingSection(sectionId, null)
                 }
             } else if (messageType == TYPE_ADD_TITLE_DESCRIPTION && DescriptionEditUtil.isEditAllowed(it)) {
-                fragment.verifyBeforeEditingDescription(null)
+                fragment.verifyBeforeEditingDescription(null, Constants.InvokeSource.PAGE_DESCRIPTION_CTA)
             }
         }
     }
@@ -56,7 +56,7 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
         override fun onMenuItemClick(item: MenuItem): Boolean {
             return when (item.itemId) {
                 R.id.menu_page_header_edit_description -> {
-                    fragment.verifyBeforeEditingDescription(null)
+                    fragment.verifyBeforeEditingDescription(null, Constants.InvokeSource.PAGE_EDIT_PENCIL)
                     true
                 }
                 R.id.menu_page_header_edit_lead_section -> {
@@ -82,6 +82,13 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
             }
             fragment.startActivityForResult(EditSectionActivity.newIntent(fragment.requireContext(),
                 it.sections[sectionID].id, it.sections[sectionID].anchor, it.title, highlightText), Constants.ACTIVITY_REQUEST_EDIT_SECTION)
+        }
+    }
+
+    fun startEditingArticle() {
+        currentPage?.let {
+            fragment.startActivityForResult(EditSectionActivity.newIntent(fragment.requireContext(),
+                    -1, null, it.title), Constants.ACTIVITY_REQUEST_EDIT_SECTION)
         }
     }
 

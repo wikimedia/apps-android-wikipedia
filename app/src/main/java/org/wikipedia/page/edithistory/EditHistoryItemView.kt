@@ -2,6 +2,7 @@ package org.wikipedia.page.edithistory
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.Color
 import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +14,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemEditHistoryBinding
-import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -46,16 +47,17 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         }
     }
 
-    fun setContents(itemRevision: Revision) {
+    fun setContents(itemRevision: MwQueryPage.Revision, currentQuery: String?) {
         val diffSize = itemRevision.diffSize
-        binding.diffText.text = String.format(if (diffSize != 0) "%+d" else "%d", diffSize)
+        binding.diffText.text = StringUtil.getDiffBytesText(context, diffSize)
         if (diffSize >= 0) {
             binding.diffText.setTextColor(if (diffSize > 0) ContextCompat.getColor(context, R.color.green50)
             else ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))
         } else {
             binding.diffText.setTextColor(ContextCompat.getColor(context, R.color.red50))
         }
-        binding.userNameText.setIconResource(if (itemRevision.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_avatar)
+        val userIcon = if (itemRevision.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_avatar
+        binding.userNameText.setIconResource(userIcon)
 
         if (itemRevision.comment.isEmpty()) {
             binding.editHistoryTitle.setTypeface(Typeface.SANS_SERIF, Typeface.ITALIC)
@@ -64,17 +66,19 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         } else {
             binding.editHistoryTitle.setTypeface(Typeface.SANS_SERIF, Typeface.NORMAL)
             binding.editHistoryTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.material_theme_primary_color))
-            binding.editHistoryTitle.text = if (itemRevision.minor) StringUtil.fromHtml(context.getString(R.string.page_edit_history_minor_edit, itemRevision.comment))
-            else itemRevision.comment
+            binding.editHistoryTitle.text = if (itemRevision.minor) StringUtil.fromHtml(context.getString(R.string.page_edit_history_minor_edit, itemRevision.comment)) else itemRevision.comment
+            StringUtil.highlightAndBoldenText(binding.editHistoryTitle, currentQuery, true, Color.YELLOW)
         }
         binding.userNameText.text = itemRevision.user
-        binding.editHistoryTimeText.text = DateUtil.getTimeString(DateUtil.iso8601DateParse(itemRevision.timeStamp))
+        binding.editHistoryTimeText.text = DateUtil.getTimeString(context, DateUtil.iso8601DateParse(itemRevision.timeStamp))
+        StringUtil.highlightAndBoldenText(binding.diffText, currentQuery, true, Color.YELLOW)
+        StringUtil.highlightAndBoldenText(binding.userNameText, currentQuery, true, Color.YELLOW)
     }
 
     fun setSelectedState(selectedState: Int) {
         val colorDefault = ResourceUtil.getThemedColor(context, R.attr.paper_color)
-        val colorButtonDefault = ResourceUtil.getThemedColor(context, R.attr.color_group_22)
-        val colorSecondary = ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color)
+        val colorSecondary = ResourceUtil.getThemedColorStateList(context, R.attr.material_theme_secondary_color)
+        val colorUsername = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_9)
         val colorFrom = ResourceUtil.getThemedColor(context, R.attr.colorAccent)
         val colorTo = ResourceUtil.getThemedColor(context, R.attr.color_group_68)
         binding.selectButton.isVisible = selectedState != EditHistoryListViewModel.SELECT_INACTIVE
@@ -82,12 +86,12 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         if (selectedState == EditHistoryListViewModel.SELECT_INACTIVE ||
                 selectedState == EditHistoryListViewModel.SELECT_NONE) {
             binding.selectButton.setImageResource(R.drawable.ic_check_empty_24)
-            ImageViewCompat.setImageTintList(binding.selectButton, ColorStateList.valueOf(colorSecondary))
+            ImageViewCompat.setImageTintList(binding.selectButton, colorSecondary)
             binding.cardView.setDefaultBorder()
             binding.cardView.setCardBackgroundColor(colorDefault)
-            binding.userNameText.backgroundTintList = ColorStateList.valueOf(colorButtonDefault)
-            binding.userNameText.setTextColor(colorSecondary)
-            binding.userNameText.iconTint = ColorStateList.valueOf(colorSecondary)
+            binding.userNameText.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_22)
+            binding.userNameText.setTextColor(colorUsername)
+            binding.userNameText.iconTint = colorUsername
             binding.editHistoryTimeText.setTextColor(colorSecondary)
         } else if (selectedState == EditHistoryListViewModel.SELECT_FROM) {
             binding.selectButton.setImageResource(R.drawable.ic_check_circle_black_24dp)

@@ -49,7 +49,7 @@ object ReadingListBehaviorsUtil {
     private val exceptionHandler = CoroutineExceptionHandler { _, exception -> L.w(exception) }
 
     fun getListsContainPage(readingListPage: ReadingListPage) =
-            allReadingLists.filter { list -> list.pages.any { it.displayTitle == readingListPage.displayTitle } }
+            allReadingLists.filter { list -> list.pages.any { it.apiTitle == readingListPage.apiTitle } }
 
     fun savePagesForOffline(activity: Activity, selectedPages: List<ReadingListPage>, callback: Callback) {
         if (Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi) {
@@ -156,7 +156,7 @@ object ReadingListBehaviorsUtil {
             }
         }
         FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_item_deleted_from_list,
-                page.displayTitle, readingListNames), FeedbackUtil.LENGTH_DEFAULT)
+                page.displayTitle, readingListNames))
                 .setAction(R.string.reading_list_item_delete_undo) {
                     AppDatabase.instance.readingListPageDao().addPageToLists(lists, page, true)
                     callback.onUndoDeleteClicked()
@@ -171,7 +171,7 @@ object ReadingListBehaviorsUtil {
         FeedbackUtil
                 .makeSnackbar(activity, if (pages.size == 1) activity.getString(R.string.reading_list_item_deleted_from_list,
                         pages[0].displayTitle, readingList.title) else activity.resources.getQuantityString(R.plurals.reading_list_articles_deleted_from_list,
-                        pages.size, pages.size, readingList.title), FeedbackUtil.LENGTH_DEFAULT)
+                        pages.size, pages.size, readingList.title))
                 .setAction(R.string.reading_list_item_delete_undo) {
                     val newPages = ArrayList<ReadingListPage>()
                     for (page in pages) {
@@ -187,18 +187,17 @@ object ReadingListBehaviorsUtil {
         if (readingList == null) {
             return
         }
-        FeedbackUtil
-                .makeSnackbar(activity, activity.getString(R.string.reading_list_deleted, readingList.title), FeedbackUtil.LENGTH_DEFAULT)
-                .setAction(R.string.reading_list_item_delete_undo) {
-                    val newList = AppDatabase.instance.readingListDao().createList(readingList.title, readingList.description)
-                    val newPages = ArrayList<ReadingListPage>()
-                    for (page in readingList.pages) {
-                        newPages.add(ReadingListPage(ReadingListPage.toPageTitle(page)))
-                    }
-                    AppDatabase.instance.readingListPageDao().addPagesToList(newList, newPages, true)
-                    callback.onUndoDeleteClicked()
+        FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_deleted, readingList.title))
+            .setAction(R.string.reading_list_item_delete_undo) {
+                val newList = AppDatabase.instance.readingListDao().createList(readingList.title, readingList.description)
+                val newPages = ArrayList<ReadingListPage>()
+                for (page in readingList.pages) {
+                    newPages.add(ReadingListPage(ReadingListPage.toPageTitle(page)))
                 }
-                .show()
+                AppDatabase.instance.readingListPageDao().addPagesToList(newList, newPages, true)
+                callback.onUndoDeleteClicked()
+            }
+            .show()
     }
 
     fun togglePageOffline(activity: Activity, page: ReadingListPage?, callback: Callback) {
@@ -244,11 +243,11 @@ object ReadingListBehaviorsUtil {
     }
 
     fun addToDefaultList(activity: Activity, title: PageTitle, invokeSource: InvokeSource, addToDefaultListCallback: AddToDefaultListCallback, callback: Callback?) {
-        val defaultList = AppDatabase.instance.readingListDao().defaultList
+        val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
         val addedTitles = AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(defaultList, listOf(title))
         if (addedTitles.isNotEmpty()) {
             ReadingListsFunnel().logAddToList(defaultList, 1, invokeSource)
-            FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, title.displayText), FeedbackUtil.LENGTH_DEFAULT)
+            FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, title.displayText))
                 .setAction(R.string.reading_list_add_to_list_button) { addToDefaultListCallback.onMoveClicked(defaultList.id) }.show()
             callback?.onCompleted()
         }
@@ -318,8 +317,8 @@ object ReadingListBehaviorsUtil {
                 result.add(lastListItemIndex++, list)
             }
             list.pages.forEach { page ->
-                if (page.displayTitle.lowercase(Locale.getDefault()).contains(normalizedQuery)) {
-                    if (result.none { it is ReadingListPage && it.displayTitle == page.displayTitle }) {
+                if (page.accentAndCaseInvariantTitle().contains(normalizedQuery)) {
+                    if (result.none { it is ReadingListPage && it.lang == page.lang && it.apiTitle == page.apiTitle }) {
                         result.add(page)
                     }
                 }

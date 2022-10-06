@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/overflow_card_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -9,22 +8,50 @@
     android:layout_marginEnd="2dp"
     app:cardUseCompatPadding="true">
 
-    <LinearLayout
-        android:id="@+id/overflowList"
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="?attr/paper_color"
-        android:minWidth="180dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/overflow_forward"
-            style="@style/OverflowMenuItem"
-            android:drawablePadding="16dp"
-            android:text="@string/nav_item_forward"
-            app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
-            app:drawableTint="?attr/material_theme_secondary_color" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/overflowList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/paper_color"
+                android:orientation="vertical">
 
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/overflow_forward"
+                    style="@style/OverflowMenuItem"
+                    android:drawablePadding="16dp"
+                    android:text="@string/nav_item_forward"
+                    android:layoutDirection="locale"
+                    android:textDirection="locale"
+                    app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
+                    app:drawableTint="?attr/color_group_9" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/material_theme_border_color" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/customize_toolbar"
+                style="@style/OverflowMenuItem"
+                android:layout_width="wrap_content"
+                android:drawablePadding="16dp"
+                android:text="@string/customize_toolbar_title"
+                android:layoutDirection="locale"
+                android:textDirection="locale"
+                app:drawableStartCompat="@drawable/ic_settings_themed_24dp"
+                app:drawableTint="?attr/color_group_9" />
+
+        </LinearLayout>
+    </ScrollView>
 </org.wikipedia.views.WikiCardView>

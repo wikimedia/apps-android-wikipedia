@@ -28,11 +28,11 @@ class CategoryDialogViewModel(bundle: Bundle) : ViewModel() {
         }) {
             withContext(Dispatchers.IO) {
                 val response = ServiceFactory.get(pageTitle.wikiSite).getCategories(pageTitle.prefixedText)
-                val titles = response.query!!.pages!!.map { page ->
+                val titles = response.query?.pages?.map { page ->
                     PageTitle(page.title, pageTitle.wikiSite).also {
                         it.displayText = page.displayTitle(pageTitle.wikiSite.languageCode)
                     }
-                }
+                }.orEmpty()
                 categoriesData.postValue(Resource.Success(titles))
             }
         }
@@ -40,7 +40,7 @@ class CategoryDialogViewModel(bundle: Bundle) : ViewModel() {
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return CategoryDialogViewModel(bundle) as T
         }
     }

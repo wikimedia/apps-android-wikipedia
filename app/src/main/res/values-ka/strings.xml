@@ -209,7 +209,7 @@
   <string name="user_blocked_from_editing_title">დაბლოკილია</string>
   <string name="user_logged_in_blocked_from_editing">თქვენი ანგარიში დაბლოკილია რედაქტირებისაგან ამ პროექტში.</string>
   <string name="user_anon_blocked_from_editing">თქვენი IP მისამართი დაბლოკილია.</string>
-  <string name="edit_how_page_improved">რითი გააუმჯობესეთ გვერდი?</string>
+  <string name="edit_how_page_improved">რით გააუმჯობესეთ გვერდი?</string>
   <string name="edit_next">შემდეგი</string>
   <string name="edit_done">გამოქვეყნება</string>
   <string name="edit_preview">წინასწარი გადახედვა</string>
@@ -420,7 +420,7 @@
   <string name="view_featured_image_card_share">გაზიარება</string>
   <string name="menu_feed_card_dismiss">ამ ბარათის დამალვა</string>
   <string name="menu_feed_card_dismissed">ბარათი დამალულია.</string>
-  <string name="menu_feed_overflow_label">მეტი პარამეტრები</string>
+  <string name="menu_feed_overflow_label">მეტი შესაძლებლობა</string>
   <string name="feed_featured_image_share_subject">ვიკისაწყობის რჩეული სურათი</string>
   <string name="feed">კვლევა</string>
   <string name="home">მთავარი</string>
@@ -466,7 +466,8 @@
   <string name="description_edit_success_done">გაკეთდა</string>
   <string name="description_edit_success_did_you_know">იცოდით?</string>
   <string name="description_edit_tutorial_title_descriptions">სტატიის აღწერა</string>
-  <string name="description_edit_tutorial_button_label_start_editing">დაიწყე რედაქტირება</string>
+  <string name="description_edit_tutorial_button_label_start_editing">დაიწყეთ რედაქტირება</string>
+  <string name="suggested_edits_task_multilingual_positive">ენების დამატება</string>
   <string name="size_gb">%.2f გბ</string>
   <string name="size_mb">%.2f მბ</string>
   <string name="onboarding_skip">გამოტოვება</string>

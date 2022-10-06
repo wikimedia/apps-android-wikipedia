@@ -20,6 +20,7 @@ import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingList
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -29,7 +30,7 @@ class ReadingListSyncAdapter : JobIntentService() {
 
     override fun onHandleWork(intent: Intent) {
         val extras = intent.extras!!
-        if (isDisabledByRemoteConfig || !AccountUtil.isLoggedIn ||
+        if (RemoteConfig.config.disableReadingListSync || !AccountUtil.isLoggedIn ||
                 !(Prefs.isReadingListSyncEnabled || Prefs.isReadingListsRemoteDeletePending)) {
             L.d("Skipping sync of reading lists.")
             if (extras.containsKey(SYNC_EXTRAS_REFRESHING)) {
@@ -42,7 +43,7 @@ class ReadingListSyncAdapter : JobIntentService() {
         val listIdsDeleted = Prefs.readingListsDeletedIds.toMutableSet()
         val pageIdsDeleted = Prefs.readingListPagesDeletedIds.toMutableSet()
         var allLocalLists: MutableList<ReadingList>? = null
-        val wiki = WikipediaApp.getInstance().wikiSite
+        val wiki = WikipediaApp.instance.wikiSite
         val client = ReadingListClient(wiki)
         val readingListSyncNotification = ReadingListSyncNotification.instance
         var lastSyncTime = Prefs.readingListsLastSyncTime.orEmpty()
@@ -119,7 +120,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             }
 
             // Notify any event consumers that reading lists are, in fact, enabled.
-            WikipediaApp.getInstance().bus.post(ReadingListsEnabledStatusEvent())
+            WikipediaApp.instance.bus.post(ReadingListsEnabledStatusEvent())
 
             // setup syncing indicator for remote to local
             val remoteItemsTotal = remoteListsModified.size
@@ -151,7 +152,7 @@ class ReadingListSyncAdapter : JobIntentService() {
                 }
                 if (remoteList.isDefault && localList != null && !localList.isDefault) {
                     L.logRemoteError(RuntimeException("Unexpected: remote default list corresponds to local non-default list."))
-                    localList = AppDatabase.instance.readingListDao().defaultList
+                    localList = AppDatabase.instance.readingListDao().getDefaultList()
                 }
                 if (remoteList.isDeleted) {
                     if (localList != null && !localList.isDefault) {
@@ -168,7 +169,7 @@ class ReadingListSyncAdapter : JobIntentService() {
                     L.d("Creating local list " + remoteList.name())
                     localList = if (remoteList.isDefault) {
                         L.logRemoteError(RuntimeException("Unexpected: local default list no longer matches remote."))
-                        AppDatabase.instance.readingListDao().defaultList
+                        AppDatabase.instance.readingListDao().getDefaultList()
                     } else {
                         AppDatabase.instance.readingListDao().createList(remoteList.name(), remoteList.description())
                     }
@@ -238,8 +239,24 @@ class ReadingListSyncAdapter : JobIntentService() {
             }
 
             // Do any remote pages need to be deleted?
-            val pageIdsToDelete = mutableListOf<String>()
+            val pageIdsToDelete = mutableSetOf<String>()
             pageIdsToDelete.addAll(pageIdsDeleted)
+
+            // Determine if any articles need to be de-duplicated (because of bugs in previous sync inconsistencies)
+            if (syncEverything) {
+                allLocalLists.forEach { list ->
+                    val distinct = list.pages.distinctBy { pageTitleFromRemoteEntry(remoteEntryFromLocalPage(it)) }
+                    val toRemove = list.pages.toMutableSet()
+                    toRemove.removeAll(distinct.toSet())
+                    if (toRemove.isNotEmpty()) {
+                        toRemove.forEach {
+                            AppDatabase.instance.readingListPageDao().deleteReadingListPage(it)
+                        }
+                        pageIdsToDelete.addAll(createIdsForDeletion(list, toRemove))
+                    }
+                }
+            }
+
             for (id in pageIdsToDelete) {
                 L.d("Deleting remote page id $id")
                 val listAndPageId = id.split(":").toTypedArray()
@@ -357,11 +374,11 @@ class ReadingListSyncAdapter : JobIntentService() {
                 if (lastSyncTime.isEmpty()) {
                     // This means that it's our first time attempting to sync, and we see that
                     // syncing isn't enabled on the server. So, let's prompt the user to enable it:
-                    WikipediaApp.getInstance().bus.post(ReadingListsEnableDialogEvent())
+                    WikipediaApp.instance.bus.post(ReadingListsEnableDialogEvent())
                 } else {
                     // This can only mean that our reading lists have been torn down (disabled) by
                     // another client, so we need to notify the user of this development.
-                    WikipediaApp.getInstance().bus.post(ReadingListsNoLongerSyncedEvent())
+                    WikipediaApp.instance.bus.post(ReadingListsNoLongerSyncedEvent())
                 }
             }
             if (client.isErrorType(t, "notloggedin")) {
@@ -401,7 +418,7 @@ class ReadingListSyncAdapter : JobIntentService() {
     @Throws(Throwable::class)
     private fun getCsrfToken(wiki: WikiSite, tokenList: MutableList<String>): String {
         if (tokenList.size == 0) {
-            tokenList.add(CsrfTokenClient(wiki).token.blockingSingle())
+            tokenList.add(CsrfTokenClient.getToken(wiki).blockingSingle())
         }
         return tokenList[0]
     }
@@ -437,10 +454,10 @@ class ReadingListSyncAdapter : JobIntentService() {
             localPage.thumbUrl = remotePage.summary.thumbnailUrl
         }
         if (updateOnly) {
-            L.d("Updating local page " + localPage.displayTitle)
+            L.d("Updating local page " + localPage.apiTitle)
             AppDatabase.instance.readingListPageDao().updateReadingListPage(localPage)
         } else {
-            L.d("Creating local page " + localPage.displayTitle)
+            L.d("Creating local page " + localPage.apiTitle)
             AppDatabase.instance.readingListPageDao().addPagesToList(listForPage, listOf(localPage), false)
         }
     }
@@ -453,7 +470,7 @@ class ReadingListSyncAdapter : JobIntentService() {
                 return
             }
         }
-        L.d("Deleting local page " + localPage.displayTitle)
+        L.d("Deleting local page " + localPage.apiTitle)
         AppDatabase.instance.readingListPageDao().markPagesForDeletion(listForPage, listOf(localPage), false)
     }
 
@@ -486,8 +503,6 @@ class ReadingListSyncAdapter : JobIntentService() {
             manualSync()
         }
 
-        val isDisabledByRemoteConfig get() = WikipediaApp.getInstance().remoteConfig.config.optBoolean("disableReadingListSync", false)
-
         fun manualSyncWithDeleteList(list: ReadingList) {
             if (list.remoteId <= 0) {
                 return
@@ -496,11 +511,12 @@ class ReadingListSyncAdapter : JobIntentService() {
             manualSync()
         }
 
+        fun createIdsForDeletion(list: ReadingList, pages: Set<ReadingListPage>): Set<String> {
+            return if (list.remoteId <= 0) emptySet() else pages.map { it.remoteId }.filter { it > 0 }.map { "${list.remoteId}:$it" }.toSet()
+        }
+
         fun manualSyncWithDeletePages(list: ReadingList, pages: List<ReadingListPage>) {
-            if (list.remoteId <= 0) {
-                return
-            }
-            val ids = pages.map { it.remoteId }.filter { it > 0 }.map { "${list.remoteId}:$it" }.toSet()
+            val ids = createIdsForDeletion(list, pages.toSet())
             if (ids.isNotEmpty()) {
                 Prefs.addReadingListPagesDeletedIds(ids)
                 manualSync()
@@ -520,7 +536,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             if (inProgress()) {
                 return
             }
-            if (AccountUtil.account() == null || !WikipediaApp.getInstance().isOnline) {
+            if (AccountUtil.account() == null || !WikipediaApp.instance.isOnline) {
                 if (extras.containsKey(SYNC_EXTRAS_REFRESHING)) {
                     SavedPageSyncService.sendSyncEvent()
                 }
@@ -529,8 +545,8 @@ class ReadingListSyncAdapter : JobIntentService() {
             extras.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true)
             extras.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true)
 
-            enqueueWork(WikipediaApp.getInstance(), ReadingListSyncAdapter::class.java,
-                JOB_ID, Intent(WikipediaApp.getInstance(), ReadingListSyncAdapter::class.java)
+            enqueueWork(WikipediaApp.instance, ReadingListSyncAdapter::class.java,
+                JOB_ID, Intent(WikipediaApp.instance, ReadingListSyncAdapter::class.java)
                     .putExtras(extras))
         }
     }

@@ -1,12 +1,12 @@
 package org.wikipedia.page.edithistory
 
 import android.os.Bundle
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -14,33 +14,61 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.dataclient.restbase.Metrics
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
+import retrofit2.HttpException
+import java.io.IOException
 import java.util.*
 
 class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
-    val editHistoryStatsFlow = MutableStateFlow(EditHistoryItemModel())
+    val editHistoryStatsData = MutableLiveData<Resource<EditHistoryStats>>()
 
     var pageTitle: PageTitle = bundle.getParcelable(EditHistoryListActivity.INTENT_EXTRA_PAGE_TITLE)!!
+    var pageId = -1
+        private set
     var comparing = false
         private set
     var selectedRevisionFrom: MwQueryPage.Revision? = null
         private set
     var selectedRevisionTo: MwQueryPage.Revision? = null
         private set
+    var currentQuery = ""
+    var actionModeActive = false
 
-    val editHistoryFlow = Pager(PagingConfig(pageSize = 10)) {
-        EditHistoryPagingSource(pageTitle)
-    }.flow.map { pagingData ->
-        pagingData.map {
+    var editHistorySource: EditHistoryPagingSource? = null
+    private val cachedRevisions = mutableListOf<MwQueryPage.Revision>()
+    private var cachedContinueKey: String? = null
+
+    val editHistoryFlow = Pager(PagingConfig(pageSize = 50), pagingSourceFactory = {
+        editHistorySource = EditHistoryPagingSource(pageTitle)
+        editHistorySource!!
+    }).flow.map { pagingData ->
+        val anonEditsOnly = Prefs.editHistoryFilterType == EditCount.EDIT_TYPE_ANONYMOUS
+        val userEditsOnly = Prefs.editHistoryFilterType == EditCount.EDIT_TYPE_EDITORS
+
+        pagingData.insertSeparators { before, after ->
+            if (before != null && after != null) { before.diffSize = before.size - after.size }
+            null
+        }.filter {
+            when {
+                anonEditsOnly -> { it.isAnon }
+                userEditsOnly -> { !it.isAnon }
+                else -> { true }
+            }
+        }.filter {
+            if (currentQuery.isNotEmpty()) {
+                it.comment.contains(currentQuery, true) ||
+                        it.content.contains(currentQuery, true) ||
+                        it.user.contains(currentQuery, true)
+            } else true
+        }.map {
             EditHistoryItem(it)
         }.insertSeparators { before, after ->
-            if (before != null && after != null) {
-                before.item.diffSize = before.item.size - after.item.size
-            }
-            val dateBefore = if (before != null) DateUtil.getMonthOnlyDateString(DateUtil.iso8601DateParse(before.item.timeStamp)) else ""
-            val dateAfter = if (after != null) DateUtil.getMonthOnlyDateString(DateUtil.iso8601DateParse(after.item.timeStamp)) else ""
+            val dateBefore = if (before != null) DateUtil.getShortDateString(DateUtil.iso8601DateParse(before.item.timeStamp)) else ""
+            val dateAfter = if (after != null) DateUtil.getShortDateString(DateUtil.iso8601DateParse(after.item.timeStamp)) else ""
             if (dateAfter.isNotEmpty() && dateAfter != dateBefore) {
                 EditHistorySeparator(dateAfter)
             } else {
@@ -50,10 +78,10 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     }.cachedIn(viewModelScope)
 
     init {
-        loadEditHistoryStats()
+        loadEditHistoryStatsAndEditCounts()
     }
 
-    private fun loadEditHistoryStats() {
+    private fun loadEditHistoryStatsAndEditCounts() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
@@ -66,13 +94,22 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
                 val mwResponse = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsAscending(pageTitle.prefixedText, 0, null) }
                 val editCountsResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS) }
+                val editCountsUserResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITORS) }
+                val editCountsAnonResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_ANONYMOUS) }
+                val editCountsBotResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_BOT) }
                 val articleMetricsResponse = async { ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today) }
 
-                editHistoryStatsFlow.value = EditHistoryStats(
-                    mwResponse.await().query?.pages?.first()?.revisions?.first()!!,
+                val page = mwResponse.await().query?.pages?.first()
+                pageId = page?.pageId ?: -1
+
+                editHistoryStatsData.postValue(Resource.Success(EditHistoryStats(
+                    page?.revisions?.first()!!,
+                    articleMetricsResponse.await().firstItem.results,
                     editCountsResponse.await(),
-                    articleMetricsResponse.await().firstItem.results
-                )
+                    editCountsUserResponse.await(),
+                    editCountsAnonResponse.await(),
+                    editCountsBotResponse.await()
+                )))
             }
         }
     }
@@ -117,15 +154,31 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         return SELECT_NONE
     }
 
-    class EditHistoryPagingSource(
-            val pageTitle: PageTitle
+    fun clearCache() {
+        cachedRevisions.clear()
+    }
+
+    inner class EditHistoryPagingSource(
+        val pageTitle: PageTitle
     ) : PagingSource<String, MwQueryPage.Revision>() {
         override suspend fun load(params: LoadParams<String>): LoadResult<String, MwQueryPage.Revision> {
             return try {
+                if (params.key == null && cachedRevisions.isNotEmpty()) {
+                    return LoadResult.Page(cachedRevisions, null, cachedContinueKey)
+                }
+
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
-                        .getRevisionDetailsDescending(pageTitle.prefixedText, params.loadSize, null, params.key)
-                LoadResult.Page(response.query!!.pages?.get(0)?.revisions!!, null, response.continuation?.rvContinuation)
-            } catch (e: Exception) {
+                        .getRevisionDetailsDescending(pageTitle.prefixedText, 500, null, params.key)
+
+                val revisions = response.query!!.pages?.first()?.revisions!!
+
+                cachedContinueKey = response.continuation?.rvContinuation
+                cachedRevisions.addAll(revisions)
+
+                LoadResult.Page(revisions, null, cachedContinueKey)
+            } catch (e: IOException) {
+                LoadResult.Error(e)
+            } catch (e: HttpException) {
                 LoadResult.Error(e)
             }
         }
@@ -138,11 +191,12 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     open class EditHistoryItemModel
     class EditHistoryItem(val item: MwQueryPage.Revision) : EditHistoryItemModel()
     class EditHistorySeparator(val date: String) : EditHistoryItemModel()
-    class EditHistoryStats(val revision: MwQueryPage.Revision, val editCount: EditCount, val metrics: List<Metrics.Results>) : EditHistoryItemModel()
+    class EditHistoryStats(val revision: MwQueryPage.Revision, val metrics: List<Metrics.Results>,
+                           val allEdits: EditCount, val userEdits: EditCount, val anonEdits: EditCount, val botEdits: EditCount) : EditHistoryItemModel()
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return EditHistoryListViewModel(bundle) as T
         }
     }

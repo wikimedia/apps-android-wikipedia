@@ -13,7 +13,8 @@ import org.wikipedia.views.ViewAnimations.ensureTranslationY
 class ViewHideHandler(private val hideableView: View,
                       private val anchoredView: View?,
                       private val gravity: Int,
-                      private val updateElevation: Boolean = true) :
+                      private val updateElevation: Boolean = true,
+                      private val shouldAlwaysShow: () -> Boolean) :
         ObservableWebView.OnScrollChangeListener, OnUpOrCancelMotionEventListener, OnDownMotionEventListener, ObservableWebView.OnClickListener {
 
     private lateinit var webView: ObservableWebView
@@ -35,6 +36,10 @@ class ViewHideHandler(private val hideableView: View,
 
     override fun onScrollChanged(oldScrollY: Int, scrollY: Int, isHumanScroll: Boolean) {
         if (!enabled) {
+            return
+        }
+        if (gravity == Gravity.TOP && shouldAlwaysShow()) {
+            ensureDisplayed()
             return
         }
         var animMargin = 0

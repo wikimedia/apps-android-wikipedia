@@ -31,6 +31,7 @@
 * Shirayuki
 * ShockD
 * Tacsipacsi
+* Tomato Cream
 * Trizek (WMF)
 * Verdy p
 * Wladek92
@@ -80,13 +81,24 @@
   <string name="image_share_via">Text for button to share image via different means.\n{{Identical|Share via}}</string>
   <string name="search_redirect_from">Label shown when a search result is redirected from the original search query. The \"%s\" symbol is replaced with the redirect source.</string>
   <string name="page_edit_history_activity_title">Label text for the new edit history screen when the edit history stats view is not visible. %s will be replaced by the title of the article.</string>
-  <string name="page_edit_history_minor_edit">Letter m to represent that the edit is a minor edit. %s represents the edit comment.</string>
+  <string name="page_edit_history_minor_edit">Letter m to represent that the edit is a minor edit. %s represents the edit comment.\n\nSee also:\n* {{msg-mw|minoreditletter}}</string>
   <string name="page_edit_history_comment_placeholder">Placeholder text when a comment is not available on an edit.</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Text hint for the search bar in edit history.</string>
+  <string name="page_edit_history_filter_by">Menu header for the overflow menu when clicking on the filter icon in the search bar in edit history.</string>
+  <string name="page_edit_history_filter_by_all">Menu item text for the filter overflow menu to show all edits in edit history. %s will be replaced by the number of edits.</string>
+  <string name="page_edit_history_filter_by_user">Menu item text for the filter overflow menu to show user edits in edit history. %s will be replaced by the number of edits.</string>
+  <string name="page_edit_history_filter_by_anon">Menu item text for the filter overflow menu to show anonymous in edit history. %s will be replaced by the number of edits.</string>
+  <string name="page_edit_history_filter_by_bot">Menu item text for the filter overflow menu to show bot edits in edit history. %s will be replaced by the number of edits.</string>
+  <string name="page_edit_history_metrics_content_description">Content description of the metrics of edit history in the time range. The %1$s will be replaced by the start date and %2$s will be replaced by the end date of the time range.</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">Text of showing the year since the article has been created and the total edit counts. Format:\n: &lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\'\'text to display (for one edit)\'\'&lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\nIn the \'\'text to display\'\', the &lt;code&gt;%1$d &lt;/code&gt; will be replaced by the total edit counts, and the &lt;code&gt;%2$s&lt;/code&gt; will be replaced by the year.</item>
     <item quantity="other">Text of showing the year since the article has been created and the total edit counts. Format:\n: &lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\'\'text to display (for two edits or more)\'\'&lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\nIn the \'\'text to display\'\', the &lt;code&gt;%1$d &lt;/code&gt; will be replaced by the total edit counts, and the &lt;code&gt;%2$s&lt;/code&gt; will be replaced by the year.</item>
   </plurals>
-  <string name="page_edit_history_metrics_content_description">Content description of the metrics of edit history in the time range. The %1$s will be replaced by the start date and %2$s will be replaced by the end date of the time range.</string>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">Text showing the total number of edits made by a user since a specified year on a specified wiki.\n\nFormat: &lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;\'\'translated text for a singular number of edits\'\'&lt;/nowiki&gt;&lt;/code&gt;. Within each \'\'translated text\'\':\n\n* &lt;code&gt;%1$d&lt;/code&gt; is replaced by the total edit count (its displayed value also conditions which plural form to be used to select the appropriate \'\'translated text\'\'); when translating to languages that use a singular form for different numbers (e.g. 21, 31... in Slavic languages, not just 1), you \'\'\'must\'\'\' use that symbol inside the translated text to show the actual number!\n* &lt;code&gt;%2$s&lt;/code&gt; is replaced by the year that the user account was created.\n* &lt;code&gt;%3$s&lt;/code&gt; is replaced by the language of the given wiki.</item>
+    <item quantity="other">Text showing the total number of edits made by a user since a specified year on a specified wiki.\n\nFormat: &lt;code&gt;&lt;nowiki&gt;\'\'translated text for a plural number edits\'\'&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;. Within each \'\'translated text\'\':\n\n* &lt;code&gt;%1$d&lt;/code&gt; is replaced by the total edit count (its displayed value also conditions which plural form to be used to select the appropriate \'\'translated text\'\'); when translating to languages that use a singular form for different numbers (e.g. 21, 31... in Slavic languages, not just 1), you \'\'\'must\'\'\' use that symbol inside the translated text to show the actual number!\n* &lt;code&gt;%2$s&lt;/code&gt; is replaced by the year that the user account was created.\n* &lt;code&gt;%3$s&lt;/code&gt; is replaced by the language of the given wiki.</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Empty message text hinting the user to change filters to see more revision history. Please keep the anchor link around the word \"filters\".</string>
   <string name="menu_page_show_tabs">Text hint for the menu button used for showing the list of current tabs.</string>
   <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.\n{{Identical|Change language}}</string>
   <string name="menu_page_find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
@@ -112,6 +124,7 @@
   <string name="menu_page_new_tab">Menu item text for opening a new tab.</string>
   <string name="menu_page_reading_lists">&gt;Menu item text for opening the reading lists page.</string>
   <string name="menu_page_recently_viewed">&gt;Menu item text for opening the history page.</string>
+  <string name="menu_page_archive">Menu item text for opening the archive page.</string>
   <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.\n{{Identical|Open}}</string>
   <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab.</string>
   <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipboard for pasting later.</string>
@@ -119,6 +132,7 @@
   <string name="on_this_day_page_share">Text on button to share the On This Day article.\n{{Identical|Share}}</string>
   <string name="reading_list_page_share">Text on button to share an article in a reading list.\n{{Identical|Share}}</string>
   <string name="menu_text_select_edit_here">Menu item caption for editing the current section at the currently highlighted word.</string>
+  <string name="menu_edit_article">Menu label for editing the entire article.</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
   <string name="talk_page_link_text">Link text for accessing Talk pages. Use the same word in your language as is done on the web site, in an action phrase. Some use the term discussions.</string>
   <string name="edit_history_link_text">Action link text for accessing the edit history for the current article.</string>
@@ -128,6 +142,7 @@
   <string name="content_license_cc_by_sa">Text of the license CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs.</string>
   <string name="edit_save_action_license_anon">HTML specifying Terms of Use and CC license and a login link before saving edits, only when the user has not logged in. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs. Also please do not change the href=\'https://#login\' part of the message.</string>
+  <string name="edit_anon_warning">Warning shown when an edit will be made anonymously. Please preserve the the href=\'https://#login\' link in the message.</string>
   <string name="preference_title_language">Title for preference in settings screen for setting which language Wikipedia to use.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
   <string name="langlinks_filter_hint">{{Identical|Search}}</string>
   <string name="langlinks_empty">Message shown when the user requested a list of languages in which the current article is available, but the current article is not available in any other language</string>
@@ -184,7 +199,7 @@
   <string name="search_empty_message">Brief explanation that there are currently no Search entries to look at. Just to fill an empty screen. This usually happens when a user just deleted search entries.</string>
   <string name="search_empty_message_multilingual_upgrade">Suggestion text encouraging users to add more languages to the app to read in.</string>
   <string name="delete_selected_items">Menu item hint for deleting selected items in a list.</string>
-  <string name="wp_stylized">A stylized string saying \"Wikipedia\". Used before wp_tag_line if no image representation exists. Usually the first and last characters are within big tags, if this fits the Wikipedia logo in your language.</string>
+  <string name="wp_stylized">A stylized string saying \"Wikipedia\". Used before wp_tag_line if no image representation exists. Usually the first and last characters are within &lt;code&gt;&amp;lt;big&amp;gt;...&amp;lt;/big&amp;gt;&lt;/code&gt; tags, if this fits the Wikipedia logo in your language.</string>
   <string name="create_account_username_hint">{{Identical|Username}}</string>
   <string name="login_dont_have_account">Label asking the user if they do not yet have an account.</string>
   <string name="login_join_wikipedia">Button label that lets the user create a new account on Wikipedia.</string>
@@ -277,6 +292,11 @@
   <string name="edit_preview">Header text to show above the preview of the edited article.\n{{Identical|Preview}}</string>
   <string name="edit_undo">Button label to undo the previous text that was typed.</string>
   <string name="edit_redo">Button label to redo the previous text that was typed.</string>
+  <string name="edit_rollback">Button label to rollback the article to the previous revision.</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">Text for the revisions difference in bytes. %s will be replaced by the positive one or negative one.</item>
+    <item quantity="other">Text for the revisions difference in bytes. %s will be replaced by the number of bytes.</item>
+  </plurals>
   <string name="edit_zoom_in">Button label to increase the text size in the editor window.</string>
   <string name="edit_zoom_out">Button label to decrease the text size in the editor window.</string>
   <string name="edit_summary_tag_typo">Clickable summary tag for fixing a typo. A part of a list that includes:\n* {{msg-wm|Wikipedia-android-strings-edit summary tag typo}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag grammar}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag links}}\n* {{msg-wm|Wikipedia-android-strings-edit summary tag other}}</string>
@@ -421,7 +441,7 @@
   <string name="error_blocked_expiry">Label stating the expiry date of the block. The %s symbol is replaced by the date.</string>
   <string name="error_blocked_id">Label stating the ID of the block. The %s symbol is replaced by the ID.</string>
   <string name="error_blocked_footer">Text that explains how to get in touch with the user or administrator that created the block. The %1$s symbol is replaced by the username of the blocker, and %2$s is replaced by a URL that leads to the user page of the blocker.</string>
-  <string name="theme_chooser_menu_item_tooltip">Tooltip message text for customizing menu options on article screen.\n\n\"Reading focus mode\" is {{msg-wm|Wikipedia-android-strings-reading focus mode}}.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Tooltip message text for customizing menu options on article screen</string>
   <string name="error_blocked_footer_no_blocker">Text that explains how to get in touch with an administrator that created the block.</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>
@@ -449,10 +469,13 @@
   <string name="text_size_percent_default">Label indicating that the current text size is the default size. The %s symbol is replaced with the percentage of the size.</string>
   <string name="text_style_title">Label that describes text style selection\n{{Identical|Font}}</string>
   <string name="theme_category_reading">Label for theme category that contains settings related to reading.</string>
+  <string name="theme_category_editing">Label for theme category that contains settings related to editing.</string>
   <string name="reading_focus_mode">Label for checkbox that enables reading focus mode.</string>
   <string name="reading_focus_mode_detail">Detailed label for checkbox that enables reading focus mode.</string>
-  <string name="theme_category_toolbar">Button label for customizing toolbar category.</string>
-  <string name="theme_customize_toolbar">Button label for customizing toolbar options.</string>
+  <string name="editing_syntax_highlight_label">Label for checkbox that enables or disables syntax highlighting when editing.</string>
+  <string name="editing_line_numbers_label">Label for checkbox that enables or disables showing line numbers when editing.</string>
+  <string name="editing_monospace_font_label">Label for checkbox that enables or disables using a monospace font when editing.</string>
+  <string name="editing_typing_suggestions">Label for checkbox that enables or disables typing suggestions when editing.</string>
   <string name="nav_item_saved">Navigation menu item label for reading lists.</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
   <string name="reading_list_move_to">Menu item label for moving the current article to a reading list.</string>
@@ -791,6 +814,10 @@
   <string name="description_edit_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to editing descriptions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="description_edit_helper_text_lowercase_warning">Warning message shows the article description usually begin with a lowercase letter.</string>
   <string name="description_edit_voice_input_description">Content description for the voice input icon in the input field</string>
+  <string name="description_edit_learn_more">Label text for information about article descriptions.</string>
+  <string name="description_edit_image_caption_learn_more">Label text for information about Image Captions.</string>
+  <string name="description_edit_description_learn_more_url">URL that points to a page on mediawiki that contains guidelines for writing article descriptions.</string>
+  <string name="description_edit_image_caption_learn_more_url">URL that points to a page on mediawiki that contains guidelines for writing Image captions.</string>
   <string name="description_too_short">Error text shown when a description is too short.</string>
   <string name="description_ends_with_punctuation">Error text shown when a description ends with punctuation.</string>
   <string name="description_starts_with_article">{{Optional}}\n\nWarning text shown when a description starts with a definite or indefinite article. Currently implemented in English, German, Spanish, and French. Doesn\'t need translation to other languages. When translating, use the articles in the language and don\'t copy the English ones.</string>
@@ -816,7 +843,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Label for a button the user can push when ready to start editing.</string>
   <string name="description_edit_tutorial_promise">A statement that the user promises not to misuse the feature.</string>
   <string name="customize_toolbar_title">Title text of the customize toolbar page.</string>
-  <string name="customize_toolbar_description_text">Description of the customize toolbar page.</string>
+  <string name="customize_toolbar_shortcut_description_text">Description of the customize toolbar page.</string>
   <string name="customize_toolbar_category_toolbar">Category of toolbar in the customize toolbar page.</string>
   <string name="customize_toolbar_category_menu">Category of menu in the customize toolbar page.\n\n{{Identical|Menu}}</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Text for the drag and drop placeholder for the list in the customize toolbar page.</string>
@@ -933,14 +960,14 @@
     <item quantity="other">Label text for indicating how many contributions a user has made. For many contributions.</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
-    <item quantity="one">Label text to show the length of the edit streak in number of days. %d is for one dat.</item>
-    <item quantity="other">Label text to show the length of the edit streak in number of days. %d is for many days</item>
+    <item quantity="one">Label text to show the length of the edit streak in number of days. %d is for one day.</item>
+    <item quantity="other">Label text to show the length of the edit streak in number of days. %d is for many days.</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Title for card that introduces Suggested edits.</string>
   <string name="suggested_edits_what_is_text">Body text for card that introduces Suggested edits.</string>
   <string name="suggested_edits_learn_more">Button text for navigating to additional information for the user.</string>
   <string name="suggested_edits_paused_title">Title for card that explains that this feature is currently paused.</string>
-  <string name="suggested_edits_disabled_title">Title for card that explains that this feature is currently disabled.</string>
+  <string name="suggested_edits_disabled_title">Title for card that explains that this feature is currently disabled.\n{{Identical|Disabled}}</string>
   <string name="suggested_edits_ip_blocked_title">Title for card that explains that the IP address of the user is blocked.</string>
   <string name="suggested_edits_last_edited">This refers to the date when the user made their last edit.</string>
   <string name="suggested_edits_last_edited_never">Displayed when the user has never made an edit.\n\n{{Identical|Never}}</string>
@@ -986,7 +1013,6 @@
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>
-  <string name="file_page_suggestion_reason">Suggestion reason title text of the file summary shown in the file page.</string>
   <string name="file_page_edit_button_content_description">Content description for the edit button in file page. The \"%s\" symbol is replaced with the name of the description type.\n\n{{Identical|Edit}}</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
@@ -1062,12 +1088,52 @@
   <string name="content_description_for_page_indicator">Label of content description for tutorial page. %1$d will be replaced by the current number of pages and %2$d will be replaced by the total number of pages.</string>
   <string name="wikitext_bold">Button label for making the selected text bold.</string>
   <string name="wikitext_italic">Button label for making the selected text italic.</string>
+  <string name="wikitext_underline">Button label for underlining the selected text.</string>
+  <string name="wikitext_strikethrough">Button label for making the selected text as strikethrough.</string>
+  <string name="wikitext_sup">Button label for making the selected text as superscript.</string>
+  <string name="wikitext_sub">Button label for making the selected text as subscript.</string>
+  <string name="wikitext_large">Button label for making the selected text large.</string>
+  <string name="wikitext_small">Button label for making the selected text small.</string>
+  <string name="wikitext_code">Button label for putting the selected text in a code tag.\n{{identical|Code}}</string>
   <string name="wikitext_link">Button label for making the selected text into a link.\n{{Identical|Link}}</string>
+  <string name="wikitext_heading_n">Button label for inserting a heading. The %d symbol is replaced with the level of the heading.</string>
+  <string name="wikitext_formatting">Button label for showing options for formatting text.</string>
+  <string name="wikitext_headings">Button label for showing options for inserting headings into the text.</string>
+  <string name="wikitext_insert_media">Button label for adding a media at the current cursor position.</string>
   <string name="wikitext_bulleted_list">Button label for starting a bulleted list at the current cursor position.</string>
   <string name="wikitext_numbered_list">Button label for starting a numbered list at the current cursor position.</string>
   <string name="wikitext_template">Button label for making the selected text into a template.\n{{Identical|Template}}</string>
   <string name="wikitext_reference">Button label for adding a reference at the current cursor position.\n{{Identical|Reference}}</string>
   <string name="wikitext_preview_link">Button label for showing a preview of the link that is at the current cursor position.</string>
+  <string name="insert_media_title">Title of the insert media screen.</string>
+  <string name="insert_media_search_description">Message saying that the user can select a file from Wikimedia Commons.</string>
+  <string name="insert_media_search_hint">Hint label for the insert media search field.</string>
+  <string name="insert_media_settings">Title of the media settings scree.</string>
+  <string name="insert_media_settings_uploaded_image">Label of the uploaded image.</string>
+  <string name="insert_media_settings_caption">Label of the caption of the image.</string>
+  <string name="insert_media_settings_caption_description">Description of where the caption will be located.</string>
+  <string name="insert_media_settings_alternative_text">Label of the alternative text.</string>
+  <string name="insert_media_settings_alternative_text_description">Description of the alternative usage.</string>
+  <string name="insert_media_advanced_settings">Button label of advanced settings.</string>
+  <string name="insert_media_advanced_settings_wrap_image">Label of an option that user can wrap the text around the image.</string>
+  <string name="insert_media_advanced_settings_image_position">Label of an option that user set the image position.</string>
+  <string name="insert_media_advanced_settings_image_position_right">Menu option of setting the image position to the right.\n{{identical|Right}}</string>
+  <string name="insert_media_advanced_settings_image_position_left">Menu option of setting the image position to the left.\n{{identical|Left}}</string>
+  <string name="insert_media_advanced_settings_image_position_center">Menu option of setting the image position to the center.</string>
+  <string name="insert_media_advanced_settings_image_position_none">Menu option that indicates the image does not have a specific position.</string>
+  <string name="insert_media_advanced_settings_image_type">Label of an option that user set the image type.</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Menu option of setting the image type in thumbnail.</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Menu option of setting the image type in frameless.</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Menu option of setting the image type in frame.</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Menu option of setting the image type in basic.</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Description and suggestion of how the image type works.</string>
+  <string name="insert_media_advanced_settings_image_size">Label of an option that user set the image size.</string>
+  <string name="insert_media_advanced_settings_image_size_default">Menu option of setting the default size for the image.</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Menu option of customizing the image size.</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Label of the custom image width.\n{{identical|Width}}</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Label of the custom image height.\n{{identical|Height}}</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">Label of the custom image size suffix.</string>
+  <string name="insert_media_insert_button">Button of inserting the image to the editor.</string>
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
   <string name="main_tooltip_text">Message for the tool tip that shown on the main screen. The %s symbol is replaced with the username.</string>
@@ -1100,15 +1166,44 @@
   <string name="talk_share_talk_page">Subject text while sharing a talk page</string>
   <string name="talk_edit_disclaimer">Disclaimer of editing a talk page. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
   <string name="talk_search_hint">Hint for the talk page search bar.</string>
+  <string name="talk_search_topics_hint">Hint for the talk page search bar.</string>
+  <string name="talk_search_find_in_talk_topics_hint">Hint for the find in page in the talk topic page search bar.</string>
   <string name="talk_overflow_sort_by">Header text of the sort menu.</string>
   <string name="talk_overflow_sort_date_published">Menu item label for sorting the list by the published date.</string>
+  <string name="talk_overflow_sort_date_updated">Menu item label for sorting the list by the updated date.</string>
   <string name="talk_overflow_sort_topic_name">Menu item label for sorting the list by the topic name.</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Button label for showing one reply to the current thread.</item>
+    <item quantity="other">Button label for showing replies to the current thread. The %d symbol is replaced with the number of replies.</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Button label for hiding one reply to the current thread.</item>
+    <item quantity="other">Button label for hiding replies to the current thread. The %d symbol is replaced with the number of replies.</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">Message shown when the user subscribes to a talk thread. The %s symbol is replaced with the thread title.</string>
+  <string name="talk_thread_unsubscribed_from">Message shown when the user unsubscribes from a talk thread. The %s symbol is replaced with the thread title.</string>
+  <string name="talk_list_item_overflow_subscribe">Menu option label for the talk topic item to subscribe to the topic.</string>
+  <string name="talk_list_item_overflow_subscribed">Menu option label for the talk topic item to unsubscribe to the topic.</string>
+  <string name="talk_list_item_overflow_mark_as_read">Menu option label for the talk topic item to mark it as read.</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Menu option label for the talk topic item to mark it as unread.</string>
+  <string name="talk_list_item_overflow_share">Menu option label for the talk topic item to share the discussion.</string>
+  <string name="talk_list_item_last_comment_date">Label text for showing the posted date of the last comment. The %s will be replaced by the posted date of last comment.</string>
+  <string name="talk_list_item_reply_icon_content_description">Content description of the total replies icon.</string>
+  <string name="talk_list_item_user_icon_content_description">Content description of the user icon.</string>
+  <string name="talk_list_item_swipe_mark_as_read">Label text for the swipe gesture that markes the item as read.</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Label text for the swipe gesture that markes the item as unread.</string>
+  <string name="talk_archived_title">Title text for archived talk pages. %s will be replaced by the title of the talk page.</string>
   <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
   <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>
-  <string name="menu_option_user_profile">Menu option label for user\'s profile page. %s indicating the username.</string>
   <string name="menu_option_user_contributions">Menu option label for user contributions screen. %s indicating the username.</string>
-  <string name="menu_option_edit_source">Menu option label for editing the page.</string>
+  <string name="menu_option_edit_source">Menu option label for editing the page.\n{{Identical|Edit source}}</string>
+  <string name="menu_option_user_page">Menu option label for the user page. %s indicating the username.</string>
+  <string name="menu_option_find_in_talk_page_topic">Menu option label for finding in talk page topic.</string>
+  <string name="menu_option_copy_link_to_clipboard">Menu item for copying a link to the system clipboard for pasting later.</string>
+  <string name="talk_menu_copy_text">Menu label for copying the text of the current reply.</string>
+  <string name="talk_menu_expand_threads">Menu label for expanding all the threads in the conversation.</string>
+  <string name="talk_menu_collapse_threads">Menu label for collapsing all the threads in the conversation.</string>
   <string name="watchlist_details_watching_label">Label indicating that user is watching the article.</string>
   <string name="watchlist_details_watch_label">Label on the button suggesting the user to watch the title.\n\n{{Identical|Watch}}</string>
   <string name="watchlist_details_next_edit">Content description for the button that goes to the next edit history.</string>
@@ -1137,6 +1232,8 @@
   <string name="revision_undo_message">Dialog message explaining that the selected revision will be undone.</string>
   <string name="revision_undo_reason">Dialog message requesting a reason for undoing the selected revision.</string>
   <string name="revision_undo_success">Message shown when an edit was undone successfully.</string>
+  <string name="revision_rollback_dialog_title">Title of the rollback dialog.</string>
+  <string name="revision_rollback_success">Message shown when edits were reverted successfully.</string>
   <string name="revision_compare_button">Button label for comparing two revisions.</string>
   <string name="revision_compare_two_only">Error message when the user attempts to select more than two revisions for comparison.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Message shown when the article is added to Watchlist. The %1$s symbol will be replaced by the article title and the %2$s symbol will be replaced by the time period.</string>
@@ -1161,10 +1258,30 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.\n\n{{Identical|Deleted}}</string>
+  <string name="preview_edit_title">Title of the preview edit screen.</string>
+  <string name="preview_edit_summarize_edit_title">Title of the summarize edit screen.</string>
+  <string name="preview_edit_summarize_edit_hint">Hint text for edit summaries text field.</string>
+  <string name="preview_edit_minor_edit">Label text of the checkbox that indicates the current edit is a minor edit.</string>
+  <string name="preview_edit_minor_edit_url">URL leading to the help page of the minor edit. If you can find the appropriate language specific URL of the mobile site please do so. You may be able to find it easily by going to https://en.wikipedia.org/wiki/Help:Minor_edit and clicking the interlanguage link.</string>
+  <string name="preview_edit_watch_this_page">Label text of the checkbox that helps to watch the page after publishing.</string>
+  <string name="preview_edit_watch_this_page_url">URL leading to the help page of the Watchlist. If you can find the appropriate language specific URL of the mobile site please do so. You may be able to find it easily by going to https://en.wikipedia.org/wiki/Help:Watchlist and clicking the interlanguage link.</string>
+  <string name="preview_edit_learn_more">Label text of the link to learn more about edit summaries.</string>
+  <string name="preview_edit_learn_more_url">URL leading to the help page of the edit summary. If you can find the appropriate language specific URL of the mobile site please do so. You may be able to find it easily by going to https://en.wikipedia.org/wiki/Help:Edit_summary and clicking the interlanguage link.</string>
   <string name="action_item_categories">Label for menu item for viewing the categories to which an article belongs.</string>
   <string name="page_no_categories">Error message saying that the article does not belong to any categories.</string>
   <string name="category_tab_articles">Label for tab that lists all the articles in a category.</string>
   <string name="category_tab_subcategories">Label for tab that lists all the subcategories of a category.</string>
   <string name="category_empty">Error shown when the current category contains no articles.</string>
   <string name="subcategory_empty">Error shown when the current category contains no subcategories.</string>
+  <string name="search_namespaces">Hint for selecting the namespace when searching.\n{{Identical|Namespace}}</string>
+  <string name="revision_initial_none">Label shown when showing a diff of the first revision of an article (when there is no previous revision to compare with).</string>
+  <string name="user_contrib_activity_title">Title of screen that lists the contributions of a user to the current wiki. The %s symbol is replaced with the user name.</string>
+  <string name="archive_empty">Error shown when the current page does not have subpages.</string>
+  <string name="user_contrib_filter_ns">Label for menu that allows to filter contributions by namespace.</string>
+  <string name="user_contrib_filter_all">Label for showing all contributions, regardless of namespace.</string>
+  <string name="namespace_article">Label for showing contributions to the Main (article) namespace.\n{{identical|Article}}</string>
+  <string name="user_contrib_current">Label indicating that this contribution is the current revision of the article.\n{{identical|Current}}</string>
+  <string name="media_playback_error">Error shown when the selected media could not be played.</string>
+  <string name="user_contrib_menu_label">Menu label for accessing the contributions of the current user.</string>
+  <string name="user_contrib_wiki_select">Screen title for viewing the contributions of a user from a selected wiki.</string>
 </resources>

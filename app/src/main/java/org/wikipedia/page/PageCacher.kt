@@ -7,7 +7,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.util.log.L
 
 object PageCacher {
-    @JvmStatic
     fun loadIntoCache(title: PageTitle) {
         L.d("Loading page into cache: " + title.prefixedText)
         ServiceFactory.getRest(title.wikiSite)
@@ -15,7 +14,7 @@ object PageCacher {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ summaryRsp ->
-                    WikipediaApp.getInstance().tabList.asReversed().find { it.backStackPositionTitle == title }?.backStackPositionTitle?.apply {
+                    WikipediaApp.instance.tabList.asReversed().find { it.backStackPositionTitle == title }?.backStackPositionTitle?.apply {
                         thumbUrl = summaryRsp.body()!!.thumbnailUrl
                     }
                 }) { caught -> L.e(caught) }

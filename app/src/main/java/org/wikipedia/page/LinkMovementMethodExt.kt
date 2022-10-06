@@ -8,6 +8,7 @@ import android.view.MotionEvent
 import android.widget.TextView
 import androidx.core.text.getSpans
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 
@@ -60,6 +61,8 @@ class LinkMovementMethodExt : LinkMovementMethod {
                 L.d(linkText)
                 val url = UriUtil.decodeURL(links[0].url)
 
+                BreadCrumbLogEvent.logClick(widget.context, widget)
+
                 handler?.run {
                     onUrlClick(url)
                 }
@@ -78,15 +81,15 @@ class LinkMovementMethodExt : LinkMovementMethod {
         return super.onTouchEvent(widget, buffer, event)
     }
 
-    internal class ErrorLinkHandler internal constructor() : LinkHandler(WikipediaApp.getInstance()) {
-        override var wikiSite = WikipediaApp.getInstance().wikiSite
+    internal class ErrorLinkHandler internal constructor() : LinkHandler(WikipediaApp.instance) {
+        override var wikiSite = WikipediaApp.instance.wikiSite
         override fun onMediaLinkClicked(title: PageTitle) {}
         override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {}
         override fun onPageLinkClicked(anchor: String, linkText: String) {}
         override fun onInternalLinkClicked(title: PageTitle) {
             // Explicitly send everything to an external browser, since the error might be shown in
             // a child activity of PageActivity, and we don't want to lose our place.
-            UriUtil.visitInExternalBrowser(WikipediaApp.getInstance(),
+            UriUtil.visitInExternalBrowser(WikipediaApp.instance,
                     Uri.parse(UriUtil.resolveProtocolRelativeUrl(title.wikiSite, title.mobileUri)))
         }
     }

@@ -47,7 +47,8 @@ abstract class OkHttpWebViewClient : WebViewClient() {
         var response: WebResourceResponse
         try {
             val rsp = request(request)
-            response = if (CONTENT_TYPE_OGG == rsp.header(HEADER_CONTENT_TYPE)) {
+            response = if (CONTENT_TYPE_OGG == rsp.header(HEADER_CONTENT_TYPE) ||
+                    CONTENT_TYPE_WEBM == rsp.header(HEADER_CONTENT_TYPE)) {
                 rsp.close()
                 return super.shouldInterceptRequest(view, request)
             } else {
@@ -95,7 +96,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
     private fun addHeaders(request: WebResourceRequest, builder: Request.Builder): Request.Builder {
         model.title?.let { title ->
             // TODO: Find a common way to set this header between here and RetrofitFactory.
-            builder.header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(title.wikiSite))
+            builder.header("Accept-Language", WikipediaApp.instance.getAcceptLanguage(title.wikiSite))
             if (model.isInReadingList) {
                 builder.header(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
             }
@@ -133,6 +134,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
     companion object {
         private const val HEADER_CONTENT_TYPE = "content-type"
         private const val CONTENT_TYPE_OGG = "application/ogg"
+        private const val CONTENT_TYPE_WEBM = "video/webm"
         private val SUPPORTED_SCHEMES = listOf("http", "https")
     }
 }

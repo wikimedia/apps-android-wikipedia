@@ -4,6 +4,9 @@
 * Chameleon222
 * Citadell
 * Danmichaelo
+* Dbrant
+* EdoAug
+* Gabriel Kielland
 * Jeblad
 * JohSan65
 * Jon Harald Søby
@@ -62,13 +65,27 @@
   <string name="share_via">Del via</string>
   <string name="image_share_via">Del via</string>
   <string name="search_redirect_from">Omdirigert fra %s</string>
+  <string name="page_edit_history_activity_title">Revisjonshistorikk: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Tom redigeringsforklaring</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Søk i eller filtrer redigeringer</string>
+  <string name="page_edit_history_filter_by">Filtrer etter</string>
+  <string name="page_edit_history_filter_by_all">Alle redigeringer (%s)</string>
+  <string name="page_edit_history_filter_by_user">Brukerredigeringer (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonyme redigeringer (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Botredigeringer (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Målinger fra %1$s til %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d redigering siden %2$s</item>
+    <item quantity="other">%1$d redigeringer siden %2$s</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Prøv å endre &lt;a href=\"#\"&gt;filtrene&lt;/a&gt; for å se flere redigeringer</string>
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Endre språk</string>
   <string name="menu_page_find_in_page">Søk i artikkelen</string>
   <string name="menu_page_add_to_watchlist">Legg til i overvåkningsliste</string>
   <string name="menu_page_watch">Overvåk</string>
+  <string name="menu_page_unwatch">Avslutt overvåkning</string>
   <string name="menu_page_view_talk">Vis diskusjonsside</string>
   <string name="menu_page_talk_page">Diskusjonsside</string>
   <string name="menu_page_view_edit_history">Vis redigeringshistorikk</string>
@@ -88,6 +105,7 @@
   <string name="menu_page_new_tab">Ny fane</string>
   <string name="menu_page_reading_lists">Leselister</string>
   <string name="menu_page_recently_viewed">Nylig besøkt</string>
+  <string name="menu_page_archive">Arkiv</string>
   <string name="menu_long_press_open_page">Åpne</string>
   <string name="menu_long_press_open_in_new_tab">Åpne i ny fane</string>
   <string name="menu_long_press_copy_page">Kopier lenkeadresse</string>
@@ -95,6 +113,7 @@
   <string name="on_this_day_page_share">Del</string>
   <string name="reading_list_page_share">Del</string>
   <string name="menu_text_select_edit_here">Rediger her</string>
+  <string name="menu_edit_article">Rediger artikkel</string>
   <string name="last_updated_text">Sist oppdatert %s</string>
   <string name="talk_page_link_text">Vis diskusjonssiden</string>
   <string name="edit_history_link_text">Vis redigeringshistorikk</string>
@@ -104,6 +123,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Ved å publisere samtykker du til &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen.</string>
   <string name="edit_save_action_license_anon">Ved å publisere samtykker du til &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen. Redigeringer vil bli tilskrevet IP-adressen for enheten din. Hvis du &lt;a href=\"https://#login\"&gt;logger inn&lt;/a&gt; vil du få bedre personvern.</string>
+  <string name="edit_anon_warning">Redigeringer blir tilskrevet IP-adressen til enheten din. Hvis du &lt;a href=\"https://#login\"&gt;logger inn&lt;/a&gt; vil du få bedre personvern.</string>
   <string name="preference_title_language">Wikipedia-språk</string>
   <string name="langlinks_filter_hint">Søk</string>
   <string name="langlinks_empty">Denne siden er ikke tilgjengelig på andre språk</string>
@@ -253,6 +273,11 @@
   <string name="edit_preview">Forhåndsvis</string>
   <string name="edit_undo">Angre</string>
   <string name="edit_redo">Gjør om</string>
+  <string name="edit_rollback">Tilbakestill</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s byte</item>
+    <item quantity="other">%s byte</item>
+  </plurals>
   <string name="edit_zoom_in">Forstørr</string>
   <string name="edit_zoom_out">Forminsk</string>
   <string name="edit_summary_tag_typo">Fikset typo</string>
@@ -396,7 +421,7 @@
   <string name="error_blocked_expiry">Blokkeringen utløper: %s</string>
   <string name="error_blocked_id">Blokkerings-ID: %s</string>
   <string name="error_blocked_footer">Du kan kontakte &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eller en annen &lt;a href=\"https://no.wikipedia.org/wiki/Wikipedia:Administratorer\"&gt;administrator&lt;/a&gt; for å diskutere blokkeringen.</string>
-  <string name="theme_chooser_menu_item_tooltip">Tilpass verktøylinjen og prøv lesefokuseringsmodusen</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Tilpass verktøylinje</string>
   <string name="error_blocked_footer_no_blocker">Du kan kontakte en &lt;a href=\"https://no.wikipedia.org/wiki/Wikipedia:Administratorer\"&gt;administrator&lt;/a&gt; for å diskutere blokkeringen.</string>
   <string name="crash_report_activity_title">Applikasjonsfeil</string>
   <string name="crash_report_relaunch_or_quit">Wikipedia-appen avsluttet på grunn av en feil.\n\nVil du prøve å starte den på nytt eller avslutte?</string>
@@ -426,8 +451,6 @@
   <string name="theme_category_reading">Lesing</string>
   <string name="reading_focus_mode">Lesefokusmodus</string>
   <string name="reading_focus_mode_detail">Skjuler redigeringsfunksjoner og verktøylinjen på bunnen når du skroller</string>
-  <string name="theme_category_toolbar">Verktøylinje</string>
-  <string name="theme_customize_toolbar">Tilpass verktøylinje</string>
   <string name="nav_item_saved">Lagret</string>
   <string name="reading_list_save_to">Lagre i leseliste</string>
   <string name="reading_list_move_to">Flytt til leseliste</string>
@@ -790,11 +813,13 @@
   <string name="description_edit_tutorial_button_label_start_editing">Begynn å redigere</string>
   <string name="description_edit_tutorial_promise">Ved å begynne lover jeg å ikke misbruke denne funksjonen.</string>
   <string name="customize_toolbar_title">Tilpass verktøylinje</string>
-  <string name="customize_toolbar_description_text">Tilpass verktøylinja nederst med 5 lenker du syns er nyttige.</string>
+  <string name="customize_toolbar_shortcut_description_text">Tilpass verktøylinja nederst med 5 snarveier du syns er nyttige.</string>
   <string name="customize_toolbar_category_toolbar">Verktøylinje</string>
   <string name="customize_toolbar_category_menu">Meny</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Dra og slipp favorittelementete dine her 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Nullstill</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Hold flytteikonet for å flytte elementet</string>
+  <string name="customize_toolbar_item_default_tooltip">Trykk og dra elementet for å flytte det</string>
   <string name="suggested_edits_describe_articles">Beskriv artikler</string>
   <string name="suggested_edits_caption_images">Skriv bildetekster</string>
   <string name="suggested_edits_tag_images">Tagg bilder</string>
@@ -885,6 +910,7 @@
   <string name="suggested_edits_paused_message">Redigeringsforslag er deaktivert frem til %1$s. Beklager %2$s, men noen av de siste bidragene dine har blitt tilbakestilt.</string>
   <string name="suggested_edits_disabled_message">Redigeringsforslag er deaktivert. Beklager %s, for mange av de siste bidragene dine har blitt tilbakestilt.</string>
   <string name="suggested_edits_ip_blocked_message">Det ser ut som IP-adressen din er blokkert fra å rdeigere Wikipedia, eller befinner seg i et blokkert intervall.</string>
+  <string name="suggested_edits_gate_message">Beklager, %s, du må gjøre minst tre redigeringer direkte i artikler for å bruke denne funksjonen.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips og -triks for redigering</string>
   <string name="suggested_edits_help_page_link_text">Hjelpeside for redigeringsforslag</string>
   <string name="suggested_edits_edit_streak_label_text">Redigeringsstrekk</string>
@@ -963,7 +989,6 @@
   <string name="file_page_activity_title">Filside</string>
   <string name="file_page_add_image_caption_button">Legg til bildetekst</string>
   <string name="file_page_add_image_tags_button">Legg til bildeknagger</string>
-  <string name="file_page_suggestion_reason">Forslagsbegrunnelse</string>
   <string name="file_page_edit_button_content_description">Rediger %s</string>
   <string name="description_edit_revert_subtitle">Takk for at du redigerer Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi forstår at du forsøkte ditt beste, men en av korrekturleserne hadde en innvending. Noen mulige årsaker til at redigeringen din ble tilbakestilt kan være:</string>
@@ -1040,11 +1065,41 @@
   <string name="wikitext_bold">Fet</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Lenke</string>
+  <string name="wikitext_insert_media">Sett inn media</string>
   <string name="wikitext_bulleted_list">Punktliste</string>
   <string name="wikitext_numbered_list">Nummerert liste</string>
   <string name="wikitext_template">Mal</string>
   <string name="wikitext_reference">Referanse</string>
   <string name="wikitext_preview_link">Forhåndsvis lenke</string>
+  <string name="insert_media_title">Sett inn media</string>
+  <string name="insert_media_search_description">Velg en fil fra Wikimedia Commons</string>
+  <string name="insert_media_search_hint">Mediesøk</string>
+  <string name="insert_media_settings">Mediainnstillinger</string>
+  <string name="insert_media_settings_uploaded_image">Last opp bilde</string>
+  <string name="insert_media_settings_caption">Beskrivelse</string>
+  <string name="insert_media_settings_caption_description">Etikett som vises ved siden av elementet for alle lesere</string>
+  <string name="insert_media_settings_alternative_text">Alternativ tekst</string>
+  <string name="insert_media_settings_alternative_text_description">Tekstbeskrivelse for lesere som ikke kan se bildet</string>
+  <string name="insert_media_advanced_settings">Avanserte innstillinger</string>
+  <string name="insert_media_advanced_settings_wrap_image">Bryt teksten omkring et bilde</string>
+  <string name="insert_media_advanced_settings_image_position">Bildeposisjon</string>
+  <string name="insert_media_advanced_settings_image_position_right">Høyre</string>
+  <string name="insert_media_advanced_settings_image_position_left">Venstre</string>
+  <string name="insert_media_advanced_settings_image_position_center">Midtstilt</string>
+  <string name="insert_media_advanced_settings_image_position_none">Ingen</string>
+  <string name="insert_media_advanced_settings_image_type">Bildetype</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Miniatyrbilde</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Uten ramme</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Ramme</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Grunnleggende</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Du kan velge hvordan medieobjektet skal vises på siden. I de aller fleste tilfeller vil miniatyrbilde være det beste valget.</string>
+  <string name="insert_media_advanced_settings_image_size">Bildestørrelse</string>
+  <string name="insert_media_advanced_settings_image_size_default">Standard</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Egendefinert</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Bredde</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Høyde</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
+  <string name="insert_media_insert_button">Sett inn</string>
   <string name="main_drawer_help">Hjelp</string>
   <string name="main_drawer_login">Logg inn / bli med på Wikipedia</string>
   <string name="main_tooltip_text">Hei %s, visste du at hvem som helst kan redigere Wikipedia?</string>
@@ -1077,15 +1132,43 @@
   <string name="talk_share_talk_page">Wikipedia – diskusjoner på diskusjonsside</string>
   <string name="talk_edit_disclaimer">Dette er en diskusjonsside. Respekter retningslinjene for diskusjoner, og husk å signere innlegget ditt ved å skrive inn fire tilder: ~~~~ når du poster med wikitekst.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Retningslinjer for diskusjonssider&lt;/a&gt;</string>
   <string name="talk_search_hint">Søk i meldingene</string>
+  <string name="talk_search_topics_hint">Søk i emner</string>
+  <string name="talk_search_find_in_talk_topics_hint">Finn i diskusjonssideemner</string>
   <string name="talk_overflow_sort_by">Sorter etter</string>
   <string name="talk_overflow_sort_date_published">Dato publisert</string>
+  <string name="talk_overflow_sort_date_updated">Dato oppdatert</string>
   <string name="talk_overflow_sort_topic_name">Emnenavn</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Vis svar</item>
+    <item quantity="other">Vis svar (%d)</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Skjul svar</item>
+    <item quantity="other">Skjul svar (%d)</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">Abonnerer på «%s»</string>
+  <string name="talk_thread_unsubscribed_from">Avsluttet abonnement på «%s»</string>
+  <string name="talk_list_item_overflow_subscribe">Abonner</string>
+  <string name="talk_list_item_overflow_subscribed">Abonnert</string>
+  <string name="talk_list_item_overflow_mark_as_read">Merk som lest</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Merk som ulest</string>
+  <string name="talk_list_item_overflow_share">Del</string>
+  <string name="talk_list_item_last_comment_date">Siste kommentar: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Antall svar</string>
+  <string name="talk_list_item_user_icon_content_description">Brukerikon</string>
+  <string name="talk_list_item_swipe_mark_as_read">Lest</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Ulest</string>
+  <string name="talk_archived_title">Diskusjonsarkiv: %s</string>
   <string name="menu_option_share_talk_discussion">Del diskusjon</string>
   <string name="menu_option_share_talk_page">Del diskusjonsside</string>
   <string name="menu_option_share_edit">Del redigering</string>
-  <string name="menu_option_user_profile">%s sin profil</string>
   <string name="menu_option_user_contributions">%s sine bidrag</string>
   <string name="menu_option_edit_source">Rediger kilde</string>
+  <string name="menu_option_user_page">%s brukerside</string>
+  <string name="menu_option_find_in_talk_page_topic">Finn i diskusjonssideemne</string>
+  <string name="talk_menu_copy_text">Kopier tekst</string>
+  <string name="talk_menu_expand_threads">Utvid tråder</string>
+  <string name="talk_menu_collapse_threads">Minimer tråder</string>
   <string name="watchlist_details_watching_label">Overvåker</string>
   <string name="watchlist_details_watch_label">Overvåk</string>
   <string name="watchlist_details_next_edit">Neste redigering</string>
@@ -1097,8 +1180,25 @@
   <string name="thank_dialog_positive_button_text">Send takk</string>
   <string name="thank_dialog_negative_button_text">Avbryt</string>
   <string name="thank_success_message">Din takk ble sendt til %s 👍</string>
-  <string name="menu_option_view_user_profile">Vis brukerens profilside</string>
+  <string name="menu_option_view_user_profile">Vis brukerside</string>
   <string name="menu_option_view_user_talk">Vis diskusjonsside</string>
+  <string name="menu_option_view_user_contributions">Vis brukerbidrag</string>
+  <string name="revision_diff_compare">Sammenlign revisjoner</string>
+  <string name="revision_diff_compare_title">Sammenlign revisjoner: %s</string>
+  <string name="revision_diff_from">Fra:</string>
+  <string name="revision_diff_to">Til:</string>
+  <string name="revision_diff_line_num">Linje %d</string>
+  <string name="revision_diff_line_nums">Linje %d–%d</string>
+  <string name="revision_diff_line_added">Linje lagt til</string>
+  <string name="revision_diff_line_removed">Linje fjernet</string>
+  <string name="revision_diff_paragraph_added">Avsnitt lagt til</string>
+  <string name="revision_diff_paragraph_removed">Avsnitt fjernet</string>
+  <string name="revision_undo_title">Gjør om redigering</string>
+  <string name="revision_undo_message">Dette vil gjøre om redigeringene som ble gjort i revisjonen(e) som vises her.</string>
+  <string name="revision_undo_reason">Angi en årsak til at du gjør om denne redigeringen for å fortsette:</string>
+  <string name="revision_undo_success">Revisjonen ble gjort om.</string>
+  <string name="revision_rollback_dialog_title">Er du sikker på at du vil tilbakestille redigeringene?</string>
+  <string name="revision_rollback_success">Redigeringer tilbakestilt.</string>
   <string name="revision_compare_button">Sammenlign</string>
   <string name="revision_compare_two_only">Man kan kun velge to revisjoner.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s og diskusjonssiden dens har blitt lagt til i overvåkningslisten din %2$s.s</string>
@@ -1123,4 +1223,26 @@
   <string name="watchlist_page_moved">Flyttet</string>
   <string name="watchlist_page_protected">Beskyttet</string>
   <string name="watchlist_page_deleted">Slettet</string>
+  <string name="preview_edit_title">Forhåndsvis endring</string>
+  <string name="preview_edit_summarize_edit_title">Forklar redigering</string>
+  <string name="preview_edit_summarize_edit_hint">Hvordan forbedret du denne siden?</string>
+  <string name="preview_edit_minor_edit">Dette er en mindre endring</string>
+  <string name="preview_edit_watch_this_page">Overvåk denne siden</string>
+  <string name="preview_edit_learn_more">Lær mer om redigeringsforklaringer</string>
+  <string name="action_item_categories">Kategorier</string>
+  <string name="page_no_categories">Denne siden tilhører ingen kategorier.</string>
+  <string name="category_tab_articles">Artikler</string>
+  <string name="category_tab_subcategories">Underkategorier</string>
+  <string name="category_empty">Ingen artikler funnet i denne kategorien.</string>
+  <string name="subcategory_empty">Ingen underkategorier funnet i denne kategorien.</string>
+  <string name="search_namespaces">Navnerom</string>
+  <string name="revision_initial_none">Ingen (dette er den første revisjonen)</string>
+  <string name="user_contrib_activity_title">Bidrag av %s</string>
+  <string name="archive_empty">Ingen arkiverte sider funnet.</string>
+  <string name="user_contrib_filter_ns">Filter etter navnerom</string>
+  <string name="user_contrib_filter_all">Alle redigeringer</string>
+  <string name="namespace_article">Artikkel</string>
+  <string name="user_contrib_current">gjeldende</string>
+  <string name="media_playback_error">Feil ved avspilling av media.</string>
+  <string name="user_contrib_menu_label">Bidrag</string>
 </resources>

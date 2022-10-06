@@ -46,19 +46,6 @@
                 android:padding="16dp" />
 
             <ImageView
-                android:id="@+id/view_description_edit_help_button"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center_vertical"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:contentDescription="@string/description_edit_help_title"
-                android:focusable="true"
-                android:padding="12dp"
-                app:srcCompat="@drawable/ic_info_outline_black_24dp"
-                app:tint="?attr/material_theme_secondary_color" />
-
-            <ImageView
                 android:id="@+id/view_description_edit_save_button"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -193,6 +180,24 @@
                         </com.google.android.material.textfield.TextInputLayout>
                     </FrameLayout>
 
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/learnMoreButton"
+                        style="@style/FlatButton.Small.Transparent"
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:fontFamily="sans-serif"
+                        android:letterSpacing="0"
+                        android:text="@string/description_edit_learn_more"
+                        android:textAlignment="viewStart"
+                        android:textAllCaps="false"
+                        android:textColor="?attr/colorAccent"
+                        android:textSize="16sp"
+                        app:icon="@drawable/ic_open_in_new_black_24px"
+                        app:iconGravity="end"
+                        app:iconPadding="12dp"
+                        app:iconSize="24dp"
+                        app:iconTint="?attr/colorAccent" />
                 </LinearLayout>
             </ScrollView>
 

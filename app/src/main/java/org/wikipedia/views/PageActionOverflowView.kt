@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
+import androidx.core.view.doOnDetach
 import androidx.core.widget.PopupWindowCompat
 import com.google.android.material.textview.MaterialTextView
 import org.wikipedia.R
@@ -17,6 +18,7 @@ import org.wikipedia.databinding.ItemCustomizeToolbarMenuBinding
 import org.wikipedia.databinding.ViewPageActionOverflowBinding
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.page.action.PageActionItem
+import org.wikipedia.page.customize.CustomizeToolbarActivity
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.settings.Prefs
 
@@ -34,14 +36,18 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         Prefs.customizeToolbarMenuOrder.forEach {
             val view = ItemCustomizeToolbarMenuBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)
-            view.id = item.hashCode()
+            view.id = item.viewId
             view.text = context.getString(item.titleResId)
-            view.setCompoundDrawablesWithIntrinsicBounds(item.iconResId, 0, 0, 0)
+            view.setCompoundDrawablesRelativeWithIntrinsicBounds(item.iconResId, 0, 0, 0)
             view.setOnClickListener {
                 dismissPopupWindowHost()
                 item.select(callback)
             }
             binding.overflowList.addView(view)
+        }
+        binding.customizeToolbar.setOnClickListener {
+            dismissPopupWindowHost()
+            context.startActivity(CustomizeToolbarActivity.newIntent(context))
         }
     }
 
@@ -63,17 +69,24 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
             when (pageActionItem) {
                 PageActionItem.ADD_TO_WATCHLIST -> {
                     view.setText(if (model.isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
-                    view.setCompoundDrawablesWithIntrinsicBounds(PageActionItem.watchlistIcon(model.isWatched, model.hasWatchlistExpiry), 0, 0, 0)
+                    view.setCompoundDrawablesRelativeWithIntrinsicBounds(PageActionItem.watchlistIcon(model.isWatched, model.hasWatchlistExpiry), 0, 0, 0)
                     view.visibility = if (enabled && AccountUtil.isLoggedIn) VISIBLE else GONE
                 }
                 PageActionItem.SAVE -> {
-                    view.setCompoundDrawablesWithIntrinsicBounds(PageActionItem.readingListIcon(model.isInReadingList), 0, 0, 0)
+                    view.setCompoundDrawablesRelativeWithIntrinsicBounds(PageActionItem.readingListIcon(model.isInReadingList), 0, 0, 0)
                     view.visibility = if (enabled) VISIBLE else GONE
+                }
+                PageActionItem.EDIT_ARTICLE -> {
+                    view.setCompoundDrawablesRelativeWithIntrinsicBounds(PageActionItem.editArticleIcon(model.page?.pageProperties?.canEdit != true), 0, 0, 0)
                 }
                 else -> {
                     view.visibility = if (enabled) VISIBLE else GONE
                 }
             }
+        }
+
+        anchorView.doOnDetach {
+            dismissPopupWindowHost()
         }
     }
 

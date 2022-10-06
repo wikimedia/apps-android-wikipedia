@@ -16,9 +16,10 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewUserMentionInputBinding
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.page.PageTitle
+import org.wikipedia.util.StringUtil
 import java.util.concurrent.TimeUnit
 
 class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
@@ -33,7 +34,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
 
     val editText get() = binding.inputEditText
     val textInputLayout get() = binding.inputTextLayout
-    var wikiSite = WikipediaApp.getInstance().wikiSite
+    var wikiSite = WikipediaApp.instance.wikiSite
     var listener: Listener? = null
     var userNameHints: Set<String> = emptySet()
 
@@ -46,6 +47,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
         binding.inputEditText.listener = this
         binding.userListRecycler.layoutManager = LinearLayoutManager(context)
         binding.userListRecycler.adapter = UserNameAdapter()
+        binding.inputEditText.isTextInputLayoutFocusedRectEnabled = false
     }
 
     override fun onDetachedFromWindow() {
@@ -74,10 +76,11 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
         }
     }
 
-    fun maybePrepopulateUserName() {
+    fun maybePrepopulateUserName(currentUserName: String, currentPageTitle: PageTitle) {
         if (binding.inputEditText.text.isNullOrEmpty() && userNameHints.isNotEmpty()) {
             val candidateName = userNameHints.first()
-            if (candidateName != AccountUtil.userName) {
+            if (candidateName != currentUserName &&
+                    StringUtil.addUnderscores(candidateName.lowercase()) != StringUtil.addUnderscores(currentPageTitle.text.lowercase())) {
                 binding.inputEditText.prepopulateUserName(candidateName)
             }
         }

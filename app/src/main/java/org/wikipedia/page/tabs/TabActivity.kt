@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.core.graphics.scale
+import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
 import de.mrapp.android.tabswitcher.Animation
 import de.mrapp.android.tabswitcher.TabSwitcher
@@ -36,7 +36,7 @@ import org.wikipedia.util.log.L
 
 class TabActivity : BaseActivity() {
     private lateinit var binding: ActivityTabsBinding
-    private val app: WikipediaApp = WikipediaApp.getInstance()
+    private val app: WikipediaApp = WikipediaApp.instance
     private val tabListener = TabListener()
     private val funnel = TabFunnel()
     private var launchedFromPageActivity = false
@@ -86,7 +86,7 @@ class TabActivity : BaseActivity() {
             }
 
             override fun getViewType(tab: de.mrapp.android.tabswitcher.Tab, index: Int): Int {
-                return if (index == 0 && FIRST_TAB_BITMAP != null && !FIRST_TAB_BITMAP!!.isRecycled) {
+                return if (FIRST_TAB_BITMAP_TITLE == app.tabList[app.tabCount - index - 1]?.backStackPositionTitle?.prefixedText) {
                     1
                 } else {
                     0
@@ -220,7 +220,7 @@ class TabActivity : BaseActivity() {
 
     private fun showUndoSnackbar(tab: de.mrapp.android.tabswitcher.Tab, index: Int, appTab: Tab, appTabIndex: Int) {
         appTab.backStackPositionTitle?.let {
-            FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, it.displayText), FeedbackUtil.LENGTH_DEFAULT).run {
+            FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, it.displayText)).run {
                 setAction(R.string.reading_list_item_delete_undo) {
                     app.tabList.add(appTabIndex, appTab)
                     binding.tabSwitcher.addTab(tab, index)
@@ -231,7 +231,7 @@ class TabActivity : BaseActivity() {
     }
 
     private fun showUndoAllSnackbar(tabs: Array<de.mrapp.android.tabswitcher.Tab>, appTabs: MutableList<Tab>) {
-        FeedbackUtil.makeSnackbar(this, getString(R.string.all_tab_items_closed), FeedbackUtil.LENGTH_DEFAULT).run {
+        FeedbackUtil.makeSnackbar(this, getString(R.string.all_tab_items_closed)).run {
             setAction(R.string.reading_list_item_delete_undo) {
                 app.tabList.addAll(appTabs)
                 binding.tabSwitcher.addAllTabs(tabs)
@@ -321,43 +321,23 @@ class TabActivity : BaseActivity() {
 
     companion object {
         private const val LAUNCHED_FROM_PAGE_ACTIVITY = "launchedFromPageActivity"
-        private const val MAX_CACHED_BMP_SIZE = 800
         private var FIRST_TAB_BITMAP: Bitmap? = null
+        private var FIRST_TAB_BITMAP_TITLE = ""
         const val RESULT_LOAD_FROM_BACKSTACK = 10
         const val RESULT_NEW_TAB = 11
 
-        fun captureFirstTabBitmap(view: View) {
+        fun captureFirstTabBitmap(view: View, title: String) {
             clearFirstTabBitmap()
-            var bmp: Bitmap? = null
             try {
-                val wasCacheEnabled = view.isDrawingCacheEnabled
-                if (!wasCacheEnabled) {
-                    view.isDrawingCacheEnabled = true
-                    view.drawingCacheQuality = View.DRAWING_CACHE_QUALITY_LOW
-                }
-                val cacheBmp = view.drawingCache
-                if (cacheBmp != null) {
-                    val width: Int
-                    val height: Int
-                    if (cacheBmp.width > cacheBmp.height) {
-                        width = MAX_CACHED_BMP_SIZE
-                        height = width * cacheBmp.height / cacheBmp.width
-                    } else {
-                        height = MAX_CACHED_BMP_SIZE
-                        width = height * cacheBmp.width / cacheBmp.height
-                    }
-                    bmp = cacheBmp.scale(width, height)
-                }
-                if (!wasCacheEnabled) {
-                    view.isDrawingCacheEnabled = false
-                }
+                FIRST_TAB_BITMAP = view.drawToBitmap(Bitmap.Config.RGB_565)
+                FIRST_TAB_BITMAP_TITLE = title
             } catch (e: OutOfMemoryError) {
                 // don't worry about it
             }
-            FIRST_TAB_BITMAP = bmp
         }
 
         private fun clearFirstTabBitmap() {
+            FIRST_TAB_BITMAP_TITLE = ""
             FIRST_TAB_BITMAP?.run {
                 if (!isRecycled) {
                     recycle()

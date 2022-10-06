@@ -20,7 +20,7 @@ class ThemeFittingRoomActivity : SingleFragmentActivity<ThemeFittingRoomFragment
             bottomSheetPresenter.show(supportFragmentManager, themeChooserDialog!!)
         }
 
-        // Don't let changed theme affects the status bar color and navigation bar color
+        // Don't let changed theme affect the status bar color and navigation bar color
         setStatusBarColor(ContextCompat.getColor(this, android.R.color.black))
         setNavigationBarColor(ContextCompat.getColor(this, android.R.color.black))
     }
@@ -40,8 +40,9 @@ class ThemeFittingRoomActivity : SingleFragmentActivity<ThemeFittingRoomFragment
         finish()
     }
 
+    override fun onEditingPrefsChanged() { }
+
     companion object {
-        @JvmStatic
         fun newIntent(context: Context): Intent {
             return Intent(context, ThemeFittingRoomActivity::class.java)
         }
