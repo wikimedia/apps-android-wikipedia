@@ -1317,7 +1317,7 @@
   <string name="revision_diff_from">От:</string>
   <string name="revision_diff_to">Поучат.:</string>
   <string name="revision_diff_line_num">Строка %d</string>
-  <string name="revision_diff_line_nums">Строки с %d-й по %d-ю</string>
+  <string name="revision_diff_line_nums">Строки с %1$d-й по %2$d-ю</string>
   <string name="revision_diff_line_added">Строка добавлена</string>
   <string name="revision_diff_line_removed">Строка удалена</string>
   <string name="revision_diff_paragraph_added">Абзац добавлен</string>

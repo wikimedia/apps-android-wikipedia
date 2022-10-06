@@ -1185,7 +1185,7 @@
   <string name="revision_diff_compare">Vertaile versioita</string>
   <string name="revision_diff_compare_title">Vertaile versioita: %s</string>
   <string name="revision_diff_line_num">Rivi %d</string>
-  <string name="revision_diff_line_nums">Rivit %d–%d</string>
+  <string name="revision_diff_line_nums">Rivit %1$d–%2$d</string>
   <string name="revision_diff_line_added">Rivi lisätty</string>
   <string name="revision_diff_line_removed">Rivi poistettu</string>
   <string name="revision_diff_paragraph_added">Kappale lisätty</string>
