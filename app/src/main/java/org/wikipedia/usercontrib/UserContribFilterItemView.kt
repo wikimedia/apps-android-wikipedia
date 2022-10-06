@@ -42,13 +42,19 @@ class UserContribFilterItemView constructor(context: Context, attrs: AttributeSe
         this.item = item
         binding.itemTitle.text = WikipediaApp.instance.languageState.getWikiLanguageName(item.filterCode)
         binding.itemCheck.isVisible = item.isEnabled()
-        getTitleCodeFor(item.filterCode)?.let {
-            binding.languageCode.text = it
-            binding.languageCode.visibility = View.VISIBLE
-            ViewUtil.formatLangButton(binding.languageCode, it, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
-        } ?: run {
+
+        if (item.type == UserContribFilterActivity.FILTER_TYPE_WIKI) {
+            getTitleCodeFor(item.filterCode)?.let {
+                binding.languageCode.text = it
+                binding.languageCode.visibility = View.VISIBLE
+                ViewUtil.formatLangButton(binding.languageCode, it, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+            } ?: run {
+                binding.languageCode.visibility = View.GONE
+            }
+        } else {
             binding.languageCode.visibility = View.GONE
         }
+
         item.imageRes?.let {
             ImageViewCompat.setImageTintList(binding.itemLogo, ResourceUtil.getThemedColorStateList(context, R.attr.secondary_text_color))
             binding.itemLogo.setImageResource(it)

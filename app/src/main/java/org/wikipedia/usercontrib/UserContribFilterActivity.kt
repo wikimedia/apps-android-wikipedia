@@ -180,8 +180,8 @@ class UserContribFilterActivity : BaseActivity() {
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
         private const val VIEW_TYPE_ADD_LANGUAGE = 2
-        private const val FILTER_TYPE_WIKI = 0
-        private const val FILTER_TYPE_NAMESPACE = 1
+        const val FILTER_TYPE_WIKI = 0
+        const val FILTER_TYPE_NAMESPACE = 1
 
         const val INTENT_EXTRA_SELECT_LANG_CODE = "selectLangCode"
 
