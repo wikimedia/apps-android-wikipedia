@@ -1135,7 +1135,7 @@
   <string name="revision_diff_compare">Lapváltozatok összehasonlítása</string>
   <string name="revision_diff_compare_title">„%s” változatainak összehasonlítása</string>
   <string name="revision_diff_line_num">%d. sor</string>
-  <string name="revision_diff_line_nums">%1$d–%2$d. sor</string>
+  <string name="revision_diff_line_nums">%d–%d. sor</string>
   <string name="revision_diff_line_added">Sor hozzáadva</string>
   <string name="revision_diff_line_removed">Sor eltávolítva</string>
   <string name="revision_diff_paragraph_added">Bekezdés hozzáadva</string>
