@@ -62,6 +62,10 @@
     <item quantity="one">%1$d edit since %2$s</item>
     <item quantity="other">%1$d edits since %2$s</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d edit since %2$s (%3$s)</item>
+    <item quantity="other">%1$d اؠڑِٹ کتہِ پؠٹھہٕ %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">کوٗشس کٕریٚو تبدیلی کرٕنی &lt;a href=\"#\"&gt;&lt;/a&gt; بییہٚ زیادٕ اؠڑِٹ وُچھنہٕ کھٲترٕ</string>
   <string name="menu_page_show_tabs">ٹیب وُچھِو</string>
   <string name="menu_page_other_languages">زَبان بَدلٲیو</string>
@@ -199,6 +203,7 @@
   <string name="preference_title_sync_reading_lists_from_account">پرنٕچہِ فہرستہِ ہِنٛز سِنٛکِنٛگ</string>
   <string name="preference_title_download_reading_list_articles">ڈاوُنلوڈ کٕریٚو پرنٕچہِ فہرست مَضموٗن</string>
   <string name="preferences_privacy_settings_heading">رازدأری</string>
+  <string name="preference_title_eventlogging_opt_in">استعمالُک رِپورٹ سوٗزِیٚو</string>
   <string name="history_filter_list_hint">فِلٹر تَوأریٖخ</string>
   <string name="page_protected_can_not_edit_title">یہِ صَفہٕ چھُ مَحفوٗظ</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">نَظرٕ تَل تھٲوِو</string>
