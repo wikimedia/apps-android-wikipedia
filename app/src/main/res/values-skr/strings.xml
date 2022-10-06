@@ -32,7 +32,7 @@
   <string name="notification_archive_undo">واپس</string>
   <string name="app_settings">اے پی پی ترتیباں</string>
   <string name="history_list_title">تاریخ</string>
-  <string name="image_content_description" fuzzy="true">تصویر: %</string>
+  <string name="image_content_description" fuzzy="true">تصویر: %s</string>
   <string name="page_content_description">ورقہ: %s</string>
   <string name="wikimedia_commons">وِکیمیڈیا کامنز</string>
   <string name="wikidata">وکی ڈیٹا</string>
