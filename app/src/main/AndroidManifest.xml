@@ -272,16 +272,6 @@
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
-            android:name=".userprofile.ContributionsActivity"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-            android:label=""
-            android:theme="@style/AppTheme.ActionBar" />
-
-        <activity
-            android:name=".userprofile.ContributionDetailsActivity"
-            android:theme="@style/AppTheme.Page" />
-
-        <activity
             android:name=".commons.FilePageActivity"
             android:label=""
             android:theme="@style/AppTheme.ActionBar"/>
