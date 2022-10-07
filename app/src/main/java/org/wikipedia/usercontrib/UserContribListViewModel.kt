@@ -6,8 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
@@ -93,6 +96,10 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
             return try {
                 if (params.key == null && cachedContribs.isNotEmpty()) {
                     return LoadResult.Page(cachedContribs, null, cachedContinueKey)
+                }
+
+                if (Prefs.userContribFilterNs.isEmpty()) {
+                    return LoadResult.Page(emptyList(), null, null)
                 }
 
                 val nsFilter = Prefs.userContribFilterNs.joinToString("|")
