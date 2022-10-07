@@ -25,7 +25,6 @@ import org.wikipedia.views.DefaultViewHolder
 class UserContribFilterActivity : BaseActivity() {
 
     private lateinit var binding: ActivityUserContribWikiSelectBinding
-    private lateinit var selectLangCode: String
 
     private val langUpdateLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         binding.recyclerView.adapter = ItemAdapter(this)
@@ -34,12 +33,12 @@ class UserContribFilterActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUserContribWikiSelectBinding.inflate(layoutInflater)
-        selectLangCode = intent.getStringExtra(INTENT_EXTRA_SELECT_LANG_CODE).orEmpty().ifEmpty { WikipediaApp.instance.appOrSystemLanguageCode }
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = ItemAdapter(this)
         binding.recyclerView.itemAnimator = null
         setContentView(binding.root)
+        setResult(RESULT_OK)
     }
 
     inner class ItemViewHolder constructor(itemView: UserContribFilterItemView) :
@@ -183,11 +182,8 @@ class UserContribFilterActivity : BaseActivity() {
         const val FILTER_TYPE_WIKI = 0
         const val FILTER_TYPE_NAMESPACE = 1
 
-        const val INTENT_EXTRA_SELECT_LANG_CODE = "selectLangCode"
-
-        fun newIntent(context: Context, selectLangCode: String): Intent {
+        fun newIntent(context: Context): Intent {
             return Intent(context, UserContribFilterActivity::class.java)
-                    .putExtra(INTENT_EXTRA_SELECT_LANG_CODE, selectLangCode)
         }
     }
 }
