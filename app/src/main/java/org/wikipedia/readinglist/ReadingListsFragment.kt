@@ -554,7 +554,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 binding.swipeRefreshLayout.isRefreshing = false
             }) {
                 withContext(Dispatchers.Main) {
-                    val readingList = ReadingListsImportHelper.importReadingLists(encodedJson)
+                    val readingList = ReadingListsImportHelper.importReadingLists(requireContext(), encodedJson)
                     val dialogView = ReadingListImportDialogView(requireContext())
                     dialogView.setReadingList(readingList)
                     AlertDialog.Builder(requireContext())

@@ -1,18 +1,22 @@
 package org.wikipedia.readinglist
 
+import android.content.Context
 import android.util.Base64
+import org.wikipedia.R
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.util.DateUtil
+import java.util.*
 
 object ReadingListsImportHelper {
 
-    suspend fun importReadingLists(encodedJson: String): ReadingList {
+    suspend fun importReadingLists(context: Context, encodedJson: String): ReadingList {
         val readingListData = getExportedReadingLists(encodedJson)
-        val listTitle = readingListData?.name.orEmpty()
-        val listDescription = readingListData?.description.orEmpty()
+        val listTitle = readingListData?.name.orEmpty().ifEmpty { context.getString(R.string.shareable_reading_lists_new_imported_list_title) }
+        val listDescription = readingListData?.description.orEmpty().ifEmpty { DateUtil.getTimeAndDateString(context, Date()) }
         val listPages = mutableListOf<ReadingListPage>()
 
         // Request API by languages
