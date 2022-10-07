@@ -441,8 +441,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 if (title.namespace() == Namespace.SPECIAL && title.prefixedText.startsWith("Special:ReadingLists")) {
                     L.d("Received shareable reading lists")
                     // TODO: we can use either from parameter or fragment.
-                    val encodedListFromParameter = uri.getQueryParameter("list")
-                    val encodedListFromFragment = title.fragment
+                    val encodedListFromParameter = uri.getQueryParameter("limport")
                     Prefs.importReadingListsDialogShown = false
                     Prefs.importReadingListsData = encodedListFromParameter
                     startActivity(MainActivity.newIntent(this).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

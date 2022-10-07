@@ -1,28 +1,22 @@
 package org.wikipedia.readinglist
 
+import android.util.Base64
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.util.UriUtil
 
 object ReadingListsImportHelper {
 
-    suspend fun importReadingLists(encodedUrl: String): ReadingList {
-        val readingListInfoArray = getReadingListInfoArray(encodedUrl).toMutableList()
-        val listTitle = UriUtil.decodeURL(readingListInfoArray.removeFirst())
-        val listDescription = UriUtil.decodeURL(readingListInfoArray.removeFirst())
+    suspend fun importReadingLists(encodedJson: String): ReadingList {
+        val readingListData = getExportedReadingLists(encodedJson)
+        val listTitle = readingListData?.name.orEmpty()
+        val listDescription = readingListData?.description.orEmpty()
         val listPages = mutableListOf<ReadingListPage>()
-        val pageIdsMap = mutableMapOf<String, MutableList<String>>()
-
-        readingListInfoArray.forEach {
-            // lang:pageid
-            val langPageId = it.split(":")
-            pageIdsMap.getOrPut(langPageId[0]) { mutableListOf() }.add(langPageId[1])
-        }
 
         // Request API by languages
-        pageIdsMap.forEach {
+        readingListData?.list?.forEach {
             val wikiSite = WikiSite.forLanguageCode(it.key)
             val response = ServiceFactory.get(wikiSite).getPageTitlesByPageId(it.value.joinToString(separator = "|"))
 
@@ -45,13 +39,7 @@ object ReadingListsImportHelper {
         return readingList
     }
 
-    fun getReadingListInfoArray(encodedUrl: String): List<String> {
-        val decodedString = decodeReadingListUrl(encodedUrl)
-        return decodedString.split("|")
-    }
-
-    private fun decodeReadingListUrl(encodedUrl: String): String {
-        // TODO: will be finalized later
-        return encodedUrl
+    private fun getExportedReadingLists(encodedJson: String): ReadingListsShareHelper.ExportedReadingLists? {
+        return JsonUtil.decodeFromString(String(Base64.decode(encodedJson, Base64.NO_WRAP)))
     }
 }

@@ -68,7 +68,7 @@ object ReadingListsShareHelper {
 
     @Suppress("unused")
     @Serializable
-    private class ExportedReadingLists
+    class ExportedReadingLists
     (
             val list: Map<String, Collection<Int>>,
             val name: String? = null,

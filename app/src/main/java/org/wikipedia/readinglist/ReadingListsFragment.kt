@@ -545,8 +545,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun maybeShowImportReadingListsDialog() {
-        val encodedUrl = Prefs.importReadingListsData
-        if (!Prefs.importReadingListsDialogShown && !encodedUrl.isNullOrEmpty()) {
+        val encodedJson = Prefs.importReadingListsData
+        if (!Prefs.importReadingListsDialogShown && !encodedJson.isNullOrEmpty()) {
             binding.swipeRefreshLayout.isRefreshing = true
             lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.e(throwable)
@@ -554,7 +554,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 binding.swipeRefreshLayout.isRefreshing = false
             }) {
                 withContext(Dispatchers.Main) {
-                    val readingList = ReadingListsImportHelper.importReadingLists(encodedUrl)
+                    val readingList = ReadingListsImportHelper.importReadingLists(encodedJson)
                     val dialogView = ReadingListImportDialogView(requireContext())
                     dialogView.setReadingList(readingList)
                     AlertDialog.Builder(requireContext())
