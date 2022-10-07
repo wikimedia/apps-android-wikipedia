@@ -1229,11 +1229,11 @@
   <string name="preview_edit_summarize_edit_title">Sammanfatta redigering</string>
   <string name="preview_edit_summarize_edit_hint">Hur förbättrade du denna sida?</string>
   <string name="preview_edit_minor_edit">Detta är en mindre ändring</string>
-  <string name="preview_edit_minor_edit_url">https://sv.wikipedia.org/wiki/Wikipedia:Mindre_%C3%A4ndring</string>
+  <string name="preview_edit_minor_edit_url">https://sv.wikipedia.org/wiki/Wikipedia:Mindre_ändring</string>
   <string name="preview_edit_watch_this_page">Bevaka denna sida</string>
   <string name="preview_edit_watch_this_page_url">https://sv.wikipedia.org/wiki/Wikipedia:Bevakningslistan</string>
   <string name="preview_edit_learn_more">Läs mer om redigeringssammanfattningar</string>
-  <string name="preview_edit_learn_more_url">https://sv.wikipedia.org/wiki/Wikipedia:Sammanfattningsf%C3%A4ltet</string>
+  <string name="preview_edit_learn_more_url">https://sv.wikipedia.org/wiki/Wikipedia:Sammanfattningsfältet</string>
   <string name="action_item_categories">Kategorier</string>
   <string name="page_no_categories">Denna sida tillhör inga kategorier.</string>
   <string name="category_tab_articles">Artiklar</string>

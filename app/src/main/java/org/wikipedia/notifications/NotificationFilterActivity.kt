@@ -39,6 +39,7 @@ class NotificationFilterActivity : BaseActivity() {
     private fun setUpRecyclerView() {
         binding.notificationsFiltersRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.notificationsFiltersRecyclerView.adapter = NotificationsFilterAdapter(this, filterListWithHeaders())
+        binding.notificationsFiltersRecyclerView.itemAnimator = null
     }
 
     private fun filterListWithHeaders(): List<Any> {

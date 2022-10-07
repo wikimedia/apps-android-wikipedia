@@ -83,6 +83,10 @@
     <item quantity="one">%1$d edició des de %2$s</item>
     <item quantity="other">%1$d edicions des de %2$s</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d edició des de %2$s (%3$s)</item>
+    <item quantity="other">%1$d edicions des de %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Proveu de canviar els &lt;a href=\"#\"&gt;filtres&lt;/a&gt; per a mostrar més edicions</string>
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
   <string name="menu_page_other_languages">Canvia la llengua</string>
@@ -453,8 +457,13 @@
   <string name="text_size_percent_default">%s (per defecte)</string>
   <string name="text_style_title">Tipus de lletra</string>
   <string name="theme_category_reading">Lectura</string>
+  <string name="theme_category_editing">Edició</string>
   <string name="reading_focus_mode">Mode de focalització en lectura</string>
   <string name="reading_focus_mode_detail">Amaga les funcionalitats d\'edició i la barra d\'eines inferior en desplaçar-se</string>
+  <string name="editing_syntax_highlight_label">Ressaltat de la sintaxi</string>
+  <string name="editing_line_numbers_label">Mostra els números de línia</string>
+  <string name="editing_monospace_font_label">Utilitza una lletra de mida fixa</string>
+  <string name="editing_typing_suggestions">Mostra suggeriments d\'escriptura</string>
   <string name="nav_item_saved">Desat</string>
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
   <string name="reading_list_move_to">Mou a la llista de lectura</string>
@@ -793,6 +802,10 @@
   <string name="description_edit_license_notice">En canviar la descripció de l\'article, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">normalment comença amb una lletra en minúscula</string>
   <string name="description_edit_voice_input_description">Entrada de veu</string>
+  <string name="description_edit_learn_more">Quant a les descripcions dels articles</string>
+  <string name="description_edit_image_caption_learn_more">Quant a les llegendes de les imatges</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">El text és massa curt.</string>
   <string name="description_ends_with_punctuation">El text no ha d\'acabar amb puntuació.</string>
   <string name="description_starts_with_article">Eviteu començar amb articles com \"un\" o \"el\"...</string>
@@ -1069,7 +1082,17 @@
   <string name="content_description_for_page_indicator">Pàgina %1$d de %2$d</string>
   <string name="wikitext_bold">Negreta</string>
   <string name="wikitext_italic">Cursiva</string>
+  <string name="wikitext_underline">Subratllat</string>
+  <string name="wikitext_strikethrough">Ratllat</string>
+  <string name="wikitext_sup">Superíndex</string>
+  <string name="wikitext_sub">Subíndex</string>
+  <string name="wikitext_large">Text gran</string>
+  <string name="wikitext_small">Text petit</string>
+  <string name="wikitext_code">Codi</string>
   <string name="wikitext_link">Enllaç</string>
+  <string name="wikitext_heading_n">Encapçalament de nivell %d</string>
+  <string name="wikitext_formatting">Format</string>
+  <string name="wikitext_headings">Encapçalaments</string>
   <string name="wikitext_insert_media">Insereix multimèdia</string>
   <string name="wikitext_bulleted_list">Llista puntejada</string>
   <string name="wikitext_numbered_list">Llista numerada</string>
@@ -1171,6 +1194,7 @@
   <string name="menu_option_edit_source">Modifica el codi</string>
   <string name="menu_option_user_page">Pàgina d\'usuari de %s</string>
   <string name="menu_option_find_in_talk_page_topic">Cerca el tema en la pàgina de discussió</string>
+  <string name="menu_option_copy_link_to_clipboard">Copia l\'enllaç al porta-retalls</string>
   <string name="talk_menu_copy_text">Copia el text</string>
   <string name="talk_menu_expand_threads">Desplega els fils</string>
   <string name="talk_menu_collapse_threads">Plega els fils</string>
@@ -1253,4 +1277,5 @@
   <string name="user_contrib_current">actual</string>
   <string name="media_playback_error">Error de reproducció multimèdia</string>
   <string name="user_contrib_menu_label">Contribucions</string>
+  <string name="user_contrib_wiki_select">Contribucions a:</string>
 </resources>

@@ -284,7 +284,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             if (position >= 0) {
                 binding.talkRecyclerView.post {
                     if (!isDestroyed) {
-                        binding.talkRecyclerView.smoothScrollToPosition(position)
+                        binding.talkRecyclerView.scrollToPosition(position)
                         threadAdapter.notifyItemChanged(position)
                     }
                 }

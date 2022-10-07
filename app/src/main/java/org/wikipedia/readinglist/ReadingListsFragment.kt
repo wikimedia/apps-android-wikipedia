@@ -97,11 +97,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         })
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
     override fun onDestroyView() {
         disposables.clear()
         binding.recyclerView.adapter = null
@@ -113,26 +108,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     override fun onResume() {
         super.onResume()
         updateLists()
+        requireActivity().invalidateOptionsMenu()
     }
 
     override fun onPause() {
         super.onPause()
         actionMode?.finish()
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_search_lists -> {
-                (requireActivity() as AppCompatActivity)
-                        .startSupportActionMode(searchActionModeCallback)
-                true
-            }
-            R.id.menu_overflow_button -> {
-                ReadingListsOverflowView(requireContext()).show((requireActivity() as MainActivity).getToolbar().findViewById(R.id.menu_overflow_button), overflowCallback)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 
     override fun onToggleItemOffline(pageId: Long) {
@@ -214,6 +195,14 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     fun updateLists() {
         updateLists(currentSearchQuery, !currentSearchQuery.isNullOrEmpty())
+    }
+
+    fun startSearchActionMode() {
+        (requireActivity() as AppCompatActivity).startSupportActionMode(searchActionModeCallback)
+    }
+
+    fun showReadingListsOverflowMenu() {
+        ReadingListsOverflowView(requireContext()).show((requireActivity() as MainActivity).getToolbar().findViewById(R.id.menu_overflow_button), overflowCallback)
     }
 
     private fun updateLists(searchQuery: String?, forcedRefresh: Boolean) {

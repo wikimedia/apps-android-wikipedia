@@ -11,6 +11,7 @@
 * Bennylin
 * Bramadiarya
 * Cooltey
+* DARMAS BUDI SANTOSO
 * Daud I.F. Argana
 * Dbrant
 * Farras
@@ -256,10 +257,10 @@
   <string name="privacy_policy_description">Kebijakan privasi</string>
   <string name="terms_of_use_description">Ketentuan penggunaan</string>
   <string name="about_wikipedia_url">https://id.wikipedia.org/wiki/Wikipedia:Perihal</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id#Baca_secara_luring_dan_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/id</string>
+  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/id</string>
   <string name="android_app_request_an_account_url">https://id.wikipedia.org/wiki/Wikipedia:Mohon_buatkan_akun</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.id</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -458,8 +459,11 @@
   <string name="text_size_percent_default">%s (Baku)</string>
   <string name="text_style_title">Jenis huruf</string>
   <string name="theme_category_reading">Membaca</string>
+  <string name="theme_category_editing">Editing</string>
   <string name="reading_focus_mode">Mode fokus membaca</string>
   <string name="reading_focus_mode_detail">Sembunyikan fitur penyuntingan dan bilah alat bawah ketika menggulir</string>
+  <string name="editing_syntax_highlight_label">Syntax highlighting</string>
+  <string name="editing_line_numbers_label">Show line numbers</string>
   <string name="nav_item_saved">Tersimpan</string>
   <string name="reading_list_save_to">Simpan ke daftar bacaan</string>
   <string name="reading_list_move_to">Pindahkan ke daftar bacaan</string>
@@ -1041,7 +1045,17 @@
   <string name="content_description_for_page_indicator">Halaman %1$d dari %2$d</string>
   <string name="wikitext_bold">Tebal</string>
   <string name="wikitext_italic">Cetak miring</string>
+  <string name="wikitext_underline">Garis bawah</string>
+  <string name="wikitext_strikethrough">Coret</string>
+  <string name="wikitext_sup">Tika atas</string>
+  <string name="wikitext_sub">Tika bawah</string>
+  <string name="wikitext_large">Teks besar</string>
+  <string name="wikitext_small">Teks kecil</string>
+  <string name="wikitext_code">Kode</string>
   <string name="wikitext_link">Pranala</string>
+  <string name="wikitext_heading_n">Sub-heading %d</string>
+  <string name="wikitext_formatting">Formatting</string>
+  <string name="wikitext_headings">Headings</string>
   <string name="wikitext_insert_media">Sisipkan media</string>
   <string name="wikitext_bulleted_list">Daftar berpoin</string>
   <string name="wikitext_numbered_list">Daftar bernomor</string>
@@ -1053,12 +1067,20 @@
   <string name="insert_media_settings">Pengaturan media</string>
   <string name="insert_media_settings_uploaded_image">Gambar yang diunggah</string>
   <string name="insert_media_settings_caption">Takarir</string>
+  <string name="insert_media_settings_alternative_text">Teks alternatif</string>
+  <string name="insert_media_advanced_settings">Pengaturan lanjutan</string>
   <string name="insert_media_advanced_settings_image_position">Posisi gambar</string>
   <string name="insert_media_advanced_settings_image_position_right">Kanan</string>
   <string name="insert_media_advanced_settings_image_position_left">Kiri</string>
   <string name="insert_media_advanced_settings_image_position_center">Tengah</string>
   <string name="insert_media_advanced_settings_image_position_none">Tidak ada</string>
+  <string name="insert_media_advanced_settings_image_type">Jenis gambar</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Nirbingkai</string>
   <string name="insert_media_advanced_settings_image_size">Ukuran gambar</string>
+  <string name="insert_media_advanced_settings_image_size_default">Baku</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Ubahsuai</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Lebar</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Tinggi</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Sisipkan</string>
   <string name="main_drawer_help">Bantuan</string>
@@ -1125,6 +1147,7 @@
   <string name="menu_option_edit_source">Sunting sumber</string>
   <string name="menu_option_user_page">Halaman pengguna %s</string>
   <string name="menu_option_find_in_talk_page_topic">Cari di topik halaman pembicaraan</string>
+  <string name="menu_option_copy_link_to_clipboard">Salin tautan ke papan klip</string>
   <string name="talk_menu_copy_text">Salin teks</string>
   <string name="talk_menu_expand_threads">Buka utas</string>
   <string name="talk_menu_collapse_threads">Tutup utas</string>
@@ -1182,6 +1205,9 @@
   <string name="watchlist_page_moved">Dipindahkan</string>
   <string name="watchlist_page_protected">Dilindungi</string>
   <string name="watchlist_page_deleted">Dihapus</string>
+  <string name="preview_edit_title">Pratinjau suntingan</string>
+  <string name="preview_edit_summarize_edit_title">Ringkasan suntingan</string>
+  <string name="preview_edit_watch_this_page_url">https://id.wikipedia.org/wiki/Bantuan:Daftar_pantauan</string>
   <string name="action_item_categories">Kategori</string>
   <string name="page_no_categories">Halaman ini tidak terdaftar dalam kategori apa pun.</string>
   <string name="category_tab_articles">Artikel</string>
@@ -1192,7 +1218,9 @@
   <string name="revision_initial_none">Tidak ada (ini adalah revisi pertama)</string>
   <string name="user_contrib_activity_title">Kontribusi %s</string>
   <string name="archive_empty">Halaman yang diarsipkan tidak ditemukan.</string>
+  <string name="user_contrib_filter_all">Semua suntingan</string>
   <string name="namespace_article">Artikel</string>
   <string name="media_playback_error">Terjadi kesalahan saat memutar media.</string>
   <string name="user_contrib_menu_label">Kontribusi</string>
+  <string name="user_contrib_wiki_select">Kontribusi untuk:</string>
 </resources>
