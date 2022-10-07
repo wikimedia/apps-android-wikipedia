@@ -2,13 +2,7 @@ Officiell Wikipedia-app för Android. Wikipedia är det fria uppslagsverket som 
 
 Funktioner:
 
-   - Hastighet: Vår nya app låter dig läsa och redigera Wikipedia snabbare än någonsin.
-   - Redigering: Du kan redigera Wikipedia! Inloggad eller utloggad, tackar vi dig för alla dina bidrag.
-   - Senaste sidorna: Vi förser dig med din läshistorik, så kan du trycka runt på så många länkar som du vill utan att någonsin gå vilse.
-   - Sparade sidor: Du kan spara valda sidor för att läsa offline och bläddra bland dem även när du inte har en dataanslutning.
-   - Dela: Använd dina befintliga sociala appar för att dela summan av all mänsklig kunskap.
-   - Språkstöd: Appen låter dig enkelt växla mellan att läsa Wikipedia på olika språk.
-   - Wikipedia Zero: Inga dataavgifter från deltagande mobiloperatörer för att använda appen.
+- Hastighet: Vår nya app låter dig läsa och redigera Wikipedia snabbare än någonsin. - Redigering: Du kan redigera Wikipedia! Inloggad eller utloggad, tackar vi dig för alla dina bidrag. - Senaste sidorna: Vi förser dig med din läshistorik, så kan du trycka runt på så många länkar som du vill utan att någonsin gå vilse. - Sparade sidor: Du kan spara valda sidor för att läsa offline och bläddra bland dem även när du inte har en dataanslutning. - Dela: Använd dina befintliga sociala appar för att dela summan av all mänsklig kunskap. - Språkstöd: Appen låter dig enkelt växla mellan att läsa Wikipedia på olika språk. - Wikipedia Zero: Inga dataavgifter från deltagande mobiloperatörer för att använda appen.
 
 Röstintegrerad sökning - Hitta lätt vad du letar efter med ett framträdande sökfält längst upp i progarmmet, inklusive röstaktiverad sökning på din enhet.
 
@@ -30,8 +24,7 @@ Wikipedia Zero - Använd Wikipedia för Android utan datakostnad för de mobilop
 
 Skicka oss din återkoppling om appen! I menyn, klicka på ”Inställningar” och sedan ”Om Wikipedia Appen” och sedan ”Skicka återkoppling”.
 
-Appen består av 100% öppen källkod. Om du har erfarenhet av Java och Android SDK ser vi fram emot att du hjälper oss!
-https://github.com/wikimedia/apps-android-wikipedia
+Appen består av 100% öppen källkod. Om du har erfarenhet av Java och Android SDK ser vi fram emot att du hjälper oss! https://github.com/wikimedia/apps-android-wikipedia
 
 Genom att använda denna app, samtycker du till automatisk överföring av felrapporter till en utomstående tjänsteleverantör. Om du vill inaktivera den här funktionen, vänligen tryck på ”Inställningar” och inaktivera ”Skicka kraschrapporter” under avsnittet Sekretess. Förklaring av behörigheter som krävs av appen: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
