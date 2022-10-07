@@ -4,11 +4,14 @@ import android.content.Intent
 import android.util.Base64
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
+import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
@@ -55,25 +58,20 @@ object ReadingListsShareHelper {
     }
 
     private fun readingListToUrlParam(readingList: ReadingList, pageIdMap: Map<String, Map<String, Int>>): String {
-        val str = StringBuilder()
-        str.append("{")
+        val langIdMap = mutableMapOf<String, Collection<Int>>()
+        pageIdMap.keys.forEach { langIdMap[it] = pageIdMap[it]!!.values }
 
         // TODO: for now we're not transmitting the free-form Name and Description of a reading list.
-        // str.append("\"name\":${UriUtil.encodeURL(readingList.title)},")
-        // str.append("\"description\":${UriUtil.encodeURL(readingList.description.orEmpty())},")
-
-        str.append("\"list\":{")
-        var first = true
-        pageIdMap.keys.forEach { lang ->
-            if (!first) str.append(",")
-            first = false
-            str.append("\"$lang\":[")
-            val pageIds = pageIdMap[lang].orEmpty().values
-            str.append(pageIds.joinToString(","))
-            str.append("]")
-        }
-        str.append("}") // list
-        str.append("}") // root
-        return Base64.encodeToString(str.toString().toByteArray(), Base64.NO_WRAP)
+        val exportedReadingLists = ExportedReadingLists(langIdMap /*, readingList.title, readingList.description */)
+        return Base64.encodeToString(JsonUtil.encodeToString(exportedReadingLists)!!.toByteArray(), Base64.NO_WRAP)
     }
+
+    @Suppress("unused")
+    @Serializable
+    private class ExportedReadingLists
+    (
+            val list: Map<String, Collection<Int>>,
+            val name: String? = null,
+            val description: String? = null
+    )
 }
