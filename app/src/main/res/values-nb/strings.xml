@@ -5,6 +5,7 @@
 * Citadell
 * Danmichaelo
 * Dbrant
+* EdoAug
 * Gabriel Kielland
 * Jeblad
 * JohSan65
@@ -988,7 +989,6 @@
   <string name="file_page_activity_title">Filside</string>
   <string name="file_page_add_image_caption_button">Legg til bildetekst</string>
   <string name="file_page_add_image_tags_button">Legg til bildeknagger</string>
-  <string name="file_page_suggestion_reason">Forslagsbegrunnelse</string>
   <string name="file_page_edit_button_content_description">Rediger %s</string>
   <string name="description_edit_revert_subtitle">Takk for at du redigerer Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi forstår at du forsøkte ditt beste, men en av korrekturleserne hadde en innvending. Noen mulige årsaker til at redigeringen din ble tilbakestilt kan være:</string>
@@ -1077,6 +1077,7 @@
   <string name="insert_media_settings">Mediainnstillinger</string>
   <string name="insert_media_settings_uploaded_image">Last opp bilde</string>
   <string name="insert_media_settings_caption">Beskrivelse</string>
+  <string name="insert_media_settings_caption_description">Etikett som vises ved siden av elementet for alle lesere</string>
   <string name="insert_media_settings_alternative_text">Alternativ tekst</string>
   <string name="insert_media_settings_alternative_text_description">Tekstbeskrivelse for lesere som ikke kan se bildet</string>
   <string name="insert_media_advanced_settings">Avanserte innstillinger</string>
@@ -1179,7 +1180,7 @@
   <string name="thank_dialog_positive_button_text">Send takk</string>
   <string name="thank_dialog_negative_button_text">Avbryt</string>
   <string name="thank_success_message">Din takk ble sendt til %s 👍</string>
-  <string name="menu_option_view_user_profile" fuzzy="true">Vis brukerens profilside</string>
+  <string name="menu_option_view_user_profile">Vis brukerside</string>
   <string name="menu_option_view_user_talk">Vis diskusjonsside</string>
   <string name="menu_option_view_user_contributions">Vis brukerbidrag</string>
   <string name="revision_diff_compare">Sammenlign revisjoner</string>
@@ -1222,6 +1223,12 @@
   <string name="watchlist_page_moved">Flyttet</string>
   <string name="watchlist_page_protected">Beskyttet</string>
   <string name="watchlist_page_deleted">Slettet</string>
+  <string name="preview_edit_title">Forhåndsvis endring</string>
+  <string name="preview_edit_summarize_edit_title">Forklar redigering</string>
+  <string name="preview_edit_summarize_edit_hint">Hvordan forbedret du denne siden?</string>
+  <string name="preview_edit_minor_edit">Dette er en mindre endring</string>
+  <string name="preview_edit_watch_this_page">Overvåk denne siden</string>
+  <string name="preview_edit_learn_more">Lær mer om redigeringsforklaringer</string>
   <string name="action_item_categories">Kategorier</string>
   <string name="page_no_categories">Denne siden tilhører ingen kategorier.</string>
   <string name="category_tab_articles">Artikler</string>
@@ -1236,5 +1243,6 @@
   <string name="user_contrib_filter_all">Alle redigeringer</string>
   <string name="namespace_article">Artikkel</string>
   <string name="user_contrib_current">gjeldende</string>
+  <string name="media_playback_error">Feil ved avspilling av media.</string>
   <string name="user_contrib_menu_label">Bidrag</string>
 </resources>

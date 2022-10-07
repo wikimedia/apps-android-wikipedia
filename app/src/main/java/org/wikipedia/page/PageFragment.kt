@@ -190,7 +190,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setHasOptionsMenu(true)
         callback()?.onPageInitWebView(webView)
         updateFontSize()
 
@@ -348,6 +347,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
+    override fun onEditingPrefsChanged() { }
+
     override fun wiktionaryShowDialogForTerm(term: String) {
         shareHandler.showWiktionaryDefinition(term)
     }
@@ -469,7 +470,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         dismissBottomSheet()
         val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK)
 
-        if (title.matches(model.title) && !title.fragment.isNullOrEmpty()) {
+        if (title == model.title && !title.fragment.isNullOrEmpty()) {
             scrollToSection(title.fragment!!)
             return
         }
@@ -500,7 +501,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun selectedTabPosition(title: PageTitle): Int {
         return app.tabList.firstOrNull { it.backStackPositionTitle != null &&
-                title.matches(it.backStackPositionTitle) }?.let { app.tabList.indexOf(it) } ?: -1
+                title == it.backStackPositionTitle }?.let { app.tabList.indexOf(it) } ?: -1
     }
 
     private fun openInNewTab(title: PageTitle, entry: HistoryEntry, position: Int, openFromExistingTab: Boolean = false) {
@@ -948,7 +949,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, squashBackstack: Boolean, isRefresh: Boolean = false) {
         // is the new title the same as what's already being displayed?
         if (currentTab.backStack.isNotEmpty() &&
-                title.matches(currentTab.backStack[currentTab.backStackPosition].title)) {
+                title == currentTab.backStack[currentTab.backStackPosition].title) {
             if (model.page == null || isRefresh) {
                 pageFragmentLoadState.loadFromBackStack(isRefresh)
             } else if (!title.fragment.isNullOrEmpty()) {
@@ -1407,12 +1408,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 val animDuration = 250
                 val anim = ObjectAnimator.ofInt(webView, "scrollY", webView.scrollY, DimenUtil.leadImageHeightForDevice(requireActivity()))
                 anim.setDuration(animDuration.toLong()).doOnEnd {
-                    showBottomSheet(ThemeChooserDialog.newInstance(InvokeSource.PAGE_ACTION_TAB, model.shouldLoadAsMobileWeb))
+                    showBottomSheet(ThemeChooserDialog.newInstance(InvokeSource.PAGE_ACTION_TAB))
                 }
                 anim.start()
             } else {
                 scrolledUpForThemeChange = false
-                showBottomSheet(ThemeChooserDialog.newInstance(InvokeSource.PAGE_ACTION_TAB, model.shouldLoadAsMobileWeb))
+                showBottomSheet(ThemeChooserDialog.newInstance(InvokeSource.PAGE_ACTION_TAB))
             }
         }
 

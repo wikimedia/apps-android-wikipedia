@@ -28,7 +28,7 @@ enum class PageActionItem constructor(val id: Int,
             cb.onFindInArticleSelected()
         }
     },
-    THEME(3, R.id.page_theme, R.string.article_menu_bar_theme_button, R.drawable.ic_icon_format_size, true) {
+    THEME(3, R.id.page_theme, R.string.article_menu_bar_theme_button, R.drawable.ic_icon_format_size, false) {
         override fun select(cb: Callback) {
             cb.onThemeSelected()
         }

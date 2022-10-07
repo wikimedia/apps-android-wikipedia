@@ -55,6 +55,7 @@
 * Teretalexev
 * Thothsum
 * ToJack
+* UniCollab
 * VitalKanev
 * Vlad5250
 * Wikisaurus
@@ -454,6 +455,7 @@
   <string name="error_message_generic">Произошла ошибка</string>
   <string name="view_link_preview_error_button_dismiss">Закрыть</string>
   <string name="error_page_does_not_exist">Такой страницы не существует</string>
+  <string name="error_user_page_does_not_exist">В Википедии нет &lt;a href=\"%1$s\"&gt;страницы участника_цы&lt;/a&gt; с точно таким именем. Как правило, эта страница должна быть создана и редактироваться участником_цей &lt;b&gt;%2$s&lt;/b&gt;. Если есть сомнения, пожалуйста, проверьте, существует ли «%3$s».</string>
   <string name="view_wiki_error_message_offline">Не удаётся подключиться к интернету</string>
   <string name="view_wiki_error_message_timeout">Не удается подключиться к Википедии. Проверьте подключение к сети или повторите попытку позже</string>
   <string name="reference_title">Примечание %s</string>
@@ -465,12 +467,12 @@
   <string name="page_footer_license_text">Если не указано иное, содержание доступно в соответствии с $1.</string>
   <string name="empty_tab_title">Новая вкладка</string>
   <string name="menu_save_all_tabs">Сохранить все вкладки</string>
-  <string name="error_blocked_title">Ваше имя пользователя или IP адрес заблокировано</string>
+  <string name="error_blocked_title">Ваше имя участника или IP-адрес заблокированы.</string>
   <string name="error_blocked_by">Блокировка была сделана участником &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
-  <string name="error_blocked_reason">причина дона: %s</string>
-  <string name="error_blocked_start">\nНачало блока:%s</string>
-  <string name="error_blocked_expiry">Истечение срока действия блока: %s</string>
-  <string name="error_blocked_id">Идентификация блока: %s</string>
+  <string name="error_blocked_reason">Указанная причина: %s</string>
+  <string name="error_blocked_start">Начало блокировки: %s</string>
+  <string name="error_blocked_expiry">Окончание блокировки: %s</string>
+  <string name="error_blocked_id">Идентификатор блокировки: %s</string>
   <string name="error_blocked_footer">Вы можете связаться с &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или другим &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Настройте свою панель инструментов</string>
   <string name="error_blocked_footer_no_blocker">Вы можете связаться с &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
@@ -500,8 +502,13 @@
   <string name="text_size_percent_default">%s (по умолчанию)</string>
   <string name="text_style_title">Шрифт</string>
   <string name="theme_category_reading">Чтение</string>
+  <string name="theme_category_editing">Редактирование</string>
   <string name="reading_focus_mode">Режим чтения</string>
   <string name="reading_focus_mode_detail">Скрывает функциональность редактирования и инструменты при скроллинге</string>
+  <string name="editing_syntax_highlight_label">Подсветка синтаксиса</string>
+  <string name="editing_line_numbers_label">Показывать номера строк</string>
+  <string name="editing_monospace_font_label">Использовать моноширинный шрифт</string>
+  <string name="editing_typing_suggestions">Показывать автодополнение при вводе</string>
   <string name="nav_item_saved">Сохранено</string>
   <string name="reading_list_save_to">Добавить в список для чтения</string>
   <string name="reading_list_move_to">Перенести в список для чтения</string>
@@ -712,6 +719,7 @@
   <string name="notifications_mark_unread">Отметить как непрочитанное</string>
   <string name="notifications_mark_all_as_read">Отметить все как прочитанные</string>
   <string name="notifications_direct_reply_action">Ответить</string>
+  <string name="notifications_direct_reply_progress">Отправка ответа участнику %s…</string>
   <string name="notifications_direct_reply_success">Ответ опубликован.</string>
   <string name="notifications_direct_reply_error">Не удалось автоматически опубликовать ответ.</string>
   <string name="notifications_mark_all_as_read_message">%d помечено как прочитанное</string>
@@ -872,6 +880,10 @@
   <string name="description_edit_license_notice">Изменяя описание статьи, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">обычно начинается с маленькой буквы</string>
   <string name="description_edit_voice_input_description">Голосовой ввод</string>
+  <string name="description_edit_learn_more">Подробнее об описаниях статей</string>
+  <string name="description_edit_image_caption_learn_more">Подробнее о подписях к изображениям</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru#%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D1%8F_%D1%81%D1%82%D0%B0%D1%82%D0%B5%D0%B9</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru#%D0%9F%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D0%B8_%D0%BA_%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC</string>
   <string name="description_too_short">Этот текст слишком короткий.</string>
   <string name="description_ends_with_punctuation">Текст не должен заканчиваться знаками препинания.</string>
   <string name="description_starts_with_uppercase">Начинайте с маленькой буквы, если только первое слово не является собственным названием.</string>
@@ -899,6 +911,8 @@
   <string name="customize_toolbar_category_menu">Меню</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Нажмите на избранные объекты и, удерживая, перенесите их сюда 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Сбросить к настройкам по умолчанию</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Удерживайте значок перетаскивания для перемещения элемента</string>
+  <string name="customize_toolbar_item_default_tooltip">Нажмите и перенесите элемент для изменения его расположения</string>
   <string name="suggested_edits_describe_articles">Описать статьи</string>
   <string name="suggested_edits_caption_images">Описание изображений</string>
   <string name="suggested_edits_tag_images">Тегирование изображений</string>
@@ -1086,7 +1100,6 @@
   <string name="file_page_activity_title">Страница файла</string>
   <string name="file_page_add_image_caption_button">Добавить описание изображения</string>
   <string name="file_page_add_image_tags_button">Добавить теги изображения</string>
-  <string name="file_page_suggestion_reason">Предложенная причина</string>
   <string name="file_page_edit_button_content_description">Править %s</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то некорректное. Возможные причины, почему ваша правка была отменена:</string>
@@ -1166,7 +1179,17 @@
   <string name="content_description_for_page_indicator">Шаг %1$d из %2$d</string>
   <string name="wikitext_bold">Полужирный</string>
   <string name="wikitext_italic">Курсив</string>
+  <string name="wikitext_underline">Подчёркнутый</string>
+  <string name="wikitext_strikethrough">Зачёркнутый</string>
+  <string name="wikitext_sup">Надстрочный</string>
+  <string name="wikitext_sub">Подстрочный</string>
+  <string name="wikitext_large">Крупный текст</string>
+  <string name="wikitext_small">Мелкий текст</string>
+  <string name="wikitext_code">Код</string>
   <string name="wikitext_link">Ссылка</string>
+  <string name="wikitext_heading_n">Подзаголовок %d</string>
+  <string name="wikitext_formatting">Форматирование</string>
+  <string name="wikitext_headings">Заголовки</string>
   <string name="wikitext_insert_media">Вставить медиа-файл</string>
   <string name="wikitext_bulleted_list">Маркированный список</string>
   <string name="wikitext_numbered_list">Нумерованный список</string>
@@ -1234,10 +1257,17 @@
   <string name="talk_share_talk_page">Википедия — страница обсуждения</string>
   <string name="talk_search_hint">Искать сообщения</string>
   <string name="talk_search_topics_hint">Искать в темах</string>
+  <string name="talk_search_find_in_talk_topics_hint">Поиск темы на странице обсуждения</string>
   <string name="talk_overflow_sort_by">Сортировать по</string>
   <string name="talk_overflow_sort_date_published">Дата публикации</string>
   <string name="talk_overflow_sort_date_updated">Дата обновления</string>
   <string name="talk_overflow_sort_topic_name">Название темы</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Показать ответ</item>
+    <item quantity="few">Показать ответы (%d)</item>
+    <item quantity="many">Показать ответы (%d)</item>
+    <item quantity="other">Показать ответы (%d)</item>
+  </plurals>
   <plurals name="talk_hide_replies_count">
     <item quantity="one">Скрыть ответ</item>
     <item quantity="few">Скрыть ответы (%d)</item>
@@ -1262,6 +1292,9 @@
   <string name="menu_option_share_edit">Поделиться правкой</string>
   <string name="menu_option_user_contributions">Вклад участника %s</string>
   <string name="menu_option_edit_source">Править код</string>
+  <string name="menu_option_user_page">Страница участника_цы %s</string>
+  <string name="menu_option_find_in_talk_page_topic">Найти тему на странице обсуждения</string>
+  <string name="menu_option_copy_link_to_clipboard">Скопировать ссылку в буфер обмена</string>
   <string name="talk_menu_copy_text">Скопировать текст</string>
   <string name="talk_menu_expand_threads">Развернуть ветки</string>
   <string name="talk_menu_collapse_threads">Свернуть ветки</string>
@@ -1290,6 +1323,7 @@
   <string name="revision_diff_paragraph_added">Абзац добавлен</string>
   <string name="revision_diff_paragraph_removed">Абзац удалён</string>
   <string name="revision_undo_title">Отменить правку</string>
+  <string name="revision_undo_reason">Чтобы продолжить, укажите, пожалуйста, причину для отмены этой правки:</string>
   <string name="revision_undo_success">Версия была отменена.</string>
   <string name="revision_rollback_dialog_title">Вы уверены, что хотите откатить правки?</string>
   <string name="revision_rollback_success">Совершён откат правок.</string>
@@ -1317,6 +1351,15 @@
   <string name="watchlist_page_moved">Перемещено</string>
   <string name="watchlist_page_protected">Защищено</string>
   <string name="watchlist_page_deleted">Удалено</string>
+  <string name="preview_edit_title">Предпросмотр правки</string>
+  <string name="preview_edit_summarize_edit_title">Резюмируйте изменение</string>
+  <string name="preview_edit_summarize_edit_hint">Как вы улучшили эту страницу?</string>
+  <string name="preview_edit_minor_edit">Это малая правка</string>
+  <string name="preview_edit_minor_edit_url">https://ru.wikipedia.org/wiki/Википедия:Малые_изменения</string>
+  <string name="preview_edit_watch_this_page">Наблюдать за этой страницей</string>
+  <string name="preview_edit_watch_this_page_url">https://ru.wikipedia.org/wiki/Служебная:Список_наблюдения</string>
+  <string name="preview_edit_learn_more">Подробнее об описаниях изменений</string>
+  <string name="preview_edit_learn_more_url">https://ru.wikipedia.org/wiki/Википедия:Описание_изменений</string>
   <string name="action_item_categories">Категории</string>
   <string name="page_no_categories">Эта страница не относится ни к одной категории.</string>
   <string name="category_tab_articles">Статьи</string>
@@ -1326,9 +1369,11 @@
   <string name="search_namespaces">Пространства имён</string>
   <string name="revision_initial_none">Ни одной (это первая версия)</string>
   <string name="user_contrib_activity_title">Вклад авторства %s</string>
+  <string name="archive_empty">Заархивированных страниц не найдено.</string>
   <string name="user_contrib_filter_ns">Фильтр по пространствам имён</string>
   <string name="user_contrib_filter_all">Все правки</string>
   <string name="namespace_article">Статья</string>
   <string name="user_contrib_current">текущая</string>
+  <string name="media_playback_error">Ошибка воспроизведения медиафайла.</string>
   <string name="user_contrib_menu_label">Вклад</string>
 </resources>

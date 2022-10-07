@@ -975,7 +975,6 @@
   <string name="file_page_activity_title">파일 문서</string>
   <string name="file_page_add_image_caption_button">이미지 캡션 추가</string>
   <string name="file_page_add_image_tags_button">이미지 태그 추가</string>
-  <string name="file_page_suggestion_reason">제안 이유</string>
   <string name="file_page_edit_button_content_description">%s 편집</string>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_intro">저희는 당신이 최선의 노력을 다해주신 것을 알고 있습니다만, 검토자들 중 한 명이 걱정하는 부분이 있습니다. 당신의 편집이 되돌려진 잠재적 이유는 다음과 같습니다:</string>

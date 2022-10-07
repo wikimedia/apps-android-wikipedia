@@ -99,7 +99,7 @@
   <string name="langlinks_empty">यो पृष्ठ अन्य भाषाहरूमा उपलब्ध छैन।</string>
   <string name="langlinks_no_match">कुनै पनि भाषा फेला परेन</string>
   <string name="langlinks_activity_title">अन्य भाषाहरू</string>
-  <string name="langlinks_your_wikipedia_languages">तपाईँका विकिपिडिया भाषाहरू</string>
+  <string name="langlinks_your_wikipedia_languages">तपाईंको विकिपिडिया भाषाहरू</string>
   <string name="menu_save_changes">परिवर्तनहरू प्रकाशित गर्नुहोस्</string>
   <string name="edit_saved_successfully">प्रकाशित भएकोलाई सम्पादन गर्नुहोस्!</string>
   <string name="dialog_message_edit_failed">सम्पादन असफल भयो!</string>
@@ -124,11 +124,11 @@
   <string name="account_creation_password_hint">प्रवेश</string>
   <string name="login_2fa_hint">दुई चरण प्रामाणिकरण अङ्क</string>
   <string name="login_2fa_other_workflow_error_msg">दुई चरण प्रामाणिकरण आवश्यक! कृपया मुख्य गतिविधि फर्कनुहोस् 2FA प्रतिक प्रयोग गरेर प्रवेश गर्नुहोस् र पुन: प्रयास गर्नुहोस्।</string>
-  <string name="onboarding_card_login">प्रवेश</string>
-  <string name="page_editing_login">प्रवेश</string>
-  <string name="reading_lists_sync_login">प्रवेश</string>
-  <string name="create_account_login">प्रवेश</string>
-  <string name="menu_login">प्रवेश</string>
+  <string name="onboarding_card_login">प्रवेश गर्नुहोस्</string>
+  <string name="page_editing_login">प्रवेश गर्नुहोस्</string>
+  <string name="reading_lists_sync_login">प्रवेश गर्नुहोस्</string>
+  <string name="create_account_login">प्रवेश गर्नुहोस्</string>
+  <string name="menu_login">प्रवेश गर्नुहोस्</string>
   <string name="login_activity_title">प्रवेश गर्नुहोस्</string>
   <string name="login_in_progress_dialog_message">तपाईलाई प्रवेश गराउँदै…</string>
   <string name="login_success_toast">प्रवेश भयो!</string>
@@ -138,10 +138,10 @@
   <string name="reset_password_button">सङ्ग्रह गर्नुहोस् र प्रवेश गर्नुहोस्</string>
   <string name="preference_title_logout">निर्गमन</string>
   <string name="toast_logout_complete">निर्गमन गरियो</string>
-  <string name="logout_prompt">यसले तपाईँलाई तपाईँ हाल लग इन गर्नुभएको सबै उपकरणबाट लग आउट गर्नेछ । जारी राख्न चाहनुहुन्छ?</string>
+  <string name="logout_prompt">यसले तपाईंलाई हाल लग इन गर्नुभएको सबै उपकरणबाट लग आउट गर्नेछ । जारी राख्न चाहनुहुन्छ?</string>
   <string name="logout_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="logged_out_in_background_title">निर्गमन भयो।</string>
-  <string name="logged_out_in_background_dialog">तपाईँ विकिपिडियाबाट निर्गमन गरिनु भएको छ। के फेरि प्रवेश गर्न चाहनुहुन्छ?</string>
+  <string name="logged_out_in_background_dialog">तपाईं विकिपिडियाबाट निर्गमन गरिनु भएको छ। के फेरि प्रवेश गर्न चाहनुहुन्छ?</string>
   <string name="logged_out_in_background_login">प्रवेग</string>
   <string name="logged_out_in_background_cancel">रद्द गर्नुहोस्</string>
   <string name="history_empty_title">भर्खरै हेरिएको कुनै पनि लेख छैन</string>
@@ -167,7 +167,7 @@
   <string name="create_account_generic_error">खाता सृजना गर्न सकिएन</string>
   <string name="create_account_next">अर्को</string>
   <string name="email_recommendation_dialog_title">विडाँक ठेगाना विना नै खाता सृजना गर्ने हो?</string>
-  <string name="email_recommendation_dialog_message">इमेल ठेगाना वैकल्पिक भएता पनि, यो &lt;b&gt;अत्यधिक सिफारिश गरिएको छ&lt;/b&gt; ,किनकि तपाईले आफ्नो पासवर्ड गुमाउनु भयो भने इमेल खाता प्रयोग गरि पासवर्ड पुन प्राप्त गर्न सक्नुहुनेछ।</string>
+  <string name="email_recommendation_dialog_message">इमेल ठेगाना वैकल्पिक भएता पनि, यो &lt;b&gt;अत्यधिक सिफारिश गरिएको छ&lt;/b&gt; ,किनकि तपाईंले आफ्नो पासवर्ड गुमाउनु भयो भने इमेल खाता प्रयोग गरि पासवर्ड पुन प्राप्त गर्न सक्नुहुनेछ।</string>
   <string name="email_recommendation_message">सुझाव दिइएको किनभने खाता पुन: प्राप्तिको लागि विडाँक आवश्यक हुन्छ ।</string>
   <string name="email_recommendation_dialog_create_without_email_action">विडाँक बिना नै निरन्तरता दिनुहोस्</string>
   <string name="email_recommendation_dialog_create_with_email_action">विडाँक ठेगाना थप्नुहोस्</string>
@@ -191,7 +191,7 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">यसले पहिले समक्रमण गरिएको अध्ययन सूचीलाई रिमोट भण्डारणबाट हटाउने छ। सबै समक्रमण गरिएको सूचीहरू तपाईको खाता \"%s\" बाट हटाउने हो?</string>
   <string name="preferences_privacy_settings_heading">गोपनीयता</string>
   <string name="preference_title_eventlogging_opt_in">उपयोगसम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
-  <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगलाई अझ राम्रो बनाउन तपाईले अनुप्रयोगको उपयोग कसरी गर्नुहुन्छ भन्नेबारे विकिपिडियालाई जानकारी सङ्कलन गर्ने अनुमति दिनुहोस्</string>
+  <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगलाई अझ राम्रो बनाउन तपाईंले अनुप्रयोगको उपयोग कसरी गर्नुहुन्छ भन्नेबारे विकिपिडियालाई जानकारी सङ्कलन गर्ने अनुमति दिनुहोस्</string>
   <string name="preference_title_auto_upload_crash_reports">खरावी सम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
   <string name="preference_summary_auto_upload_crash_reports">क्र्यास प्रतिवेदनहरू HockeyApp नामक एक तेस्रो-पक्षीय सेवा प्रदायकलाई स्वतः पठाउन अनुप्रयोगलाई अनुमति दिनुहोस् जसले गर्दा हामी अझ छिटो र सरल तरिकाले तपाईंको क्र्यासको समीक्षा गरी उक्त समस्याको समाधान गर्न सक्छौं।</string>
   <string name="editing_error_spamblacklist">रोक लगाइएका डोमेनहरू (%s) को लिङ्क पत्ता लाग्यो। तिनीहरूलाई हटाएर फेरि प्रयास गर्नुहोस्।</string>
@@ -248,14 +248,14 @@
   <string name="find_previous">पछिल्लो खोज्नुहोस्</string>
   <string name="find_first_occurence">यो पहिलो घटना हो</string>
   <string name="find_last_occurence">यो अन्तिम घटना हो</string>
-  <string name="abusefilter_title_warn">यो रचनात्मक सम्पादन नहुन सक्छ। तपाईँ प्रकाशन गर्न निश्चित हुनुहुन्छ?</string>
+  <string name="abusefilter_title_warn">यो रचनात्मक सम्पादन नहुन सक्छ। तपाईं प्रकाशन गर्न निश्चित हुनुहुन्छ?</string>
   <string name="abusefilter_title_disallow">यस सम्पादनलाई प्रकाशन गर्न सक्नुहुन्न। कृपया पछाडि जानुहोस् र यसलाई परिवर्तन गर्नुहोस्।</string>
   <string name="page_similar_titles">मिल्दोजुल्दो पृष्ठहरू</string>
   <string name="search_did_you_mean">के तपाईंले \"%s\" भन्न खोज्नुभएको हो?</string>
   <string name="search_recent_header">भर्खरैका खोजहरू:</string>
   <string name="search_results_count_zero">कुनै पनि नतिजा फेला परेनन्</string>
   <string name="button_clear_all_recent_searches">भर्खरैका खोजहरू खाली गर्नुहोस्</string>
-  <string name="clear_recent_searches_confirm">के तपाईँ साच्चै आफ्नो खोज इतिहास खाली गर्न चाहनुहुन्छ?</string>
+  <string name="clear_recent_searches_confirm">के तपाईं साच्चै आफ्नो खोज इतिहास खाली गर्न चाहनुहुन्छ?</string>
   <string name="clear_recent_searches_confirm_yes">हो</string>
   <string name="clear_recent_searches_confirm_no">होइन</string>
   <string name="error_browser_not_found">वेब पृष्ठ खोल्न सकिएन (कुनै ब्राउजर अनुप्रयोग फेला परेन)।</string>
@@ -426,7 +426,7 @@
   <string name="notifications_poll_enable_title">जानकारी सक्षम पार्नुहोस्</string>
   <string name="notifications_poll_enable_positive">सक्षम पार्नुहोस्</string>
   <string name="notifications_poll_enable_negative">अहिले हैन</string>
-  <string name="notifications_empty_message">तपाईँका सबै जानकारीहरू पढेर सकियो!</string>
+  <string name="notifications_empty_message">तपाईंको सबै जानकारीहरू पढेर सकियो!</string>
   <string name="notifications_view_archived_button_text">अभिलेख गरिएका जानकारीहरू हेर्नुहोस्</string>
   <string name="notification_preferences_title">जानकारी अभिरुचीहरू</string>
   <string name="notifications_direct_reply_action">जवाफ दिनुहोस्</string>
@@ -478,7 +478,7 @@
   <string name="view_static_card_save_button_label">संग्रह गर्नुहोस्</string>
   <string name="feed_configure_menu_reset">पुनर्निर्धारित दृश्य कायम गर्नुहाेस्</string>
   <string name="feed_configure_menu_select_all">सबै देखाउने</string>
-  <string name="feed_configure_menu_deselect_all">सबै लुकाउने</string>
+  <string name="feed_configure_menu_deselect_all">सबै लुकाउनुहोस्</string>
   <string name="feed_item_type_news">समसामयिक घटनाहरूको बारेमा लेखहरू</string>
   <string name="feed_item_type_on_this_day">इतिहासमा आज</string>
   <string name="feed_item_type_because_you_read">तपाईंको इतिहासबाट हालै पढिएको लेखमा आधारित सुझावहरू</string>
@@ -514,7 +514,7 @@
   <string name="description_edit_help_about_wikidata">विकिडेटाको बारेमा</string>
   <string name="description_too_short">पाठ धेरै छोटो छ।</string>
   <string name="description_edit_success_saved" fuzzy="true">विवरण प्रकाशित भयो!</string>
-  <string name="description_edit_success_encouragement">तपाईले विकिपिडियालाई सबैको लागि अझ राम्रो बनाउनु भएकाे छ</string>
+  <string name="description_edit_success_encouragement">तपाईंले विकिपिडियालाई सबैको लागि अझ राम्रो बनाउनु भएकाे छ</string>
   <string name="description_edit_success_done">सम्पन्न भयो</string>
   <string name="description_edit_success_did_you_know">के तपाईँलाई थाह छ?</string>
   <string name="description_edit_tutorial_title_descriptions">लेख विवरणहरू</string>
@@ -653,7 +653,7 @@
   <string name="edit_type_all">सबै योगदानहरू</string>
   <string name="wikitext_bold">गाढा</string>
   <string name="wikitext_italic">छड्के</string>
-  <string name="wikitext_link">सूत्र</string>
+  <string name="wikitext_link">कडी</string>
   <string name="wikitext_numbered_list">अंकित सूची</string>
   <string name="wikitext_template">ढाँचा</string>
   <string name="wikitext_reference">सन्दर्भ</string>
