@@ -1,4 +1,4 @@
-package org.wikipedia.userprofile
+package org.wikipedia.usercontrib
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
