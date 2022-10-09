@@ -31,6 +31,9 @@ interface HistoryEntryDao {
         deleteBy(entry.authority, entry.lang, entry.namespace, entry.apiTitle)
     }
 
+    @Query("SELECT * FROM HistoryEntry ORDER BY timestamp DESC")
+    suspend fun getAll(): List<HistoryEntry>
+
     @Transaction
     suspend fun upsertWithTimeSpent(entry: HistoryEntry, timeSpent: Int) {
         val curEntry = findEntryBy(entry.authority, entry.lang, entry.apiTitle)

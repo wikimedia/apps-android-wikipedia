@@ -74,11 +74,29 @@ object ShareUtil {
         return context.getString(R.string.feed_featured_image_share_subject) + " | " + getFeedCardDateString(age)
     }
 
+    fun shareCSV(context: Context, csvFile: File, subject: String)
+    {
+        val uri = getUriFromFile(context, csvFile)
+        if (uri == null) {
+            displayShareErrorMessage(context)
+        }
+        else {
+            val intent = buildFileShareIntent(context, subject, "text/csv", uri)
+            context.startActivity(intent)
+        }
+    }
+
     private fun buildImageShareChooserIntent(context: Context, subject: String,
                                              text: String, uri: Uri): Intent? {
         val shareIntent = createImageShareIntent(subject, text, uri)
         return getIntentChooser(context, shareIntent,
                 context.resources.getString(R.string.image_share_via))
+    }
+
+    private fun buildFileShareIntent(context: Context, subject: String, mime: String, uri: Uri): Intent?
+    {
+        val intent = createFileShareIntent(subject, mime, uri)
+        return getIntentChooser(context, intent, "Share via")
     }
 
     private fun getUriFromFile(context: Context, file: File?): Uri? {
@@ -104,6 +122,13 @@ object ShareUtil {
                 .putExtra(Intent.EXTRA_TEXT, text)
                 .putExtra(Intent.EXTRA_STREAM, uri)
                 .setType("image/jpeg")
+    }
+
+    private fun createFileShareIntent(subject: String, mime: String, uri: Uri): Intent {
+        return Intent(Intent.ACTION_SEND)
+            .putExtra(Intent.EXTRA_SUBJECT, subject)
+            .putExtra(Intent.EXTRA_STREAM, uri)
+            .setType(mime)
     }
 
     private fun displayOnCatchMessage(caught: Throwable, context: Context) {

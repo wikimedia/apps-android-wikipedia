@@ -43,11 +43,14 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil.shareCSV
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import org.wikipedia.views.WikiCardView
+import java.io.File
 
 class HistoryFragment : Fragment(), BackPressedHandler {
     interface Callback {
@@ -147,6 +150,20 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                 }
             } finally {
                 reloadHistoryItems()
+            }
+        }
+    }
+
+    private fun exportHistoryToFile(outputFile: File) {
+        lifecycleScope.launch {
+            withContext(Dispatchers.IO) {
+                val records = AppDatabase.instance.historyEntryDao().getAll()
+                val buffer = outputFile.bufferedWriter()
+                buffer.write("id, timestamp_ms, authority, api_title, display_title, time_spent_seconds\n")
+                records.joinTo(buffer, separator = "\n", transform =  {
+                    "${it.id}, ${it.timestamp.time}, ${it.authority}, \"${it.apiTitle}\", \"${StringUtil.removeHTMLTags(it.displayTitle)}\", ${it.timeSpentSec}"
+                })
+                buffer.close()
             }
         }
     }
@@ -252,10 +269,12 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     private inner class SearchCardViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
         private val historyFilterButton: ImageView
         private val clearHistoryButton: ImageView
+        private val exportHistoryButton: ImageView
 
         fun bindItem() {
             clearHistoryButton.visibility = if (adapter.isEmpty) View.GONE else View.VISIBLE
             historyFilterButton.visibility = if (adapter.isEmpty) View.GONE else View.VISIBLE
+            exportHistoryButton.visibility = if (adapter.isEmpty) View.GONE else View.VISIBLE
         }
 
         private fun adjustSearchCardView(searchCardView: WikiCardView) {
@@ -281,6 +300,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             val voiceSearchButton = itemView.findViewById<View>(R.id.voice_search_button)
             historyFilterButton = itemView.findViewById(R.id.history_filter)
             clearHistoryButton = itemView.findViewById(R.id.history_delete)
+            exportHistoryButton = itemView.findViewById(R.id.history_export)
             searchCardView.setOnClickListener { (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, it) }
             voiceSearchButton.setOnClickListener { (requireParentFragment() as MainFragment).onFeedVoiceSearchRequested() }
             historyFilterButton.setOnClickListener {
@@ -300,7 +320,18 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                     deleteSelectedPages()
                 }
             }
-            FeedbackUtil.setButtonLongPressToast(historyFilterButton, clearHistoryButton)
+            exportHistoryButton.setOnClickListener {
+                val outputFile = File(context?.getExternalFilesDir(null), "wiki-history.csv")
+                outputFile.createNewFile()
+                if (outputFile.exists() && context != null) {
+                    exportHistoryToFile(outputFile)
+                    shareCSV(context!!, outputFile, "Exported Wikipedia History")
+                }
+                else {
+                    Toast.makeText(context, "Failed to open file to export data.", Toast.LENGTH_LONG).show()
+                }
+            }
+            FeedbackUtil.setButtonLongPressToast(historyFilterButton, clearHistoryButton, exportHistoryButton)
             adjustSearchCardView(searchCardView)
         }
     }
