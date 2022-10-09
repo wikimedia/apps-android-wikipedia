@@ -101,10 +101,9 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             }
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
-        renderViewStates()
-//        viewModel.loadContent()
         funnel = LinkPreviewFunnel(WikipediaApp.instance, viewModel.historyEntry.source)
         funnel.logLinkClick()
+        renderViewStates()
         return binding.root
     }
 
@@ -138,8 +137,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         binding.linkPreviewProgress.visibility = View.GONE
     }
 
-    private fun renderContentState(response: Response<PageSummary>) {
-        val summary = response.body()!!
+    private fun renderContentState(summary: PageSummary) {
         funnel.setPageId(summary.pageId)
         articleLinkPreviewInteractionEvent = ArticleLinkPreviewInteractionEvent(
                 viewModel.pageTitle.wikiSite.dbName(),
@@ -149,20 +147,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         articleLinkPreviewInteractionEvent?.logLinkClick()
         revision = summary.revision
 
-        // Rebuild our PageTitle, since it may have been redirected or normalized.
-        val oldFragment = viewModel.pageTitle.fragment
-        viewModel.pageTitle = PageTitle(
-                summary.apiTitle, viewModel.pageTitle.wikiSite, summary.thumbnailUrl,
-                summary.description, summary.displayTitle
-        )
-
-        // check if our URL was redirected, which might include a URL fragment that leads
-        // to a specific section in the target article.
-        if (!response.raw().request.url.fragment.isNullOrEmpty()) {
-            viewModel.pageTitle.fragment = response.raw().request.url.fragment
-        } else if (!oldFragment.isNullOrEmpty()) {
-            viewModel.pageTitle.fragment = oldFragment
-        }
         binding.linkPreviewTitle.text = StringUtil.fromHtml(summary.displayTitle)
         showPreview(LinkPreviewContents(summary, viewModel.pageTitle.wikiSite))
     }
