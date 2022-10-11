@@ -14,6 +14,8 @@
   <string name="search_hint">وکیپیڈیا وچ کھوجو</string>
   <string name="search_hint_voice_search">اواج راہیں کھوج</string>
   <string name="search_hint_search_languages">بھاشا کھوجو</string>
+  <string name="filter_hint_filter_my_lists_and_articles">فہرستاں فلٹر کرو</string>
+  <string name="nav_item_suggested_edits">سودھاں</string>
   <string name="nav_item_more">ہور</string>
   <string name="nav_item_search">کھوج</string>
   <string name="error_network_error">نیٹ ورک مَوجود نہیں ہے۔</string>
@@ -43,6 +45,7 @@
   <string name="share_via">اِس راہیں سانجھا کرو</string>
   <string name="image_share_via">اِس راہیں سانجھا کرو</string>
   <string name="search_redirect_from">%s تو موڑیا گیا</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;چھوٹی&lt;/b&gt; %s</string>
   <string name="menu_page_other_languages">ہور بھاشاواں وچ پڑہو</string>
   <string name="edit_section_find_in_page">پنے \'چ لبھو</string>
   <string name="menu_page_font_and_theme">فونٹ اتے وشا وستو</string>
@@ -73,6 +76,7 @@
   <string name="langlinks_filter_hint">کھوجو</string>
   <string name="langlinks_empty">ایہ پنا ہورناں بھاشاواں وچ اُپلبدھ نہیں ہے۔</string>
   <string name="langlinks_activity_title">ہور بھاشاواں</string>
+  <string name="langlinks_your_wikipedia_languages">ٹہاڈیاں بولیاں</string>
   <string name="menu_save_changes">تبدیلیاں سانجھ</string>
   <string name="edit_saved_successfully">سودھ‌ رکاشت کیتی کئی!</string>
   <string name="dialog_message_edit_failed">سودھو اسفل ہوۓ!</string>
@@ -89,6 +93,7 @@
   <string name="nav_item_login">وِکیپیڈیا ‘تے داخل ہوۓ</string>
   <string name="login_username_hint">ورتنوالے دا ناں</string>
   <string name="login_password_hint">پوچھنا شبد</string>
+  <string name="account_creation_password_hint">پاس‌ورڈ</string>
   <string name="login_2fa_hint">دو پکھی پرماݨیکرن کوڈ</string>
   <string name="onboarding_card_login">لَوگ اِین کرو</string>
   <string name="page_editing_login">لَوگ اِین کرو</string>
@@ -219,7 +224,7 @@
   <string name="enable_location_service">چالو کرو</string>
   <string name="reference_title">ہوالے %s</string>
   <string name="empty_tab_title">نواں ٹیب</string>
-  <string name="crash_report_relaunch">شرو \'توں</string>
+  <string name="crash_report_relaunch">شروع توں</string>
   <string name="crash_report_quit">چھڈو</string>
   <string name="article_menu_bar_save_button">بچاؤ</string>
   <string name="article_menu_bar_language_button">بھاشا</string>
@@ -291,4 +296,5 @@
   <string name="suggested_edits_image_preview_dialog_artist">آرٹسٹ</string>
   <string name="suggested_edits_image_preview_dialog_tags">ٹیگ</string>
   <string name="suggested_edits_image_preview_dialog_date">تریخ</string>
+  <string name="revision_diff_lines_from_to">لائین %1$d … %2$d</string>
 </resources>
