@@ -729,7 +729,7 @@
   <string name="notifications_type_filter_header">Filter tipov</string>
   <string name="notifications_all_wikis_text">Vsi vikiji</string>
   <string name="notifications_all_types_text">Vse vrste</string>
-  <string name="notifications_menu_user_talk_page" fuzzy="true">$s: pogovorna stran</string>
+  <string name="notifications_menu_user_talk_page" fuzzy="true">%s: pogovorna stran</string>
   <string name="notifications_offline_disable_message">Ta funkcija ni ma voljo brez internetne povezave.</string>
   <string name="view_because_you_read_card_title">Ker ste prebrali</string>
   <string name="view_random_card_title">Randomizator</string>
