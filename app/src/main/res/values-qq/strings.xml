@@ -1291,4 +1291,5 @@
   <string name="reading_lists_menu_import_list">Menu option offering user an option to import a reading list from a csv file.</string>
   <string name="reading_list_import_failed_not_csv">User message for when import fails because of file format.</string>
   <string name="reading_list_action_menu_export_lists">Label for a menu option allowing the user to export multiple lists to phone storage.</string>
+  <string name="reading_list_menu_select">Label for menu item for the user to select list item.</string>
 </resources>
