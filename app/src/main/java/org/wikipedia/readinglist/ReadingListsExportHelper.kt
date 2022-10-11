@@ -87,12 +87,12 @@ object ReadingListsExportHelper : BaseActivity.Callback {
     }
 
     fun importLists(jsonString: String) {
-      val  readingLists :List<ExportableReadingList>  = JsonUtil.decodeFromString(jsonString)!!
+        val readingLists: List<ExportableReadingList> = JsonUtil.decodeFromString(jsonString)!!
         readingLists.forEach {
             val readingList = AppDatabase.instance.readingListDao().createList(it.name!!, it.description)
             val titles = mutableListOf<PageTitle>()
             it.pages.keys.forEach { apiTitle ->
-               titles.add( PageTitle(apiTitle, WikiSite.forLanguageCode(it.pages[apiTitle].orEmpty())))
+                titles.add(PageTitle(apiTitle, WikiSite.forLanguageCode(it.pages[apiTitle].orEmpty())))
             }
             AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(readingList, titles)
         }

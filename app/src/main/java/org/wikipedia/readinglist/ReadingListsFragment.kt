@@ -5,8 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.provider.OpenableColumns
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -28,7 +26,6 @@ import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListsBinding
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.history.HistoryEntry
@@ -38,7 +35,6 @@ import org.wikipedia.main.MainFragment
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
-import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -673,6 +669,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
+    override fun onActivityImportResult(uri: Uri) {
+        val inputStr: InputStream = activity?.contentResolver?.openInputStream(uri)!!
+        val inputString = inputStr.bufferedReader().use { it.readText() }
+        ReadingListsExportHelper.importLists(inputString)
+        inputStr.close()
+    }
+
     companion object {
         private const val VIEW_TYPE_ITEM = 0
         private const val VIEW_TYPE_PAGE_ITEM = 1
@@ -692,29 +695,5 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 ReadingListSyncAdapter.manualSyncWithRefresh()
             }
         }
-    }
-
-    override fun onActivityImportResult(uri: Uri) {
-        val inputStr: InputStream = activity?.contentResolver?.openInputStream(uri)!!
-
-
-        val inputString = inputStr.bufferedReader().use { it.readText() }
-        ReadingListsExportHelper.importLists(inputString)
-    }
-
-    private fun getListName(uri: Uri): String {
-        if (uri.scheme.equals("content")) {
-            activity?.contentResolver?.query(uri, null, null, null, null).use { cursor ->
-                cursor?.let {
-                    val nameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
-                    cursor.moveToFirst()
-                    val fileName = cursor.getString(nameIndex)
-                    return fileName.substring(0, fileName.lastIndexOf("."))
-                }
-            }
-        } else if (uri.scheme.equals("file")) {
-            return uri.lastPathSegment.orEmpty()
-        }
-        return ""
     }
 }
