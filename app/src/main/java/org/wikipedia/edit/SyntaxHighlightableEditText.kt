@@ -24,6 +24,7 @@ import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
+import kotlin.math.min
 
 /**
  * Notice that this view inherits from the platform EditText class, instead of AppCompatEditText.
@@ -225,6 +226,35 @@ class SyntaxHighlightableEditText : EditText {
                     KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_Z, 0, KeyEvent.META_CTRL_ON or KeyEvent.META_SHIFT_ON))
             it.sendKeyEvent(KeyEvent(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(),
                     KeyEvent.ACTION_UP, KeyEvent.KEYCODE_Z, 0, KeyEvent.META_CTRL_ON or KeyEvent.META_SHIFT_ON))
+        }
+    }
+
+    fun highlightText(text: String) {
+        val curText = getText()
+        val words = text.split("\\s".toRegex()).filter { it.isNotBlank() }
+        var pos = 0
+        var firstPos = 0
+        for (word in words) {
+            pos = curText.indexOf(word, pos)
+            if (pos == -1) {
+                break
+            } else if (firstPos == 0) {
+                firstPos = pos
+            }
+        }
+        if (pos == -1) {
+            pos = curText.indexOf(words.last())
+            firstPos = pos
+        }
+        if (pos >= 0) {
+            setSelection(firstPos, pos + words.last().length)
+            val targetScrollPos = min(firstPos + 100, curText.length)
+            postDelayed({
+                if (isAttachedToWindow && layout != null) {
+                    allowScrollToCursor = true
+                    bringPointIntoView(targetScrollPos)
+                }
+            }, 500)
         }
     }
 }
