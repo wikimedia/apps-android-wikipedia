@@ -13,7 +13,10 @@ import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemReadingListBinding
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 
 class ReadingListItemView : ConstraintLayout {
