@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Dbrant
 * Saraiki
 -->
 <resources>
@@ -348,7 +349,11 @@
   <string name="wikitext_bold">موٹا</string>
   <string name="wikitext_italic">ترچھا</string>
   <string name="wikitext_underline">ہیٹھاں لکیر</string>
+  <string name="wikitext_strikethrough">کشیدہ</string>
   <string name="wikitext_sup">اتے لکھت</string>
+  <string name="wikitext_sub">ذیلی لکھت</string>
+  <string name="wikitext_large">وݙی عبارت</string>
+  <string name="wikitext_small">چھوٹی عبارت</string>
   <string name="wikitext_code">کوڈ</string>
   <string name="wikitext_link">ربط</string>
   <string name="wikitext_headings">سرخیاں</string>
