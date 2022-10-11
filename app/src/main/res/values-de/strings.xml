@@ -932,7 +932,7 @@
   <string name="suggested_edits_image_zoom_tooltip">Vergrössere das Bild mit der Pinch-to-Zoom Geste.</string>
   <string name="suggested_edits_encouragement_message">%s, danke für deine Bearbeitungen. Unten findest du weitere Möglichkeiten, um zu Wikipedia beizutragen.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hallo %s&lt;/b&gt;, unten finden Sie einige schnelle und einfache Möglichkeiten, wie Sie zur Verbesserung von Wikipedia beitragen können. Sie werden den Unterschied sehen, den Sie machen, sobald Sie anfangen. Viel Spaß beim Editieren!</string>
-  <string name="suggested_edits_image_captions_task_detail">Beschreiben Sie ein Bild, um den Lesern zu helfen, seine Bedeutung und seinen Kontext zu verstehen.</string>
+  <string name="suggested_edits_image_captions_task_detail">Beschreibe ein Bild, um den Lesern zu helfen, seine Bedeutung und seinen Kontext zu verstehen.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Fasse einen Artikel zusammen, um Lesern beim Verstehen eines Themas zu helfen.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Gesamtzahl deiner bisherigen Beiträge.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Anzahl der Tage in Folge, an denen Sie Beiträge geleistet haben. Wenn Sie eine Weile nicht beigetragen haben, wird Ihr letztes Beitragsdatum angezeigt.</string>
