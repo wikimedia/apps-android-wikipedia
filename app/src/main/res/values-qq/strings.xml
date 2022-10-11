@@ -1093,11 +1093,11 @@
   <string name="wikitext_sub">Button label for making the selected text as subscript.</string>
   <string name="wikitext_large">Button label for making the selected text large.</string>
   <string name="wikitext_small">Button label for making the selected text small.</string>
-  <string name="wikitext_code">Button label for putting the selected text in a code tag.</string>
-  <string name="wikitext_formatting">Button label for showing options for formatting text.</string>
-  <string name="wikitext_headings">Button label for showing options for inserting headings into the text.</string>
+  <string name="wikitext_code">Button label for putting the selected text in a code tag.\n{{identical|Code}}</string>
   <string name="wikitext_link">Button label for making the selected text into a link.\n{{Identical|Link}}</string>
   <string name="wikitext_heading_n">Button label for inserting a heading. The %d symbol is replaced with the level of the heading.</string>
+  <string name="wikitext_formatting">Button label for showing options for formatting text.</string>
+  <string name="wikitext_headings">Button label for showing options for inserting headings into the text.</string>
   <string name="wikitext_insert_media">Button label for adding a media at the current cursor position.</string>
   <string name="wikitext_bulleted_list">Button label for starting a bulleted list at the current cursor position.</string>
   <string name="wikitext_numbered_list">Button label for starting a numbered list at the current cursor position.</string>
@@ -1223,6 +1223,7 @@
   <string name="revision_diff_to">Label for newer revision to be compared.</string>
   <string name="revision_diff_line_num">Label for line number seen in a diff between revisions. The %d symbol is replaced with the line number.</string>
   <string name="revision_diff_line_nums">Label for range of line numbers seen in a diff between revisions. The first %d symbol is the starting line number, and the second %d symbol is the ending line number.</string>
+  <string name="revision_diff_lines_from_to">Label for range of line numbers seen in a diff between revisions. The %1$d symbol is the starting line number, and the %2$d symbol is the ending line number.</string>
   <string name="revision_diff_line_added">Label shown in a diff when a line was added.</string>
   <string name="revision_diff_line_removed">Label shown in a diff when a line was removed.</string>
   <string name="revision_diff_paragraph_added">Label shown in a diff when a paragraph was added.</string>

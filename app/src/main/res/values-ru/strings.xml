@@ -55,6 +55,7 @@
 * Teretalexev
 * Thothsum
 * ToJack
+* UniCollab
 * VitalKanev
 * Vlad5250
 * Wikisaurus
@@ -501,8 +502,13 @@
   <string name="text_size_percent_default">%s (по умолчанию)</string>
   <string name="text_style_title">Шрифт</string>
   <string name="theme_category_reading">Чтение</string>
+  <string name="theme_category_editing">Редактирование</string>
   <string name="reading_focus_mode">Режим чтения</string>
   <string name="reading_focus_mode_detail">Скрывает функциональность редактирования и инструменты при скроллинге</string>
+  <string name="editing_syntax_highlight_label">Подсветка синтаксиса</string>
+  <string name="editing_line_numbers_label">Показывать номера строк</string>
+  <string name="editing_monospace_font_label">Использовать моноширинный шрифт</string>
+  <string name="editing_typing_suggestions">Показывать автодополнение при вводе</string>
   <string name="nav_item_saved">Сохранено</string>
   <string name="reading_list_save_to">Добавить в список для чтения</string>
   <string name="reading_list_move_to">Перенести в список для чтения</string>
@@ -1173,7 +1179,17 @@
   <string name="content_description_for_page_indicator">Шаг %1$d из %2$d</string>
   <string name="wikitext_bold">Полужирный</string>
   <string name="wikitext_italic">Курсив</string>
+  <string name="wikitext_underline">Подчёркнутый</string>
+  <string name="wikitext_strikethrough">Зачёркнутый</string>
+  <string name="wikitext_sup">Надстрочный</string>
+  <string name="wikitext_sub">Подстрочный</string>
+  <string name="wikitext_large">Крупный текст</string>
+  <string name="wikitext_small">Мелкий текст</string>
+  <string name="wikitext_code">Код</string>
   <string name="wikitext_link">Ссылка</string>
+  <string name="wikitext_heading_n">Подзаголовок %d</string>
+  <string name="wikitext_formatting">Форматирование</string>
+  <string name="wikitext_headings">Заголовки</string>
   <string name="wikitext_insert_media">Вставить медиа-файл</string>
   <string name="wikitext_bulleted_list">Маркированный список</string>
   <string name="wikitext_numbered_list">Нумерованный список</string>
@@ -1302,6 +1318,7 @@
   <string name="revision_diff_to">Поучат.:</string>
   <string name="revision_diff_line_num">Строка %d</string>
   <string name="revision_diff_line_nums">Строки с %d-й по %d-ю</string>
+  <string name="revision_diff_lines_from_to">Строки %1$d–%2$d</string>
   <string name="revision_diff_line_added">Строка добавлена</string>
   <string name="revision_diff_line_removed">Строка удалена</string>
   <string name="revision_diff_paragraph_added">Абзац добавлен</string>

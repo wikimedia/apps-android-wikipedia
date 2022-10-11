@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Artsiom91
+* Chadyka
 * Da voli
 * Envlh
 * Gorgich
@@ -299,6 +300,9 @@
   <string name="close_all_tabs_confirm_no">Не</string>
   <string name="button_close_tab">Зачыніць ўкладку</string>
   <string name="page_view_in_browser">Прагляд старонкі ў браўзэры</string>
+  <string name="tool_tip_toc_title">Хуткі доступ да зместу</string>
+  <string name="tool_tip_toc_text">Цяпер вы можаце правесці пальцам улева, каб адкрыць змест, а таксама націснуць і перацягнуць гэтую кнопку скролера, каб хутка пераходзіць да розных раздзелаў артыкула.</string>
+  <string name="tool_tip_lang_button">Цяпер вы можаце шукаць і чытаць на некалькіх мовах Вікіпедыі ў дадатку.\n\n\nНацісніце на значок, каб дадаць больш моваў.</string>
   <string name="error_response_malformed">Адказ сервера быў некарэктна адфарматаваны.</string>
   <string name="error_unknown">Адбылася невядомая памылка.</string>
   <string name="format_error_server_message">Паведамленне: \"%s\"</string>
@@ -307,6 +311,7 @@
   <string name="button_continue_to_article">Чытаць артыкул</string>
   <string name="button_continue_to_talk_page">Гл. старонку размоў</string>
   <string name="button_continue_to_disambiguation">Паглядзець падобныя старонкі</string>
+  <string name="link_preview_disambiguation_description">Гэта назва датычыцца больш чым адной старонцы:</string>
   <string name="button_add_to_reading_list">Дадаць у спіс для чытання</string>
   <string name="page_offline_notice_cannot_load_while_offline">Артыкул не можа быць спампованы без падлучэння да Інтэрнэту.</string>
   <string name="page_offline_notice_add_to_reading_list">Падказка: Дадайце гэты артыкул у спіс да прачытання, і ён запампуецца, як толькі з\'явіцца падключэнне да сеткі.</string>
@@ -334,11 +339,13 @@
   <string name="view_link_preview_error_button_dismiss">Закрыць</string>
   <string name="error_page_does_not_exist">Няма такой старонкі</string>
   <string name="view_wiki_error_message_offline">Немагчыма падлучыцца да Інтэрнэту</string>
+  <string name="view_wiki_error_message_timeout">Немагчыма падключыцца да Вікіпедыі. Праверце падключэнне да сеткі або паўтарыце спробу пазней</string>
   <string name="reference_title">Заўвага %s</string>
   <string name="reference_list_title">Зноскі</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Зацьмяненне выяваў (у Цёмнай тэме)</string>
   <string name="preference_title_prefer_offline_content">Перавага офлайн змесціву</string>
   <string name="preference_summary_prefer_offline_content">Эканомце выкарыстанне дадзеных, загружаючы артыкулы, даступныя ў аўтаномным рэжыме, а не заўсёды загружаючы апошнюю версію артыкула</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Як у сістэме</string>
   <string name="page_footer_license_text">Змест даступны на ўмовах $1, калі не пазначана іншае</string>
   <string name="empty_tab_title">Новая ўкладка</string>
   <string name="menu_save_all_tabs">Захаваць усе ўкладкі</string>
@@ -351,7 +358,15 @@
   <string name="error_blocked_footer">Вы можаце звязацца з &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; або з іншым &lt;a href=\"https://be.wikipedia.org/wiki/Вікіпедыя: Адміністратары\"&gt;адміністратарам&lt;/a&gt;, каб абмеркаваць блакіроўку.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Наладзьце панэль інструментаў</string>
   <string name="error_blocked_footer_no_blocker">Вы можаце звязацца з &lt;a href=\"https://be.wikipedia.org/wiki/Вікіпедыя: Адміністратары\"&gt;адміністратарам&lt;/a&gt;, каб абмеркаваць блакіроўку.</string>
+  <string name="crash_report_activity_title">Памылка дадатку</string>
+  <string name="crash_report_relaunch_or_quit">На жаль, у дадатку Вікіпэдыі адбылася памылка, і яно было закрытае.\n\nХочаце пачаць ізноў ці выйсці?</string>
+  <string name="crash_report_relaunch">Перазапусціць</string>
   <string name="crash_report_quit">Выхад</string>
+  <string name="article_menu_bar_save_button">Запісаць</string>
+  <string name="article_menu_bar_language_button">Мова</string>
+  <string name="article_menu_bar_search_button">Пошук</string>
+  <string name="article_menu_bar_theme_button">Тэма</string>
+  <string name="article_menu_bar_contents_button">Змест</string>
   <string name="article_header_edit_hint">Правіць...</string>
   <string name="article_header_edit_description">Правіць апісанне артыкула</string>
   <string name="article_header_edit_lead_section">Правіць уводзіны</string>
@@ -360,6 +375,7 @@
   <string name="color_theme_dark">Цёмная</string>
   <string name="color_theme_black">Чорны</string>
   <string name="color_theme_sepia">Сэпія</string>
+  <string name="color_theme_test_title">Прыклад тэксту</string>
   <string name="text_style_title">Шрыфт</string>
   <string name="nav_item_saved">Захаваць</string>
   <string name="reading_list_save_to">Дадаць у спіс для чытання</string>
