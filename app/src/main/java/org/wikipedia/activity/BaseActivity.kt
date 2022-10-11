@@ -49,7 +49,7 @@ import kotlin.math.abs
 
 abstract class BaseActivity : AppCompatActivity() {
     interface Callback {
-        fun onPermissionResult(isGranted: Boolean)
+        fun onPermissionResult(activity: BaseActivity, isGranted: Boolean)
     }
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
     private val networkStateReceiver = NetworkStateReceiver()
@@ -65,7 +65,7 @@ abstract class BaseActivity : AppCompatActivity() {
     var callback: Callback? = null
 
     val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
-            callback?.onPermissionResult(isGranted)
+            callback?.onPermissionResult(this, isGranted)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

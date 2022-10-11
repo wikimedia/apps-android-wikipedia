@@ -47,6 +47,7 @@ import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.*
+import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import java.io.InputStream
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback,
@@ -391,8 +392,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private inner class ReadingListItemCallback : ReadingListItemView.Callback {
         override fun onClick(readingList: ReadingList) {
-            actionMode?.finish()
-            startActivity(ReadingListActivity.newIntent(requireContext(), readingList))
+            if (isTagType(actionMode)) {
+                toggleSelectList(readingList)
+            } else {
+                actionMode?.finish()
+                startActivity(ReadingListActivity.newIntent(requireContext(), readingList))
+            }
         }
 
         override fun onRename(readingList: ReadingList) {
@@ -442,7 +447,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun beginMultiSelect() {
+        if (SearchActionModeCallback.`is`(actionMode)) {
+            actionMode?.finish()
+        }
+        if (!isTagType(actionMode)) {
             (requireActivity() as AppCompatActivity).startSupportActionMode(multiSelectExportModeCallback)
+        }
     }
 
     private fun finishActionMode() {
@@ -507,7 +517,17 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }
         }
     }
+
     private val selectedListsCount get() = displayedLists.count { it is ReadingList && it.selected }
+
+    private val selectedLists: List<ReadingList>
+        get() {
+            return displayedLists.let {
+                displayedLists.filterIsInstance<ReadingList>()
+                    .filter { it.selected }
+                    .onEach { it.selected = false }
+            }
+        }
 
     private inner class MultiSelectExportCallback : MultiSelectActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
@@ -518,16 +538,15 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
-
             return super.onPrepareActionMode(mode, menu)
         }
 
         override fun onActionItemClicked(mode: ActionMode, menuItem: MenuItem): Boolean {
             when (menuItem.itemId) {
                 R.id.menu_export_selected -> {
-                    Toast.makeText(context, "Exported", Toast.LENGTH_SHORT).show()
-                    /*markReadItems(selectedItems, false)
-                    finishActionMode()*/
+                    ReadingListsExportHelper.exportLists(activity as MainActivity, selectedLists)
+                    unselectAllLists()
+                    finishActionMode()
                     return true
                 }
             }
@@ -539,8 +558,18 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
+            unselectAllLists()
             actionMode = null
             super.onDestroyActionMode(mode)
+        }
+    }
+
+    private fun unselectAllLists() {
+        selectedLists.let {
+            it.forEach { list ->
+                list.selected = false
+            }
+            adapter.notifyDataSetChanged()
         }
     }
 
@@ -684,10 +713,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     titles.add(PageTitle(title, WikiSite.forLanguageCode(languageCode)))
                 } else {
                     // Confirm that the csv file was created by us
-                    if (list[i] != getString(R.string.reading_list_csv_headers)) {
-                        FeedbackUtil.showMessage(this, R.string.reading_list_import_failed_not_csv)
-                        return
-                    }
                 }
             }
             inputStr.close()

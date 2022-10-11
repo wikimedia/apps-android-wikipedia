@@ -27,17 +27,17 @@ object FileUtil {
         return destinationFile
     }
 
-    fun createFileInDownloadsFolder(context: Context, filename: String, stringBuilder: StringBuilder) {
+    fun createFileInDownloadsFolder(context: Context, filename: String, data: String?) {
         val appExportsFolderName = WikipediaApp.instance.getString(R.string.app_name)
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 val contentResolver = context.contentResolver
                 val contentValues = ContentValues()
                 contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
-                contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "text/csv")
+                contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "application/json")
                 contentValues.put(MediaStore.Images.Media.RELATIVE_PATH, "Download${File.separator}$appExportsFolderName")
                 contentResolver.insert(MediaStore.Downloads.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY), contentValues)?.let { uri ->
-                    contentResolver.openOutputStream(uri)?.use { it.write(stringBuilder.toString().toByteArray()) }
+                    contentResolver.openOutputStream(uri)?.use { it.write(data?.toByteArray()) }
                 }
             } else {
                 val downloadsFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
@@ -46,7 +46,7 @@ object FileUtil {
                 exportsFolder.mkdir()
                 csvFile.delete() // To overwrite when file exists
                 FileOutputStream(csvFile, true).bufferedWriter().use { writer ->
-                    writer.write(stringBuilder.toString())
+                    writer.write(data)
                 }
             }
         } catch (e: Exception) {

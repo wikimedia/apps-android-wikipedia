@@ -1,13 +1,6 @@
 package org.wikipedia.readinglist
 
-import android.Manifest
-import android.app.DownloadManager
-import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.Build
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -16,21 +9,14 @@ import android.view.ViewGroup
 import androidx.annotation.StyleRes
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.app.NotificationCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.getSystemService
 import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
-import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ItemReadingListBinding
-import org.wikipedia.notifications.NotificationCategory
-import org.wikipedia.notifications.NotificationPresenter
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.*
 import org.wikipedia.views.ViewUtil
 
-class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
+class ReadingListItemView : ConstraintLayout {
     interface Callback {
         fun onClick(readingList: ReadingList)
         fun onRename(readingList: ReadingList)
@@ -47,7 +33,6 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
     private val binding = ItemReadingListBinding.inflate(LayoutInflater.from(context), this)
     private var readingList: ReadingList? = null
     private val imageViews = listOf(binding.itemImage1, binding.itemImage2, binding.itemImage3, binding.itemImage4)
-    private val activity: BaseActivity = context as BaseActivity
     var callback: Callback? = null
 
     constructor(context: Context) : super(context)
@@ -62,7 +47,6 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
         isFocusable = true
         clearThumbnails()
         DeviceUtil.setContextClickAsLongClick(this)
-        activity.callback = this
 
         setOnClickListener {
             readingList?.let {
@@ -204,62 +188,6 @@ class ReadingListItemView : ConstraintLayout, BaseActivity.Callback {
                 }
                 else -> return false
             }
-        }
-    }
-
-    private fun handlePermissionsAndExport() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q ||
-            ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-            extractListDataToExport()
-        } else {
-            activity.requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        }
-    }
-
-    private fun extractListDataToExport() {
-        val stringBuilder = StringBuilder(context.getString(R.string.reading_list_csv_headers)).appendLine()
-        readingList?.let {
-            it.pages.forEach { page ->
-                val pageTitle = ReadingListPage.toPageTitle(page)
-                val uri = pageTitle.uri
-                val language = pageTitle.wikiSite.languageCode
-                stringBuilder.append(context.getString(R.string.reading_list_csv_entry, getSanitizedPageTitle(StringUtil.removeUnderscores(pageTitle.prefixedText)), language, uri)).appendLine()
-            }
-            FileUtil.createFileInDownloadsFolder(context, "${readingList?.listTitle}.csv", stringBuilder)
-            val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
-            context.getSystemService<NotificationManager>()?.notify(id, getNotificationBuilder(intent, readingList?.listTitle!!).build())
-            FeedbackUtil.showMessage(activity, R.string.reading_list_export_completed_message)
-        }
-    }
-
-    private fun getSanitizedPageTitle(title: String): String {
-        val sanitizedTitle = StringUtil.removeUnderscores(title)
-        return if (sanitizedTitle.contains(",")) {
-            context.getString(R.string.reading_list_csv_comma_title, sanitizedTitle)
-        } else {
-            sanitizedTitle
-        }
-    }
-
-    private fun getNotificationBuilder(intent: Intent, listName: String): NotificationCompat.Builder {
-        return NotificationCompat.Builder(context, NotificationCategory.MENTION.id)
-            .setDefaults(NotificationCompat.DEFAULT_ALL)
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
-            .setAutoCancel(true)
-            .setContentTitle(context.getString(R.string.reading_list_notification_title))
-            .setContentText(context.getString(R.string.reading_list_notification_text, listName))
-            .setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags))
-            .setLargeIcon(NotificationPresenter.drawNotificationBitmap(context, R.color.accent50, R.drawable.ic_download_in_progress, ""))
-            .setSmallIcon(R.drawable.ic_wikipedia_w)
-            .setColor(ContextCompat.getColor(context, R.color.accent50))
-            .setStyle(NotificationCompat.BigTextStyle().bigText(context.getString(R.string.reading_list_notification_detailed_text, listName)))
-    }
-
-    override fun onPermissionResult(isGranted: Boolean) {
-        if (isGranted) {
-           extractListDataToExport()
-        } else {
-            FeedbackUtil.showMessage(activity, R.string.reading_list_export_write_permission_rationale)
         }
     }
 }

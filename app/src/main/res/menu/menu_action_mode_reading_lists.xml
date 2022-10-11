@@ -4,6 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_export_selected"
         android:icon="@drawable/ic_baseline_import_export_24"
-        android:title="@string/delete_selected_items"
+        android:title="@string/reading_list_action_menu_export_lists"
         app:showAsAction="always" />
 </menu>
