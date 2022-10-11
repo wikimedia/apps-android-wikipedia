@@ -6,6 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.OpenableColumns
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -695,30 +696,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onActivityImportResult(uri: Uri) {
         val inputStr: InputStream = activity?.contentResolver?.openInputStream(uri)!!
-        val listName = getListName(uri)
-        val existingTitles = displayedLists.filterIsInstance<ReadingList>().map { it.title }
-        if (existingTitles.contains(listName)) {
-            // Todo: When  similarly named list exists?
-            return
-        }
 
-        inputStr.bufferedReader().useLines { lines ->
-            val list = lines.toList()
-            val titles = mutableListOf<PageTitle>()
-            for (i in list.indices) {
-                if (i != 0) {
-                    val strArray = list[i].split(",")
-                    val title = StringUtil.addUnderscores(strArray[0])
-                    val languageCode = StringUtil.addUnderscores(strArray[1])
-                    titles.add(PageTitle(title, WikiSite.forLanguageCode(languageCode)))
-                } else {
-                    // Confirm that the csv file was created by us
-                }
-            }
-            inputStr.close()
-            val readingList = AppDatabase.instance.readingListDao().createList(listName, "")
-            AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(readingList, titles)
-        }
+
+        val inputString = inputStr.bufferedReader().use { it.readText() }
+        ReadingListsExportHelper.importLists(inputString)
     }
 
     private fun getListName(uri: Uri): String {

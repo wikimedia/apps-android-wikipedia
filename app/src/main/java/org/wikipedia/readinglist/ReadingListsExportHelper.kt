@@ -15,10 +15,13 @@ import androidx.core.content.getSystemService
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPresenter
+import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
@@ -80,6 +83,18 @@ object ReadingListsExportHelper : BaseActivity.Callback {
             extractListDataToExport(activity, lists)
         } else {
             FeedbackUtil.showMessage(activity, R.string.reading_list_export_write_permission_rationale)
+        }
+    }
+
+    fun importLists(jsonString: String) {
+      val  readingLists :List<ExportableReadingList>  = JsonUtil.decodeFromString(jsonString)!!
+        readingLists.forEach {
+            val readingList = AppDatabase.instance.readingListDao().createList(it.name!!, it.description)
+            val titles = mutableListOf<PageTitle>()
+            it.pages.keys.forEach { apiTitle ->
+               titles.add( PageTitle(apiTitle, WikiSite.forLanguageCode(it.pages[apiTitle].orEmpty())))
+            }
+            AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(readingList, titles)
         }
     }
 }
