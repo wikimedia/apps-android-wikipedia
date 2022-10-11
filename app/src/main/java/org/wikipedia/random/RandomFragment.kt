@@ -84,7 +84,7 @@ class RandomFragment : Fragment() {
 
         wikiSite = requireArguments().getParcelable(RandomActivity.INTENT_EXTRA_WIKISITE)!!
 
-        binding.randomItemPager.offscreenPageLimit = PAGER_OFFSCREEN_PAGE_LIMIT
+        binding.randomItemPager.offscreenPageLimit = 2
         binding.randomItemPager.adapter = RandomItemAdapter(this)
         binding.randomItemPager.setPageTransformer(PagerTransformer(resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL))
         binding.randomItemPager.registerOnPageChangeCallback(viewPagerListener)
