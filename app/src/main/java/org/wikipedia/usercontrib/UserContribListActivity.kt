@@ -340,7 +340,6 @@ class UserContribListActivity : BaseActivity() {
         fun bindItem() {
             binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.page_edit_history_empty_search_message))
             RichTextUtil.removeUnderlinesFromLinks(binding.emptySearchMessage)
-            binding.searchEmptyContainer.isVisible = Prefs.userContribFilterNs.isNotEmpty()
         }
     }
 
