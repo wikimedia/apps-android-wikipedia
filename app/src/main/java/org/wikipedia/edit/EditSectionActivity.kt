@@ -697,10 +697,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         if (highlightText == null || !TextUtils.isGraphic(highlightText)) {
             return
         }
-        binding.editSectionText.post {
-            binding.editSectionScroll.fullScroll(View.FOCUS_DOWN)
-            StringUtil.highlightEditText(binding.editSectionText, sectionWikitext!!, highlightText)
-        }
+        binding.editSectionText.highlightText(highlightText)
     }
 
     private fun hideAllSyntaxModals() {
