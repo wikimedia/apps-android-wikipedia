@@ -185,7 +185,7 @@
   <string name="dialog_create_account_checking_progress">Preverjanje</string>
   <string name="create_account_email_hint">E-poštni naslov (izbirno)</string>
   <string name="create_account_password_repeat_hint">Ponovite geslo</string>
-  <string name="create_account_password_is_username">Geslo ne more biti enako uporabniškemu imenu</string>
+  <string name="create_account_password_is_username">Geslo ne sme biti enako uporabniškemu imenu</string>
   <string name="create_account_passwords_mismatch_error">Gesli se ne ujemata</string>
   <string name="create_account_email_error">Neveljaven e-poštni naslov</string>
   <string name="create_account_username_error">Neveljaven znak v uporabniškem imenu</string>
@@ -708,6 +708,12 @@
   <string name="notifications_filter_icon_content_description">Filtriraj obvestila</string>
   <string name="notifications_filter_update_app_languages">Posodobi jezike aplikacije</string>
   <string name="notifications_empty_search_message">Če želite videti več obvestil, poskusite odstraniti %s</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d filter</item>
+    <item quantity="two">%d filtra</item>
+    <item quantity="few">%d filtri</item>
+    <item quantity="other">%d filtrov</item>
+  </plurals>
   <string name="notifications_select_all_filters">Izberi vse filtre</string>
   <string name="notifications_tab_filter_all">Vse</string>
   <string name="notifications_tab_filter_mentions">Omembe</string>
@@ -723,7 +729,7 @@
   <string name="notifications_type_filter_header">Filter tipov</string>
   <string name="notifications_all_wikis_text">Vsi vikiji</string>
   <string name="notifications_all_types_text">Vse vrste</string>
-  <string name="notifications_menu_user_talk_page">Pogovorna stran uporabnika/ce %s</string>
+  <string name="notifications_menu_user_talk_page" fuzzy="true">%s: pogovorna stran</string>
   <string name="notifications_offline_disable_message">Ta funkcija ni ma voljo brez internetne povezave.</string>
   <string name="view_because_you_read_card_title">Ker ste prebrali</string>
   <string name="view_random_card_title">Randomizator</string>
@@ -1076,7 +1082,7 @@
   <string name="on_this_day_end_of_scroll_message">Potovali ste skozi čas 🚀</string>
   <string name="on_this_day_back_to_future">Nazaj v prihodnost</string>
   <string name="languages_list_activity_title">Dodaj jezik</string>
-  <string name="languages_list_suggested_text">Predlagano</string>
+  <string name="languages_list_suggested_text">Predlagani</string>
   <string name="languages_list_all_text">Vsi jeziki</string>
   <string name="wikipedia_languages_title">Jeziki Wikipedije</string>
   <string name="wikipedia_languages_your_languages_text">Vaš jezik</string>
@@ -1238,6 +1244,7 @@
   <string name="revision_diff_to">Do:</string>
   <string name="revision_diff_line_num">Vrstica %d</string>
   <string name="revision_diff_line_nums">Vrstice %d–%d</string>
+  <string name="revision_diff_lines_from_to">Vrstice %1$d–%2$d</string>
   <string name="revision_diff_line_added">Vrstica dodana</string>
   <string name="revision_diff_line_removed">Vrstica odstranjena</string>
   <string name="revision_diff_paragraph_added">Dodani odstavek</string>
