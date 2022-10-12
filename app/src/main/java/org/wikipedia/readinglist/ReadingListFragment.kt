@@ -587,6 +587,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private inner class HeaderCallback : ReadingListItemView.Callback {
         override fun onClick(readingList: ReadingList) {}
+        override fun onLongClick(): ActionMode? {
+            return null
+        }
+
         override fun onRename(readingList: ReadingList) {
             rename()
         }
@@ -618,6 +622,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         override fun onClick(readingList: ReadingList) {
             actionMode?.finish()
             startActivity(ReadingListActivity.newIntent(requireContext(), readingList))
+        }
+
+        override fun onLongClick(): ActionMode? {
+            return null
         }
 
         override fun onRename(readingList: ReadingList) {

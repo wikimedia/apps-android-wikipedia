@@ -58,7 +58,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private val readingListItemCallback = ReadingListItemCallback()
     private val readingListPageItemCallback = ReadingListPageItemCallback()
     private val searchActionModeCallback = ReadingListsSearchCallback()
-    private val multiSelectExportModeCallback = MultiSelectExportCallback()
+    private val multiSelectExportModeCallback = MultiSelectCallback()
     private var actionMode: ActionMode? = null
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val overflowCallback = OverflowCallback()
@@ -397,6 +397,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }
         }
 
+        override fun onLongClick(): ActionMode? {
+            return actionMode
+        }
+
         override fun onRename(readingList: ReadingList) {
             if (readingList.isDefault) {
                 L.w("Attempted to rename default list.")
@@ -444,9 +448,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun beginMultiSelect() {
-        if (SearchActionModeCallback.`is`(actionMode)) {
-            actionMode?.finish()
-        }
         if (!isTagType(actionMode)) {
             (requireActivity() as AppCompatActivity).startSupportActionMode(multiSelectExportModeCallback)
         }
@@ -526,7 +527,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }
         }
 
-    private inner class MultiSelectExportCallback : MultiSelectActionModeCallback() {
+    private inner class MultiSelectCallback : MultiSelectActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             super.onCreateActionMode(mode, menu)
             mode.menuInflater.inflate(R.menu.menu_action_mode_reading_lists, menu)
@@ -534,15 +535,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             return true
         }
 
-        override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
-            return super.onPrepareActionMode(mode, menu)
-        }
-
         override fun onActionItemClicked(mode: ActionMode, menuItem: MenuItem): Boolean {
             when (menuItem.itemId) {
                 R.id.menu_export_selected -> {
                     ReadingListsExportHelper.exportLists(activity as MainActivity, selectedLists)
-                    unselectAllLists()
                     finishActionMode()
                     return true
                 }
