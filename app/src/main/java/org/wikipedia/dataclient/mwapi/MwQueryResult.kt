@@ -9,6 +9,7 @@ import org.wikipedia.notifications.db.Notification.UnreadNotificationWikiItem
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.SiteInfo
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.StringUtil
 import java.util.*
 
 @Serializable
@@ -70,7 +71,7 @@ class MwQueryResult {
 
     fun getUserResponse(userName: String): UserInfo? {
         // MediaWiki user names are case sensitive, but the first letter is always capitalized.
-        return users?.find { userName.capitalize(Locale.getDefault()) == it?.name }
+        return users?.find { StringUtil.capitalize(userName) == it.name }
     }
 
     fun langLinks(): MutableList<PageTitle> {

@@ -11,7 +11,9 @@ import android.widget.MediaController
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
@@ -35,7 +37,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 import kotlin.math.abs
 
-class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
+class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?> {
     interface Callback {
         fun onDownload(item: GalleryItemFragment)
         fun onShare(item: GalleryItemFragment, bitmap: Bitmap?, subject: String, title: PageTitle)
@@ -72,6 +74,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentGalleryItemBinding.inflate(inflater, container, false)
+        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         binding.image.setOnClickListener {
             if (!isAdded) {
@@ -84,13 +87,8 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
                 binding.image.setAllowParentInterceptOnEdge(abs(binding.image.scale - 1f) < 0.01f)
             }
         }
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setHasOptionsMenu(true)
         loadMedia()
+        return binding.root
     }
 
     override fun onDestroyView() {
@@ -116,8 +114,11 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         binding.progressBar.visibility = if (visible) View.VISIBLE else View.GONE
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu) {
-        super.onPrepareOptionsMenu(menu)
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.menu_gallery, menu)
+    }
+
+    override fun onPrepareMenu(menu: Menu) {
         if (!isAdded) {
             return
         }
@@ -128,24 +129,24 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
                 mediaInfo!!.thumbUrl.isNotEmpty() && binding.image.drawable != null
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+    override fun onMenuItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
             R.id.menu_gallery_visit_image_page -> {
                 if (mediaInfo != null && imageTitle != null) {
                     startActivity(FilePageActivity.newIntent(requireContext(), imageTitle!!))
                 }
-                return true
+                true
             }
             R.id.menu_gallery_save -> {
                 handleImageSaveRequest()
-                return true
+                true
             }
             R.id.menu_gallery_share -> {
                 shareImage()
-                return true
+                true
             }
+            else -> false
         }
-        return super.onOptionsItemSelected(item)
     }
 
     private fun handleImageSaveRequest() {
