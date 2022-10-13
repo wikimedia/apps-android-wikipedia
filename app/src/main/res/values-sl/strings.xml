@@ -25,11 +25,11 @@
   <string name="nav_item_more">Več</string>
   <string name="nav_item_search">Išči</string>
   <string name="error_network_error">Ni se mogoče povezati z internetom.</string>
-  <string name="page_error_retry">Poskusi znova</string>
-  <string name="card_offline_error_retry">Poskusi znova</string>
-  <string name="storage_access_error_retry">Poskusi znova</string>
-  <string name="article_load_error_retry">Poskusi znova</string>
-  <string name="offline_load_error_retry">Poskusi znova</string>
+  <string name="page_error_retry">Poskusite znova</string>
+  <string name="card_offline_error_retry">Poskusite znova</string>
+  <string name="storage_access_error_retry">Poskusite znova</string>
+  <string name="article_load_error_retry">Poskusite znova</string>
+  <string name="offline_load_error_retry">Poskusite znova</string>
   <string name="page_error_back_to_main">Pojdi nazaj</string>
   <string name="error_back">Pojdi nazaj</string>
   <string name="error_next">Naprej</string>
@@ -128,7 +128,7 @@
   <string name="menu_save_changes">Objavi spremembe</string>
   <string name="edit_saved_successfully">Sprememba objavljena!</string>
   <string name="dialog_message_edit_failed">Urejanje neuspešno!</string>
-  <string name="dialog_message_edit_failed_retry">Poskusi znova</string>
+  <string name="dialog_message_edit_failed_retry">Poskusite znova</string>
   <string name="dialog_message_edit_failed_cancel">Prekliči</string>
   <string name="dialog_message_leaving_edit">Vaše spremembe še niso bile shranjene. Res želite zapustiti to stran?</string>
   <string name="dialog_message_leaving_edit_leave">Zapusti</string>
@@ -269,6 +269,12 @@
   <string name="edit_undo">Razveljavi</string>
   <string name="edit_redo">Uveljavi</string>
   <string name="edit_rollback">Vrni</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s zlog</item>
+    <item quantity="two">%s zloga</item>
+    <item quantity="few">%s zlogov</item>
+    <item quantity="other">%s zlogov</item>
+  </plurals>
   <string name="edit_zoom_in">Povečaj</string>
   <string name="edit_zoom_out">Pomanjšaj</string>
   <string name="edit_summary_tag_typo">Popravek tipkarske napake</string>
@@ -277,7 +283,7 @@
   <string name="edit_summary_tag_other">Drugo</string>
   <string name="edit_summary_tag_other_hint">Drug način, s katerim ste izboljšali stran</string>
   <string name="edit_conflict_title">Navzkrižje urejanj</string>
-  <string name="edit_conflict_message">Stran je že spremenil drug uporabnik, katerega urejanje je v navzkrižju z vašim urejanjem. Skopirajte svoja urejanja, pojdite nazaj in osvežite stran, nato poskusite znova.</string>
+  <string name="edit_conflict_message">Stran je že spremenil drug uporabnik, čigar urejanje je v navzkrižju z vašim urejanjem. Skopirajte svoja urejanja, pojdite nazaj in osvežite stran, nato pa poskusite znova.</string>
   <string name="edit_notices">Obvestilo o urejanju</string>
   <string name="edit_notices_please_read">Prosimo, preberite pred urejanjem</string>
   <string name="edit_notices_show_auto">Samodejno prikazuj obvestila o urejanju</string>
@@ -506,6 +512,12 @@
     <item quantity="few">%d članki odstranjeni s seznama</item>
     <item quantity="other">%d člankov odstranjenih s seznama</item>
   </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d članek odstranjen s seznama %s</item>
+    <item quantity="two">%d članka odstranjena s seznama %s</item>
+    <item quantity="few">%d članki odstranjeni s seznama %s</item>
+    <item quantity="other">%d člankov odstranjenih s seznama %s</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d člankov odstranjenih s seznama</string>
   <string name="reading_lists_item_deleted">%s odstranjen s seznamov</string>
   <string name="reading_list_item_delete_undo">Razveljavi</string>
@@ -729,7 +741,7 @@
   <string name="notifications_type_filter_header">Filter tipov</string>
   <string name="notifications_all_wikis_text">Vsi vikiji</string>
   <string name="notifications_all_types_text">Vse vrste</string>
-  <string name="notifications_menu_user_talk_page" fuzzy="true">%s: pogovorna stran</string>
+  <string name="notifications_menu_user_talk_page">%s: pogovorna stran</string>
   <string name="notifications_offline_disable_message">Ta funkcija ni ma voljo brez internetne povezave.</string>
   <string name="view_because_you_read_card_title">Ker ste prebrali</string>
   <string name="view_random_card_title">Randomizator</string>
@@ -811,7 +823,7 @@
   <string name="description_edit_help_title">Informacije: opisi člankov</string>
   <string name="description_edit_help_about_wikidata">O projektu Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Vodnik Wikipodatkov za pisanje opisov</string>
-  <string name="description_edit_anon_limit">Hvala za vaše ponovno zanimanje za urejanje opisov člankov! Za dodatna urejanja se prijavi v svoj račun v Wikipediji.</string>
+  <string name="description_edit_anon_limit">Hvala za vaše nadaljnje zanimanje za urejanje opisov člankov! Za dodatna urejanja se prijavite v svoj račun v Wikipediji.</string>
   <string name="description_edit_license_notice">S spremembo opisa članka se strinjam s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in nepreklicno objavo svojih prispevkov pod licenco &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">običajno začnite z malo črko</string>
   <string name="description_edit_voice_input_description">Glasovni vnos</string>
@@ -1200,6 +1212,18 @@
   <string name="talk_overflow_sort_date_published">Datum objave</string>
   <string name="talk_overflow_sort_date_updated">Datum posodobitve</string>
   <string name="talk_overflow_sort_topic_name">Naslov teme</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Prikaži odgovor</item>
+    <item quantity="two">Prikaži odgovora</item>
+    <item quantity="few">Prikaži odgovore (%d)</item>
+    <item quantity="other">Prikaži odgovore (%d)</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Skrij odgovor</item>
+    <item quantity="two">Skrij odgovora</item>
+    <item quantity="few">Skrij odgovore (%d)</item>
+    <item quantity="other">Skrij odgovore (%d)</item>
+  </plurals>
   <string name="talk_thread_subscribed_to">Naročeni ste na »%s«</string>
   <string name="talk_thread_unsubscribed_from">Odjavljeni ste od »%s«</string>
   <string name="talk_list_item_overflow_subscribe">Naroči</string>
