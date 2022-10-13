@@ -1241,5 +1241,5 @@
   <string name="user_contrib_current">terkini</string>
   <string name="media_playback_error">Terjadi kesalahan saat memutar media.</string>
   <string name="user_contrib_menu_label">Kontribusi</string>
-  <string name="user_contrib_wiki_select">Kontribusi untuk:</string>
+  <string name="user_contrib_filter_activity_title">Kontribusi untuk:</string>
 </resources>

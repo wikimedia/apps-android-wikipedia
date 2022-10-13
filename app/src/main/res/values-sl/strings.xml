@@ -1328,5 +1328,5 @@
   <string name="user_contrib_current">trenutno</string>
   <string name="media_playback_error">Napaka pri predvajanju predstavnosti.</string>
   <string name="user_contrib_menu_label">Prispevki</string>
-  <string name="user_contrib_wiki_select">Prispevki k:</string>
+  <string name="user_contrib_filter_activity_title">Prispevki k:</string>
 </resources>

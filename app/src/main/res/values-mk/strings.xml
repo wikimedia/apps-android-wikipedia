@@ -1259,5 +1259,5 @@
   <string name="user_contrib_current">тековна</string>
   <string name="media_playback_error">Грешка при пуштањето на снимката.</string>
   <string name="user_contrib_menu_label">Придонеси</string>
-  <string name="user_contrib_wiki_select">Придонеси на:</string>
+  <string name="user_contrib_filter_activity_title">Придонеси на:</string>
 </resources>

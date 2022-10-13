@@ -1345,5 +1345,5 @@
   <string name="user_contrib_current">נוכחי</string>
   <string name="media_playback_error">שגיאה בנגינת מדיה.</string>
   <string name="user_contrib_menu_label">תרומות</string>
-  <string name="user_contrib_wiki_select">תרומות ל־:</string>
+  <string name="user_contrib_filter_activity_title">תרומות ל־:</string>
 </resources>

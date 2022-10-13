@@ -1278,5 +1278,5 @@
   <string name="user_contrib_current">actual</string>
   <string name="media_playback_error">Error de reproducció multimèdia</string>
   <string name="user_contrib_menu_label">Contribucions</string>
-  <string name="user_contrib_wiki_select">Contribucions a:</string>
+  <string name="user_contrib_filter_activity_title">Contribucions a:</string>
 </resources>

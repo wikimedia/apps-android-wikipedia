@@ -1290,5 +1290,5 @@
   <string name="user_contrib_current">atual</string>
   <string name="media_playback_error">Erro na reprodução de multimédia.</string>
   <string name="user_contrib_menu_label">Contribuições</string>
-  <string name="user_contrib_wiki_select">Contribuições em:</string>
+  <string name="user_contrib_filter_activity_title">Contribuições em:</string>
 </resources>
