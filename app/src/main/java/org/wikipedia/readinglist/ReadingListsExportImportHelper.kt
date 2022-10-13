@@ -18,7 +18,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
-import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPresenter
 import org.wikipedia.page.PageTitle
@@ -30,7 +29,7 @@ import org.wikipedia.util.FileUtil
 object ReadingListsExportImportHelper : BaseActivity.Callback {
     var lists: List<ReadingList>? = null
 
-    fun exportLists(activity: MainActivity, readingLists: List<ReadingList>?) {
+    fun exportLists(activity: BaseActivity, readingLists: List<ReadingList>?) {
         lists = readingLists
         (activity as BaseActivity).callback = this
         readingLists?.let {
@@ -54,7 +53,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
             val exportedList = ExportableReadingList(it.title, it.description, wikiPageTitlesMap)
             exportedLists.add(exportedList)
         }
-        FileUtil.createFileInDownloadsFolder(activity, activity.getString(R.string.json_file_name), JsonUtil.encodeToString(exportedLists))
+        FileUtil.createFileInDownloadsFolder(activity, activity.getString(R.string.json_file_name, System.currentTimeMillis().toString()), JsonUtil.encodeToString(exportedLists))
         val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
         activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent).build())
         FeedbackUtil.showMessage(activity, R.string.reading_list_export_completed_message)

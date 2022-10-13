@@ -12,6 +12,7 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ItemReadingListBinding
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.readinglist.database.ReadingList
@@ -20,6 +21,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
+import java.util.*
 
 class ReadingListItemView : ConstraintLayout {
     interface Callback {
@@ -191,6 +193,11 @@ class ReadingListItemView : ConstraintLayout {
                 }
                 R.id.menu_reading_list_remove_all_offline -> {
                     list?.let { callback?.onRemoveAllOffline(it) }
+                    return true
+                }
+                R.id.menu_reading_list_export -> {
+                    list?.let { ReadingListsExportImportHelper
+                        .exportLists(context as BaseActivity, Collections.singletonList(it)) }
                     return true
                 }
                 R.id.menu_reading_list_select -> {

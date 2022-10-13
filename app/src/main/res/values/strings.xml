@@ -496,6 +496,7 @@
     <string name="reading_list_sort_by_created">Sort by date created (newest)</string>
     <string name="reading_list_sort_by_created_desc">Sort by date created (oldest)</string>
     <string name="reading_list_menu_delete">Delete list</string>
+    <string name="reading_list_menu_export">Export list</string>
     <string name="reading_list_menu_select">Select</string>
     <string name="reading_list_export_write_permission_rationale">Permission to write to storage on your device is required for exporting your reading list.</string>
     <string name="reading_list_menu_rename">Edit name/description</string>
