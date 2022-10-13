@@ -35,12 +35,14 @@ class SuggestedEditsFeedClient : FeedClient {
         fun onReceiveImageTag(imageTagPage: MwQueryPage)
     }
 
+    private lateinit var cb: FeedClient.Callback
     private var age: Int = 0
     private val disposables = CompositeDisposable()
     private var appLanguages = WikipediaApp.instance.languageState.appLanguageCodes
 
-        override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
+    override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         this.age = age
+        this.cb = cb
 
         if (age == 0) {
             // In the background, fetch the user's latest contribution stats, so that we can update whether the
@@ -135,6 +137,7 @@ class SuggestedEditsFeedClient : FeedClient {
                 )
             }, {
                 L.e(it)
+                cb.error(it)
             }))
     }
 
@@ -177,6 +180,7 @@ class SuggestedEditsFeedClient : FeedClient {
                 )
             }, {
                 L.e(it)
+                cb.error(it)
             }))
     }
 
@@ -217,6 +221,7 @@ class SuggestedEditsFeedClient : FeedClient {
                 }
             }, {
                 L.e(it)
+                cb.error(it)
             }))
     }
 
@@ -273,6 +278,7 @@ class SuggestedEditsFeedClient : FeedClient {
                 }
             }, {
                 L.e(it)
+                cb.error(it)
             }))
     }
 
@@ -286,6 +292,7 @@ class SuggestedEditsFeedClient : FeedClient {
                 callback.onReceiveImageTag(page)
             }, {
                 L.e(it)
+                cb.error(it)
             }))
     }
 
