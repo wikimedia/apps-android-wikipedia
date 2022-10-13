@@ -3,11 +3,13 @@ package org.wikipedia.feed.suggestededits
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.util.DateUtil
 
 class SuggestedEditsCard(val summaryList: List<SuggestedEditsFeedClient.SuggestedEditsSummary>?,
+                         val imageTagsPage: MwQueryPage?,
                          wiki: WikiSite,
                          val age: Int) : WikiSiteCard(wiki) {
 

@@ -31,6 +31,7 @@ import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EX
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
@@ -93,9 +94,10 @@ class SuggestedEditsCardItemFragment : Fragment() {
                 sourceSummaryForEdit = pageSummary.sourceSummaryForEdit
                 targetSummaryForEdit = pageSummary.targetSummaryForEdit
                 cardActionType = pageSummary.cardActionType
+                targetLanguage = targetSummaryForEdit?.lang
             } else {
                 cardActionType = ADD_IMAGE_TAGS
-//                imageTagPage = it.getSerializable(IMAGE_TAGS_PAGE) as MwQueryPage?
+                imageTagPage = JsonUtil.decodeFromString(it.getString(IMAGE_TAG_PAGE))
             }
         }
         SuggestedEditsFunnel[FEED].impression(cardActionType)
@@ -139,9 +141,9 @@ class SuggestedEditsCardItemFragment : Fragment() {
             return
         }
         sourceSummaryForEdit?.let {
-            val pageTitle = if (cardActionType == TRANSLATE_DESCRIPTION || cardActionType == TRANSLATE_CAPTION) it.pageTitle else it.pageTitle
+            val pageTitle = if (cardActionType == TRANSLATE_DESCRIPTION || cardActionType == TRANSLATE_CAPTION) targetSummaryForEdit!!.pageTitle else it.pageTitle
             requestSuggestedEditsLauncher.launch(DescriptionEditActivity.newIntent(
-                requireContext(), pageTitle, null, sourceSummaryForEdit, it, cardActionType, FEED
+                requireContext(), pageTitle, null, sourceSummaryForEdit, targetSummaryForEdit, cardActionType, FEED
             ))
         }
     }
@@ -174,7 +176,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun showImageTagsUI() {
-        return
         showAddImageCaptionUI()
         binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_tags)
         binding.viewArticleExtract.text = StringUtil.removeNamespace(imageTagPage!!.title)
@@ -219,7 +220,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private fun showItemImage() {
         binding.viewArticleImage.visibility = VISIBLE
         if (cardActionType == ADD_IMAGE_TAGS) {
-            return
             binding.viewArticleImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize
             (imageTagPage!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
         } else {
@@ -243,12 +243,12 @@ class SuggestedEditsCardItemFragment : Fragment() {
     companion object {
         private const val AGE = "age"
         private const val PAGE_SUMMARY = "pageSummary"
-        private const val IMAGE_TAGS_PAGE = "imageTagsPage"
+        private const val IMAGE_TAG_PAGE = "imageTagPage"
         const val MAX_RETRY_LIMIT: Long = 5
 
-        fun newInstance(age: Int, pageSummary: SuggestedEditsFeedClient.SuggestedEditsSummary?) =
+        fun newInstance(age: Int, pageSummary: SuggestedEditsFeedClient.SuggestedEditsSummary?, imageTagPage: MwQueryPage?) =
                 SuggestedEditsCardItemFragment().apply {
-                    arguments = bundleOf(AGE to age, PAGE_SUMMARY to pageSummary)
+                    arguments = bundleOf(AGE to age, PAGE_SUMMARY to pageSummary, IMAGE_TAG_PAGE to JsonUtil.encodeToString(imageTagPage))
                 }
     }
 }

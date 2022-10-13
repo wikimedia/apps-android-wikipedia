@@ -38,12 +38,9 @@ class SuggestedEditsFeedClient : FeedClient {
     private var age: Int = 0
     private val disposables = CompositeDisposable()
     private var appLanguages = WikipediaApp.instance.languageState.appLanguageCodes
-    private var langFromCode = appLanguages[0]
-    private var targetLanguage: String? = null
 
-    override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
+        override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         this.age = age
-        this.targetLanguage
 
         if (age == 0) {
             // In the background, fetch the user's latest contribution stats, so that we can update whether the
@@ -57,13 +54,19 @@ class SuggestedEditsFeedClient : FeedClient {
         }
 
         // Request three different SE cards
-        val list = mutableListOf<SuggestedEditsSummary>()
         getCardTypeAndData(DescriptionEditActivity.Action.ADD_DESCRIPTION) { descriptionSummary, _ ->
-            list.add(descriptionSummary!!)
             getCardTypeAndData(DescriptionEditActivity.Action.ADD_CAPTION) { captionSummary, _ ->
-                list.add(captionSummary!!)
                 getCardTypeAndData(DescriptionEditActivity.Action.ADD_IMAGE_TAGS) { _, imageTagsPage ->
-                    FeedCoordinator.postCardsToCallback(cb, listOf(SuggestedEditsCard(list, wiki, age)))
+                    FeedCoordinator.postCardsToCallback(cb,
+                        listOf(
+                            SuggestedEditsCard(
+                                listOf(descriptionSummary!!, captionSummary!!),
+                                imageTagsPage,
+                                wiki,
+                                age
+                            )
+                        )
+                    )
                     cancel()
                 }
             }
@@ -76,25 +79,26 @@ class SuggestedEditsFeedClient : FeedClient {
 
     private fun getCardTypeAndData(cardActionType: DescriptionEditActivity.Action, clientCallback: ClientCallback) {
         val suggestedEditsCard = SuggestedEditsSummary(cardActionType)
+        val langFromCode = appLanguages.first()
+        val targetLanguage = appLanguages.getOrElse(age % appLanguages.size) { langFromCode }
         if (appLanguages.size > 1) {
-            targetLanguage = appLanguages[age % appLanguages.size]
-            if (cardActionType == DescriptionEditActivity.Action.ADD_DESCRIPTION && !targetLanguage.equals(langFromCode))
+            if (cardActionType == DescriptionEditActivity.Action.ADD_DESCRIPTION && targetLanguage != langFromCode)
                 suggestedEditsCard.cardActionType = DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
-            if (cardActionType == DescriptionEditActivity.Action.ADD_CAPTION && !targetLanguage.equals(appLanguages[0]))
+            if (cardActionType == DescriptionEditActivity.Action.ADD_CAPTION && targetLanguage != langFromCode)
                 suggestedEditsCard.cardActionType = DescriptionEditActivity.Action.TRANSLATE_CAPTION
         }
 
-        when (cardActionType) {
-            DescriptionEditActivity.Action.ADD_DESCRIPTION -> addDescription(actionCallback(suggestedEditsCard, clientCallback))
-            DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> translateDescription(actionCallback(suggestedEditsCard, clientCallback))
-            DescriptionEditActivity.Action.ADD_CAPTION -> addCaption(actionCallback(suggestedEditsCard, clientCallback))
-            DescriptionEditActivity.Action.TRANSLATE_CAPTION -> translateCaption(actionCallback(suggestedEditsCard, clientCallback))
+        when (suggestedEditsCard.cardActionType) {
+            DescriptionEditActivity.Action.ADD_DESCRIPTION -> addDescription(langFromCode, actionCallback(suggestedEditsCard, clientCallback))
+            DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> translateDescription(langFromCode, targetLanguage, actionCallback(suggestedEditsCard, clientCallback))
+            DescriptionEditActivity.Action.ADD_CAPTION -> addCaption(langFromCode, actionCallback(suggestedEditsCard, clientCallback))
+            DescriptionEditActivity.Action.TRANSLATE_CAPTION -> translateCaption(langFromCode, targetLanguage, actionCallback(suggestedEditsCard, clientCallback))
             DescriptionEditActivity.Action.ADD_IMAGE_TAGS -> addImageTags(actionCallback(suggestedEditsCard, clientCallback))
         }
     }
 
     private fun actionCallback(suggestedEditsCard: SuggestedEditsSummary, clientCallback: ClientCallback): Callback {
-        return object: Callback {
+        return object : Callback {
             override fun onReceiveSource(pageSummaryForEdit: PageSummaryForEdit) {
                 suggestedEditsCard.sourceSummaryForEdit = pageSummaryForEdit
                 clientCallback.onComplete(suggestedEditsCard, null)
@@ -111,7 +115,7 @@ class SuggestedEditsFeedClient : FeedClient {
         }
     }
 
-    private fun addDescription(callback: Callback) {
+    private fun addDescription(langFromCode: String, callback: Callback) {
         disposables.add(EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode),
             SuggestedEditsCardItemFragment.MAX_RETRY_LIMIT)
             .subscribeOn(Schedulers.io())
@@ -134,13 +138,10 @@ class SuggestedEditsFeedClient : FeedClient {
             }))
     }
 
-    private fun translateDescription(callback: Callback) {
-        if (targetLanguage.isNullOrEmpty()) {
-            return
-        }
+    private fun translateDescription(langFromCode: String, targetLanguage: String, callback: Callback) {
         disposables.add(
             EditingSuggestionsProvider
-            .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode), targetLanguage!!, true,
+            .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode), targetLanguage, true,
                 SuggestedEditsCardItemFragment.MAX_RETRY_LIMIT
             )
             .subscribeOn(Schedulers.io())
@@ -165,8 +166,8 @@ class SuggestedEditsFeedClient : FeedClient {
                 callback.onReceiveTarget(
                     PageSummaryForEdit(
                         target.apiTitle,
-                        targetLanguage!!,
-                        target.getPageTitle(WikiSite.forLanguageCode(targetLanguage!!)),
+                        targetLanguage,
+                        target.getPageTitle(WikiSite.forLanguageCode(targetLanguage)),
                         target.displayTitle,
                         target.description,
                         target.thumbnailUrl,
@@ -174,13 +175,12 @@ class SuggestedEditsFeedClient : FeedClient {
                         target.extractHtml
                     )
                 )
-
             }, {
                 L.e(it)
             }))
     }
 
-    private fun addCaption(callback: Callback) {
+    private fun addCaption(langFromCode: String, callback: Callback) {
         disposables.add(
             EditingSuggestionsProvider.getNextImageWithMissingCaption(langFromCode,
                 SuggestedEditsCardItemFragment.MAX_RETRY_LIMIT
@@ -220,13 +220,10 @@ class SuggestedEditsFeedClient : FeedClient {
             }))
     }
 
-    private fun translateCaption(callback: Callback) {
-        if (targetLanguage.isNullOrEmpty()) {
-            return
-        }
+    private fun translateCaption(langFromCode: String, targetLanguage: String, callback: Callback) {
         var fileCaption: String? = null
         disposables.add(
-            EditingSuggestionsProvider.getNextImageWithMissingCaption(langFromCode, targetLanguage!!,
+            EditingSuggestionsProvider.getNextImageWithMissingCaption(langFromCode, targetLanguage,
                 SuggestedEditsCardItemFragment.MAX_RETRY_LIMIT
             )
             .subscribeOn(Schedulers.io())
@@ -263,13 +260,13 @@ class SuggestedEditsFeedClient : FeedClient {
                     callback.onReceiveTarget(
                         sourceSummaryForEdit.copy(
                             description = null,
-                            lang = targetLanguage!!,
+                            lang = targetLanguage,
                             pageTitle = PageTitle(
                                 Namespace.FILE.name,
                                 StringUtil.removeNamespace(page.title),
                                 null,
                                 it.thumbUrl,
-                                WikiSite.forLanguageCode(targetLanguage!!)
+                                WikiSite.forLanguageCode(targetLanguage)
                             )
                         )
                     )
