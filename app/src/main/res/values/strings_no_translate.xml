@@ -62,7 +62,6 @@
     <string name="tag_icon_key">tagIconKey</string>
     <string name="tag_text_key">tagTextKey</string>
 
-    <!-- Csv export file entry pattern -->
-    <string name="reading_list_csv_entry">%1$s,%2$s,%3$s</string>
-    <string name="reading_list_csv_comma_title">\"%s\"</string>
+    <!-- Json export -->
+    <string name="json_file_name">reading_lists_export.json</string>
 </resources>

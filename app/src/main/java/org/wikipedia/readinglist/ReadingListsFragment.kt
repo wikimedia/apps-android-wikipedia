@@ -538,7 +538,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         override fun onActionItemClicked(mode: ActionMode, menuItem: MenuItem): Boolean {
             when (menuItem.itemId) {
                 R.id.menu_export_selected -> {
-                    ReadingListsExportHelper.exportLists(activity as MainActivity, selectedLists)
+                    ReadingListsExportImportHelper.exportLists(activity as MainActivity, selectedLists)
                     finishActionMode()
                     return true
                 }
@@ -668,7 +668,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     override fun onActivityImportResult(uri: Uri) {
         val inputStr: InputStream = activity?.contentResolver?.openInputStream(uri)!!
         val inputString = inputStr.bufferedReader().use { it.readText() }
-        ReadingListsExportHelper.importLists(inputString)
+        ReadingListsExportImportHelper.importLists(inputString)
         inputStr.close()
     }
 

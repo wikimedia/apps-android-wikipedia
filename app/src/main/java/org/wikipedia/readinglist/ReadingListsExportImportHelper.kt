@@ -27,7 +27,7 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.FileUtil
 
-object ReadingListsExportHelper : BaseActivity.Callback {
+object ReadingListsExportImportHelper : BaseActivity.Callback {
     var lists: List<ReadingList>? = null
 
     fun exportLists(activity: MainActivity, readingLists: List<ReadingList>?) {
@@ -54,29 +54,41 @@ object ReadingListsExportHelper : BaseActivity.Callback {
             val exportedList = ExportableReadingList(it.title, it.description, wikiPageTitlesMap)
             exportedLists.add(exportedList)
         }
-        FileUtil.createFileInDownloadsFolder(activity, "reading_lists_export.json", JsonUtil.encodeToString(exportedLists))
+        FileUtil.createFileInDownloadsFolder(activity, activity.getString(R.string.json_file_name), JsonUtil.encodeToString(exportedLists))
         val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
-        activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent, "reading_lists_export.json").build())
+        activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent).build())
         FeedbackUtil.showMessage(activity, R.string.reading_list_export_completed_message)
     }
 
-    private fun getNotificationBuilder(context: Context, intent: Intent, listName: String): NotificationCompat.Builder {
+    private fun getNotificationBuilder(context: Context, intent: Intent): NotificationCompat.Builder {
         return NotificationCompat
             .Builder(context, NotificationCategory.MENTION.id)
             .setDefaults(NotificationCompat.DEFAULT_ALL).setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true).setContentTitle(context.getString(R.string.reading_list_notification_title))
-            .setContentText(context.getString(R.string.reading_list_notification_text, listName))
+            .setContentText(context.getString(R.string.reading_list_notification_text))
             .setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags))
             .setLargeIcon(NotificationPresenter.drawNotificationBitmap(context, R.color.accent50, R.drawable.ic_download_in_progress, ""))
             .setSmallIcon(R.drawable.ic_wikipedia_w)
             .setColor(ContextCompat.getColor(context, R.color.accent50))
-            .setStyle(NotificationCompat.BigTextStyle().bigText(context.getString(R.string.reading_list_notification_detailed_text, listName)))
+            .setStyle(NotificationCompat.BigTextStyle().bigText(context.getString(R.string.reading_list_notification_detailed_text)))
     }
 
-    @Suppress("unused")
-    @Serializable
-    private class ExportableReadingList
-        (val name: String? = null, val description: String? = null, val pages: Map<String, String>)
+    fun importLists(jsonString: String) {
+        val readingLists: List<ExportableReadingList> = JsonUtil.decodeFromString(jsonString)!!
+        for (list in readingLists) {
+            val existingTitles = AppDatabase.instance.readingListDao().getAllLists().map { it.title }
+            if (existingTitles.contains(list.name)) {
+                // Todo: When  similarly named list exists?
+                continue
+            }
+            val readingList = AppDatabase.instance.readingListDao().createList(list.name!!, list.description)
+            val titles = mutableListOf<PageTitle>()
+            list.pages.keys.forEach { apiTitle ->
+                titles.add(PageTitle(apiTitle, WikiSite.forLanguageCode(list.pages[apiTitle].orEmpty())))
+            }
+            AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(readingList, titles)
+        }
+    }
 
     override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
         if (isGranted) {
@@ -86,15 +98,8 @@ object ReadingListsExportHelper : BaseActivity.Callback {
         }
     }
 
-    fun importLists(jsonString: String) {
-        val readingLists: List<ExportableReadingList> = JsonUtil.decodeFromString(jsonString)!!
-        readingLists.forEach {
-            val readingList = AppDatabase.instance.readingListDao().createList(it.name!!, it.description)
-            val titles = mutableListOf<PageTitle>()
-            it.pages.keys.forEach { apiTitle ->
-                titles.add(PageTitle(apiTitle, WikiSite.forLanguageCode(it.pages[apiTitle].orEmpty())))
-            }
-            AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(readingList, titles)
-        }
-    }
+    @Suppress("unused")
+    @Serializable
+    private class ExportableReadingList
+        (val name: String? = null, val description: String? = null, val pages: Map<String, String>)
 }
