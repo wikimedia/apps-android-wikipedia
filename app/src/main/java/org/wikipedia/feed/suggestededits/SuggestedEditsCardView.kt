@@ -24,13 +24,11 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     override var card: SuggestedEditsCard? = null
         set(value) {
-            if (prevImageDownloadSettings != Prefs.isImageDownloadEnabled) {
-                field = value
-                prevImageDownloadSettings = Prefs.isImageDownloadEnabled
-                value?.let {
-                    header(it)
-                    updateContents(it)
-                }
+            field = value
+            prevImageDownloadSettings = Prefs.isImageDownloadEnabled
+            value?.let {
+                header(it)
+                updateContents(it)
             }
         }
 
