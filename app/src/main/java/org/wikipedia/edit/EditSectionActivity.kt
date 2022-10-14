@@ -135,8 +135,17 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
     private val syntaxButtonCallback = object : WikiTextKeyboardView.Callback {
         override fun onPreviewLink(title: String) {
-            bottomSheetPresenter.show(supportFragmentManager,
-                    LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null))
+            val dialog = LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null)
+            bottomSheetPresenter.show(supportFragmentManager, dialog)
+            binding.root.post {
+                dialog.dialog?.setOnDismissListener {
+                    if (!isDestroyed) {
+                        binding.root.postDelayed({
+                            DeviceUtil.showSoftKeyboard(binding.editSectionText)
+                        }, 200)
+                    }
+                }
+            }
         }
 
         override fun onRequestInsertMedia() {
