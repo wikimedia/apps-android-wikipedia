@@ -6,9 +6,7 @@ import org.wikipedia.dataclient.WikiSite
 object Constants {
 
     const val ACTIVITY_REQUEST_ADD_A_LANGUAGE = 59
-    const val ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH = 60
     const val ACTIVITY_REQUEST_BROWSE_TABS = 61
-    const val ACTIVITY_REQUEST_CREATE_ACCOUNT = 42
     const val ACTIVITY_REQUEST_DESCRIPTION_EDIT = 55
     const val ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL = 56
     const val ACTIVITY_REQUEST_EDIT_SECTION = 51
@@ -100,6 +98,7 @@ object Constants {
         SUGGESTED_EDITS("suggestedEdits"),
         TABS_ACTIVITY("tabsActivity"),
         TALK_ACTIVITY("talkActivity"),
+        EDIT_ACTIVITY("editActivity"),
         TOOLBAR("toolbar"),
         VOICE("voice"),
         WATCHLIST_ACTIVITY("watchlist"),

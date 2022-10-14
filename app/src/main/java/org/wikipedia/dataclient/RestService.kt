@@ -39,6 +39,17 @@ interface RestService {
 
     @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
     @GET("page/summary/{title}")
+    suspend fun getSummaryResponseSuspend(
+        @Path("title") title: String,
+        @Header("Referer") referrerUrl: String?,
+        @Header("Cache-Control") cacheControl: String?,
+        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String?,
+        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String?,
+        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String?
+    ): Response<PageSummary>
+
+    @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
+    @GET("page/summary/{title}")
     fun getSummary(
         @Header("Referer") referrerUrl: String?,
         @Path("title") title: String
@@ -75,6 +86,12 @@ interface RestService {
         @Path("title") title: String,
         @Path("revision") revision: Long
     ): Observable<MediaList>
+
+    @GET("page/media-list/{title}/{revision}")
+    suspend fun getMediaListSuspend(
+        @Path("title") title: String,
+        @Path("revision") revision: Long
+    ): MediaList
 
     @GET("page/media-list/{title}/{revision}")
     fun getMediaListResponse(

@@ -1,6 +1,7 @@
 package org.wikipedia.edit
 
 import android.annotation.SuppressLint
+import android.content.ClipData
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
@@ -12,14 +13,18 @@ import android.text.InputType
 import android.text.Layout
 import android.text.TextPaint
 import android.util.AttributeSet
+import android.view.ContentInfo
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
 import android.widget.EditText
+import androidx.annotation.RequiresApi
 import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.log.L
+import kotlin.math.min
 
 /**
  * Notice that this view inherits from the platform EditText class, instead of AppCompatEditText.
@@ -35,9 +40,10 @@ class SyntaxHighlightableEditText : EditText {
     private val lineNumberPaint = TextPaint()
     private val lineNumberBackgroundPaint = Paint()
     private val isRtl: Boolean = resources.configuration.layoutDirection == LAYOUT_DIRECTION_RTL
-    private val paddingWithoutLineNumbers = DimenUtil.roundedDpToPx(8f)
+    private val paddingWithoutLineNumbers = DimenUtil.roundedDpToPx(12f)
     private val paddingWithLineNumbers = DimenUtil.roundedDpToPx(36f)
     private val lineNumberGapWidth = DimenUtil.roundedDpToPx(8f)
+    private val gutterRect = Rect()
     private var allowScrollToCursor = true
 
     lateinit var scrollView: View
@@ -57,9 +63,6 @@ class SyntaxHighlightableEditText : EditText {
 
     init {
         applyPaddingForLineNumbers()
-
-        // TODO: this is temporary, and will be controlled by a preference in the next release.
-        enableTypingSuggestions(false)
 
         lineNumberPaint.isAntiAlias = true
         lineNumberPaint.textAlign = if (isRtl) Paint.Align.LEFT else Paint.Align.RIGHT
@@ -89,6 +92,15 @@ class SyntaxHighlightableEditText : EditText {
         return super.bringPointIntoView(offset)
     }
 
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+        super.onLayout(changed, left, top, right, bottom)
+        if (isRtl) {
+            gutterRect.set(width - paddingWithLineNumbers + lineNumberGapWidth / 2, 0, width, height)
+        } else {
+            gutterRect.set(0, 0, paddingWithLineNumbers - lineNumberGapWidth / 2, height)
+        }
+    }
+
     override fun onDraw(canvas: Canvas?) {
         if (prevLineCount != lineCount) {
             prevLineCount = lineCount
@@ -102,8 +114,6 @@ class SyntaxHighlightableEditText : EditText {
             val lastLine = layout.getLineForVertical(scrollView.scrollY + scrollView.height)
 
             // paint the gutter area with a slightly different color than text background.
-            val gutterRect = if (isRtl) Rect(width - paddingWithLineNumbers + lineNumberGapWidth / 2, 0, width, height) else
-                Rect(0, 0, paddingWithLineNumbers - lineNumberGapWidth / 2, height)
             canvas?.drawRect(gutterRect, lineNumberBackgroundPaint)
 
             // paint the line numbers, by getting each line position from the Layout.
@@ -184,6 +194,23 @@ class SyntaxHighlightableEditText : EditText {
         return inputConnection
     }
 
+    @RequiresApi(Build.VERSION_CODES.S)
+    override fun onReceiveContent(payload: ContentInfo): ContentInfo? {
+        var newPayload = payload
+        try {
+            // Do not allow pasting of formatted text! We do this by replacing the contents of the clip
+            // with plain text.
+            val clip = payload.clip
+            val lastClipText = clip.getItemAt(clip.itemCount - 1).coerceToText(context).toString()
+            newPayload = ContentInfo.Builder(payload)
+                    .setClip(ClipData.newPlainText(null, lastClipText))
+                    .build()
+        } catch (e: Exception) {
+            L.e(e)
+        }
+        return super.onReceiveContent(newPayload)
+    }
+
     fun undo() {
         inputConnection?.let {
             it.sendKeyEvent(KeyEvent(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(),
@@ -199,6 +226,35 @@ class SyntaxHighlightableEditText : EditText {
                     KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_Z, 0, KeyEvent.META_CTRL_ON or KeyEvent.META_SHIFT_ON))
             it.sendKeyEvent(KeyEvent(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(),
                     KeyEvent.ACTION_UP, KeyEvent.KEYCODE_Z, 0, KeyEvent.META_CTRL_ON or KeyEvent.META_SHIFT_ON))
+        }
+    }
+
+    fun highlightText(text: String) {
+        val curText = getText()
+        val words = text.split("\\s".toRegex()).filter { it.isNotBlank() }
+        var pos = 0
+        var firstPos = 0
+        for (word in words) {
+            pos = curText.indexOf(word, pos)
+            if (pos == -1) {
+                break
+            } else if (firstPos == 0) {
+                firstPos = pos
+            }
+        }
+        if (pos == -1) {
+            pos = curText.indexOf(words.last())
+            firstPos = pos
+        }
+        if (pos >= 0) {
+            setSelection(firstPos, pos + words.last().length)
+            val targetScrollPos = min(firstPos + 100, curText.length)
+            postDelayed({
+                if (isAttachedToWindow && layout != null) {
+                    allowScrollToCursor = true
+                    bringPointIntoView(targetScrollPos)
+                }
+            }, 500)
         }
     }
 }

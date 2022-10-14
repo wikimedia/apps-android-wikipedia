@@ -453,7 +453,6 @@
   <string name="suggested_edits_contribution_seen_text">ეკონია 30 დრას %s-შა რე ნაძირებუ.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">გოღა</string>
   <string name="suggested_edits_encourage_account_creation_title">გიჩქუდესო ნამჷ-და, ვიკიპედიაშ რედაქტირაფა მიდგად შეულებუნ?</string>
-  <string name="file_page_suggestion_reason">მერზიაფაშ სამანჯელი</string>
   <string name="size_gb">%.2f გბ</string>
   <string name="onboarding_get_started">დოჭყაფა</string>
   <string name="onboarding_maybe_later">მოგვიანაფათ შილებე</string>
@@ -466,6 +465,7 @@
   <string name="thank_dialog_positive_button_text" fuzzy="true">მარდიშ გინოგაფა</string>
   <string name="thank_dialog_negative_button_text" fuzzy="true">გოუქვაფა</string>
   <string name="thank_success_message">თქვანი \'უზჷმე მარდი\' ჯღონილი რე მახვარებუშა %s  👍</string>
+  <string name="revision_diff_lines_from_to">ღოზეფი %1$d–%2$d</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">თირუა</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 თუთათ</string>
   <string name="watchlist_expiry_dialog_one_week">1 მარა</string>

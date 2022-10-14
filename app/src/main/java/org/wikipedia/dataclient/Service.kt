@@ -108,6 +108,12 @@ interface Service {
         @Query("iiextmetadatalanguage") lang: String
     ): Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
+    suspend fun getImageInfoSuspend(
+        @Query("titles") titles: String,
+        @Query("iiextmetadatalanguage") lang: String
+    ): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&prop=videoinfo&viprop=timestamp|user|url|mime|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
     fun getVideoInfo(
         @Query("titles") titles: String,
@@ -170,7 +176,7 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
     val streamConfigs: Observable<MwStreamConfigsResponse>
 
-    @GET(MW_API_PREFIX + "action=query&meta=allmessages")
+    @GET(MW_API_PREFIX + "action=query&meta=allmessages&amenableparser=1")
     suspend fun getMessages(
             @Query("ammessages") messages: String,
             @Query("amargs") args: String?
@@ -241,6 +247,9 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights")
     suspend fun userInfo(@Query("ususers") userName: String): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights&meta=allmessages")
+    suspend fun userInfoWithMessages(@Query("ususers") userName: String, @Query("ammessages") messages: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=globaluserinfo&guiprop=editcount|groups|rights")
     suspend fun globalUserInfo(@Query("guiuser") userName: String): MwQueryResponse
@@ -344,7 +353,7 @@ interface Service {
     suspend fun getUserContrib(
             @Query("ucuser") username: String,
             @Query("uclimit") maxCount: Int,
-            @Query("ucnamespace") ns: Int?,
+            @Query("ucnamespace") ns: String?,
             @Query("ucshow") filter: String?,
             @Query("uccontinue") uccontinue: String?
     ): MwQueryResponse

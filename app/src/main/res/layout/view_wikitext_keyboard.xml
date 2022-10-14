@@ -1,145 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/wikitext_keyboard_container"
-    android:layout_width="wrap_content"
-    android:layout_height="48dp"
-    android:orientation="horizontal">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_width="match_parent"
+    tools:layout_height="wrap_content">
 
-    <org.wikipedia.views.WikitextKeyboardButtonView
-        android:id="@+id/wikitext_button_bold"
+    <LinearLayout
+        android:id="@+id/wikitext_keyboard_container"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:buttonHint="@string/wikitext_bold"
-        app:buttonImage="@drawable/ic_format_bold_black_24dp" />
+        android:layout_height="48dp"
+        android:orientation="horizontal">
 
-    <org.wikipedia.views.WikitextKeyboardButtonView
-        android:id="@+id/wikitext_button_italic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:buttonHint="@string/wikitext_italic"
-        app:buttonImage="@drawable/ic_format_italic_black_24dp" />
-
-    <View
-        android:layout_width="0.5dp"
-        android:layout_height="match_parent"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="8dp"
-        android:background="?attr/material_theme_border_color" />
-
-    <org.wikipedia.views.WikitextKeyboardButtonView
-        android:id="@+id/wikitext_button_list_bulleted"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:buttonHint="@string/wikitext_bulleted_list"
-        app:buttonImage="@drawable/ic_format_list_bulleted_black_24dp" />
-
-    <org.wikipedia.views.WikitextKeyboardButtonView
-        android:id="@+id/wikitext_button_list_numbered"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:buttonHint="@string/wikitext_numbered_list"
-        app:buttonImage="@drawable/ic_format_list_numbered_black_24dp" />
-
-    <org.wikipedia.views.WikitextKeyboardButtonView
-        android:id="@+id/wikitext_button_insert_media"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:buttonHint="@string/wikitext_insert_media"
-        app:buttonImage="@drawable/ic_image_themed_24dp" />
-
-    <View
-        android:layout_width="0.5dp"
-        android:layout_height="match_parent"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="8dp"
-        android:background="?attr/material_theme_border_color" />
-
-    <org.wikipedia.views.WikitextKeyboardButtonView
-        android:id="@+id/wikitext_button_undo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:buttonHint="@string/edit_undo"
-        app:buttonImage="@drawable/ic_undo_themed_24dp" />
-
-    <org.wikipedia.views.WikitextKeyboardButtonView
-        android:id="@+id/wikitext_button_redo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:buttonHint="@string/edit_redo"
-        app:buttonImage="@drawable/ic_redo_themed_24dp" />
-
-    <View
-        android:id="@+id/wikitext_undo_redo_separator"
-        android:layout_width="0.5dp"
-        android:layout_height="match_parent"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="8dp"
-        android:background="?attr/material_theme_border_color" />
-
-    <org.wikipedia.views.WikitextKeyboardButtonView
-        android:id="@+id/wikitext_button_link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:buttonHint="@string/wikitext_link"
-        app:buttonImage="@drawable/ic_link_black_24dp" />
-
-    <org.wikipedia.views.WikitextKeyboardButtonView
-        android:id="@+id/wikitext_button_template"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:buttonHint="@string/wikitext_template"
-        app:buttonImage="@drawable/ic_oojs_ui_icon_code" />
-
-    <org.wikipedia.views.WikitextKeyboardButtonView
-        android:id="@+id/wikitext_button_ref"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:buttonHint="@string/wikitext_reference"
-        app:buttonImage="@drawable/ic_oojs_ui_icon_reference" />
-
-    <View
-        android:layout_width="0.5dp"
-        android:layout_height="match_parent"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="8dp"
-        android:background="?attr/material_theme_border_color" />
-
-    <FrameLayout
-        android:id="@+id/wikitext_button_preview_link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:focusable="true"
-        android:background="?android:attr/selectableItemBackground">
-
-        <androidx.appcompat.widget.AppCompatImageView
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_text_format"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_link_black_24dp"
-            app:tint="?attr/material_theme_secondary_color" />
+            app:buttonHint="@string/wikitext_formatting"
+            app:buttonImage="@drawable/ic_format_bold_black_24dp" />
 
-        <TextView
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="2dp"
-            android:text="@string/wikitext_preview_link"
-            android:textColor="?attr/material_theme_secondary_color"
-            android:textSize="9sp" />
-    </FrameLayout>
+            app:buttonText="H2"
+            app:buttonHint="@string/wikitext_headings" />
 
-</LinearLayout>
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_list_bulleted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_bulleted_list"
+            app:buttonImage="@drawable/ic_format_list_bulleted_black_24dp" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_list_numbered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_numbered_list"
+            app:buttonImage="@drawable/ic_format_list_numbered_black_24dp" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_undo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/edit_undo"
+            app:buttonImage="@drawable/ic_undo_themed_24dp" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_redo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/edit_redo"
+            app:buttonImage="@drawable/ic_redo_themed_24dp" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_insert_media"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_insert_media"
+            app:buttonImage="@drawable/ic_image_themed_24dp" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_link"
+            app:buttonImage="@drawable/ic_link_black_24dp" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_preview_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_preview_link"
+            app:buttonImage="@drawable/ic_visibility_24" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_template"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_template"
+            app:buttonImage="@drawable/ic_puzzle" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_ref"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_reference"
+            app:buttonImage="@drawable/ic_oojs_ui_icon_reference" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/transparent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/color_group_60" />
+
+</merge>

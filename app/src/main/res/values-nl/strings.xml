@@ -97,6 +97,10 @@
     <item quantity="one">%1$d bewerking sinds %2$s</item>
     <item quantity="other">%1$d bewerkingen sinds %2$s</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d bewerking sinds %2$s (%3$s)</item>
+    <item quantity="other">%1$d bewerkingen sinds %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Probeer &lt;a href=\"#\"&gt;filters&lt;/a&gt; te wijzigen om meer bewerkingen te zien</string>
   <string name="menu_page_show_tabs">Tabbladen weergeven</string>
   <string name="menu_page_other_languages">Taal wijzigen</string>
@@ -1006,7 +1010,6 @@
   <string name="file_page_activity_title">Bestandspagina</string>
   <string name="file_page_add_image_caption_button">Afbeeldingsbijschrift toevoegen</string>
   <string name="file_page_add_image_tags_button">Afbeeldingslabel toevoegen</string>
-  <string name="file_page_suggestion_reason">Reden voor suggestie</string>
   <string name="file_page_edit_button_content_description">Bewerk %s</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
@@ -1179,6 +1182,7 @@
   <string name="menu_option_edit_source">Bron bewerken</string>
   <string name="menu_option_user_page">Gebruikerspagina van %s</string>
   <string name="menu_option_find_in_talk_page_topic">Overlegpagina doorzoeken</string>
+  <string name="menu_option_copy_link_to_clipboard">Koppeling naar klembord kopiëren</string>
   <string name="talk_menu_copy_text">Tekst kopiëren</string>
   <string name="talk_menu_expand_threads">Gesprekken uitklappen</string>
   <string name="talk_menu_collapse_threads">Gesprekken inklappen</string>
@@ -1236,6 +1240,11 @@
   <string name="watchlist_page_moved">Hernoemd</string>
   <string name="watchlist_page_protected">Beveiligd</string>
   <string name="watchlist_page_deleted">Verwijderd</string>
+  <string name="preview_edit_title">Voorvertoning van de bewerking</string>
+  <string name="preview_edit_summarize_edit_title">Bewerking samenvatten</string>
+  <string name="preview_edit_summarize_edit_hint">Hoe hebt u de pagina verbeterd?</string>
+  <string name="preview_edit_minor_edit">Dit is een kleine bewerking</string>
+  <string name="preview_edit_watch_this_page">Deze pagina volgen</string>
   <string name="action_item_categories">Categorieën</string>
   <string name="page_no_categories">Deze pagina staat in geen enkele categorie.</string>
   <string name="category_tab_articles">Artikelen</string>
@@ -1252,4 +1261,5 @@
   <string name="user_contrib_current">huidige versie</string>
   <string name="media_playback_error">Fout bij het afspelen van media.</string>
   <string name="user_contrib_menu_label">Bijdragen</string>
+  <string name="user_contrib_wiki_select">Bijdragen aan:</string>
 </resources>
