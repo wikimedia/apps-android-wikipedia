@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.wikipedia"
     android:installLocation="auto"
     tools:node="strict">
     <!--
@@ -13,7 +12,8 @@
     -->
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="replace" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-permission
@@ -32,7 +32,7 @@
     <!-- For being able to receive notifications upon boot -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-    <uses-feature android:name="android.hardware.wifi" tools:node="replace" android:required="false"  />
+    <uses-feature android:name="android.hardware.wifi" android:required="false"  />
 
     <!-- For keeping the device awake while performing background tasks, such as syncing offline articles. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -47,6 +47,9 @@
         <intent>
             <action android:name="android.intent.action.VIEW" />
             <data android:scheme="https" />
+        </intent>
+        <intent>
+            <action android:name="android.speech.action.RECOGNIZE_SPEECH" />
         </intent>
     </queries>
 
@@ -68,6 +71,9 @@
         Set "value" to "Google Play" for Google Play Store.
         -->
         <meta-data android:name="@string/preference_key_app_channel" android:value="@string/channel" />
+
+        <!-- Opt out of metrics collection for the System WebView. -->
+        <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true" />
 
         <activity
             android:name=".main.MainActivity"
@@ -195,12 +201,12 @@
             android:name=".search.SearchActivity"
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
-            <intent-filter android:label="@string/intent_share_search_label">
+            <intent-filter android:label="@string/search_hint">
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
             </intent-filter>
-            <intent-filter android:label="@string/intent_share_search_label">
+            <intent-filter android:label="@string/search_hint">
                 <action android:name="android.intent.action.PROCESS_TEXT" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
@@ -250,6 +256,10 @@
             android:label="@string/tabs_activity_title"
             android:theme="@style/AppTheme" />
 
+        <activity
+            android:name=".categories.CategoryActivity"
+            android:theme="@style/AppTheme.ActionBar" />
+
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
 
         <activity
@@ -262,16 +272,6 @@
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
-            android:name=".userprofile.ContributionsActivity"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-            android:label=""
-            android:theme="@style/AppTheme.ActionBar" />
-
-        <activity
-            android:name=".userprofile.ContributionDetailsActivity"
-            android:theme="@style/AppTheme.Page" />
-
-        <activity
             android:name=".commons.FilePageActivity"
             android:label=""
             android:theme="@style/AppTheme.ActionBar"/>
@@ -279,15 +279,24 @@
         <activity
             android:name=".talk.TalkTopicsActivity"
             android:label=""
-            android:theme="@style/AppTheme.ActionBar" />
+            android:theme="@style/AppTheme" />
 
         <activity
             android:name=".talk.TalkTopicActivity" />
 
         <activity
-            android:name=".diff.ArticleEditDetailsActivity"
-            android:label=""
-            android:theme="@style/AppTheme.ActionBar"  />
+            android:name=".talk.TalkReplyActivity" />
+
+        <activity
+            android:name=".talk.ArchivedTalkPagesActivity" />
+
+        <activity
+            android:name=".diff.ArticleEditDetailsActivity" />
+
+        <activity
+            android:name=".page.customize.CustomizeToolbarActivity"
+            android:label="@string/customize_toolbar_title"
+            android:theme="@style/AppTheme.ActionBar"/>
 
         <activity
             android:name=".notifications.NotificationFilterActivity"
@@ -296,12 +305,29 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <activity
+
             android:name=".topics.TopicsActivity"
             android:label="Topics"
             android:theme="@style/AppTheme.ActionBar"/>
+        <activity
+            android:name=".page.edithistory.EditHistoryListActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".usercontrib.UserContribListActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".usercontrib.UserContribWikiSelectActivity"
+            android:label="@string/user_contrib_wiki_select"
+            android:theme="@style/AppTheme.ActionBar" />
+            
+        <activity
+            android:name=".edit.insertmedia.InsertMediaActivity"
+            android:label="@string/insert_media_title"/>
 
         <provider
-            android:name="androidx.core.content.FileProvider"
+            android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
@@ -378,9 +404,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service
-            android:name=".notifications.PollNotificationService"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
 
     </application>
 </manifest>

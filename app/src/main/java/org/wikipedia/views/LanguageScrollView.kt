@@ -1,6 +1,7 @@
 package org.wikipedia.views
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -9,8 +10,7 @@ import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.graphics.BlendModeColorFilterCompat
-import androidx.core.graphics.BlendModeCompat
+import androidx.core.view.ViewCompat
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import org.wikipedia.R
@@ -103,7 +103,7 @@ class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = nu
     private fun updateTabLanguageLabel(customView: View, languageCode: String?, @ColorInt textColor: Int?) {
         val languageLabelTextView = customView.findViewById<TextView>(R.id.language_label)
         if (!languageCode.isNullOrEmpty()) {
-            languageLabelTextView.text = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(languageCode)
+            languageLabelTextView.text = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode)
         }
         textColor?.let {
             languageLabelTextView.setTextColor(textColor)
@@ -118,9 +118,6 @@ class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = nu
         }
         textColor?.let { languageCodeTextView.setTextColor(it) }
         background?.let { languageCodeTextView.background = it }
-        backgroundColorTint?.let {
-            languageCodeTextView.background.colorFilter = BlendModeColorFilterCompat
-                .createBlendModeColorFilterCompat(it, BlendModeCompat.SRC_IN)
-        }
+        backgroundColorTint?.let { ViewCompat.setBackgroundTintList(languageCodeTextView, ColorStateList.valueOf(it)) }
     }
 }

@@ -4,7 +4,6 @@ import android.app.Dialog
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.DialogInterface
-import android.content.res.ColorStateList
 import android.graphics.drawable.InsetDrawable
 import android.os.Build
 import android.os.Bundle
@@ -21,21 +20,19 @@ import com.google.android.material.shape.ShapeAppearanceModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.databinding.DialogImageTagSelectBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 
 class SuggestedEditsImageTagDialog : DialogFragment() {
     interface Callback {
-        fun onSearchSelect(item: MwQueryPage.ImageLabel)
+        fun onSearchSelect(item: ImageTag)
         fun onSearchDismiss(searchTerm: String)
     }
 
@@ -70,10 +67,9 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
-        val surfaceColor = ResourceUtil.getThemedColor(requireActivity(), R.attr.searchItemBackground)
         val model = ShapeAppearanceModel.builder().setAllCornerSizes(DimenUtil.dpToPx(6f)).build()
         val materialShapeDrawable = MaterialShapeDrawable(model)
-        materialShapeDrawable.fillColor = ColorStateList.valueOf(surfaceColor)
+        materialShapeDrawable.fillColor = ResourceUtil.getThemedColorStateList(requireActivity(), R.attr.searchItemBackground)
         materialShapeDrawable.elevation = dialog.window!!.decorView.elevation
 
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
@@ -126,18 +122,16 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
             applyResults(emptyList())
             return
         }
-        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).searchEntities(searchTerm, WikipediaApp.getInstance().appOrSystemLanguageCode, WikipediaApp.getInstance().appOrSystemLanguageCode)
+        disposables.add(ServiceFactory.get(Constants.wikidataWikiSite).searchEntities(searchTerm, WikipediaApp.instance.appOrSystemLanguageCode, WikipediaApp.instance.appOrSystemLanguageCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ search ->
-                    val labelList = search.results.map { MwQueryPage.ImageLabel(it.id, it.label, it.description) }
+                    val labelList = search.results.map { ImageTag(it.id, it.label, it.description) }
                     applyResults(labelList)
-                }) { t ->
-                    L.d(t)
-                })
+                }) { L.d(it) })
     }
 
-    private fun applyResults(results: List<MwQueryPage.ImageLabel>) {
+    private fun applyResults(results: List<ImageTag>) {
         adapter.setResults(results)
         adapter.notifyDataSetChanged()
         if (currentSearchTerm.isEmpty()) {
@@ -162,22 +156,22 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     }
 
     private inner class ResultItemHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        fun bindItem(item: MwQueryPage.ImageLabel) {
+        fun bindItem(item: ImageTag) {
             itemView.findViewById<TextView>(R.id.labelName).text = item.label
             itemView.findViewById<TextView>(R.id.labelDescription).text = item.description
             itemView.tag = item
             itemView.setOnClickListener(this)
         }
 
-        override fun onClick(v: View?) {
-            val item = v!!.tag as MwQueryPage.ImageLabel
+        override fun onClick(v: View) {
+            val item = v.tag as ImageTag
             callback()?.onSearchSelect(item)
             dismiss()
         }
     }
 
-    private inner class ResultListAdapter(private var results: List<MwQueryPage.ImageLabel>) : RecyclerView.Adapter<ResultItemHolder>() {
-        fun setResults(results: List<MwQueryPage.ImageLabel>) {
+    private inner class ResultListAdapter(private var results: List<ImageTag>) : RecyclerView.Adapter<ResultItemHolder>() {
+        fun setResults(results: List<ImageTag>) {
             this.results = results
         }
 

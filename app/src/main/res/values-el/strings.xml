@@ -50,7 +50,8 @@
   <string name="app_settings">Ρυθμίσεις εφαρμογής</string>
   <string name="search_tab_tooltip">Πατήστε ξανά το εικονίδιο για να ξεκινήσετε άμεσα να πληκτρολογείτε τον όρο αναζήτησης.</string>
   <string name="history_list_title">Ιστορικό</string>
-  <string name="image_content_description">Εικόνα %s</string>
+  <string name="image_content_description">Εικόνα: %s</string>
+  <string name="page_content_description">Σελίδα: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Εκκαθάριση ιστορικού περιήγησης</string>
@@ -58,14 +59,20 @@
   <string name="dialog_message_clear_history_yes">Ναι</string>
   <string name="dialog_message_clear_history_no">Όχι</string>
   <string name="share_via">Μοιραστείτε μέσω</string>
-  <string name="image_share_via">Αποστείλατε μέσω</string>
+  <string name="image_share_via">Κοινοποίηση μέσω</string>
   <string name="search_redirect_from">Ανακατεύθυνση από %s</string>
+  <string name="page_edit_history_activity_title">Ιστορικό αναθεωρήσεων: %s</string>
+  <string name="page_edit_history_comment_placeholder">Κενό σύνολο επεξεργασίας</string>
   <string name="menu_page_show_tabs">Εμφάνιση καρτελών</string>
   <string name="menu_page_other_languages">Αλλαγή γλώσσας</string>
   <string name="menu_page_find_in_page">Βρείτε στο λήμμα</string>
   <string name="menu_page_add_to_watchlist">Προσθήκη στη Λίστα Παρακολούθησης</string>
+  <string name="menu_page_watch">Παρακολούθηση</string>
+  <string name="menu_page_unwatch">Παύση παρακολούθησης</string>
   <string name="menu_page_view_talk">Προβολή σελίδας συζήτησης</string>
+  <string name="menu_page_talk_page">Σελίδα συζήτησης</string>
   <string name="menu_page_view_edit_history">Προβολή ιστορικού επεξεργασίας</string>
+  <string name="menu_page_edit_history">Ιστορικό επεξεργασίας</string>
   <string name="menu_page_remove_from_watchlist">Αφαίρεση από τη λίστα παρακολούθησης</string>
   <string name="edit_section_find_in_page">Βρείτε στην σελίδα</string>
   <string name="menu_page_font_and_theme">Γραμματοσειρά και θέμα</string>
@@ -74,7 +81,8 @@
   <string name="feed_card_add_to_list">Προσθήκη στην λίστα ανάγνωσης</string>
   <string name="feed_card_add_to_default_list">Αποθήκευση</string>
   <string name="menu_page_share">Σύνδεσμος διαμοιρασμού</string>
-  <string name="menu_article_share">Μοίρασμα λήμματος</string>
+  <string name="menu_article_share">Κοινοποίηση άρθρου</string>
+  <string name="menu_page_article_share">Κοινοποίηση</string>
   <string name="menu_page_open_a_new_tab">Άνοιγμα νέας καρτέλας</string>
   <string name="menu_page_new_tab">Νέα καρτέλα</string>
   <string name="menu_page_reading_lists">Λίστες ανάγνωσης</string>
@@ -121,7 +129,7 @@
   <string name="edit_section_captcha_reload">Πατήστε το CAPTCHA για επαναφόρτωση</string>
   <string name="nav_item_login">Σύνδεση στη Βικιπαίδεια</string>
   <string name="login_username_hint">Όνομα χρήστη</string>
-  <string name="login_password_hint">Κωδικός</string>
+  <string name="login_password_hint">Κωδικός πρόσβασης</string>
   <string name="account_creation_password_hint">Κωδικός Πρόσβασης</string>
   <string name="login_2fa_hint">Κωδικός Ταυτοποίησης Δύο-Παραγόντων</string>
   <string name="login_2fa_other_workflow_error_msg">Απαιτείται έλεγχος ταυτότητας δύο παραγόντων! Παρακαλούμε επιστρέψτε στην κύρια δραστηριότητα και συνδεθείτε εκεί με το 2FA αδειοδοτικό σας, και ξαναπροσπαθήστε.</string>
@@ -133,7 +141,7 @@
   <string name="login_activity_title">Είσοδος</string>
   <string name="login_in_progress_dialog_message">Σύνδεση…</string>
   <string name="login_success_toast">Έχετε συνδεθεί!</string>
-  <string name="reset_password_title">Εισαγάγετε τον κωδικό σας</string>
+  <string name="reset_password_title">Ορίστε τον κωδικό πρόσβασής σας</string>
   <string name="reset_password_description">Συνδεθήκατε με έναν προσωρινό κωδικό πρόσβασης. Για να ολοκληρώσετε τη σύνδεση, παρακαλώ ορίστε ένα νέο κωδικό πρόσβασης εδώ.</string>
   <string name="reset_password_hint">Νέος κωδικός πρόσβασης</string>
   <string name="reset_password_button">Αποθήκευση και σύνδεση</string>
@@ -142,12 +150,12 @@
   <string name="logout_prompt">Θα αποσυνδεθείτε από όλες τις συσκευές στις οποίες είστε συνδεδεμένοι αυτήν τη στιγμή. Θέλετε να συνεχίσετε;</string>
   <string name="logout_dialog_cancel_button_text">Άκυρο</string>
   <string name="logged_out_in_background_title">Αποσύνδεση</string>
-  <string name="logged_out_in_background_dialog">Αποσυνδεθήκατε από τη Wikipedia. Θα θέλατε να ξανασυνδεθείτε;</string>
+  <string name="logged_out_in_background_dialog">Αποσυνδεθήκατε από τη Βικιπαίδεια. Θέλετε να συνδεθείτε ξανά;</string>
   <string name="logged_out_in_background_login">Σύνδεση</string>
   <string name="logged_out_in_background_cancel">Ακύρωση</string>
   <string name="history_empty_title">Δεν υπάρχουν πρόσφατες σελίδες εδώ.</string>
   <string name="history_empty_message">Ιχνηλατήστε τι έχετε διαβάσει εδώ.</string>
-  <string name="history_offline_articles_toast">Μερικά άρθρα στο ιστορικό μπορεί να μην είναι προσβάσιμα όταν είστε offline.</string>
+  <string name="history_offline_articles_toast">Μερικά άρθρα στο ιστορικό μπορεί να μην είναι προσβάσιμα όταν είστε εκτός σύνδεσης.</string>
   <string name="search_empty_message">Αναζητήστε και διαβάστε την ελεύθερη εγκυκλοπαίδεια στη δική σας γλώσσα</string>
   <string name="search_empty_message_multilingual_upgrade">Αναζητήστε την Wikipedia σε περισσότερες γλώσσες</string>
   <string name="delete_selected_items">Διαγραφή επιλεγμένων αντικειμένων</string>
@@ -160,7 +168,8 @@
   <string name="create_account_activity_title">Δημιουργία λογαριασμού</string>
   <string name="dialog_create_account_checking_progress">Επαλήθευση</string>
   <string name="create_account_email_hint">Διεύθυνση ηλεκτρονικού ταχυδρομείου (Προαιρετικό)</string>
-  <string name="create_account_password_repeat_hint">Επανάληψη κωδικού</string>
+  <string name="create_account_password_repeat_hint">Επανάληψη κωδικού πρόσβασης</string>
+  <string name="create_account_password_is_username">Το συνθηματικό δεν μπορεί να είναι ίδιο με το όνομα χρήστη</string>
   <string name="create_account_passwords_mismatch_error">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
   <string name="create_account_email_error">Άκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου</string>
   <string name="create_account_username_error">Μη έγκυροι χαρακτήρες στο όνομα χρήστη</string>
@@ -179,7 +188,7 @@
   <string name="create_account_ip_block_details">Λεπτομέρειες</string>
   <string name="preferences_general_heading">Γενικά</string>
   <string name="preferences_account_heading">Λογαριασμός</string>
-  <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
+  <string name="wikipedia_app_faq">Συχνές ερωτήσεις της εφαρμογής Βικιπαίδειας</string>
   <string name="send_feedback">Αποστολή σχολίων για την εφαρμογή</string>
   <string name="create_account_account_created_toast">Ο λογαριασμός δημιουργήθηκε!</string>
   <string name="preferences_heading_syncing">Συγχρονισμός</string>
@@ -192,7 +201,7 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Αφαίρεση συγχρονισμένων λιστών ανάγνωσης από «%s»;</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Αυτό θα διαγράψει εντελώς όλες τις προηγούμενες συγχρονισμένες λίστες ανάγνωσης από τον απομακρυσμένο χώρο αποθήκευσης. Κατάργηση όλων των συγχρονισμένων λιστών από τον λογαριασμό σας \"%s\";</string>
   <string name="preferences_privacy_settings_heading">Ιδιωτικότητα</string>
-  <string name="preference_title_eventlogging_opt_in">Στείλτε εκθέσεις χρήσης</string>
+  <string name="preference_title_eventlogging_opt_in">Αποστολή αναφορών χρήσης</string>
   <string name="preference_summary_eventlogging_opt_in">Επιτρέψτε στο Wikimedia να συλλέξει πληροφορίες για το πως χρησιμοποιείτε την εφαρμογή ώστε να τη βελτιώσει</string>
   <string name="preference_title_auto_upload_crash_reports">Αποστολή αναφορών κατάρρευσης</string>
   <string name="preference_summary_auto_upload_crash_reports">Επιτρέψτε στην εφαρμογή να στέλνει αναφορές κρασαρίσματος σε μια υπηρεσία τρίτου μέρους αυτόματα, ώστε να μπορούμε να επιθεωρήσουμε το κρασάρισμα και να διορθώσουμε το σφάλμα γρηγορότερα και ευκολότερα.</string>
@@ -227,18 +236,18 @@
   <string name="about_translators_heading">Μεταφραστές</string>
   <string name="about_translators_translatewiki">Η εφαρμογή αυτή έχει μεταφραστεί από τους εθελοντές μεταφραστές στο &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Άδεια</string>
-  <string name="about_app_license" fuzzy="true">Ο πηγαίος κώδικας είναι διαθέσιμος στα &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; υπό την &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Άδεια Apache 2.0&lt;/a&gt;. Εκτός αν ορίζεται διαφορετικά, το περιεχόμενο είναι διαθέσιμο στο &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license">Ο πηγαίος κώδικας είναι διαθέσιμος στα &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; και &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; υπό την &lt;a &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;άδεια Apache 2.0&lt;/a&gt;. Εκτός αν ορίζεται διαφορετικά, το περιεχόμενο είναι διαθέσιμο στο &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">Ένα προϊόν του &lt;a href=\"https://wikimediafoundation.org/\"&gt;Ιδρύματος Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Σχετικά</string>
   <string name="edit_abandon_confirm">Η σελίδα έχει τροποποιηθεί. Είστε βέβαιοι ότι θέλετε να πραγματοποιήσετε έξοδο χωρίς να αποθηκεύσετε τις αλλαγές σας;</string>
   <string name="edit_abandon_confirm_yes">Ναι</string>
   <string name="edit_abandon_confirm_no">Όχι</string>
-  <string name="user_blocked_from_editing_title">Φραγμένος</string>
+  <string name="user_blocked_from_editing_title">Αποκλεισμένο</string>
   <string name="user_logged_in_blocked_from_editing">Ο λογαριασμός χρήστη σας έχει φραγεί από την επεξεργασία σε αυτό το wiki.</string>
   <string name="user_anon_blocked_from_editing">Η διεύθυνση IP σας έχει φραγεί από την επεξεργασία.</string>
   <string name="edit_how_page_improved">Πώς βελτιώσατε τη σελίδα;</string>
   <string name="edit_next">Επόμενο</string>
-  <string name="edit_done">Αποθήκευση</string>
+  <string name="edit_done">Δημοσίευση</string>
   <string name="edit_preview">Προεπισκόπηση</string>
   <string name="edit_undo">Αναίρεση</string>
   <string name="edit_redo">Ακύρωση αναίρεσης</string>
@@ -251,6 +260,10 @@
   <string name="edit_summary_tag_other_hint">Άλλοι τρόποι που βελτίωσατε τη σελίδα</string>
   <string name="edit_conflict_title">Σύγκρουση επεξεργασιών</string>
   <string name="edit_conflict_message">Η σελίδα έχει ήδη τροποποιηθεί από διαφορετικό χρήστη και έρχεται σε διένεξη με την τροποποίησή σας. Αντιγράψτε τις τροποποιήσεις σας, επιστρέψτε πίσω, ανανεώστε τη σελίδα και δοκιμάστε να επεξεργαστείτε ξανά.</string>
+  <string name="edit_notices">Ειδοποιήσεις επεξεργασίας</string>
+  <string name="edit_notices_please_read">Παρακαλούμε διαβάστε πριν την επεξεργασία</string>
+  <string name="edit_notices_show_auto">Αυτόματη εμφάνιση των ειδοποιήσεων επεξεργασίας</string>
+  <string name="edit_notices_tooltip">Πατήστε αυτό το κουμπί για εμφάνιση των ειδοποιήσεων επεξεργασίας για αυτό το άρθρο.</string>
   <string name="find_next">Εύρεση επομένου</string>
   <string name="find_previous">Εύρεση προηγουμένου</string>
   <string name="find_first_occurence">Αυτό είναι το πρώτο ταίριασμα</string>
@@ -299,6 +312,7 @@
   <string name="gallery_save_success">Το αρχείο αποθηκεύτηκε.</string>
   <string name="gallery_error_video_failed">Το βίντεο δεν μπόρεσε να παιχτεί.</string>
   <string name="gallery_save_image_write_permission_rationale">Απαιτείται άδεια για εγγραφή στο χώρο αποθήκευσης της συσκευής σας για να αποθηκεύσετε εικόνες.</string>
+  <string name="gallery_edit_button_content_description">Επεξεργασία λεζάντας εικόνας</string>
   <string name="gallery_add_image_caption_button">Προσθήκη λεζάντας εικόνας</string>
   <string name="gallery_add_image_caption_in_language_button">Προσθήκη λεζάντας εικόνας (στα %s)</string>
   <string name="err_cannot_save_file">Δεν ήταν δυνατό να αποθηκευτεί το αρχείο</string>
@@ -371,6 +385,14 @@
   <string name="page_footer_license_text">Το περιεχόμενο είναι διαθέσιμο υπό $1 εκτός αν αναφέρεται διαφορετικά.</string>
   <string name="empty_tab_title">Νέα καρτέλα</string>
   <string name="menu_save_all_tabs">Αποθήκευση όλων των καρτελών</string>
+  <string name="error_blocked_title">Το όνομα χρήστη σας ή η διεύθυνση IP έχουν αποκλειστεί.</string>
+  <string name="error_blocked_by">Ο αποκλεισμός επιβλήθηκε από τον &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Δόθηκε η αιτιολογία: %s</string>
+  <string name="error_blocked_start">Έναρξη αποκλεισμού: %s</string>
+  <string name="error_blocked_expiry">Λήξη αποκλεισμού%s:</string>
+  <string name="error_blocked_id">Κωδικός αποκλεισμού: %s</string>
+  <string name="error_blocked_footer">Μπορείτε να επικοινωνήσετε με τον &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ή άλλον &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;διαχειριστή&lt;/a&gt; για να συζητήσετε για τον αποκλεισμό.</string>
+  <string name="error_blocked_footer_no_blocker">Μπορείτε να επικοινωνήσετε με ένα &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;διαχειριστή&lt;/a&gt; για να συζητήσετε για τον αποκλεισμό.</string>
   <string name="crash_report_activity_title">Σφάλμα εφαρμογής</string>
   <string name="crash_report_relaunch_or_quit">Λυπούμαστε, η εφαρμογή Βικιπαίδεια αντιμετώπισε σφάλμα και τερματίστηκε.\n\nΘέλετε να ξεκινήσετε ξανά ή να σταματήσετε;</string>
   <string name="crash_report_relaunch">Ξεκινήσετε από την αρχή</string>
@@ -396,6 +418,8 @@
   <string name="text_size_decrease">Μείωση του μεγέθους κειμένου</string>
   <string name="text_size_percent_default">%s (προεπιλεγμένο)</string>
   <string name="text_style_title">Γραμματοσειρά</string>
+  <string name="theme_category_reading">Ανάγνωση</string>
+  <string name="nav_item_saved">Αποθηκεύτηκαν</string>
   <string name="reading_list_save_to">Αποθήκευση στη λίστα ανάγνωσης</string>
   <string name="reading_list_move_to">Προσθήκη στη λίστα ανάγνωσης</string>
   <string name="reading_list_create_new">Δημιουργία νέας</string>
@@ -407,6 +431,14 @@
   <string name="reading_list_articles_already_exist_message">Όλα καλά! Η %s περιέχει ήδη όλα τα λήμματα.</string>
   <string name="reading_list_added_view_button">Προβολή λίστας.</string>
   <string name="reading_list_add_to_list_button">Προσθήκη σε λίστα</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 άρθρο, %2$.2f MB</item>
+    <item quantity="other">%1$d άρθρα, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d από 1 άρθρο διαθέσιμο εκτός σύνδεσης, %3$.2f MB</item>
+    <item quantity="other">%1$d από %2$d άρθρα διαθέσιμα εκτός σύνδεσης, %3$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 λήμμα, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d λήμματα, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d 1 λημμάτων διαθέσιμα εκτός σύνδεσης, %2$.2f MB</string>
@@ -431,6 +463,15 @@
   <string name="reading_list_name_hint">Όνομα της λίστας</string>
   <string name="reading_list_description_hint">Περιγραφή (προαιρετική)</string>
   <string name="reading_list_item_deleted">το %s έχει αφαιρεθεί από τη λίστα</string>
+  <string name="reading_list_item_deleted_from_list">Το %1$s αφαιρέθηκε από %2$s</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d άρθρο αφαιρέθηκε από τη λίστα</item>
+    <item quantity="other">%d άρθρα αφαιρέθηκαν από τη λίστα</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d άρθρο αφαιρέθηκε από %s</item>
+    <item quantity="other">%d άρθρα αφαιρέθηκαν από %s</item>
+  </plurals>
   <string name="reading_list_items_deleted">τα %d λήμματα αφαιρέθηκαν από τη λίστα</string>
   <string name="reading_lists_item_deleted">Το %s αφαιρέθηκε από τις λίστες</string>
   <string name="reading_list_item_delete_undo">Αναίρεση</string>
@@ -455,6 +496,8 @@
   <string name="reading_lists_sync_reminder_action">Ενεργοποίηση συγχρονισμού</string>
   <string name="reading_list_login_reminder_title">Λίστες ανάγνωσης Sync</string>
   <string name="reading_lists_login_reminder_text">Οι λίστες ανάγνωσης μπορούν πλέον να συγχρονιστούν μεταξύ συσκευών. Συνδεθείτε στον λογαριασμό σας στη Βικιπαίδεια και επιτρέψτε την αποθήκευση των λιστών σας.</string>
+  <string name="reading_lists_login_button">Σύνδεση / εγγραφή στη Βικιπαίδεια</string>
+  <string name="reading_lists_ignore_button">Όχι τώρα</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ναι</string>
   <string name="reading_lists_confirm_remote_delete_no">Όχι</string>
   <string name="reading_list_article_save_in_progress">Γίνεται λήψη του αυτού του άρθρου και θα είναι διαθέσιμο εκτός σύνδεσης μετά την ολοκλήρωση.</string>
@@ -504,12 +547,15 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Άκυρο</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Άκυρο</string>
   <string name="reading_list_split_dialog_ok_button_text">Εντάξει</string>
+  <string name="reading_list_activity_title">Λίστα ανάγνωσης:%s</string>
   <string name="user_option_sync_label">Προτιμήσεις</string>
   <string name="notification_reverted_title">Ανεστραμμένη επεξεργασία</string>
+  <string name="notification_channel_title">Λήψη άρθρων</string>
   <string name="notification_channel_description">Εγκατάσταση προόδου</string>
   <string name="notification_syncing_pause_button">Παύση</string>
   <string name="notification_syncing_resume_button">συνέχεια</string>
   <string name="notification_syncing_cancel_button">Ακύρωση</string>
+  <string name="notification_syncing_reading_list_channel_title">Συγχρονισμός λιστών ανάγνωσης</string>
   <string name="notification_syncing_reading_list_channel_description">Πρόοδος συγχρονισμού λιστών ανάγνωσης</string>
   <string name="notification_many_unread">Έχετε %d μη αναγνωσμένες ειδοποιήσεις</string>
   <plurals name="notification_channel_name">
@@ -550,6 +596,9 @@
   <string name="notifications_view_archived_button_text">Προβολή αρχειοθετημένων ειδοποιήσεων</string>
   <string name="notification_preferences_title">Προτιμήσεις ειδοποίησης</string>
   <string name="notifications_mark_unread">Σήμανση ως μη αναγνωσμένο</string>
+  <string name="notifications_mark_all_as_read">Σήμανση όλων ως αναγνωσμένα</string>
+  <string name="notifications_direct_reply_action">Απάντηση</string>
+  <string name="watchlist_title">Λίστα παρακολούθησης</string>
   <string name="preference_summary_notification_poll">Επιτρέψτε στην εφαρμογή να χρησιμοποιεί δεδομένα για έλεγχο νέων ειδοποιήσεων στο παρασκήνιο.</string>
   <string name="preference_category_notification_types">Τύποι ειδοποιήσεων εντός του app</string>
   <string name="preference_title_notification_system">Συστήματος</string>
@@ -564,20 +613,52 @@
   <string name="preference_title_notification_mention">Αναφορές</string>
   <string name="preference_summary_notification_mention">Όταν κάποιος σας αναφέρει σε σελίδα</string>
   <string name="preference_title_notification_user_talk">Σελίδα συζήτησης</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">Μηνύματα από τις σελίδες συζήτησης</string>
+  <string name="preference_summary_notification_user_talk">Μηνύματα και απαντήσεις από τις σελίδες συζήτησης</string>
+  <string name="preference_category_display_settings">Ρυθμίσεις απεικόνισης</string>
+  <string name="preference_title_hide_read_notifications">Απόκρυψη ειδοποιήσεων ανάγνωσης</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Βικιπαίδεια</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Ειδοποιήσεις από τη Βικιπαίδεια</string>
+  <string name="notifications_channel_group_other_title">Άλλο</string>
+  <string name="notifications_channel_group_other_description">Άλλες ειδοποιήσεις από την εφαρμογή</string>
+  <string name="notifications_filter_label">Φίλτρο ειδοποιήσεων</string>
+  <string name="notifications_filter_icon_content_description">Φίλτρο ειδοποιήσεων</string>
+  <string name="notifications_filter_update_app_languages">Ενημέρωση των γλωσσών εφαρμογής</string>
+  <string name="notifications_empty_search_message">Δοκιμάστε να αφαιρέσετε το %s για εμφάνιση περισσότερων ειδοποιήσεων</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d φίλτρο</item>
+    <item quantity="other">%d φίλτρα</item>
+  </plurals>
+  <string name="notifications_select_all_filters">Επιλογή όλων των φίλτρων</string>
+  <string name="notifications_tab_filter_all">Όλα</string>
+  <string name="notifications_tab_filter_mentions">Αναφορές</string>
+  <string name="notifications_search_bar_hint">Αναζήτηση ή ειδοποιήσεις φίλτρων</string>
+  <string name="notifications_search_bar_filter_hint">Φίλτρο ειδοποιήσεων</string>
+  <string name="notifications_menu_mark_as_read">Σήμανση ως αναγνωσμένο</string>
+  <string name="notifications_menu_mark_as_unread">Σήμανση ως μη αναγνωσμένο</string>
+  <string name="notifications_swipe_action_read">Ανάγνωση</string>
+  <string name="notifications_swipe_action_unread">Μη αναγνωσμένο</string>
+  <string name="notifications_menu_check_all">Επισήμανση όλων των αντικειμένων</string>
+  <string name="notifications_type_filter_header">Τύπος φίλτρου</string>
+  <string name="notifications_all_types_text">Όλοι οι \"τύποι\"</string>
   <string name="view_because_you_read_card_title">Επειδή διαβάσατε</string>
   <string name="view_random_card_title">Τυχαιοποιητής</string>
+  <string name="view_random_article_card_title">Τυχαίο άρθρο</string>
+  <string name="view_random_article_card_action">Περισσότερα τυχαία άρθρα</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d χιλ.</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d εκ.</string>
   <string name="view_next_random_article">Φορτώσετε ένα άλλο τυχαίο λήμμα</string>
   <string name="view_main_page_card_title">Σήμερα στη Βικιπαίδεια</string>
   <string name="view_main_page_card_action">Δείτε την κεντρική σελίδα</string>
   <string name="view_featured_image_card_title">Εικόνα της ημέρας</string>
   <string name="view_featured_image_card_download">Λήψη</string>
+  <string name="view_featured_image_card_share">Κοινοποίηση</string>
   <string name="menu_feed_card_dismiss">Απόκρυψη αυτής της κάρτας</string>
   <string name="menu_feed_card_dismissed">Η κάρτα αποκρύφθηκε.</string>
   <string name="menu_feed_card_edit_card_languages">Επεξεργασία καρτών γλώσσας</string>
   <string name="menu_feed_overflow_label">Περισσότερες επιλογές</string>
   <string name="feed_featured_image_share_subject">Προβεβλημμένη εικόνα από τα Wikimedia Commons</string>
   <string name="feed">Εξερεύνηση</string>
+  <string name="home">Αρχική</string>
   <string name="view_static_card_icon_content_description">Εικόνα κάρτας</string>
   <string name="view_card_news_title">Στις ειδήσεις</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -612,6 +693,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Εντάξει</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Ακύρωση</string>
   <string name="feed_accessibility_card_load_more_button">Φόρτωση περισσότερων</string>
+  <string name="tabs_activity_title">Καρτέλες</string>
   <string name="description_edit_text_hint">Περιγραφή άρθρου</string>
   <string name="description_edit_article_description_label">Λήμμα</string>
   <string name="description_edit_translate_article_description_label_per_language">Περιγραφή άρθρου (στα %s)</string>
@@ -649,6 +731,10 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ιδανικά μια γραμμή, μεταξύ δύο και δώδεκα λέξεων</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ξεκινήστε την επεξεργασία</string>
   <string name="description_edit_tutorial_promise">Ξεκινώντας, υπόσχομαι να μην καταχραστώ τη λειτουργία.</string>
+  <string name="customize_toolbar_category_toolbar">Εργαλειοθήκη</string>
+  <string name="customize_toolbar_category_menu">Μενού</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Σύρετε και αποθέστε τα αγαπημένα σας αντικείμενα εδώ 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Επαναφορά στην προεπιλογή</string>
   <string name="suggested_edits_describe_articles">Περιγραφή άρθρων</string>
   <string name="suggested_edits_tag_images">Προσθέστε ετικέτες σε εικόνες</string>
   <string name="suggested_edits_review_description">Προβολή περιγραφής άρθρου</string>
@@ -693,11 +779,13 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Περισσότερες πληροφορίες</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Σελίδα αρχείου στο κοινόχρηστο της Wikimedia</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Σελίδα αρχείου στην Βικιπαίδεια</string>
+  <string name="suggested_edits_article_cta_image_tags">Προσθήκη ετικετών εικόνας</string>
   <string name="suggested_edits_article_cta_image_caption">Προσθήκη λεζάντας εικόνας</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Προσθήκη λεζάντας εικόνας (στα %s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Προβολή</string>
   <string name="suggested_edits_feed_card_add_image_caption">Προσθήκη λεζάντας εικόνας</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Προσθήκη λεζάντας εικόνας (στα %s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Προσθήκη ετικετών εικόνας</string>
   <string name="suggested_edits_task_action_text_add">Προσθήκη</string>
   <string name="suggested_edits_task_action_text_translate">Μετάφραση</string>
   <string name="suggested_edits_image_captions">Λεζάντες εικόνας</string>
@@ -742,7 +830,13 @@
   <string name="suggested_edits_task_new">νέα</string>
   <string name="suggested_edits_reactivation_notification_title">Προτεινόμενες τροποποιήσεις</string>
   <string name="suggested_edits_contributions_screen_title">Οι συνεισφορές του %s</string>
+  <string name="suggested_edits_contribution_language_label">Γλώσσα</string>
+  <string name="suggested_edits_contribution_date_time_label">Ημερομηνία / Ώρα</string>
+  <string name="suggested_edits_contribution_type_label">Τύπος συμμετοχής</string>
   <string name="suggested_edits_contribution_image_label">Εικόνα</string>
+  <string name="suggested_edits_contribution_article_label">Άρθρο</string>
+  <string name="suggested_edits_contribution_views">%s εμφανίσεις</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Χθες</string>
   <string name="suggested_edits_encourage_account_creation_title">Γνωρίζετε ότι όλοι μπορούν να επεξεργαστούν την Βικιπαίδεια;</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Σύνδεση / εγγραφή στη Βικιπαίδεια</string>
@@ -846,9 +940,50 @@
   <string name="main_tooltip_text">Γεια σας %s, γνωρίζετε ότι όλοι μπορούν να επεξεργαστούν την Βικιπαίδεια;</string>
   <string name="main_tooltip_text_v2">Γνωρίζετε ότι όλοι μπορούν να επεξεργαστούν την Βικιπαίδεια;</string>
   <string name="main_tooltip_action_button">Ξεκινήστε</string>
+  <string name="main_tooltip_watchlist_title">Λίστα παρακολούθησης</string>
   <string name="custom_date_picker_dialog_ok_button_text">Εντάξει</string>
   <string name="text_input_dialog_ok_button_text">Εντάξει</string>
   <string name="text_input_dialog_cancel_button_text">Ακύρωση</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Ακύρωση</string>
   <string name="talk_title">Συζήτηση</string>
+  <string name="talk_new_topic">Νέο θέμα</string>
+  <string name="talk_add_reply">Απάντηση</string>
+  <string name="talk_no_subject">(Χωρίς Θέμα)</string>
+  <string name="talk_reply_subject">Θέμα</string>
+  <string name="talk_snackbar_undo">Αναίρεση</string>
+  <string name="talk_search_hint">Αναζήτηση μηνυμάτων</string>
+  <string name="talk_overflow_sort_by">Ταξινόμηση κατά</string>
+  <string name="talk_overflow_sort_date_published">Ημερομηνία δημοσίευσης</string>
+  <string name="talk_overflow_sort_topic_name">Όνομα θέματος</string>
+  <string name="menu_option_share_talk_discussion">Κοινοποίηση συζήτησης</string>
+  <string name="menu_option_share_talk_page">Κοινοποίηση σελίδας συζήτησης</string>
+  <string name="menu_option_share_edit">Κοινοποίηση επεξεργασίας</string>
+  <string name="view_user_page">Προβολή σελίδας χρήστη</string>
+  <string name="thank_dialog_negative_button_text">Άκυρο</string>
+  <string name="revision_diff_from">Από:</string>
+  <string name="revision_diff_to">Προς:</string>
+  <string name="revision_diff_line_num">Γραμμή %d</string>
+  <string name="revision_diff_line_nums">Γραμμές %d–%d</string>
+  <string name="revision_diff_paragraph_added">Προστέθηκε παράγραφος</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">για 1 εβδομάδα</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">για 1 μήνα</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">για 3 μήνες</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">για 6 μήνες</string>
+  <string name="watchlist_expiry_dialog_permanent">Μόνιμα</string>
+  <string name="watchlist_expiry_dialog_one_week">1 εβδομάδα</string>
+  <string name="watchlist_expiry_dialog_one_month">1 μήνα</string>
+  <string name="watchlist_expiry_dialog_three_months">3 μήνες</string>
+  <string name="watchlist_expiry_dialog_six_months">6 μήνες</string>
+  <string name="watchlist_filter_all">Όλα</string>
+  <string name="watchlist_filter_talk">Συζήτηση</string>
+  <string name="watchlist_filter_pages">Σελίδες</string>
+  <string name="watchlist_filter_other">Άλλο</string>
+  <string name="watchlist_page_moved">Μετακινήθηκε</string>
+  <string name="watchlist_page_deleted">Διεγράφη</string>
+  <string name="action_item_categories">Κατηγορίες</string>
+  <string name="page_no_categories">Αυτή η σελίδα δεν ανήκει σε καμία κατηγορία.</string>
+  <string name="category_tab_articles">Άρθρα</string>
+  <string name="category_tab_subcategories">Υποκατηγορίες</string>
+  <string name="category_empty">Δε βρέθηκαν άρθρα σε αυτή την κατηγορία</string>
+  <string name="subcategory_empty">Δε βρέθηκαν υποκατηγορίες σε αυτή την κατηγορία.</string>
 </resources>

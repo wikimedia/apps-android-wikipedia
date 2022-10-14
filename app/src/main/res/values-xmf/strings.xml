@@ -184,7 +184,6 @@
   <string name="page_protected_can_not_edit_anon">სანარღოთ, ასეშო თე ხასჷლაშ ანონიმურო რედაქტირაფა ვეშილებე.</string>
   <string name="page_protected_can_not_edit_title">თე ხასჷლა თხილერი რე</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">კონტროლიშ ერკებულშა გეძინა</string>
-  <string name="page_notification_tooltip">თქვანი გინაფეფი ასე ათაქ რე.</string>
   <string name="settings_item_preferences">კონფიგურაცია</string>
   <string name="settings_activity_title">კონფიგურაცია</string>
   <string name="about_description">ვიკიპედიაშ აპლიკაციაშ გეშა</string>
@@ -454,13 +453,11 @@
   <string name="suggested_edits_contribution_seen_text">ეკონია 30 დრას %s-შა რე ნაძირებუ.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">გოღა</string>
   <string name="suggested_edits_encourage_account_creation_title">გიჩქუდესო ნამჷ-და, ვიკიპედიაშ რედაქტირაფა მიდგად შეულებუნ?</string>
-  <string name="file_page_suggestion_reason">მერზიაფაშ სამანჯელი</string>
   <string name="size_gb">%.2f გბ</string>
   <string name="onboarding_get_started">დოჭყაფა</string>
   <string name="onboarding_maybe_later">მოგვიანაფათ შილებე</string>
   <string name="main_tooltip_watchlist_title">კონტროლიშ ერკებული</string>
   <string name="talk_snackbar_survey_action_text">დოჭყაფა</string>
-  <string name="menu_option_user_profile">%s-შ მუნაჩემეფი</string>
   <string name="menu_option_user_contributions">მახვარებუშ: %s მიშნაღელი თია</string>
   <string name="watchlist_details_watching_label">გინმაჯინე</string>
   <string name="watchlist_details_watch_label">გეგნაჯინი</string>
@@ -468,6 +465,7 @@
   <string name="thank_dialog_positive_button_text" fuzzy="true">მარდიშ გინოგაფა</string>
   <string name="thank_dialog_negative_button_text" fuzzy="true">გოუქვაფა</string>
   <string name="thank_success_message">თქვანი \'უზჷმე მარდი\' ჯღონილი რე მახვარებუშა %s  👍</string>
+  <string name="revision_diff_lines_from_to">ღოზეფი %1$d–%2$d</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">თირუა</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 თუთათ</string>
   <string name="watchlist_expiry_dialog_one_week">1 მარა</string>

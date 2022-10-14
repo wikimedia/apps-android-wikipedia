@@ -30,11 +30,11 @@ class ReadingList(
     private var accentAndCaseInvariantTitle: String? = null
 
     var title
-        get() = listTitle.ifEmpty { WikipediaApp.getInstance().getString(R.string.default_reading_list_name) }
+        get() = listTitle.ifEmpty { WikipediaApp.instance.getString(R.string.default_reading_list_name) }
         set(value) { listTitle = value }
 
     val isDefault
-        get() = title == WikipediaApp.getInstance().getString(R.string.default_reading_list_name)
+        get() = title == WikipediaApp.instance.getString(R.string.default_reading_list_name)
 
     val numPagesOffline
         get() = pages.count { it.offline && it.status == ReadingListPage.STATUS_SAVED }
@@ -51,6 +51,15 @@ class ReadingList(
 
     fun touch() {
         atime = System.currentTimeMillis()
+    }
+
+    fun compareTo(other: Any): Boolean {
+        return (other is ReadingList &&
+                id == other.id &&
+                pages.size == other.pages.size &&
+                numPagesOffline == numPagesOffline &&
+                title == other.title &&
+                description == other.description)
     }
 
     companion object {

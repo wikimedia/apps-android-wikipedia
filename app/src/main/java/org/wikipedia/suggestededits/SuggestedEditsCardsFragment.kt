@@ -10,7 +10,9 @@ import android.view.View.VISIBLE
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.os.bundleOf
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -34,21 +36,21 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
-class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callback {
+class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItemFragment.Callback {
     private var _binding: FragmentSuggestedEditsCardsBinding? = null
     private val binding get() = _binding!!
 
     private val viewPagerListener = ViewPagerListener()
     private val disposables = CompositeDisposable()
-    private val app = WikipediaApp.getInstance()
+    private val app = WikipediaApp.instance
     private var siteMatrix: SiteMatrix? = null
     private var languageList: MutableList<String> = mutableListOf()
     private var swappingLanguageSpinners: Boolean = false
     private var resettingViewPager: Boolean = false
     private var funnel: SuggestedEditsFeedFunnel? = null
 
-    var langFromCode: String = app.language().appLanguageCode
-    var langToCode: String = app.language().appLanguageCodes.getOrElse(1) { "" }
+    var langFromCode: String = app.languageState.appLanguageCode
+    var langToCode: String = app.languageState.appLanguageCodes.getOrElse(1) { "" }
     var action: DescriptionEditActivity.Action = ADD_DESCRIPTION
 
     private val topTitle: PageTitle?
@@ -90,6 +92,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         setInitialUiState()
         binding.cardsViewPager.offscreenPageLimit = 2
         binding.cardsViewPager.registerOnPageChangeCallback(viewPagerListener) // addOnPageChangeListener(viewPagerListener)
@@ -123,19 +126,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         maybeShowOnboarding()
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        setHasOptionsMenu(action == ADD_IMAGE_TAGS)
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.menu_suggested_edits, menu)
+        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        if (action == ADD_IMAGE_TAGS) {
-            inflater.inflate(R.menu.menu_suggested_edits, menu)
-            ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
-        }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onMenuItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_help -> {
                 when (action) {
@@ -149,7 +145,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
                 }
                 true
             }
-            else -> super.onOptionsItemSelected(item)
+            else -> false
         }
     }
 
@@ -233,8 +229,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
             FeedbackUtil.showMessage(this,
                     when (action) {
                         ADD_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                        TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummaryForEdit!!.lang))
-                        TRANSLATE_DESCRIPTION -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummaryForEdit!!.lang))
+                        TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.languageState.getAppLanguageLocalizedName(topChild()!!.targetSummaryForEdit!!.lang))
+                        TRANSLATE_DESCRIPTION -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.languageState.getAppLanguageLocalizedName(topChild()!!.targetSummaryForEdit!!.lang))
                         else -> getString(R.string.description_edit_success_saved_snackbar)
                     }
             )
@@ -278,7 +274,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
                 .map { siteMatrix = it; }
                 .doAfterTerminate { initLanguageSpinners() }
                 .subscribe({
-                    app.language().appLanguageCodes.forEach {
+                    app.languageState.appLanguageCodes.forEach {
                         languageList.add(getLanguageLocalName(it))
                     }
                 }, { L.e(it) }))
@@ -286,17 +282,11 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
 
     private fun getLanguageLocalName(code: String): String {
         if (siteMatrix == null) {
-            return app.language().getAppLanguageLocalizedName(code)!!
+            return app.languageState.getAppLanguageLocalizedName(code)!!
         }
-        var name: String? = null
-        SiteMatrix.getSites(siteMatrix!!).forEach {
-            if (code == it.code) {
-                name = it.name
-                return@forEach
-            }
-        }
+        var name = SiteMatrix.getSites(siteMatrix!!).find { it.code == code }?.name
         if (name.isNullOrEmpty()) {
-            name = app.language().getAppLanguageLocalizedName(code)
+            name = app.languageState.getAppLanguageLocalizedName(code)
         }
         return name ?: code
     }
@@ -315,14 +305,14 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     }
 
     private fun setInitialUiState() {
-        binding.wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1 &&
+        binding.wikiLanguageDropdownContainer.visibility = if (app.languageState.appLanguageCodes.size > 1 &&
                 (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)) VISIBLE else GONE
     }
 
     private fun swapLanguageSpinnerSelection(isFromLang: Boolean) {
         if (!swappingLanguageSpinners) {
             swappingLanguageSpinners = true
-            val preLangPosition = app.language().appLanguageCodes.indexOf(if (isFromLang) langFromCode else langToCode)
+            val preLangPosition = app.languageState.appLanguageCodes.indexOf(if (isFromLang) langFromCode else langToCode)
             if (isFromLang) {
                 binding.wikiToLanguageSpinner.setSelection(preLangPosition)
             } else {
@@ -335,17 +325,17 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     private fun initLanguageSpinners() {
         binding.wikiFromLanguageSpinner.adapter = ArrayAdapter(requireContext(), R.layout.item_language_spinner, languageList)
         binding.wikiToLanguageSpinner.adapter = ArrayAdapter(requireContext(), R.layout.item_language_spinner, languageList)
-        binding.wikiToLanguageSpinner.setSelection(app.language().appLanguageCodes.indexOf(langToCode))
+        binding.wikiToLanguageSpinner.setSelection(app.languageState.appLanguageCodes.indexOf(langToCode))
     }
 
     private inner class OnFromSpinnerItemSelectedListener : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-            if (langToCode == app.language().appLanguageCodes[position]) {
+            if (langToCode == app.languageState.appLanguageCodes[position]) {
                 swapLanguageSpinnerSelection(true)
             }
 
-            if (!swappingLanguageSpinners && langFromCode != app.language().appLanguageCodes[position]) {
-                langFromCode = app.language().appLanguageCodes[position]
+            if (!swappingLanguageSpinners && langFromCode != app.languageState.appLanguageCodes[position]) {
+                langFromCode = app.languageState.appLanguageCodes[position]
                 resetViewPagerItemAdapter()
                 updateBackButton(0)
             }
@@ -357,12 +347,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
 
     private inner class OnToSpinnerItemSelectedListener : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-            if (langFromCode == app.language().appLanguageCodes[position]) {
+            if (langFromCode == app.languageState.appLanguageCodes[position]) {
                 swapLanguageSpinnerSelection(false)
             }
 
-            if (!swappingLanguageSpinners && langToCode != app.language().appLanguageCodes[position]) {
-                langToCode = app.language().appLanguageCodes[position]
+            if (!swappingLanguageSpinners && langToCode != app.languageState.appLanguageCodes[position]) {
+                langToCode = app.languageState.appLanguageCodes[position]
                 resetViewPagerItemAdapter()
                 updateBackButton(0)
             }

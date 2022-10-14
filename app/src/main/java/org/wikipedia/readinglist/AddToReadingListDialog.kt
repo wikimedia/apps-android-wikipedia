@@ -28,10 +28,8 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.util.DimenUtil.getDimension
 import org.wikipedia.util.DimenUtil.roundedDpToPx
-import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.FeedbackUtil.makeSnackbar
 import org.wikipedia.util.log.L
-import java.util.*
 
 open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     private var _binding: DialogAddToReadingListBinding? = null
@@ -86,7 +84,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateLists() {
-        disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListDao().getAllLists() }
+        disposables.add(Observable.fromCallable { AppDatabase.instance.readingListDao().getAllLists() }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ lists ->
@@ -109,7 +107,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
             if (readingLists.size >= Constants.MAX_READING_LISTS_LIMIT) {
                 val message = getString(R.string.reading_lists_limit_message)
                 dismiss()
-                makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show()
+                makeSnackbar(requireActivity(), message).show()
             } else {
                 showCreateListDialog()
             }
@@ -118,14 +116,14 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun showCreateListDialog() {
         readingListTitleDialog(requireActivity(), "", "", readingLists.map { it.title }) { text, description ->
-            addAndDismiss(AppDatabase.getAppDatabase().readingListDao().createList(text, description), titles)
+            addAndDismiss(AppDatabase.instance.readingListDao().createList(text, description), titles)
         }.show()
     }
 
     private fun addAndDismiss(readingList: ReadingList, titles: List<PageTitle>?) {
         if (readingList.pages.size + titles!!.size > SiteInfoClient.maxPagesPerReadingList) {
             val message = getString(R.string.reading_list_article_limit_message, readingList.title, SiteInfoClient.maxPagesPerReadingList)
-            makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show()
+            makeSnackbar(requireActivity(), message).show()
             dismiss()
             return
         }
@@ -139,7 +137,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     open fun commitChanges(readingList: ReadingList, titles: List<PageTitle>) {
-        disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().addPagesToListIfNotExist(readingList, titles) }
+        disposables.add(Observable.fromCallable { AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(readingList, titles) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ addedTitlesList ->
@@ -156,7 +154,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     fun showViewListSnackBar(list: ReadingList, message: String) {
-        makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT)
+        makeSnackbar(requireActivity(), message)
                 .setAction(R.string.reading_list_added_view_button) { v -> v.context.startActivity(ReadingListActivity.newIntent(v.context, list)) }.show()
     }
 
@@ -212,16 +210,12 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         const val PAGE_TITLE_LIST = "pageTitleList"
         const val SHOW_DEFAULT_LIST = "showDefaultList"
 
-        @JvmStatic
-        @JvmOverloads
         fun newInstance(title: PageTitle,
                         source: InvokeSource,
                         listener: DialogInterface.OnDismissListener? = null): AddToReadingListDialog {
             return newInstance(listOf(title), source, listener)
         }
 
-        @JvmStatic
-        @JvmOverloads
         fun newInstance(titles: List<PageTitle>,
                         source: InvokeSource,
                         listener: DialogInterface.OnDismissListener? = null): AddToReadingListDialog {

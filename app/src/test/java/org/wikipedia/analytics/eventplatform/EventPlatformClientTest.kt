@@ -16,23 +16,20 @@ import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.test.TestFileUtil
-import java.io.IOException
-import java.util.*
 
 @RunWith(RobolectricTestRunner::class)
 class EventPlatformClientTest {
     @Before
     fun reset() {
-        EventPlatformClient.STREAM_CONFIGS = HashMap()
         EventPlatformClient.AssociationController.beginNewSession()
 
         // Set app install ID
-        WikipediaApp.getInstance().appInstallID
+        WikipediaApp.instance.appInstallID
     }
 
     @Test
     fun testGenerateRandomId() {
-        val id = EventPlatformClient.AssociationController.generateRandomId()
+        val id = EventPlatformClient.AssociationController.pageViewId
         MatcherAssert.assertThat(id.length, CoreMatchers.`is`(20))
     }
 
@@ -40,17 +37,16 @@ class EventPlatformClientTest {
     fun testGetStream() {
         EventPlatformClient.setStreamConfig(StreamConfig("test", null, null))
         MatcherAssert.assertThat(
-            EventPlatformClient.STREAM_CONFIGS["test"], CoreMatchers.`is`(CoreMatchers.notNullValue())
+            EventPlatformClient.getStreamConfig("test"), CoreMatchers.`is`(CoreMatchers.notNullValue())
         )
         MatcherAssert.assertThat(
-            EventPlatformClient.STREAM_CONFIGS["key.does.not.exist"], CoreMatchers.`is`(CoreMatchers.nullValue())
+            EventPlatformClient.getStreamConfig("key.does.not.exist"), CoreMatchers.`is`(CoreMatchers.nullValue())
         )
     }
 
     @Test
     fun testEventSerialization() {
-        val event = TestEvent("test")
-        EventPlatformClient.addEventMetadata(event)
+        val event = TestAppsEvent("test")
         val serialized = JsonUtil.encodeToString(event)!!
         MatcherAssert.assertThat(serialized.contains("dt"), CoreMatchers.`is`(true))
         MatcherAssert.assertThat(serialized.contains("app_session_id"), CoreMatchers.`is`(true))
@@ -69,31 +65,21 @@ class EventPlatformClientTest {
                     .thenReturn(true)
                 EventPlatformClient.submit(event)
                 outputBuffer.verify(
-                    Mockito.times(1),
-                    { EventPlatformClient.OutputBuffer.schedule(event) })
+                    Mockito.times(1)
+                ) { EventPlatformClient.OutputBuffer.schedule(event) }
             }
         }
     }
 
     @Test
-    fun testOutputBufferSendsEnqueuedEventsOnEnabled() {
-        Mockito.mockStatic(EventPlatformClient.OutputBuffer::class.java).use { outputBuffer ->
-            EventPlatformClient.setEnabled(true)
-            outputBuffer.verify(
-                Mockito.times(1),
-                { EventPlatformClient.OutputBuffer.sendAllScheduled() })
-        }
-    }
-
-    @Test
     fun testAssociationControllerGetPageViewId() {
-        val pageViewId = EventPlatformClient.AssociationController.getPageViewId()
+        val pageViewId = EventPlatformClient.AssociationController.pageViewId
         MatcherAssert.assertThat(pageViewId.length, CoreMatchers.equalTo(20))
     }
 
     @Test
     fun testAssociationControllerGetSessionId() {
-        val sessionId = EventPlatformClient.AssociationController.getSessionId()
+        val sessionId = EventPlatformClient.AssociationController.sessionId
         MatcherAssert.assertThat(sessionId.length, CoreMatchers.equalTo(20))
         val persistentSessionId = Prefs.eventPlatformSessionId
         MatcherAssert.assertThat(persistentSessionId, CoreMatchers.`is`(CoreMatchers.notNullValue()))
@@ -120,7 +106,7 @@ class EventPlatformClientTest {
     @Test
     fun testAlwaysInSample() {
         EventPlatformClient.setStreamConfig(
-            StreamConfig("alwaysInSample", SamplingConfig(1.0, null), null)
+            StreamConfig("alwaysInSample", SamplingConfig(1.0), null)
         )
         MatcherAssert.assertThat(
             SamplingController.isInSample(TestEvent("alwaysInSample")),
@@ -131,7 +117,7 @@ class EventPlatformClientTest {
     @Test
     fun testNeverInSample() {
         EventPlatformClient.setStreamConfig(
-            StreamConfig("neverInSample", SamplingConfig(0.0, null), null)
+            StreamConfig("neverInSample", SamplingConfig(0.0), null)
         )
         MatcherAssert.assertThat(
             SamplingController.isInSample(TestEvent("neverInSample")),
@@ -141,13 +127,13 @@ class EventPlatformClientTest {
 
     @Test
     fun testSamplingControllerGetSamplingValue() {
-        val deviceVal = SamplingController.getSamplingValue(SamplingConfig.Identifier.DEVICE)
+        val deviceVal = SamplingController.getSamplingValue(SamplingConfig.UNIT_DEVICE)
         MatcherAssert.assertThat(deviceVal, Matchers.greaterThanOrEqualTo(0.0))
         MatcherAssert.assertThat(deviceVal, Matchers.lessThanOrEqualTo(1.0))
-        val pageViewVal = SamplingController.getSamplingValue(SamplingConfig.Identifier.PAGEVIEW)
+        val pageViewVal = SamplingController.getSamplingValue(SamplingConfig.UNIT_PAGEVIEW)
         MatcherAssert.assertThat(pageViewVal, Matchers.greaterThanOrEqualTo(0.0))
         MatcherAssert.assertThat(pageViewVal, Matchers.lessThanOrEqualTo(1.0))
-        val sessionVal = SamplingController.getSamplingValue(SamplingConfig.Identifier.SESSION)
+        val sessionVal = SamplingController.getSamplingValue(SamplingConfig.UNIT_SESSION)
         MatcherAssert.assertThat(sessionVal, Matchers.greaterThanOrEqualTo(0.0))
         MatcherAssert.assertThat(sessionVal, Matchers.lessThanOrEqualTo(1.0))
     }
@@ -155,13 +141,13 @@ class EventPlatformClientTest {
     @Test
     fun testSamplingControllerGetSamplingId() {
         MatcherAssert.assertThat(
-            SamplingController.getSamplingId(SamplingConfig.Identifier.DEVICE), CoreMatchers.`is`(CoreMatchers.notNullValue())
+            SamplingController.getSamplingId(SamplingConfig.UNIT_DEVICE), CoreMatchers.`is`(CoreMatchers.notNullValue())
         )
         MatcherAssert.assertThat(
-            SamplingController.getSamplingId(SamplingConfig.Identifier.PAGEVIEW), CoreMatchers.`is`(CoreMatchers.notNullValue())
+            SamplingController.getSamplingId(SamplingConfig.UNIT_PAGEVIEW), CoreMatchers.`is`(CoreMatchers.notNullValue())
         )
         MatcherAssert.assertThat(
-            SamplingController.getSamplingId(SamplingConfig.Identifier.SESSION), CoreMatchers.`is`(CoreMatchers.notNullValue())
+            SamplingController.getSamplingId(SamplingConfig.UNIT_SESSION), CoreMatchers.`is`(CoreMatchers.notNullValue())
         )
     }
 
@@ -183,8 +169,8 @@ class EventPlatformClientTest {
         )
     }
 
+    @Ignore("Disabled because of flakiness on CI systems, and only marginally useful.")
     @Test
-    @Throws(IOException::class)
     fun testStreamConfigMapSerializationDeserialization() {
         val originalStreamConfigs = JsonUtil.decodeFromString<MwStreamConfigsResponse>(TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE))!!.streamConfigs
         Prefs.streamConfigs = originalStreamConfigs

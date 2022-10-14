@@ -12,14 +12,13 @@ class DiffResponse {
     val diff: List<DiffItem> = emptyList()
 
     @Serializable
-    class DiffItem {
-
-        val type = 0
-        private val lineNumber = 0
-        val text: String = ""
-        private val offset: DiffOffset? = null
+    class DiffItem(
+        val type: Int = 0,
+        val lineNumber: Int = -1,
+        val text: String = "",
+        private val offset: DiffOffset? = null,
         val highlightRanges: List<HighlightRange> = emptyList()
-    }
+    )
 
     @Serializable
     class DiffOffset {
@@ -29,12 +28,11 @@ class DiffResponse {
     }
 
     @Serializable
-    class HighlightRange {
-
-        val start = 0
-        val length = 0
-        val type = 0
-    }
+    class HighlightRange(
+        val start: Int = 0,
+        val length: Int = 0,
+        val type: Int = 0
+    )
 
     @Serializable
     class DiffRevision {

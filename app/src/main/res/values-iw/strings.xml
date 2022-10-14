@@ -22,6 +22,7 @@
 * דגש
 * דגש חזק
 * המקיסט
+* מקף
 -->
 <resources>
   <string name="app_name_prod">ויקיפדיה</string>
@@ -66,13 +67,41 @@
   <string name="share_via">שיתוף באמצעות</string>
   <string name="image_share_via">שיתוף דרך</string>
   <string name="search_redirect_from">הופנה מהדף %s</string>
+  <string name="page_edit_history_activity_title">היסטוריית גרסאות:  %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;מ&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">תקציר עריכה ריק</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">חיפוש או סינון של עריכות</string>
+  <string name="page_edit_history_filter_by">לסנן לפי</string>
+  <string name="page_edit_history_filter_by_all">כל העריכות (%s)</string>
+  <string name="page_edit_history_filter_by_user">עריכות משתמש (%s)</string>
+  <string name="page_edit_history_filter_by_anon">עריכות אלמוניות (%s)</string>
+  <string name="page_edit_history_filter_by_bot">עריכות בוט (%s)</string>
+  <string name="page_edit_history_metrics_content_description">מדדים מאז %1$s עד %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">עריכה %1$d מאז %2$s</item>
+    <item quantity="two">%1$d עריכות מאז %2$s</item>
+    <item quantity="many">%1$d עריכות מאז %2$s</item>
+    <item quantity="other">%1$d עריכות מאז %2$s</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">עריכה אחת מאז %2$s (%3$s)</item>
+    <item quantity="two">שתי עריכות מאז %2$s (%3$s)</item>
+    <item quantity="many">%1$d עריכות מאז %2$s (%3$s)</item>
+    <item quantity="other">%1$d עריכות מאז %2$s (%3$s)</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">נא לנסות לשנות את &lt;a href=\"#\"&gt;המסננים&lt;/a&gt; כדי לראות יותר עריכות</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בערך</string>
   <string name="menu_page_add_to_watchlist">הוספה לרשימת המעקב</string>
+  <string name="menu_page_watch">לעקוב</string>
+  <string name="menu_page_unwatch">הפסקת מעקב</string>
   <string name="menu_page_view_talk">הצגת דף השיחה</string>
+  <string name="menu_page_talk_page">דף שיחה</string>
   <string name="menu_page_view_edit_history">הצגת היסטוריית עריכות</string>
+  <string name="menu_page_edit_history">היסטוריית עריכות</string>
   <string name="menu_page_remove_from_watchlist">הסרה מרשימת המעקב</string>
+  <string name="menu_page_watched">במעקב</string>
   <string name="edit_section_find_in_page">איתור בעמוד</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
   <string name="menu_page_add_to_list">הוספה לרשימת הקריאה</string>
@@ -81,10 +110,12 @@
   <string name="feed_card_add_to_default_list">שמירה</string>
   <string name="menu_page_share">שיתוף קישור</string>
   <string name="menu_article_share">שיתוף ערך</string>
+  <string name="menu_page_article_share">לשתף</string>
   <string name="menu_page_open_a_new_tab">פתיחת לשונית חדשה</string>
   <string name="menu_page_new_tab">לשונית חדשה</string>
   <string name="menu_page_reading_lists">רשימות קריאה</string>
   <string name="menu_page_recently_viewed">הוצגו לאחרונה</string>
+  <string name="menu_page_archive">ארכיון</string>
   <string name="menu_long_press_open_page">פתיחה</string>
   <string name="menu_long_press_open_in_new_tab">פתיחת קישור בלשונית חדשה</string>
   <string name="menu_long_press_copy_page">העתקת כתובת הקישור</string>
@@ -92,6 +123,7 @@
   <string name="on_this_day_page_share">שיתוף</string>
   <string name="reading_list_page_share">שיתוף</string>
   <string name="menu_text_select_edit_here">לערוך כאן</string>
+  <string name="menu_edit_article">לערוך את הערך</string>
   <string name="last_updated_text">עודכן לאחרונה %s</string>
   <string name="talk_page_link_text">הצגת דף השיחה</string>
   <string name="edit_history_link_text">הצגת היסטוריית עריכות</string>
@@ -101,6 +133,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
+  <string name="edit_anon_warning">עריכות ייוחסו לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך פרטיות רבה יותר.</string>
   <string name="preference_title_language">שפות ויקיפדיה</string>
   <string name="langlinks_filter_hint">חיפוש</string>
   <string name="langlinks_empty">הדף הזה אינו זמין בשפות אחרות</string>
@@ -167,6 +200,7 @@
   <string name="dialog_create_account_checking_progress">אימות</string>
   <string name="create_account_email_hint">דואר אלקטרוני (לא חובה)</string>
   <string name="create_account_password_repeat_hint">חזרה על סיסמה</string>
+  <string name="create_account_password_is_username">הסיסמה אינה יכולה להיות זהה לשם המשתמש</string>
   <string name="create_account_passwords_mismatch_error">הסיסמאות אינן תואמות</string>
   <string name="create_account_email_error">כתובת דוא\"ל שגויה</string>
   <string name="create_account_username_error">תווים בלתי־תקינים בשם המשתמש</string>
@@ -213,7 +247,6 @@
   <string name="page_protected_can_not_edit_title">הדף הזה מוגן</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">הוספה לרשימת המעקב</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">עקוב אחרי מה שקורה הערכים שמעניינים אותך. לחץ על תפריט הפעולות הנוספות ובחר &lt;b&gt;הוספה לרשימת המעקב&lt;/b&gt; כיד לראות את השינויים לערך.</string>
-  <string name="page_notification_tooltip">עכשיו ההתראות שלך נמצאות כאן.</string>
   <string name="settings_item_preferences">הגדרות</string>
   <string name="settings_activity_title">הגדרות</string>
   <string name="about_description">אודות יישום ויקיפדיה</string>
@@ -250,6 +283,13 @@
   <string name="edit_preview">תצוגה מקדימה</string>
   <string name="edit_undo">ביטול</string>
   <string name="edit_redo">ביצוע חוזר</string>
+  <string name="edit_rollback">שחזור</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">בית אחד</item>
+    <item quantity="two">%s בתים</item>
+    <item quantity="many">%s בתים</item>
+    <item quantity="other">%s בתים</item>
+  </plurals>
   <string name="edit_zoom_in">התקרבות</string>
   <string name="edit_zoom_out">התרחקות</string>
   <string name="edit_summary_tag_typo">תיקנתי טעות הקלדה</string>
@@ -397,6 +437,7 @@
   <string name="error_blocked_expiry">פקיעת החסימה: %s</string>
   <string name="error_blocked_id">מזהה החסימה: %s</string>
   <string name="error_blocked_footer">באפשרותך ליצור קשר עם &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; או עם &lt;a href=\"https://he.wikipedia.org/wiki/WP:SYSOP\"&gt;מפעיל&lt;/a&gt;</string>
+  <string name="theme_chooser_menu_item_short_tooltip">התאמת סרגל הכלים שלך</string>
   <string name="error_blocked_footer_no_blocker">באפשרותך ליצור קשר עם &lt;a href=\"https://he.wikipedia.org/wiki/WP:SYSOP\"&gt;מפעיל&lt;/a&gt; כדי לדון בחסימה.</string>
   <string name="crash_report_activity_title">שגיאת יישום</string>
   <string name="crash_report_relaunch_or_quit">אנחנו מצטערים, ביישום ויקיפדיה אירעה שגיאה והוא נעצר.\n\nהאם להתחיל מהתחלה או לצאת?</string>
@@ -423,6 +464,14 @@
   <string name="text_size_decrease">הקטנת הטקסט</string>
   <string name="text_size_percent_default">%s (ברירת מחדל)</string>
   <string name="text_style_title">גופן</string>
+  <string name="theme_category_reading">קריאה</string>
+  <string name="theme_category_editing">עריכה</string>
+  <string name="reading_focus_mode">מצב קריאה מרוכזת</string>
+  <string name="reading_focus_mode_detail">הסתרת אפשרויות עריכה וסרגל הכלים התחתון בגלילה</string>
+  <string name="editing_syntax_highlight_label">צביעת תחביר</string>
+  <string name="editing_line_numbers_label">להציג מספרי שורות</string>
+  <string name="editing_monospace_font_label">להשתמש בגופן ברוחב אחיד</string>
+  <string name="editing_typing_suggestions">הצגת הצעות הקלדה</string>
   <string name="nav_item_saved">נשמר</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_move_to">העברה לרשימת קריאה</string>
@@ -795,11 +844,16 @@
   <string name="description_edit_license_notice">שינוי תיאור הערך מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">על פי רוב מתחיל באות קטנה</string>
   <string name="description_edit_voice_input_description">קלט קולי</string>
+  <string name="description_edit_learn_more">מידע נוסף על תיאורי ערכים</string>
+  <string name="description_edit_image_caption_learn_more">מידע נוסף על כיתובי תמונה</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">הטקסט קצר מדי.</string>
   <string name="description_ends_with_punctuation">הטקסט לא צריך להסתיים בסימן פיסוק</string>
   <string name="description_starts_with_uppercase">יש להתחיל באות קטנה, אלא אם המילה הראשונה היא שם פרטי.</string>
   <string name="description_starts_with_lowercase">נא להימנע מלהתחיל את התיאור מאות קטנה.</string>
-  <string name="description_is_in_different_language">הטקסט מופיע בשפה בלתי צפויה. השפה אמורה להיות %s.</string>
+  <string name="description_is_in_different_language">הטקסט מופיע בשפה בלתי־צפויה. השפה אמורה להיות %s.</string>
+  <string name="description_verification_notice">נא לוודא שהשפה של התיאור שלך היא %1$s. אין בעיה לסגור את ההודעה הזאת אם השפה שכתבת בה היא %2$s.</string>
   <string name="description_edit_success_saved">תיאור הערך פורסם!</string>
   <string name="description_edit_success_saved_snackbar">תיאור הערך פורסם!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">תיאור הערך פורסם! (%s)</string>
@@ -817,6 +871,14 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">יהיה מושלם אם זאת תהיה שורה אחת, בין שתיים לשתים־עשרה מילים</string>
   <string name="description_edit_tutorial_button_label_start_editing">להתחיל לערוך</string>
   <string name="description_edit_tutorial_promise">תחילת העריכה היא התחייבות שלי לא להשתמש באפשרות הזאת לרעה.</string>
+  <string name="customize_toolbar_title">התאמת סרגל כלים</string>
+  <string name="customize_toolbar_shortcut_description_text">באפשרותך לעשות התאמה אישית של סרגל הכלית התחתון עם חמישה קיצורי דרך שהכי שימושיים לך.</string>
+  <string name="customize_toolbar_category_toolbar">סרגל כלים</string>
+  <string name="customize_toolbar_category_menu">תפריט</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">אפשר לגרור ולשחרר את הפריטים האהובים עליהם כאן 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">איפוס</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">יש להחזיק את סמל הגרירה כדי להזיז את הפריט</string>
+  <string name="customize_toolbar_item_default_tooltip">יש להחזיק את ולגרור את הפריט כיד להעביר אותו</string>
   <string name="suggested_edits_describe_articles">הוספת תיאור לערכים</string>
   <string name="suggested_edits_caption_images">הוספת כיתוב לתמונות</string>
   <string name="suggested_edits_tag_images">לתייג תמונות</string>
@@ -909,6 +971,7 @@
   <string name="suggested_edits_paused_message">עריכות מוצעות הופסקו עד %1$s. מצטערים %2$s, כמה מהתרומות האחרונות שלך בוטלו.</string>
   <string name="suggested_edits_disabled_message">עריכות מוצעות הופסקו. מצטערים %s, יותר מדי מהתרומות האחרונות שלך בוטלו.</string>
   <string name="suggested_edits_ip_blocked_message">נראה שכתובת ה־IP שלך (או טווח כתובות ה־IP) חסומה כרגע מעריכת ויקיפדיה.</string>
+  <string name="suggested_edits_gate_message">סליחה\" %s, חובה לעשות לפחות שלוש עריכות ישירות בערך כדי להשתמש בתכונה הזאת.</string>
   <string name="suggested_edits_editing_tips_link_text">עצות ותכסיסים לעריכה</string>
   <string name="suggested_edits_help_page_link_text">עמוד עזרה לעריכות מומלצות</string>
   <string name="suggested_edits_edit_streak_label_text">רצף עריכה</string>
@@ -971,7 +1034,7 @@
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">אתמול</string>
   <string name="suggested_edits_encourage_account_creation_title">הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
-  <string name="suggested_edits_encourage_account_creation_message">’עריכות מוצעות’ היא דרך חדשה לערוך את ויקיפדיה באנדרואיד. היא מסייעת בביצוע תרומות קטנות, אך חיוניות, לוויקיפדיה.\nהמטרה שלנו היא להפוך את העריכה בוויקיפדיה לקלה יותר ולנגישה יותר לכולם! יש להיכנס לחשבון או להצטרף לוויקיפדיה על מנת להתחיל.</string>
+  <string name="suggested_edits_encourage_account_creation_message">עריכות מוצעות היא דרך חדשה לערוך את ויקיפדיה באנדרואיד. היא מסייעת בביצוע תרומות קטנות, אך חיוניות, לוויקיפדיה.\nהמטרה שלנו היא להפוך את העריכה בוויקיפדיה לקלה יותר ולנגישה יותר לכולם! יש להיכנס לחשבון או להצטרף לוויקיפדיה כדי להתחיל.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">כניסה / הצטרפות לוויקיפדיה</string>
   <string name="suggested_edits_contribution_type_image_tag">תג תמונה</string>
   <string name="suggested_edits_contribution_current_revision_text">העריכה שלך פורסמה כעת בוויקיפדיה</string>
@@ -1003,7 +1066,6 @@
   <string name="file_page_activity_title">דף קובץ</string>
   <string name="file_page_add_image_caption_button">הוספת כיתוב תמונה</string>
   <string name="file_page_add_image_tags_button">הוספת תגי תמונה</string>
-  <string name="file_page_suggestion_reason">הסיבה להצעה</string>
   <string name="file_page_edit_button_content_description">עריכת %s</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים היה חשד. סיבות אפשריות לכך שהעריכה שלך בוטלה:</string>
@@ -1083,12 +1145,52 @@
   <string name="content_description_for_page_indicator">דף %1$d מתוך %2$d</string>
   <string name="wikitext_bold">בולט</string>
   <string name="wikitext_italic">נטוי</string>
+  <string name="wikitext_underline">קו תחתי</string>
+  <string name="wikitext_strikethrough">קו חוצה</string>
+  <string name="wikitext_sup">כתב עילי</string>
+  <string name="wikitext_sub">כתב תחתי</string>
+  <string name="wikitext_large">טקסט גדול</string>
+  <string name="wikitext_small">טקסט קטן</string>
+  <string name="wikitext_code">קוד</string>
   <string name="wikitext_link">קישור</string>
+  <string name="wikitext_heading_n">כותרת־משנה %d</string>
+  <string name="wikitext_formatting">עיצוב</string>
+  <string name="wikitext_headings">כותרות</string>
+  <string name="wikitext_insert_media">הוספת מדיה</string>
   <string name="wikitext_bulleted_list">רשימה עם תבליטים</string>
   <string name="wikitext_numbered_list">רשימה ממוספרת</string>
   <string name="wikitext_template">תבנית</string>
   <string name="wikitext_reference">הערת שוליים</string>
   <string name="wikitext_preview_link">תצוגה מקדימה של קישור</string>
+  <string name="insert_media_title">הוספת מדיה</string>
+  <string name="insert_media_search_description">נא לבחור קובץ מוויקישיתוף</string>
+  <string name="insert_media_search_hint">חיפוש מדיה</string>
+  <string name="insert_media_settings">הגדרות מדיה</string>
+  <string name="insert_media_settings_uploaded_image">תמונה שהועלתה</string>
+  <string name="insert_media_settings_caption">כיתוב</string>
+  <string name="insert_media_settings_caption_description">תווית שמוצגת ליד הפריט לכל הקוראים</string>
+  <string name="insert_media_settings_alternative_text">טקסט חלופי</string>
+  <string name="insert_media_settings_alternative_text_description">תיאור טקסט בשביל קוראים שלא יכולים לראות את התמונה</string>
+  <string name="insert_media_advanced_settings">הגדרות מתקדמות</string>
+  <string name="insert_media_advanced_settings_wrap_image">גלישת טקסט סביב תמונה</string>
+  <string name="insert_media_advanced_settings_image_position">מיקום תמונה</string>
+  <string name="insert_media_advanced_settings_image_position_right">ימין</string>
+  <string name="insert_media_advanced_settings_image_position_left">שמאל</string>
+  <string name="insert_media_advanced_settings_image_position_center">מרכז</string>
+  <string name="insert_media_advanced_settings_image_position_none">ללא</string>
+  <string name="insert_media_advanced_settings_image_type">סוג התמונה</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">תמונה ממוזערת</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">ללא מסגרת</string>
+  <string name="insert_media_advanced_settings_image_type_frame">מסגרת</string>
+  <string name="insert_media_advanced_settings_image_type_basic">בסיסית</string>
+  <string name="insert_media_advanced_settings_image_type_tip">אפשר לקבוע איך פריט המדיה יופיע בדף. זה אמור להיות עיצוב ממוזער, לשם עקביות עם דפים אחרים כמעט בכל המקרים.</string>
+  <string name="insert_media_advanced_settings_image_size">גודל התמונה</string>
+  <string name="insert_media_advanced_settings_image_size_default">ברירת המחדל</string>
+  <string name="insert_media_advanced_settings_image_size_custom">מותאם אישית</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">רוחב</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">גובה</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">פיקסל</string>
+  <string name="insert_media_insert_button">הוספה</string>
   <string name="main_drawer_help">עזרה</string>
   <string name="main_drawer_login">כניסה / הצטרפות לוויקיפדיה</string>
   <string name="main_tooltip_text">היי %s, הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
@@ -1119,11 +1221,50 @@
   <string name="talk_snackbar_survey_action_text">להתחיל</string>
   <string name="talk_share_discussion_subject">ויקיפדיה – דיון בדף שיחה בנושא \"%s\"</string>
   <string name="talk_share_talk_page">ויקיפדיה – דיונים בדף שיחה</string>
+  <string name="talk_edit_disclaimer">זהו דף שיחה. נא לכבד את ההנחיות לשימוש בדפי שיחה, ולזכור לחתום על ההודעות שלך בארבע טילדות בעת שימוש בקוד ויקי.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://he.wikipedia.org/wiki/ויקיפדיה:דף_שיחה\"&gt;ויקיפדיה:דף_שיחה&lt;/a&gt;</string>
+  <string name="talk_search_hint">חיפוש הודעות</string>
+  <string name="talk_search_topics_hint">חיפוש נושאים</string>
+  <string name="talk_search_find_in_talk_topics_hint">חיפוש בנושא דף שיחה</string>
+  <string name="talk_overflow_sort_by">מיון לפי</string>
+  <string name="talk_overflow_sort_date_published">תאריך פרסום</string>
+  <string name="talk_overflow_sort_date_updated">תאריך העדכון</string>
+  <string name="talk_overflow_sort_topic_name">שם הנושא</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">הצגת תשובה</item>
+    <item quantity="two">הצגת תשובות (%d)</item>
+    <item quantity="many">הצגת תשובות (%d)</item>
+    <item quantity="other">הצגת תשובות (%d)</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">הסתרת תשובה</item>
+    <item quantity="two">הסתרת תשובות (%d)</item>
+    <item quantity="many">הסתרת תשובות (%d)</item>
+    <item quantity="other">הסתרת תשובות (%d)</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">עשית מינוי לנושא \"%s\"</string>
+  <string name="talk_thread_unsubscribed_from">ביטלת את המינוי לנושא \"%s\"</string>
+  <string name="talk_list_item_overflow_subscribe">מעקב</string>
+  <string name="talk_list_item_overflow_subscribed">עשית מינוי</string>
+  <string name="talk_list_item_overflow_mark_as_read">סימון כהודעה שנקראה</string>
+  <string name="talk_list_item_overflow_mark_as_unread">סימון כהודעה שלא נקראה</string>
+  <string name="talk_list_item_overflow_share">שיתוף</string>
+  <string name="talk_list_item_last_comment_date">תגובה אחרונה: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">סה\"כ תשובות</string>
+  <string name="talk_list_item_user_icon_content_description">סמל משתמש</string>
+  <string name="talk_list_item_swipe_mark_as_read">סימון כהודעה שנקראה</string>
+  <string name="talk_list_item_swipe_mark_as_unread">סימון כהודעה שלא נקראה</string>
+  <string name="talk_archived_title">ארכיון שיחה: %s</string>
   <string name="menu_option_share_talk_discussion">שיתוף דיון</string>
   <string name="menu_option_share_talk_page">שיתוף דף שיחה</string>
   <string name="menu_option_share_edit">לשתף את העריכה</string>
-  <string name="menu_option_user_profile">הפרופיל של %s</string>
   <string name="menu_option_user_contributions">התרומות של %s</string>
+  <string name="menu_option_edit_source">עריכת קוד מקור</string>
+  <string name="menu_option_user_page">דף השיחה של %s</string>
+  <string name="menu_option_find_in_talk_page_topic">חיפוש בנושא דף שיחה</string>
+  <string name="menu_option_copy_link_to_clipboard">העתקת קישור ללוח</string>
+  <string name="talk_menu_copy_text">העתקת טקסט</string>
+  <string name="talk_menu_expand_threads">הרחבת שרשורים</string>
+  <string name="talk_menu_collapse_threads">הסתרת שרשורים</string>
   <string name="watchlist_details_watching_label">במעקב</string>
   <string name="watchlist_details_watch_label">לעקוב</string>
   <string name="watchlist_details_next_edit">העריכה הבאה</string>
@@ -1135,6 +1276,28 @@
   <string name="thank_dialog_positive_button_text">לשלוח תודה</string>
   <string name="thank_dialog_negative_button_text">ביטול</string>
   <string name="thank_success_message">התודה שלך נשלחה למשתמש %s 👍</string>
+  <string name="menu_option_view_user_profile">הצגת דף משתמש</string>
+  <string name="menu_option_view_user_talk">הצגת דף שיחה</string>
+  <string name="menu_option_view_user_contributions">הצגת תרומות משתמש</string>
+  <string name="revision_diff_compare">השוואת גרסאות</string>
+  <string name="revision_diff_compare_title">השוואת גרסאות: %s</string>
+  <string name="revision_diff_from">מאת:</string>
+  <string name="revision_diff_to">אל:</string>
+  <string name="revision_diff_line_num">שורה %d</string>
+  <string name="revision_diff_line_nums">שורות %d–%d</string>
+  <string name="revision_diff_lines_from_to">שורות %1$d–%2$d</string>
+  <string name="revision_diff_line_added">שורה שנוספה</string>
+  <string name="revision_diff_line_removed">שורה שהוסרה</string>
+  <string name="revision_diff_paragraph_added">פסקה שנוספה</string>
+  <string name="revision_diff_paragraph_removed">פסקה שהוסרה</string>
+  <string name="revision_undo_title">ביטול עריכה</string>
+  <string name="revision_undo_message">זה יבטל את העריכה שנעשתה בגרסת הערך שמוצגת כאן.</string>
+  <string name="revision_undo_reason">כדי להמשיך, נא לספק סיבה לביטול העריכה הזאת:</string>
+  <string name="revision_undo_success">הגרסה בוטלה.</string>
+  <string name="revision_rollback_dialog_title">האם ברצונך באמת לשחזר את העריכות?</string>
+  <string name="revision_rollback_success">העריכות שוחזרו.</string>
+  <string name="revision_compare_button">השוואה</string>
+  <string name="revision_compare_two_only">ניתן לבחור שתי גרסאות בלבד.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">הדף %1$s ודף השיחה שלו נוספו לרשימת המעקב שלך %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">שינוי</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">לתמיד</string>
@@ -1157,4 +1320,30 @@
   <string name="watchlist_page_moved">הועבר</string>
   <string name="watchlist_page_protected">הוגן</string>
   <string name="watchlist_page_deleted">נמחק</string>
+  <string name="preview_edit_title">תצוגה מקדימה של העריכה</string>
+  <string name="preview_edit_summarize_edit_title">נא לכתוב סיכום של העריכה</string>
+  <string name="preview_edit_summarize_edit_hint">איך שיפרת את הדף?</string>
+  <string name="preview_edit_minor_edit">זוהי עריכה משנית</string>
+  <string name="preview_edit_minor_edit_url">https://he.wikipedia.org/wiki/עזרה:עריכה_משנית</string>
+  <string name="preview_edit_watch_this_page">מעקב אחרי הדף הזה</string>
+  <string name="preview_edit_watch_this_page_url">https://he.wikipedia.org/wiki/עזרה:רשימת_מעקב</string>
+  <string name="preview_edit_learn_more">מידע נוסף על תקצירי עריכה</string>
+  <string name="preview_edit_learn_more_url">https://he.wikipedia.org/wiki/עזרה:תקציר_עריכה</string>
+  <string name="action_item_categories">קטגוריות</string>
+  <string name="page_no_categories">הדף הזה אינו משויך לקטגוריות כלשהן.</string>
+  <string name="category_tab_articles">ערכים</string>
+  <string name="category_tab_subcategories">קטגוריות־משנה</string>
+  <string name="category_empty">לא נמצאו ערכים בקטגוריה הזאת.</string>
+  <string name="subcategory_empty">לא נמצאו קטגוריות־משנה בקטגוריה הזאת.</string>
+  <string name="search_namespaces">מרחבי שם</string>
+  <string name="revision_initial_none">אין (זאת הגרסה הראשונה)</string>
+  <string name="user_contrib_activity_title">תרומות של %s</string>
+  <string name="archive_empty">לא נמצאו דפים בארכיון.</string>
+  <string name="user_contrib_filter_ns">סינון לפי מרחב שמות</string>
+  <string name="user_contrib_filter_all">כל העריכות</string>
+  <string name="namespace_article">ערך</string>
+  <string name="user_contrib_current">נוכחי</string>
+  <string name="media_playback_error">שגיאה בנגינת מדיה.</string>
+  <string name="user_contrib_menu_label">תרומות</string>
+  <string name="user_contrib_wiki_select">תרומות ל־:</string>
 </resources>

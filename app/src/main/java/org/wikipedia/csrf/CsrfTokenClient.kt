@@ -14,81 +14,84 @@ import org.wikipedia.util.log.L
 import java.io.IOException
 import java.util.concurrent.Semaphore
 
-class CsrfTokenClient(private val loginWikiSite: WikiSite, private val numRetries: Int,
-                      private val csrfService: Service) {
-    constructor(site: WikiSite) : this(site, site)
-    constructor(csrfWikiSite: WikiSite, loginWikiSite: WikiSite) : this(loginWikiSite, MAX_RETRIES, ServiceFactory.get(csrfWikiSite))
+object CsrfTokenClient {
+    private val MUTEX: Semaphore = Semaphore(1)
+    private const val ANON_TOKEN = "+\\"
+    private const val MAX_RETRIES = 3
 
-    val token: Observable<String>
-        get() {
-            return Observable.create { emitter ->
-                var token = ""
-                try {
-                    MUTEX.acquire()
+    fun getToken(site: WikiSite, type: String = "csrf"): Observable<String> {
+        return getToken(site, type, null)
+    }
+
+    fun getToken(site: WikiSite, type: String = "csrf", svc: Service?): Observable<String> {
+        return Observable.create { emitter ->
+            var token = ""
+            try {
+                MUTEX.acquire()
+                val service = svc ?: ServiceFactory.get(site)
+
+                if (emitter.isDisposed) {
+                    return@create
+                }
+                var lastError: Throwable? = null
+                for (retry in 0 until MAX_RETRIES) {
+                    if (retry > 0) {
+                        // Log in explicitly
+                        LoginClient().loginBlocking(site, AccountUtil.userName!!, AccountUtil.password!!, "")
+                                .subscribeOn(Schedulers.io())
+                                .blockingSubscribe({ }) {
+                                    L.e(it)
+                                    lastError = it
+                                }
+                    }
                     if (emitter.isDisposed) {
                         return@create
                     }
-                    var lastError: Throwable? = null
-                    for (retry in 0 until numRetries) {
-                        if (retry > 0) {
-                            // Log in explicitly
-                            LoginClient().loginBlocking(loginWikiSite, AccountUtil.userName!!, AccountUtil.password!!, "")
-                                    .subscribeOn(Schedulers.io())
-                                    .blockingSubscribe({ }) {
-                                        L.e(it)
-                                        lastError = it
-                                    }
-                        }
-                        if (emitter.isDisposed) {
-                            return@create
-                        }
 
-                        csrfService.csrfToken
-                                .subscribeOn(Schedulers.io())
-                                .blockingSubscribe({
+                    service.getTokenObservable(type)
+                            .subscribeOn(Schedulers.io())
+                            .blockingSubscribe({
+                                if (type == "rollback") {
+                                    token = it.query?.rollbackToken().orEmpty()
+                                } else {
                                     token = it.query?.csrfToken().orEmpty()
-                                    if (AccountUtil.isLoggedIn && token == ANON_TOKEN) {
-                                        throw RuntimeException("App believes we're logged in, but got anonymous token.")
-                                    }
-                                }, {
-                                    L.e(it)
-                                    lastError = it
-                                })
-                        if (emitter.isDisposed) {
-                            return@create
-                        }
+                                }
+                                if (AccountUtil.isLoggedIn && token == ANON_TOKEN) {
+                                    throw RuntimeException("App believes we're logged in, but got anonymous token.")
+                                }
+                            }, {
+                                L.e(it)
+                                lastError = it
+                            })
+                    if (emitter.isDisposed) {
+                        return@create
+                    }
 
-                        if (token.isEmpty() || (AccountUtil.isLoggedIn && token == ANON_TOKEN)) {
-                            continue
-                        }
-                        break
-                    }
                     if (token.isEmpty() || (AccountUtil.isLoggedIn && token == ANON_TOKEN)) {
-                        if (token == ANON_TOKEN) {
-                            bailWithLogout()
-                        }
-                        throw lastError ?: IOException("Invalid token, or login failure.")
+                        continue
                     }
-                } catch (t: Throwable) {
-                    emitter.onError(t)
-                } finally {
-                    MUTEX.release()
+                    break
                 }
-                emitter.onNext(token)
-                emitter.onComplete()
+                if (token.isEmpty() || (AccountUtil.isLoggedIn && token == ANON_TOKEN)) {
+                    if (token == ANON_TOKEN) {
+                        bailWithLogout()
+                    }
+                    throw lastError ?: IOException("Invalid token, or login failure.")
+                }
+            } catch (t: Throwable) {
+                emitter.onError(t)
+            } finally {
+                MUTEX.release()
             }
+            emitter.onNext(token)
+            emitter.onComplete()
         }
+    }
 
     private fun bailWithLogout() {
         // Signal to the rest of the app that we're explicitly logging out in the background.
-        WikipediaApp.getInstance().logOut()
+        WikipediaApp.instance.logOut()
         Prefs.loggedOutInBackground = true
-        WikipediaApp.getInstance().bus.post(LoggedOutInBackgroundEvent())
-    }
-
-    companion object {
-        private val MUTEX: Semaphore = Semaphore(1)
-        private const val ANON_TOKEN = "+\\"
-        private const val MAX_RETRIES = 3
+        WikipediaApp.instance.bus.post(LoggedOutInBackgroundEvent())
     }
 }

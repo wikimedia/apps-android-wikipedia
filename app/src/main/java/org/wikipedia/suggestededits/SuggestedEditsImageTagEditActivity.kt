@@ -42,7 +42,7 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
     }
 
     override fun getLangCode(): String {
-        return WikipediaApp.getInstance().language().appLanguageCode
+        return WikipediaApp.instance.languageState.appLanguageCode
     }
 
     override fun getSinglePage(): MwQueryPage? {
@@ -86,7 +86,6 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
     companion object {
         private const val ARG_PAGE = "imageTagPage"
 
-        @JvmStatic
         fun newIntent(context: Context, page: MwQueryPage, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, SuggestedEditsImageTagEditActivity::class.java)
                     .putExtra(ARG_PAGE, JsonUtil.encodeToString(page))

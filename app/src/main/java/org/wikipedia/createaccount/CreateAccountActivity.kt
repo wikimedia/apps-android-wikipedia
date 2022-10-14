@@ -1,5 +1,6 @@
 package org.wikipedia.createaccount
 
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
@@ -35,14 +36,14 @@ import java.util.regex.Pattern
 
 class CreateAccountActivity : BaseActivity() {
     enum class ValidateResult {
-        SUCCESS, INVALID_USERNAME, PASSWORD_TOO_SHORT, PASSWORD_MISMATCH, NO_EMAIL, INVALID_EMAIL
+        SUCCESS, INVALID_USERNAME, PASSWORD_TOO_SHORT, PASSWORD_IS_USERNAME, PASSWORD_MISMATCH, NO_EMAIL, INVALID_EMAIL
     }
 
     private lateinit var binding: ActivityCreateAccountBinding
     private lateinit var captchaHandler: CaptchaHandler
     private lateinit var funnel: CreateAccountFunnel
     private val disposables = CompositeDisposable()
-    private var wiki = WikipediaApp.getInstance().wikiSite
+    private var wiki = WikipediaApp.instance.wikiSite
     private var userNameTextWatcher: TextWatcher? = null
     private val userNameVerifyRunnable = UserNameVerifyRunnable()
 
@@ -56,7 +57,7 @@ class CreateAccountActivity : BaseActivity() {
         // Don't allow user to continue when they're shown a captcha until they fill it in
         NonEmptyValidator(binding.captchaContainer.captchaSubmitButton, binding.captchaContainer.captchaText)
         setClickListeners()
-        funnel = CreateAccountFunnel(WikipediaApp.getInstance(), intent.getStringExtra(LOGIN_REQUEST_SOURCE)!!)
+        funnel = CreateAccountFunnel(WikipediaApp.instance, intent.getStringExtra(LOGIN_REQUEST_SOURCE)!!)
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
             funnel.logStart(intent.getStringExtra(LOGIN_SESSION_TOKEN))
@@ -111,7 +112,7 @@ class CreateAccountActivity : BaseActivity() {
 
     fun handleAccountCreationError(message: String) {
         if (message.contains("blocked")) {
-            FeedbackUtil.makeSnackbar(this, getString(R.string.create_account_ip_block_message), FeedbackUtil.LENGTH_DEFAULT)
+            FeedbackUtil.makeSnackbar(this, getString(R.string.create_account_ip_block_message))
                     .setAction(R.string.create_account_ip_block_details) {
                         visitInExternalBrowser(this,
                                 Uri.parse(getString(R.string.create_account_ip_block_help_url)))
@@ -159,7 +160,7 @@ class CreateAccountActivity : BaseActivity() {
                     if ("PASS" == response.status) {
                         finishWithUserResult(response.user)
                     } else {
-                        throw CreateAccountException(response.message)
+                        throw CreateAccountException(StringUtil.removeStyleTags(response.message))
                     }
                 }) { caught ->
                     L.e(caught.toString())
@@ -210,6 +211,11 @@ class CreateAccountActivity : BaseActivity() {
             ValidateResult.PASSWORD_TOO_SHORT -> {
                 binding.createAccountPasswordInput.requestFocus()
                 binding.createAccountPasswordInput.error = getString(R.string.create_account_password_error)
+                return
+            }
+            ValidateResult.PASSWORD_IS_USERNAME -> {
+                binding.createAccountPasswordInput.requestFocus()
+                binding.createAccountPasswordInput.error = getString(R.string.create_account_password_is_username)
                 return
             }
             ValidateResult.PASSWORD_MISMATCH -> {
@@ -287,13 +293,13 @@ class CreateAccountActivity : BaseActivity() {
                     .subscribe({ response ->
                         response.query?.getUserResponse(userName)?.let {
                             binding.createAccountUsername.isErrorEnabled = false
-                            if (it.isBlocked) {
+                            if (it.hasBlockError) {
                                 handleAccountCreationError(it.error)
-                            } else if (!it.cancreate) {
+                            } else if (!it.canCreate) {
                                 binding.createAccountUsername.error = getString(R.string.create_account_name_unavailable, userName)
                             }
                         }
-                    }) { obj -> L.e(obj) })
+                    }) { L.e(it) })
         }
     }
 
@@ -307,7 +313,6 @@ class CreateAccountActivity : BaseActivity() {
         const val CREATE_ACCOUNT_RESULT_USERNAME = "username"
         const val CREATE_ACCOUNT_RESULT_PASSWORD = "password"
 
-        @JvmField
         val USERNAME_PATTERN: Pattern = Pattern.compile("[^#<>\\[\\]|{}/@]*")
 
         @JvmStatic
@@ -319,6 +324,8 @@ class CreateAccountActivity : BaseActivity() {
                 return ValidateResult.INVALID_USERNAME
             } else if (password.length < PASSWORD_MIN_LENGTH) {
                 return ValidateResult.PASSWORD_TOO_SHORT
+            } else if (password.toString().equals(username.toString(), true)) {
+                return ValidateResult.PASSWORD_IS_USERNAME
             } else if (passwordRepeat.toString() != password.toString()) {
                 return ValidateResult.PASSWORD_MISMATCH
             } else if (email.isNotEmpty() && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
@@ -327,6 +334,12 @@ class CreateAccountActivity : BaseActivity() {
                 return ValidateResult.NO_EMAIL
             }
             return ValidateResult.SUCCESS
+        }
+
+        fun newIntent(context: Context, sessionToken: String, source: String): Intent {
+            return Intent(context, CreateAccountActivity::class.java)
+                    .putExtra(LOGIN_SESSION_TOKEN, sessionToken)
+                    .putExtra(LOGIN_REQUEST_SOURCE, source)
         }
     }
 }

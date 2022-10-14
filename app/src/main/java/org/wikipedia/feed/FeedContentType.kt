@@ -66,7 +66,7 @@ enum class FeedContentType(private val code: Int,
     },
     SUGGESTED_EDITS(9, R.string.suggested_edits_feed_card_title, R.string.feed_item_type_suggested_edits, false) {
         override fun newClient(aggregatedClient: AggregatedFeedContentClient, age: Int): FeedClient? {
-            return if (isEnabled && AccountUtil.isLoggedIn && WikipediaApp.getInstance().isOnline) SuggestedEditsFeedClient() else null
+            return if (isEnabled && AccountUtil.isLoggedIn && WikipediaApp.instance.isOnline) SuggestedEditsFeedClient() else null
         }
     },
     ACCESSIBILITY(10, 0, 0, false, false) {
@@ -96,10 +96,9 @@ enum class FeedContentType(private val code: Int,
 
         fun of(code: Int): FeedContentType { return MAP[code] }
 
-        @JvmStatic
         val aggregatedLanguages: List<String>
             get() {
-                val appLangCodes = WikipediaApp.getInstance().language().appLanguageCodes
+                val appLangCodes = WikipediaApp.instance.languageState.appLanguageCodes
                 val list = mutableListOf<String>()
                 values().filter { it.isEnabled }.forEach { type ->
                     list.addAll(appLangCodes.filter {
@@ -133,8 +132,8 @@ enum class FeedContentType(private val code: Int,
             val langSupportedMap = Prefs.feedCardsLangSupported
             val langDisabledMap = Prefs.feedCardsLangDisabled
             values().forEachIndexed { i, type ->
-                type.isEnabled = if (i < enabledList.size) enabledList[i] else true
-                type.order = if (i < orderList.size) orderList[i] else i
+                type.isEnabled = enabledList.getOrElse(i) { true }
+                type.order = orderList.getOrElse(i) { i }
                 type.langCodesSupported.clear()
                 langSupportedMap[type.code]?.let {
                     type.langCodesSupported.addAll(it)

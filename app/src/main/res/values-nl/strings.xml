@@ -4,6 +4,7 @@
 * Ciell
 * Danieldegroot2
 * Dbrant
+* Dnlweijers
 * Dutchy45
 * Elroy
 * Encycloon
@@ -35,6 +36,7 @@
 * Sjoerddebruin
 * Southparkfan
 * TrisbaasBaan
+* Vistaus
 * Wikibelgiaan
 * Xbaked potatox
 -->
@@ -71,6 +73,7 @@
   <string name="search_tab_tooltip">Klik nog een keer op het icoon om rechtstreeks te zoeken.</string>
   <string name="history_list_title">Geschiedenis</string>
   <string name="image_content_description">Afbeelding: %s</string>
+  <string name="page_content_description">Pagina: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Browsergeschiedenis wissen</string>
@@ -80,13 +83,37 @@
   <string name="share_via">Delen via</string>
   <string name="image_share_via">Delen via</string>
   <string name="search_redirect_from">Doorverwezen vanaf %s</string>
+  <string name="page_edit_history_activity_title">Versiegeschiedenis: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Lege bewerkingssamenvatting</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Zoek of filter bewerkingen</string>
+  <string name="page_edit_history_filter_by">Filteren op</string>
+  <string name="page_edit_history_filter_by_all">Alle bewerkingen (%s)</string>
+  <string name="page_edit_history_filter_by_user">Gebruikersbewerkingen (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonieme bewerkingen (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Botbewerkingen (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Statistieken van %1$s tot %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d bewerking sinds %2$s</item>
+    <item quantity="other">%1$d bewerkingen sinds %2$s</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d bewerking sinds %2$s (%3$s)</item>
+    <item quantity="other">%1$d bewerkingen sinds %2$s (%3$s)</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Probeer &lt;a href=\"#\"&gt;filters&lt;/a&gt; te wijzigen om meer bewerkingen te zien</string>
   <string name="menu_page_show_tabs">Tabbladen weergeven</string>
   <string name="menu_page_other_languages">Taal wijzigen</string>
   <string name="menu_page_find_in_page">Zoek in artikel</string>
   <string name="menu_page_add_to_watchlist">Toevoegen aan volglijst</string>
+  <string name="menu_page_watch">Volgen</string>
+  <string name="menu_page_unwatch">Niet volgen</string>
   <string name="menu_page_view_talk">Overlegpagina bekijken</string>
+  <string name="menu_page_talk_page">Overlegpagina</string>
   <string name="menu_page_view_edit_history">Bewerkingsgeschiedenis bekijken</string>
+  <string name="menu_page_edit_history">Bewerkingsgeschiedenis</string>
   <string name="menu_page_remove_from_watchlist">Verwijderen uit volglijst</string>
+  <string name="menu_page_watched">Gevolgd</string>
   <string name="edit_section_find_in_page">Zoeken in pagina</string>
   <string name="menu_page_font_and_theme">Lettertype en thema</string>
   <string name="menu_page_add_to_list">Aan leeslijst toevoegen</string>
@@ -94,10 +121,13 @@
   <string name="feed_card_add_to_list">Aan leeslijst toevoegen</string>
   <string name="feed_card_add_to_default_list">Opslaan</string>
   <string name="menu_page_share">Link delen</string>
+  <string name="menu_article_share">Deel pagina</string>
+  <string name="menu_page_article_share">Delen</string>
   <string name="menu_page_open_a_new_tab">Een nieuw tabblad openen</string>
   <string name="menu_page_new_tab">Nieuw tabblad</string>
   <string name="menu_page_reading_lists">Leeslijsten</string>
   <string name="menu_page_recently_viewed">Onlangs bekeken</string>
+  <string name="menu_page_archive">Archief</string>
   <string name="menu_long_press_open_page">Openen</string>
   <string name="menu_long_press_open_in_new_tab">In nieuw tabblad openen</string>
   <string name="menu_long_press_copy_page">Linkadres kopiëren</string>
@@ -105,6 +135,7 @@
   <string name="on_this_day_page_share">Delen</string>
   <string name="reading_list_page_share">Delen</string>
   <string name="menu_text_select_edit_here">Hier bewerken</string>
+  <string name="menu_edit_article">Artikel bewerken</string>
   <string name="last_updated_text">%s voor het laatst bijgewerkt</string>
   <string name="talk_page_link_text">Bekijk overlegpagina</string>
   <string name="edit_history_link_text">Bekijk bewerkingsgeschiedenis</string>
@@ -114,6 +145,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie.</string>
   <string name="edit_save_action_license_anon">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie. Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt;, hebt u meer privacy.</string>
+  <string name="edit_anon_warning">Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u &lt;a href=\"https://#login\"&gt;inlogt&lt;/a&gt;, heeft u meer privacy.</string>
   <string name="preference_title_language">Wikipediatalen</string>
   <string name="langlinks_filter_hint">Zoeken</string>
   <string name="langlinks_empty">Deze pagina is niet beschikbaar in andere talen.</string>
@@ -180,6 +212,7 @@
   <string name="dialog_create_account_checking_progress">Aan het controleren</string>
   <string name="create_account_email_hint">E-mailadres (optioneel)</string>
   <string name="create_account_password_repeat_hint">Wachtwoord bevestigen</string>
+  <string name="create_account_password_is_username">Wachtwoord mag niet hetzelfde zijn als de gebruikersnaam</string>
   <string name="create_account_passwords_mismatch_error">Wachtwoorden komen niet overeen</string>
   <string name="create_account_email_error">Ongeldig e-mailadres</string>
   <string name="create_account_username_error">Ongeldige tekens in gebruikersnaam</string>
@@ -226,7 +259,6 @@
   <string name="page_protected_can_not_edit_title">Deze pagina is beveiligd</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Toevoegen aan volglijst</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Blijf op de hoogte van artikelen waar je geïnteresseerd in bent. Selecteer &lt;b&gt;Toevoegen aan Watchlist&lt;/b&gt; om wijzigingen aan een artikelen te zien.</string>
-  <string name="page_notification_tooltip">Uw meldingen bevinden zich nu hier.</string>
   <string name="settings_item_preferences">Instellingen</string>
   <string name="settings_activity_title">Instellingen</string>
   <string name="about_description">Over de Wikipedia-app</string>
@@ -263,6 +295,11 @@
   <string name="edit_preview">Voorvertoning</string>
   <string name="edit_undo">Ongedaan maken</string>
   <string name="edit_redo">Opnieuw uitvoeren</string>
+  <string name="edit_rollback">Terugdraaien</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s byte</item>
+    <item quantity="other">%s bytes</item>
+  </plurals>
   <string name="edit_zoom_in">Inzoomen</string>
   <string name="edit_zoom_out">Uitzoomen</string>
   <string name="edit_summary_tag_typo">Spelfout gecorrigeerd</string>
@@ -272,6 +309,10 @@
   <string name="edit_summary_tag_other_hint">Andere manieren waarop u de pagina hebt verbeterd</string>
   <string name="edit_conflict_title">Bewerkingsconflict</string>
   <string name="edit_conflict_message">Deze pagina is reeds aangepast door een andere gebruiker en deze bewerking conflicteert met die van u. Kopieer alstublieft uw bewerkingen, ga terug, ververs de pagina en probeer opnieuw te bewerken.</string>
+  <string name="edit_notices">Bewerkingsmeldingen</string>
+  <string name="edit_notices_please_read">Gelieve te lezen voor het doen van bewerkingen</string>
+  <string name="edit_notices_show_auto">Automatisch bewerkingsmeldingen tonen</string>
+  <string name="edit_notices_tooltip">Druk op deze knop om bewerkingsmeldingen te zien voor deze pagina.</string>
   <string name="find_next">Volgende zoeken</string>
   <string name="find_previous">Vorige zoeken</string>
   <string name="find_first_occurence">Dit is het eerste resultaat</string>
@@ -321,6 +362,7 @@
   <string name="gallery_save_success">Het bestand is opgeslagen.</string>
   <string name="gallery_error_video_failed">De video kan niet afgespeeld worden.</string>
   <string name="gallery_save_image_write_permission_rationale">Er is toestemming vereist om naar de opslagmedia op uw apparaat te mogen schrijven.</string>
+  <string name="gallery_edit_button_content_description">Afbeeldingsbijschrift bewerken</string>
   <string name="gallery_add_image_caption_button">Afbeeldingsbijschrift toevoegen</string>
   <string name="gallery_add_image_caption_in_language_button">Afbeeldingsbijschrift toevoegen (%s)</string>
   <string name="err_cannot_save_file">Het bestand kan niet opgeslagen worden</string>
@@ -382,6 +424,7 @@
   <string name="error_message_generic">Er is een fout opgetreden</string>
   <string name="view_link_preview_error_button_dismiss">Afwijzen</string>
   <string name="error_page_does_not_exist">Deze pagina bestaat niet</string>
+  <string name="error_user_page_does_not_exist">Wikipedia heeft geen &lt;a href=\"%1$s\"&gt;gebruikerspagina&lt;/a&gt; met deze exacte naam. Over het algemeen moet deze pagina worden gemaakt en bewerkt door &lt;b&gt;%2$s&lt;/b&gt;. Controleer bij twijfel of \"%3$s\" bestaat.</string>
   <string name="view_wiki_error_message_offline">Er kan geen verbinding gemaakt worden met het internet</string>
   <string name="view_wiki_error_message_timeout">Kan geen verbinding maken met Wikipedia. Controleer uw netwerkverbinding, of probeer het later opnieuw.</string>
   <string name="reference_title">Referentie %s</string>
@@ -400,6 +443,7 @@
   <string name="error_blocked_expiry">Vervaldatum van blokkering: %s</string>
   <string name="error_blocked_id">Blokkering ID: %s</string>
   <string name="error_blocked_footer">U kunt contact opnemen met &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; of met een andere &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; voor meer informatie over de blokkering.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Werkbalk aanpassen</string>
   <string name="error_blocked_footer_no_blocker">U kunt contact opnemen met een &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; voor meer informatie over de blokkering.</string>
   <string name="crash_report_activity_title">Programmafout</string>
   <string name="crash_report_relaunch_or_quit">Er is helaas een fout opgetreden in de Wikipedia-app en de app is beëindigd.\n\nWilt u overnieuw beginnen of sluiten?</string>
@@ -426,6 +470,9 @@
   <string name="text_size_decrease">Tekstgrootte verkleinen</string>
   <string name="text_size_percent_default">%s (standaard)</string>
   <string name="text_style_title">Lettertype</string>
+  <string name="theme_category_reading">Lezen</string>
+  <string name="reading_focus_mode">Lezen in de focusmodus</string>
+  <string name="reading_focus_mode_detail">Verbergt bewerkingsfuncties en onderste werkbalk bij het scrollen</string>
   <string name="nav_item_saved">Opgeslagen</string>
   <string name="reading_list_save_to">Naar leeslijst opslaan</string>
   <string name="reading_list_move_to">Naar leeslijst verplaatsen</string>
@@ -554,6 +601,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Annuleren</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Annuleren</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_activity_title">Leeslijst: %s</string>
   <string name="user_option_sync_label">Voorkeuren</string>
   <string name="notification_reverted_title">Bewerking teruggedraaid</string>
   <string name="notification_channel_title">Bestanden downloaden</string>
@@ -656,6 +704,7 @@
   <string name="notifications_channel_group_other_description">Andere meldingen van de app</string>
   <string name="notifications_filter_label">Meldingen filteren</string>
   <string name="notifications_filter_icon_content_description">Meldingen filteren</string>
+  <string name="notifications_filter_update_app_languages">App talen bijwerken</string>
   <string name="notifications_empty_search_message">Probeer er %s te verwijderen om meer meldingen te zien</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filter</item>
@@ -665,13 +714,19 @@
   <string name="notifications_tab_filter_all">Alle</string>
   <string name="notifications_tab_filter_mentions">Vermeldingen</string>
   <string name="notifications_search_bar_hint">Zoek of filter meldingen</string>
+  <string name="notifications_search_bar_filter_hint">Filter meldingen</string>
   <string name="notifications_menu_mark_as_read">Als gelezen markeren</string>
   <string name="notifications_menu_mark_as_unread">Als ongelezen markeren</string>
   <string name="notifications_swipe_action_read">Gelezen</string>
   <string name="notifications_swipe_action_unread">Ongelezen</string>
   <string name="notifications_menu_check_all">Alle items selecteren</string>
   <string name="notifications_menu_uncheck_all">Alle items deselecteren</string>
+  <string name="notifications_wiki_filter_header">Wikifilter</string>
+  <string name="notifications_type_filter_header">Filter naar type</string>
+  <string name="notifications_all_wikis_text">Alle \"wiki\'s\"</string>
+  <string name="notifications_all_types_text">Alle \"types\"</string>
   <string name="notifications_menu_user_talk_page">%s\'s overlegpagina</string>
+  <string name="notifications_offline_disable_message">Deze functie is offline niet beschikbaar</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
   <string name="view_random_card_title">Randomizer</string>
   <string name="view_random_article_card_title">Willekeurig artikel</string>
@@ -729,6 +784,7 @@
   <string name="feed_accessibility_card_text">U heeft het eind van de pagina bereikt.</string>
   <string name="feed_accessibility_card_load_more_button">Meer laden</string>
   <string name="top_read_activity_title">Meest gelezen op %s</string>
+  <string name="tabs_activity_title">Tabbladen</string>
   <string name="description_edit_text_hint">Artikelbeschrijving</string>
   <string name="description_edit_article_description_label">Artikel</string>
   <string name="description_edit_translate_article_description_label_per_language">Artikelbeschrijving (%s)</string>
@@ -759,6 +815,7 @@
   <string name="description_starts_with_uppercase">Start met een kleine letter tenzij het eerste woord een eigennaam is.</string>
   <string name="description_starts_with_lowercase">Begin niet met een kleine letter.</string>
   <string name="description_is_in_different_language">De tekst lijkt in een onverwachte taal te zijn. De taal moet %s zijn.</string>
+  <string name="description_verification_notice">Controleer of uw beschrijving in %1$s staat. Voelt u zich vrij om deze melding te negeren als de beschrijving die u heeft geschreven in %2$s staat.</string>
   <string name="description_edit_success_saved">Artikelbeschrijving gepubliceerd!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeschrijving gepubliceerd!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikelbeschrijving gepubliceerd! (%s)</string>
@@ -776,6 +833,14 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealiter één regel, tussen twee en twaalf woorden</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begin met bewerken</string>
   <string name="description_edit_tutorial_promise">Door te beginnen, beloof ik geen misbruik te maken van deze functie.</string>
+  <string name="customize_toolbar_title">Pas de werkbalk aan</string>
+  <string name="customize_toolbar_shortcut_description_text">Voeg uw vijf favoriete snelkoppelingen toe aan de onderste werkbalk.</string>
+  <string name="customize_toolbar_category_toolbar">Werkbalk</string>
+  <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Sleep je favoriete items hierheen 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Reset naar standaard</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Houd het sleeppictogram ingedrukt om het item te verplaatsen</string>
+  <string name="customize_toolbar_item_default_tooltip">Druk op een item en sleep het om het te verplaatsen</string>
   <string name="suggested_edits_describe_articles">Beschrijf artikelen</string>
   <string name="suggested_edits_caption_images">Bijschrift afbeeldingen</string>
   <string name="suggested_edits_tag_images">Afbeeldingen labelen</string>
@@ -866,6 +931,7 @@
   <string name="suggested_edits_paused_message">Voorgestelde bewerkingen zijn gepauzeerd tot %1$s. Sorry %2$s, maar sommige van uw recente bijdragen zijn teruggedraaid.</string>
   <string name="suggested_edits_disabled_message">Voorgestelde bewerkingen is uitgeschakeld. Sorry %s, maar te veel van uw recente bijdragen zijn teruggedraaid.</string>
   <string name="suggested_edits_ip_blocked_message">Het lijkt erop dat uw IP-adres (of assortiment van IP-adressen) momenteel geblokkeerd is van het bewerken van Wikipedia.</string>
+  <string name="suggested_edits_gate_message">Sorry, %s, u moet ten minste drie bewerkingen rechtstreeks in een artikel maken om deze functie te gebruiken.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips en tricks voor bewerken</string>
   <string name="suggested_edits_help_page_link_text">Hulppagina voorgestelde bewerkingen</string>
   <string name="suggested_edits_edit_streak_label_text">Bewerkingen reeks</string>
@@ -944,7 +1010,7 @@
   <string name="file_page_activity_title">Bestandspagina</string>
   <string name="file_page_add_image_caption_button">Afbeeldingsbijschrift toevoegen</string>
   <string name="file_page_add_image_tags_button">Afbeeldingslabel toevoegen</string>
-  <string name="file_page_suggestion_reason">Reden voor suggestie</string>
+  <string name="file_page_edit_button_content_description">Bewerk %s</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
   <string name="description_edit_revert_reason1">uw bijdrage valt niet onder één van de &lt;a href=\"%1$s\"&gt;richtlijnen&lt;/a&gt;.</string>
@@ -1020,11 +1086,36 @@
   <string name="wikitext_bold">Vet</string>
   <string name="wikitext_italic">Cursief</string>
   <string name="wikitext_link">Koppeling</string>
+  <string name="wikitext_insert_media">Media invoegen</string>
   <string name="wikitext_bulleted_list">Ongenummerde lijst</string>
   <string name="wikitext_numbered_list">Genummerde lijst</string>
   <string name="wikitext_template">Sjabloon</string>
   <string name="wikitext_reference">Referentie</string>
   <string name="wikitext_preview_link">Voorvertoning koppeling</string>
+  <string name="insert_media_title">Media invoegen</string>
+  <string name="insert_media_search_description">Selecteer een bestand van Wikimedia Commons</string>
+  <string name="insert_media_settings_uploaded_image">Geüploade afbeelding</string>
+  <string name="insert_media_settings_caption">Bijschrift</string>
+  <string name="insert_media_settings_caption_description">Beschrijving naast het item die voor alle lezers zichtbaar is</string>
+  <string name="insert_media_settings_alternative_text">Alternatieve tekst</string>
+  <string name="insert_media_settings_alternative_text_description">Beschrijving voor lezers die de afbeelding niet kunnen bekijken</string>
+  <string name="insert_media_advanced_settings">Geavanceerde instellingen</string>
+  <string name="insert_media_advanced_settings_image_position">Afbeeldingspositie</string>
+  <string name="insert_media_advanced_settings_image_position_right">Rechts</string>
+  <string name="insert_media_advanced_settings_image_position_left">Links</string>
+  <string name="insert_media_advanced_settings_image_position_center">Gecentreerd</string>
+  <string name="insert_media_advanced_settings_image_position_none">Geen</string>
+  <string name="insert_media_advanced_settings_image_type">Soort afbeelding</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Miniatuur</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Zonder frame</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Frame</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Eenvoudig</string>
+  <string name="insert_media_advanced_settings_image_size">Afbeeldingsgrootte</string>
+  <string name="insert_media_advanced_settings_image_size_default">Standaard</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Aangepast</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Breedte</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Hoogte</string>
+  <string name="insert_media_insert_button">Invoegen</string>
   <string name="main_drawer_help">Hulp</string>
   <string name="main_drawer_login">Log in / aanmelden bij Wikipedia</string>
   <string name="main_tooltip_text">Hoi %s, wist u dat iedereen Wikipedia kan bewerken?</string>
@@ -1053,19 +1144,80 @@
   <string name="talk_last_modified">&lt;b&gt;Laatst bewerkt %1$s&lt;/b&gt; door %2$s</string>
   <string name="talk_snackbar_survey_text">Bedankt voor het gebruiken van overlegpagina\'s. Zou je ons kunnen helpen de app te verbeteren, door deel te nemen aan een enquête?</string>
   <string name="talk_snackbar_survey_action_text">Aan de slag</string>
+  <string name="talk_share_discussion_subject">Wikipedia - discussie over overlegpagina-onderwerp \"%s\"</string>
+  <string name="talk_share_talk_page">Wikipedia - discussies op overlegpagina</string>
+  <string name="talk_edit_disclaimer">Dit is een overlegpagina. Respecteer de richtlijnen van de overlegpagina en vergeet niet om uw berichten te ondertekenen door vier tildes te typen: ~~~~ wanneer u een bericht plaatst met wikitekst.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/ Wikipedia:Talk_page_guidelines\"&gt;Richtlijnen voor overlegpagina\'s&lt;/a&gt; op de Engelstalige Wikipedia</string>
+  <string name="talk_search_hint">Berichten zoeken</string>
+  <string name="talk_search_topics_hint">Zoeken naar onderwerpen</string>
+  <string name="talk_search_find_in_talk_topics_hint">Zoek in overlegpagina-onderwerp</string>
+  <string name="talk_overflow_sort_by">Sorteren op</string>
+  <string name="talk_overflow_sort_date_published">Publicatiedatum</string>
+  <string name="talk_overflow_sort_date_updated">Bijgewerkt op</string>
+  <string name="talk_overflow_sort_topic_name">Onderwerpsnaam</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Antwoord tonen</item>
+    <item quantity="other">Antwoorden tonen (%d)</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Antwoord verbergen</item>
+    <item quantity="other">Antwoorden verbergen (%d)</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">Geabonneerd op “%s”</string>
+  <string name="talk_thread_unsubscribed_from">Gedeabonneerd op “%s”</string>
+  <string name="talk_list_item_overflow_subscribe">Abonneren</string>
+  <string name="talk_list_item_overflow_subscribed">Geabonneerd</string>
+  <string name="talk_list_item_overflow_mark_as_read">Markeren als gelezen</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Markeren als ongelezen</string>
+  <string name="talk_list_item_overflow_share">Delen</string>
+  <string name="talk_list_item_last_comment_date">Recentste reactie: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Totaal aantal antwoorden</string>
+  <string name="talk_list_item_user_icon_content_description">Gebruikerspictogram</string>
+  <string name="talk_list_item_swipe_mark_as_read">Gelezen</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Ongelezen</string>
+  <string name="talk_archived_title">Overlegarchief: %s</string>
+  <string name="menu_option_share_talk_discussion">Deel overleg</string>
+  <string name="menu_option_share_talk_page">Overlegpagina delen</string>
   <string name="menu_option_share_edit">Bewerking delen</string>
-  <string name="menu_option_user_profile">Profiel van %s</string>
   <string name="menu_option_user_contributions">Bijdragen van %s</string>
+  <string name="menu_option_edit_source">Bron bewerken</string>
+  <string name="menu_option_user_page">Gebruikerspagina van %s</string>
+  <string name="menu_option_find_in_talk_page_topic">Overlegpagina doorzoeken</string>
+  <string name="menu_option_copy_link_to_clipboard">Koppeling naar klembord kopiëren</string>
+  <string name="talk_menu_copy_text">Tekst kopiëren</string>
+  <string name="talk_menu_expand_threads">Gesprekken uitklappen</string>
+  <string name="talk_menu_collapse_threads">Gesprekken inklappen</string>
   <string name="watchlist_details_watching_label">Aan het bekijken</string>
   <string name="watchlist_details_watch_label">Volgen</string>
   <string name="watchlist_details_next_edit">Volgende bewerking</string>
   <string name="watchlist_details_prev_edit">Vorige bewerking</string>
   <string name="thank_label">Bedanken</string>
+  <string name="view_user_page">Gebruikerspagina bekijken</string>
   <string name="thank_dialog_title_text">Publiekelijk een bedankje sturen</string>
   <string name="thank_dialog_text">\'Bedankjes\' zijn een gemakkelijke manier om waardering te tonen voor het werk van een redacteur op Wikipedia. \'Bedankjes\' kunnen niet ongedaan worden gemaakt en zijn openbaar zichtbaar</string>
   <string name="thank_dialog_positive_button_text">Bedankje sturen</string>
   <string name="thank_dialog_negative_button_text">Annuleren</string>
   <string name="thank_success_message">Uw bedankje is verstuurd naar %s 👍</string>
+  <string name="menu_option_view_user_profile">Gebruikerspagina bekijken</string>
+  <string name="menu_option_view_user_talk">Bekijk overlegpagina</string>
+  <string name="menu_option_view_user_contributions">Gebruikersbijdragen bekijken</string>
+  <string name="revision_diff_compare">Versies vergelijken</string>
+  <string name="revision_diff_compare_title">Versies vergelijken: %s</string>
+  <string name="revision_diff_from">Van:</string>
+  <string name="revision_diff_to">Naar:</string>
+  <string name="revision_diff_line_num">Regel %d</string>
+  <string name="revision_diff_line_nums">Regels %d–%d</string>
+  <string name="revision_diff_line_added">Regel toegevoegd</string>
+  <string name="revision_diff_line_removed">Regel verwijderd</string>
+  <string name="revision_diff_paragraph_added">Alinea toegevoegd</string>
+  <string name="revision_diff_paragraph_removed">Alinea verwijderd</string>
+  <string name="revision_undo_title">Bewerken ongedaan maken</string>
+  <string name="revision_undo_message">Hiermee worden de wijzigingen ongedaan gemaakt door de revisie(s) van het hier getoonde artikel.</string>
+  <string name="revision_undo_reason">Geef om door te gaan een reden op waarom u deze bewerking ongedaan wilt maken:</string>
+  <string name="revision_undo_success">De versie is ongedaan gemaakt.</string>
+  <string name="revision_rollback_dialog_title">weet je zeker dat je de bewerkingen wil terugdraaien?</string>
+  <string name="revision_rollback_success">Bewerkingen omgedraaid.</string>
+  <string name="revision_compare_button">Vergelijken</string>
+  <string name="revision_compare_two_only">Slechts twee versies kunnen worden geselecteerd.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s en zijn overlegpagina zijn toegevoegd aan uw volglijst %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Wijzig</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
@@ -1088,4 +1240,26 @@
   <string name="watchlist_page_moved">Hernoemd</string>
   <string name="watchlist_page_protected">Beveiligd</string>
   <string name="watchlist_page_deleted">Verwijderd</string>
+  <string name="preview_edit_title">Voorvertoning van de bewerking</string>
+  <string name="preview_edit_summarize_edit_title">Bewerking samenvatten</string>
+  <string name="preview_edit_summarize_edit_hint">Hoe hebt u de pagina verbeterd?</string>
+  <string name="preview_edit_minor_edit">Dit is een kleine bewerking</string>
+  <string name="preview_edit_watch_this_page">Deze pagina volgen</string>
+  <string name="action_item_categories">Categorieën</string>
+  <string name="page_no_categories">Deze pagina staat in geen enkele categorie.</string>
+  <string name="category_tab_articles">Artikelen</string>
+  <string name="category_tab_subcategories">Ondercategorieën</string>
+  <string name="category_empty">Geen artikelen gevonden in deze categorie.</string>
+  <string name="subcategory_empty">Geen subcategorieën gevonden in deze categorie.</string>
+  <string name="search_namespaces">Naamruimten</string>
+  <string name="revision_initial_none">Geen (dit is de eerste revisie)</string>
+  <string name="user_contrib_activity_title">Bijdragen van %s</string>
+  <string name="archive_empty">Geen gearchiveerde pagina\'s gevonden.</string>
+  <string name="user_contrib_filter_ns">Filteren op naamruimte</string>
+  <string name="user_contrib_filter_all">Alle bewerkingen</string>
+  <string name="namespace_article">Artikel</string>
+  <string name="user_contrib_current">huidige versie</string>
+  <string name="media_playback_error">Fout bij het afspelen van media.</string>
+  <string name="user_contrib_menu_label">Bijdragen</string>
+  <string name="user_contrib_wiki_select">Bijdragen aan:</string>
 </resources>

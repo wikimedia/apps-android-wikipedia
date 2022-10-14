@@ -4,6 +4,7 @@ import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.TalkPage
+import org.wikipedia.dataclient.restbase.Metrics
 import org.wikipedia.dataclient.restbase.RbDefinition
 import org.wikipedia.dataclient.restbase.RbRelatedPages
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
@@ -38,10 +39,28 @@ interface RestService {
 
     @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
     @GET("page/summary/{title}")
+    suspend fun getSummaryResponseSuspend(
+        @Path("title") title: String,
+        @Header("Referer") referrerUrl: String?,
+        @Header("Cache-Control") cacheControl: String?,
+        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String?,
+        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String?,
+        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String?
+    ): Response<PageSummary>
+
+    @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
+    @GET("page/summary/{title}")
     fun getSummary(
         @Header("Referer") referrerUrl: String?,
         @Path("title") title: String
     ): Observable<PageSummary>
+
+    @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
+    @GET("page/summary/{title}")
+    suspend fun getPageSummary(
+            @Header("Referer") referrerUrl: String?,
+            @Path("title") title: String
+    ): PageSummary
 
     // todo: this Content Service-only endpoint is under page/ but that implementation detail should
     //       probably not be reflected here. Move to WordDefinitionClient
@@ -67,6 +86,12 @@ interface RestService {
         @Path("title") title: String,
         @Path("revision") revision: Long
     ): Observable<MediaList>
+
+    @GET("page/media-list/{title}/{revision}")
+    suspend fun getMediaListSuspend(
+        @Path("title") title: String,
+        @Path("revision") revision: Long
+    ): MediaList
 
     @GET("page/media-list/{title}/{revision}")
     fun getMediaListResponse(
@@ -197,6 +222,15 @@ interface RestService {
     @Headers("Cache-Control: no-cache")
     @GET("page/talk/{title}")
     fun getTalkPage(@Path("title") title: String?): Observable<TalkPage>
+
+    @Headers("Cache-Control: no-cache")
+    @GET("metrics/edits/per-page/{wikiAuthority}/{title}/all-editor-types/monthly/{fromDate}/{toDate}")
+    suspend fun getArticleMetrics(
+        @Path("wikiAuthority") wikiAuthority: String,
+        @Path("title") title: String,
+        @Path("fromDate") fromDate: String,
+        @Path("toDate") toDate: String
+    ): Metrics
 
     companion object {
         const val REST_API_PREFIX = "/api/rest_v1"

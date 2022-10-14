@@ -1,18 +1,24 @@
 package org.wikipedia.main
 
+import android.Manifest
 import android.app.Activity
+import android.app.ActivityOptions
 import android.app.DownloadManager
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import android.util.Pair
 import android.view.*
-import androidx.core.app.ActivityOptionsCompat
-import androidx.core.util.Pair
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
@@ -65,15 +71,15 @@ import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.topics.TopicsActivity
+import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.*
-import org.wikipedia.util.log.L
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
 import org.wikipedia.watchlist.WatchlistActivity
 import java.io.File
 import java.util.concurrent.TimeUnit
 
-class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback, MenuNavTabDialog.Callback {
+class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback, MenuNavTabDialog.Callback {
     interface Callback {
         fun onTabChanged(tab: NavTab)
         fun updateToolbarElevation(elevate: Boolean)
@@ -97,13 +103,22 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     // the image we're waiting for permission to download as a bit of state here. :(
     private var pendingDownloadImage: FeaturedImage? = null
 
+    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+        if (isGranted) {
+            pendingDownloadImage?.let { download(it) }
+        } else {
+            FeedbackUtil.showMessage(this, R.string.gallery_save_image_write_permission_rationale)
+        }
+    }
+
     val currentFragment get() = (binding.mainViewPager.adapter as NavTabFragmentPagerAdapter).getFragmentAt(binding.mainViewPager.currentItem)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentMainBinding.inflate(inflater, container, false)
+        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
+        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
         binding.mainViewPager.isUserInputEnabled = false
         binding.mainViewPager.adapter = NavTabFragmentPagerAdapter(this)
         binding.mainViewPager.registerOnPageChangeCallback(pageChangeCallback)
@@ -113,13 +128,14 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             bottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
         }
 
-        binding.mainNavTabLayout.setOnNavigationItemSelectedListener { item ->
-            if (currentFragment is FeedFragment && item.order == 0) {
-                (currentFragment as FeedFragment?)!!.scrollToTop()
+        binding.mainNavTabLayout.setOnItemSelectedListener { item ->
+            val fragment = currentFragment
+            if (fragment is FeedFragment && item.order == 0) {
+                fragment.scrollToTop()
             }
-            if (currentFragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
+            if (fragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
                 openSearchActivity(InvokeSource.NAV_MENU, null, null)
-                return@setOnNavigationItemSelectedListener true
+                return@setOnItemSelectedListener true
             }
             binding.mainViewPager.setCurrentItem(item.order, false)
             true
@@ -132,7 +148,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         if (savedInstanceState == null) {
             handleIntent(requireActivity().intent)
         }
-        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -176,13 +191,13 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
                 FeedbackUtil.showMessage(this, R.string.login_success_toast)
             }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
-            if (WikipediaApp.getInstance().tabCount == 0) {
+            if (WikipediaApp.instance.tabCount == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
                 return
             }
             if (resultCode == TabActivity.RESULT_NEW_TAB) {
-                val entry = HistoryEntry(PageTitle(getMainPageForLang(WikipediaApp.getInstance().appOrSystemLanguageCode),
-                        WikipediaApp.getInstance().wikiSite), HistoryEntry.SOURCE_MAIN_PAGE)
+                val entry = HistoryEntry(PageTitle(getMainPageForLang(WikipediaApp.instance.appOrSystemLanguageCode),
+                        WikipediaApp.instance.wikiSite), HistoryEntry.SOURCE_MAIN_PAGE)
                 startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 startActivity(PageActivity.newIntent(requireContext()))
@@ -204,42 +219,44 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         }
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        when (requestCode) {
-            Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION -> if (PermissionUtil.isPermitted(grantResults)) {
-                pendingDownloadImage?.let {
-                    download(it)
-                }
-            } else {
-                setPendingDownload(null)
-                L.d("Write permission was denied by user")
-                FeedbackUtil.showMessage(this, R.string.gallery_save_image_write_permission_rationale)
-            }
-            else -> super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
+    override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_main, menu)
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu) {
-        super.onPrepareOptionsMenu(menu)
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        val fragment = currentFragment
+        return when (menuItem.itemId) {
+            R.id.menu_search_lists -> {
+                if (fragment is ReadingListsFragment) {
+                    fragment.startSearchActionMode()
+                }
+                true
+            }
+            R.id.menu_overflow_button -> {
+                if (fragment is ReadingListsFragment) {
+                    fragment.showReadingListsOverflowMenu()
+                }
+                true
+            }
+            else -> false
+        }
+    }
+
+    override fun onPrepareMenu(menu: Menu) {
         requestUpdateToolbarElevation()
 
         menu.findItem(R.id.menu_search_lists).isVisible = currentFragment is ReadingListsFragment
         menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsFragment
 
         val tabsItem = menu.findItem(R.id.menu_tabs)
-        if (WikipediaApp.getInstance().tabCount < 1 || currentFragment is SuggestedEditsTasksFragment) {
+        if (WikipediaApp.instance.tabCount < 1 || currentFragment is SuggestedEditsTasksFragment) {
             tabsItem.isVisible = false
             tabCountsView = null
         } else {
             tabsItem.isVisible = true
             tabCountsView = TabCountsView(requireActivity(), null)
             tabCountsView!!.setOnClickListener {
-                if (WikipediaApp.getInstance().tabCount == 1) {
+                if (WikipediaApp.instance.tabCount == 1) {
                     startActivity(PageActivity.newIntent(requireActivity()))
                 } else {
                     startActivityForResult(TabActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_BROWSE_TABS)
@@ -273,7 +290,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     fun handleIntent(intent: Intent) {
         if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOMIZER)) {
-            startActivity(RandomActivity.newIntent(requireActivity(), WikipediaApp.getInstance().wikiSite, InvokeSource.APP_SHORTCUTS))
+            startActivity(RandomActivity.newIntent(requireActivity(), WikipediaApp.instance.wikiSite, InvokeSource.APP_SHORTCUTS))
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_SEARCH)) {
             openSearchActivity(InvokeSource.APP_SHORTCUTS, null, null)
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
@@ -286,7 +303,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB)) {
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())))
-        } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.getInstance().tabCount > 0) {
+        } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.instance.tabCount > 0) {
             startActivity(PageActivity.newIntent(requireContext()))
         }
     }
@@ -316,7 +333,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     override fun onFeedSelectPageWithAnimation(entry: HistoryEntry, sharedElements: Array<Pair<View, String>>) {
-        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
+        val options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
         val intent = PageActivity.newIntentForNewTab(requireContext(), entry, entry.title)
         if (sharedElements.isNotEmpty()) {
             intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true)
@@ -338,7 +355,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     override fun onFeedNewsItemSelected(card: NewsCard, view: NewsItemView) {
-        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), view.imageView, getString(R.string.transition_news_item))
+        val options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), view.imageView, getString(R.string.transition_news_item))
         view.newsItem?.let {
             startActivity(NewsActivity.newIntent(requireActivity(), it, card.wikiSite()), if (it.thumb() != null) options.toBundle() else null)
         }
@@ -364,11 +381,11 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     override fun onFeedDownloadImage(image: FeaturedImage) {
-        if (!PermissionUtil.hasWriteExternalStoragePermission(requireContext())) {
-            setPendingDownload(image)
-            requestWriteExternalStoragePermission()
-        } else {
+        pendingDownloadImage = image
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             download(image)
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
     }
 
@@ -420,7 +437,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     override fun usernameClick() {
-        val pageTitle = PageTitle(UserAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCode) + ":" + AccountUtil.userName, WikipediaApp.getInstance().wikiSite)
+        val pageTitle = PageTitle(UserAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode) + ":" + AccountUtil.userName, WikipediaApp.instance.wikiSite)
         UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(pageTitle.uri))
     }
 
@@ -432,8 +449,8 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         if (AccountUtil.isLoggedIn) {
             AccountUtil.userName?.let {
                 startActivity(TalkTopicsActivity.newIntent(requireActivity(),
-                        PageTitle(UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCode), it,
-                                WikiSite.forLanguageCode(WikipediaApp.getInstance().appOrSystemLanguageCode)), InvokeSource.NAV_MENU))
+                        PageTitle(UserTalkAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode), it,
+                                WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)), InvokeSource.NAV_MENU))
             }
         }
     }
@@ -446,6 +463,12 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         if (AccountUtil.isLoggedIn) {
             WatchlistFunnel().logViewWatchlist()
             startActivity(WatchlistActivity.newIntent(requireActivity()))
+        }
+    }
+
+    override fun contribsClick() {
+        if (AccountUtil.isLoggedIn) {
+            startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName.orEmpty()))
         }
     }
 
@@ -483,7 +506,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     private fun copyLink(url: String) {
-        ClipboardUtil.setPlainText(requireContext(), null, url)
+        ClipboardUtil.setPlainText(requireContext(), text = url)
         FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 
@@ -493,25 +516,15 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     private fun download(image: FeaturedImage) {
-        setPendingDownload(null)
+        pendingDownloadImage = null
         downloadReceiver.download(requireContext(), image)
         FeedbackUtil.showMessage(this, R.string.gallery_save_progress)
     }
 
-    private fun setPendingDownload(image: FeaturedImage?) {
-        pendingDownloadImage = image
-    }
-
-    private fun requestWriteExternalStoragePermission() {
-        PermissionUtil.requestWriteStorageRuntimePermissions(this,
-                Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION)
-    }
-
     fun openSearchActivity(source: InvokeSource, query: String?, transitionView: View?) {
         val intent = SearchActivity.newIntent(requireActivity(), source, query)
-        var options: ActivityOptionsCompat? = null
-        transitionView?.let {
-            options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), it, getString(R.string.transition_search_bar))
+        val options = transitionView?.let {
+            ActivityOptions.makeSceneTransitionAnimation(requireActivity(), it, getString(R.string.transition_search_bar))
         }
         startActivityForResult(intent, Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY, options?.toBundle())
     }

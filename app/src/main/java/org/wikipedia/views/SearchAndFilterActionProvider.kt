@@ -1,7 +1,6 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +9,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.view.ActionProvider
 import androidx.core.widget.ImageViewCompat
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.databinding.ViewSearchAndFilterBinding
-import org.wikipedia.notifications.NotificationFilterActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -25,10 +21,13 @@ class SearchAndFilterActionProvider(context: Context,
     interface Callback {
         fun onQueryTextChange(s: String)
         fun onQueryTextFocusChange()
+        fun onFilterIconClick()
         fun getExcludedFilterCount(): Int
+        fun getFilterIconContentDescription(): Int
     }
 
     private val binding = ViewSearchAndFilterBinding.inflate(LayoutInflater.from(context))
+    val filterIcon = binding.filterIcon
 
     override fun onCreateActionView(): View {
         binding.searchInput.isFocusable = true
@@ -55,12 +54,11 @@ class SearchAndFilterActionProvider(context: Context,
                 callback.onQueryTextFocusChange()
             }
         }
-        binding.notificationFilterIcon.setOnClickListener {
-            NotificationPreferencesFunnel(WikipediaApp.getInstance()).logFilterClick()
-            DeviceUtil.hideSoftKeyboard(it)
-            context.startActivity(NotificationFilterActivity.newIntent(context))
+        binding.filterIcon.setOnClickListener {
+            callback.onFilterIconClick()
         }
-        FeedbackUtil.setButtonLongPressToast(binding.notificationFilterIcon)
+        binding.filterIcon.contentDescription = context.getString(callback.getFilterIconContentDescription())
+        FeedbackUtil.setButtonLongPressToast(binding.filterIcon)
 
         // remove focus line from search plate
         binding.searchInput.findViewById<View?>(androidx.appcompat.R.id.search_plate)?.setBackgroundColor(Color.TRANSPARENT)
@@ -75,14 +73,16 @@ class SearchAndFilterActionProvider(context: Context,
     fun updateFilterIconAndText() {
         val enabledFilters = callback.getExcludedFilterCount()
         if (enabledFilters == 0) {
-            binding.notificationFilterCount.visibility = View.GONE
-            ImageViewCompat.setImageTintList(binding.notificationFilterIcon,
-                ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.chip_text_color)))
+            binding.filterCount.visibility = View.GONE
+            ImageViewCompat.setImageTintList(binding.filterIcon, ResourceUtil.getThemedColorStateList(context, R.attr.color_group_9))
         } else {
-            binding.notificationFilterCount.visibility = View.VISIBLE
-            binding.notificationFilterCount.text = enabledFilters.toString()
-            ImageViewCompat.setImageTintList(binding.notificationFilterIcon,
-                ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorAccent)))
+            binding.filterCount.visibility = View.VISIBLE
+            binding.filterCount.text = enabledFilters.toString()
+            ImageViewCompat.setImageTintList(binding.filterIcon, ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent))
         }
+    }
+
+    fun setQueryText(text: String?) {
+        binding.searchInput.setQuery(text, false)
     }
 }

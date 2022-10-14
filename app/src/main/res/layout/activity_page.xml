@@ -102,13 +102,14 @@
     </org.wikipedia.views.FrameLayoutNavMenuTriggerer>
 
     <FrameLayout
-        android:id="@+id/toc_container"
+        android:id="@+id/side_panel_container"
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="end"
-        android:background="?android:colorBackground"
+        android:background="?attr/paper_color"
         tools:visibility="visible">
 
+        <!-- ToC -->
         <org.wikipedia.views.SwipeableListView
             android:id="@+id/toc_list"
             android:layout_width="match_parent"

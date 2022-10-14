@@ -4,6 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.ServiceError
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil
 import java.util.*
 
@@ -30,7 +31,7 @@ class MwServiceError(val code: String? = null,
 
     override val title: String get() = code.orEmpty()
 
-    override val details: String get() = html.orEmpty()
+    override val details: String get() = StringUtil.removeStyleTags(html.orEmpty())
 
     init {
         // Special case: if it's a Blocked error, parse the blockinfo structure ourselves.

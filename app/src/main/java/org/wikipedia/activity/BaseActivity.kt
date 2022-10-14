@@ -1,15 +1,14 @@
 package org.wikipedia.activity
 
-import android.Manifest
-import android.content.*
-import android.content.res.Configuration
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.net.ConnectivityManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
-import android.view.MenuItem
-import android.view.MotionEvent
+import android.view.*
+import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -23,13 +22,14 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.LoginFunnel
-import org.wikipedia.analytics.NotificationInteractionFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.events.*
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
@@ -37,25 +37,28 @@ import org.wikipedia.recurring.RecurringTasksExecutor
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.PermissionUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.log.L
+import org.wikipedia.util.*
 import org.wikipedia.views.ImageZoomHelper
+import org.wikipedia.views.ViewUtil
+import kotlin.math.abs
 
 abstract class BaseActivity : AppCompatActivity() {
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
     private val networkStateReceiver = NetworkStateReceiver()
-    private var previousNetworkState = WikipediaApp.getInstance().isOnline
+    private var previousNetworkState = WikipediaApp.instance.isOnline
     private val disposables = CompositeDisposable()
     private var currentTooltip: Balloon? = null
     private var imageZoomHelper: ImageZoomHelper? = null
 
+    private var startTouchX = 0f
+    private var startTouchY = 0f
+    private var startTouchMillis = 0L
+    private var touchSlopPx = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         exclusiveBusMethods = ExclusiveBusConsumer()
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(NonExclusiveBusConsumer()))
+        disposables.add(WikipediaApp.instance.bus.subscribe(NonExclusiveBusConsumer()))
         setTheme()
         removeSplashBackground()
 
@@ -69,12 +72,11 @@ abstract class BaseActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         if (savedInstanceState == null) {
-            NotificationInteractionFunnel.processIntent(intent)
             NotificationInteractionEvent.processIntent(intent)
         }
 
         // Conditionally execute all recurring tasks
-        RecurringTasksExecutor(WikipediaApp.getInstance()).run()
+        RecurringTasksExecutor(WikipediaApp.instance).run()
         if (Prefs.isReadingListsFirstTimeSync && AccountUtil.isLoggedIn) {
             Prefs.isReadingListsFirstTimeSync = false
             Prefs.isReadingListSyncEnabled = true
@@ -89,7 +91,13 @@ abstract class BaseActivity : AppCompatActivity() {
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
 
+        touchSlopPx = ViewConfiguration.get(this).scaledTouchSlop
         Prefs.localClassName = localClassName
+    }
+
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        BreadCrumbLogEvent.logScreenShown(this)
     }
 
     override fun onDestroy() {
@@ -102,29 +110,18 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
-        WikipediaApp.getInstance().sessionFunnel.persistSession()
+        WikipediaApp.instance.sessionFunnel.persistSession()
         super.onStop()
     }
 
     override fun onResume() {
         super.onResume()
-        WikipediaApp.getInstance().sessionFunnel.touchSession()
+        WikipediaApp.instance.sessionFunnel.touchSession()
 
         // allow this activity's exclusive bus methods to override any existing ones.
         unregisterExclusiveBusMethods()
         EXCLUSIVE_BUS_METHODS = exclusiveBusMethods
-        EXCLUSIVE_DISPOSABLE = WikipediaApp.getInstance().bus.subscribe(EXCLUSIVE_BUS_METHODS!!)
-    }
-
-    override fun applyOverrideConfiguration(configuration: Configuration) {
-        // TODO: remove when this is fixed:
-        // https://issuetracker.google.com/issues/141132133
-        // On Lollipop the current version of AndroidX causes a crash when instantiating a WebView.
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M &&
-                resources.configuration.uiMode == WikipediaApp.getInstance().resources.configuration.uiMode) {
-            return
-        }
-        super.applyOverrideConfiguration(configuration)
+        EXCLUSIVE_DISPOSABLE = WikipediaApp.instance.bus.subscribe(EXCLUSIVE_BUS_METHODS!!)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -137,23 +134,45 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
-                                            grantResults: IntArray) {
-        when (requestCode) {
-            Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION -> if (!PermissionUtil.isPermitted(grantResults)) {
-                L.i("Write permission was denied by user")
-                if (PermissionUtil.shouldShowWritePermissionRationale(this)) {
-                    showStoragePermissionSnackbar()
-                } else {
-                    showAppSettingSnackbar()
-                }
-            }
-            else -> super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        BreadCrumbLogEvent.logBackPress(this)
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        dismissCurrentTooltip()
+        if (event.actionMasked == MotionEvent.ACTION_DOWN ||
+                event.actionMasked == MotionEvent.ACTION_POINTER_DOWN) {
+            dismissCurrentTooltip()
+        }
+
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                startTouchMillis = System.currentTimeMillis()
+                startTouchX = event.x
+                startTouchY = event.y
+            }
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                val touchMillis = System.currentTimeMillis() - startTouchMillis
+                val dx = abs(startTouchX - event.x)
+                val dy = abs(startTouchY - event.y)
+
+                if (dx <= touchSlopPx && dy <= touchSlopPx) {
+                    ViewUtil.findClickableViewAtPoint(window.decorView, startTouchX.toInt(), startTouchY.toInt())?.let {
+                        if (it is TextView && it.movementMethod is LinkMovementMethodExt) {
+                            // If they clicked a link in a TextView, it will be handled by the
+                            // MovementMethod instead of here.
+                        } else {
+                            if (touchMillis > ViewConfiguration.getLongPressTimeout()) {
+                                BreadCrumbLogEvent.logLongClick(this@BaseActivity, it)
+                            } else {
+                                BreadCrumbLogEvent.logClick(this@BaseActivity, it)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         imageZoomHelper?.let {
             return it.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event)
         }
@@ -171,41 +190,15 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected open fun setTheme() {
-        setTheme(WikipediaApp.getInstance().currentTheme.resourceId)
+        setTheme(WikipediaApp.instance.currentTheme.resourceId)
     }
 
     protected open fun onGoOffline() {}
     protected open fun onGoOnline() {}
-    private fun requestStoragePermission() {
-        Prefs.setAskedForPermissionOnce(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        PermissionUtil.requestWriteStorageRuntimePermissions(this@BaseActivity,
-                Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION)
-    }
-
-    private fun showStoragePermissionSnackbar() {
-        val snackbar = FeedbackUtil.makeSnackbar(this,
-                getString(R.string.offline_read_permission_rationale), FeedbackUtil.LENGTH_DEFAULT)
-        snackbar.setAction(R.string.storage_access_error_retry) { requestStoragePermission() }
-        snackbar.show()
-    }
-
-    private fun showAppSettingSnackbar() {
-        val snackbar = FeedbackUtil.makeSnackbar(this,
-                getString(R.string.offline_read_final_rationale), FeedbackUtil.LENGTH_DEFAULT)
-        snackbar.setAction(R.string.app_settings) { goToSystemAppSettings() }
-        snackbar.show()
-    }
-
-    private fun goToSystemAppSettings() {
-        val appSettings = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName"))
-        appSettings.addCategory(Intent.CATEGORY_DEFAULT)
-        appSettings.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        startActivity(appSettings)
-    }
 
     private inner class NetworkStateReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            val isDeviceOnline = WikipediaApp.getInstance().isOnline
+            val isDeviceOnline = WikipediaApp.instance.isOnline
             if (isDeviceOnline) {
                 if (!previousNetworkState) {
                     onGoOnline()
@@ -235,7 +228,7 @@ abstract class BaseActivity : AppCompatActivity() {
                     .setCancelable(false)
                     .setTitle(R.string.logged_out_in_background_title)
                     .setMessage(R.string.logged_out_in_background_dialog)
-                    .setPositiveButton(R.string.logged_out_in_background_login) { _: DialogInterface?, _: Int -> startActivity(LoginActivity.newIntent(this@BaseActivity, LoginFunnel.SOURCE_LOGOUT_BACKGROUND)) }
+                    .setPositiveButton(R.string.logged_out_in_background_login) { _, _ -> startActivity(LoginActivity.newIntent(this@BaseActivity, LoginFunnel.SOURCE_LOGOUT_BACKGROUND)) }
                     .setNegativeButton(R.string.logged_out_in_background_cancel, null)
                     .show()
         }
@@ -288,8 +281,7 @@ abstract class BaseActivity : AppCompatActivity() {
                 maybeShowLoggedOutInBackgroundDialog()
             } else if (event is ReadingListSyncEvent) {
                 if (event.showMessage && !Prefs.isSuggestedEditsHighestPriorityEnabled) {
-                    FeedbackUtil.makeSnackbar(this@BaseActivity,
-                            getString(R.string.reading_list_toast_last_sync), FeedbackUtil.LENGTH_DEFAULT).show()
+                    FeedbackUtil.makeSnackbar(this@BaseActivity, getString(R.string.reading_list_toast_last_sync)).show()
                 }
             } else if (event is UnreadNotificationsEvent) {
                 runOnUiThread {

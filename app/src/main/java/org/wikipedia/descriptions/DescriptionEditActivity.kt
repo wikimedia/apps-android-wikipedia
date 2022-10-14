@@ -79,7 +79,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     }
 
     override fun onLinkPreviewCopyLink(title: PageTitle) {
-        ClipboardUtil.setPlainText(this, null, title.uri)
+        ClipboardUtil.setPlainText(this, text = title.uri)
         FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 
@@ -106,7 +106,6 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         private const val EXTRA_SOURCE_SUMMARY = "sourceSummary"
         private const val EXTRA_TARGET_SUMMARY = "targetSummary"
 
-        @JvmStatic
         fun newIntent(context: Context,
                       title: PageTitle,
                       highlightText: String?,

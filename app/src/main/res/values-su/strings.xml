@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Dbrant
 * Dipusparaga
 * Kandar
 * MuratTheTurkish
@@ -14,7 +15,12 @@
   <string name="page_tabs_back">Balik deui</string>
   <string name="nav_item_forward">Tuluykeun</string>
   <string name="search_hint">Paluruh Wikipédia</string>
+  <string name="search_hint_voice_search">Maluruh asupan sora</string>
   <string name="search_hint_search_languages">Sungsi basa</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Saring béréndélan kuring</string>
+  <string name="nav_item_suggested_edits">Éditan</string>
+  <string name="nav_item_more">Lianna</string>
+  <string name="nav_item_search">Paluruh</string>
   <string name="error_network_error">Teu bisa nyambungkeun kana internét</string>
   <string name="page_error_retry">Cobaan deui</string>
   <string name="card_offline_error_retry">Pecakan deui</string>
@@ -23,12 +29,19 @@
   <string name="offline_load_error_retry">Pecakan deui</string>
   <string name="page_error_back_to_main">Balik deui</string>
   <string name="error_back">Balik deui</string>
+  <string name="error_next">Salajengna</string>
   <string name="menu_clear_all_history">Kosongkeun jujutan</string>
   <string name="history_item_deleted">%s dipupus tina daptar</string>
   <string name="history_items_deleted">%d artikel dipupus tina daptar</string>
   <string name="history_item_delete_undo">Bolaykeun</string>
   <string name="notification_archive_undo">Bedokeun</string>
   <string name="app_settings">Pangaturan aplikasi</string>
+  <string name="search_tab_tooltip">Toél deui ikonna pikeun langsung ngetik istilah anu dipaluruh.</string>
+  <string name="history_list_title">Jujutan</string>
+  <string name="image_content_description">Gambar: %s</string>
+  <string name="page_content_description">Kaca: %s</string>
+  <string name="wikimedia_commons">Commons Wikimédia</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Pupus jujutan panyungsian</string>
   <string name="dialog_message_clear_history">Ieu bakal mupus sakumna jujutan sungsian anjeun, sarta nutup tab nu kiwari kabuka kénéh. Yakin ieu téh?</string>
   <string name="dialog_message_clear_history_yes">Nya</string>
@@ -36,17 +49,47 @@
   <string name="share_via">Bagikeun liwat</string>
   <string name="image_share_via">Bagikeun liwat</string>
   <string name="search_redirect_from">Dipindahkeun ti %s</string>
+  <string name="page_edit_history_activity_title">Jujutan répisi: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Tingkesan éditan kosong</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Paluruh atawa saring éditan</string>
+  <string name="page_edit_history_filter_by">Saring dumasar</string>
+  <string name="page_edit_history_filter_by_all">Sadaya éditan (%s)</string>
+  <string name="page_edit_history_filter_by_user">Éditan pamaké (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Éditan anon (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Éditan bot (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Métrik ti %1$s nepi ka %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d éditan ti %2$s</item>
+    <item quantity="other">%1$d éditan ti %2$s</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Coba robah &lt;a href=\"#\"&gt;saringan&lt;/a&gt; pikeun nempo leuwih loba éditan</string>
   <string name="menu_page_show_tabs">Témbongkeun tab</string>
   <string name="menu_page_other_languages">Robah basa</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Panggihan dina kaca</string>
+  <string name="menu_page_find_in_page">Panggihan dina artikel</string>
+  <string name="menu_page_add_to_watchlist">Tambahkeun kana Awaseun</string>
+  <string name="menu_page_watch">Awaskeun</string>
+  <string name="menu_page_unwatch">Eureun ngawaskeun</string>
+  <string name="menu_page_view_talk">Tempo kaca obrolan</string>
+  <string name="menu_page_talk_page">Kaca obrolan</string>
+  <string name="menu_page_view_edit_history">Tempo jujutan édit</string>
+  <string name="menu_page_edit_history">Jujutan édit</string>
+  <string name="menu_page_remove_from_watchlist">Piceun tina Awaseun</string>
+  <string name="menu_page_watched">Diawaskeun</string>
   <string name="edit_section_find_in_page">Panggihan dina kaca</string>
   <string name="menu_page_font_and_theme">Aksara jeung téma</string>
   <string name="menu_page_add_to_list">Tambahkeun kana daptar bacaan</string>
+  <string name="menu_page_add_to_default_list">Simpen</string>
   <string name="feed_card_add_to_list">Tambahkeun kana daptar bacaan</string>
+  <string name="feed_card_add_to_default_list">Simpen</string>
   <string name="menu_page_share">Bagikeun tutumbu</string>
+  <string name="menu_article_share">Bagikeun artikel</string>
+  <string name="menu_page_article_share">Bagikeun</string>
   <string name="menu_page_open_a_new_tab">Buka na tab anyar</string>
+  <string name="menu_page_new_tab">Tab anyar</string>
   <string name="menu_page_reading_lists">Daptar bacaan</string>
   <string name="menu_page_recently_viewed">Cik kénéh ditempo</string>
+  <string name="menu_page_archive">Arsip</string>
   <string name="menu_long_press_open_page">Buka</string>
   <string name="menu_long_press_open_in_new_tab">Buka na tab anyar</string>
   <string name="menu_long_press_copy_page">Tiron alamat tutumbu</string>
@@ -54,14 +97,17 @@
   <string name="on_this_day_page_share">Bagikeun</string>
   <string name="reading_list_page_share">Bagikeun</string>
   <string name="menu_text_select_edit_here">Édit didieu</string>
+  <string name="menu_edit_article">Édit artikel</string>
   <string name="last_updated_text">Ayaran panungtung %s</string>
   <string name="talk_page_link_text">Tempo kaca obrolan</string>
   <string name="edit_history_link_text">Tempo jujutan édit</string>
   <string name="map_view_link_text">Tempo dina péta</string>
   <string name="other_languages_indication_text">Baca dina basa séjén</string>
   <string name="language_count_link_text">Nyangkaruk dina %d$1 basa séjén</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Ku medalkeunna, anjeun sapuk kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun  lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Ku nyimpenna, anjeun satuju kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Éditan ditumbukeun ka alamat IP pakakas. Mun anjeun &lt;a href=\"https://#login\"&gt;asup log&lt;/a&gt;, anjeun bakal meunang privasi leuwih.</string>
+  <string name="edit_save_action_license_anon">Ku medalkeun, anjeun satuju kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun maké lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Éditan bakal diatribusikeun ka alamat IP piranti anjeun. Lamun anjeun &lt;a href=\"https://#login\"&gt;asup log&lt;/a&gt;, anjeun bakal boga privasi leuwih.</string>
+  <string name="edit_anon_warning">Éditan bakal diatribusikeun kana alamat IP piranti anjeun. Lamunanjeun &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, anjeun bakal boga privasi leuwih.</string>
   <string name="preference_title_language">Basa-basa Wikipédia</string>
   <string name="langlinks_filter_hint">Paluruh</string>
   <string name="langlinks_empty">Ieu kaca can sayaga dina basa lianna</string>
@@ -73,7 +119,7 @@
   <string name="dialog_message_edit_failed">Ngédit gagal!</string>
   <string name="dialog_message_edit_failed_retry">Cobaan deui</string>
   <string name="dialog_message_edit_failed_cancel">Bolay</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">Éditan anjeun can kasimpen. Yakin rék ninggalkeun ieu kaca?</string>
+  <string name="dialog_message_leaving_edit">Éditan anjeun can medal. Yakin rék ninggalkeun ieu kaca?</string>
   <string name="dialog_message_leaving_edit_leave">Tinggalkeun</string>
   <string name="dialog_message_leaving_edit_stay">Mugen</string>
   <string name="menu_show_toc">Daptar Eusi</string>
@@ -82,6 +128,7 @@
   <string name="search_reading_lists_no_results">Taya hasil nu kapanggih dina daptar bacaan</string>
   <string name="search_history_no_results">Taya hasil nu kapanggih dina jujutan</string>
   <string name="edit_section_captcha_message">Pikeun nulungan nangtayung tina spam otomatis, asupkeun kekecapan nu bijil di handap</string>
+  <string name="edit_section_captcha_request_an_account_message">Teu ningali gambarna? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Rekés akun&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ulang deui kecap ti luhur</string>
   <string name="title_captcha">Asupkeun CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toél CAPTCHA pikeun muat ulang</string>
@@ -96,9 +143,9 @@
   <string name="reading_lists_sync_login">Asup log</string>
   <string name="create_account_login">Asup log</string>
   <string name="menu_login">Asup log</string>
-  <string name="login_activity_title" fuzzy="true">Asup log ka Wikipédia</string>
+  <string name="login_activity_title">Asup log</string>
   <string name="login_in_progress_dialog_message">Keur asup log...</string>
-  <string name="login_success_toast" fuzzy="true">Asup log ngahasil!</string>
+  <string name="login_success_toast">Geus asup log!</string>
   <string name="reset_password_title">Atur kecap sandi anjeun</string>
   <string name="reset_password_description">Anjeun asup log migunakeun sandi saheulaanan. Pikeun nganggeuskeun asup log, jieun kecap sandi anyar di dieu.</string>
   <string name="reset_password_hint">Sandi anyar</string>
@@ -108,6 +155,7 @@
   <string name="logout_prompt">Ieu peta bakal ngaluarkeun anjeun ti sakabéh parangkat nu asup log. Yakin rék dituluykeun</string>
   <string name="logout_dialog_cancel_button_text">Bolay</string>
   <string name="logged_out_in_background_title">Kaluar log</string>
+  <string name="logged_out_in_background_dialog">Anjeun geus kaluar ti log Wikipédia. Rék asup deui?</string>
   <string name="logged_out_in_background_login">Asup log</string>
   <string name="logged_out_in_background_cancel">Bolay</string>
   <string name="history_empty_title">Taya artikel nu anyar ditempo</string>
@@ -126,13 +174,16 @@
   <string name="dialog_create_account_checking_progress">Keur merifikasi</string>
   <string name="create_account_email_hint">Surélék (teu wajib)</string>
   <string name="create_account_password_repeat_hint">Ulang deui kecap sandi</string>
+  <string name="create_account_password_is_username">Kecap sandi teu meunang sarua jeung sandiasma</string>
   <string name="create_account_passwords_mismatch_error">Kecap sandi teu akur</string>
   <string name="create_account_email_error">Alamat surélék teu sah</string>
   <string name="create_account_username_error">Karakter dina sandiasma teu sah</string>
-  <string name="create_account_password_error" fuzzy="true">Kecap sandi teu sah</string>
+  <string name="create_account_password_error">Kecap sandi sahanteuna kudu 8 karakter</string>
   <string name="create_account_generic_error">Teu bisa nyieun akun</string>
   <string name="create_account_next">Saterusna</string>
   <string name="email_recommendation_dialog_title">Jieun akun tanpa alamat surélék?</string>
+  <string name="email_recommendation_dialog_message">Sanajan alamat surélék téh opsional, tapi &lt;b&gt;disarankeun pisan&lt;/b&gt;, sabab butuh surélék pikeun pamulihan akun lamun anjeun kaleungitan kecap konci.</string>
+  <string name="email_recommendation_message">Disarankeun kusabab butuh surélék pikeun pamulihan akun.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Tuluykeun tanpa surélék</string>
   <string name="email_recommendation_dialog_create_with_email_action">Tambah alamat surélék</string>
   <string name="create_account_button">Jieun akun</string>
@@ -141,6 +192,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Wincikan</string>
   <string name="preferences_general_heading">Umum</string>
+  <string name="preferences_account_heading">Akun</string>
   <string name="wikipedia_app_faq">NLD aplikasi Wikipédia</string>
   <string name="send_feedback">Kirim eupan balik aplikasi</string>
   <string name="create_account_account_created_toast">Akun geus dijieun!</string>
@@ -157,8 +209,9 @@
   <string name="preference_title_eventlogging_opt_in">Kirim laporan pamakéan</string>
   <string name="preference_summary_eventlogging_opt_in">Heugbaékeun Wikimédia pikeun ngumpulkeun info ngeunaan cara anjeun migunakeun aplikasi sangkan aplikasi jadi leuwih hadé</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan karuksakan</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Idinan aplikasi pikeun ngirimkeun laporan karuksakan ka HockeyApp / panyadia layanan pihak katilu sacara otomatis sangkan kami bisa ngariksa karuksakanna sarta ngoméan kasalahan leuwih gancang sarta leuwih gampang.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Idinan aplikasi pikeun ngirimkeun laporan karuksakan ka panyadia layanan pihak katilu sacara otomatis sangkan kami bisa ngariksa karuksakanna sarta ngoméan kasalahan leuwih gancang sarta leuwih gampang.</string>
   <string name="editing_error_spamblacklist">Tutumbu ka domain nu dipeunpeuk (%s) kadéték. Pék hapus sarta cobaan deui.</string>
+  <string name="history_filter_list_hint">Saring jujutan</string>
   <string name="error_can_not_process_link">Teu bisa midangkeun ieu tutumbu</string>
   <string name="page_protected_autoconfirmed">Ieu kaca geus dilindungan sawaréh</string>
   <string name="page_protected_sysop">Ieu kaca geus dilindungan sagemblengna</string>
@@ -166,6 +219,7 @@
   <string name="page_protected_can_not_edit">Hpura, akun anjeun teu mibanda cukup hak pikeun ngédit ieu kacaa ajang saayeunaeun mah.</string>
   <string name="page_protected_can_not_edit_anon">Hampura, ieu kaca teu bisa diédit ku anonim saayeunaeun mah.</string>
   <string name="page_protected_can_not_edit_title">Ieu kaca dilindungan</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Tambahkeun kana Awaseun</string>
   <string name="settings_item_preferences">Pangaturan</string>
   <string name="settings_activity_title">Pangaturan</string>
   <string name="about_description">Ngeunaan aplikasi Wikipédia</string>
@@ -494,7 +548,10 @@
   <string name="more_events_text" fuzzy="true">Kajadian sajarah lianna dina poé ieu</string>
   <string name="events_count_text" fuzzy="true">%1$s kajadian ti %2$s - %3$d</string>
   <string name="this_year">Taun ieu</string>
-  <string name="diff_years">{{PLURAL|one=Taun kamari|%d ka tukang}</string>
+  <plurals name="diff_years">
+    <item quantity="one">Taun kamari</item>
+    <item quantity="other">%d ka tukang</item>
+  </plurals>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Piceun basa kapilih?</item>
     <item quantity="other">Piceunan basa kapilih?</item>

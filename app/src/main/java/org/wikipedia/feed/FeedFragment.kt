@@ -1,17 +1,16 @@
 package org.wikipedia.feed
 
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import androidx.core.util.Pair
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.BackPressedHandler
-import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -42,7 +41,6 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
-import java.util.*
 
 class FeedFragment : Fragment(), BackPressedHandler {
     private var _binding: FragmentFeedBinding? = null
@@ -52,7 +50,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
     private val feedCallback = FeedCallback()
     private val feedScrollListener = FeedScrollListener()
     private val callback get() = getCallback(this, Callback::class.java)
-    private var app: WikipediaApp = WikipediaApp.getInstance()
+    private var app: WikipediaApp = WikipediaApp.instance
     private var coordinator: FeedCoordinator = FeedCoordinator(app)
     private var funnel: FeedFunnel = FeedFunnel(app)
     private var shouldElevateToolbar = false
@@ -71,6 +69,19 @@ class FeedFragment : Fragment(), BackPressedHandler {
         fun onFeaturedImageSelected(card: FeaturedImageCard)
         fun onLoginRequested()
         fun updateToolbarElevation(elevate: Boolean)
+    }
+
+    private val requestFeedConfigurationLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED) {
+            coordinator.updateHiddenCards()
+            refresh()
+        }
+    }
+
+    private val requestLanguageChangeLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED) {
+            refresh()
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -122,8 +133,8 @@ class FeedFragment : Fragment(), BackPressedHandler {
     }
 
     private fun showRemoveChineseVariantPrompt() {
-        if (app.language().appLanguageCodes.contains(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE) &&
-            app.language().appLanguageCodes.contains(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE) &&
+        if (app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE) &&
+            app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE) &&
             Prefs.shouldShowRemoveChineseVariantPrompt) {
             AlertDialog.Builder(requireActivity())
                 .setTitle(R.string.dialog_of_remove_chinese_variants_from_app_lang_title)
@@ -133,11 +144,6 @@ class FeedFragment : Fragment(), BackPressedHandler {
                 .show()
         }
         Prefs.shouldShowRemoveChineseVariantPrompt = false
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setHasOptionsMenu(true)
     }
 
     override fun onResume() {
@@ -153,20 +159,6 @@ class FeedFragment : Fragment(), BackPressedHandler {
     override fun onPause() {
         super.onPause()
         funnel.exit()
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Constants.ACTIVITY_REQUEST_FEED_CONFIGURE &&
-            resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED) {
-            coordinator.updateHiddenCards()
-            refresh()
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_SETTINGS &&
-            resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED ||
-            requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE &&
-            resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED) {
-            refresh()
-        }
     }
 
     override fun onDestroyView() {
@@ -318,7 +310,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
             funnel.cardClicked(card.type(), getCardLanguageCode(card))
             when {
                 uri.toString() == UriUtil.LOCAL_URL_LOGIN -> callback?.onLoginRequested()
-                uri.toString() == UriUtil.LOCAL_URL_SETTINGS -> startActivityForResult(SettingsActivity.newIntent(requireContext()), Constants.ACTIVITY_REQUEST_SETTINGS)
+                uri.toString() == UriUtil.LOCAL_URL_SETTINGS -> requestLanguageChangeLauncher.launch(SettingsActivity.newIntent(requireContext()))
                 uri.toString() == UriUtil.LOCAL_URL_CUSTOMIZE_FEED -> {
                     showConfigureActivity(card.type().code())
                     onRequestDismissCard(card)
@@ -362,8 +354,8 @@ class FeedFragment : Fragment(), BackPressedHandler {
     }
 
     private fun showDismissCardUndoSnackbar(card: Card, position: Int) {
-        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed), FeedbackUtil.LENGTH_DEFAULT)
-        snackbar.setAction(R.string.feed_undo_dismiss_card) { coordinator.undoDismissCard(card, position) }
+        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
+        snackbar.setAction(R.string.reading_list_item_delete_undo) { coordinator.undoDismissCard(card, position) }
         snackbar.show()
     }
 
@@ -389,11 +381,11 @@ class FeedFragment : Fragment(), BackPressedHandler {
     }
 
     private fun showConfigureActivity(invokeSource: Int) {
-        startActivityForResult(ConfigureActivity.newIntent(requireActivity(), invokeSource), Constants.ACTIVITY_REQUEST_FEED_CONFIGURE)
+        requestFeedConfigurationLauncher.launch(ConfigureActivity.newIntent(requireActivity(), invokeSource))
     }
 
     private fun showLanguagesActivity(invokeSource: InvokeSource) {
-        startActivityForResult(WikipediaLanguagesActivity.newIntent(requireActivity(), invokeSource), Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
+        requestLanguageChangeLauncher.launch(WikipediaLanguagesActivity.newIntent(requireActivity(), invokeSource))
     }
 
     private fun getCardLanguageCode(card: Card?): String? {

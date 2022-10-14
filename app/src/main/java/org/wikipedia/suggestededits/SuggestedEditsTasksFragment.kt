@@ -2,6 +2,7 @@ package org.wikipedia.suggestededits
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,13 +21,11 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
-import org.wikipedia.analytics.UserContributionFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentSuggestedEditsTasksBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
@@ -34,15 +33,14 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.userprofile.ContributionsActivity
-import org.wikipedia.userprofile.UserContributionsStats
+import org.wikipedia.usercontrib.UserContribListActivity
+import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import java.util.*
 import java.util.concurrent.TimeUnit
-import kotlin.collections.ArrayList
 
 class SuggestedEditsTasksFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsTasksBinding? = null
@@ -71,9 +69,10 @@ class SuggestedEditsTasksFragment : Fragment() {
         val balloon = FeedbackUtil.getTooltip(requireContext(), binding.contributionsStatsView.tooltipText, autoDismiss = true, showDismissButton = true)
         balloon.showAlignBottom(binding.contributionsStatsView.getDescriptionView())
         balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getDescriptionView())
-                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getDescriptionView())
-                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getDescriptionView())
+            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getDescriptionView())
+            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getDescriptionView())
         Prefs.showOneTimeSequentialUserStatsTooltip = false
+        BreadCrumbLogEvent.logTooltipShown(requireActivity(), binding.contributionsStatsView)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -87,7 +86,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         setupTestingButtons()
 
         binding.userStatsViewsGroup.addOnClickListener {
-            startActivity(ContributionsActivity.newIntent(requireActivity(), totalContributions, totalPageviews))
+            startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName.orEmpty()))
         }
 
         binding.learnMoreCard.setOnClickListener {
@@ -130,11 +129,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         SuggestedEditsFunnel.get().resume()
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
@@ -171,15 +165,18 @@ class SuggestedEditsTasksFragment : Fragment() {
         revertSeverity = 0
         binding.progressBar.visibility = VISIBLE
 
-        disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
-                ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
-                UserContributionsStats.getEditCountsObservable(), { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
+        disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
+                ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
+                ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
+                UserContribStats.getEditCountsObservable()) { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
                     var blockInfo: MwServiceError.BlockInfo? = null
                     when {
-                        wikidataResponse.query?.userInfo!!.isBlocked -> blockInfo = wikidataResponse.query?.userInfo!!
-                        commonsResponse.query?.userInfo!!.isBlocked -> blockInfo = commonsResponse.query?.userInfo!!
-                        homeSiteResponse.query?.userInfo!!.isBlocked -> blockInfo = homeSiteResponse.query?.userInfo!!
+                        wikidataResponse.query?.userInfo!!.isBlocked -> blockInfo =
+                            wikidataResponse.query?.userInfo!!
+                        commonsResponse.query?.userInfo!!.isBlocked -> blockInfo =
+                            commonsResponse.query?.userInfo!!
+                        homeSiteResponse.query?.userInfo!!.isBlocked -> blockInfo =
+                            homeSiteResponse.query?.userInfo!!
                     }
                     if (blockInfo != null) {
                         blockMessage = ThrowableUtil.getBlockMessageHtml(blockInfo)
@@ -189,25 +186,25 @@ class SuggestedEditsTasksFragment : Fragment() {
                     totalContributions += commonsResponse.query?.userInfo!!.editCount
                     totalContributions += homeSiteResponse.query?.userInfo!!.editCount
 
-                    latestEditDate = wikidataResponse.query?.userInfo!!.latestContribution
+                    latestEditDate = wikidataResponse.query?.userInfo!!.latestContribDate
 
-                    if (commonsResponse.query?.userInfo!!.latestContribution.after(latestEditDate)) {
-                        latestEditDate = commonsResponse.query?.userInfo!!.latestContribution
+                    if (commonsResponse.query?.userInfo!!.latestContribDate.after(latestEditDate)) {
+                        latestEditDate = commonsResponse.query?.userInfo!!.latestContribDate
                     }
 
-                    if (homeSiteResponse.query?.userInfo!!.latestContribution.after(latestEditDate)) {
-                        latestEditDate = homeSiteResponse.query?.userInfo!!.latestContribution
+                    if (homeSiteResponse.query?.userInfo!!.latestContribDate.after(latestEditDate)) {
+                        latestEditDate = homeSiteResponse.query?.userInfo!!.latestContribDate
                     }
 
                     val contributions = (wikidataResponse.query!!.userContributions +
                             commonsResponse.query!!.userContributions +
                             homeSiteResponse.query!!.userContributions).sortedByDescending { it.date() }
                     latestEditStreak = getEditStreak(contributions)
-                    revertSeverity = UserContributionsStats.getRevertSeverity()
+                    revertSeverity = UserContribStats.getRevertSeverity()
                     wikidataResponse
-                })
+                }
                 .flatMap { response ->
-                    UserContributionsStats.getPageViewsObservable(response)
+                    UserContribStats.getPageViewsObservable(response)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
@@ -307,7 +304,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
        binding.editQualityStatsView.setGoodnessState(revertSeverity)
        binding.editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
-       binding.editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContributionsStats.totalReverts)
+       binding.editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContribStats.totalReverts)
     }
 
     private fun showOneTimeSequentialUserStatsTooltips() {
@@ -320,7 +317,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         clearContents()
         binding.disabledStatesView.setIPBlocked(blockMessage)
         binding.disabledStatesView.visibility = VISIBLE
-        UserContributionFunnel.get().logIpBlock()
         UserContributionEvent.logIpBlock()
     }
 
@@ -331,21 +327,27 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
-        val pauseEndDate = UserContributionsStats.maybePauseAndGetEndDate()
+        val pauseEndDate = UserContribStats.maybePauseAndGetEndDate()
 
-        if (UserContributionsStats.isDisabled()) {
+        if (totalContributions < MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS && WikipediaApp.instance.appOrSystemLanguageCode == "en") {
+            clearContents()
+            binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_gate_message, AccountUtil.userName))
+            binding.disabledStatesView.setPositiveButton(R.string.suggested_edits_learn_more, {
+                UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(MIN_CONTRIBUTIONS_GATE_URL))
+            }, true)
+            binding.disabledStatesView.visibility = VISIBLE
+            return true
+        } else if (UserContribStats.isDisabled()) {
             // Disable the whole feature.
             clearContents()
             binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
-            UserContributionFunnel.get().logDisabled()
             UserContributionEvent.logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
             binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
-            UserContributionFunnel.get().logPaused()
             UserContributionEvent.logPaused()
             return true
         }
@@ -407,7 +409,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask = SuggestedEditsTask()
         addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
-        addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
+        addDescriptionsTask.imageDrawable = R.drawable.ic_article_ltr_ooui
         addDescriptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addDescriptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)
 
@@ -418,7 +420,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, secondary: Boolean) {
-            if (WikipediaApp.getInstance().language().appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && secondary) {
+            if (WikipediaApp.instance.languageState.appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && secondary) {
                 startActivityForResult(WikipediaLanguagesActivity.newIntent(requireActivity(), Constants.InvokeSource.SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
                 return
             }
@@ -447,6 +449,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     companion object {
+        private const val MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS = 3
+        private const val MIN_CONTRIBUTIONS_GATE_URL = "https://en.wikipedia.org/wiki/Help:Introduction_to_editing_with_Wiki_Markup/1"
+
         fun newInstance(): SuggestedEditsTasksFragment {
             return SuggestedEditsTasksFragment()
         }

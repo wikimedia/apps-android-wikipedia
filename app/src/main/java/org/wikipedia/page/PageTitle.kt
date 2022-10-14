@@ -1,11 +1,12 @@
 package org.wikipedia.page
 
+import android.net.Uri
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.language.AppLanguageLookUpTable
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -49,7 +50,15 @@ data class PageTitle(
 
     var namespace: String
         get() = _namespace.orEmpty()
-        set(value) { _namespace = value; _displayText = null }
+        set(value) {
+            // Remove the current namespace from displayText, if it exists.
+            if (!_namespace.isNullOrEmpty() && !_displayText.isNullOrEmpty() && _displayText.orEmpty().startsWith(_namespace!!)) {
+                _displayText = StringUtil.removeNamespace(_displayText!!)
+            }
+            _namespace = value
+            // And prepend the new namespace onto displayText.
+            _displayText = if (value.isEmpty() || _displayText.isNullOrEmpty()) _displayText else StringUtil.removeUnderscores(value) + ":" + _displayText
+        }
 
     val isFilePage: Boolean
         get() = namespace().file()
@@ -137,7 +146,10 @@ data class PageTitle(
             val namespaceOrLanguage = parts[0]
             if (Locale.getISOLanguages().contains(namespaceOrLanguage)) {
                 _namespace = null
-                wikiSite = WikiSite(wiki.authority(), namespaceOrLanguage)
+                val authorityLang = WikiSite.authorityToLanguageCode(wiki.authority())
+                // Swap out the new language subdomain for the old one in the authority string.
+                wikiSite = WikiSite(if (authorityLang.isNotEmpty()) wiki.authority().replace("$authorityLang.", "$namespaceOrLanguage.") else wiki.authority(),
+                        namespaceOrLanguage)
                 this._text = parts.copyOfRange(1, parts.size).joinToString(":")
             } else if (parts[1].isNotEmpty() && !Character.isWhitespace(parts[1][0]) && parts[1][0] != '_') {
                 wikiSite = wiki
@@ -179,10 +191,26 @@ data class PageTitle(
             "%1\$s://%2\$s/%3\$s/%4\$s%5\$s",
             wikiSite.scheme(),
             domain,
-            if (domain.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) wikiSite.languageCode else "wiki",
+            if (LanguageUtil.isChineseVariant(domain)) wikiSite.languageCode else "wiki",
             UriUtil.encodeURL(prefixedText),
             if (!fragment.isNullOrEmpty()) "#" + UriUtil.encodeURL(fragment!!) else ""
         )
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is PageTitle) return false
+        return other.prefixedText == prefixedText &&
+                other.namespace == namespace &&
+                other.wikiSite.languageCode == wikiSite.languageCode
+    }
+
+    override fun hashCode(): Int {
+        var result = _namespace?.hashCode() ?: 0
+        result = 31 * result + wikiSite.languageCode.hashCode()
+        result = 31 * result + _text.hashCode()
+        result = 31 * result + (fragment?.hashCode() ?: 0)
+        return result
     }
 
     companion object {
@@ -194,6 +222,19 @@ data class PageTitle(
                 // without having to do string manipulations.
                 PageTitle("$prefixedText#$fragment", wiki, null)
             }
+        }
+
+        fun titleForInternalLink(internalLink: String?, wiki: WikiSite): PageTitle {
+            // Strip the /wiki/ from the href
+            return PageTitle(UriUtil.removeInternalLinkPrefix(internalLink.orEmpty()), wiki)
+        }
+
+        fun titleForUri(uri: Uri, wiki: WikiSite): PageTitle {
+            var path = uri.path
+            if (!uri.fragment.isNullOrEmpty()) {
+                path += "#" + uri.fragment
+            }
+            return titleForInternalLink(path, wiki)
         }
     }
 }

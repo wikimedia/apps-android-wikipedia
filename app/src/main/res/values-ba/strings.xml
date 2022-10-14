@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Envlh
+* Kareyac
 * Lizalizaufa
 * MR973
 * MuratTheTurkish
@@ -205,7 +206,6 @@
   <string name="page_protected_can_not_edit_title">Был бит һаҡланған</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Күҙәтеү исемлегенә өҫтәргә</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Үҙегеҙҙе ҡыҙыҡһындырған мәҡәләләргә нимә булғанын күҙ уңында тотоғоҙ. Менюға баҫығыҙ һәм мәҡәләләге үҙгәрештәрҙе күреү өсөн Watchlist-ҡа баҫығыҙ&lt;b&gt;Add-ты һайлағыҙ&lt;/b&gt;.</string>
-  <string name="page_notification_tooltip">Һеҙҙең белдереүҙәрегеҙ хәҙер бында.</string>
   <string name="settings_item_preferences">Көйләүҙәр</string>
   <string name="settings_activity_title">Көйләүҙәр</string>
   <string name="about_description"> «Википедия» ҡушымтаһы тураһында</string>
@@ -372,4 +372,5 @@
   <string name="reading_lists_empty_message" fuzzy="true">Әле ҡараған мәҡәләләрҙе уҡыу өсөн теҙмәгә туплағыҙ! Уҡыу теҙмәһенә индереү өсөн, уҡыу барышында мәҡәләнең өҫкө өлөшөндәге закладка тамғаһына баҫығыҙ.</string>
   <string name="reading_list_delete_confirm" fuzzy="true">Был уҡыу теҙмәһен ысынлап юйырға теләйһегеҙме %s?</string>
   <string name="user_option_sync_label">Көйләүҙәр</string>
+  <string name="suggested_edits_task_action_text_add">Өҫтәргә</string>
 </resources>

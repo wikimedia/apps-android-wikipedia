@@ -1,13 +1,13 @@
 package org.wikipedia.random
 
+import android.app.ActivityOptions
 import android.graphics.drawable.Animatable
 import android.os.Bundle
+import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
-import androidx.core.util.Pair
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -44,10 +44,15 @@ import org.wikipedia.views.PositionAwareFragmentStateAdapter
 class RandomFragment : Fragment() {
 
     companion object {
+        const val DEFAULT_PAGER_TAB = 0
+        const val PAGER_OFFSCREEN_PAGE_LIMIT = 2
+        const val ENABLED_BACK_BUTTON_ALPHA = 1f
+        const val DISABLED_BACK_BUTTON_ALPHA = 0.5f
+
         fun newInstance(wikiSite: WikiSite, invokeSource: InvokeSource) = RandomFragment().apply {
             arguments = bundleOf(
-                    RandomActivity.INTENT_EXTRA_WIKISITE to wikiSite,
-                    Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource
+                RandomActivity.INTENT_EXTRA_WIKISITE to wikiSite,
+                Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource
             )
         }
     }
@@ -65,7 +70,11 @@ class RandomFragment : Fragment() {
     private val topTitle get() = getTopChild()?.title
     private var saveButtonState = false
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         super.onCreateView(inflater, container, savedInstanceState)
 
         _binding = FragmentRandomBinding.inflate(inflater, container, false)
@@ -84,17 +93,19 @@ class RandomFragment : Fragment() {
         binding.randomBackButton.setOnClickListener { onBackClick() }
         binding.randomSaveButton.setOnClickListener { onSaveShareClick() }
 
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
+        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
 
         updateSaveShareButton()
-        updateBackButton(0)
+        updateBackButton(DEFAULT_PAGER_TAB)
 
-        if (savedInstanceState != null && binding.randomItemPager.currentItem == 0 && topTitle != null) {
+        if (savedInstanceState != null && binding.randomItemPager.currentItem == DEFAULT_PAGER_TAB && topTitle != null) {
             updateSaveShareButton(topTitle)
         }
 
-        funnel = RandomizerFunnel(WikipediaApp.getInstance(), wikiSite,
-                (arguments?.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? InvokeSource)!!)
+        funnel = RandomizerFunnel(
+            WikipediaApp.instance, wikiSite,
+            (arguments?.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? InvokeSource)!!
+        )
 
         return view
     }
@@ -126,7 +137,7 @@ class RandomFragment : Fragment() {
     private fun onBackClick() {
         viewPagerListener.setNextPageSelectedAutomatic()
 
-        if (binding.randomItemPager.currentItem > 0) {
+        if (binding.randomItemPager.currentItem > DEFAULT_PAGER_TAB) {
             binding.randomItemPager.setCurrentItem(binding.randomItemPager.currentItem - 1, true)
             funnel.clickedBack()
         }
@@ -159,41 +170,58 @@ class RandomFragment : Fragment() {
     }
 
     fun onSelectPage(title: PageTitle, sharedElements: Array<Pair<View, String>>) {
-        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
-        val intent = PageActivity.newIntentForNewTab(requireContext(),
-                HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title)
+        val options =
+            ActivityOptions.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
+        val intent = PageActivity.newIntentForNewTab(
+            requireContext(),
+            HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title
+        )
 
         if (sharedElements.isNotEmpty()) {
             intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true)
         }
 
-        startActivity(intent, if (DimenUtil.isLandscape(requireContext()) || sharedElements.isEmpty()) null else options.toBundle())
+        startActivity(
+            intent,
+            if (DimenUtil.isLandscape(requireContext()) || sharedElements.isEmpty()) null else options.toBundle()
+        )
     }
 
     fun onAddPageToList(title: PageTitle, addToDefault: Boolean) {
         if (addToDefault) {
             addToDefaultList(requireActivity(), title, InvokeSource.RANDOM_ACTIVITY,
-                AddToDefaultListCallback { readingListId -> onMovePageToList(readingListId, title) },
+                AddToDefaultListCallback { readingListId ->
+                    onMovePageToList(
+                        readingListId,
+                        title
+                    )
+                },
                 ReadingListBehaviorsUtil.Callback { updateSaveShareButton(title) }
             )
         } else {
             bottomSheetPresenter.show(childFragmentManager,
-                    AddToReadingListDialog.newInstance(title, InvokeSource.RANDOM_ACTIVITY) {
-                        updateSaveShareButton(title)
-            })
+                AddToReadingListDialog.newInstance(title, InvokeSource.RANDOM_ACTIVITY) {
+                    updateSaveShareButton(title)
+                })
         }
     }
 
     fun onMovePageToList(sourceReadingListId: Long, title: PageTitle) {
         bottomSheetPresenter.show(childFragmentManager,
-                MoveToReadingListDialog.newInstance(sourceReadingListId, listOf(title), InvokeSource.RANDOM_ACTIVITY, true) {
-                    updateSaveShareButton(title)
-                })
+            MoveToReadingListDialog.newInstance(
+                sourceReadingListId,
+                listOf(title),
+                InvokeSource.RANDOM_ACTIVITY,
+                true
+            ) {
+                updateSaveShareButton(title)
+            })
     }
 
     private fun updateBackButton(pagerPosition: Int) {
-        binding.randomBackButton.isClickable = pagerPosition != 0
-        binding.randomBackButton.alpha = if (pagerPosition == 0) 0.5f else 1f
+        binding.randomBackButton.isClickable = pagerPosition != DEFAULT_PAGER_TAB
+        binding.randomBackButton.alpha =
+            if (pagerPosition == DEFAULT_PAGER_TAB) DISABLED_BACK_BUTTON_ALPHA else ENABLED_BACK_BUTTON_ALPHA
     }
 
     private fun updateSaveShareButton(title: PageTitle?) {
@@ -201,16 +229,19 @@ class RandomFragment : Fragment() {
             return
         }
 
-        val d = Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(title) != null }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ exists: Boolean ->
-                    saveButtonState = exists
-                    val img = if (saveButtonState) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
-                    binding.randomSaveButton.setImageResource(img)
-                }, { t ->
-                    L.w(t)
-                })
+        val d = Observable.fromCallable {
+            AppDatabase.instance.readingListPageDao().findPageInAnyList(title) != null
+        }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ exists: Boolean ->
+                saveButtonState = exists
+                val img =
+                    if (saveButtonState) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
+                binding.randomSaveButton.setImageResource(img)
+            }, { t ->
+                L.w(t)
+            })
 
         disposables.add(d)
     }
@@ -219,7 +250,8 @@ class RandomFragment : Fragment() {
         val enable = getTopChild()?.isLoadComplete ?: false
 
         binding.randomSaveButton.isClickable = enable
-        binding.randomSaveButton.alpha = if (enable) 1f else 0.5f
+        binding.randomSaveButton.alpha =
+            if (enable) ENABLED_BACK_BUTTON_ALPHA else DISABLED_BACK_BUTTON_ALPHA
     }
 
     fun onChildLoaded() {
@@ -231,7 +263,8 @@ class RandomFragment : Fragment() {
         return adapter?.getFragmentAt(binding.randomItemPager.currentItem) as? RandomItemFragment
     }
 
-    private inner class RandomItemAdapter(fragment: Fragment) : PositionAwareFragmentStateAdapter(fragment) {
+    private inner class RandomItemAdapter(fragment: Fragment) :
+        PositionAwareFragmentStateAdapter(fragment) {
         override fun getItemCount(): Int {
             return Int.MAX_VALUE
         }
@@ -242,7 +275,7 @@ class RandomFragment : Fragment() {
     }
 
     private inner class ViewPagerListener : OnPageChangeCallback() {
-        private var prevPosition = 0
+        private var prevPosition = DEFAULT_PAGER_TAB
         private var nextPageSelectedAutomatic = false
 
         fun setNextPageSelectedAutomatic() {
@@ -269,7 +302,7 @@ class RandomFragment : Fragment() {
     }
 
     private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any?) {
+        override fun accept(event: Any) {
             if (event is ArticleSavedOrDeletedEvent) {
                 if (!isAdded || topTitle == null) {
                     return

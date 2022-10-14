@@ -8,7 +8,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.IntentFunnel
 import org.wikipedia.util.log.L
-import java.lang.RuntimeException
 
 class SearchActivity : SingleFragmentActivity<SearchFragment>() {
     public override fun createFragment(): SearchFragment {
@@ -23,20 +22,23 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
                 }
             }
         }
-        return SearchFragment.newInstance(source, intent.getStringExtra(QUERY_EXTRA))
+        return SearchFragment.newInstance(source, intent.getStringExtra(QUERY_EXTRA), intent.getBooleanExtra(EXTRA_RETURN_LINK, false))
     }
 
     companion object {
         const val QUERY_EXTRA = "query"
+        const val EXTRA_RETURN_LINK = "returnLink"
+        const val EXTRA_RETURN_LINK_TITLE = "returnLinkTitle"
+        const val RESULT_LINK_SUCCESS = 1
 
-        @JvmStatic
-        fun newIntent(context: Context, source: InvokeSource, query: String?): Intent {
+        fun newIntent(context: Context, source: InvokeSource, query: String?, returnLink: Boolean = false): Intent {
             if (source == InvokeSource.WIDGET) {
-                IntentFunnel(WikipediaApp.getInstance()).logSearchWidgetTap()
+                IntentFunnel(WikipediaApp.instance).logSearchWidgetTap()
             }
             return Intent(context, SearchActivity::class.java)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
                     .putExtra(QUERY_EXTRA, query)
+                    .putExtra(EXTRA_RETURN_LINK, returnLink)
         }
     }
 }

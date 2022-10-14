@@ -21,7 +21,7 @@
   <string name="dialog_title_clear_history">ବ୍ରାଉଜିଂ ଇତିହାସ ଲିଭାନ୍ତୁ</string>
   <string name="dialog_message_clear_history">ଏହା ଆପଣଙ୍କର ସମସ୍ତ ବ୍ରାଉଜିଂ ଇତିହାସ ଲିଭାଇଦେବ ଓ ଏବେ ଖୋଲାଥିବା ଟ୍ୟାବସବୁ ବନ୍ଦ କରିଦେବ । ନିଶ୍ଚିତ ତ?</string>
   <string name="share_via">କାହା ଦ୍ୱାରା ଜଣାଇବେ:</string>
-  <string name="search_redirect_from">%s ରୁ ଲେଉଟିଆସିଛି</string>
+  <string name="search_redirect_from">%s‌‌ରୁ ଲେଉଟିଆସିଛି</string>
   <string name="menu_page_show_tabs">ଟ୍ୟାବସବୁ ଦେଖାନ୍ତୁ</string>
   <string name="menu_page_other_languages">ଭାଷା ବଦଳାଇବେ</string>
   <string name="menu_page_find_in_page" fuzzy="true">ପୃଷ୍ଠାରେ ଖୋଜିବେ</string>
@@ -113,7 +113,7 @@
   <string name="edit_next">ପର</string>
   <string name="edit_done" fuzzy="true">ସାଇତିବେ</string>
   <string name="edit_preview">ଦେଖଣା</string>
-  <string name="edit_summary_tag_typo">ଫିକ୍ସଡ଼ ବନାନ</string>
+  <string name="edit_summary_tag_typo">ବନାନ ସୁଧାରିଲି</string>
   <string name="edit_summary_tag_grammar">ବ୍ୟାକରଣ ସଜାଡ଼ିଲେ</string>
   <string name="edit_summary_tag_links">ଲିଙ୍କ ଯୋଡ଼ିଲେ</string>
   <string name="edit_summary_tag_other">ଅନ୍ୟ</string>
@@ -135,7 +135,7 @@
   <string name="view_featured_image_card_download">ଡାଉନଲୋଡ଼</string>
   <string name="menu_feed_card_dismiss">ଏହି କାର୍ଡଟି ଲୁଚାନ୍ତୁ</string>
   <string name="menu_feed_card_dismissed">ଆପଣଙ୍କ କାର୍ଡ ଲୁଚାଗଲା</string>
-  <string name="feed_featured_image_share_subject">ଉଇକିମିଡିଆ କମନ୍ସ ରୁ ବଛା ଛବି</string>
+  <string name="feed_featured_image_share_subject">ଉଇକିମିଡିଆ କମନ୍ସରୁ ବଛା ଛବି</string>
   <string name="feed">ଅଧିକ ଦେଖନ୍ତୁ</string>
   <string name="view_static_card_icon_content_description">କାର୍ଡ ଆଇକନ</string>
   <string name="view_card_news_title">ଖବରରେ</string>

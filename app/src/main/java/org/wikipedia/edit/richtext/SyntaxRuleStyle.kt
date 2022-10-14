@@ -3,6 +3,8 @@ package org.wikipedia.edit.richtext
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.util.ResourceUtil.getThemedColor
@@ -28,11 +30,6 @@ enum class SyntaxRuleStyle {
             return ColorSpanEx(getThemedColor(ctx, R.attr.green_highlight_color), Color.TRANSPARENT, spanStart, syntaxItem)
         }
     },
-    BOLD_ITALIC {
-        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return StyleSpanEx(Typeface.BOLD_ITALIC, spanStart, syntaxItem)
-        }
-    },
     BOLD {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
             return StyleSpanEx(Typeface.BOLD, spanStart, syntaxItem)
@@ -41,6 +38,57 @@ enum class SyntaxRuleStyle {
     ITALIC {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
             return StyleSpanEx(Typeface.ITALIC, spanStart, syntaxItem)
+        }
+    },
+    UNDERLINE {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return UnderlineSpanEx(spanStart, syntaxItem)
+        }
+    },
+    STRIKETHROUGH {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return StrikethroughSpanEx(spanStart, syntaxItem)
+        }
+    },
+    TEXT_LARGE {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return RelativeSizeSpanEx(1.2f, spanStart, syntaxItem)
+        }
+    },
+    TEXT_SMALL {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return RelativeSizeSpanEx(0.8f, spanStart, syntaxItem)
+        }
+    },
+    CODE {
+        @RequiresApi(Build.VERSION_CODES.P)
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return TypefaceSpanEx(Typeface.MONOSPACE, spanStart, syntaxItem)
+        }
+    },
+    SUPERSCRIPT {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return SuperscriptSpanEx(spanStart, syntaxItem)
+        }
+    },
+    SUBSCRIPT {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return SubscriptSpanEx(spanStart, syntaxItem)
+        }
+    },
+    HEADING_LARGE {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return RelativeSizeSpanEx(1.3f, spanStart, syntaxItem)
+        }
+    },
+    HEADING_MEDIUM {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return RelativeSizeSpanEx(1.2f, spanStart, syntaxItem)
+        }
+    },
+    HEADING_SMALL {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return RelativeSizeSpanEx(1.1f, spanStart, syntaxItem)
         }
     },
     SEARCH_MATCHES {

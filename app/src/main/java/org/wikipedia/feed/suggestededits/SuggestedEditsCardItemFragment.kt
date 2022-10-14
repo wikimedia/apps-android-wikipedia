@@ -1,7 +1,6 @@
 package org.wikipedia.feed.suggestededits
 
 import android.app.Activity.RESULT_OK
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +8,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -16,7 +16,6 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants
-import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
 import org.wikipedia.Constants.InvokeSource.FEED
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -25,7 +24,6 @@ import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsCardItemBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -47,16 +45,15 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
-import java.util.*
 
 class SuggestedEditsCardItemFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsCardItemBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var cardActionType: Action
     private var age = 0
-    private var cardActionType: Action? = null
-    private var app = WikipediaApp.getInstance()
-    private var appLanguages = app.language().appLanguageCodes
+    private var app = WikipediaApp.instance
+    private var appLanguages = app.languageState.appLanguageCodes
     private var langFromCode: String = appLanguages[0]
     private var targetLanguage: String? = null
     private val disposables = CompositeDisposable()
@@ -67,6 +64,32 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private var funnel = FeedFunnel(app)
     private var previousImageTagPage: MwQueryPage? = null
     private var previousSourceSummaryForEdit: PageSummaryForEdit? = null
+
+    private val requestSuggestedEditsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            if (isAdded) {
+                previousImageTagPage = imageTagPage
+                previousSourceSummaryForEdit = sourceSummaryForEdit
+                SuggestedEditsFunnel.get().log()
+                SuggestedEditsFunnel.reset()
+
+                val openPageListener = SuggestedEditsSnackbars.OpenPageListener {
+                    if (cardActionType === ADD_IMAGE_TAGS) {
+                        startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(previousImageTagPage!!.title, WikiSite(appLanguages[0]))))
+                        return@OpenPageListener
+                    }
+                    val pageTitle = previousSourceSummaryForEdit!!.pageTitle
+                    if (cardActionType === ADD_CAPTION || cardActionType === TRANSLATE_CAPTION) {
+                        startActivity(GalleryActivity.newIntent(requireActivity(), pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
+                    } else {
+                        startActivity(PageActivity.newIntentForNewTab(requireContext(), HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle))
+                    }
+                }
+                SuggestedEditsSnackbars.show(requireActivity(), cardActionType, true, targetLanguage, true, openPageListener)
+                fetchCardTypeEdit()
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,7 +104,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
             if (cardActionType == ADD_CAPTION && !targetLanguage.equals(appLanguages[0]))
                 cardActionType = TRANSLATE_CAPTION
         }
-        SuggestedEditsFunnel[FEED].impression(cardActionType!!)
+        SuggestedEditsFunnel[FEED].impression(cardActionType)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -92,37 +115,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         updateContents()
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
-            if (!isAdded)
-                return
-            previousImageTagPage = imageTagPage
-            previousSourceSummaryForEdit = sourceSummaryForEdit
-            SuggestedEditsFunnel.get().log()
-            SuggestedEditsFunnel.reset()
-
-            if (cardActionType != null) {
-                val openPageListener = SuggestedEditsSnackbars.OpenPageListener {
-                    if (cardActionType === ADD_IMAGE_TAGS) {
-                        startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(previousImageTagPage!!.title, WikiSite(appLanguages[0]))))
-                        return@OpenPageListener
-                    }
-                    val pageTitle: PageTitle = previousSourceSummaryForEdit!!.pageTitle
-                    if (cardActionType === ADD_CAPTION || cardActionType === TRANSLATE_CAPTION) {
-                        startActivity(GalleryActivity.newIntent(requireActivity(),
-                            pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
-                    } else {
-                        startActivity(PageActivity.newIntentForNewTab(requireContext(), HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle))
-                    }
-                }
-                SuggestedEditsSnackbars.show(requireActivity(), cardActionType, true,
-                        targetLanguage, true, openPageListener)
-            }
-            fetchCardTypeEdit()
-        }
     }
 
     private fun updateContents() {
@@ -147,19 +139,17 @@ class SuggestedEditsCardItemFragment : Fragment() {
             return
         }
         if (cardActionType == ADD_IMAGE_TAGS) {
-            startActivityForResult(SuggestedEditsImageTagEditActivity.newIntent(requireActivity(), imageTagPage!!, FEED), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
+            imageTagPage?.let {
+                requestSuggestedEditsLauncher.launch(SuggestedEditsImageTagEditActivity.newIntent(requireActivity(), it, FEED))
+            }
             return
         }
-        if (sourceSummaryForEdit == null) {
-            return
+        sourceSummaryForEdit?.let {
+            val pageTitle = if (cardActionType == TRANSLATE_DESCRIPTION || cardActionType == TRANSLATE_CAPTION) it.pageTitle else it.pageTitle
+            requestSuggestedEditsLauncher.launch(DescriptionEditActivity.newIntent(
+                requireContext(), pageTitle, null, sourceSummaryForEdit, it, cardActionType, FEED
+            ))
         }
-        val pageTitle: PageTitle = if (cardActionType == TRANSLATE_DESCRIPTION || cardActionType == TRANSLATE_CAPTION)
-            targetSummaryForEdit!!.pageTitle else sourceSummaryForEdit!!.pageTitle
-
-        startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle, null,
-                sourceSummaryForEdit, targetSummaryForEdit,
-                cardActionType!!, FEED),
-                ACTIVITY_REQUEST_DESCRIPTION_EDIT)
     }
 
     private fun fetchCardTypeEdit() {
@@ -170,7 +160,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
             ADD_CAPTION -> addCaption()
             TRANSLATE_CAPTION -> translateCaption()
             ADD_IMAGE_TAGS -> addImageTags()
-            else -> {}
         }
     }
 
@@ -226,7 +215,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
 
     private fun translateDescription() {
         cardActionType = TRANSLATE_DESCRIPTION
-        if (targetLanguage!!.isEmpty()) {
+        if (targetLanguage.isNullOrEmpty()) {
             return
         }
         disposables.add(EditingSuggestionsProvider
@@ -269,7 +258,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { title ->
-                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(title, langFromCode)
+                    ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(title, langFromCode)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }
@@ -301,7 +290,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
 
     private fun translateCaption() {
         cardActionType = TRANSLATE_CAPTION
-        if (targetLanguage!!.isEmpty()) {
+        if (targetLanguage.isNullOrEmpty()) {
             return
         }
         var fileCaption: String? = null
@@ -310,7 +299,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { pair ->
                     fileCaption = pair.first
-                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pair.second, langFromCode)
+                    ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(pair.second, langFromCode)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }
@@ -389,7 +378,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private fun showTranslateDescriptionUI() {
         showAddDescriptionUI()
         binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button,
-                app.language().getAppLanguageCanonicalName(targetLanguage))
+                app.languageState.getAppLanguageCanonicalName(targetLanguage))
         binding.viewArticleSubtitle.visibility = VISIBLE
         binding.viewArticleSubtitle.text = sourceSummaryForEdit?.description
     }
@@ -405,7 +394,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private fun showTranslateImageCaptionUI() {
         showAddImageCaptionUI()
         binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_translate_image_caption,
-                app.language().getAppLanguageCanonicalName(targetLanguage))
+                app.languageState.getAppLanguageCanonicalName(targetLanguage))
         binding.viewArticleSubtitle.visibility = VISIBLE
         binding.viewArticleSubtitle.text = sourceSummaryForEdit?.description
     }
@@ -438,7 +427,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
         private const val CARD_TYPE = "cardType"
         const val MAX_RETRY_LIMIT: Long = 5
 
-        @JvmStatic
         fun newInstance(age: Int, cardType: Action) =
                 SuggestedEditsCardItemFragment().apply {
                     arguments = bundleOf(AGE to age, CARD_TYPE to cardType)

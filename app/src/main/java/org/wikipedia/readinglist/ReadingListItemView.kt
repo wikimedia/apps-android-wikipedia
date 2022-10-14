@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.ViewGroup
 import androidx.annotation.StyleRes
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.TextViewCompat
@@ -45,7 +44,7 @@ class ReadingListItemView : ConstraintLayout {
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         setPadding(0, DimenUtil.roundedDpToPx(16f), 0, DimenUtil.roundedDpToPx(16f))
-        background = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
+        setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
         isClickable = true
         isFocusable = true
         clearThumbnails()
@@ -142,15 +141,10 @@ class ReadingListItemView : ConstraintLayout {
     private fun updateThumbnails() {
         readingList?.let {
             clearThumbnails()
-            val thumbUrls = arrayOfNulls<String>(imageViews.size)
-            var thumbUrlsIndex = 0
-            it.pages.forEach { page ->
-                if (!page.thumbUrl.isNullOrEmpty() && thumbUrlsIndex < imageViews.size) {
-                    thumbUrls[thumbUrlsIndex++] = page.thumbUrl
-                }
-            }
-            thumbUrls.forEachIndexed { i, url ->
-                ViewUtil.loadImage(imageViews[i], url)
+            val thumbUrls = it.pages.mapNotNull { page -> page.thumbUrl }
+                .filterNot { url -> url.isEmpty() }
+            (imageViews zip thumbUrls).forEach { (imageView, url) ->
+                ViewUtil.loadImage(imageView, url)
             }
         }
     }

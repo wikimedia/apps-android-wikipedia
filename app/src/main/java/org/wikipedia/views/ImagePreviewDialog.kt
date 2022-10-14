@@ -13,12 +13,11 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.commons.ImageTagsProvider
 import org.wikipedia.databinding.DialogImagePreviewBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -34,13 +33,13 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     private val binding get() = _binding!!
 
     private lateinit var pageSummaryForEdit: PageSummaryForEdit
-    private lateinit var action: Action
+    private var action: Action? = null
     private val disposables = CompositeDisposable()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogImagePreviewBinding.inflate(inflater, container, false)
         pageSummaryForEdit = requireArguments().getParcelable(ARG_SUMMARY)!!
-        action = requireArguments().getSerializable(ARG_ACTION) as Action
+        action = requireArguments().getSerializable(ARG_ACTION) as Action?
         setConditionalLayoutDirection(binding.root, pageSummaryForEdit.lang)
         return binding.root
     }
@@ -81,7 +80,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         var thumbnailWidth = 0
         var thumbnailHeight = 0
 
-        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageSummaryForEdit.title, pageSummaryForEdit.lang)
+        disposables.add(ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(pageSummaryForEdit.title, pageSummaryForEdit.lang)
                 .subscribeOn(Schedulers.io())
                 .flatMap {
                     if (it.query?.firstPage()?.imageInfo() == null) {
@@ -109,7 +108,6 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                     binding.filePageView.visibility = VISIBLE
                     binding.progressBar.visibility = GONE
                     binding.filePageView.setup(
-                            this,
                             pageSummaryForEdit,
                             imageTags,
                             page,
@@ -131,7 +129,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         private const val ARG_SUMMARY = "summary"
         private const val ARG_ACTION = "action"
 
-        fun newInstance(pageSummaryForEdit: PageSummaryForEdit, action: Action): ImagePreviewDialog {
+        fun newInstance(pageSummaryForEdit: PageSummaryForEdit, action: Action? = null): ImagePreviewDialog {
             val dialog = ImagePreviewDialog()
             dialog.arguments = bundleOf(ARG_SUMMARY to pageSummaryForEdit,
                     ARG_ACTION to action)

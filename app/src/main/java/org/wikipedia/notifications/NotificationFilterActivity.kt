@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
@@ -22,6 +23,11 @@ class NotificationFilterActivity : BaseActivity() {
 
     private lateinit var binding: ActivityNotificationsFiltersBinding
 
+    private val languageChooserLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        setResult(ACTIVITY_RESULT_LANGUAGES_CHANGED)
+        setUpRecyclerView()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNotificationsFiltersBinding.inflate(layoutInflater)
@@ -30,24 +36,17 @@ class NotificationFilterActivity : BaseActivity() {
         setContentView(binding.root)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
-            setResult(ACTIVITY_RESULT_LANGUAGES_CHANGED)
-            setUpRecyclerView()
-        }
-    }
-
     private fun setUpRecyclerView() {
         binding.notificationsFiltersRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.notificationsFiltersRecyclerView.adapter = NotificationsFilterAdapter(this, filterListWithHeaders())
+        binding.notificationsFiltersRecyclerView.itemAnimator = null
     }
 
     private fun filterListWithHeaders(): List<Any> {
         val filterListWithHeaders = mutableListOf<Any>()
         filterListWithHeaders.add(getString(R.string.notifications_wiki_filter_header))
         filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, getString(R.string.notifications_all_wikis_text)))
-        WikipediaApp.getInstance().language().appLanguageCodes.forEach {
+        WikipediaApp.instance.languageState.appLanguageCodes.forEach {
             filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, it, null))
         }
         filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, Constants.WIKI_CODE_COMMONS, R.drawable.ic_commons_logo))
@@ -85,7 +84,7 @@ class NotificationFilterActivity : BaseActivity() {
         }
 
         override fun onCheckedChanged(filter: Filter?) {
-            startActivityForResult(WikipediaLanguagesActivity.newIntent(this@NotificationFilterActivity, Constants.InvokeSource.NOTIFICATION), Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
+            languageChooserLauncher.launch(WikipediaLanguagesActivity.newIntent(this@NotificationFilterActivity, Constants.InvokeSource.NOTIFICATION))
         }
     }
 
@@ -156,7 +155,7 @@ class NotificationFilterActivity : BaseActivity() {
             }
             Prefs.notificationExcludedWikiCodes = excludedWikiCodes
             Prefs.notificationExcludedTypeCodes = excludedTypeCodes
-            NotificationPreferencesFunnel(WikipediaApp.getInstance()).logNotificationFilterPrefs()
+            NotificationPreferencesFunnel(WikipediaApp.instance).logNotificationFilterPrefs()
             notifyItemRangeChanged(0, itemCount)
         }
     }
@@ -185,16 +184,14 @@ class NotificationFilterActivity : BaseActivity() {
 
         fun allWikisList(): List<String> {
             val wikiList = mutableListOf<String>()
-            wikiList.addAll(WikipediaApp.getInstance().language().appLanguageCodes)
+            wikiList.addAll(WikipediaApp.instance.languageState.appLanguageCodes)
             wikiList.add(Constants.WIKI_CODE_COMMONS)
             wikiList.add(Constants.WIKI_CODE_WIKIDATA)
             return wikiList
         }
 
         fun allTypesIdList(): List<String> {
-            val typeList = mutableListOf<String>()
-            NotificationCategory.FILTERS_GROUP.forEach { typeList.add(it.id) }
-            return typeList
+            return NotificationCategory.FILTERS_GROUP.map { it.id }
         }
 
         fun newIntent(context: Context): Intent {

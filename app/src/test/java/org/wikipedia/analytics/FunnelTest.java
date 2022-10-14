@@ -35,6 +35,5 @@ public class FunnelTest {
     public void testMalformedSamplingGroup() {
         assertThat(Funnel.isUserInSamplingGroup("foo", Funnel.SAMPLE_LOG_ALL), is(false));
         assertThat(Funnel.isUserInSamplingGroup("", Funnel.SAMPLE_LOG_ALL), is(false));
-        assertThat(Funnel.isUserInSamplingGroup(null, Funnel.SAMPLE_LOG_ALL), is(false));
     }
 }

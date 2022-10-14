@@ -6,6 +6,9 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
@@ -36,39 +39,43 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         setUpMediaWikiSettings()
         findPreference(R.string.preferences_developer_crash_key).onPreferenceClickListener = Preference.OnPreferenceClickListener { throw TestException("User tested crash functionality.") }
         findPreference(R.string.preference_key_add_articles).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
-            if (!isEmptyOrZero(newValue)) {
-                createTestReadingList(TEXT_OF_TEST_READING_LIST, 1, newValue.toString().trim().toInt())
+            val intValue = newValue.toIntOrDefault()
+            if (intValue != 0) {
+                createTestReadingList(TEXT_OF_TEST_READING_LIST, 1, intValue)
             }
             true
         }
         findPreference(R.string.preference_key_add_reading_lists).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
-            if (!isEmptyOrZero(newValue)) {
-                createTestReadingList(TEXT_OF_READING_LIST, newValue.toString().trim().toInt(), 10)
+            val intValue = newValue.toIntOrDefault()
+            if (intValue != 0) {
+                createTestReadingList(TEXT_OF_READING_LIST, intValue, 10)
             }
             true
         }
         findPreference(R.string.preference_key_delete_reading_lists).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
-            if (!isEmptyOrZero(newValue)) {
-                deleteTestReadingList(TEXT_OF_READING_LIST, newValue.toString().trim().toInt())
+            val intValue = newValue.toIntOrDefault()
+            if (intValue != 0) {
+                deleteTestReadingList(TEXT_OF_READING_LIST, intValue)
             }
             true
         }
         findPreference(R.string.preference_key_delete_test_reading_lists).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
-            if (!isEmptyOrZero(newValue)) {
-                deleteTestReadingList(TEXT_OF_TEST_READING_LIST, newValue.toString().trim().toInt())
+            val intValue = newValue.toIntOrDefault()
+            if (intValue != 0) {
+                deleteTestReadingList(TEXT_OF_TEST_READING_LIST, intValue)
             }
             true
         }
         findPreference(R.string.preference_key_add_malformed_reading_list_page).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
-            val numberOfArticles = if (newValue.toString().isEmpty()) 1 else newValue.toString().trim().toInt()
+            val numberOfArticles = newValue.toIntOrDefault(1)
             val pages = (0 until numberOfArticles).map {
                 ReadingListPage(PageTitle("Malformed page $it", WikiSite.forLanguageCode("foo")))
             }
-            AppDatabase.getAppDatabase().readingListPageDao().addPagesToList(AppDatabase.getAppDatabase().readingListDao().defaultList, pages, true)
+            AppDatabase.instance.readingListPageDao().addPagesToList(AppDatabase.instance.readingListDao().getDefaultList(), pages, true)
             true
         }
         findPreference(R.string.preference_key_missing_description_test).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikipediaApp.getInstance().wikiSite, 10)
+            EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikipediaApp.instance.wikiSite, 10)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ summary: PageSummary ->
@@ -76,7 +83,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                                 .setTitle(fromHtml(summary.displayTitle))
                                 .setMessage(fromHtml(summary.extract))
                                 .setPositiveButton("Go") { _: DialogInterface, _: Int ->
-                                    val title = summary.getPageTitle(WikipediaApp.getInstance().wikiSite)
+                                    val title = summary.getPageTitle(WikipediaApp.instance.wikiSite)
                                     activity.startActivity(PageActivity.newIntentForNewTab(activity, HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title))
                                 }
                                 .setNegativeButton(android.R.string.cancel, null)
@@ -91,8 +98,8 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             true
         }
         findPreference(R.string.preference_key_missing_description_test2).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikipediaApp.getInstance().wikiSite,
-                    WikipediaApp.getInstance().language().appLanguageCodes[1], true, 10)
+            EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikipediaApp.instance.wikiSite,
+                    WikipediaApp.instance.languageState.appLanguageCodes[1], true, 10)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ (_, second) ->
@@ -100,7 +107,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                                 .setTitle(fromHtml(second.displayTitle))
                                 .setMessage(fromHtml(second.description))
                                 .setPositiveButton("Go") { _: DialogInterface, _: Int ->
-                                    val title = second.getPageTitle(WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[1]))
+                                    val title = second.getPageTitle(WikiSite.forLanguageCode(WikipediaApp.instance.languageState.appLanguageCodes[1]))
                                     activity.startActivity(PageActivity.newIntentForNewTab(activity, HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title))
                                 }
                                 .setNegativeButton(android.R.string.cancel, null)
@@ -134,8 +141,9 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             true
         }
         findPreference(R.string.preference_developer_clear_all_talk_topics).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            AppDatabase.getAppDatabase().talkPageSeenDao().deleteAll()
-                .subscribeOn(Schedulers.io()).subscribe()
+            CoroutineScope(Dispatchers.Main).launch {
+                AppDatabase.instance.talkPageSeenDao().deleteAll()
+            }
             true
         }
         findPreference(R.string.preference_key_memory_leak_test).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, _: Any? ->
@@ -154,40 +162,40 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     }
 
     private fun resetMediaWikiSettings() {
-        WikipediaApp.getInstance().resetWikiSite()
+        WikipediaApp.instance.resetWikiSite()
     }
 
     private fun createTestReadingList(listName: String, numOfLists: Int, numOfArticles: Int) {
         var index = 0
-        AppDatabase.getAppDatabase().readingListDao().getListsWithoutContents().asReversed().forEach {
+        AppDatabase.instance.readingListDao().getListsWithoutContents().asReversed().forEach {
             if (it.title.contains(listName)) {
                 val trimmedListTitle = it.title.substring(listName.length).trim()
-                index = if (trimmedListTitle.isEmpty()) index else trimmedListTitle.toInt().coerceAtLeast(index)
+                index = trimmedListTitle.toIntOrNull()?.coerceAtLeast(index) ?: index
                 return
             }
         }
         for (i in 0 until numOfLists) {
             index += 1
-            val list = AppDatabase.getAppDatabase().readingListDao().createList("$listName $index", "")
+            val list = AppDatabase.instance.readingListDao().createList("$listName $index", "")
             val pages = (0 until numOfArticles).map {
-                ReadingListPage(PageTitle("${it + 1}", WikipediaApp.getInstance().wikiSite))
+                ReadingListPage(PageTitle("${it + 1}", WikipediaApp.instance.wikiSite))
             }
-            AppDatabase.getAppDatabase().readingListPageDao().addPagesToList(list, pages, true)
+            AppDatabase.instance.readingListPageDao().addPagesToList(list, pages, true)
         }
     }
 
     private fun deleteTestReadingList(listName: String, numOfLists: Int) {
         var remainingNumOfLists = numOfLists
-        AppDatabase.getAppDatabase().readingListDao().getAllLists().forEach {
+        AppDatabase.instance.readingListDao().getAllLists().forEach {
             if (it.title.contains(listName) && remainingNumOfLists > 0) {
-                AppDatabase.getAppDatabase().readingListDao().deleteList(it)
+                AppDatabase.instance.readingListDao().deleteList(it)
                 remainingNumOfLists--
             }
         }
     }
 
-    private fun isEmptyOrZero(newValue: Any): Boolean {
-        return newValue.toString().trim().isEmpty() || newValue.toString().trim() == "0"
+    private fun Any.toIntOrDefault(defaultValue: Int = 0): Int {
+        return toString().trim().toIntOrNull() ?: defaultValue
     }
 
     private class TestException constructor(message: String?) : RuntimeException(message)

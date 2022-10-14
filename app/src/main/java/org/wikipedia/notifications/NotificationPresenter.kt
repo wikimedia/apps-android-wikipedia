@@ -42,7 +42,7 @@ object NotificationPresenter {
             it.getPrimary()?.let { primary ->
                 if (NotificationCategory.EDIT_USER_TALK.id == n.category) {
                     val talkWiki = WikiSite(primary.url)
-                    val talkTitle = talkWiki.titleForUri(Uri.parse(primary.url))
+                    val talkTitle = PageTitle.titleForUri(Uri.parse(primary.url), talkWiki)
                     activityIntent = addIntentExtras(TalkTopicsActivity.newIntent(context, talkTitle, Constants.InvokeSource.NOTIFICATION), n.id, n.type)
                     addActionForTalkPage(context, builder, primary, n)
                 } else {
@@ -59,7 +59,7 @@ object NotificationPresenter {
             }
         }
 
-        val themedContext = ContextThemeWrapper(context, WikipediaApp.getInstance().currentTheme.resourceId)
+        val themedContext = ContextThemeWrapper(context, WikipediaApp.instance.currentTheme.resourceId)
 
         showNotification(context, builder, id, n.agent?.name ?: wikiSiteName, title, title, lang,
                 notificationCategory.iconResId, ResourceUtil.getThemedAttributeId(themedContext, notificationCategory.iconColor), activityIntent)
@@ -115,9 +115,9 @@ object NotificationPresenter {
 
     private fun addActionForTalkPage(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {
         val wiki = WikiSite(link.url)
-        val title = wiki.titleForUri(Uri.parse(link.url))
+        val title = PageTitle.titleForUri(Uri.parse(link.url), wiki)
         val pendingIntent = PendingIntent.getActivity(context, 0,
-                addIntentExtras(TalkTopicsActivity.newIntent(context, title, Constants.InvokeSource.NOTIFICATION), n.id, n.type), PendingIntent.FLAG_UPDATE_CURRENT)
+                addIntentExtras(TalkTopicsActivity.newIntent(context, title, Constants.InvokeSource.NOTIFICATION), n.id, n.type), PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
         builder.addAction(0, StringUtil.fromHtml(link.label).toString(), pendingIntent)
     }
 

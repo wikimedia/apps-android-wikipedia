@@ -3,11 +3,12 @@ package org.wikipedia.analytics
 import org.json.JSONObject
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.theme.Theme
 
 class AppearanceChangeFunnel(app: WikipediaApp, wiki: WikiSite, private val source: InvokeSource) :
-        Funnel(app, SCHEMA_NAME, REV_ID, wiki) {
+        Funnel(app, "MobileWikiAppAppearanceSettings", 22451226, wiki) {
 
     fun logFontSizeChange(currentFontSize: Float, newFontSize: Float) {
         log(
@@ -32,15 +33,19 @@ class AppearanceChangeFunnel(app: WikipediaApp, wiki: WikiSite, private val sour
         )
     }
 
+    fun logReadingFocusMode(newValue: Boolean) {
+        log(
+                "action", "readingFocusMode",
+                "current_value", (!newValue).toString(),
+                "new_value", newValue.toString()
+        )
+    }
+
     override fun preprocessSessionToken(eventData: JSONObject) {}
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "invoke_source", source.ordinal)
+        preprocessData(eventData, "anon", !AccountUtil.isLoggedIn)
         return super.preprocessData(eventData)
-    }
-
-    companion object {
-        private const val SCHEMA_NAME = "MobileWikiAppAppearanceSettings"
-        private const val REV_ID = 20566858
     }
 }

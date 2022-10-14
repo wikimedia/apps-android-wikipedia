@@ -34,7 +34,7 @@
 
         <TextView
             android:id="@+id/timeText"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -89,47 +89,48 @@
             tools:text="Lorem ipsum"/>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/userNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            style="@style/FlatButton.Small"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:textAllCaps="false"
+            android:textAlignment="viewStart"
+            android:textColor="?attr/color_group_9"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/summaryText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_max="220dp"
+            app:icon="@drawable/ic_user_talk"
+            app:iconPadding="8dp"
+            app:iconSize="16dp"
+            app:iconTint="?attr/color_group_9"
+            tools:text="Username"/>
+
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/diffText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/FlatButton.Small"
-            android:layout_marginTop="4dp"
+            android:layout_marginStart="12dp"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
+            android:paddingStart="0dp"
             android:fontFamily="sans-serif-medium"
             android:textColor="@color/green50"
-            app:layout_constraintTop_toBottomOf="@id/summaryText"
-            app:layout_constraintStart_toStartOf="parent"
-            app:iconSize="20dp"
+            android:backgroundTint="@android:color/transparent"
+            app:layout_constraintTop_toTopOf="@id/userNameText"
+            app:layout_constraintStart_toEndOf="@id/userNameText"
             app:iconPadding="8dp"
+            app:iconSize="16dp"
             tools:text="+123"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/userNameText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/FlatButton.Small"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:layout_marginStart="12dp"
-            android:fontFamily="sans-serif-medium"
-            android:textAllCaps="false"
-            android:textAlignment="viewStart"
-            android:textColor="?attr/material_theme_secondary_color"
-            android:maxLines="1"
-            android:ellipsize="end"
-            app:layout_constraintTop_toTopOf="@id/diffText"
-            app:layout_constraintStart_toEndOf="@id/diffText"
-            app:layout_constraintWidth_max="220dp"
-            app:icon="@drawable/ic_user_talk"
-            app:iconSize="20dp"
-            app:iconPadding="8dp"
-            app:iconTint="?attr/material_theme_secondary_color"
-            tools:text="Username"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

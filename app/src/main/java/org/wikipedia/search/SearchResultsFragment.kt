@@ -1,6 +1,5 @@
 package org.wikipedia.search
 
-import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,7 +30,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
-import org.wikipedia.util.ResourceUtil.getThemedColor
+import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.StringUtil.boldenKeywordText
 import org.wikipedia.util.StringUtil.fromHtml
 import org.wikipedia.views.DefaultViewHolder
@@ -136,8 +135,8 @@ class SearchResultsFragment : Fragment() {
         updateProgressBar(true)
         disposables.add(Observable.timer(if (force) 0 else DELAY_MILLIS.toLong(), TimeUnit.MILLISECONDS).flatMap {
             Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode)).prefixSearch(searchTerm, BATCH_SIZE, searchTerm),
-                    if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageForSearchQueryInAnyList(searchTerm) } else Observable.just(SearchResults()),
-                    if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.getAppDatabase().historyEntryWithImageDao().findHistoryItem(searchTerm) } else Observable.just(SearchResults()),
+                    if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.instance.readingListPageDao().findPageForSearchQueryInAnyList(searchTerm) } else Observable.just(SearchResults()),
+                    if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.instance.historyEntryWithImageDao().findHistoryItem(searchTerm) } else Observable.just(SearchResults()),
                     { searchResponse, readingListSearchResults, historySearchResults ->
 
                         val searchResults = searchResponse.query?.pages?.let {
@@ -176,7 +175,7 @@ class SearchResultsFragment : Fragment() {
             if (term.length < 2) {
                 return
             }
-            WikipediaApp.getInstance().tabList.forEach { tab ->
+            WikipediaApp.instance.tabList.forEach { tab ->
                 tab.backStackPositionTitle?.let {
                     if (it.displayText.lowercase(Locale.getDefault()).contains(term.lowercase(Locale.getDefault()))) {
                         resultList.add(SearchResult(it, SearchResult.SearchResultType.TAB_LIST))
@@ -234,7 +233,7 @@ class SearchResultsFragment : Fragment() {
                                  clearOnSuccess: Boolean) {
         val startTime = System.nanoTime()
         updateProgressBar(true)
-        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode)).fullTextSearch(searchTerm, BATCH_SIZE,
+        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode)).fullTextSearchMedia(searchTerm, BATCH_SIZE,
                 continuation?.continuation, continuation?.gsroffset?.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -290,7 +289,7 @@ class SearchResultsFragment : Fragment() {
     }
 
     private fun doSearchResultsCountObservable(searchTerm: String?): Observable<Int> {
-        return Observable.fromIterable(WikipediaApp.getInstance().language().appLanguageCodes)
+        return Observable.fromIterable(WikipediaApp.instance.languageState.appLanguageCodes)
                 .concatMap { langCode ->
                     if (langCode == searchLanguageCode) {
                         return@concatMap Observable.just(MwQueryResponse())
@@ -302,7 +301,7 @@ class SearchResultsFragment : Fragment() {
                                 response.query?.pages?.let {
                                     return@flatMap Observable.just(response)
                                 }
-                                ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, BATCH_SIZE, null, null)
+                                ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearchMedia(searchTerm, BATCH_SIZE, null, null)
                             }
                 }
                 .subscribeOn(Schedulers.io())
@@ -333,15 +332,11 @@ class SearchResultsFragment : Fragment() {
 
     private fun displayResults(results: List<SearchResult>) {
         for (newResult in results) {
-            var contains = false
-            for ((pageTitle) in totalResults) {
-                if (newResult.pageTitle == pageTitle) {
-                    contains = true
-                    break
-                }
-            }
-            if (!contains) {
+            val res = totalResults.find { newResult.pageTitle == it.pageTitle }
+            if (res == null) {
                 totalResults.add(newResult)
+            } else if (!newResult.pageTitle.description.isNullOrEmpty()) {
+                res.pageTitle.description = newResult.pageTitle.description
             }
         }
         binding.searchResultsContainer.visibility = View.VISIBLE
@@ -404,10 +399,10 @@ class SearchResultsFragment : Fragment() {
     }
 
     private inner class NoSearchResultItemViewHolder(itemView: View) : DefaultViewHolder<View>(itemView) {
-        private val accentColorStateList = ColorStateList.valueOf(getThemedColor(requireContext(), R.attr.colorAccent))
-        private val secondaryColorStateList = ColorStateList.valueOf(getThemedColor(requireContext(), R.attr.material_theme_secondary_color))
+        private val accentColorStateList = getThemedColorStateList(requireContext(), R.attr.colorAccent)
+        private val secondaryColorStateList = getThemedColorStateList(requireContext(), R.attr.material_theme_secondary_color)
         fun bindItem(position: Int) {
-            val langCode = WikipediaApp.getInstance().language().appLanguageCodes[position]
+            val langCode = WikipediaApp.instance.languageState.appLanguageCodes[position]
             val resultsCount = resultsCountList[position]
             val resultsText = view.findViewById<TextView>(R.id.results_text)
             val languageCodeText = view.findViewById<TextView>(R.id.language_code)
@@ -462,7 +457,7 @@ class SearchResultsFragment : Fragment() {
 
             // ...and lastly, if we've scrolled to the last item in the list, then
             // continue searching!
-            if (position == totalResults.size - 1 && WikipediaApp.getInstance().isOnline) {
+            if (position == totalResults.size - 1 && WikipediaApp.instance.isOnline) {
                 if (lastFullTextResults == null) {
                     // the first full text search
                     doFullTextSearch(currentSearchTerm, null, false)
@@ -478,7 +473,7 @@ class SearchResultsFragment : Fragment() {
                 }
             }
             view.setOnCreateContextMenuListener(LongPressHandler(view,
-                    pageTitle, HistoryEntry.SOURCE_SEARCH, SearchResultsFragmentLongPressHandler(position)))
+                    HistoryEntry.SOURCE_SEARCH, SearchResultsFragmentLongPressHandler(position), pageTitle))
         }
     }
 
@@ -513,7 +508,7 @@ class SearchResultsFragment : Fragment() {
     }
 
     private val searchLanguageCode get() =
-        if (isAdded) (requireParentFragment() as SearchFragment).searchLanguageCode else WikipediaApp.getInstance().language().appLanguageCode
+        if (isAdded) (requireParentFragment() as SearchFragment).searchLanguageCode else WikipediaApp.instance.languageState.appLanguageCode
 
     companion object {
         private const val VIEW_TYPE_ITEM = 0

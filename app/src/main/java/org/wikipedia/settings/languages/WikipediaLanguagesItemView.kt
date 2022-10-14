@@ -8,13 +8,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.graphics.BlendModeColorFilterCompat
-import androidx.core.graphics.BlendModeCompat
+import androidx.core.view.ViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemWikipediaLanguageBinding
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 import java.util.*
 
@@ -59,11 +59,11 @@ class WikipediaLanguagesItemView : LinearLayout {
     fun setContents(langCode: String, languageLocalizedName: String?, position: Int) {
         this.position = position
         binding.wikiLanguageOrder.text = (position + 1).toString()
-        binding.wikiLanguageTitle.text = languageLocalizedName.orEmpty().capitalize(Locale.getDefault())
+        binding.wikiLanguageTitle.text = StringUtil.capitalize(languageLocalizedName.orEmpty())
         binding.wikiLanguageCode.text = langCode
-        binding.wikiLanguageCode.setTextColor(ResourceUtil.getThemedColor(context, R.attr.color_group_63))
-        binding.wikiLanguageCode.background.colorFilter = BlendModeColorFilterCompat
-                .createBlendModeColorFilterCompat(ResourceUtil.getThemedColor(context, R.attr.color_group_63), BlendModeCompat.SRC_IN)
+        val color = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_63)
+        binding.wikiLanguageCode.setTextColor(color)
+        ViewCompat.setBackgroundTintList(binding.wikiLanguageCode, color)
         ViewUtil.formatLangButton(binding.wikiLanguageCode, langCode, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
     }
 

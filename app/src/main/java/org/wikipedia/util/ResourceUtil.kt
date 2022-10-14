@@ -15,10 +15,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.MenuItemCompat
-import kotlin.jvm.Throws
 
 object ResourceUtil {
-    @JvmStatic
     fun bitmapFromVectorDrawable(context: Context, @DrawableRes id: Int, @ColorRes tintColor: Int?): Bitmap {
         val vectorDrawable = AppCompatResources.getDrawable(context, id)!!.mutate()
         if (tintColor != null) {
@@ -34,7 +32,6 @@ object ResourceUtil {
         } else null
     }
 
-    @JvmStatic
     @AnyRes
     fun getThemedAttributeId(context: Context, @AttrRes id: Int): Int {
         val typedValue = getThemedAttribute(context, id)
@@ -42,12 +39,15 @@ object ResourceUtil {
         return typedValue.resourceId
     }
 
-    @JvmStatic
     @ColorInt
     fun getThemedColor(context: Context, @AttrRes id: Int): Int {
         val typedValue = getThemedAttribute(context, id)
                 ?: throw IllegalArgumentException("Attribute not found; ID=$id")
         return typedValue.data
+    }
+
+    fun getThemedColorStateList(context: Context, @AttrRes id: Int): ColorStateList {
+        return ColorStateList.valueOf(getThemedColor(context, id))
     }
 
     @Throws(NotFoundException::class)
@@ -62,7 +62,11 @@ object ResourceUtil {
     }
 
     fun setMenuItemTint(context: Context, item: MenuItem, @AttrRes colorAttr: Int) {
-        MenuItemCompat.setIconTintList(item, ColorStateList.valueOf(getThemedColor(context, colorAttr)))
+        MenuItemCompat.setIconTintList(item, getThemedColorStateList(context, colorAttr))
+    }
+
+    fun colorToCssString(@ColorInt color: Int): String {
+        return String.format("%08x", (color shl 8) or ((color shr 24) and 0xff))
     }
 
     @ColorInt

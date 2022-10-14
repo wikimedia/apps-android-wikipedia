@@ -49,7 +49,7 @@ class OfflineCacheInterceptor : Interceptor {
                 throw networkException
             }
         }
-        val obj = AppDatabase.getAppDatabase().offlineObjectDao().findObject(url, lang)
+        val obj = AppDatabase.instance.offlineObjectDao().findObject(url, lang)
         if (obj == null) {
             L.w("Offline object not present in database.")
             throw networkException
@@ -99,7 +99,7 @@ class OfflineCacheInterceptor : Interceptor {
     private fun getCacheWritingResponse(request: Request, response: Response, lang: String, title: String): Response {
         val contentType = response.header("Content-Type", "*/*")!!
         val contentLength = response.header("Content-Length", "-1")!!.toLong()
-        val cachePath = WikipediaApp.getInstance().filesDir.absolutePath + File.separator + OFFLINE_PATH
+        val cachePath = WikipediaApp.instance.filesDir.absolutePath + File.separator + OFFLINE_PATH
 
         File(cachePath).mkdirs()
 
@@ -164,7 +164,7 @@ class OfflineCacheInterceptor : Interceptor {
                     cacheSink.close()
                     if (!failed) {
                         // update the record in the database!
-                        AppDatabase.getAppDatabase().offlineObjectDao().addObject(obj.url, obj.lang, obj.path, title)
+                        AppDatabase.instance.offlineObjectDao().addObject(obj.url, obj.lang, obj.path, title)
                     }
                 }
                 return -1
@@ -187,7 +187,7 @@ class OfflineCacheInterceptor : Interceptor {
             }
             source.close()
             if (failed) {
-                AppDatabase.getAppDatabase().offlineObjectDao().deleteFilesForObject(obj)
+                AppDatabase.instance.offlineObjectDao().deleteFilesForObject(obj)
             }
         }
     }

@@ -15,6 +15,7 @@
   <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Наперад</string>
   <string name="search_hint">Пошук па Вікіпэдыі</string>
+  <string name="search_hint_voice_search">Галасавы пошук</string>
   <string name="search_hint_search_languages">Пошук мовы</string>
   <string name="filter_hint_filter_my_lists_and_articles">Фільтраваць мае сьпісы</string>
   <string name="nav_item_suggested_edits">Рэдагаваньні</string>
@@ -35,6 +36,7 @@
   <string name="history_item_delete_undo">Аднавіць</string>
   <string name="notification_archive_undo">Скасаваць</string>
   <string name="app_settings">Налады праграмы</string>
+  <string name="search_tab_tooltip">Краніцеся іконкі яшчэ раз, каб пачаць увод шуканага тэрміну.</string>
   <string name="dialog_title_clear_history">Ачысьціць гісторыю прагляду</string>
   <string name="dialog_message_clear_history">Гэтае дзеяньне выдаліць усю гісторыю прагляду і зачыніць усе адкрытыя ўстаўкі. Вы ўпэўнены?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
@@ -75,6 +77,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Пры публікацыі зьменаў вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Пры публікацыі зьменаў вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Рэдагаваньні будуць прывязаныя да IP-адрасу вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце ў сыстэму&lt;/a&gt;, то зможаце мець больш высокі ўзровень прыватнасьці.</string>
+  <string name="edit_anon_warning">Рэдагаваньні будуць запісаны на IP-адрас вашай прылады. &lt;a href=\"https://#login\"&gt;Увайшоўшы&lt;/a&gt;, мецьмеце больш прыватнасьці.</string>
   <string name="preference_title_language">Мовы Вікіпэдыі</string>
   <string name="langlinks_filter_hint">Пошук</string>
   <string name="langlinks_empty">Гэтая старонка недаступная на іншых мовах.</string>
@@ -141,8 +144,11 @@
   <string name="dialog_create_account_checking_progress">Праверка</string>
   <string name="create_account_email_hint">Адрас электроннай пошты (не абавязкова)</string>
   <string name="create_account_password_repeat_hint">Паўтарыць пароль</string>
+  <string name="create_account_password_is_username">Пароль ня можа супадаць зь імем карыстальніка</string>
   <string name="create_account_passwords_mismatch_error">Паролі не супадаюць</string>
   <string name="create_account_email_error">Няслушны адрас электроннай пошты</string>
+  <string name="create_account_username_error">Недапушчальныя сымбалі ў імені ўдзельніка</string>
+  <string name="create_account_password_error">Пароль мусіць мець прынамсі 8 сымбалеў</string>
   <string name="create_account_generic_error">Немагчыма стварыць рахунак</string>
   <string name="create_account_next">Далей</string>
   <string name="email_recommendation_dialog_title">Стварыць уліковы запіс без э-пошты?</string>
@@ -166,7 +172,6 @@
   <string name="page_protected_other">Гэтая старонка была абароненая на наступных узроўнях: %s</string>
   <string name="page_protected_can_not_edit">Выбачайце, ваш рахунак мае недастаткова правоў, каб рэдагаваць цяпер гэтую старонку.</string>
   <string name="page_protected_can_not_edit_title">Гэтая старонка абароненая</string>
-  <string name="page_notification_tooltip">Вашыя паведамленьні цяпер тут.</string>
   <string name="settings_item_preferences">Налады</string>
   <string name="settings_activity_title">Налады</string>
   <string name="about_description">Пра дастасаваньне Вікіпэдыя</string>
@@ -270,6 +275,7 @@
   <string name="address_copied">Адрас скапіраваны ў буфэр абмену.</string>
   <string name="text_copied">Тэкст скапіяваны ў буфэр абмену.</string>
   <string name="button_continue_to_article">Чытаць артыкул</string>
+  <string name="link_preview_disambiguation_description">Гэтая назва датычыцца некалькіх старонак:</string>
   <string name="button_get_directions">Атрымаць накіраваньні</string>
   <string name="error_no_maps_app">Немагчыма знайсьці дастасаваньняў якія падаюць накіраваньні.</string>
   <string name="preference_title_show_link_previews">Паказваць вытрымкі па спасылках</string>
@@ -298,6 +304,16 @@
   <string name="color_theme_select">Афармленьне</string>
   <string name="color_theme_light">Сьветлае</string>
   <string name="color_theme_dark">Цёмнае</string>
+  <string name="text_size_percent_default">%s (дапомна)</string>
+  <string name="text_style_title">Шрыфт</string>
+  <string name="theme_category_reading">Чытаньне</string>
+  <string name="reading_focus_mode">Рэжым факусаваньня чытаньня</string>
+  <string name="reading_focus_mode_detail">Хавае функцыі рэдагаваньня і ніжнюю панэль інструмэнтаў падчас пракручваньня</string>
+  <string name="nav_item_saved">Захавана</string>
+  <string name="reading_list_save_to">Захавац у сьпіс чытаньня</string>
+  <string name="reading_list_move_to">Перанесьці ў сьпіс чытаньня</string>
+  <string name="reading_list_create_new">Стварыць новы</string>
+  <string name="reading_list_title_exists">Сьпіс чытаньня „%s“ ужо існуе.</string>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 артыкул, %2$.2f МБ</item>
     <item quantity="few">%1$d артыкулы, %2$.2f МБ</item>

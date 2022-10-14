@@ -1,5 +1,6 @@
 package org.wikipedia.settings
 
+import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.util.AttributeSet
@@ -9,6 +10,7 @@ import androidx.preference.Preference
 import androidx.preference.Preference.OnPreferenceClickListener
 import androidx.preference.PreferenceViewHolder
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 
 @Suppress("unused")
 class PreferenceMultiLine : Preference {
@@ -37,5 +39,11 @@ class PreferenceMultiLine : Preference {
                 false
             }
         }
+    }
+
+    @SuppressLint("RestrictedApi")
+    override fun performClick() {
+        BreadCrumbLogEvent.logSettingsSelection(context, if (!key.isNullOrEmpty()) key else title.toString())
+        super.performClick()
     }
 }

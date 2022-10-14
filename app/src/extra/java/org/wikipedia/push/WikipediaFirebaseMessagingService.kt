@@ -15,7 +15,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.notifications.PollNotificationService
+import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 
@@ -25,7 +25,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         L.d("Message from: ${remoteMessage.from}")
 
         if (remoteMessage.data.containsValue(MESSAGE_TYPE_CHECK_ECHO)) {
-            PollNotificationService.schedulePollNotificationJob(this)
+            PollNotificationWorker.schedulePollNotificationJob(this)
         }
 
         // The message could also contain a notification payload, but that's not how we're using it.
@@ -56,7 +56,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         private var csrfDisposables = CompositeDisposable()
 
         fun isUsingPush(): Boolean {
-            return GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(WikipediaApp.getInstance()) == ConnectionResult.SUCCESS &&
+            return GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(WikipediaApp.instance) == ConnectionResult.SUCCESS &&
                     Prefs.pushNotificationToken.isNotEmpty() &&
                     Prefs.isPushNotificationTokenSubscribed
         }
@@ -69,12 +69,12 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
 
             csrfDisposables.clear()
 
-            for (lang in WikipediaApp.getInstance().language().appLanguageCodes) {
-                csrfDisposables.add(CsrfTokenClient(WikiSite.forLanguageCode(lang)).token
+            for (lang in WikipediaApp.instance.languageState.appLanguageCodes) {
+                csrfDisposables.add(CsrfTokenClient.getToken(WikiSite.forLanguageCode(lang))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
-                        if (lang == WikipediaApp.getInstance().appOrSystemLanguageCode) {
+                        if (lang == WikipediaApp.instance.appOrSystemLanguageCode) {
                             subscribeWithCsrf(it)
                         }
                         setNotificationOptions(lang, it)
@@ -112,7 +112,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                 }
             }
 
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).subscribePush(csrfToken, token)
+            ServiceFactory.get(WikipediaApp.instance.wikiSite).subscribePush(csrfToken, token)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .retry(SUBSCRIBE_RETRY_COUNT.toLong())
@@ -129,22 +129,26 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         }
 
         private fun setNotificationOptions(lang: String, csrfToken: String) {
-            val optionList = ArrayList<String>()
+            if (Prefs.isPushNotificationOptionsSet) {
+                return
+            }
 
-            optionList.add("echo-subscriptions-push-edit-user-talk=1")
-            optionList.add("echo-subscriptions-push-login-fail=1")
-            optionList.add("echo-subscriptions-push-mention=1")
-            optionList.add("echo-subscriptions-push-thank-you-edit=1")
-            optionList.add("echo-subscriptions-push-reverted=1")
-            optionList.add("echo-subscriptions-push-edit-thank=1")
-            // Explicitly enable cross-wiki notifications
-            optionList.add("echo-cross-wiki-notifications=1")
+            val optionList = listOf(
+                    "echo-subscriptions-push-edit-user-talk=1",
+                    "echo-subscriptions-push-login-fail=1",
+                    "echo-subscriptions-push-mention=1",
+                    "echo-subscriptions-push-thank-you-edit=1",
+                    "echo-subscriptions-push-reverted=1",
+                    "echo-subscriptions-push-edit-thank=1",
+                    "echo-cross-wiki-notifications=1"
+            )
 
             ServiceFactory.get(WikiSite.forLanguageCode(lang)).postSetOptions(optionList.joinToString(separator = "|"), csrfToken)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
                         L.d("Notification options updated successfully.")
+                        Prefs.isPushNotificationOptionsSet = true
                     }, {
                         L.e(it)
                     })
@@ -154,7 +158,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
             if (pushToken.isEmpty()) {
                 return Observable.just(MwQueryResponse())
             }
-            return ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unsubscribePush(csrfToken, pushToken)
+            return ServiceFactory.get(WikipediaApp.instance.wikiSite).unsubscribePush(csrfToken, pushToken)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .retry(UNSUBSCRIBE_RETRY_COUNT.toLong())

@@ -62,7 +62,6 @@ class AnnouncementClient : FeedClient {
             return cards
         }
 
-        @JvmStatic
         fun shouldShow(announcement: Announcement?, country: String?, date: Date): Boolean {
             return (announcement != null && !announcement.platforms.isNullOrEmpty() && (announcement.platforms.contains(PLATFORM_CODE) ||
                     announcement.platforms.contains(PLATFORM_CODE_NEW)) &&
@@ -99,7 +98,7 @@ class AnnouncementClient : FeedClient {
 
         private fun matchesVersionCodes(minVersion: Int, maxVersion: Int): Boolean {
             val versionCode = if (Prefs.announcementsVersionCode > 0) Prefs.announcementsVersionCode
-            else WikipediaApp.getInstance().versionCode
+            else WikipediaApp.instance.versionCode
             try {
                 if (minVersion != -1 && minVersion > versionCode) {
                     return false

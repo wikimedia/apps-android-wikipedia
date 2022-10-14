@@ -64,10 +64,7 @@ class PageImagesClientTest : MockRetrofitTest() {
         private fun imageMapFromPages(wiki: WikiSite, titles: List<PageTitle>, pages: List<MwQueryPage>): Map<PageTitle?, PageImage> {
             val pageImagesMap = mutableMapOf<PageTitle?, PageImage>()
             // nominal case
-            val titlesMap = mutableMapOf<String, PageTitle>()
-            for (title in titles) {
-                titlesMap[title.prefixedText] = title
-            }
+            val titlesMap = titles.associateBy { it.prefixedText }
             val thumbnailSourcesMap = mutableMapOf<String, String?>()
 
             // noinspection ConstantConditions
@@ -81,10 +78,9 @@ class PageImagesClientTest : MockRetrofitTest() {
                     thumbnailSourcesMap[PageTitle(null, page.redirectFrom!!, wiki).prefixedText] = page.thumbUrl()
                 }
             }
-            for (key in titlesMap.keys) {
+            for ((key, title) in titlesMap) {
                 if (thumbnailSourcesMap.containsKey(key)) {
-                    val title = titlesMap[key]
-                    pageImagesMap[title] = PageImage(title!!, thumbnailSourcesMap[key])
+                    pageImagesMap[title] = PageImage(title, thumbnailSourcesMap[key])
                 }
             }
             return pageImagesMap

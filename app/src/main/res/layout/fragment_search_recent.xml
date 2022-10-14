@@ -33,17 +33,15 @@
             android:layout_marginEnd="30dp"
             android:text="@string/search_empty_message" />
 
-        <TextView
+        <Button
             android:id="@+id/add_languages_button"
             style="@style/App.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:clickable="true"
-            android:focusable="true"
             android:text="@string/add_wikipedia_languages_text"
-            android:textColor="?attr/secondary_text_color"
-            app:backgroundTint="?attr/button_background_color"
+            android:textColor="?attr/material_theme_secondary_color"
+            app:backgroundTint="?attr/chip_background_color"
             tools:text="Add Wikipedia languages" />
     </LinearLayout>
 
@@ -51,6 +49,7 @@
         android:id="@+id/recent_searches"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="48dp"
         android:orientation="vertical">
 
         <FrameLayout
@@ -97,5 +96,25 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:background="?attr/paper_color">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/material_theme_border_color"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/namespaces_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="8dp"
+            android:scrollbars="horizontal" />
+
+    </LinearLayout>
 
 </FrameLayout>

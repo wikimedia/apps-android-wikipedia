@@ -1,7 +1,10 @@
 package org.wikipedia.util
 
+import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
+import android.icu.text.CompactDecimalFormat
+import android.os.Build
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.BackgroundColorSpan
@@ -13,53 +16,50 @@ import androidx.annotation.IntRange
 import androidx.core.text.parseAsHtml
 import androidx.core.text.toSpanned
 import okio.ByteString.Companion.encodeUtf8
+import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.UserAliasData
+import java.nio.charset.StandardCharsets
 import java.text.Collator
 import java.text.Normalizer
+import java.util.*
+import kotlin.math.absoluteValue
+import kotlin.math.roundToInt
 
 object StringUtil {
     private const val CSV_DELIMITER = ","
 
-    @JvmStatic
     fun listToCsv(list: List<String?>): String {
         return list.joinToString(CSV_DELIMITER)
     }
 
-    @JvmStatic
     fun csvToList(csv: String): List<String> {
         return delimiterStringToList(csv, CSV_DELIMITER)
     }
 
-    @JvmStatic
     fun delimiterStringToList(delimitedString: String,
                               delimiter: String): List<String> {
         return delimitedString.split(delimiter).filter { it.isNotBlank() }
     }
 
-    @JvmStatic
     fun md5string(s: String): String {
         return s.encodeUtf8().md5().hex()
     }
 
-    @JvmStatic
     fun strip(str: CharSequence?): CharSequence {
         // TODO: remove this function once Kotlin conversion of consumers is complete.
         return if (str.isNullOrEmpty()) "" else str.trim()
     }
 
-    @JvmStatic
     fun intToHexStr(i: Int): String {
         return String.format("x%08x", i)
     }
 
-    @JvmStatic
     fun addUnderscores(text: String?): String {
         return text.orEmpty().replace(" ", "_")
     }
 
-    @JvmStatic
     fun removeUnderscores(text: String?): String {
         return text.orEmpty().replace("_", " ")
     }
@@ -69,14 +69,12 @@ object StringUtil {
                 .replace("_", "-")
     }
 
-    @JvmStatic
     fun removeSectionAnchor(text: String?): String {
         text.orEmpty().let {
             return if (it.contains("#")) it.substring(0, it.indexOf("#")) else it
         }
     }
 
-    @JvmStatic
     fun removeNamespace(text: String): String {
         return if (text.length > text.indexOf(":")) {
             text.substring(text.indexOf(":") + 1)
@@ -85,27 +83,22 @@ object StringUtil {
         }
     }
 
-    @JvmStatic
     fun removeHTMLTags(text: String?): String {
         return fromHtml(text).toString()
     }
 
-    @JvmStatic
     fun removeStyleTags(text: String): String {
         return text.replace("<style.*?</style>".toRegex(), "")
     }
 
-    @JvmStatic
     fun removeCiteMarkup(text: String): String {
         return text.replace("<cite.*?>".toRegex(), "").replace("</cite>".toRegex(), "")
     }
 
-    @JvmStatic
     fun sanitizeAbuseFilterCode(code: String): String {
         return code.replace("[⧼⧽]".toRegex(), "")
     }
 
-    @JvmStatic
     fun normalizedEquals(str1: String?, str2: String?): Boolean {
         return if (str1 == null || str2 == null) {
             str1 == null && str2 == null
@@ -113,7 +106,6 @@ object StringUtil {
                 == Normalizer.normalize(str2, Normalizer.Form.NFC))
     }
 
-    @JvmStatic
     fun fromHtml(source: String?): Spanned {
         var sourceStr = source ?: return "".toSpanned()
         if ("<" !in sourceStr && "&" !in sourceStr) {
@@ -134,27 +126,27 @@ object StringUtil {
         return sourceStr.parseAsHtml()
     }
 
-    @JvmStatic
     fun highlightEditText(editText: EditText, parentText: String, highlightText: String) {
-        val words = highlightText.split("\\s+".toRegex()).toTypedArray()
+        val words = highlightText.split("\\s".toRegex()).filter { it.isNotBlank() }
         var pos = 0
+        var firstPos = 0
         for (word in words) {
             pos = parentText.indexOf(word, pos)
             if (pos == -1) {
                 break
+            } else if (firstPos == 0) {
+                firstPos = pos
             }
         }
         if (pos == -1) {
-            pos = parentText.indexOf(words[words.size - 1])
+            pos = parentText.indexOf(words.last())
+            firstPos = pos
         }
         if (pos >= 0) {
-            // TODO: Programmatic selection doesn't seem to work with RTL content...
-            editText.setSelection(pos, pos + words[words.size - 1].length)
-            editText.performLongClick()
+            editText.setSelection(firstPos, pos + words.last().length)
         }
     }
 
-    @JvmStatic
     fun boldenKeywordText(textView: TextView, parentText: String, searchQuery: String?) {
         var parentTextStr = parentText
         val startIndex = indexOf(parentTextStr, searchQuery)
@@ -199,7 +191,6 @@ object StringUtil {
         return -1
     }
 
-    @JvmStatic
     fun getBase26String(@IntRange(from = 1) number: Int): String {
         var num = number
         val base = 26
@@ -211,7 +202,59 @@ object StringUtil {
         return str
     }
 
+    fun utf8Indices(s: String): IntArray {
+        val indices = IntArray(s.toByteArray(StandardCharsets.UTF_8).size)
+        var ptr = 0
+        var count = 0
+        for (i in s.indices) {
+            val c = s.codePointAt(i)
+            when {
+                c <= 0x7F -> count = 1
+                c <= 0x7FF -> count = 2
+                c <= 0xFFFF -> count = 3
+                c <= 0x1FFFFF -> count = 4
+            }
+            for (j in 0 until count) {
+                if (ptr < indices.size) {
+                    indices[ptr++] = i
+                }
+            }
+        }
+        return indices
+    }
+
     fun userPageTitleFromName(userName: String, wiki: WikiSite): PageTitle {
         return PageTitle(UserAliasData.valueFor(wiki.languageCode), userName, wiki)
+    }
+
+    fun getPageViewText(context: Context, pageViews: Long): String {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            val primaryLocale = context.resources.configuration.locales[0]
+            val decimalFormat = CompactDecimalFormat.getInstance(primaryLocale, CompactDecimalFormat.CompactStyle.SHORT)
+            return decimalFormat.format(pageViews)
+        }
+        return when {
+            pageViews < 1000 -> pageViews.toString()
+            pageViews < 1000000 -> {
+                context.getString(
+                    R.string.view_top_read_card_pageviews_k_suffix,
+                    (pageViews / 1000f).roundToInt()
+                )
+            }
+            else -> {
+                context.getString(
+                    R.string.view_top_read_card_pageviews_m_suffix,
+                    (pageViews / 1000000f).roundToInt()
+                )
+            }
+        }
+    }
+
+    fun getDiffBytesText(context: Context, diffSize: Int): String {
+        return context.resources.getQuantityString(R.plurals.edit_diff_bytes, diffSize.absoluteValue, if (diffSize > 0) "+$diffSize" else diffSize.toString())
+    }
+
+    fun capitalize(str: String?): String? {
+        return str?.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
     }
 }
