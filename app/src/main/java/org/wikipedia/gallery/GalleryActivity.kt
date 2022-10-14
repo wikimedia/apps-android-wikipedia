@@ -13,6 +13,7 @@ import android.util.Pair
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -84,6 +85,30 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val downloadReceiver = MediaDownloadReceiver()
     private val downloadReceiverCallback = MediaDownloadReceiverCallback()
+
+    private val requestAddCaptionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            val action = it.data?.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action?
+            SuggestedEditsSnackbars.show(this, action, true, targetLanguageCode, false)
+            layOutGalleryDescription(currentItem)
+            setResult(ACTIVITY_RESULT_IMAGE_CAPTION_ADDED)
+        }
+    }
+
+    private val requestAddImageTagsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            val action = DescriptionEditActivity.Action.ADD_IMAGE_TAGS
+            SuggestedEditsSnackbars.show(this, action, true, targetLanguageCode, true) {
+                currentItem?.let { fragment ->
+                    fragment.imageTitle?.let { pageTitle ->
+                        startActivity(FilePageActivity.newIntent(this@GalleryActivity, pageTitle))
+                    }
+                }
+            }
+            layOutGalleryDescription(currentItem)
+            setResult(ACTIVITY_RESULT_IMAGE_TAGS_ADDED)
+        }
+    }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -219,25 +244,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         setTheme(Theme.DARK.resourceId)
     }
 
-    public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if ((requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT || requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) && resultCode == RESULT_OK) {
-            val action = if (data != null && data.hasExtra(Constants.INTENT_EXTRA_ACTION)) data.getSerializableExtra(
-                        Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action?
-                        else if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) DescriptionEditActivity.Action.ADD_IMAGE_TAGS else null
-            SuggestedEditsSnackbars.show(this, action, true,
-                targetLanguageCode, action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS) {
-                currentItem?.let {
-                    if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS && it.imageTitle != null) {
-                        startActivity(FilePageActivity.newIntent(this@GalleryActivity, it.imageTitle!!))
-                    }
-                }
-            }
-            layOutGalleryDescription(currentItem)
-            setResult(if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT) ACTIVITY_RESULT_IMAGE_CAPTION_ADDED else ACTIVITY_REQUEST_ADD_IMAGE_TAGS)
-        }
-    }
-
     private fun onEditClick(v: View) {
         val item = currentItem
         if (item?.imageTitle == null || item.mediaInfo?.metadata == null) {
@@ -263,8 +269,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         title.description = currentCaption
         val summary = PageSummaryForEdit(title.prefixedText, sourceWiki.languageCode, title,
             title.displayText, RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription()), item.mediaInfo!!.thumbUrl)
-        startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null,
-            DescriptionEditActivity.Action.ADD_CAPTION, InvokeSource.GALLERY_ACTIVITY), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
+        requestAddCaptionLauncher.launch(DescriptionEditActivity.newIntent(this, title, null, summary, null,
+            DescriptionEditActivity.Action.ADD_CAPTION, InvokeSource.GALLERY_ACTIVITY))
     }
 
     private fun onTranslateClick() {
@@ -280,8 +286,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     private fun startTagsEdit(item: GalleryItemFragment) {
-        startActivityForResult(SuggestedEditsImageTagEditActivity.newIntent(this, item.mediaPage!!,
-            InvokeSource.GALLERY_ACTIVITY), ACTIVITY_REQUEST_ADD_IMAGE_TAGS)
+        requestAddImageTagsLauncher.launch(SuggestedEditsImageTagEditActivity.newIntent(this, item.mediaPage!!,
+            InvokeSource.GALLERY_ACTIVITY))
     }
 
     private fun startCaptionTranslation(item: GalleryItemFragment) {
@@ -295,9 +301,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                             sourceTitle, sourceTitle.displayText, currentCaption, item.mediaInfo!!.thumbUrl)
         val targetSummary = PageSummaryForEdit(targetTitle.prefixedText, targetTitle.wikiSite.languageCode,
             targetTitle, targetTitle.displayText, null, item.mediaInfo!!.thumbUrl)
-        startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary,
+        requestAddImageTagsLauncher.launch(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary,
             targetSummary, if (sourceSummary.lang == targetSummary.lang) DescriptionEditActivity.Action.ADD_CAPTION
-            else DescriptionEditActivity.Action.TRANSLATE_CAPTION, InvokeSource.GALLERY_ACTIVITY), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
+            else DescriptionEditActivity.Action.TRANSLATE_CAPTION, InvokeSource.GALLERY_ACTIVITY))
     }
 
     private fun onLicenseClick() {
@@ -689,9 +695,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         private const val KEY_CONTROLS_SHOWING = "controlsShowing"
         private const val KEY_PAGER_INDEX = "pagerIndex"
         const val ACTIVITY_RESULT_PAGE_SELECTED = 1
-        const val ACTIVITY_REQUEST_DESCRIPTION_EDIT = 2
-        const val ACTIVITY_RESULT_IMAGE_CAPTION_ADDED = 3
-        const val ACTIVITY_REQUEST_ADD_IMAGE_TAGS = 4
+        const val ACTIVITY_RESULT_IMAGE_CAPTION_ADDED = 2
+        const val ACTIVITY_RESULT_IMAGE_TAGS_ADDED = 3
         const val EXTRA_PAGETITLE = "pageTitle"
         const val EXTRA_FILENAME = "filename"
         const val EXTRA_WIKI = "wiki"
