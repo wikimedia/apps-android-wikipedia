@@ -114,6 +114,12 @@ interface Service {
         @Query("iiextmetadatalanguage") lang: String
     ): Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
+    suspend fun getImageInfoSuspend(
+        @Query("titles") titles: String,
+        @Query("iiextmetadatalanguage") lang: String
+    ): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&prop=videoinfo&viprop=timestamp|user|url|mime|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
     fun getVideoInfo(
         @Query("titles") titles: String,

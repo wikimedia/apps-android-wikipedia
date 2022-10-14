@@ -275,6 +275,7 @@
   <string name="address_copied">Адрас скапіраваны ў буфэр абмену.</string>
   <string name="text_copied">Тэкст скапіяваны ў буфэр абмену.</string>
   <string name="button_continue_to_article">Чытаць артыкул</string>
+  <string name="link_preview_disambiguation_description">Гэтая назва датычыцца некалькіх старонак:</string>
   <string name="button_get_directions">Атрымаць накіраваньні</string>
   <string name="error_no_maps_app">Немагчыма знайсьці дастасаваньняў якія падаюць накіраваньні.</string>
   <string name="preference_title_show_link_previews">Паказваць вытрымкі па спасылках</string>

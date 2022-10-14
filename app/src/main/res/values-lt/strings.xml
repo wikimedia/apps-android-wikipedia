@@ -398,4 +398,5 @@
   <string name="talk_message_empty">Žinutė negali būti tuščia.</string>
   <string name="talk_subject_empty">Tema negali būti tuščia.</string>
   <string name="menu_option_copy_link_to_clipboard">Kopijuoti nuorodą į iškarpinę</string>
+  <string name="revision_diff_lines_from_to">Eilutės %1$d–%2$d</string>
 </resources>

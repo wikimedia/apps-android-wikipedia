@@ -58,11 +58,11 @@ object ReadingListsShareHelper {
     }
 
     private fun readingListToUrlParam(readingList: ReadingList, pageIdMap: Map<String, Map<String, Int>>): String {
-        val langIdMap = mutableMapOf<String, Collection<Int>>()
-        pageIdMap.keys.forEach { langIdMap[it] = pageIdMap[it]!!.values }
+        val projectUrlMap = mutableMapOf<String, Collection<Int>>()
+        pageIdMap.keys.forEach { projectUrlMap[WikiSite.forLanguageCode(it).url()] = pageIdMap[it]!!.values }
 
         // TODO: for now we're not transmitting the free-form Name and Description of a reading list.
-        val exportedReadingLists = ExportedReadingLists(langIdMap /*, readingList.title, readingList.description */)
+        val exportedReadingLists = ExportedReadingLists(projectUrlMap /*, readingList.title, readingList.description */)
         return Base64.encodeToString(JsonUtil.encodeToString(exportedReadingLists)!!.toByteArray(), Base64.NO_WRAP)
     }
 
