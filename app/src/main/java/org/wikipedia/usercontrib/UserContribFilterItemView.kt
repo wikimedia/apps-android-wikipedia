@@ -56,22 +56,21 @@ class UserContribFilterItemView constructor(context: Context, attrs: AttributeSe
         }
 
         item.imageRes?.let {
-            ImageViewCompat.setImageTintList(binding.itemLogo, ResourceUtil.getThemedColorStateList(context, R.attr.secondary_text_color))
+            ImageViewCompat.setImageTintList(binding.itemLogo, ResourceUtil.getThemedColorStateList(context,
+                if (item.type == UserContribFilterActivity.FILTER_TYPE_WIKI) R.attr.secondary_text_color else R.attr.colorAccent))
             binding.itemLogo.setImageResource(it)
             binding.itemLogo.visibility = View.VISIBLE
         } ?: run {
-            binding.itemLogo.visibility = View.GONE
+            binding.itemLogo.visibility = if (binding.languageCode.isVisible) View.GONE else View.INVISIBLE
         }
     }
 
     fun setSingleLabel(text: String) {
-        val accentColor = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
         binding.languageCode.visibility = View.GONE
         binding.itemLogo.visibility = View.VISIBLE
-        ImageViewCompat.setImageTintList(binding.itemLogo, accentColor)
         binding.itemLogo.setImageResource(R.drawable.ic_mode_edit_themed_24dp)
         binding.itemCheck.visibility = View.GONE
-        binding.itemTitle.setTextColor(accentColor)
+        binding.itemTitle.setTextColor(ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent))
         binding.itemTitle.text = text.uppercase()
         binding.itemTitle.typeface = labelTypeface
         binding.itemTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)

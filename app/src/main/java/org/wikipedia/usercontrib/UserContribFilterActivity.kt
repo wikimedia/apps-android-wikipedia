@@ -79,7 +79,7 @@ class UserContribFilterActivity : BaseActivity() {
             itemList.add(Item(FILTER_TYPE_WIKI, Constants.WIKI_CODE_WIKIDATA, R.drawable.ic_wikidata_logo))
             itemList.add(getString(R.string.notifications_filter_update_app_languages))
             itemList.add(getString(R.string.user_contrib_filter_ns_header))
-            itemList.add(Item(FILTER_TYPE_NAMESPACE, getString(R.string.user_contrib_filter_all), R.drawable.ic_mode_edit_white_24dp))
+            itemList.add(Item(FILTER_TYPE_NAMESPACE, getString(R.string.user_contrib_filter_all), null))
             itemList.add(Item(FILTER_TYPE_NAMESPACE, getString(R.string.namespace_article), R.drawable.ic_article_ltr_ooui))
             itemList.add(Item(FILTER_TYPE_NAMESPACE, TalkAliasData.valueFor(WikipediaApp.instance.appOrSystemLanguageCode), R.drawable.ic_notification_article_talk))
             itemList.add(Item(FILTER_TYPE_NAMESPACE, UserAliasData.valueFor(WikipediaApp.instance.appOrSystemLanguageCode), R.drawable.ic_user_avatar))

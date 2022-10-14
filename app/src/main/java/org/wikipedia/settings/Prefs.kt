@@ -5,6 +5,7 @@ import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SessionData
 import org.wikipedia.analytics.SessionFunnel
 import org.wikipedia.analytics.eventplatform.StreamConfig
@@ -608,7 +609,7 @@ object Prefs {
         set(value) = PrefsIoUtil.setString(R.string.preference_key_user_contrib_filter_excluded_ns, JsonUtil.encodeToString(value))
 
     var userContribFilterLangCode
-        get() = PrefsIoUtil.getString(R.string.preference_key_user_contrib_filter_lang_code, null).orEmpty()
+        get() = PrefsIoUtil.getString(R.string.preference_key_user_contrib_filter_lang_code, WikipediaApp.instance.appOrSystemLanguageCode)!!
         set(value) = PrefsIoUtil.setString(R.string.preference_key_user_contrib_filter_lang_code, value)
 
     var editSyntaxHighlightEnabled
