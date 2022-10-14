@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Dbrant
 * Dipusparaga
 * Kandar
 * MuratTheTurkish
@@ -547,7 +548,10 @@
   <string name="more_events_text" fuzzy="true">Kajadian sajarah lianna dina poé ieu</string>
   <string name="events_count_text" fuzzy="true">%1$s kajadian ti %2$s - %3$d</string>
   <string name="this_year">Taun ieu</string>
-  <string name="diff_years">{{PLURAL|one=Taun kamari|%d ka tukang}</string>
+  <plurals name="diff_years">
+    <item quantity="one">Taun kamari</item>
+    <item quantity="other">%d ka tukang</item>
+  </plurals>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Piceun basa kapilih?</item>
     <item quantity="other">Piceunan basa kapilih?</item>
