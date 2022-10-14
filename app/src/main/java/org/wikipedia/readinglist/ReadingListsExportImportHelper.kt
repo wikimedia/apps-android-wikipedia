@@ -75,18 +75,23 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
     fun importLists(jsonString: String) {
         val readingLists: List<ExportableReadingList> = JsonUtil.decodeFromString(jsonString)!!
         for (list in readingLists) {
+            val allLists = AppDatabase.instance.readingListDao().getAllLists()
             val existingTitles = AppDatabase.instance.readingListDao().getAllLists().map { it.title }
             if (existingTitles.contains(list.name)) {
-                // Todo: When  similarly named list exists?
+                allLists.filter { it.title == list.name }.forEach { addTitlesToList(list, it) }
                 continue
             }
             val readingList = AppDatabase.instance.readingListDao().createList(list.name!!, list.description)
-            val titles = mutableListOf<PageTitle>()
-            list.pages.keys.forEach { apiTitle ->
-                titles.add(PageTitle(apiTitle, WikiSite.forLanguageCode(list.pages[apiTitle].orEmpty())))
-            }
-            AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(readingList, titles)
+            addTitlesToList(list, readingList)
         }
+    }
+
+    private fun addTitlesToList(exportedList:ExportableReadingList,list: ReadingList) {
+        val titles = mutableListOf<PageTitle>()
+        exportedList.pages.keys.forEach { apiTitle ->
+            titles.add(PageTitle(apiTitle, WikiSite.forLanguageCode(exportedList.pages[apiTitle].orEmpty())))
+        }
+        AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(list, titles)
     }
 
     override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
