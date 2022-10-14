@@ -1284,4 +1284,6 @@
   <string name="media_playback_error">Error shown when the selected media could not be played.</string>
   <string name="user_contrib_menu_label">Menu label for accessing the contributions of the current user.</string>
   <string name="user_contrib_wiki_select">Screen title for viewing the contributions of a user from a selected wiki.</string>
+  <string name="featured_topic">Featured Topic</string>
+  <string name="featured_topic_subtitle">Articles based on topic of your choice</string>
 </resources>
