@@ -44,6 +44,13 @@ interface Service {
         @Query("srsearch") repeat: String?
     ): Observable<PrefixSearchResponse>
 
+    fun fullTextSearch(
+        @Query("gsrsearch") searchTerm: String?,
+        @Query("gsrlimit") gsrLimit: Int,
+        @Query("continue") cont: String?,
+        @Query("gsroffset") gsrOffset: String?
+                      ): Observable<MwQueryResponse>
+
     @GET(
         MW_API_PREFIX + "action=query&converttitles=" +
                 "&prop=description|pageimages|pageprops|info&ppprop=mainpage|disambiguation" +
