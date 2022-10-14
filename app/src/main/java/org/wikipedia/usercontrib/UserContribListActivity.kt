@@ -317,13 +317,14 @@ class UserContribListActivity : BaseActivity() {
         }
 
         private fun updateFilterCount() {
-            if (Prefs.userContribFilterNs.isEmpty()) {
+            val excludedFilters = viewModel.excludedFiltersCount()
+            if (excludedFilters == 0) {
                 binding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(binding.filterByButton,
                     ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.color_group_9))
             } else {
                 binding.filterCount.visibility = View.VISIBLE
-                binding.filterCount.text = Prefs.userContribFilterNs.size.toString()
+                binding.filterCount.text = excludedFilters.toString()
                 ImageViewCompat.setImageTintList(binding.filterByButton,
                     ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.colorAccent))
             }
@@ -377,7 +378,7 @@ class UserContribListActivity : BaseActivity() {
                     }
 
                     override fun getExcludedFilterCount(): Int {
-                        return Prefs.userContribFilterNs.size
+                        return Prefs.userContribFilterExcludedNs.size
                     }
 
                     override fun getFilterIconContentDescription(): Int {

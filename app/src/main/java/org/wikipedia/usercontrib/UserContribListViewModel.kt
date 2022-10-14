@@ -73,6 +73,11 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
         loadStats()
     }
 
+    fun excludedFiltersCount(): Int {
+        val excludedNsFilter = Prefs.userContribFilterExcludedNs
+        return UserContribFilterActivity.NAMESPACE_LIST.count { excludedNsFilter.contains(it) }
+    }
+
     fun loadStats() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
@@ -98,11 +103,11 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
                     return LoadResult.Page(cachedContribs, null, cachedContinueKey)
                 }
 
-                if (Prefs.userContribFilterNs.isEmpty()) {
+                if (excludedFiltersCount() == UserContribFilterActivity.NAMESPACE_LIST.size) {
                     return LoadResult.Page(emptyList(), null, null)
                 }
 
-                val nsFilter = Prefs.userContribFilterNs.joinToString("|")
+                val nsFilter = UserContribFilterActivity.NAMESPACE_LIST.filter { !Prefs.userContribFilterExcludedNs.contains(it) }.joinToString("|")
                 val response = ServiceFactory.get(wikiSite).getUserContrib(userName, 500, nsFilter.ifEmpty { null }, null, params.key)
                 val contribs = response.query?.userContributions!!
 

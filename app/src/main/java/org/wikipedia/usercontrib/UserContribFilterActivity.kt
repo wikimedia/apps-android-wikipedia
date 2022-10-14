@@ -125,25 +125,24 @@ class UserContribFilterActivity : BaseActivity() {
                 if (it.type == FILTER_TYPE_WIKI) {
                     Prefs.userContribFilterLangCode = item.filterCode
                 } else if (it.type == FILTER_TYPE_NAMESPACE) {
-                    var nsFilter = Prefs.userContribFilterNs
-                    val namespaceList = listOf(Namespace.MAIN.code(), Namespace.TALK.code(), Namespace.USER.code(), Namespace.USER_TALK.code())
+                    var excludedNsFilter = Prefs.userContribFilterExcludedNs
                     when (val namespaceCode = getNamespaceCode(item.filterCode)) {
                         -1 -> { // Select "all"
-                            nsFilter = if (nsFilter.isEmpty() || nsFilter.size < namespaceList.size) {
-                                namespaceList.toSet()
+                            excludedNsFilter = if (excludedNsFilter.isEmpty() || excludedNsFilter.size < NAMESPACE_LIST.size) {
+                                NAMESPACE_LIST.toSet()
                             } else {
                                 emptySet()
                             }
                         }
                         else -> {
-                            nsFilter = if (nsFilter.contains(namespaceCode)) {
-                                nsFilter.minus(namespaceCode)
+                            excludedNsFilter = if (excludedNsFilter.contains(namespaceCode)) {
+                                excludedNsFilter.minus(namespaceCode)
                             } else {
-                                nsFilter.plus(namespaceCode)
+                                excludedNsFilter.plus(namespaceCode)
                             }
                         }
                     }
-                    Prefs.userContribFilterNs = nsFilter
+                    Prefs.userContribFilterExcludedNs = excludedNsFilter
                 }
             }
             notifyItemRangeChanged(0, itemCount)
@@ -162,16 +161,14 @@ class UserContribFilterActivity : BaseActivity() {
 
     inner class Item constructor(val type: Int, val filterCode: String, val imageRes: Int? = null) {
         fun isEnabled(): Boolean {
-            val nsFilter = Prefs.userContribFilterNs
-            if (filterCode == getString(R.string.user_contrib_filter_all)) {
-                return nsFilter.containsAll(listOf(
-                    Namespace.MAIN.code(),
-                    Namespace.TALK.code(),
-                    Namespace.USER.code(),
-                    Namespace.USER_TALK.code()
-                ))
+            if (type == FILTER_TYPE_WIKI) {
+                return Prefs.userContribFilterLangCode == filterCode
             }
-            return Prefs.userContribFilterLangCode == filterCode || nsFilter.contains(getNamespaceCode(filterCode))
+            val excludedNsFilter = Prefs.userContribFilterExcludedNs
+            if (filterCode == getString(R.string.user_contrib_filter_all)) {
+                return NAMESPACE_LIST.find { excludedNsFilter.contains(it) } == null
+            }
+            return !excludedNsFilter.contains(getNamespaceCode(filterCode))
         }
     }
 
@@ -181,6 +178,7 @@ class UserContribFilterActivity : BaseActivity() {
         private const val VIEW_TYPE_ADD_LANGUAGE = 2
         const val FILTER_TYPE_WIKI = 0
         const val FILTER_TYPE_NAMESPACE = 1
+        val NAMESPACE_LIST = listOf(Namespace.MAIN.code(), Namespace.TALK.code(), Namespace.USER.code(), Namespace.USER_TALK.code())
 
         fun newIntent(context: Context): Intent {
             return Intent(context, UserContribFilterActivity::class.java)
