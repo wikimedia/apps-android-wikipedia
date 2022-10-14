@@ -1323,11 +1323,8 @@
     <string name="preview_edit_summarize_edit_title">Summarize edit</string>
     <string name="preview_edit_summarize_edit_hint">How did you improve this page?</string>
     <string name="preview_edit_minor_edit">This is a minor edit</string>
-    <string name="preview_edit_minor_edit_url">https://en.wikipedia.org/wiki/Help:Minor_edit</string>
     <string name="preview_edit_watch_this_page">Watch this page</string>
-    <string name="preview_edit_watch_this_page_url">https://en.wikipedia.org/wiki/Help:Watchlist</string>
     <string name="preview_edit_learn_more">Learn more about edit summaries</string>
-    <string name="preview_edit_learn_more_url">https://en.wikipedia.org/wiki/Help:Edit_summary</string>
     <!-- /Preview edit -->
 
     <string name="action_item_categories">Categories</string>

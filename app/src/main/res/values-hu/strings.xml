@@ -1173,11 +1173,8 @@
   <string name="preview_edit_summarize_edit_title">Szerkesztés összegzése</string>
   <string name="preview_edit_summarize_edit_hint">Hogyan javítottad a szócikket?</string>
   <string name="preview_edit_minor_edit">Ez egy apró szerkesztés</string>
-  <string name="preview_edit_minor_edit_url">https://hu.wikipedia.org/wiki/Wikipédia:Apró_változtatás</string>
   <string name="preview_edit_watch_this_page">Lap figyelése</string>
-  <string name="preview_edit_watch_this_page_url">https://hu.wikipedia.org/wiki/Wikipédia:Figyelőlista</string>
   <string name="preview_edit_learn_more">További információ az szerkesztési összefoglalóról</string>
-  <string name="preview_edit_learn_more_url">https://hu.wikipedia.org/wiki/Wikipédia:Szerkesztési_összefoglaló</string>
   <string name="action_item_categories">Kategóriák</string>
   <string name="page_no_categories">Ez a lap nem tartozik egyetlen kategóriába sem.</string>
   <string name="category_tab_articles">Szócikkek</string>

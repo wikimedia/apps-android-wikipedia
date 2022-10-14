@@ -1324,11 +1324,8 @@
   <string name="preview_edit_summarize_edit_title">נא לכתוב סיכום של העריכה</string>
   <string name="preview_edit_summarize_edit_hint">איך שיפרת את הדף?</string>
   <string name="preview_edit_minor_edit">זוהי עריכה משנית</string>
-  <string name="preview_edit_minor_edit_url">https://he.wikipedia.org/wiki/עזרה:עריכה_משנית</string>
   <string name="preview_edit_watch_this_page">מעקב אחרי הדף הזה</string>
-  <string name="preview_edit_watch_this_page_url">https://he.wikipedia.org/wiki/עזרה:רשימת_מעקב</string>
   <string name="preview_edit_learn_more">מידע נוסף על תקצירי עריכה</string>
-  <string name="preview_edit_learn_more_url">https://he.wikipedia.org/wiki/עזרה:תקציר_עריכה</string>
   <string name="action_item_categories">קטגוריות</string>
   <string name="page_no_categories">הדף הזה אינו משויך לקטגוריות כלשהן.</string>
   <string name="category_tab_articles">ערכים</string>

@@ -1262,11 +1262,8 @@
   <string name="preview_edit_summarize_edit_title">Title of the summarize edit screen.</string>
   <string name="preview_edit_summarize_edit_hint">Hint text for edit summaries text field.</string>
   <string name="preview_edit_minor_edit">Label text of the checkbox that indicates the current edit is a minor edit.</string>
-  <string name="preview_edit_minor_edit_url">URL leading to the help page of the minor edit. If you can find the appropriate language specific URL of the mobile site please do so. You may be able to find it easily by going to https://en.wikipedia.org/wiki/Help:Minor_edit and clicking the interlanguage link.</string>
   <string name="preview_edit_watch_this_page">Label text of the checkbox that helps to watch the page after publishing.</string>
-  <string name="preview_edit_watch_this_page_url">URL leading to the help page of the Watchlist. If you can find the appropriate language specific URL of the mobile site please do so. You may be able to find it easily by going to https://en.wikipedia.org/wiki/Help:Watchlist and clicking the interlanguage link.</string>
   <string name="preview_edit_learn_more">Label text of the link to learn more about edit summaries.</string>
-  <string name="preview_edit_learn_more_url">URL leading to the help page of the edit summary. If you can find the appropriate language specific URL of the mobile site please do so. You may be able to find it easily by going to https://en.wikipedia.org/wiki/Help:Edit_summary and clicking the interlanguage link.</string>
   <string name="action_item_categories">Label for menu item for viewing the categories to which an article belongs.</string>
   <string name="page_no_categories">Error message saying that the article does not belong to any categories.</string>
   <string name="category_tab_articles">Label for tab that lists all the articles in a category.</string>
