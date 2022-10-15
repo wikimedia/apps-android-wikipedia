@@ -182,7 +182,7 @@ dependencies {
     String espressoVersion = '3.4.0'
     String serialization_version = '1.4.0'
 
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.8'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.2'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
