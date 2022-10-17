@@ -31,7 +31,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
 
     fun exportLists(activity: BaseActivity, readingLists: List<ReadingList>?) {
         lists = readingLists
-        (activity as BaseActivity).callback = this
+        activity.callback = this
         readingLists?.let {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q || ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                 extractListDataToExport(activity, readingLists)
