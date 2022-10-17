@@ -72,7 +72,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
             .setStyle(NotificationCompat.BigTextStyle().bigText(context.getString(R.string.reading_list_notification_detailed_text)))
     }
 
-    fun importLists(jsonString: String) {
+    fun importLists(activity: BaseActivity, jsonString: String) {
         val readingLists: List<ExportableReadingList> = JsonUtil.decodeFromString(jsonString)!!
         for (list in readingLists) {
             val allLists = AppDatabase.instance.readingListDao().getAllLists()
@@ -84,6 +84,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
             val readingList = AppDatabase.instance.readingListDao().createList(list.name!!, list.description)
             addTitlesToList(list, readingList)
         }
+        FeedbackUtil.showMessage(activity, R.string.reading_list_import_success_message)
     }
 
     private fun addTitlesToList(exportedList: ExportableReadingList, list: ReadingList) {

@@ -600,8 +600,9 @@
     <string name="reading_list_notification_text">The reading lists you have selected have been exported</string>
     <string name="reading_list_notification_detailed_text">Reading lists have been exported to \'reading_lists_export.json\'</string>
     <string name="reading_list_export_completed_message">Lists exported</string>
-    <string name="reading_list_import_failed_not_csv">Import  failed. File is not the desired format.</string>
     <string name="reading_list_action_menu_export_lists">Export lists</string>
+    <string name="reading_list_import_success_message">Reading lists imported successfully</string>
+    <string name="reading_list_import_file_picker_title">Choose the file to import</string>
     <!-- /Reading lists -->
 
     <!-- User options -->

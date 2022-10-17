@@ -42,10 +42,10 @@ object FileUtil {
             } else {
                 val downloadsFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
                 val exportsFolder = File(downloadsFolder, appExportsFolderName)
-                val csvFile = File(exportsFolder, filename)
+                val exportFile = File(exportsFolder, filename)
                 exportsFolder.mkdir()
-                csvFile.delete() // To overwrite when file exists
-                FileOutputStream(csvFile, true).bufferedWriter().use { writer ->
+                exportFile.delete() // To overwrite when file exists
+                FileOutputStream(exportFile, true).bufferedWriter().use { writer ->
                     writer.write(data)
                 }
             }

@@ -22,6 +22,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
@@ -167,10 +168,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun importNewList() {
-                var chooseFile = Intent(Intent.ACTION_GET_CONTENT)
-                chooseFile.type = "*/*"
-                chooseFile = Intent.createChooser(chooseFile, "Choose a file")
-            (activity as MainActivity).filePickerLauncher.launch(chooseFile)
+            var filePickerIntent = Intent(Intent.ACTION_GET_CONTENT)
+            filePickerIntent.type = "*/*"
+            filePickerIntent = Intent.createChooser(filePickerIntent, getString(R.string.reading_list_import_file_picker_title))
+            (activity as MainActivity).filePickerLauncher.launch(filePickerIntent)
         }
 
         override fun refreshClick() {
@@ -538,7 +539,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         override fun onActionItemClicked(mode: ActionMode, menuItem: MenuItem): Boolean {
             when (menuItem.itemId) {
                 R.id.menu_export_selected -> {
-                    ReadingListsExportImportHelper.exportLists(activity as MainActivity, selectedLists)
+                    ReadingListsExportImportHelper.exportLists(activity as BaseActivity, selectedLists)
                     finishActionMode()
                     return true
                 }
@@ -668,7 +669,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     override fun onActivityImportResult(uri: Uri) {
         val inputStr: InputStream = activity?.contentResolver?.openInputStream(uri)!!
         val inputString = inputStr.bufferedReader().use { it.readText() }
-        ReadingListsExportImportHelper.importLists(inputString)
+        ReadingListsExportImportHelper.importLists(activity as BaseActivity, inputString)
         inputStr.close()
     }
 
