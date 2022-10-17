@@ -86,7 +86,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
         }
     }
 
-    private fun addTitlesToList(exportedList:ExportableReadingList,list: ReadingList) {
+    private fun addTitlesToList(exportedList: ExportableReadingList, list: ReadingList) {
         val titles = mutableListOf<PageTitle>()
         exportedList.pages.keys.forEach { apiTitle ->
             titles.add(PageTitle(apiTitle, WikiSite.forLanguageCode(exportedList.pages[apiTitle].orEmpty())))
