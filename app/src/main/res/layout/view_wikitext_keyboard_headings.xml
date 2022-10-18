@@ -12,65 +12,49 @@
         android:layout_marginTop="1dp"
         android:orientation="horizontal">
 
-        <TextView
+        <ImageView
             android:id="@+id/wikitext_button_h2"
             android:layout_width="48dp"
             android:layout_height="match_parent"
-            android:clickable="true"
-            android:focusable="true"
             android:background="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:textColor="?attr/material_theme_primary_color"
-            android:text="H2"
-            tools:ignore="HardcodedText"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:padding="12dp"
+            app:srcCompat="@drawable/ic_format_heading2_24" />
 
-        <TextView
+        <ImageView
             android:id="@+id/wikitext_button_h3"
             android:layout_width="48dp"
             android:layout_height="match_parent"
-            android:clickable="true"
-            android:focusable="true"
             android:background="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:textColor="?attr/material_theme_primary_color"
-            android:text="H3"
-            tools:ignore="HardcodedText"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:padding="12dp"
+            app:srcCompat="@drawable/ic_format_heading3_24" />
 
-        <TextView
+        <ImageView
             android:id="@+id/wikitext_button_h4"
             android:layout_width="48dp"
             android:layout_height="match_parent"
-            android:clickable="true"
-            android:focusable="true"
             android:background="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:textColor="?attr/material_theme_primary_color"
-            android:text="H4"
-            tools:ignore="HardcodedText"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:padding="12dp"
+            app:srcCompat="@drawable/ic_format_heading4_24" />
 
-        <TextView
+        <ImageView
             android:id="@+id/wikitext_button_h5"
             android:layout_width="48dp"
             android:layout_height="match_parent"
-            android:clickable="true"
-            android:focusable="true"
             android:background="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:textColor="?attr/material_theme_primary_color"
-            android:text="H5"
-            tools:ignore="HardcodedText"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:padding="12dp"
+            app:srcCompat="@drawable/ic_format_heading5_24" />
 
     </LinearLayout>
 
