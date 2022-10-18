@@ -238,7 +238,7 @@
   <string name="about_contributors_heading">Сарадници</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница тима&lt;/a&gt;</string>
   <string name="about_translators_heading">Преводиоци</string>
-  <string name="about_translators_translatewiki">Ову апликацију су превели добровољци сајта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_translators_translatewiki">Апликацију су превели добровољци на сајту &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
   <string name="about_app_license">Изворни кôд је доступан на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-у&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-у&lt;/a&gt; под лиценцом &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Садржај је доступан под лиценцом &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;, осим ако није другачије наведено.</string>
   <string name="about_wmf">Производ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Задужбине Викимедија&lt;/a&gt;</string>
@@ -255,6 +255,7 @@
   <string name="edit_preview">Преглед</string>
   <string name="edit_undo">Опозови</string>
   <string name="edit_redo">Понови</string>
+  <string name="edit_rollback">Врати</string>
   <string name="edit_zoom_in">Увећај</string>
   <string name="edit_zoom_out">Умањи</string>
   <string name="edit_summary_tag_typo">Исправљена грешка у куцању</string>
@@ -311,6 +312,7 @@
   <string name="gallery_save_success">Датотека је успешно сачувана.</string>
   <string name="gallery_error_video_failed">Није могуће репродуковати видео.</string>
   <string name="gallery_save_image_write_permission_rationale">Потребна је дозвола за писање на меморијски простор уређаја да бисте чували слике.</string>
+  <string name="gallery_edit_button_content_description">Уреди опис слике</string>
   <string name="gallery_add_image_caption_button">Додај опис слике</string>
   <string name="gallery_add_image_caption_in_language_button">Додај опис слике (%s)</string>
   <string name="err_cannot_save_file">Није могуће сачувати датотеку</string>
