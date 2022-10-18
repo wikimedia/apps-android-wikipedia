@@ -67,6 +67,7 @@
   <string name="search_redirect_from">%s szócikkből átirányítva</string>
   <string name="page_edit_history_activity_title">Laptörténet: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;a&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Üres szerkesztési összefoglaló</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Szerkesztések keresése vagy szűrése</string>
   <string name="page_edit_history_filter_by">Szűrés</string>
   <string name="page_edit_history_filter_by_all">Minden szerkesztés (%s)</string>
@@ -102,6 +103,7 @@
   <string name="menu_page_new_tab">Új fül</string>
   <string name="menu_page_reading_lists">Olvasólisták</string>
   <string name="menu_page_recently_viewed">Mostanában olvasott</string>
+  <string name="menu_page_archive">Archívum</string>
   <string name="menu_long_press_open_page">Megnyitás</string>
   <string name="menu_long_press_open_in_new_tab">Megnyitás új fülön</string>
   <string name="menu_long_press_copy_page">Hivatkozás címének másolása</string>
@@ -269,6 +271,11 @@
   <string name="edit_preview">Előnézet</string>
   <string name="edit_undo">Visszavonás</string>
   <string name="edit_redo">Újra</string>
+  <string name="edit_rollback">Visszaállítás</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">egy bájt</item>
+    <item quantity="other">%s bájt</item>
+  </plurals>
   <string name="edit_zoom_in">Nagyítás</string>
   <string name="edit_zoom_out">Kicsinyítés</string>
   <string name="edit_summary_tag_typo">Elírás javítása</string>
@@ -623,6 +630,7 @@
   <string name="notifications_mark_all_as_read">Megjelölés olvasottként</string>
   <string name="notifications_direct_reply_action">Válasz</string>
   <string name="notifications_direct_reply_success">Válasz elküldve</string>
+  <string name="notifications_direct_reply_error">Nem sikerült automatikusan elküldeni a választ.</string>
   <string name="notifications_mark_all_as_read_message">%d megjelölve olvasottnak</string>
   <string name="notifications_mark_all_as_unread_message">%d nem olvasottnak jelölve</string>
   <plurals name="notifications_mark_as_read_plural">
@@ -1044,7 +1052,17 @@
   <string name="content_description_for_page_indicator">%1$d. lap / %2$d</string>
   <string name="wikitext_bold">Félkövér</string>
   <string name="wikitext_italic">Dőlt</string>
+  <string name="wikitext_underline">Aláhúzott</string>
+  <string name="wikitext_strikethrough">Áthúzott</string>
+  <string name="wikitext_sup">Felső index</string>
+  <string name="wikitext_sub">Alsó index</string>
+  <string name="wikitext_large">Nagy szöveg</string>
+  <string name="wikitext_small">Kicsi szöveg</string>
+  <string name="wikitext_code">Kód</string>
   <string name="wikitext_link">Hivatkozás</string>
+  <string name="wikitext_heading_n">Alcím %d</string>
+  <string name="wikitext_formatting">Formázás</string>
+  <string name="wikitext_headings">Címsorok</string>
   <string name="wikitext_insert_media">Média beszúrása</string>
   <string name="wikitext_bulleted_list">Felsorolásjeles lista</string>
   <string name="wikitext_numbered_list">Számozott lista</string>
@@ -1114,6 +1132,11 @@
   <string name="talk_overflow_sort_by">Rendezve</string>
   <string name="talk_overflow_sort_date_published">Közzététel dátuma</string>
   <string name="talk_overflow_sort_topic_name">Téma neve</string>
+  <string name="talk_list_item_overflow_subscribe">Feliratkozás</string>
+  <string name="talk_list_item_overflow_subscribed">Feliratkozva</string>
+  <string name="talk_list_item_overflow_mark_as_read">Megjelölés olvasottként</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Jelölés olvasatlanként</string>
+  <string name="talk_list_item_overflow_share">Megosztás</string>
   <string name="menu_option_share_talk_discussion">Oszd meg a vitát</string>
   <string name="menu_option_share_talk_page">Vitalap megosztása</string>
   <string name="menu_option_share_edit">Szerkesztés megosztása</string>
