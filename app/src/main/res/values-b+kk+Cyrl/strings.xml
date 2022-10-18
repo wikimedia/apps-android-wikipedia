@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Arystanbek
+* Batyrbek.kz
 * Darzz
 * Fontan 030
 * MuratTheTurkish
@@ -52,6 +53,7 @@
   <string name="page_edit_history_minor_edit">&lt;b&gt;ш&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Бос өңдеме түйіні</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Өңдеме іздеу немесе сүзу</string>
+  <string name="page_edit_history_filter_by">Сүзгі</string>
   <string name="page_edit_history_filter_by_all">Барлық өңдеме (%s)</string>
   <string name="page_edit_history_filter_by_user">Қатысушы өңдемелері (%s)</string>
   <string name="page_edit_history_filter_by_anon">Аноним өңдемелері (%s)</string>
