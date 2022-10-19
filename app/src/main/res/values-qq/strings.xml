@@ -1295,4 +1295,5 @@
   <string name="reading_list_menu_export">Label for menu item for the user to export the reading list.</string>
   <string name="reading_list_import_success_message">User message when imports of reading lists has been successful.</string>
   <string name="reading_list_import_file_picker_title">Title message text shsown to user while choosing a file from the downloads folder to import.</string>
+  <string name="reading_list_import_failure_message">User message when imports of reading lists has not been successful.</string>
 </resources>

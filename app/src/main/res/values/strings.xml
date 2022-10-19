@@ -603,6 +603,7 @@
     <string name="reading_list_action_menu_export_lists">Export lists</string>
     <string name="reading_list_import_success_message">Reading lists imported successfully</string>
     <string name="reading_list_import_file_picker_title">Choose the file to import</string>
+    <string name="reading_list_import_failure_message">Reading lists import was unsuccessful because of file format</string>
     <!-- /Reading lists -->
 
     <!-- User options -->

@@ -73,18 +73,26 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
     }
 
     fun importLists(activity: BaseActivity, jsonString: String) {
-        val readingLists: List<ExportableReadingList> = JsonUtil.decodeFromString(jsonString)!!
-        for (list in readingLists) {
-            val allLists = AppDatabase.instance.readingListDao().getAllLists()
-            val existingTitles = AppDatabase.instance.readingListDao().getAllLists().map { it.title }
-            if (existingTitles.contains(list.name)) {
-                allLists.filter { it.title == list.name }.forEach { addTitlesToList(list, it) }
-                continue
-            }
-            val readingList = AppDatabase.instance.readingListDao().createList(list.name!!, list.description)
-            addTitlesToList(list, readingList)
+        var readingLists: List<ExportableReadingList>? = null
+        try {
+            readingLists = JsonUtil.decodeFromString(jsonString)!!
+        } catch (e: Exception) {
+            FeedbackUtil.showMessage(activity, R.string.reading_list_import_failure_message)
         }
-        FeedbackUtil.showMessage(activity, R.string.reading_list_import_success_message)
+        readingLists?.let {
+            for (list in readingLists) {
+                val allLists = AppDatabase.instance.readingListDao().getAllLists()
+                val existingTitles =
+                    AppDatabase.instance.readingListDao().getAllLists().map { it.title }
+                if (existingTitles.contains(list.name)) {
+                    allLists.filter { it.title == list.name }.forEach { addTitlesToList(list, it) }
+                    continue
+                }
+                val readingList = AppDatabase.instance.readingListDao().createList(list.name!!, list.description)
+                addTitlesToList(list, readingList)
+            }
+            FeedbackUtil.showMessage(activity, R.string.reading_list_import_success_message)
+        }
     }
 
     private fun addTitlesToList(exportedList: ExportableReadingList, list: ReadingList) {
