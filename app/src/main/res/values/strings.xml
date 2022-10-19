@@ -1259,6 +1259,8 @@
     <string name="talk_list_item_user_icon_content_description">User icon</string>
     <string name="talk_list_item_swipe_mark_as_read">Read</string>
     <string name="talk_list_item_swipe_mark_as_unread">Unread</string>
+    <string name="talk_login_to_subscribe_dialog_title">Log in to subscribe to topics</string>
+    <string name="talk_login_to_subscribe_dialog_content">Topic subscriptions will allow you to receive notifications about new comments in this topic. Please create an account or log into your Wikipedia account to subscribe to a topic.</string>
     <string name="talk_archived_title">Talk archive: %s</string>
     <string name="menu_option_share_talk_discussion">Share discussion</string>
     <string name="menu_option_share_talk_page">Share talk page</string>
