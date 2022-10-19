@@ -59,7 +59,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private val readingListItemCallback = ReadingListItemCallback()
     private val readingListPageItemCallback = ReadingListPageItemCallback()
     private val searchActionModeCallback = ReadingListsSearchCallback()
-    private val multiSelectExportModeCallback = MultiSelectCallback()
+    private val multiSelectModeCallback = MultiSelectCallback()
     private var actionMode: ActionMode? = null
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val overflowCallback = OverflowCallback()
@@ -450,7 +450,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private fun beginMultiSelect() {
         if (!isTagType(actionMode)) {
-            (requireActivity() as AppCompatActivity).startSupportActionMode(multiSelectExportModeCallback)
+            (requireActivity() as AppCompatActivity).startSupportActionMode(multiSelectModeCallback)
         }
     }
 
