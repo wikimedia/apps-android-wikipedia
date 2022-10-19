@@ -538,11 +538,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
         override fun onActionItemClicked(mode: ActionMode, menuItem: MenuItem): Boolean {
             when (menuItem.itemId) {
-                R.id.menu_delete_selected -> {
-                    onDeleteSelected()
-                    finishActionMode()
-                    return true
-                }
                 R.id.menu_export_selected -> {
                     ReadingListsExportImportHelper.exportLists(activity as BaseActivity, selectedLists)
                     finishActionMode()
@@ -553,14 +548,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onDeleteSelected() {
-            selectedLists.forEach {
-                if (!it.isDefault) {
-                    ReadingListBehaviorsUtil.deleteReadingList(requireActivity(), it, false) {
-                        funnel.logDeleteList(it, displayedLists.size)
-                        updateLists()
-                    }
-                }
-            }
+            // ignore
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
