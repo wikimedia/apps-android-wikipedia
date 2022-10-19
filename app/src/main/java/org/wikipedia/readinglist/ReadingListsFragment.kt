@@ -540,7 +540,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             when (menuItem.itemId) {
                 R.id.menu_delete_selected -> {
                     onDeleteSelected()
-
                     finishActionMode()
                     return true
                 }
