@@ -366,7 +366,7 @@
   <string name="tool_tip_toc_text">Zdaj lahko podrsate levo, da odprete vsebinsko kazalo, ali tapnete drsnik in ga povlečete, da hitro preidete na drug razdelek članka.</string>
   <string name="tool_tip_lang_button">Zdaj lahko Wikipedijo v aplikaciji berete in raziskujete v več jezikih</string>
   <string name="error_response_malformed">Odgovor strežnika ni bil ustrezno oblikovan.</string>
-  <string name="error_unknown">Pojavila se je neznana napaka.</string>
+  <string name="error_unknown">Prišlo je do neznane napake.</string>
   <string name="format_error_server_message">Sporočilo: »%s«</string>
   <string name="address_copied">Naslov kopiran v odložišče.</string>
   <string name="text_copied">Besedilo kopirano v odložišče.</string>
@@ -400,7 +400,7 @@
     <item quantity="other">%d izbranih</item>
   </plurals>
   <string name="multi_select_items_selected">%d izbranih</string>
-  <string name="error_message_generic">Pojavila se je napaka</string>
+  <string name="error_message_generic">Prišlo je do napake</string>
   <string name="view_link_preview_error_button_dismiss">Opusti</string>
   <string name="error_page_does_not_exist">Ta stran ne obstaja</string>
   <string name="error_user_page_does_not_exist">Wikipedija nima &lt;a href=\"%1$s \"&gt;uporabniške strani&lt;/a&gt; s točno tem imenom. Na splošno bi to stran moral ustvariti in urejati &lt;b&gt;%2$s&lt;/b&gt;. Če ste v dvomih, preverite, ali »%3$s« obstaja.</string>
@@ -1236,6 +1236,8 @@
   <string name="talk_list_item_user_icon_content_description">Simbol uporabnika</string>
   <string name="talk_list_item_swipe_mark_as_read">Prebrano</string>
   <string name="talk_list_item_swipe_mark_as_unread">Neprebrano</string>
+  <string name="talk_login_to_subscribe_dialog_title">Za naročanje na teme se prijavite</string>
+  <string name="talk_login_to_subscribe_dialog_content">Naročila na teme vam omogočajo prejemanje obvestil o novih komentarjih pri posameznih temah. Da se naročite na temo, si ustvarite račun ali se prijavite v svoj Wikimedia račun.</string>
   <string name="talk_archived_title">Arhiv pogovorne strani: %s</string>
   <string name="menu_option_share_talk_discussion">Deli pogovor</string>
   <string name="menu_option_share_talk_page">Deli pogovorno stran</string>
