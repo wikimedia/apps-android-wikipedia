@@ -241,7 +241,7 @@
   <string name="settings_item_preferences">Innstillinger</string>
   <string name="settings_activity_title">Innstillinger</string>
   <string name="about_description">Om Wikipedia-appen</string>
-  <string name="privacy_policy_description">Personvernpolitikk</string>
+  <string name="privacy_policy_description">Personvernspolitikk</string>
   <string name="terms_of_use_description">Bruksvilkår</string>
   <string name="about_wikipedia_url">https://no.wikipedia.org/wiki/Wikipedia:Om</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
