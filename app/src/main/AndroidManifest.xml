@@ -305,6 +305,11 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <activity
+
+            android:name=".topics.TopicsActivity"
+            android:label="Topics"
+            android:theme="@style/AppTheme.ActionBar"/>
+        <activity
             android:name=".page.edithistory.EditHistoryListActivity"
             android:theme="@style/AppTheme" />
 

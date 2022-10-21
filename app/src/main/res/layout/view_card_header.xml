@@ -36,6 +36,21 @@
         app:tint="?attr/material_theme_de_emphasised_color" />
 
     <TextView
+        android:id="@+id/topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:lineSpacingExtra="2sp"
+        android:padding="3dp"
+        android:textAllCaps="true"
+        android:textColor="@color/accent30"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_lang_code"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="zh-hant" />
+    <TextView
         android:id="@+id/view_list_card_header_lang_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -130,6 +130,7 @@
     <string name="preference_key_excluded_type_codes_notification">filterNotificationExcludedTypeCodes</string>
     <string name="preference_key_auto_show_edit_notices">autoShowEditNotices</string>
     <string name="preference_key_edit_notices_tooltip_shown">editNoticesTooltipShown</string>
+    <string name="preference_key_topics_selected">topicsSelected</string>
     <string name="preference_key_customize_toolbar_tooltip">showCustomizeToolbarTooltip</string>
     <string name="preference_key_customize_toolbar_order">customizeToolbarOrder</string>
     <string name="preference_key_customize_toolbar_menu_order">customizeToolbarMenuOrder</string>

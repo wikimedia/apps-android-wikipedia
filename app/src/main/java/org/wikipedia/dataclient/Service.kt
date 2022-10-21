@@ -51,6 +51,21 @@ interface Service {
                 "&inprop=varianttitles" +
                 "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
                 PREFERRED_THUMB_SIZE
+        )
+    fun fullTextSearch(
+        @Query("gsrsearch") searchTerm: String?,
+        @Query("gsrlimit") gsrLimit: Int,
+        @Query("continue") cont: String?,
+        @Query("gsroffset") gsrOffset: String?
+                      ): Observable<MwQueryResponse>
+
+    @GET(
+        MW_API_PREFIX + "action=query&converttitles=" +
+                "&prop=description|pageimages|pageprops|info&ppprop=mainpage|disambiguation" +
+                "&generator=search&gsrnamespace=0&gsrwhat=text" +
+                "&inprop=varianttitles" +
+                "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
+                PREFERRED_THUMB_SIZE
     )
     fun fullTextSearchMedia(
         @Query("gsrsearch") searchTerm: String?,

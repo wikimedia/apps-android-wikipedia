@@ -70,6 +70,7 @@ import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.topics.TopicsActivity
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.*
 import org.wikipedia.views.NotificationButtonView
@@ -163,6 +164,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         downloadReceiver.callback = downloadReceiverCallback
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
+        binding.topicsButton.setOnClickListener { startActivity(Intent(requireActivity(), TopicsActivity::class.java)) }
         maybeShowWatchlistTooltip()
     }
 

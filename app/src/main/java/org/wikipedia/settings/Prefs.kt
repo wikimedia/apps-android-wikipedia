@@ -563,6 +563,11 @@ object Prefs {
     val hideReadNotificationsEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_notification_hide_read, false)
 
+    var selectedTopics
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_topics_selected, null))
+            ?: emptySet()
+        set(set) = PrefsIoUtil.setString(R.string.preference_key_topics_selected, JsonUtil.encodeToString(set))
+
     var customizeToolbarOrder
         get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_order, null))
             ?: listOf(0, 1, 2, 3, 4)

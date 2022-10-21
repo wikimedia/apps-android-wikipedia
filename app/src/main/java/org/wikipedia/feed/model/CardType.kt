@@ -16,6 +16,7 @@ import org.wikipedia.feed.progress.ProgressCardView
 import org.wikipedia.feed.random.RandomCardView
 import org.wikipedia.feed.searchbar.SearchCardView
 import org.wikipedia.feed.suggestededits.SuggestedEditsCardView
+import org.wikipedia.feed.topic.FeaturedTopicCardView
 import org.wikipedia.feed.topread.TopReadCardView
 import org.wikipedia.feed.view.FeedCardView
 import org.wikipedia.model.EnumCode
@@ -123,6 +124,11 @@ enum class CardType constructor(private val code: Int,
     PROGRESS(99) {
         override fun newView(ctx: Context): FeedCardView<*> {
             return ProgressCardView(ctx)
+        }
+    },
+    FEATURED_TOPIC(100) {
+        override fun newView(ctx: Context): FeedCardView<*> {
+            return FeaturedTopicCardView(ctx)
         }
     };
 
