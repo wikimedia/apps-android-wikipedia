@@ -91,18 +91,24 @@
                 android:singleLine="true"
                 android:ellipsize="end"/>
 
-            <ImageView
+            <TextView
                 android:id="@+id/replySaveButton"
-                android:layout_width="56dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
-                android:contentDescription="@string/description_edit_save"
                 android:focusable="true"
-                android:padding="16dp"
-                app:srcCompat="@drawable/ic_check_circle_black_24dp"
-                app:tint="?attr/themed_icon_color"/>
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:letterSpacing="0.04"
+                android:text="@string/description_edit_save"
+                android:textAllCaps="true"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:tint="?attr/themed_icon_color" />
 
         </LinearLayout>
 
