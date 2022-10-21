@@ -139,11 +139,11 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                         title,
                                         parent().langFromCode,
                                         PageTitle(
-                                                Namespace.FILE.name,
-                                                StringUtil.removeNamespace(title),
-                                                null,
-                                                imageInfo.thumbUrl,
-                                                WikiSite.forLanguageCode(parent().langFromCode)
+                                            Namespace.FILE.name,
+                                            StringUtil.removeNamespace(title),
+                                            null,
+                                            imageInfo.thumbUrl,
+                                            WikiSite.forLanguageCode(parent().langFromCode)
                                         ),
                                         StringUtil.removeHTMLTags(title),
                                         imageInfo.metadata!!.imageDescription(),
