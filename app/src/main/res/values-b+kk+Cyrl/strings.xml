@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Arystanbek
+* Batyrbek.kz
 * Darzz
 * Fontan 030
 * MuratTheTurkish
@@ -30,8 +31,8 @@
   <string name="error_back">Артқа қайту</string>
   <string name="error_next">Келесі</string>
   <string name="menu_clear_all_history">Тарихын тазалау</string>
-  <string name="history_item_deleted">%s тарихтан жойылған</string>
-  <string name="history_items_deleted">%d мақала тарихтан жойылған</string>
+  <string name="history_item_deleted">\"%s\" тарихтан жойылды</string>
+  <string name="history_items_deleted">%d мақала тарихтан жойылды</string>
   <string name="history_item_delete_undo">Болдырмау</string>
   <string name="notification_archive_undo">Болдырмау</string>
   <string name="app_settings">Қосымшаны баптау</string>
@@ -52,6 +53,7 @@
   <string name="page_edit_history_minor_edit">&lt;b&gt;ш&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Бос өңдеме түйіні</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Өңдеме іздеу немесе сүзу</string>
+  <string name="page_edit_history_filter_by">Сүзгі</string>
   <string name="page_edit_history_filter_by_all">Барлық өңдеме (%s)</string>
   <string name="page_edit_history_filter_by_user">Қатысушы өңдемелері (%s)</string>
   <string name="page_edit_history_filter_by_anon">Аноним өңдемелері (%s)</string>
