@@ -51,8 +51,10 @@ class UserContribFilterItemView constructor(context: Context, attrs: AttributeSe
             } ?: run {
                 binding.languageCode.visibility = View.GONE
             }
+            binding.itemCheck.setImageResource(R.drawable.ic_baseline_radio_button_checked_24)
         } else {
             binding.languageCode.visibility = View.GONE
+            binding.itemCheck.setImageResource(R.drawable.ic_check_borderless)
         }
 
         item.imageRes?.let {
