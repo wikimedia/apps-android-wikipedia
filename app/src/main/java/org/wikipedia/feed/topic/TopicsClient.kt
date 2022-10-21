@@ -25,7 +25,7 @@ class TopicsClient : FeedClient {
             queryPage?.let {
                 val pageSummary =
                     PageSummary(it.displayTitle("en"), it.displayTitle("en"), it.description, it.description, it.thumbUrl(), "en")
-                FeedCoordinator.postCardsToCallback(cb, listOf(TopicCard(pageSummary, age, wiki,topics.elementAt(position))))
+                FeedCoordinator.postCardsToCallback(cb, listOf(TopicCard(pageSummary, age, wiki, topics.elementAt(position))))
             }
         }) { t ->
             L.v(t)

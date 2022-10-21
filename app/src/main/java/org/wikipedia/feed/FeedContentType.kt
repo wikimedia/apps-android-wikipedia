@@ -11,7 +11,6 @@ import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.mainpage.MainPageClient
 import org.wikipedia.feed.random.RandomClient
 import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient
-import org.wikipedia.feed.topic.TopicCard
 import org.wikipedia.feed.topic.TopicsClient
 import org.wikipedia.model.EnumCode
 import org.wikipedia.model.EnumCodeMap
@@ -74,7 +73,7 @@ enum class FeedContentType(private val code: Int,
             return if (DeviceUtil.isAccessibilityEnabled) AccessibilityCardClient() else null
         }
     },
-    FEATURED_TOPIC (11, R.string.featured_topic,  R.string.featured_topic_subtitle, false, true) {
+    FEATURED_TOPIC(11, R.string.featured_topic, R.string.featured_topic_subtitle, false, true) {
         override fun newClient(aggregatedClient: AggregatedFeedContentClient, age: Int): FeedClient? {
             return if (isEnabled) TopicsClient() else null
         }
