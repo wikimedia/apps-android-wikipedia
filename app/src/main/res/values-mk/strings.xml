@@ -1167,6 +1167,8 @@
   <string name="talk_list_item_user_icon_content_description">Корисничка икона</string>
   <string name="talk_list_item_swipe_mark_as_read">Прочитано</string>
   <string name="talk_list_item_swipe_mark_as_unread">Непрочитано</string>
+  <string name="talk_login_to_subscribe_dialog_title">Најавете се за да се претплатите на теми</string>
+  <string name="talk_login_to_subscribe_dialog_content">Преплаќањето на теми ќе ви овозможи да добивате известувања за нови коментари на оваа тема. Направете сметка или најавете се со вашата википедиска сметка за да се претплатите на тема.</string>
   <string name="talk_archived_title">Архива на разговори: %s</string>
   <string name="menu_option_share_talk_discussion">Сподели разговор</string>
   <string name="menu_option_share_talk_page">Сподели разговорна страница</string>

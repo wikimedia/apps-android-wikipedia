@@ -126,6 +126,12 @@
     <item quantity="many">%1$d правок с %2$s}</item>
     <item quantity="other">%1$d правок с %2$s}</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d правка с %2$s (%3$s)}</item>
+    <item quantity="few">%1$d правки с %2$s (%3$s)}</item>
+    <item quantity="many">%1$d правок с %2$s (%3$s)}</item>
+    <item quantity="other">%1$d правок с %2$s (%3$s)}</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Попробуйте изменить &lt;a href=\"#\"&gt;фильтры&lt;/a&gt;, чтобы увидеть больше правок</string>
   <string name="menu_page_show_tabs">Показать вкладки</string>
   <string name="menu_page_other_languages">Изменить язык</string>
