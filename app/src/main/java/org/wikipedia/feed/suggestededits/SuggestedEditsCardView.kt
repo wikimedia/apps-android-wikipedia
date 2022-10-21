@@ -4,37 +4,28 @@ import android.content.Context
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewSuggestedEditsCardBinding
-import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
-class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context),
-        SuggestedEditsFeedClient.Callback, CardFooterView.Callback {
+class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), CardFooterView.Callback {
     interface Callback {
         fun onSeCardFooterClicked()
     }
 
     private val binding = ViewSuggestedEditsCardBinding.inflate(LayoutInflater.from(context), this, true)
-    private var prevImageDownloadSettings = Prefs.isImageDownloadEnabled
 
     override var card: SuggestedEditsCard? = null
         set(value) {
-            if (field != value || prevImageDownloadSettings != Prefs.isImageDownloadEnabled) {
-                field = value
-                prevImageDownloadSettings = Prefs.isImageDownloadEnabled
-                value?.let {
-                    header(it)
-                    updateContents(it)
-                }
+            field = value
+            value?.let {
+                header(it)
+                updateContents(it)
             }
         }
 
@@ -43,10 +34,6 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
             field = value
             binding.headerView.setCallback(value)
         }
-
-    override fun updateCardContent(card: SuggestedEditsCard) {
-        this.card = card
-    }
 
     override fun onFooterClicked() {
         callback?.onSeCardFooterClicked()
@@ -63,7 +50,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         binding.seCardsPager.offscreenPageLimit = 3
         L10nUtil.setConditionalLayoutDirection(binding.seCardsPager, WikipediaApp.instance.wikiSite.languageCode)
         L10nUtil.setConditionalLayoutDirection(binding.seCardsIndicatorLayout, WikipediaApp.instance.wikiSite.languageCode)
-        TabLayoutMediator(binding.seCardsIndicatorLayout, binding.seCardsPager) { _: TabLayout.Tab, _: Int -> }.attach()
+        TabLayoutMediator(binding.seCardsIndicatorLayout, binding.seCardsPager) { _, _ -> }.attach()
     }
 
     private fun header(card: SuggestedEditsCard) {
@@ -74,20 +61,12 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     class SECardsPagerAdapter(activity: AppCompatActivity, private val card: SuggestedEditsCard) : PositionAwareFragmentStateAdapter(activity) {
-        private val seCardTypeList = ArrayList<DescriptionEditActivity.Action>()
-
-        init {
-            seCardTypeList.add(ADD_DESCRIPTION)
-            seCardTypeList.add(ADD_CAPTION)
-            seCardTypeList.add(ADD_IMAGE_TAGS)
-        }
-
         override fun getItemCount(): Int {
-            return seCardTypeList.size
+            return 3 // description, caption, image tags
         }
 
         override fun createFragment(position: Int): Fragment {
-            return SuggestedEditsCardItemFragment.newInstance(card.age, seCardTypeList[position])
+            return SuggestedEditsCardItemFragment.newInstance(card.age, card.summaryList?.getOrNull(position), card.imageTagsPage)
         }
     }
 }
