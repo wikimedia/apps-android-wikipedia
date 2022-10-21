@@ -60,11 +60,11 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         filter.imageRes?.let {
             ImageViewCompat.setImageTintList(binding.notificationFilterWikiLogo,
                 ResourceUtil.getThemedColorStateList(context, R.attr.secondary_text_color))
-            if (NotificationCategory.isFiltersGroup(filter.filterCode)) {
-                val colorStateList = AppCompatResources.getColorStateList(context,
-                    ResourceUtil.getThemedAttributeId(context, NotificationCategory.find(filter.filterCode).iconColor))
-                ImageViewCompat.setImageTintList(binding.notificationFilterWikiLogo, colorStateList)
-            }
+//            if (NotificationCategory.isFiltersGroup(filter.filterCode)) {
+//                val colorStateList = AppCompatResources.getColorStateList(context,
+//                    ResourceUtil.getThemedAttributeId(context, NotificationCategory.find(filter.filterCode).iconColor))
+//                ImageViewCompat.setImageTintList(binding.notificationFilterWikiLogo, colorStateList)
+//            }
             binding.notificationFilterWikiLogo.setImageResource(it)
             binding.notificationFilterWikiLogo.visibility = View.VISIBLE
         } ?: run {

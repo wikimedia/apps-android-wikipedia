@@ -56,8 +56,6 @@ class UserContribFilterItemView constructor(context: Context, attrs: AttributeSe
         }
 
         item.imageRes?.let {
-            ImageViewCompat.setImageTintList(binding.itemLogo, ResourceUtil.getThemedColorStateList(context,
-                if (item.type == UserContribFilterActivity.FILTER_TYPE_WIKI) R.attr.secondary_text_color else R.attr.colorAccent))
             binding.itemLogo.setImageResource(it)
             binding.itemLogo.visibility = View.VISIBLE
         } ?: run {
@@ -74,6 +72,7 @@ class UserContribFilterItemView constructor(context: Context, attrs: AttributeSe
         binding.itemTitle.text = text.uppercase()
         binding.itemTitle.typeface = labelTypeface
         binding.itemTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
+        ImageViewCompat.setImageTintList(binding.itemLogo, ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent))
     }
 
     private fun getTitleCodeFor(itemCode: String): String? {

@@ -26,7 +26,7 @@
         android:contentDescription="@null"
         android:scaleType="center"
         android:layout_gravity="center_vertical"
-        app:tint="?attr/colorAccent" />
+        app:tint="?attr/secondary_text_color" />
 
     <TextView
         android:id="@+id/item_title"
