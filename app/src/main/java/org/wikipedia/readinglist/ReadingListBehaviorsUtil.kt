@@ -102,6 +102,26 @@ object ReadingListBehaviorsUtil {
         }
     }
 
+    fun deleteReadingLists(activity: Activity, readingLists: List<ReadingList>?, callback: Callback) {
+        if (readingLists == null) {
+            return
+        }
+        AlertDialog.Builder(activity)
+            .setMessage(activity.getString(R.string.reading_list_delete_lists_confirm, readingLists.size))
+            .setPositiveButton(R.string.reading_list_delete_dialog_ok_button_text) { _, _ ->
+                readingLists.forEach {
+                    if (!it.isDefault) {
+                        AppDatabase.instance.readingListDao().deleteList(it)
+                        AppDatabase.instance.readingListPageDao().markPagesForDeletion(it, it.pages, false)
+                    }
+                }
+                callback.onCompleted()
+            }
+            .setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
+            .create()
+            .show()
+    }
+
     fun deletePages(activity: Activity, listsContainPage: List<ReadingList>, readingListPage: ReadingListPage, snackbarCallback: SnackbarCallback, callback: Callback) {
         if (listsContainPage.size > 1) {
             scope.launch(exceptionHandler) {
@@ -195,6 +215,26 @@ object ReadingListBehaviorsUtil {
                     newPages.add(ReadingListPage(ReadingListPage.toPageTitle(page)))
                 }
                 AppDatabase.instance.readingListPageDao().addPagesToList(newList, newPages, true)
+                callback.onUndoDeleteClicked()
+            }
+            .show()
+    }
+
+    fun showDeleteListsUndoSnackbar(activity: Activity, readingLists: List<ReadingList>?, callback: SnackbarCallback) {
+        if (readingLists == null) {
+            return
+        }
+        FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_lists_deleted, readingLists.size))
+            .setAction(R.string.reading_list_item_delete_undo) {
+                readingLists.forEach {
+                    val newList =
+                        AppDatabase.instance.readingListDao().createList(it.title, it.description)
+                    val newPages = ArrayList<ReadingListPage>()
+                    for (page in it.pages) {
+                        newPages.add(ReadingListPage(ReadingListPage.toPageTitle(page)))
+                    }
+                    AppDatabase.instance.readingListPageDao().addPagesToList(newList, newPages, true)
+                }
                 callback.onUndoDeleteClicked()
             }
             .show()

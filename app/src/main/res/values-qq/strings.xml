@@ -1298,4 +1298,7 @@
   <string name="reading_list_import_success_message">User message when imports of reading lists has been successful.</string>
   <string name="reading_list_import_file_picker_title">Title message text shsown to user while choosing a file from the downloads folder to import.</string>
   <string name="reading_list_import_failure_message">User message when imports of reading lists has not been successful.</string>
+  <string name="reading_list_delete_lists_confirm">Confirmation message shown when deleting multiple reading lists. The \"%d\" symbol is replaced with the nomber of lists up for deletion.</string>
+  <string name="reading_lists_deleted">Message shown when multiple reading lists are deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</string>
+
 </resources>

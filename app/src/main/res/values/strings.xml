@@ -523,6 +523,7 @@
     <string name="reading_lists_item_deleted">%s removed from lists</string>
     <string name="reading_list_item_delete_undo">Undo</string>
     <string name="reading_list_deleted">%s deleted</string>
+    <string name="reading_lists_deleted">%d lists deleted</string>
     <string name="saved_list_empty_title">No saved pages yet</string>
     <string name="reading_lists_empty_message">Add articles to a list for reading later, even when you\'re offline.</string>
     <string name="reading_list_empty">You have no articles added to this list.</string>
@@ -551,6 +552,7 @@
     <string name="reading_list_articles_added_to_named">Added %1$d articles to %2$s</string>
     <string name="reading_list_articles_moved_to_named">Moved %1$d articles to %2$s</string>
     <string name="reading_list_delete_confirm">Are you sure you want to delete %s?</string>
+    <string name="reading_list_delete_lists_confirm">Are you sure you want to delete %d lists?</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log in to enable sync</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log in to allow your reading lists to be saved to your account.</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancel</string>

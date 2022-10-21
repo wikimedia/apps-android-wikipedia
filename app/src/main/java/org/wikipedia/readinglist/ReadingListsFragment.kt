@@ -553,12 +553,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onDeleteSelected() {
-            selectedLists.forEach {
-                if (!it.isDefault) {
-                    ReadingListBehaviorsUtil.deleteReadingList(requireActivity(), it, false) {
-                        funnel.logDeleteList(it, displayedLists.size)
-                        updateLists()
-                    }
+            selectedLists.let {
+                ReadingListBehaviorsUtil.deleteReadingLists(requireActivity(), it) {
+                    ReadingListBehaviorsUtil.showDeleteListsUndoSnackbar(requireActivity(), it) { updateLists() }
+                    it.forEach { list -> funnel.logDeleteList(list, displayedLists.size) }
+                    updateLists()
                 }
             }
         }
