@@ -157,6 +157,7 @@
   <string name="reading_list_create_new">Raaj ođđ lookkâmlistt</string>
   <string name="reading_list_added_view_button">Čuäʹjet lookkâmliist</string>
   <string name="reading_list_add_to_list_button">Lââʹzzet lookkâmliʹstte</string>
+  <string name="reading_list_sort">Šlajjâd</string>
   <string name="reading_list_menu_delete">Jaukkâd lookkâmliist</string>
   <string name="reading_list_menu_rename">Muuʹtt lookkâmliist nõõm/deskriipt</string>
   <string name="reading_list_action_menu_move_to_another_list">Seeʹrd nuuʹbb liʹstte</string>
@@ -270,6 +271,7 @@
   <string name="wikitext_link">Liŋkk</string>
   <string name="wikitext_template">Mall</string>
   <string name="wikitext_reference">Teâttkäivv</string>
+  <string name="insert_media_advanced_settings">Lââʹssasetõõzz</string>
   <string name="main_tooltip_watchlist_title">Valvvâmlistt</string>
   <string name="text_input_dialog_cancel_button_text">Jõõsk</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Jõõsk</string>
