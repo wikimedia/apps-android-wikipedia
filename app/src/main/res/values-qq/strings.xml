@@ -1286,8 +1286,6 @@
   <string name="media_playback_error">Error shown when the selected media could not be played.</string>
   <string name="user_contrib_menu_label">Menu label for accessing the contributions of the current user.</string>
   <string name="user_contrib_wiki_select">Screen title for viewing the contributions of a user from a selected wiki.</string>
-  <string name="talk_login_to_subscribe_dialog_title">Title text for the dialog for the needed actions in order to make a subscription.</string>
-  <string name="talk_login_to_subscribe_dialog_content">Content text for the dialog for the needed actions in order to make a subscription.</string>
   <string name="reading_list_notification_title">Notification title text for reading lists export.</string>
   <string name="reading_list_notification_text">Notification description text for reading lists export.</string>
   <string name="reading_list_notification_detailed_text">Notification detailed description text for reading list export.</string>
