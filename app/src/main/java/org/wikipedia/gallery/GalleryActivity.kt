@@ -14,8 +14,8 @@ import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -52,15 +52,7 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.theme.Theme
-import org.wikipedia.util.GradientUtil
-import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.ShareUtil
-import org.wikipedia.util.ImageUrlUtil
-import org.wikipedia.util.UriUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ClipboardUtil
-import org.wikipedia.util.StringUtil
-import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 import org.wikipedia.views.ViewAnimations
