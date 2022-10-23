@@ -13,6 +13,7 @@ import android.util.Pair
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -50,7 +51,15 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.theme.Theme
-import org.wikipedia.util.*
+import org.wikipedia.util.GradientUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.UriUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ClipboardUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 import org.wikipedia.views.ViewAnimations
@@ -82,6 +91,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private var targetLanguageCode: String? = null
     private val app = WikipediaApp.instance
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private val viewModel: GalleryViewModel by viewModels { GalleryViewModel.Factory(intent.extras!!) }
     private val downloadReceiver = MediaDownloadReceiver()
     private val downloadReceiverCallback = MediaDownloadReceiverCallback()
 
@@ -474,17 +484,15 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     private fun fetchGalleryItems() {
         pageTitle?.let {
-            updateProgressBar(true)
-            disposables.add(ServiceFactory.getRest(it.wikiSite)
-                .getMediaList(it.prefixedText, revision)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ mediaList ->
-                    applyGalleryList(mediaList.getItems("image", "video"))
-                }) { caught ->
-                    updateProgressBar(false)
-                    showError(caught)
-                })
+            viewModel.fetchGalleryItems(it, revision)
+            viewModel.mediaListItem.observe(this) { result ->
+                when (result) {
+                    is GalleryViewState.InitialState -> {}
+                    is GalleryViewState.Loading -> updateProgressBar(true)
+                    is GalleryViewState.Success -> { result.data?.let { it -> applyGalleryList(it) } }
+                    is GalleryViewState.Failed -> { showError(result.throwable) }
+                }
+            }
         }
     }
 

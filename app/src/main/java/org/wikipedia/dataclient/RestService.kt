@@ -85,7 +85,7 @@ interface RestService {
     fun getMediaList(
         @Path("title") title: String,
         @Path("revision") revision: Long
-    ): Observable<MediaList>
+    ): Response<MediaList>
 
     @GET("page/media-list/{title}/{revision}")
     suspend fun getMediaListSuspend(
