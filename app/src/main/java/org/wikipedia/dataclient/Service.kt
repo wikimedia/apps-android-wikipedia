@@ -16,7 +16,6 @@ import org.wikipedia.dataclient.wikidata.Search
 import org.wikipedia.edit.Edit
 import org.wikipedia.login.LoginClient.LoginResponse
 import org.wikipedia.search.PrefixSearchResponse
-import retrofit2.Response
 import retrofit2.http.*
 
 /**
@@ -386,7 +385,7 @@ interface Service {
         @Query("sites") sites: String
     ): Entities
 
-    //TODO: To be replaced with method at line 384
+    // TODO: To be replaced with method at line 384
     @GET(MW_API_PREFIX + "action=wbgetentities")
     fun getEntitiesByTitle(
         @Query("titles") titles: String,

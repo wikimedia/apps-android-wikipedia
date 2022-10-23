@@ -70,4 +70,3 @@ class GalleryViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 }
-
