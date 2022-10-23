@@ -16,6 +16,7 @@ import org.wikipedia.dataclient.wikidata.Search
 import org.wikipedia.edit.Edit
 import org.wikipedia.login.LoginClient.LoginResponse
 import org.wikipedia.search.PrefixSearchResponse
+import retrofit2.Response
 import retrofit2.http.*
 
 /**
@@ -127,6 +128,10 @@ interface Service {
             @Query("wbetlanguage") entityLang: String
     ): Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
+    suspend fun getProtectionInfoSuspend(@Query("titles") titles: String): MwQueryResponse
+
+    // TODO: To be removed with method at line 132
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
     fun getProtectionInfo(@Query("titles") titles: String): Observable<MwQueryResponse>
 
@@ -375,6 +380,13 @@ interface Service {
 
     // ------- Wikidata -------
 
+    @GET(MW_API_PREFIX + "action=wbgetentities")
+    suspend fun getEntitiesByTitleSuspend(
+        @Query("titles") titles: String,
+        @Query("sites") sites: String
+    ): Entities
+
+    //TODO: To be replaced with method at line 384
     @GET(MW_API_PREFIX + "action=wbgetentities")
     fun getEntitiesByTitle(
         @Query("titles") titles: String,

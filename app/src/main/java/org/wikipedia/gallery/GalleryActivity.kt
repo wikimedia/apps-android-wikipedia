@@ -9,7 +9,6 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.util.Pair
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
@@ -20,11 +19,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.disposables.Disposable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ImageEditType
 import org.wikipedia.Constants.InvokeSource
@@ -35,10 +29,8 @@ import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.commons.FilePageActivity
-import org.wikipedia.commons.ImageTagsProvider
 import org.wikipedia.databinding.ActivityGalleryBinding
 import org.wikipedia.dataclient.Service
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.history.HistoryEntry
@@ -68,8 +60,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private var pageChangeListener = GalleryPageChangeListener()
     private var pageTitle: PageTitle? = null
     private var imageEditType: ImageEditType? = null
-    private val disposables = CompositeDisposable()
-    private var imageCaptionDisposable: Disposable? = null
     private var revision = 0L
     private var controlsShowing = true
     /**
@@ -198,8 +188,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     public override fun onDestroy() {
-        disposables.clear()
-        disposeImageCaptionDisposable()
         binding.pager.unregisterOnPageChangeCallback(pageChangeListener)
         TRANSITION_INFO = null
         super.onDestroy()
@@ -323,12 +311,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                 Uri.parse(UriUtil.resolveProtocolRelativeUrl(licenseUrl)))
         }
         return true
-    }
-
-    private fun disposeImageCaptionDisposable() {
-        if (imageCaptionDisposable != null && !imageCaptionDisposable!!.isDisposed) {
-            imageCaptionDisposable!!.dispose()
-        }
     }
 
     private inner class GalleryPageChangeListener : OnPageChangeCallback() {
@@ -542,25 +524,22 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             binding.infoContainer.visibility = View.GONE
             return
         }
-        updateProgressBar(true)
-        disposeImageCaptionDisposable()
-        imageCaptionDisposable =
-            Observable.zip(
-                ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitle(item.imageTitle!!.prefixedText, Constants.COMMONS_DB_NAME),
-                ServiceFactory.get(Constants.commonsWikiSite).getProtectionInfo(item.imageTitle!!.prefixedText)
-            ) { entities, protectionInfoRsp ->
-                val captions = entities.first?.labels?.values?.associate { it.language to it.value }.orEmpty()
-                item.mediaInfo!!.captions = captions
-                val depicts = ImageTagsProvider.getDepictsClaims(entities.first?.statements.orEmpty())
-                Pair(protectionInfoRsp.query?.isEditProtected == true, depicts.size)
-            }.subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                updateGalleryDescription(it.first, it.second)
-            }, {
-                L.e(it)
-                updateGalleryDescription(false, 0)
-            })
+
+        viewModel.fetchImageCaption(item.imageTitle!!.prefixedText)
+        viewModel.imageCaption.observe(this) { result ->
+            when (result) {
+                is GalleryViewState.InitialState -> {}
+                is GalleryViewState.Loading -> updateProgressBar(true)
+                is GalleryViewState.Success -> result.data?.let {
+                    item.mediaInfo!!.captions = it.first
+                    updateGalleryDescription(it.second, it.third)
+                }
+                is GalleryViewState.Failed -> {
+                    L.e(result.throwable)
+                    updateGalleryDescription(false, 0)
+                }
+            }
+        }
     }
 
     fun updateGalleryDescription(isProtected: Boolean, tagsCount: Int) {
