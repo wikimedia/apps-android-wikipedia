@@ -1242,7 +1242,6 @@
   <string name="preview_edit_minor_edit">Tämä on pieni muutos</string>
   <string name="preview_edit_watch_this_page">Tarkkaile tätä sivua</string>
   <string name="preview_edit_learn_more">Lue lisää muokkausyhteenvedoista</string>
-  <string name="preview_edit_learn_more_url">https://fi.wikipedia.org/wiki/Wikipedia:Yhteenveto</string>
   <string name="action_item_categories">Luokat</string>
   <string name="page_no_categories">Tämä sivu ei kuulu mihinkään luokkaan.</string>
   <string name="category_tab_articles">Artikkelit</string>
