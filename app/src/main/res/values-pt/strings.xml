@@ -1183,6 +1183,8 @@
   <string name="talk_list_item_user_icon_content_description">Ícone do utilizador</string>
   <string name="talk_list_item_swipe_mark_as_read">Lido</string>
   <string name="talk_list_item_swipe_mark_as_unread">Não lido</string>
+  <string name="talk_login_to_subscribe_dialog_title">Autentique-se para subscrever tópicos</string>
+  <string name="talk_login_to_subscribe_dialog_content">As subscrições de tópicos permitem-lhe receber notificações sobre novos comentários neste tópico. Para subscrever um tópico crie uma conta ou entre na sua conta da Wikipédia, por favor.</string>
   <string name="talk_archived_title">Arquivo de discussão: %s</string>
   <string name="menu_option_share_talk_discussion">Partilhar discussão</string>
   <string name="menu_option_share_talk_page">Partilhar página de discussão</string>

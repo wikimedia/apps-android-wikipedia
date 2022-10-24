@@ -4,7 +4,7 @@
 * Sohaib
 -->
 <resources>
-  <string name="app_name_prod">ویکیپیڈیا</string>
+  <string name="app_name_prod">وِکیپیڈیا</string>
   <string name="app_name_beta">وِکیپیڈیا بیٹا</string>
   <string name="app_name_alpha">وِکیپیڈیا الفا</string>
   <string name="wikimedia">ویکیمیڈیا</string>
@@ -132,6 +132,7 @@
   <string name="create_account_button">کھاتہ بݨاؤ</string>
   <string name="create_account_ip_block_details">ویروا</string>
   <string name="preferences_general_heading">عام</string>
+  <string name="preferences_account_heading">کھاتہ</string>
   <string name="wikipedia_app_faq">وِکیپیڈیا اَیپ بارے عام سوال</string>
   <string name="send_feedback">اَیپ سنبندھی سلاہ</string>
   <string name="create_account_account_created_toast">کھاتہ بݨیا!</string>
@@ -173,6 +174,8 @@
   <plurals name="edit_diff_bytes">
     <item quantity="other">%s بائٹ</item>
   </plurals>
+  <string name="edit_zoom_in">وڈا کرو</string>
+  <string name="edit_zoom_out">چھوٹا کرو</string>
   <string name="edit_summary_tag_typo">ہجے صحیح کیتے</string>
   <string name="edit_summary_tag_grammar">ویاکرن سہی کیتی</string>
   <string name="edit_summary_tag_links">کڑیاں جوڑیاں</string>
@@ -184,6 +187,7 @@
   <string name="page_similar_titles">ملدے جلدے سفحے</string>
   <string name="search_did_you_mean">کی تہاڈا متلب \"%s\" ہے؟</string>
   <string name="search_recent_header">ہالیا کھوجاں</string>
+  <string name="search_results_count_zero">کوئی نتیجے نہیں لبھے</string>
   <string name="button_clear_all_recent_searches">ہالیا کھوجاں مٹاؤ</string>
   <string name="clear_recent_searches_confirm">کی تسیں اتیت سافح کرنا چاہندے ہے؟</string>
   <string name="clear_recent_searches_confirm_yes">ہاں</string>
@@ -201,6 +205,7 @@
   <string name="dialog_close_description">بند کرو</string>
   <string name="preference_title_show_images">تصویراں ویکھو</string>
   <string name="read_more_section">ہور پڑھو</string>
+  <string name="about_article_section">ایس لیکھ بارے</string>
   <string name="menu_gallery_visit_image_page">فائل دے صفحے \'تے جاؤ</string>
   <string name="gallery_error_draw_failed">تسویر بݨا نہیں سکے۔</string>
   <string name="license_title">%s لئی لسنس</string>
@@ -256,11 +261,15 @@
   <string name="reading_lists_confirm_remote_delete_no">نہیں</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">رد کرو</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">لَوگ اِین کرو</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">ٹھیک اے</string>
   <string name="reading_list_turned_sync_off_dialog_settings">سیٹنگاں</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">ٹھیک اے</string>
+  <string name="reading_list_delete_dialog_ok_button_text">ٹھیک اے</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">رد کرو</string>
   <string name="reading_list_delete_dialog_cancel_button_text">رد کرو</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">رد کرو</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">رد کرو</string>
+  <string name="reading_list_split_dialog_ok_button_text">تھیک اے</string>
   <string name="user_option_sync_label">ترجیحاں</string>
   <string name="notification_syncing_cancel_button">رد کرو</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">وِکیپیڈیا</string>
@@ -271,6 +280,7 @@
   <string name="view_featured_image_card_download">ڈاؤنلوڈ کرو</string>
   <string name="menu_feed_card_dismiss">اِس کارڈ نوں وہلے کرو</string>
   <string name="menu_feed_card_dismissed">کارڈ لکائیا</string>
+  <string name="home">گھر</string>
   <string name="view_static_card_icon_content_description">کارڈ آئیکون</string>
   <string name="view_card_news_title">خبراں وچ</string>
   <string name="view_continue_reading_card_subtitle_today">اج</string>
@@ -284,17 +294,39 @@
   <string name="description_edit_save">سانبھو</string>
   <string name="description_edit_read">پڑھو</string>
   <string name="description_edit_cancel_hint">رد کرو</string>
+  <string name="description_edit_help_about_wikidata">وِکیڈیٹا بارے</string>
   <string name="description_edit_success_done">مکنمل</string>
   <string name="description_edit_success_did_you_know">کی تسیں جاݨدے ہے؟</string>
+  <string name="customize_toolbar_category_menu">مینو</string>
+  <string name="suggested_edits_menu_info">جاݨکاری</string>
   <string name="suggested_edits_task_multilingual_positive">بھاشاواں جوڑو</string>
   <string name="suggested_edits_image_caption_summary_title_image">تصویر</string>
   <string name="suggested_edits_image_caption_summary_title_artist">آرٹسٹ</string>
   <string name="suggested_edits_image_caption_summary_title_author">لیکھک</string>
   <string name="suggested_edits_image_caption_summary_title_source">سروت</string>
+  <string name="suggested_edits_image_caption_summary_title_license">لائیسنس</string>
   <string name="suggested_edits_image_caption_summary_title_date">تریخ</string>
   <string name="suggested_edits_image_preview_dialog_image">تصویر</string>
   <string name="suggested_edits_image_preview_dialog_artist">آرٹسٹ</string>
   <string name="suggested_edits_image_preview_dialog_tags">ٹیگ</string>
   <string name="suggested_edits_image_preview_dialog_date">تریخ</string>
+  <string name="description_edit_login_cancel_button_text">رد کرو</string>
+  <string name="app_shortcuts_search">کھوجو</string>
+  <string name="languages_list_all_text">ساریاں بولیاں</string>
+  <string name="more_language_options">ہور</string>
+  <string name="remove_language_dialog_ok_button_text">ٹھیک اے</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">ٹھیک اے</string>
+  <string name="protected_page_warning_dialog_ok_button_text">ٹھیک اے</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">ٹھیک اے</string>
+  <string name="edit_conflict_dialog_ok_button_text">ٹھیک اے</string>
+  <string name="reverted_edit_dialog_ok_button_text">ٹھیک اے</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">رد کرو</string>
+  <string name="main_drawer_help">مدد</string>
+  <string name="custom_date_picker_dialog_ok_button_text">ٹھیک اے</string>
+  <string name="text_input_dialog_ok_button_text">ٹھیک اے</string>
+  <string name="text_input_dialog_cancel_button_text">رد کرو</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">رد کرو</string>
+  <string name="talk_title">گل بات</string>
+  <string name="thank_dialog_negative_button_text">رد کرو</string>
   <string name="revision_diff_lines_from_to">لائین %1$d … %2$d</string>
 </resources>

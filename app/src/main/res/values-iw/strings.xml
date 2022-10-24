@@ -1253,6 +1253,8 @@
   <string name="talk_list_item_user_icon_content_description">סמל משתמש</string>
   <string name="talk_list_item_swipe_mark_as_read">סימון כהודעה שנקראה</string>
   <string name="talk_list_item_swipe_mark_as_unread">סימון כהודעה שלא נקראה</string>
+  <string name="talk_login_to_subscribe_dialog_title">יש להיכנס כדי לעשות מינוי לנושאים</string>
+  <string name="talk_login_to_subscribe_dialog_content">מינוי לנושא יאפשר לך לקבל התראות על תגובות חדשות בנושא הזה. נא ליצור חשבון או להיכנס לחשבון הוויקיפדיה שלך כדי לעשות מינוי לנושא.</string>
   <string name="talk_archived_title">ארכיון שיחה: %s</string>
   <string name="menu_option_share_talk_discussion">שיתוף דיון</string>
   <string name="menu_option_share_talk_page">שיתוף דף שיחה</string>
