@@ -84,15 +84,15 @@ class EditSummaryFragment : Fragment() {
         }
 
         binding.learnMoreButton.setOnClickListener {
-            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.preview_edit_learn_more_url)))
+            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.meta_edit_summary_url)))
         }
 
         binding.minorEditHelpButton.setOnClickListener {
-            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.preview_edit_minor_edit_url)))
+            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.meta_minor_edit_url)))
         }
 
         binding.watchPageHelpButton.setOnClickListener {
-            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.preview_edit_watch_this_page_url)))
+            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.meta_watching_pages_url)))
         }
 
         getWatchedStatus()
