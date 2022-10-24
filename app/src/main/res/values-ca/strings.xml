@@ -1186,6 +1186,8 @@
   <string name="talk_list_item_user_icon_content_description">Icona d\'usuari</string>
   <string name="talk_list_item_swipe_mark_as_read">Llegit</string>
   <string name="talk_list_item_swipe_mark_as_unread">No llegit</string>
+  <string name="talk_login_to_subscribe_dialog_title">Inicieu una sessió per a subscriure-us als temes</string>
+  <string name="talk_login_to_subscribe_dialog_content">Les subscripcions als temes us permetran rebre notificacions de comentaris nous sobre aquest tema. Creeu un compte a la Viquipèdia i inicieu una sessió amb ell per a subscriure-us a un tema.</string>
   <string name="talk_archived_title">Arxiu de la discussió: %s</string>
   <string name="menu_option_share_talk_discussion">Comparteix la discussió</string>
   <string name="menu_option_share_talk_page">Comparteix la pàgina de discussió</string>
@@ -1257,11 +1259,8 @@
   <string name="preview_edit_summarize_edit_title">Resumeix l\'edició</string>
   <string name="preview_edit_summarize_edit_hint">Com heu millorat la pàgina?</string>
   <string name="preview_edit_minor_edit">Aquesta és una modificació menor</string>
-  <string name="preview_edit_minor_edit_url">https://ca.wikipedia.org/wiki/Ajuda:Edició_menor</string>
   <string name="preview_edit_watch_this_page">Vigila aquesta pàgina</string>
-  <string name="preview_edit_watch_this_page_url">https://ca.wikipedia.org/wiki/Ajuda:Vigilar_pàgines</string>
   <string name="preview_edit_learn_more">Més informació dels resums d\'edició</string>
-  <string name="preview_edit_learn_more_url">https://ca.wikipedia.org/wiki/Ajuda:Resum_de_la_modificació</string>
   <string name="action_item_categories">Categories</string>
   <string name="page_no_categories">La pàgina no pertany a cap categoria.</string>
   <string name="category_tab_articles">Articles</string>

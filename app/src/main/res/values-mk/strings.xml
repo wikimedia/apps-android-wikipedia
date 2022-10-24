@@ -1240,11 +1240,8 @@
   <string name="preview_edit_summarize_edit_title">Опис на уредувањето</string>
   <string name="preview_edit_summarize_edit_hint">На кој начин ја подобривте страницава?</string>
   <string name="preview_edit_minor_edit">Ова е ситна промена</string>
-  <string name="preview_edit_minor_edit_url">https://mk.wikipedia.org/wiki/Помош:Ситна_промена</string>
   <string name="preview_edit_watch_this_page">Набљудувај ја страницава</string>
-  <string name="preview_edit_watch_this_page_url">https://en.wikipedia.org/wiki/Help:Watchlist</string>
   <string name="preview_edit_learn_more">Дознајте повеќе за опишувањето на уредувања</string>
-  <string name="preview_edit_learn_more_url">https://en.wikipedia.org/wiki/Help:Edit_summary</string>
   <string name="action_item_categories">Категории</string>
   <string name="page_no_categories">Статијава не припаѓа на ниедна категорија.</string>
   <string name="category_tab_articles">Статии</string>
