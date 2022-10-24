@@ -1186,6 +1186,8 @@
   <string name="talk_list_item_user_icon_content_description">Icona d\'usuari</string>
   <string name="talk_list_item_swipe_mark_as_read">Llegit</string>
   <string name="talk_list_item_swipe_mark_as_unread">No llegit</string>
+  <string name="talk_login_to_subscribe_dialog_title">Inicieu una sessió per a subscriure-us als temes</string>
+  <string name="talk_login_to_subscribe_dialog_content">Les subscripcions als temes us permetran rebre notificacions de comentaris nous sobre aquest tema. Creeu un compte a la Viquipèdia i inicieu una sessió amb ell per a subscriure-us a un tema.</string>
   <string name="talk_archived_title">Arxiu de la discussió: %s</string>
   <string name="menu_option_share_talk_discussion">Comparteix la discussió</string>
   <string name="menu_option_share_talk_page">Comparteix la pàgina de discussió</string>
