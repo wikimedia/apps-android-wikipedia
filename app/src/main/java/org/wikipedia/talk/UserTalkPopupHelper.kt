@@ -71,12 +71,12 @@ object UserTalkPopupHelper {
         val parent = FrameLayout(activity)
         val editHistoryInteractionEvent =
             EditHistoryInteractionEvent(title.wikiSite.dbName(), pageId)
-        val dialog: AlertDialog =
+        val dialog =
             AlertDialog.Builder(activity).setView(parent).setPositiveButton(R.string.thank_dialog_positive_button_text) { _, _ ->
-                    revisionId?.let { sendThanks(activity, title.wikiSite, revisionId, title, editHistoryInteractionEvent) }
-                }.setNegativeButton(R.string.thank_dialog_negative_button_text) { _, _ ->
-                    editHistoryInteractionEvent.logThankCancel()
-                }.create()
+                sendThanks(activity, title.wikiSite, revisionId, title, editHistoryInteractionEvent)
+            }.setNegativeButton(R.string.thank_dialog_negative_button_text) { _, _ ->
+                editHistoryInteractionEvent.logThankCancel()
+            }.create()
         dialog.layoutInflater.inflate(R.layout.view_thank_dialog, parent)
         dialog.setOnShowListener {
             dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(ResourceUtil.getThemedColor(activity, R.attr.secondary_text_color))
@@ -91,9 +91,11 @@ object UserTalkPopupHelper {
             editHistoryInteractionEvent.logThankFail()
         }) {
             val token = ServiceFactory.get(wikiSite).getToken().query?.csrfToken()
-            ServiceFactory.get(wikiSite).postThanksToRevision(revisionId!!, token!!)
-            FeedbackUtil.showMessage(activity, activity.getString(R.string.thank_success_message, title.text))
-            editHistoryInteractionEvent.logThankSuccess()
+            if (revisionId != null && token != null) {
+                ServiceFactory.get(wikiSite).postThanksToRevision(revisionId, token)
+                FeedbackUtil.showMessage(activity, activity.getString(R.string.thank_success_message, title.text))
+                editHistoryInteractionEvent.logThankSuccess()
+            }
         }
     }
 
@@ -118,7 +120,9 @@ object UserTalkPopupHelper {
                         activity.startActivity(UserContribListActivity.newIntent(activity, title.text))
                     }
                     R.id.menu_user_thank -> {
-                        pageId?.let { showThankDialog(activity, title, revisionId!!, pageId) }
+                        if (pageId != null && revisionId != null) {
+                            showThankDialog(activity, title, revisionId, pageId)
+                        }
                     }
                 }
                 return true
