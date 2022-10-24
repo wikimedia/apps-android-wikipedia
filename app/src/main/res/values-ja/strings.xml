@@ -1189,6 +1189,7 @@
   <string name="talk_list_item_user_icon_content_description">利用者アイコン</string>
   <string name="talk_list_item_swipe_mark_as_read">既読</string>
   <string name="talk_list_item_swipe_mark_as_unread">未読</string>
+  <string name="talk_login_to_subscribe_dialog_title">ログインしてトピックを購読する</string>
   <string name="menu_option_share_talk_discussion">議論を共有</string>
   <string name="menu_option_share_talk_page">トークページを共有</string>
   <string name="menu_option_share_edit">編集をシェア</string>
@@ -1259,11 +1260,8 @@
   <string name="preview_edit_summarize_edit_title">編集の要約</string>
   <string name="preview_edit_summarize_edit_hint">どのようにこのページを改善しましたか？</string>
   <string name="preview_edit_minor_edit">これは細部の編集です</string>
-  <string name="preview_edit_minor_edit_url">https://ja.wikipedia.org/wiki/Help:%E7%B4%B0%E9%83%A8%E3%81%AE%E7%B7%A8%E9%9B%86</string>
   <string name="preview_edit_watch_this_page">このページをウォッチする</string>
-  <string name="preview_edit_watch_this_page_url">https://ja.wikipedia.org/wiki/Help:%E3%82%A6%E3%82%A9%E3%83%83%E3%83%81%E3%83%AA%E3%82%B9%E3%83%88</string>
   <string name="preview_edit_learn_more">編集の要約についてもっと知る</string>
-  <string name="preview_edit_learn_more_url">https://ja.wikipedia.org/wiki/Help:%E8%A6%81%E7%B4%84%E6%AC%84</string>
   <string name="action_item_categories">カテゴリ</string>
   <string name="page_no_categories">このページはどのカテゴリにも属していません。</string>
   <string name="category_tab_articles">記事</string>

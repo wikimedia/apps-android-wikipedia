@@ -22,8 +22,8 @@
             android:id="@+id/wikitext_button_heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonText="H2"
-            app:buttonHint="@string/wikitext_headings" />
+            app:buttonHint="@string/wikitext_headings"
+            app:buttonImage="@drawable/ic_format_heading2_24" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
             android:id="@+id/wikitext_button_list_bulleted"
