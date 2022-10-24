@@ -1198,6 +1198,8 @@
   <string name="talk_list_item_user_icon_content_description">Ícone do usuário</string>
   <string name="talk_list_item_swipe_mark_as_read">Ler</string>
   <string name="talk_list_item_swipe_mark_as_unread">Não lidas</string>
+  <string name="talk_login_to_subscribe_dialog_title">Entre para se inscrever nos tópicos</string>
+  <string name="talk_login_to_subscribe_dialog_content">As inscrições de tópicos permitirão que você receba notificações sobre novos comentários neste tópico. Por favor, crie uma conta ou faça login na sua conta da Wikipedia para se inscrever em um tópico.</string>
   <string name="talk_archived_title">Arquivo de conversas: %s</string>
   <string name="menu_option_share_talk_discussion">Compartilhar discussão</string>
   <string name="menu_option_share_talk_page">Compartilhar página de discussão</string>
@@ -1269,11 +1271,8 @@
   <string name="preview_edit_summarize_edit_title">Resumir edição</string>
   <string name="preview_edit_summarize_edit_hint">De que forma melhorou esta página?</string>
   <string name="preview_edit_minor_edit">Esta é uma edição menor</string>
-  <string name="preview_edit_minor_edit_url">https://pt.wikipedia.org/wiki/Ajuda:Guia_de_edição/Menus_e_ferramentas/Edição_menor</string>
   <string name="preview_edit_watch_this_page">Vigiar esta página</string>
-  <string name="preview_edit_watch_this_page_url">https://pt.wikipedia.org/wiki/Ajuda:Guia de edição/Menus e ferramentas/Páginas vigiadas</string>
   <string name="preview_edit_learn_more">Saiba mais sobre resumos de edição</string>
-  <string name="preview_edit_learn_more_url">https://pt.wikipedia.org/wiki/Ajuda:Guia de edição/Menus e ferramentas/Sumário de edição</string>
   <string name="action_item_categories">Categorias</string>
   <string name="page_no_categories">Esta página não pertence a nenhuma categoria</string>
   <string name="category_tab_articles">Artigos</string>

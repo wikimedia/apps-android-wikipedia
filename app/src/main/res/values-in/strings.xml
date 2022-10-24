@@ -798,6 +798,8 @@
   <string name="description_edit_voice_input_description">Input suara</string>
   <string name="description_edit_learn_more">Pelajari lebih lanjut tentang deskripsi artikel</string>
   <string name="description_edit_image_caption_learn_more">Pelajari lebih lanjut tentang keterangan gambar</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Teksnya terlalu singkat.</string>
   <string name="description_ends_with_punctuation">Teksnya tidak boleh diakhiri dengan tanda baca.</string>
   <string name="description_starts_with_uppercase">Mulailah dengan huruf kecil, kecuali jika kata pertamanya adalah kata benda.</string>
@@ -1077,7 +1079,9 @@
   <string name="insert_media_settings_caption">Takarir</string>
   <string name="insert_media_settings_caption_description">Label yang ditampilkan di sebelah butir untuk semua pembaca</string>
   <string name="insert_media_settings_alternative_text">Teks alternatif</string>
+  <string name="insert_media_settings_alternative_text_description">Deskripsi teks untuk pembaca yang tak dapat melihat gambar</string>
   <string name="insert_media_advanced_settings">Pengaturan lanjutan</string>
+  <string name="insert_media_advanced_settings_wrap_image">Bungkus teks di sekitar gambar</string>
   <string name="insert_media_advanced_settings_image_position">Posisi gambar</string>
   <string name="insert_media_advanced_settings_image_position_right">Kanan</string>
   <string name="insert_media_advanced_settings_image_position_left">Kiri</string>
@@ -1087,6 +1091,8 @@
   <string name="insert_media_advanced_settings_image_type_thumbnail">Gambar mini</string>
   <string name="insert_media_advanced_settings_image_type_frameless">Nirbingkai</string>
   <string name="insert_media_advanced_settings_image_type_frame">Bingkai</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Dasar</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Anda dapat menentukan bagaimana butir media akan ditampilkan pada halaman. Format keluku digunakan agar konsisten dengan kebanyakan halaman lainnya.</string>
   <string name="insert_media_advanced_settings_image_size">Ukuran gambar</string>
   <string name="insert_media_advanced_settings_image_size_default">Baku</string>
   <string name="insert_media_advanced_settings_image_size_custom">Ubahsuai</string>
@@ -1150,6 +1156,8 @@
   <string name="talk_list_item_user_icon_content_description">Ikon pengguna</string>
   <string name="talk_list_item_swipe_mark_as_read">Dibaca</string>
   <string name="talk_list_item_swipe_mark_as_unread">Belum dibaca</string>
+  <string name="talk_login_to_subscribe_dialog_title">Log masuk untuk dapat berlangganan ke topik</string>
+  <string name="talk_login_to_subscribe_dialog_content">Berlangganan pada topik akan memungkinkan Anda menerima pemberitahuan tentang komentar baru dalam topik ini. Silakan buat akun atau masuk ke akun Wikipedia Anda untuk berlangganan suatu topik.</string>
   <string name="talk_archived_title">Arsip pembicaraan: %s</string>
   <string name="menu_option_share_talk_discussion">Bagikan diskusi</string>
   <string name="menu_option_share_talk_page">Bagikan halaman pembicaraan</string>
@@ -1182,6 +1190,7 @@
   <string name="revision_diff_to">Ke:</string>
   <string name="revision_diff_line_num">Baris %d</string>
   <string name="revision_diff_line_nums">Baris %d–%d</string>
+  <string name="revision_diff_lines_from_to">Baris %1$d–%2$d</string>
   <string name="revision_diff_line_added">Baris ditambahkan</string>
   <string name="revision_diff_line_removed">Baris dihapus</string>
   <string name="revision_diff_paragraph_added">Paragraf ditambahkan</string>
@@ -1220,11 +1229,8 @@
   <string name="preview_edit_summarize_edit_title">Ringkasan suntingan</string>
   <string name="preview_edit_summarize_edit_hint">Bagaimana Anda menyempurnakan halaman ini?</string>
   <string name="preview_edit_minor_edit">Ini adalah suntingan kecil</string>
-  <string name="preview_edit_minor_edit_url">https://id.wikipedia.org/wiki/Bantuan:Suntingan_kecil</string>
   <string name="preview_edit_watch_this_page">Pantau halaman ini</string>
-  <string name="preview_edit_watch_this_page_url">https://id.wikipedia.org/wiki/Bantuan:Daftar_pantauan</string>
   <string name="preview_edit_learn_more">Pelajari lebih lanjut tentang menyunting ringkasan</string>
-  <string name="preview_edit_learn_more_url">https://id.wikipedia.org/wiki/Bantuan:Ringkasan_suntingan</string>
   <string name="action_item_categories">Kategori</string>
   <string name="page_no_categories">Halaman ini tidak terdaftar dalam kategori apa pun.</string>
   <string name="category_tab_articles">Artikel</string>
