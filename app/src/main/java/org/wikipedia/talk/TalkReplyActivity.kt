@@ -208,7 +208,8 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     private fun setSaveButtonEnabled(enabled: Boolean) {
         binding.replySaveButton.isEnabled = enabled
-        binding.replySaveButton.setTextColor(if (enabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color)
+        binding.replySaveButton.setTextColor(ResourceUtil
+            .getThemedColor(this, if (enabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
     }
 
     private fun onSaveClicked() {
