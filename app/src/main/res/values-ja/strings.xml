@@ -1189,6 +1189,7 @@
   <string name="talk_list_item_user_icon_content_description">利用者アイコン</string>
   <string name="talk_list_item_swipe_mark_as_read">既読</string>
   <string name="talk_list_item_swipe_mark_as_unread">未読</string>
+  <string name="talk_login_to_subscribe_dialog_title">ログインしてトピックを購読する</string>
   <string name="menu_option_share_talk_discussion">議論を共有</string>
   <string name="menu_option_share_talk_page">トークページを共有</string>
   <string name="menu_option_share_edit">編集をシェア</string>
