@@ -78,8 +78,7 @@ data class PageTitle(
 
     val isContributions: Boolean
         get() {
-            val title = text.split('/')[0]
-            return title == ContributionsNameData.valueFor(wikiSite.languageCode)
+            return text.split('/').firstOrNull() == ContributionsNameData.valueFor(wikiSite.languageCode)
         }
 
     val uri: String

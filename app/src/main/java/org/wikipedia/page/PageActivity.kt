@@ -558,10 +558,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 finish()
                 return true
             } else if (title.isSpecial && title.isContributions) {
-                val titleSplit = title.text.split('/')
-                startActivity(UserContribListActivity.newIntent(this, titleSplit[titleSplit.size - 1]))
-                finish()
-                return true
+                title.displayText.split('/').lastOrNull()?.let {
+                    startActivity(UserContribListActivity.newIntent(this, it))
+                    finish()
+                    return true
+                }
             }
         }
         return false
