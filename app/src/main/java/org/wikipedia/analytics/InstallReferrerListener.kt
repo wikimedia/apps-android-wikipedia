@@ -128,8 +128,7 @@ class InstallReferrerListener : InstallReferrerStateListener {
             Prefs.appChannel = refChannel
         }
 
-        // TODO: get specific parameter from the installReferrer and send a bus event
-        if (refUrl?.contains("import_reading_lists") == true) {
+        if (refUtmSource.orEmpty() == "readingLists") {
             Prefs.importReadingListsNewInstallDialogShown = false
             WikipediaApp.instance.bus.post(ImportReadingListsEvent())
         }
