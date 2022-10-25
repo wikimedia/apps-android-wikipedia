@@ -1286,16 +1286,29 @@
   <string name="media_playback_error">Error shown when the selected media could not be played.</string>
   <string name="user_contrib_menu_label">Menu label for accessing the contributions of the current user.</string>
   <string name="user_contrib_wiki_select">Screen title for viewing the contributions of a user from a selected wiki.</string>
-  <string name="reading_list_notification_title">Notification title text for reading lists export.</string>
   <string name="reading_list_notification_text">Notification description text for reading lists export.</string>
   <string name="reading_list_notification_detailed_text">Notification detailed description text for reading list export.</string>
   <string name="reading_list_export_write_permission_rationale">Text asking the user for permission to access their internal storage for exporting reading lists.</string>
-  <string name="reading_list_export_completed_message">Text to let the user know that the list export process has been completed.</string>
   <string name="reading_lists_menu_import_list">Menu option offering user an option to import a reading list from a csv file.</string>
   <string name="reading_list_action_menu_export_lists">Label for a menu option allowing the user to export multiple lists to phone storage.</string>
   <string name="reading_list_menu_select">Label for menu item for the user to select list item.</string>
   <string name="reading_list_menu_export">Label for menu item for the user to export the reading list.</string>
-  <string name="reading_list_import_success_message">User message when imports of reading lists has been successful.</string>
   <string name="reading_list_import_file_picker_title">Title message text shsown to user while choosing a file from the downloads folder to import.</string>
   <string name="reading_list_import_failure_message">User message when imports of reading lists has not been successful.</string>
+  <plurals name="reading_list_notification_title">
+    <item quantity="one">Notification title text when a single reading list is exported.</item>
+    <item quantity="other">Notification title text when a multiple reading lists are exported.</item>
+  </plurals>
+  <plurals name="reading_list_export_completed_message">
+    <item quantity="one">Text to let the user know that the single list export process has been completed.</item>
+    <item quantity="other">Text to let the user know that the multiple lists export process has been completed.</item>
+  </plurals>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">User message when export of a single reading list has not been successful.</item>
+    <item quantity="other">User message when export of multiple reading lists has not been successful.</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">User message when import of single reading list has been successful.</item>
+    <item quantity="other">User message when import of multiple reading lists has been successful.</item>
+  </plurals>
 </resources>
