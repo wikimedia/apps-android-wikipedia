@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_export_selected"
-        android:icon="@drawable/ic_baseline_import_export_24"
+        android:icon="@drawable/ic_download_in_progress"
         android:title="@string/reading_list_action_menu_export_lists"
         app:showAsAction="always" />
 </menu>

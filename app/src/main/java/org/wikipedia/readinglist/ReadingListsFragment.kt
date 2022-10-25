@@ -533,6 +533,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             super.onCreateActionMode(mode, menu)
             mode.menuInflater.inflate(R.menu.menu_action_mode_reading_lists, menu)
             actionMode = mode
+            ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_export_selected), R.attr.material_theme_primary_color)
             return true
         }
 

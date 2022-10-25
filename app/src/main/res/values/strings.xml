@@ -596,14 +596,27 @@
     <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancel</string>
     <string name="reading_list_split_dialog_ok_button_text">OK</string>
     <string name="reading_list_activity_title">Reading list: %s</string>
-    <string name="reading_list_notification_title">Export lists</string>
     <string name="reading_list_notification_text">The reading lists you have selected have been exported</string>
     <string name="reading_list_notification_detailed_text">Reading lists have been exported to \'reading_lists_export.json\'</string>
-    <string name="reading_list_export_completed_message">Lists exported</string>
     <string name="reading_list_action_menu_export_lists">Export lists</string>
-    <string name="reading_list_import_success_message">Reading lists imported successfully</string>
     <string name="reading_list_import_file_picker_title">Choose the file to import</string>
-    <string name="reading_list_import_failure_message">Reading lists import was unsuccessful because of file format</string>
+    <string name="reading_list_import_failure_message">Readinglists import failed</string>
+    <plurals name="reading_list_notification_title">
+        <item quantity="one">Reading list Exported</item>
+        <item quantity="other">Reading lists Exported</item>
+    </plurals>
+    <plurals name="reading_list_export_completed_message">
+        <item quantity="one">Reading list Exported</item>
+        <item quantity="other">Reading lists Exported</item>
+    </plurals>
+    <plurals name="reading_list_export_failed_message">
+        <item quantity="one">Reading list export failed</item>
+        <item quantity="other">Reading lists export failed</item>
+    </plurals>
+    <plurals name="reading_list_import_success_message">
+        <item quantity="one">Reading list imported</item>
+        <item quantity="other">Reading lists imported</item>
+    </plurals>
     <!-- /Reading lists -->
 
     <!-- User options -->
