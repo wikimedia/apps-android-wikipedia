@@ -15,10 +15,18 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.GeoUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 object ReadingListsShareHelper {
+
+    fun shareEnabled(): Boolean {
+        return ReleaseUtil.isPreBetaRelease ||
+                (listOf("EG", "DZ", "MA", "KE", "CG", "AO", "GH", "IN", "BD", "PK", "LK", "NP").contains(GeoUtil.geoIPCountry.orEmpty()) &&
+                        listOf("en", "ar", "hi", "fr", "bn", "es", "pt", "de", "ur", "arz", "si", "sw", "fa", "ne", "te").contains(WikipediaApp.instance.appOrSystemLanguageCode))
+    }
 
     fun shareReadingList(activity: AppCompatActivity, readingList: ReadingList?) {
         if (readingList == null) {

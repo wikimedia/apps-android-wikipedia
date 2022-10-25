@@ -648,7 +648,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     private fun galleryImageEdited(requestCode: Int, resultCode: Int): Boolean {
         return requestCode == Constants.ACTIVITY_REQUEST_GALLERY &&
-                (resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_CAPTION_ADDED || resultCode == GalleryActivity.ACTIVITY_REQUEST_ADD_IMAGE_TAGS)
+                (resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_CAPTION_ADDED || resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_TAGS_ADDED)
     }
 
     private fun showDescriptionEditRevertDialog(qNumber: String) {

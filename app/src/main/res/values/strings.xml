@@ -1247,6 +1247,8 @@
     <string name="talk_list_item_user_icon_content_description">User icon</string>
     <string name="talk_list_item_swipe_mark_as_read">Read</string>
     <string name="talk_list_item_swipe_mark_as_unread">Unread</string>
+    <string name="talk_login_to_subscribe_dialog_title">Log in to subscribe to topics</string>
+    <string name="talk_login_to_subscribe_dialog_content">Topic subscriptions will allow you to receive notifications about new comments in this topic. Please create an account or log into your Wikipedia account to subscribe to a topic.</string>
     <string name="talk_archived_title">Talk archive: %s</string>
     <string name="menu_option_share_talk_discussion">Share discussion</string>
     <string name="menu_option_share_talk_page">Share talk page</string>
@@ -1323,11 +1325,8 @@
     <string name="preview_edit_summarize_edit_title">Summarize edit</string>
     <string name="preview_edit_summarize_edit_hint">How did you improve this page?</string>
     <string name="preview_edit_minor_edit">This is a minor edit</string>
-    <string name="preview_edit_minor_edit_url">https://en.wikipedia.org/wiki/Help:Minor_edit</string>
     <string name="preview_edit_watch_this_page">Watch this page</string>
-    <string name="preview_edit_watch_this_page_url">https://en.wikipedia.org/wiki/Help:Watchlist</string>
     <string name="preview_edit_learn_more">Learn more about edit summaries</string>
-    <string name="preview_edit_learn_more_url">https://en.wikipedia.org/wiki/Help:Edit_summary</string>
     <!-- /Preview edit -->
 
     <string name="action_item_categories">Categories</string>

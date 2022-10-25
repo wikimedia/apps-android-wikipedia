@@ -114,7 +114,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 }
                 .flatMap { pair ->
                     val labelMap = pair.first.first?.labels?.values?.associate { v -> v.language to v.value }.orEmpty()
-                    val depicts = ImageTagsProvider.getDepictsClaims(pair.first.first?.statements.orEmpty())
+                    val depicts = ImageTagsProvider.getDepictsClaims(pair.first.first?.getStatements().orEmpty())
                     captionSourcePageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, it.wikiSite.languageCode))
                     captionSourcePageTitle!!.description = labelMap[it.wikiSite.languageCode]
                     imagePage = pair.second.query?.firstPage()
