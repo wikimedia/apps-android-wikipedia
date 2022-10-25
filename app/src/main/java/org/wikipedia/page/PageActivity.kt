@@ -51,6 +51,7 @@ import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.*
 import org.wikipedia.views.FrameLayoutNavMenuTriggerer
 import org.wikipedia.views.ObservableWebView
@@ -441,7 +442,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 // the same cookie state as the browser does.
                 val language = wiki.languageCode.lowercase(Locale.getDefault())
                 val isDonationRelated = language == "donate" || language == "thankyou"
-                if (isDonationRelated || title.namespace() == Namespace.SPECIAL) {
+                if (isDonationRelated || (title.isSpecial && !title.isContributions)) {
                     UriUtil.visitInExternalBrowser(this, it)
                     finish()
                     return
@@ -554,6 +555,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 return true
             } else if (title.namespace() === Namespace.USER_TALK || title.namespace() === Namespace.TALK) {
                 startActivity(TalkTopicsActivity.newIntent(this, title, InvokeSource.PAGE_ACTIVITY))
+                finish()
+                return true
+            } else if (title.isSpecial && title.isContributions) {
+                val titleSplit = title.text.split('/')
+                startActivity(UserContribListActivity.newIntent(this, titleSplit[titleSplit.size - 1]))
                 finish()
                 return true
             }
