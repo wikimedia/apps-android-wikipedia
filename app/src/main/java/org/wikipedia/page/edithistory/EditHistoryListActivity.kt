@@ -452,7 +452,8 @@ class EditHistoryListActivity : BaseActivity() {
                 UserTalkPopupHelper.show(this@EditHistoryListActivity, bottomSheetPresenter,
                         PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode),
                                 revision.user, viewModel.pageTitle.wikiSite), revision.isAnon, v,
-                        Constants.InvokeSource.DIFF_ACTIVITY, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS)
+                    Constants.InvokeSource.DIFF_ACTIVITY, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS,
+                    revisionId = revision.revId, pageId = viewModel.pageId)
             }
         }
 
