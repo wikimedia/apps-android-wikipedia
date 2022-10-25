@@ -457,6 +457,7 @@
   <string name="theme_category_reading">القراءة</string>
   <string name="reading_focus_mode">وضع تركيز القراءة</string>
   <string name="reading_focus_mode_detail">أخف ميزات التعديل وشريط الأدوات السفلي أثناء التمرير</string>
+  <string name="editing_line_numbers_label">أظهر أرقام الأسطر</string>
   <string name="nav_item_saved">محفوظة</string>
   <string name="reading_list_save_to">حفظ في قائمة القراءة</string>
   <string name="reading_list_move_to">انتقل إلى قائمة القراءة</string>
@@ -1024,6 +1025,8 @@
   <string name="content_description_for_page_indicator">الصفحة %1$d من %2$d</string>
   <string name="wikitext_bold">غليظ</string>
   <string name="wikitext_italic">مائل</string>
+  <string name="wikitext_large">نص كبير</string>
+  <string name="wikitext_small">نص صغير</string>
   <string name="wikitext_link">وصلة</string>
   <string name="wikitext_bulleted_list">قائمة منقطة</string>
   <string name="wikitext_numbered_list">قائمة مرقمة</string>
@@ -1141,11 +1144,8 @@
   <string name="preview_edit_summarize_edit_title">تلخيص التحرير</string>
   <string name="preview_edit_summarize_edit_hint">كيف حسّنت الصفحة؟</string>
   <string name="preview_edit_minor_edit">هذا تعديل طفيف</string>
-  <string name="preview_edit_minor_edit_url">https://en.wikipedia.org/wiki/Help:Minor_edit</string>
   <string name="preview_edit_watch_this_page">راقب هذه الصفحة</string>
-  <string name="preview_edit_watch_this_page_url">https://en.wikipedia.org/wiki/Help:Watchlist</string>
   <string name="preview_edit_learn_more">تعرف على المزيد حول ملخص التحرير</string>
-  <string name="preview_edit_learn_more_url">https://en.wikipedia.org/wiki/Help:Edit_summary</string>
   <string name="action_item_categories">التصنيفات</string>
   <string name="page_no_categories">لا تنتمي هذه الصفحة إلى أية تصنيفات.</string>
   <string name="category_tab_articles">المقالات</string>

@@ -22,6 +22,7 @@
 * MathXplore
 * Mirinano
 * MirukuPC
+* Mugenpman
 * Omotecho
 * Otokoume
 * Penn Station
@@ -102,11 +103,14 @@
   <string name="page_edit_history_filter_by">絞り込みの条件：</string>
   <string name="page_edit_history_filter_by_all">すべての編集（ %s ）</string>
   <string name="page_edit_history_filter_by_user">ユーザー編集（ %s ）</string>
-  <string name="page_edit_history_filter_by_anon">すべての編集（ %s ）</string>
+  <string name="page_edit_history_filter_by_anon">匿名編集（%s）</string>
   <string name="page_edit_history_filter_by_bot">ボットの編集 (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s から %2$s までの指標。</string>
   <plurals name="page_edit_history_article_edits_since_year">
-    <item quantity="other">%2$s以来%1$d回の編集</item>
+    <item quantity="other">%2$s以降%1$d回の編集</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="other">%2$s以降%1$d回の編集（%3$s）</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">さらに版を表示するには、&lt;a href=\"#\"&gt;フィルター&lt;/a&gt;を変更してみてください</string>
   <string name="menu_page_show_tabs">タブを表示</string>
@@ -476,8 +480,13 @@
   <string name="text_size_percent_default">%s (既定)</string>
   <string name="text_style_title">フォント</string>
   <string name="theme_category_reading">閲覧</string>
+  <string name="theme_category_editing">編集</string>
   <string name="reading_focus_mode">閲覧集中モード</string>
   <string name="reading_focus_mode_detail">編集機能とスクロール時の下部のツールバーを隠します</string>
+  <string name="editing_syntax_highlight_label">構文の強調</string>
+  <string name="editing_line_numbers_label">行番号を表示</string>
+  <string name="editing_monospace_font_label">等幅フォントを使用</string>
+  <string name="editing_typing_suggestions">入力候補を表示</string>
   <string name="nav_item_saved">保存済み</string>
   <string name="reading_list_save_to">あとで読むリストに保存</string>
   <string name="reading_list_move_to">あとで読むリストに保存</string>
@@ -809,6 +818,8 @@
   <string name="description_edit_license_notice">この記事の説明を変更すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
   <string name="description_edit_helper_text_lowercase_warning">小文字で書き始めてください(日本語以外)</string>
   <string name="description_edit_voice_input_description">音声入力</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja#記事の説明</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja#画像のキャプション</string>
   <string name="description_too_short">文章が短すぎます。</string>
   <string name="description_ends_with_punctuation">文章の終わりに句点はつけません。</string>
   <string name="description_starts_with_uppercase">文章は、最初の語が固有名詞の場合を除いて、小文字で始めます。</string>
@@ -1083,7 +1094,17 @@
   <string name="content_description_for_page_indicator">全%2$dページの%1$dページ目</string>
   <string name="wikitext_bold">太字</string>
   <string name="wikitext_italic">斜体</string>
+  <string name="wikitext_underline">下線</string>
+  <string name="wikitext_strikethrough">取り消し線</string>
+  <string name="wikitext_sup">上付き</string>
+  <string name="wikitext_sub">下付き</string>
+  <string name="wikitext_large">大きなテキスト</string>
+  <string name="wikitext_small">小さなテキスト</string>
+  <string name="wikitext_code">コード</string>
   <string name="wikitext_link">リンク</string>
+  <string name="wikitext_heading_n">小見出し%d</string>
+  <string name="wikitext_formatting">書式設定</string>
+  <string name="wikitext_headings">見出し</string>
   <string name="wikitext_insert_media">メディアを挿入</string>
   <string name="wikitext_bulleted_list">番号なし箇条書き</string>
   <string name="wikitext_numbered_list">番号付き箇条書き</string>
@@ -1097,6 +1118,7 @@
   <string name="insert_media_settings_uploaded_image">アップロード済み画像</string>
   <string name="insert_media_settings_caption">キャプション</string>
   <string name="insert_media_settings_alternative_text">代替テキスト</string>
+  <string name="insert_media_settings_alternative_text_description">画像が見えない人のための説明テキスト</string>
   <string name="insert_media_advanced_settings">高度な設定</string>
   <string name="insert_media_advanced_settings_image_position">画像の位置</string>
   <string name="insert_media_advanced_settings_image_position_right">右</string>
@@ -1105,6 +1127,7 @@
   <string name="insert_media_advanced_settings_image_position_none">なし</string>
   <string name="insert_media_advanced_settings_image_type">画像の種類</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">サムネイル</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">枠なし</string>
   <string name="insert_media_advanced_settings_image_type_frame">フレーム</string>
   <string name="insert_media_advanced_settings_image_type_basic">基本</string>
   <string name="insert_media_advanced_settings_image_size">画像サイズ</string>
@@ -1162,9 +1185,11 @@
   <string name="talk_list_item_overflow_mark_as_read">既読にする</string>
   <string name="talk_list_item_overflow_mark_as_unread">未読にする</string>
   <string name="talk_list_item_overflow_share">共有</string>
+  <string name="talk_list_item_last_comment_date">最新のコメント：%s</string>
   <string name="talk_list_item_user_icon_content_description">利用者アイコン</string>
   <string name="talk_list_item_swipe_mark_as_read">既読</string>
   <string name="talk_list_item_swipe_mark_as_unread">未読</string>
+  <string name="talk_login_to_subscribe_dialog_title">ログインしてトピックを購読する</string>
   <string name="menu_option_share_talk_discussion">議論を共有</string>
   <string name="menu_option_share_talk_page">トークページを共有</string>
   <string name="menu_option_share_edit">編集をシェア</string>
@@ -1196,6 +1221,7 @@
   <string name="revision_diff_to">新しい版：</string>
   <string name="revision_diff_line_num">%d行目</string>
   <string name="revision_diff_line_nums">%d–%d行目</string>
+  <string name="revision_diff_lines_from_to">%1$d–%2$d行目</string>
   <string name="revision_diff_line_added">行を追加</string>
   <string name="revision_diff_line_removed">行を除去</string>
   <string name="revision_diff_paragraph_added">段落を追加</string>
@@ -1234,11 +1260,8 @@
   <string name="preview_edit_summarize_edit_title">編集の要約</string>
   <string name="preview_edit_summarize_edit_hint">どのようにこのページを改善しましたか？</string>
   <string name="preview_edit_minor_edit">これは細部の編集です</string>
-  <string name="preview_edit_minor_edit_url">https://ja.wikipedia.org/wiki/Help:%E7%B4%B0%E9%83%A8%E3%81%AE%E7%B7%A8%E9%9B%86</string>
   <string name="preview_edit_watch_this_page">このページをウォッチする</string>
-  <string name="preview_edit_watch_this_page_url">https://ja.wikipedia.org/wiki/Help:%E3%82%A6%E3%82%A9%E3%83%83%E3%83%81%E3%83%AA%E3%82%B9%E3%83%88</string>
   <string name="preview_edit_learn_more">編集の要約についてもっと知る</string>
-  <string name="preview_edit_learn_more_url">https://ja.wikipedia.org/wiki/Help:%E8%A6%81%E7%B4%84%E6%AC%84</string>
   <string name="action_item_categories">カテゴリ</string>
   <string name="page_no_categories">このページはどのカテゴリにも属していません。</string>
   <string name="category_tab_articles">記事</string>

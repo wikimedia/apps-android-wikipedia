@@ -9,7 +9,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.ImageViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemSuggestedEditsTypeBinding
-import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_GENERIC
+import org.wikipedia.usercontrib.Contribution.Companion.EDIT_TYPE_GENERIC
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 
