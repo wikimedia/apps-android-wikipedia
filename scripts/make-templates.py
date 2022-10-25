@@ -150,12 +150,9 @@ def populate_main_pages(wikis):
     for wiki in wikis.wikis:
         print(u"Fetching Main Page for %s" % wiki.lang)
         url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
-              u"?action=query&meta=siteinfo&format=json&siprop=general|specialpagealiases"
+              u"?action=query&meta=siteinfo&format=json&siprop=general"
         data = json.loads(requests.get(url).text)
         wiki.props[u"main_page_name"] = data[u"query"][u"general"][u"mainpage"]
-        for specialPage in data[u"query"][u"specialpagealiases"]:
-            if specialPage[u"realname"] == "Contributions":
-                wiki.props[u"contribs_page_name"] = specialPage[u"aliases"][0]
     return wikis
 
 
@@ -189,5 +186,4 @@ chain(
     render_template(u"basichash.kt.jinja", u"UserAliasData", key=u"user_alias"),
     render_template(u"basichash.kt.jinja", u"UserTalkAliasData", key=u"user_talk_alias"),
     render_template(u"basichash.kt.jinja", u"MainPageNameData", key=u"main_page_name"),
-    render_template(u"basichash.kt.jinja", u"ContributionsNameData", key=u"contribs_page_name"),
 )
