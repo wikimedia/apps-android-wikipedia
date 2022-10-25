@@ -607,6 +607,18 @@ object Prefs {
                 ?: emptySet()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_user_contrib_filter_ns, JsonUtil.encodeToString(value))
 
+    var importReadingListsNewInstallDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_import_reading_lists_new_install_dialog_shown, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_import_reading_lists_new_install_dialog_shown, value)
+
+    var importReadingListsDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_import_reading_lists_dialog_shown, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_import_reading_lists_dialog_shown, value)
+
+    var importReadingListsData
+        get() = PrefsIoUtil.getString(R.string.preference_key_import_reading_lists_data, null)
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_import_reading_lists_data, value)
+
     var editSyntaxHighlightEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_syntax_highlight, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_syntax_highlight, value)

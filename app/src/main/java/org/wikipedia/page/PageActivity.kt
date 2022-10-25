@@ -40,6 +40,7 @@ import org.wikipedia.events.ChangeTextSizeEvent
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
+import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
@@ -52,6 +53,7 @@ import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.*
+import org.wikipedia.util.log.L
 import org.wikipedia.views.FrameLayoutNavMenuTriggerer
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
@@ -434,6 +436,18 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 // Populate the referrer with the externally-referring URL, e.g. an external Browser URL, if present.
                 ActivityCompat.getReferrer(this)?.let { uri ->
                     historyEntry.referrer = uri.toString()
+                }
+                // TODO: update this after we have the finalized URL format.
+                if (title.namespace() == Namespace.SPECIAL && title.prefixedText.startsWith("Special:ReadingLists")) {
+                    L.d("Received shareable reading lists")
+                    // TODO: we can use either from parameter or fragment.
+                    val encodedListFromParameter = uri.getQueryParameter("limport")
+                    Prefs.importReadingListsDialogShown = false
+                    Prefs.importReadingListsData = encodedListFromParameter
+                    startActivity(MainActivity.newIntent(this).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        .putExtra(Constants.INTENT_EXTRA_IMPORT_READING_LISTS, true))
+                    finish()
+                    return
                 }
                 // Special cases:
                 // If the link is to a page in the "donate." or "thankyou." domains (e.g. a "thank you" page

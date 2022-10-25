@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.annotation.StyleRes
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemReadingListBinding
@@ -89,12 +90,13 @@ class ReadingListItemView : ConstraintLayout {
         }
     }
 
-    fun setReadingList(readingList: ReadingList, description: Description) {
+    fun setReadingList(readingList: ReadingList, description: Description, newImport: Boolean = false) {
         this.readingList = readingList
         val isDetailView = description == Description.DETAIL
         binding.itemDescription.maxLines = if (isDetailView) Int.MAX_VALUE else resources.getInteger(R.integer.reading_list_description_summary_view_max_lines)
         val text: CharSequence = if (isDetailView) buildStatisticalDetailText(readingList) else buildStatisticalSummaryText(readingList)
         binding.itemReadingListStatisticalDescription.text = text
+        binding.itemTitleIndicator.isVisible = newImport
         updateDetails()
         if (binding.itemImage1.visibility == VISIBLE) {
             updateThumbnails()
