@@ -126,6 +126,12 @@
     <item quantity="many">%1$d правок с %2$s}</item>
     <item quantity="other">%1$d правок с %2$s}</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d правка с %2$s (%3$s)</item>
+    <item quantity="few">%1$d правки с %2$s (%3$s)</item>
+    <item quantity="many">%1$d правок с %2$s (%3$s)</item>
+    <item quantity="other">%1$d правок с %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Попробуйте изменить &lt;a href=\"#\"&gt;фильтры&lt;/a&gt;, чтобы увидеть больше правок</string>
   <string name="menu_page_show_tabs">Показать вкладки</string>
   <string name="menu_page_other_languages">Изменить язык</string>
@@ -1318,6 +1324,7 @@
   <string name="revision_diff_to">Поучат.:</string>
   <string name="revision_diff_line_num">Строка %d</string>
   <string name="revision_diff_line_nums">Строки с %d-й по %d-ю</string>
+  <string name="revision_diff_lines_from_to">Строки %1$d–%2$d</string>
   <string name="revision_diff_line_added">Строка добавлена</string>
   <string name="revision_diff_line_removed">Строка удалена</string>
   <string name="revision_diff_paragraph_added">Абзац добавлен</string>
@@ -1355,11 +1362,8 @@
   <string name="preview_edit_summarize_edit_title">Резюмируйте изменение</string>
   <string name="preview_edit_summarize_edit_hint">Как вы улучшили эту страницу?</string>
   <string name="preview_edit_minor_edit">Это малая правка</string>
-  <string name="preview_edit_minor_edit_url">https://ru.wikipedia.org/wiki/Википедия:Малые_изменения</string>
   <string name="preview_edit_watch_this_page">Наблюдать за этой страницей</string>
-  <string name="preview_edit_watch_this_page_url">https://ru.wikipedia.org/wiki/Служебная:Список_наблюдения</string>
   <string name="preview_edit_learn_more">Подробнее об описаниях изменений</string>
-  <string name="preview_edit_learn_more_url">https://ru.wikipedia.org/wiki/Википедия:Описание_изменений</string>
   <string name="action_item_categories">Категории</string>
   <string name="page_no_categories">Эта страница не относится ни к одной категории.</string>
   <string name="category_tab_articles">Статьи</string>

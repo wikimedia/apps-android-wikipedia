@@ -361,7 +361,7 @@
   <string name="dialog_title_download_only_over_wifi">Confirmer le téléchargement en utilisant les données mobiles ?</string>
   <string name="dialog_text_download_only_over_wifi">Vous avez activé « Télécharger seulement par Wi-Fi » dans les paramètres. Voulez-vous autoriser l’utilisation de votre plan de données mobiles pour ce téléchargement uniquement ?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Autoriser</string>
-  <string name="read_more_section">En savoir plus</string>
+  <string name="read_more_section">Lire la suite</string>
   <string name="about_article_section">À propos de cet article</string>
   <string name="menu_gallery_visit_image_page">Aller à la page de l’image</string>
   <string name="gallery_error_draw_failed">Impossible d’afficher l’image.</string>
@@ -1210,6 +1210,8 @@
   <string name="talk_list_item_user_icon_content_description">Icône d’utilisateur</string>
   <string name="talk_list_item_swipe_mark_as_read">Lu</string>
   <string name="talk_list_item_swipe_mark_as_unread">Non lu</string>
+  <string name="talk_login_to_subscribe_dialog_title">Connectez-vous pour vous abonner aux sujets</string>
+  <string name="talk_login_to_subscribe_dialog_content">Les abonnements aux sujets vous permettront de recevoir des notifications sur les nouveaux commentaires dans ce sujet. Veuillez créer un compte ou vous connecter à votre compte Wikipédia pour vous abonner à un sujet.</string>
   <string name="talk_archived_title">Archive des conversations : %s</string>
   <string name="menu_option_share_talk_discussion">Partager la discussion</string>
   <string name="menu_option_share_talk_page">Partager la page de discussion</string>
@@ -1242,6 +1244,7 @@
   <string name="revision_diff_to">Jusqu’à :</string>
   <string name="revision_diff_line_num">Ligne %d</string>
   <string name="revision_diff_line_nums">Lignes %d – %d</string>
+  <string name="revision_diff_lines_from_to">Lignes %1$d–%2$d</string>
   <string name="revision_diff_line_added">Ligne ajoutée</string>
   <string name="revision_diff_line_removed">Ligne supprimée</string>
   <string name="revision_diff_paragraph_added">Paragraphe ajouté</string>
@@ -1280,11 +1283,8 @@
   <string name="preview_edit_summarize_edit_title">Résumer la modification</string>
   <string name="preview_edit_summarize_edit_hint">Comment avez-vous amélioré cette page ?</string>
   <string name="preview_edit_minor_edit">C’est une modification mineure</string>
-  <string name="preview_edit_minor_edit_url">https://fr.wikipedia.org/wiki/Aide:Boîte_de_résumé#Modification_mineure</string>
   <string name="preview_edit_watch_this_page">Suivre cette page</string>
-  <string name="preview_edit_watch_this_page_url">https://fr.wikipedia.org/wiki/Aide:Liste_de_suivi</string>
   <string name="preview_edit_learn_more">En savoir plus sur les résumés de modification</string>
-  <string name="preview_edit_learn_more_url">https://fr.wikipedia.org/wiki/Wikipédia:Commentez_vos_modifications</string>
   <string name="action_item_categories">Catégories</string>
   <string name="page_no_categories">Cette page n’appartient à aucune catégorie.</string>
   <string name="category_tab_articles">Articles</string>

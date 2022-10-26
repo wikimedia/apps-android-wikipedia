@@ -1238,11 +1238,8 @@
   <string name="preview_edit_summarize_edit_title">Tahrirni umumiylashtirmoq</string>
   <string name="preview_edit_summarize_edit_hint">Sahifani yaxshilashga qanday yordam koʻrsatdingiz?</string>
   <string name="preview_edit_minor_edit">Bu kichik tahrir</string>
-  <string name="preview_edit_minor_edit_url">https://en.wikipedia.org/wiki/Help:Minor_edit</string>
   <string name="preview_edit_watch_this_page">Sahifani kuzatmoq</string>
-  <string name="preview_edit_watch_this_page_url">https://en.wikipedia.org/wiki/Help:Watchlist</string>
   <string name="preview_edit_learn_more">Xulosalarni tahrirlash haqida batafsil</string>
-  <string name="preview_edit_learn_more_url">https://en.wikipedia.org/wiki/Help:Edit_summary</string>
   <string name="action_item_categories">Turkumlar</string>
   <string name="page_no_categories">Ushbu sahifa bironta turkumga taalluqli emas.</string>
   <string name="category_tab_articles">Maqolalar</string>

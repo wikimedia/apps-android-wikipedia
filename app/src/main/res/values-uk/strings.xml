@@ -1151,10 +1151,12 @@
   <string name="insert_media_advanced_settings_image_position_center">Центр</string>
   <string name="insert_media_advanced_settings_image_type">Тип зображення</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Мініатюра</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Без рамки</string>
   <string name="insert_media_advanced_settings_image_type_frame">Рамка</string>
   <string name="insert_media_advanced_settings_image_type_basic">Базовий</string>
   <string name="insert_media_advanced_settings_image_size">Розмір зображення</string>
   <string name="insert_media_advanced_settings_image_size_default">За замовчуванням</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Користувацький</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">Ширина</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">Висота</string>
   <string name="insert_media_insert_button">Вставити</string>
@@ -1251,6 +1253,7 @@
   <string name="revision_diff_to">До:</string>
   <string name="revision_diff_line_num">Рядок %d</string>
   <string name="revision_diff_line_nums">Рядки %d—%d</string>
+  <string name="revision_diff_lines_from_to">Рядки %1$d–%2$d</string>
   <string name="revision_diff_line_added">Рядок додано</string>
   <string name="revision_diff_line_removed">Рядок вилучено</string>
   <string name="revision_diff_paragraph_added">Абзац додано</string>
