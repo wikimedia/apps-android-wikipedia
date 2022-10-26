@@ -1015,5 +1015,5 @@
   <string name="user_contrib_current">বর্তমান</string>
   <string name="media_playback_error">মিডিয়া চালনায় ত্রুটি৷</string>
   <string name="user_contrib_menu_label">অবদান</string>
-  <string name="user_contrib_wiki_select">এতে অবদান:</string>
+  <string name="user_contrib_filter_activity_title">এতে অবদান:</string>
 </resources>

@@ -30,7 +30,6 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityUserContribBinding
 import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
@@ -45,14 +44,11 @@ import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.*
 import org.wikipedia.views.SearchAndFilterActionProvider
-import org.wikipedia.views.ViewUtil
 import org.wikipedia.views.WikiErrorView
-import java.util.*
 
 class UserContribListActivity : BaseActivity() {
 
@@ -73,16 +69,14 @@ class UserContribListActivity : BaseActivity() {
         linkHandler.onUrlClick(url, title, linkText, x, y)
     }
 
-    private val requestLanguageChange = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+    private val launchFilterActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
-            it.data?.let { intent ->
-                viewModel.langCode = intent.getStringExtra(UserContribWikiSelectActivity.INTENT_EXTRA_SELECT_LANG_CODE).orEmpty()
-                        .ifEmpty { WikipediaApp.instance.appOrSystemLanguageCode }
-                updateLangButton()
-                viewModel.clearCache()
-                viewModel.loadStats()
-                userContribListAdapter.reload()
-            }
+            viewModel.langCode = Prefs.userContribFilterLangCode
+            viewModel.loadStats()
+            setupAdapters()
+            viewModel.clearCache()
+            userContribListAdapter.reload()
+            userContribSearchBarAdapter.notifyItemChanged(0)
         }
     }
 
@@ -111,11 +105,6 @@ class UserContribListActivity : BaseActivity() {
                 binding.titleView.isInvisible = binding.userContribRecycler.computeVerticalScrollOffset() <= recyclerView.getChildAt(0).height
             }
         })
-
-        binding.langButtonContainer.setOnClickListener {
-            requestLanguageChange.launch(UserContribWikiSelectActivity.newIntent(this, viewModel.langCode))
-        }
-        updateLangButton()
 
         lifecycleScope.launchWhenCreated {
             userContribListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
@@ -158,30 +147,6 @@ class UserContribListActivity : BaseActivity() {
         }
     }
 
-    private fun updateLangButton() {
-        linkHandler.wikiSite = viewModel.wikiSite
-        when (viewModel.langCode) {
-            Constants.WIKI_CODE_WIKIDATA -> {
-                binding.langButtonText.isVisible = false
-                binding.langButtonIcon.setImageResource(R.drawable.ic_wikidata_logo)
-                binding.langButtonIcon.isVisible = true
-            }
-            Constants.WIKI_CODE_COMMONS -> {
-                binding.langButtonText.isVisible = false
-                binding.langButtonIcon.setImageResource(R.drawable.ic_commons_logo)
-                binding.langButtonIcon.isVisible = true
-            }
-            else -> {
-                binding.langButtonText.isVisible = true
-                binding.langButtonIcon.isVisible = false
-                binding.langButtonText.text = viewModel.langCode.uppercase(Locale.ENGLISH)
-                ViewUtil.formatLangButton(binding.langButtonText, binding.langButtonText.text.toString(),
-                        SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
-            }
-        }
-        FeedbackUtil.setButtonLongPressToast(binding.langButtonContainer)
-    }
-
     private fun setupAdapters() {
         if (actionMode != null) {
             binding.userContribRecycler.adapter = userContribListAdapter.withLoadStateFooter(loadFooter)
@@ -196,24 +161,6 @@ class UserContribListActivity : BaseActivity() {
 
     private fun startSearchActionMode() {
         actionMode = startSupportActionMode(searchActionModeCallback)
-    }
-
-    fun showFilterOverflowMenu() {
-        val editCountsValue = viewModel.userContribStatsData.value
-        if (editCountsValue is Resource.Success) {
-            val anchorView = if (actionMode != null && searchActionModeCallback.searchAndFilterActionProvider != null)
-                searchActionModeCallback.searchBarFilterIcon!! else if (userContribSearchBarAdapter.viewHolder != null)
-                userContribSearchBarAdapter.viewHolder!!.binding.filterByButton else binding.root
-            UserContribFilterOverflowView(this@UserContribListActivity).show(anchorView) {
-                setupAdapters()
-                viewModel.clearCache()
-                userContribListAdapter.reload()
-                userContribSearchBarAdapter.notifyItemChanged(0)
-                actionMode?.let {
-                    searchActionModeCallback.updateFilterIconAndText()
-                }
-            }
-        }
     }
 
     private inner class SearchBarAdapter : RecyclerView.Adapter<SearchBarViewHolder>() {
@@ -361,7 +308,7 @@ class UserContribListActivity : BaseActivity() {
                 }
 
                 binding.filterByButton.setOnClickListener {
-                    showFilterOverflowMenu()
+                    launchFilterActivity.launch(UserContribFilterActivity.newIntent(this@UserContribListActivity))
                 }
 
                 FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
@@ -370,13 +317,14 @@ class UserContribListActivity : BaseActivity() {
         }
 
         private fun updateFilterCount() {
-            if (Prefs.userContribFilterNs.isEmpty()) {
+            val excludedFilters = viewModel.excludedFiltersCount()
+            if (excludedFilters == 0) {
                 binding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(binding.filterByButton,
                     ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.color_group_9))
             } else {
                 binding.filterCount.visibility = View.VISIBLE
-                binding.filterCount.text = Prefs.userContribFilterNs.size.toString()
+                binding.filterCount.text = excludedFilters.toString()
                 ImageViewCompat.setImageTintList(binding.filterByButton,
                     ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.colorAccent))
             }
@@ -386,14 +334,13 @@ class UserContribListActivity : BaseActivity() {
     private inner class EmptyMessagesViewHolder constructor(val binding: ViewEditHistoryEmptyMessagesBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.emptySearchMessage.movementMethod = LinkMovementMethodExt { _ ->
-                showFilterOverflowMenu()
+                launchFilterActivity.launch(UserContribFilterActivity.newIntent(this@UserContribListActivity))
             }
         }
 
         fun bindItem() {
             binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.page_edit_history_empty_search_message))
             RichTextUtil.removeUnderlinesFromLinks(binding.emptySearchMessage)
-            binding.searchEmptyContainer.isVisible = Prefs.userContribFilterNs.isNotEmpty()
         }
     }
 
@@ -415,7 +362,6 @@ class UserContribListActivity : BaseActivity() {
     private inner class SearchCallback : SearchActionModeCallback() {
 
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
-        val searchBarFilterIcon get() = searchAndFilterActionProvider?.filterIcon
 
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             searchAndFilterActionProvider = SearchAndFilterActionProvider(this@UserContribListActivity, searchHintString,
@@ -428,11 +374,11 @@ class UserContribListActivity : BaseActivity() {
                     }
 
                     override fun onFilterIconClick() {
-                        showFilterOverflowMenu()
+                        launchFilterActivity.launch(UserContribFilterActivity.newIntent(this@UserContribListActivity))
                     }
 
                     override fun getExcludedFilterCount(): Int {
-                        return Prefs.userContribFilterNs.size
+                        return Prefs.userContribFilterExcludedNs.size
                     }
 
                     override fun getFilterIconContentDescription(): Int {
@@ -472,10 +418,6 @@ class UserContribListActivity : BaseActivity() {
 
         override fun getParentContext(): Context {
             return this@UserContribListActivity
-        }
-
-        fun updateFilterIconAndText() {
-            searchAndFilterActionProvider?.updateFilterIconAndText()
         }
     }
 
