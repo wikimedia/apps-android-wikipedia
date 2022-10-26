@@ -1261,5 +1261,5 @@
   <string name="user_contrib_current">huidige versie</string>
   <string name="media_playback_error">Fout bij het afspelen van media.</string>
   <string name="user_contrib_menu_label">Bijdragen</string>
-  <string name="user_contrib_wiki_select">Bijdragen aan:</string>
+  <string name="user_contrib_filter_activity_title">Bijdragen aan:</string>
 </resources>
