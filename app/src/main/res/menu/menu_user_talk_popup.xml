@@ -17,4 +17,9 @@
         android:icon="@drawable/ic_icon_user_contributions_ooui"
         app:iconTint="?attr/secondary_text_color"
         android:title="@string/menu_option_view_user_contributions" />
+    <item
+        android:id="@+id/menu_user_thank"
+        android:icon="@drawable/ic_heart_24"
+        app:iconTint="?attr/secondary_text_color"
+        android:title="@string/thank_label" />
 </menu>

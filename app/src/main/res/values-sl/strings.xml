@@ -19,7 +19,7 @@
   <string name="nav_item_forward">Naprej</string>
   <string name="search_hint">Išči v Wikipediji</string>
   <string name="search_hint_voice_search">Iskanje z glasovnim vnosom</string>
-  <string name="search_hint_search_languages">Poišči jezik</string>
+  <string name="search_hint_search_languages">Poiščite jezik</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtriraj moje sezname</string>
   <string name="nav_item_suggested_edits">Urejanja</string>
   <string name="nav_item_more">Več</string>
@@ -269,6 +269,12 @@
   <string name="edit_undo">Razveljavi</string>
   <string name="edit_redo">Uveljavi</string>
   <string name="edit_rollback">Vrni</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s zlog</item>
+    <item quantity="two">%s zloga</item>
+    <item quantity="few">%s zlogov</item>
+    <item quantity="other">%s zlogov</item>
+  </plurals>
   <string name="edit_zoom_in">Povečaj</string>
   <string name="edit_zoom_out">Pomanjšaj</string>
   <string name="edit_summary_tag_typo">Popravek tipkarske napake</string>
@@ -277,7 +283,7 @@
   <string name="edit_summary_tag_other">Drugo</string>
   <string name="edit_summary_tag_other_hint">Drug način, s katerim ste izboljšali stran</string>
   <string name="edit_conflict_title">Navzkrižje urejanj</string>
-  <string name="edit_conflict_message">Stran je že spremenil drug uporabnik, katerega urejanje je v navzkrižju z vašim urejanjem. Skopirajte svoja urejanja, pojdite nazaj in osvežite stran, nato poskusite znova.</string>
+  <string name="edit_conflict_message">Stran je že spremenil drug uporabnik, čigar urejanje je v navzkrižju z vašim urejanjem. Skopirajte svoja urejanja, pojdite nazaj in osvežite stran, nato pa poskusite znova.</string>
   <string name="edit_notices">Obvestilo o urejanju</string>
   <string name="edit_notices_please_read">Prosimo, preberite pred urejanjem</string>
   <string name="edit_notices_show_auto">Samodejno prikazuj obvestila o urejanju</string>
@@ -360,7 +366,7 @@
   <string name="tool_tip_toc_text">Zdaj lahko podrsate levo, da odprete vsebinsko kazalo, ali tapnete drsnik in ga povlečete, da hitro preidete na drug razdelek članka.</string>
   <string name="tool_tip_lang_button">Zdaj lahko Wikipedijo v aplikaciji berete in raziskujete v več jezikih</string>
   <string name="error_response_malformed">Odgovor strežnika ni bil ustrezno oblikovan.</string>
-  <string name="error_unknown">Pojavila se je neznana napaka.</string>
+  <string name="error_unknown">Prišlo je do neznane napake.</string>
   <string name="format_error_server_message">Sporočilo: »%s«</string>
   <string name="address_copied">Naslov kopiran v odložišče.</string>
   <string name="text_copied">Besedilo kopirano v odložišče.</string>
@@ -394,7 +400,7 @@
     <item quantity="other">%d izbranih</item>
   </plurals>
   <string name="multi_select_items_selected">%d izbranih</string>
-  <string name="error_message_generic">Pojavila se je napaka</string>
+  <string name="error_message_generic">Prišlo je do napake</string>
   <string name="view_link_preview_error_button_dismiss">Opusti</string>
   <string name="error_page_does_not_exist">Ta stran ne obstaja</string>
   <string name="error_user_page_does_not_exist">Wikipedija nima &lt;a href=\"%1$s \"&gt;uporabniške strani&lt;/a&gt; s točno tem imenom. Na splošno bi to stran moral ustvariti in urejati &lt;b&gt;%2$s&lt;/b&gt;. Če ste v dvomih, preverite, ali »%3$s« obstaja.</string>
@@ -505,6 +511,12 @@
     <item quantity="two">%d članka odstranjena s seznama</item>
     <item quantity="few">%d članki odstranjeni s seznama</item>
     <item quantity="other">%d člankov odstranjenih s seznama</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d članek odstranjen s seznama %s</item>
+    <item quantity="two">%d članka odstranjena s seznama %s</item>
+    <item quantity="few">%d članki odstranjeni s seznama %s</item>
+    <item quantity="other">%d člankov odstranjenih s seznama %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d člankov odstranjenih s seznama</string>
   <string name="reading_lists_item_deleted">%s odstranjen s seznamov</string>
@@ -729,7 +741,7 @@
   <string name="notifications_type_filter_header">Filter tipov</string>
   <string name="notifications_all_wikis_text">Vsi vikiji</string>
   <string name="notifications_all_types_text">Vse vrste</string>
-  <string name="notifications_menu_user_talk_page" fuzzy="true">%s: pogovorna stran</string>
+  <string name="notifications_menu_user_talk_page">%s: pogovorna stran</string>
   <string name="notifications_offline_disable_message">Ta funkcija ni ma voljo brez internetne povezave.</string>
   <string name="view_because_you_read_card_title">Ker ste prebrali</string>
   <string name="view_random_card_title">Randomizator</string>
@@ -811,7 +823,7 @@
   <string name="description_edit_help_title">Informacije: opisi člankov</string>
   <string name="description_edit_help_about_wikidata">O projektu Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Vodnik Wikipodatkov za pisanje opisov</string>
-  <string name="description_edit_anon_limit">Hvala za vaše ponovno zanimanje za urejanje opisov člankov! Za dodatna urejanja se prijavi v svoj račun v Wikipediji.</string>
+  <string name="description_edit_anon_limit">Hvala za vaše nadaljnje zanimanje za urejanje opisov člankov! Za dodatna urejanja se prijavite v svoj račun v Wikipediji.</string>
   <string name="description_edit_license_notice">S spremembo opisa članka se strinjam s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in nepreklicno objavo svojih prispevkov pod licenco &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">običajno začnite z malo črko</string>
   <string name="description_edit_voice_input_description">Glasovni vnos</string>
@@ -1200,6 +1212,18 @@
   <string name="talk_overflow_sort_date_published">Datum objave</string>
   <string name="talk_overflow_sort_date_updated">Datum posodobitve</string>
   <string name="talk_overflow_sort_topic_name">Naslov teme</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Prikaži odgovor</item>
+    <item quantity="two">Prikaži odgovora</item>
+    <item quantity="few">Prikaži odgovore (%d)</item>
+    <item quantity="other">Prikaži odgovore (%d)</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Skrij odgovor</item>
+    <item quantity="two">Skrij odgovora</item>
+    <item quantity="few">Skrij odgovore (%d)</item>
+    <item quantity="other">Skrij odgovore (%d)</item>
+  </plurals>
   <string name="talk_thread_subscribed_to">Naročeni ste na »%s«</string>
   <string name="talk_thread_unsubscribed_from">Odjavljeni ste od »%s«</string>
   <string name="talk_list_item_overflow_subscribe">Naroči</string>
@@ -1212,6 +1236,8 @@
   <string name="talk_list_item_user_icon_content_description">Simbol uporabnika</string>
   <string name="talk_list_item_swipe_mark_as_read">Prebrano</string>
   <string name="talk_list_item_swipe_mark_as_unread">Neprebrano</string>
+  <string name="talk_login_to_subscribe_dialog_title">Za naročanje na teme se prijavite</string>
+  <string name="talk_login_to_subscribe_dialog_content">Naročila na teme vam omogočajo prejemanje obvestil o novih komentarjih pri posameznih temah. Da se naročite na temo, si ustvarite račun ali se prijavite v svoj Wikimedia račun.</string>
   <string name="talk_archived_title">Arhiv pogovorne strani: %s</string>
   <string name="menu_option_share_talk_discussion">Deli pogovor</string>
   <string name="menu_option_share_talk_page">Deli pogovorno stran</string>
@@ -1220,7 +1246,7 @@
   <string name="menu_option_edit_source">Uredi vir</string>
   <string name="menu_option_user_page">Uporabniška stran uporabnika/ce %s</string>
   <string name="menu_option_find_in_talk_page_topic">Poišči v temi pogovorne strani</string>
-  <string name="menu_option_copy_link_to_clipboard">Skopiraj povezavo v odložišče</string>
+  <string name="menu_option_copy_link_to_clipboard">Kopiraj povezavo v odložišče</string>
   <string name="talk_menu_copy_text">Kopiraj besedilo</string>
   <string name="talk_menu_expand_threads">Razširi niti</string>
   <string name="talk_menu_collapse_threads">Strni niti</string>
@@ -1283,11 +1309,8 @@
   <string name="preview_edit_summarize_edit_title">Povzetek urejanja</string>
   <string name="preview_edit_summarize_edit_hint">Kako ste izboljšali to stran?</string>
   <string name="preview_edit_minor_edit">Manjše urejanje</string>
-  <string name="preview_edit_minor_edit_url">https://sl.wikipedia.org/wiki/Pomo%C4%8D%3AManj%C5%A1e_urejanje?wprov=sfla1</string>
   <string name="preview_edit_watch_this_page">Opazuj stran</string>
-  <string name="preview_edit_watch_this_page_url">https://en.wikipedia.org/wiki/Help:Watchlist</string>
   <string name="preview_edit_learn_more">Več o povzetkih urejanja</string>
-  <string name="preview_edit_learn_more_url">https://sl.wikipedia.org/wiki/Wikipedija:Povzetek_urejanja</string>
   <string name="action_item_categories">Kategorije</string>
   <string name="page_no_categories">Ta stran ne pripada nobeni kategoriji.</string>
   <string name="category_tab_articles">Članki</string>
