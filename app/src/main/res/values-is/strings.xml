@@ -64,6 +64,10 @@
     <item quantity="one">%1$d breyting síðan %2$s</item>
     <item quantity="other">%1$d breytingar síðan %2$s</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d breyting síðan %2$s (%3$s)</item>
+    <item quantity="other">%1$d breytingar síðan %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Reyndu að breyta &lt;a href=\"#\"&gt;síum&lt;/a&gt; til að sjá fleiri breytingar</string>
   <string name="menu_page_show_tabs">Birta flipa</string>
   <string name="menu_page_other_languages">Breyta tungumáli</string>
@@ -434,8 +438,13 @@
   <string name="text_size_percent_default">%s (sjálfgefið)</string>
   <string name="text_style_title">Letur</string>
   <string name="theme_category_reading">Lestur</string>
+  <string name="theme_category_editing">Breyti</string>
   <string name="reading_focus_mode">Lesáhersluhamur</string>
   <string name="reading_focus_mode_detail">Felur breytingaeiginleika og botnstiku við skrun</string>
+  <string name="editing_syntax_highlight_label">Áherslulitun á málskipan</string>
+  <string name="editing_line_numbers_label">Sýna línunúmer</string>
+  <string name="editing_monospace_font_label">Nota jafnbreitt letur</string>
+  <string name="editing_typing_suggestions">Sýna innsláttartillögur</string>
   <string name="nav_item_saved">Vistað</string>
   <string name="reading_list_save_to">Vista í leslista</string>
   <string name="reading_list_move_to">Færa á leslista</string>
@@ -774,6 +783,10 @@
   <string name="description_edit_license_notice">Með því að breyta lýsingu á þessari grein, samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að þú gefir óafturkræft út framlög þín með &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; notkunarleyfi.</string>
   <string name="description_edit_helper_text_lowercase_warning">byrjar yfirleitt með litlum bókstaf</string>
   <string name="description_edit_voice_input_description">Raddskipun</string>
+  <string name="description_edit_learn_more">Frekari upplýsingar um lýsingar á greinum</string>
+  <string name="description_edit_image_caption_learn_more">Frekari upplýsingar um myndatexta</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Textinn er of stuttur.</string>
   <string name="description_ends_with_punctuation">Textinn má ekki enda á greinarmerkjum.</string>
   <string name="description_starts_with_article">Forðastu að byrja greinar með “a” eða “the”.</string>
@@ -1050,12 +1063,52 @@
   <string name="content_description_for_page_indicator">Síða %1$d af %2$d</string>
   <string name="wikitext_bold">Feitletrað</string>
   <string name="wikitext_italic">Skáletrað</string>
+  <string name="wikitext_underline">Undirstrikað</string>
+  <string name="wikitext_strikethrough">Yfirstrikað</string>
+  <string name="wikitext_sup">Yfirskrift</string>
+  <string name="wikitext_sub">Niðurskrift</string>
+  <string name="wikitext_large">Stór texti</string>
+  <string name="wikitext_small">Lítill texti</string>
+  <string name="wikitext_code">Kóði</string>
   <string name="wikitext_link">Tengill</string>
+  <string name="wikitext_heading_n">Undirfyrirsögn %d</string>
+  <string name="wikitext_formatting">Stílsnið</string>
+  <string name="wikitext_headings">Fyrirsagnir</string>
+  <string name="wikitext_insert_media">Settu inn efni</string>
   <string name="wikitext_bulleted_list">Punktalisti</string>
   <string name="wikitext_numbered_list">Númeraður listi</string>
   <string name="wikitext_template">Sniðmát</string>
   <string name="wikitext_reference">Tilvísun</string>
   <string name="wikitext_preview_link">Forskoða tengil</string>
+  <string name="insert_media_title">Settu inn efni</string>
+  <string name="insert_media_search_description">Veldu skrá frá Wikimedia Commons</string>
+  <string name="insert_media_search_hint">Leita að efni</string>
+  <string name="insert_media_settings">Stillingar margmiðlunargagna</string>
+  <string name="insert_media_settings_uploaded_image">Innsend mynd</string>
+  <string name="insert_media_settings_caption">Myndatexti</string>
+  <string name="insert_media_settings_caption_description">Skýring sem birtist öllum notendum næst atriðinu</string>
+  <string name="insert_media_settings_alternative_text">Annar texti</string>
+  <string name="insert_media_settings_alternative_text_description">Lýsing á myndinni fyrir lesendur sem ekki sjá myndina</string>
+  <string name="insert_media_advanced_settings">Ítarlegar stillingar</string>
+  <string name="insert_media_advanced_settings_wrap_image">Vefja texta utan um myndina</string>
+  <string name="insert_media_advanced_settings_image_position">Staðsetning myndar</string>
+  <string name="insert_media_advanced_settings_image_position_right">Hægri</string>
+  <string name="insert_media_advanced_settings_image_position_left">Vinstri</string>
+  <string name="insert_media_advanced_settings_image_position_center">Miðjað</string>
+  <string name="insert_media_advanced_settings_image_position_none">Ekkert</string>
+  <string name="insert_media_advanced_settings_image_type">Tegund myndar</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Smámynd</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Rammalaus</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Rammi</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Einföld</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Þú getur stillt hvernig atriðið birtist á síðunni. Þetta á vera smámynd til að halda samræmi við aðrar síður í langflestum tilfellum.</string>
+  <string name="insert_media_advanced_settings_image_size">Stærð myndar</string>
+  <string name="insert_media_advanced_settings_image_size_default">Sjálfgefið</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Sérsniðið</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Breidd</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Hæð</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
+  <string name="insert_media_insert_button">Setja inn</string>
   <string name="main_drawer_help">Hjálp</string>
   <string name="main_drawer_login">Skrá inn / nýskrá á Wikipedia</string>
   <string name="main_tooltip_text">Hæ %s, vissir þú að allir geta breytt efni á Wikipedia?</string>
@@ -1114,6 +1167,8 @@
   <string name="talk_list_item_user_icon_content_description">Táknmynd notanda</string>
   <string name="talk_list_item_swipe_mark_as_read">Lesið</string>
   <string name="talk_list_item_swipe_mark_as_unread">Ólesið</string>
+  <string name="talk_login_to_subscribe_dialog_title">Skráðu þig inn til að gerast áskrifandi að efni</string>
+  <string name="talk_login_to_subscribe_dialog_content">Efnisáskrift gerir þér kleift að fá tilkynningar um nýjar athugasemdir í þessu efni. Búðu til reikning eða skráðu þig inn á Wikipedia-aðganginn þinn til að gerast áskrifandi að efni.</string>
   <string name="talk_archived_title">Safn spjallsíðna: %s</string>
   <string name="menu_option_share_talk_discussion">Deila umræðu</string>
   <string name="menu_option_share_talk_page">Deila spjallsíðu</string>
@@ -1122,6 +1177,7 @@
   <string name="menu_option_edit_source">Breyta frumtexta</string>
   <string name="menu_option_user_page">Notandasíða fyrir %s</string>
   <string name="menu_option_find_in_talk_page_topic">Finna í efni á spjallsíðu</string>
+  <string name="menu_option_copy_link_to_clipboard">Afrita tengil á klippispjald</string>
   <string name="talk_menu_copy_text">Afrita texta</string>
   <string name="talk_menu_expand_threads">Fella út þræði</string>
   <string name="talk_menu_collapse_threads">Fella saman þræði</string>
@@ -1145,6 +1201,7 @@
   <string name="revision_diff_to">Til:</string>
   <string name="revision_diff_line_num">Lína %d</string>
   <string name="revision_diff_line_nums">Línur %d–%d</string>
+  <string name="revision_diff_lines_from_to">Línur %1$d–%2$d</string>
   <string name="revision_diff_line_added">Línu bætt við</string>
   <string name="revision_diff_line_removed">Lína fjarlægð</string>
   <string name="revision_diff_paragraph_added">Málsgrein bætt við</string>
@@ -1179,6 +1236,12 @@
   <string name="watchlist_page_moved">Fært</string>
   <string name="watchlist_page_protected">Verndað</string>
   <string name="watchlist_page_deleted">Eytt</string>
+  <string name="preview_edit_title">Forskoða breytingar</string>
+  <string name="preview_edit_summarize_edit_title">Samantekt breytinga</string>
+  <string name="preview_edit_summarize_edit_hint">Hvernig bættirðu síðuna?</string>
+  <string name="preview_edit_minor_edit">Þetta er minniháttar breyting</string>
+  <string name="preview_edit_watch_this_page">Vakta þessa síðu</string>
+  <string name="preview_edit_learn_more">Frekari upplýsingar um samantektir breytinga</string>
   <string name="action_item_categories">Flokkar</string>
   <string name="page_no_categories">Þessi síða er ekki í neinum flokki.</string>
   <string name="category_tab_articles">Greinar</string>
@@ -1187,6 +1250,13 @@
   <string name="subcategory_empty">Engir undirflokkar fundust í þessum flokki.</string>
   <string name="search_namespaces">Nafnrými</string>
   <string name="revision_initial_none">Ekkert (þetta er fyrsta yfirferðin)</string>
+  <string name="user_contrib_activity_title">Framlög frá %s</string>
   <string name="archive_empty">Engar síður fundust í safni.</string>
+  <string name="user_contrib_filter_ns">Sía eftir nafnrými</string>
+  <string name="user_contrib_filter_all" fuzzy="true">Allar breytingar</string>
+  <string name="namespace_article">Grein</string>
+  <string name="user_contrib_current">núverandi</string>
   <string name="media_playback_error">Villa við að spila efni.</string>
+  <string name="user_contrib_menu_label">Framlög</string>
+  <string name="user_contrib_filter_activity_title" fuzzy="true">Framlög í:</string>
 </resources>

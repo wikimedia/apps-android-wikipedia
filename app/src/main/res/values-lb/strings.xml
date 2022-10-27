@@ -799,7 +799,7 @@
   <string name="category_empty">Keng Artikelen an dëser Kategorie fonnt.</string>
   <string name="search_namespaces">Nummraim</string>
   <string name="user_contrib_activity_title">Kontributioune vum %s</string>
-  <string name="user_contrib_filter_all">All Ännerungen</string>
+  <string name="user_contrib_filter_all" fuzzy="true">All Ännerungen</string>
   <string name="namespace_article">Artikel</string>
   <string name="user_contrib_menu_label">Kontributiounen</string>
 </resources>
