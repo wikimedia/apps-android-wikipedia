@@ -69,14 +69,17 @@ object UserTalkPopupHelper {
 
     private fun showThankDialog(activity: Activity, title: PageTitle, revisionId: Long, pageId: Int) {
         val parent = FrameLayout(activity)
-        val editHistoryInteractionEvent =
-            EditHistoryInteractionEvent(title.wikiSite.dbName(), pageId)
+        val editHistoryInteractionEvent = EditHistoryInteractionEvent(title.wikiSite.dbName(), pageId)
         val dialog =
-            AlertDialog.Builder(activity).setView(parent).setPositiveButton(R.string.thank_dialog_positive_button_text) { _, _ ->
-                sendThanks(activity, title.wikiSite, revisionId, title, editHistoryInteractionEvent)
-            }.setNegativeButton(R.string.thank_dialog_negative_button_text) { _, _ ->
-                editHistoryInteractionEvent.logThankCancel()
-            }.create()
+            AlertDialog.Builder(activity)
+                .setView(parent)
+                .setPositiveButton(R.string.thank_dialog_positive_button_text) { _, _ ->
+                    sendThanks(activity, title.wikiSite, revisionId, title, editHistoryInteractionEvent)
+                }
+                .setNegativeButton(R.string.thank_dialog_negative_button_text) { _, _ ->
+                    editHistoryInteractionEvent.logThankCancel()
+                }
+                .create()
         dialog.layoutInflater.inflate(R.layout.view_thank_dialog, parent)
         dialog.setOnShowListener {
             dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(ResourceUtil.getThemedColor(activity, R.attr.secondary_text_color))

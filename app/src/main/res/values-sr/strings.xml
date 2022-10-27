@@ -987,7 +987,7 @@
   <string name="category_empty">Нема чланака у овој категорији.</string>
   <string name="subcategory_empty">Нема поткатегорија у овој категорији.</string>
   <string name="search_namespaces">Именски простори</string>
-  <string name="user_contrib_filter_all">Све измене</string>
+  <string name="user_contrib_filter_all" fuzzy="true">Све измене</string>
   <string name="namespace_article">Чланак</string>
   <string name="user_contrib_current">тренутна</string>
   <string name="user_contrib_menu_label">Доприноси</string>
