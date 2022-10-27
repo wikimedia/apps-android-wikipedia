@@ -1273,7 +1273,8 @@
   <string name="user_contrib_activity_title">%sの投稿</string>
   <string name="archive_empty">アーカイブされたページが見つかりません。</string>
   <string name="user_contrib_filter_ns">名前空間によるフィルター</string>
-  <string name="user_contrib_filter_all">すべての編集</string>
+  <string name="user_contrib_filter_all">全ての名前空間</string>
+  <string name="user_contrib_filter_ns_header">名前空間フィルター</string>
   <string name="namespace_article">記事</string>
   <string name="user_contrib_current">現在の版</string>
   <string name="media_playback_error">メディア再生でエラーが発生しました。</string>

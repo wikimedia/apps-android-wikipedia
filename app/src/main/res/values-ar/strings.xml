@@ -1154,6 +1154,6 @@
   <string name="subcategory_empty">لم يُعثر على تصنيفات فرعية في هذا التصنيف.</string>
   <string name="search_namespaces">النطاقات</string>
   <string name="revision_initial_none">لا شيء (هذه هي المراجعة الأولى)</string>
-  <string name="user_contrib_filter_all">كل التعديلات</string>
+  <string name="user_contrib_filter_all" fuzzy="true">كل التعديلات</string>
   <string name="namespace_article">المقالات</string>
 </resources>

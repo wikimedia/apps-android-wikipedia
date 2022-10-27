@@ -291,9 +291,7 @@
   <string name="watchlist_filter_other">Ostalo</string>
   <string name="preview_edit_summarize_edit_hint">Na koji način ste poboljšali ovu stranicu?</string>
   <string name="preview_edit_minor_edit">Ovo je manja izmjena</string>
-  <string name="preview_edit_minor_edit_url">https://sh.wikipedia.org/wiki/Pomoć:Manja_izmjena</string>
   <string name="preview_edit_watch_this_page">Prati ovu stranicu</string>
-  <string name="preview_edit_learn_more_url">https://sh.wikipedia.org/wiki/Pomoć:Sažetak_izmjene</string>
   <string name="action_item_categories">Kategorije</string>
   <string name="page_no_categories">Ovaj članak ne pripada ijednoj kategoriji.</string>
   <string name="category_tab_articles">Članci</string>
@@ -301,8 +299,9 @@
   <string name="search_namespaces">Imenski prostori</string>
   <string name="user_contrib_activity_title">Doprinosi korisnika %s</string>
   <string name="user_contrib_filter_ns">Filtriraj po imenskom prostoru</string>
-  <string name="user_contrib_filter_all">Sve izmjene</string>
+  <string name="user_contrib_filter_all">Svi \"imenski prostori\"</string>
   <string name="namespace_article">Članak</string>
   <string name="user_contrib_current">trenutno</string>
   <string name="user_contrib_menu_label">Doprinosi</string>
+  <string name="user_contrib_filter_activity_title">Filtriraj doprinose</string>
 </resources>

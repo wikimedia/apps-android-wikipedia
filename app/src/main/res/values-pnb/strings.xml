@@ -46,6 +46,11 @@
   <string name="image_share_via">اِس راہیں سانجھا کرو</string>
   <string name="search_redirect_from">%s تو موڑیا گیا</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;چھوٹی&lt;/b&gt; %s</string>
+  <string name="page_edit_history_filter_by_all">ساریاں سودھاں (%s)</string>
+  <string name="page_edit_history_filter_by_user">ورتنوالے دیاں سودھاں (%s)</string>
+  <string name="page_edit_history_filter_by_anon">انام سودھاں (%s)</string>
+  <string name="page_edit_history_filter_by_bot">بوٹ دیاں سودھاں (%s)</string>
+  <string name="menu_page_show_tabs">ٹیب ویکھو</string>
   <string name="menu_page_other_languages">ہور بھاشاواں وچ پڑہو</string>
   <string name="edit_section_find_in_page">پنے \'چ لبھو</string>
   <string name="menu_page_font_and_theme">فونٹ اتے وشا وستو</string>
@@ -327,6 +332,7 @@
   <string name="text_input_dialog_cancel_button_text">رد کرو</string>
   <string name="custom_date_picker_dialog_cancel_button_text">رد کرو</string>
   <string name="talk_title">گل بات</string>
+  <string name="thank_label">شکریہ</string>
   <string name="thank_dialog_negative_button_text">رد کرو</string>
   <string name="revision_diff_lines_from_to">لائین %1$d … %2$d</string>
 </resources>
