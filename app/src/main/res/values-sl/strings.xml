@@ -1322,10 +1322,11 @@
   <string name="user_contrib_activity_title">Prispevki uporabnika/ce %s</string>
   <string name="archive_empty">Ni najdenih arhivskih strani.</string>
   <string name="user_contrib_filter_ns">Filtriranje po imenskem prostoru</string>
-  <string name="user_contrib_filter_all">Vsa urejanja</string>
+  <string name="user_contrib_filter_all">Vsi »imenski prostori«</string>
+  <string name="user_contrib_filter_ns_header">Filter imenskega prostora</string>
   <string name="namespace_article">Članek</string>
   <string name="user_contrib_current">trenutno</string>
   <string name="media_playback_error">Napaka pri predvajanju predstavnosti.</string>
   <string name="user_contrib_menu_label">Prispevki</string>
-  <string name="user_contrib_wiki_select">Prispevki k:</string>
+  <string name="user_contrib_filter_activity_title">Filtriraj prispevke</string>
 </resources>

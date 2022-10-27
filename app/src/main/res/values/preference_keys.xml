@@ -138,7 +138,8 @@
     <string name="preference_key_reading_focus_mode">readingFocusMode</string>
     <string name="preference_key_edit_history_filter_type">editHistoryFilterType</string>
     <string name="preference_key_talk_topic_expand_all">talkTopicExpandAll</string>
-    <string name="preference_key_user_contrib_filter_ns">userContribFilterNamespaces</string>
+    <string name="preference_key_user_contrib_filter_excluded_ns">userContribFilterNamespaces</string>
+    <string name="preference_key_user_contrib_filter_lang_code">userContribFilterLangCode</string>
     <string name="preference_key_edit_syntax_highlight">editSyntaxHighlight</string>
     <string name="preference_key_edit_monospace_font">editMonospaceFont</string>
     <string name="preference_key_edit_line_numbers">editLineNumbers</string>
