@@ -107,8 +107,9 @@ object ReadingListBehaviorsUtil {
             return
         }
         AlertDialog.Builder(activity)
-            .setMessage(activity.getString(R.string.reading_list_delete_lists_confirm, readingLists.size))
-            .setPositiveButton(R.string.reading_list_delete_dialog_ok_button_text) { _, _ ->
+            .setTitle(R.string.reading_list_delete_lists_confirm_dialog_title)
+            .setMessage(activity.resources.getQuantityString(R.plurals.reading_list_delete_lists_confirm_dialog_message, readingLists.size, readingLists.size))
+            .setPositiveButton(R.string.reading_list_delete_lists_dialog_delete_button_text) { _, _ ->
                 readingLists.forEach {
                     if (!it.isDefault) {
                         AppDatabase.instance.readingListDao().deleteList(it)
@@ -224,7 +225,7 @@ object ReadingListBehaviorsUtil {
         if (readingLists == null) {
             return
         }
-        FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_lists_deleted, readingLists.size))
+        FeedbackUtil.makeSnackbar(activity, activity.resources.getQuantityString(R.plurals.reading_lists_deleted_message, readingLists.size, readingLists.size))
             .setAction(R.string.reading_list_item_delete_undo) {
                 readingLists.forEach {
                     val newList =

@@ -1298,7 +1298,14 @@
   <string name="reading_list_import_success_message">User message when imports of reading lists has been successful.</string>
   <string name="reading_list_import_file_picker_title">Title message text shsown to user while choosing a file from the downloads folder to import.</string>
   <string name="reading_list_import_failure_message">User message when imports of reading lists has not been successful.</string>
-  <string name="reading_list_delete_lists_confirm">Confirmation message shown when deleting multiple reading lists. The \"%d\" symbol is replaced with the nomber of lists up for deletion.</string>
-  <string name="reading_lists_deleted">Message shown when multiple reading lists are deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</string>
-
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Delete action button text in warning pop-up dialog for deleteing multiple reading lists.</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Confirmation dialog title shown to user while deleting multiple reading lists.</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Confirmation dialog message shown to user while deleting one reading list. The \"%d\" symbol is replaced with the number of lists up for deletion.</item>
+    <item quantity="other">Confirmation dialog message shown to user while deleting multiple reading lists. The \"%d\" symbol is replaced with the number of lists up for deletion.</item>
+  </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">Toast message shown when one reading list is deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
+    <item quantity="other">Toast message shown when multiple reading lists are deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
+  </plurals>
 </resources>
