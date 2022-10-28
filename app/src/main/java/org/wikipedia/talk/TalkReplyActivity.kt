@@ -10,7 +10,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.util.lruCache
 import androidx.core.view.isVisible
-import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.doOnTextChanged
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -209,8 +208,8 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     private fun setSaveButtonEnabled(enabled: Boolean) {
         binding.replySaveButton.isEnabled = enabled
-        ImageViewCompat.setImageTintList(binding.replySaveButton, ResourceUtil.getThemedColorStateList(this,
-            if (enabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
+        binding.replySaveButton.setTextColor(ResourceUtil
+            .getThemedColor(this, if (enabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
     }
 
     private fun onSaveClicked() {

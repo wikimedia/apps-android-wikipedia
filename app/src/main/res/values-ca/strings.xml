@@ -1272,10 +1272,10 @@
   <string name="user_contrib_activity_title">Contribucions de %s</string>
   <string name="archive_empty">No s\'ha trobat cap pàgina arxivada.</string>
   <string name="user_contrib_filter_ns">Filtra per espai de noms</string>
-  <string name="user_contrib_filter_all">Totes les edicions</string>
+  <string name="user_contrib_filter_all" fuzzy="true">Totes les edicions</string>
   <string name="namespace_article">Article</string>
   <string name="user_contrib_current">actual</string>
   <string name="media_playback_error">Error de reproducció multimèdia</string>
   <string name="user_contrib_menu_label">Contribucions</string>
-  <string name="user_contrib_filter_activity_title">Contribucions a:</string>
+  <string name="user_contrib_filter_activity_title" fuzzy="true">Contribucions a:</string>
 </resources>
