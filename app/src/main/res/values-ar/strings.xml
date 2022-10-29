@@ -1144,11 +1144,8 @@
   <string name="preview_edit_summarize_edit_title">تلخيص التحرير</string>
   <string name="preview_edit_summarize_edit_hint">كيف حسّنت الصفحة؟</string>
   <string name="preview_edit_minor_edit">هذا تعديل طفيف</string>
-  <string name="preview_edit_minor_edit_url">https://en.wikipedia.org/wiki/Help:Minor_edit</string>
   <string name="preview_edit_watch_this_page">راقب هذه الصفحة</string>
-  <string name="preview_edit_watch_this_page_url">https://en.wikipedia.org/wiki/Help:Watchlist</string>
   <string name="preview_edit_learn_more">تعرف على المزيد حول ملخص التحرير</string>
-  <string name="preview_edit_learn_more_url">https://en.wikipedia.org/wiki/Help:Edit_summary</string>
   <string name="action_item_categories">التصنيفات</string>
   <string name="page_no_categories">لا تنتمي هذه الصفحة إلى أية تصنيفات.</string>
   <string name="category_tab_articles">المقالات</string>
@@ -1157,6 +1154,6 @@
   <string name="subcategory_empty">لم يُعثر على تصنيفات فرعية في هذا التصنيف.</string>
   <string name="search_namespaces">النطاقات</string>
   <string name="revision_initial_none">لا شيء (هذه هي المراجعة الأولى)</string>
-  <string name="user_contrib_filter_all">كل التعديلات</string>
+  <string name="user_contrib_filter_all" fuzzy="true">كل التعديلات</string>
   <string name="namespace_article">المقالات</string>
 </resources>

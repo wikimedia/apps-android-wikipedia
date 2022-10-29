@@ -1252,11 +1252,8 @@
   <string name="preview_edit_summarize_edit_title">Sammanfatta redigering</string>
   <string name="preview_edit_summarize_edit_hint">Hur förbättrade du denna sida?</string>
   <string name="preview_edit_minor_edit">Detta är en mindre ändring</string>
-  <string name="preview_edit_minor_edit_url">https://sv.wikipedia.org/wiki/Wikipedia:Mindre_ändring</string>
   <string name="preview_edit_watch_this_page">Bevaka denna sida</string>
-  <string name="preview_edit_watch_this_page_url">https://sv.wikipedia.org/wiki/Wikipedia:Bevakningslistan</string>
   <string name="preview_edit_learn_more">Läs mer om redigeringssammanfattningar</string>
-  <string name="preview_edit_learn_more_url">https://sv.wikipedia.org/wiki/Wikipedia:Sammanfattningsfältet</string>
   <string name="action_item_categories">Kategorier</string>
   <string name="page_no_categories">Denna sida tillhör inga kategorier.</string>
   <string name="category_tab_articles">Artiklar</string>
@@ -1268,10 +1265,10 @@
   <string name="user_contrib_activity_title">%ss bidrag</string>
   <string name="archive_empty">Inga arkivsidor hittades.</string>
   <string name="user_contrib_filter_ns">Filtrera efter namnrymd</string>
-  <string name="user_contrib_filter_all">Alla redigeringar</string>
+  <string name="user_contrib_filter_all" fuzzy="true">Alla redigeringar</string>
   <string name="namespace_article">Artikel</string>
   <string name="user_contrib_current">nuvarande</string>
   <string name="media_playback_error">Fel uppstod när media spelades upp.</string>
   <string name="user_contrib_menu_label">Bidrag</string>
-  <string name="user_contrib_wiki_select">Bidrag till:</string>
+  <string name="user_contrib_filter_activity_title" fuzzy="true">Bidrag till:</string>
 </resources>
