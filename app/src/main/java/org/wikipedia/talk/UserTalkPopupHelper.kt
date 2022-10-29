@@ -136,7 +136,7 @@ object UserTalkPopupHelper {
 
         builder.findItem(R.id.menu_user_profile_page).isVisible = !anon
         builder.findItem(R.id.menu_user_contributions_page).isVisible = showContribs
-        builder.findItem(R.id.menu_user_thank).isVisible = revisionId != null
+        builder.findItem(R.id.menu_user_thank).isVisible = revisionId != null && !anon
         val helper = MenuPopupHelper(activity, builder, anchorView)
         helper.setForceShowIcon(true)
         return helper
