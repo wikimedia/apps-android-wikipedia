@@ -4,7 +4,9 @@ import android.content.Context
 import android.icu.text.RelativeDateTimeFormatter
 import android.os.Build
 import android.text.format.DateFormat
+import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.toJavaLocalDate
 import kotlinx.datetime.toJavaLocalDateTime
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -80,6 +82,10 @@ object DateUtil {
 
     fun getYearOnlyDateString(date: Date): String {
         return getDateStringWithSkeletonPattern(date, "yyyy")
+    }
+
+    fun getYearOnlyDateString(localDate: LocalDate): String {
+        return getDateStringWithSkeletonPattern(localDate.toJavaLocalDate(), "yyyy")
     }
 
     fun getYMDDateString(date: Date): String {

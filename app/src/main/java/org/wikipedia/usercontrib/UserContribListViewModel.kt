@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.datetime.LocalDate
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
@@ -130,7 +131,7 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
     open class UserContribItemModel
     class UserContribItem(val item: UserContribution) : UserContribItemModel()
     class UserContribSeparator(val date: String) : UserContribItemModel()
-    class UserContribStats(val totalEdits: Int, val registrationDate: Date, val projectName: String) : UserContribItemModel()
+    class UserContribStats(val totalEdits: Int, val registrationDate: LocalDate, val projectName: String) : UserContribItemModel()
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")

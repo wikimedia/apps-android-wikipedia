@@ -1,6 +1,9 @@
 package org.wikipedia.dataclient.mwapi
 
 import kotlinx.datetime.Instant
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
@@ -27,6 +30,7 @@ class UserInfo : BlockInfo() {
         return groups?.toSet() ?: emptySet()
     }
 
-    val registrationDate: Instant
-        get() = regInstant ?: registration ?: Instant.DISTANT_PAST
+    val registrationDate: LocalDate
+        get() = (regInstant ?: registration)?.toLocalDateTime(TimeZone.currentSystemDefault())?.date
+            ?: LocalDate(1970, 1, 1)
 }
