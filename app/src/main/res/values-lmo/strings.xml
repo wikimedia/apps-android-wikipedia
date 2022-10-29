@@ -48,11 +48,33 @@
   <string name="search_redirect_from">Redirezzion de %s</string>
   <string name="page_edit_history_activity_title">Storia di revision: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Oget de la modifica voeui</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Cerca o filtra i modifiche</string>
+  <string name="page_edit_history_filter_by">Filtra per</string>
+  <string name="page_edit_history_filter_by_all">Tute i modifeghe (%s)</string>
+  <string name="page_edit_history_filter_by_user">Modifiche de l\'utent (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Modifeghe che se sa nò el nome de quell ch\'je ha fade (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Modifiche di bot (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Statisteghe dal %1$s al %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="other">ona=%1$d modifega dal %2$s</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="other">ona=%1$d modifega dal %2$s (%3$s)</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Proeuva a cambià i &lt;a href=\"#\"&gt;filter&lt;/a&gt; per vardà pussee de modifeghe</string>
   <string name="menu_page_show_tabs">Mostra schede</string>
   <string name="menu_page_other_languages">Cambia lengua</string>
   <string name="menu_page_find_in_page">Troeuva in la vos</string>
   <string name="menu_page_add_to_watchlist">Sgionta a la lista di pagine che te tegnet d\'oeugg</string>
+  <string name="menu_page_watch">Ten d\'oeugg</string>
+  <string name="menu_page_unwatch">Ten pù d\'oeugg</string>
+  <string name="menu_page_view_talk">Varda la pagina de discussion</string>
+  <string name="menu_page_talk_page">Pagina de discussion</string>
+  <string name="menu_page_view_edit_history">Varda la storia di modifeghe</string>
+  <string name="menu_page_edit_history">Storia di modifeghe</string>
   <string name="menu_page_remove_from_watchlist">Toeu via de la lista di pagine che te tegnet d\'oeugg</string>
+  <string name="menu_page_watched">Tegnud d\'oeugg</string>
   <string name="edit_section_find_in_page">Troeuva in la pagina</string>
   <string name="menu_page_font_and_theme">Carater e tema</string>
   <string name="menu_page_add_to_list">Sgionta a la lista di robe de leger</string>
@@ -61,10 +83,12 @@
   <string name="feed_card_add_to_default_list">Manten i cambiament</string>
   <string name="menu_page_share">Spartiss el conligament cont un quaivun</string>
   <string name="menu_article_share">Compartiss articoi</string>
+  <string name="menu_page_article_share">Condivid</string>
   <string name="menu_page_open_a_new_tab">Derva una scheda noeuva</string>
   <string name="menu_page_new_tab">Noeuva scheda</string>
   <string name="menu_page_reading_lists">Liste di robe de leger</string>
   <string name="menu_page_recently_viewed">Vardad de recent</string>
+  <string name="menu_page_archive">Archivi</string>
   <string name="menu_long_press_open_page">Derva</string>
   <string name="menu_long_press_open_in_new_tab">Derva in \'na scheda noeuva</string>
   <string name="menu_long_press_copy_page">Copia l\'adress del conligament</string>
@@ -72,6 +96,7 @@
   <string name="on_this_day_page_share">Condivid</string>
   <string name="reading_list_page_share">Spartiss in \'na lista de lettura</string>
   <string name="menu_text_select_edit_here">Modifega chichinscì</string>
+  <string name="menu_edit_article">Modifega la vos</string>
   <string name="last_updated_text">Darera atualizazzion %s</string>
   <string name="talk_page_link_text">Varda la pagina de discussion</string>
   <string name="edit_history_link_text">Varda la storia di cambiament</string>
@@ -81,6 +106,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Cont el publicà, te acetet i noster &lt;a href=\"%1$s\"&gt;condizzion d\'utilizzazion&lt;/a&gt; e te acetet de dà la toa contribuzzion a la definitiva sota la licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">A publicà, te acetet i noster &lt;a href=\"%1$s\"&gt;condizzion d\'utilizzazion&lt;/a&gt; e te acetet de da la toa contribuzzion a la definitiva sota la &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. I modifiche i ghe sarann atribuid a l\'adress IP del to dispositif. Se &lt;a href=\"https://#login\"&gt;te se autentichet&lt;/a&gt; te gh\'avaret pussée de riservatezza.</string>
+  <string name="edit_anon_warning">I  modifeghe a ghe sarann atribuide a l\'adree IP del tò dispositiv. Se &lt;a href=\"https://#login\"&gt;te veet denter&lt;/a&gt;, te gh\'havareet pussee de riservatezza.</string>
   <string name="preference_title_language">Lengov de la Wikipedia</string>
   <string name="langlinks_filter_hint">Cerca</string>
   <string name="langlinks_empty">Questa pagina chì a l\'è minga disponibil in alter lengov</string>
@@ -102,6 +128,7 @@
   <string name="search_history_no_results">Nissun risultad trovad in la cronologia</string>
   <string name="edit_section_captcha_message">Per ajutà a scombat el ruf automatich, per piasè met dent i parolle che gh\'è chì de sota.</string>
   <string name="edit_section_captcha_request_an_account_message">Te riesset minga a vedè l\'imagin? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Ciama on utenza&lt;/a&gt;</string>
+  <string name="edit_section_captcha_hint">Ripet i parolle de l\'alt</string>
   <string name="title_captcha">Met denter el CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toca el CAPTCHA per caregà de noeuv</string>
   <string name="nav_item_login">Và dent in Wikipedia</string>
@@ -146,10 +173,11 @@
   <string name="dialog_create_account_checking_progress">Adree a verficà</string>
   <string name="create_account_email_hint">Posta eletronica (opzional)</string>
   <string name="create_account_password_repeat_hint">Scrìv de noeuv la parola ciav</string>
+  <string name="create_account_password_is_username">La parolla ciav la poò no vesser istess del nom de l\'utent</string>
   <string name="create_account_passwords_mismatch_error">I parolle ciav i corisponden nò.</string>
   <string name="create_account_email_error">Adress de posta eletronica minga valid</string>
   <string name="create_account_username_error">Carater minga in del nom de l\'utent</string>
-  <string name="create_account_password_error" fuzzy="true">La parola ciav a l\'è minga valida.</string>
+  <string name="create_account_password_error">La parola ciav la gh\'ha de havégh per el manch 8 carater</string>
   <string name="create_account_generic_error">A se poeul nò creà el cunt</string>
   <string name="create_account_next">Prossim</string>
   <string name="email_recommendation_dialog_title">Creà un cunt senza on adress de posta eletronica?</string>
@@ -163,6 +191,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detali</string>
   <string name="preferences_general_heading">General</string>
+  <string name="preferences_account_heading">Cunt</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="send_feedback">Dinn quell che te penset sora l\'aplicazzion</string>
   <string name="create_account_account_created_toast">Cunt cread!</string>
@@ -188,8 +217,9 @@
   <string name="page_protected_other">Questa pagina chì l\'è stada protesgiuda a chì nivei chì: %s</string>
   <string name="page_protected_can_not_edit">El ne rincress, el to cunt el gh\'hà minga assée de privilensg de modificà quella pagina chì adess.</string>
   <string name="page_protected_can_not_edit_anon">El ne rincress, quella pagina chì la po vesser minga modifigada di utent anonim in \'sto moment.</string>
-  <string name="page_protected_can_not_edit_title">Quella pagina chì l\'è protesgiuda</string>
+  <string name="page_protected_can_not_edit_title">Questa pagina chì l\'è protesgiuda</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Sgionta a la lista di pagine che te tegnet d\'oeugg</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Stàgh adree a quell che l\'è \'dree a capità ai vos che te interessen. Schiscia in la lista e scerniss foeura &lt;b&gt;Sgionta a la lista di pagine che te tegnet d\'oeugg&lt;/b&gt; per vedé i modifeghe a ona vos.</string>
   <string name="settings_item_preferences">Impostazzion</string>
   <string name="settings_activity_title">Impostazzion</string>
   <string name="about_description">Informazzion sora l\'app de Wikipedia</string>

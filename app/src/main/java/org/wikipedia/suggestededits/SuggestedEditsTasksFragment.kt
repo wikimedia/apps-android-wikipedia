@@ -35,7 +35,7 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.usercontrib.UserContribListActivity
-import org.wikipedia.userprofile.UserContributionsStats
+import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
@@ -109,7 +109,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
         clearContents()
-        setHasOptionsMenu(true)
     }
 
     private fun Group.addOnClickListener(listener: View.OnClickListener) {
@@ -170,7 +169,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
-                UserContributionsStats.getEditCountsObservable()) { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
+            UserContribStats.getEditCountsObservable()) { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
                     val wikidataInfo = wikidataResponse.query?.userInfo!!
                     val commonsInfo = commonsResponse.query?.userInfo!!
                     val homeSiteInfo = homeSiteResponse.query?.userInfo!!
@@ -193,11 +192,11 @@ class SuggestedEditsTasksFragment : Fragment() {
                             commonsResponse.query!!.userContributions +
                             homeSiteResponse.query!!.userContributions).sortedByDescending { it.date() }
                     latestEditStreak = getEditStreak(contributions)
-                    revertSeverity = UserContributionsStats.getRevertSeverity()
+                    revertSeverity = UserContribStats.getRevertSeverity()
                     wikidataResponse
                 }
                 .flatMap { response ->
-                    UserContributionsStats.getPageViewsObservable(response)
+                    UserContribStats.getPageViewsObservable(response)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
@@ -301,7 +300,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
        binding.editQualityStatsView.setGoodnessState(revertSeverity)
        binding.editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
-       binding.editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContributionsStats.totalReverts)
+       binding.editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContribStats.totalReverts)
     }
 
     private fun showOneTimeSequentialUserStatsTooltips() {
@@ -324,7 +323,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
-        val pauseEndDate = UserContributionsStats.maybePauseAndGetEndDate()
+        val pauseEndDate = UserContribStats.maybePauseAndGetEndDate()
 
         if (totalContributions < MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS && WikipediaApp.instance.appOrSystemLanguageCode == "en") {
             clearContents()
@@ -334,7 +333,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             }, true)
             binding.disabledStatesView.visibility = VISIBLE
             return true
-        } else if (UserContributionsStats.isDisabled()) {
+        } else if (UserContribStats.isDisabled()) {
             // Disable the whole feature.
             clearContents()
             binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))

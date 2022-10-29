@@ -13,6 +13,10 @@
                 android:icon="@drawable/ic_share"
                 android:title="@string/menu_option_share_edit" />
             <item
+                android:id="@+id/menu_copy_link_to_clipboard"
+                android:icon="@drawable/ic_content_copy_24"
+                android:title="@string/menu_option_copy_link_to_clipboard" />
+            <item
                 android:id="@+id/menu_add_watchlist"
                 android:icon="@drawable/ic_star_24"
                 android:title="@string/menu_page_watch" />

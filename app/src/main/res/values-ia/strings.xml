@@ -187,4 +187,5 @@
   <string name="events_count_text">%1$s eventos inter %2$s e %3$d</string>
   <string name="main_tooltip_text">Salute %s, sapeva tu que omnes pote modificar Wikipedia?</string>
   <string name="main_tooltip_action_button">Comenciar</string>
+  <string name="revision_diff_lines_from_to">Lineas %1$d–%2$d</string>
 </resources>

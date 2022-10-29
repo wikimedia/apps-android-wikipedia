@@ -190,7 +190,7 @@ class DescriptionEditFragment : Fragment() {
                             editingAllowed = true
                         } else {
                             val error = editError[0]
-                            FeedbackUtil.showError(requireActivity(), MwException(error))
+                            FeedbackUtil.showError(requireActivity(), MwException(error), wikiSite = pageTitle.wikiSite)
                         }
                         sourceSummary?.extractHtml = response.first.extractHtml
                     }, { L.e(it) })
@@ -212,6 +212,7 @@ class DescriptionEditFragment : Fragment() {
         }
         binding.fragmentDescriptionEditView.showProgressBar(false)
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
+        binding.fragmentDescriptionEditView.updateInfoText()
     }
 
     private fun callback(): Callback? {

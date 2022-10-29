@@ -11,6 +11,7 @@
 * Bennylin
 * Bramadiarya
 * Cooltey
+* DARMAS BUDI SANTOSO
 * Daud I.F. Argana
 * Dbrant
 * Farras
@@ -91,6 +92,9 @@
   <string name="page_edit_history_metrics_content_description">Metrik dari %1$s hingga %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="other">%1$d suntingan sejak %2$s</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="other">%1$d suntingan sejak %2$s (%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Coba ubah &lt;a href=\"#\"&gt;penyaring&lt;/a&gt; untuk melihat lebih banyak suntingan</string>
   <string name="menu_page_show_tabs">Tampilkan tab</string>
@@ -256,10 +260,10 @@
   <string name="privacy_policy_description">Kebijakan privasi</string>
   <string name="terms_of_use_description">Ketentuan penggunaan</string>
   <string name="about_wikipedia_url">https://id.wikipedia.org/wiki/Wikipedia:Perihal</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id#Baca_secara_luring_dan_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/id</string>
+  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/id</string>
   <string name="android_app_request_an_account_url">https://id.wikipedia.org/wiki/Wikipedia:Mohon_buatkan_akun</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.id</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -458,8 +462,13 @@
   <string name="text_size_percent_default">%s (Baku)</string>
   <string name="text_style_title">Jenis huruf</string>
   <string name="theme_category_reading">Membaca</string>
+  <string name="theme_category_editing">Editing</string>
   <string name="reading_focus_mode">Mode fokus membaca</string>
   <string name="reading_focus_mode_detail">Sembunyikan fitur penyuntingan dan bilah alat bawah ketika menggulir</string>
+  <string name="editing_syntax_highlight_label">Syntax highlighting</string>
+  <string name="editing_line_numbers_label">Show line numbers</string>
+  <string name="editing_monospace_font_label">Gunakan fon monospace</string>
+  <string name="editing_typing_suggestions">Tampilkan saran pengetikan</string>
   <string name="nav_item_saved">Tersimpan</string>
   <string name="reading_list_save_to">Simpan ke daftar bacaan</string>
   <string name="reading_list_move_to">Pindahkan ke daftar bacaan</string>
@@ -787,6 +796,10 @@
   <string name="description_edit_license_notice">Dengan mengubah deskripsi artikel, saya setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt; dan melepas kontribusi saya di bawah lisensi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">biasakan memulai dengan huruf kecil</string>
   <string name="description_edit_voice_input_description">Input suara</string>
+  <string name="description_edit_learn_more">Pelajari lebih lanjut tentang deskripsi artikel</string>
+  <string name="description_edit_image_caption_learn_more">Pelajari lebih lanjut tentang keterangan gambar</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Teksnya terlalu singkat.</string>
   <string name="description_ends_with_punctuation">Teksnya tidak boleh diakhiri dengan tanda baca.</string>
   <string name="description_starts_with_uppercase">Mulailah dengan huruf kecil, kecuali jika kata pertamanya adalah kata benda.</string>
@@ -966,7 +979,6 @@
   <string name="file_page_activity_title">Halaman berkas</string>
   <string name="file_page_add_image_caption_button">Tambahkan takarir gambar</string>
   <string name="file_page_add_image_tags_button">Tambahkan tanda gambar</string>
-  <string name="file_page_suggestion_reason">Alasan saran</string>
   <string name="file_page_edit_button_content_description">Sunting %s</string>
   <string name="description_edit_revert_subtitle">Terima kasih telah menyunting di Wikipedia!</string>
   <string name="description_edit_revert_intro">Kami tahu Anda mencoba yang terbaik, tapi salah satu peninjau memiliki kekhawatiran. Kemungkinan alasan penyuntingan Anda telah dibalikkan meliputi:</string>
@@ -1042,7 +1054,17 @@
   <string name="content_description_for_page_indicator">Halaman %1$d dari %2$d</string>
   <string name="wikitext_bold">Tebal</string>
   <string name="wikitext_italic">Cetak miring</string>
+  <string name="wikitext_underline">Garis bawah</string>
+  <string name="wikitext_strikethrough">Coret</string>
+  <string name="wikitext_sup">Tika atas</string>
+  <string name="wikitext_sub">Tika bawah</string>
+  <string name="wikitext_large">Teks besar</string>
+  <string name="wikitext_small">Teks kecil</string>
+  <string name="wikitext_code">Kode</string>
   <string name="wikitext_link">Pranala</string>
+  <string name="wikitext_heading_n">Sub-heading %d</string>
+  <string name="wikitext_formatting">Formatting</string>
+  <string name="wikitext_headings">Headings</string>
   <string name="wikitext_insert_media">Sisipkan media</string>
   <string name="wikitext_bulleted_list">Daftar berpoin</string>
   <string name="wikitext_numbered_list">Daftar bernomor</string>
@@ -1050,16 +1072,32 @@
   <string name="wikitext_reference">Referensi</string>
   <string name="wikitext_preview_link">Pranala pratayang</string>
   <string name="insert_media_title">Sisipkan media</string>
+  <string name="insert_media_search_description">Pilih berkas dari Wikimedia Commons</string>
   <string name="insert_media_search_hint">Cari media</string>
   <string name="insert_media_settings">Pengaturan media</string>
   <string name="insert_media_settings_uploaded_image">Gambar yang diunggah</string>
   <string name="insert_media_settings_caption">Takarir</string>
+  <string name="insert_media_settings_caption_description">Label yang ditampilkan di sebelah butir untuk semua pembaca</string>
+  <string name="insert_media_settings_alternative_text">Teks alternatif</string>
+  <string name="insert_media_settings_alternative_text_description">Deskripsi teks untuk pembaca yang tak dapat melihat gambar</string>
+  <string name="insert_media_advanced_settings">Pengaturan lanjutan</string>
+  <string name="insert_media_advanced_settings_wrap_image">Bungkus teks di sekitar gambar</string>
   <string name="insert_media_advanced_settings_image_position">Posisi gambar</string>
   <string name="insert_media_advanced_settings_image_position_right">Kanan</string>
   <string name="insert_media_advanced_settings_image_position_left">Kiri</string>
   <string name="insert_media_advanced_settings_image_position_center">Tengah</string>
   <string name="insert_media_advanced_settings_image_position_none">Tidak ada</string>
+  <string name="insert_media_advanced_settings_image_type">Jenis gambar</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Gambar mini</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Nirbingkai</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Bingkai</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Dasar</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Anda dapat menentukan bagaimana butir media akan ditampilkan pada halaman. Format keluku digunakan agar konsisten dengan kebanyakan halaman lainnya.</string>
   <string name="insert_media_advanced_settings_image_size">Ukuran gambar</string>
+  <string name="insert_media_advanced_settings_image_size_default">Baku</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Ubahsuai</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Lebar</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Tinggi</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Sisipkan</string>
   <string name="main_drawer_help">Bantuan</string>
@@ -1118,6 +1156,8 @@
   <string name="talk_list_item_user_icon_content_description">Ikon pengguna</string>
   <string name="talk_list_item_swipe_mark_as_read">Dibaca</string>
   <string name="talk_list_item_swipe_mark_as_unread">Belum dibaca</string>
+  <string name="talk_login_to_subscribe_dialog_title">Log masuk untuk dapat berlangganan ke topik</string>
+  <string name="talk_login_to_subscribe_dialog_content">Berlangganan pada topik akan memungkinkan Anda menerima pemberitahuan tentang komentar baru dalam topik ini. Silakan buat akun atau masuk ke akun Wikipedia Anda untuk berlangganan suatu topik.</string>
   <string name="talk_archived_title">Arsip pembicaraan: %s</string>
   <string name="menu_option_share_talk_discussion">Bagikan diskusi</string>
   <string name="menu_option_share_talk_page">Bagikan halaman pembicaraan</string>
@@ -1126,6 +1166,7 @@
   <string name="menu_option_edit_source">Sunting sumber</string>
   <string name="menu_option_user_page">Halaman pengguna %s</string>
   <string name="menu_option_find_in_talk_page_topic">Cari di topik halaman pembicaraan</string>
+  <string name="menu_option_copy_link_to_clipboard">Salin tautan ke papan klip</string>
   <string name="talk_menu_copy_text">Salin teks</string>
   <string name="talk_menu_expand_threads">Buka utas</string>
   <string name="talk_menu_collapse_threads">Tutup utas</string>
@@ -1149,6 +1190,7 @@
   <string name="revision_diff_to">Ke:</string>
   <string name="revision_diff_line_num">Baris %d</string>
   <string name="revision_diff_line_nums">Baris %d–%d</string>
+  <string name="revision_diff_lines_from_to">Baris %1$d–%2$d</string>
   <string name="revision_diff_line_added">Baris ditambahkan</string>
   <string name="revision_diff_line_removed">Baris dihapus</string>
   <string name="revision_diff_paragraph_added">Paragraf ditambahkan</string>
@@ -1183,6 +1225,12 @@
   <string name="watchlist_page_moved">Dipindahkan</string>
   <string name="watchlist_page_protected">Dilindungi</string>
   <string name="watchlist_page_deleted">Dihapus</string>
+  <string name="preview_edit_title">Pratinjau suntingan</string>
+  <string name="preview_edit_summarize_edit_title">Ringkasan suntingan</string>
+  <string name="preview_edit_summarize_edit_hint">Bagaimana Anda menyempurnakan halaman ini?</string>
+  <string name="preview_edit_minor_edit">Ini adalah suntingan kecil</string>
+  <string name="preview_edit_watch_this_page">Pantau halaman ini</string>
+  <string name="preview_edit_learn_more">Pelajari lebih lanjut tentang menyunting ringkasan</string>
   <string name="action_item_categories">Kategori</string>
   <string name="page_no_categories">Halaman ini tidak terdaftar dalam kategori apa pun.</string>
   <string name="category_tab_articles">Artikel</string>
@@ -1193,7 +1241,11 @@
   <string name="revision_initial_none">Tidak ada (ini adalah revisi pertama)</string>
   <string name="user_contrib_activity_title">Kontribusi %s</string>
   <string name="archive_empty">Halaman yang diarsipkan tidak ditemukan.</string>
+  <string name="user_contrib_filter_ns">Filter menurut ruang nama</string>
+  <string name="user_contrib_filter_all" fuzzy="true">Semua suntingan</string>
   <string name="namespace_article">Artikel</string>
+  <string name="user_contrib_current">terkini</string>
   <string name="media_playback_error">Terjadi kesalahan saat memutar media.</string>
   <string name="user_contrib_menu_label">Kontribusi</string>
+  <string name="user_contrib_filter_activity_title" fuzzy="true">Kontribusi untuk:</string>
 </resources>

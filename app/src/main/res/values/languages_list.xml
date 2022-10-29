@@ -8,7 +8,6 @@
     <item>de</item>
     <item>fr</item>
     <item>pt</item>
-    <item>it</item>
     <item>zh-cn</item>
     <item>zh-hans</item>
     <item>zh-hant</item>
@@ -17,16 +16,17 @@
     <item>zh-my</item>
     <item>zh-sg</item>
     <item>zh-tw</item>
+    <item>it</item>
     <item>ar</item>
+    <item>id</item>
     <item>pl</item>
     <item>tr</item>
     <item>fa</item>
-    <item>id</item>
     <item>nl</item>
-    <item>ko</item>
-    <item>vi</item>
-    <item>uk</item>
     <item>hi</item>
+    <item>vi</item>
+    <item>ko</item>
+    <item>uk</item>
     <item>th</item>
     <item>sv</item>
     <item>cs</item>
@@ -34,19 +34,17 @@
     <item>ro</item>
     <item>fi</item>
     <item>he</item>
-    <item>simple</item>
     <item>el</item>
-    <item>nb</item>
+    <item>bn</item>
+    <item>simple</item>
+    <item>ms</item>
     <item>sr-ec</item>
     <item>sr-el</item>
     <item>sr</item>
-    <item>ms</item>
-    <item>hr</item>
+    <item>nb</item>
     <item>da</item>
-    <item>bn</item>
+    <item>hr</item>
     <item>bg</item>
-    <item>ca</item>
-    <item>sk</item>
     <item>kk-arab</item>
     <item>kk-cn</item>
     <item>kk-cyrl</item>
@@ -54,299 +52,304 @@
     <item>kk-latn</item>
     <item>kk-tr</item>
     <item>kk</item>
+    <item>tl</item>
     <item>ta</item>
+    <item>sk</item>
+    <item>mr</item>
+    <item>ca</item>
+    <item>arz</item>
     <item>sh</item>
     <item>az</item>
-    <item>tl</item>
-    <item>lt</item>
-    <item>mr</item>
     <item>uz-cyrl</item>
     <item>uz-latn</item>
     <item>uz</item>
-    <item>zh-yue</item>
-    <item>sl</item>
+    <item>lt</item>
     <item>bs</item>
-    <item>arz</item>
+    <item>te</item>
+    <item>ml</item>
+    <item>sl</item>
     <item>ka</item>
+    <item>kn</item>
+    <item>zh-yue</item>
+    <item>hy</item>
     <item>sq</item>
     <item>et</item>
-    <item>te</item>
-    <item>hy</item>
-    <item>ast</item>
     <item>lv</item>
-    <item>ml</item>
-    <item>eu</item>
+    <item>ur</item>
     <item>af</item>
-    <item>gl</item>
-    <item>sw</item>
-    <item>nn</item>
     <item>mk</item>
     <item>ky</item>
-    <item>eo</item>
-    <item>ur</item>
-    <item>kn</item>
-    <item>bcl</item>
-    <item>nds-nl</item>
-    <item>la</item>
-    <item>zh-min-nan</item>
-    <item>ilo</item>
-    <item>sco</item>
-    <item>be</item>
-    <item>als</item>
-    <item>fiu-vro</item>
-    <item>nso</item>
-    <item>war</item>
-    <item>be-x-old</item>
-    <item>is</item>
+    <item>sw</item>
     <item>gu</item>
-    <item>ceb</item>
-    <item>lmo</item>
-    <item>cy</item>
-    <item>oc</item>
-    <item>mn</item>
-    <item>nds</item>
-    <item>fy</item>
-    <item>vec</item>
-    <item>diq</item>
-    <item>io</item>
-    <item>scn</item>
-    <item>lb</item>
-    <item>br</item>
-    <item>hif</item>
-    <item>bar</item>
     <item>si</item>
-    <item>ckb</item>
-    <item>km</item>
-    <item>min</item>
-    <item>jv</item>
-    <item>map-bms</item>
-    <item>su</item>
-    <item>an</item>
-    <item>frr</item>
-    <item>li</item>
-    <item>eml</item>
-    <item>lij</item>
-    <item>mg</item>
-    <item>hsb</item>
+    <item>mn</item>
+    <item>nn</item>
     <item>my</item>
-    <item>nah</item>
-    <item>avk</item>
-    <item>fo</item>
-    <item>ia</item>
-    <item>xmf</item>
-    <item>vls</item>
+    <item>km</item>
+    <item>gl</item>
+    <item>eu</item>
+    <item>be</item>
+    <item>ast</item>
+    <item>bh</item>
+    <item>as</item>
+    <item>is</item>
+    <item>ne</item>
+    <item>eo</item>
+    <item>sco</item>
+    <item>ceb</item>
+    <item>ckb</item>
     <item>tg-latn</item>
     <item>tg</item>
-    <item>ga</item>
+    <item>pa</item>
+    <item>la</item>
+    <item>be-x-old</item>
+    <item>so</item>
+    <item>als</item>
+    <item>ha</item>
+    <item>an</item>
+    <item>cy</item>
+    <item>bcl</item>
     <item>tk</item>
-    <item>qu</item>
-    <item>gd</item>
-    <item>bjn</item>
-    <item>yo</item>
-    <item>pam</item>
+    <item>jv</item>
+    <item>am</item>
+    <item>su</item>
+    <item>azb</item>
+    <item>bar</item>
+    <item>tt</item>
+    <item>zh-min-nan</item>
+    <item>wuu</item>
+    <item>ig</item>
+    <item>war</item>
+    <item>pnb</item>
+    <item>lb</item>
+    <item>mzn</item>
+    <item>br</item>
+    <item>oc</item>
+    <item>lmo</item>
+    <item>ce</item>
+    <item>ku-arab</item>
+    <item>ku-latn</item>
+    <item>ku</item>
+    <item>fy</item>
+    <item>scn</item>
+    <item>nds-nl</item>
+    <item>min</item>
+    <item>or</item>
+    <item>nds</item>
+    <item>ga</item>
+    <item>ba</item>
+    <item>xmf</item>
+    <item>sn</item>
+    <item>ps</item>
+    <item>vec</item>
+    <item>gn</item>
+    <item>mg</item>
+    <item>hif</item>
+    <item>ary</item>
+    <item>ilo</item>
+    <item>yi</item>
+    <item>diq</item>
+    <item>map-bms</item>
+    <item>ia</item>
+    <item>cv</item>
+    <item>sah</item>
+    <item>fo</item>
+    <item>rue</item>
+    <item>gor</item>
+    <item>io</item>
     <item>ban-bali</item>
     <item>ban-x-dharma</item>
     <item>ban-x-palmleaf</item>
     <item>ban-x-pku</item>
     <item>ban</item>
-    <item>bh</item>
-    <item>wuu</item>
+    <item>mai</item>
+    <item>zh-classical</item>
+    <item>zu</item>
+    <item>li</item>
+    <item>eml</item>
+    <item>fiu-vro</item>
+    <item>frr</item>
+    <item>nso</item>
     <item>crh-cyrl</item>
     <item>crh-latn</item>
     <item>crh</item>
-    <item>vo</item>
-    <item>smn</item>
-    <item>nap</item>
-    <item>cv</item>
-    <item>ha</item>
-    <item>nrm</item>
-    <item>ku-arab</item>
-    <item>ku-latn</item>
-    <item>ku</item>
-    <item>pnb</item>
-    <item>stq</item>
-    <item>tt</item>
-    <item>sah</item>
-    <item>fur</item>
-    <item>bat-smg</item>
-    <item>pag</item>
-    <item>tpi</item>
-    <item>kab</item>
-    <item>gor</item>
-    <item>zea</item>
-    <item>gag</item>
-    <item>kw</item>
-    <item>so</item>
-    <item>gv</item>
-    <item>olo</item>
-    <item>rue</item>
-    <item>szl</item>
-    <item>se</item>
+    <item>vls</item>
     <item>ht</item>
-    <item>frp</item>
-    <item>ne</item>
-    <item>gn</item>
-    <item>wa</item>
-    <item>vep</item>
-    <item>nov</item>
-    <item>ig</item>
-    <item>sc</item>
-    <item>ext</item>
-    <item>hak</item>
-    <item>lfn</item>
-    <item>pa</item>
-    <item>pap</item>
-    <item>ie</item>
-    <item>za</item>
-    <item>yi</item>
-    <item>cbk-zam</item>
-    <item>sn</item>
-    <item>ksh</item>
-    <item>ang</item>
-    <item>ce</item>
-    <item>roa-tara</item>
-    <item>dsb</item>
-    <item>shn</item>
-    <item>csb</item>
-    <item>as</item>
-    <item>krc</item>
-    <item>am</item>
-    <item>jam</item>
-    <item>pms</item>
-    <item>cdo</item>
-    <item>mhr</item>
-    <item>lad</item>
-    <item>pih</item>
-    <item>na</item>
-    <item>gcr</item>
-    <item>mi</item>
-    <item>xal</item>
-    <item>roa-rup</item>
-    <item>kaa</item>
-    <item>mt</item>
-    <item>ace</item>
-    <item>jbo</item>
-    <item>tet</item>
-    <item>rw</item>
-    <item>lld</item>
-    <item>zu</item>
-    <item>azb</item>
-    <item>om</item>
-    <item>co</item>
-    <item>bi</item>
-    <item>ln</item>
-    <item>sm</item>
-    <item>ts</item>
-    <item>srn</item>
-    <item>kg</item>
-    <item>mzn</item>
-    <item>wo</item>
-    <item>pdc</item>
-    <item>pcd</item>
-    <item>ay</item>
-    <item>kbp</item>
-    <item>ff</item>
-    <item>szy</item>
-    <item>ee</item>
-    <item>ba</item>
-    <item>rm</item>
-    <item>ki</item>
-    <item>ss</item>
-    <item>mdf</item>
-    <item>fj</item>
-    <item>rmy</item>
-    <item>haw</item>
-    <item>mwl</item>
-    <item>tum</item>
-    <item>ami</item>
-    <item>trv</item>
-    <item>ty</item>
-    <item>lg</item>
+    <item>nap</item>
+    <item>szl</item>
     <item>gan-hans</item>
     <item>gan-hant</item>
     <item>gan</item>
-    <item>bm</item>
-    <item>or</item>
-    <item>ltg</item>
+    <item>lij</item>
+    <item>pam</item>
+    <item>bpy</item>
+    <item>qu</item>
+    <item>hsb</item>
+    <item>yo</item>
+    <item>hyw</item>
+    <item>sd</item>
+    <item>gd</item>
     <item>os</item>
+    <item>lo</item>
+    <item>nah</item>
+    <item>sc</item>
+    <item>sa</item>
+    <item>bo</item>
+    <item>bat-smg</item>
+    <item>new</item>
+    <item>ang</item>
+    <item>gv</item>
+    <item>ace</item>
+    <item>rw</item>
+    <item>wa</item>
+    <item>mhr</item>
+    <item>bjn</item>
+    <item>avk</item>
+    <item>smn</item>
+    <item>gag</item>
+    <item>hak</item>
+    <item>pms</item>
+    <item>cdo</item>
+    <item>frp</item>
+    <item>vo</item>
+    <item>se</item>
+    <item>kw</item>
+    <item>kab</item>
+    <item>om</item>
+    <item>krc</item>
+    <item>nrm</item>
+    <item>zea</item>
+    <item>stq</item>
+    <item>mt</item>
+    <item>vep</item>
+    <item>fur</item>
+    <item>ksh</item>
+    <item>tet</item>
+    <item>co</item>
+    <item>tpi</item>
+    <item>ug</item>
+    <item>kaa</item>
+    <item>tcy</item>
+    <item>pcd</item>
+    <item>pag</item>
+    <item>shn</item>
+    <item>ie</item>
+    <item>pap</item>
+    <item>lfn</item>
+    <item>csb</item>
+    <item>ext</item>
+    <item>udm</item>
+    <item>mi</item>
+    <item>dsb</item>
+    <item>gom</item>
+    <item>lad</item>
+    <item>roa-tara</item>
+    <item>olo</item>
+    <item>dty</item>
+    <item>kv</item>
+    <item>myv</item>
     <item>xh</item>
-    <item>tw</item>
-    <item>mad</item>
-    <item>kl</item>
-    <item>ps</item>
+    <item>xal</item>
+    <item>ln</item>
+    <item>av</item>
+    <item>bxr</item>
+    <item>cbk-zam</item>
+    <item>lez</item>
+    <item>lld</item>
+    <item>dv</item>
+    <item>nv</item>
+    <item>jbo</item>
+    <item>glk</item>
+    <item>pdc</item>
+    <item>nov</item>
+    <item>pih</item>
+    <item>za</item>
+    <item>rm</item>
+    <item>tn</item>
+    <item>ay</item>
+    <item>mdf</item>
+    <item>roa-rup</item>
+    <item>inh</item>
+    <item>pfl</item>
+    <item>ts</item>
+    <item>gcr</item>
+    <item>sat</item>
+    <item>na</item>
+    <item>jam</item>
     <item>arc</item>
-    <item>zh-classical</item>
+    <item>kg</item>
+    <item>kbp</item>
+    <item>mwl</item>
+    <item>lg</item>
+    <item>sm</item>
+    <item>chr</item>
+    <item>bi</item>
+    <item>wo</item>
+    <item>mrj</item>
+    <item>tyv</item>
+    <item>cu</item>
+    <item>srn</item>
+    <item>fj</item>
+    <item>ss</item>
+    <item>tum</item>
+    <item>mni</item>
+    <item>haw</item>
+    <item>ny</item>
+    <item>ks</item>
+    <item>kbd</item>
+    <item>ak</item>
+    <item>tw</item>
+    <item>ike-cans</item>
+    <item>ike-latn</item>
+    <item>iu</item>
+    <item>ff</item>
+    <item>koi</item>
+    <item>ee</item>
+    <item>bug</item>
+    <item>awa</item>
+    <item>bm</item>
+    <item>mnw</item>
+    <item>to</item>
+    <item>pi</item>
+    <item>rmy</item>
+    <item>ki</item>
+    <item>ltg</item>
+    <item>ty</item>
+    <item>szy</item>
+    <item>pnt</item>
+    <item>got</item>
+    <item>lbe</item>
     <item>shi-latn</item>
     <item>shi-tfng</item>
     <item>shi</item>
     <item>dag</item>
-    <item>kv</item>
-    <item>av</item>
-    <item>ny</item>
-    <item>pfl</item>
-    <item>bpy</item>
-    <item>tay</item>
-    <item>ary</item>
-    <item>gom</item>
-    <item>ch</item>
-    <item>hyw</item>
-    <item>mai</item>
-    <item>new</item>
-    <item>sd</item>
-    <item>lo</item>
-    <item>tn</item>
-    <item>chy</item>
-    <item>st</item>
-    <item>bo</item>
-    <item>bug</item>
-    <item>ik</item>
-    <item>udm</item>
-    <item>sa</item>
-    <item>ug</item>
-    <item>atj</item>
-    <item>din</item>
     <item>ve</item>
-    <item>rn</item>
-    <item>nia</item>
-    <item>dv</item>
-    <item>lez</item>
-    <item>dty</item>
-    <item>glk</item>
-    <item>myv</item>
-    <item>nv</item>
-    <item>to</item>
-    <item>tcy</item>
-    <item>bxr</item>
-    <item>inh</item>
-    <item>ak</item>
-    <item>sat</item>
-    <item>tyv</item>
-    <item>chr</item>
-    <item>pwn</item>
-    <item>mrj</item>
-    <item>cu</item>
-    <item>ike-cans</item>
-    <item>ike-latn</item>
-    <item>iu</item>
-    <item>sg</item>
-    <item>koi</item>
-    <item>mni</item>
-    <item>guw</item>
-    <item>kbd</item>
-    <item>pnt</item>
-    <item>lbe</item>
-    <item>got</item>
-    <item>ks</item>
-    <item>awa</item>
-    <item>mnw</item>
-    <item>ti</item>
     <item>dz</item>
-    <item>pi</item>
-    <item>ady</item>
+    <item>st</item>
+    <item>chy</item>
+    <item>ti</item>
+    <item>ami</item>
+    <item>mad</item>
+    <item>kl</item>
+    <item>rn</item>
     <item>alt</item>
-    <item>cr</item>
-    <item>nqo</item>
+    <item>ik</item>
+    <item>ch</item>
+    <item>trv</item>
+    <item>ady</item>
     <item>skr</item>
+    <item>nia</item>
+    <item>nqo</item>
+    <item>atj</item>
+    <item>cr</item>
+    <item>sg</item>
+    <item>din</item>
+    <item>tay</item>
+    <item>blk</item>
+    <item>kcg</item>
+    <item>pwn</item>
+    <item>guw</item>
+    <item>pcm</item>
     <item>test</item>
     <item>ab</item>
   </string-array>
@@ -358,7 +361,6 @@
     <item>Deutsch</item>
     <item>français</item>
     <item>português</item>
-    <item>italiano</item>
     <item>中文（中国大陆）</item>
     <item>中文（简体）</item>
     <item>中文（繁體）</item>
@@ -367,16 +369,17 @@
     <item>中文（马来西亚）</item>
     <item>中文（新加坡）</item>
     <item>中文（臺灣）</item>
+    <item>italiano</item>
     <item>العربية</item>
+    <item>Bahasa Indonesia</item>
     <item>polski</item>
     <item>Türkçe</item>
     <item>فارسی</item>
-    <item>Bahasa Indonesia</item>
     <item>Nederlands</item>
-    <item>한국어</item>
-    <item>Tiếng Việt</item>
-    <item>українська</item>
     <item>हिन्दी</item>
+    <item>Tiếng Việt</item>
+    <item>한국어</item>
+    <item>українська</item>
     <item>ไทย</item>
     <item>svenska</item>
     <item>čeština</item>
@@ -384,19 +387,17 @@
     <item>română</item>
     <item>suomi</item>
     <item>עברית</item>
-    <item>Simple English</item>
     <item>Ελληνικά</item>
-    <item>norsk bokmål</item>
+    <item>বাংলা</item>
+    <item>Simple English</item>
+    <item>Bahasa Melayu</item>
     <item>српски (ћирилица)</item>
     <item>srpski (latinica)</item>
     <item>српски / srpski</item>
-    <item>Bahasa Melayu</item>
-    <item>hrvatski</item>
+    <item>norsk bokmål</item>
     <item>dansk</item>
-    <item>বাংলা</item>
+    <item>hrvatski</item>
     <item>български</item>
-    <item>català</item>
-    <item>slovenčina</item>
     <item>قازاقشا (تٴوتە)</item>
     <item>قازاقشا (جۇنگو)</item>
     <item>қазақша (кирил)</item>
@@ -404,299 +405,304 @@
     <item>qazaqşa (latın)</item>
     <item>qazaqşa (Türkïya)</item>
     <item>қазақша</item>
+    <item>Tagalog</item>
     <item>தமிழ்</item>
+    <item>slovenčina</item>
+    <item>मराठी</item>
+    <item>català</item>
+    <item>مصرى</item>
     <item>srpskohrvatski / српскохрватски</item>
     <item>azərbaycanca</item>
-    <item>Tagalog</item>
-    <item>lietuvių</item>
-    <item>मराठी</item>
     <item>ўзбекча</item>
     <item>oʻzbekcha</item>
     <item>oʻzbekcha/ўзбекча</item>
-    <item>粵語</item>
-    <item>slovenščina</item>
+    <item>lietuvių</item>
     <item>bosanski</item>
-    <item>مصرى</item>
+    <item>తెలుగు</item>
+    <item>മലയാളം</item>
+    <item>slovenščina</item>
     <item>ქართული</item>
+    <item>ಕನ್ನಡ</item>
+    <item>粵語</item>
+    <item>հայերեն</item>
     <item>shqip</item>
     <item>eesti</item>
-    <item>తెలుగు</item>
-    <item>հայերեն</item>
-    <item>asturianu</item>
     <item>latviešu</item>
-    <item>മലയാളം</item>
-    <item>euskara</item>
+    <item>اردو</item>
     <item>Afrikaans</item>
-    <item>galego</item>
-    <item>Kiswahili</item>
-    <item>norsk nynorsk</item>
     <item>македонски</item>
     <item>кыргызча</item>
-    <item>Esperanto</item>
-    <item>اردو</item>
-    <item>ಕನ್ನಡ</item>
-    <item>Bikol Central</item>
-    <item>Nedersaksies</item>
-    <item>Latina</item>
-    <item>Bân-lâm-gú</item>
-    <item>Ilokano</item>
-    <item>Scots</item>
-    <item>беларуская</item>
-    <item>Alemannisch</item>
-    <item>võro</item>
-    <item>Sesotho sa Leboa</item>
-    <item>Winaray</item>
-    <item>беларуская (тарашкевіца)</item>
-    <item>íslenska</item>
+    <item>Kiswahili</item>
     <item>ગુજરાતી</item>
-    <item>Cebuano</item>
-    <item>lombard</item>
-    <item>Cymraeg</item>
-    <item>occitan</item>
-    <item>монгол</item>
-    <item>Plattdüütsch</item>
-    <item>Frysk</item>
-    <item>vèneto</item>
-    <item>Zazaki</item>
-    <item>Ido</item>
-    <item>sicilianu</item>
-    <item>Lëtzebuergesch</item>
-    <item>brezhoneg</item>
-    <item>Fiji Hindi</item>
-    <item>Boarisch</item>
     <item>සිංහල</item>
-    <item>کوردی</item>
-    <item>ភាសាខ្មែរ</item>
-    <item>Minangkabau</item>
-    <item>Jawa</item>
-    <item>Basa Banyumasan</item>
-    <item>Sunda</item>
-    <item>aragonés</item>
-    <item>Nordfriisk</item>
-    <item>Limburgs</item>
-    <item>emiliàn e rumagnòl</item>
-    <item>Ligure</item>
-    <item>Malagasy</item>
-    <item>hornjoserbsce</item>
+    <item>монгол</item>
+    <item>norsk nynorsk</item>
     <item>မြန်မာဘာသာ</item>
-    <item>Nāhuatl</item>
-    <item>Kotava</item>
-    <item>føroyskt</item>
-    <item>interlingua</item>
-    <item>მარგალური</item>
-    <item>West-Vlams</item>
+    <item>ភាសាខ្មែរ</item>
+    <item>galego</item>
+    <item>euskara</item>
+    <item>беларуская</item>
+    <item>asturianu</item>
+    <item>भोजपुरी</item>
+    <item>অসমীয়া</item>
+    <item>íslenska</item>
+    <item>नेपाली</item>
+    <item>Esperanto</item>
+    <item>Scots</item>
+    <item>Cebuano</item>
+    <item>کوردی</item>
     <item>tojikī</item>
     <item>тоҷикӣ</item>
-    <item>Gaeilge</item>
+    <item>ਪੰਜਾਬੀ</item>
+    <item>Latina</item>
+    <item>беларуская (тарашкевіца)</item>
+    <item>Soomaaliga</item>
+    <item>Alemannisch</item>
+    <item>Hausa</item>
+    <item>aragonés</item>
+    <item>Cymraeg</item>
+    <item>Bikol Central</item>
     <item>Türkmençe</item>
-    <item>Runa Simi</item>
-    <item>Gàidhlig</item>
-    <item>Banjar</item>
-    <item>Yorùbá</item>
-    <item>Kapampangan</item>
+    <item>Jawa</item>
+    <item>አማርኛ</item>
+    <item>Sunda</item>
+    <item>تۆرکجه</item>
+    <item>Boarisch</item>
+    <item>татарча/tatarça</item>
+    <item>Bân-lâm-gú</item>
+    <item>吴语</item>
+    <item>Igbo</item>
+    <item>Winaray</item>
+    <item>پنجابی</item>
+    <item>Lëtzebuergesch</item>
+    <item>مازِرونی</item>
+    <item>brezhoneg</item>
+    <item>occitan</item>
+    <item>lombard</item>
+    <item>нохчийн</item>
+    <item>كوردي (عەرەبی)</item>
+    <item>kurdî (latînî)</item>
+    <item>kurdî</item>
+    <item>Frysk</item>
+    <item>sicilianu</item>
+    <item>Nedersaksies</item>
+    <item>Minangkabau</item>
+    <item>ଓଡ଼ିଆ</item>
+    <item>Plattdüütsch</item>
+    <item>Gaeilge</item>
+    <item>башҡортса</item>
+    <item>მარგალური</item>
+    <item>chiShona</item>
+    <item>پښتو</item>
+    <item>vèneto</item>
+    <item>Avañe\'ẽ</item>
+    <item>Malagasy</item>
+    <item>Fiji Hindi</item>
+    <item>الدارجة</item>
+    <item>Ilokano</item>
+    <item>ייִדיש</item>
+    <item>Zazaki</item>
+    <item>Basa Banyumasan</item>
+    <item>interlingua</item>
+    <item>чӑвашла</item>
+    <item>саха тыла</item>
+    <item>føroyskt</item>
+    <item>русиньскый</item>
+    <item>Bahasa Hulontalo</item>
+    <item>Ido</item>
     <item>ᬩᬲᬩᬮᬶ</item>
     <item></item>
     <item></item>
     <item></item>
     <item>Basa Bali</item>
-    <item>भोजपुरी</item>
-    <item>吴语</item>
+    <item>मैथिली</item>
+    <item>文言</item>
+    <item>isiZulu</item>
+    <item>Limburgs</item>
+    <item>emiliàn e rumagnòl</item>
+    <item>võro</item>
+    <item>Nordfriisk</item>
+    <item>Sesotho sa Leboa</item>
     <item>къырымтатарджа (Кирилл)</item>
     <item>qırımtatarca (Latin)</item>
     <item>qırımtatarca</item>
-    <item>Volapük</item>
-    <item>anarâškielâ</item>
-    <item>Napulitano</item>
-    <item>чӑвашла</item>
-    <item>Hausa</item>
-    <item>Nouormand</item>
-    <item>كوردي (عەرەبی)</item>
-    <item>kurdî (latînî)</item>
-    <item>kurdî</item>
-    <item>پنجابی</item>
-    <item>Seeltersk</item>
-    <item>татарча/tatarça</item>
-    <item>саха тыла</item>
-    <item>furlan</item>
-    <item>žemaitėška</item>
-    <item>Pangasinan</item>
-    <item>Tok Pisin</item>
-    <item>Taqbaylit</item>
-    <item>Bahasa Hulontalo</item>
-    <item>Zeêuws</item>
-    <item>Gagauz</item>
-    <item>kernowek</item>
-    <item>Soomaaliga</item>
-    <item>Gaelg</item>
-    <item>livvinkarjala</item>
-    <item>русиньскый</item>
-    <item>ślůnski</item>
-    <item>davvisámegiella</item>
+    <item>West-Vlams</item>
     <item>Kreyòl ayisyen</item>
-    <item>arpetan</item>
-    <item>नेपाली</item>
-    <item>Avañe\'ẽ</item>
-    <item>walon</item>
-    <item>vepsän kel’</item>
-    <item>Novial</item>
-    <item>Igbo</item>
-    <item>sardu</item>
-    <item>estremeñu</item>
-    <item>客家語/Hak-kâ-ngî</item>
-    <item>Lingua Franca Nova</item>
-    <item>ਪੰਜਾਬੀ</item>
-    <item>Papiamentu</item>
-    <item>Interlingue</item>
-    <item>Vahcuengh</item>
-    <item>ייִדיש</item>
-    <item>Chavacano de Zamboanga</item>
-    <item>chiShona</item>
-    <item>Ripoarisch</item>
-    <item>Ænglisc</item>
-    <item>нохчийн</item>
-    <item>tarandíne</item>
-    <item>dolnoserbski</item>
-    <item>ၽႃႇသႃႇတႆး </item>
-    <item>kaszëbsczi</item>
-    <item>অসমীয়া</item>
-    <item>къарачай-малкъар</item>
-    <item>አማርኛ</item>
-    <item>Patois</item>
-    <item>Piemontèis</item>
-    <item>Mìng-dĕ̤ng-ngṳ̄</item>
-    <item>олык марий</item>
-    <item>Ladino</item>
-    <item>Norfuk / Pitkern</item>
-    <item>Dorerin Naoero</item>
-    <item>kriyòl gwiyannen</item>
-    <item>Māori</item>
-    <item>хальмг</item>
-    <item>armãneashti</item>
-    <item>Qaraqalpaqsha</item>
-    <item>Malti</item>
-    <item>Acèh</item>
-    <item>la .lojban.</item>
-    <item>tetun</item>
-    <item>Ikinyarwanda</item>
-    <item>Ladin</item>
-    <item>isiZulu</item>
-    <item>تۆرکجه</item>
-    <item>Oromoo</item>
-    <item>corsu</item>
-    <item>Bislama</item>
-    <item>lingála</item>
-    <item>Gagana Samoa</item>
-    <item>Xitsonga</item>
-    <item>Sranantongo</item>
-    <item>Kongo</item>
-    <item>مازِرونی</item>
-    <item>Wolof</item>
-    <item>Deitsch</item>
-    <item>Picard</item>
-    <item>Aymar aru</item>
-    <item>Kabɩyɛ</item>
-    <item>Fulfulde</item>
-    <item>Sakizaya</item>
-    <item>eʋegbe</item>
-    <item>башҡортса</item>
-    <item>rumantsch</item>
-    <item>Gĩkũyũ</item>
-    <item>SiSwati</item>
-    <item>мокшень</item>
-    <item>Na Vosa Vakaviti</item>
-    <item>romani čhib</item>
-    <item>Hawaiʻi</item>
-    <item>Mirandés</item>
-    <item>chiTumbuka</item>
-    <item>Pangcah</item>
-    <item>Seediq</item>
-    <item>reo tahiti</item>
-    <item>Luganda</item>
+    <item>Napulitano</item>
+    <item>ślůnski</item>
     <item>赣语（简体）</item>
     <item>贛語（繁體）</item>
     <item>贛語</item>
-    <item>bamanankan</item>
-    <item>ଓଡ଼ିଆ</item>
-    <item>latgaļu</item>
+    <item>Ligure</item>
+    <item>Kapampangan</item>
+    <item>বিষ্ণুপ্রিয়া মণিপুরী</item>
+    <item>Runa Simi</item>
+    <item>hornjoserbsce</item>
+    <item>Yorùbá</item>
+    <item>Արեւմտահայերէն</item>
+    <item>سنڌي</item>
+    <item>Gàidhlig</item>
     <item>ирон</item>
+    <item>ລາວ</item>
+    <item>Nāhuatl</item>
+    <item>sardu</item>
+    <item>संस्कृतम्</item>
+    <item>བོད་ཡིག</item>
+    <item>žemaitėška</item>
+    <item>नेपाल भाषा</item>
+    <item>Ænglisc</item>
+    <item>Gaelg</item>
+    <item>Acèh</item>
+    <item>Ikinyarwanda</item>
+    <item>walon</item>
+    <item>олык марий</item>
+    <item>Banjar</item>
+    <item>Kotava</item>
+    <item>anarâškielâ</item>
+    <item>Gagauz</item>
+    <item>客家語/Hak-kâ-ngî</item>
+    <item>Piemontèis</item>
+    <item>Mìng-dĕ̤ng-ngṳ̄</item>
+    <item>arpetan</item>
+    <item>Volapük</item>
+    <item>davvisámegiella</item>
+    <item>kernowek</item>
+    <item>Taqbaylit</item>
+    <item>Oromoo</item>
+    <item>къарачай-малкъар</item>
+    <item>Nouormand</item>
+    <item>Zeêuws</item>
+    <item>Seeltersk</item>
+    <item>Malti</item>
+    <item>vepsän kel’</item>
+    <item>furlan</item>
+    <item>Ripoarisch</item>
+    <item>tetun</item>
+    <item>corsu</item>
+    <item>Tok Pisin</item>
+    <item>ئۇيغۇرچە / Uyghurche</item>
+    <item>Qaraqalpaqsha</item>
+    <item>ತುಳು</item>
+    <item>Picard</item>
+    <item>Pangasinan</item>
+    <item>ၽႃႇသႃႇတႆး </item>
+    <item>Interlingue</item>
+    <item>Papiamentu</item>
+    <item>Lingua Franca Nova</item>
+    <item>kaszëbsczi</item>
+    <item>estremeñu</item>
+    <item>удмурт</item>
+    <item>Māori</item>
+    <item>dolnoserbski</item>
+    <item>गोंयची कोंकणी / Gõychi Konknni</item>
+    <item>Ladino</item>
+    <item>tarandíne</item>
+    <item>livvinkarjala</item>
+    <item>डोटेली</item>
+    <item>коми</item>
+    <item>эрзянь</item>
     <item>isiXhosa</item>
-    <item>Twi</item>
-    <item>Madhurâ</item>
-    <item>kalaallisut</item>
-    <item>پښتو</item>
+    <item>хальмг</item>
+    <item>lingála</item>
+    <item>авар</item>
+    <item>буряад</item>
+    <item>Chavacano de Zamboanga</item>
+    <item>лезги</item>
+    <item>Ladin</item>
+    <item>ދިވެހިބަސް</item>
+    <item>Diné bizaad</item>
+    <item>la .lojban.</item>
+    <item>گیلکی</item>
+    <item>Deitsch</item>
+    <item>Novial</item>
+    <item>Norfuk / Pitkern</item>
+    <item>Vahcuengh</item>
+    <item>rumantsch</item>
+    <item>Setswana</item>
+    <item>Aymar aru</item>
+    <item>мокшень</item>
+    <item>armãneashti</item>
+    <item>гӀалгӀай</item>
+    <item>Pälzisch</item>
+    <item>Xitsonga</item>
+    <item>kriyòl gwiyannen</item>
+    <item>ᱥᱟᱱᱛᱟᱲᱤ</item>
+    <item>Dorerin Naoero</item>
+    <item>Patois</item>
     <item>ܐܪܡܝܐ</item>
-    <item>文言</item>
+    <item>Kongo</item>
+    <item>Kabɩyɛ</item>
+    <item>Mirandés</item>
+    <item>Luganda</item>
+    <item>Gagana Samoa</item>
+    <item>ᏣᎳᎩ</item>
+    <item>Bislama</item>
+    <item>Wolof</item>
+    <item>кырык мары</item>
+    <item>тыва дыл</item>
+    <item>словѣньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ</item>
+    <item>Sranantongo</item>
+    <item>Na Vosa Vakaviti</item>
+    <item>SiSwati</item>
+    <item>chiTumbuka</item>
+    <item>ꯃꯤꯇꯩ ꯂꯣꯟ</item>
+    <item>Hawaiʻi</item>
+    <item>Chi-Chewa</item>
+    <item>कॉशुर / کٲشُر</item>
+    <item>адыгэбзэ</item>
+    <item>Akan</item>
+    <item>Twi</item>
+    <item>ᐃᓄᒃᑎᑐᑦ</item>
+    <item>inuktitut</item>
+    <item>ᐃᓄᒃᑎᑐᑦ/inuktitut</item>
+    <item>Fulfulde</item>
+    <item>перем коми</item>
+    <item>eʋegbe</item>
+    <item>ᨅᨔ ᨕᨘᨁᨗ</item>
+    <item>अवधी</item>
+    <item>bamanankan</item>
+    <item>ဘာသာ မန်</item>
+    <item>lea faka-Tonga</item>
+    <item>पालि</item>
+    <item>romani čhib</item>
+    <item>Gĩkũyũ</item>
+    <item>latgaļu</item>
+    <item>reo tahiti</item>
+    <item>Sakizaya</item>
+    <item>Ποντιακά</item>
+    <item>𐌲𐌿𐍄𐌹𐍃𐌺</item>
+    <item>лакку</item>
     <item>Taclḥit</item>
     <item>ⵜⴰⵛⵍⵃⵉⵜ</item>
     <item>Taclḥit</item>
     <item>dagbanli</item>
-    <item>коми</item>
-    <item>авар</item>
-    <item>Chi-Chewa</item>
-    <item>Pälzisch</item>
-    <item>বিষ্ণুপ্রিয়া মণিপুরী</item>
-    <item>Tayal</item>
-    <item>الدارجة</item>
-    <item>गोंयची कोंकणी / Gõychi Konknni</item>
-    <item>Chamoru</item>
-    <item>Արեւմտահայերէն</item>
-    <item>मैथिली</item>
-    <item>नेपाल भाषा</item>
-    <item>سنڌي</item>
-    <item>ລາວ</item>
-    <item>Setswana</item>
-    <item>Tsetsêhestâhese</item>
-    <item>Sesotho</item>
-    <item>བོད་ཡིག</item>
-    <item>ᨅᨔ ᨕᨘᨁᨗ</item>
-    <item>Iñupiak</item>
-    <item>удмурт</item>
-    <item>संस्कृतम्</item>
-    <item>ئۇيغۇرچە / Uyghurche</item>
-    <item>Atikamekw</item>
-    <item>Thuɔŋjäŋ</item>
     <item>Tshivenda</item>
-    <item>ikirundi</item>
-    <item>Li Niha</item>
-    <item>ދިވެހިބަސް</item>
-    <item>лезги</item>
-    <item>डोटेली</item>
-    <item>گیلکی</item>
-    <item>эрзянь</item>
-    <item>Diné bizaad</item>
-    <item>lea faka-Tonga</item>
-    <item>ತುಳು</item>
-    <item>буряад</item>
-    <item>гӀалгӀай</item>
-    <item>Akan</item>
-    <item>ᱥᱟᱱᱛᱟᱲᱤ</item>
-    <item>тыва дыл</item>
-    <item>ᏣᎳᎩ</item>
-    <item>pinayuanan</item>
-    <item>кырык мары</item>
-    <item>словѣньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ</item>
-    <item>ᐃᓄᒃᑎᑐᑦ</item>
-    <item>inuktitut</item>
-    <item>ᐃᓄᒃᑎᑐᑦ/inuktitut</item>
-    <item>Sängö</item>
-    <item>перем коми</item>
-    <item>ꯃꯤꯇꯩ ꯂꯣꯟ</item>
-    <item>gungbe</item>
-    <item>адыгэбзэ</item>
-    <item>Ποντιακά</item>
-    <item>лакку</item>
-    <item>𐌲𐌿𐍄𐌹𐍃𐌺</item>
-    <item>कॉशुर / کٲشُر</item>
-    <item>अवधी</item>
-    <item>ဘာသာ မန်</item>
-    <item>ትግርኛ</item>
     <item>ཇོང་ཁ</item>
-    <item>पालि</item>
-    <item>адыгабзэ</item>
+    <item>Sesotho</item>
+    <item>Tsetsêhestâhese</item>
+    <item>ትግርኛ</item>
+    <item>Pangcah</item>
+    <item>Madhurâ</item>
+    <item>kalaallisut</item>
+    <item>ikirundi</item>
     <item>алтай тил</item>
-    <item>Nēhiyawēwin / ᓀᐦᐃᔭᐍᐏᐣ</item>
-    <item>ߒߞߏ</item>
+    <item>Iñupiatun</item>
+    <item>Chamoru</item>
+    <item>Seediq</item>
+    <item>адыгабзэ</item>
     <item>سرائیکی</item>
+    <item>Li Niha</item>
+    <item>ߒߞߏ</item>
+    <item>Atikamekw</item>
+    <item>Nēhiyawēwin / ᓀᐦᐃᔭᐍᐏᐣ</item>
+    <item>Sängö</item>
+    <item>Thuɔŋjäŋ</item>
+    <item>Tayal</item>
+    <item>ပအိုဝ်ႏဘာႏသာႏ</item>
+    <item>Tyap</item>
+    <item>pinayuanan</item>
+    <item>gungbe</item>
+    <item>Naijá</item>
     <item>Test</item>
     <item>аԥсшәа</item>
   </string-array>
@@ -708,7 +714,6 @@
     <item>German</item>
     <item>French</item>
     <item>Portuguese</item>
-    <item>Italian</item>
     <item>Chinese (China)</item>
     <item>Simplified Chinese</item>
     <item>Traditional Chinese</item>
@@ -717,16 +722,17 @@
     <item>Chinese (Malaysia)</item>
     <item>Chinese (Singapore)</item>
     <item>Chinese (Taiwan)</item>
+    <item>Italian</item>
     <item>Arabic</item>
+    <item>Indonesian</item>
     <item>Polish</item>
     <item>Turkish</item>
     <item>Persian</item>
-    <item>Indonesian</item>
     <item>Dutch</item>
-    <item>Korean</item>
-    <item>Vietnamese</item>
-    <item>Ukrainian</item>
     <item>Hindi</item>
+    <item>Vietnamese</item>
+    <item>Korean</item>
+    <item>Ukrainian</item>
     <item>Thai</item>
     <item>Swedish</item>
     <item>Czech</item>
@@ -734,19 +740,17 @@
     <item>Romanian</item>
     <item>Finnish</item>
     <item>Hebrew</item>
-    <item>Simple English</item>
     <item>Greek</item>
-    <item>Norwegian</item>
+    <item>Bangla</item>
+    <item>Simple English</item>
+    <item>Malay</item>
     <item>Serbian (Cyrillic script)</item>
     <item>Serbian (Latin script)</item>
     <item>Serbian</item>
-    <item>Malay</item>
-    <item>Croatian</item>
+    <item>Norwegian</item>
     <item>Danish</item>
-    <item>Bangla</item>
+    <item>Croatian</item>
     <item>Bulgarian</item>
-    <item>Catalan</item>
-    <item>Slovak</item>
     <item>Kazakh (Arabic script)</item>
     <item>Kazakh (China)</item>
     <item>Kazakh (Cyrillic script)</item>
@@ -754,299 +758,304 @@
     <item>Kazakh (Latin script)</item>
     <item>Kazakh (Turkey)</item>
     <item>Kazakh</item>
+    <item>Tagalog</item>
     <item>Tamil</item>
+    <item>Slovak</item>
+    <item>Marathi</item>
+    <item>Catalan</item>
+    <item>Egyptian Arabic</item>
     <item>Serbo-Croatian</item>
     <item>Azerbaijani</item>
-    <item>Tagalog</item>
-    <item>Lithuanian</item>
-    <item>Marathi</item>
     <item>Uzbek (Cyrillic script)</item>
     <item>Uzbek (Latin script)</item>
     <item>Uzbek</item>
-    <item>Cantonese</item>
-    <item>Slovenian</item>
+    <item>Lithuanian</item>
     <item>Bosnian</item>
-    <item>Egyptian Arabic</item>
+    <item>Telugu</item>
+    <item>Malayalam</item>
+    <item>Slovenian</item>
     <item>Georgian</item>
+    <item>Kannada</item>
+    <item>Cantonese</item>
+    <item>Armenian</item>
     <item>Albanian</item>
     <item>Estonian</item>
-    <item>Telugu</item>
-    <item>Armenian</item>
-    <item>Asturian</item>
     <item>Latvian</item>
-    <item>Malayalam</item>
-    <item>Basque</item>
+    <item>Urdu</item>
     <item>Afrikaans</item>
-    <item>Galician</item>
-    <item>Swahili</item>
-    <item>Norwegian Nynorsk</item>
     <item>Macedonian</item>
     <item>Kyrgyz</item>
-    <item>Esperanto</item>
-    <item>Urdu</item>
-    <item>Kannada</item>
-    <item>Central Bikol</item>
-    <item>Low Saxon</item>
-    <item>Latin</item>
-    <item>Chinese (Min Nan)</item>
-    <item>Iloko</item>
-    <item>Scots</item>
-    <item>Belarusian</item>
-    <item>Alemannisch</item>
-    <item>võro</item>
-    <item>Northern Sotho</item>
-    <item>Waray</item>
-    <item>Belarusian (Taraškievica orthography)</item>
-    <item>Icelandic</item>
+    <item>Swahili</item>
     <item>Gujarati</item>
-    <item>Cebuano</item>
-    <item>Lombard</item>
-    <item>Welsh</item>
-    <item>Occitan</item>
-    <item>Mongolian</item>
-    <item>Low German</item>
-    <item>Western Frisian</item>
-    <item>Venetian</item>
-    <item>Zazaki</item>
-    <item>Ido</item>
-    <item>Sicilian</item>
-    <item>Luxembourgish</item>
-    <item>Breton</item>
-    <item>Fiji Hindi</item>
-    <item>Bavarian</item>
     <item>Sinhala</item>
-    <item>Central Kurdish</item>
-    <item>Khmer</item>
-    <item>Minangkabau</item>
-    <item>Javanese</item>
-    <item>Basa Banyumasan</item>
-    <item>Sundanese</item>
-    <item>Aragonese</item>
-    <item>Northern Frisian</item>
-    <item>Limburgish</item>
-    <item>Emiliano-Romagnolo</item>
-    <item>Ligurian</item>
-    <item>Malagasy</item>
-    <item>Upper Sorbian</item>
+    <item>Mongolian</item>
+    <item>Norwegian Nynorsk</item>
     <item>Burmese</item>
-    <item>Nāhuatl</item>
-    <item>Kotava</item>
-    <item>Faroese</item>
-    <item>Interlingua</item>
-    <item>Mingrelian</item>
-    <item>West Flemish</item>
+    <item>Khmer</item>
+    <item>Galician</item>
+    <item>Basque</item>
+    <item>Belarusian</item>
+    <item>Asturian</item>
+    <item>Bhojpuri</item>
+    <item>Assamese</item>
+    <item>Icelandic</item>
+    <item>Nepali</item>
+    <item>Esperanto</item>
+    <item>Scots</item>
+    <item>Cebuano</item>
+    <item>Central Kurdish</item>
     <item>Tajik (Latin script)</item>
     <item>Tajik</item>
-    <item>Irish</item>
+    <item>Punjabi</item>
+    <item>Latin</item>
+    <item>Belarusian (Taraškievica orthography)</item>
+    <item>Somali</item>
+    <item>Alemannisch</item>
+    <item>Hausa</item>
+    <item>Aragonese</item>
+    <item>Welsh</item>
+    <item>Central Bikol</item>
     <item>Turkmen</item>
-    <item>Quechua</item>
-    <item>Scottish Gaelic</item>
-    <item>Banjar</item>
-    <item>Yoruba</item>
-    <item>Pampanga</item>
+    <item>Javanese</item>
+    <item>Amharic</item>
+    <item>Sundanese</item>
+    <item>South Azerbaijani</item>
+    <item>Bavarian</item>
+    <item>Tatar</item>
+    <item>Chinese (Min Nan)</item>
+    <item>Wu Chinese</item>
+    <item>Igbo</item>
+    <item>Waray</item>
+    <item>Western Punjabi</item>
+    <item>Luxembourgish</item>
+    <item>Mazanderani</item>
+    <item>Breton</item>
+    <item>Occitan</item>
+    <item>Lombard</item>
+    <item>Chechen</item>
+    <item>Kurdish (Arabic script)</item>
+    <item>Kurdish (Latin script)</item>
+    <item>Kurdish</item>
+    <item>Western Frisian</item>
+    <item>Sicilian</item>
+    <item>Low Saxon</item>
+    <item>Minangkabau</item>
+    <item>Odia</item>
+    <item>Low German</item>
+    <item>Irish</item>
+    <item>Bashkir</item>
+    <item>Mingrelian</item>
+    <item>Shona</item>
+    <item>Pashto</item>
+    <item>Venetian</item>
+    <item>Guarani</item>
+    <item>Malagasy</item>
+    <item>Fiji Hindi</item>
+    <item>Moroccan Arabic</item>
+    <item>Iloko</item>
+    <item>Yiddish</item>
+    <item>Zazaki</item>
+    <item>Basa Banyumasan</item>
+    <item>Interlingua</item>
+    <item>Chuvash</item>
+    <item>Sakha</item>
+    <item>Faroese</item>
+    <item>Rusyn</item>
+    <item>Gorontalo</item>
+    <item>Ido</item>
     <item>ᬩᬲᬩᬮᬶ</item>
     <item></item>
     <item></item>
     <item></item>
     <item>Balinese</item>
-    <item>Bhojpuri</item>
-    <item>Wu Chinese</item>
+    <item>Maithili</item>
+    <item>Classical Chinese</item>
+    <item>Zulu</item>
+    <item>Limburgish</item>
+    <item>Emiliano-Romagnolo</item>
+    <item>võro</item>
+    <item>Northern Frisian</item>
+    <item>Northern Sotho</item>
     <item>Crimean Tatar (Cyrillic script)</item>
     <item>Crimean Tatar (Latin script)</item>
     <item>Crimean Tatar</item>
-    <item>Volapük</item>
-    <item>Inari Sami</item>
-    <item>Neapolitan</item>
-    <item>Chuvash</item>
-    <item>Hausa</item>
-    <item>Norman</item>
-    <item>Kurdish (Arabic script)</item>
-    <item>Kurdish (Latin script)</item>
-    <item>Kurdish</item>
-    <item>Western Punjabi</item>
-    <item>Saterland Frisian</item>
-    <item>Tatar</item>
-    <item>Sakha</item>
-    <item>Friulian</item>
-    <item>Samogitian</item>
-    <item>Pangasinan</item>
-    <item>Tok Pisin</item>
-    <item>Kabyle</item>
-    <item>Gorontalo</item>
-    <item>Zeelandic</item>
-    <item>Gagauz</item>
-    <item>Cornish</item>
-    <item>Somali</item>
-    <item>Manx</item>
-    <item>Livvi-Karelian</item>
-    <item>Rusyn</item>
-    <item>Silesian</item>
-    <item>Northern Sami</item>
+    <item>West Flemish</item>
     <item>Haitian Creole</item>
-    <item>Arpitan</item>
-    <item>Nepali</item>
-    <item>Guarani</item>
-    <item>Walloon</item>
-    <item>Veps</item>
-    <item>Novial</item>
-    <item>Igbo</item>
-    <item>Sardinian</item>
-    <item>Extremaduran</item>
-    <item>Hakka Chinese</item>
-    <item>Lingua Franca Nova</item>
-    <item>Punjabi</item>
-    <item>Papiamento</item>
-    <item>Interlingue</item>
-    <item>Zhuang</item>
-    <item>Yiddish</item>
-    <item>Chavacano</item>
-    <item>Shona</item>
-    <item>Colognian</item>
-    <item>Old English</item>
-    <item>Chechen</item>
-    <item>Tarantino</item>
-    <item>Lower Sorbian</item>
-    <item>Shan</item>
-    <item>Kashubian</item>
-    <item>Assamese</item>
-    <item>Karachay-Balkar</item>
-    <item>Amharic</item>
-    <item>Jamaican Creole English</item>
-    <item>Piedmontese</item>
-    <item>Min Dong Chinese</item>
-    <item>Eastern Mari</item>
-    <item>Ladino</item>
-    <item>Norfuk / Pitkern</item>
-    <item>Nauru</item>
-    <item>Guianan Creole</item>
-    <item>Maori</item>
-    <item>Kalmyk</item>
-    <item>Aromanian</item>
-    <item>Kara-Kalpak</item>
-    <item>Maltese</item>
-    <item>Achinese</item>
-    <item>Lojban</item>
-    <item>Tetum</item>
-    <item>Kinyarwanda</item>
-    <item>Ladin</item>
-    <item>Zulu</item>
-    <item>South Azerbaijani</item>
-    <item>Oromo</item>
-    <item>Corsican</item>
-    <item>Bislama</item>
-    <item>Lingala</item>
-    <item>Samoan</item>
-    <item>Tsonga</item>
-    <item>Sranan Tongo</item>
-    <item>Kongo</item>
-    <item>Mazanderani</item>
-    <item>Wolof</item>
-    <item>Pennsylvania German</item>
-    <item>Picard</item>
-    <item>Aymara</item>
-    <item>Kabiye</item>
-    <item>Fulah</item>
-    <item>Sakizaya</item>
-    <item>Ewe</item>
-    <item>Bashkir</item>
-    <item>Romansh</item>
-    <item>Kikuyu</item>
-    <item>Swati</item>
-    <item>Moksha</item>
-    <item>Fijian</item>
-    <item>Vlax Romani</item>
-    <item>Hawaiian</item>
-    <item>Mirandese</item>
-    <item>Tumbuka</item>
-    <item>Amis</item>
-    <item>Taroko</item>
-    <item>Tahitian</item>
-    <item>Ganda</item>
+    <item>Neapolitan</item>
+    <item>Silesian</item>
     <item>Gan (Simplified)</item>
     <item>Gan (Traditional)</item>
     <item>Gan Chinese</item>
-    <item>Bambara</item>
-    <item>Odia</item>
-    <item>Latgalian</item>
+    <item>Ligurian</item>
+    <item>Pampanga</item>
+    <item>Bishnupriya</item>
+    <item>Quechua</item>
+    <item>Upper Sorbian</item>
+    <item>Yoruba</item>
+    <item>Western Armenian</item>
+    <item>Sindhi</item>
+    <item>Scottish Gaelic</item>
     <item>Ossetic</item>
+    <item>Lao</item>
+    <item>Nāhuatl</item>
+    <item>Sardinian</item>
+    <item>Sanskrit</item>
+    <item>Tibetan</item>
+    <item>Samogitian</item>
+    <item>Newari</item>
+    <item>Old English</item>
+    <item>Manx</item>
+    <item>Achinese</item>
+    <item>Kinyarwanda</item>
+    <item>Walloon</item>
+    <item>Eastern Mari</item>
+    <item>Banjar</item>
+    <item>Kotava</item>
+    <item>Inari Sami</item>
+    <item>Gagauz</item>
+    <item>Hakka Chinese</item>
+    <item>Piedmontese</item>
+    <item>Min Dong Chinese</item>
+    <item>Arpitan</item>
+    <item>Volapük</item>
+    <item>Northern Sami</item>
+    <item>Cornish</item>
+    <item>Kabyle</item>
+    <item>Oromo</item>
+    <item>Karachay-Balkar</item>
+    <item>Norman</item>
+    <item>Zeelandic</item>
+    <item>Saterland Frisian</item>
+    <item>Maltese</item>
+    <item>Veps</item>
+    <item>Friulian</item>
+    <item>Colognian</item>
+    <item>Tetum</item>
+    <item>Corsican</item>
+    <item>Tok Pisin</item>
+    <item>Uyghur</item>
+    <item>Kara-Kalpak</item>
+    <item>Tulu</item>
+    <item>Picard</item>
+    <item>Pangasinan</item>
+    <item>Shan</item>
+    <item>Interlingue</item>
+    <item>Papiamento</item>
+    <item>Lingua Franca Nova</item>
+    <item>Kashubian</item>
+    <item>Extremaduran</item>
+    <item>Udmurt</item>
+    <item>Maori</item>
+    <item>Lower Sorbian</item>
+    <item>Goan Konkani</item>
+    <item>Ladino</item>
+    <item>Tarantino</item>
+    <item>Livvi-Karelian</item>
+    <item>Doteli</item>
+    <item>Komi</item>
+    <item>Erzya</item>
     <item>Xhosa</item>
-    <item>Twi</item>
-    <item>Madurese</item>
-    <item>Kalaallisut</item>
-    <item>Pashto</item>
+    <item>Kalmyk</item>
+    <item>Lingala</item>
+    <item>Avaric</item>
+    <item>Russia Buriat</item>
+    <item>Chavacano</item>
+    <item>Lezghian</item>
+    <item>Ladin</item>
+    <item>Divehi</item>
+    <item>Navajo</item>
+    <item>Lojban</item>
+    <item>Gilaki</item>
+    <item>Pennsylvania German</item>
+    <item>Novial</item>
+    <item>Norfuk / Pitkern</item>
+    <item>Zhuang</item>
+    <item>Romansh</item>
+    <item>Tswana</item>
+    <item>Aymara</item>
+    <item>Moksha</item>
+    <item>Aromanian</item>
+    <item>Ingush</item>
+    <item>Palatine German</item>
+    <item>Tsonga</item>
+    <item>Guianan Creole</item>
+    <item>Santali</item>
+    <item>Nauru</item>
+    <item>Jamaican Creole English</item>
     <item>Aramaic</item>
-    <item>Classical Chinese</item>
+    <item>Kongo</item>
+    <item>Kabiye</item>
+    <item>Mirandese</item>
+    <item>Ganda</item>
+    <item>Samoan</item>
+    <item>Cherokee</item>
+    <item>Bislama</item>
+    <item>Wolof</item>
+    <item>Western Mari</item>
+    <item>Tuvinian</item>
+    <item>Church Slavic</item>
+    <item>Sranan Tongo</item>
+    <item>Fijian</item>
+    <item>Swati</item>
+    <item>Tumbuka</item>
+    <item>Manipuri</item>
+    <item>Hawaiian</item>
+    <item>Nyanja</item>
+    <item>Kashmiri</item>
+    <item>Kabardian</item>
+    <item>Akan</item>
+    <item>Twi</item>
+    <item>Eastern Canadian (Aboriginal syllabics)</item>
+    <item>Eastern Canadian (Latin script)</item>
+    <item>Inuktitut</item>
+    <item>Fulah</item>
+    <item>Komi-Permyak</item>
+    <item>Ewe</item>
+    <item>Buginese</item>
+    <item>Awadhi</item>
+    <item>Bambara</item>
+    <item>Mon</item>
+    <item>Tongan</item>
+    <item>Pali</item>
+    <item>Vlax Romani</item>
+    <item>Kikuyu</item>
+    <item>Latgalian</item>
+    <item>Tahitian</item>
+    <item>Sakizaya</item>
+    <item>Pontic</item>
+    <item>Gothic</item>
+    <item>Lak</item>
     <item>Tachelhit (Latin script)</item>
     <item>Tachelhit (Tifinagh script)</item>
     <item>Tachelhit</item>
     <item>Dagbani</item>
-    <item>Komi</item>
-    <item>Avaric</item>
-    <item>Nyanja</item>
-    <item>Palatine German</item>
-    <item>Bishnupriya</item>
-    <item>Tayal</item>
-    <item>Moroccan Arabic</item>
-    <item>Goan Konkani</item>
-    <item>Chamorro</item>
-    <item>Western Armenian</item>
-    <item>Maithili</item>
-    <item>Newari</item>
-    <item>Sindhi</item>
-    <item>Lao</item>
-    <item>Tswana</item>
-    <item>Cheyenne</item>
-    <item>Southern Sotho</item>
-    <item>Tibetan</item>
-    <item>Buginese</item>
-    <item>Inupiaq</item>
-    <item>Udmurt</item>
-    <item>Sanskrit</item>
-    <item>Uyghur</item>
-    <item>Atikamekw</item>
-    <item>Dinka</item>
     <item>Venda</item>
-    <item>Rundi</item>
-    <item>Nias</item>
-    <item>Divehi</item>
-    <item>Lezghian</item>
-    <item>Doteli</item>
-    <item>Gilaki</item>
-    <item>Erzya</item>
-    <item>Navajo</item>
-    <item>Tongan</item>
-    <item>Tulu</item>
-    <item>Russia Buriat</item>
-    <item>Ingush</item>
-    <item>Akan</item>
-    <item>Santali</item>
-    <item>Tuvinian</item>
-    <item>Cherokee</item>
-    <item>Paiwan</item>
-    <item>Western Mari</item>
-    <item>Church Slavic</item>
-    <item>Eastern Canadian (Aboriginal syllabics)</item>
-    <item>Eastern Canadian (Latin script)</item>
-    <item>Inuktitut</item>
-    <item>Sango</item>
-    <item>Komi-Permyak</item>
-    <item>Manipuri</item>
-    <item>Gun</item>
-    <item>Kabardian</item>
-    <item>Pontic</item>
-    <item>Lak</item>
-    <item>Gothic</item>
-    <item>Kashmiri</item>
-    <item>Awadhi</item>
-    <item>Mon</item>
-    <item>Tigrinya</item>
     <item>Dzongkha</item>
-    <item>Pali</item>
-    <item>Adyghe</item>
+    <item>Southern Sotho</item>
+    <item>Cheyenne</item>
+    <item>Tigrinya</item>
+    <item>Amis</item>
+    <item>Madurese</item>
+    <item>Kalaallisut</item>
+    <item>Rundi</item>
     <item>Southern Altai</item>
-    <item>Cree</item>
-    <item>N’Ko</item>
+    <item>Inupiaq</item>
+    <item>Chamorro</item>
+    <item>Taroko</item>
+    <item>Adyghe</item>
     <item>Saraiki</item>
+    <item>Nias</item>
+    <item>N’Ko</item>
+    <item>Atikamekw</item>
+    <item>Cree</item>
+    <item>Sango</item>
+    <item>Dinka</item>
+    <item>Tayal</item>
+    <item>Pa\'O</item>
+    <item>Tyap</item>
+    <item>Paiwan</item>
+    <item>Gun</item>
+    <item>Nigerian Pidgin</item>
     <item>Test</item>
     <item>Abkhazian</item>
   </string-array>

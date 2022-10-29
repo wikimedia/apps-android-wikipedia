@@ -23,6 +23,9 @@ interface ReadingListPageDao {
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updateReadingListPage(page: ReadingListPage)
 
+    @Delete
+    fun deleteReadingListPage(page: ReadingListPage)
+
     @Query("SELECT * FROM ReadingListPage")
     fun getAllPages(): List<ReadingListPage>
 

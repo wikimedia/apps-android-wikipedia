@@ -142,9 +142,9 @@ class EditHistoryListActivity : BaseActivity() {
                     editHistoryInteractionEvent = EditHistoryInteractionEvent(viewModel.pageTitle.wikiSite.dbName(), viewModel.pageId)
                     editHistoryInteractionEvent?.logShowHistory()
                 }
-                editHistoryStatsAdapter.notifyItemChanged(0)
-                editHistorySearchBarAdapter.notifyItemChanged(0)
             }
+            editHistoryStatsAdapter.notifyItemChanged(0)
+            editHistorySearchBarAdapter.notifyItemChanged(0)
         }
 
         lifecycleScope.launch {
@@ -169,11 +169,11 @@ class EditHistoryListActivity : BaseActivity() {
     private fun updateCompareStateItems() {
         binding.compareFromCard.isVisible = viewModel.selectedRevisionFrom != null
         if (viewModel.selectedRevisionFrom != null) {
-            binding.compareFromText.text = DateUtil.getShortDayWithTimeString(this, viewModel.selectedRevisionFrom!!.timeStamp)
+            binding.compareFromText.text = DateUtil.getShortDayWithTimeString(viewModel.selectedRevisionFrom!!.timeStamp)
         }
         binding.compareToCard.isVisible = viewModel.selectedRevisionTo != null
         if (viewModel.selectedRevisionTo != null) {
-            binding.compareToText.text = DateUtil.getShortDayWithTimeString(this, viewModel.selectedRevisionTo!!.timeStamp)
+            binding.compareToText.text = DateUtil.getShortDayWithTimeString(viewModel.selectedRevisionTo!!.timeStamp)
         }
         enableCompareButton(binding.compareConfirmButton, viewModel.selectedRevisionFrom != null && viewModel.selectedRevisionTo != null)
     }
@@ -348,6 +348,8 @@ class EditHistoryListActivity : BaseActivity() {
             val statsFlowValue = viewModel.editHistoryStatsData.value
             if (statsFlowValue is Resource.Success) {
                 view.setup(viewModel.pageTitle, statsFlowValue.data)
+            } else {
+                view.setup(viewModel.pageTitle, null)
             }
         }
     }
@@ -367,23 +369,23 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         fun bindItem() {
-            val statsFlowValue = viewModel.editHistoryStatsData.value
-            if (statsFlowValue is Resource.Success) {
-                binding.root.setCardBackgroundColor(
-                    ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.color_group_22)
-                )
 
-                itemView.setOnClickListener {
-                    startSearchActionMode()
-                }
+            binding.filterByButton.isVisible = viewModel.editHistoryStatsData.value is Resource.Success
 
-                binding.filterByButton.setOnClickListener {
-                    showFilterOverflowMenu()
-                }
+            binding.root.setCardBackgroundColor(
+                ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.color_group_22)
+            )
 
-                FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
-                binding.root.isVisible = true
+            itemView.setOnClickListener {
+                startSearchActionMode()
             }
+
+            binding.filterByButton.setOnClickListener {
+                showFilterOverflowMenu()
+            }
+
+            FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
+            binding.root.isVisible = true
         }
 
         private fun updateFilterCount() {
@@ -450,7 +452,8 @@ class EditHistoryListActivity : BaseActivity() {
                 UserTalkPopupHelper.show(this@EditHistoryListActivity, bottomSheetPresenter,
                         PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode),
                                 revision.user, viewModel.pageTitle.wikiSite), revision.isAnon, v,
-                        Constants.InvokeSource.DIFF_ACTIVITY, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS)
+                    Constants.InvokeSource.DIFF_ACTIVITY, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS,
+                    revisionId = revision.revId, pageId = viewModel.pageId)
             }
         }
 

@@ -83,6 +83,10 @@
     <item quantity="one">%1$d edició des de %2$s</item>
     <item quantity="other">%1$d edicions des de %2$s</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d edició des de %2$s (%3$s)</item>
+    <item quantity="other">%1$d edicions des de %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Proveu de canviar els &lt;a href=\"#\"&gt;filtres&lt;/a&gt; per a mostrar més edicions</string>
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
   <string name="menu_page_other_languages">Canvia la llengua</string>
@@ -453,8 +457,13 @@
   <string name="text_size_percent_default">%s (per defecte)</string>
   <string name="text_style_title">Tipus de lletra</string>
   <string name="theme_category_reading">Lectura</string>
+  <string name="theme_category_editing">Edició</string>
   <string name="reading_focus_mode">Mode de focalització en lectura</string>
   <string name="reading_focus_mode_detail">Amaga les funcionalitats d\'edició i la barra d\'eines inferior en desplaçar-se</string>
+  <string name="editing_syntax_highlight_label">Ressaltat de la sintaxi</string>
+  <string name="editing_line_numbers_label">Mostra els números de línia</string>
+  <string name="editing_monospace_font_label">Utilitza una lletra de mida fixa</string>
+  <string name="editing_typing_suggestions">Mostra suggeriments d\'escriptura</string>
   <string name="nav_item_saved">Desat</string>
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
   <string name="reading_list_move_to">Mou a la llista de lectura</string>
@@ -793,6 +802,10 @@
   <string name="description_edit_license_notice">En canviar la descripció de l\'article, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">normalment comença amb una lletra en minúscula</string>
   <string name="description_edit_voice_input_description">Entrada de veu</string>
+  <string name="description_edit_learn_more">Quant a les descripcions dels articles</string>
+  <string name="description_edit_image_caption_learn_more">Quant a les llegendes de les imatges</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">El text és massa curt.</string>
   <string name="description_ends_with_punctuation">El text no ha d\'acabar amb puntuació.</string>
   <string name="description_starts_with_article">Eviteu començar amb articles com \"un\" o \"el\"...</string>
@@ -994,7 +1007,6 @@
   <string name="file_page_activity_title">Pàgina de fitxer</string>
   <string name="file_page_add_image_caption_button">Afegir una llegenda a la imatge</string>
   <string name="file_page_add_image_tags_button">Afegir una etiqueta a la imatge</string>
-  <string name="file_page_suggestion_reason">Motiu del suggeriment</string>
   <string name="file_page_edit_button_content_description">Edita %s</string>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_intro">Sabem que heu fet el millor possible, però un dels revisors tenia una precaució. Els motius possibles de la reversió de la modificació poden ser:</string>
@@ -1070,12 +1082,52 @@
   <string name="content_description_for_page_indicator">Pàgina %1$d de %2$d</string>
   <string name="wikitext_bold">Negreta</string>
   <string name="wikitext_italic">Cursiva</string>
+  <string name="wikitext_underline">Subratllat</string>
+  <string name="wikitext_strikethrough">Ratllat</string>
+  <string name="wikitext_sup">Superíndex</string>
+  <string name="wikitext_sub">Subíndex</string>
+  <string name="wikitext_large">Text gran</string>
+  <string name="wikitext_small">Text petit</string>
+  <string name="wikitext_code">Codi</string>
   <string name="wikitext_link">Enllaç</string>
+  <string name="wikitext_heading_n">Encapçalament de nivell %d</string>
+  <string name="wikitext_formatting">Format</string>
+  <string name="wikitext_headings">Encapçalaments</string>
+  <string name="wikitext_insert_media">Insereix multimèdia</string>
   <string name="wikitext_bulleted_list">Llista puntejada</string>
   <string name="wikitext_numbered_list">Llista numerada</string>
   <string name="wikitext_template">Plantilla</string>
   <string name="wikitext_reference">Referència</string>
   <string name="wikitext_preview_link">Previsualitza l’enllaç</string>
+  <string name="insert_media_title">Insereix multimèdia</string>
+  <string name="insert_media_search_description">Selecciona un fitxer de Wikimedia Commons</string>
+  <string name="insert_media_search_hint">Cerca multimèdia</string>
+  <string name="insert_media_settings">Paràmetres multimèdia</string>
+  <string name="insert_media_settings_uploaded_image">Imatge carregada</string>
+  <string name="insert_media_settings_caption">Llegenda</string>
+  <string name="insert_media_settings_caption_description">L\'etiqueta que es mostra al costat de l\'element per a tots els lectors</string>
+  <string name="insert_media_settings_alternative_text">Text alternatiu</string>
+  <string name="insert_media_settings_alternative_text_description">Descripció textual per als lectors que no poden veure la imatge</string>
+  <string name="insert_media_advanced_settings">Paràmetres avançats</string>
+  <string name="insert_media_advanced_settings_wrap_image">Ajusta el text al voltant de la imatge</string>
+  <string name="insert_media_advanced_settings_image_position">Posició de la imatge</string>
+  <string name="insert_media_advanced_settings_image_position_right">Dreta</string>
+  <string name="insert_media_advanced_settings_image_position_left">Esquerra</string>
+  <string name="insert_media_advanced_settings_image_position_center">Centre</string>
+  <string name="insert_media_advanced_settings_image_position_none">Cap</string>
+  <string name="insert_media_advanced_settings_image_type">Tipus d\'imatge</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Miniatura</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Sense marc</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Marc</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Bàsic</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Podeu definir com l\'element multimèdia apareix a la pàgina. Cal que sigui en format miniatura per tal que sigui consistent amb altres pàgines en la majoria dels casos.</string>
+  <string name="insert_media_advanced_settings_image_size">Mida de la imatge</string>
+  <string name="insert_media_advanced_settings_image_size_default">Per defecte</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Personalitzada</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Amplada</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Alçària</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
+  <string name="insert_media_insert_button">Insereix</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Inicia una sessió / uniu-vos a la Viquipèdia</string>
   <string name="main_tooltip_text">Hola %s, sabíeu que tothom pot editar la Viquipèdia?</string>
@@ -1134,6 +1186,8 @@
   <string name="talk_list_item_user_icon_content_description">Icona d\'usuari</string>
   <string name="talk_list_item_swipe_mark_as_read">Llegit</string>
   <string name="talk_list_item_swipe_mark_as_unread">No llegit</string>
+  <string name="talk_login_to_subscribe_dialog_title">Inicieu una sessió per a subscriure-us als temes</string>
+  <string name="talk_login_to_subscribe_dialog_content">Les subscripcions als temes us permetran rebre notificacions de comentaris nous sobre aquest tema. Creeu un compte a la Viquipèdia i inicieu una sessió amb ell per a subscriure-us a un tema.</string>
   <string name="talk_archived_title">Arxiu de la discussió: %s</string>
   <string name="menu_option_share_talk_discussion">Comparteix la discussió</string>
   <string name="menu_option_share_talk_page">Comparteix la pàgina de discussió</string>
@@ -1142,6 +1196,7 @@
   <string name="menu_option_edit_source">Modifica el codi</string>
   <string name="menu_option_user_page">Pàgina d\'usuari de %s</string>
   <string name="menu_option_find_in_talk_page_topic">Cerca el tema en la pàgina de discussió</string>
+  <string name="menu_option_copy_link_to_clipboard">Copia l\'enllaç al porta-retalls</string>
   <string name="talk_menu_copy_text">Copia el text</string>
   <string name="talk_menu_expand_threads">Desplega els fils</string>
   <string name="talk_menu_collapse_threads">Plega els fils</string>
@@ -1165,6 +1220,7 @@
   <string name="revision_diff_to">Per a:</string>
   <string name="revision_diff_line_num">Línia %d</string>
   <string name="revision_diff_line_nums">Línies %d–%d</string>
+  <string name="revision_diff_lines_from_to">Línies %1$d–%2$d</string>
   <string name="revision_diff_line_added">Línia afegida</string>
   <string name="revision_diff_line_removed">Línia eliminada</string>
   <string name="revision_diff_paragraph_added">Paràgraf afegit</string>
@@ -1199,6 +1255,12 @@
   <string name="watchlist_page_moved">Moguda</string>
   <string name="watchlist_page_protected">Protegida</string>
   <string name="watchlist_page_deleted">Suprimida</string>
+  <string name="preview_edit_title">Previsualització de l\'edició</string>
+  <string name="preview_edit_summarize_edit_title">Resumeix l\'edició</string>
+  <string name="preview_edit_summarize_edit_hint">Com heu millorat la pàgina?</string>
+  <string name="preview_edit_minor_edit">Aquesta és una modificació menor</string>
+  <string name="preview_edit_watch_this_page">Vigila aquesta pàgina</string>
+  <string name="preview_edit_learn_more">Més informació dels resums d\'edició</string>
   <string name="action_item_categories">Categories</string>
   <string name="page_no_categories">La pàgina no pertany a cap categoria.</string>
   <string name="category_tab_articles">Articles</string>
@@ -1207,6 +1269,13 @@
   <string name="subcategory_empty">No s\'han trobat subcategories en la categoria.</string>
   <string name="search_namespaces">Espais de noms</string>
   <string name="revision_initial_none">Cap (és la primera revisió)</string>
+  <string name="user_contrib_activity_title">Contribucions de %s</string>
   <string name="archive_empty">No s\'ha trobat cap pàgina arxivada.</string>
+  <string name="user_contrib_filter_ns">Filtra per espai de noms</string>
+  <string name="user_contrib_filter_all" fuzzy="true">Totes les edicions</string>
+  <string name="namespace_article">Article</string>
+  <string name="user_contrib_current">actual</string>
   <string name="media_playback_error">Error de reproducció multimèdia</string>
+  <string name="user_contrib_menu_label">Contribucions</string>
+  <string name="user_contrib_filter_activity_title" fuzzy="true">Contribucions a:</string>
 </resources>

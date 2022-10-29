@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Arystanbek
+* Batyrbek.kz
 * Darzz
 * Fontan 030
 * MuratTheTurkish
@@ -23,13 +24,17 @@
   <string name="error_network_error">Интернет қосылымы жоқ.</string>
   <string name="page_error_retry">Қайталау</string>
   <string name="card_offline_error_retry">Қайталау</string>
+  <string name="storage_access_error_retry">Қайталау</string>
   <string name="article_load_error_retry">Қайталау</string>
   <string name="offline_load_error_retry">Қайталау</string>
+  <string name="page_error_back_to_main">Артқа қайту</string>
+  <string name="error_back">Артқа қайту</string>
   <string name="error_next">Келесі</string>
   <string name="menu_clear_all_history">Тарихын тазалау</string>
-  <string name="history_item_deleted">%s тарихтан жойылған</string>
-  <string name="history_items_deleted">%d мақала тарихтан жойылған</string>
+  <string name="history_item_deleted">\"%s\" тарихтан жойылды</string>
+  <string name="history_items_deleted">%d мақала тарихтан жойылды</string>
   <string name="history_item_delete_undo">Болдырмау</string>
+  <string name="notification_archive_undo">Болдырмау</string>
   <string name="app_settings">Қосымшаны баптау</string>
   <string name="search_tab_tooltip">Іздегіңіз келгенін тікелей жаза бастау үшін белгішені қайта басыңыз.</string>
   <string name="history_list_title">Тарих</string>
@@ -42,11 +47,13 @@
   <string name="dialog_message_clear_history_yes">Иә</string>
   <string name="dialog_message_clear_history_no">Жоқ</string>
   <string name="share_via">Арқылы бөлісу:</string>
+  <string name="image_share_via">Арқылы бөлісу:</string>
   <string name="search_redirect_from">%s бетінен бағытталды</string>
   <string name="page_edit_history_activity_title">Нұсқа тарихы: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;ш&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Бос өңдеме түйіні</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Өңдеме іздеу немесе сүзу</string>
+  <string name="page_edit_history_filter_by">Сүзгі</string>
   <string name="page_edit_history_filter_by_all">Барлық өңдеме (%s)</string>
   <string name="page_edit_history_filter_by_user">Қатысушы өңдемелері (%s)</string>
   <string name="page_edit_history_filter_by_anon">Аноним өңдемелері (%s)</string>
@@ -55,8 +62,8 @@
   <string name="reading_list_page_share">Бөлісу</string>
   <string name="last_updated_text">Соңғы жаңартылуы: %s</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Сақтасаңыз &lt;a href=\"%1$s\"&gt;Қолдану шарттарымен&lt;/a&gt; келсіскеніңіз болып табылады және &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы аясында үлесіңізді қайтарымсыз жариялайсыз.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Сақтасаңыз &lt;a href=\"%1$s\"&gt;Қолдану шарттарымен&lt;/a&gt; келсіскеніңіз болып табылады және &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы аясында үлесіңізді қайтарымсыз жариялайсыз. Өңдемелеріңіз сіздің құрылғыңыздың IP мекенжайымен анықталады. Егер сіз&lt;a href=\"https://#login\"&gt;кірсеңіз&lt;/a&gt; сізде көбірек құпиялық   болады.</string>
+  <string name="edit_save_action_license_logged_in">Жарияласаңыз &lt;a href=\"%1$s\"&gt;Қолдану шарттарымен&lt;/a&gt; келсіскеніңіз болып табылады және &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы аясында үлесіңізді қайтарымсыз жариялайсыз.</string>
+  <string name="edit_save_action_license_anon">Жарияласаңыз &lt;a href=\"%1$s\"&gt;Қолдану шарттарымен&lt;/a&gt; келсіскеніңіз болып табылады және &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы аясында үлесіңізді қайтарымсыз жариялайсыз. Өңдемелеріңіз сіздің құрылғыңыздың IP мекенжайымен анықталады. Егер сіз&lt;a href=\"https://#login\"&gt;кірсеңіз&lt;/a&gt; сізде көбірек құпиялық   болады.</string>
   <string name="preference_title_language">Уикипедия тілдері</string>
   <string name="langlinks_filter_hint">Іздеу</string>
   <string name="langlinks_empty">Бұл бет басқа тілдерде қолжетімді емес.</string>
@@ -68,7 +75,7 @@
   <string name="dialog_message_edit_failed">Өңделмеді!</string>
   <string name="dialog_message_edit_failed_retry">Қайталау</string>
   <string name="dialog_message_edit_failed_cancel">Болдырмау</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">Өзгерістеріңіз сақталмады. Бұл беттен кеткеніңізге сенімдісіз бе?</string>
+  <string name="dialog_message_leaving_edit">Өзгерістеріңіз жарияланбады. Бұл беттен кеткеніңізге сенімдісіз бе?</string>
   <string name="dialog_message_leaving_edit_leave">Шығу</string>
   <string name="dialog_message_leaving_edit_stay">Қалу</string>
   <string name="menu_show_toc">Мазмұны</string>
@@ -94,7 +101,7 @@
   <string name="toast_logout_complete">Жүйеден шықтыңыз</string>
   <string name="logout_dialog_cancel_button_text">Болдырмау</string>
   <string name="logged_out_in_background_cancel">Болдырмау</string>
-  <string name="history_empty_title" fuzzy="true">Мұнда жуықтағы беттер жоқ!</string>
+  <string name="history_empty_title">Жуықтағы қаралған мақалалар жоқ</string>
   <string name="wp_stylized">&lt;big&gt;У&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Қатысушы есімі</string>
   <string name="create_account_activity_title">Тіркеліңіз</string>
@@ -115,7 +122,7 @@
   <string name="page_protected_autoconfirmed">Бұл бет жартылай қорғалған.</string>
   <string name="page_protected_sysop">Бұл бет толықтай қорғалған.</string>
   <string name="page_protected_other">Бұл бет келесідей деңгейлерде қорғалған: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Бұл бетті өңдеуге құқығыңыз жоқ</string>
+  <string name="page_protected_can_not_edit">Кешіріңіз, қазіргі уақытта бұл бетті өңдеуге сіздің аккаунтыңыздың жеткілікті құқығы жоқ.</string>
   <string name="page_protected_can_not_edit_title">Бұл бет қорғалған</string>
   <string name="settings_item_preferences">Баптаулар</string>
   <string name="settings_activity_title">Баптаулар</string>
@@ -123,11 +130,11 @@
   <string name="privacy_policy_description">Құпиялық саясаты</string>
   <string name="terms_of_use_description">Қолдану шарты</string>
   <string name="about_wikipedia_url">https://kk.wikipedia.org/wiki/Уикипедия:Уикипедия_туралы</string>
-  <string name="about_libraries_heading" fuzzy="true">кітапханалар қолданылған</string>
-  <string name="about_contributors_heading" fuzzy="true">авторлар</string>
-  <string name="about_translators_heading" fuzzy="true">аудармашылар</string>
+  <string name="about_libraries_heading">Кітапханалар қолданылған</string>
+  <string name="about_contributors_heading">Үлескерлер</string>
+  <string name="about_translators_heading">Аудармашылар</string>
   <string name="about_translators_translatewiki">Бұл қосымшаны &lt;ahref=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; аудару жобасында ерікті аудармашылар аударған.</string>
-  <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Уикимедиа Қоры&lt;/a&gt; өнімі</string>
+  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Уикимедиа Қоры&lt;/a&gt; өнімі</string>
   <string name="about_activity_title">Жоба туралы</string>
   <string name="edit_abandon_confirm">Бұл бет өзгертілген. Бұл бетті сақтамай кеткіңіз келгеніне сенімдісіз бе?</string>
   <string name="edit_abandon_confirm_yes">Иә</string>
@@ -135,9 +142,9 @@
   <string name="user_blocked_from_editing_title">Бұғатталған</string>
   <string name="user_logged_in_blocked_from_editing">Сіздің қатысушы аккаунтыңыз бұл уикиді өңдеуден бұғатталған.</string>
   <string name="user_anon_blocked_from_editing">Сіздің IP мекенжайыңыз өңдеуден бұғатталған.</string>
-  <string name="edit_how_page_improved">Сіз беті қалай жетілдіресіз?</string>
+  <string name="edit_how_page_improved">Бетті қалай жақсарттыңыз?</string>
   <string name="edit_next">Келесі</string>
-  <string name="edit_done" fuzzy="true">Сақтау</string>
+  <string name="edit_done">Жариялау</string>
   <string name="edit_preview">Қарап шығу</string>
   <string name="edit_summary_tag_typo">Жазу қатесін түзеттім</string>
   <string name="edit_summary_tag_grammar">грамматикасын түзеттім</string>
@@ -145,8 +152,8 @@
   <string name="edit_summary_tag_other">Басқа</string>
   <string name="find_next">Келесісін табу</string>
   <string name="find_previous">Алыңғысын табу</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Бұл жүйелі емес өңдеме болуы мүмкін. Сіз оны сақтауға шыынмен сенімдісіз бе?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Бұл өңдемені сақтай алмайсыз. Артқа қайтыңыз және оны өзгертіңіз.</string>
+  <string name="abusefilter_title_warn">Бұл жүйелі емес өңдеме болуы мүмкін. Сіз оны жариялауға шынымен сенімдісіз бе?</string>
+  <string name="abusefilter_title_disallow">Бұл өңдемені жариялай алмайсыз. Артқа қайтып оны өзгертіңіз.</string>
   <string name="abusefilter_text_warn">Автоматтандырылған сүзгіш бұл өңдемеден әлеуетті жүйесіздікті анықтады. Оның мәтінінде келесілердің бірін не бірнешеуін қамтыған болуы мүмкін:&lt;br /&gt;&lt;br /&gt;· Үлкен әріптермен жазу&lt;br /&gt;· Мақалаларды тазарту не спамдау&lt;br /&gt;· Орынсыз сыртқы сілтемелер немесе суреттер&lt;br /&gt;· Таңбаларды көп қайталау</string>
   <string name="abusefilter_text_disallow">Автоматтандырылған сүзгіш бұл өңдемеден әлеуетті жүйесіздікті немесе әлеуетті бұзақылықты анықтады.&lt;br /&gt;&lt;br /&gt; Уикипедия — бұл энцикопедия және мұнда тек бейтарап, елеулі контент болуы керек.</string>
   <string name="clear_recent_searches_confirm_yes">Иә</string>

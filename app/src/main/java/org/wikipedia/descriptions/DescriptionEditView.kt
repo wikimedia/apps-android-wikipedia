@@ -3,6 +3,7 @@ package org.wikipedia.descriptions
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
@@ -86,6 +87,12 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 return@setOnEditorActionListener true
             }
             false
+        }
+
+        binding.learnMoreButton.setOnClickListener {
+            UriUtil.visitInExternalBrowser(context, Uri.parse(WikipediaApp.instance.getString(if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION ||
+                action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) R.string.description_edit_description_learn_more_url
+            else R.string.description_edit_image_caption_learn_more_url)))
         }
     }
 
@@ -378,6 +385,13 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             isLanguageWrong = true
             enqueueValidateText()
         }
+    }
+
+    fun updateInfoText() {
+        binding.learnMoreButton.text =
+            if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION ||
+                action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) context.getString(R.string.description_edit_learn_more)
+            else context.getString(R.string.description_edit_image_caption_learn_more)
     }
 
     companion object {

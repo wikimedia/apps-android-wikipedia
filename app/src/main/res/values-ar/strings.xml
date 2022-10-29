@@ -6,6 +6,7 @@
 * Asaifm
 * Asma
 * Dbrant
+* Dr-Taher
 * Dr. Mohammed
 * Elbasyouny
 * Esraa Ismail
@@ -253,10 +254,10 @@
   <string name="privacy_policy_description">سياسة الخصوصية</string>
   <string name="terms_of_use_description">شروط الاستخدام</string>
   <string name="about_wikipedia_url">https://ar.wikipedia.org/wiki/ويكيبيديا:عن</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/ar</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy/ar</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ar</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/ar</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/ar</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -456,6 +457,7 @@
   <string name="theme_category_reading">القراءة</string>
   <string name="reading_focus_mode">وضع تركيز القراءة</string>
   <string name="reading_focus_mode_detail">أخف ميزات التعديل وشريط الأدوات السفلي أثناء التمرير</string>
+  <string name="editing_line_numbers_label">أظهر أرقام الأسطر</string>
   <string name="nav_item_saved">محفوظة</string>
   <string name="reading_list_save_to">حفظ في قائمة القراءة</string>
   <string name="reading_list_move_to">انتقل إلى قائمة القراءة</string>
@@ -593,6 +595,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">إلغاء</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">إلغاء</string>
   <string name="reading_list_split_dialog_ok_button_text">حسنا</string>
+  <string name="reading_list_activity_title">قائمة القراءة\" %s</string>
   <string name="user_option_sync_label">تفضيلات</string>
   <string name="notification_reverted_title">تعديل ملغى</string>
   <string name="notification_channel_description">تقدم التنزيل</string>
@@ -947,7 +950,6 @@
   <string name="file_page_activity_title">صفحة ملف</string>
   <string name="file_page_add_image_caption_button">إضافة تعليق الصورة</string>
   <string name="file_page_add_image_tags_button">أضف وسوم الصور</string>
-  <string name="file_page_suggestion_reason">سبب الاقتراح</string>
   <string name="file_page_edit_button_content_description">عدِّل %s</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
@@ -1023,12 +1025,15 @@
   <string name="content_description_for_page_indicator">الصفحة %1$d من %2$d</string>
   <string name="wikitext_bold">غليظ</string>
   <string name="wikitext_italic">مائل</string>
+  <string name="wikitext_large">نص كبير</string>
+  <string name="wikitext_small">نص صغير</string>
   <string name="wikitext_link">وصلة</string>
   <string name="wikitext_bulleted_list">قائمة منقطة</string>
   <string name="wikitext_numbered_list">قائمة مرقمة</string>
   <string name="wikitext_template">قالب</string>
   <string name="wikitext_reference">مرجع</string>
   <string name="wikitext_preview_link">معاينة الرابط</string>
+  <string name="insert_media_advanced_settings_image_size">حجم الصورة</string>
   <string name="main_drawer_help">مساعدة</string>
   <string name="main_drawer_login">سجل الدخول / انضم لويكيبيديا</string>
   <string name="main_tooltip_text">مرحبا %s، هل تعلم أنه بإمكان الجميع تحرير ويكيبيديا؟</string>
@@ -1135,6 +1140,12 @@
   <string name="watchlist_page_moved">نُقلت</string>
   <string name="watchlist_page_protected">محمية</string>
   <string name="watchlist_page_deleted">حُذفت</string>
+  <string name="preview_edit_title">معاينة التعديل</string>
+  <string name="preview_edit_summarize_edit_title">تلخيص التحرير</string>
+  <string name="preview_edit_summarize_edit_hint">كيف حسّنت الصفحة؟</string>
+  <string name="preview_edit_minor_edit">هذا تعديل طفيف</string>
+  <string name="preview_edit_watch_this_page">راقب هذه الصفحة</string>
+  <string name="preview_edit_learn_more">تعرف على المزيد حول ملخص التحرير</string>
   <string name="action_item_categories">التصنيفات</string>
   <string name="page_no_categories">لا تنتمي هذه الصفحة إلى أية تصنيفات.</string>
   <string name="category_tab_articles">المقالات</string>
@@ -1143,4 +1154,6 @@
   <string name="subcategory_empty">لم يُعثر على تصنيفات فرعية في هذا التصنيف.</string>
   <string name="search_namespaces">النطاقات</string>
   <string name="revision_initial_none">لا شيء (هذه هي المراجعة الأولى)</string>
+  <string name="user_contrib_filter_all" fuzzy="true">كل التعديلات</string>
+  <string name="namespace_article">المقالات</string>
 </resources>

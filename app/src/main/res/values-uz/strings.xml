@@ -67,6 +67,10 @@
     <item quantity="one">%2$s dan buyon %1$d ta tahrir</item>
     <item quantity="other">%2$s dan buyon %1$d ta tahrir</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%2$s (%3$s)dan buyon %1$d ta tahrir</item>
+    <item quantity="other">%2$s (%3$s)dan buyon %1$d ta tahrir</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Batafsil tahrirlarni koʻrish uchun &lt;a href=\"#\"&gt;filtrlarni&lt;/a&gt; sinab koʻring</string>
   <string name="menu_page_show_tabs">Tablarni ko‘rsatish</string>
   <string name="menu_page_other_languages">Boshqa tillarda o‘qish</string>
@@ -110,7 +114,7 @@
   <string name="language_count_link_text">Maqola %d ta tilda mavjud</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Nashr qilish bilan Siz &lt;a href=\"%1$s\"&gt; Foydalanish shartlari &lt;/a&gt;ga va o‘zingizning hissangizni &lt;a href=\"%2$s\"&gt; CC BY-SA 3.0 ostida qaytarib berilmaslikka rozilik bildirasiz. &lt;/a&gt; litsenziyasi.</string>
-  <string name="edit_save_action_license_anon">Nashr qilish bilan Siz &lt;a href=\"%1$s\"&gt; Foydalanish shartlari &lt;/a&gt;ga va o‘z hissangizni &lt;a href=\"%2$s/\"&gt; CC BY-SA ostida qaytarib berilmaslikka rozilik bildirasiz. 3.0 &lt;/a&gt; litsenziyasi. O‘zgarishlar sizning qurilmangiz IP-manziliga tegishli bo‘ladi. Agar Siz &lt;a href=\"https://#login\"&gt; tizimga kirsangiz &lt;/a&gt;, siz ko\'proq shaxsiylikka ega bo‘lasiz.</string>
+  <string name="edit_save_action_license_anon">Nashr qilish bilan siz &lt;a href=\"%1$s\"&gt;Foydalanish shartlari&lt;/a&gt;ga va oʻz hissangizni &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; litsenziyasi ostida qaytarib berilmaslikka rozilik bildirasiz. Oʻzgarishlar sizning qurilmangiz IP-manziliga tegishli boʻladi. Agar &lt;a href=\"https://#login\"&gt;tizimga kirsangiz&lt;/a&gt;, koʻproq shaxsiylikka ega boʻlasiz.</string>
   <string name="edit_anon_warning">Tahrirlar qurilmangiz IP manziliga tegishli boʻladi. Agar Siz tizimga &lt;a href=\"https://#login\"&gt;kirsangiz&lt;/a&gt;, maxfiylikka ega boʻlasiz.</string>
   <string name="preference_title_language">Vikipediya tillari</string>
   <string name="langlinks_filter_hint">Izlash</string>
@@ -437,8 +441,13 @@
   <string name="text_size_percent_default">%s (standart)</string>
   <string name="text_style_title">Shrift</string>
   <string name="theme_category_reading">Oʻqish</string>
+  <string name="theme_category_editing">Tahrirlash</string>
   <string name="reading_focus_mode">Oʻqish rejimi</string>
   <string name="reading_focus_mode_detail">Asosiy tahrirlarni va harakat vaqti quyi panelni berkitmoq</string>
+  <string name="editing_syntax_highlight_label">Sintaksisni taʼkidlash</string>
+  <string name="editing_line_numbers_label">Satr raqamlarini koʻrsatish</string>
+  <string name="editing_monospace_font_label">Monospace shriftidan foydalanish</string>
+  <string name="editing_typing_suggestions">Yozish bo‘yicha takliflarni ko‘rsatish</string>
   <string name="nav_item_saved">Saqlamalar</string>
   <string name="reading_list_save_to">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
   <string name="reading_list_move_to">Oʻqish roʻyxatiga oʻtmoq</string>
@@ -776,6 +785,10 @@
   <string name="description_edit_license_notice">Maqola tavsifini oʻzgartirib, men &lt;a href=\"%1$s\"&gt; Foydalanish shartlariga&lt;/a&gt; rozilik bildiraman hamda &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; litsenziyasi shartlariga asosan oʻz maqolamni qaytarib olmaslikka roziman.</string>
   <string name="description_edit_helper_text_lowercase_warning">odatda kichik harf bilan boshlanadi</string>
   <string name="description_edit_voice_input_description">Ovoz bilan kiritmoq</string>
+  <string name="description_edit_learn_more">Maqola tavsiflari haqida koʻproq bilib oling</string>
+  <string name="description_edit_image_caption_learn_more">Tasvir izohi haqida batafsil maʼlumot oling</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Matn juda ham qisqa.</string>
   <string name="description_ends_with_punctuation">Matn tinish belgilari bilan tugamasligi kerak.</string>
   <string name="description_starts_with_uppercase">Birinchi soʻz atoqli ot boʻlmasa, kichik harf bilan boshlang.</string>
@@ -976,7 +989,6 @@
   <string name="file_page_activity_title">Fayl sahifasi</string>
   <string name="file_page_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="file_page_add_image_tags_button">Rasmga teg qoʻshmoq</string>
-  <string name="file_page_suggestion_reason">Taklif sababi</string>
   <string name="file_page_edit_button_content_description">%sʼni tahrirlamoq</string>
   <string name="description_edit_revert_subtitle">Vikipediyaga hissa qoʻshnagingiz uchun tashakkur!</string>
   <string name="description_edit_revert_intro">Biz sizning qo\'lingizdan kelganicha harakat qilganingizni bilamiz, ammo sharhlovchilardan biri tashvishga tushdi. Tahriringiz qaytarilgan bo\'lishi mumkin bo\'lgan sabablarga quyidagilar kiradi:</string>
@@ -1052,12 +1064,52 @@
   <string name="content_description_for_page_indicator">%1$d / %2$d sahifa</string>
   <string name="wikitext_bold">Qalin</string>
   <string name="wikitext_italic">Yotiq</string>
+  <string name="wikitext_underline">Tagchiziqli</string>
+  <string name="wikitext_strikethrough">Ustiga chizilgan</string>
+  <string name="wikitext_sup">Yuqori yozuv</string>
+  <string name="wikitext_sub">Ost yozuv</string>
+  <string name="wikitext_large">Katta matn</string>
+  <string name="wikitext_small">Kichik matn</string>
+  <string name="wikitext_code">Kod</string>
   <string name="wikitext_link">Havola</string>
+  <string name="wikitext_heading_n">%d-ostsarlavha</string>
+  <string name="wikitext_formatting">Formatlash</string>
+  <string name="wikitext_headings">Sarlavhalar</string>
+  <string name="wikitext_insert_media">Mediani qoʻymoq</string>
   <string name="wikitext_bulleted_list">Belgili roʻyxat</string>
   <string name="wikitext_numbered_list">Raqamlangan roʻyxat</string>
   <string name="wikitext_template">Andoza</string>
   <string name="wikitext_reference">Manba</string>
   <string name="wikitext_preview_link">Koʻrish havolasi</string>
+  <string name="insert_media_title">Mediani qoʻymoq</string>
+  <string name="insert_media_search_description">Wikimedia Commonsʼdan fayl tanlamoq</string>
+  <string name="insert_media_search_hint">Media qidiruvi</string>
+  <string name="insert_media_settings">Media tanlovlari</string>
+  <string name="insert_media_settings_uploaded_image">Yuklangan rasm</string>
+  <string name="insert_media_settings_caption">Izoh</string>
+  <string name="insert_media_settings_caption_description">Barcha oʻquvchilar uchun element yonida koʻrsatiladigan yozuv</string>
+  <string name="insert_media_settings_alternative_text">Muqobil matn</string>
+  <string name="insert_media_settings_alternative_text_description">Rasmni koʻra olmaydigan oʻquvchilar uchun izohli matn</string>
+  <string name="insert_media_advanced_settings">Kengaytirilgan tanlovlar</string>
+  <string name="insert_media_advanced_settings_wrap_image">Rasm atrofiga matnni joylashtirmoq</string>
+  <string name="insert_media_advanced_settings_image_position">Tasvir oʻrni</string>
+  <string name="insert_media_advanced_settings_image_position_right">Oʻngda</string>
+  <string name="insert_media_advanced_settings_image_position_left">Chapda</string>
+  <string name="insert_media_advanced_settings_image_position_center">Markazda</string>
+  <string name="insert_media_advanced_settings_image_position_none">Hech qaysi</string>
+  <string name="insert_media_advanced_settings_image_type">Tasvir turi</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Eskiz</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Ramkasiz</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Ramka</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Asosiy</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Media elementi sahifada qanday koʻrinishini oʻrnatishingiz mumkin. Bu deyarli barcha holatlarda boshqa sahifalar bilan mos keladigan eskiz formati boʻlishi kerak.</string>
+  <string name="insert_media_advanced_settings_image_size">Tasvir oʻlchami</string>
+  <string name="insert_media_advanced_settings_image_size_default">Standart</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Maxsus</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Eni</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Boʻyi</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
+  <string name="insert_media_insert_button">Qoʻyish</string>
   <string name="main_drawer_help">Yordam</string>
   <string name="main_drawer_login">Vikipediaga kirmoq</string>
   <string name="main_tooltip_text">Salom %s, Vikipediyani hamma tahrirlashi mumkinligini bilasizmi?</string>
@@ -1124,6 +1176,7 @@
   <string name="menu_option_edit_source">Manbasini tahrirlash</string>
   <string name="menu_option_user_page">%s foydalanuvchi sahifasi</string>
   <string name="menu_option_find_in_talk_page_topic">Muhokama sahifasida mavzuni izlamoq</string>
+  <string name="menu_option_copy_link_to_clipboard">Nusxa olmoq</string>
   <string name="talk_menu_copy_text">Matnni nusxalash</string>
   <string name="talk_menu_expand_threads">Oqimlarni yoymoq</string>
   <string name="talk_menu_collapse_threads">Oqimni yigʻishtirmoq</string>
@@ -1181,6 +1234,12 @@
   <string name="watchlist_page_moved">Koʻchirilgan</string>
   <string name="watchlist_page_protected">Himoyalangan</string>
   <string name="watchlist_page_deleted">O‘chirilgan</string>
+  <string name="preview_edit_title">Tahrirni oldindan koʻrish</string>
+  <string name="preview_edit_summarize_edit_title">Tahrirni umumiylashtirmoq</string>
+  <string name="preview_edit_summarize_edit_hint">Sahifani yaxshilashga qanday yordam koʻrsatdingiz?</string>
+  <string name="preview_edit_minor_edit">Bu kichik tahrir</string>
+  <string name="preview_edit_watch_this_page">Sahifani kuzatmoq</string>
+  <string name="preview_edit_learn_more">Xulosalarni tahrirlash haqida batafsil</string>
   <string name="action_item_categories">Turkumlar</string>
   <string name="page_no_categories">Ushbu sahifa bironta turkumga taalluqli emas.</string>
   <string name="category_tab_articles">Maqolalar</string>
@@ -1189,6 +1248,13 @@
   <string name="subcategory_empty">Bu turkumda ostturkumlar mavjud emas.</string>
   <string name="search_namespaces">Nom maydoni</string>
   <string name="revision_initial_none">Yoʻq (bu birinchi tahrir)</string>
+  <string name="user_contrib_activity_title">%s hissasi</string>
   <string name="archive_empty">Arxivlangan sahifalar topilmadi.</string>
+  <string name="user_contrib_filter_ns">Nom maydoni boʻyicha filtr</string>
+  <string name="user_contrib_filter_all" fuzzy="true">Barcha tahrirlar</string>
+  <string name="namespace_article">Maqola</string>
+  <string name="user_contrib_current">joriy</string>
   <string name="media_playback_error">Mediani ijro etishda xatolik yuz berdi.</string>
+  <string name="user_contrib_menu_label">Hissalar</string>
+  <string name="user_contrib_filter_activity_title" fuzzy="true">Qoʻshilgan hissa:</string>
 </resources>

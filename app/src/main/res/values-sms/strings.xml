@@ -143,10 +143,12 @@
   <string name="error_page_does_not_exist">Tät seidd ij kaunnu</string>
   <string name="reference_title">Teâttkäivv %s</string>
   <string name="reference_list_title">Teâttkääiv</string>
+  <string name="page_footer_license_text">Siiskâž lij vuäǯǯamnalla $1 -liseeʹnsin, ǥõõi ij nuuʹbbnalla leäkku peäggtum.</string>
   <string name="empty_tab_title">Ođđ kõskklõstt</string>
   <string name="article_menu_bar_save_button">Ruõkk</string>
   <string name="article_menu_bar_language_button">Ǩiõll</string>
   <string name="article_menu_bar_search_button">Ooʒʒ</string>
+  <string name="article_menu_bar_contents_button">Siiskâžlooǥǥtõs</string>
   <string name="article_header_edit_hint">Muuʹtt…</string>
   <string name="text_style_title">Fontt</string>
   <string name="nav_item_saved">Ruõkkum</string>
@@ -155,6 +157,7 @@
   <string name="reading_list_create_new">Raaj ođđ lookkâmlistt</string>
   <string name="reading_list_added_view_button">Čuäʹjet lookkâmliist</string>
   <string name="reading_list_add_to_list_button">Lââʹzzet lookkâmliʹstte</string>
+  <string name="reading_list_sort">Šlajjâd</string>
   <string name="reading_list_menu_delete">Jaukkâd lookkâmliist</string>
   <string name="reading_list_menu_rename">Muuʹtt lookkâmliist nõõm/deskriipt</string>
   <string name="reading_list_action_menu_move_to_another_list">Seeʹrd nuuʹbb liʹstte</string>
@@ -268,6 +271,7 @@
   <string name="wikitext_link">Liŋkk</string>
   <string name="wikitext_template">Mall</string>
   <string name="wikitext_reference">Teâttkäivv</string>
+  <string name="insert_media_advanced_settings">Lââʹssasetõõzz</string>
   <string name="main_tooltip_watchlist_title">Valvvâmlistt</string>
   <string name="text_input_dialog_cancel_button_text">Jõõsk</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Jõõsk</string>

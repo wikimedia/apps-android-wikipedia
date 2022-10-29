@@ -9,6 +9,7 @@ import org.wikipedia.notifications.db.Notification.UnreadNotificationWikiItem
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.SiteInfo
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.StringUtil
 import java.util.*
 
 @Serializable
@@ -70,7 +71,7 @@ class MwQueryResult {
 
     fun getUserResponse(userName: String): UserInfo? {
         // MediaWiki user names are case sensitive, but the first letter is always capitalized.
-        return users?.find { userName.capitalize(Locale.getDefault()) == it?.name }
+        return users?.find { StringUtil.capitalize(userName) == it.name }
     }
 
     fun langLinks(): MutableList<PageTitle> {
@@ -161,11 +162,11 @@ class MwQueryResult {
         @SerialName("new") private val isNew = false
         @SerialName("anon") val isAnon = false
         @SerialName("old_revid") private val oldRevid: Long = 0
-        private val pageid = 0
         private val timestamp: String? = null
         private val comment: String? = null
         private val minor = false
         private val bot = false
+        val pageId = 0
         val revid: Long = 0
         val ns = 0
         val title: String = ""

@@ -221,7 +221,7 @@
   <string name="send_feedback">অ্যাপ সম্পর্কে প্রতিক্রিয়া জানান</string>
   <string name="create_account_account_created_toast">অ্যাকাউন্ট তৈরি করা হয়েছে!</string>
   <string name="preferences_heading_syncing">সুসংগত করা হচ্ছে</string>
-  <string name="preferences_heading_data_usage">ডাটা ব্যাবহার</string>
+  <string name="preferences_heading_data_usage">উপাত্ত ব্যাবহার</string>
   <string name="preferences_heading_experimental">পরীক্ষামূলক</string>
   <string name="preference_title_sync_reading_lists_from_account">সুসংগত পড়ার তালিকা সক্ষম করুন</string>
   <string name="preference_title_download_reading_list_articles">পড়ার তালিকার নিবন্ধ ডাউনলোড করুন</string>
@@ -253,7 +253,7 @@
   <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/bn</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/bn</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/bn</string>
   <string name="android_app_request_an_account_url">https://bn.wikipedia.org/wiki/উইকিপিডিয়া:অ্যাকাউন্টের_জন্য_অনুরোধ</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.bn</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.bn</string>
@@ -1010,4 +1010,10 @@
   <string name="search_namespaces">নামস্থান</string>
   <string name="revision_initial_none">কোনটিই নয় (এটি প্রথম সংশোধন)</string>
   <string name="archive_empty">কোনো সংরক্ষণাগারভুক্ত পৃষ্ঠা পাওয়া যায়নি।</string>
+  <string name="user_contrib_filter_all" fuzzy="true">সমস্ত সম্পাদনা</string>
+  <string name="namespace_article">নিবন্ধ</string>
+  <string name="user_contrib_current">বর্তমান</string>
+  <string name="media_playback_error">মিডিয়া চালনায় ত্রুটি৷</string>
+  <string name="user_contrib_menu_label">অবদান</string>
+  <string name="user_contrib_filter_activity_title" fuzzy="true">এতে অবদান:</string>
 </resources>

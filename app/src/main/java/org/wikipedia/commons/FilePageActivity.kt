@@ -19,20 +19,17 @@ class FilePageActivity : SingleFragmentActivity<FilePageFragment>() {
 
     override fun createFragment(): FilePageFragment {
         return FilePageFragment.newInstance(intent.getParcelableExtra(INTENT_EXTRA_PAGE_TITLE)!!,
-                intent.getBooleanExtra(INTENT_EXTRA_ALLOW_EDIT, true),
-                intent.getStringExtra(INTENT_EXTRA_SUGGESTION_REASON))
+                intent.getBooleanExtra(INTENT_EXTRA_ALLOW_EDIT, true))
     }
 
     companion object {
         const val INTENT_EXTRA_PAGE_TITLE = "pageTitle"
         const val INTENT_EXTRA_ALLOW_EDIT = "allowEdit"
-        const val INTENT_EXTRA_SUGGESTION_REASON = "suggestionReason"
 
-        fun newIntent(context: Context, pageTitle: PageTitle, allowEdit: Boolean = true, suggestionReason: String? = null): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle, allowEdit: Boolean = true): Intent {
             return Intent(context, FilePageActivity::class.java)
                     .putExtra(INTENT_EXTRA_PAGE_TITLE, pageTitle)
                     .putExtra(INTENT_EXTRA_ALLOW_EDIT, allowEdit)
-                    .putExtra(INTENT_EXTRA_SUGGESTION_REASON, suggestionReason)
         }
     }
 }

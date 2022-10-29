@@ -332,7 +332,7 @@ class SearchResultsFragment : Fragment() {
 
     private fun displayResults(results: List<SearchResult>) {
         for (newResult in results) {
-            val res = totalResults.find { newResult.pageTitle.matches(it.pageTitle) }
+            val res = totalResults.find { newResult.pageTitle == it.pageTitle }
             if (res == null) {
                 totalResults.add(newResult)
             } else if (!newResult.pageTitle.description.isNullOrEmpty()) {
