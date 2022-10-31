@@ -1198,6 +1198,8 @@
   <string name="talk_list_item_user_icon_content_description">Ícone do usuário</string>
   <string name="talk_list_item_swipe_mark_as_read">Ler</string>
   <string name="talk_list_item_swipe_mark_as_unread">Não lidas</string>
+  <string name="talk_login_to_subscribe_dialog_title">Entre para se inscrever nos tópicos</string>
+  <string name="talk_login_to_subscribe_dialog_content">As inscrições de tópicos permitirão que você receba notificações sobre novos comentários neste tópico. Por favor, crie uma conta ou faça login na sua conta da Wikipedia para se inscrever em um tópico.</string>
   <string name="talk_archived_title">Arquivo de conversas: %s</string>
   <string name="menu_option_share_talk_discussion">Compartilhar discussão</string>
   <string name="menu_option_share_talk_page">Compartilhar página de discussão</string>
@@ -1230,6 +1232,7 @@
   <string name="revision_diff_to">Para:</string>
   <string name="revision_diff_line_num">Linha %d</string>
   <string name="revision_diff_line_nums">Linhas %d–%d</string>
+  <string name="revision_diff_lines_from_to">Linhas %1$d–%2$d</string>
   <string name="revision_diff_line_added">Linha acrescentada</string>
   <string name="revision_diff_line_removed">Linha removida</string>
   <string name="revision_diff_paragraph_added">Parágrafo adicionado</string>
@@ -1268,11 +1271,8 @@
   <string name="preview_edit_summarize_edit_title">Resumir edição</string>
   <string name="preview_edit_summarize_edit_hint">De que forma melhorou esta página?</string>
   <string name="preview_edit_minor_edit">Esta é uma edição menor</string>
-  <string name="preview_edit_minor_edit_url">https://pt.wikipedia.org/wiki/Ajuda:Guia_de_edição/Menus_e_ferramentas/Edição_menor</string>
   <string name="preview_edit_watch_this_page">Vigiar esta página</string>
-  <string name="preview_edit_watch_this_page_url">https://pt.wikipedia.org/wiki/Ajuda:Guia de edição/Menus e ferramentas/Páginas vigiadas</string>
   <string name="preview_edit_learn_more">Saiba mais sobre resumos de edição</string>
-  <string name="preview_edit_learn_more_url">https://pt.wikipedia.org/wiki/Ajuda:Guia de edição/Menus e ferramentas/Sumário de edição</string>
   <string name="action_item_categories">Categorias</string>
   <string name="page_no_categories">Esta página não pertence a nenhuma categoria</string>
   <string name="category_tab_articles">Artigos</string>
@@ -1284,10 +1284,10 @@
   <string name="user_contrib_activity_title">Contribuições de %s</string>
   <string name="archive_empty">Nenhuma página arquivada encontrada.</string>
   <string name="user_contrib_filter_ns">Filtrar por espaço nominal</string>
-  <string name="user_contrib_filter_all">Todas as edições</string>
+  <string name="user_contrib_filter_all" fuzzy="true">Todas as edições</string>
   <string name="namespace_article">Artigo</string>
   <string name="user_contrib_current">atual</string>
   <string name="media_playback_error">Erro na reprodução de multimédia.</string>
   <string name="user_contrib_menu_label">Contribuições</string>
-  <string name="user_contrib_wiki_select">Contribuições em:</string>
+  <string name="user_contrib_filter_activity_title" fuzzy="true">Contribuições em:</string>
 </resources>

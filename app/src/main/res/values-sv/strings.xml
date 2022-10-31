@@ -77,6 +77,10 @@
     <item quantity="one">%1$d redigering sedan %2$s</item>
     <item quantity="other">%1$d redigeringar sedan %2$s</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d redigering sedan %2$s (%3$s)</item>
+    <item quantity="other">%1$d redigeringar sedan %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Testa att ändra &lt;a href=\"#\"&gt;filter&lt;/a&gt; för att se fler redigeringar</string>
   <string name="menu_page_show_tabs">Visa flikar</string>
   <string name="menu_page_other_languages">Byt språk</string>
@@ -447,8 +451,13 @@
   <string name="text_size_percent_default">%s (standard)</string>
   <string name="text_style_title">Typsnitt</string>
   <string name="theme_category_reading">Läsning</string>
+  <string name="theme_category_editing">Redigering</string>
   <string name="reading_focus_mode">Fokusläge för läsning</string>
   <string name="reading_focus_mode_detail">Döljer redigeringsfunktioner och verktygsfältet längst ned vid rullning</string>
+  <string name="editing_syntax_highlight_label">Syntaxmarkering</string>
+  <string name="editing_line_numbers_label">Visa radnummer</string>
+  <string name="editing_monospace_font_label">Använd typsnitt med fast bredd</string>
+  <string name="editing_typing_suggestions">Visa skrivförslag</string>
   <string name="nav_item_saved">Sparade</string>
   <string name="reading_list_save_to">Spara i läslista</string>
   <string name="reading_list_move_to">Flytta till läslista</string>
@@ -1066,7 +1075,17 @@
   <string name="content_description_for_page_indicator">Sida %1$d av %2$d</string>
   <string name="wikitext_bold">Fet</string>
   <string name="wikitext_italic">Kursiv</string>
+  <string name="wikitext_underline">Understrykning</string>
+  <string name="wikitext_strikethrough">Överstruken</string>
+  <string name="wikitext_sup">Upphöjd</string>
+  <string name="wikitext_sub">Nedsänkt</string>
+  <string name="wikitext_large">Stor text</string>
+  <string name="wikitext_small">Liten text</string>
+  <string name="wikitext_code">Kod</string>
   <string name="wikitext_link">Länk</string>
+  <string name="wikitext_heading_n">Underrubrik %d</string>
+  <string name="wikitext_formatting">Formatering</string>
+  <string name="wikitext_headings">Rubriker</string>
   <string name="wikitext_insert_media">Infoga media</string>
   <string name="wikitext_bulleted_list">Punktlista</string>
   <string name="wikitext_numbered_list">Numrerad lista</string>
@@ -1160,6 +1179,8 @@
   <string name="talk_list_item_user_icon_content_description">Användarikon</string>
   <string name="talk_list_item_swipe_mark_as_read">Läst</string>
   <string name="talk_list_item_swipe_mark_as_unread">Oläst</string>
+  <string name="talk_login_to_subscribe_dialog_title">Logga in för att prenumerera på ämnen</string>
+  <string name="talk_login_to_subscribe_dialog_content">Ämnesprenumerationer låter dig få aviseringar om nya kommentarer i detta ämne. Skapa ett konto eller logga in på ditt Wikipedia-konto för att prenumerera på ett ämne.</string>
   <string name="talk_archived_title">Diskussionsarkiv: %s</string>
   <string name="menu_option_share_talk_discussion">Dela diskussion</string>
   <string name="menu_option_share_talk_page">Dela diskussionssida</string>
@@ -1168,6 +1189,7 @@
   <string name="menu_option_edit_source">Redigera källa</string>
   <string name="menu_option_user_page">%ss användarsida</string>
   <string name="menu_option_find_in_talk_page_topic">Hitta i diskussionsämnen</string>
+  <string name="menu_option_copy_link_to_clipboard">Kopiera länk till urklipp</string>
   <string name="talk_menu_copy_text">Kopiera text</string>
   <string name="talk_menu_expand_threads">Expandera trådar</string>
   <string name="talk_menu_collapse_threads">Minimera trådar</string>
@@ -1191,6 +1213,7 @@
   <string name="revision_diff_to">Till:</string>
   <string name="revision_diff_line_num">Rad %d</string>
   <string name="revision_diff_line_nums">Rader %d–%d</string>
+  <string name="revision_diff_lines_from_to">Rader %1$d–%2$d</string>
   <string name="revision_diff_line_added">Raden lades till</string>
   <string name="revision_diff_line_removed">Raden togs bort</string>
   <string name="revision_diff_paragraph_added">Paragrafen lades till</string>
@@ -1229,11 +1252,8 @@
   <string name="preview_edit_summarize_edit_title">Sammanfatta redigering</string>
   <string name="preview_edit_summarize_edit_hint">Hur förbättrade du denna sida?</string>
   <string name="preview_edit_minor_edit">Detta är en mindre ändring</string>
-  <string name="preview_edit_minor_edit_url">https://sv.wikipedia.org/wiki/Wikipedia:Mindre_ändring</string>
   <string name="preview_edit_watch_this_page">Bevaka denna sida</string>
-  <string name="preview_edit_watch_this_page_url">https://sv.wikipedia.org/wiki/Wikipedia:Bevakningslistan</string>
   <string name="preview_edit_learn_more">Läs mer om redigeringssammanfattningar</string>
-  <string name="preview_edit_learn_more_url">https://sv.wikipedia.org/wiki/Wikipedia:Sammanfattningsfältet</string>
   <string name="action_item_categories">Kategorier</string>
   <string name="page_no_categories">Denna sida tillhör inga kategorier.</string>
   <string name="category_tab_articles">Artiklar</string>
@@ -1245,9 +1265,10 @@
   <string name="user_contrib_activity_title">%ss bidrag</string>
   <string name="archive_empty">Inga arkivsidor hittades.</string>
   <string name="user_contrib_filter_ns">Filtrera efter namnrymd</string>
-  <string name="user_contrib_filter_all">Alla redigeringar</string>
+  <string name="user_contrib_filter_all" fuzzy="true">Alla redigeringar</string>
   <string name="namespace_article">Artikel</string>
   <string name="user_contrib_current">nuvarande</string>
   <string name="media_playback_error">Fel uppstod när media spelades upp.</string>
   <string name="user_contrib_menu_label">Bidrag</string>
+  <string name="user_contrib_filter_activity_title" fuzzy="true">Bidrag till:</string>
 </resources>

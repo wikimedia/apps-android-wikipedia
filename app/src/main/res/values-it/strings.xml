@@ -1220,6 +1220,7 @@
   <string name="revision_diff_to">A:</string>
   <string name="revision_diff_line_num">Riga %d</string>
   <string name="revision_diff_line_nums">Righe %d–%d</string>
+  <string name="revision_diff_lines_from_to">Righe %1$d–%2$d</string>
   <string name="revision_diff_line_added">Riga aggiunta</string>
   <string name="revision_diff_line_removed">Riga rimossa</string>
   <string name="revision_diff_paragraph_added">Paragrafo aggiunto</string>
@@ -1262,8 +1263,10 @@
   <string name="revision_initial_none">Nessuna (questa è la prima versione)</string>
   <string name="user_contrib_activity_title">Contributi di %s</string>
   <string name="user_contrib_filter_ns">Filtra per namespace</string>
-  <string name="user_contrib_filter_all">Tutte le modifiche</string>
+  <string name="user_contrib_filter_all">Tutti \"namespace\"</string>
+  <string name="user_contrib_filter_ns_header">Filtra i namespace</string>
   <string name="namespace_article">Voce</string>
   <string name="user_contrib_current">attuale</string>
   <string name="user_contrib_menu_label">Contributi</string>
+  <string name="user_contrib_filter_activity_title">Filtra i contributi</string>
 </resources>

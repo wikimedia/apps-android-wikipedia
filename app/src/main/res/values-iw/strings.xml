@@ -1253,6 +1253,8 @@
   <string name="talk_list_item_user_icon_content_description">סמל משתמש</string>
   <string name="talk_list_item_swipe_mark_as_read">סימון כהודעה שנקראה</string>
   <string name="talk_list_item_swipe_mark_as_unread">סימון כהודעה שלא נקראה</string>
+  <string name="talk_login_to_subscribe_dialog_title">יש להיכנס כדי לעשות מינוי לנושאים</string>
+  <string name="talk_login_to_subscribe_dialog_content">מינוי לנושא יאפשר לך לקבל התראות על תגובות חדשות בנושא הזה. נא ליצור חשבון או להיכנס לחשבון הוויקיפדיה שלך כדי לעשות מינוי לנושא.</string>
   <string name="talk_archived_title">ארכיון שיחה: %s</string>
   <string name="menu_option_share_talk_discussion">שיתוף דיון</string>
   <string name="menu_option_share_talk_page">שיתוף דף שיחה</string>
@@ -1285,6 +1287,7 @@
   <string name="revision_diff_to">אל:</string>
   <string name="revision_diff_line_num">שורה %d</string>
   <string name="revision_diff_line_nums">שורות %d–%d</string>
+  <string name="revision_diff_lines_from_to">שורות %1$d–%2$d</string>
   <string name="revision_diff_line_added">שורה שנוספה</string>
   <string name="revision_diff_line_removed">שורה שהוסרה</string>
   <string name="revision_diff_paragraph_added">פסקה שנוספה</string>
@@ -1323,11 +1326,8 @@
   <string name="preview_edit_summarize_edit_title">נא לכתוב סיכום של העריכה</string>
   <string name="preview_edit_summarize_edit_hint">איך שיפרת את הדף?</string>
   <string name="preview_edit_minor_edit">זוהי עריכה משנית</string>
-  <string name="preview_edit_minor_edit_url">https://he.wikipedia.org/wiki/עזרה:עריכה_משנית</string>
   <string name="preview_edit_watch_this_page">מעקב אחרי הדף הזה</string>
-  <string name="preview_edit_watch_this_page_url">https://he.wikipedia.org/wiki/עזרה:רשימת_מעקב</string>
   <string name="preview_edit_learn_more">מידע נוסף על תקצירי עריכה</string>
-  <string name="preview_edit_learn_more_url">https://he.wikipedia.org/wiki/עזרה:תקציר_עריכה</string>
   <string name="action_item_categories">קטגוריות</string>
   <string name="page_no_categories">הדף הזה אינו משויך לקטגוריות כלשהן.</string>
   <string name="category_tab_articles">ערכים</string>
@@ -1339,10 +1339,11 @@
   <string name="user_contrib_activity_title">תרומות של %s</string>
   <string name="archive_empty">לא נמצאו דפים בארכיון.</string>
   <string name="user_contrib_filter_ns">סינון לפי מרחב שמות</string>
-  <string name="user_contrib_filter_all">כל העריכות</string>
+  <string name="user_contrib_filter_all">כל \"מרחבי השם\"</string>
+  <string name="user_contrib_filter_ns_header">מסנן מרחבי שם</string>
   <string name="namespace_article">ערך</string>
   <string name="user_contrib_current">נוכחי</string>
   <string name="media_playback_error">שגיאה בנגינת מדיה.</string>
   <string name="user_contrib_menu_label">תרומות</string>
-  <string name="user_contrib_wiki_select">תרומות ל־:</string>
+  <string name="user_contrib_filter_activity_title">סינון תרומות</string>
 </resources>

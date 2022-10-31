@@ -22,8 +22,8 @@
             android:id="@+id/wikitext_button_heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonText="H2"
-            app:buttonHint="@string/wikitext_headings" />
+            app:buttonHint="@string/wikitext_headings"
+            app:buttonImage="@drawable/ic_format_heading2_24" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
             android:id="@+id/wikitext_button_list_bulleted"
@@ -54,6 +54,13 @@
             app:buttonImage="@drawable/ic_redo_themed_24dp" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
+            android:id="@+id/wikitext_button_insert_media"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonHint="@string/wikitext_insert_media"
+            app:buttonImage="@drawable/ic_image_themed_24dp" />
+
+        <org.wikipedia.views.WikitextKeyboardButtonView
             android:id="@+id/wikitext_button_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,11 +68,11 @@
             app:buttonImage="@drawable/ic_link_black_24dp" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
-            android:id="@+id/wikitext_button_insert_media"
+            android:id="@+id/wikitext_button_preview_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonHint="@string/wikitext_insert_media"
-            app:buttonImage="@drawable/ic_image_themed_24dp" />
+            app:buttonHint="@string/wikitext_preview_link"
+            app:buttonImage="@drawable/ic_visibility_24" />
 
         <org.wikipedia.views.WikitextKeyboardButtonView
             android:id="@+id/wikitext_button_template"
@@ -80,13 +87,6 @@
             android:layout_height="wrap_content"
             app:buttonHint="@string/wikitext_reference"
             app:buttonImage="@drawable/ic_oojs_ui_icon_reference" />
-
-        <org.wikipedia.views.WikitextKeyboardButtonView
-            android:id="@+id/wikitext_button_preview_link"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:buttonHint="@string/wikitext_preview_link"
-            app:buttonImage="@drawable/ic_visibility_24" />
 
     </LinearLayout>
 

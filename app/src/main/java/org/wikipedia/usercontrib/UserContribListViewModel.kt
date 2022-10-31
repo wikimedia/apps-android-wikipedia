@@ -6,8 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
@@ -70,6 +73,11 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
         loadStats()
     }
 
+    fun excludedFiltersCount(): Int {
+        val excludedNsFilter = Prefs.userContribFilterExcludedNs
+        return UserContribFilterActivity.NAMESPACE_LIST.count { excludedNsFilter.contains(it) }
+    }
+
     fun loadStats() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
@@ -95,7 +103,11 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
                     return LoadResult.Page(cachedContribs, null, cachedContinueKey)
                 }
 
-                val nsFilter = Prefs.userContribFilterNs.joinToString("|")
+                if (excludedFiltersCount() == UserContribFilterActivity.NAMESPACE_LIST.size) {
+                    return LoadResult.Page(emptyList(), null, null)
+                }
+
+                val nsFilter = UserContribFilterActivity.NAMESPACE_LIST.filter { !Prefs.userContribFilterExcludedNs.contains(it) }.joinToString("|")
                 val response = ServiceFactory.get(wikiSite).getUserContrib(userName, 500, nsFilter.ifEmpty { null }, null, params.key)
                 val contribs = response.query?.userContributions!!
 
