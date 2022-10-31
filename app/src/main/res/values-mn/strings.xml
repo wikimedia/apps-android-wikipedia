@@ -47,7 +47,7 @@
   <string name="search_redirect_from">%s-с чиглүүлсэн</string>
   <string name="menu_page_show_tabs">Цонхнуудыг харуулах</string>
   <string name="menu_page_other_languages">Хэл солих</string>
-  <string name="menu_page_find_in_page">Гарчигт хай.</string>
+  <string name="menu_page_find_in_page">Өгүүллээс хайх</string>
   <string name="edit_section_find_in_page">Хуудаст хай.</string>
   <string name="menu_page_font_and_theme">Үсгийн төрөл болон өнгөний схемийг өөрчлөх</string>
   <string name="menu_page_add_to_list">Унших жагсаалтад нэмэх</string>

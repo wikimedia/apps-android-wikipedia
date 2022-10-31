@@ -471,8 +471,13 @@
   <string name="text_size_percent_default">%s (standaard)</string>
   <string name="text_style_title">Lettertype</string>
   <string name="theme_category_reading">Lezen</string>
+  <string name="theme_category_editing">Bewerken</string>
   <string name="reading_focus_mode">Lezen in de focusmodus</string>
   <string name="reading_focus_mode_detail">Verbergt bewerkingsfuncties en onderste werkbalk bij het scrollen</string>
+  <string name="editing_syntax_highlight_label">Syntaxis accentueren</string>
+  <string name="editing_line_numbers_label">Toon regelnummers</string>
+  <string name="editing_monospace_font_label">Gebruik monospace-lettertype</string>
+  <string name="editing_typing_suggestions">Toon suggesties tijdens het typen</string>
   <string name="nav_item_saved">Opgeslagen</string>
   <string name="reading_list_save_to">Naar leeslijst opslaan</string>
   <string name="reading_list_move_to">Naar leeslijst verplaatsen</string>
@@ -810,6 +815,8 @@
   <string name="description_edit_license_notice">Bij het veranderen van de artikelbeschrijving gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licentie.</string>
   <string name="description_edit_helper_text_lowercase_warning">begint meestal met een kleine letter</string>
   <string name="description_edit_voice_input_description">Steminvoer</string>
+  <string name="description_edit_learn_more">Meer informatie over artikelbeschrijvingen</string>
+  <string name="description_edit_image_caption_learn_more">Meer informatie over afbeeldingsbijschriften</string>
   <string name="description_too_short">De tekst is te kort.</string>
   <string name="description_ends_with_punctuation">Tekst mag niet eindigen met een interpuctie.</string>
   <string name="description_starts_with_uppercase">Start met een kleine letter tenzij het eerste woord een eigennaam is.</string>
@@ -1085,7 +1092,17 @@
   <string name="content_description_for_page_indicator">Pagina %1$d van %2$d</string>
   <string name="wikitext_bold">Vet</string>
   <string name="wikitext_italic">Cursief</string>
+  <string name="wikitext_underline">Onderstrepen</string>
+  <string name="wikitext_strikethrough">Doorhalen</string>
+  <string name="wikitext_sup">Superscript</string>
+  <string name="wikitext_sub">Subscript</string>
+  <string name="wikitext_large">Grote tekst</string>
+  <string name="wikitext_small">Kleine tekst</string>
+  <string name="wikitext_code">Code</string>
   <string name="wikitext_link">Koppeling</string>
+  <string name="wikitext_heading_n">Onderkop %d</string>
+  <string name="wikitext_formatting">Opmaak</string>
+  <string name="wikitext_headings">Kopjes</string>
   <string name="wikitext_insert_media">Media invoegen</string>
   <string name="wikitext_bulleted_list">Ongenummerde lijst</string>
   <string name="wikitext_numbered_list">Genummerde lijst</string>
@@ -1094,12 +1111,15 @@
   <string name="wikitext_preview_link">Voorvertoning koppeling</string>
   <string name="insert_media_title">Media invoegen</string>
   <string name="insert_media_search_description">Selecteer een bestand van Wikimedia Commons</string>
+  <string name="insert_media_search_hint">Zoeken naar media</string>
+  <string name="insert_media_settings">Mediainstellingen</string>
   <string name="insert_media_settings_uploaded_image">Geüploade afbeelding</string>
   <string name="insert_media_settings_caption">Bijschrift</string>
   <string name="insert_media_settings_caption_description">Beschrijving naast het item die voor alle lezers zichtbaar is</string>
   <string name="insert_media_settings_alternative_text">Alternatieve tekst</string>
   <string name="insert_media_settings_alternative_text_description">Beschrijving voor lezers die de afbeelding niet kunnen bekijken</string>
   <string name="insert_media_advanced_settings">Geavanceerde instellingen</string>
+  <string name="insert_media_advanced_settings_wrap_image">Tekst rond afbeelding laten lopen</string>
   <string name="insert_media_advanced_settings_image_position">Afbeeldingspositie</string>
   <string name="insert_media_advanced_settings_image_position_right">Rechts</string>
   <string name="insert_media_advanced_settings_image_position_left">Links</string>
@@ -1110,11 +1130,13 @@
   <string name="insert_media_advanced_settings_image_type_frameless">Zonder frame</string>
   <string name="insert_media_advanced_settings_image_type_frame">Frame</string>
   <string name="insert_media_advanced_settings_image_type_basic">Eenvoudig</string>
+  <string name="insert_media_advanced_settings_image_type_tip">U kunt instellen hoe het media-item wordt weergegeven op de pagina. Dit moet in bijna alle gevallen een miniatuurafbeelding zijn om consistent te zijn met andere pagina\'s.</string>
   <string name="insert_media_advanced_settings_image_size">Afbeeldingsgrootte</string>
   <string name="insert_media_advanced_settings_image_size_default">Standaard</string>
   <string name="insert_media_advanced_settings_image_size_custom">Aangepast</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">Breedte</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">Hoogte</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Invoegen</string>
   <string name="main_drawer_help">Hulp</string>
   <string name="main_drawer_login">Log in / aanmelden bij Wikipedia</string>
@@ -1174,6 +1196,8 @@
   <string name="talk_list_item_user_icon_content_description">Gebruikerspictogram</string>
   <string name="talk_list_item_swipe_mark_as_read">Gelezen</string>
   <string name="talk_list_item_swipe_mark_as_unread">Ongelezen</string>
+  <string name="talk_login_to_subscribe_dialog_title">Log in om je te abonneren op onderwerpen</string>
+  <string name="talk_login_to_subscribe_dialog_content">Met onderwerpabonnementen kunt u meldingen ontvangen over nieuwe opmerkingen over dit onderwerp. Maak een account aan of log in op uw Wikipedia-account om u te abonneren op een onderwerp.</string>
   <string name="talk_archived_title">Overlegarchief: %s</string>
   <string name="menu_option_share_talk_discussion">Deel overleg</string>
   <string name="menu_option_share_talk_page">Overlegpagina delen</string>
@@ -1206,6 +1230,7 @@
   <string name="revision_diff_to">Naar:</string>
   <string name="revision_diff_line_num">Regel %d</string>
   <string name="revision_diff_line_nums">Regels %d–%d</string>
+  <string name="revision_diff_lines_from_to">Regels %1$d–%2$d</string>
   <string name="revision_diff_line_added">Regel toegevoegd</string>
   <string name="revision_diff_line_removed">Regel verwijderd</string>
   <string name="revision_diff_paragraph_added">Alinea toegevoegd</string>
@@ -1245,6 +1270,7 @@
   <string name="preview_edit_summarize_edit_hint">Hoe hebt u de pagina verbeterd?</string>
   <string name="preview_edit_minor_edit">Dit is een kleine bewerking</string>
   <string name="preview_edit_watch_this_page">Deze pagina volgen</string>
+  <string name="preview_edit_learn_more">Meer informatie over bewerkingssamenvattingen</string>
   <string name="action_item_categories">Categorieën</string>
   <string name="page_no_categories">Deze pagina staat in geen enkele categorie.</string>
   <string name="category_tab_articles">Artikelen</string>
@@ -1256,10 +1282,10 @@
   <string name="user_contrib_activity_title">Bijdragen van %s</string>
   <string name="archive_empty">Geen gearchiveerde pagina\'s gevonden.</string>
   <string name="user_contrib_filter_ns">Filteren op naamruimte</string>
-  <string name="user_contrib_filter_all">Alle bewerkingen</string>
+  <string name="user_contrib_filter_all" fuzzy="true">Alle bewerkingen</string>
   <string name="namespace_article">Artikel</string>
   <string name="user_contrib_current">huidige versie</string>
   <string name="media_playback_error">Fout bij het afspelen van media.</string>
   <string name="user_contrib_menu_label">Bijdragen</string>
-  <string name="user_contrib_wiki_select">Bijdragen aan:</string>
+  <string name="user_contrib_filter_activity_title" fuzzy="true">Bijdragen aan:</string>
 </resources>

@@ -52,6 +52,7 @@ import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.FrameLayoutNavMenuTriggerer
@@ -455,7 +456,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 // the same cookie state as the browser does.
                 val language = wiki.languageCode.lowercase(Locale.getDefault())
                 val isDonationRelated = language == "donate" || language == "thankyou"
-                if (isDonationRelated || title.namespace() == Namespace.SPECIAL) {
+                if (isDonationRelated || (title.isSpecial && !title.isContributions)) {
                     UriUtil.visitInExternalBrowser(this, it)
                     finish()
                     return
@@ -570,6 +571,12 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 startActivity(TalkTopicsActivity.newIntent(this, title, InvokeSource.PAGE_ACTIVITY))
                 finish()
                 return true
+            } else if (title.isSpecial && title.isContributions) {
+                title.displayText.split('/').lastOrNull()?.let {
+                    startActivity(UserContribListActivity.newIntent(this, it))
+                    finish()
+                    return true
+                }
             }
         }
         return false
