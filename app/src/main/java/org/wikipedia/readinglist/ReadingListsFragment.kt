@@ -557,13 +557,17 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     val readingList = ReadingListsImportHelper.importReadingLists(requireContext(), encodedJson)
                     val dialogView = ReadingListImportDialogView(requireContext())
                     dialogView.setReadingList(readingList)
+                    ReadingListsFunnel().logReceivePreview(readingList)
                     AlertDialog.Builder(requireContext())
                         .setView(dialogView)
                         .setPositiveButton(R.string.shareable_reading_lists_import_dialog_confirm) { _, _ ->
+                            ReadingListsFunnel().logReceiveFinish(readingList)
                             importReadingListAndRefresh(readingList)
                         }
-                        .setNegativeButton(R.string.shareable_reading_lists_import_dialog_cancel, null)
-                        .show()
+                        .setNegativeButton(R.string.shareable_reading_lists_import_dialog_cancel) { _, _ ->
+                            ReadingListsFunnel().logReceiveCancel(readingList)
+                        }
+                            .show()
                     Prefs.importReadingListsDialogShown = true
                     binding.swipeRefreshLayout.isRefreshing = false
                 }
