@@ -3,6 +3,7 @@
 * ASHmed
 * Aboulouei1
 * Alaa
+* Amire80
 * Asaifm
 * Asma
 * Dbrant
@@ -10,6 +11,7 @@
 * Dr. Mohammed
 * Elbasyouny
 * Esraa Ismail
+* FShbib
 * FiberAhmed
 * Haytham morsy
 * Helmoony
@@ -677,6 +679,7 @@
   <string name="preference_category_display_settings">إعدادات العرض</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">ويكيبيديا</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">إشعارات من ويكيبيديا</string>
+  <string name="notifications_channel_group_other_title">أخرى</string>
   <string name="notifications_tab_filter_all">الكل</string>
   <string name="notifications_tab_filter_mentions">الإشارات</string>
   <string name="notifications_search_bar_hint">ابحث أو رشّح الإشعارات</string>
