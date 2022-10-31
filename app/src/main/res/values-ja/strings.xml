@@ -714,6 +714,7 @@
   <string name="notifications_channel_group_other_title">その他</string>
   <string name="notifications_channel_group_other_description">アプリからのその他の通知</string>
   <string name="notifications_filter_label">通知にフィルターをかける</string>
+  <string name="notifications_filter_icon_content_description">通知を絞り込む</string>
   <string name="notifications_filter_update_app_languages">アプリの言語を更新する</string>
   <string name="notifications_empty_search_message">さらに通知を表示するには、%sを除去してみてください</string>
   <plurals name="notifications_number_of_filters">
@@ -722,6 +723,7 @@
   <string name="notifications_select_all_filters">すべてのフィルターを選択</string>
   <string name="notifications_tab_filter_all">すべて</string>
   <string name="notifications_tab_filter_mentions">メンション</string>
+  <string name="notifications_tab_filter_unread">(%s)</string>
   <string name="notifications_search_bar_hint">通知を検索またはフィルターをかける</string>
   <string name="notifications_search_bar_filter_hint">通知フィルター</string>
   <string name="notifications_menu_mark_as_read">既読にする</string>
