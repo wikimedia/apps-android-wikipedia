@@ -1311,4 +1311,5 @@
     <item quantity="one">User message when import of single reading list has been successful.</item>
     <item quantity="other">User message when import of multiple reading lists has been successful.</item>
   </plurals>
+  <string name="reading_lists_menu_edit">Label text for editing reading lists menu option.</string>
 </resources>

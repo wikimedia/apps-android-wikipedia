@@ -35,6 +35,11 @@
                 android:id="@+id/reading_lists_overflow_import_list"
                 style="@style/OverflowMenuItem"
                 android:text="@string/reading_lists_menu_import_list" />
+
+            <TextView
+                android:id="@+id/reading_lists_overflow_edit"
+                style="@style/OverflowMenuItem"
+                android:text="@string/reading_lists_menu_edit" />
         </LinearLayout>
 
         <LinearLayout

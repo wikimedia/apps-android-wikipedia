@@ -174,6 +174,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             (activity as MainActivity).filePickerLauncher.launch(filePickerIntent)
         }
 
+        override fun editList() {
+            // Todo
+        }
+
         override fun refreshClick() {
             binding.swipeRefreshLayout.isRefreshing = true
             refreshSync(this@ReadingListsFragment, binding.swipeRefreshLayout)
