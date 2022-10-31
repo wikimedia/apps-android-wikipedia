@@ -190,7 +190,7 @@ class DescriptionEditFragment : Fragment() {
                             editingAllowed = true
                         } else {
                             val error = editError[0]
-                            FeedbackUtil.showError(requireActivity(), MwException(error))
+                            FeedbackUtil.showError(requireActivity(), MwException(error), wikiSite = pageTitle.wikiSite)
                         }
                         sourceSummary?.extractHtml = response.first.extractHtml
                     }, { L.e(it) })

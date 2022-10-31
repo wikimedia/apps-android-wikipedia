@@ -791,9 +791,7 @@
   <string name="preview_edit_summarize_edit_title">Resuméiert d\'Ännerung</string>
   <string name="preview_edit_summarize_edit_hint">Wéi hutt Dir dës Säit verbessert?</string>
   <string name="preview_edit_minor_edit">Dëst ass eng kleng Ännerung</string>
-  <string name="preview_edit_minor_edit_url">https://en.wikipedia.org/wiki/Help:Minor_edit</string>
   <string name="preview_edit_watch_this_page">Dës Säit iwwerwaachen</string>
-  <string name="preview_edit_watch_this_page_url">https://en.wikipedia.org/wiki/Help:Watchlist</string>
   <string name="preview_edit_learn_more">Méi gewuer ginn iwwer d\'Resuméë vun Ännerungen</string>
   <string name="action_item_categories">Kategorien</string>
   <string name="category_tab_articles">Artikelen</string>
@@ -801,7 +799,7 @@
   <string name="category_empty">Keng Artikelen an dëser Kategorie fonnt.</string>
   <string name="search_namespaces">Nummraim</string>
   <string name="user_contrib_activity_title">Kontributioune vum %s</string>
-  <string name="user_contrib_filter_all">All Ännerungen</string>
+  <string name="user_contrib_filter_all" fuzzy="true">All Ännerungen</string>
   <string name="namespace_article">Artikel</string>
   <string name="user_contrib_menu_label">Kontributiounen</string>
 </resources>

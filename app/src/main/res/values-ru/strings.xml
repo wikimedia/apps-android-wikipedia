@@ -127,10 +127,10 @@
     <item quantity="other">%1$d правок с %2$s}</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
-    <item quantity="one">%1$d правка с %2$s (%3$s)}</item>
-    <item quantity="few">%1$d правки с %2$s (%3$s)}</item>
-    <item quantity="many">%1$d правок с %2$s (%3$s)}</item>
-    <item quantity="other">%1$d правок с %2$s (%3$s)}</item>
+    <item quantity="one">%1$d правка с %2$s (%3$s)</item>
+    <item quantity="few">%1$d правки с %2$s (%3$s)</item>
+    <item quantity="many">%1$d правок с %2$s (%3$s)</item>
+    <item quantity="other">%1$d правок с %2$s (%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Попробуйте изменить &lt;a href=\"#\"&gt;фильтры&lt;/a&gt;, чтобы увидеть больше правок</string>
   <string name="menu_page_show_tabs">Показать вкладки</string>
@@ -262,7 +262,7 @@
   <string name="create_account_ip_block_details">Подробности</string>
   <string name="preferences_general_heading">Общие</string>
   <string name="preferences_account_heading">Учётная запись</string>
-  <string name="wikipedia_app_faq">Частые вопросы о приложении «Википедия»</string>
+  <string name="wikipedia_app_faq">ЧЗВ о приложении «Википедия»</string>
   <string name="send_feedback">Обратная связь</string>
   <string name="create_account_account_created_toast">Учётная запись создана!</string>
   <string name="preferences_heading_syncing">Синхронизация</string>
@@ -895,6 +895,7 @@
   <string name="description_starts_with_uppercase">Начинайте с маленькой буквы, если только первое слово не является собственным названием.</string>
   <string name="description_starts_with_lowercase">Избегайте начинать с маленькой буквы.</string>
   <string name="description_is_in_different_language">Текст на неожиданном языке. Язык должен быть %s.</string>
+  <string name="description_verification_notice">Убедитесь, что язык вашего описания — %1$s. Вы можете отклонить это уведомление, если язык вашего описания — %2$s.</string>
   <string name="description_edit_success_saved">Описание статьи сохранено!</string>
   <string name="description_edit_success_saved_snackbar">Описание статьи сохранено!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Описание статьи сохранено! (%s)</string>
@@ -913,6 +914,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Начать редактирование</string>
   <string name="description_edit_tutorial_promise">Начав, я обещаю не злоупотреблять этой функцией.</string>
   <string name="customize_toolbar_title">Настроить панель инструментов</string>
+  <string name="customize_toolbar_shortcut_description_text">Настройте нижнюю панель инструментов, выбрав 5 ярлыков, которые вы считаете наиболее полезными.</string>
   <string name="customize_toolbar_category_toolbar">Панель инструментов</string>
   <string name="customize_toolbar_category_menu">Меню</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Нажмите на избранные объекты и, удерживая, перенесите их сюда 👋</string>
@@ -1261,6 +1263,7 @@
   <string name="talk_snackbar_survey_action_text">Начать</string>
   <string name="talk_share_discussion_subject">Википедия — обсуждение в теме «%s»</string>
   <string name="talk_share_talk_page">Википедия — страница обсуждения</string>
+  <string name="talk_edit_disclaimer">Это страница обсуждения. Пожалуйста, соблюдайте правила ведения обсуждений и не забывайте подписывать свои сообщения, набирая четыре тильды: ~~~~ при публикации с использованием вики-текста.&lt;br&gt;&lt;br&gt; &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Правила обсуждений\"&gt;Википедия:Правила обсуждений&lt;/a&gt;</string>
   <string name="talk_search_hint">Искать сообщения</string>
   <string name="talk_search_topics_hint">Искать в темах</string>
   <string name="talk_search_find_in_talk_topics_hint">Поиск темы на странице обсуждения</string>
@@ -1292,6 +1295,8 @@
   <string name="talk_list_item_user_icon_content_description">Значок участника_цы</string>
   <string name="talk_list_item_swipe_mark_as_read">Прочитано</string>
   <string name="talk_list_item_swipe_mark_as_unread">Непрочитано</string>
+  <string name="talk_login_to_subscribe_dialog_title">Войдите, чтобы подписываться на темы</string>
+  <string name="talk_login_to_subscribe_dialog_content">Подписки на темы позволят вам получать уведомления о новых комментариях в этой теме. Чтобы подписаться на тему, нужно зарегистрироваться или войти в свою учётную запись Википедии.</string>
   <string name="talk_archived_title">Архив обсуждения: %s</string>
   <string name="menu_option_share_talk_discussion">Поделиться обсуждением</string>
   <string name="menu_option_share_talk_page">Поделиться страницей обсуждения</string>
@@ -1330,6 +1335,7 @@
   <string name="revision_diff_paragraph_added">Абзац добавлен</string>
   <string name="revision_diff_paragraph_removed">Абзац удалён</string>
   <string name="revision_undo_title">Отменить правку</string>
+  <string name="revision_undo_message">Это отменит изменения, сделанные в рамках показанной здесь версии (редакции) статьи.</string>
   <string name="revision_undo_reason">Чтобы продолжить, укажите, пожалуйста, причину для отмены этой правки:</string>
   <string name="revision_undo_success">Версия была отменена.</string>
   <string name="revision_rollback_dialog_title">Вы уверены, что хотите откатить правки?</string>
@@ -1362,11 +1368,8 @@
   <string name="preview_edit_summarize_edit_title">Резюмируйте изменение</string>
   <string name="preview_edit_summarize_edit_hint">Как вы улучшили эту страницу?</string>
   <string name="preview_edit_minor_edit">Это малая правка</string>
-  <string name="preview_edit_minor_edit_url">https://ru.wikipedia.org/wiki/Википедия:Малые_изменения</string>
   <string name="preview_edit_watch_this_page">Наблюдать за этой страницей</string>
-  <string name="preview_edit_watch_this_page_url">https://ru.wikipedia.org/wiki/Служебная:Список_наблюдения</string>
   <string name="preview_edit_learn_more">Подробнее об описаниях изменений</string>
-  <string name="preview_edit_learn_more_url">https://ru.wikipedia.org/wiki/Википедия:Описание_изменений</string>
   <string name="action_item_categories">Категории</string>
   <string name="page_no_categories">Эта страница не относится ни к одной категории.</string>
   <string name="category_tab_articles">Статьи</string>
@@ -1378,9 +1381,11 @@
   <string name="user_contrib_activity_title">Вклад авторства %s</string>
   <string name="archive_empty">Заархивированных страниц не найдено.</string>
   <string name="user_contrib_filter_ns">Фильтр по пространствам имён</string>
-  <string name="user_contrib_filter_all">Все правки</string>
+  <string name="user_contrib_filter_all">Все \"пространства имён\"</string>
+  <string name="user_contrib_filter_ns_header">Фильтр пространства имен</string>
   <string name="namespace_article">Статья</string>
   <string name="user_contrib_current">текущая</string>
   <string name="media_playback_error">Ошибка воспроизведения медиафайла.</string>
   <string name="user_contrib_menu_label">Вклад</string>
+  <string name="user_contrib_filter_activity_title">фильтровать вклад</string>
 </resources>

@@ -5,6 +5,7 @@ import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SessionData
 import org.wikipedia.analytics.SessionFunnel
 import org.wikipedia.analytics.eventplatform.StreamConfig
@@ -602,10 +603,14 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_talk_topic_expand_all, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_talk_topic_expand_all, value)
 
-    var userContribFilterNs
-        get() = JsonUtil.decodeFromString<Set<Int>>(PrefsIoUtil.getString(R.string.preference_key_user_contrib_filter_ns, null))
+    var userContribFilterExcludedNs
+        get() = JsonUtil.decodeFromString<Set<Int>>(PrefsIoUtil.getString(R.string.preference_key_user_contrib_filter_excluded_ns, null))
                 ?: emptySet()
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_user_contrib_filter_ns, JsonUtil.encodeToString(value))
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_user_contrib_filter_excluded_ns, JsonUtil.encodeToString(value))
+
+    var userContribFilterLangCode
+        get() = PrefsIoUtil.getString(R.string.preference_key_user_contrib_filter_lang_code, WikipediaApp.instance.appOrSystemLanguageCode)!!
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_user_contrib_filter_lang_code, value)
 
     var editSyntaxHighlightEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_syntax_highlight, true)

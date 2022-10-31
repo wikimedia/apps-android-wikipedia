@@ -551,7 +551,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             ) { entities, protectionInfoRsp ->
                 val captions = entities.first?.labels?.values?.associate { it.language to it.value }.orEmpty()
                 item.mediaInfo!!.captions = captions
-                val depicts = ImageTagsProvider.getDepictsClaims(entities.first?.statements.orEmpty())
+                val depicts = ImageTagsProvider.getDepictsClaims(entities.first?.getStatements().orEmpty())
                 Pair(protectionInfoRsp.query?.isEditProtected == true, depicts.size)
             }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
