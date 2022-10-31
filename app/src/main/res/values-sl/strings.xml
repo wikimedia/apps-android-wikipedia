@@ -295,8 +295,8 @@
   <string name="article_opened_in_background_tab">Članek je odprt na zavihku v ozadju.</string>
   <string name="abusefilter_title_warn">To urejanje se zdi nekoristno. Ali ga res želite objaviti?</string>
   <string name="abusefilter_title_disallow">Tega urejanja ne morete objaviti. Pojdite nazaj in ga spremenite.</string>
-  <string name="abusefilter_text_warn">Samodejni filter je to urejanje prepoznal kot morda nekoristno. Vsebuje lahko eno ali več od naslednjega:&lt;br /&gt;&lt;br /&gt;· Besedilo s samimi velikimi črkami&lt;br /&gt;· Izpraznitev članka ali smetje&lt;br /&gt;· Nepredmetne zunanje povezave ali slike&lt;br /&gt;, ponavljajoče se znake.</string>
-  <string name="abusefilter_text_disallow">Samodejni filter je to urejanje zaznal kot morda nekoristno ali vandalizem.&lt;br /&gt;&lt;br /&gt;Wikipedija je enciklopedija, zato spada vanjo samo nevtralna in pomembna vsebina.</string>
+  <string name="abusefilter_text_warn">To urejanje je samodejni filter prepoznal kot morda nekonstruktivno. Vsebuje lahko eno ali več od naslednjega:&lt;br /&gt;&lt;br /&gt;– besedilo s samimi velikimi črkami;&lt;br /&gt;– izpraznitev članka ali smetje;&lt;br /&gt;– nepredmetne zunanje povezave ali slike;&lt;br /&gt;– ponavljajoči se znaki.</string>
+  <string name="abusefilter_text_disallow">Samodejni filter je to urejanje zaznal kot morda nekonstruktivno ali morebitni vandalizem.&lt;br /&gt;&lt;br /&gt;Wikipedija je enciklopedija, zato spada vanjo samo nepristranska in pomembna vsebina.</string>
   <string name="page_similar_titles">Podobne strani</string>
   <string name="search_did_you_mean">Ali ste mislili \"%s\"?</string>
   <string name="search_recent_header">Zadnja iskanja</string>
