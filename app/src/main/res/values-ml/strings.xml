@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Adithyak1997
+* Akbarali
 * Jameela P.
 * Jinoytommanjaly
 * Path slopu
@@ -44,10 +45,15 @@
   <string name="menu_page_font_and_theme">ഫോണ്ടും ദൃശ്യരൂപവും</string>
   <string name="menu_page_add_to_list">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
   <string name="feed_card_add_to_list">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
+  <string name="feed_card_add_to_default_list">സേവ് ചെയ്യുക</string>
   <string name="menu_page_share">കണ്ണി പങ്ക് വെയ്ക്കുക</string>
+  <string name="menu_article_share">ലേഖനം പങ്കിടുക</string>
+  <string name="menu_page_article_share">പങ്കുവയ്ക്കുക</string>
   <string name="menu_page_open_a_new_tab">പുതിയ ടാബിൽ തുറക്കുക</string>
+  <string name="menu_page_new_tab">പുതിയ ടാബ്</string>
   <string name="menu_page_reading_lists">വായന പട്ടികകൾ</string>
   <string name="menu_page_recently_viewed">അടുത്തിടെ കണ്ടത്</string>
+  <string name="menu_page_archive">സഞ്ചയിക</string>
   <string name="menu_long_press_open_page">തുറക്കുക</string>
   <string name="menu_long_press_open_in_new_tab">പുതിയ ടാബിൽ തുറക്കുക</string>
   <string name="menu_long_press_copy_page">കണ്ണിയുടെ വിലാസം പകർത്തുക</string>
@@ -55,12 +61,14 @@
   <string name="on_this_day_page_share">പങ്കുവയ്ക്കുക</string>
   <string name="reading_list_page_share">പങ്കുവയ്ക്കുക</string>
   <string name="menu_text_select_edit_here">ഇവിടെ തിരുത്തുക</string>
+  <string name="menu_edit_article">ലേഖനം തിരുത്തുക</string>
   <string name="last_updated_text">അവസാനം പുതുക്കിയത്: %s</string>
   <string name="talk_page_link_text">സംവാദത്താൾ കാണുക</string>
   <string name="edit_history_link_text">നാൾവഴി കാണുക</string>
   <string name="map_view_link_text">ഭൂപടത്തിൽ കാണുക</string>
   <string name="other_languages_indication_text">മറ്റൊരു ഭാഷയിൽ വായിക്കുക</string>
   <string name="language_count_link_text">%d മറ്റ് ഭാഷകളിൽ ലഭ്യമാണ്</string>
+  <string name="content_license_cc_by_sa">സി.സി. ബൈ-എസ്.എ. 3.0</string>
   <string name="edit_save_action_license_logged_in">പ്രസിദ്ധീകരിക്കുമ്പോൾ, \n&lt;a href=\"%1$s\"&gt;ഉപയോഗ നിബന്ധനകൾ&lt;/a&gt; പാലിക്കുമെന്നും, താങ്കൾ താങ്കളുടെ സംഭാവനകൾ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; പ്രകാരമാണ് പ്രസിദ്ധീകരിക്കുന്നതെന്നും സമ്മതിക്കുന്നുണ്ട്.</string>
   <string name="edit_save_action_license_anon">പ്രസിദ്ധീകരിക്കുമ്പോൾ, &lt;a href=\"%1$s\"&gt;ഉപയോഗനിബന്ധനകളും&lt;/a&gt;, താങ്കളുടെ സംഭാവനകൾ പിന്നീട് മാറ്റം വരുത്താൻ പറ്റാത്ത വിധം &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; അനുമതിയിലാണ് ഉള്ളതെന്നും താങ്കൾ അംഗീകരിക്കുന്നുണ്ട്. തിരുത്തുകൾ താങ്കളുടെ ഉപകരണത്തിന്റെ ഐ.പി. വിലാസത്തിലേക്ക് ചേർക്കുന്നതാണ്. താങ്കൾ &lt;a href=\"https://#login\"&gt;പ്രവേശിക്കുകയാണെങ്കിൽ&lt;/a&gt;, താങ്കൾക്ക് കൂടുതൽ സ്വകാര്യത ലഭിക്കുന്നതാണ്.</string>
   <string name="preference_title_language">വിക്കിപീഡിയ ഭാഷകൾ</string>
@@ -83,6 +91,7 @@
   <string name="search_reading_lists_no_results">വായിക്കുന്ന പട്ടികയിൽ ഫലങ്ങളൊന്നും കണ്ടെത്തിയില്ല</string>
   <string name="search_history_no_results">ചരിത്രത്തിൽ ഫലങ്ങളൊന്നും കണ്ടെത്തിയില്ല</string>
   <string name="edit_section_captcha_message">സ്വയം പ്രവർത്തിക്കുന്ന പാഴെഴുത്ത് സംവിധാനങ്ങളിൽ നിന്നുമുള്ള സംരക്ഷണത്തിനായി, താഴെ പ്രത്യക്ഷപ്പെടുന്ന വാക്കുകൾ എഴുതി നൽകുക</string>
+  <string name="edit_section_captcha_request_an_account_message">ചിത്രം കാണാൻ കഴിയുന്നില്ലേ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ഒരു അക്കൗണ്ടിന് വേണ്ടി അഭ്യർത്ഥിക്കുക&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">മുകളിലെ വാക്കുകൾ ആവർത്തിക്കുക</string>
   <string name="title_captcha">കാപ്ച നൽകുക</string>
   <string name="edit_section_captcha_reload">കാപ്ച വീണ്ടും എടുക്കാനായി ടാപ് ചെയ്യുക</string>
@@ -91,22 +100,25 @@
   <string name="login_password_hint">രഹസ്യവാക്ക്</string>
   <string name="account_creation_password_hint">രഹസ്യവാക്ക്</string>
   <string name="login_2fa_hint">ദ്വി-ഘടക സാധൂകരണ കോഡ്</string>
+  <string name="login_2fa_other_workflow_error_msg">രണ്ട്-ഘടക പ്രാമാണീകരണം ആവശ്യമാണ്! ദയവായി പ്രധാന പ്രവർത്തനത്തിലേക്ക് മടങ്ങി നിങ്ങളുടെ 2FA ടോക്കൺ ഉപയോഗിച്ച് ലോഗിൻ ചെയ്യുക, തുടർന്ന് വീണ്ടും ശ്രമിക്കുക.</string>
   <string name="onboarding_card_login">പ്രവേശിക്കുക</string>
   <string name="page_editing_login">പ്രവേശിക്കുക</string>
   <string name="reading_lists_sync_login">പ്രവേശിക്കുക</string>
   <string name="create_account_login">പ്രവേശിക്കുക</string>
   <string name="menu_login">പ്രവേശിക്കുക</string>
-  <string name="login_activity_title" fuzzy="true">വിക്കിപീഡിയയിൽ പ്രവേശിക്കുക</string>
+  <string name="login_activity_title">പ്രവേശിക്കുക</string>
   <string name="login_in_progress_dialog_message">താങ്കളെ പ്രവേശിപ്പിക്കുന്നു…</string>
-  <string name="login_success_toast" fuzzy="true">പ്രവേശനം വിജയകരം!</string>
+  <string name="login_success_toast">പ്രവേശിച്ചിട്ടുണ്ട്</string>
   <string name="reset_password_title">താങ്കളുടെ രഹസ്യവാക്ക് സജ്ജീകരിക്കുക</string>
   <string name="reset_password_description">താൽക്കാലിക രഹസ്യവാക്ക് ഉപയോഗിച്ചാണ് താങ്കൾ പ്രവേശിച്ചിരിക്കുന്നത്.\nപ്രവേശനം പൂർത്തിയാക്കാൻ, ഇവിടെ പുതിയ രഹസ്യവാക്ക് സജ്ജമാക്കുക:</string>
   <string name="reset_password_hint">പുതിയ രഹസ്യവാക്ക്</string>
   <string name="reset_password_button">സേവ് ചെയ്യുക, ലോഗിൻ ചെയ്യുക</string>
   <string name="preference_title_logout">ലോഗൗട്ട്</string>
   <string name="toast_logout_complete">പുറത്തുകടന്നു</string>
+  <string name="logout_prompt">നിങ്ങൾ നിലവിൽ ലോഗിൻ ചെയ്‌തിരിക്കുന്ന എല്ലാ ഉപകരണങ്ങളിലും ഇത് നിങ്ങളെ ലോഗ് ഔട്ട് ചെയ്യും. നിങ്ങൾക്ക് തുടരണോ?</string>
   <string name="logout_dialog_cancel_button_text">റദ്ദാക്കുക</string>
   <string name="logged_out_in_background_title">പുറത്തുകടന്നു</string>
+  <string name="logged_out_in_background_dialog">നിങ്ങൾ വിക്കിപീഡിയയിൽ നിന്ന് ലോഗ് ഔട്ട് ചെയ്തു. നിങ്ങൾക്ക് വീണ്ടും ലോഗിൻ ചെയ്യാൻ താൽപ്പര്യമുണ്ടോ?</string>
   <string name="logged_out_in_background_login">പ്രവേശിക്കുക</string>
   <string name="logged_out_in_background_cancel">റദ്ദാക്കുക</string>
   <string name="history_empty_title">അടുത്തിടെ കണ്ട ലേഖനങ്ങൾ ഇല്ല</string>
