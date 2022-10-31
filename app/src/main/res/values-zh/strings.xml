@@ -1267,7 +1267,7 @@
   <string name="user_contrib_activity_title">%s的贡献</string>
   <string name="archive_empty">未找到存档页面。</string>
   <string name="user_contrib_filter_ns">按命名空间过滤</string>
-  <string name="user_contrib_filter_all" fuzzy="true">所有编辑</string>
+  <string name="user_contrib_filter_all">所有“命名空间”</string>
   <string name="namespace_article">条目</string>
   <string name="user_contrib_current">当前</string>
   <string name="user_contrib_menu_label">贡献</string>
