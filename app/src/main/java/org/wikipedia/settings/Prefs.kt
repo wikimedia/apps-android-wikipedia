@@ -642,4 +642,12 @@ object Prefs {
 
     val useUrlShortenerForSharing
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_url_shorten, true)
+
+    var readingListShareSurveyAttempts
+        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_share_survey_attempts, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_share_survey_attempts, value)
+
+    var readingListShareSurveyMode
+        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_share_survey_mode, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_share_survey_mode, value)
 }
