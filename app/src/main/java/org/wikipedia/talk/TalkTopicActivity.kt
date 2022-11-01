@@ -38,6 +38,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.*
 import org.wikipedia.views.SearchActionProvider
+import org.wikipedia.views.ViewUtil
 
 class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private lateinit var binding: ActivityTalkTopicBinding
@@ -294,7 +295,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             if (position >= 0) {
                 binding.talkRecyclerView.post {
                     if (!isDestroyed) {
-                        binding.talkRecyclerView.scrollToPosition(position)
+                        ViewUtil.jumpToPositionWithoutAnimation(binding.talkRecyclerView, position)
                         threadAdapter.notifyItemChanged(position)
                     }
                 }

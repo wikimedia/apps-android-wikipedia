@@ -520,6 +520,10 @@
         <item quantity="one">%d article removed from %s</item>
         <item quantity="other">%d articles removed from %s</item>
     </plurals>
+    <plurals name="reading_lists_deleted_message">
+        <item quantity="one">%d list deleted</item>
+        <item quantity="other">%d lists deleted</item>
+    </plurals>
     <string name="reading_list_items_deleted">%d articles removed from list</string>
     <string name="reading_lists_item_deleted">%s removed from lists</string>
     <string name="reading_list_item_delete_undo">Undo</string>
@@ -552,6 +556,11 @@
     <string name="reading_list_articles_added_to_named">Added %1$d articles to %2$s</string>
     <string name="reading_list_articles_moved_to_named">Moved %1$d articles to %2$s</string>
     <string name="reading_list_delete_confirm">Are you sure you want to delete %s?</string>
+    <string name="reading_list_delete_lists_confirm_dialog_title">Delete selected list(s)?</string>
+    <plurals name="reading_list_delete_lists_confirm_dialog_message">
+        <item quantity="one">Are you sure you want to delete %d list?</item>
+        <item quantity="other">Are you sure you want to delete %d lists?</item>
+    </plurals>
     <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log in to enable sync</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log in to allow your reading lists to be saved to your account.</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancel</string>
@@ -597,6 +606,7 @@
     <string name="reading_list_remove_from_offline_cancel_button_text">Cancel</string>
     <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancel</string>
     <string name="reading_list_split_dialog_ok_button_text">OK</string>
+    <string name="reading_list_delete_lists_dialog_delete_button_text">Delete</string>
     <string name="reading_list_activity_title">Reading list: %s</string>
     <string name="reading_list_notification_text">The reading lists you have selected have been exported</string>
     <string name="reading_list_notification_detailed_text">Reading lists have been exported to \'reading_lists_export.json\'</string>
