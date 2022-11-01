@@ -73,6 +73,8 @@ class ReadingListItemView : ConstraintLayout {
                         menu.menu.findItem(R.id.menu_reading_list_delete).isVisible = false
                     }
                     actionMode = callback?.onLongClick()
+                    menu.menu.findItem(R.id.menu_reading_list_select).title =
+                        context.getString(if (it.selected) R.string.reading_list_menu_unselect else R.string.reading_list_menu_select)
                     if (SearchActionModeCallback.`is`(actionMode)) {
                         menu.menu.findItem(R.id.menu_reading_list_select).isVisible = false
                     }

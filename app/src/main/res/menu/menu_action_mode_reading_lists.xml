@@ -6,4 +6,8 @@
         android:icon="@drawable/ic_download_in_progress"
         android:title="@string/reading_list_action_menu_export_lists"
         app:showAsAction="always" />
+    <item android:id="@+id/menu_check_all"
+        android:icon="@drawable/ic_outline_library_add_check_24"
+        android:title="@string/notifications_menu_check_all"
+        app:showAsAction="always" />
 </menu>

@@ -438,8 +438,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onSelectList(readingList: ReadingList) {
+            if (!isTagType(actionMode)) {
                 beginMultiSelect()
-                toggleSelectList(readingList)
+            }
+            toggleSelectList(readingList)
         }
 
         override fun onChecked(readingList: ReadingList) {
@@ -549,13 +551,16 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             when (menuItem.itemId) {
                 R.id.menu_export_selected -> {
                     if (selectedListsCount == 0) {
-                        Toast.makeText(context, getString(R.string.reading_lists_export_select_lists_message)
-                            , Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, getString(R.string.reading_lists_export_select_lists_message),
+                            Toast.LENGTH_SHORT).show()
                         return true
                     }
                     ReadingListsExportImportHelper.exportLists(activity as BaseActivity, selectedLists)
                     finishActionMode()
                     return true
+                }
+                R.id.menu_check_all -> {
+                    selectAllLists()
                 }
             }
             return false
@@ -580,6 +585,16 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }
             adapter.notifyDataSetChanged()
         }
+    }
+
+    private fun selectAllLists() {
+         displayedLists.let {
+            displayedLists.filterIsInstance<ReadingList>()
+                .filter { !it.selected }
+                .onEach { it.selected = true }
+        }
+        actionMode?.title = selectedListsCount.toString()
+        adapter.notifyDataSetChanged()
     }
 
     private inner class ReadingListsSearchCallback : SearchActionModeCallback() {
