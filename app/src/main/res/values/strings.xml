@@ -602,6 +602,7 @@
     <string name="reading_list_action_menu_export_lists">Export lists</string>
     <string name="reading_list_import_file_picker_title">Choose the file to import</string>
     <string name="reading_list_import_failure_message">Readinglists import failed</string>
+    <string name="reading_lists_export_select_lists_message">Select list(s) to  export</string>
     <plurals name="reading_list_notification_title">
         <item quantity="one">Reading list Exported</item>
         <item quantity="other">Reading lists Exported</item>

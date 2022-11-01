@@ -173,6 +173,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         override fun onSaveAllOffline(readingList: ReadingList) {}
         override fun onRemoveAllOffline(readingList: ReadingList) {}
         override fun onSelectList(readingList: ReadingList) {}
+        override fun onChecked(readingList: ReadingList) {}
     }
 
     private class ReadingListItemHolder constructor(itemView: ReadingListItemView) : RecyclerView.ViewHolder(itemView) {

@@ -64,7 +64,7 @@
         android:ellipsize="end"
         android:maxLines="2"
         app:layout_constraintEnd_toStartOf="@+id/item_image_1"
-        app:layout_constraintStart_toEndOf="@id/item_selected_image"
+        app:layout_constraintStart_toEndOf="@id/item_select_checkbox"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Lorem ipsum" />
 
@@ -106,13 +106,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_more_vert_white_24dp" />
 
-    <ImageView
-        android:id="@+id/item_selected_image"
+    <CheckBox
+        android:id="@+id/item_select_checkbox"
         android:layout_width="@dimen/view_list_card_item_image"
         android:layout_height="@dimen/view_list_card_item_image"
         android:layout_marginStart="@dimen/list_item_horizontal_padding"
         android:layout_marginEnd="@dimen/list_item_horizontal_padding"
-        android:background="@drawable/button_shape_gray"
         android:contentDescription="@null"
         android:padding="8dp"
         android:visibility="gone"
