@@ -183,6 +183,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             bridge.resetHtml(title)
                         }
                         fragment.onPageMetadataLoaded()
+
                         if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
                             checkAnonNotifications(title)
                         }
