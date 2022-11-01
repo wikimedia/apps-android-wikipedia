@@ -1313,4 +1313,14 @@
     <item quantity="other">User message when import of multiple reading lists has been successful.</item>
   </plurals>
   <string name="reading_lists_menu_edit">Label text for editing reading lists menu option.</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Delete action button text in warning pop-up dialog for deleteing multiple reading lists.</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Confirmation dialog title shown to user while deleting multiple reading lists.</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Confirmation dialog message shown to user while deleting one reading list. The \"%d\" symbol is replaced with the number of lists up for deletion.</item>
+    <item quantity="other">Confirmation dialog message shown to user while deleting multiple reading lists. The \"%d\" symbol is replaced with the number of lists up for deletion.</item>
+  </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">Toast message shown when one reading list is deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
+    <item quantity="other">Toast message shown when multiple reading lists are deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
+  </plurals>
 </resources>

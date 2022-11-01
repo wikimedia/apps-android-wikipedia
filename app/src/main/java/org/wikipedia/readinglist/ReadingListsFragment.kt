@@ -549,6 +549,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
         override fun onActionItemClicked(mode: ActionMode, menuItem: MenuItem): Boolean {
             when (menuItem.itemId) {
+                R.id.menu_delete_selected -> {
+                    onDeleteSelected()
+                    finishActionMode()
+                    return true
+                }
                 R.id.menu_export_selected -> {
                     if (selectedListsCount == 0) {
                         Toast.makeText(context, getString(R.string.reading_lists_export_select_lists_message),
@@ -567,7 +572,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onDeleteSelected() {
-            // ignore
+            selectedLists.let {
+                ReadingListBehaviorsUtil.deleteReadingLists(requireActivity(), it) {
+                    ReadingListBehaviorsUtil.showDeleteListsUndoSnackbar(requireActivity(), it) { updateLists() }
+                    it.forEach { list -> funnel.logDeleteList(list, displayedLists.size) }
+                    updateLists()
+                }
+            }
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
