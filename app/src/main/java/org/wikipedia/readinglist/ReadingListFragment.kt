@@ -616,6 +616,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         override fun onSelectList(readingList: ReadingList) {
             // ignore
         }
+
+        override fun onChecked(readingList: ReadingList) {
+            // ignore
+        }
     }
 
     private inner class ReadingListItemCallback : ReadingListItemView.Callback {
@@ -648,6 +652,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
 
         override fun onSelectList(readingList: ReadingList) {
+            // ignore
+        }
+
+        override fun onChecked(readingList: ReadingList) {
             // ignore
         }
     }

@@ -989,6 +989,8 @@
   <string name="talk_last_modified">&lt;b&gt;Naposledy upravil(a) %1$s&lt;/b&gt; %2$s</string>
   <string name="talk_share_discussion_subject">Wikipedie - diskuse na diskusní stránce k tématu „%s“</string>
   <string name="talk_share_talk_page">Wikipedie - diskuse na diskusní stránce</string>
+  <string name="talk_login_to_subscribe_dialog_title">Pro odebírání témat se přihlaste</string>
+  <string name="talk_login_to_subscribe_dialog_content">Odběry témat vám umožní dostávat upozornění na nové komentáře k tomuto tématu. Chcete-li se přihlásit k odběru tématu, vytvořte si účet nebo se přihlaste ke svému účtu na Wikipedii.</string>
   <string name="menu_option_share_edit">Sdílet editaci</string>
   <string name="menu_option_user_contributions">Příspěvky uživatele/uživatelky %s</string>
   <string name="watchlist_details_watching_label">Sledujete</string>

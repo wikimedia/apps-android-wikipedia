@@ -10,37 +10,32 @@ import org.wikipedia.feed.model.UtcDate
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.ConcurrentHashMap
 
 object DateUtil {
-    private val DATE_FORMATS = HashMap<String, SimpleDateFormat>()
+    private val DATE_FORMATS = ConcurrentHashMap<String, SimpleDateFormat>()
 
     // TODO: Switch to DateTimeFormatter when minSdk = 26.
-    @Synchronized
     fun iso8601DateFormat(date: Date): String {
         return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).format(date)
     }
 
-    @Synchronized
     fun iso8601DateParse(date: String): Date {
         return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ROOT, true).parse(date)!!
     }
 
-    @Synchronized
     fun iso8601ShortDateParse(date: String): Date {
         return getCachedDateFormat("yyyy-MM-dd'Z'", Locale.ROOT, true).parse(date)!!
     }
 
-    @Synchronized
     fun iso8601LocalDateFormat(date: Date): String {
         return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT, false).format(date)
     }
 
-    @Synchronized
-    fun dbDateFormat(date: Date?): String {
-        return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).format(date!!)
+    fun dbDateFormat(date: Date): String {
+        return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).format(date)
     }
 
-    @Synchronized
     fun dbDateParse(date: String): Date {
         return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).parse(date)!!
     }
@@ -113,7 +108,6 @@ object DateUtil {
         return getCachedDateFormat(datePattern, Locale.getDefault(), false).format(date)
     }
 
-    @Synchronized
     private fun getDateStringWithSkeletonPattern(date: Date, pattern: String): String {
         return getCachedDateFormat(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false).format(date)
     }
@@ -148,7 +142,6 @@ object DateUtil {
         return calendar
     }
 
-    @Synchronized
     @Throws(ParseException::class)
     fun getHttpLastModifiedDate(dateStr: String): Date {
         return getCachedDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH, true).parse(dateStr)!!

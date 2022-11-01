@@ -1010,10 +1010,10 @@
   <string name="search_namespaces">নামস্থান</string>
   <string name="revision_initial_none">কোনটিই নয় (এটি প্রথম সংশোধন)</string>
   <string name="archive_empty">কোনো সংরক্ষণাগারভুক্ত পৃষ্ঠা পাওয়া যায়নি।</string>
-  <string name="user_contrib_filter_all">সমস্ত সম্পাদনা</string>
+  <string name="user_contrib_filter_all" fuzzy="true">সমস্ত সম্পাদনা</string>
   <string name="namespace_article">নিবন্ধ</string>
   <string name="user_contrib_current">বর্তমান</string>
   <string name="media_playback_error">মিডিয়া চালনায় ত্রুটি৷</string>
   <string name="user_contrib_menu_label">অবদান</string>
-  <string name="user_contrib_wiki_select">এতে অবদান:</string>
+  <string name="user_contrib_filter_activity_title" fuzzy="true">এতে অবদান:</string>
 </resources>

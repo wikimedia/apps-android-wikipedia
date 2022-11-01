@@ -32,6 +32,7 @@ class ReadingListItemView : ConstraintLayout {
         fun onSaveAllOffline(readingList: ReadingList)
         fun onRemoveAllOffline(readingList: ReadingList)
         fun onSelectList(readingList: ReadingList)
+        fun onChecked(readingList: ReadingList)
     }
 
     enum class Description {
@@ -72,6 +73,8 @@ class ReadingListItemView : ConstraintLayout {
                         menu.menu.findItem(R.id.menu_reading_list_delete).isVisible = false
                     }
                     actionMode = callback?.onLongClick()
+                    menu.menu.findItem(R.id.menu_reading_list_select).title =
+                        context.getString(if (it.selected) R.string.reading_list_menu_unselect else R.string.reading_list_menu_select)
                     if (SearchActionModeCallback.`is`(actionMode)) {
                         menu.menu.findItem(R.id.menu_reading_list_select).isVisible = false
                     }
@@ -96,15 +99,19 @@ class ReadingListItemView : ConstraintLayout {
                 }
             }
         }
+
+        binding.itemSelectCheckbox.setOnClickListener {
+            readingList?.let { callback?.onChecked(it) }
+        }
     }
 
-    fun setReadingList(readingList: ReadingList, description: Description) {
+    fun setReadingList(readingList: ReadingList, description: Description, selectMode: Boolean = false) {
         this.readingList = readingList
         val isDetailView = description == Description.DETAIL
         binding.itemDescription.maxLines = if (isDetailView) Int.MAX_VALUE else resources.getInteger(R.integer.reading_list_description_summary_view_max_lines)
         val text: CharSequence = if (isDetailView) buildStatisticalDetailText(readingList) else buildStatisticalSummaryText(readingList)
         binding.itemReadingListStatisticalDescription.text = text
-        updateDetails()
+        updateDetails(selectMode)
         if (binding.itemImage1.visibility == VISIBLE) {
             updateThumbnails()
         }
@@ -130,7 +137,7 @@ class ReadingListItemView : ConstraintLayout {
         binding.itemOverflowMenu.visibility = visibility
     }
 
-    private fun updateDetails() {
+    private fun updateDetails(showCheckBoxes: Boolean) {
         readingList?.let {
             binding.defaultListEmptyImage.visibility = if (it.isDefault && it.pages.size == 0 && binding.itemImage1.visibility == VISIBLE) VISIBLE else GONE
             binding.itemTitle.text = it.title
@@ -141,7 +148,8 @@ class ReadingListItemView : ConstraintLayout {
                 binding.itemDescription.text = it.description
                 binding.itemDescription.visibility = if (it.description.isNullOrEmpty()) GONE else VISIBLE
             }
-            binding.itemSelectedImage.visibility = if (it.selected) VISIBLE else GONE
+            binding.itemSelectCheckbox.visibility = if (showCheckBoxes) VISIBLE else GONE
+            binding.itemSelectCheckbox.isChecked = it.selected
         }
     }
 

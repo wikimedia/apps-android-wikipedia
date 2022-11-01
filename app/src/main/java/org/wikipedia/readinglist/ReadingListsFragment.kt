@@ -59,11 +59,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private val readingListItemCallback = ReadingListItemCallback()
     private val readingListPageItemCallback = ReadingListPageItemCallback()
     private val searchActionModeCallback = ReadingListsSearchCallback()
-    private val multiSelectExportModeCallback = MultiSelectCallback()
+    private val multiSelectModeCallback = MultiSelectCallback()
     private var actionMode: ActionMode? = null
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val overflowCallback = OverflowCallback()
     private var currentSearchQuery: String? = null
+    private var selectMode: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -172,6 +173,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             filePickerIntent.type = "*/*"
             filePickerIntent = Intent.createChooser(filePickerIntent, getString(R.string.reading_list_import_file_picker_title))
             (activity as MainActivity).filePickerLauncher.launch(filePickerIntent)
+        }
+
+        override fun editList() {
+            beginMultiSelect()
+            adapter.notifyDataSetChanged()
+            actionMode?.title = selectedListsCount.toString()
         }
 
         override fun refreshClick() {
@@ -311,7 +318,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private inner class ReadingListItemHolder constructor(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
         fun bindItem(readingList: ReadingList) {
-            view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY)
+            view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY, selectMode)
             view.setSearchQuery(currentSearchQuery)
         }
 
@@ -431,26 +438,29 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onSelectList(readingList: ReadingList) {
+            if (!isTagType(actionMode)) {
                 beginMultiSelect()
-                toggleSelectList(readingList)
+            }
+            toggleSelectList(readingList)
+        }
+
+        override fun onChecked(readingList: ReadingList) {
+            toggleSelectList(readingList)
         }
     }
 
     private fun toggleSelectList(list: ReadingList?) {
-            list?.let {
-                it.selected = !it.selected
-                if (selectedListsCount == 0) {
-                    finishActionMode()
-                } else {
-                    actionMode?.title = resources.getQuantityString(R.plurals.multi_items_selected, selectedListsCount, selectedListsCount)
-                }
-                adapter.notifyDataSetChanged()
-            }
+        list?.let {
+            it.selected = !it.selected
+            actionMode?.title = selectedListsCount.toString()
+            adapter.notifyDataSetChanged()
+        }
     }
 
     private fun beginMultiSelect() {
         if (!isTagType(actionMode)) {
-            (requireActivity() as AppCompatActivity).startSupportActionMode(multiSelectExportModeCallback)
+            selectMode = true
+            (requireActivity() as AppCompatActivity).startSupportActionMode(multiSelectModeCallback)
         }
     }
 
@@ -533,6 +543,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             super.onCreateActionMode(mode, menu)
             mode.menuInflater.inflate(R.menu.menu_action_mode_reading_lists, menu)
             actionMode = mode
+            ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_export_selected), R.attr.material_theme_primary_color)
             return true
         }
 
@@ -544,9 +555,17 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     return true
                 }
                 R.id.menu_export_selected -> {
+                    if (selectedListsCount == 0) {
+                        Toast.makeText(context, getString(R.string.reading_lists_export_select_lists_message),
+                            Toast.LENGTH_SHORT).show()
+                        return true
+                    }
                     ReadingListsExportImportHelper.exportLists(activity as BaseActivity, selectedLists)
                     finishActionMode()
                     return true
+                }
+                R.id.menu_check_all -> {
+                    selectAllLists()
                 }
             }
             return false
@@ -563,6 +582,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
+            selectMode = false
             unselectAllLists()
             actionMode = null
             super.onDestroyActionMode(mode)
@@ -576,6 +596,16 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }
             adapter.notifyDataSetChanged()
         }
+    }
+
+    private fun selectAllLists() {
+         displayedLists.let {
+            displayedLists.filterIsInstance<ReadingList>()
+                .filter { !it.selected }
+                .onEach { it.selected = true }
+        }
+        actionMode?.title = selectedListsCount.toString()
+        adapter.notifyDataSetChanged()
     }
 
     private inner class ReadingListsSearchCallback : SearchActionModeCallback() {
