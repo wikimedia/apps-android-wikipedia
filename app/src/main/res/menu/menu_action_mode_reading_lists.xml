@@ -10,4 +10,9 @@
         android:icon="@drawable/ic_outline_library_add_check_24"
         android:title="@string/notifications_menu_check_all"
         app:showAsAction="always" />
+    <item android:id="@+id/menu_uncheck_all"
+        android:icon="@drawable/ic_deselect_all"
+        android:visible="false"
+        android:title="@string/notifications_menu_uncheck_all"
+        app:showAsAction="always" />
 </menu>

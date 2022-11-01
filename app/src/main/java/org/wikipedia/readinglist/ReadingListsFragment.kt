@@ -561,6 +561,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 }
                 R.id.menu_check_all -> {
                     selectAllLists()
+                    mode.menu.findItem(R.id.menu_check_all).isVisible = false
+                    mode.menu.findItem(R.id.menu_uncheck_all).isVisible = true
+                }
+                R.id.menu_uncheck_all -> {
+                    unselectAllLists()
+                    mode.menu.findItem(R.id.menu_uncheck_all).isVisible = false
+                    mode.menu.findItem(R.id.menu_check_all).isVisible = true
                 }
             }
             return false
@@ -583,6 +590,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             it.forEach { list ->
                 list.selected = false
             }
+            actionMode?.title = selectedListsCount.toString()
             adapter.notifyDataSetChanged()
         }
     }
