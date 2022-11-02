@@ -202,7 +202,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         override fun onInternalLinkClicked(title: PageTitle) {
             UserTalkPopupHelper.show(this@TalkReplyActivity, bottomSheetPresenter, title, false, lastX, lastY,
-                    Constants.InvokeSource.TALK_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
+                    Constants.InvokeSource.TALK_REPLY_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
         }
     }
 
@@ -298,7 +298,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
         bottomSheetPresenter.show(supportFragmentManager,
-                AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_ACTIVITY))
+                AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_REPLY_ACTIVITY))
     }
 
     override fun onLinkPreviewShareLink(title: PageTitle) {

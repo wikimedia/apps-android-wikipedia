@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource.TALK_TOPICS_ACTIVITY
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -146,7 +147,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
         binding.talkNewTopicButton.setOnClickListener {
             funnel?.logNewTopicClick()
-            requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, viewModel.pageTitle, null, null, invokeSource))
+            requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, viewModel.pageTitle, null, null, TALK_TOPICS_ACTIVITY))
         }
 
         binding.talkRefreshView.setOnRefreshListener {
@@ -230,7 +231,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_change_language -> {
-                requestLanguageChange.launch(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.TALK_ACTIVITY))
+                requestLanguageChange.launch(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.TALK_TOPICS_ACTIVITY))
                 return true
             }
             R.id.menu_read_article, R.id.menu_view_user_page -> {
@@ -358,7 +359,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnUndoSave(undoneSubject: CharSequence, undoneBody: CharSequence) {
-        requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, viewModel.pageTitle, null, null, invokeSource, undoneSubject, undoneBody))
+        requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, viewModel.pageTitle, null, null, TALK_TOPICS_ACTIVITY, undoneSubject, undoneBody))
     }
 
     private fun updateOnWatch() {
