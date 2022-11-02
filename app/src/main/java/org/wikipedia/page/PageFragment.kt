@@ -13,11 +13,14 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.LinearLayout
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.graphics.Insets
+import androidx.core.view.ActionProvider
+import androidx.core.view.MenuItemCompat
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -172,6 +175,18 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val isLoading get() = bridge.isLoading
     val leadImageEditLang get() = leadImagesHandler.callToActionEditLang
 
+    val requestEditSectionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
+            FeedbackUtil.showMessage(requireActivity(), R.string.edit_saved_successfully)
+            // and reload the page...
+            model.title?.let { title ->
+                model.curEntry?.let { entry ->
+                    loadPage(title, entry, pushBackStack = false, squashBackstack = false, isRefresh = true)
+                }
+            }
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPageBinding.inflate(inflater, container, false)
         webView = binding.pageWebView
@@ -224,19 +239,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         if (shouldLoadFromBackstack(activity) || savedInstanceState != null) {
             reloadFromBackstack()
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Constants.ACTIVITY_REQUEST_EDIT_SECTION && resultCode == EditHandler.RESULT_REFRESH_PAGE) {
-            FeedbackUtil.showMessage(requireActivity(), R.string.edit_saved_successfully)
-            // and reload the page...
-            model.title?.let { title ->
-                model.curEntry?.let { entry ->
-                    loadPage(title, entry, pushBackStack = false, squashBackstack = false, isRefresh = true)
-                }
-            }
         }
     }
 
@@ -699,7 +701,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             startSupportActionMode(object : ActionMode.Callback {
                 override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
                     val menuItem = menu.add(R.string.menu_page_find_in_page)
-                    menuItem.actionProvider = FindReferenceInPageActionProvider(requireContext(), referenceAnchor, referenceText, backLinksList)
+                    MenuItemCompat.setActionProvider(menuItem, FindReferenceInPageActionProvider(requireContext(), referenceAnchor, referenceText, backLinksList))
                     menuItem.expandActionView()
                     return true
                 }
@@ -783,7 +785,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
             references = JsonUtil.decodeFromString(messagePayload.toString())
             references?.let {
-                if (!it.referencesGroup.isNullOrEmpty()) {
+                if (it.referencesGroup.isNotEmpty()) {
                     showBottomSheet(ReferenceDialog())
                 }
             }
@@ -1309,6 +1311,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                                                                       private val backLinksList: List<String?>) : ActionProvider(context), View.OnClickListener {
         private val binding = GroupFindReferencesInPageBinding.inflate(LayoutInflater.from(context), null, false)
         private var currentPos = 0
+
         override fun onCreateActionView(): View {
             binding.findInPagePrev.setOnClickListener(this)
             binding.findInPageNext.setOnClickListener(this)

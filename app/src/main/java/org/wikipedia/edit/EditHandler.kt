@@ -80,15 +80,15 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
                 L.w("Attempting to edit a mismatched section ID.")
                 return
             }
-            fragment.startActivityForResult(EditSectionActivity.newIntent(fragment.requireContext(),
-                it.sections[sectionID].id, it.sections[sectionID].anchor, it.title, highlightText), Constants.ACTIVITY_REQUEST_EDIT_SECTION)
+            fragment.requestEditSectionLauncher.launch(EditSectionActivity.newIntent(fragment.requireContext(),
+                it.sections[sectionID].id, it.sections[sectionID].anchor, it.title, highlightText))
         }
     }
 
     fun startEditingArticle() {
         currentPage?.let {
-            fragment.startActivityForResult(EditSectionActivity.newIntent(fragment.requireContext(),
-                    -1, null, it.title), Constants.ACTIVITY_REQUEST_EDIT_SECTION)
+            fragment.requestEditSectionLauncher.launch(EditSectionActivity.newIntent(fragment.requireContext(),
+                -1, null, it.title))
         }
     }
 
