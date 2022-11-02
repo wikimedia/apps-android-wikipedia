@@ -119,6 +119,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageLoadErrorBackPressed()
         fun onPageSetToolbarElevationEnabled(enabled: Boolean)
         fun onPageCloseActionMode()
+        fun onPageEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?)
     }
 
     private var _binding: FragmentPageBinding? = null
@@ -174,18 +175,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val headerView get() = binding.pageHeaderView
     val isLoading get() = bridge.isLoading
     val leadImageEditLang get() = leadImagesHandler.callToActionEditLang
-
-    val requestEditSectionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
-            FeedbackUtil.showMessage(requireActivity(), R.string.edit_saved_successfully)
-            // and reload the page...
-            model.title?.let { title ->
-                model.curEntry?.let { entry ->
-                    loadPage(title, entry, pushBackStack = false, squashBackstack = false, isRefresh = true)
-                }
-            }
-        }
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPageBinding.inflate(inflater, container, false)
@@ -1053,6 +1042,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
+    fun onRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
+        callback()?.onPageEditSection(sectionId, sectionAnchor, title, highlightText)
+    }
+
     fun sharePageLink() {
         model.title?.let {
             ShareUtil.shareText(requireActivity(), it)
@@ -1158,7 +1151,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (currentActivity is PageActivity) {
             currentActivity.clearActionBarTitle()
         }
-    }
+   }
 
     fun verifyBeforeEditingDescription(text: String?, invokeSource: InvokeSource) {
         page?.let {
