@@ -253,13 +253,11 @@ class PageFragmentLoadState(private var model: PageViewModel,
             }
 
             // Update our tab list to prevent ZH variants issue.
-            if (app.tabList[app.tabCount - 1] != null) {
-                app.tabList[app.tabCount - 1].setBackStackPositionTitle(title)
-            }
+            app.tabList.getOrNull(app.tabCount - 1)?.setBackStackPositionTitle(title)
 
             // Save the thumbnail URL to the DB
             val pageImage = PageImage(title, pageSummary?.thumbnailUrl)
-            Completable.fromAction { AppDatabase.instance.pageImagesDao().insertPageImage(pageImage) }.subscribeOn(Schedulers.io()).subscribe()
+            disposables.add(Completable.fromAction { AppDatabase.instance.pageImagesDao().insertPageImage(pageImage) }.subscribeOn(Schedulers.io()).subscribe())
             title.thumbUrl = pageImage.imageName
         }
     }
