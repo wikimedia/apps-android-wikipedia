@@ -70,7 +70,8 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
         return NotificationCompat
             .Builder(context, NotificationCategory.MENTION.id)
             .setDefaults(NotificationCompat.DEFAULT_ALL).setPriority(NotificationCompat.PRIORITY_HIGH)
-            .setAutoCancel(true).setContentTitle(context.resources.getQuantityString(R.plurals.reading_list_notification_title, numberOfLists))
+            .setAutoCancel(true)
+            .setContentTitle(context.resources.getQuantityString(R.plurals.reading_list_notification_title, numberOfLists))
             .setContentText(context.getString(R.string.reading_list_notification_text))
             .setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags))
             .setLargeIcon(NotificationPresenter.drawNotificationBitmap(context, R.color.accent50, R.drawable.ic_download_in_progress, ""))
@@ -91,8 +92,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
         readingLists?.let {
             for (list in readingLists) {
                 val allLists = AppDatabase.instance.readingListDao().getAllLists()
-                val existingTitles =
-                    AppDatabase.instance.readingListDao().getAllLists().map { it.title }
+                val existingTitles = AppDatabase.instance.readingListDao().getAllLists().map { it.title }
                 if (existingTitles.contains(list.name)) {
                     allLists.filter { it.title == list.name }.forEach { addTitlesToList(list, it) }
                     continue

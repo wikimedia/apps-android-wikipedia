@@ -29,11 +29,10 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     private var controlNavTabInFragment = false
     private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { }
     var importCallback: Callback? = null
-    val filePickerLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            val uri: Uri = it.data?.data!!
-            importCallback?.onActivityListsImportResult(uri)
-        }
+    val filePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        val uri: Uri = it.data?.data!!
+        importCallback?.onActivityListsImportResult(uri)
+    }
 
     override fun inflateAndSetContentView() {
         binding = ActivityMainBinding.inflate(layoutInflater)
