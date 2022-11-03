@@ -55,9 +55,11 @@ import org.wikipedia.databinding.GroupFindReferencesInPageBinding
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.dataclient.watch.Watch
+import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.feed.announcement.Announcement
@@ -117,8 +119,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageCloseActionMode()
         fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?)
         fun onPageRequestLangLinks(title: PageTitle)
-        fun onPageRequestGallery(title: PageTitle, fileName: String, revision: Long, options: ActivityOptionsCompat?)
-        fun onPageRequestEditDescription(text: String?, pageSummaryForEdit: PageSummaryForEdit?, invokeSource: InvokeSource)
+        fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, source: Int, options: ActivityOptionsCompat?)
+        fun onPageRequestAddImageTags(mwQueryPage: MwQueryPage, invokeSource: InvokeSource)
+        fun onPageRequestEditDescriptionTutorial(text: String?, invokeSource: InvokeSource)
+        fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,
+                                         targetSummary: PageSummaryForEdit?, action: DescriptionEditActivity.Action, invokeSource: InvokeSource)
     }
 
     private var _binding: FragmentPageBinding? = null
@@ -217,7 +222,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         editHandler = EditHandler(this, bridge)
         sidePanelHandler = SidePanelHandler(this, bridge)
-        leadImagesHandler = LeadImagesHandler(this, webView, binding.pageHeaderView)
+        leadImagesHandler = LeadImagesHandler(this, webView, binding.pageHeaderView, callback())
         shareHandler = ShareHandler(this, bridge)
         pageFragmentLoadState = PageFragmentLoadState(model, this, webView, bridge, leadImagesHandler, currentTab)
 
@@ -616,7 +621,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         return@post
                     }
                     model.title?.let {
-                        callback()?.onPageRequestGallery(it, fileName, revision, options)
+                        callback()?.onPageRequestGallery(it, fileName, it.wikiSite, revision, GalleryFunnel.SOURCE_NON_LEAD_IMAGE, options)
                     }
                 }
             }
@@ -1165,11 +1170,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun startDescriptionEditActivity(text: String?, invokeSource: InvokeSource) {
         if (Prefs.isDescriptionEditTutorialEnabled) {
-            callback()?.onPageRequestEditDescription(text, null, invokeSource)
+            callback()?.onPageRequestEditDescriptionTutorial(text, invokeSource)
         } else {
             title?.run {
                 val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayText, description, thumbUrl)
-                callback()?.onPageRequestEditDescription(text, sourceSummary, invokeSource)
+                callback()?.onPageRequestEditDescription(text, this, sourceSummary, null,
+                    DescriptionEditActivity.Action.ADD_DESCRIPTION, invokeSource)
             }
         }
     }

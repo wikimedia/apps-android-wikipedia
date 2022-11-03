@@ -33,6 +33,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityPageBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView
 import org.wikipedia.descriptions.DescriptionEditSuccessActivity
@@ -54,6 +55,7 @@ import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.PageSummaryForEdit
+import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.usercontrib.UserContribListActivity
@@ -293,32 +295,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         outState.putString(LANGUAGE_CODE_BUNDLE_KEY, app.appOrSystemLanguageCode)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if ((requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT || requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT ||
-                    requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT) && (resultCode == RESULT_OK ||
-                    resultCode == DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS)) {
-            pageFragment.refreshPage()
-            val editLanguage = pageFragment.leadImageEditLang.orEmpty().ifEmpty { app.languageState.appLanguageCode }
-            val action = if (data != null && data.hasExtra(Constants.INTENT_EXTRA_ACTION))
-                data.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action?
-            else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT) DescriptionEditActivity.Action.ADD_IMAGE_TAGS
-            else null
-
-            SuggestedEditsSnackbars.show(this, action, resultCode != DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS,
-                editLanguage, requestCode != Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT) {
-                pageFragment.title?.let {
-                    if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS) {
-                        startActivity(FilePageActivity.newIntent(this, it))
-                    } else if (action === DescriptionEditActivity.Action.ADD_CAPTION || action === DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-                        startActivity(GalleryActivity.newIntent(this, it, it.prefixedText, it.wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
-                    }
-                }
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data)
-        }
-    }
-
     override fun onActionModeStarted(mode: ActionMode) {
         super.onActionModeStarted(mode)
         if (!isCabOpen && mode.tag == null) {
@@ -466,18 +442,21 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         requestHandleIntentLauncher.launch(langIntent)
     }
 
-    override fun onPageRequestGallery(title: PageTitle, fileName: String, revision: Long, options: ActivityOptionsCompat?) {
-        requestHandleIntentLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision,
-            GalleryFunnel.SOURCE_NON_LEAD_IMAGE), options)
+    override fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, source: Int, options: ActivityOptionsCompat?) {
+        requestHandleIntentLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision, source), options)
     }
 
-    override fun onPageRequestEditDescription(text: String?, pageSummaryForEdit: PageSummaryForEdit?, invokeSource: InvokeSource) {
-        if (pageSummaryForEdit == null) {
-            requestDescriptionEditTutorialLauncher.launch(DescriptionEditTutorialActivity.newIntent(this, text, invokeSource))
-        } else {
-            requestSuggestedEditsLauncher.launch(DescriptionEditActivity.newIntent(this, pageSummaryForEdit.pageTitle, text, pageSummaryForEdit, null,
-                DescriptionEditActivity.Action.ADD_DESCRIPTION, invokeSource))
-        }
+    override fun onPageRequestEditDescriptionTutorial(text: String?, invokeSource: InvokeSource) {
+        requestDescriptionEditTutorialLauncher.launch(DescriptionEditTutorialActivity.newIntent(this, text, invokeSource))
+    }
+
+    override fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,
+                                              targetSummary: PageSummaryForEdit?, action: DescriptionEditActivity.Action, invokeSource: InvokeSource) {
+        requestSuggestedEditsLauncher.launch(DescriptionEditActivity.newIntent(this, title, text, sourceSummary, targetSummary, action, invokeSource))
+    }
+
+    override fun onPageRequestAddImageTags(mwQueryPage: MwQueryPage, invokeSource: InvokeSource) {
+        requestSuggestedEditsLauncher.launch(SuggestedEditsImageTagEditActivity.newIntent(this, mwQueryPage, invokeSource))
     }
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
