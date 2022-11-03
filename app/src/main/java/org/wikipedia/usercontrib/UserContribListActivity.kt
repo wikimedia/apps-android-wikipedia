@@ -447,7 +447,7 @@ class UserContribListActivity : BaseActivity() {
 
         override fun onInternalLinkClicked(title: PageTitle) {
             UserTalkPopupHelper.show(this@UserContribListActivity, bottomSheetPresenter, title, false, lastX, lastY,
-                    Constants.InvokeSource.TALK_TOPICS_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC, showContribs = false)
+                    Constants.InvokeSource.USER_CONTRIB_ACTIVITY, HistoryEntry.SOURCE_USER_CONTRIB, showContribs = false)
         }
     }
 
