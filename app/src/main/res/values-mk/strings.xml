@@ -1253,7 +1253,7 @@
   <string name="user_contrib_activity_title">Придонеси на %s</string>
   <string name="archive_empty">Нема архивирани страници.</string>
   <string name="user_contrib_filter_ns">Филтрирај по именски простор</string>
-  <string name="user_contrib_filter_all">Сите именски простори</string>
+  <string name="user_contrib_filter_all" fuzzy="true">Сите именски простори</string>
   <string name="user_contrib_filter_ns_header">Филтер за имен. простор</string>
   <string name="namespace_article">Статија</string>
   <string name="user_contrib_current">тековна</string>
