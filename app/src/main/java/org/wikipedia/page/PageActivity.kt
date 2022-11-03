@@ -6,9 +6,6 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.text.format.DateUtils
 import android.view.*
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -51,7 +48,6 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.PageSummaryForEdit
@@ -64,7 +60,6 @@ import org.wikipedia.views.FrameLayoutNavMenuTriggerer
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
-import org.wikipedia.widgets.WidgetProviderFeaturedPage
 import java.util.*
 
 class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Callback, FrameLayoutNavMenuTriggerer.Callback {
@@ -443,7 +438,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, source: Int, options: ActivityOptionsCompat?) {
-        requestHandleIntentLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision, source), options)
+        if (source == GalleryFunnel.SOURCE_LEAD_IMAGE) {
+            requestGalleryEditLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision, source), options)
+        } else {
+            requestHandleIntentLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision, source), options)
+        }
     }
 
     override fun onPageRequestEditDescriptionTutorial(text: String?, invokeSource: InvokeSource) {
@@ -671,20 +670,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         menuItemsList.forEach {
             menu.add(it.groupId, it.itemId, Menu.NONE, it.title).setIntent(it.intent).icon = it.icon
         }
-    }
-
-    private fun handleSettingsActivityResult(resultCode: Int) {
-        if (resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED) {
-            loadNewLanguageMainPage()
-        }
-    }
-
-    private fun loadNewLanguageMainPage() {
-        val uiThread = Handler(Looper.getMainLooper())
-        uiThread.postDelayed({
-            loadMainPage(TabPosition.EXISTING_TAB)
-            WidgetProviderFeaturedPage.forceUpdateWidget(applicationContext)
-        }, DateUtils.SECOND_IN_MILLIS)
     }
 
     private fun showDescriptionEditRevertDialog(qNumber: String) {
