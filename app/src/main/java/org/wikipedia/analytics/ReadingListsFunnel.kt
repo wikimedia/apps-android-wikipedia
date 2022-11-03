@@ -52,8 +52,20 @@ class ReadingListsFunnel : Funnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID) {
         log("action", "share", "itemcount", list.pages.size)
     }
 
-    fun logExportList(list: ReadingList, listCount: Int) {
-        log("action", "export", "itemcount", list.pages.size, "listcount", listCount)
+    fun logExportLists(listCount: Int) {
+        log("action", "export", "listcount", listCount)
+    }
+
+    fun logImportStart() {
+        log("action", "import_start")
+    }
+
+    fun logImportCancel(listCount: Int) {
+        log("action", "import_cancel", "listcount", listCount)
+    }
+
+    fun logImportFinish(listCount: Int) {
+        log("action", "import_finish", "listcount", listCount)
     }
 
     fun logReceiveStart() {
@@ -72,6 +84,10 @@ class ReadingListsFunnel : Funnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID) {
         log("action", "receive_finish", "itemcount", list.pages.size)
     }
 
+    fun logSurveyShown() {
+        log("action", "survey_shown")
+    }
+
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "synced", Prefs.isReadingListSyncEnabled)
         return super.preprocessData(eventData)
@@ -81,6 +97,6 @@ class ReadingListsFunnel : Funnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID) {
 
     companion object {
         private const val SCHEMA_NAME = "MobileWikiAppReadingLists"
-        private const val REV_ID = 23999552
+        private const val REV_ID = 24010884
     }
 }
