@@ -48,6 +48,22 @@ class ReadingListsFunnel : Funnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID) {
         log("action", "deleteitem", "itemcount", list.pages.size, "listcount", listCount)
     }
 
+    fun logExportList(listCount: Int) {
+        log("action", "export", "listcount", listCount)
+    }
+
+    fun logImportStart() {
+        log("action", "import_start")
+    }
+
+    fun logImportCancel() {
+        log("action", "import_cancel")
+    }
+
+    fun logImportFinish(listCount: Int) {
+        log("action", "import_finish", "listcount", listCount)
+    }
+
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "synced", Prefs.isReadingListSyncEnabled)
         return super.preprocessData(eventData)

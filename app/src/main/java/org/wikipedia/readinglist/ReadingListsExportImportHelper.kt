@@ -15,6 +15,7 @@ import androidx.core.content.getSystemService
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
@@ -28,6 +29,7 @@ import org.wikipedia.util.FileUtil
 
 object ReadingListsExportImportHelper : BaseActivity.Callback {
     var lists: List<ReadingList>? = null
+    val funnel = ReadingListsFunnel()
 
     fun exportLists(activity: BaseActivity, readingLists: List<ReadingList>?) {
         lists = readingLists
@@ -55,6 +57,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
                 val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
                 activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent, readingLists.size).build())
                 FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_export_completed_message, exportedLists.size))
+                funnel.logExportList(readingLists.size)
             }
         } catch (e: Exception) {
             FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_export_failed_message, exportedLists.size))
@@ -75,10 +78,12 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
     }
 
     fun importLists(activity: BaseActivity, jsonString: String) {
+        funnel.logImportStart()
         var readingLists: List<ExportableReadingList>? = null
         try {
             readingLists = JsonUtil.decodeFromString(jsonString)!!
         } catch (e: Exception) {
+            funnel.logImportCancel()
             FeedbackUtil.showMessage(activity, R.string.reading_list_import_failure_message)
         }
         readingLists?.let {
@@ -93,6 +98,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
                 val readingList = AppDatabase.instance.readingListDao().createList(list.name!!, list.description)
                 addTitlesToList(list, readingList)
             }
+            funnel.logImportFinish(readingLists.size)
             FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_import_success_message, readingLists.size))
         }
     }
