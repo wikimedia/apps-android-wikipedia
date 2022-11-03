@@ -418,7 +418,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         currentActionModes.clear()
     }
 
-    override fun onPageEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
+    override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
         requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, highlightText))
     }
 

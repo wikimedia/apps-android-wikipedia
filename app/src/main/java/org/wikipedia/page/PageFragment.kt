@@ -58,8 +58,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.dataclient.watch.Watch
-import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.descriptions.DescriptionEditTutorialActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.feed.announcement.Announcement
@@ -67,7 +65,6 @@ import org.wikipedia.feed.announcement.AnnouncementClient
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
-import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.media.AvPlayer
@@ -118,7 +115,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageLoadErrorBackPressed()
         fun onPageSetToolbarElevationEnabled(enabled: Boolean)
         fun onPageCloseActionMode()
-        fun onPageEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?)
+        fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?)
+        fun onPageRequestLangLinks(title: PageTitle)
+        fun onPageRequestGallery(title: PageTitle, fileName: String, revision: Long, options: Bundle?)
+        fun onPageRequestEditDescription(text: String?, pageSummaryForEdit: PageSummaryForEdit?, invokeSource: InvokeSource)
     }
 
     private var _binding: FragmentPageBinding? = null
@@ -546,11 +546,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun startLangLinksActivity() {
         model.title?.let {
-            val langIntent = Intent()
-            langIntent.setClass(requireActivity(), LangLinksActivity::class.java)
-            langIntent.action = LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE
-            langIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, it)
-            requireActivity().startActivityForResult(langIntent, Constants.ACTIVITY_REQUEST_LANGLINKS)
+            callback()?.onPageRequestLangLinks(it)
         }
     }
 
@@ -620,8 +616,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         return@post
                     }
                     model.title?.let {
-                        requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(), it, fileName, it.wikiSite, revision,
-                                GalleryFunnel.SOURCE_NON_LEAD_IMAGE), Constants.ACTIVITY_REQUEST_GALLERY, options?.toBundle())
+                        callback()?.onPageRequestGallery(it, fileName, revision, options?.toBundle())
                     }
                 }
             }
@@ -1042,7 +1037,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun onRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
-        callback()?.onPageEditSection(sectionId, sectionAnchor, title, highlightText)
+        callback()?.onPageRequestEditSection(sectionId, sectionAnchor, title, highlightText)
     }
 
     fun sharePageLink() {
@@ -1170,13 +1165,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun startDescriptionEditActivity(text: String?, invokeSource: InvokeSource) {
         if (Prefs.isDescriptionEditTutorialEnabled) {
-            requireActivity().startActivityForResult(DescriptionEditTutorialActivity.newIntent(requireContext(), text, invokeSource),
-                Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL)
+            callback()?.onPageRequestEditDescription(text, null, invokeSource)
         } else {
             title?.run {
                 val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayText, description, thumbUrl)
-                requireActivity().startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), this, text, sourceSummary, null,
-                        DescriptionEditActivity.Action.ADD_DESCRIPTION, invokeSource), Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
+                callback()?.onPageRequestEditDescription(text, sourceSummary, invokeSource)
             }
         }
     }
