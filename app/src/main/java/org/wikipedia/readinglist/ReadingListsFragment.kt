@@ -177,14 +177,18 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
         override fun editList() {
             beginMultiSelect()
+            updateSelectActionModeTitle(selectedListsCount)
             adapter.notifyDataSetChanged()
-            actionMode?.title = selectedListsCount.toString()
         }
 
         override fun refreshClick() {
             binding.swipeRefreshLayout.isRefreshing = true
             refreshSync(this@ReadingListsFragment, binding.swipeRefreshLayout)
         }
+    }
+
+    private fun updateSelectActionModeTitle(selectedListsCount: Int) {
+        actionMode?.title = if (selectedListsCount == 0) "" else selectedListsCount.toString()
     }
 
     private fun sortListsBy(option: Int) {
@@ -452,7 +456,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private fun toggleSelectList(list: ReadingList?) {
         list?.let {
             it.selected = !it.selected
-            actionMode?.title = selectedListsCount.toString()
+            updateSelectActionModeTitle(selectedListsCount)
             adapter.notifyDataSetChanged()
         }
     }
@@ -600,7 +604,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             it.forEach { list ->
                 list.selected = false
             }
-            actionMode?.title = selectedListsCount.toString()
+            updateSelectActionModeTitle(selectedListsCount)
             adapter.notifyDataSetChanged()
         }
     }
@@ -611,7 +615,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 .filter { !it.selected }
                 .onEach { it.selected = true }
         }
-        actionMode?.title = selectedListsCount.toString()
+        updateSelectActionModeTitle(selectedListsCount)
         adapter.notifyDataSetChanged()
     }
 

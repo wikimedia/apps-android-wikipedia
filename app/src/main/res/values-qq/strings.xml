@@ -1296,14 +1296,8 @@
   <string name="reading_list_import_file_picker_title">Title message text shsown to user while choosing a file from the downloads folder to import.</string>
   <string name="reading_list_import_failure_message">User message when imports of reading lists has not been successful.</string>
   <string name="reading_lists_export_select_lists_message">User message asking the user to select reading lists for export.</string>
-  <plurals name="reading_list_notification_title">
-    <item quantity="one">Notification title text when a single reading list is exported.</item>
-    <item quantity="other">Notification title text when a multiple reading lists are exported.</item>
-  </plurals>
-  <plurals name="reading_list_export_completed_message">
-    <item quantity="one">Text to let the user know that the single list export process has been completed.</item>
-    <item quantity="other">Text to let the user know that the multiple lists export process has been completed.</item>
-  </plurals>
+  <string name="reading_list_export_completed_message">Text to let the user know that the list export process has been completed.</string>
+  <string name="reading_list_notification_title">Notification title text when a reading lists are exported.</string>
   <plurals name="reading_list_export_failed_message">
     <item quantity="one">User message when export of a single reading list has not been successful.</item>
     <item quantity="other">User message when export of multiple reading lists has not been successful.</item>

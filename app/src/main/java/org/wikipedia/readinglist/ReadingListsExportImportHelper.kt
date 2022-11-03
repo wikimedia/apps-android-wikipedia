@@ -58,7 +58,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
                 FileUtil.createFileInDownloadsFolder(activity, activity.getString(R.string.json_file_name, System.currentTimeMillis().toString()), JsonUtil.encodeToString(exportedLists))
                 val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
                 activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent, lists.size).build())
-                FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_export_completed_message, exportedLists.size))
+                FeedbackUtil.showMessage(activity, activity.getString(R.string.reading_list_export_completed_message))
                 funnel.logExportList(lists.size)
             }
         } catch (e: Exception) {
@@ -71,7 +71,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
             .Builder(context, NotificationCategory.MENTION.id)
             .setDefaults(NotificationCompat.DEFAULT_ALL).setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
-            .setContentTitle(context.resources.getQuantityString(R.plurals.reading_list_notification_title, numberOfLists))
+            .setContentTitle(context.getString(R.string.reading_list_notification_title))
             .setContentText(context.getString(R.string.reading_list_notification_text))
             .setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags))
             .setLargeIcon(NotificationPresenter.drawNotificationBitmap(context, R.color.accent50, R.drawable.ic_download_in_progress, ""))
