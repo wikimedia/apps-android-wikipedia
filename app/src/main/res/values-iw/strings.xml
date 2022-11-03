@@ -1339,7 +1339,7 @@
   <string name="user_contrib_activity_title">תרומות של %s</string>
   <string name="archive_empty">לא נמצאו דפים בארכיון.</string>
   <string name="user_contrib_filter_ns">סינון לפי מרחב שמות</string>
-  <string name="user_contrib_filter_all">כל \"מרחבי השם\"</string>
+  <string name="user_contrib_filter_all" fuzzy="true">כל \"מרחבי השם\"</string>
   <string name="user_contrib_filter_ns_header">מסנן מרחבי שם</string>
   <string name="namespace_article">ערך</string>
   <string name="user_contrib_current">נוכחי</string>

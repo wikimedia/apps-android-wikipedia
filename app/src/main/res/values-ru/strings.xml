@@ -1381,7 +1381,7 @@
   <string name="user_contrib_activity_title">Вклад авторства %s</string>
   <string name="archive_empty">Заархивированных страниц не найдено.</string>
   <string name="user_contrib_filter_ns">Фильтр по пространствам имён</string>
-  <string name="user_contrib_filter_all">Все \"пространства имён\"</string>
+  <string name="user_contrib_filter_all">Все пространства имён</string>
   <string name="user_contrib_filter_ns_header">Фильтр пространства имен</string>
   <string name="namespace_article">Статья</string>
   <string name="user_contrib_current">текущая</string>

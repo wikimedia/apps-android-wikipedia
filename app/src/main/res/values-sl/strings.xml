@@ -1322,7 +1322,7 @@
   <string name="user_contrib_activity_title">Prispevki uporabnika/ce %s</string>
   <string name="archive_empty">Ni najdenih arhivskih strani.</string>
   <string name="user_contrib_filter_ns">Filtriranje po imenskem prostoru</string>
-  <string name="user_contrib_filter_all">Vsi »imenski prostori«</string>
+  <string name="user_contrib_filter_all">Vsi imenski prostori</string>
   <string name="user_contrib_filter_ns_header">Filter imenskega prostora</string>
   <string name="namespace_article">Članek</string>
   <string name="user_contrib_current">trenutno</string>

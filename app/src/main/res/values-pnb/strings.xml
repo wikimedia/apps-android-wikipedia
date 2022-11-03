@@ -315,6 +315,10 @@
   <string name="suggested_edits_image_preview_dialog_artist">آرٹسٹ</string>
   <string name="suggested_edits_image_preview_dialog_tags">ٹیگ</string>
   <string name="suggested_edits_image_preview_dialog_date">تریخ</string>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d دن</item>
+    <item quantity="other">%d دن</item>
+  </plurals>
   <string name="description_edit_login_cancel_button_text">رد کرو</string>
   <string name="app_shortcuts_search">کھوجو</string>
   <string name="languages_list_all_text">ساریاں بولیاں</string>
