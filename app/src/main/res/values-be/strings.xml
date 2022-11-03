@@ -221,7 +221,7 @@
   <string name="preference_title_sync_reading_lists_from_account">Сінхранізацыя спісу чытання</string>
   <string name="preference_title_download_reading_list_articles">Спампаваць спіс артыкулаў для чытання</string>
   <string name="preference_summary_sync_reading_lists">Сінхранізуйце спісы для чытання на розных прыладах, захаваннем іх у сваім уліковым запісе Вікіпедыі</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Сінхранізуйце спісы для чытання на розных прыладах, захаваўшы іх у сваім уліковым запісе Вікіпедыі</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Сінхранізуйце спісы для чытання на розных прыладах, захаваўшы іх у сваім уліковым запісе Вікіпедыі «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Выдаліць сінхранізаваныя спісы чытання з \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Гэта прывядзе да поўнага выдалення ўсіх спісаў чытання, якія былі захаваны раней, з аддаленага сховішча. Выдаліць усе сінхранізаваныя спісы з вашага ўліковага запісу \" %s \"?</string>
   <string name="preferences_privacy_settings_heading">Канфідэнцыяльнасць</string>
