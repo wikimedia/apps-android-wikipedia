@@ -48,7 +48,11 @@ class ReadingListsFunnel : Funnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID) {
         log("action", "deleteitem", "itemcount", list.pages.size, "listcount", listCount)
     }
 
-    fun logExportList(listCount: Int) {
+    fun logShareList(list: ReadingList) {
+        log("action", "share", "itemcount", list.pages.size)
+    }
+
+    fun logExportLists(listCount: Int) {
         log("action", "export", "listcount", listCount)
     }
 
@@ -56,12 +60,32 @@ class ReadingListsFunnel : Funnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID) {
         log("action", "import_start")
     }
 
-    fun logImportCancel() {
-        log("action", "import_cancel")
+    fun logImportCancel(listCount: Int) {
+        log("action", "import_cancel", "listcount", listCount)
     }
 
     fun logImportFinish(listCount: Int) {
         log("action", "import_finish", "listcount", listCount)
+    }
+
+    fun logReceiveStart() {
+        log("action", "receive_start")
+    }
+
+    fun logReceivePreview(list: ReadingList) {
+        log("action", "receive_preview", "itemcount", list.pages.size)
+    }
+
+    fun logReceiveCancel(list: ReadingList) {
+        log("action", "receive_cancel", "itemcount", list.pages.size)
+    }
+
+    fun logReceiveFinish(list: ReadingList) {
+        log("action", "receive_finish", "itemcount", list.pages.size)
+    }
+
+    fun logSurveyShown() {
+        log("action", "survey_shown")
     }
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
@@ -73,6 +97,6 @@ class ReadingListsFunnel : Funnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID) {
 
     companion object {
         private const val SCHEMA_NAME = "MobileWikiAppReadingLists"
-        private const val REV_ID = 20339451
+        private const val REV_ID = 24010884
     }
 }
