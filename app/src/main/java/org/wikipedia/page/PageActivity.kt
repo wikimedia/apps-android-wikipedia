@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.*
 import androidx.preference.PreferenceManager
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -52,6 +53,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.staticdata.UserTalkAliasData
+import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.usercontrib.UserContribListActivity
@@ -84,13 +86,73 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private var exclusiveTooltipRunnable: Runnable? = null
     private var isTooltipShowing = false
 
-    val requestEditSectionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+    private val requestEditSectionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
             FeedbackUtil.showMessage(this, R.string.edit_saved_successfully)
             // and reload the page...
             pageFragment.model.title?.let { title ->
                 pageFragment.model.curEntry?.let { entry ->
                     pageFragment.loadPage(title, entry, pushBackStack = false, squashBackstack = false, isRefresh = true)
+                }
+            }
+        }
+    }
+
+    private val requestHandleIntentLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT || it.resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
+            it.data?.let {
+                binding.pageToolbarContainer.post { handleIntent(it) }
+            }
+        }
+    }
+
+    private val requestGalleryEditLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_CAPTION_ADDED || it.resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_TAGS_ADDED) {
+            pageFragment.reloadFromBackstack()
+        }
+    }
+
+    private val requestBrowseTabLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (app.tabCount == 0 && it.resultCode != TabActivity.RESULT_NEW_TAB) {
+            // They browsed the tabs and cleared all of them, without wanting to open a new tab.
+            finish()
+            return@registerForActivityResult
+        }
+        if (it.resultCode == TabActivity.RESULT_NEW_TAB) {
+            loadMainPage(TabPosition.NEW_TAB_FOREGROUND)
+            animateTabsButton()
+        } else if (it.resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
+            pageFragment.reloadFromBackstack()
+        }
+    }
+
+    private val requestDescriptionEditTutorialLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            Prefs.isDescriptionEditTutorialEnabled = false
+            it.data?.let { intent ->
+                pageFragment.startDescriptionEditActivity(intent.getStringExtra(DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT),
+                    intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
+            }
+        }
+    }
+
+    private val requestSuggestedEditsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK || it.resultCode == DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS) {
+            pageFragment.refreshPage()
+            val data = it.data
+            val editLanguage = pageFragment.leadImageEditLang.orEmpty().ifEmpty { app.languageState.appLanguageCode }
+            val action = if (data != null && data.hasExtra(Constants.INTENT_EXTRA_ACTION))
+                data.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action?
+            else null
+
+            SuggestedEditsSnackbars.show(this, action, it.resultCode != DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS,
+                editLanguage, action !== DescriptionEditActivity.Action.ADD_DESCRIPTION && action !== DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) {
+                pageFragment.title?.let { pageTitle ->
+                    if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS) {
+                        startActivity(FilePageActivity.newIntent(this, pageTitle))
+                    } else if (action === DescriptionEditActivity.Action.ADD_CAPTION || action === DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
+                        startActivity(GalleryActivity.newIntent(this, pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
+                    }
                 }
             }
         }
@@ -135,7 +197,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         binding.pageToolbarButtonTabs.setOnClickListener {
             pageFragment.articleInteractionEvent?.logTabsClick()
             TabActivity.captureFirstTabBitmap(pageFragment.containerView, pageFragment.title?.prefixedText.orEmpty())
-            startActivityForResult(TabActivity.newIntentFromPageActivity(this), Constants.ACTIVITY_REQUEST_BROWSE_TABS)
+            requestBrowseTabLauncher.launch(TabActivity.newIntentFromPageActivity(this))
         }
         toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP) { isTooltipShowing }
         FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
@@ -232,33 +294,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == Constants.ACTIVITY_REQUEST_SETTINGS) {
-            handleSettingsActivityResult(resultCode)
-        } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryPageSelected(requestCode, resultCode)) {
-            data?.let {
-                binding.pageToolbarContainer.post { handleIntent(it) }
-            }
-        } else if (galleryImageEdited(requestCode, resultCode)) {
-            pageFragment.reloadFromBackstack()
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
-            if (app.tabCount == 0 && resultCode != TabActivity.RESULT_NEW_TAB) {
-                // They browsed the tabs and cleared all of them, without wanting to open a new tab.
-                finish()
-                return
-            }
-            if (resultCode == TabActivity.RESULT_NEW_TAB) {
-                loadMainPage(TabPosition.NEW_TAB_FOREGROUND)
-                animateTabsButton()
-            } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
-                pageFragment.reloadFromBackstack()
-            }
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL && resultCode == RESULT_OK) {
-            Prefs.isDescriptionEditTutorialEnabled = false
-            data?.let {
-                pageFragment.startDescriptionEditActivity(it.getStringExtra(DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT),
-                        it.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
-            }
-        } else if ((requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT || requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT ||
+        if ((requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT || requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT ||
                     requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT) && (resultCode == RESULT_OK ||
                     resultCode == DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS)) {
             pageFragment.refreshPage()
@@ -420,6 +456,23 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
         requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, highlightText))
+    }
+
+    override fun onPageRequestLangLinks(title: PageTitle) {
+        val langIntent = Intent()
+        langIntent.setClass(this, LangLinksActivity::class.java)
+        langIntent.action = LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE
+        langIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, title)
+        requestHandleIntentLauncher.launch(langIntent)
+    }
+
+    override fun onPageRequestGallery(title: PageTitle, fileName: String, revision: Long, options: ActivityOptionsCompat?) {
+        requestHandleIntentLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision,
+            GalleryFunnel.SOURCE_NON_LEAD_IMAGE), options)
+    }
+
+    override fun onPageRequestEditDescription(text: String?, pageSummaryForEdit: PageSummaryForEdit?, invokeSource: InvokeSource) {
+        TODO("Not yet implemented")
     }
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
@@ -648,19 +701,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             loadMainPage(TabPosition.EXISTING_TAB)
             WidgetProviderFeaturedPage.forceUpdateWidget(applicationContext)
         }, DateUtils.SECOND_IN_MILLIS)
-    }
-
-    private fun newArticleLanguageSelected(requestCode: Int, resultCode: Int): Boolean {
-        return requestCode == Constants.ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT
-    }
-
-    private fun galleryPageSelected(requestCode: Int, resultCode: Int): Boolean {
-        return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED
-    }
-
-    private fun galleryImageEdited(requestCode: Int, resultCode: Int): Boolean {
-        return requestCode == Constants.ACTIVITY_REQUEST_GALLERY &&
-                (resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_CAPTION_ADDED || resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_TAGS_ADDED)
     }
 
     private fun showDescriptionEditRevertDialog(qNumber: String) {
