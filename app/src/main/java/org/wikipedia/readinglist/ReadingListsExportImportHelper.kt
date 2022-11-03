@@ -84,7 +84,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
         funnel.logImportStart()
         var readingLists: List<ExportableReadingList>? = null
         try {
-            readingLists = JsonUtil.decodeFromString(jsonString)!!
+            readingLists = JsonUtil.decodeFromString(jsonString)
         } catch (e: Exception) {
             funnel.logImportCancel()
             FeedbackUtil.showMessage(activity, R.string.reading_list_import_failure_message)
@@ -123,6 +123,9 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
 
     @Suppress("unused")
     @Serializable
-    private class ExportableReadingList
-        (val name: String? = null, val description: String? = null, val pages: Map<String, String>)
+    private class ExportableReadingList(
+            val name: String? = null,
+            val description: String? = null,
+            val pages: Map<String, String>
+        )
 }

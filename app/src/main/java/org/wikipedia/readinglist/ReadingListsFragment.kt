@@ -46,7 +46,6 @@ import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.*
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
-import java.io.InputStream
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback,
     MainActivity.Callback {
@@ -719,10 +718,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     override fun onActivityListsImportResult(uri: Uri) {
-        val inputStr: InputStream = activity?.contentResolver?.openInputStream(uri)!!
-        val inputString = inputStr.bufferedReader().use { it.readText() }
-        ReadingListsExportImportHelper.importLists(activity as BaseActivity, inputString)
-        inputStr.close()
+        val inputStr = activity?.contentResolver?.openInputStream(uri)
+        inputStr?.let {
+            val inputString = it.bufferedReader().use { it.readText() }
+            ReadingListsExportImportHelper.importLists(activity as BaseActivity, inputString)
+            it.close()
+        }
     }
 
     companion object {

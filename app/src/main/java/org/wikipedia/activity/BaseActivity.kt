@@ -64,7 +64,7 @@ abstract class BaseActivity : AppCompatActivity() {
     private var touchSlopPx = 0
     var callback: Callback? = null
 
-    val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+    val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
             callback?.onPermissionResult(this, isGranted)
     }
 
