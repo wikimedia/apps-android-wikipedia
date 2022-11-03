@@ -82,6 +82,12 @@
     <item quantity="many">%1$d редагувань з %2$s</item>
     <item quantity="other">%1$d редагувань з %2$s</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d редагування від %2$s ( %3$s)</item>
+    <item quantity="few">%1$d редагування від %2$s (%3$s)</item>
+    <item quantity="many">%1$d редагування від %2$s (%3$s)</item>
+    <item quantity="other">%1$d редагування від %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Спробуйте змінити &lt;a href=\"#\"&gt;фільтри&lt;/a&gt;, щоб побачити більше редагувань</string>
   <string name="menu_page_show_tabs">Показати вкладки</string>
   <string name="menu_page_other_languages">Змінити мову</string>
@@ -458,6 +464,7 @@
   <string name="text_size_percent_default">%s (за замовчуванням)</string>
   <string name="text_style_title">Шрифт</string>
   <string name="theme_category_reading">Читання</string>
+  <string name="theme_category_editing">Редагування</string>
   <string name="reading_focus_mode">Режим фокусування читання</string>
   <string name="reading_focus_mode_detail">Приховує функції редагування та нижню панель інструментів під час прокручування</string>
   <string name="nav_item_saved">Збережено</string>
@@ -833,6 +840,7 @@
   <string name="description_edit_helper_text_lowercase_warning">зазвичай починається з маленької літери</string>
   <string name="description_edit_voice_input_description">Голосове введення</string>
   <string name="description_edit_learn_more">Докладніше про описи статей</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
   <string name="description_too_short">Текст закороткий.</string>
   <string name="description_ends_with_punctuation">Текст не має закінчуватися розділовим знаком.</string>
   <string name="description_starts_with_article">Уникайте артиклів на початку, на зразок «a» чи «the».</string>
@@ -1148,6 +1156,7 @@
   <string name="insert_media_settings_caption">Підпис</string>
   <string name="insert_media_advanced_settings_image_position">Розташування зображення</string>
   <string name="insert_media_advanced_settings_image_position_right">Праворуч</string>
+  <string name="insert_media_advanced_settings_image_position_left">Ліворуч</string>
   <string name="insert_media_advanced_settings_image_position_center">Центр</string>
   <string name="insert_media_advanced_settings_image_type">Тип зображення</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Мініатюра</string>
@@ -1302,6 +1311,7 @@
   <string name="user_contrib_activity_title">Внески %s</string>
   <string name="archive_empty">Архівованих сторінок не знайдено.</string>
   <string name="user_contrib_filter_all" fuzzy="true">Усі редагування</string>
+  <string name="user_contrib_filter_ns_header">Фільтр простору імен</string>
   <string name="namespace_article">Стаття</string>
   <string name="user_contrib_current">поточний</string>
   <string name="media_playback_error">Помилка відтворення медіа.</string>
