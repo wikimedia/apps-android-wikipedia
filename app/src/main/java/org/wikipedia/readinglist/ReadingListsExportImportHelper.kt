@@ -46,18 +46,20 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
     private fun extractListDataToExport(activity: AppCompatActivity, readingLists: List<ReadingList>?) {
         val exportedLists = mutableListOf<ExportableReadingList>()
         try {
-            readingLists?.forEach {
-                val wikiPageTitlesMap = mutableMapOf<String, String>()
-                it.pages.forEach { page ->
-                    wikiPageTitlesMap[page.apiTitle] = page.lang
+            readingLists?.let { lists ->
+                lists.forEach {
+                    val wikiPageTitlesMap = mutableMapOf<String, String>()
+                    it.pages.forEach { page ->
+                        wikiPageTitlesMap[page.apiTitle] = page.lang
+                    }
+                    val exportedList = ExportableReadingList(it.title, it.description, wikiPageTitlesMap)
+                    exportedLists.add(exportedList)
                 }
-                val exportedList = ExportableReadingList(it.title, it.description, wikiPageTitlesMap)
-                exportedLists.add(exportedList)
                 FileUtil.createFileInDownloadsFolder(activity, activity.getString(R.string.json_file_name, System.currentTimeMillis().toString()), JsonUtil.encodeToString(exportedLists))
                 val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
-                activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent, readingLists.size).build())
+                activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent, lists.size).build())
                 FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_export_completed_message, exportedLists.size))
-                funnel.logExportList(readingLists.size)
+                funnel.logExportList(lists.size)
             }
         } catch (e: Exception) {
             FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_export_failed_message, exportedLists.size))

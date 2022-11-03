@@ -21,7 +21,7 @@ import org.wikipedia.util.ResourceUtil
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
     interface Callback {
-        fun onActivityImportResult(uri: Uri)
+        fun onActivityListsImportResult(uri: Uri)
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -32,7 +32,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     val filePickerLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             val uri: Uri = it.data?.data!!
-            importCallback?.onActivityImportResult(uri)
+            importCallback?.onActivityListsImportResult(uri)
         }
 
     override fun inflateAndSetContentView() {

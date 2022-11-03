@@ -714,7 +714,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    override fun onActivityImportResult(uri: Uri) {
+    override fun onActivityListsImportResult(uri: Uri) {
         val inputStr: InputStream = activity?.contentResolver?.openInputStream(uri)!!
         val inputString = inputStr.bufferedReader().use { it.readText() }
         ReadingListsExportImportHelper.importLists(activity as BaseActivity, inputString)
