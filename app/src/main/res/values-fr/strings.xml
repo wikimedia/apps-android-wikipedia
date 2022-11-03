@@ -1296,7 +1296,7 @@
   <string name="user_contrib_activity_title">Contributions de %s</string>
   <string name="archive_empty">Aucune page archivée trouvée.</string>
   <string name="user_contrib_filter_ns">Filtrer par espace de noms</string>
-  <string name="user_contrib_filter_all">Tous les « espaces de noms »</string>
+  <string name="user_contrib_filter_all">Tous les espaces de noms</string>
   <string name="user_contrib_filter_ns_header">Filtre d’espaces de noms</string>
   <string name="namespace_article">Article</string>
   <string name="user_contrib_current">actuel</string>
