@@ -472,7 +472,12 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onPageRequestEditDescription(text: String?, pageSummaryForEdit: PageSummaryForEdit?, invokeSource: InvokeSource) {
-        TODO("Not yet implemented")
+        if (pageSummaryForEdit == null) {
+            requestDescriptionEditTutorialLauncher.launch(DescriptionEditTutorialActivity.newIntent(this, text, invokeSource))
+        } else {
+            requestSuggestedEditsLauncher.launch(DescriptionEditActivity.newIntent(this, pageSummaryForEdit.pageTitle, text, pageSummaryForEdit, null,
+                DescriptionEditActivity.Action.ADD_DESCRIPTION, invokeSource))
+        }
     }
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
