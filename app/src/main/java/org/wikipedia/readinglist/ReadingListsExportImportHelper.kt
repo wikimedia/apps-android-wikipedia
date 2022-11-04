@@ -59,7 +59,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
                 val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
                 activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent, lists.size).build())
                 FeedbackUtil.showMessage(activity, activity.getString(R.string.reading_list_export_completed_message))
-                funnel.logExportList(lists.size)
+                funnel.logExportLists(lists.size)
             }
         } catch (e: Exception) {
             FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_export_failed_message, exportedLists.size))
