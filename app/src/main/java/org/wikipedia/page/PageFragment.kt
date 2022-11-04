@@ -396,6 +396,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         bridge.execute(JavaScriptActionHandler.mobileWebChromeShim())
                     }
                 }
+                app.sessionFunnel.pageFetchEnd()
             }
 
             override fun onReceivedError(view: WebView, errorCode: Int, description: String, failingUrl: String) {
@@ -419,7 +420,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         updateProgressBar(false)
         webView.visibility = View.VISIBLE
-        app.sessionFunnel.leadSectionFetchEnd()
         bridge.evaluate(JavaScriptActionHandler.getRevision()) { value ->
             if (!isAdded || value == null || value == "null") {
                 return@evaluate

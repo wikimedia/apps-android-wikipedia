@@ -9,7 +9,7 @@ import org.wikipedia.settings.Prefs
 class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
 
     private var sessionData: SessionData
-    private var leadSectionStartTime: Long = 0
+    private var pageSectionStartTime: Long = 0
 
     init {
         sessionData = Prefs.sessionData
@@ -59,12 +59,12 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
         sessionData.addPageWithNoDescription()
     }
 
-    fun leadSectionFetchStart() {
-        leadSectionStartTime = System.currentTimeMillis()
+    fun pageFetchStart() {
+        pageSectionStartTime = System.currentTimeMillis()
     }
 
-    fun leadSectionFetchEnd() {
-        sessionData.addLeadLatency(System.currentTimeMillis() - leadSectionStartTime)
+    fun pageFetchEnd() {
+        sessionData.addPageLatency(System.currentTimeMillis() - pageSectionStartTime)
     }
 
     private fun hasTimedOut(): Boolean {
@@ -86,7 +86,7 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
                 "noDescription", sessionData.pagesWithNoDescription,
                 "fromSuggestedEdits", sessionData.pagesFromSuggestedEdits,
                 "totalPages", sessionData.totalPages,
-                "pageLoadLatency", sessionData.getLeadLatency(),
+                "pageLoadLatency", sessionData.getPageLatency(),
                 "languages", JsonUtil.encodeToString(app.languageState.appLanguageCodes),
                 "apiMode", 1
         )
