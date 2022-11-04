@@ -66,5 +66,6 @@
     <string name="tag_text_key">tagTextKey</string>
 
     <!-- Json export -->
-    <string name="json_file_name">reading_lists_%s.json</string>
+    <string name="single_list_json_file_name">%s (Wikipedia reading list).json</string>
+    <string name="multiple_lists_json_file_name">Wikipedia reading lists (%s and more).json</string>
 </resources>

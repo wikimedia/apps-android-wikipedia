@@ -55,9 +55,10 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
                     val exportedList = ExportableReadingList(it.title, it.description, wikiPageTitlesMap)
                     exportedLists.add(exportedList)
                 }
-                FileUtil.createFileInDownloadsFolder(activity, activity.getString(R.string.json_file_name, System.currentTimeMillis().toString()), JsonUtil.encodeToString(exportedLists))
+                FileUtil.createFileInDownloadsFolder(activity, activity.getString(if (lists.size == 1) R.string.single_list_json_file_name
+                else R.string.multiple_lists_json_file_name, lists[0].title), JsonUtil.encodeToString(exportedLists))
                 val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
-                activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent).build())
+                activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent, lists.size).build())
                 FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_export_completed_message))
                     .setAction(R.string.suggested_edits_article_cta_snackbar_action) { activity.startActivity(intent) }.show()
                 funnel.logExportLists(lists.size)
@@ -67,13 +68,13 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
         }
     }
 
-    private fun getNotificationBuilder(context: Context, intent: Intent): NotificationCompat.Builder {
+    private fun getNotificationBuilder(context: Context, intent: Intent, numOfLists: Int): NotificationCompat.Builder {
         return NotificationCompat
             .Builder(context, NotificationCategory.MENTION.id)
             .setDefaults(NotificationCompat.DEFAULT_ALL).setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
             .setContentTitle(context.getString(R.string.reading_list_notification_title))
-            .setContentText(context.getString(R.string.reading_list_notification_text))
+            .setContentText(context.getString(R.string.reading_list_notification_text, numOfLists))
             .setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags))
             .setLargeIcon(NotificationPresenter.drawNotificationBitmap(context, R.color.accent50, R.drawable.ic_download_in_progress, ""))
             .setSmallIcon(R.drawable.ic_wikipedia_w)
