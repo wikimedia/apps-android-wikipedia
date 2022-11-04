@@ -284,6 +284,8 @@
   <string name="article_opened_in_background_tab">Članak je otvoren u pozadinskoj kartici.</string>
   <string name="abusefilter_title_warn">Ova izmjena je možda nekonstruktivna. Želite li zaista da je objavite?</string>
   <string name="abusefilter_title_disallow">Ne možete objaviti ovu izmjenu. Vratite se i promijenite je.</string>
+  <string name="abusefilter_text_warn">Automatizovani filter je prepoznao ovu izmjenu kao potencijalno nekonstruktivnu. Možda sadrži nešto od sljedećih:&lt;br /&gt;&lt;br /&gt;· Pisanje velikim slovima&lt;br /&gt;· Pražnjenje članka ili spamovanje&lt;br /&gt;· Irelevantne spoljašnje linkove ili slike&lt;br /&gt;· Ponavljanje znakova</string>
+  <string name="abusefilter_text_disallow">Automatizovani filter je prepoznao ovu izmjenu kao potencijalno nekonstruktivnu ili potencijalno vandalističnu.&lt;br /&gt;&lt;br /&gt;Wikipedia je enciklopedija — ovdje pripada samo neutralan i značajan sadržaj.</string>
   <string name="page_similar_titles">Slične stranice</string>
   <string name="search_did_you_mean">Jeste li mislili \"%s\"?</string>
   <string name="search_recent_header">Nedavne pretrage:</string>
@@ -366,7 +368,7 @@
   <string name="search_namespaces">Imenski prostori</string>
   <string name="user_contrib_activity_title">Doprinosi korisnika %s</string>
   <string name="user_contrib_filter_ns">Filtriraj po imenskom prostoru</string>
-  <string name="user_contrib_filter_all">Svi \"imenski prostori\"</string>
+  <string name="user_contrib_filter_all">Svi imenski prostori</string>
   <string name="namespace_article">Članak</string>
   <string name="user_contrib_current">trenutno</string>
   <string name="user_contrib_menu_label">Doprinosi</string>

@@ -1263,7 +1263,7 @@
   <string name="user_contrib_activity_title">Käyttäjän %s muokkaukset</string>
   <string name="archive_empty">Arkistoituja sivuja ei löytynyt.</string>
   <string name="user_contrib_filter_ns">Suodata nimiavaruuden perusteella</string>
-  <string name="user_contrib_filter_all">Kaikki \"nimiavaruudet\"</string>
+  <string name="user_contrib_filter_all" fuzzy="true">Kaikki \"nimiavaruudet\"</string>
   <string name="user_contrib_filter_ns_header">Nimiavaruussuodatin</string>
   <string name="namespace_article">Artikkeli</string>
   <string name="user_contrib_current">nykyinen</string>

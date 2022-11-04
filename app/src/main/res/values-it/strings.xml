@@ -1263,7 +1263,7 @@
   <string name="revision_initial_none">Nessuna (questa è la prima versione)</string>
   <string name="user_contrib_activity_title">Contributi di %s</string>
   <string name="user_contrib_filter_ns">Filtra per namespace</string>
-  <string name="user_contrib_filter_all">Tutti \"namespace\"</string>
+  <string name="user_contrib_filter_all">Tutti i namespace</string>
   <string name="user_contrib_filter_ns_header">Filtra i namespace</string>
   <string name="namespace_article">Voce</string>
   <string name="user_contrib_current">attuale</string>

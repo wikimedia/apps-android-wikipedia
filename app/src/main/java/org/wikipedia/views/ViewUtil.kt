@@ -12,6 +12,7 @@ import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
@@ -25,7 +26,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.ResourceUtil.getThemedColor
 import org.wikipedia.util.WhiteBackgroundTransformation
-import java.util.*
 
 object ViewUtil {
     private val CENTER_CROP_ROUNDED_CORNERS = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
@@ -98,5 +98,14 @@ object ViewUtil {
             }
         }
         return null
+    }
+
+    fun jumpToPositionWithoutAnimation(recyclerView: RecyclerView, position: Int) {
+        recyclerView.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                recyclerView.scrollToPosition(position)
+                recyclerView.viewTreeObserver.removeOnGlobalLayoutListener(this)
+            }
+        })
     }
 }
