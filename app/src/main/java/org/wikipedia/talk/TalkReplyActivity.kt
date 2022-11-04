@@ -13,8 +13,6 @@ import androidx.core.util.lruCache
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import org.wikipedia.Constants
-import org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE
-import org.wikipedia.Constants.InvokeSource.TALK_TOPICS_ACTIVITY
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -46,7 +44,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var userMentionScrolled = false
     private var savedSuccess = false
-    private lateinit var invokeSource: Constants.InvokeSource
 
     private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
         linkHandler.onUrlClick(url, title, linkText, x, y)
@@ -70,8 +67,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
 
-        invokeSource = intent.getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
-            linkHandler = TalkLinkHandler(this)
+        linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
 
         textWatcher = binding.replySubjectText.doOnTextChanged { _, _, _, _ ->
@@ -312,8 +308,8 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     override fun onBackPressed() {
         setResult(RESULT_BACK_FROM_TOPIC)
-        if (invokeSource == TALK_TOPICS_ACTIVITY &&
-            (!binding.replySubjectText.text.isNullOrEmpty() || !binding.replyInputView.editText.text.isNullOrEmpty())) {
+        if (viewModel.isNewTopic && (!binding.replySubjectText.text.isNullOrEmpty() ||
+                    !binding.replyInputView.editText.text.isNullOrEmpty())) {
             AlertDialog.Builder(this)
                 .setCancelable(false)
                 .setTitle(R.string.talk_new_topic_exit_dialog_title)
