@@ -396,7 +396,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         bridge.execute(JavaScriptActionHandler.mobileWebChromeShim())
                     }
                 }
-                app.sessionFunnel.pageFetchEnd()
+                app.sessionFunnel.pageFetchEnd(url)
             }
 
             override fun onReceivedError(view: WebView, errorCode: Int, description: String, failingUrl: String) {

@@ -47,8 +47,8 @@ abstract class OkHttpWebViewClient : WebViewClient() {
         var response: WebResourceResponse
         try {
             val rsp = request(request)
-            if (rsp.networkResponse != null && request.url.path?.contains(RestService.PAGE_HTML_ENDPOINT) == true) {
-                WikipediaApp.instance.sessionFunnel.pageFetchStart()
+            if (rsp.networkResponse != null && rsp.cacheResponse == null && request.url.encodedPath?.contains(RestService.PAGE_HTML_ENDPOINT) == true) {
+                WikipediaApp.instance.sessionFunnel.pageFetchStart(request.url.toString())
             }
             response = if (CONTENT_TYPE_OGG == rsp.header(HEADER_CONTENT_TYPE) ||
                     CONTENT_TYPE_WEBM == rsp.header(HEADER_CONTENT_TYPE)) {

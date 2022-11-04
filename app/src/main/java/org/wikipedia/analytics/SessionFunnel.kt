@@ -9,7 +9,8 @@ import org.wikipedia.settings.Prefs
 class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
 
     private var sessionData: SessionData
-    private var pageSectionStartTime: Long = 0
+    private var pageLoadStartTime: Long = 0
+    private var pageLoadUrl: String? = null
 
     init {
         sessionData = Prefs.sessionData
@@ -59,12 +60,18 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
         sessionData.addPageWithNoDescription()
     }
 
-    fun pageFetchStart() {
-        pageSectionStartTime = System.currentTimeMillis()
+    fun pageFetchStart(url: String?) {
+        if (!url.isNullOrEmpty()) {
+            pageLoadUrl = url
+            pageLoadStartTime = System.currentTimeMillis()
+        }
     }
 
-    fun pageFetchEnd() {
-        sessionData.addPageLatency(System.currentTimeMillis() - pageSectionStartTime)
+    fun pageFetchEnd(url: String) {
+        if (pageLoadUrl == url) {
+            sessionData.addPageLatency(System.currentTimeMillis() - pageLoadStartTime)
+            pageLoadUrl = null
+        }
     }
 
     private fun hasTimedOut(): Boolean {
