@@ -148,7 +148,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS) {
                         startActivity(FilePageActivity.newIntent(this, pageTitle))
                     } else if (action === DescriptionEditActivity.Action.ADD_CAPTION || action === DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-                        startActivity(GalleryActivity.newIntent(this, pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
+                        pageFragment.page?.pageProperties?.leadImageName?.let { imageName ->
+                            startActivity(GalleryActivity.newIntent(this, pageTitle, "File:$imageName", pageTitle.wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
+                        }
                     }
                 }
             }
