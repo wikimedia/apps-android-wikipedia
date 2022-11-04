@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.fragment.app.Fragment
@@ -47,8 +48,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.*
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 
-class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback,
-    MainActivity.Callback {
+class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
     private var _binding: FragmentReadingListsBinding? = null
     private val binding get() = _binding!!
     private var displayedLists = listOf<Any>()
@@ -65,10 +65,14 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private var currentSearchQuery: String? = null
     private var selectMode: Boolean = false
 
+    val filePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        val uri: Uri = it.data?.data!!
+        onListsImportResult(uri)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
-        (activity as MainActivity).importCallback = this
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -171,7 +175,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             var filePickerIntent = Intent(Intent.ACTION_GET_CONTENT)
             filePickerIntent.type = "*/*"
             filePickerIntent = Intent.createChooser(filePickerIntent, getString(R.string.reading_list_import_file_picker_title))
-            (activity as MainActivity).filePickerLauncher.launch(filePickerIntent)
+            filePickerLauncher.launch(filePickerIntent)
         }
 
         override fun editList() {
@@ -717,7 +721,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    override fun onActivityListsImportResult(uri: Uri) {
+    fun onListsImportResult(uri: Uri) {
         val inputStr = activity?.contentResolver?.openInputStream(uri)
         inputStr?.let {
             val inputString = it.bufferedReader().use { it.readText() }

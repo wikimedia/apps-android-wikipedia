@@ -2,7 +2,6 @@ package org.wikipedia.main
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
@@ -20,19 +19,11 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
-    interface Callback {
-        fun onActivityListsImportResult(uri: Uri)
-    }
 
     private lateinit var binding: ActivityMainBinding
 
     private var controlNavTabInFragment = false
     private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { }
-    var importCallback: Callback? = null
-    val filePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        val uri: Uri = it.data?.data!!
-        importCallback?.onActivityListsImportResult(uri)
-    }
 
     override fun inflateAndSetContentView() {
         binding = ActivityMainBinding.inflate(layoutInflater)
