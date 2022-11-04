@@ -7,14 +7,12 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.ViewGroup
 import androidx.annotation.StyleRes
-import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ItemReadingListBinding
-import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
@@ -26,7 +24,6 @@ import java.util.*
 class ReadingListItemView : ConstraintLayout {
     interface Callback {
         fun onClick(readingList: ReadingList)
-        fun onLongClick(): ActionMode?
         fun onRename(readingList: ReadingList)
         fun onDelete(readingList: ReadingList)
         fun onSaveAllOffline(readingList: ReadingList)
@@ -43,7 +40,6 @@ class ReadingListItemView : ConstraintLayout {
     private var readingList: ReadingList? = null
     private val imageViews = listOf(binding.itemImage1, binding.itemImage2, binding.itemImage3, binding.itemImage4)
     var callback: Callback? = null
-    var actionMode: ActionMode? = null
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -72,12 +68,8 @@ class ReadingListItemView : ConstraintLayout {
                         menu.menu.findItem(R.id.menu_reading_list_rename).isVisible = false
                         menu.menu.findItem(R.id.menu_reading_list_delete).isVisible = false
                     }
-                    actionMode = callback?.onLongClick()
                     menu.menu.findItem(R.id.menu_reading_list_select).title =
                         context.getString(if (it.selected) R.string.reading_list_menu_unselect else R.string.reading_list_menu_select)
-                    if (SearchActionModeCallback.`is`(actionMode)) {
-                        menu.menu.findItem(R.id.menu_reading_list_select).isVisible = false
-                    }
                     menu.setOnMenuItemClickListener(OverflowMenuClickListener(it))
                     menu.show()
                 }

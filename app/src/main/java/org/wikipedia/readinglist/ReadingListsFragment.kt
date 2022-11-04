@@ -412,10 +412,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }
         }
 
-        override fun onLongClick(): ActionMode? {
-            return actionMode
-        }
-
         override fun onRename(readingList: ReadingList) {
             if (readingList.isDefault) {
                 L.w("Attempted to rename default list.")

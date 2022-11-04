@@ -6,7 +6,6 @@ import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.view.ActionMode
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -162,10 +161,6 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     private inner class ReadingListItemCallback : ReadingListItemView.Callback {
         override fun onClick(readingList: ReadingList) {
             addAndDismiss(readingList, titles)
-        }
-
-        override fun onLongClick(): ActionMode? {
-            return null
         }
 
         override fun onRename(readingList: ReadingList) {}

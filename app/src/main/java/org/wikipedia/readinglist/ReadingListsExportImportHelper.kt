@@ -57,8 +57,9 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
                 }
                 FileUtil.createFileInDownloadsFolder(activity, activity.getString(R.string.json_file_name, System.currentTimeMillis().toString()), JsonUtil.encodeToString(exportedLists))
                 val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
-                activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent, lists.size).build())
-                FeedbackUtil.showMessage(activity, activity.getString(R.string.reading_list_export_completed_message))
+                activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent).build())
+                FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_export_completed_message))
+                    .setAction(R.string.suggested_edits_article_cta_snackbar_action) { activity.startActivity(intent) }.show()
                 funnel.logExportLists(lists.size)
             }
         } catch (e: Exception) {
@@ -66,7 +67,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
         }
     }
 
-    private fun getNotificationBuilder(context: Context, intent: Intent, numberOfLists: Int): NotificationCompat.Builder {
+    private fun getNotificationBuilder(context: Context, intent: Intent): NotificationCompat.Builder {
         return NotificationCompat
             .Builder(context, NotificationCategory.MENTION.id)
             .setDefaults(NotificationCompat.DEFAULT_ALL).setPriority(NotificationCompat.PRIORITY_HIGH)
