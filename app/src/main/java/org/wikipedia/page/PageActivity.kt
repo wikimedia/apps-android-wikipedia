@@ -144,12 +144,14 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
             SuggestedEditsSnackbars.show(this, action, it.resultCode != DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS,
                 editLanguage, action !== DescriptionEditActivity.Action.ADD_DESCRIPTION && action !== DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) {
-                pageFragment.title?.let { pageTitle ->
+                pageFragment.page?.pageProperties?.leadImageName?.let { imageName ->
+                    val wikiSite = WikiSite.forLanguageCode(pageFragment.leadImageEditLang.orEmpty().ifEmpty { app.appOrSystemLanguageCode })
+                    val imageTitle = PageTitle("File:${StringUtil.removeNamespace(imageName)}", wikiSite)
                     if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS) {
-                        startActivity(FilePageActivity.newIntent(this, pageTitle))
+                        startActivity(FilePageActivity.newIntent(this, imageTitle))
                     } else if (action === DescriptionEditActivity.Action.ADD_CAPTION || action === DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-                        pageFragment.page?.pageProperties?.leadImageName?.let { imageName ->
-                            startActivity(GalleryActivity.newIntent(this, pageTitle, "File:$imageName", pageTitle.wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
+                        pageFragment.title?.let { pageTitle ->
+                            startActivity(GalleryActivity.newIntent(this, pageTitle, imageTitle.prefixedText, wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
                         }
                     }
                 }
