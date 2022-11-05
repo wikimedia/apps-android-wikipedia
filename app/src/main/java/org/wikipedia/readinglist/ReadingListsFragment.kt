@@ -174,7 +174,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         override fun importNewList() {
             var filePickerIntent = Intent(Intent.ACTION_GET_CONTENT)
             filePickerIntent.type = "*/*"
-            filePickerIntent = Intent.createChooser(filePickerIntent, getString(R.string.reading_list_import_file_picker_title))
+            filePickerIntent = Intent.createChooser(filePickerIntent, getString(R.string.reading_lists_import_file_picker_title))
             filePickerLauncher.launch(filePickerIntent)
         }
 

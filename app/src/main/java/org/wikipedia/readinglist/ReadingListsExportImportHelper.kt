@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
@@ -59,7 +60,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
                 else R.string.multiple_lists_json_file_name, lists[0].title), JsonUtil.encodeToString(exportedLists))
                 val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
                 activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent, lists.size).build())
-                FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_export_completed_message))
+                FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_lists_export_completed_message))
                     .setAction(R.string.suggested_edits_article_cta_snackbar_action) { activity.startActivity(intent) }.show()
                 funnel.logExportLists(lists.size)
             }
@@ -89,7 +90,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
             readingLists = JsonUtil.decodeFromString(jsonString)
         } catch (e: Exception) {
             funnel.logImportCancel()
-            FeedbackUtil.showMessage(activity, R.string.reading_list_import_failure_message)
+            FeedbackUtil.showMessage(activity, R.string.reading_lists_import_failure_message)
         }
         readingLists?.let {
             for (list in readingLists) {
