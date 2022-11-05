@@ -64,32 +64,48 @@
                     android:text="@string/search_results_count_zero"
                     android:visibility="gone" />
 
-                <LinearLayout
+                <ScrollView
                     android:id="@+id/talkEmptyContainer"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:visibility="gone"
                     tools:visibility="visible">
 
-                    <ImageView
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:contentDescription="@null"
-                        app:srcCompat="@drawable/ic_user_talk"
-                        app:tint="?attr/material_theme_de_emphasised_color"/>
-
-                    <TextView
-                        style="@style/MaterialMediumSecondaryCaption"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:text="@string/talk_page_empty" />
+                        android:orientation="vertical">
 
-                </LinearLayout>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            app:srcCompat="?attr/talk_page_empty_state_drawable"/>
+
+                        <TextView
+                            style="@style/MaterialLargePrimaryTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:text="@string/talk_page_empty_title" />
+
+                        <TextView
+                            style="@style/MaterialMediumSecondaryCaption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:text="@string/talk_page_empty_content" />
+
+                    </LinearLayout>
+
+                </ScrollView>
 
                 <org.wikipedia.views.WikiErrorView
                     android:id="@+id/talkErrorView"

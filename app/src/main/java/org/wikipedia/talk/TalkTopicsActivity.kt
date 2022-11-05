@@ -352,6 +352,8 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnEmpty() {
+        binding.talkRefreshView.isRefreshing = false
+        binding.talkRefreshView.isEnabled = false
         binding.talkEmptyContainer.isVisible = true
         binding.talkConditionContainer.isVisible = true
         // Allow them to create a new topic anyway
