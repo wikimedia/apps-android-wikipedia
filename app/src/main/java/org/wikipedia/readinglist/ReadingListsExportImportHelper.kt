@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
@@ -96,7 +97,13 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
                 val allLists = AppDatabase.instance.readingListDao().getAllLists()
                 val existingTitles = AppDatabase.instance.readingListDao().getAllLists().map { it.title }
                 if (existingTitles.contains(list.name)) {
-                    allLists.filter { it.title == list.name }.forEach { addTitlesToList(list, it) }
+                    val dialog = AlertDialog.Builder(activity)
+                        .setTitle(activity.getString(R.string.reading_lists_import_conflict_dialog_title, list.name))
+                        .setPositiveButton(R.string.reading_lists_import_conflict_dialog_primary_action_text) { _, _ -> allLists.filter { it.title == list.name }.forEach { replaceList(list, it) } }
+                        .setNegativeButton(R.string.reading_lists_import_conflict_dialog_secondary_action_text) { _, _ -> keepBothLists(activity, list) }
+                        .setNeutralButton(R.string.reading_lists_import_conflict_dialog_tertiary_action_text, null)
+                        .create()
+                    dialog.show()
                     continue
                 }
                 val readingList = AppDatabase.instance.readingListDao().createList(list.name!!, list.description)
@@ -105,6 +112,19 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
             funnel.logImportFinish(readingLists.size)
             FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_import_success_message, readingLists.size))
         }
+    }
+
+    private fun keepBothLists(activity: AppCompatActivity, importedList: ExportableReadingList) {
+        val readingList = AppDatabase.instance.readingListDao().createList(activity.getString(R.string.copy_of_imported_list_name,
+            importedList.name!!, System.currentTimeMillis().toString()), importedList.description)
+        addTitlesToList(importedList, readingList)
+    }
+
+    private fun replaceList(importedList: ExportableReadingList, userList: ReadingList) {
+        AppDatabase.instance.readingListDao().deleteReadingList(userList)
+        AppDatabase.instance.readingListPageDao().markPagesForDeletion(userList, userList.pages, false)
+        val readingList = AppDatabase.instance.readingListDao().createList(importedList.name!!, importedList.description)
+        addTitlesToList(importedList, readingList)
     }
 
     private fun addTitlesToList(exportedList: ExportableReadingList, list: ReadingList) {

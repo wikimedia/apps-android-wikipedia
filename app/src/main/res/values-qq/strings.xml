@@ -1317,7 +1317,7 @@
     <item quantity="one">Toast message shown when one reading list is deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
     <item quantity="other">Toast message shown when multiple reading lists are deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
   </plurals>
-  <string name="reading_lists_import_conflict_dialog_title">Title text for dialog shown when there is a conflict during importing of lists.</string>
+  <string name="reading_lists_import_conflict_dialog_title">Title text for dialog shown when there is a conflict during importing of lists. %s is the name of the imported list.</string>
   <string name="reading_lists_import_conflict_dialog_primary_action_text">Primary action text for dialog shown when there is a conflict during importing of lists.</string>
   <string name="reading_lists_import_conflict_dialog_secondary_action_text">Secondary action text for dialog shown when there is a conflict during importing of lists.</string>
   <string name="reading_lists_import_conflict_dialog_tertiary_action_text">Tertiary action text for dialog shown when there is a conflict during importing of lists.</string>

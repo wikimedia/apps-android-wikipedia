@@ -68,4 +68,5 @@
     <!-- Json export -->
     <string name="single_list_json_file_name">%s (Wikipedia reading list).json</string>
     <string name="multiple_lists_json_file_name">Wikipedia reading lists (%s and more).json</string>
+    <string name="copy_of_imported_list_name">%1$s %2$s</string>
 </resources>
