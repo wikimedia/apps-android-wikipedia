@@ -3,6 +3,7 @@
 * ASHmed
 * Aboulouei1
 * Alaa
+* Amire80
 * Asaifm
 * Asma
 * Dbrant
@@ -10,6 +11,7 @@
 * Dr. Mohammed
 * Elbasyouny
 * Esraa Ismail
+* FShbib
 * FiberAhmed
 * Haytham morsy
 * Helmoony
@@ -612,25 +614,45 @@
     <item quantity="many">جارٍ تنزيل ...</item>
     <item quantity="other">جارٍ تنزيل المقالات</item>
   </plurals>
-  <plurals name="notification_syncing_title" fuzzy="true">
-    <item quantity="one">جارٍ تنزيل %1$d مقالة…</item>
-    <item quantity="other">جارٍ تنزيل Downloading %1$d مقالات…</item>
+  <plurals name="notification_syncing_title">
+    <item quantity="zero">جارٍ تنزيل لا مقالة</item>
+    <item quantity="one">جارٍ تنزيل مقالة واحدة</item>
+    <item quantity="two">جارٍ تنزيل مقالتان</item>
+    <item quantity="few">جارٍ تنزيل %1$d مقالة</item>
+    <item quantity="many">جارٍ تنزيل %1$d مقالة</item>
+    <item quantity="other">جارٍ تنزيل %1$d مقالة</item>
   </plurals>
-  <plurals name="notification_syncing_description" fuzzy="true">
+  <plurals name="notification_syncing_description">
+    <item quantity="zero">لا مقالة</item>
     <item quantity="one">%1$d مقالة متبقية</item>
-    <item quantity="other">%1$d مقالات متبقية</item>
+    <item quantity="two">مقالتان متيقيتان</item>
+    <item quantity="few">%1$d مقالة</item>
+    <item quantity="many">%1$d مقالة</item>
+    <item quantity="other">%1$d مقالة متبقية</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="zero">لا قوائم</item>
     <item quantity="one">مزامنة قائمة القراءة</item>
-    <item quantity="other">مزامنة قوائم القراءة</item>
+    <item quantity="two">مزامنة قائمتي القراءة</item>
+    <item quantity="few">مزامنة قوائم القراءة</item>
+    <item quantity="many">مزامنة قوائم القراءة</item>
+    <item quantity="other">مزامنة قوائم المراقبة</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
-    <item quantity="one">تجري مزامنة %1$d قائمة…</item>
-    <item quantity="other">تجري مزامنة %1$d قوائم…</item>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="zero">لا قوائم</item>
+    <item quantity="one">مزامنة %1$d قائمة…</item>
+    <item quantity="two">مزامنة قائمتين</item>
+    <item quantity="few">مزامنة قوائم المراقبة</item>
+    <item quantity="many">مزامنة %1$d قائمة…</item>
+    <item quantity="other">مزامنة %1$d قوائم…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="zero">لا مقالة</item>
     <item quantity="one">%1$d مقالة متبقية</item>
-    <item quantity="other">%1$d مقالات متبقية</item>
+    <item quantity="two">مقالتان متيقيتان</item>
+    <item quantity="few">%1$d مقالة</item>
+    <item quantity="many">%1$d مقالة</item>
+    <item quantity="other">%1$d مقالة متبقية</item>
   </plurals>
   <string name="notification_echo_channel_description">إخطارات ويكيبيديا</string>
   <string name="notifications_activity_title">الإشعارات</string>
@@ -640,9 +662,13 @@
   <string name="notifications_view_archived">عرض المؤرشف</string>
   <string name="notifications_prefs">تفضيلات الإشعارات</string>
   <string name="notifications_archive">التعليم كمقروء والأرشفة</string>
-  <plurals name="notification_archive_message" fuzzy="true">
-    <item quantity="one">تمت أرشفة الإشعار</item>
-    <item quantity="other">تمت أرشفة %d إشعارا</item>
+  <plurals name="notification_archive_message">
+    <item quantity="zero">لا إخطار</item>
+    <item quantity="one">إخطار واحد</item>
+    <item quantity="two">إخطاران</item>
+    <item quantity="few">%d إخطار</item>
+    <item quantity="many">%d إخطار</item>
+    <item quantity="other">%d إخطار</item>
   </plurals>
   <string name="notifications_poll_enable_title">تفعيل الإشعارات</string>
   <string name="notifications_poll_enable_positive">تفعيل</string>
@@ -677,6 +703,7 @@
   <string name="preference_category_display_settings">إعدادات العرض</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">ويكيبيديا</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">إشعارات من ويكيبيديا</string>
+  <string name="notifications_channel_group_other_title">أخرى</string>
   <string name="notifications_tab_filter_all">الكل</string>
   <string name="notifications_tab_filter_mentions">الإشارات</string>
   <string name="notifications_search_bar_hint">ابحث أو رشّح الإشعارات</string>
@@ -716,9 +743,13 @@
   <string name="home">الرئيسية</string>
   <string name="view_static_card_icon_content_description">أيقونة بطاقة</string>
   <string name="view_card_news_title">في الأخبار</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">أمس</item>
-    <item quantity="other">قبل %d أيام</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="zero">لا يوم</item>
+    <item quantity="one">يوم واحد</item>
+    <item quantity="two">يومان</item>
+    <item quantity="few">%d يوم</item>
+    <item quantity="many">%d أيام</item>
+    <item quantity="other">%d يوم</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">اليوم</string>
   <string name="view_continue_reading_card_subtitle_read_date">قرأت %s</string>
@@ -839,9 +870,13 @@
   <string name="suggested_edits_image_caption_summary_title_source">المصدر</string>
   <string name="suggested_edits_image_caption_summary_title_license">الترخيص</string>
   <string name="suggested_edits_image_caption_summary_title_date">التاريخ</string>
-  <plurals name="suggested_edits_contribution_count" fuzzy="true">
-    <item quantity="one">مساهمة</item>
-    <item quantity="other">%d مساهمات</item>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="zero">لا مساهمة</item>
+    <item quantity="one">مساهمة واحدة</item>
+    <item quantity="two">مساهمتان</item>
+    <item quantity="few">%d مساهمة</item>
+    <item quantity="many">%d مساهمة</item>
+    <item quantity="other">%d مساهمة</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">التعديلات المقترحة</string>
   <string name="suggested_edits_feed_card_add_description_button">إضافة وصف المقالة</string>
@@ -910,13 +945,21 @@
   <string name="suggested_edits_quality_poor_text">فقير</string>
   <string name="suggested_edits_quality_bad_text">سيئ</string>
   <string name="suggested_edits_label">تعديلات مقترحة</string>
-  <plurals name="suggested_edits_contribution" fuzzy="true">
-    <item quantity="one">مساهمة</item>
-    <item quantity="other">مساهمات</item>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="zero">لا مساهمة</item>
+    <item quantity="one">مساهمة واحدة</item>
+    <item quantity="two">مساهمتان</item>
+    <item quantity="few">مساهمة</item>
+    <item quantity="many">مساهمات</item>
+    <item quantity="other">مساهمة</item>
   </plurals>
-  <plurals name="suggested_edits_edit_streak_detail_text" fuzzy="true">
-    <item quantity="one">%d يوم</item>
-    <item quantity="other">%d أيام</item>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="zero">و لا يوم</item>
+    <item quantity="one">يوم واحدة</item>
+    <item quantity="two">يومان</item>
+    <item quantity="few">%d يوم</item>
+    <item quantity="many">%d يوم</item>
+    <item quantity="other">%d يوم</item>
   </plurals>
   <string name="suggested_edits_what_is_title">ما هي التعديلات المقترحة؟</string>
   <string name="suggested_edits_what_is_text">تقدم التعديلات المقترحة فرصًا للمساهمات الصغيرة والحيوية في ويكيبيديا.</string>
@@ -986,9 +1029,13 @@
   <string name="on_this_day_dialog_next_month">الشهر التالي</string>
   <string name="on_this_day_dialog_previous_month">الشهر السابق</string>
   <string name="on_this_day_open_date_picker">فتح منتقي التاريخ</string>
-  <plurals name="diff_years" fuzzy="true">
-    <item quantity="one">السنة الماضية</item>
-    <item quantity="other">قبل %d سنة</item>
+  <plurals name="diff_years">
+    <item quantity="zero">لا سنة</item>
+    <item quantity="one">سنة واحدة</item>
+    <item quantity="two">سنتان</item>
+    <item quantity="few">%d سنة</item>
+    <item quantity="many">%d سنوات</item>
+    <item quantity="other">%d سنة</item>
   </plurals>
   <string name="on_this_day_end_of_scroll_message">لقد سافرت عبر الزمن 🚀</string>
   <string name="on_this_day_back_to_future">عُد إلى المستقبل</string>
@@ -1000,9 +1047,13 @@
   <string name="wikipedia_languages_add_language_text">إضافة لغة</string>
   <string name="wikipedia_languages_remove_text">إزالة اللغة</string>
   <string name="wikipedia_languages_remove_action_mode_title">إزالة اللغة</string>
-  <plurals name="wikipedia_languages_remove_dialog_title" fuzzy="true">
-    <item quantity="one">إزالة اللغة المحددة؟</item>
-    <item quantity="other">إزالة اللغات المحددة؟</item>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="zero">لا لغة</item>
+    <item quantity="one">لغة واحدة</item>
+    <item quantity="two">لغتان</item>
+    <item quantity="few">إزالة اللغة المختارة؟</item>
+    <item quantity="many">إزالة اللغات المختارة؟</item>
+    <item quantity="other">إزالة اللغة المختارة؟</item>
   </plurals>
   <string name="wikipedia_languages_remove_dialog_content">لن تشاهد سوى المحتوى في مرشحات خلاصة الاستكشاف والبحث السريع عن لغات ويكيبيديا المتبقية.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">لا يمكن إزالة كل اللغات</string>
@@ -1102,7 +1153,7 @@
   <string name="thank_dialog_positive_button_text">إرسال شكر</string>
   <string name="thank_dialog_negative_button_text">ألغ</string>
   <string name="thank_success_message">أُرسل \"شكرك\" إلى %s 👍</string>
-  <string name="menu_option_view_user_profile" fuzzy="true">اعرض صفحة المستخدم</string>
+  <string name="menu_option_view_user_profile">عرض صفحة المستخدم</string>
   <string name="menu_option_view_user_talk">اعرض صفحة النقاش</string>
   <string name="menu_option_view_user_contributions">اعرض مساهمات المستخدم</string>
   <string name="revision_diff_compare">مقارنة المراجعات</string>
@@ -1144,11 +1195,8 @@
   <string name="preview_edit_summarize_edit_title">تلخيص التحرير</string>
   <string name="preview_edit_summarize_edit_hint">كيف حسّنت الصفحة؟</string>
   <string name="preview_edit_minor_edit">هذا تعديل طفيف</string>
-  <string name="preview_edit_minor_edit_url">https://en.wikipedia.org/wiki/Help:Minor_edit</string>
   <string name="preview_edit_watch_this_page">راقب هذه الصفحة</string>
-  <string name="preview_edit_watch_this_page_url">https://en.wikipedia.org/wiki/Help:Watchlist</string>
   <string name="preview_edit_learn_more">تعرف على المزيد حول ملخص التحرير</string>
-  <string name="preview_edit_learn_more_url">https://en.wikipedia.org/wiki/Help:Edit_summary</string>
   <string name="action_item_categories">التصنيفات</string>
   <string name="page_no_categories">لا تنتمي هذه الصفحة إلى أية تصنيفات.</string>
   <string name="category_tab_articles">المقالات</string>
@@ -1157,6 +1205,6 @@
   <string name="subcategory_empty">لم يُعثر على تصنيفات فرعية في هذا التصنيف.</string>
   <string name="search_namespaces">النطاقات</string>
   <string name="revision_initial_none">لا شيء (هذه هي المراجعة الأولى)</string>
-  <string name="user_contrib_filter_all">كل التعديلات</string>
+  <string name="user_contrib_filter_all">جميع النطاقات</string>
   <string name="namespace_article">المقالات</string>
 </resources>

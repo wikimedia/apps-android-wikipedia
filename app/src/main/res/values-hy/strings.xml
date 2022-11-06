@@ -441,7 +441,7 @@
   <string name="watchlist_page_protected">Պաշտպանված է</string>
   <string name="search_namespaces">Անվանատարածքներ</string>
   <string name="user_contrib_filter_ns">Զտել ըստ անվանատարածքի</string>
-  <string name="user_contrib_filter_all">Բոլոր խմբագրումները</string>
+  <string name="user_contrib_filter_all">Բոլոր անվանատարածքներ</string>
   <string name="namespace_article">Հոդված</string>
   <string name="user_contrib_current">ընթացիկ</string>
   <string name="user_contrib_menu_label">Ներդրումներ</string>

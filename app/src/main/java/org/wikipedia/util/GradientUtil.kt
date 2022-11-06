@@ -26,7 +26,7 @@ object GradientUtil {
         return getPowerGradientInt(ContextCompat.getColor(WikipediaApp.instance, baseColor), gravity)
     }
 
-    fun getPowerGradientInt(@ColorInt baseColor: Int, gravity: Int): Drawable {
+    private fun getPowerGradientInt(@ColorInt baseColor: Int, gravity: Int): Drawable {
         val drawable = PaintDrawable()
         drawable.shape = RectShape()
         setPowerGradient(drawable, baseColor, gravity)
