@@ -1,6 +1,8 @@
 package org.wikipedia.gallery
 
+import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
+import android.os.Parcelable
 import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
@@ -11,11 +13,11 @@ import org.wikipedia.page.PageTitle
 
 class GalleryViewModel(bundle: Bundle) : ViewModel() {
 
-    var pageTitle = bundle.getParcelable<PageTitle>(GalleryActivity.EXTRA_PAGETITLE)
+    var pageTitle = bundle.parcelable<PageTitle>(GalleryActivity.EXTRA_PAGETITLE)
     var fileName = bundle.getString(GalleryActivity.EXTRA_FILENAME)
     var revision = bundle.getLong(GalleryActivity.EXTRA_REVISION)
     var source = bundle.getInt(GalleryActivity.EXTRA_SOURCE)
-    var wiki = bundle.getParcelable<WikiSite>(GalleryActivity.EXTRA_WIKI)
+    var wiki = bundle.parcelable<WikiSite>(GalleryActivity.EXTRA_WIKI)
 
     private val repository = GalleryRepository()
 
@@ -37,7 +39,6 @@ class GalleryViewModel(bundle: Bundle) : ViewModel() {
                 .flowOn(Dispatchers.IO)
                 .catch { e -> _mediaListItem.postValue(GalleryViewState.Failed(e)) }
                 .collect { response ->
-                    _mediaListItem.postValue(GalleryViewState.Loading)
                     val mediaListItem = response.getItems("image", "video")
                     _mediaListItem.postValue(GalleryViewState.Success(mediaListItem))
                 }
@@ -59,7 +60,7 @@ class GalleryViewModel(bundle: Bundle) : ViewModel() {
             }
                 .flowOn(Dispatchers.IO)
                 .catch { e -> _imageCaption.postValue(GalleryViewState.Failed(e)) }
-                .collect { _imageCaption.postValue(GalleryViewState.Success(it as Triple<Map<String, String>, Boolean, Int>)) }
+                .collect { _imageCaption.postValue(GalleryViewState.Success(it)) }
         }
     }
 
@@ -69,4 +70,9 @@ class GalleryViewModel(bundle: Bundle) : ViewModel() {
             return GalleryViewModel(bundle) as T
         }
     }
+}
+
+inline fun <reified T : Parcelable> Bundle.parcelable(key: String): T? = when {
+    SDK_INT >= 33 -> getParcelable(key, T::class.java)
+    else -> @Suppress("DEPRECATION") getParcelable(key) as? T
 }

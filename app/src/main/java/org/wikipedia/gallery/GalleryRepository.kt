@@ -8,7 +8,7 @@ import org.wikipedia.page.PageTitle
 class GalleryRepository {
 
     fun fetchGalleryItems(pageTitle: PageTitle, revision: Long) = flow {
-        emit(ServiceFactory.getRest(pageTitle.wikiSite).getMediaListSuspend(pageTitle.prefixedText, revision))
+        emit(ServiceFactory.getRest(pageTitle.wikiSite).getMediaList(pageTitle.prefixedText, revision))
     }
 
     fun fetchEntitiesByTitle(text: String) = flow {

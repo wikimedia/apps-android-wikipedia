@@ -81,9 +81,8 @@ interface RestService {
     @GET("page/related/{title}")
     fun getRelatedPages(@Path("title") title: String?): Observable<RbRelatedPages>
 
-    // TODO: Change it to only getMediaList, and it's implementations
     @GET("page/media-list/{title}/{revision}")
-    suspend fun getMediaListSuspend(
+    suspend fun getMediaList(
         @Path("title") title: String,
         @Path("revision") revision: Long
     ): MediaList

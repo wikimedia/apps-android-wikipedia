@@ -64,8 +64,8 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mediaListItem = requireArguments().getParcelable(ARG_GALLERY_ITEM)!!
-        pageTitle = requireArguments().getParcelable(ARG_PAGETITLE)
+        mediaListItem = requireArguments().parcelable(ARG_GALLERY_ITEM)!!
+        pageTitle = requireArguments().parcelable(ARG_PAGETITLE)
         if (pageTitle == null) {
             pageTitle = PageTitle(mediaListItem.title, Constants.commonsWikiSite)
         }
@@ -87,8 +87,12 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
                 binding.image.setAllowParentInterceptOnEdge(abs(binding.image.scale - 1f) < 0.01f)
             }
         }
-        loadMedia()
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadMedia()
     }
 
     override fun onDestroyView() {
