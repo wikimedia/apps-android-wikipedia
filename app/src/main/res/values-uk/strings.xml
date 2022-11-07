@@ -467,6 +467,10 @@
   <string name="theme_category_editing">Редагування</string>
   <string name="reading_focus_mode">Режим фокусування читання</string>
   <string name="reading_focus_mode_detail">Приховує функції редагування та нижню панель інструментів під час прокручування</string>
+  <string name="editing_syntax_highlight_label">Виділення синтаксису</string>
+  <string name="editing_line_numbers_label">Показати номери рядків</string>
+  <string name="editing_monospace_font_label">Використати моноширинний шрифт</string>
+  <string name="editing_typing_suggestions">Показати пропозиції щодо введення</string>
   <string name="nav_item_saved">Збережено</string>
   <string name="reading_list_save_to">Зберегти до списку для читання</string>
   <string name="reading_list_move_to">Перенести до читального списку</string>
@@ -840,6 +844,7 @@
   <string name="description_edit_helper_text_lowercase_warning">зазвичай починається з маленької літери</string>
   <string name="description_edit_voice_input_description">Голосове введення</string>
   <string name="description_edit_learn_more">Докладніше про описи статей</string>
+  <string name="description_edit_image_caption_learn_more">Докладніше про підписи до зображень</string>
   <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
   <string name="description_too_short">Текст закороткий.</string>
   <string name="description_ends_with_punctuation">Текст не має закінчуватися розділовим знаком.</string>
@@ -1140,6 +1145,8 @@
   <string name="wikitext_bold">Жирний</string>
   <string name="wikitext_italic">Курсив</string>
   <string name="wikitext_underline">Підкреслення</string>
+  <string name="wikitext_large">Великий текст</string>
+  <string name="wikitext_small">Малий текст</string>
   <string name="wikitext_link">Посилання</string>
   <string name="wikitext_formatting">Форматування</string>
   <string name="wikitext_insert_media">Вставити медіа</string>
@@ -1158,6 +1165,7 @@
   <string name="insert_media_advanced_settings_image_position_right">Праворуч</string>
   <string name="insert_media_advanced_settings_image_position_left">Ліворуч</string>
   <string name="insert_media_advanced_settings_image_position_center">Центр</string>
+  <string name="insert_media_advanced_settings_image_position_none">Немає</string>
   <string name="insert_media_advanced_settings_image_type">Тип зображення</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Мініатюра</string>
   <string name="insert_media_advanced_settings_image_type_frameless">Без рамки</string>
@@ -1231,6 +1239,7 @@
   <string name="talk_list_item_user_icon_content_description">Іконка користувача</string>
   <string name="talk_list_item_swipe_mark_as_read">Читати</string>
   <string name="talk_list_item_swipe_mark_as_unread">Непрочитане</string>
+  <string name="talk_login_to_subscribe_dialog_title">Увійдіть, щоб підписатися на теми</string>
   <string name="talk_archived_title">Архів обговорення: %s</string>
   <string name="menu_option_share_talk_discussion">Поділіться обговоренням</string>
   <string name="menu_option_share_talk_page">Поділіться сторінкою обговорення</string>
