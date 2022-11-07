@@ -19,6 +19,7 @@ import java.net.UnknownHostException
 import java.util.concurrent.TimeoutException
 import javax.net.ssl.SSLException
 
+@Suppress("SameParameterValue")
 object ThrowableUtil {
     // TODO: replace with Apache Commons Lang ExceptionUtils.
     fun getInnermostThrowable(e: Throwable): Throwable {
@@ -99,7 +100,7 @@ object ThrowableUtil {
         return html
     }
 
-    fun parseBlockedError(template: String, info: MwServiceError.BlockInfo, reason: String, userName: String): String {
+    private fun parseBlockedError(template: String, info: MwServiceError.BlockInfo, reason: String, userName: String): String {
         return template.replace("$1", "<a href=\"${StringUtil.userPageTitleFromName(info.blockedBy, WikipediaApp.instance.wikiSite).mobileUri}\">${info.blockedBy}</a>")
             .replace("$2", reason)
             .replace("$3", "") // IP address of user (TODO: somehow get from API?)
@@ -113,7 +114,7 @@ object ThrowableUtil {
     private fun parseBlockedDate(dateStr: String): String {
         try {
             return DateUtil.iso8601DateParse(dateStr).toString()
-        } catch (e: Exception) {}
+        } catch (_: Exception) {}
         return dateStr
     }
 

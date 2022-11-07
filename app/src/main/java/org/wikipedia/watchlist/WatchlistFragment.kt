@@ -341,7 +341,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     override fun onUserClick(item: MwQueryResult.WatchlistItem, view: View) {
         UserTalkPopupHelper.show(requireActivity() as AppCompatActivity, bottomSheetPresenter,
                 PageTitle(UserAliasData.valueFor(item.wiki!!.languageCode), item.user, item.wiki!!),
-                !AccountUtil.isLoggedIn, view, Constants.InvokeSource.WATCHLIST_ACTIVITY, HistoryEntry.SOURCE_WATCHLIST, revisionId = item.revid, pageId = item.pageId)
+            item.isAnon, view, Constants.InvokeSource.WATCHLIST_ACTIVITY, HistoryEntry.SOURCE_WATCHLIST, revisionId = item.revid, pageId = item.pageId)
     }
 
     companion object {

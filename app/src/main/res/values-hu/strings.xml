@@ -254,7 +254,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.hu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.hu</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu#Image_tags</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu#K%C3%A9pc%C3%ADmk%C3%A9k</string>
   <string name="about_libraries_heading">Felhasznált szoftverkönyvtárak</string>
   <string name="about_contributors_heading">Közreműködők</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Csapat oldala&lt;/a&gt;</string>
@@ -794,6 +794,8 @@
   <string name="description_edit_voice_input_description">Hangbevitel</string>
   <string name="description_edit_learn_more">További információk a szócikkleírásokról</string>
   <string name="description_edit_image_caption_learn_more">További információk a képaláírásokról</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu#Cikkle%C3%ADr%C3%A1sok</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu#K%C3%A9pfeliratok</string>
   <string name="description_too_short">A szöveg túl rövid.</string>
   <string name="description_ends_with_punctuation">A szöveg nem végződhet írásjellel.</string>
   <string name="description_starts_with_article">Kerüld az „egy” vagy „a”/„az” névelővel kezdődő szócikkleírásokat.</string>
@@ -824,6 +826,7 @@
   <string name="customize_toolbar_category_menu">Menü</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Fogd és húzd ide a kedvenc tételeket</string>
   <string name="customize_toolbar_reset_to_default_button">Alapértelmezés visszaállítása</string>
+  <string name="customize_toolbar_item_default_tooltip">Nyomja meg és húzza át az elemet az áthelyezéséhez</string>
   <string name="suggested_edits_describe_articles">Szócikkek leírása</string>
   <string name="suggested_edits_caption_images">Hiányzó képfeliratok</string>
   <string name="suggested_edits_tag_images">Képek címkézése</string>
@@ -1178,6 +1181,7 @@
   <string name="menu_option_share_edit">Szerkesztés megosztása</string>
   <string name="menu_option_user_contributions">%s közreműködései</string>
   <string name="menu_option_edit_source">Forrás szerkesztése</string>
+  <string name="menu_option_user_page">%s felhasználói oldala</string>
   <string name="menu_option_find_in_talk_page_topic">Keresés vitalapi témákban</string>
   <string name="menu_option_copy_link_to_clipboard">Link másolása a vágólapra</string>
   <string name="talk_menu_copy_text">Szöveg másolása</string>
@@ -1199,6 +1203,8 @@
   <string name="menu_option_view_user_contributions">Szerkesztő közreműködéseinek megtekintése</string>
   <string name="revision_diff_compare">Lapváltozatok összehasonlítása</string>
   <string name="revision_diff_compare_title">„%s” változatainak összehasonlítása</string>
+  <string name="revision_diff_from">Ettől:</string>
+  <string name="revision_diff_to">Eddig:</string>
   <string name="revision_diff_line_num">%d. sor</string>
   <string name="revision_diff_line_nums">%d–%d. sor</string>
   <string name="revision_diff_lines_from_to">%1$d–%2$d. sor</string>
@@ -1251,9 +1257,11 @@
   <string name="user_contrib_activity_title">%s szerkesztései</string>
   <string name="archive_empty">Nem találhatók archívumok.</string>
   <string name="user_contrib_filter_ns">Szűrés névtér szerint</string>
-  <string name="user_contrib_filter_all" fuzzy="true">Minden szerkesztés</string>
+  <string name="user_contrib_filter_all" fuzzy="true">Minden névtér</string>
+  <string name="user_contrib_filter_ns_header">Névtérszűrő</string>
   <string name="namespace_article">Szócikk</string>
   <string name="user_contrib_current">aktuális</string>
   <string name="media_playback_error">Hiba a média lejátszása közben.</string>
   <string name="user_contrib_menu_label">Közreműködések</string>
+  <string name="user_contrib_filter_activity_title">Szerkesztések szűrése</string>
 </resources>

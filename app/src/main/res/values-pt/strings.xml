@@ -1269,10 +1269,11 @@
   <string name="user_contrib_activity_title">Contribuições de %s</string>
   <string name="archive_empty">Não foi encontrada nenhuma página arquivada.</string>
   <string name="user_contrib_filter_ns">Filtrar por espaço nominal</string>
-  <string name="user_contrib_filter_all" fuzzy="true">Todas as edições</string>
+  <string name="user_contrib_filter_all" fuzzy="true">Todos os \"espaços nominais\"</string>
+  <string name="user_contrib_filter_ns_header">Filtro de espaços nominais</string>
   <string name="namespace_article">Artigo</string>
   <string name="user_contrib_current">atual</string>
   <string name="media_playback_error">Erro na reprodução de multimédia.</string>
   <string name="user_contrib_menu_label">Contribuições</string>
-  <string name="user_contrib_filter_activity_title" fuzzy="true">Contribuições em:</string>
+  <string name="user_contrib_filter_activity_title">Filtrar contribuições</string>
 </resources>
