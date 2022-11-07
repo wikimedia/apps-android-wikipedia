@@ -794,8 +794,8 @@
   <string name="description_edit_voice_input_description">Hangbevitel</string>
   <string name="description_edit_learn_more">További információk a szócikkleírásokról</string>
   <string name="description_edit_image_caption_learn_more">További információk a képaláírásokról</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu#Cikkle%C3%ADr%C3%A1sok</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu#K%C3%A9pfeliratok</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu#Cikkleírások</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu#Képfeliratok</string>
   <string name="description_too_short">A szöveg túl rövid.</string>
   <string name="description_ends_with_punctuation">A szöveg nem végződhet írásjellel.</string>
   <string name="description_starts_with_article">Kerüld az „egy” vagy „a”/„az” névelővel kezdődő szócikkleírásokat.</string>
