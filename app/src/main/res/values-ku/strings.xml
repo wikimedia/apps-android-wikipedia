@@ -660,7 +660,7 @@
   <string name="preference_summary_notification_user_talk">Peyam û cewabên ji rûpelên gotûbêjan</string>
   <string name="preference_title_notification_email_user">Agahdariya wergirtina emaîlê</string>
   <string name="preference_summary_notification_email_user">Yekî bi riya wîkiyê epeyamekê şande te</string>
-  <string name="preference_title_notification_user_rights">Guhertina mafên {{GENDER:|bikarhênerî|bikarhênerê|bikarhênerê}}</string>
+  <string name="preference_title_notification_user_rights">Guhertina mafên bikarhênerê</string>
   <string name="preference_summary_notification_user_rights">Gava mafên te yên bikarhêneriyê were guhertin tê wergirtin</string>
   <string name="preference_title_notification_article_linked">Lînkên li gotarên te çêkiriye</string>
   <string name="preference_summary_notification_article_linked">Gava lînkeke nû li gotara te çêkiriye were çêkirin tê wergirtin</string>
@@ -695,7 +695,7 @@
   <string name="notifications_type_filter_header">Parzûna çeşîdê</string>
   <string name="notifications_all_wikis_text">Temamê \"wîkî\"yan</string>
   <string name="notifications_all_types_text">Temamê \"çeşîd\"an</string>
-  <string name="notifications_menu_user_talk_page">Rûpela gotûbêjê {{Gender:|yê|ya}} %s</string>
+  <string name="notifications_menu_user_talk_page">Rûpela gotûbêjê yê %s</string>
   <string name="notifications_offline_disable_message">Gava derhêl bî ev fonksiyon ne amade ye.</string>
   <string name="view_because_you_read_card_title">Ji ber ku te xwendiye</string>
   <string name="view_random_card_title">Ketober</string>
