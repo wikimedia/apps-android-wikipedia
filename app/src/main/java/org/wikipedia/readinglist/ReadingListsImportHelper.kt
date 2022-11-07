@@ -37,6 +37,8 @@ object ReadingListsImportHelper {
             }
         }
 
+        listPages.sortBy { it.apiTitle }
+
         val readingList = ReadingList(listTitle, listDescription)
         readingList.pages.addAll(listPages)
 
