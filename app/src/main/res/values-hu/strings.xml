@@ -1257,7 +1257,7 @@
   <string name="user_contrib_activity_title">%s szerkesztései</string>
   <string name="archive_empty">Nem találhatók archívumok.</string>
   <string name="user_contrib_filter_ns">Szűrés névtér szerint</string>
-  <string name="user_contrib_filter_all" fuzzy="true">Minden névtér</string>
+  <string name="user_contrib_filter_all">Minden névtér</string>
   <string name="user_contrib_filter_ns_header">Névtérszűrő</string>
   <string name="namespace_article">Szócikk</string>
   <string name="user_contrib_current">aktuális</string>

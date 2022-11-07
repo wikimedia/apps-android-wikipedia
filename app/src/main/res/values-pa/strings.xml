@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Babanwalia
+* Bgo eiu
 * Jimidar
 * MuratTheTurkish
 * Satdeep gill
@@ -327,4 +328,5 @@
   <string name="app_shortcuts_search">ਖੋਜ</string>
   <string name="on_this_day_card_title">ਅੱਜ ਦੇ ਦਿਨ</string>
   <string name="this_year">ਇਸ ਸਾਲ</string>
+  <string name="action_item_categories">ਸ਼੍ਰੇਣੀਆਂ</string>
 </resources>
