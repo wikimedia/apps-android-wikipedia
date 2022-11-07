@@ -1168,6 +1168,8 @@
   <string name="talk_list_item_user_icon_content_description">Foydalanuvchi ikonkasi</string>
   <string name="talk_list_item_swipe_mark_as_read">Oʻqimoq</string>
   <string name="talk_list_item_swipe_mark_as_unread">Oʻqimaslik</string>
+  <string name="talk_login_to_subscribe_dialog_title">Mavzularga obuna boʻlish uchun tizimga kiring</string>
+  <string name="talk_login_to_subscribe_dialog_content">Mavzu obunalari Sizga ushbu mavzudagi yangi sharhlar haqida bildirishnomalar olish imkonini beradi. Mavzuga obuna boʻlish uchun hisob tuzing yoki Vikipediya hisobingizga kiring.</string>
   <string name="talk_archived_title">Suhbat arxivi: %s</string>
   <string name="menu_option_share_talk_discussion">Munozarani ulashmoq</string>
   <string name="menu_option_share_talk_page">Muhokama sahifasini ulashmoq</string>
@@ -1200,6 +1202,7 @@
   <string name="revision_diff_to">Bunga:</string>
   <string name="revision_diff_line_num">%d-qator</string>
   <string name="revision_diff_line_nums">%d-%d qatorlar</string>
+  <string name="revision_diff_lines_from_to">%1$d–%2$d qatorlar</string>
   <string name="revision_diff_line_added">Qator qoʻshildi</string>
   <string name="revision_diff_line_removed">Qator oʻchirildi</string>
   <string name="revision_diff_paragraph_added">Paragraf qoʻshildi</string>
@@ -1251,10 +1254,11 @@
   <string name="user_contrib_activity_title">%s hissasi</string>
   <string name="archive_empty">Arxivlangan sahifalar topilmadi.</string>
   <string name="user_contrib_filter_ns">Nom maydoni boʻyicha filtr</string>
-  <string name="user_contrib_filter_all" fuzzy="true">Barcha tahrirlar</string>
+  <string name="user_contrib_filter_all">Barcha nomfazolar</string>
+  <string name="user_contrib_filter_ns_header">Nomfazo filtri</string>
   <string name="namespace_article">Maqola</string>
   <string name="user_contrib_current">joriy</string>
   <string name="media_playback_error">Mediani ijro etishda xatolik yuz berdi.</string>
   <string name="user_contrib_menu_label">Hissalar</string>
-  <string name="user_contrib_filter_activity_title" fuzzy="true">Qoʻshilgan hissa:</string>
+  <string name="user_contrib_filter_activity_title">Hissalarni filtrlash</string>
 </resources>
