@@ -5,7 +5,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.log.L
 
 class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
 
@@ -61,7 +60,7 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
     }
 
     fun pageFetchStart() {
-        L.d("SessionFunnel start $pageLoadStartTime")
+        pageLoadStartTime = System.currentTimeMillis()
     }
 
     fun pageFetchEnd() {
