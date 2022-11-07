@@ -5,12 +5,12 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.log.L
 
 class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
 
     private var sessionData: SessionData
     private var pageLoadStartTime: Long = 0
-    private var pageLoadUrl: String? = null
 
     init {
         sessionData = Prefs.sessionData
@@ -60,18 +60,12 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
         sessionData.addPageWithNoDescription()
     }
 
-    fun pageFetchStart(url: String?) {
-        if (!url.isNullOrEmpty()) {
-            pageLoadUrl = url
-            pageLoadStartTime = System.currentTimeMillis()
-        }
+    fun pageFetchStart() {
+        L.d("SessionFunnel start $pageLoadStartTime")
     }
 
-    fun pageFetchEnd(url: String) {
-        if (pageLoadUrl == url) {
-            sessionData.addPageLatency(System.currentTimeMillis() - pageLoadStartTime)
-            pageLoadUrl = null
-        }
+    fun pageFetchEnd() {
+        sessionData.addPageLatency(System.currentTimeMillis() - pageLoadStartTime)
     }
 
     private fun hasTimedOut(): Boolean {
