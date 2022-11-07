@@ -736,6 +736,7 @@
   <string name="description_edit_license_notice">بە گۆڕینی ناوی وتارەکە، من &lt;a href=\"%1$s\"&gt;مەرجەکانی بەکارھێنان&lt;/a&gt; پەسەند دەکەم و بەبێ پەشیمان بوونەوە بەشدارییەکانم بڵاو دەکەمەوە لەژێر مۆڵەتنامەی &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">زۆر جار بە پیتێکی بچووک دەست پێ دەکات</string>
   <string name="description_edit_voice_input_description">تێچووی دەنگی</string>
+  <string name="description_edit_learn_more">زیاتر بزانە دەربارەی وەسفی وتارەکان</string>
   <string name="description_too_short">دەقەکە زۆر کورتە.</string>
   <string name="description_ends_with_punctuation">دەقەکە نابێت بە خاڵبەندی تەواو بێت.</string>
   <string name="description_starts_with_uppercase">بە پیتێکی بچووک دەست پێ بکە مەگەر وشەی یەکەم ناوێکی شیاو بێت.</string>
@@ -987,7 +988,15 @@
   <string name="content_description_for_page_indicator">پەڕەی %1$d %2$d</string>
   <string name="wikitext_bold">تۆخ</string>
   <string name="wikitext_italic">لار</string>
+  <string name="wikitext_underline">ژێرھێڵ</string>
+  <string name="wikitext_sup">سەرنووس</string>
+  <string name="wikitext_sub">ژێرنووس</string>
+  <string name="wikitext_large">دەقی گەورە</string>
+  <string name="wikitext_small">دەقی بچووک</string>
+  <string name="wikitext_code">کۆد</string>
   <string name="wikitext_link">بەستەر</string>
+  <string name="wikitext_heading_n">ژێر-سەردێڕ %d</string>
+  <string name="wikitext_headings">سەردێڕەکان</string>
   <string name="wikitext_insert_media">تێخستنی میدیا</string>
   <string name="wikitext_bulleted_list">لیستی خاڵبەندکراو</string>
   <string name="wikitext_numbered_list">لیستی ژمارەکراو</string>
@@ -1162,4 +1171,5 @@
   <string name="user_contrib_current">ھەنووکە</string>
   <string name="media_playback_error">ھەڵە لە لێدانی میدیا.</string>
   <string name="user_contrib_menu_label">بەشدارییەکان</string>
+  <string name="user_contrib_filter_activity_title">بەشدارییەکان فلتەر بکە</string>
 </resources>
