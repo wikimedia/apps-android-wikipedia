@@ -64,6 +64,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private val overflowCallback = OverflowCallback()
     private var currentSearchQuery: String? = null
     private var selectMode: Boolean = false
+    private var importMode: Boolean = false
 
     val filePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         val uri: Uri = it.data?.data!!
@@ -257,7 +258,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             })
             // If the number of lists has changed, just invalidate everything, as a
             // simple way to get the bottom item margin to apply to the correct item.
-            val invalidateAll = (forcedRefresh || displayedLists.size != lists.size ||
+            val invalidateAll = (importMode || forcedRefresh || displayedLists.size != lists.size ||
                     (!currentSearchQuery.isNullOrEmpty() && !searchQuery.isNullOrEmpty() && currentSearchQuery != searchQuery))
 
             // if the default list is empty, then removes it.
@@ -277,7 +278,22 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             updateEmptyState(searchQuery)
             maybeDeleteListFromIntent()
             currentSearchQuery = searchQuery
+            maybeTurnOffImportMode(lists.filterIsInstance<ReadingList>().toMutableList())
         }
+    }
+
+    private fun maybeTurnOffImportMode(lists: MutableList<ReadingList>) {
+        if (!importMode) {
+            return
+        }
+        lists.forEach {
+            it.pages.forEach { page ->
+                if (page.sizeBytes == 0L) {
+                    return
+                }
+            }
+        }
+        importMode = false
     }
 
     private fun maybeShowListLimitMessage() {
@@ -719,10 +735,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     fun onListsImportResult(uri: Uri) {
         val inputStr = activity?.contentResolver?.openInputStream(uri)
-        inputStr?.let {
-            val inputString = it.bufferedReader().use { it.readText() }
+        inputStr?.let { inputStream ->
+            val inputString = inputStream.bufferedReader().use { it.readText() }
             ReadingListsExportImportHelper.importLists(activity as BaseActivity, inputString)
-            it.close()
+            importMode = true
+            inputStream.close()
         }
     }
 
