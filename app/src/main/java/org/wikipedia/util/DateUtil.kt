@@ -9,6 +9,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.UtcDate
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.Instant
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 
@@ -17,7 +18,7 @@ object DateUtil {
 
     // TODO: Switch to DateTimeFormatter when minSdk = 26.
     fun iso8601DateParse(date: String): Date {
-        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ROOT, true).parse(date)!!
+        return Date.from(Instant.parse(date))
     }
 
     fun iso8601ShortDateParse(date: String): Date {
