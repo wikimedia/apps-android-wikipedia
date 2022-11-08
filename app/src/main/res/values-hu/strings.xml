@@ -794,8 +794,8 @@
   <string name="description_edit_voice_input_description">Hangbevitel</string>
   <string name="description_edit_learn_more">További információk a szócikkleírásokról</string>
   <string name="description_edit_image_caption_learn_more">További információk a képaláírásokról</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu#Cikkle%C3%ADr%C3%A1sok</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu#K%C3%A9pfeliratok</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu#Cikkleírások</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu#Képfeliratok</string>
   <string name="description_too_short">A szöveg túl rövid.</string>
   <string name="description_ends_with_punctuation">A szöveg nem végződhet írásjellel.</string>
   <string name="description_starts_with_article">Kerüld az „egy” vagy „a”/„az” névelővel kezdődő szócikkleírásokat.</string>
@@ -1257,7 +1257,7 @@
   <string name="user_contrib_activity_title">%s szerkesztései</string>
   <string name="archive_empty">Nem találhatók archívumok.</string>
   <string name="user_contrib_filter_ns">Szűrés névtér szerint</string>
-  <string name="user_contrib_filter_all" fuzzy="true">Minden névtér</string>
+  <string name="user_contrib_filter_all">Minden névtér</string>
   <string name="user_contrib_filter_ns_header">Névtérszűrő</string>
   <string name="namespace_article">Szócikk</string>
   <string name="user_contrib_current">aktuális</string>

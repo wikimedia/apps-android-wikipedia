@@ -260,7 +260,7 @@
   <string name="edit_abandon_confirm_yes">Da</string>
   <string name="edit_abandon_confirm_no">Ne</string>
   <string name="user_blocked_from_editing_title">Blokiran</string>
-  <string name="user_logged_in_blocked_from_editing">Urejanje tega wikija je za vaš račun preprečeno.</string>
+  <string name="user_logged_in_blocked_from_editing">Urejanje tega vikija je za vaš račun preprečeno.</string>
   <string name="user_anon_blocked_from_editing">Urejanje je za vaš IP-naslov preprečeno.</string>
   <string name="edit_how_page_improved">Kako ste izboljšali stran?</string>
   <string name="edit_next">Naprej</string>
@@ -1063,7 +1063,7 @@
   <string name="onboarding_skip">Preskoči</string>
   <string name="onboarding_continue">Nadaljuj</string>
   <string name="onboarding_get_started">Začni</string>
-  <string name="onboarding_maybe_later">Morda kasneje</string>
+  <string name="onboarding_maybe_later">Morda pozneje</string>
   <string name="onboarding_explore_title">Novi načini raziskovanja</string>
   <string name="onboarding_explore_text">Vstopite v zajčjo luknjo Wikipedije z neprestanim posodabljanjem vira raziskovanja. &lt;br/&gt; &lt;b&gt;Prilagodite&lt;/b&gt; vir svojim zanimanjem – pa naj bodo to zgodovinski dogodki &lt;b&gt;Na današnji dan&lt;/b&gt; ali metanje kocke z možnostjo &lt;b&gt;Naključno&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Bralni seznami s sinhronizacijo</string>
@@ -1312,7 +1312,7 @@
   <string name="preview_edit_watch_this_page">Opazuj stran</string>
   <string name="preview_edit_learn_more">Več o povzetkih urejanja</string>
   <string name="action_item_categories">Kategorije</string>
-  <string name="page_no_categories">Ta stran ne pripada nobeni kategoriji.</string>
+  <string name="page_no_categories">Ta stran še ni uvrščena v nobeno kategorijo.</string>
   <string name="category_tab_articles">Članki</string>
   <string name="category_tab_subcategories">Podkategorije</string>
   <string name="category_empty">V tej kategoriji ni najdenih člankov.</string>

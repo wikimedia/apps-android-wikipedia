@@ -3,6 +3,7 @@
 * Artsiom91
 * Chadyka
 * Da voli
+* Dbrant
 * Envlh
 * Gorgich
 * Kareyac
@@ -52,7 +53,7 @@
   <string name="image_content_description">Відарыс: %s</string>
   <string name="page_content_description">Старонка: %s</string>
   <string name="wikimedia_commons">Вікісховішча</string>
-  <string name="wikidata">Вікіданыя</string>
+  <string name="wikidata">Вікідадзеныя</string>
   <string name="dialog_title_clear_history">Ачысціць гісторыю праглядаў</string>
   <string name="dialog_message_clear_history">Вы ўпэўненыя, што жадаеце ачысціць усю гісторыю?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
@@ -68,7 +69,7 @@
   <string name="page_edit_history_filter_by_all">Усе праўкі (%s)</string>
   <string name="page_edit_history_filter_by_user">Праўкі ўдзельніка (%s)</string>
   <string name="page_edit_history_filter_by_anon">Ананімныя праўкі (%s)</string>
-  <string name="page_edit_history_filter_by_bot">Правкі ботаў (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Праўкі ботаў (%s)</string>
   <string name="page_edit_history_metrics_content_description">Метрыкі ад %1$s да %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d праўка з %2$s</item>
@@ -468,22 +469,272 @@
   <string name="reading_list_move_to">Выдаліць са спісу для чытання</string>
   <string name="reading_list_create_new">Стварыць новы</string>
   <string name="reading_list_title_exists">Спіс чытання \" %s \" ужо існуе.</string>
+  <string name="reading_list_article_added_to_named">Дададзена %1$s да %2$s .</string>
+  <string name="reading_list_article_added_to_default_list">Захавана %s. Ці хочаце вы дадаць яго ў спіс?</string>
+  <string name="reading_list_article_moved_to_named">Перасунута %1$s у %2$s .</string>
+  <string name="reading_list_article_already_exists_message">Усё добра! %1$s ужо ўтрымвае %2$s .</string>
+  <string name="reading_list_articles_already_exist_message">Усё добра! %s ужо ўтрымвае ўсе артыкулы.</string>
   <string name="reading_list_added_view_button">Прагляд спіса</string>
+  <string name="reading_list_add_to_list_button">Дадаць у спіс</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 артыкул, %2$.2f МБ</item>
+    <item quantity="few">%1$d артыкулы, %2$.2f МБ</item>
+    <item quantity="many">%1$d артыкулаў, %2$.2f МБ</item>
+    <item quantity="other">%1$d артыкулаў, %2$.2f МБ</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d з 1-го артыкула дасяжна па-за сеткай, %3$.2f МБ</item>
+    <item quantity="few">%1$d з %2$d арыкулы дасяжны па-за сеткай, %3$.2f МБ</item>
+    <item quantity="many">%1$d з %2$d артыкулаў дасяжны па-за сеткай, %3$.2f МБ</item>
+    <item quantity="other">%1$d з %2$d артыкулаў дасяжны па-за сеткай, %3$.2f МБ</item>
+  </plurals>
+  <string name="format_reading_list_statistical_summary_singular">1 артыкул, %1$.2f МБ</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d артыкулаў, %2$.2f МБ</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d з 1 артыкула дасяжна па-за сеткай, %2$.2f МБ</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d з %2$d артыкулаў дасяжна па-за сеткай, %3$.2f МБ</string>
   <string name="reading_list_sort">Сартаваць</string>
+  <string name="reading_list_sort_ellipsis">Сартаваць па...</string>
   <string name="reading_list_sort_by_name">Сартаваць паводле назвы</string>
   <string name="reading_list_sort_by_name_desc">Сартаваць паводле назвы (зваротна)</string>
+  <string name="reading_list_sort_by_recent">Сартаваць па даце загрузкі (найнавейшыя)</string>
+  <string name="reading_list_sort_by_recent_desc">Сартаваць па даце загрузкі (найстарэшыя)</string>
+  <string name="reading_list_sort_by_created">Сартаваць па даце стварэння (найнавейшыя)</string>
+  <string name="reading_list_sort_by_created_desc">Сартаваць па даце стварэння (найстарэйшыя)</string>
   <string name="reading_list_menu_delete">Выдаліць спіс</string>
+  <string name="reading_list_menu_rename">Рэдагаваць назву/апісанне</string>
+  <string name="reading_list_action_menu_remove_from_offline">Выдаліць з файлаў, якія дасяжны па-за сеткай</string>
+  <string name="reading_list_action_menu_save_for_offline">Захаваць па-за сеткай</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Выдаліць усе файлы, якія дасяжны па-за сеткай</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Захаваць усё па-за сеткай</string>
+  <string name="reading_list_action_menu_add_to_another_list">Дадаць у іншы спіс</string>
+  <string name="reading_list_action_menu_move_to_another_list">Перамясціць у іншы спіс</string>
+  <string name="reading_list_name_sample">Мой спіс чытання</string>
+  <string name="reading_list_name_hint">Назва гэтага спісу</string>
   <string name="reading_list_description_hint">Апісанне (неабавязкова)</string>
+  <string name="reading_list_item_deleted">Артыкул \"%s\" выдалены з гісторыі праглядаў</string>
+  <string name="reading_list_item_deleted_from_list">%1$s выдалены з %2$s</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d артыкул выдалены са спіса </item>
+    <item quantity="few">%d артыкулы выдалены са спіса</item>
+    <item quantity="many">%d артыкулаў выдалена са спіса</item>
+    <item quantity="other">%d артыкулаў выдалена са спіса</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d артыкул выдалены з %s </item>
+    <item quantity="few">%d артыкулы выдалены з %s</item>
+    <item quantity="many">%d артыкулаў выдалена з %s</item>
+    <item quantity="other">%d артыкулаў выдалена з %s</item>
+  </plurals>
+  <string name="reading_list_items_deleted">%d выдалена са спіса</string>
+  <string name="reading_lists_item_deleted">%s выдалена са спісаў</string>
+  <string name="reading_list_item_delete_undo">Адмяніць</string>
+  <string name="reading_list_deleted">%s выдалена</string>
+  <string name="saved_list_empty_title">Пакуль няма захаваных старонак</string>
+  <string name="reading_lists_empty_message">Дадавайце артыкулы ў спіс, каб прачытаць іх пазней, нават калі вы па-за сеткай.</string>
+  <string name="reading_list_empty">У вас няма артыкулаў, дададзеных у гэты спіс.</string>
+  <string name="reading_list_article_offline">Дасяжны па-за сеткай</string>
+  <string name="reading_list_article_make_offline">Зрабіць гэты артыкул дасяжным па-за сеткай</string>
+  <string name="reading_list_add_to_other_list">Дадаць у іншы спіс для чытання</string>
+  <string name="reading_list_move_to_other_list">Перамясціць у іншы спіс для чытання</string>
+  <string name="reading_list_move_from_to_other_list">Перамясціць з %s у іншы спіс для чытання</string>
+  <string name="reading_list_remove_from_list">Выдаліць з %s</string>
+  <string name="reading_list_remove_from_lists">Выдаліць са спісаў чытання</string>
+  <string name="reading_list_select_item">Абраць</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Выдаліць з файлаў, якія дасяжны па-за сеткай</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Артыкул знаходзіцца ў некалькіх спісах</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s больш не будзе дасяжны па-за сеткай для ўсіх спісаў чытання:</string>
+  <string name="reading_lists_sync_reminder_title">Уключыць сінхранізацыю спіса чытання?</string>
+  <string name="reading_lists_sync_reminder_text">Артыкулы, захаваныя ў спісах чытання, цяпер можна сінхранізаваць з вашым уліковым запісам Вікіпедыі. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Даведайцеся больш&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Цяпер спісы чытання можна сінхранізаваць на ўсіх прыладах. Увайдзіце ў свой уліковы запіс у Вікіпедыі і дазвольце захоўваць свае спісы. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Даведайцеся больш&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">Уключыць сінхранізацыю</string>
+  <string name="reading_list_login_reminder_title">Сінхранізацыя спісаў чытання</string>
+  <string name="reading_lists_login_reminder_text">Цяпер спісы чытання можна сінхранізаваць на ўсіх прыладах. Увайдзіце ў свой уліковы запіс у Вікіпедыі і дазвольце захоўваць свае спісы.</string>
+  <string name="reading_lists_login_button">Увайсці / далучыцца да Вікіпедыі</string>
+  <string name="reading_lists_ignore_button">Не цяпер</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Так</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
+  <string name="reading_list_article_save_in_progress">Артыкул спампоўваецца, і пасля завяршэння ён будзе дасяжны па-за сеткай.</string>
+  <string name="reading_list_articles_added_to_named">Дададзена %1$d артыкулаў у %2$s</string>
+  <string name="reading_list_articles_moved_to_named">Перасунута %1$d артыкулаў у %2$s</string>
+  <string name="reading_list_delete_confirm">Ці вы згодныя, каб выдаліць %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Увайдзіце, каб уключыць сінхранізацыю</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Увайдзіце, каб вашыя спісы чытання былі захаваны ў вашым уліковым запісе.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Скасаваць</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Увайсці</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Сінхранізацыя спісу чытання выключана</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Сінхранізацыя спісу чытання адключана для вашага ўліковага запісу, а таксама рэзервовыя копіі захаваных артыкулаў на прыладах, на якіх вы ўвайшлі ў сістэму, больш не ствараюцца. Уключыце сінхранізацыю спісу чытання ў наладах.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">Добра</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Налады</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Уключыць сінхранізацыю спіса чытання?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Артыкулы, захаваныя ў спісах чытання, цяпер можна сінхранізаваць з вашым уліковым запісам Вікіпедыі. &lt;a href=\"#faq\"&gt;Даведайцеся больш&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Больш не паказваць мне гэта</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Уключыць сінхранізацыю</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, дзякуй</string>
+  <string name="default_reading_list_name">Захаванае</string>
+  <string name="default_reading_list_description">Спіс па змаўчанні для вашых захаваных артыкулаў</string>
+  <string name="no_user_lists_title">Арганізуйце артыкулы ў спісы</string>
+  <string name="no_user_lists_msg">Стварайце спісы месцаў для падарожжаў, любімых тэм і шмат чаго іншага</string>
+  <string name="reading_list_saved_list_rename">%1$s (створаны карыстальнікам)</string>
+  <string name="split_reading_list_message">Існуе абмежаванне ў %d артыкулаў на спіс чытання. Існуючыя спісы, якія перавышаюць гэты ліміт, былі падзелены на некалькі спісаў.</string>
+  <string name="reading_list_move_article_limit_message">Немагчыма дадаць у гэты спіс. Вы дасягнулі абмежавання ў %2$d артыкулаў у спісе для \"%1$s\".</string>
+  <string name="reading_list_article_limit_message">Немагчыма дадаць у гэты спіс. Вы дасягнулі абмежавання ў %2$d артыкулаў у спісе для \"%1$s\".</string>
+  <string name="reading_lists_limit_message">Немагчыма стварыць яшчэ адзін спіс. Вы дасягнулі ліміту ў 100 спісаў чытання на ўліковы запіс.</string>
+  <string name="reading_lists_menu_create_list">Стварыць новы спіс</string>
+  <string name="reading_lists_menu_sort_by">Сартаваць па</string>
+  <string name="reading_lists_refresh_sync_option">Абнавіць сінхранізацыю</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Увайсці / зарэгістравацца</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Гэты артыкул не дасяжны па-за сеткай..</item>
+    <item quantity="few">Гэтыя артыкулы не дасяжныя па-за сеткай..</item>
+    <item quantity="many">Гэтыя артыкулы не дасяжныя па-за сеткай..</item>
+    <item quantity="other">Гэтыя артыкулы не дасяжныя па-за сеткай.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Гэты артыкул больш не будзе дасяжны па-за сеткай.</item>
+    <item quantity="few">Гэтыя артыкулы больш не будуць дасяжныя па-за сеткай.</item>
+    <item quantity="many">Гэтыя артыкулы больш не будуць дасяжныя па-за сеткай.</item>
+    <item quantity="other">Гэтыя артыкулы больш не будуць дасяжныя па-за сеткай.</item>
+  </plurals>
+  <string name="reading_list_toast_last_sync">Спісы чытання сінхранізаваны</string>
+  <string name="reading_list_menu_last_sync">Апошняя сінхранізацыя: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">Добра</string>
+  <string name="reading_list_delete_dialog_ok_button_text">Добра</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Скасаваць</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Скасаваць</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Скасаваць</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Скасаваць</string>
+  <string name="reading_list_split_dialog_ok_button_text">Добра</string>
+  <string name="reading_list_activity_title">Спіс чытання: %s</string>
+  <string name="user_option_sync_label">Параметры</string>
+  <string name="notification_reverted_title">Адноўленае рэдагаванне</string>
+  <string name="notification_channel_title">Спампоўка артыкулаў</string>
+  <string name="notification_channel_description">Прагрэс загрузкі</string>
+  <string name="notification_syncing_pause_button">Паўза</string>
+  <string name="notification_syncing_resume_button">Працягнуць</string>
+  <string name="notification_syncing_cancel_button">Скасаваць</string>
+  <string name="notification_syncing_reading_list_channel_title">Сінхранізацыя спісаў для чытання</string>
+  <string name="notification_syncing_reading_list_channel_description">Прагрэс сінхранізацыі спісаў для чытання</string>
+  <string name="notification_many_unread">У вас %d непрачытаных апавяшчэнняў</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Спампоўка артыкула</item>
+    <item quantity="few">Спампоўка артыкулаў</item>
+    <item quantity="many">Спампоўка артыкулаў</item>
+    <item quantity="other">Спампоўка артыкулаў</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Спампоўваецца артыкул %1$d</item>
+    <item quantity="few">Спампоўваюцца артыкулы %1$d</item>
+    <item quantity="many">Спампоўваюцца артыкулы %1$d</item>
+    <item quantity="other">Спампоўваюцца артыкулы %1$d</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">Застаўся %1$d артыкул</item>
+    <item quantity="few">Засталося %1$d артыкулаў</item>
+    <item quantity="many">Засталося %1$d артыкулаў</item>
+    <item quantity="other">Засталося %1$d артыкулаў</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Сінхранізацыя спіса для чытання</item>
+    <item quantity="few">Сінхранізацыя спісаў для чытання</item>
+    <item quantity="many">Сінхранізацыя спісаў для чытання</item>
+    <item quantity="other">Сінхранізацыя спісаў для чытання</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Сінхранізацыя %1$d спіса…</item>
+    <item quantity="few">Сінхранізацыя %1$d спісаў...</item>
+    <item quantity="many">Сінхранізацыя %1$d спісаў...</item>
+    <item quantity="other">Сінхранізацыя %1$d спісаў...</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">Застаўся %1$d спіс</item>
+    <item quantity="few">Засталося %1$d спісаў</item>
+    <item quantity="many">Засталося %1$d спісаў</item>
+    <item quantity="other">Засталося %1$d спісаў</item>
+  </plurals>
+  <string name="notification_echo_channel_description">Апавяшчэнні Вікіпедыі</string>
+  <string name="notifications_activity_title">Апавяшчэнні</string>
+  <string name="notifications_activity_title_archived">Апавяшчэнні (у архіве)</string>
+  <string name="notifications_search">Пошук апавяшчэнняў</string>
+  <string name="notifications_view_unread">Прагляд непрачытаных</string>
+  <string name="notifications_view_archived">Праглядзець у архіве</string>
+  <string name="notifications_prefs">Параметры апавяшчэнняў</string>
+  <string name="notifications_archive">Пазначыць прачытаным і заархіваваць</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Апавяшчэнне заархівавана</item>
+    <item quantity="few">Заархівавана %d апавяшчэнні</item>
+    <item quantity="many">Заархівавана %d апавяшчэнняў</item>
+    <item quantity="other">Заархівавана %d апавяшчэнняў</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">Уключыць апавяшчэнні</string>
+  <string name="notifications_poll_enable_positive">Уключыць</string>
+  <string name="notifications_poll_enable_negative">Не цяпер</string>
+  <string name="notifications_empty_message">Вы атрымалі ўсе апавяшчэнні!</string>
+  <string name="notifications_view_archived_button_text">Прагляд заархіваваных апавяшчэнняў</string>
+  <string name="notification_preferences_title">Параметры апавяшчэнняў</string>
+  <string name="notifications_mark_unread">Адзначыць як нечытанае</string>
+  <string name="notifications_mark_all_as_read">Адзначыць як прачытанае</string>
+  <string name="notifications_direct_reply_action">Адказаць</string>
+  <string name="notifications_direct_reply_progress">Адпраўка адказу да %s...</string>
+  <string name="notifications_direct_reply_success">Адказ апублікаваны.</string>
+  <string name="notifications_direct_reply_error">Немагчыма адправіць адказ аўтаматычна.</string>
+  <string name="notifications_mark_all_as_read_message">%d пазначана як прачытанае</string>
+  <string name="notifications_mark_all_as_unread_message">%d пазначана як непрачытанае</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">%d адзначаны як прачытаны</item>
+    <item quantity="few">%d адзачаны як прачытаныя</item>
+    <item quantity="many">%d адзначана як прачятаныя</item>
+    <item quantity="other">%d адзначаны як прачытаныя</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">%d адзначаны як непрачытаны</item>
+    <item quantity="few">%d адзачаны як непрачытаныя</item>
+    <item quantity="many">%d адзначана як непрачятаныя</item>
+    <item quantity="other">%d адзначаны як непрачытаныя</item>
+  </plurals>
   <string name="watchlist_title">Спіс назірання</string>
+  <string name="preference_title_notification_poll">Апавяшчэнні аб апытаннях</string>
+  <string name="preference_summary_notification_poll">Дазволіць дадатку выкарыстоўваць дадзеныя для праверкі новых апавяшчэнняў у фонавым рэжыме.</string>
+  <string name="preference_category_notification_types">Тыпы апавяшчэнняў у дадатку</string>
+  <string name="preference_title_notification_system">Сістэмныя</string>
+  <string name="preference_summary_notification_system">Паведамленні з сістэмы</string>
+  <string name="preference_title_notification_milestone">Веха</string>
+  <string name="preference_summary_notification_milestone">Пэўная колькасць правак дасягнута</string>
+  <string name="preference_title_notification_thanks">Дзякуй</string>
+  <string name="preference_summary_notification_thanks">Хтосьці дзякуе вам за рэдагаванне</string>
+  <string name="preference_title_notification_revert">Вярнуцца</string>
   <string name="preference_summary_notification_revert">Адзін з вашых унёскаў быў не прыняты</string>
+  <string name="preference_title_notification_login_fail">Увайсці</string>
+  <string name="preference_summary_notification_login_fail">Вашыя ўваходныя дзеянні</string>
+  <string name="preference_title_notification_mention">Згадванне</string>
+  <string name="preference_summary_notification_mention">Хтосьці згадвае вас на старонцы</string>
+  <string name="preference_title_notification_user_talk">Старонка размоў</string>
+  <string name="preference_summary_notification_user_talk">Паведамленні і адказы са старонак размоў</string>
+  <string name="preference_title_notification_email_user">Электронны ліст атрыманы</string>
+  <string name="preference_summary_notification_email_user">Хтосьці адправіў вам ліст праз вікі</string>
+  <string name="preference_title_notification_user_rights">Змены правоў карыстальнікаў</string>
+  <string name="preference_summary_notification_user_rights">Атрымана пры змене правоў карыстальніка</string>
+  <string name="preference_title_notification_article_linked">Спасылкі на створаныя вамі артыкулы</string>
+  <string name="preference_summary_notification_article_linked">Атрымліваецца пры стварэнні новай спасылкі на старонку, якую вы стварылі</string>
+  <string name="preference_category_push_notifications">Push-апавяшчэнні</string>
+  <string name="preference_title_customize_push_notifications">Наладзьце push-апавяшчэнні</string>
+  <string name="preference_category_display_settings">Налады выгляду</string>
+  <string name="preference_title_hide_read_notifications">Схаваць прачытаныя апавяшчэнні</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Вікіпедыя</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Апавяшчэнні з Вікіпедыі</string>
+  <string name="notifications_channel_group_other_title">Іншае</string>
+  <string name="notifications_channel_group_other_description">Іншыя апавяшчэнні з праграмы</string>
+  <string name="notifications_filter_label">Фільтр апавяшчэнняў</string>
+  <string name="notifications_filter_icon_content_description">Фільтр апавяшчэнняў</string>
+  <string name="notifications_filter_update_app_languages">Абнавіць мовы дадатку</string>
+  <string name="notifications_empty_search_message">Паспрабуйце выдаліць %s, каб бачыць больш апавяшчэнняў</string>
   <string name="notifications_menu_mark_as_read">Адзначыць як прачытанае</string>
   <string name="notifications_swipe_action_read">Чытаць</string>
   <string name="notifications_wiki_filter_header">Вікі фільтр</string>
+  <string name="notifications_menu_user_talk_page">Старонка для размоў %s</string>
   <string name="view_main_page_card_title">Сёння ў Вікіпедыі</string>
   <string name="view_featured_image_card_title">Фота дня</string>
   <string name="view_featured_image_card_download">Загрузіць</string>
+  <string name="view_featured_image_card_share">Падзяліцца</string>
   <string name="feed">Агляд</string>
   <string name="view_continue_reading_card_subtitle_today">сёння</string>
   <string name="view_announcement_card_negative_action">Не, дзякуй</string>
@@ -509,6 +760,8 @@
   <string name="more_language_options">болей</string>
   <string name="edit_type_all">Усе ўнёскі</string>
   <string name="main_tooltip_watchlist_title">Спіс назірання</string>
+  <string name="talk_title">Размова</string>
+  <string name="talk_page_empty">Гэтая старонка размовы пустая.</string>
   <string name="menu_option_user_contributions">Унёсак ад %s</string>
   <string name="menu_option_view_user_contributions">Праглядзець унёсак</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">на 1 месяц</string>
