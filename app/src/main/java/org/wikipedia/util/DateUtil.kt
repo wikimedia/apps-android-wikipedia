@@ -16,10 +16,6 @@ object DateUtil {
     private val DATE_FORMATS = ConcurrentHashMap<String, SimpleDateFormat>()
 
     // TODO: Switch to DateTimeFormatter when minSdk = 26.
-    fun iso8601DateFormat(date: Date): String {
-        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).format(date)
-    }
-
     fun iso8601DateParse(date: String): Date {
         return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ROOT, true).parse(date)!!
     }
