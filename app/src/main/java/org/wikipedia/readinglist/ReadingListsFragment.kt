@@ -468,9 +468,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    private fun toggleSelectList(list: ReadingList?) {
-        list?.let {
-            it.selected = !it.selected
+    private fun toggleSelectList(readingList: ReadingList?) {
+        readingList?.let {
+            displayedLists.filterIsInstance<ReadingList>().forEach { list ->
+                if (list.title == readingList.title) {
+                    list.selected = !list.selected
+                }
+            }
             updateSelectActionModeTitle(selectedListsCount)
             adapter.notifyDataSetChanged()
         }
