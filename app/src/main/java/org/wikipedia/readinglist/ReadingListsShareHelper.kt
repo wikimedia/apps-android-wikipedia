@@ -65,6 +65,9 @@ object ReadingListsShareHelper {
                     .putExtra(Intent.EXTRA_TEXT, activity.getString(R.string.reading_list_share_message, readingList.title) + " " + finalUrl)
                     .setType("text/plain")
             activity.startActivity(intent)
+
+            ReadingListsSurveyHelper.activateSurvey()
+            ReadingListsSurveyHelper.maybeShowSurvey(activity)
         }
     }
 

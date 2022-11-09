@@ -31,6 +31,7 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
+import org.wikipedia.readinglist.ReadingListsSurveyHelper
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.recurring.RecurringTasksExecutor
@@ -90,6 +91,8 @@ abstract class BaseActivity : AppCompatActivity() {
         setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
+
+        ReadingListsSurveyHelper.maybeShowSurvey(this)
 
         touchSlopPx = ViewConfiguration.get(this).scaledTouchSlop
         Prefs.localClassName = localClassName
