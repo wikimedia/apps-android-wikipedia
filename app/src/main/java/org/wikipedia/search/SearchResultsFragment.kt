@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.collection.LruCache
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
@@ -22,6 +20,8 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.SearchFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchResultsBinding
+import org.wikipedia.databinding.ItemSearchNoResultsBinding
+import org.wikipedia.databinding.ItemSearchResultBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
@@ -34,7 +34,6 @@ import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.StringUtil.boldenKeywordText
 import org.wikipedia.util.StringUtil.fromHtml
 import org.wikipedia.views.DefaultViewHolder
-import org.wikipedia.views.GoneIfEmptyTextView
 import org.wikipedia.views.ViewUtil.formatLangButton
 import org.wikipedia.views.ViewUtil.loadImageWithRoundedCorners
 import java.util.*
@@ -136,25 +135,30 @@ class SearchResultsFragment : Fragment() {
         disposables.add(Observable.timer(if (force) 0 else DELAY_MILLIS.toLong(), TimeUnit.MILLISECONDS).flatMap {
             Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode)).prefixSearch(searchTerm, BATCH_SIZE, searchTerm),
                     if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.instance.readingListPageDao().findPageForSearchQueryInAnyList(searchTerm) } else Observable.just(SearchResults()),
-                    if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.instance.historyEntryWithImageDao().findHistoryItem(searchTerm) } else Observable.just(SearchResults()),
-                    { searchResponse, readingListSearchResults, historySearchResults ->
-
+                    if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.instance.historyEntryWithImageDao().findHistoryItem(searchTerm) } else
+                        Observable.just(SearchResults())) { searchResponse, readingListSearchResults, historySearchResults ->
                         val searchResults = searchResponse.query?.pages?.let {
-                            SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode),
+                            SearchResults(
+                                it, WikiSite.forLanguageCode(searchLanguageCode),
                                 searchResponse.continuation,
-                                searchResponse.suggestion())
+                                searchResponse.suggestion()
+                            )
                         } ?: SearchResults()
 
                         handleSuggestion(searchResults.suggestion)
                         val resultList = mutableListOf<SearchResult>()
                         addSearchResultsFromTabs(resultList)
                         resultList.addAll(readingListSearchResults.results.filterNot { res ->
-                            resultList.map { it.pageTitle.prefixedText }.contains(res.pageTitle.prefixedText) }.take(1))
+                            resultList.map { it.pageTitle.prefixedText }
+                                .contains(res.pageTitle.prefixedText)
+                        }.take(1))
                         resultList.addAll(historySearchResults.results.filterNot { res ->
-                            resultList.map { it.pageTitle.prefixedText }.contains(res.pageTitle.prefixedText) }.take(1))
+                            resultList.map { it.pageTitle.prefixedText }
+                                .contains(res.pageTitle.prefixedText)
+                        }.take(1))
                         resultList.addAll(searchResults.results)
                         resultList
-                    })
+                    }
                 }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -324,11 +328,8 @@ class SearchResultsFragment : Fragment() {
         lastFullTextResults = null
         totalResults.clear()
         resultsCountList.clear()
-        adapter.notifyDataSetChanged()
+        binding.searchResultsList.adapter?.notifyDataSetChanged()
     }
-
-    private val adapter: SearchResultAdapter
-        get() = binding.searchResultsList.adapter as SearchResultAdapter
 
     private fun displayResults(results: List<SearchResult>) {
         for (newResult in results) {
@@ -340,14 +341,14 @@ class SearchResultsFragment : Fragment() {
             }
         }
         binding.searchResultsContainer.visibility = View.VISIBLE
-        adapter.notifyDataSetChanged()
+        binding.searchResultsList.adapter?.notifyDataSetChanged()
     }
 
     private fun displayResultsCount(list: List<Int>) {
         resultsCountList.clear()
         resultsCountList.addAll(list)
         binding.searchResultsContainer.visibility = View.VISIBLE
-        adapter.notifyDataSetChanged()
+        binding.searchResultsList.adapter?.notifyDataSetChanged()
     }
 
     private inner class SearchResultsFragmentLongPressHandler(private val lastPositionRequested: Int) : LongPressMenu.Callback {
@@ -381,11 +382,9 @@ class SearchResultsFragment : Fragment() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<View> {
             return if (viewType == VIEW_TYPE_ITEM) {
-                SearchResultItemViewHolder(LayoutInflater.from(context)
-                        .inflate(R.layout.item_search_result, parent, false))
+                SearchResultItemViewHolder(ItemSearchResultBinding.inflate(layoutInflater, parent, false))
             } else {
-                NoSearchResultItemViewHolder(LayoutInflater.from(context)
-                        .inflate(R.layout.item_search_no_results, parent, false))
+                NoSearchResultItemViewHolder(ItemSearchNoResultsBinding.inflate(layoutInflater, parent, false))
             }
         }
 
@@ -398,21 +397,19 @@ class SearchResultsFragment : Fragment() {
         }
     }
 
-    private inner class NoSearchResultItemViewHolder(itemView: View) : DefaultViewHolder<View>(itemView) {
+    private inner class NoSearchResultItemViewHolder(val itemBinding: ItemSearchNoResultsBinding) : DefaultViewHolder<View>(itemBinding.root) {
         private val accentColorStateList = getThemedColorStateList(requireContext(), R.attr.colorAccent)
         private val secondaryColorStateList = getThemedColorStateList(requireContext(), R.attr.material_theme_secondary_color)
         fun bindItem(position: Int) {
             val langCode = WikipediaApp.instance.languageState.appLanguageCodes[position]
             val resultsCount = resultsCountList[position]
-            val resultsText = view.findViewById<TextView>(R.id.results_text)
-            val languageCodeText = view.findViewById<TextView>(R.id.language_code)
-            resultsText.text = if (resultsCount == 0) getString(R.string.search_results_count_zero) else resources.getQuantityString(R.plurals.search_results_count, resultsCount, resultsCount)
-            resultsText.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
-            languageCodeText.visibility = if (resultsCountList.size == 1) View.GONE else View.VISIBLE
-            languageCodeText.text = langCode
-            languageCodeText.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
-            ViewCompat.setBackgroundTintList(languageCodeText, if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
-            formatLangButton(languageCodeText, langCode,
+            itemBinding.resultsText.text = if (resultsCount == 0) getString(R.string.search_results_count_zero) else resources.getQuantityString(R.plurals.search_results_count, resultsCount, resultsCount)
+            itemBinding.resultsText.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
+            itemBinding.languageCode.visibility = if (resultsCountList.size == 1) View.GONE else View.VISIBLE
+            itemBinding.languageCode.text = langCode
+            itemBinding.languageCode.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
+            ViewCompat.setBackgroundTintList(itemBinding.languageCode, if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
+            formatLangButton(itemBinding.languageCode, langCode,
                     SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
             view.isEnabled = resultsCount > 0
             view.setOnClickListener {
@@ -424,36 +421,30 @@ class SearchResultsFragment : Fragment() {
         }
     }
 
-    private inner class SearchResultItemViewHolder(itemView: View) : DefaultViewHolder<View>(itemView) {
+    private inner class SearchResultItemViewHolder(val itemBinding: ItemSearchResultBinding) : DefaultViewHolder<View>(itemBinding.root) {
         fun bindItem(position: Int) {
-            val pageTitleText = view.findViewById<TextView>(R.id.page_list_item_title)
             val (pageTitle, redirectFrom, type) = totalResults[position]
-            val searchResultItemImage = view.findViewById<ImageView>(R.id.page_list_item_image)
-            val searchResultIcon = view.findViewById<ImageView>(R.id.page_list_icon)
-            val descriptionText = view.findViewById<GoneIfEmptyTextView>(R.id.page_list_item_description)
-            val redirectText = view.findViewById<TextView>(R.id.page_list_item_redirect)
-            val redirectArrow = view.findViewById<View>(R.id.page_list_item_redirect_arrow)
             if (redirectFrom.isNullOrEmpty()) {
-                redirectText.visibility = View.GONE
-                redirectArrow.visibility = View.GONE
-                descriptionText.text = pageTitle.description
+                itemBinding.pageListItemRedirect.visibility = View.GONE
+                itemBinding.pageListItemRedirectArrow.visibility = View.GONE
+                itemBinding.pageListItemDescription.text = pageTitle.description
             } else {
-                redirectText.visibility = View.VISIBLE
-                redirectArrow.visibility = View.VISIBLE
-                redirectText.text = getString(R.string.search_redirect_from, redirectFrom)
-                descriptionText.visibility = View.GONE
+                itemBinding.pageListItemRedirect.visibility = View.VISIBLE
+                itemBinding.pageListItemRedirectArrow.visibility = View.VISIBLE
+                itemBinding.pageListItemRedirect.text = getString(R.string.search_redirect_from, redirectFrom)
+                itemBinding.pageListItemDescription.visibility = View.GONE
             }
             if (type === SearchResult.SearchResultType.SEARCH) {
-                searchResultIcon.visibility = View.GONE
+                itemBinding.pageListIcon.visibility = View.GONE
             } else {
-                searchResultIcon.visibility = View.VISIBLE
-                searchResultIcon.setImageResource(if (type === SearchResult.SearchResultType.HISTORY) R.drawable.ic_history_24 else if (type === SearchResult.SearchResultType.TAB_LIST) R.drawable.ic_tab_one_24px else R.drawable.ic_bookmark_white_24dp)
+                itemBinding.pageListIcon.visibility = View.VISIBLE
+                itemBinding.pageListIcon.setImageResource(if (type === SearchResult.SearchResultType.HISTORY) R.drawable.ic_history_24 else if (type === SearchResult.SearchResultType.TAB_LIST) R.drawable.ic_tab_one_24px else R.drawable.ic_bookmark_white_24dp)
             }
 
             // highlight search term within the text
-            boldenKeywordText(pageTitleText, pageTitle.displayText, currentSearchTerm)
-            searchResultItemImage.visibility = if (pageTitle.thumbUrl.isNullOrEmpty()) if (type === SearchResult.SearchResultType.SEARCH) View.GONE else View.INVISIBLE else View.VISIBLE
-            loadImageWithRoundedCorners(searchResultItemImage, pageTitle.thumbUrl)
+            boldenKeywordText(itemBinding.pageListItemTitle, pageTitle.displayText, currentSearchTerm)
+            itemBinding.pageListItemImage.visibility = if (pageTitle.thumbUrl.isNullOrEmpty()) if (type === SearchResult.SearchResultType.SEARCH) View.GONE else View.INVISIBLE else View.VISIBLE
+            loadImageWithRoundedCorners(itemBinding.pageListItemImage, pageTitle.thumbUrl)
 
             // ...and lastly, if we've scrolled to the last item in the list, then
             // continue searching!
