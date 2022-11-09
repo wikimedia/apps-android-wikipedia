@@ -641,5 +641,5 @@ object Prefs {
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_typing_suggestions, value)
 
     val useUrlShortenerForSharing
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_url_shorten, true)
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_url_shorten, false)
 }
