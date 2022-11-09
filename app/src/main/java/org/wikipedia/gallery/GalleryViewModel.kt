@@ -54,7 +54,7 @@ class GalleryViewModel(bundle: Bundle) : ViewModel() {
 
             entitiesFlow.zip(mwQueryResponseFlow) { en, res ->
                 val captionsMap = en.first?.labels?.values?.associate { it.language to it.value }.orEmpty()
-                val tagsCount = ImageTagsProvider.getDepictsClaims(en.first?.statements.orEmpty()).size
+                val tagsCount = ImageTagsProvider.getDepictsClaims(en.first?.getStatements().orEmpty()).size
                 val isProtected = res.query?.isEditProtected
                 return@zip Triple(captionsMap, isProtected == true, tagsCount)
             }

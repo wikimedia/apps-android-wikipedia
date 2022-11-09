@@ -82,7 +82,7 @@ interface RestService {
     fun getRelatedPages(@Path("title") title: String?): Observable<RbRelatedPages>
 
     @GET("page/media-list/{title}/{revision}")
-    suspend fun getMediaList(
+    suspend fun getMediaListSuspend(
         @Path("title") title: String,
         @Path("revision") revision: Long
     ): MediaList
