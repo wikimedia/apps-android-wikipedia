@@ -567,6 +567,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         .setNegativeButton(R.string.shareable_reading_lists_import_dialog_cancel) { _, _ ->
                             ReadingListsFunnel().logReceiveCancel(readingList)
                         }
+                            .setOnDismissListener {
+                                ReadingListsSurveyHelper.activateSurvey()
+                                ReadingListsSurveyHelper.maybeShowSurvey(requireActivity())
+                            }
                             .show()
                     Prefs.importReadingListsDialogShown = true
                     binding.swipeRefreshLayout.isRefreshing = false
