@@ -88,7 +88,7 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
                 "totalPages", sessionData.totalPages,
                 "pageLoadLatency", sessionData.getPageLatency(),
                 "languages", JsonUtil.encodeToString(app.languageState.appLanguageCodes),
-                "apiMode", 1
+                "apiMode", 2
         )
     }
 
