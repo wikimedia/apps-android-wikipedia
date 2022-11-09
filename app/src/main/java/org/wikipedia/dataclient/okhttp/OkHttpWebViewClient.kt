@@ -51,7 +51,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
                 WikipediaApp.instance.sessionFunnel.pageFetchStart()
             }
             val rsp = request(request)
-            if (rsp.networkResponse != null && rsp.cacheResponse == null && shouldLogLatency) {
+            if (rsp.networkResponse != null && shouldLogLatency) {
                 WikipediaApp.instance.sessionFunnel.pageFetchEnd()
             }
             response = if (CONTENT_TYPE_OGG == rsp.header(HEADER_CONTENT_TYPE) ||
