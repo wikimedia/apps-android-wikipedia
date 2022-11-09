@@ -21,7 +21,7 @@ object ReadingListsImportHelper {
 
         // Request API by languages
         readingListData?.list?.forEach {
-            val wikiSite = WikiSite(it.key)
+            val wikiSite = WikiSite.forLanguageCode(it.key)
             val response = ServiceFactory.get(wikiSite).getPageTitlesByPageId(it.value.joinToString(separator = "|"))
 
             response.query?.pages?.forEach { page ->
