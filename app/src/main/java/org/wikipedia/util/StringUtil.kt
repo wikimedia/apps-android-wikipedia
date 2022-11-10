@@ -154,10 +154,8 @@ object StringUtil {
             parentTextStr = (parentTextStr.substring(0, startIndex) + "<strong>" +
                     parentTextStr.substring(startIndex, startIndex + searchQuery!!.length) + "</strong>" +
                     parentTextStr.substring(startIndex + searchQuery.length))
-            textView.text = fromHtml(parentTextStr)
-        } else {
-            textView.text = parentTextStr
         }
+        textView.text = fromHtml(parentTextStr)
     }
 
     fun highlightAndBoldenText(textView: TextView, input: String?, shouldBolden: Boolean, highlightColor: Int) {

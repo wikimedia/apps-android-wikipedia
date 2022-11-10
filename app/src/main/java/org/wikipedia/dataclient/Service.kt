@@ -35,7 +35,7 @@ interface Service {
         MW_API_PREFIX + "action=query&redirects=" +
                 "&converttitles=&prop=description|pageimages|info&piprop=thumbnail" +
                 "&pilicense=any&generator=prefixsearch&gpsnamespace=0&list=search&srnamespace=0" +
-                "&inprop=varianttitles" +
+                "&inprop=varianttitles|displaytitle" +
                 "&srwhat=text&srinfo=suggestion&srprop=&sroffset=0&srlimit=1&pithumbsize=" + PREFERRED_THUMB_SIZE
     )
     fun prefixSearch(
@@ -48,7 +48,7 @@ interface Service {
         MW_API_PREFIX + "action=query&converttitles=" +
                 "&prop=description|pageimages|pageprops|info&ppprop=mainpage|disambiguation" +
                 "&generator=search&gsrnamespace=0&gsrwhat=text" +
-                "&inprop=varianttitles" +
+                "&inprop=varianttitles|displaytitle" +
                 "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
                 PREFERRED_THUMB_SIZE
     )
@@ -61,7 +61,7 @@ interface Service {
 
     @GET(
         MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=info" +
-                "&generator=prefixsearch&inprop=varianttitles"
+                "&generator=prefixsearch&inprop=varianttitles|displaytitle"
     )
     suspend fun prefixSearch(@Query("gpssearch") searchTerm: String?,
                              @Query("gpslimit") maxResults: Int,
@@ -99,7 +99,7 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=description&redirects=1")
     fun getDescription(@Query("titles") titles: String): Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&prop=info|description&inprop=varianttitles&redirects=1")
+    @GET(MW_API_PREFIX + "action=query&prop=info|description&inprop=varianttitles|displaytitle&redirects=1")
     fun getInfoByPageId(@Query("pageids") pageIds: String): Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
@@ -151,10 +151,10 @@ interface Service {
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
     fun parseTextForMainPage(@Query("page") mainPageTitle: String): Observable<MwParseResponse>
 
-    @GET(MW_API_PREFIX + "action=query&prop=info&generator=categories&inprop=varianttitles&gclshow=!hidden&gcllimit=500")
+    @GET(MW_API_PREFIX + "action=query&prop=info&generator=categories&inprop=varianttitles|displaytitle&gclshow=!hidden&gcllimit=500")
     suspend fun getCategories(@Query("titles") titles: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=description|pageimages|info&generator=categorymembers&inprop=varianttitles&gcmprop=ids|title")
+    @GET(MW_API_PREFIX + "action=query&prop=description|pageimages|info&generator=categorymembers&inprop=varianttitles|displaytitle&gcmprop=ids|title")
     suspend fun getCategoryMembers(
         @Query("gcmtitle") title: String,
         @Query("gcmtype") type: String,
