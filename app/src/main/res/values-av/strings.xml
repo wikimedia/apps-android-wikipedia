@@ -63,5 +63,6 @@
   <string name="edit_preview">Цебесеб</string>
   <string name="edit_summary_tag_other">Цоги</string>
   <string name="gallery_edit_button_content_description">Сураталъул гъоркьхъвай хисизабизе</string>
+  <string name="suggested_edits_task_multilingual_positive">МацӀал тӀадежуразе</string>
   <string name="file_page_edit_button_content_description">%s редактинабизе</string>
 </resources>
