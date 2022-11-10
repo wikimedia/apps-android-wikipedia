@@ -31,8 +31,7 @@ import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
-import org.wikipedia.util.StringUtil.boldenKeywordText
-import org.wikipedia.util.StringUtil.fromHtml
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.GoneIfEmptyTextView
 import org.wikipedia.views.ViewUtil.formatLangButton
@@ -177,7 +176,7 @@ class SearchResultsFragment : Fragment() {
             }
             WikipediaApp.instance.tabList.forEach { tab ->
                 tab.backStackPositionTitle?.let {
-                    if (it.displayText.lowercase(Locale.getDefault()).contains(term.lowercase(Locale.getDefault()))) {
+                    if (StringUtil.fromHtml(it.displayText).toString().lowercase(Locale.getDefault()).contains(term.lowercase(Locale.getDefault()))) {
                         resultList.add(SearchResult(it, SearchResult.SearchResultType.TAB_LIST))
                         return
                     }
@@ -214,7 +213,7 @@ class SearchResultsFragment : Fragment() {
 
     private fun handleSuggestion(suggestion: String?) {
         if (suggestion != null) {
-            binding.searchSuggestion.text = fromHtml("<u>" +
+            binding.searchSuggestion.text = StringUtil.fromHtml("<u>" +
                     getString(R.string.search_did_you_mean, suggestion) + "</u>")
             binding.searchSuggestion.tag = suggestion
             binding.searchSuggestion.visibility = View.VISIBLE
@@ -451,7 +450,7 @@ class SearchResultsFragment : Fragment() {
             }
 
             // highlight search term within the text
-            boldenKeywordText(pageTitleText, pageTitle.displayText, currentSearchTerm)
+            StringUtil.boldenKeywordText(pageTitleText, pageTitle.displayText, currentSearchTerm)
             searchResultItemImage.visibility = if (pageTitle.thumbUrl.isNullOrEmpty()) if (type === SearchResult.SearchResultType.SEARCH) View.GONE else View.INVISIBLE else View.VISIBLE
             loadImageWithRoundedCorners(searchResultItemImage, pageTitle.thumbUrl)
 

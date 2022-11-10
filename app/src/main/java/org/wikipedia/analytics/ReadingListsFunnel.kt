@@ -97,6 +97,6 @@ class ReadingListsFunnel : Funnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID) {
 
     companion object {
         private const val SCHEMA_NAME = "MobileWikiAppReadingLists"
-        private const val REV_ID = 24010884
+        private const val REV_ID = 24051158
     }
 }
