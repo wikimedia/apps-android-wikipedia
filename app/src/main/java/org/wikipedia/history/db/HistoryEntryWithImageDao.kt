@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
+import org.wikipedia.util.StringUtil
 import java.text.DateFormat
 import java.util.*
 
@@ -33,6 +34,7 @@ interface HistoryEntryWithImageDao {
             .replace("%", "\\%").replace("_", "\\_")
 
         val entries = findEntriesBySearchTerm("%$normalizedQuery%")
+                .filter { StringUtil.fromHtml(it.displayTitle).toString().lowercase().contains(normalizedQuery) }
 
         return if (entries.isEmpty()) SearchResults()
         else SearchResults(entries.take(3).map { SearchResult(toHistoryEntry(it).title, SearchResult.SearchResultType.HISTORY) }.toMutableList())
