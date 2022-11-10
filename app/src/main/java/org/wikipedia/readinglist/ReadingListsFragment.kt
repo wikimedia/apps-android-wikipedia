@@ -5,11 +5,15 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.*
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
+import androidx.core.graphics.ColorUtils
+import androidx.core.view.MenuItemCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -181,7 +185,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
         override fun editList() {
             beginMultiSelect()
-            updateSelectActionModeTitle(selectedListsCount)
+            updateSelectActionModeTitleAndAlpha(selectedListsCount)
             adapter.notifyDataSetChanged()
         }
 
@@ -191,8 +195,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    private fun updateSelectActionModeTitle(selectedListsCount: Int) {
-        actionMode?.title = if (selectedListsCount == 0) "" else selectedListsCount.toString()
+    private fun updateSelectActionModeTitleAndAlpha(selectedListsCount: Int) {
+        val fullOpacity = 255
+        val halfOpacity = 80
+        actionMode?.let {
+            it.title = if (selectedListsCount == 0) "" else getString(R.string.multi_select_items_selected, selectedListsCount)
+            updateMenuItemsAlpha(if (selectedListsCount == 0) halfOpacity else fullOpacity, it.menu)
+        }
     }
 
     private fun sortListsBy(option: Int) {
@@ -475,7 +484,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     list.selected = !list.selected
                 }
             }
-            updateSelectActionModeTitle(selectedListsCount)
+            updateSelectActionModeTitleAndAlpha(selectedListsCount)
             adapter.notifyDataSetChanged()
         }
     }
@@ -561,11 +570,25 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }
         }
 
+    private fun updateMenuItemsAlpha(alpha: Int, menu: Menu) {
+        val deleteItem = menu.findItem(R.id.menu_delete_selected)
+        val exportItem = menu.findItem(R.id.menu_export_selected)
+        val exportItemTitleColor = ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)
+        val exportItemAlphaColor = ColorUtils.setAlphaComponent(exportItemTitleColor, alpha)
+        val spanString = SpannableString(exportItem.title.toString())
+        spanString.setSpan(ForegroundColorSpan(exportItemAlphaColor), 0, spanString.length, 0)
+        exportItem.title = spanString
+        deleteItem.icon?.alpha = alpha
+    }
+
     private inner class MultiSelectCallback : MultiSelectActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             super.onCreateActionMode(mode, menu)
             mode.menuInflater.inflate(R.menu.menu_action_mode_reading_lists, menu)
             actionMode = mode
+            val deleteItem = menu.findItem(R.id.menu_delete_selected)
+            val deleteIconColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.colorError)
+            MenuItemCompat.setIconTintList(deleteItem, deleteIconColor)
             return true
         }
 
@@ -623,7 +646,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             it.forEach { list ->
                 list.selected = false
             }
-            updateSelectActionModeTitle(selectedListsCount)
+            updateSelectActionModeTitleAndAlpha(selectedListsCount)
             adapter.notifyDataSetChanged()
         }
     }
@@ -634,7 +657,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 .filter { !it.selected }
                 .onEach { it.selected = true }
         }
-        updateSelectActionModeTitle(selectedListsCount)
+        updateSelectActionModeTitleAndAlpha(selectedListsCount)
         adapter.notifyDataSetChanged()
     }
 

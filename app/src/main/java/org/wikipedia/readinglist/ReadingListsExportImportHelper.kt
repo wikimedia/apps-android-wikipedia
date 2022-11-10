@@ -75,12 +75,12 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
             .setDefaults(NotificationCompat.DEFAULT_ALL).setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
             .setContentTitle(context.getString(R.string.reading_list_notification_title))
-            .setContentText(context.getString(R.string.reading_list_notification_text, numOfLists))
+            .setContentText(context.getString(R.string.reading_list_notification_detailed_text))
             .setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags))
             .setLargeIcon(NotificationPresenter.drawNotificationBitmap(context, R.color.accent50, R.drawable.ic_download_in_progress, ""))
             .setSmallIcon(R.drawable.ic_wikipedia_w)
             .setColor(ContextCompat.getColor(context, R.color.accent50))
-            .setStyle(NotificationCompat.BigTextStyle().bigText(context.getString(R.string.reading_list_notification_detailed_text)))
+            .setStyle(NotificationCompat.BigTextStyle().bigText(context.getString(R.string.reading_list_notification_text, numOfLists)))
     }
 
     fun importLists(activity: BaseActivity, jsonString: String) {

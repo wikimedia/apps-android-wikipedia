@@ -20,6 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <TextView
+                android:id="@+id/reading_lists_overflow_edit"
+                style="@style/OverflowMenuItem"
+                android:text="@string/reading_lists_menu_edit" />
 
             <TextView
                 android:id="@+id/reading_lists_overflow_sort_by"
@@ -35,11 +39,6 @@
                 android:id="@+id/reading_lists_overflow_import_list"
                 style="@style/OverflowMenuItem"
                 android:text="@string/reading_lists_menu_import_list" />
-
-            <TextView
-                android:id="@+id/reading_lists_overflow_edit"
-                style="@style/OverflowMenuItem"
-                android:text="@string/reading_lists_menu_edit" />
         </LinearLayout>
 
         <LinearLayout

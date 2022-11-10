@@ -611,7 +611,7 @@
     <string name="reading_list_notification_title">Reading list(s) exported</string>
     <string name="reading_list_notification_text"> %d Reading list(s) have been exported as \'reading_lists export.json\' to your downloads folder</string>
     <string name="reading_list_notification_detailed_text">Reading lists have been exported to \'reading_lists_export.json\'</string>
-    <string name="reading_lists_action_menu_export_lists">Export lists</string>
+    <string name="reading_lists_action_menu_export_lists">Export</string>
     <string name="reading_lists_import_file_picker_title">Choose the file to import</string>
     <string name="reading_lists_import_failure_message">Reading lists import failed</string>
     <string name="reading_lists_export_select_lists_message">Select list(s) to  export</string>
