@@ -12,6 +12,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivitySuggestedEditsFeedCardImageTagsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
+import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
@@ -69,7 +70,7 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
     }
 
     override fun nextPage(sourceFragment: Fragment?) {
-        setResult(RESULT_OK)
+        setResult(RESULT_OK, Intent().putExtra(Constants.INTENT_EXTRA_ACTION, DescriptionEditActivity.Action.ADD_IMAGE_TAGS))
         finish()
     }
 

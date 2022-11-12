@@ -225,12 +225,21 @@
   <string name="about_description">Informazzion sora l\'app de Wikipedia</string>
   <string name="privacy_policy_description">Politega de la \'\'riservatezza\'\'</string>
   <string name="terms_of_use_description">Condizzion de utilizazzion</string>
+  <string name="about_wikipedia_url">https://lmo.wikipedia.org/wiki/Wikipedia:A proposit de wikipedia</string>
+  <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/lmo</string>
+  <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Jut:Come_registràss</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Librerie doprade</string>
   <string name="about_contributors_heading">Contributor</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del grup&lt;/a&gt;</string>
   <string name="about_translators_heading">Tradutor</string>
   <string name="about_translators_translatewiki">Questa applicazzion chì l\'è stada tradotta de tradutor volontari in su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
-  <string name="about_app_license" fuzzy="true">Codes sorgent disponibil in su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se l\'è minga diversament specificad, el contegnud l\'è disponibil sota la licenza &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Atribuzzion-Spartiss a l\'istessa manera&lt;/a&gt;.</string>
+  <string name="about_app_license">Codes sorgent disponibil in su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se l\'è minga diversament specificad, el contegnud l\'è disponibil sota la licenza &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Atribuzzion-Spartiss a l\'istessa manera&lt;/a&gt;.</string>
   <string name="about_wmf">Un prodot de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Informazzion</string>
   <string name="edit_abandon_confirm">La pagina l\'è stada modificada. Te see sicur che te voeuret sortì senza salvà i cambiament?</string>
@@ -245,6 +254,11 @@
   <string name="edit_preview">Veduda antecipada</string>
   <string name="edit_undo">Torna a \'me che l\'era inanz</string>
   <string name="edit_redo">Fà an\'mò \'na volta</string>
+  <string name="edit_rollback">Modifega indree</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s bait</item>
+    <item quantity="other">%s bait</item>
+  </plurals>
   <string name="edit_zoom_in">Ingrandiment</string>
   <string name="edit_zoom_out">Spisciniment</string>
   <string name="edit_summary_tag_typo">Corregiud eror de batidura</string>
@@ -254,10 +268,15 @@
   <string name="edit_summary_tag_other_hint">Alter manere cont i quae te podet migliorà la pagina</string>
   <string name="edit_conflict_title">Conflit de edizzion</string>
   <string name="edit_conflict_message">La pagina l\'è stada sgiamò modifica de un\'alter utent e l\'è in conflit con la toa modifica. Copia i modifiche, torna indrée e atualiza la pagina, quindi proeuva a modificà de noeuv.</string>
+  <string name="edit_notices">Notifiche per i cambiament</string>
+  <string name="edit_notices_please_read">In piesé lénsg inanz de modifegà</string>
+  <string name="edit_notices_show_auto">Fà vedé in automatich i notifiche dei cambiament</string>
+  <string name="edit_notices_tooltip">Schiscia quell boton chì per vedé i notifeghe di cambiament per questa vos chì.</string>
   <string name="find_next">Troeuva el prossim</string>
   <string name="find_previous">Troeuva precedent</string>
   <string name="find_first_occurence">Questchì l\'è el prim avveniment</string>
   <string name="find_last_occurence">Chesschì l\'è l\'ultim avveniment</string>
+  <string name="article_opened_in_background_tab">Questa vos l\'è stada dervida in ona scheda foeura vista.</string>
   <string name="abusefilter_title_warn">Questa chì la podaria vesser una modifega minga creativa. Te seet proppi sicur de vorè publicala.</string>
   <string name="abusefilter_title_disallow">Te podet minga publicà quella modifega chì. Per piesè torna indrée a cambiala.</string>
   <string name="abusefilter_text_warn">Un filter automatich l\'hà reconossud come inutil questa modifega chì. La podariss avegh denter vun o diversi de \'sti element chì:&lt;br /&gt;&lt;br /&gt;· Test tut in majuscul&lt;br /&gt;· Articol voeud o di ruf&lt;br /&gt;· Ligam de foeura o imagin minga riguardante&lt;br /&gt;· Carater bissad</string>
@@ -274,10 +293,47 @@
   <string name="clear_recent_searches_confirm">Te se sicur de vorè scancelà la cronologia di ricerche recente?</string>
   <string name="clear_recent_searches_confirm_yes">Sì</string>
   <string name="clear_recent_searches_confirm_no">Nò</string>
+  <string name="error_browser_not_found">Impossibel dervì la pagina web (nanca on programa de navigazzion trovad).</string>
+  <string name="table_infobox">Dati svelt</string>
+  <string name="table_other">Pussee de informazzion</string>
+  <string name="table_close">Sarra su</string>
+  <string name="widget_name_featured_page">Pagine de Wikipedia in vedrina</string>
+  <string name="widget_title_featured_page">La pagina in vedrina d\'incoeuː</string>
+  <string name="widget_name_search">Ricerca de la Wikipedia</string>
+  <string name="wiktionary_no_definitions_found">Nanca on definizzion trovada</string>
+  <string name="alpha_update_notification_title">Noeuva atualizazzion alfa disponibil</string>
+  <string name="alpha_update_notification_text">Toca per descaregà</string>
+  <string name="dialog_close_description">Sarra su</string>
+  <string name="preference_title_show_images">Fà vedé i imagin</string>
+  <string name="preference_summary_show_images">Pizza o smorza el caregament di imagin in di pagine. Leva el segn se la toa conession Internet la va adasi, o se \'l tò pian è limitad per l\'internet .</string>
+  <string name="preference_title_download_only_over_wifi">Descarega unicament per via de la Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Conferma el descaregament per mez de dati mobil?</string>
+  <string name="dialog_text_download_only_over_wifi">Te gh\'hee el \"Descarega unicament per mez de la Wi-Fi\" pizzad in di impostazzion. Te voeulet permeter l\'uso del pian dati mobil domà per quell descaregament chì?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Permet</string>
+  <string name="read_more_section">Per savénn pussee</string>
+  <string name="about_article_section">In proposet de questa vos chì</string>
+  <string name="menu_gallery_visit_image_page">Và a la pagina del fail</string>
+  <string name="gallery_error_draw_failed">Impossibel fà vedé l\'imagin.</string>
+  <string name="license_title">Licenza per %s</string>
   <string name="gallery_menu_share">Condivid</string>
+  <string name="gallery_share_error">Impossibel condivider l\'imagine: %s</string>
   <string name="gallery_save_progress">Adrée a descaregà el fail...</string>
   <string name="gallery_save_success">Fail salvad.</string>
+  <string name="gallery_error_video_failed">Impossibil riprodù el video.</string>
+  <string name="gallery_save_image_write_permission_rationale">A ghe voeul el permess de scriver in  sul tò dispositiv per podé salvà i imagin.</string>
   <string name="gallery_edit_button_content_description">Modifega l\'insegna de l\'imagin</string>
+  <string name="gallery_add_image_caption_button">Sgionta la spiegazzion de l\'imagin</string>
+  <string name="gallery_add_image_caption_in_language_button">Sgionta la spiegazzion de l\'imagin (%s)</string>
+  <string name="err_cannot_save_file">Impossibil salvà el  fail</string>
+  <string name="expand_refs">Toca per slargà foeura</string>
+  <string name="cc_logo">Licenza Creative Commons</string>
+  <string name="captcha_image">Schizz captcha</string>
+  <string name="gallery_fair_use_license">Utilizazzion come se dev</string>
+  <string name="gallery_uploader_unknown">Caregador minga conossud</string>
+  <string name="gallery_not_available_offline_snackbar">Vista de la galleria minga disponibil sgiò de conession.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Guarna via</string>
+  <string name="menu_new_tab">Noeuva scheda</string>
+  <string name="menu_close_all_tabs">Sarra su tute i schede</string>
   <string name="close_all_tabs_confirm_yes">Sì</string>
   <string name="close_all_tabs_confirm_no">Nò</string>
   <string name="button_close_tab">Sara su la scheda</string>
