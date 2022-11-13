@@ -87,6 +87,16 @@ interface RestService {
         @Path("revision") revision: Long
     ): MediaList
 
+    /**
+     * Support method added to pass GalleryClientTest
+     * TODO: To be demised
+     */
+    @GET("page/media-list/{title}/{revision}")
+    fun getMediaList(
+        @Path("title") title: String,
+        @Path("revision") revision: Long
+    ): Observable<MediaList>
+
     @GET("page/media-list/{title}/{revision}")
     fun getMediaListResponse(
         @Path("title") title: String?,
