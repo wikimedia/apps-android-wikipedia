@@ -9,7 +9,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.LinkMovementMethodExt.UrlHandlerWithText
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
-import java.util.*
 
 abstract class LinkHandler(protected val context: Context) : JSEventListener, UrlHandlerWithText {
     abstract fun onPageLinkClicked(anchor: String, linkText: String)
@@ -73,7 +72,7 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
         val supportedAuthority = uri.authority?.run { WikiSite.supportedAuthority(this) } == true
         when {
             uri.path?.run { matches(("^${UriUtil.WIKI_REGEX}.*").toRegex()) } == true && supportedAuthority -> {
-                val newTitle = if (titleStr.isNullOrEmpty()) {
+                val newTitle = if (titleStr.isEmpty()) {
                     PageTitle.titleForInternalLink(uri.path, site)
                 } else PageTitle.withSeparateFragment(titleStr, uri.fragment, site)
                 if (newTitle.isFilePage) {

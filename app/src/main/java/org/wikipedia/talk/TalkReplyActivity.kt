@@ -10,7 +10,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.util.lruCache
 import androidx.core.view.isVisible
-import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.doOnTextChanged
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -203,14 +202,14 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         override fun onInternalLinkClicked(title: PageTitle) {
             UserTalkPopupHelper.show(this@TalkReplyActivity, bottomSheetPresenter, title, false, lastX, lastY,
-                    Constants.InvokeSource.TALK_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
+                    Constants.InvokeSource.TALK_REPLY_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
         }
     }
 
     private fun setSaveButtonEnabled(enabled: Boolean) {
         binding.replySaveButton.isEnabled = enabled
-        ImageViewCompat.setImageTintList(binding.replySaveButton, ResourceUtil.getThemedColorStateList(this,
-            if (enabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
+        binding.replySaveButton.setTextColor(ResourceUtil
+            .getThemedColor(this, if (enabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
     }
 
     private fun onSaveClicked() {
@@ -299,7 +298,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
         bottomSheetPresenter.show(supportFragmentManager,
-                AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_ACTIVITY))
+                AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_REPLY_ACTIVITY))
     }
 
     override fun onLinkPreviewShareLink(title: PageTitle) {

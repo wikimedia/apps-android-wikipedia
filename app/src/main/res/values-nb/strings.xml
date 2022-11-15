@@ -80,6 +80,10 @@
     <item quantity="one">%1$d redigering siden %2$s</item>
     <item quantity="other">%1$d redigeringer siden %2$s</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d redigering siden %2$s (%3$s)</item>
+    <item quantity="other">%1$d redigeringer siden %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Prøv å endre &lt;a href=\"#\"&gt;filtrene&lt;/a&gt; for å se flere redigeringer</string>
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Endre språk</string>
@@ -450,8 +454,13 @@
   <string name="text_size_percent_default">%s (Standard)</string>
   <string name="text_style_title">Skrifttype</string>
   <string name="theme_category_reading">Lesing</string>
+  <string name="theme_category_editing">Redigering</string>
   <string name="reading_focus_mode">Lesefokusmodus</string>
   <string name="reading_focus_mode_detail">Skjuler redigeringsfunksjoner og verktøylinjen på bunnen når du skroller</string>
+  <string name="editing_syntax_highlight_label">Syntaksfremheving</string>
+  <string name="editing_line_numbers_label">Vis linjenumre</string>
+  <string name="editing_monospace_font_label">Bruk fastbreddeskrift</string>
+  <string name="editing_typing_suggestions">Vis skriveforslag</string>
   <string name="nav_item_saved">Lagret</string>
   <string name="reading_list_save_to">Lagre i leseliste</string>
   <string name="reading_list_move_to">Flytt til leseliste</string>
@@ -790,6 +799,10 @@
   <string name="description_edit_license_notice">Ved å redigere artikkelbeskrivelsen, aksepterer jeg &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt; og samtykker til å ugjenkallelig slippe bidragene mine under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-lisensen.</string>
   <string name="description_edit_helper_text_lowercase_warning">begynner vanligvis med en liten bokstav</string>
   <string name="description_edit_voice_input_description">Stemmestyring</string>
+  <string name="description_edit_learn_more">Lær mer om artikkelbeskrivelser</string>
+  <string name="description_edit_image_caption_learn_more">Lær mer om bildetekster</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Teksten er for kort.</string>
   <string name="description_ends_with_punctuation">Teksten kan ikke slutte med punktum.</string>
   <string name="description_starts_with_uppercase">Begynn med liten bokstav med mindre det første ordet er et egennavn.</string>
@@ -1065,7 +1078,17 @@
   <string name="content_description_for_page_indicator">Side %1$d av %2$d</string>
   <string name="wikitext_bold">Fet</string>
   <string name="wikitext_italic">Kursiv</string>
+  <string name="wikitext_underline">Understrek</string>
+  <string name="wikitext_strikethrough">Gjennomstreket</string>
+  <string name="wikitext_sup">Hevet skrift</string>
+  <string name="wikitext_sub">Senket skrift</string>
+  <string name="wikitext_large">Stor tekst</string>
+  <string name="wikitext_small">Liten tekst</string>
+  <string name="wikitext_code">Kode</string>
   <string name="wikitext_link">Lenke</string>
+  <string name="wikitext_heading_n">Underoverskrift %d</string>
+  <string name="wikitext_formatting">Formatering</string>
+  <string name="wikitext_headings">Overskrifter</string>
   <string name="wikitext_insert_media">Sett inn media</string>
   <string name="wikitext_bulleted_list">Punktliste</string>
   <string name="wikitext_numbered_list">Nummerert liste</string>
@@ -1159,6 +1182,8 @@
   <string name="talk_list_item_user_icon_content_description">Brukerikon</string>
   <string name="talk_list_item_swipe_mark_as_read">Lest</string>
   <string name="talk_list_item_swipe_mark_as_unread">Ulest</string>
+  <string name="talk_login_to_subscribe_dialog_title">Logg inn for å abonnere på emner</string>
+  <string name="talk_login_to_subscribe_dialog_content">Emneabbonementer lar deg få varsler om nye kommentarer på dette emnet. Opprett en konto eller logg inn på Wikipedia-kontoen din for å abonnere på et emne.</string>
   <string name="talk_archived_title">Diskusjonsarkiv: %s</string>
   <string name="menu_option_share_talk_discussion">Del diskusjon</string>
   <string name="menu_option_share_talk_page">Del diskusjonsside</string>
@@ -1167,6 +1192,7 @@
   <string name="menu_option_edit_source">Rediger kilde</string>
   <string name="menu_option_user_page">%s brukerside</string>
   <string name="menu_option_find_in_talk_page_topic">Finn i diskusjonssideemne</string>
+  <string name="menu_option_copy_link_to_clipboard">Kopier lenke til utklippstavlen</string>
   <string name="talk_menu_copy_text">Kopier tekst</string>
   <string name="talk_menu_expand_threads">Utvid tråder</string>
   <string name="talk_menu_collapse_threads">Minimer tråder</string>
@@ -1242,9 +1268,11 @@
   <string name="user_contrib_activity_title">Bidrag av %s</string>
   <string name="archive_empty">Ingen arkiverte sider funnet.</string>
   <string name="user_contrib_filter_ns">Filter etter navnerom</string>
-  <string name="user_contrib_filter_all">Alle redigeringer</string>
+  <string name="user_contrib_filter_all">Alle navnerom</string>
+  <string name="user_contrib_filter_ns_header">Navneromsfilter</string>
   <string name="namespace_article">Artikkel</string>
   <string name="user_contrib_current">gjeldende</string>
   <string name="media_playback_error">Feil ved avspilling av media.</string>
   <string name="user_contrib_menu_label">Bidrag</string>
+  <string name="user_contrib_filter_activity_title">Filtrer bidrag</string>
 </resources>

@@ -88,6 +88,10 @@
     <item quantity="one">自 %2$s 共 %1$d 次編輯</item>
     <item quantity="other">自 %2$s 共 %1$d 次編輯</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">自 %2$s 共 %1$d 次編輯（%3$s）</item>
+    <item quantity="other">自 %2$s 共 %1$d 次編輯（%3$s）</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">嘗試更改&lt;a href=\"#\"&gt;篩選&lt;/a&gt;來查看更多編輯</string>
   <string name="menu_page_show_tabs">顯示分頁</string>
   <string name="menu_page_other_languages">替換其它語言版本</string>
@@ -458,8 +462,13 @@
   <string name="text_size_percent_default">%s（預設）</string>
   <string name="text_style_title">字型</string>
   <string name="theme_category_reading">閱讀</string>
+  <string name="theme_category_editing">編輯</string>
   <string name="reading_focus_mode">專注閱讀模式</string>
   <string name="reading_focus_mode_detail">隱藏編輯功能與在滾軸的底端工具列</string>
+  <string name="editing_syntax_highlight_label">語法醒目標示</string>
+  <string name="editing_line_numbers_label">顯示行號</string>
+  <string name="editing_monospace_font_label">使用等寬字體</string>
+  <string name="editing_typing_suggestions">顯示輸入建議</string>
   <string name="nav_item_saved">已儲存</string>
   <string name="reading_list_save_to">儲存至閱讀清單</string>
   <string name="reading_list_move_to">移動至閱讀清單</string>
@@ -797,6 +806,10 @@
   <string name="description_edit_license_notice">透過更改條目描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤回我所釋出的個人貢獻。</string>
   <string name="description_edit_helper_text_lowercase_warning">若用英語通常以小寫字母作開頭</string>
   <string name="description_edit_voice_input_description">語音輸入</string>
+  <string name="description_edit_learn_more">了解更多關於條目描述的內容</string>
+  <string name="description_edit_image_caption_learn_more">了解更多關於圖片說明的內容</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#条目描述</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#图片说明</string>
   <string name="description_too_short">文字太短。</string>
   <string name="description_ends_with_punctuation">文字不能以標點符號結束。</string>
   <string name="description_starts_with_article">避免以「a」或是「the」定冠詞作為條目開頭。</string>
@@ -1073,7 +1086,17 @@
   <string name="content_description_for_page_indicator">%1$d / %2$d 頁</string>
   <string name="wikitext_bold">粗體</string>
   <string name="wikitext_italic">斜體</string>
+  <string name="wikitext_underline">底線</string>
+  <string name="wikitext_strikethrough">刪除線</string>
+  <string name="wikitext_sup">上標</string>
+  <string name="wikitext_sub">下標</string>
+  <string name="wikitext_large">加大文字</string>
+  <string name="wikitext_small">縮小文字</string>
+  <string name="wikitext_code">代碼</string>
   <string name="wikitext_link">連結</string>
+  <string name="wikitext_heading_n">副標題 %d</string>
+  <string name="wikitext_formatting">格式</string>
+  <string name="wikitext_headings">標題</string>
   <string name="wikitext_insert_media">插入媒體</string>
   <string name="wikitext_bulleted_list">符號清單</string>
   <string name="wikitext_numbered_list">編號清單</string>
@@ -1167,6 +1190,8 @@
   <string name="talk_list_item_user_icon_content_description">使用者圖像</string>
   <string name="talk_list_item_swipe_mark_as_read">已讀</string>
   <string name="talk_list_item_swipe_mark_as_unread">未讀</string>
+  <string name="talk_login_to_subscribe_dialog_title">登入以訂閱主題</string>
+  <string name="talk_login_to_subscribe_dialog_content">主題訂閱能允許您接收有關該主題裡新發言的通知。請建立一個帳號或是登入您的維基百科帳號以訂閱主題。</string>
   <string name="talk_archived_title">討論存檔：%s</string>
   <string name="menu_option_share_talk_discussion">分享討論</string>
   <string name="menu_option_share_talk_page">分享討論頁</string>
@@ -1175,6 +1200,7 @@
   <string name="menu_option_edit_source">編輯原始碼</string>
   <string name="menu_option_user_page">%s的使用者頁面</string>
   <string name="menu_option_find_in_talk_page_topic">在討論頁主題尋找</string>
+  <string name="menu_option_copy_link_to_clipboard">複製連結到剪貼簿</string>
   <string name="talk_menu_copy_text">複製文字</string>
   <string name="talk_menu_expand_threads">展開討論串</string>
   <string name="talk_menu_collapse_threads">折疊討論串</string>
@@ -1198,6 +1224,7 @@
   <string name="revision_diff_to">至：</string>
   <string name="revision_diff_line_num">第 %d 行</string>
   <string name="revision_diff_line_nums">第 %d 到第 %d 行</string>
+  <string name="revision_diff_lines_from_to">第 %1$d–%2$d 行</string>
   <string name="revision_diff_line_added">行已新增</string>
   <string name="revision_diff_line_removed">行已移除</string>
   <string name="revision_diff_paragraph_added">已新增章節</string>
@@ -1232,6 +1259,12 @@
   <string name="watchlist_page_moved">已移動</string>
   <string name="watchlist_page_protected">已保護</string>
   <string name="watchlist_page_deleted">已刪除</string>
+  <string name="preview_edit_title">預覽編輯</string>
+  <string name="preview_edit_summarize_edit_title">總結編輯</string>
+  <string name="preview_edit_summarize_edit_hint">您是如何改善此頁面？</string>
+  <string name="preview_edit_minor_edit">這是一個小修改</string>
+  <string name="preview_edit_watch_this_page">監視此頁面</string>
+  <string name="preview_edit_learn_more">了解關於編輯摘要的更多內容</string>
   <string name="action_item_categories">分類</string>
   <string name="page_no_categories">這個頁面不屬於任何分類。</string>
   <string name="category_tab_articles">條目</string>
@@ -1243,9 +1276,11 @@
   <string name="user_contrib_activity_title">%s的貢獻</string>
   <string name="archive_empty">找不到存檔頁面。</string>
   <string name="user_contrib_filter_ns">按命名空間篩選</string>
-  <string name="user_contrib_filter_all">所有編輯</string>
+  <string name="user_contrib_filter_all">所有命名空間</string>
+  <string name="user_contrib_filter_ns_header">命名空間篩選</string>
   <string name="namespace_article">條目</string>
   <string name="user_contrib_current">目前</string>
   <string name="media_playback_error">播放媒體時出錯。</string>
   <string name="user_contrib_menu_label">貢獻</string>
+  <string name="user_contrib_filter_activity_title">篩選貢獻</string>
 </resources>
