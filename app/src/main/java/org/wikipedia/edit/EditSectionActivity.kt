@@ -627,7 +627,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                             editingAllowed = true
                         } else {
                             val error = editError[0]
-                            FeedbackUtil.showError(this, MwException(error))
+                            FeedbackUtil.showError(this, MwException(error), pageTitle.wikiSite)
                         }
                         displaySectionText()
                         maybeShowEditSourceDialog()

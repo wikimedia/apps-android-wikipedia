@@ -23,6 +23,8 @@ android {
     compileSdkVersion 33
 
     compileOptions {
+        coreLibraryDesugaringEnabled true
+
         sourceCompatibility = JAVA_VERSION
         targetCompatibility = JAVA_VERSION
     }
@@ -168,7 +170,7 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
-    String okHttpVersion = '4.8.1'
+    String okHttpVersion = '4.10.0'
     String retrofitVersion = '2.9.0'
     String glideVersion = '4.13.2'
     String mockitoVersion = '3.4.0'
@@ -179,6 +181,8 @@ dependencies {
     String roomVersion = "2.4.3"
     String espressoVersion = '3.4.0'
     String serialization_version = '1.4.0'
+
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.2'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"

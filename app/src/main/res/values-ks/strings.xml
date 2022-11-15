@@ -383,7 +383,25 @@
   <string name="reading_list_sort_ellipsis">چھانٛٹ دِنی بمُطٲبق...</string>
   <string name="reading_list_sort_by_name">ناوٕ مُطٲبق چھانٛٹ دِنی</string>
   <string name="reading_list_sort_by_name_desc">ناوٕ مُطٲبق چھانٛٹ دِنی (اُلٹہٕ)</string>
+  <string name="reading_list_menu_delete">فہرست کٕریٚو ڈِلیٖٹ</string>
+  <string name="reading_list_menu_rename">ناو/وضاحت کٕریٚو ایڑِٹ</string>
+  <string name="reading_list_action_menu_remove_from_offline">آفلاین پؠٹھہٕ ہَٹٲوِو</string>
+  <string name="reading_list_action_menu_save_for_offline">آفلاینَس کھٲترٕ تھٲوِو مَحفوٗظ</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">آفلاینہٕ پؠٹھہٕ ہَٹٲوِو سورٕے</string>
+  <string name="reading_list_action_menu_save_all_for_offline">آفلاینہٕ کھٲترٕ تھٲوِو سورٕے مَحفوٗظ</string>
+  <string name="reading_list_action_menu_add_to_another_list">بیٚیِس فہرستَس مٕنٛز کٕریٚو شٲمل</string>
+  <string name="reading_list_action_menu_move_to_another_list">بیٚیِس فہرستَس کُن نِیُو</string>
+  <string name="reading_list_name_sample">میأنی پرنٕچ فہرست</string>
+  <string name="reading_list_name_hint">یَمہِ فہرستہِ ہِیوٚنٛد ناو</string>
+  <string name="reading_list_description_hint">تفصیٖل (لاضروٗری)</string>
+  <string name="reading_list_item_deleted">%s آو ہَٹاونہٕ فہرستہِ منٛز</string>
+  <string name="reading_list_item_deleted_from_list">%1$s آو ہَٹاونہٕ %2$s منٛز</string>
+  <string name="reading_list_items_deleted">%d مَضموٗن آو ہٓٹاونہٕ فہرستہِ منٛز</string>
+  <string name="reading_lists_item_deleted">%s آو ہَٹاونہٕ فہرستو منٛز</string>
   <string name="reading_list_item_delete_undo">رَد کٕرو</string>
+  <string name="reading_list_deleted">%s آو ہَٹاونہٕ</string>
+  <string name="saved_list_empty_title">وۄنی روٗد نہٕ کانٛہہ تہِ مَحفوٗظ صَفہٕ</string>
+  <string name="reading_list_article_offline">آفلاین چُھ مَیَسر</string>
   <string name="reading_lists_login_button">وِکیٖپیٖڈیاہَس منٛز دٲخل گژھُن / شٲمل گژھُن</string>
   <string name="reading_lists_ignore_button">وُنہِ نہٕ</string>
   <string name="reading_lists_confirm_remote_delete_yes">آ</string>
@@ -717,10 +735,10 @@
   <string name="user_contrib_activity_title">شَرکژٕ %s ہِنٛز</string>
   <string name="archive_empty">کانٛہہ تہِ مَحفوٗظ خانہٕ صَفہٕ آونہٕ لبنہٕ.</string>
   <string name="user_contrib_filter_ns">ناوٕجایہِ طرفہٕ فلٹر</string>
-  <string name="user_contrib_filter_all">سٲری اؠڈِٹ</string>
+  <string name="user_contrib_filter_all">سٲرے ناوٕجایہِ</string>
   <string name="namespace_article">مَضموٗن</string>
   <string name="user_contrib_current">موجوٗدٕ گَردان</string>
   <string name="media_playback_error">مِیٖڈیا چلاوٕنس منٛز چھےٚ خرٲبی.</string>
   <string name="user_contrib_menu_label">شَرکٔژ</string>
-  <string name="user_contrib_wiki_select">کُن شَرکٲژٕ:</string>
+  <string name="user_contrib_filter_activity_title" fuzzy="true">کُن شَرکٲژٕ:</string>
 </resources>

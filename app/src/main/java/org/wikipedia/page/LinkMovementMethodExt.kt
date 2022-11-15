@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.core.text.getSpans
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 
@@ -81,8 +82,7 @@ class LinkMovementMethodExt : LinkMovementMethod {
         return super.onTouchEvent(widget, buffer, event)
     }
 
-    internal class ErrorLinkHandler internal constructor() : LinkHandler(WikipediaApp.instance) {
-        override var wikiSite = WikipediaApp.instance.wikiSite
+    internal class ErrorLinkHandler internal constructor(override var wikiSite: WikiSite) : LinkHandler(WikipediaApp.instance) {
         override fun onMediaLinkClicked(title: PageTitle) {}
         override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {}
         override fun onPageLinkClicked(anchor: String, linkText: String) {}
@@ -95,8 +95,8 @@ class LinkMovementMethodExt : LinkMovementMethod {
     }
 
     companion object {
-        fun getExternalLinkMovementMethod(): LinkMovementMethodExt {
-            return LinkMovementMethodExt(ErrorLinkHandler())
+        fun getExternalLinkMovementMethod(wikiSite: WikiSite = WikipediaApp.instance.wikiSite): LinkMovementMethodExt {
+            return LinkMovementMethodExt(ErrorLinkHandler(wikiSite))
         }
     }
 }

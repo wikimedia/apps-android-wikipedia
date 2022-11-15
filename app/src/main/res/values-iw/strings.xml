@@ -31,7 +31,7 @@
   <string name="wikimedia">ויקימדיה</string>
   <string name="nav_item_back">חזרה</string>
   <string name="page_tabs_back">חזרה</string>
-  <string name="nav_item_forward">התקדמות</string>
+  <string name="nav_item_forward">קדימה</string>
   <string name="search_hint">חיפוש בוויקיפדיה</string>
   <string name="search_hint_voice_search">חיפוש לפי קלט קולי</string>
   <string name="search_hint_search_languages">חיפוש שפה</string>
@@ -117,7 +117,7 @@
   <string name="menu_page_recently_viewed">הוצגו לאחרונה</string>
   <string name="menu_page_archive">ארכיון</string>
   <string name="menu_long_press_open_page">פתיחה</string>
-  <string name="menu_long_press_open_in_new_tab">פתיחת קישור בלשונית חדשה</string>
+  <string name="menu_long_press_open_in_new_tab">לפתוח בלשונית חדשה</string>
   <string name="menu_long_press_copy_page">העתקת כתובת הקישור</string>
   <string name="menu_text_select_define">הגדרה</string>
   <string name="on_this_day_page_share">שיתוף</string>
@@ -1101,7 +1101,7 @@
   <string name="this_year">בשנה הזאת</string>
   <string name="on_this_day_dialog_next_month">החודש הבא</string>
   <string name="on_this_day_dialog_previous_month">החודש הקודם</string>
-  <string name="on_this_day_open_date_picker">פתיחת בוחר התאריך</string>
+  <string name="on_this_day_open_date_picker">פתיחת בורר התאריך</string>
   <plurals name="diff_years">
     <item quantity="one">שנה שעברה</item>
     <item quantity="two">לפני שנתיים</item>
@@ -1339,10 +1339,11 @@
   <string name="user_contrib_activity_title">תרומות של %s</string>
   <string name="archive_empty">לא נמצאו דפים בארכיון.</string>
   <string name="user_contrib_filter_ns">סינון לפי מרחב שמות</string>
-  <string name="user_contrib_filter_all">כל העריכות</string>
+  <string name="user_contrib_filter_all">כל מרחבי השם</string>
+  <string name="user_contrib_filter_ns_header">מסנן מרחבי שם</string>
   <string name="namespace_article">ערך</string>
   <string name="user_contrib_current">נוכחי</string>
   <string name="media_playback_error">שגיאה בנגינת מדיה.</string>
   <string name="user_contrib_menu_label">תרומות</string>
-  <string name="user_contrib_wiki_select">תרומות ל־:</string>
+  <string name="user_contrib_filter_activity_title">סינון תרומות</string>
 </resources>

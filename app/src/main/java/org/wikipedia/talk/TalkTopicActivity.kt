@@ -38,6 +38,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.*
 import org.wikipedia.views.SearchActionProvider
+import org.wikipedia.views.ViewUtil
 
 class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private lateinit var binding: ActivityTalkTopicBinding
@@ -294,7 +295,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             if (position >= 0) {
                 binding.talkRecyclerView.post {
                     if (!isDestroyed) {
-                        binding.talkRecyclerView.scrollToPosition(position)
+                        ViewUtil.jumpToPositionWithoutAnimation(binding.talkRecyclerView, position)
                         threadAdapter.notifyItemChanged(position)
                     }
                 }
@@ -381,7 +382,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         override fun onUserNameClick(item: ThreadItem, view: View) {
             UserTalkPopupHelper.show(this@TalkTopicActivity, bottomSheetPresenter,
                     PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), item.author, viewModel.pageTitle.wikiSite),
-                    !AccountUtil.isLoggedIn, view, Constants.InvokeSource.TALK_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
+                    !AccountUtil.isLoggedIn, view, Constants.InvokeSource.TALK_TOPIC_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
         }
     }
 
@@ -425,14 +426,14 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         override fun onInternalLinkClicked(title: PageTitle) {
             UserTalkPopupHelper.show(this@TalkTopicActivity, bottomSheetPresenter, title, false, lastX, lastY,
-                    Constants.InvokeSource.TALK_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
+                    Constants.InvokeSource.TALK_TOPICS_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
         }
     }
 
     private fun startReplyActivity(item: ThreadItem, undoSubject: CharSequence? = null, undoBody: CharSequence? = null) {
         talkFunnel.logReplyClick()
         replyResult.launch(TalkReplyActivity.newIntent(this@TalkTopicActivity, viewModel.pageTitle, viewModel.topic?.html,
-                item, Constants.InvokeSource.TALK_ACTIVITY, undoSubject, undoBody))
+                item, Constants.InvokeSource.TALK_TOPIC_ACTIVITY, undoSubject, undoBody))
     }
 
     private fun showUndoSnackbar(undoRevId: Long) {
@@ -456,7 +457,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
         bottomSheetPresenter.show(supportFragmentManager,
-                AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_ACTIVITY))
+                AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_TOPIC_ACTIVITY))
     }
 
     override fun onLinkPreviewShareLink(title: PageTitle) {

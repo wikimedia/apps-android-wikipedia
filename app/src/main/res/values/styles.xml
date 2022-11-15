@@ -108,7 +108,6 @@
     </style>
 
     <style name="ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
-        <item name="background">?attr/paper_color</item>
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">0dp</item>
         <item name="titleTextStyle">@style/ToolBarTitleText</item>

@@ -9,7 +9,6 @@ object Constants {
     const val ACTIVITY_REQUEST_BROWSE_TABS = 61
     const val ACTIVITY_REQUEST_DESCRIPTION_EDIT = 55
     const val ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL = 56
-    const val ACTIVITY_REQUEST_EDIT_SECTION = 51
     const val ACTIVITY_REQUEST_FEED_CONFIGURE = 58
     const val ACTIVITY_REQUEST_GALLERY = 52
     const val ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT = 64
@@ -97,7 +96,9 @@ object Constants {
         SNACKBAR_ACTION("snackbar"),
         SUGGESTED_EDITS("suggestedEdits"),
         TABS_ACTIVITY("tabsActivity"),
-        TALK_ACTIVITY("talkActivity"),
+        TALK_TOPICS_ACTIVITY("talkTopicsActivity"),
+        TALK_TOPIC_ACTIVITY("talkTopicActivity"),
+        TALK_REPLY_ACTIVITY("talkReplyActivity"),
         EDIT_ACTIVITY("editActivity"),
         TOOLBAR("toolbar"),
         VOICE("voice"),
