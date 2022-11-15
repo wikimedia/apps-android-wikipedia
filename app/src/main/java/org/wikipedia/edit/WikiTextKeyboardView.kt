@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import org.wikipedia.databinding.ViewWikitextKeyboardBinding
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.StringUtil
 
 class WikiTextKeyboardView : FrameLayout {
     interface Callback {
@@ -132,7 +133,7 @@ class WikiTextKeyboardView : FrameLayout {
             if (title.wikiSite.languageCode != baseLangCode) {
                 text += ":" + title.wikiSite.languageCode + ":"
             }
-            text += title.displayText + "]]"
+            text += StringUtil.fromHtml(title.displayText).toString() + "]]"
             editText?.inputConnection?.commitText(text, 1)
         }
     }
