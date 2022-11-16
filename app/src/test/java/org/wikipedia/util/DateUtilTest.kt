@@ -9,7 +9,6 @@ import org.robolectric.RobolectricTestRunner
 @RunWith(RobolectricTestRunner::class)
 class DateUtilTest {
     @Test
-    @Throws(Throwable::class)
     fun testGetHttpLastModifiedDate() {
         MatcherAssert.assertThat(
             DateUtil.getShortDateString(DateUtil.getHttpLastModifiedDate(HTTP_DATE_HEADER)),
@@ -18,7 +17,6 @@ class DateUtilTest {
     }
 
     @Test
-    @Throws(Throwable::class)
     fun testIso8601Identity() {
         MatcherAssert.assertThat(
             DateUtil.iso8601DateParse("2017-05-25T21:13:47Z").toInstant().toString(),

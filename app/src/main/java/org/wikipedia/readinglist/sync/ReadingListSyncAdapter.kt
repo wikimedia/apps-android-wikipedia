@@ -23,7 +23,7 @@ import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-import java.text.ParseException
+import java.time.format.DateTimeParseException
 
 class ReadingListSyncAdapter : JobIntentService() {
 
@@ -428,7 +428,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             lastSyncTime
         } else try {
             DateUtil.getHttpLastModifiedDate(lastDateHeader).toInstant().toString()
-        } catch (e: ParseException) {
+        } catch (e: DateTimeParseException) {
             lastSyncTime
         }
     }

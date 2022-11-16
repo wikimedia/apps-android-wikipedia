@@ -7,12 +7,11 @@ import android.text.format.DateFormat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.UtcDate
-import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.time.Instant
-import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneOffset
+import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.time.temporal.TemporalAccessor
@@ -153,8 +152,8 @@ object DateUtil {
         return dateFormat.format(date)
     }
 
-    fun getShortDateString(localDate: LocalDate): String {
-        return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(localDate)
+    fun getShortDateString(temporalAccessor: TemporalAccessor): String {
+        return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(temporalAccessor)
     }
 
     fun getUtcRequestDateFor(age: Int): UtcDate {
@@ -167,9 +166,8 @@ object DateUtil {
         return calendar
     }
 
-    @Throws(ParseException::class)
-    fun getHttpLastModifiedDate(dateStr: String): Date {
-        return getCachedDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH, true).parse(dateStr)!!
+    fun getHttpLastModifiedDate(dateStr: String): ZonedDateTime {
+        return ZonedDateTime.parse(dateStr, DateTimeFormatter.RFC_1123_DATE_TIME)
     }
 
     fun yearToStringWithEra(year: Int): String {
