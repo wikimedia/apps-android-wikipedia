@@ -25,7 +25,7 @@ object ReadingListsShareHelper {
 
     fun shareEnabled(): Boolean {
         return ReleaseUtil.isPreBetaRelease ||
-                (listOf("EG", "DZ", "MA", "KE", "CG", "AO", "GH", "IN", "BD", "PK", "LK", "NP").contains(GeoUtil.geoIPCountry.orEmpty()) &&
+                (listOf("EG", "DZ", "MA", "KE", "CG", "AO", "GH", "NG", "IN", "BD", "PK", "LK", "NP").contains(GeoUtil.geoIPCountry.orEmpty()) &&
                         listOf("en", "ar", "hi", "fr", "bn", "es", "pt", "de", "ur", "arz", "si", "sw", "fa", "ne", "te").contains(WikipediaApp.instance.appOrSystemLanguageCode))
     }
 
