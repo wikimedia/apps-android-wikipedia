@@ -15,6 +15,7 @@ import android.speech.RecognizerIntent
 import android.util.Pair
 import android.view.*
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -29,11 +30,13 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.LoginFunnel
+import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.events.ImportReadingListsEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.feed.image.FeaturedImage
@@ -303,6 +306,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())))
         } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.instance.tabCount > 0) {
             startActivity(PageActivity.newIntent(requireContext()))
+        } else if (intent.hasExtra(Constants.INTENT_EXTRA_IMPORT_READING_LISTS)) {
+            goToTab(NavTab.READING_LISTS)
         }
     }
 
@@ -547,6 +552,18 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
+    private fun maybeShowImportReadingListsNewInstallDialog() {
+        if (!Prefs.importReadingListsNewInstallDialogShown) {
+            ReadingListsFunnel().logReceiveStart()
+            AlertDialog.Builder(requireContext())
+                .setTitle(R.string.shareable_reading_lists_new_install_dialog_title)
+                .setMessage(R.string.shareable_reading_lists_new_install_dialog_content)
+                .setNegativeButton(R.string.shareable_reading_lists_new_install_dialog_got_it, null)
+                .show()
+            Prefs.importReadingListsNewInstallDialogShown = true
+        }
+    }
+
     private fun maybeShowEditsTooltip() {
         if (currentFragment !is SuggestedEditsTasksFragment && Prefs.showSuggestedEditsTooltip &&
                 Prefs.exploreFeedVisitCount >= SHOW_EDITS_SNACKBAR_COUNT) {
@@ -589,6 +606,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         override fun accept(event: Any) {
             if (event is LoggedOutInBackgroundEvent) {
                 refreshContents()
+            } else if (event is ImportReadingListsEvent) {
+                maybeShowImportReadingListsNewInstallDialog()
             }
         }
     }

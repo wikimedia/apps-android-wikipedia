@@ -138,10 +138,17 @@
     <string name="preference_key_reading_focus_mode">readingFocusMode</string>
     <string name="preference_key_edit_history_filter_type">editHistoryFilterType</string>
     <string name="preference_key_talk_topic_expand_all">talkTopicExpandAll</string>
+    <string name="preference_key_user_contrib_filter_ns">userContribFilterNamespaces</string>
     <string name="preference_key_user_contrib_filter_excluded_ns">userContribFilterNamespaces</string>
     <string name="preference_key_user_contrib_filter_lang_code">userContribFilterLangCode</string>
+    <string name="preference_key_import_reading_lists_new_install_dialog_shown">importReadingListsNewInstallDialogShown</string>
+    <string name="preference_key_import_reading_lists_dialog_shown">importReadingListsDialogShown</string>
+    <string name="preference_key_import_reading_lists_data">importReadingListsData</string>
     <string name="preference_key_edit_syntax_highlight">editSyntaxHighlight</string>
     <string name="preference_key_edit_monospace_font">editMonospaceFont</string>
     <string name="preference_key_edit_line_numbers">editLineNumbers</string>
     <string name="preference_key_edit_typing_suggestions">editTypingSuggestions</string>
+    <string name="preference_key_reading_lists_share_url_shorten">useUrlShortenerForSharing</string>
+    <string name="preference_key_reading_lists_share_survey_attempts">readingListShareSurveyAttempts</string>
+    <string name="preference_key_reading_lists_share_survey_mode">readingListShareSurveyMode</string>
 </resources>
