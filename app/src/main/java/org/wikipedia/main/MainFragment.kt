@@ -558,9 +558,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             AlertDialog.Builder(requireContext())
                 .setTitle(R.string.shareable_reading_lists_new_install_dialog_title)
                 .setMessage(R.string.shareable_reading_lists_new_install_dialog_content)
-                .setPositiveButton(R.string.shareable_reading_lists_new_install_dialog_learn_more) { _, _ ->
-                    // TODO: open external browser
-                }
                 .setNegativeButton(R.string.shareable_reading_lists_new_install_dialog_got_it, null)
                 .show()
             Prefs.importReadingListsNewInstallDialogShown = true

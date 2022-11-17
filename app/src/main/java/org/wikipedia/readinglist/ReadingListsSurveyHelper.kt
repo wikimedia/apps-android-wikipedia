@@ -15,7 +15,6 @@ import org.wikipedia.util.StringUtil
 import java.util.*
 
 object ReadingListsSurveyHelper {
-    private const val privacyPolicyUrl = "https://foundation.wikimedia.org/wiki/Legal:Wikipedia_Android_App_Onboarding_Survey_Privacy_Statement"
     private const val MODE_INACTIVE = 0
     private const val MODE_ACTIVE = 1
     private const val MODE_OVERRIDE = 2
@@ -43,7 +42,7 @@ object ReadingListsSurveyHelper {
         val dialog = AlertDialog.Builder(activity)
                 .setTitle(activity.getString(R.string.reading_list_share_survey_title))
                 .setMessage(StringUtil.fromHtml(activity.getString(R.string.reading_list_share_survey_body) +
-                        "<br/><br/><small><a href=\"$privacyPolicyUrl\">" +
+                        "<br/><br/><small><a href=\"${activity.getString(R.string.survey_privacy_policy_url)}\">" +
                         activity.getString(R.string.privacy_policy_description) + "</a></small>"))
                 .setPositiveButton(R.string.talk_snackbar_survey_action_text) { _, _ -> takeUserToSurvey(activity) }
                 .setNegativeButton(if (attempts == 0) R.string.onboarding_maybe_later else android.R.string.cancel, null)

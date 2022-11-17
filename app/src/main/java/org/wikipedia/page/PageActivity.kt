@@ -497,7 +497,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 ActivityCompat.getReferrer(this)?.let { uri ->
                     historyEntry.referrer = uri.toString()
                 }
-                // TODO: update this after we have the finalized URL format.
                 if (title.namespace() == Namespace.SPECIAL && title.prefixedText.startsWith("Special:ReadingLists")) {
                     L.d("Received shareable reading lists")
                     // TODO: we can use either from parameter or fragment.
