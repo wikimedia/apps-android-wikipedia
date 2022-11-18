@@ -616,10 +616,11 @@
     <string name="reading_lists_import_failure_message">Reading lists import failed</string>
     <string name="reading_lists_export_select_lists_message">Select list(s) to  export</string>
     <string name="reading_lists_export_completed_message">Reading list(s) exported</string>
-    <string name="reading_lists_import_conflict_dialog_title">A list named %s already exists. Do you want to replace it?</string>
-    <string name="reading_lists_import_conflict_dialog_primary_action_text">Replace</string>
-    <string name="reading_lists_import_conflict_dialog_secondary_action_text">Keep both lists</string>
-    <string name="reading_lists_import_conflict_dialog_tertiary_action_text">Skip</string>
+    <string name="reading_lists_import_conflict_dialog_title">Import list conflict</string>
+    <string name="reading_lists_import_conflict_dialog_message">Similarly named lists exist in your saved tab. How would you like to resolve them all?</string>
+    <string name="reading_lists_import_conflict_dialog_primary_action_text">Keep both</string>
+    <string name="reading_lists_import_conflict_dialog_secondary_action_text">Replace</string>
+    <string name="reading_lists_import_conflict_dialog_neutral_action_text">Skip</string>
     <plurals name="reading_list_export_failed_message">
         <item quantity="one">Reading list export failed</item>
         <item quantity="other">Reading lists export failed</item>
