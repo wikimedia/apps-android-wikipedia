@@ -131,11 +131,14 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
                 .setMessage(activity.getString(R.string.reading_lists_import_conflict_dialog_message))
                 .setPositiveButton(R.string.reading_lists_import_conflict_dialog_primary_action_text) { _, _ ->
                     createListsFromImport(activity, lists, KEEP_BOTH)
-                }.setNegativeButton(R.string.reading_lists_import_conflict_dialog_secondary_action_text) { _, _ ->
+                }
+                .setNegativeButton(R.string.reading_lists_import_conflict_dialog_secondary_action_text) { _, _ ->
                     createListsFromImport(activity, lists, REPLACE)
-                }.setNeutralButton(R.string.reading_lists_import_conflict_dialog_neutral_action_text) { _, _ ->
+                }
+                .setNeutralButton(R.string.reading_lists_import_conflict_dialog_neutral_action_text) { _, _ ->
                     createListsFromImport(activity, lists, SKIP)
-                }.show()
+                }
+                .show()
     }
 
     private fun createNewList(importedList: ExportableReadingList, titleForDuplicateList: String? = null) {
