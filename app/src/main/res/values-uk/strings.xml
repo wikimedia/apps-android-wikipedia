@@ -846,6 +846,7 @@
   <string name="description_edit_learn_more">Докладніше про описи статей</string>
   <string name="description_edit_image_caption_learn_more">Докладніше про підписи до зображень</string>
   <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Текст закороткий.</string>
   <string name="description_ends_with_punctuation">Текст не має закінчуватися розділовим знаком.</string>
   <string name="description_starts_with_article">Уникайте артиклів на початку, на зразок «a» чи «the».</string>
@@ -1145,8 +1146,10 @@
   <string name="wikitext_bold">Жирний</string>
   <string name="wikitext_italic">Курсив</string>
   <string name="wikitext_underline">Підкреслення</string>
+  <string name="wikitext_strikethrough">Закреслення</string>
   <string name="wikitext_large">Великий текст</string>
   <string name="wikitext_small">Малий текст</string>
+  <string name="wikitext_code">Код</string>
   <string name="wikitext_link">Посилання</string>
   <string name="wikitext_formatting">Форматування</string>
   <string name="wikitext_insert_media">Вставити медіа</string>
@@ -1176,6 +1179,7 @@
   <string name="insert_media_advanced_settings_image_size_custom">Користувацький</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">Ширина</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">Висота</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">пкс</string>
   <string name="insert_media_insert_button">Вставити</string>
   <string name="main_drawer_help">Допомога</string>
   <string name="main_drawer_login">Увійти до Вікіпедії</string>
@@ -1319,7 +1323,7 @@
   <string name="revision_initial_none">Немає (це перша версія)</string>
   <string name="user_contrib_activity_title">Внески %s</string>
   <string name="archive_empty">Архівованих сторінок не знайдено.</string>
-  <string name="user_contrib_filter_all" fuzzy="true">Усі редагування</string>
+  <string name="user_contrib_filter_all">Усі простори назв</string>
   <string name="user_contrib_filter_ns_header">Фільтр простору імен</string>
   <string name="namespace_article">Стаття</string>
   <string name="user_contrib_current">поточний</string>
