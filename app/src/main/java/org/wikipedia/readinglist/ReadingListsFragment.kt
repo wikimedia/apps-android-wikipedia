@@ -10,11 +10,13 @@ import android.text.style.ForegroundColorSpan
 import android.view.*
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.core.graphics.ColorUtils
 import androidx.core.view.MenuItemCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +25,10 @@ import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -67,6 +73,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val overflowCallback = OverflowCallback()
     private var currentSearchQuery: String? = null
+    private var recentImportedReadingList: ReadingList? = null
     private var selectMode: Boolean = false
     private var importMode: Boolean = false
 
@@ -286,6 +293,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             maybeShowListLimitMessage()
             updateEmptyState(searchQuery)
             maybeDeleteListFromIntent()
+            maybeShowImportReadingListsDialog()
             currentSearchQuery = searchQuery
             maybeTurnOffImportMode(lists.filterIsInstance<ReadingList>().toMutableList())
         }
@@ -350,7 +358,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private inner class ReadingListItemHolder constructor(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
         fun bindItem(readingList: ReadingList) {
-            view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY, selectMode)
+            view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY, selectMode, readingList.id == recentImportedReadingList?.id)
             view.setSearchQuery(currentSearchQuery)
         }
 
@@ -474,6 +482,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
         override fun onChecked(readingList: ReadingList) {
             toggleSelectList(readingList)
+        }
+
+        override fun onShare(readingList: ReadingList) {
+            ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
         }
     }
 
@@ -724,6 +736,48 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity())
             }
         }
+    }
+
+    private fun maybeShowImportReadingListsDialog() {
+        val encodedJson = Prefs.importReadingListsData
+        if (!Prefs.importReadingListsDialogShown && !encodedJson.isNullOrEmpty()) {
+            binding.swipeRefreshLayout.isRefreshing = true
+            lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                L.e(throwable)
+                FeedbackUtil.showError(requireActivity(), throwable)
+                binding.swipeRefreshLayout.isRefreshing = false
+            }) {
+                withContext(Dispatchers.Main) {
+                    val readingList = ReadingListsImportHelper.importReadingLists(requireContext(), encodedJson)
+                    val dialogView = ReadingListImportDialogView(requireContext())
+                    dialogView.setReadingList(readingList)
+                    ReadingListsFunnel().logReceivePreview(readingList)
+                    AlertDialog.Builder(requireContext())
+                        .setView(dialogView)
+                        .setPositiveButton(R.string.shareable_reading_lists_import_dialog_confirm) { _, _ ->
+                            ReadingListsFunnel().logReceiveFinish(readingList)
+                            importReadingListAndRefresh(readingList)
+                        }
+                        .setNegativeButton(R.string.shareable_reading_lists_import_dialog_cancel) { _, _ ->
+                            ReadingListsFunnel().logReceiveCancel(readingList)
+                        }
+                            .setOnDismissListener {
+                                ReadingListsSurveyHelper.activateSurvey()
+                                ReadingListsSurveyHelper.maybeShowSurvey(requireActivity())
+                            }
+                            .show()
+                    Prefs.importReadingListsDialogShown = true
+                    binding.swipeRefreshLayout.isRefreshing = false
+                }
+            }
+        }
+    }
+
+    private fun importReadingListAndRefresh(readingList: ReadingList) {
+        binding.swipeRefreshLayout.isRefreshing = true
+        readingList.id = AppDatabase.instance.readingListDao().insertReadingList(readingList)
+        AppDatabase.instance.readingListPageDao().addPagesToList(readingList, readingList.pages, true)
+        recentImportedReadingList = readingList
     }
 
     private fun maybeShowOnboarding(searchQuery: String?) {

@@ -1384,4 +1384,24 @@
     <string name="user_contrib_menu_label">Contributions</string>
     <string name="user_contrib_filter_activity_title">Filter contributions</string>
 
+    <!-- Shareable reading lists -->
+    <string name="shareable_reading_lists_import_dialog_title">Import reading list</string>
+    <string name="shareable_reading_lists_import_dialog_content">Are you sure that you want to import this reading list?</string>
+    <string name="shareable_reading_lists_import_dialog_confirm">Import</string>
+    <string name="shareable_reading_lists_import_dialog_cancel">Cancel</string>
+    <string name="shareable_reading_lists_new_indicator">*new*</string>
+    <string name="shareable_reading_lists_new_install_dialog_title">A reading list has been shared with you.</string>
+    <string name="shareable_reading_lists_new_install_dialog_content">We noticed that a reading list has been shared with you. To view this list in this app, go back to the original message and tap the link that was shared with you again.</string>
+    <string name="shareable_reading_lists_new_install_dialog_got_it">Got it</string>
+    <string name="shareable_reading_lists_new_imported_list_title">Imported list</string>
+    <plurals name="shareable_reading_lists_import_dialog_content_articles">
+        <item quantity="one">%d article</item>
+        <item quantity="other">%d articles</item>
+    </plurals>
+    <string name="reading_list_share_menu_label">Share…</string>
+    <string name="reading_list_share_message">Hi! I\'d like to share my reading list \"%s\" with you:</string>
+    <string name="reading_list_share_survey_title">Could you help us improve this feature?</string>
+    <string name="reading_list_share_survey_body">Sharing and exporting reading lists is a test feature and we need your feedback to improve or remove it.</string>
+    <!-- /Shareable reading lists -->
+
 </resources>

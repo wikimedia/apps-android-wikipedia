@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.annotation.StyleRes
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -30,6 +31,7 @@ class ReadingListItemView : ConstraintLayout {
         fun onRemoveAllOffline(readingList: ReadingList)
         fun onSelectList(readingList: ReadingList)
         fun onChecked(readingList: ReadingList)
+        fun onShare(readingList: ReadingList)
     }
 
     enum class Description {
@@ -70,6 +72,7 @@ class ReadingListItemView : ConstraintLayout {
                     }
                     menu.menu.findItem(R.id.menu_reading_list_select).title =
                         context.getString(if (it.selected) R.string.reading_list_menu_unselect else R.string.reading_list_menu_select)
+                    menu.menu.findItem(R.id.menu_reading_list_share).isVisible = ReadingListsShareHelper.shareEnabled()
                     menu.setOnMenuItemClickListener(OverflowMenuClickListener(it))
                     menu.show()
                 }
@@ -86,6 +89,7 @@ class ReadingListItemView : ConstraintLayout {
                         menu.menu.findItem(R.id.menu_reading_list_rename).isVisible = false
                         menu.menu.findItem(R.id.menu_reading_list_delete).isVisible = false
                     }
+                    menu.menu.findItem(R.id.menu_reading_list_share).isVisible = ReadingListsShareHelper.shareEnabled()
                     menu.setOnMenuItemClickListener(OverflowMenuClickListener(it))
                     menu.show()
                 }
@@ -97,12 +101,13 @@ class ReadingListItemView : ConstraintLayout {
         }
     }
 
-    fun setReadingList(readingList: ReadingList, description: Description, selectMode: Boolean = false) {
+    fun setReadingList(readingList: ReadingList, description: Description, selectMode: Boolean = false, newImport: Boolean = false) {
         this.readingList = readingList
         val isDetailView = description == Description.DETAIL
         binding.itemDescription.maxLines = if (isDetailView) Int.MAX_VALUE else resources.getInteger(R.integer.reading_list_description_summary_view_max_lines)
         val text: CharSequence = if (isDetailView) buildStatisticalDetailText(readingList) else buildStatisticalSummaryText(readingList)
         binding.itemReadingListStatisticalDescription.text = text
+        binding.itemTitleIndicator.isVisible = newImport
         updateDetails(selectMode)
         if (binding.itemImage1.visibility == VISIBLE) {
             updateThumbnails()
@@ -202,6 +207,10 @@ class ReadingListItemView : ConstraintLayout {
                 }
                 R.id.menu_reading_list_select -> {
                     list?.let { callback?.onSelectList(it) }
+                    return true
+                }
+                R.id.menu_reading_list_share -> {
+                    list?.let { callback?.onShare(it) }
                     return true
                 }
                 else -> return false

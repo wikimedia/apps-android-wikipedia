@@ -119,6 +119,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val sortByNameItem = menu.findItem(R.id.menu_sort_by_name)
         val sortByRecentItem = menu.findItem(R.id.menu_sort_by_recent)
         val sortMode = Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC)
+        menu.findItem(R.id.menu_reading_list_share)?.isVisible = ReadingListsShareHelper.shareEnabled()
         sortByNameItem.setTitle(if (sortMode == ReadingList.SORT_BY_NAME_ASC) R.string.reading_list_sort_by_name_desc else R.string.reading_list_sort_by_name)
         sortByRecentItem.setTitle(if (sortMode == ReadingList.SORT_BY_RECENT_DESC) R.string.reading_list_sort_by_recent_desc else R.string.reading_list_sort_by_recent)
         val searchItem = menu.findItem(R.id.menu_search_lists)
@@ -177,6 +178,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                         update()
                     }
                 }
+                true
+            }
+            R.id.menu_reading_list_share -> {
+                ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
                 true
             }
             else -> false
@@ -617,6 +622,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         override fun onChecked(readingList: ReadingList) {
             // ignore
         }
+
+        override fun onShare(readingList: ReadingList) {
+            ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
+        }
     }
 
     private inner class ReadingListItemCallback : ReadingListItemView.Callback {
@@ -650,6 +659,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
         override fun onChecked(readingList: ReadingList) {
             // ignore
+        }
+        override fun onShare(readingList: ReadingList) {
+            ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
         }
     }
 

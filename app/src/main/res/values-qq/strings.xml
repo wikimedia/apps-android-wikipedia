@@ -1321,4 +1321,22 @@
   <string name="reading_lists_import_conflict_dialog_primary_action_text">Primary action text for dialog shown when there is a conflict during importing of lists.</string>
   <string name="reading_lists_import_conflict_dialog_secondary_action_text">Secondary action text for dialog shown when there is a conflict during importing of lists.</string>
   <string name="reading_lists_import_conflict_dialog_tertiary_action_text">Tertiary action text for dialog shown when there is a conflict during importing of lists.</string>
+  <string name="shareable_reading_lists_import_dialog_title">Title text for the import reading list dialog.</string>
+  <string name="shareable_reading_lists_import_dialog_content">Content text for the import reading list dialog.</string>
+  <string name="shareable_reading_lists_import_dialog_confirm">Button label of the import reading list dialog that confirms the action.</string>
+  <string name="shareable_reading_lists_import_dialog_cancel">Button label of the import reading list dialog that cancels the action.</string>
+  <string name="shareable_reading_lists_new_indicator">Label indicating that the imported list in the list view.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Title text for the onboarding import reading list dialog.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Content text for the onboarding import reading list dialog.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Button label of the onboarding import reading list dialog that dismisses the dialog.</string>
+  <string name="shareable_reading_lists_new_imported_list_title">Item title of the newly imported reading list.</string>
+  <plurals name="shareable_reading_lists_import_dialog_content_articles">
+    <item quantity="one">Text that indicates only one article in the list. %d will be replaced by the number of pages.</item>
+    <item quantity="other">Text that indicates how many articles in the list. %d will be replaced by the number of pages.</item>
+  </plurals>
+  <string name="user_contrib_wiki_select">Screen title for viewing the contributions of a user from a selected wiki.</string>
+  <string name="reading_list_share_menu_label">Menu label for sharing the selected reading list.</string>
+  <string name="reading_list_share_message">Message that is sent to a recipient when sharing a reading list. The %s symbol is replaced with the name of the reading list.</string>
+  <string name="reading_list_share_survey_title">Title for dialog box that leads to a survey about sharing reading lists.</string>
+  <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
 </resources>

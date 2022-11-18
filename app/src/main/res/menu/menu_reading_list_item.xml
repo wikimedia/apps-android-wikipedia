@@ -13,4 +13,6 @@
         android:title="@string/reading_list_menu_export"/>
     <item android:id="@+id/menu_reading_list_select"
         android:title="@string/reading_list_menu_select"/>
+    <item android:id="@+id/menu_reading_list_share"
+        android:title="@string/reading_list_share_menu_label"/>
 </menu>
