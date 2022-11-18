@@ -102,6 +102,12 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info|description&inprop=varianttitles|displaytitle&redirects=1")
     fun getInfoByPageId(@Query("pageids") pageIds: String): Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&prop=description|pageimages&redirects=1")
+    suspend fun getPageTitlesByPageId(@Query("pageids") pageIds: String): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query")
+    suspend fun getPageIds(@Query("titles") titles: String): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     fun getImageInfo(
         @Query("titles") titles: String,
