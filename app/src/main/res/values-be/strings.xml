@@ -451,7 +451,7 @@
   <string name="color_theme_test_title">Прыклад тэксту</string>
   <string name="color_theme_test_text">Перацягніце лятунок, каб змяніць памер тэксту, які выкарыстоўваецца падчас чытання артыкулаў. Каб усталяваць памер тэксту ва ўсёй астатняй частцы дадатку, змяніце памер тэксту вашай сістэмы.</string>
   <string name="preference_title_app_theme">Тэма дадатку</string>
-  <string name="preference_summary_color_theme">Пераключыцца на цёмную тэму дадатку</string>
+  <string name="preference_summary_color_theme">Пераключыць на цёмную тэму дадатку</string>
   <string name="text_size_increase">Павялічыць памер тэксту</string>
   <string name="text_size_decrease">Паменшыць памер тэксту</string>
   <string name="text_size_percent_default">%s (па змаўчанні)</string>
