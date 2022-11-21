@@ -151,4 +151,5 @@
     <string name="preference_key_reading_lists_share_url_shorten">useUrlShortenerForSharing</string>
     <string name="preference_key_reading_lists_share_survey_attempts">readingListShareSurveyAttempts</string>
     <string name="preference_key_reading_lists_share_survey_mode">readingListShareSurveyMode</string>
+    <string name="preference_key_reading_lists_share_tooltip_shown">readingListShareTooltipShown</string>
 </resources>

@@ -650,4 +650,8 @@ object Prefs {
     var readingListShareSurveyMode
         get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_share_survey_mode, 0)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_share_survey_mode, value)
+
+    var readingListShareTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, value)
 }

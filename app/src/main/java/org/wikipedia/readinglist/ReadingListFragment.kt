@@ -12,6 +12,7 @@ import androidx.appcompat.view.ActionMode
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.MenuProvider
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -75,7 +76,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private var displayedLists = mutableListOf<Any>()
     private var currentSearchQuery: String? = null
     private var articleLimitMessageShown = false
-    private var isShareButtonVisible = ReadingListsShareHelper.shareEnabled()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -199,7 +199,16 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.setThumbnailVisible(false)
         headerView.setTitleTextAppearance(R.style.ReadingListTitleTextAppearance)
         headerView.setOverflowViewVisibility(View.VISIBLE)
-        headerView.setShareButtonVisibility(if (isShareButtonVisible) View.VISIBLE else View.GONE)
+        if (ReadingListsShareHelper.shareEnabled()) {
+            headerView.shareButton.isVisible = true
+            if (!Prefs.readingListShareTooltipShown) {
+                FeedbackUtil.showTooltip(requireActivity(), headerView.shareButton, getString(R.string.reading_list_share_menu_tooltip),
+                    aboveOrBelow = false, autoDismiss = true, showDismissButton = true)
+                Prefs.readingListShareTooltipShown = true
+            }
+        } else {
+            headerView.shareButton.isVisible = false
+        }
     }
 
     private fun setRecyclerView() {

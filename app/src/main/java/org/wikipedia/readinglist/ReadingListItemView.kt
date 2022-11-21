@@ -35,6 +35,7 @@ class ReadingListItemView : ConstraintLayout {
     private var readingList: ReadingList? = null
     private val imageViews = listOf(binding.itemImage1, binding.itemImage2, binding.itemImage3, binding.itemImage4)
     var callback: Callback? = null
+    val shareButton get() = binding.itemShareButton
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -63,6 +64,7 @@ class ReadingListItemView : ConstraintLayout {
                         menu.menu.findItem(R.id.menu_reading_list_rename).isVisible = false
                         menu.menu.findItem(R.id.menu_reading_list_delete).isVisible = false
                     }
+                    menu.menu.findItem(R.id.menu_reading_list_share).isVisible = ReadingListsShareHelper.shareEnabled()
                     menu.setOnMenuItemClickListener(OverflowMenuClickListener(it))
                     menu.show()
                 }
@@ -78,6 +80,7 @@ class ReadingListItemView : ConstraintLayout {
                         menu.menu.findItem(R.id.menu_reading_list_rename).isVisible = false
                         menu.menu.findItem(R.id.menu_reading_list_delete).isVisible = false
                     }
+                    menu.menu.findItem(R.id.menu_reading_list_share).isVisible = false
                     menu.setOnMenuItemClickListener(OverflowMenuClickListener(it))
                     menu.show()
                 }
@@ -124,10 +127,6 @@ class ReadingListItemView : ConstraintLayout {
 
     fun setOverflowViewVisibility(visibility: Int) {
         binding.itemOverflowMenu.visibility = visibility
-    }
-
-    fun setShareButtonVisibility(visibility: Int) {
-        binding.itemShareButton.visibility = visibility
     }
 
     private fun updateDetails() {
@@ -192,6 +191,10 @@ class ReadingListItemView : ConstraintLayout {
                 }
                 R.id.menu_reading_list_remove_all_offline -> {
                     list?.let { callback?.onRemoveAllOffline(it) }
+                    return true
+                }
+                R.id.menu_reading_list_share -> {
+                    list?.let { callback?.onShare(it) }
                     return true
                 }
                 else -> return false
