@@ -1364,9 +1364,9 @@
     </plurals>
     <string name="reading_list_share_menu_label">Share…</string>
     <string name="reading_list_share_menu_tooltip">Share this reading list with others</string>
-    <string name="reading_list_share_message">Hi! I\'d like to share my reading list \"%s\" with you:</string>
-    <string name="reading_list_share_survey_title">Could you help us improve this feature?</string>
-    <string name="reading_list_share_survey_body">Sharing and exporting reading lists is a test feature and we need your feedback to improve or remove it.</string>
+    <string name="reading_list_share_message">Hi! I\'d like to share my Wikipedia reading list (\"%s\") with you:</string>
+    <string name="reading_list_share_survey_title">Could you help us improve \"Share reading lists\"?</string>
+    <string name="reading_list_share_survey_body">\"Share reading lists\" is a test feature and we need your feedback to improve or remove it.</string>
     <!-- /Shareable reading lists -->
 
 </resources>
