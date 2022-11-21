@@ -147,7 +147,7 @@
   <string name="login_username_hint">Uporabniško ime</string>
   <string name="login_password_hint">Geslo</string>
   <string name="account_creation_password_hint">Geslo</string>
-  <string name="login_2fa_hint">Koda za dvostopenjsko prijavo</string>
+  <string name="login_2fa_hint">Koda za dvofaktorsko avtentikacijo</string>
   <string name="login_2fa_other_workflow_error_msg">Potrebna je dvofaktorska avtentikacija! Vrnite se na glavno dejavnost in se prijavite s svojim žetonom 2FA, nato poskusite znova.</string>
   <string name="onboarding_card_login">Prijava</string>
   <string name="page_editing_login">Prijava</string>
@@ -503,7 +503,7 @@
   <string name="reading_list_action_menu_move_to_another_list">Prestavi na drug seznam</string>
   <string name="reading_list_name_sample">Moj bralni seznam</string>
   <string name="reading_list_name_hint">Naslov seznama</string>
-  <string name="reading_list_description_hint">Opis (neobvezno)</string>
+  <string name="reading_list_description_hint">Opis (izbirno)</string>
   <string name="reading_list_item_deleted">Članek %s je odstranjen s seznama.</string>
   <string name="reading_list_item_deleted_from_list">%1$s odstranjen s seznama %2$s</string>
   <plurals name="reading_list_articles_deleted">
@@ -560,7 +560,7 @@
   <string name="reading_list_turned_sync_off_dialog_settings">Nastavitve</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Vklopim sinhronizacijo bralnih seznamov?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_text">Članke, shranjene na bralnih seznamih, lahko zdaj sinhronizirate s svojimi računom v Wikipediji. &lt;a href=\"#faq\"&gt;Več o tem&lt;/a&gt;</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Tega mi ne prikaži več</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Tega ne prikaži več</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Sinhroniziraj</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, hvala</string>
   <string name="default_reading_list_name">Shranjeno</string>
@@ -858,7 +858,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Začetek urejanja</string>
   <string name="description_edit_tutorial_promise">Ob začetku obljubljam, da te funkcije ne bom zlorabil/a</string>
   <string name="customize_toolbar_title">Prilagodi orodno vrstico</string>
-  <string name="customize_toolbar_shortcut_description_text">Prilagodite si orodno vrstico na dnu s 5 povezavami, ki so za vas najuporabnejše.</string>
+  <string name="customize_toolbar_shortcut_description_text">Prilagodite si orodno vrstico na dnu s 5 bližnjicami, ki so za vas najuporabnejše.</string>
   <string name="customize_toolbar_category_toolbar">Orodna vrstica</string>
   <string name="customize_toolbar_category_menu">Meni</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Povlecite in spustite svoje najljubše predmete sem 👋</string>
@@ -1229,7 +1229,7 @@
   </plurals>
   <string name="talk_thread_subscribed_to">Naročeni ste na »%s«</string>
   <string name="talk_thread_unsubscribed_from">Odjavljeni ste od »%s«</string>
-  <string name="talk_list_item_overflow_subscribe">Naroči</string>
+  <string name="talk_list_item_overflow_subscribe">Naroči se</string>
   <string name="talk_list_item_overflow_subscribed">Naročeni</string>
   <string name="talk_list_item_overflow_mark_as_read">Označi kot prebrano</string>
   <string name="talk_list_item_overflow_mark_as_unread">Označi kot neprebrano</string>
@@ -1324,7 +1324,7 @@
   <string name="revision_initial_none">Brez (to je prva redakcija)</string>
   <string name="user_contrib_activity_title">Prispevki uporabnika/ce %s</string>
   <string name="archive_empty">Ni najdenih arhivskih strani.</string>
-  <string name="user_contrib_filter_ns">Filtriranje po imenskem prostoru</string>
+  <string name="user_contrib_filter_ns">Filtriraj po imenskem prostoru</string>
   <string name="user_contrib_filter_all">Vsi imenski prostori</string>
   <string name="user_contrib_filter_ns_header">Filter imenskega prostora</string>
   <string name="namespace_article">Članek</string>
@@ -1332,4 +1332,23 @@
   <string name="media_playback_error">Napaka pri predvajanju predstavnosti.</string>
   <string name="user_contrib_menu_label">Prispevki</string>
   <string name="user_contrib_filter_activity_title">Filtriraj prispevke</string>
+  <string name="shareable_reading_lists_import_dialog_title">Uvozi bralni seznam</string>
+  <string name="shareable_reading_lists_import_dialog_content">Ali res želite uvoziti ta bralni seznam?</string>
+  <string name="shareable_reading_lists_import_dialog_confirm">Uvozi</string>
+  <string name="shareable_reading_lists_import_dialog_cancel">Prekliči</string>
+  <string name="shareable_reading_lists_new_indicator">*novo*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Z vami je bil deljen bralni seznam.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Opazili smo, da je bil z vami deljen bralni seznam. Če si želite ogledati ta seznam v tej aplikaciji, se vrnite na prvotno sporočilo in znova tapnite povezavo, ki je bila deljena z vami.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Razumem</string>
+  <string name="shareable_reading_lists_new_imported_list_title">Uvoženi seznam</string>
+  <plurals name="shareable_reading_lists_import_dialog_content_articles">
+    <item quantity="one">%d članek</item>
+    <item quantity="two">%d članka</item>
+    <item quantity="few">%d članki</item>
+    <item quantity="other">%d člankov</item>
+  </plurals>
+  <string name="reading_list_share_menu_label">Deli ...</string>
+  <string name="reading_list_share_message">Živijo! S tabo želim deliti svoj bralni seznam »%s«:</string>
+  <string name="reading_list_share_survey_title">Nam lahko pomagate izboljšati to funkcijo?</string>
+  <string name="reading_list_share_survey_body">Deljenje in izvoz bralnih seznamov sta preizkusni funkciji in potrebujemo vaše povratne informacije, da ju izboljšamo ali odstranimo.</string>
 </resources>

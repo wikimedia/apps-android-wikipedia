@@ -157,7 +157,7 @@
   <string name="page_protected_can_not_edit_title">ایہ صفحہ سرکھیات ہے</string>
   <string name="settings_item_preferences">سیٹنگاں</string>
   <string name="settings_activity_title">سیٹنگاں</string>
-  <string name="about_description">وِکیپیڈیا اَیپ بابت</string>
+  <string name="about_description">وِکیپیڈیا اَیپ بارے</string>
   <string name="privacy_policy_description">پردا نیتی</string>
   <string name="terms_of_use_description">ورتوں دیاں شرتاں</string>
   <string name="about_libraries_heading">ورتیاں لائبریریاں</string>
@@ -343,4 +343,5 @@
   <string name="thank_label">شکریہ</string>
   <string name="thank_dialog_negative_button_text">رد کرو</string>
   <string name="revision_diff_lines_from_to">لائین %1$d … %2$d</string>
+  <string name="shareable_reading_lists_import_dialog_cancel">رد کرو</string>
 </resources>
