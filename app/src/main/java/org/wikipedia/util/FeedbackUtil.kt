@@ -144,7 +144,7 @@ object FeedbackUtil {
 
     fun showTooltip(activity: Activity, anchor: View, text: CharSequence, aboveOrBelow: Boolean,
                     autoDismiss: Boolean, arrowAnchorPadding: Int = 0, topOrBottomMargin: Int = 0, showDismissButton: Boolean = autoDismiss): Balloon {
-        return showTooltip(activity, getTooltip(anchor.context, text, autoDismiss, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow), anchor, aboveOrBelow, showDismissButton)
+        return showTooltip(activity, getTooltip(anchor.context, text, autoDismiss, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, showDismissButton), anchor, aboveOrBelow, autoDismiss)
     }
 
     fun showTooltip(activity: Activity, anchor: View, @LayoutRes layoutRes: Int,
