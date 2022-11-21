@@ -847,7 +847,7 @@
   <string name="suggested_edits_task_image_caption_edit_disable_text">%d ta rasm sarlavhasini tahrir qilmaguningizcha qulflangan turadi</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Siz %d ta maqola tavsifini tahrir qilgunga qadar qulflangan turadi (tasdiqlangan)</string>
   <string name="suggested_edits_task_multilingual_negative">Menga emas</string>
-  <string name="suggested_edits_task_multilingual_positive">Til qoʻshmoq</string>
+  <string name="suggested_edits_task_multilingual_positive">Til qoʻshish</string>
   <string name="suggested_edits_image_caption_summary_title_image">Rasm</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artist</string>
   <string name="suggested_edits_image_caption_summary_title_author">Muallif</string>

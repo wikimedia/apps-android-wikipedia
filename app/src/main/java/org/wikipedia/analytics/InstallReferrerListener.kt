@@ -6,6 +6,7 @@ import android.net.Uri
 import com.android.installreferrer.api.InstallReferrerClient
 import com.android.installreferrer.api.InstallReferrerStateListener
 import org.wikipedia.WikipediaApp
+import org.wikipedia.events.ImportReadingListsEvent
 import org.wikipedia.page.PageActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ShareUtil
@@ -125,6 +126,11 @@ class InstallReferrerListener : InstallReferrerStateListener {
         }
         if (!refChannel.isNullOrEmpty()) {
             Prefs.appChannel = refChannel
+        }
+
+        if (refUtmSource.orEmpty() == "readingLists") {
+            Prefs.importReadingListsNewInstallDialogShown = false
+            WikipediaApp.instance.bus.post(ImportReadingListsEvent())
         }
     }
 

@@ -37,7 +37,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 50422
+        versionCode 50423
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -170,7 +170,7 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
-    String okHttpVersion = '4.8.1'
+    String okHttpVersion = '4.10.0'
     String retrofitVersion = '2.9.0'
     String glideVersion = '4.13.2'
     String mockitoVersion = '3.4.0'
