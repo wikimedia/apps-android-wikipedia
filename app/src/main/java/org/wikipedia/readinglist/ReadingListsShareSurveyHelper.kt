@@ -54,12 +54,12 @@ object ReadingListsShareSurveyHelper {
         ReadingListsFunnel().logSurveyShown()
     }
 
-    fun isActive(): Boolean {
+    private fun isActive(): Boolean {
         return Prefs.readingListShareSurveyMode != MODE_INACTIVE
     }
 
     private fun fallsWithinDateRange(): Boolean {
-        val endTime = GregorianCalendar(2022, 11, 1)
+        val endTime = GregorianCalendar(2022, 11, 30)
         return Calendar.getInstance().timeInMillis < endTime.timeInMillis
     }
 

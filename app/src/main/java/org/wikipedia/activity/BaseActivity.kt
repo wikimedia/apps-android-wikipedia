@@ -33,7 +33,6 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.ReadingListsReceiveSurveyHelper
 import org.wikipedia.readinglist.ReadingListsShareSurveyHelper
-import org.wikipedia.readinglist.ReadingListsSurveyHelper
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.recurring.RecurringTasksExecutor

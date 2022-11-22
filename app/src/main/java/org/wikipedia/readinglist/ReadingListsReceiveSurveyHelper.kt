@@ -26,8 +26,7 @@ object ReadingListsReceiveSurveyHelper {
 
     fun maybeShowSurvey(activity: Activity) {
         if (!activity.isDestroyed && (Prefs.readingListReceiveSurveyMode == MODE_OVERRIDE ||
-                        (!ReadingListsShareSurveyHelper.isActive() && isActive() &&
-                                ReadingListsShareHelper.shareEnabled() && fallsWithinDateRange()))) {
+                        (isActive() && fallsWithinDateRange()))) {
             showSurveyDialog(activity)
         }
     }
@@ -55,7 +54,7 @@ object ReadingListsReceiveSurveyHelper {
         ReadingListsFunnel().logSurveyShown()
     }
 
-    fun isActive(): Boolean {
+    private fun isActive(): Boolean {
         return Prefs.readingListReceiveSurveyMode != MODE_INACTIVE
     }
 
