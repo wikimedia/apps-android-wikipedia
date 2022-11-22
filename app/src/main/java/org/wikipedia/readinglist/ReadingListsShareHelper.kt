@@ -66,8 +66,8 @@ object ReadingListsShareHelper {
                     .setType("text/plain")
             activity.startActivity(intent)
 
-            ReadingListsSurveyHelper.activateSurvey()
-            ReadingListsSurveyHelper.maybeShowSurvey(activity)
+            ReadingListsShareSurveyHelper.activateSurvey()
+            ReadingListsShareSurveyHelper.maybeShowSurvey(activity)
         }
     }
 
