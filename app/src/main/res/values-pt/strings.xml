@@ -1285,10 +1285,6 @@
   <string name="shareable_reading_lists_new_install_dialog_content">Notámos que foi partilhada consigo uma lista de leitura. Para ver esta lista nesta aplicação móvel, volte à mensagem original e prima novamente a hiperligação que foi partilhada consigo.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Entendido</string>
   <string name="shareable_reading_lists_new_imported_list_title">Lista importada</string>
-  <plurals name="shareable_reading_lists_import_dialog_content_articles">
-    <item quantity="one">%d artigo</item>
-    <item quantity="other">%d artigos</item>
-  </plurals>
   <string name="reading_list_share_menu_label">Partilhar...</string>
   <string name="reading_list_share_message">Olá! Gostaria de partilhar a minha lista de leitura \"%s\" consigo:</string>
   <string name="reading_list_share_survey_title">Podia ajudar-nos a melhorar esta funcionalidade?</string>
