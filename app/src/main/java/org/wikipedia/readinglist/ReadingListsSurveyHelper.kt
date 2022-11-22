@@ -81,12 +81,13 @@ object ReadingListsSurveyHelper {
     private fun getLanguageSpecificUrl(): String {
         // TODO
         return when (WikipediaApp.instance.languageState.appLanguageCode) {
-            "ar" -> ""
-            "fr" -> ""
-            "hi" -> ""
-            "id" -> ""
-            "ja" -> ""
-            else -> ""
+            "ar" -> "https://docs.google.com/forms/d/15ZnQRm8J3UtAxkS0BSaq2jGraGeCd8ojKwt97xjlO4Y"
+            "bn" -> "https://forms.gle/864rFuD19qETpSTv7"
+            "fr" -> "https://forms.gle/FHNm9LZdQfkbUbW58"
+            "de" -> "https://docs.google.com/forms/d/e/1FAIpQLSfS2-gQJtCUnFMJl-C0BdrWNxpb-PeXjoDeCR4z80gSCoA-RA/viewform?usp=sf_link"
+            "hi" -> "https://forms.gle/bKYnrH2rAv6pZ8718"
+            "pt" -> "https://docs.google.com/forms/d/e/1FAIpQLSfbRhbf-cqmZC-vn1S_OTdsJ0zpiVW7vfFpWQgZtzQbU0dZEw/viewform?usp=sf_link"
+            else -> "https://docs.google.com/forms/d/1c7TyQc-Dr9RA7wi6tCAdmWegxNj-s2GpQ1Vk2II6xYY"
         }
     }
 }
