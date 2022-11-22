@@ -1355,10 +1355,6 @@
     <string name="shareable_reading_lists_new_install_dialog_title">A reading list has been shared with you</string>
     <string name="shareable_reading_lists_new_install_dialog_content">We noticed that a reading list has been shared with you. To view this list in the app, go back to the original message and tap the link again.</string>
     <string name="shareable_reading_lists_new_install_dialog_got_it">Got it</string>
-    <plurals name="shareable_reading_lists_import_dialog_content_articles">
-        <item quantity="one">%d article</item>
-        <item quantity="other">%d articles</item>
-    </plurals>
     <string name="reading_list_share_menu_label">Share…</string>
     <string name="reading_list_share_menu_tooltip">Share this reading list with others</string>
     <string name="reading_list_share_message">Hi! I\'d like to share my Wikipedia reading list (\"%s\") with you:</string>

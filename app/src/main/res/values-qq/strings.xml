@@ -1290,10 +1290,6 @@
   <string name="shareable_reading_lists_new_install_dialog_title">Title text for the onboarding import reading list dialog.</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Content text for the onboarding import reading list dialog.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Button label of the onboarding import reading list dialog that dismisses the dialog.</string>
-  <plurals name="shareable_reading_lists_import_dialog_content_articles">
-    <item quantity="one">Text that indicates only one article in the list. %d will be replaced by the number of pages.</item>
-    <item quantity="other">Text that indicates how many articles in the list. %d will be replaced by the number of pages.</item>
-  </plurals>
   <string name="reading_list_share_menu_label">Menu label for sharing the selected reading list.</string>
   <string name="reading_list_share_menu_tooltip">Tooltip text for the share reading list button.</string>
   <string name="reading_list_share_message">Message that is sent to a recipient when sharing a reading list. The %s symbol is replaced with the name of the reading list.</string>
