@@ -559,8 +559,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     val readingList = ReadingListsImportHelper.importReadingLists(requireContext(), encodedJson)
                     val existingTitles = displayedLists.filterIsInstance<ReadingList>().map { it.title }
                     val dialog = ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
-                        existingTitles, true, callback = object: ReadingListTitleDialog.Callback {
+                        existingTitles, true, callback = object : ReadingListTitleDialog.Callback {
                             override fun onSuccess(text: String, description: String) {
+                                readingList.listTitle = text
+                                readingList.description = description
                                 ReadingListsFunnel().logReceiveFinish(readingList)
                                 importReadingListAndRefresh(readingList)
                             }

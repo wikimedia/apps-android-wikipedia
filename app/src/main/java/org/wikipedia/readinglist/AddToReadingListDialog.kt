@@ -115,7 +115,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun showCreateListDialog() {
-        readingListTitleDialog(requireActivity(), "", "", readingLists.map { it.title }, callback = object: ReadingListTitleDialog.Callback {
+        readingListTitleDialog(requireActivity(), "", "", readingLists.map { it.title }, callback = object : ReadingListTitleDialog.Callback {
             override fun onSuccess(text: String, description: String) {
                 addAndDismiss(AppDatabase.instance.readingListDao().createList(text, description), titles)
             }
