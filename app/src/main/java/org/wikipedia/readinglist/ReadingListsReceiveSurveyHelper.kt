@@ -10,34 +10,34 @@ import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
-import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
 import java.util.*
 
-object ReadingListsSurveyHelper {
+object ReadingListsReceiveSurveyHelper {
     private const val MODE_INACTIVE = 0
     private const val MODE_ACTIVE = 1
     private const val MODE_OVERRIDE = 2
 
     fun activateSurvey() {
         if (!isActive()) {
-            Prefs.readingListShareSurveyMode = MODE_ACTIVE
+            Prefs.readingListReceiveSurveyMode = MODE_ACTIVE
         }
     }
 
     fun maybeShowSurvey(activity: Activity) {
-        if (!activity.isDestroyed && (Prefs.readingListShareSurveyMode == MODE_OVERRIDE ||
-                        (isActive() && ReadingListsShareHelper.shareEnabled() && fallsWithinDateRange()))) {
+        if (!activity.isDestroyed && (Prefs.readingListReceiveSurveyMode == MODE_OVERRIDE ||
+                        (!ReadingListsShareSurveyHelper.isActive() && isActive() &&
+                                ReadingListsShareHelper.shareEnabled() && fallsWithinDateRange()))) {
             showSurveyDialog(activity)
         }
     }
 
     private fun showSurveyDialog(activity: Activity) {
-        val attempts = Prefs.readingListShareSurveyAttempts
+        val attempts = Prefs.readingListReceiveSurveyAttempts
         if (attempts > 1) {
             return
         }
-        Prefs.readingListShareSurveyAttempts = attempts + 1
+        Prefs.readingListReceiveSurveyAttempts = attempts + 1
 
         val dialog = AlertDialog.Builder(activity)
                 .setTitle(activity.getString(R.string.reading_list_share_survey_title))
@@ -55,22 +55,12 @@ object ReadingListsSurveyHelper {
         ReadingListsFunnel().logSurveyShown()
     }
 
-    private fun isActive(): Boolean {
-        return Prefs.readingListShareSurveyMode != MODE_INACTIVE
-    }
-
-    private fun fallsWithinGeoRange(): Boolean {
-        val languages = WikipediaApp.instance.languageState.appLanguageCodes
-        val country = GeoUtil.geoIPCountry.orEmpty()
-        return (languages.contains("hi") ||
-                languages.contains("id") ||
-                languages.contains("ja") ||
-                ((languages.contains("ar") || languages.contains("fr")) && (country == "MA" || country == "EG" || country == "ML" || country == "CD")) ||
-                (languages.contains("en") && (country == "IN" || country == "NG")))
+    fun isActive(): Boolean {
+        return Prefs.readingListReceiveSurveyMode != MODE_INACTIVE
     }
 
     private fun fallsWithinDateRange(): Boolean {
-        val endTime = GregorianCalendar(2022, 11, 1)
+        val endTime = GregorianCalendar(2022, 11, 30)
         return Calendar.getInstance().timeInMillis < endTime.timeInMillis
     }
 
@@ -79,7 +69,6 @@ object ReadingListsSurveyHelper {
     }
 
     private fun getLanguageSpecificUrl(): String {
-        // TODO
         return when (WikipediaApp.instance.languageState.appLanguageCode) {
             "ar" -> "https://docs.google.com/forms/d/15ZnQRm8J3UtAxkS0BSaq2jGraGeCd8ojKwt97xjlO4Y"
             "bn" -> "https://forms.gle/864rFuD19qETpSTv7"
