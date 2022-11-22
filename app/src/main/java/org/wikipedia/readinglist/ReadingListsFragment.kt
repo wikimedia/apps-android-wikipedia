@@ -5,7 +5,6 @@ import android.content.Context
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.fragment.app.Fragment
@@ -160,10 +159,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         override fun createNewListClick() {
             val existingTitles = displayedLists.filterIsInstance<ReadingList>().map { it.title }
             ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
-                    existingTitles) { text, description ->
-                AppDatabase.instance.readingListDao().createList(text, description)
-                updateLists()
-            }.show()
+                    existingTitles, callback = object : ReadingListTitleDialog.Callback {
+                    override fun onSuccess(text: String, description: String) {
+                        AppDatabase.instance.readingListDao().createList(text, description)
+                        updateLists()
+                    }
+                    override fun onCancel() { }
+                }).show()
         }
 
         override fun refreshClick() {
@@ -555,23 +557,23 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }) {
                 withContext(Dispatchers.Main) {
                     val readingList = ReadingListsImportHelper.importReadingLists(requireContext(), encodedJson)
-                    val dialogView = ReadingListImportDialogView(requireContext())
-                    dialogView.setReadingList(readingList)
-                    ReadingListsFunnel().logReceivePreview(readingList)
-                    AlertDialog.Builder(requireContext())
-                        .setView(dialogView)
-                        .setPositiveButton(R.string.shareable_reading_lists_import_dialog_confirm) { _, _ ->
-                            ReadingListsFunnel().logReceiveFinish(readingList)
-                            importReadingListAndRefresh(readingList)
-                        }
-                        .setNegativeButton(R.string.shareable_reading_lists_import_dialog_cancel) { _, _ ->
-                            ReadingListsFunnel().logReceiveCancel(readingList)
-                        }
-                            .setOnDismissListener {
-                                ReadingListsSurveyHelper.activateSurvey()
-                                ReadingListsSurveyHelper.maybeShowSurvey(requireActivity())
+                    val existingTitles = displayedLists.filterIsInstance<ReadingList>().map { it.title }
+                    val dialog = ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
+                        existingTitles, true, callback = object: ReadingListTitleDialog.Callback {
+                            override fun onSuccess(text: String, description: String) {
+                                ReadingListsFunnel().logReceiveFinish(readingList)
+                                importReadingListAndRefresh(readingList)
                             }
-                            .show()
+                            override fun onCancel() {
+                                ReadingListsFunnel().logReceiveCancel(readingList)
+                            }
+                        }
+                    )
+                    dialog.setOnDismissListener {
+                        ReadingListsSurveyHelper.activateSurvey()
+                        ReadingListsSurveyHelper.maybeShowSurvey(requireActivity())
+                    }
+                    dialog.show()
                     Prefs.importReadingListsDialogShown = true
                     binding.swipeRefreshLayout.isRefreshing = false
                 }
