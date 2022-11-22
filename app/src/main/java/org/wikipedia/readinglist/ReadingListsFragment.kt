@@ -572,8 +572,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         }
                     )
                     dialog.setOnDismissListener {
-                        ReadingListsSurveyHelper.activateSurvey()
-                        ReadingListsSurveyHelper.maybeShowSurvey(requireActivity())
+                        ReadingListsReceiveSurveyHelper.activateSurvey()
+                        ReadingListsReceiveSurveyHelper.maybeShowSurvey(requireActivity())
                     }
                     dialog.show()
                     Prefs.importReadingListsDialogShown = true

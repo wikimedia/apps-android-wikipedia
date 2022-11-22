@@ -418,6 +418,16 @@
             android:key="@string/preference_key_reading_lists_share_survey_attempts"
             android:title="readingListShareSurveyAttempts" />
 
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_reading_lists_receive_survey_mode"
+            android:title="Reading list receiving survey mode (0=inactive, 1=active, 2=override)" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_reading_lists_receive_survey_attempts"
+            android:title="readingListReceiveSurveyAttempts" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
