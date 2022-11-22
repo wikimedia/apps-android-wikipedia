@@ -93,8 +93,11 @@ abstract class BaseActivity : AppCompatActivity() {
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
 
-        ReadingListsShareSurveyHelper.maybeShowSurvey(this)
-        ReadingListsReceiveSurveyHelper.maybeShowSurvey(this)
+        if (ReadingListsShareSurveyHelper.shouldShowSurvey(this)) {
+            ReadingListsShareSurveyHelper.maybeShowSurvey(this)
+        } else {
+            ReadingListsReceiveSurveyHelper.maybeShowSurvey(this)
+        }
 
         touchSlopPx = ViewConfiguration.get(this).scaledTouchSlop
         Prefs.localClassName = localClassName

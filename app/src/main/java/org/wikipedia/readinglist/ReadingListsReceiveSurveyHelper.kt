@@ -25,17 +25,19 @@ object ReadingListsReceiveSurveyHelper {
     }
 
     fun maybeShowSurvey(activity: Activity) {
-        if (!activity.isDestroyed && (Prefs.readingListReceiveSurveyMode == MODE_OVERRIDE ||
-                        (isActive() && fallsWithinDateRange()))) {
+        if (shouldShowSurvey(activity)) {
             showSurveyDialog(activity)
         }
     }
 
+    fun shouldShowSurvey(activity: Activity): Boolean {
+        val attempts = Prefs.readingListReceiveSurveyAttempts
+        return !activity.isDestroyed && attempts <= 1 &&
+                (Prefs.readingListReceiveSurveyMode == MODE_OVERRIDE || (isActive() && fallsWithinDateRange()))
+    }
+
     private fun showSurveyDialog(activity: Activity) {
         val attempts = Prefs.readingListReceiveSurveyAttempts
-        if (attempts > 1) {
-            return
-        }
         Prefs.readingListReceiveSurveyAttempts = attempts + 1
 
         val dialog = AlertDialog.Builder(activity)

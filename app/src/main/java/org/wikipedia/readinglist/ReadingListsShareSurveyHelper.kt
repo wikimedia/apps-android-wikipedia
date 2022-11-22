@@ -25,17 +25,19 @@ object ReadingListsShareSurveyHelper {
     }
 
     fun maybeShowSurvey(activity: Activity) {
-        if (!activity.isDestroyed && (Prefs.readingListShareSurveyMode == MODE_OVERRIDE ||
-                        (isActive() && ReadingListsShareHelper.shareEnabled() && fallsWithinDateRange()))) {
+        if (shouldShowSurvey(activity)) {
             showSurveyDialog(activity)
         }
     }
 
+    fun shouldShowSurvey(activity: Activity): Boolean {
+        val attempts = Prefs.readingListShareSurveyAttempts
+        return !activity.isDestroyed && attempts <= 1 &&
+                (Prefs.readingListShareSurveyMode == MODE_OVERRIDE || (isActive() && ReadingListsShareHelper.shareEnabled() && fallsWithinDateRange()))
+    }
+
     private fun showSurveyDialog(activity: Activity) {
         val attempts = Prefs.readingListShareSurveyAttempts
-        if (attempts > 1) {
-            return
-        }
         Prefs.readingListShareSurveyAttempts = attempts + 1
 
         val dialog = AlertDialog.Builder(activity)
