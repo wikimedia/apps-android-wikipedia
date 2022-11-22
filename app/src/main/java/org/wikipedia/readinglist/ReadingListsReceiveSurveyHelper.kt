@@ -66,6 +66,7 @@ object ReadingListsReceiveSurveyHelper {
     }
 
     private fun takeUserToSurvey(context: Context) {
+        Prefs.readingListReceiveSurveyAttempts = 10
         CustomTabsUtil.openInCustomTab(context, getLanguageSpecificUrl())
     }
 

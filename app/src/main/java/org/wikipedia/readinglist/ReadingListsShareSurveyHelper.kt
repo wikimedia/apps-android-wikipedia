@@ -66,6 +66,7 @@ object ReadingListsShareSurveyHelper {
     }
 
     private fun takeUserToSurvey(context: Context) {
+        Prefs.readingListShareSurveyAttempts = 10
         CustomTabsUtil.openInCustomTab(context, getLanguageSpecificUrl())
     }
 
