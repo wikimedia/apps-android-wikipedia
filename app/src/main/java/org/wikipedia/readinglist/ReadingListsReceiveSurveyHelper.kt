@@ -70,13 +70,14 @@ object ReadingListsReceiveSurveyHelper {
 
     private fun getLanguageSpecificUrl(): String {
         return when (WikipediaApp.instance.languageState.appLanguageCode) {
-            "ar" -> "https://docs.google.com/forms/d/15ZnQRm8J3UtAxkS0BSaq2jGraGeCd8ojKwt97xjlO4Y"
-            "bn" -> "https://forms.gle/864rFuD19qETpSTv7"
-            "fr" -> "https://forms.gle/FHNm9LZdQfkbUbW58"
+            "ar" -> "https://docs.google.com/forms/d/e/1FAIpQLSeKCRBtnF4V1Gwv2aRsJi8GppfofbiECU6XseZbVRbYijynfg/viewform?usp=sf_link"
+            "bn" -> "https://docs.google.com/forms/d/e/1FAIpQLSeY25GeA8dFOKlVCNpHc5zTUIYUeB3W6fntTitTIQRjl7BCQw/viewform?usp=sf_link"
+            "fr" -> "https://docs.google.com/forms/d/e/1FAIpQLSe_EXLDJxk-9y0ux-c9LERNou7CqhzoSZfL952PKH8bqCGMpA/viewform?usp=sf_link"
             "de" -> "https://docs.google.com/forms/d/e/1FAIpQLSfS2-gQJtCUnFMJl-C0BdrWNxpb-PeXjoDeCR4z80gSCoA-RA/viewform?usp=sf_link"
-            "hi" -> "https://forms.gle/bKYnrH2rAv6pZ8718"
+            "hi" -> "https://docs.google.com/forms/d/e/1FAIpQLSdnjiMH4L9eIpwuk3JLdsjKirvQ5GvLwp_8aaLKiESf-zhtHA/viewform?usp=sf_link"
             "pt" -> "https://docs.google.com/forms/d/e/1FAIpQLSfbRhbf-cqmZC-vn1S_OTdsJ0zpiVW7vfFpWQgZtzQbU0dZEw/viewform?usp=sf_link"
-            else -> "https://docs.google.com/forms/d/1c7TyQc-Dr9RA7wi6tCAdmWegxNj-s2GpQ1Vk2II6xYY"
+            "es" -> "https://docs.google.com/forms/d/e/1FAIpQLSelTK2ZeuEOk2T9P-E5OeKZoE9VvmCXLx9v3lc-A-onWXSsog/viewform?usp=sf_link"
+            else -> "https://docs.google.com/forms/d/e/1FAIpQLSf7W1Hs20HcP-Ho4T_Rlr8hdpT4oKxYQJD3rdE5RCINl5l6RQ/viewform?usp=sf_link"
         }
     }
 }

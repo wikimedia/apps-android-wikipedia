@@ -69,13 +69,14 @@ object ReadingListsShareSurveyHelper {
 
     private fun getLanguageSpecificUrl(): String {
         return when (WikipediaApp.instance.languageState.appLanguageCode) {
-            "ar" -> "https://docs.google.com/forms/d/15ZnQRm8J3UtAxkS0BSaq2jGraGeCd8ojKwt97xjlO4Y"
-            "bn" -> "https://forms.gle/864rFuD19qETpSTv7"
-            "fr" -> "https://forms.gle/FHNm9LZdQfkbUbW58"
-            "de" -> "https://docs.google.com/forms/d/e/1FAIpQLSfS2-gQJtCUnFMJl-C0BdrWNxpb-PeXjoDeCR4z80gSCoA-RA/viewform?usp=sf_link"
-            "hi" -> "https://forms.gle/bKYnrH2rAv6pZ8718"
-            "pt" -> "https://docs.google.com/forms/d/e/1FAIpQLSfbRhbf-cqmZC-vn1S_OTdsJ0zpiVW7vfFpWQgZtzQbU0dZEw/viewform?usp=sf_link"
-            else -> "https://docs.google.com/forms/d/1c7TyQc-Dr9RA7wi6tCAdmWegxNj-s2GpQ1Vk2II6xYY"
+            "ar" -> "https://docs.google.com/forms/d/e/1FAIpQLSdZaFN5hm76xsFuJWlrNT1VFfUV14T0Yg9uA0o11579GfPszg/viewform?usp=sf_link"
+            "bn" -> "https://docs.google.com/forms/d/e/1FAIpQLSeR_K5IYCQhuLgA6CCUdaSY71m6T7H0TiVaZ8rJ4nSYlUVCqA/viewform?usp=sf_link"
+            "fr" -> "https://docs.google.com/forms/d/e/1FAIpQLSdKUCL5zAzsa87cKpcxZjmnzFc2NhaCH9W2Xn6DdXRZTwZ-0g/viewform?usp=sf_link"
+            "de" -> "https://docs.google.com/forms/d/e/1FAIpQLSf6zbrkwe7lVLJtKBJBkjlLxjcpXtHVKMeUHF_POgMJsFAPLA/viewform?usp=sf_link"
+            "hi" -> "https://docs.google.com/forms/d/e/1FAIpQLSdEtYzoNsmztbk05NtH82c3GDaEYn_-5aYdMa3NTO-FVWb_7A/viewform?usp=sf_link"
+            "pt" -> "https://docs.google.com/forms/d/e/1FAIpQLSdwTvojzJRV1FT9apLXF9ck68Knq2qzVaaJQMbzaTvub_icWA/viewform?usp=sf_link"
+            "es" -> "https://docs.google.com/forms/d/e/1FAIpQLScYsLE48ZjJynHhu6IgP6eR_PPuxjS78ejo_Ii9ysTfTxF9EQ/viewform?usp=sf_link"
+            else -> "https://docs.google.com/forms/d/e/1FAIpQLScnNlch1dLsxOdKU8oLupaTluW0pmXeNqMxdoX2pj6gJaOgVw/viewform?usp=sf_link"
         }
     }
 }
