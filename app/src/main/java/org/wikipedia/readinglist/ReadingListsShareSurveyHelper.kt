@@ -61,7 +61,7 @@ object ReadingListsShareSurveyHelper {
     }
 
     private fun fallsWithinDateRange(): Boolean {
-        val endTime = GregorianCalendar(2022, 11, 30)
+        val endTime = GregorianCalendar(2022, Calendar.DECEMBER, 30)
         return Calendar.getInstance().timeInMillis < endTime.timeInMillis
     }
 
