@@ -17,12 +17,12 @@ object ReadingListTitleDialog {
                                fromShareableLink: Boolean = false,
                                callback: Callback?): TextInputDialog {
         return TextInputDialog(activity).let { textInputDialog ->
+            if (fromShareableLink) {
+                textInputDialog.setTitle(R.string.shareable_reading_lists_import_dialog_title)
+                textInputDialog.setMessage(activity.getString(R.string.shareable_reading_lists_import_dialog_content))
+            }
             textInputDialog.callback = object : TextInputDialog.Callback {
                 override fun onShow(dialog: TextInputDialog) {
-                    if (fromShareableLink) {
-                        dialog.setTitle(R.string.shareable_reading_lists_import_dialog_title)
-                        dialog.setMessage(activity.getString(R.string.shareable_reading_lists_import_dialog_content))
-                    }
                     dialog.setHint(R.string.reading_list_name_hint)
                     dialog.setSecondaryHint(R.string.reading_list_description_hint)
                     dialog.setText(title, true)
