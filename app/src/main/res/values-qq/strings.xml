@@ -1292,7 +1292,7 @@
   <string name="shareable_reading_lists_new_install_dialog_got_it">Button label of the onboarding import reading list dialog that dismisses the dialog.</string>
   <string name="reading_list_share_menu_label">Menu label for sharing the selected reading list.</string>
   <string name="reading_list_share_menu_tooltip">Tooltip text for the share reading list button.</string>
-  <string name="reading_list_share_message">Message that is sent to a recipient when sharing a reading list. The %s symbol is replaced with the name of the reading list.</string>
+  <string name="reading_list_share_message">Message that is sent to a recipient when sharing a reading list.</string>
   <string name="reading_list_share_survey_title">Title for dialog box that leads to a survey about sharing reading lists.</string>
   <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
 </resources>

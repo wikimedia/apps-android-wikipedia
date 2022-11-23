@@ -1206,5 +1206,9 @@
   <string name="search_namespaces">النطاقات</string>
   <string name="revision_initial_none">لا شيء (هذه هي المراجعة الأولى)</string>
   <string name="user_contrib_filter_all">جميع النطاقات</string>
-  <string name="namespace_article">المقالات</string>
+  <string name="reading_list_share_survey_title">هل يمكنك مساعدتنا في تحسين "مشاركة قوائم القراءة"؟</string>
+  <string name="reading_list_share_survey_body">"مشاركة قوائم القراءة" هي ميزة اختبار ونحن بحاجة إلى ملاحظاتك لتحسينها أو إزالتها.</string>
+  <string name="reading_list_share_menu_label">المشاركة…</string>
+  <string name="reading_list_share_menu_tooltip">شارك قائمة القراءة هذهمع الآخرين</string>
+  <string name="reading_list_share_message">مرحبًا! أرغب في مشاركة قائمة قراءة Wikipedia الخاصة بي معك:</string>
 </resources>
