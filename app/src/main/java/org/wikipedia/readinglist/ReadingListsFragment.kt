@@ -306,6 +306,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private inner class ReadingListItemHolder constructor(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
         fun bindItem(readingList: ReadingList) {
+            Prefs.readingListRecentReceivedId = recentImportedReadingList?.id ?: -1
             view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY, readingList.id == recentImportedReadingList?.id)
             view.setSearchQuery(currentSearchQuery)
         }

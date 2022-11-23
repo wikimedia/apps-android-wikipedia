@@ -206,6 +206,11 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     aboveOrBelow = false, autoDismiss = true, showDismissButton = true)
                 Prefs.readingListShareTooltipShown = true
             }
+            if (Prefs.readingListRecentReceivedId == readingListId && !Prefs.readingListRecentReceivedTooltipShown) {
+                FeedbackUtil.showTooltip(requireActivity(), headerView.listTitle, getString(R.string.reading_list_share_title_tooltip),
+                    aboveOrBelow = false, autoDismiss = true, showDismissButton = true)
+                Prefs.readingListRecentReceivedTooltipShown = true
+            }
         } else {
             headerView.shareButton.isVisible = false
         }

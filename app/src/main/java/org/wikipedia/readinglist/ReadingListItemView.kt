@@ -36,6 +36,7 @@ class ReadingListItemView : ConstraintLayout {
     private val imageViews = listOf(binding.itemImage1, binding.itemImage2, binding.itemImage3, binding.itemImage4)
     var callback: Callback? = null
     val shareButton get() = binding.itemShareButton
+    val listTitle get() = binding.itemTitle
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
