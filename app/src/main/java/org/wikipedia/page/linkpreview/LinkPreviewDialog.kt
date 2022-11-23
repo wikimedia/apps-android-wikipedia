@@ -1,19 +1,18 @@
 package org.wikipedia.page.linkpreview
 
-import android.app.ActivityOptions
 import android.content.DialogInterface
-import android.content.Intent
 import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.PopupMenu
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
@@ -72,21 +71,23 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             else -> false
         }
     }
+
     private val galleryViewListener = GalleryViewListener { view, thumbUrl, imageName ->
-        var options: ActivityOptions? = null
+        var options: ActivityOptionsCompat? = null
         view.drawable?.let {
             val hitInfo = JavaScriptActionHandler.ImageHitInfo(0f, 0f, it.intrinsicWidth.toFloat(), it.intrinsicHeight.toFloat(), thumbUrl, false)
             GalleryActivity.setTransitionInfo(hitInfo)
             view.transitionName = requireActivity().getString(R.string.transition_page_gallery)
-            options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), view, requireActivity().getString(R.string.transition_page_gallery))
+            options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), view, requireActivity().getString(R.string.transition_page_gallery))
         }
-        startActivityForResult(
-                GalleryActivity.newIntent(
-                        requireContext(), viewModel.pageTitle, imageName,
-                        viewModel.pageTitle.wikiSite, revision, GalleryFunnel.SOURCE_LINK_PREVIEW
-                ),
-                Constants.ACTIVITY_REQUEST_GALLERY, options?.toBundle()
-        )
+        requestGalleryLauncher.launch(GalleryActivity.newIntent(requireContext(), viewModel.pageTitle,
+            imageName, viewModel.pageTitle.wikiSite, revision, GalleryFunnel.SOURCE_LINK_PREVIEW), options)
+    }
+
+    private val requestGalleryLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
+            startActivity(it.data)
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -198,14 +199,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         if (!navigateSuccess) {
             funnel.logCancel()
             articleLinkPreviewInteractionEvent?.logCancel()
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
-            startActivity(data)
-        } else {
-            super.onActivityResult(requestCode, resultCode, data)
         }
     }
 

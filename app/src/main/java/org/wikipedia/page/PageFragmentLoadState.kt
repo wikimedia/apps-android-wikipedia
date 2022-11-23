@@ -143,7 +143,6 @@ class PageFragmentLoadState(private var model: PageViewModel,
             }
             fragment.requireActivity().invalidateOptionsMenu()
             fragment.callback()?.onPageUpdateProgressBar(true)
-            app.sessionFunnel.leadSectionFetchStart()
             model.page = null
             val delayLoadHtml = title.prefixedText.contains(":")
             if (!delayLoadHtml) {
