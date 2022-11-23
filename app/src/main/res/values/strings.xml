@@ -1357,6 +1357,7 @@
     <string name="shareable_reading_lists_new_install_dialog_got_it">Got it</string>
     <string name="reading_list_share_menu_label">Share…</string>
     <string name="reading_list_share_menu_tooltip">Share this reading list with others</string>
+    <string name="reading_list_share_title_tooltip">Changes you make to this list are not visible to others.</string>
     <string name="reading_list_share_message">Hi! I\'d like to share my Wikipedia reading list with you:</string>
     <string name="reading_list_share_survey_title">Could you help us improve \"Share reading lists\"?</string>
     <string name="reading_list_share_survey_body">\"Share reading lists\" is a test feature and we need your feedback to improve or remove it.</string>
