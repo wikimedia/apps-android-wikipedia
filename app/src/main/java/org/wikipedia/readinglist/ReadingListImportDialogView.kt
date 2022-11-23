@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
-import org.wikipedia.R
 import org.wikipedia.databinding.DialogImportReadingListBinding
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.views.ViewUtil
