@@ -62,7 +62,7 @@ object ReadingListsShareHelper {
 
             val intent = Intent(Intent.ACTION_SEND)
                     .putExtra(Intent.EXTRA_SUBJECT, readingList.title)
-                    .putExtra(Intent.EXTRA_TEXT, activity.getString(R.string.reading_list_share_message, readingList.title) + " " + finalUrl)
+                    .putExtra(Intent.EXTRA_TEXT, activity.getString(R.string.reading_list_share_message) + " " + finalUrl)
                     .setType("text/plain")
             activity.startActivity(intent)
 

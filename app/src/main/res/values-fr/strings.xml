@@ -1312,12 +1312,7 @@
   <string name="shareable_reading_lists_new_install_dialog_content">Nous avons remarqué qu’une liste de lecture a été partagée avec vous. Pour afficher cette liste dans cette application, revenez au message d’origine et appuyez à nouveau sur le lien qui a été partagé avec vous.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">C’est bon</string>
   <string name="shareable_reading_lists_new_imported_list_title">Liste importée</string>
-  <plurals name="shareable_reading_lists_import_dialog_content_articles">
-    <item quantity="one">%d article</item>
-    <item quantity="other">%d articles</item>
-  </plurals>
   <string name="reading_list_share_menu_label">Partager...</string>
-  <string name="reading_list_share_message">Salut ! J’aimerais partager ma liste de lecture « %s » avec vous :</string>
   <string name="reading_list_share_survey_title">Pourriez-vous nous aider à améliorer cette fonctionnalité ?</string>
   <string name="reading_list_share_survey_body">Les listes de lecture partagées sont une fonctionnalité en test et nous avons besoin de vos commentaires pour l’améliorer ou la supprimer.</string>
 </resources>

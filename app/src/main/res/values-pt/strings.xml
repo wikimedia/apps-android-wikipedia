@@ -1290,7 +1290,6 @@
     <item quantity="other">%d artigos</item>
   </plurals>
   <string name="reading_list_share_menu_label">Partilhar...</string>
-  <string name="reading_list_share_message">Olá! Gostaria de partilhar a minha lista de leitura \"%s\" consigo:</string>
   <string name="reading_list_share_survey_title">Podia ajudar-nos a melhorar esta funcionalidade?</string>
   <string name="reading_list_share_survey_body">Partilhar e exportar listas de leitura é uma funcionalidade de teste e precisamos dos seus comentários para melhorá-la ou removê-la.</string>
 </resources>
