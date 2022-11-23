@@ -21,7 +21,6 @@ class ReadingListImportDialogView : FrameLayout {
     fun setReadingList(readingList: ReadingList) {
 
         binding.readingListTitle.text = readingList.listTitle
-        binding.readingListNumberOfPages.text = resources.getQuantityString(R.plurals.shareable_reading_lists_import_dialog_content_articles, readingList.pages.size, readingList.pages.size)
 
         // Set default images
         imageViews.forEach {
