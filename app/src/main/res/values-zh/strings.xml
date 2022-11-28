@@ -236,9 +236,9 @@
   <string name="create_account_email_error">电子邮件地址无效</string>
   <string name="create_account_username_error">用户名中包含无效字符</string>
   <string name="create_account_password_error">密码长度必须至少为8个字符</string>
-  <string name="create_account_generic_error">无法建立帐户</string>
+  <string name="create_account_generic_error">无法创建账号</string>
   <string name="create_account_next">下一步</string>
-  <string name="email_recommendation_dialog_title">创建没有电子邮件地址的帐户？</string>
+  <string name="email_recommendation_dialog_title">创建没有电子邮件地址的账户？</string>
   <string name="email_recommendation_dialog_message">虽然电子邮件地址是可选项，但&lt;b&gt;强烈建议&lt;/b&gt;您填写，因为如果您忘记了密码，则必须使用一封电子邮件来恢复帐户。</string>
   <string name="email_recommendation_message">建议填写，因为需要电子邮件方能找回账户。</string>
   <string name="email_recommendation_dialog_create_without_email_action">不填写电子邮件继续</string>
