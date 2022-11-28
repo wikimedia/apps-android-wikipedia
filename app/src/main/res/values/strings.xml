@@ -1358,6 +1358,7 @@
     <string name="shareable_reading_lists_new_install_dialog_content">We noticed that a reading list has been shared with you. To view this list in this app, go back to the original message and tap the link that was shared with you again.</string>
     <string name="shareable_reading_lists_new_install_dialog_got_it">Got it</string>
     <string name="shareable_reading_lists_new_imported_list_title">Imported list</string>
+    <string name="shareable_reading_lists_new_imported_snackbar">Reading list imported successfully</string>
     <plurals name="shareable_reading_lists_import_dialog_content_articles">
         <item quantity="one">%d article</item>
         <item quantity="other">%d articles</item>
@@ -1366,8 +1367,9 @@
     <string name="reading_list_share_menu_tooltip">Share this reading list with others</string>
     <string name="reading_list_share_title_tooltip">Changes you make to this list are not visible to others.</string>
     <string name="reading_list_share_message">Hi! I\'d like to share my reading list \"%s\" with you:</string>
-    <string name="reading_list_share_survey_title">Could you help us improve this feature?</string>
-    <string name="reading_list_share_survey_body">Sharing reading lists is a test feature and we need your feedback to improve or remove it.</string>
+    <string name="reading_list_share_message_v2">Hi! I\'d like to share my Wikipedia reading list with you:</string>
+    <string name="reading_list_share_survey_title">Could you help us improve \"Share reading lists\"?</string>
+    <string name="reading_list_share_survey_body">\"Share reading lists\" is a test feature and we need your feedback to improve or remove it.</string>
     <!-- /Shareable reading lists -->
 
 </resources>
