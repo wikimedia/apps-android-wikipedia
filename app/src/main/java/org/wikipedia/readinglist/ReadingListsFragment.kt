@@ -589,6 +589,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         readingList.id = AppDatabase.instance.readingListDao().insertReadingList(readingList)
         AppDatabase.instance.readingListPageDao().addPagesToList(readingList, readingList.pages, true)
         recentImportedReadingList = readingList
+        FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.shareable_reading_lists_new_imported_snackbar)).show()
     }
 
     private fun maybeShowOnboarding(searchQuery: String?) {
