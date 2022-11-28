@@ -1227,5 +1227,5 @@
   <string name="shareable_reading_lists_new_install_dialog_got_it">알겠습니다</string>
   <string name="shareable_reading_lists_new_imported_list_title">가져온 목록</string>
   <string name="reading_list_share_menu_label">공유...</string>
-  <string name="reading_list_share_survey_title">이 기능을 개선하는 데 도움을 주시겠습니까?</string>
+  <string name="reading_list_share_survey_title" fuzzy="true">이 기능을 개선하는 데 도움을 주시겠습니까?</string>
 </resources>

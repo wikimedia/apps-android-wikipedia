@@ -1279,5 +1279,5 @@
   <string name="shareable_reading_lists_new_install_dialog_got_it">Selvä</string>
   <string name="shareable_reading_lists_new_imported_list_title">Tuotu luettelo</string>
   <string name="reading_list_share_menu_label">Jaa...</string>
-  <string name="reading_list_share_survey_title">Voisitko auttaa meitä parantamaan tätä ominaisuutta?</string>
+  <string name="reading_list_share_survey_title" fuzzy="true">Voisitko auttaa meitä parantamaan tätä ominaisuutta?</string>
 </resources>
