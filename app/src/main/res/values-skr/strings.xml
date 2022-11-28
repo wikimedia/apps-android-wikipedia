@@ -379,5 +379,9 @@
   <string name="text_input_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="text_input_dialog_cancel_button_text">منسوخ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">منسوخ</string>
+  <string name="shareable_reading_lists_import_dialog_confirm">اندر گھن آؤ</string>
+  <string name="shareable_reading_lists_import_dialog_cancel">منسوخ</string>
   <string name="shareable_reading_lists_new_indicator">*نواں*</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">سمجھ آڳئی</string>
+  <string name="reading_list_share_menu_label">شیئر۔۔۔</string>
 </resources>

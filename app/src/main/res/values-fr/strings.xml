@@ -307,8 +307,8 @@
   <string name="edit_redo">Refaire</string>
   <string name="edit_rollback">Révoquer</string>
   <plurals name="edit_diff_bytes">
-    <item quantity="one">%s octet</item>
-    <item quantity="other">%s octets</item>
+    <item quantity="one">%s octet</item>
+    <item quantity="other">%s octets</item>
   </plurals>
   <string name="edit_zoom_in">Zoom avant</string>
   <string name="edit_zoom_out">Zoom arrière</string>
@@ -1317,7 +1317,9 @@
     <item quantity="other">%d articles</item>
   </plurals>
   <string name="reading_list_share_menu_label">Partager...</string>
+  <string name="reading_list_share_menu_tooltip">Partager cette liste de lecture avec d’autres</string>
+  <string name="reading_list_share_title_tooltip">Les modifications que vous apportez à cette liste ne sont pas visibles pour les autres.</string>
   <string name="reading_list_share_message">Salut ! J’aimerais partager ma liste de lecture « %s » avec vous :</string>
-  <string name="reading_list_share_survey_title">Pourriez-vous nous aider à améliorer cette fonctionnalité ?</string>
-  <string name="reading_list_share_survey_body">Les listes de lecture partagées sont une fonctionnalité en test et nous avons besoin de vos commentaires pour l’améliorer ou la supprimer.</string>
+  <string name="reading_list_share_survey_title" fuzzy="true">Pourriez-vous nous aider à améliorer cette fonctionnalité ?</string>
+  <string name="reading_list_share_survey_body" fuzzy="true">Le partage des listes de lecture est une fonctionnalité en test et nous avons besoin de vos commentaires pour l’améliorer ou la supprimer.</string>
 </resources>
