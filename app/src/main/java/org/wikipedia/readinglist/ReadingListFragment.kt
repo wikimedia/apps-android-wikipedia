@@ -99,6 +99,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     override fun onResume() {
         super.onResume()
         updateReadingListData()
+        ReadingListsShareSurveyHelper.maybeShowSurvey(requireActivity())
     }
 
     override fun onDestroyView() {

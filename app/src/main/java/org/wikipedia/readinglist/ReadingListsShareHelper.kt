@@ -67,7 +67,6 @@ object ReadingListsShareHelper {
             activity.startActivity(intent)
 
             ReadingListsShareSurveyHelper.activateSurvey()
-            ReadingListsShareSurveyHelper.maybeShowSurvey(activity)
         }
     }
 
