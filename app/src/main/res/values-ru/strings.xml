@@ -1401,7 +1401,6 @@
     <item quantity="one">%d статья</item>
     <item quantity="few">%d статьи</item>
     <item quantity="many">%d статей</item>
-    <item quantity="other"/>
   </plurals>
   <string name="reading_list_share_menu_label">Поделиться…</string>
   <string name="reading_list_share_message">Приветствую! Я хотел_а бы поделиться с вами своим списком для чтения «%s»:</string>
