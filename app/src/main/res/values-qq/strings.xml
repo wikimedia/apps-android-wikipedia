@@ -1286,6 +1286,9 @@
   <string name="user_contrib_filter_activity_title">Screen title for applying the filters for the contributions of a user.</string>
   <string name="shareable_reading_lists_import_dialog_title">Title text for the import reading list dialog.</string>
   <string name="shareable_reading_lists_import_dialog_content">Content text for the import reading list dialog.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Title text for the onboarding import reading list dialog.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Content text for the onboarding import reading list dialog.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Button label of the onboarding import reading list dialog that dismisses the dialog.</string>
   <string name="shareable_reading_lists_new_indicator">Label indicating that the imported list in the list view.</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Snackbar text that indicates the reading list was imported successfully.</string>
   <string name="reading_list_share_menu_label">Menu label for sharing the selected reading list.</string>
