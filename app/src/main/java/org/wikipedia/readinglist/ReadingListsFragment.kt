@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.google.android.material.snackbar.Snackbar
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
@@ -63,6 +64,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private val overflowCallback = OverflowCallback()
     private var currentSearchQuery: String? = null
     private var recentImportedReadingList: ReadingList? = null
+    private var shouldShowImportedSnackbar = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -257,6 +259,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             updateEmptyState(searchQuery)
             maybeDeleteListFromIntent()
             maybeShowImportReadingListsDialog()
+            maybeShowImportReadingListsSnackbar()
             currentSearchQuery = searchQuery
         }
     }
@@ -554,7 +557,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.e(throwable)
                 FeedbackUtil.showError(requireActivity(), throwable)
-                binding.swipeRefreshLayout.isRefreshing = false
             }) {
                 withContext(Dispatchers.Main) {
                     val readingList = ReadingListsImportHelper.importReadingLists(requireContext(), encodedJson)
@@ -572,13 +574,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                             }
                         }
                     )
-                    dialog.setOnDismissListener {
-                        ReadingListsReceiveSurveyHelper.activateSurvey()
-                        ReadingListsReceiveSurveyHelper.maybeShowSurvey(requireActivity())
-                    }
                     dialog.show()
                     Prefs.importReadingListsDialogShown = true
-                    binding.swipeRefreshLayout.isRefreshing = false
                 }
             }
         }
@@ -589,7 +586,27 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         readingList.id = AppDatabase.instance.readingListDao().insertReadingList(readingList)
         AppDatabase.instance.readingListPageDao().addPagesToList(readingList, readingList.pages, true)
         recentImportedReadingList = readingList
-        FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.shareable_reading_lists_new_imported_snackbar)).show()
+        shouldShowImportedSnackbar = true
+    }
+
+    private fun maybeShowImportReadingListsSnackbar() {
+        if (shouldShowImportedSnackbar) {
+            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.shareable_reading_lists_new_imported_snackbar))
+                .addCallback(object : Snackbar.Callback() {
+                    override fun onDismissed(
+                        transientBottomBar: Snackbar,
+                        @DismissEvent event: Int
+                    ) {
+                        if (!isAdded) {
+                            return
+                        }
+                        ReadingListsReceiveSurveyHelper.activateSurvey()
+                        ReadingListsReceiveSurveyHelper.maybeShowSurvey(requireActivity())
+                    }
+                })
+                .show()
+            shouldShowImportedSnackbar = false
+        }
     }
 
     private fun maybeShowOnboarding(searchQuery: String?) {
