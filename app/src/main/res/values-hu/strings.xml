@@ -826,6 +826,7 @@
   <string name="customize_toolbar_category_menu">Menü</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Fogd és húzd ide a kedvenc tételeket</string>
   <string name="customize_toolbar_reset_to_default_button">Alapértelmezés visszaállítása</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Tartsd lenyomva a húzás ikont az elem mozgatásához</string>
   <string name="customize_toolbar_item_default_tooltip">Nyomja meg és húzza át az elemet az áthelyezéséhez</string>
   <string name="suggested_edits_describe_articles">Szócikkek leírása</string>
   <string name="suggested_edits_caption_images">Hiányzó képfeliratok</string>
@@ -1175,6 +1176,7 @@
   <string name="talk_list_item_swipe_mark_as_read">Olvasott</string>
   <string name="talk_list_item_swipe_mark_as_unread">Olvasatlan</string>
   <string name="talk_login_to_subscribe_dialog_title">Jelentkezz be a témákra való feliratkozáshoz</string>
+  <string name="talk_login_to_subscribe_dialog_content">A témafeliratkozásokkal értesítést kaphatsz az új hozzászólásokról ebben a témában. Regisztrálj vagy jelentkezz be a Wikipédia-fiókodba a témafeliratkozások használatához.</string>
   <string name="talk_archived_title">Vitalaparchívum: %s</string>
   <string name="menu_option_share_talk_discussion">Oszd meg a vitát</string>
   <string name="menu_option_share_talk_page">Vitalap megosztása</string>

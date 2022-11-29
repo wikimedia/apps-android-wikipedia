@@ -312,6 +312,7 @@
   <string name="button_continue_to_article">लेख पढ्नुहोस्</string>
   <string name="button_continue_to_talk_page">वार्तालाप पृष्ठ हेर्नुहोस्</string>
   <string name="button_continue_to_disambiguation">मिल्दाेजुल्दाे पृष्ठहरू हेर्नुहाेस्</string>
+  <string name="link_preview_disambiguation_description">यो शीर्षक एक भन्दा बढी पृष्ठसँग सम्बन्धित छ:</string>
   <string name="button_add_to_reading_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="button_get_directions">दिशानिर्देशन प्राप्त गर्नुहोस्</string>
   <string name="error_no_maps_app">दिशानिर्देशन प्रदान गर्ने कुनै पनि अनुप्रयोग फेला पार्न सकिएन।</string>
