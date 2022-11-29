@@ -10,11 +10,10 @@ import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
-import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
 import java.util.*
 
-object ReadingListsSurveyHelper {
+object ReadingListsShareSurveyHelper {
     private const val MODE_INACTIVE = 0
     private const val MODE_ACTIVE = 1
     private const val MODE_OVERRIDE = 2
@@ -26,17 +25,19 @@ object ReadingListsSurveyHelper {
     }
 
     fun maybeShowSurvey(activity: Activity) {
-        if (!activity.isDestroyed && (Prefs.readingListShareSurveyMode == MODE_OVERRIDE ||
-                        (isActive() && ReadingListsShareHelper.shareEnabled() && fallsWithinDateRange()))) {
+        if (shouldShowSurvey(activity)) {
             showSurveyDialog(activity)
         }
     }
 
+    fun shouldShowSurvey(activity: Activity): Boolean {
+        val attempts = Prefs.readingListShareSurveyAttempts
+        return !activity.isDestroyed && attempts <= 1 &&
+                (Prefs.readingListShareSurveyMode == MODE_OVERRIDE || (isActive() && ReadingListsShareHelper.shareEnabled() && fallsWithinDateRange()))
+    }
+
     private fun showSurveyDialog(activity: Activity) {
         val attempts = Prefs.readingListShareSurveyAttempts
-        if (attempts > 1) {
-            return
-        }
         Prefs.readingListShareSurveyAttempts = attempts + 1
 
         val dialog = AlertDialog.Builder(activity)
@@ -59,34 +60,26 @@ object ReadingListsSurveyHelper {
         return Prefs.readingListShareSurveyMode != MODE_INACTIVE
     }
 
-    private fun fallsWithinGeoRange(): Boolean {
-        val languages = WikipediaApp.instance.languageState.appLanguageCodes
-        val country = GeoUtil.geoIPCountry.orEmpty()
-        return (languages.contains("hi") ||
-                languages.contains("id") ||
-                languages.contains("ja") ||
-                ((languages.contains("ar") || languages.contains("fr")) && (country == "MA" || country == "EG" || country == "ML" || country == "CD")) ||
-                (languages.contains("en") && (country == "IN" || country == "NG")))
-    }
-
     private fun fallsWithinDateRange(): Boolean {
-        val endTime = GregorianCalendar(2022, 11, 1)
+        val endTime = GregorianCalendar(2022, Calendar.DECEMBER, 30)
         return Calendar.getInstance().timeInMillis < endTime.timeInMillis
     }
 
     private fun takeUserToSurvey(context: Context) {
+        Prefs.readingListShareSurveyAttempts = 10
         CustomTabsUtil.openInCustomTab(context, getLanguageSpecificUrl())
     }
 
     private fun getLanguageSpecificUrl(): String {
-        // TODO
         return when (WikipediaApp.instance.languageState.appLanguageCode) {
-            "ar" -> ""
-            "fr" -> ""
-            "hi" -> ""
-            "id" -> ""
-            "ja" -> ""
-            else -> ""
+            "ar" -> "https://docs.google.com/forms/d/e/1FAIpQLSdZaFN5hm76xsFuJWlrNT1VFfUV14T0Yg9uA0o11579GfPszg/viewform?usp=sf_link"
+            "bn" -> "https://docs.google.com/forms/d/e/1FAIpQLSeR_K5IYCQhuLgA6CCUdaSY71m6T7H0TiVaZ8rJ4nSYlUVCqA/viewform?usp=sf_link"
+            "fr" -> "https://docs.google.com/forms/d/e/1FAIpQLSdKUCL5zAzsa87cKpcxZjmnzFc2NhaCH9W2Xn6DdXRZTwZ-0g/viewform?usp=sf_link"
+            "de" -> "https://docs.google.com/forms/d/e/1FAIpQLSf6zbrkwe7lVLJtKBJBkjlLxjcpXtHVKMeUHF_POgMJsFAPLA/viewform?usp=sf_link"
+            "hi" -> "https://docs.google.com/forms/d/e/1FAIpQLSdEtYzoNsmztbk05NtH82c3GDaEYn_-5aYdMa3NTO-FVWb_7A/viewform?usp=sf_link"
+            "pt" -> "https://docs.google.com/forms/d/e/1FAIpQLSdwTvojzJRV1FT9apLXF9ck68Knq2qzVaaJQMbzaTvub_icWA/viewform?usp=sf_link"
+            "es" -> "https://docs.google.com/forms/d/e/1FAIpQLScYsLE48ZjJynHhu6IgP6eR_PPuxjS78ejo_Ii9ysTfTxF9EQ/viewform?usp=sf_link"
+            else -> "https://docs.google.com/forms/d/e/1FAIpQLScnNlch1dLsxOdKU8oLupaTluW0pmXeNqMxdoX2pj6gJaOgVw/viewform?usp=sf_link"
         }
     }
 }

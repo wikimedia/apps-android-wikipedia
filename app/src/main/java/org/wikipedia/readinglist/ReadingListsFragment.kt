@@ -568,8 +568,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                             ReadingListsFunnel().logReceiveCancel(readingList)
                         }
                             .setOnDismissListener {
-                                ReadingListsSurveyHelper.activateSurvey()
-                                ReadingListsSurveyHelper.maybeShowSurvey(requireActivity())
+                                ReadingListsReceiveSurveyHelper.activateSurvey()
+                                ReadingListsReceiveSurveyHelper.maybeShowSurvey(requireActivity())
                             }
                             .show()
                     Prefs.importReadingListsDialogShown = true

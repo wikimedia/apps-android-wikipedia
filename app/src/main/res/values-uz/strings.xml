@@ -1261,4 +1261,23 @@
   <string name="media_playback_error">Mediani ijro etishda xatolik yuz berdi.</string>
   <string name="user_contrib_menu_label">Hissalar</string>
   <string name="user_contrib_filter_activity_title">Hissalarni filtrlash</string>
+  <string name="shareable_reading_lists_import_dialog_title">Oʻqish roʻyxatini import qilish</string>
+  <string name="shareable_reading_lists_import_dialog_content">Ushbu oʻqish roʻyxatini import qilmoqchimisiz?</string>
+  <string name="shareable_reading_lists_import_dialog_confirm">Import</string>
+  <string name="shareable_reading_lists_import_dialog_cancel">Bekor qilish</string>
+  <string name="shareable_reading_lists_new_indicator">*yangi*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Oʻqish roʻyxati Siz bilan baham koʻrildi.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Oʻqish roʻyxati Siz bilan baham koʻrilganini aniqladik. Ushbu roʻyxatni ushbu ilovada koʻrish uchun asl xabarga qayting va Sizga ulashilgan havolani yana bir bor bosing.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Tushunarli</string>
+  <string name="shareable_reading_lists_new_imported_list_title">Import qilingan roʻyxat</string>
+  <plurals name="shareable_reading_lists_import_dialog_content_articles">
+    <item quantity="one">%d ta maqola</item>
+    <item quantity="other">%d ta maqola</item>
+  </plurals>
+  <string name="reading_list_share_menu_label">Ulashish…</string>
+  <string name="reading_list_share_menu_tooltip">Ushbu oʻqish roʻyxatini boshqalar bilan baham koʻring</string>
+  <string name="reading_list_share_title_tooltip">Bu roʻyxatga kiritilgan oʻzgarishlar boshqalarga koʻrinmaydi.</string>
+  <string name="reading_list_share_message">Salom! Men oʻzimning “%s” oʻqish roʻyxatimni Siz bilan baham koʻrmoqchiman:</string>
+  <string name="reading_list_share_survey_title" fuzzy="true">Bu xususiyatni yaxshilashga yordam bera olasizmi?</string>
+  <string name="reading_list_share_survey_body" fuzzy="true">Oʻqish roʻyxatlarini almashish sinov xususiyati boʻlib, uni yaxshilash yoki olib tashlash uchun fikr-mulohazalaringiz kerak.</string>
 </resources>

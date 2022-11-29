@@ -53,7 +53,7 @@
   <string name="image_content_description">Відарыс: %s</string>
   <string name="page_content_description">Старонка: %s</string>
   <string name="wikimedia_commons">Вікісховішча</string>
-  <string name="wikidata">Вікідадзеныя</string>
+  <string name="wikidata">Вікіданыя</string>
   <string name="dialog_title_clear_history">Ачысціць гісторыю праглядаў</string>
   <string name="dialog_message_clear_history">Вы ўпэўненыя, што жадаеце ачысціць усю гісторыю?</string>
   <string name="dialog_message_clear_history_yes">Так</string>

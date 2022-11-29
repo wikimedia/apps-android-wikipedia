@@ -1283,5 +1283,5 @@
     <item quantity="other">%d artikkelia</item>
   </plurals>
   <string name="reading_list_share_menu_label">Jaa...</string>
-  <string name="reading_list_share_survey_title">Voisitko auttaa meitä parantamaan tätä ominaisuutta?</string>
+  <string name="reading_list_share_survey_title" fuzzy="true">Voisitko auttaa meitä parantamaan tätä ominaisuutta?</string>
 </resources>
