@@ -162,6 +162,7 @@
   <string name="menu_page_new_tab">Pestaña nueva</string>
   <string name="menu_page_reading_lists">Listas de lectura</string>
   <string name="menu_page_recently_viewed">Visto recientemente</string>
+  <string name="menu_page_archive">Archivo</string>
   <string name="menu_long_press_open_page">Abrir</string>
   <string name="menu_long_press_open_in_new_tab">Abrir en una pestaña nueva</string>
   <string name="menu_long_press_copy_page">Copiar dirección del enlace</string>
@@ -328,6 +329,7 @@
   <string name="edit_preview">Previsualizar</string>
   <string name="edit_undo">Deshacer</string>
   <string name="edit_redo">Rehacer</string>
+  <string name="edit_rollback">Revertir</string>
   <string name="edit_zoom_in">Acercar</string>
   <string name="edit_zoom_out">Alejar</string>
   <string name="edit_summary_tag_typo">Ortografía corregida</string>
@@ -390,6 +392,7 @@
   <string name="gallery_save_success">Se guardó el archivo.</string>
   <string name="gallery_error_video_failed">No se pudo reproducir el vídeo.</string>
   <string name="gallery_save_image_write_permission_rationale">Para guardar imágenes se necesita el permiso para escribir en el almacenamiento. Inténtalo de nuevo y otorga el permiso solicitado.</string>
+  <string name="gallery_edit_button_content_description">Editar pie de foto</string>
   <string name="gallery_add_image_caption_button">Añadir pie de foto</string>
   <string name="gallery_add_image_caption_in_language_button">Añadir pie de foto (%s)</string>
   <string name="err_cannot_save_file">No se puede guardar el archivo</string>
@@ -451,6 +454,7 @@
   <string name="error_message_generic">Ha habido un error</string>
   <string name="view_link_preview_error_button_dismiss">Descartar</string>
   <string name="error_page_does_not_exist">Esta página no existe</string>
+  <string name="error_user_page_does_not_exist">Wikipedia no tiene una &lt;a href=\"%1$s \"&gt;página de usario&lt;/a&gt; con este nombre exacto. En general, esta página debe ser creada y editada por &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt;. En caso de duda, verifique que exista \"%3$s\".</string>
   <string name="view_wiki_error_message_offline">No se pudo conectar a Internet.</string>
   <string name="view_wiki_error_message_timeout">No se puede conectar con Wikipedia. Comprueba la conexión de red o inténtalo de nuevo más tarde</string>
   <string name="reference_title">Referencia %s</string>
@@ -469,6 +473,7 @@
   <string name="error_blocked_expiry">Expiración del bloque: %s</string>
   <string name="error_blocked_id">ID de bloqueo: %s</string>
   <string name="error_blocked_footer">Puedes contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o otro &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; para hablar sobre el bloque.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Personalice su barra de herramientas</string>
   <string name="error_blocked_footer_no_blocker">Puedes contactar un &lt;a href=\"https://es.wikipedia.org/wiki/Wikipedia:Bibliotecarios\"&gt;bibliotecario&lt;/a&gt; para hablar del bloqueo.</string>
   <string name="crash_report_activity_title">Error de la aplicación</string>
   <string name="crash_report_relaunch_or_quit">La aplicación de Wikipedia ha experimentado un error y se cerró.\n\n¿Te gustaría volver a empezar o salir?</string>
@@ -496,6 +501,11 @@
   <string name="text_size_percent_default">%s (predeterminado)</string>
   <string name="text_style_title">Tipo de letra</string>
   <string name="theme_category_reading">Leyendo</string>
+  <string name="theme_category_editing">Edición</string>
+  <string name="editing_syntax_highlight_label">Resaltado de sintaxis</string>
+  <string name="editing_line_numbers_label">Mostrar números de línea</string>
+  <string name="editing_monospace_font_label">Usar fuente monoespaciada</string>
+  <string name="editing_typing_suggestions">Mostrar sugerencias de escritura</string>
   <string name="nav_item_saved">Guardado</string>
   <string name="reading_list_save_to">Guardar en lista de lectura</string>
   <string name="reading_list_move_to">Trasladar a una lista de lectura</string>
@@ -624,6 +634,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Cancelar</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancelar</string>
   <string name="reading_list_split_dialog_ok_button_text">Aceptar</string>
+  <string name="reading_list_activity_title">Lista de lectura: %s</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_reverted_title">Edición revertida</string>
   <string name="notification_channel_title">Descargando archivos</string>
@@ -679,7 +690,11 @@
   <string name="notifications_mark_unread">Marcar como no leído</string>
   <string name="notifications_mark_all_as_read">Marcar todo como leído</string>
   <string name="notifications_direct_reply_action">Responder</string>
+  <string name="notifications_direct_reply_progress">Publicando respuesta a %s...</string>
   <string name="notifications_direct_reply_success">Respuesta publicada.</string>
+  <string name="notifications_direct_reply_error">No se pudo publicar la respuesta automáticamente.</string>
+  <string name="notifications_mark_all_as_read_message">%d marcado como leído</string>
+  <string name="notifications_mark_all_as_unread_message">%d marcado como no leído</string>
   <plurals name="notifications_mark_as_read_plural">
     <item quantity="one">1 marcado como no leído </item>
     <item quantity="other">%d marcado como no leído</item>
@@ -722,19 +737,24 @@
   <string name="notifications_channel_group_other_description">Otras notificaciones de la aplicación</string>
   <string name="notifications_filter_label">Filtrar notificaciones</string>
   <string name="notifications_filter_icon_content_description">Filtrar notificaciones</string>
+  <string name="notifications_filter_update_app_languages">Actualizar idiomas de la aplicación</string>
+  <string name="notifications_empty_search_message">Intente eliminar %s para ver más notificaciones</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filtro</item>
     <item quantity="other">%d filtros</item>
   </plurals>
+  <string name="notifications_select_all_filters">Seleccionar todos los filtros</string>
   <string name="notifications_tab_filter_all">Todas</string>
   <string name="notifications_tab_filter_mentions">Menciones</string>
   <string name="notifications_search_bar_hint">Buscar o filtrar notificaciones</string>
+  <string name="notifications_search_bar_filter_hint">Filtro de notificaciones</string>
   <string name="notifications_menu_mark_as_read">Marcar como leí­da</string>
   <string name="notifications_menu_mark_as_unread">Marcar como no leída</string>
   <string name="notifications_swipe_action_read">Leída</string>
   <string name="notifications_swipe_action_unread">No leída</string>
   <string name="notifications_menu_check_all">Marcar todas</string>
   <string name="notifications_menu_uncheck_all">Desmarcar todas</string>
+  <string name="notifications_menu_user_talk_page">Página de discusión de %s</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
   <string name="view_random_article_card_title">Artículo aleatorio</string>

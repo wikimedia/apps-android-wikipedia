@@ -846,6 +846,7 @@
   <string name="description_edit_learn_more">Докладніше про описи статей</string>
   <string name="description_edit_image_caption_learn_more">Докладніше про підписи до зображень</string>
   <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Текст закороткий.</string>
   <string name="description_ends_with_punctuation">Текст не має закінчуватися розділовим знаком.</string>
   <string name="description_starts_with_article">Уникайте артиклів на початку, на зразок «a» чи «the».</string>
@@ -1145,10 +1146,13 @@
   <string name="wikitext_bold">Жирний</string>
   <string name="wikitext_italic">Курсив</string>
   <string name="wikitext_underline">Підкреслення</string>
+  <string name="wikitext_strikethrough">Закреслення</string>
   <string name="wikitext_large">Великий текст</string>
   <string name="wikitext_small">Малий текст</string>
+  <string name="wikitext_code">Код</string>
   <string name="wikitext_link">Посилання</string>
   <string name="wikitext_formatting">Форматування</string>
+  <string name="wikitext_headings">Заголовки</string>
   <string name="wikitext_insert_media">Вставити медіа</string>
   <string name="wikitext_bulleted_list">Маркований список</string>
   <string name="wikitext_numbered_list">Нумерований список</string>
@@ -1161,6 +1165,8 @@
   <string name="insert_media_settings">Параметри медіафайлу</string>
   <string name="insert_media_settings_uploaded_image">Завантажене зображення</string>
   <string name="insert_media_settings_caption">Підпис</string>
+  <string name="insert_media_settings_alternative_text">Альтернативний текст</string>
+  <string name="insert_media_advanced_settings">Розширені налаштування</string>
   <string name="insert_media_advanced_settings_image_position">Розташування зображення</string>
   <string name="insert_media_advanced_settings_image_position_right">Праворуч</string>
   <string name="insert_media_advanced_settings_image_position_left">Ліворуч</string>
@@ -1176,6 +1182,7 @@
   <string name="insert_media_advanced_settings_image_size_custom">Користувацький</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">Ширина</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">Висота</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">пкс</string>
   <string name="insert_media_insert_button">Вставити</string>
   <string name="main_drawer_help">Допомога</string>
   <string name="main_drawer_login">Увійти до Вікіпедії</string>
@@ -1248,6 +1255,7 @@
   <string name="menu_option_edit_source">Редагувати код</string>
   <string name="menu_option_user_page">Сторінка користувача %s</string>
   <string name="menu_option_find_in_talk_page_topic">Знайти тему на сторінці обговорення</string>
+  <string name="menu_option_copy_link_to_clipboard">Скопіювати посилання в буфер обміну</string>
   <string name="talk_menu_copy_text">Копіювати текст</string>
   <string name="talk_menu_expand_threads">Розгорнути гілки</string>
   <string name="talk_menu_collapse_threads">Згорнути гілки</string>
@@ -1319,10 +1327,15 @@
   <string name="revision_initial_none">Немає (це перша версія)</string>
   <string name="user_contrib_activity_title">Внески %s</string>
   <string name="archive_empty">Архівованих сторінок не знайдено.</string>
-  <string name="user_contrib_filter_all" fuzzy="true">Усі редагування</string>
+  <string name="user_contrib_filter_ns">Фільтрувати за простором імен</string>
+  <string name="user_contrib_filter_all">Усі простори назв</string>
   <string name="user_contrib_filter_ns_header">Фільтр простору імен</string>
   <string name="namespace_article">Стаття</string>
   <string name="user_contrib_current">поточний</string>
   <string name="media_playback_error">Помилка відтворення медіа.</string>
   <string name="user_contrib_menu_label">Внесок</string>
+  <string name="shareable_reading_lists_import_dialog_title">Імпорт списку для читання</string>
+  <string name="shareable_reading_lists_import_dialog_content">Ви впевнені, що бажаєте імпортувати цей список для читання?</string>
+  <string name="shareable_reading_lists_import_dialog_cancel">Скасувати</string>
+  <string name="shareable_reading_lists_new_indicator">*новий*</string>
 </resources>

@@ -5,6 +5,7 @@
 * B20180
 * Bluegram
 * CodeNameBOSS
+* Ekminarin
 * Geonuch
 * Horus
 * Just Sayori
@@ -492,7 +493,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_text">คุณสามารถซิงค์บทความที่บันทึกลงในรายการอ่านกับบัญชีวิกิพีเดียของคุณได้แล้วตอนนี้ &lt;a href=\"#faq\"&gt;เรียนรู้เพิ่มเติม&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">อย่าแสดงสิ่งนี้อีก</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">เปิดใช้งานการซิงค์</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ไม่ ขอบคุณ</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ไม่ขอบคุณ</string>
   <string name="default_reading_list_name">บันทึกแล้ว</string>
   <string name="default_reading_list_description">รายการเริ่มต้นสำหรับบทความที่บันทึกไว้ของคุณ</string>
   <string name="no_user_lists_title">จัดระเบียบบทความเป็นรายการ</string>
@@ -626,7 +627,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">วันนี้</string>
   <string name="view_continue_reading_card_subtitle_read_date">อ่านเมื่อ %s</string>
-  <string name="view_announcement_card_negative_action">ไม่ ขอบคุณ</string>
+  <string name="view_announcement_card_negative_action">ไม่ขอบคุณ</string>
   <string name="view_offline_card_text">ไม่สามารถโหลดเนื้อหาขณะออฟไลน์ได้</string>
   <string name="view_featured_article_card_title">บทความคัดสรร</string>
   <string name="view_static_card_save_button_label">บันทึก</string>
@@ -879,7 +880,7 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">เอารูปแบบภาษาจีนออกจากภาษาแอปของคุณหรือไม่</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">ขณะนี้คุณตั้งค่ารูปแบบภาษาจีนทั้งตัวเต็มและตัวย่อไว้ในภาษาแอปของคุณ ปรับปรุงการตั้งค่าภาษาแอปของคุณหรือไม่</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">แก้ไขภาษา</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">ไม่ ขอบคุณ</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">ไม่ขอบคุณ</string>
   <string name="remove_language_dialog_cancel_button_text">ยกเลิก</string>
   <string name="remove_language_dialog_ok_button_text">ตกลง</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ตกลง</string>
