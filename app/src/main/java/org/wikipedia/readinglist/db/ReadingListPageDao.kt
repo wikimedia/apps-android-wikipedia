@@ -13,6 +13,7 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
+import org.wikipedia.util.StringUtil
 import java.util.*
 
 @Dao
@@ -145,7 +146,8 @@ interface ReadingListPageDao {
         normalizedQuery = normalizedQuery.replace("\\", "\\\\")
             .replace("%", "\\%").replace("_", "\\_")
 
-        val pages = findPageBySearchTerm("%$normalizedQuery%").filter { it.accentAndCaseInvariantTitle().contains(normalizedQuery) }
+        val pages = findPageBySearchTerm("%$normalizedQuery%")
+                .filter { StringUtil.fromHtml(it.accentAndCaseInvariantTitle()).contains(normalizedQuery) }
 
         return if (pages.isEmpty()) SearchResults()
         else SearchResults(pages.take(2).map {
