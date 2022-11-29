@@ -43,7 +43,7 @@ object ReadingListsShareSurveyHelper {
         val dialog = AlertDialog.Builder(activity)
                 .setTitle(activity.getString(R.string.reading_list_share_survey_title))
                 .setMessage(StringUtil.fromHtml(activity.getString(R.string.reading_list_share_survey_body) +
-                        "<br/><br/><small><a href=\"${activity.getString(R.string.survey_privacy_policy_url)}\">" +
+                        "<br/><br/><small><a href=\"${getLanguageSpecificPrivacyPolicyUrl()}\">" +
                         activity.getString(R.string.privacy_policy_description) + "</a></small>"))
                 .setPositiveButton(R.string.talk_snackbar_survey_action_text) { _, _ -> takeUserToSurvey(activity) }
                 .setNegativeButton(if (attempts == 0) R.string.onboarding_maybe_later else android.R.string.cancel, null)
@@ -79,7 +79,21 @@ object ReadingListsShareSurveyHelper {
             "hi" -> "https://docs.google.com/forms/d/e/1FAIpQLSdEtYzoNsmztbk05NtH82c3GDaEYn_-5aYdMa3NTO-FVWb_7A/viewform?usp=sf_link"
             "pt" -> "https://docs.google.com/forms/d/e/1FAIpQLSdwTvojzJRV1FT9apLXF9ck68Knq2qzVaaJQMbzaTvub_icWA/viewform?usp=sf_link"
             "es" -> "https://docs.google.com/forms/d/e/1FAIpQLScYsLE48ZjJynHhu6IgP6eR_PPuxjS78ejo_Ii9ysTfTxF9EQ/viewform?usp=sf_link"
+            "ur" -> "https://docs.google.com/forms/d/e/1FAIpQLSfFdgf_Fr7slHsBanC8hzX34nN-R5nlP6_-DSjBdJHFYe8nng/viewform?usp=sf_link"
             else -> "https://docs.google.com/forms/d/e/1FAIpQLScnNlch1dLsxOdKU8oLupaTluW0pmXeNqMxdoX2pj6gJaOgVw/viewform?usp=sf_link"
+        }
+    }
+
+    private fun getLanguageSpecificPrivacyPolicyUrl(): String {
+        return when (WikipediaApp.instance.languageState.appLanguageCode) {
+            "ar" -> "https://foundation.wikimedia.org/wiki/Legal:Feedback_form_for_sharing_reading_lists_Privacy_Statement/ar"
+            "bn" -> "https://foundation.wikimedia.org/wiki/Legal:Feedback_form_for_sharing_reading_lists_Privacy_Statement/bn"
+            "fr" -> "https://foundation.wikimedia.org/wiki/Legal:Feedback_form_for_sharing_reading_lists_Privacy_Statement/fr"
+            "de" -> "https://foundation.wikimedia.org/wiki/Legal:Feedback_form_for_sharing_reading_lists_Privacy_Statement/de"
+            "hi" -> "https://foundation.wikimedia.org/wiki/Legal:Feedback_form_for_sharing_reading_lists_Privacy_Statement/hi"
+            "pt" -> "https://foundation.wikimedia.org/wiki/Legal:Feedback_form_for_sharing_reading_lists_Privacy_Statement/pt-br"
+            "es" -> "https://foundation.wikimedia.org/wiki/Legal:Feedback_form_for_sharing_reading_lists_Privacy_Statement/es"
+            else -> "https://foundation.wikimedia.org/wiki/Legal:Feedback_form_for_sharing_reading_lists_Privacy_Statement"
         }
     }
 }

@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:text="@string/shareable_reading_lists_new_indicator"
-            android:textColor="?attr/color_group_44"
+            android:textColor="?attr/color_group_58"
             android:textStyle="bold"
             android:visibility="gone"
             tools:text="Lorem ipsum" />
