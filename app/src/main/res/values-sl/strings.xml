@@ -1341,16 +1341,9 @@
   <string name="shareable_reading_lists_new_install_dialog_content">Opazili smo, da je bil z vami deljen bralni seznam. Če si želite ogledati ta seznam v tej aplikaciji, se vrnite na prvotno sporočilo in znova tapnite povezavo, ki je bila deljena z vami.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Razumem</string>
   <string name="shareable_reading_lists_new_imported_list_title">Uvoženi seznam</string>
-  <plurals name="shareable_reading_lists_import_dialog_content_articles">
-    <item quantity="one">%d članek</item>
-    <item quantity="two">%d članka</item>
-    <item quantity="few">%d članki</item>
-    <item quantity="other">%d člankov</item>
-  </plurals>
   <string name="reading_list_share_menu_label">Deli ...</string>
-  <string name="reading_list_share_menu_tooltip">Delite ta bralni seznam z drugimi</string>
-  <string name="reading_list_share_title_tooltip">Spremembe, ki jih naredite v tem seznamu, niso vidne drugim.</string>
-  <string name="reading_list_share_message">Živijo! S tabo želim deliti svoj bralni seznam »%s«:</string>
-  <string name="reading_list_share_survey_title" fuzzy="true">Nam lahko pomagate izboljšati to funkcijo?</string>
-  <string name="reading_list_share_survey_body" fuzzy="true">Deljenje bralnih seznamov je preizkusna možnost in potrebujemo vaše povratne informacije, da jo izboljšamo ali odstranimo.</string>
+  <string name="reading_list_share_message">Živijo! S tabo želim deliti svoj bralni seznam :</string>
+  <string name="reading_list_share_survey_title">Nam lahko pomagate izboljšati to funkcijo?</string>
+  <string name="reading_list_share_survey_body">Deljenje in izvoz bralnih seznamov sta preizkusni funkciji in potrebujemo vaše povratne informacije, da ju izboljšamo ali odstranimo.</string>
+
 </resources>

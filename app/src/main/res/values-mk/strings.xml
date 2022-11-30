@@ -1269,14 +1269,8 @@
   <string name="shareable_reading_lists_new_install_dialog_content">We noticed that a reading list has been shared with you. За да го видите списокот во овој прилог, вратете се на изворната порака и пак допрете ја врската што ви ја дале.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Јасно</string>
   <string name="shareable_reading_lists_new_imported_list_title">Увезен список</string>
-  <plurals name="shareable_reading_lists_import_dialog_content_articles">
-    <item quantity="one">%d статија</item>
-    <item quantity="other">%d статии</item>
-  </plurals>
   <string name="reading_list_share_menu_label">Сподели…</string>
-  <string name="reading_list_share_menu_tooltip">Споделете го списоков за читање со други</string>
-  <string name="reading_list_share_title_tooltip">Промените што ќе ги направите во овој список не се видливи за другите.</string>
-  <string name="reading_list_share_message">Здраво! Сакам да го споделам мојот список за читање „%s“ со вас:</string>
-  <string name="reading_list_share_survey_title" fuzzy="true">Можете ли да ни помогнете да ја подобриме оваа функција?</string>
-  <string name="reading_list_share_survey_body" fuzzy="true">Споделувањето на списоци за читање е пробна функција и ни требаат ваши мислења за да ја подобриме или отстраниме.</string>
+  <string name="reading_list_share_message">Здраво! Сакам да го споделам мојот список за читање со вас:</string>
+  <string name="reading_list_share_survey_title">Можете ли да ни помогнете да ја подобриме оваа функција?</string>
+  <string name="reading_list_share_survey_body">Споделувањето и извозот на списоци за читање е пробна функција и ни требаат ваши мислења за да ја подобриме или отстраниме.</string>
 </resources>
