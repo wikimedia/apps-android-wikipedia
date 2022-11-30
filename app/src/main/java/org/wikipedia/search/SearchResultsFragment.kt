@@ -68,7 +68,6 @@ class SearchResultsFragment : Fragment() {
             binding.searchErrorView.visibility = View.GONE
             startSearch(currentSearchTerm, true)
         }
-        binding.searchSuggestion.setOnClickListener { onSuggestionClick() }
         return binding.root
     }
 
@@ -77,13 +76,6 @@ class SearchResultsFragment : Fragment() {
         disposables.clear()
         _binding = null
         super.onDestroyView()
-    }
-
-    private fun onSuggestionClick() {
-        val suggestion = binding.searchSuggestion.tag as String
-        callback()?.getFunnel()?.searchDidYouMean(searchLanguageCode)
-        callback()?.setSearchText(suggestion)
-        startSearch(suggestion, true)
     }
 
     fun show() {
@@ -140,11 +132,9 @@ class SearchResultsFragment : Fragment() {
 
                         val searchResults = searchResponse.query?.pages?.let {
                             SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode),
-                                searchResponse.continuation,
-                                searchResponse.suggestion())
+                                searchResponse.continuation)
                         } ?: SearchResults()
 
-                        handleSuggestion(searchResults.suggestion)
                         val resultList = mutableListOf<SearchResult>()
                         addSearchResultsFromTabs(resultList)
                         resultList.addAll(readingListSearchResults.results.filterNot { res ->
@@ -164,7 +154,6 @@ class SearchResultsFragment : Fragment() {
                 }) { caught ->
                     binding.searchErrorView.visibility = View.VISIBLE
                     binding.searchErrorView.setError(caught)
-                    binding.searchResultsContainer.visibility = View.GONE
                     logError(false, startTime)
                 })
     }
@@ -211,17 +200,6 @@ class SearchResultsFragment : Fragment() {
         }
     }
 
-    private fun handleSuggestion(suggestion: String?) {
-        if (suggestion != null) {
-            binding.searchSuggestion.text = StringUtil.fromHtml("<u>" +
-                    getString(R.string.search_did_you_mean, suggestion) + "</u>")
-            binding.searchSuggestion.tag = suggestion
-            binding.searchSuggestion.visibility = View.VISIBLE
-        } else {
-            binding.searchSuggestion.visibility = View.GONE
-        }
-    }
-
     private fun cancelSearchTask() {
         updateProgressBar(false)
         disposables.clear()
@@ -239,7 +217,7 @@ class SearchResultsFragment : Fragment() {
                 .map { response ->
                     response.query?.pages?.let {
                         // noinspection ConstantConditions
-                        return@map SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode), response.continuation, null)
+                        return@map SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode), response.continuation)
                     }
                     SearchResults()
                 }
@@ -248,7 +226,7 @@ class SearchResultsFragment : Fragment() {
                     cache(resultList, searchTerm!!)
                     log(resultList, startTime)
                     if (clearOnSuccess) {
-                        clearResults(false)
+                        clearResults()
                     }
                     binding.searchErrorView.visibility = View.GONE
 
@@ -312,14 +290,10 @@ class SearchResultsFragment : Fragment() {
         callback()?.onSearchProgressBar(enabled)
     }
 
-    private fun clearResults(clearSuggestion: Boolean = true) {
-        binding.searchResultsContainer.visibility = View.GONE
+    private fun clearResults() {
+        binding.searchResultsList.visibility = View.GONE
         binding.searchErrorView.visibility = View.GONE
-        binding.searchResultsContainer.visibility = View.GONE
         binding.searchErrorView.visibility = View.GONE
-        if (clearSuggestion) {
-            binding.searchSuggestion.visibility = View.GONE
-        }
         lastFullTextResults = null
         totalResults.clear()
         resultsCountList.clear()
@@ -338,14 +312,14 @@ class SearchResultsFragment : Fragment() {
                 res.pageTitle.description = newResult.pageTitle.description
             }
         }
-        binding.searchResultsContainer.visibility = View.VISIBLE
+        binding.searchResultsList.visibility = View.VISIBLE
         adapter.notifyDataSetChanged()
     }
 
     private fun displayResultsCount(list: List<Int>) {
         resultsCountList.clear()
         resultsCountList.addAll(list)
-        binding.searchResultsContainer.visibility = View.VISIBLE
+        binding.searchResultsList.visibility = View.VISIBLE
         adapter.notifyDataSetChanged()
     }
 
