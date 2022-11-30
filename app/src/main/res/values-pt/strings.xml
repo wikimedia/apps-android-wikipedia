@@ -1278,21 +1278,13 @@
   <string name="user_contrib_filter_activity_title">Filtrar contribuições</string>
   <string name="shareable_reading_lists_import_dialog_title">Importar lista de leitura</string>
   <string name="shareable_reading_lists_import_dialog_content">Tem a certeza de que deseja importar esta lista de leitura?</string>
-  <string name="shareable_reading_lists_import_dialog_confirm">Importar</string>
-  <string name="shareable_reading_lists_import_dialog_cancel">Cancelar</string>
   <string name="shareable_reading_lists_new_indicator">*nova*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Foi partilhada consigo uma lista de leitura.</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Notámos que foi partilhada consigo uma lista de leitura. Para ver esta lista nesta aplicação móvel, volte à mensagem original e prima novamente a hiperligação que foi partilhada consigo.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Entendido</string>
-  <string name="shareable_reading_lists_new_imported_list_title">Lista importada</string>
-  <plurals name="shareable_reading_lists_import_dialog_content_articles">
-    <item quantity="one">%d artigo</item>
-    <item quantity="other">%d artigos</item>
-  </plurals>
-  <string name="reading_list_share_menu_label">Partilhar...</string>
-  <string name="reading_list_share_menu_tooltip">Partilhar esta lista de leitura com outras pessoas</string>
-  <string name="reading_list_share_title_tooltip">As alterações que fizer nesta lista não podem ser vistas por outras pessoas.</string>
-  <string name="reading_list_share_message">Olá! Gostaria de partilhar a minha lista de leitura \"%s\" consigo:</string>
-  <string name="reading_list_share_survey_title" fuzzy="true">Podia ajudar-nos a melhorar esta funcionalidade?</string>
-  <string name="reading_list_share_survey_body" fuzzy="true">Partilhar listas de leitura é uma funcionalidade em testes e precisamos dos seus comentários para melhorá-la ou removê-la.</string>
+  <string name="reading_list_share_survey_title">Você poderia nos ajudar a melhorar "Compartilhar listas de leitura"?</string>
+  <string name="reading_list_share_survey_body">"Compartilhar listas de leitura" é um recurso de teste e precisamos do seu feedback para melhorá-lo ou removê-lo.</string>
+  <string name="reading_list_share_menu_label">Compartilhar…</string>
+  <string name="reading_list_share_menu_tooltip">Compartilhar esta lista de leitura com outras pessoas</string>
+  <string name="reading_list_share_message">Olá! Gostaria de compartilhar minha lista de leitura da Wikipédia com você:</string>
 </resources>

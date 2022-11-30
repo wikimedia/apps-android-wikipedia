@@ -1300,10 +1300,6 @@
   <string name="shareable_reading_lists_new_install_dialog_content">متوجه شدیم که یک فهرست مطالعه با شما به اشتراک گذاشته شده‌است. برای مشاهدهٔ این فهرست در این نرم‌افزار، به پیام اولیه بازگردید و دوباره روی پیوندی که با شما به اشتراک گذاشته شده کلیک کنید.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">گرفتم</string>
   <string name="shareable_reading_lists_new_imported_list_title">فهرست درون‌ریزی‌شده</string>
-  <plurals name="shareable_reading_lists_import_dialog_content_articles">
-    <item quantity="one">%d مقاله</item>
-    <item quantity="other">%d مقاله</item>
-  </plurals>
   <string name="reading_list_share_menu_label">اشتراک‌گذاری...</string>
   <string name="reading_list_share_message">سلام! تمایل دارم که فهرست مطالعهٔ خودم با نام «%s» را با شما به اشتراک بگذارم:</string>
   <string name="reading_list_share_survey_title" fuzzy="true">می‌توانید در بهبود این ویژگی به ما کمک کنید؟</string>

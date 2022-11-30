@@ -1270,10 +1270,6 @@
   <string name="shareable_reading_lists_new_install_dialog_content">Oʻqish roʻyxati Siz bilan baham koʻrilganini aniqladik. Ushbu roʻyxatni ushbu ilovada koʻrish uchun asl xabarga qayting va Sizga ulashilgan havolani yana bir bor bosing.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Tushunarli</string>
   <string name="shareable_reading_lists_new_imported_list_title">Import qilingan roʻyxat</string>
-  <plurals name="shareable_reading_lists_import_dialog_content_articles">
-    <item quantity="one">%d ta maqola</item>
-    <item quantity="other">%d ta maqola</item>
-  </plurals>
   <string name="reading_list_share_menu_label">Ulashish…</string>
   <string name="reading_list_share_menu_tooltip">Ushbu oʻqish roʻyxatini boshqalar bilan baham koʻring</string>
   <string name="reading_list_share_title_tooltip">Bu roʻyxatga kiritilgan oʻzgarishlar boshqalarga koʻrinmaydi.</string>

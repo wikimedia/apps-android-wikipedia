@@ -1355,12 +1355,6 @@
   <string name="shareable_reading_lists_new_install_dialog_content">שמנו לב שרשימת קריאה שותפה איתך. כדי להציג את הרשימה הזאת ביישום הזה, נא לחזור להודעה המקורית ולהקיש שוב על הקישור ששותף איתך.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">הבנתי</string>
   <string name="shareable_reading_lists_new_imported_list_title">רשימה מיובאת</string>
-  <plurals name="shareable_reading_lists_import_dialog_content_articles">
-    <item quantity="one">ערך אחד</item>
-    <item quantity="two">%d ערכים</item>
-    <item quantity="many">%d ערכים</item>
-    <item quantity="other">%d ערכים</item>
-  </plurals>
   <string name="reading_list_share_menu_label">שיתוף...</string>
   <string name="reading_list_share_menu_tooltip">שיתוף רשימת הקריאה הזאת עם אחרים</string>
   <string name="reading_list_share_title_tooltip">שינויים שנעשים ברשימה הזאת אינם גלויים לאחרים.</string>
