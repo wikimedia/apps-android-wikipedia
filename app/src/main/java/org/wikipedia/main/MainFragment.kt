@@ -556,7 +556,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     private fun maybeShowImportReadingListsNewInstallDialog() {
         if (!Prefs.importReadingListsNewInstallDialogShown) {
-            ReadingListsFunnel().logReceiveStart()
             AlertDialog.Builder(requireContext())
                 .setTitle(R.string.shareable_reading_lists_new_install_dialog_title)
                 .setMessage(R.string.shareable_reading_lists_new_install_dialog_content)
