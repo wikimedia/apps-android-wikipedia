@@ -1275,9 +1275,5 @@
   <string name="shareable_reading_lists_new_indicator">*nuovo*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Capito</string>
   <string name="shareable_reading_lists_new_imported_list_title">Elenco importato</string>
-  <plurals name="shareable_reading_lists_import_dialog_content_articles">
-    <item quantity="one">%d voce</item>
-    <item quantity="other">%d voci</item>
-  </plurals>
   <string name="reading_list_share_menu_label">Condividi…</string>
 </resources>

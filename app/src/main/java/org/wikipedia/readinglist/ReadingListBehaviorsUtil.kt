@@ -135,13 +135,18 @@ object ReadingListBehaviorsUtil {
         }
         existingTitles.remove(readingList.title)
 
-        ReadingListTitleDialog.readingListTitleDialog(activity, readingList.title, readingList.description, existingTitles) { text, description ->
-            readingList.title = text
-            readingList.description = description
-            readingList.dirty = true
-            AppDatabase.instance.readingListDao().updateList(readingList, true)
-            callback.onCompleted()
-        }.show()
+        ReadingListTitleDialog.readingListTitleDialog(activity, readingList.title, readingList.description, existingTitles,
+            callback = object : ReadingListTitleDialog.Callback {
+                override fun onSuccess(text: String, description: String) {
+                    readingList.title = text
+                    readingList.description = description
+                    readingList.dirty = true
+                    AppDatabase.instance.readingListDao().updateList(readingList, true)
+                    callback.onCompleted()
+                }
+
+                override fun onCancel() { }
+            }).show()
     }
 
     private fun showDeletePageFromListsUndoSnackbar(activity: Activity, lists: List<ReadingList>?, page: ReadingListPage, callback: SnackbarCallback) {

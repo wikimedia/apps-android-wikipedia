@@ -1149,6 +1149,8 @@
   <string name="talk_new_topic">Button label for creating a new talk topic.</string>
   <string name="talk_new_topic_submitted">Message shown when a new talk topic has been submitted.</string>
   <string name="talk_page_empty">Label stating that this talk page is currently empty.</string>
+  <string name="talk_page_empty_title">Title text for stating that this talk page is currently empty.</string>
+  <string name="talk_page_empty_content">Content test for stating that this talk page is currently empty.</string>
   <string name="talk_add_reply">Button label for adding a reply to a talk page topic.\n\nThe functionality is similar to {{msg-mw|Discussiontools-replylink}}, so the translation can be identical.</string>
   <string name="talk_no_subject">Label for talk page topic that does not have a title.</string>
   <string name="talk_reply_subject">Hint for text field for entering a new talk page topic.</string>
@@ -1288,18 +1290,11 @@
   <string name="talk_new_topic_exit_dialog_message">Confirmation message text shown to user when they are exiting from a new talk topic screen without saving. </string>
   <string name="shareable_reading_lists_import_dialog_title">Title text for the import reading list dialog.</string>
   <string name="shareable_reading_lists_import_dialog_content">Content text for the import reading list dialog.</string>
-  <string name="shareable_reading_lists_import_dialog_confirm">Button label of the import reading list dialog that confirms the action.\n{{identical|Import}}</string>
-  <string name="shareable_reading_lists_import_dialog_cancel">Button label of the import reading list dialog that cancels the action.\n{{identical|Cancel}}</string>
-  <string name="shareable_reading_lists_new_indicator">Label indicating that the imported list in the list view.</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Title text for the onboarding import reading list dialog.</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Content text for the onboarding import reading list dialog.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Button label of the onboarding import reading list dialog that dismisses the dialog.</string>
-  <string name="shareable_reading_lists_new_imported_list_title">Item title of the newly imported reading list.</string>
+  <string name="shareable_reading_lists_new_indicator">Label indicating that the imported list in the list view.</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Snackbar text that indicates the reading list was imported successfully.</string>
-  <plurals name="shareable_reading_lists_import_dialog_content_articles">
-    <item quantity="one">Text that indicates only one article in the list. %d will be replaced by the number of pages.</item>
-    <item quantity="other">Text that indicates how many articles in the list. %d will be replaced by the number of pages.</item>
-  </plurals>
   <string name="reading_list_share_menu_label">Menu label for sharing the selected reading list.</string>
   <string name="reading_list_share_menu_tooltip">Tooltip text for the share reading list button.</string>
   <string name="reading_list_share_title_tooltip">Tooltip text for the reading list title after user created the reading list from the reading list link.</string>
