@@ -7,9 +7,12 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.map
+import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.util.StringUtil
+import java.util.*
 
 class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
 
@@ -54,12 +57,40 @@ class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
                 SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode))
             } ?: SearchResults()
 
-            pagingData
-                .insertHeaderItem(item = searchResults)
-                .insertHeaderItem(item = readingListSearch)
-                .insertHeaderItem(item = historySearch)
+            val resultList = mutableListOf<SearchResult>()
+            addSearchResultsFromTabs(searchQuery, resultList)
+
+            resultList.addAll(readingListSearch.results.filterNot { res ->
+                resultList.map { it.pageTitle.prefixedText }
+                    .contains(res.pageTitle.prefixedText)
+            }.take(1))
+
+            resultList.addAll(historySearch.results.filterNot { res ->
+                resultList.map { it.pageTitle.prefixedText }
+                    .contains(res.pageTitle.prefixedText)
+            }.take(1))
+
+            resultList.addAll(searchResults.results)
+
+            // TODO: verify this
+            pagingData.insertHeaderItem(item = SearchResults(resultList))
         }
     }.cachedIn(viewModelScope)
+
+    private fun addSearchResultsFromTabs(searchTerm: String, resultList: MutableList<SearchResult>) {
+        if (searchTerm.length < 2) {
+            return
+        }
+        WikipediaApp.instance.tabList.forEach { tab ->
+            tab.backStackPositionTitle?.let {
+                if (StringUtil.fromHtml(it.displayText).toString().lowercase(Locale.getDefault()).contains(term.lowercase(
+                        Locale.getDefault()))) {
+                    resultList.add(SearchResult(it, SearchResult.SearchResultType.TAB_LIST))
+                    return
+                }
+            }
+        }
+    }
 
     class SearchResultsPagingSource(
             val searchTerm: String?,
