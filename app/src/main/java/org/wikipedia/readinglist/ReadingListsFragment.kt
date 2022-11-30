@@ -554,7 +554,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private fun maybeShowImportReadingListsDialog() {
         val encodedJson = Prefs.importReadingListsData
         if (!Prefs.importReadingListsDialogShown && !encodedJson.isNullOrEmpty()) {
-            binding.swipeRefreshLayout.isRefreshing = true
             lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.e(throwable)
                 FeedbackUtil.showError(requireActivity(), throwable)
