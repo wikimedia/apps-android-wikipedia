@@ -9,7 +9,7 @@ class FullTextSearchClientTest : MockRetrofitTest() {
         get() = apiService.fullTextSearchMedia("foo", BATCH_SIZE, null, null)
             .map { response ->
                 if (response.query != null) {
-                    return@map SearchResults(response.query!!.pages!!, TESTWIKI, response.continuation, null)
+                    return@map SearchResults(response.query!!.pages!!, TESTWIKI, response.continuation)
                 }
                 SearchResults()
             }
