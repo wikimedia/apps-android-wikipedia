@@ -1,6 +1,7 @@
 package org.wikipedia.search
 
 import android.os.Bundle
+import androidx.collection.LruCache
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -9,32 +10,28 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.map
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.util.StringUtil
 import java.util.*
 
 class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
 
-    private val BATCH_SIZE = 20
+    private val batchSize = 20
+    private val maxCacheSize = 4
+    private val searchResultsCache = LruCache<String, MutableList<SearchResult>>(maxCacheSize)
+    private val searchResultsCountCache = LruCache<String, List<Int>>(maxCacheSize)
     var searchTerm: String? = null
     var languageCode: String? = null
-    val searchResultsFlow = Pager(PagingConfig(pageSize = BATCH_SIZE)) {
+    val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize)) {
         SearchResultsPagingSource(searchTerm, languageCode)
     }.flow.map { pagingData ->
         if (searchTerm.isNullOrEmpty() || languageCode.isNullOrEmpty()) {
             pagingData
         } else {
             val searchQuery = searchTerm!!
-            val searchLanguageCode = languageCode!!
-
-            // TODO: is this necessary or need to call before pulling full text search?
-            val prefixSearch = withContext(Dispatchers.IO) {
-                async {
-                    ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode))
-                        .prefixSearch(searchQuery, BATCH_SIZE, 0)
-                }
-            }
 
             var readingListSearch = SearchResults()
             var historySearch = SearchResults()
@@ -53,10 +50,6 @@ class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
                 }.await()
             }
 
-            val searchResults = prefixSearch.await().query?.pages?.let {
-                SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode))
-            } ?: SearchResults()
-
             val resultList = mutableListOf<SearchResult>()
             addSearchResultsFromTabs(searchQuery, resultList)
 
@@ -70,8 +63,6 @@ class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
                     .contains(res.pageTitle.prefixedText)
             }.take(1))
 
-            resultList.addAll(searchResults.results)
-
             // TODO: verify this
             pagingData.insertHeaderItem(item = SearchResults(resultList))
         }
@@ -83,7 +74,7 @@ class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
         }
         WikipediaApp.instance.tabList.forEach { tab ->
             tab.backStackPositionTitle?.let {
-                if (StringUtil.fromHtml(it.displayText).toString().lowercase(Locale.getDefault()).contains(term.lowercase(
+                if (StringUtil.fromHtml(it.displayText).toString().lowercase(Locale.getDefault()).contains(searchTerm.lowercase(
                         Locale.getDefault()))) {
                     resultList.add(SearchResult(it, SearchResult.SearchResultType.TAB_LIST))
                     return
@@ -96,6 +87,9 @@ class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
             val searchTerm: String?,
             val languageCode: String?
     ) : PagingSource<Int, SearchResults>() {
+
+        private var prefixSearch = true
+
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SearchResults> {
             return try {
                 // TODO: add delay logic
@@ -104,12 +98,21 @@ class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
                     return LoadResult.Page(emptyList(), null, null)
                 }
 
-                val response = ServiceFactory.get(WikiSite.forLanguageCode(languageCode))
-                    .prefixSearch(searchTerm, params.loadSize, params.key)
-                if (response.query?.pages == null) {
-                    return LoadResult.Page(emptyList(), null, null)
+                val wikiSite = WikiSite.forLanguageCode(languageCode)
+                var nextKey: Int? = null
+                if (prefixSearch) {
+                    val response = ServiceFactory.get(wikiSite)
+                        .prefixSearch(searchTerm, params.loadSize, params.key)
+                    if (response.query?.pages == null) {
+                        return LoadResult.Page(emptyList(), null, null)
+                    } else {
+                        nextKey = response.continuation?.gpsoffset
+                    }
+                } else {
+                    ServiceFactory.get(wikiSite)
+                        .fullTextSearchMedia(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, params.key)
                 }
-                LoadResult.Page(listOf(), null, response.continuation?.gpsoffset)
+                LoadResult.Page(listOf(), null, nextKey)
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }
