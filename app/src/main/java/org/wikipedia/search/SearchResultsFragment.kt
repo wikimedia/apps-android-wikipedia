@@ -312,14 +312,14 @@ class SearchResultsFragment : Fragment() {
             }
         }
         binding.searchResultsList.visibility = View.VISIBLE
-        adapter.notifyDataSetChanged()
+        binding.searchResultsList.adapter?.notifyDataSetChanged()
     }
 
     private fun displayResultsCount(list: List<Int>) {
         resultsCountList.clear()
         resultsCountList.addAll(list)
         binding.searchResultsList.visibility = View.VISIBLE
-        adapter.notifyDataSetChanged()
+        binding.searchResultsList.adapter?.notifyDataSetChanged()
     }
 
     private inner class SearchResultsFragmentLongPressHandler(private val lastPositionRequested: Int) : LongPressMenu.Callback {
@@ -413,9 +413,9 @@ class SearchResultsFragment : Fragment() {
             }
 
             // highlight search term within the text
-            StringUtil.boldenKeywordText(pageTitleText, pageTitle.displayText, currentSearchTerm)
-            searchResultItemImage.visibility = if (pageTitle.thumbUrl.isNullOrEmpty()) if (type === SearchResult.SearchResultType.SEARCH) View.GONE else View.INVISIBLE else View.VISIBLE
-            loadImageWithRoundedCorners(searchResultItemImage, pageTitle.thumbUrl)
+            StringUtil.boldenKeywordText(itemBinding.pageListItemTitle, pageTitle.displayText, currentSearchTerm)
+            itemBinding.pageListItemImage.visibility = if (pageTitle.thumbUrl.isNullOrEmpty()) if (type === SearchResult.SearchResultType.SEARCH) View.GONE else View.INVISIBLE else View.VISIBLE
+            loadImageWithRoundedCorners(itemBinding.pageListItemImage, pageTitle.thumbUrl)
 
             // ...and lastly, if we've scrolled to the last item in the list, then
             // continue searching!

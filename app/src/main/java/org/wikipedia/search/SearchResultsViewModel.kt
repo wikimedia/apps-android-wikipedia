@@ -108,14 +108,6 @@ class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    private fun cache(languageCode: String, resultList: List<SearchResult>, searchTerm: String) {
-        val cacheKey = "$languageCode-$searchTerm"
-        searchResultsCache[cacheKey]?.let {
-            it.addAll(resultList)
-            searchResultsCache.put(cacheKey, it)
-        }
-    }
-
     class SearchResultsPagingSource(
             val searchTerm: String?,
             val languageCode: String?
