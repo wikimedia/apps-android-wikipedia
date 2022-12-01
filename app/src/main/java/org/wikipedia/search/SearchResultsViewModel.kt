@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEmpty
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -23,6 +24,7 @@ class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
     // TODO: add cache logic
     private val searchResultsCache = LruCache<String, MutableList<SearchResult>>(maxCacheSize)
     private val searchResultsCountCache = LruCache<String, List<Int>>(maxCacheSize)
+    var resultsCount = mutableListOf<Int>()
     var searchTerm: String? = null
     var languageCode: String? = null
     val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize)) {
@@ -64,6 +66,30 @@ class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
 
             // TODO: verify this
             pagingData.insertHeaderItem(item = SearchResults(resultList))
+        }
+    }.onEmpty {
+        WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
+            if (langCode == languageCode) {
+                resultsCount.add(0)
+            } else {
+                val prefixSearchResponse = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(WikiSite.forLanguageCode(langCode))
+                        .prefixSearch(searchTerm, batchSize, 0)
+                }
+                prefixSearchResponse.query?.pages?.let {
+                    resultsCount.add(it.size)
+                } ?: run {
+                    val fullTextSearchResponse = withContext(Dispatchers.IO) {
+                        ServiceFactory.get(WikiSite.forLanguageCode(langCode))
+                            .fullTextSearchMedia(searchTerm, batchSize.toString(), batchSize, null)
+                    }
+                    resultsCount.add(fullTextSearchResponse.query?.pages?.size ?: 0)
+                }
+            }
+        }
+        // make a singleton list if all results are empty.
+        if (resultsCount.sum() == 0) {
+            resultsCount = mutableListOf(0)
         }
     }.cachedIn(viewModelScope)
 
