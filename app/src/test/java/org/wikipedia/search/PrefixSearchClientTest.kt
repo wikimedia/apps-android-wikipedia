@@ -9,7 +9,7 @@ class PrefixSearchClientTest : MockRetrofitTest() {
         get() = apiService.prefixSearch("foo", BATCH_SIZE, "foo")
             .map { response ->
                 if (response.query?.pages != null) {
-                    return@map SearchResults(response.query!!.pages!!, TESTWIKI, response.continuation, response.suggestion())
+                    return@map SearchResults(response.query!!.pages!!, TESTWIKI, response.continuation)
                 }
                 SearchResults()
             }

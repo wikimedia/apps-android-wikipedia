@@ -1346,4 +1346,19 @@
   <string name="media_playback_error">שגיאה בנגינת מדיה.</string>
   <string name="user_contrib_menu_label">תרומות</string>
   <string name="user_contrib_filter_activity_title">סינון תרומות</string>
+  <string name="shareable_reading_lists_import_dialog_title">יבוא רשימת קריאה</string>
+  <string name="shareable_reading_lists_import_dialog_content">האם ברצונך באמת לייבא את רשימת הקריאה הזאת?</string>
+  <string name="shareable_reading_lists_import_dialog_confirm">יבוא</string>
+  <string name="shareable_reading_lists_import_dialog_cancel">ביטול</string>
+  <string name="shareable_reading_lists_new_indicator">*חדשה*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">רשימת קריאה שותפה איתך.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">שמנו לב שרשימת קריאה שותפה איתך. כדי להציג את הרשימה הזאת ביישום הזה, נא לחזור להודעה המקורית ולהקיש שוב על הקישור ששותף איתך.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">הבנתי</string>
+  <string name="shareable_reading_lists_new_imported_list_title">רשימה מיובאת</string>
+  <string name="reading_list_share_menu_label">שיתוף...</string>
+  <string name="reading_list_share_menu_tooltip">שיתוף רשימת הקריאה הזאת עם אחרים</string>
+  <string name="reading_list_share_title_tooltip">שינויים שנעשים ברשימה הזאת אינם גלויים לאחרים.</string>
+  <string name="reading_list_share_message">שלום! אני רוצה לשתף איתך את רשימת הקריאה שלי \"%s\":</string>
+  <string name="reading_list_share_survey_title" fuzzy="true">אפשר לבקש ממך לעזור לנו לשפר את התכונה הזאת?</string>
+  <string name="reading_list_share_survey_body" fuzzy="true">שיתוף רשימות קריאה היא תכונת הבדיקה ואנחנו זקוקים למשוב שלך כדי לשפר או להסיר אותה.</string>
 </resources>

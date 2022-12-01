@@ -701,7 +701,7 @@
   <string name="suggested_edits_image_tags_search">Търсене на етикети</string>
   <string name="suggested_edits_image_tags_add_tag">Добавяне на етикет</string>
   <string name="suggested_edits_encouragement_message">%s, благодарим Ви за вашите редакции. По-долу може да намерите още начини как да допринасяте за Уикипедия.</string>
-  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Здравейте, %s&lt;/b&gt;, знаехте ли, че всеки може да редактира Уикипедия? Надолу може да намерите развлекателни начини, за да помогнете в подобряването на Уикипедия. Приятно редактиране!</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Здравейте, %s&lt;/b&gt;, по-долу можете да видите бърз и лесен начин за подобряване на Уикипедия. Ще видите подобренията, която правите, веднага щом започнете. Приятно редактиране!</string>
   <string name="suggested_edits_image_captions_task_detail">Опишете изображение, за да помогнете на читателите да разберат смисъла и контекста му.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Обобщава статията, за да помогне на читателите да добият представа за темата.</string>
   <string name="suggested_edits_editing_tips_link_text">Съвети и трикове за редактирането</string>

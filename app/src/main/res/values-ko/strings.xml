@@ -1219,4 +1219,13 @@
   <string name="user_contrib_current">현재</string>
   <string name="media_playback_error">미디어를 재생하는 동안 오류가 발생했습니다.</string>
   <string name="user_contrib_menu_label">기여</string>
+  <string name="shareable_reading_lists_import_dialog_title">읽기 목록 가져오기</string>
+  <string name="shareable_reading_lists_import_dialog_content">이 읽기 목록을 가져오시겠습니까?</string>
+  <string name="shareable_reading_lists_import_dialog_confirm">가져오기</string>
+  <string name="shareable_reading_lists_import_dialog_cancel">취소</string>
+  <string name="shareable_reading_lists_new_indicator">*새 항목*</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">알겠습니다</string>
+  <string name="shareable_reading_lists_new_imported_list_title">가져온 목록</string>
+  <string name="reading_list_share_menu_label">공유...</string>
+  <string name="reading_list_share_survey_title" fuzzy="true">이 기능을 개선하는 데 도움을 주시겠습니까?</string>
 </resources>

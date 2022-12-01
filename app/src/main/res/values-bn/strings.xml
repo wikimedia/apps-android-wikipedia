@@ -1016,4 +1016,9 @@
   <string name="media_playback_error">মিডিয়া চালনায় ত্রুটি৷</string>
   <string name="user_contrib_menu_label">অবদান</string>
   <string name="user_contrib_filter_activity_title" fuzzy="true">এতে অবদান:</string>
+  <string name="reading_list_share_survey_title">আপনি কি আমাদের "পড়ার তালিকা শেয়ার" উন্নত করতে সহায়তা করতে পারবেন?</string>
+  <string name="reading_list_share_survey_body">"পড়ার তালিকা শেয়ার" একটি পরীক্ষামূলক ফিচার এবং এটি উন্নত বা অপসারণ করতে আমাদের আপনার প্রতিক্রিয়া প্রয়োজন।</string>
+  <string name="reading_list_share_menu_label">শেয়ার করুন…</string>
+  <string name="reading_list_share_menu_tooltip">এই রিডিং লিস্টটি অন্যদের সাথে শেয়ার করুন</string>
+  <string name="reading_list_share_message">হাই! আমি আপনাদের সাথে আমার উইকিপিডিয়া রিডিং লিস্ট শেয়ার করতে চাই:</string>
 </resources>

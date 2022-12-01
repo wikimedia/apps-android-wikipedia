@@ -14,10 +14,7 @@ import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemReadingListBinding
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
+import org.wikipedia.util.*
 import org.wikipedia.views.ViewUtil
 
 class ReadingListItemView : ConstraintLayout {
@@ -38,6 +35,8 @@ class ReadingListItemView : ConstraintLayout {
     private var readingList: ReadingList? = null
     private val imageViews = listOf(binding.itemImage1, binding.itemImage2, binding.itemImage3, binding.itemImage4)
     var callback: Callback? = null
+    val shareButton get() = binding.itemShareButton
+    val listTitle get() = binding.itemTitle
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -82,12 +81,20 @@ class ReadingListItemView : ConstraintLayout {
                         menu.menu.findItem(R.id.menu_reading_list_rename).isVisible = false
                         menu.menu.findItem(R.id.menu_reading_list_delete).isVisible = false
                     }
-                    menu.menu.findItem(R.id.menu_reading_list_share).isVisible = ReadingListsShareHelper.shareEnabled()
+                    menu.menu.findItem(R.id.menu_reading_list_share).isVisible = false
                     menu.setOnMenuItemClickListener(OverflowMenuClickListener(it))
                     menu.show()
                 }
             }
         }
+
+        binding.itemShareButton.setOnClickListener {
+            readingList?.let {
+                callback?.onShare(it)
+            }
+        }
+
+        FeedbackUtil.setButtonLongPressToast(binding.itemShareButton, binding.itemOverflowMenu)
     }
 
     fun setReadingList(readingList: ReadingList, description: Description, newImport: Boolean = false) {
