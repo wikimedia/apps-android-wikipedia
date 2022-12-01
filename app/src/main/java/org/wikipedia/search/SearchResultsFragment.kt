@@ -7,12 +7,18 @@ import android.view.ViewGroup
 import androidx.collection.LruCache
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -50,6 +56,8 @@ class SearchResultsFragment : Fragment() {
 
     private var _binding: FragmentSearchResultsBinding? = null
     private val binding get() = _binding!!
+    private val viewModel = SearchResultsViewModel()
+    private val searchResultsAdapter = SearchResultsAdapter()
     private val searchResultsCache = LruCache<String, MutableList<SearchResult>>(MAX_CACHE_SIZE_SEARCH_RESULTS)
     private val searchResultsCountCache = LruCache<String, List<Int>>(MAX_CACHE_SIZE_SEARCH_RESULTS)
     private var currentSearchTerm: String? = ""
@@ -67,6 +75,22 @@ class SearchResultsFragment : Fragment() {
             binding.searchErrorView.visibility = View.GONE
             startSearch(currentSearchTerm, true)
         }
+
+        lifecycleScope.launch {
+            viewModel.searchResultsFlow.collectLatest {
+                searchResultsAdapter.submitData(it)
+            }
+        }
+
+        lifecycleScope.launchWhenCreated {
+            searchResultsAdapter.loadStateFlow.collectLatest {
+                val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && searchResultsAdapter.itemCount == 0)
+                if (showEmpty) {
+                    // TODO: show search count adapter
+                }
+            }
+        }
+
         return binding.root
     }
 
@@ -338,6 +362,35 @@ class SearchResultsFragment : Fragment() {
         override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
             page.let {
                 callback()?.onSearchMovePageToList(page!!.listId, entry)
+            }
+        }
+    }
+
+    private inner class SearchResultsDiffCallback : DiffUtil.ItemCallback<SearchResults>() {
+        override fun areItemsTheSame(oldItem: SearchResults, newItem: SearchResults): Boolean {
+            return oldItem.continuation == newItem.continuation
+        }
+
+        override fun areContentsTheSame(oldItem: SearchResults, newItem: SearchResults): Boolean {
+            return areItemsTheSame(oldItem, newItem)
+        }
+    }
+
+    private inner class SearchResultsAdapter : PagingDataAdapter<SearchResults, DefaultViewHolder<View>>(SearchResultsDiffCallback()) {
+        // TODO: matching pagingsource format
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<View> {
+            return if (viewType == VIEW_TYPE_ITEM) {
+                SearchResultItemViewHolder(ItemSearchResultBinding.inflate(layoutInflater, parent, false))
+            } else {
+                NoSearchResultItemViewHolder(ItemSearchNoResultsBinding.inflate(layoutInflater, parent, false))
+            }
+        }
+
+        override fun onBindViewHolder(holder: DefaultViewHolder<View>, pos: Int) {
+            if (holder is SearchResultItemViewHolder) {
+                holder.bindItem(pos)
+            } else if (holder is NoSearchResultItemViewHolder) {
+                holder.bindItem(pos)
             }
         }
     }

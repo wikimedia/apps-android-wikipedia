@@ -1,14 +1,14 @@
 package org.wikipedia.search
 
-import android.os.Bundle
 import androidx.collection.LruCache
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEmpty
+import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -17,7 +17,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.util.StringUtil
 import java.util.*
 
-class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
+class SearchResultsViewModel : ViewModel() {
 
     private val batchSize = 20
     private val maxCacheSize = 4
@@ -64,7 +64,7 @@ class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
                     .contains(res.pageTitle.prefixedText)
             }.take(1))
 
-            // TODO: verify this
+            // TODO: return SearchResult vs SearchResults
             pagingData.insertHeaderItem(item = SearchResults(resultList))
         }
     }.onEmpty {
@@ -152,13 +152,6 @@ class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
 
         override fun getRefreshKey(state: PagingState<MwQueryResponse.Continuation, SearchResults>): MwQueryResponse.Continuation? {
             return null
-        }
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return SearchResultsViewModel(bundle) as T
         }
     }
 }
