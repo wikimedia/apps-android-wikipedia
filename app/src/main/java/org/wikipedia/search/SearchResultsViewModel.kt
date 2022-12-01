@@ -36,7 +36,6 @@ class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
             var readingListSearch = SearchResults()
             var historySearch = SearchResults()
             if (searchQuery.length > 2) {
-
                 readingListSearch = withContext(Dispatchers.IO) {
                     async {
                         AppDatabase.instance.readingListPageDao().findPageForSearchQueryInAnyList(searchQuery)
@@ -80,6 +79,14 @@ class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
                     return
                 }
             }
+        }
+    }
+
+    private fun cache(languageCode: String, resultList: List<SearchResult>, searchTerm: String) {
+        val cacheKey = "$languageCode-$searchTerm"
+        searchResultsCache[cacheKey]?.let {
+            it.addAll(resultList)
+            searchResultsCache.put(cacheKey, it)
         }
     }
 
