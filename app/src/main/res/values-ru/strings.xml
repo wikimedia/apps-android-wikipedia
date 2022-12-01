@@ -1397,11 +1397,6 @@
   <string name="shareable_reading_lists_new_install_dialog_content">Мы заметили, что с вами поделились списком для чтения. Чтобы просмотреть этот список в этом приложении, вернитесь к исходному сообщению и снова нажмите на ссылку, которой поделились с вами.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Понятно!</string>
   <string name="shareable_reading_lists_new_imported_list_title">Импортированный список</string>
-  <plurals name="shareable_reading_lists_import_dialog_content_articles">
-    <item quantity="one">%d статья</item>
-    <item quantity="few">%d статьи</item>
-    <item quantity="many">%d статей</item>
-  </plurals>
   <string name="reading_list_share_menu_label">Поделиться…</string>
   <string name="reading_list_share_message">Приветствую! Я хотел_а бы поделиться с вами своим списком для чтения «%s»:</string>
   <string name="reading_list_share_survey_title" fuzzy="true">Могли бы вы помочь нам улучшить этот функционал?</string>
