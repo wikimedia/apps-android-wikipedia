@@ -10,7 +10,6 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.map
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
@@ -21,6 +20,7 @@ class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
 
     private val batchSize = 20
     private val maxCacheSize = 4
+    // TODO: add cache logic
     private val searchResultsCache = LruCache<String, MutableList<SearchResult>>(maxCacheSize)
     private val searchResultsCountCache = LruCache<String, List<Int>>(maxCacheSize)
     var searchTerm: String? = null
@@ -86,11 +86,11 @@ class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
     class SearchResultsPagingSource(
             val searchTerm: String?,
             val languageCode: String?
-    ) : PagingSource<Int, SearchResults>() {
+    ) : PagingSource<MwQueryResponse.Continuation, SearchResults>() {
 
         private var prefixSearch = true
 
-        override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SearchResults> {
+        override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, SearchResults> {
             return try {
                 // TODO: add delay logic
                 // The default offset is 0 but we send the initial offset from 1 to prevent showing the same talk page from the results.
@@ -99,26 +99,33 @@ class SearchResultsViewModel(bundle: Bundle) : ViewModel() {
                 }
 
                 val wikiSite = WikiSite.forLanguageCode(languageCode)
-                var nextKey: Int? = null
+                var response: MwQueryResponse?
                 if (prefixSearch) {
-                    val response = ServiceFactory.get(wikiSite)
-                        .prefixSearch(searchTerm, params.loadSize, params.key)
+                    response = ServiceFactory.get(wikiSite).prefixSearch(searchTerm, params.loadSize, params.key?.gpsoffset)
                     if (response.query?.pages == null) {
-                        return LoadResult.Page(emptyList(), null, null)
-                    } else {
-                        nextKey = response.continuation?.gpsoffset
+                        // If prefix search returns empty result, then do full text search.
+                        response = ServiceFactory.get(wikiSite)
+                            .fullTextSearchMedia(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
                     }
                 } else {
-                    ServiceFactory.get(wikiSite)
-                        .fullTextSearchMedia(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, params.key)
+                    response = ServiceFactory.get(wikiSite)
+                        .fullTextSearchMedia(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
                 }
-                LoadResult.Page(listOf(), null, nextKey)
+
+                return response.query?.pages?.let { list ->
+                    val results = list.sortedBy { it.index }.map {
+                        SearchResult(it, wikiSite)
+                    }
+                    LoadResult.Page(listOf(SearchResults(results.toMutableList())), null, response.continuation)
+                } ?: run {
+                    LoadResult.Page(emptyList(), null, null)
+                }
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }
         }
 
-        override fun getRefreshKey(state: PagingState<Int, SearchResults>): Int? {
+        override fun getRefreshKey(state: PagingState<MwQueryResponse.Continuation, SearchResults>): MwQueryResponse.Continuation? {
             return null
         }
     }
