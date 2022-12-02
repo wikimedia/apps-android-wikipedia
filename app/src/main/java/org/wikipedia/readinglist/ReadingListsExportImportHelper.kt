@@ -8,7 +8,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
@@ -31,9 +30,6 @@ import org.wikipedia.util.FileUtil
 object ReadingListsExportImportHelper : BaseActivity.Callback {
     var lists: List<ReadingList>? = null
     val funnel = ReadingListsFunnel()
-    private const val KEEP_BOTH = 1
-    private const val REPLACE = 2
-    private const val SKIP = 3
 
     fun exportLists(activity: BaseActivity, readingLists: List<ReadingList>?) {
         lists = readingLists
@@ -96,61 +92,19 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
             FeedbackUtil.showMessage(activity, R.string.reading_lists_import_failure_message)
         }
         readingLists?.let { lists ->
-            val existingTitles = AppDatabase.instance.readingListDao().getAllLists().map { it.title }
-            val importedTitles = lists.map { it.name }
-            if (existingTitles.filter(importedTitles::contains).toSet().isNotEmpty()) {
-                showConflictResolutionDialogAndCreateLists(activity, lists)
-            } else {
-                createListsFromImport(activity, lists)
+            for (list in lists) {
+                val allLists = AppDatabase.instance.readingListDao().getAllLists()
+                val existingTitles = AppDatabase.instance.readingListDao().getAllLists().map { it.title }
+                if (existingTitles.contains(list.name)) {
+                    allLists.filter { it.title == list.name }.forEach { addTitlesToList(list, it) }
+                    continue
+                }
+                val readingList = AppDatabase.instance.readingListDao().createList(list.name!!, list.description)
+                addTitlesToList(list, readingList)
             }
+            funnel.logImportFinish(readingLists.size)
+            FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_import_success_message, readingLists.size))
         }
-    }
-
-    private fun createListsFromImport(activity: AppCompatActivity, lists: List<ExportableReadingList>, importConflictResolutionChoice: Int? = null) {
-        val existingTitles = AppDatabase.instance.readingListDao().getAllLists().map { it.title }
-        for (list in lists) {
-            if (existingTitles.contains(list.name)) {
-                val conflictingUserList = AppDatabase.instance.readingListDao().getAllLists().filter { it.title == list.name }[0]
-                when (importConflictResolutionChoice) {
-                    KEEP_BOTH -> createNewList(list, activity.getString(R.string.copy_of_imported_list_name,
-                        list.name!!, System.currentTimeMillis().toString()))
-                    REPLACE -> replaceList(list, conflictingUserList)
-                }
-            } else {
-                createNewList(list)
-            }
-        }
-        funnel.logImportFinish(lists.size)
-        FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_import_success_message, lists.size))
-    }
-
-    private fun showConflictResolutionDialogAndCreateLists(activity: AppCompatActivity, lists: List<ExportableReadingList>) {
-            AlertDialog.Builder(activity)
-                .setCancelable(false)
-                .setTitle(activity.getString(R.string.reading_lists_import_conflict_dialog_title))
-                .setMessage(activity.getString(R.string.reading_lists_import_conflict_dialog_message))
-                .setPositiveButton(R.string.reading_lists_import_conflict_dialog_primary_action_text) { _, _ ->
-                    createListsFromImport(activity, lists, KEEP_BOTH)
-                }
-                .setNegativeButton(R.string.reading_lists_import_conflict_dialog_secondary_action_text) { _, _ ->
-                    createListsFromImport(activity, lists, REPLACE)
-                }
-                .setNeutralButton(R.string.reading_lists_import_conflict_dialog_neutral_action_text) { _, _ ->
-                    createListsFromImport(activity, lists, SKIP)
-                }
-                .show()
-    }
-
-    private fun createNewList(importedList: ExportableReadingList, titleForDuplicateList: String? = null) {
-        val readingList = AppDatabase.instance.readingListDao()
-            .createList(titleForDuplicateList ?: importedList.name!!, importedList.description)
-        addTitlesToList(importedList, readingList)
-    }
-
-    private fun replaceList(importedList: ExportableReadingList, userList: ReadingList) {
-        AppDatabase.instance.readingListDao().deleteReadingList(userList)
-        AppDatabase.instance.readingListPageDao().markPagesForDeletion(userList, userList.pages, false)
-        createNewList(importedList)
     }
 
     private fun addTitlesToList(exportedList: ExportableReadingList, list: ReadingList) {
