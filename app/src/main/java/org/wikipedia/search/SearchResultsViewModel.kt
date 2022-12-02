@@ -93,7 +93,6 @@ class SearchResultsViewModel : ViewModel() {
                 if (response?.query?.pages == null) {
                     response = ServiceFactory.get(wikiSite)
                         .fullTextSearchMedia(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
-
                 }
 
                 val resultList = mutableListOf<SearchResult>()
@@ -118,7 +117,6 @@ class SearchResultsViewModel : ViewModel() {
                 resultList.addAll(searchResults)
 
                 return LoadResult.Page(resultList, null, response.continuation)
-
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }
