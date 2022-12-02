@@ -2,6 +2,8 @@ package org.wikipedia.main
 
 import android.graphics.Color
 import android.os.Build
+import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
@@ -21,8 +23,11 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
+import org.hamcrest.Description
+import org.hamcrest.Matcher
 import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.allOf
+import org.hamcrest.TypeSafeMatcher
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -205,7 +210,7 @@ class SmokeTests {
         TestUtil.delay(2)
 
         // Bring up the theme chooser dialog
-        onView(withId(R.id.article_menu_font_and_theme))
+        onView(withId(R.id.page_theme))
                 .perform(click())
 
         TestUtil.delay(1)
@@ -236,7 +241,7 @@ class SmokeTests {
                 .check(matches(TestUtil.hasBackgroundColor(Color.BLACK)))
 
         // Go back to the Light theme
-        onView(withId(R.id.article_menu_font_and_theme))
+        onView(withId(R.id.page_theme))
                 .perform(click())
 
         TestUtil.delay(1)
@@ -260,15 +265,29 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-        // Increase text size
-        onView(allOf(withId(R.id.menu_edit_zoom_in), isDisplayed()))
-                .perform(click())
+        // Close Edit notices
+        onView(allOf(withId(R.id.editNoticeCloseButton), withContentDescription("Close"), childAtPosition(childAtPosition(withId(de.mrapp.android.tabswitcher.R.id.custom), 0), 1), isDisplayed()))
+            .perform(click())
 
         TestUtil.delay(1)
 
-        // Decrease text size
-        onView(allOf(withId(R.id.menu_edit_zoom_out), isDisplayed()))
-                .perform(click())
+        // Increase text size by clicking on theme icon and using text slider
+        onView(allOf(withId(R.id.menu_edit_theme), withContentDescription("Font and theme"), childAtPosition(childAtPosition(withId(de.mrapp.android.tabswitcher.R.id.action_bar), 1), 2), isDisplayed()))
+        .perform(click())
+
+        TestUtil.delay(2)
+
+        // Click outside to exit bottom sheet
+            onView(allOf(withId(com.google.android.material.R.id.touch_outside), childAtPosition(allOf(withId(com.google.android.material.R.id.coordinator), childAtPosition(withId(R.id.container), 0)), 0), isDisplayed()))
+        .perform(click())
+
+        // Decrease text size by clicking on theme icon and using text slider
+            onView(allOf(withId(R.id.menu_edit_theme), withContentDescription("Font and theme"), childAtPosition(childAtPosition(withId(de.mrapp.android.tabswitcher.R.id.action_bar), 1), 2), isDisplayed()))
+        .perform(click())
+
+        val view2 =
+            onView(allOf(withId(com.google.android.material.R.id.touch_outside), childAtPosition(allOf(withId(com.google.android.material.R.id.coordinator), childAtPosition(withId(R.id.container), 0)), 0), isDisplayed()))
+        view2.perform(click())
 
         TestUtil.delay(1)
 
@@ -420,7 +439,7 @@ class SmokeTests {
 
         // TODO: update the following actions when the customizable toolbar feature is released
         // Click on the Save button to add article to reading list
-        onView(withId(R.id.article_menu_bookmark)).perform(click())
+        onView(withId(R.id.page_save)).perform(click())
 
         TestUtil.delay(1)
 
@@ -464,7 +483,7 @@ class SmokeTests {
         TestUtil.delay(5)
 
         // Click on bookmark icon and open the menu
-        onView(withId(R.id.article_menu_bookmark)).perform(click())
+        onView(withId(R.id.page_save)).perform(click())
 
         TestUtil.delay(2)
 
@@ -479,6 +498,20 @@ class SmokeTests {
         TestUtil.delay(2)
     }
 
+    private fun childAtPosition(parentMatcher: Matcher<View>, position: Int): Matcher<View> {
+
+        return object : TypeSafeMatcher<View>() {
+            override fun describeTo(description: Description) {
+                description.appendText("Child at position $position in parent ")
+                parentMatcher.describeTo(description)
+            }
+
+            public override fun matchesSafely(view: View): Boolean {
+                val parent = view.parent
+                return parent is ViewGroup && parentMatcher.matches(parent) && view == parent.getChildAt(position)
+            }
+        }
+    }
     companion object {
         private val SEARCH_TERM = "hopf fibration"
         private val ARTICLE_TITLE = "Hopf fibration"
