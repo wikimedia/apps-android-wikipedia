@@ -366,17 +366,18 @@ class SearchResultsFragment : Fragment() {
         }
     }
 
-    private inner class SearchResultsDiffCallback : DiffUtil.ItemCallback<SearchResults>() {
-        override fun areItemsTheSame(oldItem: SearchResults, newItem: SearchResults): Boolean {
-            return oldItem.continuation == newItem.continuation
+    private inner class SearchResultsDiffCallback : DiffUtil.ItemCallback<SearchResult>() {
+        override fun areItemsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {
+            return oldItem.pageTitle.prefixedText == newItem.pageTitle.prefixedText &&
+                        oldItem.pageTitle.namespace == newItem.pageTitle.namespace
         }
 
-        override fun areContentsTheSame(oldItem: SearchResults, newItem: SearchResults): Boolean {
+        override fun areContentsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {
             return areItemsTheSame(oldItem, newItem)
         }
     }
 
-    private inner class SearchResultsAdapter : PagingDataAdapter<SearchResults, DefaultViewHolder<View>>(SearchResultsDiffCallback()) {
+    private inner class SearchResultsAdapter : PagingDataAdapter<SearchResult, DefaultViewHolder<View>>(SearchResultsDiffCallback()) {
         // TODO: matching pagingsource format
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<View> {
             return if (viewType == VIEW_TYPE_ITEM) {

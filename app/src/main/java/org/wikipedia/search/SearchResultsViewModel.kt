@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEmpty
 import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
@@ -29,45 +28,7 @@ class SearchResultsViewModel : ViewModel() {
     var languageCode: String? = null
     val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize)) {
         SearchResultsPagingSource(searchTerm, languageCode)
-    }.flow.map { pagingData ->
-        if (searchTerm.isNullOrEmpty() || languageCode.isNullOrEmpty()) {
-            pagingData
-        } else {
-            val searchQuery = searchTerm!!
-
-            var readingListSearch = SearchResults()
-            var historySearch = SearchResults()
-            if (searchQuery.length > 2) {
-                readingListSearch = withContext(Dispatchers.IO) {
-                    async {
-                        AppDatabase.instance.readingListPageDao().findPageForSearchQueryInAnyList(searchQuery)
-                    }
-                }.await()
-
-                historySearch = withContext(Dispatchers.IO) {
-                    async {
-                        AppDatabase.instance.historyEntryWithImageDao().findHistoryItem(searchQuery)
-                    }
-                }.await()
-            }
-
-            val resultList = mutableListOf<SearchResult>()
-            addSearchResultsFromTabs(searchQuery, resultList)
-
-            resultList.addAll(readingListSearch.results.filterNot { res ->
-                resultList.map { it.pageTitle.prefixedText }
-                    .contains(res.pageTitle.prefixedText)
-            }.take(1))
-
-            resultList.addAll(historySearch.results.filterNot { res ->
-                resultList.map { it.pageTitle.prefixedText }
-                    .contains(res.pageTitle.prefixedText)
-            }.take(1))
-
-            // TODO: return SearchResult vs SearchResults
-            pagingData.insertHeaderItem(item = SearchResults(resultList))
-        }
-    }.onEmpty {
+    }.flow.onEmpty {
         WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
             if (langCode == languageCode) {
                 resultsCount.add(0)
@@ -93,29 +54,14 @@ class SearchResultsViewModel : ViewModel() {
         }
     }.cachedIn(viewModelScope)
 
-    private fun addSearchResultsFromTabs(searchTerm: String, resultList: MutableList<SearchResult>) {
-        if (searchTerm.length < 2) {
-            return
-        }
-        WikipediaApp.instance.tabList.forEach { tab ->
-            tab.backStackPositionTitle?.let {
-                if (StringUtil.fromHtml(it.displayText).toString().lowercase(Locale.getDefault()).contains(searchTerm.lowercase(
-                        Locale.getDefault()))) {
-                    resultList.add(SearchResult(it, SearchResult.SearchResultType.TAB_LIST))
-                    return
-                }
-            }
-        }
-    }
-
     class SearchResultsPagingSource(
             val searchTerm: String?,
             val languageCode: String?
-    ) : PagingSource<MwQueryResponse.Continuation, SearchResults>() {
+    ) : PagingSource<MwQueryResponse.Continuation, SearchResult>() {
 
         private var prefixSearch = true
 
-        override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, SearchResults> {
+        override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, SearchResult> {
             return try {
                 // TODO: add delay logic
                 // The default offset is 0 but we send the initial offset from 1 to prevent showing the same talk page from the results.
@@ -124,34 +70,77 @@ class SearchResultsViewModel : ViewModel() {
                 }
 
                 val wikiSite = WikiSite.forLanguageCode(languageCode)
-                var response: MwQueryResponse?
+                var response: MwQueryResponse? = null
+                var readingListSearch = SearchResults()
+                var historySearch = SearchResults()
                 if (prefixSearch) {
-                    response = ServiceFactory.get(wikiSite).prefixSearch(searchTerm, params.loadSize, params.key?.gpsoffset)
-                    if (response.query?.pages == null) {
-                        // If prefix search returns empty result, then do full text search.
-                        response = ServiceFactory.get(wikiSite)
-                            .fullTextSearchMedia(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
+                    if (searchTerm.length > 2) {
+                        readingListSearch = withContext(Dispatchers.IO) {
+                            async {
+                                AppDatabase.instance.readingListPageDao().findPageForSearchQueryInAnyList(searchTerm)
+                            }
+                        }.await()
+
+                        historySearch = withContext(Dispatchers.IO) {
+                            async {
+                                AppDatabase.instance.historyEntryWithImageDao().findHistoryItem(searchTerm)
+                            }
+                        }.await()
                     }
-                } else {
-                    response = ServiceFactory.get(wikiSite)
-                        .fullTextSearchMedia(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
+                    response = ServiceFactory.get(wikiSite).prefixSearch(searchTerm, params.loadSize, params.key?.gpsoffset)
                 }
 
-                return response.query?.pages?.let { list ->
-                    val results = list.sortedBy { it.index }.map {
+                if (response?.query?.pages == null) {
+                    response = ServiceFactory.get(wikiSite)
+                        .fullTextSearchMedia(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
+
+                }
+
+                val resultList = mutableListOf<SearchResult>()
+                addSearchResultsFromTabs(searchTerm, resultList)
+
+                resultList.addAll(readingListSearch.results.filterNot { res ->
+                    resultList.map { it.pageTitle.prefixedText }
+                        .contains(res.pageTitle.prefixedText)
+                }.take(1))
+
+                resultList.addAll(historySearch.results.filterNot { res ->
+                    resultList.map { it.pageTitle.prefixedText }
+                        .contains(res.pageTitle.prefixedText)
+                }.take(1))
+
+                val searchResults = response.query?.pages?.let { list ->
+                    list.sortedBy { it.index }.map {
                         SearchResult(it, wikiSite)
                     }
-                    LoadResult.Page(listOf(SearchResults(results.toMutableList())), null, response.continuation)
-                } ?: run {
-                    LoadResult.Page(emptyList(), null, null)
-                }
+                } ?: emptyList()
+
+                resultList.addAll(searchResults)
+
+                return LoadResult.Page(resultList, null, response.continuation)
+
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }
         }
 
-        override fun getRefreshKey(state: PagingState<MwQueryResponse.Continuation, SearchResults>): MwQueryResponse.Continuation? {
+        override fun getRefreshKey(state: PagingState<MwQueryResponse.Continuation, SearchResult>): MwQueryResponse.Continuation? {
             return null
+        }
+
+        private fun addSearchResultsFromTabs(searchTerm: String, resultList: MutableList<SearchResult>) {
+            if (searchTerm.length < 2) {
+                return
+            }
+            WikipediaApp.instance.tabList.forEach { tab ->
+                tab.backStackPositionTitle?.let {
+                    if (StringUtil.fromHtml(it.displayText).toString().lowercase(Locale.getDefault()).contains(searchTerm.lowercase(
+                            Locale.getDefault()))) {
+                        resultList.add(SearchResult(it, SearchResult.SearchResultType.TAB_LIST))
+                        return
+                    }
+                }
+            }
         }
     }
 }
