@@ -546,7 +546,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             if (AccountUtil.isLoggedIn) {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(requireActivity())
             } else {
-                ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity())
+                if (recentImportedReadingList == null) {
+                    ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity())
+                }
             }
         }
     }
@@ -605,6 +607,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         ReadingListsReceiveSurveyHelper.maybeShowSurvey(requireActivity())
                     }
                 })
+                .setAction(R.string.suggested_edits_article_cta_snackbar_action) {
+                    recentImportedReadingList?.let {
+                        startActivity(ReadingListActivity.newIntent(requireContext(), it))
+                    }
+                }
                 .show()
             shouldShowImportedSnackbar = false
         }
