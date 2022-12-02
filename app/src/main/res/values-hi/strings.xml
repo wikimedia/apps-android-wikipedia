@@ -1203,4 +1203,9 @@
   <string name="user_contrib_current">वर्तमान</string>
   <string name="media_playback_error">मीडिया चलाने में त्रुटि।</string>
   <string name="user_contrib_menu_label">योगदान</string>
+  <string name="reading_list_share_survey_title">क्या आप "रीडिंग लिस्ट साझा करें" में सुधार लाने में हमारी सहायता करेंगे?</string>
+  <string name="reading_list_share_survey_body">"रीडिंग लिस्ट साझा करें" इस टेस्ट फीचर है और उसे सुधरने या हटाने में आपकी फीडबैक की जरूरत है।</string>
+  <string name="reading_list_share_menu_label">साझा करें…</string>
+  <string name="reading_list_share_menu_tooltip">यह रीडिंग लिस्ट अन्य लोगों के साथ साझा करें</string>
+  <string name="reading_list_share_message">हैलो! मैं अपना Wikipedia रीडिंग लिस्ट आपके साथ साझा करना चाहता/चाहती हूं:</string>
 </resources>

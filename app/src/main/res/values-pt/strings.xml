@@ -1269,11 +1269,22 @@
   <string name="user_contrib_activity_title">Contribuições de %s</string>
   <string name="archive_empty">Não foi encontrada nenhuma página arquivada.</string>
   <string name="user_contrib_filter_ns">Filtrar por espaço nominal</string>
-  <string name="user_contrib_filter_all" fuzzy="true">Todos os \"espaços nominais\"</string>
+  <string name="user_contrib_filter_all">Todos os espaços nominais</string>
   <string name="user_contrib_filter_ns_header">Filtro de espaços nominais</string>
   <string name="namespace_article">Artigo</string>
   <string name="user_contrib_current">atual</string>
   <string name="media_playback_error">Erro na reprodução de multimédia.</string>
   <string name="user_contrib_menu_label">Contribuições</string>
   <string name="user_contrib_filter_activity_title">Filtrar contribuições</string>
+  <string name="shareable_reading_lists_import_dialog_title">Importar lista de leitura</string>
+  <string name="shareable_reading_lists_import_dialog_content">Tem a certeza de que deseja importar esta lista de leitura?</string>
+  <string name="shareable_reading_lists_new_indicator">*nova*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Foi partilhada consigo uma lista de leitura.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Notámos que foi partilhada consigo uma lista de leitura. Para ver esta lista nesta aplicação móvel, volte à mensagem original e prima novamente a hiperligação que foi partilhada consigo.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Entendido</string>
+  <string name="reading_list_share_survey_title">Você poderia nos ajudar a melhorar "Compartilhar listas de leitura"?</string>
+  <string name="reading_list_share_survey_body">"Compartilhar listas de leitura" é um recurso de teste e precisamos do seu feedback para melhorá-lo ou removê-lo.</string>
+  <string name="reading_list_share_menu_label">Compartilhar…</string>
+  <string name="reading_list_share_menu_tooltip">Compartilhar esta lista de leitura com outras pessoas</string>
+  <string name="reading_list_share_message">Olá! Gostaria de compartilhar minha lista de leitura da Wikipédia com você:</string>
 </resources>

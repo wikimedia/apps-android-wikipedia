@@ -10,7 +10,6 @@ import android.text.style.ForegroundColorSpan
 import android.view.*
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.core.graphics.ColorUtils
@@ -21,6 +20,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.google.android.material.snackbar.Snackbar
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
@@ -76,6 +76,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private var recentImportedReadingList: ReadingList? = null
     private var selectMode: Boolean = false
     private var importMode: Boolean = false
+    private var shouldShowImportedSnackbar = false
 
     val filePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         val uri: Uri = it.data?.data!!
@@ -125,6 +126,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     override fun onResume() {
         super.onResume()
         updateLists()
+        ReadingListsShareSurveyHelper.maybeShowSurvey(requireActivity())
         requireActivity().invalidateOptionsMenu()
     }
 
@@ -177,10 +179,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         override fun createNewListClick() {
             val existingTitles = displayedLists.filterIsInstance<ReadingList>().map { it.title }
             ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
-                    existingTitles) { text, description ->
-                AppDatabase.instance.readingListDao().createList(text, description)
-                updateLists()
-            }.show()
+                    existingTitles, callback = object : ReadingListTitleDialog.Callback {
+                    override fun onSuccess(text: String, description: String) {
+                        AppDatabase.instance.readingListDao().createList(text, description)
+                        updateLists()
+                    }
+                    override fun onCancel() { }
+                }).show()
         }
 
         override fun importNewList() {
@@ -294,6 +299,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             updateEmptyState(searchQuery)
             maybeDeleteListFromIntent()
             maybeShowImportReadingListsDialog()
+            maybeShowImportReadingListsSnackbar()
             currentSearchQuery = searchQuery
             maybeTurnOffImportMode(lists.filterIsInstance<ReadingList>().toMutableList())
         }
@@ -358,6 +364,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private inner class ReadingListItemHolder constructor(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
         fun bindItem(readingList: ReadingList) {
+            Prefs.readingListRecentReceivedId = recentImportedReadingList?.id ?: -1
             view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY, selectMode, readingList.id == recentImportedReadingList?.id)
             view.setSearchQuery(currentSearchQuery)
         }
@@ -741,33 +748,29 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private fun maybeShowImportReadingListsDialog() {
         val encodedJson = Prefs.importReadingListsData
         if (!Prefs.importReadingListsDialogShown && !encodedJson.isNullOrEmpty()) {
-            binding.swipeRefreshLayout.isRefreshing = true
             lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.e(throwable)
                 FeedbackUtil.showError(requireActivity(), throwable)
-                binding.swipeRefreshLayout.isRefreshing = false
             }) {
                 withContext(Dispatchers.Main) {
                     val readingList = ReadingListsImportHelper.importReadingLists(requireContext(), encodedJson)
-                    val dialogView = ReadingListImportDialogView(requireContext())
-                    dialogView.setReadingList(readingList)
                     ReadingListsFunnel().logReceivePreview(readingList)
-                    AlertDialog.Builder(requireContext())
-                        .setView(dialogView)
-                        .setPositiveButton(R.string.shareable_reading_lists_import_dialog_confirm) { _, _ ->
-                            ReadingListsFunnel().logReceiveFinish(readingList)
-                            importReadingListAndRefresh(readingList)
-                        }
-                        .setNegativeButton(R.string.shareable_reading_lists_import_dialog_cancel) { _, _ ->
-                            ReadingListsFunnel().logReceiveCancel(readingList)
-                        }
-                            .setOnDismissListener {
-                                ReadingListsSurveyHelper.activateSurvey()
-                                ReadingListsSurveyHelper.maybeShowSurvey(requireActivity())
+                    val existingTitles = displayedLists.filterIsInstance<ReadingList>().map { it.title }
+                    val dialog = ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
+                        existingTitles, true, callback = object : ReadingListTitleDialog.Callback {
+                            override fun onSuccess(text: String, description: String) {
+                                readingList.listTitle = text
+                                readingList.description = description
+                                ReadingListsFunnel().logReceiveFinish(readingList)
+                                importReadingListAndRefresh(readingList)
                             }
-                            .show()
+                            override fun onCancel() {
+                                ReadingListsFunnel().logReceiveCancel(readingList)
+                            }
+                        }
+                    )
+                    dialog.show()
                     Prefs.importReadingListsDialogShown = true
-                    binding.swipeRefreshLayout.isRefreshing = false
                 }
             }
         }
@@ -778,6 +781,27 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         readingList.id = AppDatabase.instance.readingListDao().insertReadingList(readingList)
         AppDatabase.instance.readingListPageDao().addPagesToList(readingList, readingList.pages, true)
         recentImportedReadingList = readingList
+        shouldShowImportedSnackbar = true
+    }
+
+    private fun maybeShowImportReadingListsSnackbar() {
+        if (shouldShowImportedSnackbar) {
+            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.shareable_reading_lists_new_imported_snackbar))
+                .addCallback(object : Snackbar.Callback() {
+                    override fun onDismissed(
+                        transientBottomBar: Snackbar,
+                        @DismissEvent event: Int
+                    ) {
+                        if (!isAdded) {
+                            return
+                        }
+                        ReadingListsReceiveSurveyHelper.activateSurvey()
+                        ReadingListsReceiveSurveyHelper.maybeShowSurvey(requireActivity())
+                    }
+                })
+                .show()
+            shouldShowImportedSnackbar = false
+        }
     }
 
     private fun maybeShowOnboarding(searchQuery: String?) {

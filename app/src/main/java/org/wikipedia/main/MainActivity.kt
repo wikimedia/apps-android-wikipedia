@@ -127,7 +127,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
             // TODO: handle special cases of non-article content, e.g. shared reading lists.
             intent.data?.let {
-                if (it.authority.orEmpty().endsWith("wikipedia.org")) {
+                if (it.authority.orEmpty().endsWith(WikiSite.BASE_DOMAIN)) {
                     // Pass it right along to PageActivity
                     val uri = Uri.parse(it.toString().replace("wikipedia://", WikiSite.DEFAULT_SCHEME + "://"))
                     startActivity(Intent(this, PageActivity::class.java)

@@ -12,6 +12,7 @@ import androidx.appcompat.view.ActionMode
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.MenuProvider
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -98,6 +99,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     override fun onResume() {
         super.onResume()
         updateReadingListData()
+        ReadingListsShareSurveyHelper.maybeShowSurvey(requireActivity())
     }
 
     override fun onDestroyView() {
@@ -119,7 +121,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val sortByNameItem = menu.findItem(R.id.menu_sort_by_name)
         val sortByRecentItem = menu.findItem(R.id.menu_sort_by_recent)
         val sortMode = Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC)
-        menu.findItem(R.id.menu_reading_list_share)?.isVisible = ReadingListsShareHelper.shareEnabled()
         sortByNameItem.setTitle(if (sortMode == ReadingList.SORT_BY_NAME_ASC) R.string.reading_list_sort_by_name_desc else R.string.reading_list_sort_by_name)
         sortByRecentItem.setTitle(if (sortMode == ReadingList.SORT_BY_RECENT_DESC) R.string.reading_list_sort_by_recent_desc else R.string.reading_list_sort_by_recent)
         val searchItem = menu.findItem(R.id.menu_search_lists)
@@ -180,10 +181,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 }
                 true
             }
-            R.id.menu_reading_list_share -> {
-                ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
-                true
-            }
             else -> false
         }
     }
@@ -203,6 +200,21 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.setThumbnailVisible(false)
         headerView.setTitleTextAppearance(R.style.ReadingListTitleTextAppearance)
         headerView.setOverflowViewVisibility(View.VISIBLE)
+        if (ReadingListsShareHelper.shareEnabled()) {
+            headerView.shareButton.isVisible = true
+            if (!Prefs.readingListShareTooltipShown) {
+                FeedbackUtil.showTooltip(requireActivity(), headerView.shareButton, getString(R.string.reading_list_share_menu_tooltip),
+                    aboveOrBelow = false, autoDismiss = true, showDismissButton = true)
+                Prefs.readingListShareTooltipShown = true
+            }
+            if (Prefs.readingListRecentReceivedId == readingListId && !Prefs.readingListRecentReceivedTooltipShown) {
+                FeedbackUtil.showTooltip(requireActivity(), headerView.listTitle, getString(R.string.reading_list_share_title_tooltip),
+                    aboveOrBelow = false, autoDismiss = true, showDismissButton = true)
+                Prefs.readingListRecentReceivedTooltipShown = true
+            }
+        } else {
+            headerView.shareButton.isVisible = false
+        }
     }
 
     private fun setRecyclerView() {
