@@ -546,7 +546,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             if (AccountUtil.isLoggedIn) {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(requireActivity())
             } else {
-                ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity())
+                if (recentImportedReadingList == null) {
+                    ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity())
+                }
             }
         }
     }
