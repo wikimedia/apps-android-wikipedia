@@ -605,6 +605,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         ReadingListsReceiveSurveyHelper.maybeShowSurvey(requireActivity())
                     }
                 })
+                .setAction(R.string.suggested_edits_article_cta_snackbar_action) {
+                    recentImportedReadingList?.let {
+                        startActivity(ReadingListActivity.newIntent(requireContext(), it))
+                    }
+                }
                 .show()
             shouldShowImportedSnackbar = false
         }
