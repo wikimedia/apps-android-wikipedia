@@ -378,21 +378,12 @@ class SearchResultsFragment : Fragment() {
     }
 
     private inner class SearchResultsAdapter : PagingDataAdapter<SearchResult, DefaultViewHolder<View>>(SearchResultsDiffCallback()) {
-        // TODO: matching pagingsource format
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<View> {
-            return if (viewType == VIEW_TYPE_ITEM) {
-                SearchResultItemViewHolder(ItemSearchResultBinding.inflate(layoutInflater, parent, false))
-            } else {
-                NoSearchResultItemViewHolder(ItemSearchNoResultsBinding.inflate(layoutInflater, parent, false))
-            }
+            return SearchResultItemViewHolder(ItemSearchResultBinding.inflate(layoutInflater, parent, false))
         }
 
         override fun onBindViewHolder(holder: DefaultViewHolder<View>, pos: Int) {
-            if (holder is SearchResultItemViewHolder) {
-                holder.bindItem(pos)
-            } else if (holder is NoSearchResultItemViewHolder) {
-                holder.bindItem(pos)
-            }
+            (holder as SearchResultItemViewHolder).bindItem(pos)
         }
     }
 
