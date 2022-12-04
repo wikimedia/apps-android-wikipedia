@@ -528,16 +528,16 @@
   <string name="reading_list_added_view_button">Посмотреть список</string>
   <string name="reading_list_add_to_list_button">Добавить в список</string>
   <plurals name="format_reading_list_statistical_summary">
-    <item quantity="one">Статей: %1$d, %2$.2f MB</item>
-    <item quantity="few">Статей: %1$d, %2$.2f MB</item>
-    <item quantity="many">Статей: %1$d, %2$.2f MB</item>
-    <item quantity="other">Статей: %1$d, %2$.2f MB</item>
+    <item quantity="one">%1$d статья, %2$.2f MБ</item>
+    <item quantity="few">%1$d статьи, %2$.2f MБ</item>
+    <item quantity="many">%1$d статей, %2$.2f MБ</item>
+    <item quantity="other">%1$d статей, %2$.2f МБ</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
-    <item quantity="one">Статей доступно офлайн: %1$d из %2$d, %3$.2f MB</item>
-    <item quantity="few">Статей доступно офлайн: %1$d из %2$d, %3$.2f MB</item>
-    <item quantity="many">Статей доступно офлайн: %1$d из %2$d, %3$.2f MB</item>
-    <item quantity="other">Статей доступно офлайн: %1$d из %2$d, %3$.2f MB</item>
+    <item quantity="one">Статей доступно офлайн: %1$d из %2$d, %3$.2f MБ</item>
+    <item quantity="few">Статей доступно офлайн: %1$d из %2$d, %3$.2f MБ</item>
+    <item quantity="many">Статей доступно офлайн: %1$d из %2$d, %3$.2f MБ</item>
+    <item quantity="other">Статей доступно офлайн: %1$d из %2$d, %3$.2f MБ</item>
   </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 статья, %1$.2f МБ</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d статей, %2$.2f МБ</string>
