@@ -360,6 +360,5 @@
   <string name="watchlist_filter_talk">گل بات</string>
   <string name="watchlist_filter_pages">صفحے</string>
   <string name="watchlist_filter_other">ہور</string>
-  <string name="shareable_reading_lists_import_dialog_cancel">رد کرو</string>
   <string name="reading_list_share_menu_label">سانجھا کرو</string>
 </resources>

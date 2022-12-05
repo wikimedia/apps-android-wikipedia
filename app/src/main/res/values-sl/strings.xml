@@ -339,9 +339,9 @@
   <string name="gallery_save_success">Datoteka shranjena.</string>
   <string name="gallery_error_video_failed">Videa ni mogoče predvajati.</string>
   <string name="gallery_save_image_write_permission_rationale">Za shranjevanje slik je potrebno dovoljenje za shranjevanje v vaši napravi.</string>
-  <string name="gallery_edit_button_content_description">Uredi napis k sliki</string>
-  <string name="gallery_add_image_caption_button">Dodaj napis k sliki</string>
-  <string name="gallery_add_image_caption_in_language_button">Dodaj napis k sliki (%s)</string>
+  <string name="gallery_edit_button_content_description">Uredi napis slike</string>
+  <string name="gallery_add_image_caption_button">Dodaj sliki napis</string>
+  <string name="gallery_add_image_caption_in_language_button">Dodaj sliki napis (%s)</string>
   <string name="err_cannot_save_file">Datoteke ni mogoče shraniti</string>
   <string name="expand_refs">Tapni za razširitev</string>
   <string name="cc_logo">Licenca Creative Commons</string>
@@ -384,8 +384,8 @@
   <string name="preference_title_show_link_previews">Prikazuj predogled povezav</string>
   <string name="preference_summary_customize_explore_feed">Prilagodite vir Raziskuj</string>
   <string name="preference_summary_show_link_previews">Ob tapkanju povezav prikazuj hitre predoglede člankov.</string>
-  <string name="preference_title_collapse_tables">Strni preglednice</string>
-  <string name="preference_summary_collapse_tables">Samodejno strni preglednice v člankih, kot so infopolja, sklici in opombe.</string>
+  <string name="preference_title_collapse_tables">Strni tabele</string>
+  <string name="preference_summary_collapse_tables">Samodejno strni tabele v člankih, kot so infopolja, sklici in opombe.</string>
   <string name="nav_item_donate">Prispevajte sredstva</string>
   <string name="error_voice_search_not_available">Prepoznava glasu žal ni na voljo.</string>
   <string name="location_service_disabled">Lokacijske storitve so onemogočene.</string>
@@ -409,8 +409,8 @@
   <string name="reference_title">Sklic %s</string>
   <string name="reference_list_title">Sklici</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Zatemnitev slike (pri temni temi)</string>
-  <string name="preference_title_prefer_offline_content">Prednost daj nepreneseni vsebini</string>
-  <string name="preference_summary_prefer_offline_content">Da prihranite pri porabi podatkov, lahko namesto stalnega nalaganja zadnje redakcije članka nalagate članke, ki so na voljo preneseni.</string>
+  <string name="preference_title_prefer_offline_content">Prednost daj preneseni vsebini</string>
+  <string name="preference_summary_prefer_offline_content">Prihranite pri porabi podatkov tako, da namesto stalnega prenašanja zadnje redakcije članka uporabljate članke, kakor so že na voljo preneseni.</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Usklajeno s sistemsko temo</string>
   <string name="page_footer_license_text">Vsebina je na voljo pod licenco $1, razen če je navedeno drugače.</string>
   <string name="empty_tab_title">Nov zavihek</string>
@@ -420,7 +420,7 @@
   <string name="error_blocked_reason">Navedeni razlog: %s</string>
   <string name="error_blocked_start">Začetek blokiranja: %s</string>
   <string name="error_blocked_expiry">Pretek blokiranja: %s</string>
-  <string name="error_blocked_id">ID blokade: %s</string>
+  <string name="error_blocked_id">ID blokiranja: %s</string>
   <string name="error_blocked_footer">Za pogovor o blokiranju se lahko obrnete na &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ali drugega &lt;a href=\"https://sl.wikipedia.org/wiki/Wikipedija:Administratorji\"&gt;administratorja&lt;/a&gt;.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Prilagodite svojo orodno vrstico</string>
   <string name="error_blocked_footer_no_blocker">Za pogovor o blokiranju se lahko obrnete na &lt;a href=\"https://sl.wikipedia.org/wiki/Wikipedija:Administratorji\"&gt;administratorja&lt;/a&gt;.</string>
@@ -810,16 +810,16 @@
   <string name="description_edit_translate_article_description_hint_per_language">Opis članka (%s)</string>
   <string name="description_edit_add_caption_label">Opis slike</string>
   <string name="description_edit_add_caption_hint">Opis slike</string>
-  <string name="description_edit_translate_caption_label_per_language">Napis k sliki (%s)</string>
-  <string name="description_edit_translate_caption_hint_per_language">Napis k sliki (%s)</string>
+  <string name="description_edit_translate_caption_label_per_language">Napis slike (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Napis slike (%s)</string>
   <string name="description_edit_save">Objavi</string>
   <string name="description_edit_read">Preberi</string>
   <string name="description_edit_add_description">Dodaj opis članka</string>
   <string name="description_edit_translate_description">Prevedi opis članka</string>
   <string name="description_edit_edit_description">Uredi opis članka</string>
-  <string name="description_edit_add_image_caption">Dodaj napis k sliki</string>
-  <string name="description_edit_edit_image_caption">Uredite napis k sliki</string>
-  <string name="description_edit_translate_image_caption">Prevedi napis k sliki</string>
+  <string name="description_edit_add_image_caption">Dodaj sliki napis</string>
+  <string name="description_edit_edit_image_caption">Uredite napis slike</string>
+  <string name="description_edit_translate_image_caption">Prevedi napis slike</string>
   <string name="description_edit_cancel_hint">Prekliči</string>
   <string name="description_edit_help_title">Informacije: opisi člankov</string>
   <string name="description_edit_help_about_wikidata">O projektu Wikidata</string>
@@ -830,7 +830,7 @@
   <string name="description_edit_helper_text_lowercase_warning">običajno začnite z malo črko</string>
   <string name="description_edit_voice_input_description">Glasovni vnos</string>
   <string name="description_edit_learn_more">Več o opisih člankov</string>
-  <string name="description_edit_image_caption_learn_more">Več o napisih k slikam</string>
+  <string name="description_edit_image_caption_learn_more">Več o napisih slik</string>
   <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
   <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Besedilo je prekratko.</string>
@@ -843,8 +843,8 @@
   <string name="description_edit_success_saved">Opis članka objavljen!</string>
   <string name="description_edit_success_saved_snackbar">Opis članka objavljen!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Opis članka objavljen (%s)</string>
-  <string name="description_edit_success_saved_image_caption_snackbar">Napis k sliki objavljen!</string>
-  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Napis k sliki objavljen! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Napis za sliko objavljen!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Napis slike objavljen! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Oznaka (oznake) slik objavljena (objavljene)!</string>
   <string name="description_edit_success_se_general_feed_link_snackbar">Vas je veselilo? Pomagajte nam dodati še več.</string>
   <string name="description_edit_success_encouragement">Wikipedijo ste pravkar izboljšali za vsakogar</string>
@@ -866,7 +866,7 @@
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Za prestavitev predmeta pridržite ikono za povlek</string>
   <string name="customize_toolbar_item_default_tooltip">Element pritisnite in povlecite, da ga prestavite.</string>
   <string name="suggested_edits_describe_articles">Opisovanje člankov</string>
-  <string name="suggested_edits_caption_images">Dodajanje napisov k slikam</string>
+  <string name="suggested_edits_caption_images">Dodajanje napisov slikam</string>
   <string name="suggested_edits_tag_images">Označujte slike</string>
   <string name="suggested_edits_review_description">Pregled opisa članka</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
@@ -875,7 +875,7 @@
   <string name="suggested_edits_edit_translation_button">Uredi prevod</string>
   <string name="suggested_edits_add_caption_button">Dodaj napis</string>
   <string name="suggested_edits_edit_caption_button">Uredi napis</string>
-  <string name="suggested_edits_review_image_caption">Pregled napisa k sliki</string>
+  <string name="suggested_edits_review_image_caption">Pregled napisa slike</string>
   <string name="suggested_edits_my_contributions">Moji prispevki</string>
   <string name="suggested_edits_no_description">Ta datoteka nima opisa</string>
   <string name="suggested_edits_license_notice">S shranitvijo opisa se strinjam s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in svoje prispevke nepreklicno objavljam pod licenco &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
@@ -883,9 +883,9 @@
   <string name="suggested_edits_menu_info">Informacije</string>
   <string name="suggested_edits_task_add_description_title">Dodajanje opisov k člankom</string>
   <string name="suggested_edits_task_add_description_description">Prispevajte k člankom brez opisa</string>
-  <string name="suggested_edits_task_image_caption_title">Dodajanje napisov k slikam</string>
-  <string name="suggested_edits_task_image_caption_description">Dodajajte manjkajoče kratke napise k slikam</string>
-  <string name="suggested_edits_task_translate_caption_title">Prevajanje napisov k slikam</string>
+  <string name="suggested_edits_task_image_caption_title">Dodajanje napisov slikam</string>
+  <string name="suggested_edits_task_image_caption_description">Dodajajte slikam manjkajoče kratke napise</string>
+  <string name="suggested_edits_task_translate_caption_title">Prevajanje napisov slikam</string>
   <string name="suggested_edits_task_translate_caption_description">Prevajajte napise v druge jezike</string>
   <string name="suggested_edits_task_multilingual_title">Več nalog za večjezične urejevalce</string>
   <string name="suggested_edits_task_multilingual_description">Naloge za prevajanje so na voljo, če berete in pišete v več kot enem jeziku Wikipedije.</string>
@@ -909,7 +909,7 @@
   <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodaj opis članka (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začni</string>
-  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Napis k sliki (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Napis slike (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Slika</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Datoteka iz Wikimedijine zbirke</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umetnik/izdelovalec</string>
@@ -921,17 +921,17 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stran datoteke v Wikimedijini zbirki</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Stran datoteke v Wikipediji</string>
   <string name="suggested_edits_article_cta_image_tags">Dodajte sliki oznake</string>
-  <string name="suggested_edits_article_cta_image_caption">Dodaj napis k sliki</string>
-  <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj napis k sliki (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">Dodaj sliki napis</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj sliki napis (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Prikaži</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Dodaj napis k sliki</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Dodaj napis k sliki (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Dodaj sliki napis</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Dodaj sliki napis (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Dodajte sliki oznake</string>
   <string name="suggested_edits_snackbar_survey_text">Kako je potekalo urejanje? Prosimo, vzemite si trenutek in odgovorite na anketo o urejanju z aplikacijo.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Opravi anketo</string>
   <string name="suggested_edits_task_action_text_add">Dodaj</string>
   <string name="suggested_edits_task_action_text_translate">Prevedi</string>
-  <string name="suggested_edits_image_captions">Napisi k slikam</string>
+  <string name="suggested_edits_image_captions">Napisi slik</string>
   <string name="suggested_edits_image_tags">Oznake slik</string>
   <string name="suggested_edits_image_tags_publishing">Objavljam</string>
   <string name="suggested_edits_image_tags_published">Objavljeno</string>
@@ -943,7 +943,7 @@
   <string name="suggested_edits_image_tags_published_list">Objavljene oznake</string>
   <string name="suggested_edits_image_tags_search">Iskanje oznak</string>
   <string name="suggested_edits_image_tags_select_title">Za to sliko niste izbrali nobene oznake</string>
-  <string name="suggested_edits_image_tags_select_text">K slikam bodo dodane smao oznake, ki jih boste izbrali. Oznake, ki jih ne boste izbrali, bodo označene kot zavrnjene. Ali resnično želite vse oznake označiti kot zavrnjene?</string>
+  <string name="suggested_edits_image_tags_select_text">K slikam bodo dodane samo oznake, ki jih boste izbrali. Oznake, ki jih ne boste izbrali, bodo označene kot zavrnjene. Ali resnično želite vse oznake označiti kot zavrnjene?</string>
   <string name="suggested_edits_image_tags_add_tag">Dodaj oznako</string>
   <string name="suggested_edits_image_zoom_tooltip">Za povečanje sliko razprite s prsti.</string>
   <string name="suggested_edits_encouragement_message">%s, hvala za vaša urejanja. Tu boste našli več načinov za prispevanje k Wikipediji.</string>
@@ -1050,7 +1050,7 @@
     <item quantity="other">Dodali ste %d znakov</item>
   </plurals>
   <string name="file_page_activity_title">Stran datoteke</string>
-  <string name="file_page_add_image_caption_button">Dodaj napis k sliki</string>
+  <string name="file_page_add_image_caption_button">Dodaj sliki napis</string>
   <string name="file_page_add_image_tags_button">Dodaj sliki oznake</string>
   <string name="file_page_edit_button_content_description">Uredi %s</string>
   <string name="description_edit_revert_subtitle">Hvala za urejanje Wikipedije!</string>
@@ -1193,6 +1193,8 @@
   <string name="talk_new_topic">Nova tema</string>
   <string name="talk_new_topic_submitted">Tema objavljena.</string>
   <string name="talk_page_empty">Ta pogovorna stran je prazna.</string>
+  <string name="talk_page_empty_title">Pogovor se začne tukaj</string>
+  <string name="talk_page_empty_content">Pogovorne strani so namenjene pogovorom o tem, kako čim bolj izboljšati vsebino v Wikipediji. Začnite z dodajanjem nove pogovorne teme, da se povežete in sodelujete s skupnostjo Wikipedistov.</string>
   <string name="talk_add_reply">Odgovori</string>
   <string name="talk_no_subject">(Brez predmeta)</string>
   <string name="talk_reply_subject">Tema</string>
@@ -1215,6 +1217,8 @@
   <string name="talk_overflow_sort_date_published">Datum objave</string>
   <string name="talk_overflow_sort_date_updated">Datum posodobitve</string>
   <string name="talk_overflow_sort_topic_name">Naslov teme</string>
+  <string name="talk_new_topic_exit_dialog_title">Ali res želite izstopiti?</string>
+  <string name="talk_new_topic_exit_dialog_message">Tema in besedilo vsebine ne bosta shranjena.</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Prikaži odgovor</item>
     <item quantity="two">Prikaži odgovora</item>
@@ -1332,18 +1336,17 @@
   <string name="media_playback_error">Napaka pri predvajanju predstavnosti.</string>
   <string name="user_contrib_menu_label">Prispevki</string>
   <string name="user_contrib_filter_activity_title">Filtriraj prispevke</string>
-  <string name="shareable_reading_lists_import_dialog_title">Uvozi bralni seznam</string>
-  <string name="shareable_reading_lists_import_dialog_content">Ali res želite uvoziti ta bralni seznam?</string>
-  <string name="shareable_reading_lists_import_dialog_confirm">Uvozi</string>
-  <string name="shareable_reading_lists_import_dialog_cancel">Prekliči</string>
+  <string name="shareable_reading_lists_import_dialog_title">Uvoz deljenega bralnega seznama</string>
+  <string name="shareable_reading_lists_import_dialog_content">Kako želite poimenovati seznam, ki je bil deljen z vami?</string>
   <string name="shareable_reading_lists_new_indicator">*novo*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">Z vami je bil deljen bralni seznam.</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">Opazili smo, da je bil z vami deljen bralni seznam. Če si želite ogledati ta seznam v tej aplikaciji, se vrnite na prvotno sporočilo in znova tapnite povezavo, ki je bila deljena z vami.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Z vami je bil deljen bralni seznam</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Opazili smo, da je bil z vami deljen bralni seznam. Če si želite ogledati ta seznam v aplikaciji, se vrnite na prvotno sporočilo in znova tapnite povezavo.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Razumem</string>
-  <string name="shareable_reading_lists_new_imported_list_title">Uvoženi seznam</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Bralni seznam je uspešno uvožen</string>
   <string name="reading_list_share_menu_label">Deli ...</string>
-  <string name="reading_list_share_message">Živijo! S tabo želim deliti svoj bralni seznam :</string>
-  <string name="reading_list_share_survey_title">Nam lahko pomagate izboljšati to funkcijo?</string>
-  <string name="reading_list_share_survey_body">Deljenje in izvoz bralnih seznamov sta preizkusni funkciji in potrebujemo vaše povratne informacije, da ju izboljšamo ali odstranimo.</string>
-
+  <string name="reading_list_share_menu_tooltip">Delite ta bralni seznam z drugimi</string>
+  <string name="reading_list_share_title_tooltip">Spremembe, ki jih naredite v tem seznamu, niso vidne drugim.</string>
+  <string name="reading_list_share_message_v2">Zdravo! S tabo želim deliti svoj bralni seznam Wikipedije:</string>
+  <string name="reading_list_share_survey_title">Nam lahko pomagate izboljšati možnost »Deli bralne sezname«?</string>
+  <string name="reading_list_share_survey_body">»Deli bralne sezname« je preizkusna možnost in potrebujemo vaše povratne informacije, da jo izboljšamo ali odstranimo.</string>
 </resources>

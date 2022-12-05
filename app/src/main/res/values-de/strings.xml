@@ -1292,10 +1292,17 @@
   <string name="user_contrib_current">aktuell</string>
   <string name="media_playback_error">Fehler beim Abspielen von Medien.</string>
   <string name="user_contrib_menu_label">Beiträge</string>
-  <string name="user_contrib_filter_activity_title" fuzzy="true">Beiträge zu:</string>
-  <string name="reading_list_share_survey_title">Können Sie uns helfen, „Leselisten teilen“ zu verbessern?</string>
-  <string name="reading_list_share_survey_body">„Leselisten teilen“ ist eine Testfunktion und um diese zu verbessern oder zu entfernen, benötigen wir Ihr Feedback</string>
+  <string name="user_contrib_filter_activity_title">Beiträge filtern</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Leseliste importieren</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Bist du sicher, dass du diese Leseliste importieren möchtest?</string>
+  <string name="shareable_reading_lists_new_indicator">*neu*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">Wir haben eine Leseliste mit dir geteilt.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">Wir haben festgestellt, dass eine Leseliste mit dir geteilt wurde. Um diese Liste in dieser App anzusehen, gehe zurück zur ursprünglichen Nachricht und tippe erneut auf den Link, der mit dir geteilt wurde.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Verstanden</string>
   <string name="reading_list_share_menu_label">Teilen…</string>
   <string name="reading_list_share_menu_tooltip">Diese Leseliste mit anderen teilen</string>
-  <string name="reading_list_share_message">Hallo! Ich möchte meine Wikipedia-Leseliste mit Ihnen teilen:</string>
+  <string name="reading_list_share_title_tooltip">Ihre Änderungen an dieser Liste sind nicht für andere sichtbar.</string>
+  <string name="reading_list_share_message_v2">Hallo! Ich möchte meine Wikipedia-Leseliste mit Ihnen teilen:</string>
+  <string name="reading_list_share_survey_title">Können Sie uns helfen, „Leselisten teilen“ zu verbessern?</string>
+  <string name="reading_list_share_survey_body">„Leselisten teilen“ ist eine Testfunktion und um diese zu verbessern oder zu entfernen, benötigen wir Ihr Feedback.</string>
 </resources>

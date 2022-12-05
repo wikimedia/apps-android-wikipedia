@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Edwingudfriend
+* Jadnapac
 * Kwisha
 * MuratTheTurkish
 * Obsuser
@@ -14,7 +15,7 @@
   <string name="app_name_alpha">Wikipedia ya Alpha</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Nyuma</string>
-  <string name="page_tabs_back">Rudi</string>
+  <string name="page_tabs_back">Nyuma</string>
   <string name="nav_item_forward">Mbele</string>
   <string name="search_hint">Tafuta Wikipedia</string>
   <string name="search_hint_voice_search">Utafutaji wa kuingiza sauti</string>
@@ -47,7 +48,7 @@
   <string name="dialog_title_clear_history" fuzzy="true">Futa historia ya kuvijari?</string>
   <string name="dialog_message_clear_history_yes">Ndiyo</string>
   <string name="dialog_message_clear_history_no">Siyo</string>
-  <string name="share_via">Shiriki kupitia</string>
+  <string name="share_via">Shirikisha kupitia</string>
   <string name="menu_page_other_languages" fuzzy="true">Soma katika lugha zingine</string>
   <string name="menu_page_find_in_page" fuzzy="true">Tafuta katika ukurasa</string>
   <string name="menu_page_share" fuzzy="true">Gawa</string>

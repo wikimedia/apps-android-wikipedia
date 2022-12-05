@@ -1194,6 +1194,5 @@
   <string name="reading_list_share_menu_label">Partigez...</string>
   <string name="reading_list_share_menu_tooltip">Partigez ca texto kun altri</string>
   <string name="reading_list_share_title_tooltip">Modifikuri quin vu facos en ca listo ne esos videbla por altri.</string>
-  <string name="reading_list_share_message">Saluto! Me deziras partigar mea listo pri lektado \"%s\" kun vu:</string>
   <string name="reading_list_share_survey_title" fuzzy="true">Ka vu povos helpar ni plubonigar ca temo?</string>
 </resources>
