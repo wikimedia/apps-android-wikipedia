@@ -21,7 +21,6 @@ import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.db.RecentSearchDao
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
-import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
 import java.util.*
 
@@ -88,7 +87,6 @@ class AppDatabaseTests {
             assertThat(allSeen.count(), equalTo(0))
         }
         }
-
     }
 
     @Test
