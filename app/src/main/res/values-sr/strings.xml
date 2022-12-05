@@ -991,8 +991,6 @@
   <string name="namespace_article">Чланак</string>
   <string name="user_contrib_current">тренутна</string>
   <string name="user_contrib_menu_label">Доприноси</string>
-  <string name="shareable_reading_lists_import_dialog_confirm">Увези</string>
-  <string name="shareable_reading_lists_import_dialog_cancel">Откажи</string>
   <string name="shareable_reading_lists_new_indicator">*ново*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Разумео</string>
   <string name="reading_list_share_menu_label">Дели…</string>

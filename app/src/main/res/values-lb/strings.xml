@@ -802,10 +802,8 @@
   <string name="user_contrib_filter_all" fuzzy="true">All Ännerungen</string>
   <string name="namespace_article">Artikel</string>
   <string name="user_contrib_menu_label">Kontributiounen</string>
-  <string name="shareable_reading_lists_import_dialog_title">Lieslëscht importéieren</string>
-  <string name="shareable_reading_lists_import_dialog_confirm">Importéieren</string>
-  <string name="shareable_reading_lists_import_dialog_cancel">Ofbriechen</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Lieslëscht importéieren</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Verstanen</string>
-  <string name="shareable_reading_lists_new_imported_list_title">Importéiert Lëscht</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Lieslëscht importéiert</string>
   <string name="reading_list_share_menu_label">Deelen...</string>
 </resources>
