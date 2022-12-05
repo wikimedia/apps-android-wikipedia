@@ -1266,4 +1266,16 @@
   <string name="media_playback_error">Hiba a média lejátszása közben.</string>
   <string name="user_contrib_menu_label">Közreműködések</string>
   <string name="user_contrib_filter_activity_title">Szerkesztések szűrése</string>
+  <string name="shareable_reading_lists_import_dialog_title">Megosztott olvasólista importálása</string>
+  <string name="shareable_reading_lists_import_dialog_content">Hogy szeretnéd elnevezni ezt a veled megosztott listát?</string>
+  <string name="shareable_reading_lists_new_indicator">*új*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Megosztottak veled egy olvasólistát</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Értettem</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Az olvasólista importálva</string>
+  <string name="reading_list_share_menu_label">Megosztás…</string>
+  <string name="reading_list_share_menu_tooltip">Az olvasólista megosztása másokkal</string>
+  <string name="reading_list_share_title_tooltip">A listán végzett módosítások nem láthatók másoknak.</string>
+  <string name="reading_list_share_message_v2">Szia! Szeretném megosztani veled a Wikipédia-olvasólistámat:</string>
+  <string name="reading_list_share_survey_title">Tudnál segíteni nekünk ennek a funkciónak a fejlesztésében?</string>
+  <string name="reading_list_share_survey_body">Az olvasólisták megosztása egy tesztelés alatt álló funkció, és szükségünk van a visszajelzésedre a fejlesztéséhez vagy eltávolításához.</string>
 </resources>

@@ -13,6 +13,7 @@
 * Frettie
 * Georg101
 * Ilimanaq29
+* JAn Dudík
 * Jan Myšák
 * Juandev
 * KuboF
@@ -78,12 +79,15 @@
   <string name="search_redirect_from">Přesměrováno z %s</string>
   <string name="page_edit_history_activity_title">Historie revizí: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Prázdné shrnutí úprav</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Hledejte nebo filtrujte úpravy</string>
   <string name="page_edit_history_filter_by">Filtrovat podle</string>
   <string name="page_edit_history_filter_by_all">Všechny úpravy (%s)</string>
   <string name="page_edit_history_filter_by_user">Uživatelské úpravy (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonymní úpravy ( %s )</string>
   <string name="page_edit_history_filter_by_bot">Úpravy robota (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metriky od %1$s do %2$s</string>
+  <string name="page_edit_history_empty_search_message">Zkuste změnit &lt;a href=\"#\"&gt;filtry&lt;/a&gt;, abyste viděli více úprav</string>
   <string name="menu_page_show_tabs">Ukázat záložky</string>
   <string name="menu_page_other_languages">Změnit jazyk</string>
   <string name="menu_page_find_in_page">Najít v článku</string>
@@ -91,6 +95,7 @@
   <string name="menu_page_watch">Sledovat</string>
   <string name="menu_page_unwatch">Přestat sledovat</string>
   <string name="menu_page_view_talk">Zobrazit diskusní stránku</string>
+  <string name="menu_page_talk_page">Diskusní stránka</string>
   <string name="menu_page_view_edit_history">Zobrazit historii editací</string>
   <string name="menu_page_edit_history">Historie editací</string>
   <string name="menu_page_remove_from_watchlist">Odstranit ze sledovaných stránek</string>
@@ -126,6 +131,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. &lt;/br&gt;Editace bude přiřazena k IP adrese vašeho zařízení.&lt;br /&gt; Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
+  <string name="edit_anon_warning">Editace budou přiřazeny IP adrese vašeho zařízení. Pokud se &lt;a href=\"https://#login\"&gt;přihlásíte&lt;/a&gt;, budete mít více soukromí.</string>
   <string name="preference_title_language">Jazyky Wikipedie</string>
   <string name="langlinks_filter_hint">Hledat</string>
   <string name="langlinks_empty">Tato stránka není k dispozici v jiných jazycích.</string>
@@ -553,8 +559,10 @@
   <string name="reading_lists_menu_sort_by">Seřadit podle</string>
   <string name="reading_lists_refresh_sync_option">Synchronizovat</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Přihlášení/registrace</string>
-  <plurals name="reading_list_article_offline_message" fuzzy="true">
+  <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tento článek bude dostupný bez připojení k internetu.</item>
+    <item quantity="few">Tyto články budou dostupné bez připojení k internetu.</item>
+    <item quantity="many">Tyto články budou dostupné bez připojení k internetu.</item>
     <item quantity="other">Tyto články budou dostupné bez připojení k internetu.</item>
   </plurals>
   <plurals name="reading_list_article_not_offline_message" fuzzy="true">
@@ -651,7 +659,7 @@
   <string name="preference_title_notification_mention">Zmínka</string>
   <string name="preference_summary_notification_mention">Někdo vás zmínil v diskusi</string>
   <string name="preference_title_notification_user_talk">Diskusní stránka</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">Zprávy na vaší diskusi</string>
+  <string name="preference_summary_notification_user_talk">Zprávy a odpovědi z diskusních stránek</string>
   <string name="preference_title_notification_email_user">E-mail přijat</string>
   <string name="preference_summary_notification_email_user">Někdo vám poslal e-mail přes wiki</string>
   <string name="preference_title_notification_user_rights">Změny uživatelských práv</string>

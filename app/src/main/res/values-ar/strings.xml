@@ -6,6 +6,7 @@
 * Amire80
 * Asaifm
 * Asma
+* Cooltey
 * Dbrant
 * Dr-Taher
 * Dr. Mohammed
@@ -30,6 +31,7 @@
 * NEHAOUA
 * NancyMilad
 * PhiberOptik
+* Sandra Hanbo
 * Shbib Al-Subaie
 * Sonic N800
 * Tala Ali
@@ -1206,9 +1208,11 @@
   <string name="search_namespaces">النطاقات</string>
   <string name="revision_initial_none">لا شيء (هذه هي المراجعة الأولى)</string>
   <string name="user_contrib_filter_all">جميع النطاقات</string>
-  <string name="reading_list_share_survey_title">هل يمكنك مساعدتنا في تحسين "مشاركة قوائم القراءة"؟</string>
-  <string name="reading_list_share_survey_body">"مشاركة قوائم القراءة" هي ميزة اختبار ونحن بحاجة إلى ملاحظاتك لتحسينها أو إزالتها.</string>
+  <string name="namespace_article">المقالات</string>
   <string name="reading_list_share_menu_label">المشاركة…</string>
-  <string name="reading_list_share_menu_tooltip">شارك قائمة القراءة هذهمع الآخرين</string>
-  <string name="reading_list_share_message">مرحبًا! أرغب في مشاركة قائمة قراءة Wikipedia الخاصة بي معك:</string>
+  <string name="reading_list_share_menu_tooltip">شارك قائمة القراءة هذه مع الآخرين</string>
+  <string name="reading_list_share_title_tooltip">التغييرات التي تجريها على هذه القائمة غير مرئية للآخرين.</string>
+  <string name="reading_list_share_message_v2">مرحبًا! أرغب في مشاركة قائمة قراءة ويكيبيديا الخاصة بي معك:</string>
+  <string name="reading_list_share_survey_title">هل يمكنك مساعدتنا في تحسين \"مشاركة قوائم القراءة\"؟</string>
+  <string name="reading_list_share_survey_body">\"مشاركة قوائم القراءة\" هي ميزة اختبار ونحن بحاجة إلى ملاحظاتك لتحسينها أو إزالتها.</string>
 </resources>
