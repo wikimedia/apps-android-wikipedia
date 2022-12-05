@@ -1147,6 +1147,7 @@
   <string name="wikitext_italic">Курсив</string>
   <string name="wikitext_underline">Підкреслення</string>
   <string name="wikitext_strikethrough">Закреслення</string>
+  <string name="wikitext_sup">Верхній індекс</string>
   <string name="wikitext_large">Великий текст</string>
   <string name="wikitext_small">Малий текст</string>
   <string name="wikitext_code">Код</string>
@@ -1334,8 +1335,7 @@
   <string name="user_contrib_current">поточний</string>
   <string name="media_playback_error">Помилка відтворення медіа.</string>
   <string name="user_contrib_menu_label">Внесок</string>
-  <string name="shareable_reading_lists_import_dialog_title">Імпорт списку для читання</string>
-  <string name="shareable_reading_lists_import_dialog_content">Ви впевнені, що бажаєте імпортувати цей список для читання?</string>
-  <string name="shareable_reading_lists_import_dialog_cancel">Скасувати</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Імпорт списку для читання</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Ви впевнені, що бажаєте імпортувати цей список для читання?</string>
   <string name="shareable_reading_lists_new_indicator">*новий*</string>
 </resources>
