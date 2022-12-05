@@ -52,10 +52,10 @@ class LoggedInTests {
 
         // Type in an incorrect username and password
         onView(allOf(TestUtil.withGrandparent(withId(R.id.login_username_text)), withClassName(`is`("org.wikipedia.views.PlainPasteEditText"))))
-                .perform(replaceText(BuildConfig.TEST_LOGIN_USERNAME), closeSoftKeyboard())
+                .perform(replaceText("Foo"), closeSoftKeyboard())
 
         onView(allOf(TestUtil.withGrandparent(withId(R.id.login_password_input)), withClassName(`is`("org.wikipedia.views.PlainPasteEditText"))))
-                .perform(replaceText(BuildConfig.TEST_LOGIN_PASSWORD), closeSoftKeyboard())
+                .perform(replaceText("Bar"), closeSoftKeyboard())
 
         // Click the login button
         onView(withId(R.id.login_button))
