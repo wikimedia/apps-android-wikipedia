@@ -1321,8 +1321,6 @@
     <item quantity="one">Toast message shown when one reading list is deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
     <item quantity="other">Toast message shown when multiple reading lists are deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
   </plurals>
-  <string name="talk_new_topic_exit_dialog_title">Confirmation title text shown to user when they are exiting from a new talk topic screen without saving.</string>
-  <string name="talk_new_topic_exit_dialog_message">Confirmation message text shown to user when they are exiting from a new talk topic screen without saving. </string>
   <string name="shareable_reading_lists_import_dialog_title">Title text for the import reading list dialog.</string>
   <string name="shareable_reading_lists_import_dialog_content">Content text for the import reading list dialog.</string>
   <string name="shareable_reading_lists_new_indicator">Label indicating that the imported list in the list view.</string>
@@ -1330,7 +1328,6 @@
   <string name="shareable_reading_lists_new_install_dialog_content">Content text for the onboarding import reading list dialog.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Button label of the onboarding import reading list dialog that dismisses the dialog.</string>
   <string name="shareable_reading_lists_new_imported_list_title">Item title of the newly imported reading list.</string>
-  <string name="shareable_reading_lists_new_indicator">Label indicating that the imported list in the list view.</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Snackbar text that indicates the reading list was imported successfully.</string>
   <string name="reading_list_share_menu_label">Menu label for sharing the selected reading list.</string>
   <string name="reading_list_share_menu_tooltip">Tooltip text for the share reading list button.</string>
