@@ -123,7 +123,7 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_eventlogging_opt_in, true)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_eventlogging_opt_in, enabled)
 
-    val announcementsCountryOverride
+    val geoIPCountryOverride
         get() = PrefsIoUtil.getString(R.string.preference_key_announcement_country_override, null)
 
     val ignoreDateForAnnouncements
