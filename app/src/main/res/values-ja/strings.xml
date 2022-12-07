@@ -1281,8 +1281,6 @@
   <string name="user_contrib_current">現在の版</string>
   <string name="media_playback_error">メディア再生でエラーが発生しました。</string>
   <string name="user_contrib_menu_label">投稿記録</string>
-  <string name="shareable_reading_lists_import_dialog_confirm">インポート</string>
-  <string name="shareable_reading_lists_import_dialog_cancel">キャンセル</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">わかりました</string>
   <string name="reading_list_share_menu_label">共有…</string>
 </resources>
