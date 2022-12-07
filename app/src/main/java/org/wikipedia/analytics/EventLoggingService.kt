@@ -38,8 +38,8 @@ class EventLoggingService private constructor() {
     }
 
     companion object {
-        private const val EVENTLOG_URL_PROD = "https://en.wikipedia.beta.wmflabs.org/beacon/event"
-        private const val EVENTLOG_URL_DEV = "https://en.wikipedia.beta.wmflabs.org/beacon/event"
+        private const val EVENTLOG_URL_PROD = "https://meta.wikimedia.org/beacon/event"
+        private const val EVENTLOG_URL_DEV = "https://deployment.wikimedia.beta.wmflabs.org/beacon/event"
 
         // https://github.com/wikimedia/mediawiki-extensions-EventLogging/blob/8b3cb1b/modules/ext.eventLogging.core.js#L57
         private const val MAX_URL_LEN = 2000
