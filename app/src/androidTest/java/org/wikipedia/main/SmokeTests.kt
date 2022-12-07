@@ -272,12 +272,12 @@ class SmokeTests {
         TestUtil.delay(2)
 
         // Increase text size by clicking on increase text icon
-        onView(allOf(withId(R.id.buttonIncreaseTextSize), childAtPosition(childAtPosition(withClassName(`is`("android.widget.LinearLayout")), 3), 2)))
+        onView(allOf(withId(R.id.buttonIncreaseTextSize)))
             .perform(scrollTo(), click())
 
         TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.buttonIncreaseTextSize), childAtPosition(childAtPosition(withClassName(`is`("android.widget.LinearLayout")), 3), 2)))
+        onView(allOf(withId(R.id.buttonIncreaseTextSize)))
             .perform(scrollTo(), click())
 
         TestUtil.delay(2)
@@ -293,12 +293,12 @@ class SmokeTests {
         TestUtil.delay(3)
 
         // Decrease text size by clicking on decrease text icon
-        onView(allOf(withId(R.id.buttonDecreaseTextSize), childAtPosition(childAtPosition(withClassName(`is`("android.widget.LinearLayout")), 3), 0)))
+        onView(allOf(withId(R.id.buttonDecreaseTextSize)))
             .perform(scrollTo(), click())
 
         TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.buttonDecreaseTextSize), childAtPosition(childAtPosition(withClassName(`is`("android.widget.LinearLayout")), 3), 0)))
+        onView(allOf(withId(R.id.buttonDecreaseTextSize)))
             .perform(scrollTo(), click())
 
         TestUtil.delay(2)
@@ -520,20 +520,6 @@ class SmokeTests {
         TestUtil.delay(2)
     }
 
-    private fun childAtPosition(parentMatcher: Matcher<View>, position: Int): Matcher<View> {
-
-        return object : TypeSafeMatcher<View>() {
-            override fun describeTo(description: Description) {
-                description.appendText("Child at position $position in parent ")
-                parentMatcher.describeTo(description)
-            }
-
-            public override fun matchesSafely(view: View): Boolean {
-                val parent = view.parent
-                return parent is ViewGroup && parentMatcher.matches(parent) && view == parent.getChildAt(position)
-            }
-        }
-    }
     companion object {
         private val SEARCH_TERM = "hopf fibration"
         private val ARTICLE_TITLE = "Hopf fibration"
