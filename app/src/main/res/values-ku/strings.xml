@@ -56,7 +56,7 @@
   <string name="search_redirect_from">Ji %s hate beralîkirin</string>
   <string name="page_edit_history_activity_title">Dîroka guhartoyê: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;b&lt;/b&gt; %s</string>
-  <string name="page_edit_history_comment_placeholder">Kurteya guhertina vala</string>
+  <string name="page_edit_history_comment_placeholder">Kurteya guhartina vala</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Li guhartinan bigere yan guhartinan parzûn bike</string>
   <string name="page_edit_history_filter_by">Biparzîne bi</string>
   <string name="page_edit_history_filter_by_all">Temamê guhartinan (%s)</string>
@@ -573,7 +573,7 @@
   <string name="reading_list_split_dialog_ok_button_text">Baş e</string>
   <string name="reading_list_activity_title">Lîsta xwendinê: %s</string>
   <string name="user_option_sync_label">Tercîhên min</string>
-  <string name="notification_reverted_title">Guhertina zivirandî</string>
+  <string name="notification_reverted_title">Guhartina vegerandî</string>
   <string name="notification_channel_title">Gotaran dadixîne</string>
   <string name="notification_channel_description">Proseya daxistinê</string>
   <string name="notification_syncing_pause_button">Rawestîne</string>
@@ -660,7 +660,7 @@
   <string name="preference_summary_notification_user_talk">Peyam û cewabên ji rûpelên gotûbêjan</string>
   <string name="preference_title_notification_email_user">Agahdariya wergirtina emaîlê</string>
   <string name="preference_summary_notification_email_user">Yekî bi riya wîkiyê epeyamekê şande te</string>
-  <string name="preference_title_notification_user_rights">Guhertina mafên bikarhênerî/ê</string>
+  <string name="preference_title_notification_user_rights">Guhartina mafên bikarhênerî/ê</string>
   <string name="preference_summary_notification_user_rights">Gava mafên te yên bikarhêneriyê were guhartin tê wergirtin</string>
   <string name="preference_title_notification_article_linked">Lînkên li gotarên te çêkiriye</string>
   <string name="preference_summary_notification_article_linked">Gava lînkeke nû li gotara te çêkiriye were çêkirin tê wergirtin</string>
