@@ -7,6 +7,7 @@ import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
@@ -276,7 +277,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         if (searchQuery.isNullOrEmpty()) {
             binding.searchEmptyView.visibility = View.GONE
             setUpEmptyContainer()
-            setEmptyContainerVisibility(displayedLists.isEmpty() && binding.onboardingView.visibility == View.GONE)
+            setEmptyContainerVisibility(displayedLists.isEmpty() && !binding.onboardingView.isVisible)
         } else {
             binding.searchEmptyView.visibility = if (displayedLists.isEmpty()) View.VISIBLE else View.GONE
             setEmptyContainerVisibility(false)
@@ -491,7 +492,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             actionMode = mode
             // searching delay will let the animation cannot catch the update of list items, and will cause crashes
             enableLayoutTransition(false)
-            binding.onboardingView.visibility = View.GONE
+            binding.onboardingView.isVisible = false
             if (isAdded) {
                 (requireParentFragment() as MainFragment).setBottomNavVisible(false)
             }
@@ -618,8 +619,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun maybeShowOnboarding(searchQuery: String?) {
-        binding.onboardingView.visibility = View.GONE
         if (!searchQuery.isNullOrEmpty()) {
+            binding.onboardingView.isVisible = false
             return
         }
         if (AccountUtil.isLoggedIn && !Prefs.isReadingListSyncEnabled &&
@@ -629,10 +630,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
             binding.onboardingView.setPositiveButton(R.string.reading_lists_sync_reminder_action, { ReadingListSyncAdapter.setSyncEnabledWithSetup() }, true)
             binding.onboardingView.setNegativeButton(R.string.reading_lists_ignore_button, {
-                binding.onboardingView.visibility = View.GONE
+                binding.onboardingView.isVisible = false
                 Prefs.isReadingListSyncReminderEnabled = false
             }, false)
-            binding.onboardingView.visibility = View.VISIBLE
+            binding.onboardingView.isVisible = true
         } else if (!AccountUtil.isLoggedIn && Prefs.isReadingListLoginReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
             binding.onboardingView.setMessageTitle(getString(R.string.reading_list_login_reminder_title))
             binding.onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text))
@@ -643,11 +644,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 }
             }, true)
             binding.onboardingView.setNegativeButton(R.string.reading_lists_ignore_button, {
-                binding.onboardingView.visibility = View.GONE
+                binding.onboardingView.isVisible = false
                 Prefs.isReadingListLoginReminderEnabled = false
                 updateEmptyState(null)
             }, false)
-            binding.onboardingView.visibility = View.VISIBLE
+            binding.onboardingView.isVisible = true
+        } else {
+            binding.onboardingView.isVisible = false
         }
     }
 
