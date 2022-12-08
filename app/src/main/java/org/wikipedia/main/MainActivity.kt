@@ -9,6 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.databinding.ActivityMainBinding
@@ -36,7 +37,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         super.onCreate(savedInstanceState)
 
         setImageZoomHelper()
-        if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null) {
+        if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null && !intent.hasExtra(Constants.INTENT_EXTRA_IMPORT_READING_LISTS)) {
             // Updating preference so the search multilingual tooltip
             // is not shown again for first time users
             Prefs.isMultilingualSearchTooltipShown = false
@@ -126,7 +127,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
             // TODO: handle special cases of non-article content, e.g. shared reading lists.
             intent.data?.let {
-                if (it.authority.orEmpty().endsWith("wikipedia.org")) {
+                if (it.authority.orEmpty().endsWith(WikiSite.BASE_DOMAIN)) {
                     // Pass it right along to PageActivity
                     val uri = Uri.parse(it.toString().replace("wikipedia://", WikiSite.DEFAULT_SCHEME + "://"))
                     startActivity(Intent(this, PageActivity::class.java)

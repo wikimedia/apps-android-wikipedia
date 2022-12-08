@@ -45,11 +45,11 @@ data class WikiSite(
     constructor(uri: Uri) : this(uri, "") {
         val tempUri = ensureScheme(uri)
         var authority = tempUri.authority.orEmpty()
-        if (("wikipedia.org" == authority || "www.wikipedia.org" == authority) &&
+        if ((BASE_DOMAIN == authority || ("www." + BASE_DOMAIN) == authority) &&
             tempUri.path?.startsWith("/wiki") == true
         ) {
             // Special case for Wikipedia only: assume English subdomain when none given.
-            authority = "en.wikipedia.org"
+            authority = "en." + BASE_DOMAIN
         }
 
         // Unconditionally transform any mobile authority to canonical.
@@ -62,8 +62,8 @@ data class WikiSite(
         }
 
         // Use default subdomain in authority to prevent error when requesting endpoints. e.g. zh-tw.wikipedia.org
-        if (authority.contains("wikipedia.org") && subdomain().isNotEmpty()) {
-            authority = subdomain() + ".wikipedia.org"
+        if (authority.contains(BASE_DOMAIN) && subdomain().isNotEmpty()) {
+            authority = subdomain() + "." + BASE_DOMAIN
         }
         this.uri = Uri.Builder().scheme(tempUri.scheme).encodedAuthority(authority).build()
     }
@@ -114,6 +114,7 @@ data class WikiSite(
 
     companion object {
         const val DEFAULT_SCHEME = "https"
+        const val BASE_DOMAIN = "wikipedia.org"
         private var DEFAULT_BASE_URL: String? = null
 
         fun supportedAuthority(authority: String): Boolean {

@@ -947,8 +947,8 @@
   <string name="suggested_edits_quality_label_text">Suggested edits label text for edit quality</string>
   <string name="suggested_edits_quality_perfect_text">Suggested edits label text indicating that the edit quality of the user is perfect</string>
   <string name="suggested_edits_quality_excellent_text">Suggested edits label text indicating that the edit quality of the user is excellent</string>
-  <string name="suggested_edits_quality_very_good_text">Suggested edits label text indicating that the edit quality of the user is very good</string>
-  <string name="suggested_edits_quality_good_text">Suggested edits label text indicating that the edit quality of the user is good</string>
+  <string name="suggested_edits_quality_very_good_text">Suggested edits label text indicating that the edit quality of the user is very good.\n{{Identical|Good}}</string>
+  <string name="suggested_edits_quality_good_text">Suggested edits label text indicating that the edit quality of the user is good.\n{{Identical|Good}}</string>
   <string name="suggested_edits_quality_okay_text">Suggested edits label text indicating that the edit quality of the user is okay</string>
   <string name="suggested_edits_quality_sufficient_text">Suggested edits label text indicating that the edit quality of the user is sufficient</string>
   <string name="suggested_edits_quality_poor_text">Suggested edits label text indicating that the edit quality of the user is poor\n\n{{Identical|Poor}}</string>
@@ -1149,6 +1149,8 @@
   <string name="talk_new_topic">Button label for creating a new talk topic.</string>
   <string name="talk_new_topic_submitted">Message shown when a new talk topic has been submitted.</string>
   <string name="talk_page_empty">Label stating that this talk page is currently empty.</string>
+  <string name="talk_page_empty_title">Title text for stating that this talk page is currently empty.</string>
+  <string name="talk_page_empty_content">Content test for stating that this talk page is currently empty.</string>
   <string name="talk_add_reply">Button label for adding a reply to a talk page topic.\n\nThe functionality is similar to {{msg-mw|Discussiontools-replylink}}, so the translation can be identical.</string>
   <string name="talk_no_subject">Label for talk page topic that does not have a title.</string>
   <string name="talk_reply_subject">Hint for text field for entering a new talk page topic.</string>
@@ -1171,6 +1173,8 @@
   <string name="talk_overflow_sort_date_published">Menu item label for sorting the list by the published date.</string>
   <string name="talk_overflow_sort_date_updated">Menu item label for sorting the list by the updated date.</string>
   <string name="talk_overflow_sort_topic_name">Menu item label for sorting the list by the topic name.</string>
+  <string name="talk_new_topic_exit_dialog_title">Confirmation title text shown to user when they are exiting from a new talk topic screen without saving.</string>
+  <string name="talk_new_topic_exit_dialog_message">Confirmation message text shown to user when they are exiting from a new talk topic screen without saving.</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Button label for showing one reply to the current thread.</item>
     <item quantity="other">Button label for showing replies to the current thread. The %d symbol is replaced with the number of replies.</item>
@@ -1286,20 +1290,15 @@
   <string name="user_contrib_filter_activity_title">Screen title for applying the filters for the contributions of a user.</string>
   <string name="shareable_reading_lists_import_dialog_title">Title text for the import reading list dialog.</string>
   <string name="shareable_reading_lists_import_dialog_content">Content text for the import reading list dialog.</string>
-  <string name="shareable_reading_lists_import_dialog_confirm">Button label of the import reading list dialog that confirms the action.</string>
-  <string name="shareable_reading_lists_import_dialog_cancel">Button label of the import reading list dialog that cancels the action.</string>
   <string name="shareable_reading_lists_new_indicator">Label indicating that the imported list in the list view.</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Title text for the onboarding import reading list dialog.</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Content text for the onboarding import reading list dialog.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Button label of the onboarding import reading list dialog that dismisses the dialog.</string>
-  <string name="shareable_reading_lists_new_imported_list_title">Item title of the newly imported reading list.</string>
-  <plurals name="shareable_reading_lists_import_dialog_content_articles">
-    <item quantity="one">Text that indicates only one article in the list. %d will be replaced by the number of pages.</item>
-    <item quantity="other">Text that indicates how many articles in the list. %d will be replaced by the number of pages.</item>
-  </plurals>
-  <string name="user_contrib_wiki_select">Screen title for viewing the contributions of a user from a selected wiki.</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Snackbar text that indicates the reading list was imported successfully.</string>
   <string name="reading_list_share_menu_label">Menu label for sharing the selected reading list.</string>
-  <string name="reading_list_share_message">Message that is sent to a recipient when sharing a reading list. The %s symbol is replaced with the name of the reading list.</string>
+  <string name="reading_list_share_menu_tooltip">Tooltip text for the share reading list button.</string>
+  <string name="reading_list_share_title_tooltip">Tooltip text for the reading list title after user created the reading list from the reading list link.</string>
+  <string name="reading_list_share_message_v2">Message that is sent to a recipient when sharing a reading list.</string>
   <string name="reading_list_share_survey_title">Title for dialog box that leads to a survey about sharing reading lists.</string>
   <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
 </resources>

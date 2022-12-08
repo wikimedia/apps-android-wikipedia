@@ -454,8 +454,13 @@
   <string name="text_size_percent_default">%s (기본값)</string>
   <string name="text_style_title">글꼴</string>
   <string name="theme_category_reading">읽기</string>
+  <string name="theme_category_editing">편집</string>
   <string name="reading_focus_mode">읽기 집중 모드</string>
   <string name="reading_focus_mode_detail">스크롤할 때 편집 기능과 아래 도구 모음을 숨깁니다</string>
+  <string name="editing_syntax_highlight_label">문법 강조</string>
+  <string name="editing_line_numbers_label">줄 번호 보이기</string>
+  <string name="editing_monospace_font_label">고정폭 글꼴 사용</string>
+  <string name="editing_typing_suggestions">입력 제안 표시</string>
   <string name="nav_item_saved">저장됨</string>
   <string name="reading_list_save_to">읽기 목록에 저장</string>
   <string name="reading_list_move_to">읽기 목록으로 이동</string>
@@ -785,6 +790,8 @@
   <string name="description_edit_license_notice">문서 설명을 변경함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
   <string name="description_edit_helper_text_lowercase_warning">보통 소문자로 시작합니다</string>
   <string name="description_edit_voice_input_description">음성 입력</string>
+  <string name="description_edit_learn_more">문서 설명에 대해 더 알아보기</string>
+  <string name="description_edit_image_caption_learn_more">이미지 캡션에 대해 더 알아보기</string>
   <string name="description_too_short">텍스트가 너무 짧습니다.</string>
   <string name="description_ends_with_punctuation">텍스트는 구두점으로 끝나서는 안 됩니다.</string>
   <string name="description_starts_with_uppercase">처음 오는 단어가 고유 명사가 아니면 소문자로 시작하십시오.</string>
@@ -1049,7 +1056,16 @@
   <string name="content_description_for_page_indicator">페이지 %2$d 중 %1$d</string>
   <string name="wikitext_bold">굵게</string>
   <string name="wikitext_italic">기울임꼴</string>
+  <string name="wikitext_underline">밑줄</string>
+  <string name="wikitext_strikethrough">취소선</string>
+  <string name="wikitext_sup">위 첨자</string>
+  <string name="wikitext_sub">아래 첨자</string>
+  <string name="wikitext_large">큰 텍스트</string>
+  <string name="wikitext_small">작은 텍스트</string>
+  <string name="wikitext_code">코드</string>
   <string name="wikitext_link">링크</string>
+  <string name="wikitext_formatting">서식 지정</string>
+  <string name="wikitext_headings">문단 제목</string>
   <string name="wikitext_insert_media">미디어 추가</string>
   <string name="wikitext_bulleted_list">글머리 기호 목록</string>
   <string name="wikitext_numbered_list">숫자 목록</string>
@@ -1064,6 +1080,7 @@
   <string name="insert_media_settings_caption">캡션</string>
   <string name="insert_media_settings_caption_description">항목 옆에 표시되는, 모든 독자에게 보이는 레이블</string>
   <string name="insert_media_settings_alternative_text">대체 텍스트</string>
+  <string name="insert_media_settings_alternative_text_description">이미지를 볼 수 없는 독자를 위한 텍스트 설명</string>
   <string name="insert_media_advanced_settings">고급 설정</string>
   <string name="insert_media_advanced_settings_wrap_image">이미지 주위에 텍스트 줄 바꿈</string>
   <string name="insert_media_advanced_settings_image_position">이미지 위치</string>
@@ -1076,6 +1093,7 @@
   <string name="insert_media_advanced_settings_image_type_frameless">프레임 없음</string>
   <string name="insert_media_advanced_settings_image_type_frame">프레임</string>
   <string name="insert_media_advanced_settings_image_type_basic">기본</string>
+  <string name="insert_media_advanced_settings_image_type_tip">미디어 항목이 이 문서에 어떻게 보일지 설정할 수 있습니다. 대부분의 경우에 다른 문서와 일관된 섬네일 형식이어야 합니다.</string>
   <string name="insert_media_advanced_settings_image_size">이미지 크기</string>
   <string name="insert_media_advanced_settings_image_size_default">기본값</string>
   <string name="insert_media_advanced_settings_image_size_custom">사용자 지정</string>
@@ -1139,6 +1157,7 @@
   <string name="talk_list_item_user_icon_content_description">사용자 아이콘</string>
   <string name="talk_list_item_swipe_mark_as_read">읽음</string>
   <string name="talk_list_item_swipe_mark_as_unread">읽지 않음</string>
+  <string name="talk_login_to_subscribe_dialog_title">주제 구독을 위해 로그인</string>
   <string name="talk_archived_title">토론 보존: %s</string>
   <string name="menu_option_share_talk_discussion">토론 공유하기</string>
   <string name="menu_option_share_talk_page">토론 문서 공유</string>
@@ -1146,6 +1165,8 @@
   <string name="menu_option_user_contributions">%s님의 기여</string>
   <string name="menu_option_edit_source">원본 편집</string>
   <string name="menu_option_user_page">%s님의 사용자 문서</string>
+  <string name="menu_option_find_in_talk_page_topic">토론 문서 주제에서 찾기</string>
+  <string name="menu_option_copy_link_to_clipboard">클립보드에 링크 복사하기</string>
   <string name="talk_menu_copy_text">텍스트 복사</string>
   <string name="talk_menu_expand_threads">스레드 펼치기</string>
   <string name="talk_menu_collapse_threads">스레드 접기</string>
@@ -1160,7 +1181,7 @@
   <string name="thank_dialog_positive_button_text">감사 표현하기</string>
   <string name="thank_dialog_negative_button_text">취소</string>
   <string name="thank_success_message">%s님에게 감사를 표했습니다 👍</string>
-  <string name="menu_option_view_user_profile" fuzzy="true">사용자 프로필 페이지 보기</string>
+  <string name="menu_option_view_user_profile">사용자 문서 보기</string>
   <string name="menu_option_view_user_talk">토론 문서 보기</string>
   <string name="menu_option_view_user_contributions">사용자 기여 보기</string>
   <string name="revision_diff_compare">판 비교</string>
@@ -1169,6 +1190,7 @@
   <string name="revision_diff_to">다음 판:</string>
   <string name="revision_diff_line_num">줄 %d</string>
   <string name="revision_diff_line_nums">줄 %d-%d</string>
+  <string name="revision_diff_lines_from_to">줄 %1$d–%2$d</string>
   <string name="revision_diff_line_added">줄 추가됨</string>
   <string name="revision_diff_line_removed">줄 제거됨</string>
   <string name="revision_diff_paragraph_added">문단 추가됨</string>
@@ -1203,6 +1225,12 @@
   <string name="watchlist_page_moved">이동됨</string>
   <string name="watchlist_page_protected">보호됨</string>
   <string name="watchlist_page_deleted">삭제됨</string>
+  <string name="preview_edit_title">편집 미리보기</string>
+  <string name="preview_edit_summarize_edit_title">편집 요약</string>
+  <string name="preview_edit_summarize_edit_hint">어떻게 이 문서를 개선했나요?</string>
+  <string name="preview_edit_minor_edit">사소한 편집입니다</string>
+  <string name="preview_edit_watch_this_page">이 문서 주시하기</string>
+  <string name="preview_edit_learn_more">편집 요약에 대해 더 알아보기</string>
   <string name="action_item_categories">분류</string>
   <string name="page_no_categories">이 문서는 어떠한 분류에도 속하지 않습니다.</string>
   <string name="category_tab_articles">문서</string>
@@ -1214,9 +1242,20 @@
   <string name="user_contrib_activity_title">%s의 기여</string>
   <string name="archive_empty">보존된 문서가 없습니다.</string>
   <string name="user_contrib_filter_ns">이름공간별 필터</string>
-  <string name="user_contrib_filter_all" fuzzy="true">모든 편집</string>
+  <string name="user_contrib_filter_all">모든 이름공간</string>
+  <string name="user_contrib_filter_ns_header">이름공간 필터</string>
   <string name="namespace_article">문서</string>
   <string name="user_contrib_current">현재</string>
   <string name="media_playback_error">미디어를 재생하는 동안 오류가 발생했습니다.</string>
   <string name="user_contrib_menu_label">기여</string>
+  <string name="user_contrib_filter_activity_title">기여 필터</string>
+  <string name="shareable_reading_lists_import_dialog_title">공유된 읽기 목록 가져오기</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">이 읽기 목록을 가져오시겠습니까?</string>
+  <string name="shareable_reading_lists_new_indicator">*새 항목*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">읽기 목록이 나와 공유되었습니다</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">알겠습니다</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">읽기 목록을 가져왔습니다</string>
+  <string name="reading_list_share_menu_label">공유...</string>
+  <string name="reading_list_share_menu_tooltip">이 읽기 목록을 다른 사람과 공유</string>
+  <string name="reading_list_share_survey_title">\"읽기 목록 공유\" 개선에 도움을 주시겠습니까?</string>
 </resources>

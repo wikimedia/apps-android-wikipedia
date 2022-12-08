@@ -8,7 +8,7 @@
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Ooʒʒ Wikipediast</string>
-  <string name="search_hint_voice_search">Jienâooccmõš</string>
+  <string name="search_hint_voice_search">Jiõnnooccmõš</string>
   <string name="search_hint_search_languages">Ooʒʒ ǩiõl</string>
   <string name="nav_item_suggested_edits">Muttâz</string>
   <string name="nav_item_more">Lââʹzz</string>
@@ -89,6 +89,7 @@
   <string name="create_account_activity_title">Raaj tobdldõõǥǥ</string>
   <string name="create_account_email_hint">E-pååʹštaddrõs (vaʹlljeemnallšem)</string>
   <string name="create_account_password_repeat_hint">Ǩeeʹrjet peittsääʹn oʹđđest</string>
+  <string name="create_account_passwords_mismatch_error">Beassansánit eai leat ovttamađu</string>
   <string name="create_account_email_error">Vââǥǥlaž e-pååʹštaddrõs</string>
   <string name="create_account_username_error">Õõʹnninõomâst lie vââǥǥlaž miârk</string>
   <string name="create_account_password_error">Peittsääʹnest âlgg leeʹd uuʹccmõsân 8 miârkkâd.</string>
@@ -234,6 +235,7 @@
   <string name="suggested_edits_image_caption_summary_title_date">Peiʹvvmieʹrr</string>
   <string name="suggested_edits_feed_card_title">Eʹtǩǩuum muttâz</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Kartt- leʹbe snimldõkteʹkstt (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Ǩeâlggal</string>
   <string name="suggested_edits_image_preview_dialog_date">Peiʹvvmieʹrr</string>
   <string name="suggested_edits_image_preview_dialog_source">Teâttkäivv/Sniimmi</string>
   <string name="suggested_edits_article_cta_image_caption">Lââʹzzet kartt- leʹbe snimldõkteeʹkst</string>
@@ -314,4 +316,5 @@
   <string name="watchlist_page_deleted">Jaukkuum</string>
   <string name="action_item_categories">Kategoria</string>
   <string name="category_tab_articles">Artikkeeʹl</string>
+  <string name="shareable_reading_lists_new_indicator">*ođđ*</string>
 </resources>

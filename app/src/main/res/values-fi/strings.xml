@@ -1269,4 +1269,12 @@
   <string name="user_contrib_current">nykyinen</string>
   <string name="media_playback_error">Virhe mediaa toistettaessa.</string>
   <string name="user_contrib_menu_label">Muokkaukset</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Tuo lukulista</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Oletko varma, että haluat tuoda tämän lukulistan?</string>
+  <string name="shareable_reading_lists_new_indicator">* uusi *</string>
+  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">Sinun kanssasi on jaettu lukulista.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">Huomasimme, että sinulle on jaettu lukulista. Voit tarkastella tätä luetteloa tässä sovelluksessa palaamalla alkuperäiseen viestiin ja napauttamalla kanssasi jaettua linkkiä uudestaan.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Selvä</string>
+  <string name="reading_list_share_menu_label">Jaa...</string>
+  <string name="reading_list_share_survey_title" fuzzy="true">Voisitko auttaa meitä parantamaan tätä ominaisuutta?</string>
 </resources>
