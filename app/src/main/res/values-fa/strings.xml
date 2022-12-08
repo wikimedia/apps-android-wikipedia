@@ -103,6 +103,10 @@
     <item quantity="one">%1$d ویرایش از %2$s</item>
     <item quantity="other">%1$d ویرایش از %2$s</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d ویرایش از %2$s (%3$s)</item>
+    <item quantity="other">%1$d ویرایش از %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">برای مشاهدهٔ ویرایش‌های بیشتر، &lt;a href=\"#\"&gt;پالایه‌ها&lt;/a&gt; را تغییر دهید</string>
   <string name="menu_page_show_tabs">نمایش برگه‌ها</string>
   <string name="menu_page_other_languages">تغییر زبان</string>
@@ -467,8 +471,13 @@
   <string name="text_size_percent_default">%s (پیش‌فرض)</string>
   <string name="text_style_title">قلم</string>
   <string name="theme_category_reading">مطالعه</string>
+  <string name="theme_category_editing">در حال ویرایش</string>
   <string name="reading_focus_mode">حالت متمرکز بر مطالعه</string>
   <string name="reading_focus_mode_detail">در زمان لغزش، ویژگی‌های ویرایشی و نوار ابزار پایینی را پنهان می‌کند</string>
+  <string name="editing_syntax_highlight_label">برجسته‌سازی نحوی</string>
+  <string name="editing_line_numbers_label">نمایش شمارهٔ خطوط</string>
+  <string name="editing_monospace_font_label">استفاده از قلم تک‌فاصله</string>
+  <string name="editing_typing_suggestions">نمایش پیشنهادهای تایپی</string>
   <string name="nav_item_saved">ذخیره شد</string>
   <string name="reading_list_save_to">ذخیره در فهرست مطالعه</string>
   <string name="reading_list_move_to">انتقال به فهرست مطالعه</string>
@@ -806,6 +815,10 @@
   <string name="description_edit_license_notice">با تغییر توضیحات عنوان، با &lt;a href=\"%1$s\"&gt;شرایط استفاده&lt;/a&gt; و انتشار برگشت‌ناپذیر مشارکت‌هایم تحت مجوز &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; موافقت می‌کنم.</string>
   <string name="description_edit_helper_text_lowercase_warning">معمولاً با حرف کوچک آغاز می‌شود</string>
   <string name="description_edit_voice_input_description">صدای ورودی</string>
+  <string name="description_edit_learn_more">در خصوص توصیف‌های مقاله بیشتر بدانید</string>
+  <string name="description_edit_image_caption_learn_more">در خصوص برنگاشت تصاویر بیشتر بدانید</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">متن بیش از حد کوتاه است.</string>
   <string name="description_ends_with_punctuation">متن نباید با نقطه‌گذاری پایان یابد</string>
   <string name="description_starts_with_uppercase">با حروف کوچک شروع کنید؛ مگر آن که واژهٔ اول یک نام خاص باشد.</string>
@@ -1081,12 +1094,52 @@
   <string name="content_description_for_page_indicator">صفحهٔ %1$d از %2$d</string>
   <string name="wikitext_bold">پررنگ</string>
   <string name="wikitext_italic">کج</string>
+  <string name="wikitext_underline">زیرخط</string>
+  <string name="wikitext_strikethrough">خط‌خورده</string>
+  <string name="wikitext_sup">بالانویس</string>
+  <string name="wikitext_sub">زیرنویس</string>
+  <string name="wikitext_large">متن بزرگ</string>
+  <string name="wikitext_small">متن کوچک</string>
+  <string name="wikitext_code">کد</string>
   <string name="wikitext_link">پیوند</string>
+  <string name="wikitext_heading_n">عنوان زیربخش %d</string>
+  <string name="wikitext_formatting">قالب‌بندی</string>
+  <string name="wikitext_headings">عنوان‌‌بندی</string>
+  <string name="wikitext_insert_media">درج رسانه</string>
   <string name="wikitext_bulleted_list">فهرست گلوله‌ای</string>
   <string name="wikitext_numbered_list">فهرست شماره‌ای</string>
   <string name="wikitext_template">الگو</string>
   <string name="wikitext_reference">منبع</string>
   <string name="wikitext_preview_link">پیش‌نمایش پیوند</string>
+  <string name="insert_media_title">درج رسانه</string>
+  <string name="insert_media_search_description">یک پرونده را از ویکی‌انبار انتخاب کنید</string>
+  <string name="insert_media_search_hint">جستجوی رسانه‌ها</string>
+  <string name="insert_media_settings">تنظیمات رسانه</string>
+  <string name="insert_media_settings_uploaded_image">تصویر بارگذاری‌شده</string>
+  <string name="insert_media_settings_caption">برنگاشت</string>
+  <string name="insert_media_settings_caption_description">برچسبی که برای تمامی خواننده‌ها در کنار آیتم نمایش می‌یابد</string>
+  <string name="insert_media_settings_alternative_text">متن جایگزین</string>
+  <string name="insert_media_settings_alternative_text_description">توصیف متنی برای مخاطبانی که قادر به مشاهدهٔ تصویر نیستند</string>
+  <string name="insert_media_advanced_settings">تنظیمات پیشرفته</string>
+  <string name="insert_media_advanced_settings_wrap_image">بسته‌بندی متن افراد تصویر</string>
+  <string name="insert_media_advanced_settings_image_position">موقعیت تصویر</string>
+  <string name="insert_media_advanced_settings_image_position_right">راست</string>
+  <string name="insert_media_advanced_settings_image_position_left">چپ</string>
+  <string name="insert_media_advanced_settings_image_position_center">وسط</string>
+  <string name="insert_media_advanced_settings_image_position_none">هیچ کدام</string>
+  <string name="insert_media_advanced_settings_image_type">نوع تصویر</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">بندانگشتی</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">بدون قاب</string>
+  <string name="insert_media_advanced_settings_image_type_frame">قاب</string>
+  <string name="insert_media_advanced_settings_image_type_basic">ابتدائی</string>
+  <string name="insert_media_advanced_settings_image_type_tip">می ةوانید مشخص کنید که آیتم رسانه چگونه در صفحه نمایش داده شود. این مورد برای حالت بندانگشتی است که شامل همه موارد و همه صفحات می‌شود.</string>
+  <string name="insert_media_advanced_settings_image_size">اندازهٔ تصویر</string>
+  <string name="insert_media_advanced_settings_image_size_default">پیش‌فرض</string>
+  <string name="insert_media_advanced_settings_image_size_custom">سفارشی</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">عرض</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">ارتفاع</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">پیکسل</string>
+  <string name="insert_media_insert_button">درج</string>
   <string name="main_drawer_help">راهنما</string>
   <string name="main_drawer_login">ورود / پیوستن به ویکیپدیا</string>
   <string name="main_tooltip_text">سلام %s، آیا می‌دانستید که همه می‌توانند ویکی‌پدیا را ویرایش کنند؟</string>
@@ -1145,6 +1198,8 @@
   <string name="talk_list_item_user_icon_content_description">نماد کاربر</string>
   <string name="talk_list_item_swipe_mark_as_read">خوانده‌شده</string>
   <string name="talk_list_item_swipe_mark_as_unread">خوانده‌نشده</string>
+  <string name="talk_login_to_subscribe_dialog_title">برای اشتراک در مبحث‌ها، به حساب خود وارد شوید</string>
+  <string name="talk_login_to_subscribe_dialog_content">اشتراک در مبحث، به شما این امکان را می‌دهد تا برای نظرات جدید در این مبحث آگاه‌سازی دریافت کنید. برای اشتراک در یک مبحث، لطفاً یک حساب کاربری بسازید یا به حساب ویکی‌پدیایی خود وارد شوید.</string>
   <string name="talk_archived_title">بایگانی بحث: %s</string>
   <string name="menu_option_share_talk_discussion">اشتراک‌گذاری گفتگو</string>
   <string name="menu_option_share_talk_page">اشتراک‌گذاری صفحهٔ بحث</string>
@@ -1153,6 +1208,7 @@
   <string name="menu_option_edit_source">ویرایش مبدأ</string>
   <string name="menu_option_user_page">صفحهٔ کاربری %s</string>
   <string name="menu_option_find_in_talk_page_topic">جستجو در مبحث صفحهٔ بحث</string>
+  <string name="menu_option_copy_link_to_clipboard">رونوشن پیوند در بریده‌دان</string>
   <string name="talk_menu_copy_text">رونویسی متن</string>
   <string name="talk_menu_expand_threads">گسترش ریسه‌ها</string>
   <string name="talk_menu_collapse_threads">نهفتن ریسه‌ها</string>
@@ -1167,7 +1223,7 @@
   <string name="thank_dialog_positive_button_text">ارسال تشکر</string>
   <string name="thank_dialog_negative_button_text">لغو</string>
   <string name="thank_success_message">«تشکر» شما به %s فرستاده شد 👍</string>
-  <string name="menu_option_view_user_profile" fuzzy="true">مشاهدهٔ صفحهٔ پروفایل کاربر</string>
+  <string name="menu_option_view_user_profile">مشاهدهٔ صفحهٔ کاربر</string>
   <string name="menu_option_view_user_talk">مشاهدهٔ صفحهٔ بحث</string>
   <string name="menu_option_view_user_contributions">مشاهدهٔ مشارکت‌های کاربر</string>
   <string name="revision_diff_compare">مقایسهٔ نسخه‌ها</string>
@@ -1176,6 +1232,7 @@
   <string name="revision_diff_to">به:</string>
   <string name="revision_diff_line_num">خط %d</string>
   <string name="revision_diff_line_nums">خطوط %d-%d</string>
+  <string name="revision_diff_lines_from_to">خطوط %1$d–%2$d</string>
   <string name="revision_diff_line_added">خط اضافه شد</string>
   <string name="revision_diff_line_removed">سطر حذف شد</string>
   <string name="revision_diff_paragraph_added">پاراگراف اضافه شد</string>
@@ -1210,6 +1267,12 @@
   <string name="watchlist_page_moved">منتقل شده</string>
   <string name="watchlist_page_protected">محافظت‌شده</string>
   <string name="watchlist_page_deleted">حذف شده</string>
+  <string name="preview_edit_title">پیش‌نمایش ویرایش خود را ببینید</string>
+  <string name="preview_edit_summarize_edit_title">خلاصه‌ای از ویرایش خود بنویسید</string>
+  <string name="preview_edit_summarize_edit_hint">چطور این صفحه را بهبود دادید؟</string>
+  <string name="preview_edit_minor_edit">این یک ویرایش جزئی است</string>
+  <string name="preview_edit_watch_this_page">پیگیری این صفحه</string>
+  <string name="preview_edit_learn_more">در خصوص خلاصه‌های ویرایش بیشتر بدانید</string>
   <string name="action_item_categories">رده‌ها</string>
   <string name="page_no_categories">این صفحه به هیچ رده‌ای تعلق ندارد.</string>
   <string name="category_tab_articles">مقاله‌ها</string>
@@ -1218,5 +1281,23 @@
   <string name="subcategory_empty">هیچ زیررده‌ای در این رده یافت نشد.</string>
   <string name="search_namespaces">فضاهای نام</string>
   <string name="revision_initial_none">هیچ (این نخستین نسخه است)</string>
+  <string name="user_contrib_activity_title">مشارکت‌های %s</string>
   <string name="archive_empty">هیچ صفحهٔ بایگانی‌شده‌ای یافت نشد.</string>
+  <string name="user_contrib_filter_ns">پالایش بر پایهٔ فضای نام</string>
+  <string name="user_contrib_filter_all">تمامی فضاهای نام</string>
+  <string name="user_contrib_filter_ns_header">پالایهٔ فضای نام</string>
+  <string name="namespace_article">مقاله</string>
+  <string name="user_contrib_current">کنونی</string>
+  <string name="media_playback_error">خطا در پخش رسانه.</string>
+  <string name="user_contrib_menu_label">مشارکت‌ها</string>
+  <string name="user_contrib_filter_activity_title">پالایش مشارکت‌ها</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">درون‌ریزی فهرست مطالعه</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">آیا از درون‌ریزی تیم فهرست مطالعه مطمئن هستید؟</string>
+  <string name="shareable_reading_lists_new_indicator">*جدید*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">یک فهرست مطالعه با شما به اشتراک گذاشته شده‌است.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">متوجه شدیم که یک فهرست مطالعه با شما به اشتراک گذاشته شده‌است. برای مشاهدهٔ این فهرست در این نرم‌افزار، به پیام اولیه بازگردید و دوباره روی پیوندی که با شما به اشتراک گذاشته شده کلیک کنید.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">گرفتم</string>
+  <string name="reading_list_share_menu_label">اشتراک‌گذاری...</string>
+  <string name="reading_list_share_survey_title" fuzzy="true">می‌توانید در بهبود این ویژگی به ما کمک کنید؟</string>
+  <string name="reading_list_share_survey_body" fuzzy="true">اشتراک‌گذاری و برون‌بری فهرست‌های مطالعه یک ویژگی آزمایشی است و ما برای بهبود یا حذف آن به بازخوردهای شما نیاز داریم.</string>
 </resources>

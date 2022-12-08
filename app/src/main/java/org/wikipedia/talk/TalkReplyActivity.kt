@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.core.util.lruCache
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
@@ -307,7 +308,18 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     override fun onBackPressed() {
         setResult(RESULT_BACK_FROM_TOPIC)
-        super.onBackPressed()
+        if (viewModel.isNewTopic && (!binding.replySubjectText.text.isNullOrEmpty() ||
+                    !binding.replyInputView.editText.text.isNullOrEmpty())) {
+            AlertDialog.Builder(this)
+                .setCancelable(false)
+                .setTitle(R.string.talk_new_topic_exit_dialog_title)
+                .setMessage(R.string.talk_new_topic_exit_dialog_message)
+                .setPositiveButton(R.string.edit_abandon_confirm_yes) { _, _ -> super.onBackPressed() }
+                .setNegativeButton(R.string.edit_abandon_confirm_no, null)
+                .show()
+        } else {
+            super.onBackPressed()
+        }
     }
 
     override fun onUserMentionListUpdate() {

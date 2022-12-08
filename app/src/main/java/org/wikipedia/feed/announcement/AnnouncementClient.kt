@@ -70,14 +70,9 @@ class AnnouncementClient : FeedClient {
         }
 
         private fun matchesCountryCode(announcement: Announcement, country: String?): Boolean {
-            var countryCode = country
-            val announcementsCountryOverride = Prefs.announcementsCountryOverride
-            if (!announcementsCountryOverride.isNullOrEmpty()) {
-                countryCode = announcementsCountryOverride
-            }
-            return if (countryCode.isNullOrEmpty() || announcement.countries.isNullOrEmpty()) {
+            return if (country.isNullOrEmpty() || announcement.countries.isNullOrEmpty()) {
                 false
-            } else announcement.countries.contains(countryCode)
+            } else announcement.countries.contains(country)
         }
 
         private fun matchesDate(announcement: Announcement, date: Date): Boolean {
