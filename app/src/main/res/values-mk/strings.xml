@@ -1265,7 +1265,7 @@
   <string name="user_contrib_menu_label">Придонеси</string>
   <string name="user_contrib_filter_activity_title">Филтер на придонеси</string>
   <string name="shareable_reading_lists_import_dialog_title">Уевзи споделен список за читање</string>
-  <string name="shareable_reading_lists_import_dialog_content">Како би сакале да го наречете списокот за читање што се споделува со вас?</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Како би сакале да го наречете списокот за читање што се споделува со вас?</string>
   <string name="shareable_reading_lists_new_indicator">*ново*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Некој сподели список за читање со вас</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Забележавме дека некој сподели список за читање со вас. За да го видите списокот во овој прилог, вратете се на изворната порака и пак допрете ја врската.</string>

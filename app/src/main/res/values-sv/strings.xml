@@ -1278,7 +1278,7 @@
   <string name="user_contrib_menu_label">Bidrag</string>
   <string name="user_contrib_filter_activity_title">Filterbidrag</string>
   <string name="shareable_reading_lists_import_dialog_title">Importera delad läslista</string>
-  <string name="shareable_reading_lists_import_dialog_content">Hur vill du namnge listan som har delats med dig?</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Hur vill du namnge listan som har delats med dig?</string>
   <string name="shareable_reading_lists_new_indicator">*ny*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">En läslista har delats med dig</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Vi har märkt att en läslista har delats med dig. För att se denna lista i appen går du tillbaka till originalmeddelandet och trycker på länken igen.</string>

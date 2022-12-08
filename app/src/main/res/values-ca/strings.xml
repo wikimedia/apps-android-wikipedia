@@ -1284,7 +1284,7 @@
   <string name="user_contrib_menu_label">Contribucions</string>
   <string name="user_contrib_filter_activity_title">Filtra les contribucions</string>
   <string name="shareable_reading_lists_import_dialog_title">Importa la llista de lectura compartida</string>
-  <string name="shareable_reading_lists_import_dialog_content">Com voleu anomenar la llista que se us ha compartit?</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Com voleu anomenar la llista que se us ha compartit?</string>
   <string name="shareable_reading_lists_new_indicator">*nova*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Se us ha compartit una llista de lectura</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Hem notat que se us ha compartit una llista de lectura. Per a mostrar la llista en l\'aplicació, torneu al missatge original i torneu a tocar l\'enllaç.</string>

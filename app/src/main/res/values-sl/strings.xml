@@ -416,7 +416,7 @@
   <string name="empty_tab_title">Nov zavihek</string>
   <string name="menu_save_all_tabs">Shrani vse zavihke</string>
   <string name="error_blocked_title">Vaše uporabniško ime ali IP-naslov je bil(o) blokiran(o).</string>
-  <string name="error_blocked_by">Blokiranje je vzpostavil/a &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_by">Blokiranje je opravil_a &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">Navedeni razlog: %s</string>
   <string name="error_blocked_start">Začetek blokiranja: %s</string>
   <string name="error_blocked_expiry">Pretek blokiranja: %s</string>
@@ -822,7 +822,7 @@
   <string name="description_edit_translate_image_caption">Prevedi napis slike</string>
   <string name="description_edit_cancel_hint">Prekliči</string>
   <string name="description_edit_help_title">Informacije: opisi člankov</string>
-  <string name="description_edit_help_about_wikidata">O projektu Wikidata</string>
+  <string name="description_edit_help_about_wikidata">O Wikipodatkih</string>
   <string name="description_edit_help_wikidata_guide">Vodnik Wikipodatkov za pisanje opisov</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#slovenščina</string>
   <string name="description_edit_anon_limit">Hvala za vaše nadaljnje zanimanje za urejanje opisov člankov! Za dodatna urejanja se prijavite v svoj račun v Wikipediji.</string>
@@ -856,7 +856,7 @@
   <string name="description_edit_tutorial_keep_it_short">Naj bo kratko</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Najboljše ena vrstica z dvema do dvanajstimi besedami</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začetek urejanja</string>
-  <string name="description_edit_tutorial_promise">Ob začetku obljubljam, da te funkcije ne bom zlorabil/a</string>
+  <string name="description_edit_tutorial_promise">Ob začetku obljubljam, da te možnosti ne bom zlorabil_a</string>
   <string name="customize_toolbar_title">Prilagodi orodno vrstico</string>
   <string name="customize_toolbar_shortcut_description_text">Prilagodite si orodno vrstico na dnu s 5 bližnjicami, ki so za vas najuporabnejše.</string>
   <string name="customize_toolbar_category_toolbar">Orodna vrstica</string>
@@ -1204,7 +1204,7 @@
   <string name="talk_subject_empty">Predmet ne sme biti prazen.</string>
   <string name="talk_response_submitted">Odgovor objavljen.</string>
   <string name="talk_snackbar_undo">Razveljavi</string>
-  <string name="talk_last_modified">&lt;b&gt;Zadnji/a spremenil/a %1$s&lt;/b&gt; uporabnik/ca %2$s</string>
+  <string name="talk_last_modified">&lt;b&gt;Zadnji_a spremenil_a %1$s&lt;/b&gt; uporabnik_ca %2$s</string>
   <string name="talk_snackbar_survey_text">Hvala za uporabo pogovornih strani. Ali ste nam pripravljeni izboljšati aplikacijo s sodelovanjem v anketi?</string>
   <string name="talk_snackbar_survey_action_text">Začnimo</string>
   <string name="talk_share_discussion_subject">Wikipedija – pogovor o temi pogovorne strani «%s«</string>

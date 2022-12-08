@@ -179,7 +179,7 @@
   <string name="preferences_heading_data_usage">Data erabilera</string>
   <string name="preferences_heading_experimental">Esperimentala</string>
   <string name="preference_title_sync_reading_lists_from_account">Irakurketa zerrendaren sinkronizazioa</string>
-  <string name="preference_title_download_reading_list_articles">Jaitsi irakurketa zerrendako artikuluak</string>
+  <string name="preference_title_download_reading_list_articles">Deskargatu irakurketa zerrendako artikuluak</string>
   <string name="preference_summary_sync_reading_lists">Utzi zure irakurketa zerrendak gailuen zehar sinkronizatzen, zure Wikipedia kontuan gordez</string>
   <string name="preference_summary_sync_reading_lists_from_account">Utzi Wikipediak sinkroniza ditzala irakurketa zerrendak zure \"%s\" Wikipedia kontura gordez</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Zure %s kontutik kendu nahi dituzu sinkronizatutako irakurketa zerrendak?</string>
@@ -270,13 +270,13 @@
   <string name="widget_name_search">Wikipedia bilaketa</string>
   <string name="wiktionary_no_definitions_found">Ez da definiziorik aurkitu.</string>
   <string name="alpha_update_notification_title">Alpha eguneraketa berria eskuragarri</string>
-  <string name="alpha_update_notification_text">Ukitu jaisteko</string>
+  <string name="alpha_update_notification_text">Sakatu, deskargatzeko</string>
   <string name="dialog_close_description">Itxi</string>
   <string name="preference_title_show_images">Irudiak erakutsi</string>
   <string name="preference_summary_show_images">Gaitu edo ezgaitu irudien karga orrialdeetan. Kendu aukera hau Internet konexioa geldoa bada, edo zure datu plana mugatua bada.</string>
-  <string name="preference_title_download_only_over_wifi">Jaitsi Wi-Fi sarea bakarrik erabilita</string>
-  <string name="dialog_title_download_only_over_wifi">Datu mugikorren bidezko jaitsiera berresten duzu?</string>
-  <string name="dialog_text_download_only_over_wifi">\"Jaitsi Wi-Fi sarea bakarrik erabilita\" piztu duzu ezarpenetan. Datu mugikorren erabilera baimendu nahi duzu, jaitsiera honetarako bakarrik?</string>
+  <string name="preference_title_download_only_over_wifi">Deskargatu Wi-Fi bidez soilik</string>
+  <string name="dialog_title_download_only_over_wifi">Datu mugikorrak erabiliz deskargatu nahi duzu?</string>
+  <string name="dialog_text_download_only_over_wifi">\"Deskargatu Wi-Fi bidez soilik\" aktibatuta duzu ezarpenetan. Datu mugikorren erabilera baimendu nahi duzu, deskarga honetarako soilik?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Baimendu</string>
   <string name="read_more_section">Irakurri gehiago</string>
   <string name="about_article_section">Artikulu honi buruz</string>
@@ -285,7 +285,7 @@
   <string name="license_title">%s-entzako lizentzia</string>
   <string name="gallery_menu_share">Partekatu</string>
   <string name="gallery_share_error">Ezin izan da partekatu irudia: %s</string>
-  <string name="gallery_save_progress">Fitxategia jaisten...</string>
+  <string name="gallery_save_progress">Fitxategia deskargatzen…</string>
   <string name="gallery_save_success">Fitxategia gorde da.</string>
   <string name="gallery_error_video_failed">Ezin da bideoa ikusi.</string>
   <string name="gallery_save_image_write_permission_rationale">Beharrezkoa da zure gailuko gordegailuari idazteko baimena ematea argazkiak gordetzeko.</string>
@@ -320,7 +320,7 @@
   <string name="button_continue_to_disambiguation">Antzeko orriak ikusi</string>
   <string name="button_add_to_reading_list">Gehitu irakurketa zerrendara</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikulua ezin da kargatu konexiorik gabe.</string>
-  <string name="page_offline_notice_add_to_reading_list">Pista: artikulua irakurteka zerrendara gehitu eta konexioa duzunean jaitsiko da.</string>
+  <string name="page_offline_notice_add_to_reading_list">Aholkua: Gehitu artikulua irakurketa zerrenda batera, eta berriz konexioa duzunean deskargatuko da.</string>
   <string name="page_offline_notice_last_date">Konexiorik gabeko artikuluaren bertsioa irakurtzen ari zara %s (e)n gordeta.</string>
   <string name="button_get_directions">Helbidea lortu</string>
   <string name="error_no_maps_app">Ez da aurkitu helbiderik eskaintzen duen aplikaziorik.</string>
@@ -426,7 +426,7 @@
   <string name="reading_lists_ignore_button">Orain ez</string>
   <string name="reading_lists_confirm_remote_delete_yes">Bai</string>
   <string name="reading_lists_confirm_remote_delete_no">Ez</string>
-  <string name="reading_list_article_save_in_progress">Artikulua jaisten ari da, bukatzean konexiorik gabe erabiltzeko prest egongo da.</string>
+  <string name="reading_list_article_save_in_progress">Artikulua deskargatzen ari da, eta amaitutakoan erabilgarri egongo da lineaz kanpo.</string>
   <string name="reading_list_articles_added_to_named">%1$d artikuluak gehitu dira %2$s(e)ra.</string>
   <string name="reading_list_delete_confirm">Ziur zaude \"%s\" ezabatu nahi duzula?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Saioa hasi sinkronizazioa ahalbidetzeko</string>
@@ -480,12 +480,12 @@
   <string name="notification_syncing_reading_list_channel_description">Irakurketa zerrenden sinkronizazioaren aurrerapena</string>
   <string name="notification_many_unread">Irakurri gabeko %d jakinarazpen dituzu</string>
   <plurals name="notification_channel_name">
-    <item quantity="one">Artikulua jaisten</item>
-    <item quantity="other">Artikuluak jaisten</item>
+    <item quantity="one">Artikulua deskargatzen</item>
+    <item quantity="other">Artikuluak deskargatzen</item>
   </plurals>
   <plurals name="notification_syncing_title">
-    <item quantity="one">Artikulu %1$d jaisten…</item>
-    <item quantity="other">%1$d artikulu jaisten…</item>
+    <item quantity="one">Artikulu bat deskargatzen...</item>
+    <item quantity="other">%1$d artikulu deskargatzen...</item>
   </plurals>
   <plurals name="notification_syncing_description">
     <item quantity="one">Artikulu %1$d geratzen da</item>
