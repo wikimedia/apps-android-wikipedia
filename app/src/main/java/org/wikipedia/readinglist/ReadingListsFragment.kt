@@ -191,7 +191,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
         override fun importNewList() {
             var filePickerIntent = Intent(Intent.ACTION_GET_CONTENT)
-            filePickerIntent.type = "*/*"
+            filePickerIntent.type = "application/json"
             filePickerIntent = Intent.createChooser(filePickerIntent, getString(R.string.reading_lists_import_file_picker_title))
             filePickerLauncher.launch(filePickerIntent)
         }

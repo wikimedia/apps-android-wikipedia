@@ -88,6 +88,9 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
         var readingLists: List<ExportableReadingList>? = null
         try {
             readingLists = JsonUtil.decodeFromString(jsonString)
+            if (readingLists !is List<ExportableReadingList>) {
+                throw Exception()
+            }
         } catch (e: Exception) {
             funnel.logImportCancel()
             FeedbackUtil.showMessage(activity, R.string.reading_lists_import_failure_message)
