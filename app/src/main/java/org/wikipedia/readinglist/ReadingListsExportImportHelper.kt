@@ -28,6 +28,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.FileUtil
 
 object ReadingListsExportImportHelper : BaseActivity.Callback {
+
     var lists: List<ReadingList>? = null
     val funnel = ReadingListsFunnel()
 
@@ -46,8 +47,8 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
     private fun extractListDataToExport(activity: AppCompatActivity, readingLists: List<ReadingList>?) {
         val exportedLists = mutableListOf<ExportableReadingList>()
         try {
-            readingLists?.let { lists ->
-                lists.forEach {
+            readingLists?.let { exportLists ->
+                exportLists.forEach {
                     val wikiPageTitlesMap = mutableMapOf<String, String>()
                     it.pages.forEach { page ->
                         wikiPageTitlesMap[page.apiTitle] = page.lang
@@ -55,13 +56,13 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
                     val exportedList = ExportableReadingList(it.title, it.description, wikiPageTitlesMap)
                     exportedLists.add(exportedList)
                 }
-                FileUtil.createFileInDownloadsFolder(activity, activity.getString(if (lists.size == 1) R.string.single_list_json_file_name
-                else R.string.multiple_lists_json_file_name, lists[0].title), JsonUtil.encodeToString(exportedLists))
+                FileUtil.createFileInDownloadsFolder(activity, activity.getString(if (exportLists.size == 1) R.string.single_list_json_file_name
+                else R.string.multiple_lists_json_file_name, exportLists[0].title), JsonUtil.encodeToString(exportedLists))
                 val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
-                activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent, lists.size).build())
+                activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent, exportLists.size).build())
                 FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_lists_export_completed_message))
                     .setAction(R.string.suggested_edits_article_cta_snackbar_action) { activity.startActivity(intent) }.show()
-                funnel.logExportLists(lists.size)
+                funnel.logExportLists(exportLists.size)
             }
         } catch (e: Exception) {
             FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_export_failed_message, exportedLists.size))

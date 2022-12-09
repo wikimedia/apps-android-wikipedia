@@ -119,7 +119,6 @@ object ReadingListBehaviorsUtil {
                 callback.onCompleted()
             }
             .setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
-            .create()
             .show()
     }
 
