@@ -80,9 +80,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private var shouldShowImportedSnackbar = false
 
     val filePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        val uri: Uri = it.data?.data!!
-        onListsImportResult(uri)
-    }
+            if (it.resultCode == AppCompatActivity.RESULT_OK) {
+                val uri: Uri = it.data?.data!!
+                onListsImportResult(uri)
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
