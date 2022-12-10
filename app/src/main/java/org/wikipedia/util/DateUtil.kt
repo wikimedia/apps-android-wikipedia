@@ -9,11 +9,18 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.UtcDate
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
+import java.time.temporal.TemporalAccessor
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 
 object DateUtil {
     private val DATE_FORMATS = ConcurrentHashMap<String, SimpleDateFormat>()
+    private val DATE_TIME_FORMATTERS = ConcurrentHashMap<String, DateTimeFormatter>()
 
     // TODO: Switch to DateTimeFormatter when minSdk = 26.
     fun iso8601DateFormat(date: Date): String {
@@ -89,6 +96,11 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, datePattern)
     }
 
+    fun getTimeString(context: Context, localDateTime: LocalDateTime): String {
+        val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm" else "hh:mm a"
+        return getDateStringWithSkeletonPattern(localDateTime, datePattern)
+    }
+
     fun getShortDayWithTimeString(dateStr: String): String {
         return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "MMM d HH:mm")
     }
@@ -112,6 +124,11 @@ object DateUtil {
         return getCachedDateFormat(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false).format(date)
     }
 
+    private fun getDateStringWithSkeletonPattern(temporalAccessor: TemporalAccessor, pattern: String): String {
+        return getCachedDateTimeFormatter(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false)
+            .format(temporalAccessor)
+    }
+
     private fun getCachedDateFormat(pattern: String, locale: Locale, utc: Boolean): SimpleDateFormat {
         return DATE_FORMATS.getOrPut(pattern) {
             val df = SimpleDateFormat(pattern, locale)
@@ -119,6 +136,13 @@ object DateUtil {
                 df.timeZone = TimeZone.getTimeZone("UTC")
             }
             df
+        }
+    }
+
+    private fun getCachedDateTimeFormatter(pattern: String, locale: Locale, utc: Boolean): DateTimeFormatter {
+        return DATE_TIME_FORMATTERS.getOrPut(pattern) {
+            val dtf = DateTimeFormatter.ofPattern(pattern, locale)
+            return if (utc) dtf.withZone(ZoneOffset.UTC) else dtf
         }
     }
 
@@ -130,6 +154,10 @@ object DateUtil {
         val dateFormat = DateFormat.getMediumDateFormat(WikipediaApp.instance)
         dateFormat.timeZone = TimeZone.getTimeZone("UTC")
         return dateFormat.format(date)
+    }
+
+    fun getShortDateString(localDate: LocalDate): String {
+        return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(localDate)
     }
 
     fun getUtcRequestDateFor(age: Int): UtcDate {

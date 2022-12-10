@@ -59,10 +59,10 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
         }.map {
             UserContribItem(it)
         }.insertSeparators { before, after ->
-            val dateBefore = if (before != null) DateUtil.getShortDateString(before.item.date()) else ""
-            val dateAfter = if (after != null) DateUtil.getShortDateString(after.item.date()) else ""
-            if (dateAfter.isNotEmpty() && dateAfter != dateBefore) {
-                UserContribSeparator(dateAfter)
+            val dateBefore = before?.item?.parsedDateTime?.toLocalDate()
+            val dateAfter = after?.item?.parsedDateTime?.toLocalDate()
+            if (dateAfter != null && dateAfter != dateBefore) {
+                UserContribSeparator(DateUtil.getShortDateString(dateAfter))
             } else {
                 null
             }
