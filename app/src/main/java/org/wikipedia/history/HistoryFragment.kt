@@ -24,10 +24,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -35,6 +32,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentHistoryBinding
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.page.PageAvailableOfflineHandler
@@ -43,8 +41,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.ShareUtil.shareCSV
-import org.wikipedia.util.StringUtil
+import org.wikipedia.util.ShareUtil.shareJSON
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.PageItemView
@@ -154,18 +151,10 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         }
     }
 
-    private fun exportHistoryToFile(outputFile: File) {
-        lifecycleScope.launch {
-            withContext(Dispatchers.IO) {
-                val records = AppDatabase.instance.historyEntryDao().getAll()
-                val buffer = outputFile.bufferedWriter()
-                buffer.write("id, timestamp_ms, authority, api_title, display_title, time_spent_seconds\n")
-                records.joinTo(buffer, separator = "\n", transform =  {
-                    "${it.id}, ${it.timestamp.time}, ${it.authority}, \"${it.apiTitle}\", \"${StringUtil.removeHTMLTags(it.displayTitle)}\", ${it.timeSpentSec}"
-                })
-                buffer.close()
-            }
-        }
+    private suspend fun exportHistoryToJSON(): String? {
+        val records = AppDatabase.instance.historyEntryDao().getAll()
+        val jsonified = JsonUtil.encodeToString(records)
+        return jsonified
     }
 
     private fun finishActionMode() {
@@ -321,11 +310,20 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                 }
             }
             exportHistoryButton.setOnClickListener {
-                val outputFile = File(context?.getExternalFilesDir(null), "wiki-history.csv")
-                outputFile.createNewFile()
-                if (outputFile.exists() && context != null) {
-                    exportHistoryToFile(outputFile)
-                    shareCSV(context!!, outputFile, "Exported Wikipedia History")
+                if (context != null) {
+                    lifecycleScope.launch{
+                        withContext(Dispatchers.IO) {
+                            val jsonified = exportHistoryToJSON()
+                            if (!jsonified.isNullOrEmpty()) {
+                                shareJSON(
+                                    context!!,
+                                    jsonified,
+                                    "wiki-history.json",
+                                    "Exported Wikipedia History"
+                                )
+                            }
+                        }
+                    }
                 }
                 else {
                     Toast.makeText(context, "Failed to open file to export data.", Toast.LENGTH_LONG).show()

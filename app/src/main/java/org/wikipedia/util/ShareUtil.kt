@@ -74,14 +74,14 @@ object ShareUtil {
         return context.getString(R.string.feed_featured_image_share_subject) + " | " + getFeedCardDateString(age)
     }
 
-    fun shareCSV(context: Context, csvFile: File, subject: String)
+    fun shareJSON(context: Context, json: String, filename: String, subject: String)
     {
-        val uri = getUriFromFile(context, csvFile)
+        val uri = getUriFromFile(context, processJSONForSharing(context, json, filename))
         if (uri == null) {
             displayShareErrorMessage(context)
         }
         else {
-            val intent = buildFileShareIntent(context, subject, "text/csv", uri)
+            val intent = buildFileShareIntent(context, subject, "application/json", uri)
             context.startActivity(intent)
         }
     }
@@ -114,6 +114,16 @@ object ShareUtil {
         shareFolder.mkdirs()
         val bytes = FileUtil.compressBmpToJpg(bmp)
         return FileUtil.writeToFile(bytes, File(shareFolder, cleanFileName(imageFileName)))
+    }
+
+    private fun processJSONForSharing(context: Context, json: String, filename: String): File?
+    {
+        val shareFolder = getClearShareFolder(context) ?: return null
+        shareFolder.mkdirs()
+        val file = File(shareFolder, filename)
+        file.createNewFile()
+        file.writeText(json)
+        return file
     }
 
     private fun createImageShareIntent(subject: String, text: String, uri: Uri): Intent {
