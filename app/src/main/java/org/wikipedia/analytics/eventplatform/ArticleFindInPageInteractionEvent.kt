@@ -20,7 +20,7 @@ class ArticleFindInPageInteractionEvent(private val pageId: Int) :
     }
 
     fun logDone() {
-        EventPlatformClient.submit(ArticleFindInPageInteractionEventImpl( pageId, findText, numFindNext, numFindPrev, pageHeight, duration))
+        EventPlatformClient.submit(ArticleFindInPageInteractionEventImpl(pageId, findText, numFindNext, numFindPrev, pageHeight, duration))
     }
 
     @Suppress("unused")

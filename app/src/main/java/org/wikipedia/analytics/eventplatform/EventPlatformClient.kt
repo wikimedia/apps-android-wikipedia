@@ -106,7 +106,7 @@ object EventPlatformClient {
          * If another item is added to QUEUE during this time, reset the countdown.
          */
         private const val WAIT_MS = 30000L
-        private const val MAX_QUEUE_SIZE = 128
+        private const val MAX_QUEUE_SIZE = 1
         private const val TOKEN = "sendScheduled"
 
         @Synchronized
