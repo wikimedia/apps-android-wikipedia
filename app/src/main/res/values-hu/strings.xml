@@ -1267,7 +1267,7 @@
   <string name="user_contrib_menu_label">Közreműködések</string>
   <string name="user_contrib_filter_activity_title">Szerkesztések szűrése</string>
   <string name="shareable_reading_lists_import_dialog_title">Megosztott olvasólista importálása</string>
-  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Hogy szeretnéd elnevezni ezt a veled megosztott listát?</string>
+  <string name="shareable_reading_lists_import_dialog_content">Hogy szeretnéd elnevezni ezt a veled megosztott listát?</string>
   <string name="shareable_reading_lists_new_indicator">*új*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Megosztottak veled egy olvasólistát</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Értettem</string>
