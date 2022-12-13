@@ -136,7 +136,7 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
     suspend fun getProtectionInfoSuspend(@Query("titles") titles: String): MwQueryResponse
 
-    // TODO: To be removed with method at line 132
+    // TODO: To be replaced with method at line 132
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
     fun getProtectionInfo(@Query("titles") titles: String): Observable<MwQueryResponse>
 

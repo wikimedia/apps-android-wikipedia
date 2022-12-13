@@ -11,7 +11,10 @@ import org.wikipedia.commons.ImageTagsProvider
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 
-class GalleryViewModel(bundle: Bundle) : ViewModel() {
+class GalleryViewModel(
+    bundle: Bundle,
+    private val dispatcher: Dispatchers = Dispatchers
+) : ViewModel() {
 
     var pageTitle = bundle.parcelable<PageTitle>(GalleryActivity.EXTRA_PAGETITLE)
     var fileName = bundle.getString(GalleryActivity.EXTRA_FILENAME)
@@ -36,7 +39,7 @@ class GalleryViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch {
             _mediaListItem.postValue(GalleryViewState.Loading)
             repository.fetchGalleryItems(pageTitle, revision)
-                .flowOn(Dispatchers.IO)
+                .flowOn(dispatcher.IO)
                 .catch { e -> _mediaListItem.postValue(GalleryViewState.Failed(e)) }
                 .collect { response ->
                     val mediaListItem = response.getItems("image", "video")
@@ -58,7 +61,7 @@ class GalleryViewModel(bundle: Bundle) : ViewModel() {
                 val isProtected = res.query?.isEditProtected
                 return@zip Triple(captionsMap, isProtected == true, tagsCount)
             }
-                .flowOn(Dispatchers.IO)
+                .flowOn(dispatcher.IO)
                 .catch { e -> _imageCaption.postValue(GalleryViewState.Failed(e)) }
                 .collect { _imageCaption.postValue(GalleryViewState.Success(it)) }
         }

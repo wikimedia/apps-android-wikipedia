@@ -89,7 +89,7 @@ interface RestService {
 
     /**
      * Support method added to pass GalleryClientTest
-     * TODO: To be demised
+     * TODO: To be replaced with [getMediaListSuspend]
      */
     @GET("page/media-list/{title}/{revision}")
     fun getMediaList(
