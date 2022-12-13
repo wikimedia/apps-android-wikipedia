@@ -15,7 +15,7 @@ object ReadingListsImportHelper {
 
     suspend fun importReadingLists(context: Context, encodedJson: String): ReadingList {
         val readingListData = getExportedReadingLists(encodedJson)
-        val listTitle = readingListData?.name.orEmpty().ifEmpty { context.getString(R.string.shareable_reading_lists_new_imported_list_title) }
+        val listTitle = readingListData?.name.orEmpty().ifEmpty { context.getString(R.string.reading_list_name_sample) }
         val listDescription = readingListData?.description.orEmpty().ifEmpty { DateUtil.getTimeAndDateString(context, Date()) }
         val listPages = mutableListOf<ReadingListPage>()
 

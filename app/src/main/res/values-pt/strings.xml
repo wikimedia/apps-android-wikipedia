@@ -1269,11 +1269,23 @@
   <string name="user_contrib_activity_title">Contribuições de %s</string>
   <string name="archive_empty">Não foi encontrada nenhuma página arquivada.</string>
   <string name="user_contrib_filter_ns">Filtrar por espaço nominal</string>
-  <string name="user_contrib_filter_all" fuzzy="true">Todos os \"espaços nominais\"</string>
+  <string name="user_contrib_filter_all">Todos os espaços nominais</string>
   <string name="user_contrib_filter_ns_header">Filtro de espaços nominais</string>
   <string name="namespace_article">Artigo</string>
   <string name="user_contrib_current">atual</string>
   <string name="media_playback_error">Erro na reprodução de multimédia.</string>
   <string name="user_contrib_menu_label">Contribuições</string>
   <string name="user_contrib_filter_activity_title">Filtrar contribuições</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Importar lista de leitura</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Tem a certeza de que deseja importar esta lista de leitura?</string>
+  <string name="shareable_reading_lists_new_indicator">*nova*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">Foi partilhada consigo uma lista de leitura.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">Notámos que foi partilhada consigo uma lista de leitura. Para ver esta lista nesta aplicação móvel, volte à mensagem original e prima novamente a hiperligação que foi partilhada consigo.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Entendido</string>
+  <string name="reading_list_share_menu_label">Compartilhar…</string>
+  <string name="reading_list_share_menu_tooltip">Partilhar esta lista de leitura com outras pessoas</string>
+  <string name="reading_list_share_title_tooltip">As alterações que fizer nesta lista não podem ser vistas por outras pessoas.</string>
+  <string name="reading_list_share_message_v2">Olá! Gostaria de partilhar a minha lista de leitura da Wikipédia consigo:</string>
+  <string name="reading_list_share_survey_title">Podia ajudar-nos a melhorar \"Partilhar listas de leitura\"?</string>
+  <string name="reading_list_share_survey_body">Partilhar listas de leitura é uma funcionalidade em testes e precisamos dos seus comentários para melhorá-la ou removê-la.</string>
 </resources>

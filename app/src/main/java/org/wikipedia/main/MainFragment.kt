@@ -10,6 +10,7 @@ import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.util.Pair
@@ -304,10 +305,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB)) {
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())))
-        } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.instance.tabCount > 0) {
-            startActivity(PageActivity.newIntent(requireContext()))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_IMPORT_READING_LISTS)) {
             goToTab(NavTab.READING_LISTS)
+        } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.instance.tabCount > 0) {
+            startActivity(PageActivity.newIntent(requireContext()))
         }
     }
 
@@ -385,7 +386,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun onFeedDownloadImage(image: FeaturedImage) {
         pendingDownloadImage = image
-        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU ||
+            ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             download(image)
         } else {
             requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)

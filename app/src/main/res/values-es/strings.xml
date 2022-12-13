@@ -1244,4 +1244,10 @@
   <string name="user_contrib_current">Actual</string>
   <string name="media_playback_error">Error al reproducir medios.</string>
   <string name="user_contrib_menu_label">Contribuciones</string>
+  <string name="reading_list_share_menu_label">Compartir…</string>
+  <string name="reading_list_share_menu_tooltip">Compartir esta lista de lectura con otros</string>
+  <string name="reading_list_share_title_tooltip">Los cambios que haga en esta lista no serán visibles para los demás.</string>
+  <string name="reading_list_share_message_v2">¡Hola! Me gustaría compartir mi lista de lectura de Wikipedia contigo:</string>
+  <string name="reading_list_share_survey_title">¿Podrías ayudarnos a mejorar \"Compartir listas de lectura\"?</string>
+  <string name="reading_list_share_survey_body">\"Compartir listas de lectura\" es una función de prueba y necesitamos tus comentarios para mejorarla o eliminarla.</string>
 </resources>

@@ -53,7 +53,7 @@
   <string name="image_content_description">Відарыс: %s</string>
   <string name="page_content_description">Старонка: %s</string>
   <string name="wikimedia_commons">Вікісховішча</string>
-  <string name="wikidata">Вікідадзеныя</string>
+  <string name="wikidata">Вікіданыя</string>
   <string name="dialog_title_clear_history">Ачысціць гісторыю праглядаў</string>
   <string name="dialog_message_clear_history">Вы ўпэўненыя, што жадаеце ачысціць усю гісторыю?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
@@ -131,7 +131,7 @@
   <string name="preference_title_language">Мовы Вікіпедыі</string>
   <string name="langlinks_filter_hint">Пошук</string>
   <string name="langlinks_empty">Гэтая старонка не даступная на іншых мовах.</string>
-  <string name="langlinks_no_match">Няма адпаведных моваў</string>
+  <string name="langlinks_no_match">Няма адпаведных моў</string>
   <string name="langlinks_activity_title">Іншыя мовы</string>
   <string name="langlinks_your_wikipedia_languages">Вашы мовы Вікіпедыі</string>
   <string name="menu_save_changes">Апублікаваць змены</string>
@@ -371,7 +371,7 @@
   <string name="page_view_in_browser">Прагляд старонкі ў браўзэры</string>
   <string name="tool_tip_toc_title">Хуткі доступ да зместу</string>
   <string name="tool_tip_toc_text">Цяпер вы можаце правесці пальцам улева, каб адкрыць змест, а таксама націснуць і перацягнуць гэтую кнопку скролера, каб хутка пераходзіць да розных раздзелаў артыкула.</string>
-  <string name="tool_tip_lang_button">Цяпер вы можаце шукаць і чытаць на некалькіх мовах Вікіпедыі ў дадатку.\n\n\nНацісніце на значок, каб дадаць больш моваў.</string>
+  <string name="tool_tip_lang_button">Цяпер вы можаце шукаць і чытаць на некалькіх мовах Вікіпедыі ў дадатку.\n\n\n\nНацісніце на значок, каб дадаць больш моў.</string>
   <string name="error_response_malformed">Адказ сервера быў некарэктна адфарматаваны.</string>
   <string name="error_unknown">Адбылася невядомая памылка.</string>
   <string name="format_error_server_message">Паведамленне: \"%s\"</string>
@@ -451,7 +451,7 @@
   <string name="color_theme_test_title">Прыклад тэксту</string>
   <string name="color_theme_test_text">Перацягніце лятунок, каб змяніць памер тэксту, які выкарыстоўваецца падчас чытання артыкулаў. Каб усталяваць памер тэксту ва ўсёй астатняй частцы дадатку, змяніце памер тэксту вашай сістэмы.</string>
   <string name="preference_title_app_theme">Тэма дадатку</string>
-  <string name="preference_summary_color_theme">Пераключыцца на цёмную тэму дадатку</string>
+  <string name="preference_summary_color_theme">Пераключыць на цёмную тэму дадатку</string>
   <string name="text_size_increase">Павялічыць памер тэксту</string>
   <string name="text_size_decrease">Паменшыць памер тэксту</string>
   <string name="text_size_percent_default">%s (па змаўчанні)</string>
