@@ -1291,17 +1291,13 @@
   <string name="media_playback_error">خطا در پخش رسانه.</string>
   <string name="user_contrib_menu_label">مشارکت‌ها</string>
   <string name="user_contrib_filter_activity_title">پالایش مشارکت‌ها</string>
-  <string name="shareable_reading_lists_import_dialog_title">درون‌ریزی فهرست مطالعه</string>
-  <string name="shareable_reading_lists_import_dialog_content">آیا از درون‌ریزی تیم فهرست مطالعه مطمئن هستید؟</string>
-  <string name="shareable_reading_lists_import_dialog_confirm">درون‌ریزی</string>
-  <string name="shareable_reading_lists_import_dialog_cancel">لغو</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">درون‌ریزی فهرست مطالعه</string>
+  <string name="shareable_reading_lists_import_dialog_content">تمایل دارید نام این فهرست که با شما به اشتراک گذاشته شده را چه بگذارید؟</string>
   <string name="shareable_reading_lists_new_indicator">*جدید*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">یک فهرست مطالعه با شما به اشتراک گذاشته شده‌است.</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">متوجه شدیم که یک فهرست مطالعه با شما به اشتراک گذاشته شده‌است. برای مشاهدهٔ این فهرست در این نرم‌افزار، به پیام اولیه بازگردید و دوباره روی پیوندی که با شما به اشتراک گذاشته شده کلیک کنید.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">یک فهرست مطالعه با شما به اشتراک گذاشته شده‌است.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">متوجه شدیم که یک فهرست مطالعه با شما به اشتراک گذاشته شده‌است. برای مشاهدهٔ این فهرست در این نرم‌افزار، به پیام اولیه بازگردید و دوباره روی پیوندی که با شما به اشتراک گذاشته شده کلیک کنید.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">گرفتم</string>
-  <string name="shareable_reading_lists_new_imported_list_title">فهرست درون‌ریزی‌شده</string>
   <string name="reading_list_share_menu_label">اشتراک‌گذاری...</string>
-  <string name="reading_list_share_message">سلام! تمایل دارم که فهرست مطالعهٔ خودم با نام «%s» را با شما به اشتراک بگذارم:</string>
   <string name="reading_list_share_survey_title" fuzzy="true">می‌توانید در بهبود این ویژگی به ما کمک کنید؟</string>
   <string name="reading_list_share_survey_body" fuzzy="true">اشتراک‌گذاری و برون‌بری فهرست‌های مطالعه یک ویژگی آزمایشی است و ما برای بهبود یا حذف آن به بازخوردهای شما نیاز داریم.</string>
 </resources>

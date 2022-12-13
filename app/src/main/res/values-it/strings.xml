@@ -1269,11 +1269,8 @@
   <string name="user_contrib_current">attuale</string>
   <string name="user_contrib_menu_label">Contributi</string>
   <string name="user_contrib_filter_activity_title">Filtra i contributi</string>
-  <string name="shareable_reading_lists_import_dialog_title">Importa elenco di lettura</string>
-  <string name="shareable_reading_lists_import_dialog_confirm">Importa</string>
-  <string name="shareable_reading_lists_import_dialog_cancel">Annulla</string>
+  <string name="shareable_reading_lists_import_dialog_title">Importa elenco di lettura condiviso</string>
   <string name="shareable_reading_lists_new_indicator">*nuovo*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Capito</string>
-  <string name="shareable_reading_lists_new_imported_list_title">Elenco importato</string>
   <string name="reading_list_share_menu_label">Condividi…</string>
 </resources>

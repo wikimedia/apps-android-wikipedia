@@ -717,4 +717,5 @@
   <string name="category_tab_articles">लेखहरू</string>
   <string name="category_tab_subcategories">उपश्रेणीहरू</string>
   <string name="category_empty">यस श्रेणीमा कुनै लेख फेला परेन।</string>
+  <string name="user_contrib_menu_label">योगदानहरू</string>
 </resources>
