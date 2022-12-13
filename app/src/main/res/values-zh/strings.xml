@@ -25,6 +25,7 @@
 * LNDDYL
 * Lakejason0
 * Lantianjialiang
+* LittlePaw365
 * Liuxinyu970226
 * Looong
 * NACHOgao3
@@ -41,6 +42,7 @@
 * StarrySky
 * TianyinLee
 * Tonylianlong
+* Tr jason
 * Tranve
 * Viztor
 * VulpesVulpes825
@@ -491,8 +493,13 @@
   <string name="text_size_percent_default">%s（默认）</string>
   <string name="text_style_title">字体</string>
   <string name="theme_category_reading">阅读</string>
+  <string name="theme_category_editing">编辑中</string>
   <string name="reading_focus_mode">专注阅读模式</string>
   <string name="reading_focus_mode_detail">滚动时隐藏编辑功能和底部工具栏</string>
+  <string name="editing_syntax_highlight_label">语法高亮</string>
+  <string name="editing_line_numbers_label">显示行号</string>
+  <string name="editing_monospace_font_label">使用等宽字体</string>
+  <string name="editing_typing_suggestions">显示输入建议</string>
   <string name="nav_item_saved">已保存</string>
   <string name="reading_list_save_to">保存至阅读列表</string>
   <string name="reading_list_move_to">移动至阅读列表</string>
@@ -1099,7 +1106,17 @@
   <string name="content_description_for_page_indicator">第%1$d页，共%2$d页</string>
   <string name="wikitext_bold">粗体</string>
   <string name="wikitext_italic">斜体</string>
+  <string name="wikitext_underline">下划线</string>
+  <string name="wikitext_strikethrough">删除线</string>
+  <string name="wikitext_sup">上标</string>
+  <string name="wikitext_sub">下标</string>
+  <string name="wikitext_large">放大文字</string>
+  <string name="wikitext_small">缩小文字</string>
+  <string name="wikitext_code">代码</string>
   <string name="wikitext_link">链接</string>
+  <string name="wikitext_heading_n">%d级子标题</string>
+  <string name="wikitext_formatting">版式</string>
+  <string name="wikitext_headings">标题</string>
   <string name="wikitext_insert_media">插入媒体</string>
   <string name="wikitext_bulleted_list">无序列表</string>
   <string name="wikitext_numbered_list">有序列表</string>
@@ -1133,6 +1150,7 @@
   <string name="insert_media_advanced_settings_image_size_custom">自定义</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">宽度</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">高度</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">像素</string>
   <string name="insert_media_insert_button">插入</string>
   <string name="main_drawer_help">帮助</string>
   <string name="main_drawer_login">登录/加入维基百科</string>
@@ -1261,6 +1279,8 @@
   <string name="watchlist_page_moved">已移动</string>
   <string name="watchlist_page_protected">受保护</string>
   <string name="watchlist_page_deleted">已删除</string>
+  <string name="preview_edit_title">预览编辑</string>
+  <string name="preview_edit_minor_edit">这是一次小型编辑</string>
   <string name="action_item_categories">分类</string>
   <string name="page_no_categories">该页面不属于任何分类。</string>
   <string name="category_tab_articles">条目</string>
