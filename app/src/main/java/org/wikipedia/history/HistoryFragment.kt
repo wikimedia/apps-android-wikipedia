@@ -47,7 +47,6 @@ import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import org.wikipedia.views.WikiCardView
-import java.io.File
 
 class HistoryFragment : Fragment(), BackPressedHandler {
     interface Callback {
@@ -311,7 +310,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             }
             exportHistoryButton.setOnClickListener {
                 if (context != null) {
-                    lifecycleScope.launch{
+                    lifecycleScope.launch {
                         withContext(Dispatchers.IO) {
                             val jsonified = exportHistoryToJSON()
                             if (!jsonified.isNullOrEmpty()) {
@@ -324,8 +323,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                             }
                         }
                     }
-                }
-                else {
+                } else {
                     Toast.makeText(context, "Failed to open file to export data.", Toast.LENGTH_LONG).show()
                 }
             }
