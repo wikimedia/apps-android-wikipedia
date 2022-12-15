@@ -277,8 +277,8 @@
   </plurals>
   <string name="edit_zoom_in">Povečaj</string>
   <string name="edit_zoom_out">Pomanjšaj</string>
-  <string name="edit_summary_tag_typo">Popravek tipkarske napake</string>
-  <string name="edit_summary_tag_grammar">Popravek slovnice</string>
+  <string name="edit_summary_tag_typo">popravek tipkarske napake</string>
+  <string name="edit_summary_tag_grammar">popravek slovnice</string>
   <string name="edit_summary_tag_links">Dodane povezave</string>
   <string name="edit_summary_tag_other">Drugo</string>
   <string name="edit_summary_tag_other_hint">Drug način, s katerim ste izboljšali stran</string>

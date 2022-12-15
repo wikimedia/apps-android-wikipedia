@@ -1280,7 +1280,7 @@
   <string name="watchlist_page_protected">受保护</string>
   <string name="watchlist_page_deleted">已删除</string>
   <string name="preview_edit_title">预览编辑</string>
-  <string name="preview_edit_minor_edit">这是一次小型编辑</string>
+  <string name="preview_edit_minor_edit">这是一次小的修改</string>
   <string name="action_item_categories">分类</string>
   <string name="page_no_categories">该页面不属于任何分类。</string>
   <string name="category_tab_articles">条目</string>
