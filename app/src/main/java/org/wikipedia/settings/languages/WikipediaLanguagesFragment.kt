@@ -20,6 +20,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.AppLanguageSettingsFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbCustomLogHelper
 import org.wikipedia.databinding.FragmentWikipediaLanguagesBinding
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.language.LanguagesListActivity
@@ -298,6 +299,7 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
 
     private fun deleteSelectedLanguages() {
         app.languageState.removeAppLanguageCodes(selectedCodes)
+        BreadCrumbCustomLogHelper.logAppLanguageDelete(requireActivity(), selectedCodes)
         interactionsCount++
         prepareWikipediaLanguagesList()
         unselectAllLanguages()

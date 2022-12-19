@@ -11,7 +11,6 @@ import com.google.android.material.button.MaterialButton
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.feed.view.ListCardItemView
-import org.wikipedia.feed.view.ListCardView
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
@@ -26,16 +25,10 @@ object BreadCrumbViewUtil {
         if (view.parent is RecyclerView) {
             val position = (view.parent as RecyclerView).findContainingViewHolder(view)?.bindingAdapterPosition ?: 0
             if (view is ListCardItemView) {
-                var currentParent = view.parent
-                while (currentParent !is ListCardView<*>) {
-                    if (currentParent.parent != null) {
-                        currentParent = currentParent.parent
-                    } else {
-                        // ListItemView is not in a CardView
-                        return getReadableNameForView(view.parent as RecyclerView) + "." + position
-                    }
-                }
-                return currentParent.javaClass.simpleName + "." + position
+              return BreadCrumbCustomLogHelper.getCustomNameForListItemView(view, position)
+            }
+            if (view.parent is RecyclerView && (view.parent as RecyclerView).id == R.id.languages_list_recycler) {
+                return BreadCrumbCustomLogHelper.getCustomNameForLanguageListItem(view)
             }
             // Returning only recyclerview name and click position for non-cardView recyclerViews
             return getReadableNameForView(view.parent as RecyclerView) + "." + position
