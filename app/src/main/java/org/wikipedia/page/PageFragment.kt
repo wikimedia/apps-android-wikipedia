@@ -1056,9 +1056,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 if (!isAdded) {
                     return@evaluate
                 }
-                val funnel = FindInPageFunnel(app, title.wikiSite, model.page?.pageProperties?.pageId ?: -1)
                 val articleFindInPageInteractionEvent = ArticleFindInPageInteractionEvent(model.page?.pageProperties?.pageId ?: -1)
-                val findInPageActionProvider = FindInWebPageActionProvider(this, funnel, articleFindInPageInteractionEvent)
+                val findInPageActionProvider = FindInWebPageActionProvider(this, articleFindInPageInteractionEvent)
                 startSupportActionMode(object : ActionMode.Callback {
                     override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
                         val menuItem = menu.add(R.string.menu_page_find_in_page)
@@ -1081,9 +1080,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         if (!isAdded) {
                             return
                         }
-                        funnel.pageHeight = webView.contentHeight
                         articleFindInPageInteractionEvent.pageHeight = webView.contentHeight
-                        funnel.logDone()
                         articleFindInPageInteractionEvent.logDone()
                         webView.clearMatches()
                         callback()?.onPageHideSoftKeyboard()

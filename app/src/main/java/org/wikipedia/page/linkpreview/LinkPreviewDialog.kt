@@ -46,7 +46,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private var _binding: DialogLinkPreviewBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var funnel: LinkPreviewFunnel
     private var articleLinkPreviewInteractionEvent: ArticleLinkPreviewInteractionEvent? = null
     private var overlayView: LinkPreviewOverlayView? = null
     private var navigateSuccess = false
@@ -101,8 +100,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             }
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
-        funnel = LinkPreviewFunnel(WikipediaApp.instance, viewModel.historyEntry.source)
-        funnel.logLinkClick()
         renderViewStates()
         return binding.root
     }
@@ -138,7 +135,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     private fun renderContentState(summary: PageSummary) {
-        funnel.setPageId(summary.pageId)
         articleLinkPreviewInteractionEvent = ArticleLinkPreviewInteractionEvent(
                 viewModel.pageTitle.wikiSite.dbName(),
                 summary.pageId,
@@ -197,7 +193,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     override fun onDismiss(dialogInterface: DialogInterface) {
         super.onDismiss(dialogInterface)
         if (!navigateSuccess) {
-            funnel.logCancel()
             articleLinkPreviewInteractionEvent?.logCancel()
         }
     }
@@ -279,7 +274,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private fun goToLinkedPage(inNewTab: Boolean) {
         navigateSuccess = true
-        funnel.logNavigate()
         articleLinkPreviewInteractionEvent?.logNavigate()
         dialog?.dismiss()
         loadPage(viewModel.pageTitle, viewModel.historyEntry, inNewTab)
