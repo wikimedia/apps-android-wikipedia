@@ -9,7 +9,6 @@ import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Handler
 import android.speech.RecognizerIntent
-import android.text.TextUtils
 import android.view.Window
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
@@ -266,7 +265,7 @@ class WikipediaApp : Application() {
                     WikipediaFirebaseMessagingService.unsubscribePushToken(csrfToken!!, Prefs.pushNotificationToken)
                             .flatMap { ServiceFactory.get(wikiSite).postLogout(csrfToken).subscribeOn(Schedulers.io()) }
                 }
-                .doFinally { SharedPreferenceCookieManager.getInstance().clearAllCookies() }
+                .doFinally { SharedPreferenceCookieManager.instance.clearAllCookies() }
                 .subscribe({ L.d("Logout complete.") }) { L.e(it) }
     }
 
@@ -287,7 +286,7 @@ class WikipediaApp : Application() {
 
     @SuppressLint("CheckResult")
     private fun getUserIdForLanguage(code: String) {
-        if (!AccountUtil.isLoggedIn || TextUtils.isEmpty(AccountUtil.userName)) {
+        if (!AccountUtil.isLoggedIn || AccountUtil.userName.isNullOrEmpty()) {
             return
         }
         val wikiSite = WikiSite.forLanguageCode(code)

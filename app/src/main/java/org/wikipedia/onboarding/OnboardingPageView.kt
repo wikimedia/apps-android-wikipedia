@@ -1,7 +1,6 @@
 package org.wikipedia.onboarding
 
 import android.content.Context
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -67,7 +66,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                 binding.primaryTextView.text = primaryText
                 binding.secondaryTextView.text = StringUtil.fromHtml(secondaryText)
                 binding.tertiaryTextView.text = tertiaryText
-                binding.switchContainer.visibility = if (TextUtils.isEmpty(switchText)) View.GONE else View.VISIBLE
+                binding.switchContainer.visibility = if (switchText.isNullOrEmpty()) View.GONE else View.VISIBLE
                 binding.switchView.text = switchText
                 setUpLanguageListContainer(showListView, listDataType)
                 binding.secondaryTextView.movementMethod = LinkMovementMethodExt { url: String ->
