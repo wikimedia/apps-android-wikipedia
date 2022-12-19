@@ -266,7 +266,7 @@ class WikipediaApp : Application() {
                     WikipediaFirebaseMessagingService.unsubscribePushToken(csrfToken!!, Prefs.pushNotificationToken)
                             .flatMap { ServiceFactory.get(wikiSite).postLogout(csrfToken).subscribeOn(Schedulers.io()) }
                 }
-                .doFinally { SharedPreferenceCookieManager.getInstance().clearAllCookies() }
+                .doFinally { SharedPreferenceCookieManager.instance.clearAllCookies() }
                 .subscribe({ L.d("Logout complete.") }) { L.e(it) }
     }
 
