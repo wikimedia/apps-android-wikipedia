@@ -667,7 +667,7 @@
   <string name="preference_category_push_notifications">Agahdariyên yekser</string>
   <string name="preference_title_customize_push_notifications">Agahdariyên yekser bike xisûsî</string>
   <string name="preference_category_display_settings">Mîhengên nîşandanê</string>
-  <string name="preference_title_hide_read_notifications">Agahdariyên xwendî biveşêre</string>
+  <string name="preference_title_hide_read_notifications">Agahdariyên xwendî veşêre</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wîkîpediya</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Agahdariyên ji Wîkîpediyayê</string>
   <string name="notifications_channel_group_other_title">Yên din</string>
@@ -711,7 +711,7 @@
   <string name="view_featured_image_card_title">Wêneyê rojê</string>
   <string name="view_featured_image_card_download">Daxe</string>
   <string name="view_featured_image_card_share">Parve bike</string>
-  <string name="menu_feed_card_dismiss">Vê kartê biveşêre</string>
+  <string name="menu_feed_card_dismiss">Vê kartê veşêre</string>
   <string name="menu_feed_card_dismissed">Kart hate veşartin.</string>
   <string name="menu_feed_card_edit_card_languages">Zimanên kartê sererast bike</string>
   <string name="menu_feed_overflow_label">Zêdetir opsiyon</string>
@@ -733,7 +733,7 @@
   <string name="feed_configure_activity_title">Kanal xisûsî bike</string>
   <string name="feed_configure_menu_reset">Xuyabûna standard dîsa bîne</string>
   <string name="feed_configure_menu_select_all">Hemûyan nîşan bide</string>
-  <string name="feed_configure_menu_deselect_all">Temamê wan biveşêre</string>
+  <string name="feed_configure_menu_deselect_all">Temamê wan veşêre</string>
   <string name="feed_configure_language_warning">Ji bîr neke ku temamê çeşîdên kartan li ser hemû zimanên Wîkîpediyayê tine ne. Zimanê xwe yê bijartî ji Mîhengan biguhêre.</string>
   <string name="feed_item_type_news">Gotarên di derbarê çalakiyên rojane de</string>
   <string name="feed_item_type_on_this_day">Bûyerên dî dîrokê de îro</string>
