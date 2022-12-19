@@ -921,7 +921,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun openInNewForegroundTab(title: PageTitle, entry: HistoryEntry) {
-        openInNewTab(title, entry, foregroundTabPosition)
+        openInNewTab(title, entry, foregroundTabPosition, openFromExistingTab = title.isMainPage)
         pageFragmentLoadState.loadFromBackStack()
     }
 
