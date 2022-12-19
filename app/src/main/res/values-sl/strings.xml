@@ -670,19 +670,19 @@
   <string name="notifications_direct_reply_progress">Objavljam odgovor na %s ...</string>
   <string name="notifications_direct_reply_success">Odgovor objavljen.</string>
   <string name="notifications_direct_reply_error">Odgovora ni bilo mogoče objaviti samodejno.</string>
-  <string name="notifications_mark_all_as_read_message">%d označenih kot prebrana</string>
-  <string name="notifications_mark_all_as_unread_message">%d označenih kot neprebrana</string>
+  <string name="notifications_mark_all_as_read_message">%d označenih kot prebrano</string>
+  <string name="notifications_mark_all_as_unread_message">%d označenih kot neprebrano</string>
   <plurals name="notifications_mark_as_read_plural">
     <item quantity="one">1 označeno kot prebrano</item>
-    <item quantity="two">%d označeni kot prebrani</item>
-    <item quantity="few">%d označena kot prebrana</item>
-    <item quantity="other">%d označenih kot prebrana</item>
+    <item quantity="two">%d označeni kot prebrano</item>
+    <item quantity="few">%d označena kot prebrano</item>
+    <item quantity="other">%d označenih kot prebrano</item>
   </plurals>
   <plurals name="notifications_mark_as_unread_plural">
     <item quantity="one">1 označeno kot neprebrano</item>
-    <item quantity="two">2 označeni kot neprebrani</item>
-    <item quantity="few">%d označenih kot neprebrana</item>
-    <item quantity="other">%d označenih kot neprebrana</item>
+    <item quantity="two">2 označeni kot neprebrano</item>
+    <item quantity="few">%d označenih kot neprebrano</item>
+    <item quantity="other">%d označenih kot neprebrano</item>
   </plurals>
   <string name="watchlist_title">Spisek nadzorov</string>
   <string name="preference_title_notification_poll">Preveri obvestila</string>
@@ -743,7 +743,7 @@
   <string name="notifications_all_wikis_text">Vsi vikiji</string>
   <string name="notifications_all_types_text">Vse vrste</string>
   <string name="notifications_menu_user_talk_page">%s: pogovorna stran</string>
-  <string name="notifications_offline_disable_message">Ta funkcija ni ma voljo brez internetne povezave.</string>
+  <string name="notifications_offline_disable_message">Ta funkcija ni na voljo brez internetne povezave.</string>
   <string name="view_because_you_read_card_title">Ker ste prebrali</string>
   <string name="view_random_card_title">Randomizator</string>
   <string name="view_random_article_card_title">Naključni članek</string>
@@ -1194,7 +1194,7 @@
   <string name="talk_new_topic_submitted">Tema objavljena.</string>
   <string name="talk_page_empty">Ta pogovorna stran je prazna.</string>
   <string name="talk_page_empty_title">Pogovor se začne tukaj</string>
-  <string name="talk_page_empty_content">Pogovorne strani so namenjene pogovorom o tem, kako čim bolj izboljšati vsebino v Wikipediji. Začnite z dodajanjem nove pogovorne teme, da se povežete in sodelujete s skupnostjo Wikipedistov.</string>
+  <string name="talk_page_empty_content">Pogovorne strani so namenjene razpravam o tem, kako čim bolj izboljšati vsebino v Wikipediji. Začnite z dodajanjem nove pogovorne teme, da se povežete in sodelujete s skupnostjo Wikipedistov.</string>
   <string name="talk_add_reply">Odgovori</string>
   <string name="talk_no_subject">(Brez predmeta)</string>
   <string name="talk_reply_subject">Tema</string>
@@ -1207,7 +1207,7 @@
   <string name="talk_last_modified">&lt;b&gt;Zadnji_a spremenil_a %1$s&lt;/b&gt; uporabnik_ca %2$s</string>
   <string name="talk_snackbar_survey_text">Hvala za uporabo pogovornih strani. Ali ste nam pripravljeni izboljšati aplikacijo s sodelovanjem v anketi?</string>
   <string name="talk_snackbar_survey_action_text">Začnimo</string>
-  <string name="talk_share_discussion_subject">Wikipedija – pogovor o temi pogovorne strani «%s«</string>
+  <string name="talk_share_discussion_subject">Wikipedija – razprava o temi pogovorne strani »%s«</string>
   <string name="talk_share_talk_page">Wikipedija – pogovori na pogovorni strani</string>
   <string name="talk_edit_disclaimer">To je pogovorna stran. Prosimo, upoštevajte smernice za pogovorne strani in komentarje pri urejanju vikibesedila podpišite s štirimi tildami: ~~~~.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://sl.wikipedia.org/wiki/Wikipedija:Smernice za pogovorne strani\"&gt;Wikipedija:Smernice za pogovorne strani&lt;/a&gt;</string>
   <string name="talk_search_hint">Preišči obvestila</string>
@@ -1246,7 +1246,7 @@
   <string name="talk_login_to_subscribe_dialog_title">Za naročanje na teme se prijavite</string>
   <string name="talk_login_to_subscribe_dialog_content">Naročila na teme vam omogočajo prejemanje obvestil o novih komentarjih pri posameznih temah. Da se naročite na temo, si ustvarite račun ali se prijavite v svoj Wikimedia račun.</string>
   <string name="talk_archived_title">Arhiv pogovorne strani: %s</string>
-  <string name="menu_option_share_talk_discussion">Deli pogovor</string>
+  <string name="menu_option_share_talk_discussion">Deli razpravo</string>
   <string name="menu_option_share_talk_page">Deli pogovorno stran</string>
   <string name="menu_option_share_edit">Deli urejanje</string>
   <string name="menu_option_user_contributions">Prispevki uporabnika_ce %s</string>
