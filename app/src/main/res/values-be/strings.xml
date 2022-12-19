@@ -991,10 +991,10 @@
   <string name="on_this_day_card_title">У гэты дзень</string>
   <string name="on_this_day_open_date_picker">Выбар даты</string>
   <plurals name="diff_years" fuzzy="true">
-    <item quantity="one">год таму.</item>
-    <item quantity="few">гады таму.</item>
-    <item quantity="many">гадоў таму.</item>
-    <item quantity="other">год таму.</item>
+    <item quantity="one">%d год таму.</item>
+    <item quantity="few">%d гады таму.</item>
+    <item quantity="many">%d гадоў таму.</item>
+    <item quantity="other">%d гадоў таму.</item>
   </plurals>
   <string name="languages_list_activity_title">Дадаць мову</string>
   <string name="wikipedia_languages_title">Мовы Вікіпедыі</string>
