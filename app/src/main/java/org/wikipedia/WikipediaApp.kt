@@ -9,7 +9,6 @@ import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Handler
 import android.speech.RecognizerIntent
-import android.text.TextUtils
 import android.view.Window
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
@@ -287,7 +286,7 @@ class WikipediaApp : Application() {
 
     @SuppressLint("CheckResult")
     private fun getUserIdForLanguage(code: String) {
-        if (!AccountUtil.isLoggedIn || TextUtils.isEmpty(AccountUtil.userName)) {
+        if (!AccountUtil.isLoggedIn || AccountUtil.userName.isNullOrEmpty()) {
             return
         }
         val wikiSite = WikiSite.forLanguageCode(code)

@@ -7,7 +7,6 @@ import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
-import android.text.TextUtils
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
@@ -40,7 +39,7 @@ object ViewUtil {
                   listener: RequestListener<Drawable?>? = null) {
         val placeholder = getPlaceholderDrawable(view.context)
         var builder = Glide.with(view)
-                .load(if ((Prefs.isImageDownloadEnabled || force) && !TextUtils.isEmpty(url)) Uri.parse(url) else null)
+                .load(if ((Prefs.isImageDownloadEnabled || force) && !url.isNullOrEmpty()) Uri.parse(url) else null)
                 .placeholder(placeholder)
                 .downsample(DownsampleStrategy.CENTER_INSIDE)
                 .error(placeholder)
