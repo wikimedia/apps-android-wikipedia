@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource.FEED
 import org.wikipedia.R
@@ -205,7 +204,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
         binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_caption)
         binding.viewArticleTitle.visibility = GONE
         binding.viewArticleExtract.visibility = VISIBLE
-        binding.viewArticleExtract.text = StringUtil.removeNamespace(StringUtils.defaultString(sourceSummaryForEdit?.displayTitle))
+        binding.viewArticleExtract.text = StringUtil.removeNamespace(sourceSummaryForEdit?.displayTitle.orEmpty())
         showItemImage()
     }
 
