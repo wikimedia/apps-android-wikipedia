@@ -453,6 +453,10 @@
   <string name="theme_category_reading">Czytanie</string>
   <string name="reading_focus_mode">Tryb skupienia na czytaniu</string>
   <string name="reading_focus_mode_detail">Ukrywa funkcje edycji i dolny pasek narzędzi podczas przewijania</string>
+  <string name="editing_syntax_highlight_label">Podświetlanie składni</string>
+  <string name="editing_line_numbers_label">Pokaż numery linii</string>
+  <string name="editing_monospace_font_label">Użyj czcionki o stałej szerokości</string>
+  <string name="editing_typing_suggestions">Pokaż sugestie pisania</string>
   <string name="nav_item_saved">Zapisane</string>
   <string name="reading_list_save_to">Zapisz do przeczytania</string>
   <string name="reading_list_move_to">Przejdź do listy lektur</string>
@@ -1015,12 +1019,26 @@
   <string name="content_description_for_page_indicator">Strona %1$d z %2$d</string>
   <string name="wikitext_bold">Pogrubienie</string>
   <string name="wikitext_italic">Kursywa</string>
+  <string name="wikitext_underline">Podkreślenie</string>
+  <string name="wikitext_strikethrough">Przekreślenie</string>
+  <string name="wikitext_sup">Indeks górny</string>
+  <string name="wikitext_sub">Indeks dolny</string>
+  <string name="wikitext_code">Kod</string>
   <string name="wikitext_link">Link</string>
+  <string name="wikitext_formatting">Formatowanie</string>
+  <string name="wikitext_headings">Nagłówki</string>
   <string name="wikitext_bulleted_list">Lista wypunktowana</string>
   <string name="wikitext_numbered_list">Lista numerowana</string>
   <string name="wikitext_template">Szablon</string>
   <string name="wikitext_reference">Przypis</string>
   <string name="wikitext_preview_link">Zobacz link</string>
+  <string name="insert_media_settings_alternative_text">Tekst alternatywny</string>
+  <string name="insert_media_advanced_settings">Ustawienia zaawansowane</string>
+  <string name="insert_media_advanced_settings_image_position_right">Do prawej</string>
+  <string name="insert_media_advanced_settings_image_position_left">Do lewej</string>
+  <string name="insert_media_advanced_settings_image_position_center">Wyśrodkowane</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Szerokość</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Wysokość</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
   <string name="main_tooltip_text">Cześć %s, czy wiesz, że każdy może edytować Wikipedię?</string>
@@ -1148,6 +1166,7 @@
   <string name="watchlist_page_moved">Przeniesiona</string>
   <string name="watchlist_page_protected">Zabezpieczona</string>
   <string name="watchlist_page_deleted">Usunięta</string>
+  <string name="preview_edit_minor_edit">To jest drobna zmiana</string>
   <string name="action_item_categories">Kategorie</string>
   <string name="page_no_categories">Ta strona nie należy do żadnej kategorii.</string>
   <string name="category_tab_articles">Artykuły</string>
@@ -1157,4 +1176,6 @@
   <string name="search_namespaces">Przestrzenie nazw</string>
   <string name="revision_initial_none">Brak (to pierwsza wersja)</string>
   <string name="archive_empty">Nie znaleziono zarchiwizowanych stron.</string>
+  <string name="user_contrib_filter_all">Wszystkie przestrzenie nazw</string>
+  <string name="namespace_article">Artykuł</string>
 </resources>

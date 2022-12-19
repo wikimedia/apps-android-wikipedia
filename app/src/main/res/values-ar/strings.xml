@@ -14,6 +14,7 @@
 * Esraa Ismail
 * FShbib
 * FiberAhmed
+* Hamdisaif
 * Haytham morsy
 * Helmoony
 * Hhaboh162002
@@ -96,6 +97,7 @@
   <string name="page_edit_history_filter_by_user">تعديلات المستخدمين (%s)</string>
   <string name="page_edit_history_filter_by_anon">تعديلات المجهولين (%s)</string>
   <string name="page_edit_history_filter_by_bot">تعديلات البوتات (%s)</string>
+  <string name="page_edit_history_metrics_content_description">مصفوفات%1$s - %2$s</string>
   <string name="menu_page_show_tabs">أظهر التبويبات</string>
   <string name="menu_page_other_languages">غير اللغة</string>
   <string name="menu_page_find_in_page">ابحث في المقالة</string>

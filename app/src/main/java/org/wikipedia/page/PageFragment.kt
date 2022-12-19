@@ -1057,7 +1057,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     return@evaluate
                 }
                 val funnel = FindInPageFunnel(app, title.wikiSite, model.page?.pageProperties?.pageId ?: -1)
-                val articleFindInPageInteractionEvent = ArticleFindInPageInteractionEvent(title.wikiSite.dbName(), model.page?.pageProperties?.pageId ?: -1)
+                val articleFindInPageInteractionEvent = ArticleFindInPageInteractionEvent(model.page?.pageProperties?.pageId ?: -1)
                 val findInPageActionProvider = FindInWebPageActionProvider(this, funnel, articleFindInPageInteractionEvent)
                 startSupportActionMode(object : ActionMode.Callback {
                     override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {

@@ -107,7 +107,9 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
                     return LoadResult.Page(emptyList(), null, null)
                 }
 
-                val nsFilter = UserContribFilterActivity.NAMESPACE_LIST.filter { !Prefs.userContribFilterExcludedNs.contains(it) }.joinToString("|")
+                val nsFilter = if (Prefs.userContribFilterExcludedNs.isEmpty()) "" else
+                    UserContribFilterActivity.NAMESPACE_LIST.filter { !Prefs.userContribFilterExcludedNs.contains(it) }.joinToString("|")
+
                 val response = ServiceFactory.get(wikiSite).getUserContrib(userName, 500, nsFilter.ifEmpty { null }, null, params.key)
                 val contribs = response.query?.userContributions!!
 
