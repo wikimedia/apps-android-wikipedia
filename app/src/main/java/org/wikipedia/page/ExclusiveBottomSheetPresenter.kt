@@ -50,6 +50,6 @@ class ExclusiveBottomSheetPresenter {
     }
 
     companion object {
-        private const val BOTTOM_SHEET_FRAGMENT_TAG = "bottom_sheet_fragment"
+        const val BOTTOM_SHEET_FRAGMENT_TAG = "bottom_sheet_fragment"
     }
 }
