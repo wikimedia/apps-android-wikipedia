@@ -62,7 +62,6 @@ class RandomFragment : Fragment() {
 
     private val disposables = CompositeDisposable()
 
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private lateinit var funnel: RandomizerFunnel
     private val viewPagerListener: ViewPagerListener = ViewPagerListener()
 
@@ -199,7 +198,7 @@ class RandomFragment : Fragment() {
                 ReadingListBehaviorsUtil.Callback { updateSaveShareButton(title) }
             )
         } else {
-            bottomSheetPresenter.show(childFragmentManager,
+            ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 AddToReadingListDialog.newInstance(title, InvokeSource.RANDOM_ACTIVITY) {
                     updateSaveShareButton(title)
                 })
@@ -207,7 +206,7 @@ class RandomFragment : Fragment() {
     }
 
     fun onMovePageToList(sourceReadingListId: Long, title: PageTitle) {
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
             MoveToReadingListDialog.newInstance(
                 sourceReadingListId,
                 listOf(title),

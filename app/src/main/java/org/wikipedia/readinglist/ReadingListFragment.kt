@@ -71,7 +71,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private val readingListPageItemCallback = ReadingListPageItemCallback()
     private val searchActionModeCallback = SearchCallback()
     private val multiSelectActionModeCallback = MultiSelectCallback()
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var toolbarExpanded = true
     private var displayedLists = mutableListOf<Any>()
     private var currentSearchQuery: String? = null
@@ -422,7 +421,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val pages = selectedPages
         if (pages.isNotEmpty()) {
             val titles = pages.map { ReadingListPage.toPageTitle(it) }
-            bottomSheetPresenter.show(childFragmentManager,
+            ExclusiveBottomSheetPresenter.show(childFragmentManager,
                     AddToReadingListDialog.newInstance(titles, InvokeSource.READING_LIST_ACTIVITY))
             update()
         }
@@ -432,7 +431,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val pages = selectedPages
         if (pages.isNotEmpty()) {
             val titles = pages.map { ReadingListPage.toPageTitle(it) }
-            bottomSheetPresenter.show(childFragmentManager,
+            ExclusiveBottomSheetPresenter.show(childFragmentManager,
                     MoveToReadingListDialog.newInstance(readingListId, titles, InvokeSource.READING_LIST_ACTIVITY))
             update()
         }
@@ -462,13 +461,13 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     override fun onAddItemToOther(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
     }
 
     override fun onMoveItemToOther(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 MoveToReadingListDialog.newInstance(readingListId, ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
     }
 
@@ -710,7 +709,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
         override fun onLongClick(item: ReadingListPage?): Boolean {
             item?.let {
-                bottomSheetPresenter.show(childFragmentManager,
+                ExclusiveBottomSheetPresenter.show(childFragmentManager,
                         ReadingListItemActionsDialog.newInstance(if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!)
                         else ReadingListBehaviorsUtil.getListsContainPage(it), it.id, actionMode != null))
                 return true

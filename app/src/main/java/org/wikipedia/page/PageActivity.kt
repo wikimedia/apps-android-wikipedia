@@ -79,7 +79,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private val currentActionModes = mutableSetOf<ActionMode>()
     private val disposables = CompositeDisposable()
     private val watchlistFunnel = WatchlistFunnel()
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val listDialogDismissListener = DialogInterface.OnDismissListener { pageFragment.updateBookmarkAndMenuOptionsFromDao() }
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
@@ -366,7 +365,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onPageDismissBottomSheet() {
-        bottomSheetPresenter.dismiss(supportFragmentManager)
+        ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
     }
 
     override fun onPageInitWebView(v: ObservableWebView) {
@@ -378,7 +377,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onPageShowLinkPreview(entry: HistoryEntry) {
-        bottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry, null))
+        ExclusiveBottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry, null))
     }
 
     override fun onPageLoadMainPageInForegroundTab() {
@@ -644,15 +643,15 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     private fun hideLinkPreview() {
-        bottomSheetPresenter.dismiss(supportFragmentManager)
+        ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
     }
 
     private fun showAddToListDialog(title: PageTitle, source: InvokeSource) {
-        bottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, source, listDialogDismissListener)
+        ExclusiveBottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, source, listDialogDismissListener)
     }
 
     private fun showMoveToListDialog(sourceReadingListId: Long, title: PageTitle, source: InvokeSource, showDefaultList: Boolean) {
-        bottomSheetPresenter.showMoveToListDialog(supportFragmentManager, sourceReadingListId,
+        ExclusiveBottomSheetPresenter.showMoveToListDialog(supportFragmentManager, sourceReadingListId,
             title, source, showDefaultList, listDialogDismissListener)
     }
 

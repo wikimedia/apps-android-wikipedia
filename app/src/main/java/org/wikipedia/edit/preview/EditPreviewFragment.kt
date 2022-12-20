@@ -39,7 +39,6 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     private lateinit var bridge: CommunicationBridge
     private lateinit var references: PageReferences
     private lateinit var funnel: EditFunnel
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     val isActive get() = binding.editPreviewContainer.visibility == View.VISIBLE
 
     override lateinit var linkHandler: LinkHandler
@@ -110,7 +109,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
             (JsonUtil.decodeFromString<PageReferences>(messagePayload.toString()))?.let {
                 references = it
                 if (references.referencesGroup.isNotEmpty()) {
-                    bottomSheetPresenter.show(childFragmentManager, ReferenceDialog())
+                    ExclusiveBottomSheetPresenter.show(childFragmentManager, ReferenceDialog())
                 }
             }
         }
