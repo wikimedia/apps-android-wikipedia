@@ -11,10 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.FeedConfigureFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentFeedConfigureBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -33,7 +31,6 @@ class ConfigureFragment : Fragment(), MenuProvider, ConfigureItemView.Callback {
     private val binding get() = _binding!!
 
     private lateinit var itemTouchHelper: ItemTouchHelper
-    private lateinit var funnel: FeedConfigureFunnel
     private val orderedContentTypes = mutableListOf<FeedContentType>()
     private val disposables = CompositeDisposable()
 
@@ -42,8 +39,6 @@ class ConfigureFragment : Fragment(), MenuProvider, ConfigureItemView.Callback {
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         setupRecyclerView()
-        funnel = FeedConfigureFunnel(WikipediaApp.instance, WikipediaApp.instance.wikiSite,
-            requireActivity().intent.getIntExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, -1))
 
         disposables.add(ServiceFactory.getRest(WikiSite("wikimedia.org")).feedAvailability
             .subscribeOn(Schedulers.io())
@@ -84,9 +79,6 @@ class ConfigureFragment : Fragment(), MenuProvider, ConfigureItemView.Callback {
 
     override fun onDestroyView() {
         disposables.clear()
-        if (orderedContentTypes.isNotEmpty()) {
-            funnel.done(orderedContentTypes)
-        }
         super.onDestroyView()
     }
 
