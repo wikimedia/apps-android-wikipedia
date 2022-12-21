@@ -61,7 +61,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private val readingListPageItemCallback = ReadingListPageItemCallback()
     private val searchActionModeCallback = ReadingListsSearchCallback()
     private var actionMode: ActionMode? = null
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val overflowCallback = OverflowCallback()
     private var currentSearchQuery: String? = null
     private var recentImportedReadingList: ReadingList? = null
@@ -131,13 +130,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onAddItemToOther(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
     }
 
     override fun onMoveItemToOther(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 MoveToReadingListDialog.newInstance(page.listId, ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
     }
 
@@ -156,7 +155,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private inner class OverflowCallback : ReadingListsOverflowView.Callback {
         override fun sortByClick() {
-            bottomSheetPresenter.show(childFragmentManager,
+            ExclusiveBottomSheetPresenter.show(childFragmentManager,
                     SortReadingListsDialog.newInstance(Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC)))
         }
 
@@ -444,7 +443,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
         override fun onLongClick(item: ReadingListPage?): Boolean {
             item?.let {
-                bottomSheetPresenter.show(childFragmentManager,
+                ExclusiveBottomSheetPresenter.show(childFragmentManager,
                         ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.getListsContainPage(it), it.id, actionMode != null))
                 return true
             }

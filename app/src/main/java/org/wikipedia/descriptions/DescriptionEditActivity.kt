@@ -26,8 +26,6 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         ADD_DESCRIPTION, TRANSLATE_DESCRIPTION, ADD_CAPTION, TRANSLATE_CAPTION, ADD_IMAGE_TAGS
     }
 
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
-
     public override fun createFragment(): DescriptionEditFragment {
         val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
@@ -63,10 +61,10 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
             intent.getParcelableExtra(EXTRA_SOURCE_SUMMARY)!!
         }
         if (action == Action.ADD_CAPTION || action == Action.TRANSLATE_CAPTION) {
-            bottomSheetPresenter.show(supportFragmentManager,
+            ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                     ImagePreviewDialog.newInstance(summary, action))
         } else {
-            bottomSheetPresenter.show(supportFragmentManager,
+            ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                     LinkPreviewDialog.newInstance(HistoryEntry(summary.pageTitle,
                             if (intent.hasExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) && intent.getSerializableExtra
                                     (Constants.INTENT_EXTRA_INVOKE_SOURCE) === InvokeSource.PAGE_ACTIVITY)
@@ -84,7 +82,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     }
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
-        bottomSheetPresenter.show(supportFragmentManager,
+        ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                 AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
     }
 
