@@ -16,7 +16,6 @@ import org.wikipedia.Constants.InvokeSource.FEED
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.FeedFunnel
-import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsCardItemBinding
@@ -73,7 +72,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                     }
                     val pageTitle = previousSourceSummaryForEdit!!.pageTitle
                     if (cardActionType === ADD_CAPTION || cardActionType === TRANSLATE_CAPTION) {
-                        startActivity(GalleryActivity.newIntent(requireActivity(), pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
+                        startActivity(GalleryActivity.newIntent(requireActivity(), pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0, GalleryActivity.SOURCE_NON_LEAD_IMAGE))
                     } else {
                         startActivity(PageActivity.newIntentForNewTab(requireContext(), HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle))
                     }

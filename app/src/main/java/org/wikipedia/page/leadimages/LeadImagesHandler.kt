@@ -11,7 +11,6 @@ import org.wikipedia.Constants.ImageEditType
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.commons.ImageTagsProvider
@@ -233,7 +232,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                         leadImageUrl!!, true)
                     GalleryActivity.setTransitionInfo(hitInfo)
                     val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, pageHeaderView.imageView, activity.getString(R.string.transition_page_gallery))
-                    callback?.onPageRequestGallery(it, filename, wiki, parentFragment.revision, GalleryFunnel.SOURCE_LEAD_IMAGE, options)
+                    callback?.onPageRequestGallery(it, filename, wiki, parentFragment.revision, GalleryActivity.SOURCE_LEAD_IMAGE, options)
                 }
             }
         }
