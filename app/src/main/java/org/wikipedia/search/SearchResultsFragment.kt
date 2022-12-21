@@ -12,7 +12,6 @@ import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -69,7 +68,7 @@ class SearchResultsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSearchResultsBinding.inflate(inflater, container, false)
         binding.searchResultsList.layoutManager = LinearLayoutManager(requireActivity())
-        binding.searchResultsList.adapter = SearchResultAdapter()
+        binding.searchResultsList.adapter = searchResultsAdapter
         binding.searchErrorView.backClickListener = View.OnClickListener { requireActivity().finish() }
         binding.searchErrorView.retryClickListener = View.OnClickListener {
             binding.searchErrorView.visibility = View.GONE
@@ -78,6 +77,7 @@ class SearchResultsFragment : Fragment() {
 
         lifecycleScope.launch {
             viewModel.searchResultsFlow.collectLatest {
+                binding.searchResultsList.visibility = View.VISIBLE
                 searchResultsAdapter.submitData(it)
             }
         }
@@ -125,18 +125,22 @@ class SearchResultsFragment : Fragment() {
             clearResults()
             return
         }
-        val cacheResult = searchResultsCache["$searchLanguageCode-$term"]
-        val cacheResultsCount = searchResultsCountCache["$searchLanguageCode-$term"]
-        if (!cacheResult.isNullOrEmpty()) {
-            clearResults()
-            displayResults(cacheResult)
-            return
-        } else if (!cacheResultsCount.isNullOrEmpty()) {
-            clearResults()
-            displayResultsCount(cacheResultsCount)
-            return
-        }
-        doTitlePrefixSearch(term, force)
+        // TODO: load cache in viewModel
+//        val cacheResult = searchResultsCache["$searchLanguageCode-$term"]
+//        val cacheResultsCount = searchResultsCountCache["$searchLanguageCode-$term"]
+//        if (!cacheResult.isNullOrEmpty()) {
+//            clearResults()
+//            displayResults(cacheResult)
+//            return
+//        } else if (!cacheResultsCount.isNullOrEmpty()) {
+//            clearResults()
+//            displayResultsCount(cacheResultsCount)
+//            return
+//        }
+//        doTitlePrefixSearch(term, force)
+        viewModel.searchTerm = term
+        viewModel.languageCode = searchLanguageCode
+        searchResultsAdapter.refresh()
     }
 
     fun clearSearchResultsCountCache() {
@@ -228,7 +232,6 @@ class SearchResultsFragment : Fragment() {
 
     private fun cancelSearchTask() {
         updateProgressBar(false)
-        disposables.clear()
     }
 
     private fun doFullTextSearch(searchTerm: String?,
@@ -327,6 +330,7 @@ class SearchResultsFragment : Fragment() {
     }
 
     private fun displayResults(results: List<SearchResult>) {
+        // TODO: add this logic into viewModel
         for (newResult in results) {
             val res = totalResults.find { newResult.pageTitle == it.pageTitle }
             if (res == null) {
@@ -383,32 +387,8 @@ class SearchResultsFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: DefaultViewHolder<View>, pos: Int) {
-            (holder as SearchResultItemViewHolder).bindItem(pos)
-        }
-    }
-
-    private inner class SearchResultAdapter : RecyclerView.Adapter<DefaultViewHolder<View>>() {
-        override fun getItemViewType(position: Int): Int {
-            return if (totalResults.isEmpty()) VIEW_TYPE_NO_RESULTS else VIEW_TYPE_ITEM
-        }
-
-        override fun getItemCount(): Int {
-            return if (totalResults.isEmpty()) resultsCountList.size else totalResults.size
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<View> {
-            return if (viewType == VIEW_TYPE_ITEM) {
-                SearchResultItemViewHolder(ItemSearchResultBinding.inflate(layoutInflater, parent, false))
-            } else {
-                NoSearchResultItemViewHolder(ItemSearchNoResultsBinding.inflate(layoutInflater, parent, false))
-            }
-        }
-
-        override fun onBindViewHolder(holder: DefaultViewHolder<View>, pos: Int) {
-            if (holder is SearchResultItemViewHolder) {
-                holder.bindItem(pos)
-            } else if (holder is NoSearchResultItemViewHolder) {
-                holder.bindItem(pos)
+            getItem(pos)?.let {
+                (holder as SearchResultItemViewHolder).bindItem(it)
             }
         }
     }
@@ -438,8 +418,8 @@ class SearchResultsFragment : Fragment() {
     }
 
     private inner class SearchResultItemViewHolder(val itemBinding: ItemSearchResultBinding) : DefaultViewHolder<View>(itemBinding.root) {
-        fun bindItem(position: Int) {
-            val (pageTitle, redirectFrom, type) = totalResults[position]
+        fun bindItem(searchResult: SearchResult) {
+            val (pageTitle, redirectFrom, type) = searchResult
             if (redirectFrom.isNullOrEmpty()) {
                 itemBinding.pageListItemRedirect.visibility = View.GONE
                 itemBinding.pageListItemRedirectArrow.visibility = View.GONE
