@@ -8,7 +8,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.readinglist.MoveToReadingListDialog
 
 object ExclusiveBottomSheetPresenter {
-    private const val BOTTOM_SHEET_FRAGMENT_TAG = "bottom_sheet_fragment"
+    const val BOTTOM_SHEET_FRAGMENT_TAG = "bottom_sheet_fragment"
 
     fun showAddToListDialog(fm: FragmentManager,
                             title: PageTitle,
