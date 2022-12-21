@@ -422,7 +422,7 @@
   <string name="article_menu_bar_contents_button">Nilalaman</string>
   <string name="article_header_edit_hint">Baguhin...</string>
   <string name="article_header_edit_description">Baguhin ang paglalarawan sa artikulo</string>
-  <string name="article_header_edit_lead_section">Baguhin ang ang panimula</string>
+  <string name="article_header_edit_lead_section">Baguhin ang panimula</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Maliwanag</string>
   <string name="color_theme_dark">Madilim</string>

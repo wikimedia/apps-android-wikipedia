@@ -71,11 +71,11 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private val readingListPageItemCallback = ReadingListPageItemCallback()
     private val searchActionModeCallback = SearchCallback()
     private val multiSelectActionModeCallback = MultiSelectCallback()
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var toolbarExpanded = true
     private var displayedLists = mutableListOf<Any>()
     private var currentSearchQuery: String? = null
     private var articleLimitMessageShown = false
+    private var exclusiveTooltipRunnable: Runnable? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -202,15 +202,31 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.setOverflowViewVisibility(View.VISIBLE)
         if (ReadingListsShareHelper.shareEnabled()) {
             headerView.shareButton.isVisible = true
-            if (!Prefs.readingListShareTooltipShown) {
-                FeedbackUtil.showTooltip(requireActivity(), headerView.shareButton, getString(R.string.reading_list_share_menu_tooltip),
-                    aboveOrBelow = false, autoDismiss = true, showDismissButton = true)
-                Prefs.readingListShareTooltipShown = true
-            }
             if (Prefs.readingListRecentReceivedId == readingListId && !Prefs.readingListRecentReceivedTooltipShown) {
-                FeedbackUtil.showTooltip(requireActivity(), headerView.listTitle, getString(R.string.reading_list_share_title_tooltip),
-                    aboveOrBelow = false, autoDismiss = true, showDismissButton = true)
-                Prefs.readingListRecentReceivedTooltipShown = true
+                enqueueTooltip {
+                    FeedbackUtil.showTooltip(
+                        requireActivity(),
+                        headerView.listTitle,
+                        getString(R.string.reading_list_share_title_tooltip),
+                        aboveOrBelow = false,
+                        autoDismiss = true,
+                        showDismissButton = true
+                    )
+                    Prefs.readingListRecentReceivedTooltipShown = true
+                }
+            }
+            if (!Prefs.readingListShareTooltipShown) {
+                enqueueTooltip {
+                    FeedbackUtil.showTooltip(
+                        requireActivity(),
+                        headerView.shareButton,
+                        getString(R.string.reading_list_share_menu_tooltip),
+                        aboveOrBelow = false,
+                        autoDismiss = true,
+                        showDismissButton = true
+                    )
+                    Prefs.readingListShareTooltipShown = true
+                }
             }
         } else {
             headerView.shareButton.isVisible = false
@@ -269,6 +285,20 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     // In this case, there's nothing for us to do, so just bail from the activity.
                     requireActivity().finish()
                 })
+    }
+
+    private fun enqueueTooltip(runnable: Runnable) {
+        if (exclusiveTooltipRunnable != null) {
+            return
+        }
+        exclusiveTooltipRunnable = runnable
+        binding.readingListSwipeRefresh.postDelayed({
+            exclusiveTooltipRunnable = null
+            if (!isAdded) {
+                return@postDelayed
+            }
+            runnable.run()
+        }, 500)
     }
 
     private fun setSearchQuery() {
@@ -391,7 +421,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val pages = selectedPages
         if (pages.isNotEmpty()) {
             val titles = pages.map { ReadingListPage.toPageTitle(it) }
-            bottomSheetPresenter.show(childFragmentManager,
+            ExclusiveBottomSheetPresenter.show(childFragmentManager,
                     AddToReadingListDialog.newInstance(titles, InvokeSource.READING_LIST_ACTIVITY))
             update()
         }
@@ -401,7 +431,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val pages = selectedPages
         if (pages.isNotEmpty()) {
             val titles = pages.map { ReadingListPage.toPageTitle(it) }
-            bottomSheetPresenter.show(childFragmentManager,
+            ExclusiveBottomSheetPresenter.show(childFragmentManager,
                     MoveToReadingListDialog.newInstance(readingListId, titles, InvokeSource.READING_LIST_ACTIVITY))
             update()
         }
@@ -431,13 +461,13 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     override fun onAddItemToOther(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
     }
 
     override fun onMoveItemToOther(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 MoveToReadingListDialog.newInstance(readingListId, ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
     }
 
@@ -679,7 +709,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
         override fun onLongClick(item: ReadingListPage?): Boolean {
             item?.let {
-                bottomSheetPresenter.show(childFragmentManager,
+                ExclusiveBottomSheetPresenter.show(childFragmentManager,
                         ReadingListItemActionsDialog.newInstance(if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!)
                         else ReadingListBehaviorsUtil.getListsContainPage(it), it.id, actionMode != null))
                 return true

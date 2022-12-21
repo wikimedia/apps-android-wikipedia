@@ -39,7 +39,6 @@ import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
@@ -61,7 +60,6 @@ class UserContribListActivity : BaseActivity() {
     private val loadHeader = LoadingItemAdapter { userContribListAdapter.retry() }
     private val loadFooter = LoadingItemAdapter { userContribListAdapter.retry() }
     private val viewModel: UserContribListViewModel by viewModels { UserContribListViewModel.Factory(intent.extras!!) }
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
 
@@ -446,7 +444,7 @@ class UserContribListActivity : BaseActivity() {
         }
 
         override fun onInternalLinkClicked(title: PageTitle) {
-            UserTalkPopupHelper.show(this@UserContribListActivity, bottomSheetPresenter, title, false, lastX, lastY,
+            UserTalkPopupHelper.show(this@UserContribListActivity, title, false, lastX, lastY,
                     Constants.InvokeSource.USER_CONTRIB_ACTIVITY, HistoryEntry.SOURCE_USER_CONTRIB, showContribs = false)
         }
     }

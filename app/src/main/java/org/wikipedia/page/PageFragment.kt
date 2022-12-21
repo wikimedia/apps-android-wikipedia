@@ -130,7 +130,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val binding get() = _binding!!
 
     private val activeTimer = ActiveTimer()
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val disposables = CompositeDisposable()
     private val scrollTriggerListener = WebViewScrollTriggerListener()
     private val tabFunnel = TabFunnel()
@@ -540,7 +539,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private fun dismissBottomSheet() {
-        bottomSheetPresenter.dismiss(childFragmentManager)
+        ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
         callback()?.onPageDismissBottomSheet()
     }
 
@@ -620,7 +619,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         return@post
                     }
                     model.title?.let {
-                        callback()?.onPageRequestGallery(it, fileName, it.wikiSite, revision, GalleryFunnel.SOURCE_NON_LEAD_IMAGE, options)
+                        callback()?.onPageRequestGallery(it, fileName, it.wikiSite, revision, GalleryActivity.SOURCE_NON_LEAD_IMAGE, options)
                     }
                 }
             }
@@ -649,7 +648,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 if (!watchlistExpiryChanged) {
                     snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
                         watchlistExpiryChanged = true
-                        bottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
+                        ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
                     }
                 }
                 snackbar.show()
@@ -921,7 +920,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun openInNewForegroundTab(title: PageTitle, entry: HistoryEntry) {
-        openInNewTab(title, entry, foregroundTabPosition)
+        openInNewTab(title, entry, foregroundTabPosition, openFromExistingTab = title.isMainPage)
         pageFragmentLoadState.loadFromBackStack()
     }
 
@@ -958,7 +957,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // clear the title in case the previous page load had failed.
         clearActivityActionBarTitle()
 
-        if (bottomSheetPresenter.getCurrentBottomSheet(childFragmentManager) !is ThemeChooserDialog) {
+        if (ExclusiveBottomSheetPresenter.getCurrentBottomSheet(childFragmentManager) !is ThemeChooserDialog) {
             dismissBottomSheet()
         }
 
@@ -1056,9 +1055,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 if (!isAdded) {
                     return@evaluate
                 }
-                val funnel = FindInPageFunnel(app, title.wikiSite, model.page?.pageProperties?.pageId ?: -1)
-                val articleFindInPageInteractionEvent = ArticleFindInPageInteractionEvent(title.wikiSite.dbName(), model.page?.pageProperties?.pageId ?: -1)
-                val findInPageActionProvider = FindInWebPageActionProvider(this, funnel, articleFindInPageInteractionEvent)
+                val articleFindInPageInteractionEvent = ArticleFindInPageInteractionEvent(model.page?.pageProperties?.pageId ?: -1)
+                val findInPageActionProvider = FindInWebPageActionProvider(this, articleFindInPageInteractionEvent)
                 startSupportActionMode(object : ActionMode.Callback {
                     override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
                         val menuItem = menu.add(R.string.menu_page_find_in_page)
@@ -1081,9 +1079,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         if (!isAdded) {
                             return
                         }
-                        funnel.pageHeight = webView.contentHeight
                         articleFindInPageInteractionEvent.pageHeight = webView.contentHeight
-                        funnel.logDone()
                         articleFindInPageInteractionEvent.logDone()
                         webView.clearMatches()
                         callback()?.onPageHideSoftKeyboard()
@@ -1184,7 +1180,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun showBottomSheet(dialog: BottomSheetDialogFragment) {
-        bottomSheetPresenter.show(childFragmentManager, dialog)
+        ExclusiveBottomSheetPresenter.show(childFragmentManager, dialog)
     }
 
     fun loadPage(title: PageTitle, entry: HistoryEntry) {
@@ -1457,7 +1453,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onCategoriesSelected() {
             title?.let {
-                bottomSheetPresenter.show(childFragmentManager, CategoryDialog.newInstance(it))
+                ExclusiveBottomSheetPresenter.show(childFragmentManager, CategoryDialog.newInstance(it))
             }
             articleInteractionEvent?.logCategoriesClick()
         }

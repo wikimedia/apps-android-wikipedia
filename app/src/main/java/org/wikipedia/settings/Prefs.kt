@@ -51,15 +51,15 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_font_family, "").orEmpty().ifEmpty { "sans-serif" }
         set(fontFamily) = PrefsIoUtil.setString(R.string.preference_key_font_family, fontFamily)
 
-    var cookies
+    var cookies: Map<String, MutableList<Cookie>>
         get() = if (!PrefsIoUtil.contains(R.string.preference_key_cookie_map)) {
             emptyMap()
         } else {
-            val map = JsonUtil.decodeFromString<Map<String, List<String>>>(PrefsIoUtil
+            val map = JsonUtil.decodeFromString<Map<String, MutableList<String>>>(PrefsIoUtil
                 .getString(R.string.preference_key_cookie_map, "").orEmpty()).orEmpty()
             map.mapValues { (key, values) ->
                 val url = "${WikiSite.DEFAULT_SCHEME}://$key".toHttpUrlOrNull()
-                url?.let { values.mapNotNull { value -> Cookie.parse(url, value) } }.orEmpty()
+                url?.let { values.mapNotNull { value -> Cookie.parse(url, value) } }.orEmpty().toMutableList()
             }
         }
         set(cookieMap) {
@@ -123,7 +123,7 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_eventlogging_opt_in, true)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_eventlogging_opt_in, enabled)
 
-    val announcementsCountryOverride
+    val geoIPCountryOverride
         get() = PrefsIoUtil.getString(R.string.preference_key_announcement_country_override, null)
 
     val ignoreDateForAnnouncements

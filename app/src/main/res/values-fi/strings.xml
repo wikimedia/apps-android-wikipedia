@@ -1263,21 +1263,24 @@
   <string name="user_contrib_activity_title">Käyttäjän %s muokkaukset</string>
   <string name="archive_empty">Arkistoituja sivuja ei löytynyt.</string>
   <string name="user_contrib_filter_ns">Suodata nimiavaruuden perusteella</string>
-  <string name="user_contrib_filter_all" fuzzy="true">Kaikki \"nimiavaruudet\"</string>
+  <string name="user_contrib_filter_all">Kaikki nimiavaruudet</string>
   <string name="user_contrib_filter_ns_header">Nimiavaruussuodatin</string>
   <string name="namespace_article">Artikkeli</string>
   <string name="user_contrib_current">nykyinen</string>
   <string name="media_playback_error">Virhe mediaa toistettaessa.</string>
   <string name="user_contrib_menu_label">Muokkaukset</string>
-  <string name="shareable_reading_lists_import_dialog_title">Tuo lukulista</string>
-  <string name="shareable_reading_lists_import_dialog_content">Oletko varma, että haluat tuoda tämän lukulistan?</string>
-  <string name="shareable_reading_lists_import_dialog_confirm">Tuo</string>
-  <string name="shareable_reading_lists_import_dialog_cancel">Peruuta</string>
+  <string name="user_contrib_filter_activity_title">Suodata muokkauksia</string>
+  <string name="shareable_reading_lists_import_dialog_title">Tuo jaettu lukulista</string>
+  <string name="shareable_reading_lists_import_dialog_content">Miten haluat nimetä tämän kanssasi jaetun lukulistan?</string>
   <string name="shareable_reading_lists_new_indicator">* uusi *</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">Sinun kanssasi on jaettu lukulista.</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">Huomasimme, että sinulle on jaettu lukulista. Voit tarkastella tätä luetteloa tässä sovelluksessa palaamalla alkuperäiseen viestiin ja napauttamalla kanssasi jaettua linkkiä uudestaan.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Sinun kanssasi on jaettu lukulista</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Huomasimme, että sinulle on jaettu lukulista. Voit tarkastella tätä luetteloa sovelluksessa palaamalla alkuperäiseen viestiin ja napauttamalla linkkiä uudestaan.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Selvä</string>
-  <string name="shareable_reading_lists_new_imported_list_title">Tuotu luettelo</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Lukulista tuotu</string>
   <string name="reading_list_share_menu_label">Jaa...</string>
-  <string name="reading_list_share_survey_title" fuzzy="true">Voisitko auttaa meitä parantamaan tätä ominaisuutta?</string>
+  <string name="reading_list_share_menu_tooltip">Jaa tämä lukulista muiden kanssa</string>
+  <string name="reading_list_share_title_tooltip">Listaan tekemäsi muutokset eivät näy muille.</string>
+  <string name="reading_list_share_message_v2">Hei! Haluan jakaa Wikipedian lukulistani kanssasi:</string>
+  <string name="reading_list_share_survey_title">Voisitko auttaa meitä parantamaan lukulistojen jakamista?</string>
+  <string name="reading_list_share_survey_body">Lukulistojen jakaminen on testiominaisuus, jonka kehittämiseen tarvitsemme palautettasi.</string>
 </resources>

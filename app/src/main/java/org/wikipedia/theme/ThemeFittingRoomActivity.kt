@@ -11,13 +11,12 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 
 class ThemeFittingRoomActivity : SingleFragmentActivity<ThemeFittingRoomFragment>(), ThemeChooserDialog.Callback {
     private var themeChooserDialog: ThemeChooserDialog? = null
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
             themeChooserDialog = ThemeChooserDialog.newInstance(Constants.InvokeSource.SETTINGS)
-            bottomSheetPresenter.show(supportFragmentManager, themeChooserDialog!!)
+            ExclusiveBottomSheetPresenter.show(supportFragmentManager, themeChooserDialog!!)
         }
 
         // Don't let changed theme affect the status bar color and navigation bar color

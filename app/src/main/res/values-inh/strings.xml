@@ -62,6 +62,12 @@
     <item quantity="one">%2$s — %1$d хувцам</item>
     <item quantity="other">%2$s — %1$d хувцам</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d хувцам баьб %2$s шера денз (%3$s)</item>
+    <item quantity="few">%1$d хувцам баьб %2$s шера денз (%3$s)</item>
+    <item quantity="many">%1$d хувцам баьб %2$s шера денз (%3$s)</item>
+    <item quantity="other">%1$d хувцам баьб %2$s шера денз (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">ДукхагӀа хувцамаш гойтаргдолаш &lt;a href=\"#\"&gt;фильтраш&lt;/a&gt; дӀахувца</string>
   <string name="menu_page_show_tabs">Хьагойта вкладкаш</string>
   <string name="menu_page_other_languages">ДIахувца мотт</string>
@@ -226,8 +232,10 @@
   <string name="privacy_policy_description">КъайлагӀарча хӀамай политика</string>
   <string name="terms_of_use_description">Пайда эцара бехкамаш</string>
   <string name="about_wikipedia_url">https://inh.wikipedia.org/wiki/Википеди:Сурт_оттадар</string>
+  <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/inh</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайн_дешар_а_дараш_а</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
+  <string name="terms_of_use_url">https://meta.m.wikimedia.org/wiki/Terms_of_Use/inh</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
@@ -434,8 +442,12 @@
   <string name="text_size_percent_default">%s (юххьанцара мо)</string>
   <string name="text_style_title">Шрифт</string>
   <string name="theme_category_reading">Дешар</string>
+  <string name="theme_category_editing">Тоадар</string>
   <string name="reading_focus_mode">Фокусировкай раж ешар</string>
   <string name="reading_focus_mode_detail">Тоадара функцеши лохера кечалий панели къайлайоаккх лакхехьа е лохехьа хьал-Ӏо озача хана</string>
+  <string name="editing_syntax_highlight_label">Синтаксис сийрдаяккхар</string>
+  <string name="editing_line_numbers_label">МугӀарий номераш гуш хилийта</string>
+  <string name="editing_monospace_font_label">Моношера шрифт лелае</string>
   <string name="nav_item_saved">ДӀайилай</string>
   <string name="reading_list_save_to">Éша дIаяхкача оагIонашта тIатоха</string>
   <string name="reading_list_move_to">Éша дIаяхкача оагIонашта юкъеяккха</string>
