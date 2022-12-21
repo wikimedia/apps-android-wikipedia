@@ -19,7 +19,6 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.RandomizerFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentRandomBinding
 import org.wikipedia.dataclient.WikiSite
@@ -63,7 +62,6 @@ class RandomFragment : Fragment() {
     private val disposables = CompositeDisposable()
 
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
-    private lateinit var funnel: RandomizerFunnel
     private val viewPagerListener: ViewPagerListener = ViewPagerListener()
 
     private lateinit var wikiSite: WikiSite
@@ -102,11 +100,6 @@ class RandomFragment : Fragment() {
             updateSaveShareButton(topTitle)
         }
 
-        funnel = RandomizerFunnel(
-            WikipediaApp.instance, wikiSite,
-            (arguments?.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? InvokeSource)!!
-        )
-
         return view
     }
 
@@ -118,7 +111,6 @@ class RandomFragment : Fragment() {
     override fun onDestroyView() {
         disposables.clear()
         binding.randomItemPager.unregisterOnPageChangeCallback(viewPagerListener)
-        funnel.done()
         _binding = null
         super.onDestroyView()
     }
@@ -130,8 +122,6 @@ class RandomFragment : Fragment() {
 
         viewPagerListener.setNextPageSelectedAutomatic()
         binding.randomItemPager.setCurrentItem(binding.randomItemPager.currentItem + 1, true)
-
-        funnel.clickedForward()
     }
 
     private fun onBackClick() {
@@ -139,7 +129,6 @@ class RandomFragment : Fragment() {
 
         if (binding.randomItemPager.currentItem > DEFAULT_PAGER_TAB) {
             binding.randomItemPager.setCurrentItem(binding.randomItemPager.currentItem - 1, true)
-            funnel.clickedBack()
         }
     }
 
@@ -285,14 +274,6 @@ class RandomFragment : Fragment() {
         override fun onPageSelected(position: Int) {
             updateBackButton(position)
             updateSaveShareButton(topTitle)
-
-            if (!nextPageSelectedAutomatic) {
-                if (position > prevPosition) {
-                    funnel.swipedForward()
-                } else if (position < prevPosition) {
-                    funnel.swipedBack()
-                }
-            }
 
             nextPageSelectedAutomatic = false
             prevPosition = position
