@@ -21,7 +21,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.analytics.IntentFunnel
 import org.wikipedia.analytics.LinkPreviewFunnel
 import org.wikipedia.analytics.WatchlistFunnel
@@ -79,7 +78,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private val currentActionModes = mutableSetOf<ActionMode>()
     private val disposables = CompositeDisposable()
     private val watchlistFunnel = WatchlistFunnel()
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val listDialogDismissListener = DialogInterface.OnDismissListener { pageFragment.updateBookmarkAndMenuOptionsFromDao() }
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
@@ -153,7 +151,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                         startActivity(FilePageActivity.newIntent(this, imageTitle))
                     } else if (action === DescriptionEditActivity.Action.ADD_CAPTION || action === DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                         pageFragment.title?.let { pageTitle ->
-                            startActivity(GalleryActivity.newIntent(this, pageTitle, imageTitle.prefixedText, wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
+                            startActivity(GalleryActivity.newIntent(this, pageTitle, imageTitle.prefixedText, wikiSite, 0, GalleryActivity.SOURCE_NON_LEAD_IMAGE))
                         }
                     }
                 }
@@ -366,7 +364,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onPageDismissBottomSheet() {
-        bottomSheetPresenter.dismiss(supportFragmentManager)
+        ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
     }
 
     override fun onPageInitWebView(v: ObservableWebView) {
@@ -378,7 +376,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onPageShowLinkPreview(entry: HistoryEntry) {
-        bottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry, null))
+        ExclusiveBottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry, null))
     }
 
     override fun onPageLoadMainPageInForegroundTab() {
@@ -444,7 +442,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, source: Int, options: ActivityOptionsCompat?) {
-        if (source == GalleryFunnel.SOURCE_LEAD_IMAGE) {
+        if (source == GalleryActivity.SOURCE_LEAD_IMAGE) {
             requestGalleryEditLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision, source), options)
         } else {
             requestHandleIntentLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision, source), options)
@@ -644,15 +642,15 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     private fun hideLinkPreview() {
-        bottomSheetPresenter.dismiss(supportFragmentManager)
+        ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
     }
 
     private fun showAddToListDialog(title: PageTitle, source: InvokeSource) {
-        bottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, source, listDialogDismissListener)
+        ExclusiveBottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, source, listDialogDismissListener)
     }
 
     private fun showMoveToListDialog(sourceReadingListId: Long, title: PageTitle, source: InvokeSource, showDefaultList: Boolean) {
-        bottomSheetPresenter.showMoveToListDialog(supportFragmentManager, sourceReadingListId,
+        ExclusiveBottomSheetPresenter.showMoveToListDialog(supportFragmentManager, sourceReadingListId,
             title, source, showDefaultList, listDialogDismissListener)
     }
 

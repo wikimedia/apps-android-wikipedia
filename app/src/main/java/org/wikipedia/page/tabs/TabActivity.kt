@@ -42,7 +42,6 @@ class TabActivity : BaseActivity() {
     private var launchedFromPageActivity = false
     private var cancelled = true
     private var tabUpdatedTimeMillis: Long = 0
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -195,7 +194,7 @@ class TabActivity : BaseActivity() {
 
     private fun saveTabsToList() {
         val titlesList = app.tabList.filter { it.backStackPositionTitle != null }.map { it.backStackPositionTitle!! }
-        bottomSheetPresenter.show(supportFragmentManager,
+        ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                 AddToReadingListDialog.newInstance(titlesList, InvokeSource.TABS_ACTIVITY))
     }
 
