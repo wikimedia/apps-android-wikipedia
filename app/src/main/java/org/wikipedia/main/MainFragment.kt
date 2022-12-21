@@ -94,7 +94,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     private lateinit var notificationButtonView: NotificationButtonView
     private var tabCountsView: TabCountsView? = null
     private var showTabCountsAnimation = false
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val downloadReceiver = MediaDownloadReceiver()
     private val downloadReceiverCallback = MediaDownloadReceiverCallback()
     private val pageChangeCallback = PageChangeCallback()
@@ -128,7 +127,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
         FeedbackUtil.setButtonLongPressToast(binding.navMoreContainer)
         binding.navMoreContainer.setOnClickListener {
-            bottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
+            ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
         }
 
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
@@ -349,12 +348,12 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         if (addToDefault) {
             ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, InvokeSource.FEED) { readingListId -> onFeedMovePageToList(readingListId, entry) }
         } else {
-            bottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(entry.title, InvokeSource.FEED))
+            ExclusiveBottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(entry.title, InvokeSource.FEED))
         }
     }
 
     override fun onFeedMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 MoveToReadingListDialog.newInstance(sourceReadingListId, entry.title, InvokeSource.FEED))
     }
 
@@ -429,7 +428,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
-        bottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
+        ExclusiveBottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
     }
 
     override fun onLinkPreviewShareLink(title: PageTitle) {

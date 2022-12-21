@@ -32,7 +32,6 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
 
     private val binding = ViewCardOnThisDayBinding.inflate(LayoutInflater.from(context), this, true)
     private val funnel = FeedFunnel(WikipediaApp.instance)
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var age = 0
 
     init {
@@ -152,7 +151,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
                                         context as AppCompatActivity, entry.title,
                                         InvokeSource.ON_THIS_DAY_CARD_BODY
                                     ) { readingListId ->
-                                        bottomSheetPresenter.show(
+                                        ExclusiveBottomSheetPresenter.show(
                                             (context as AppCompatActivity).supportFragmentManager,
                                             MoveToReadingListDialog.newInstance(
                                                 readingListId,
@@ -162,7 +161,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
                                         )
                                     }
                                 } else {
-                                    bottomSheetPresenter.show(
+                                    ExclusiveBottomSheetPresenter.show(
                                         (context as AppCompatActivity).supportFragmentManager,
                                         AddToReadingListDialog.newInstance(
                                             entry.title,
@@ -177,7 +176,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
                                 entry: HistoryEntry
                             ) {
                                 page?.let {
-                                    bottomSheetPresenter.show(
+                                    ExclusiveBottomSheetPresenter.show(
                                         (context as AppCompatActivity).supportFragmentManager,
                                         MoveToReadingListDialog.newInstance(
                                             it.listId,

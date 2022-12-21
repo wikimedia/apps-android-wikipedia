@@ -50,7 +50,6 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val subcategoriesConcatAdapter = subcategoriesAdapter.withLoadStateHeaderAndFooter(subcategoriesLoadHeader, subcategoriesLoadFooter)
 
     private val itemCallback = ItemCallback()
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val viewModel: CategoryActivityViewModel by viewModels { CategoryActivityViewModel.Factory(intent.extras!!) }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -124,7 +123,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_categories -> {
-                bottomSheetPresenter.show(supportFragmentManager, CategoryDialog.newInstance(viewModel.pageTitle))
+                ExclusiveBottomSheetPresenter.show(supportFragmentManager, CategoryDialog.newInstance(viewModel.pageTitle))
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -136,7 +135,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
             startActivity(newIntent(this, title))
         } else {
             val entry = HistoryEntry(title, HistoryEntry.SOURCE_CATEGORY)
-            bottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry, null))
+            ExclusiveBottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry, null))
         }
     }
 
@@ -150,7 +149,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
-        bottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, InvokeSource.LINK_PREVIEW_MENU)
+        ExclusiveBottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, InvokeSource.LINK_PREVIEW_MENU)
     }
 
     override fun onLinkPreviewShareLink(title: PageTitle) {

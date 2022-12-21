@@ -58,10 +58,7 @@ class RandomFragment : Fragment() {
 
     private var _binding: FragmentRandomBinding? = null
     private val binding get() = _binding!!
-
     private val disposables = CompositeDisposable()
-
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val viewPagerListener: ViewPagerListener = ViewPagerListener()
 
     private lateinit var wikiSite: WikiSite
@@ -188,7 +185,7 @@ class RandomFragment : Fragment() {
                 ReadingListBehaviorsUtil.Callback { updateSaveShareButton(title) }
             )
         } else {
-            bottomSheetPresenter.show(childFragmentManager,
+            ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 AddToReadingListDialog.newInstance(title, InvokeSource.RANDOM_ACTIVITY) {
                     updateSaveShareButton(title)
                 })
@@ -196,7 +193,7 @@ class RandomFragment : Fragment() {
     }
 
     fun onMovePageToList(sourceReadingListId: Long, title: PageTitle) {
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
             MoveToReadingListDialog.newInstance(
                 sourceReadingListId,
                 listOf(title),

@@ -87,7 +87,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
     // Current revision of the article, to be passed back to the server to detect possible edit conflicts.
     private var currentRevision: Long = 0
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var actionMode: ActionMode? = null
     private val disposables = CompositeDisposable()
 
@@ -136,7 +135,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     private val syntaxButtonCallback = object : WikiTextKeyboardView.Callback {
         override fun onPreviewLink(title: String) {
             val dialog = LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null)
-            bottomSheetPresenter.show(supportFragmentManager, dialog)
+            ExclusiveBottomSheetPresenter.show(supportFragmentManager, dialog)
             binding.root.post {
                 dialog.dialog?.setOnDismissListener {
                     if (!isDestroyed) {
@@ -487,7 +486,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             }
             R.id.menu_edit_theme -> {
                 binding.editSectionText.enqueueNoScrollingLayoutChange()
-                bottomSheetPresenter.show(supportFragmentManager, ThemeChooserDialog.newInstance(Constants.InvokeSource.EDIT_ACTIVITY, true))
+                ExclusiveBottomSheetPresenter.show(supportFragmentManager, ThemeChooserDialog.newInstance(Constants.InvokeSource.EDIT_ACTIVITY, true))
                 true
             }
             R.id.menu_find_in_editor -> {
