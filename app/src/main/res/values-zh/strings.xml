@@ -71,12 +71,12 @@
   <string name="app_name_beta">维基百科测试版</string>
   <string name="app_name_alpha">维基百科内测版</string>
   <string name="wikimedia">维基媒体</string>
-  <string name="nav_item_back">返回</string>
+  <string name="nav_item_back">上一页</string>
   <string name="page_tabs_back">返回</string>
-  <string name="nav_item_forward">前进</string>
+  <string name="nav_item_forward">下一页</string>
   <string name="search_hint">搜索维基百科</string>
   <string name="search_hint_voice_search">语音输入搜索</string>
-  <string name="search_hint_search_languages">搜索一种语言</string>
+  <string name="search_hint_search_languages">搜索语言</string>
   <string name="filter_hint_filter_my_lists_and_articles">过滤我的列表</string>
   <string name="nav_item_suggested_edits">编辑</string>
   <string name="nav_item_more">更多</string>
@@ -120,13 +120,17 @@
   <string name="page_edit_history_filter_by_bot">机器人编辑数（%s）</string>
   <string name="page_edit_history_metrics_content_description">自 %1$s 到 %2$s 期间的指标</string>
   <plurals name="page_edit_history_article_edits_since_year">
-    <item quantity="one">自 %2$s 共 %1$d 次编辑</item>
-    <item quantity="other">自 %2$s 共 %1$d 次编辑</item>
+    <item quantity="one">自%2$s年创建后共有%1$d次编辑</item>
+    <item quantity="other">自%2$s年创建后共有%1$d次编辑</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">自%2$s年注册后共有%1$d次编辑（%3$s）</item>
+    <item quantity="other">自%2$s年注册后共有%1$d次编辑（%3$s）</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">尝试更改&lt;a href=\"#\"&gt;过滤器&lt;/a&gt;来查看更多编辑</string>
   <string name="menu_page_show_tabs">显示标签页</string>
   <string name="menu_page_other_languages">更改语言</string>
-  <string name="menu_page_find_in_page">在条目中查找</string>
+  <string name="menu_page_find_in_page">在条目内查找</string>
   <string name="menu_page_add_to_watchlist">添加到监视列表</string>
   <string name="menu_page_watch">监视</string>
   <string name="menu_page_unwatch">取消监视</string>
@@ -157,7 +161,7 @@
   <string name="on_this_day_page_share">分享</string>
   <string name="reading_list_page_share">分享</string>
   <string name="menu_text_select_edit_here">在此编辑</string>
-  <string name="menu_edit_article">编辑文章</string>
+  <string name="menu_edit_article">编辑条目</string>
   <string name="last_updated_text">最后更新于%s</string>
   <string name="talk_page_link_text">查看讨论页</string>
   <string name="edit_history_link_text">查看编辑历史</string>
@@ -493,7 +497,7 @@
   <string name="text_size_percent_default">%s（默认）</string>
   <string name="text_style_title">字体</string>
   <string name="theme_category_reading">阅读</string>
-  <string name="theme_category_editing">编辑中</string>
+  <string name="theme_category_editing">编辑</string>
   <string name="reading_focus_mode">专注阅读模式</string>
   <string name="reading_focus_mode_detail">滚动时隐藏编辑功能和底部工具栏</string>
   <string name="editing_syntax_highlight_label">语法高亮</string>
@@ -639,8 +643,8 @@
   <string name="notification_syncing_reading_list_channel_description">同步阅读列表进度</string>
   <string name="notification_many_unread">您有%d个未读通知</string>
   <plurals name="notification_channel_name">
-    <item quantity="one">下载条目中</item>
-    <item quantity="other">下载条目中</item>
+    <item quantity="one">下载条目</item>
+    <item quantity="other">下载条目</item>
   </plurals>
   <plurals name="notification_syncing_title">
     <item quantity="one">正在下载%1$d个条目…</item>
@@ -736,6 +740,7 @@
   <string name="notifications_select_all_filters">选择所有过滤器</string>
   <string name="notifications_tab_filter_all">全部</string>
   <string name="notifications_tab_filter_mentions">提及</string>
+  <string name="notifications_tab_filter_unread">（%s）</string>
   <string name="notifications_search_bar_hint">搜索或过滤通知</string>
   <string name="notifications_search_bar_filter_hint">通知过滤器</string>
   <string name="notifications_menu_mark_as_read">标记为已读</string>
@@ -833,6 +838,10 @@
   <string name="description_edit_license_notice">一旦修改条目描述，即表示我同意&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并按照&lt;a href=\"%2$s\"&gt;知识共享CC0&lt;/a&gt;许可协议不可撤销地发表我的贡献。</string>
   <string name="description_edit_helper_text_lowercase_warning">通常以小写字母开头</string>
   <string name="description_edit_voice_input_description">语音输入</string>
+  <string name="description_edit_learn_more">了解有关条目描述的更多信息</string>
+  <string name="description_edit_image_caption_learn_more">了解有关图像说明的更多信息</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#%E6%9D%A1%E7%9B%AE%E6%8F%8F%E8%BF%B0</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#%E5%9B%BE%E7%89%87%E8%AF%B4%E6%98%8E</string>
   <string name="description_too_short">文本过短。</string>
   <string name="description_ends_with_punctuation">文本不能以标点符号结尾。</string>
   <string name="description_starts_with_uppercase">除非第一个单词是专有名词，否则请以小写字母开头。</string>
@@ -1214,6 +1223,8 @@
   <string name="talk_list_item_user_icon_content_description">用户图标</string>
   <string name="talk_list_item_swipe_mark_as_read">已读</string>
   <string name="talk_list_item_swipe_mark_as_unread">未读</string>
+  <string name="talk_login_to_subscribe_dialog_title">登录以订阅话题</string>
+  <string name="talk_login_to_subscribe_dialog_content">话题订阅允许您接收此话题中新评论的通知。请创建账号或登录您的维基百科账号以订阅话题。</string>
   <string name="talk_archived_title">讨论存档：%s</string>
   <string name="menu_option_share_talk_discussion">分享讨论</string>
   <string name="menu_option_share_talk_page">分享讨论页</string>
@@ -1222,6 +1233,7 @@
   <string name="menu_option_edit_source">编辑源代码</string>
   <string name="menu_option_user_page">%s的用户页</string>
   <string name="menu_option_find_in_talk_page_topic">在讨论页主题中查找</string>
+  <string name="menu_option_copy_link_to_clipboard">复制链接到剪贴板</string>
   <string name="talk_menu_copy_text">复制文本</string>
   <string name="talk_menu_expand_threads">展开讨论串</string>
   <string name="talk_menu_collapse_threads">折叠讨论串</string>
@@ -1245,6 +1257,7 @@
   <string name="revision_diff_to">收件人：</string>
   <string name="revision_diff_line_num">第%d行</string>
   <string name="revision_diff_line_nums">第%d到第%d行</string>
+  <string name="revision_diff_lines_from_to">第%1$d–%2$d行</string>
   <string name="revision_diff_line_added">已添加行</string>
   <string name="revision_diff_line_removed">已移除行</string>
   <string name="revision_diff_paragraph_added">已添加段落</string>
@@ -1280,7 +1293,11 @@
   <string name="watchlist_page_protected">受保护</string>
   <string name="watchlist_page_deleted">已删除</string>
   <string name="preview_edit_title">预览编辑</string>
+  <string name="preview_edit_summarize_edit_title">编辑摘要</string>
+  <string name="preview_edit_summarize_edit_hint">您是如何改进此页面的？</string>
   <string name="preview_edit_minor_edit">这是一次小的修改</string>
+  <string name="preview_edit_watch_this_page">监视此页面</string>
+  <string name="preview_edit_learn_more">了解有关编辑摘要的更多信息</string>
   <string name="action_item_categories">分类</string>
   <string name="page_no_categories">该页面不属于任何分类。</string>
   <string name="category_tab_articles">条目</string>
@@ -1293,12 +1310,23 @@
   <string name="archive_empty">未找到存档页面。</string>
   <string name="user_contrib_filter_ns">按命名空间过滤</string>
   <string name="user_contrib_filter_all">所有命名空间</string>
+  <string name="user_contrib_filter_ns_header">命名空间筛选</string>
   <string name="namespace_article">条目</string>
   <string name="user_contrib_current">当前</string>
+  <string name="media_playback_error">播放媒体文件时出错。</string>
   <string name="user_contrib_menu_label">贡献</string>
+  <string name="user_contrib_filter_activity_title">筛选贡献</string>
   <string name="shareable_reading_lists_import_dialog_title">导入共享阅读列表</string>
   <string name="shareable_reading_lists_import_dialog_content">您想如何命名与您共享的列表？</string>
+  <string name="shareable_reading_lists_new_indicator">*新*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">已与你分享了一份阅读清单</string>
   <string name="shareable_reading_lists_new_install_dialog_content">我们注意到已与您共享了一份阅读列表。要在应用程序中查看此列表，请返回原始消息并再次点击链接。</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">明白了</string>
   <string name="shareable_reading_lists_new_imported_snackbar">已导入阅读清单</string>
+  <string name="reading_list_share_menu_label">分享…</string>
+  <string name="reading_list_share_menu_tooltip">与他人分享这份阅读清单</string>
+  <string name="reading_list_share_title_tooltip">您对此清单所做的更改对其他人不可见。</string>
+  <string name="reading_list_share_message_v2">你好！我想给你分享我的维基百科阅读清单：</string>
+  <string name="reading_list_share_survey_title">您能帮助我们改进“分享阅读清单”吗？</string>
+  <string name="reading_list_share_survey_body">“分享阅读清单”是一项测试功能，我们需要您的反馈来改进或删除它。</string>
 </resources>
