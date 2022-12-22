@@ -16,6 +16,7 @@
 * Tomato Cream
 * Unomano
 * ZlyiLev
+* Zmicier21
 * Zmickli
 * Zmickli21
 -->
@@ -49,24 +50,24 @@
   <string name="history_item_delete_undo">Вярнуць</string>
   <string name="notification_archive_undo">Скасаваць</string>
   <string name="app_settings">Налады праграмы</string>
-  <string name="search_tab_tooltip">Пстрыкніце іконку зноў, каб пачаць увод пошукавага запыту.</string>
+  <string name="search_tab_tooltip">Націсніце на іконку зноў, каб пачаць увод пошукавага запыту.</string>
   <string name="history_list_title">Гісторыя</string>
-  <string name="image_content_description">Відарыс: %s</string>
+  <string name="image_content_description">Выява: %s</string>
   <string name="page_content_description">Старонка: %s</string>
   <string name="wikimedia_commons">Вікісховішча</string>
   <string name="wikidata">Вікіданыя</string>
   <string name="dialog_title_clear_history">Ачысціць гісторыю праглядаў</string>
-  <string name="dialog_message_clear_history">Вы ўпэўненыя, што жадаеце ачысціць усю гісторыю?</string>
+  <string name="dialog_message_clear_history">Гэта выдаліць усю гісторыю праглядаў і закрые ўсе адкрытыя цяпер укладкі. Вы ўпэўнены ў гэтым?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
   <string name="dialog_message_clear_history_no">Не</string>
-  <string name="share_via">Апублікаваць праз</string>
+  <string name="share_via">Падзяліцца праз</string>
   <string name="image_share_via">Падзяліцца праз</string>
   <string name="search_redirect_from">Перанакіравана з %s</string>
   <string name="page_edit_history_activity_title">Гісторыя версіяў: %s</string>
-  <string name="page_edit_history_minor_edit">&lt;b&gt;д&lt;/b&gt; %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Пустое тлумачэнне рэдагавання</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Пошук або фільтраванне рэдагаванняў</string>
-  <string name="page_edit_history_filter_by">Фільтраваць па</string>
+  <string name="page_edit_history_filter_by">Адфільтраваць па</string>
   <string name="page_edit_history_filter_by_all">Усе рэдагаванні (%s)</string>
   <string name="page_edit_history_filter_by_user">Рэдагаванні ўдзельніка (%s)</string>
   <string name="page_edit_history_filter_by_anon">Ананімныя рэдагаванні (%s)</string>
@@ -84,15 +85,15 @@
     <item quantity="many">%1$d рэдагаванняў ад %2$s (%3$s)</item>
     <item quantity="other">%1$d рэдагавання ад %2$s (%3$s)</item>
   </plurals>
-  <string name="page_edit_history_empty_search_message">Паспрабуйце змяніць &lt;a href=\"#\"&gt;фільтры&lt;/a&gt; , каб убачыць больш правак</string>
+  <string name="page_edit_history_empty_search_message">Паспрабуйце змяніць &lt;a href=\"#\"&gt;фільтры&lt;/a&gt;, каб убачыць больш правак</string>
   <string name="menu_page_show_tabs">Паказаць укладкі</string>
   <string name="menu_page_other_languages">Змяніць мову</string>
   <string name="menu_page_find_in_page">Знайсці ў артыкуле</string>
   <string name="menu_page_add_to_watchlist">Дадаць у спіс назірання</string>
   <string name="menu_page_watch">Назіраць</string>
   <string name="menu_page_unwatch">Не назіраць</string>
-  <string name="menu_page_view_talk">Гл. старонку размоў</string>
-  <string name="menu_page_talk_page">Старонка размоў</string>
+  <string name="menu_page_view_talk">Гл. старонку абмеркаванняў</string>
+  <string name="menu_page_talk_page">Старонка абмеркаванняў</string>
   <string name="menu_page_view_edit_history">Гл. гісторыю правак</string>
   <string name="menu_page_edit_history">Гісторыя правак</string>
   <string name="menu_page_remove_from_watchlist">Выдаліць са спіса назірання</string>
@@ -114,27 +115,27 @@
   <string name="menu_long_press_open_page">Адкрыць</string>
   <string name="menu_long_press_open_in_new_tab">Адкрыць у новай укладцы</string>
   <string name="menu_long_press_copy_page">Скапіяваць адрас спасылкі</string>
-  <string name="menu_text_select_define">Вызначыць</string>
+  <string name="menu_text_select_define">Вызначэнне</string>
   <string name="on_this_day_page_share">Падзяліцца</string>
   <string name="reading_list_page_share">Падзяліцца</string>
-  <string name="menu_text_select_edit_here">Рэдагаваць тут</string>
-  <string name="menu_edit_article">Рэдагаваць артыкул</string>
-  <string name="last_updated_text">Апошняе абнаўленне %s</string>
-  <string name="talk_page_link_text">Гл. старонку размоў</string>
+  <string name="menu_text_select_edit_here">Правіць тут</string>
+  <string name="menu_edit_article">Правіць артыкул</string>
+  <string name="last_updated_text">Апошняе абнаўленне: %s</string>
+  <string name="talk_page_link_text">Гл. старонку абмеркаванняў</string>
   <string name="edit_history_link_text">Гл. гісторыю правак</string>
-  <string name="map_view_link_text">Глядзець на карце</string>
+  <string name="map_view_link_text">Гл. на карце</string>
   <string name="other_languages_indication_text">Чытаць на іншай мове</string>
   <string name="language_count_link_text">Даступна на %d іншых мовах</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Публікуючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на неадклікальную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Публікуючы ўнёскі, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на неадклікальную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Рэдагаванні будуць прывязаны да IP-адрасу вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;аўтарызуецеся&lt;/a&gt;, то атрымаеце вышэйшы ўзровень прыватнасці.</string>
-  <string name="edit_anon_warning">Рэдакцыі будуць звязаны з IP-адрасам вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце&lt;/a&gt;, у вас будзе больш прыватнасці.</string>
+  <string name="edit_save_action_license_anon">Публікуючы ўнёскі, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на неадклікальную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Праўкі будуць прывязаны да IP-адрасу вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;аўтарызуецеся&lt;/a&gt;, то атрымаеце вышэйшы ўзровень прыватнасці.</string>
+  <string name="edit_anon_warning">Праўкі будуць звязаны з IP-адрасам вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце&lt;/a&gt;, у вас будзе больш прыватнасці.</string>
   <string name="preference_title_language">Мовы Вікіпедыі</string>
   <string name="langlinks_filter_hint">Пошук</string>
-  <string name="langlinks_empty">Гэтая старонка не даступная на іншых мовах.</string>
+  <string name="langlinks_empty">Гэтая старонка недаступная на іншых мовах.</string>
   <string name="langlinks_no_match">Няма адпаведных моў</string>
   <string name="langlinks_activity_title">Іншыя мовы</string>
-  <string name="langlinks_your_wikipedia_languages">Вашы мовы Вікіпедыі</string>
+  <string name="langlinks_your_wikipedia_languages">Вашыя мовы Вікіпедыі</string>
   <string name="menu_save_changes">Апублікаваць змены</string>
   <string name="edit_saved_successfully">Рэдагаванне апублікавана!</string>
   <string name="dialog_message_edit_failed">Памылка рэдагавання!</string>
@@ -148,11 +149,11 @@
   <string name="search_reading_list_no_results">Не знойдзена вынікаў у \"%s\"</string>
   <string name="search_reading_lists_no_results">Не знойдзена вынікаў у спісах для чытання</string>
   <string name="search_history_no_results">Не знойдзена вынікаў у гісторыі</string>
-  <string name="edit_section_captcha_message">Для абароны ад аўтаматычнага спаму, калі ласка, увядзіце словы, якія з\'яўляюцца ніжэй</string>
-  <string name="edit_section_captcha_request_an_account_message">Не бачыце выяў капчы? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Запытайце ўліковы запіс&lt;/a&gt;</string>
+  <string name="edit_section_captcha_message">Для абароны ад аўтаматычнага спаму, калі ласка, увядзіце словы, якія з’явяцца ніжэй</string>
+  <string name="edit_section_captcha_request_an_account_message">Не бачыце выявы? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Запытайце ўліковы запіс&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Паўтарыце словы, паказаныя вышэй</string>
-  <string name="title_captcha">Увядзіце капчу</string>
-  <string name="edit_section_captcha_reload">Націсніце на капчу, каб перазагрузіць</string>
+  <string name="title_captcha">Увядзіце сімвалы з выяў</string>
+  <string name="edit_section_captcha_reload">Націсніце на выявы, каб перазагрузіць</string>
   <string name="nav_item_login">Увайсці</string>
   <string name="login_username_hint">Імя карыстальніка</string>
   <string name="login_password_hint">Пароль</string>
@@ -167,21 +168,21 @@
   <string name="login_activity_title">Увайсці</string>
   <string name="login_in_progress_dialog_message">Уваход у сістэму…</string>
   <string name="login_success_toast">Увайшлі!</string>
-  <string name="reset_password_title">Прызначце пароль</string>
-  <string name="reset_password_description">Вы ўвайшлі праз часовы пароль. Каб канечна ўвайсці, калі ласка прызначце новы пароль.</string>
+  <string name="reset_password_title">Стварыце пароль</string>
+  <string name="reset_password_description">Вы ўвайшлі праз часовы пароль. Каб канчаткова ўвайсці, калі ласка, стварыце новы пароль.</string>
   <string name="reset_password_hint">Новы пароль</string>
   <string name="reset_password_button">Захаваць і ўвайсці</string>
   <string name="preference_title_logout">Выйсці</string>
   <string name="toast_logout_complete">Вы выйшлі</string>
-  <string name="logout_prompt">Выхад з уліковага запісу на ўсіх вашых прыладах. Вы праўда хочаце выйсці?</string>
+  <string name="logout_prompt">Гэта прывядзе да выхаду з уліковага запісу на ўсіх вашых прыладах. Вы праўда хочаце выйсці?</string>
   <string name="logout_dialog_cancel_button_text">Скасаваць</string>
   <string name="logged_out_in_background_title">Вы выйшлі</string>
   <string name="logged_out_in_background_dialog">Вы выйшлі з уліковага запісу Вікіпедыі. Хочаце ўвайсці зноў?</string>
   <string name="logged_out_in_background_login">Увайсці</string>
-  <string name="logged_out_in_background_cancel">Закрыць</string>
+  <string name="logged_out_in_background_cancel">Скасаваць</string>
   <string name="history_empty_title">Няма нядаўна прагледжаных артыкулаў</string>
   <string name="history_empty_message">Адсочвайце тое, што вы ўжо чыталі тут.</string>
-  <string name="history_offline_articles_toast">Некаторыя артыкулы ў гісторыі могуць быць недаступныя офлайн.</string>
+  <string name="history_offline_articles_toast">Некаторыя артыкулы ў гісторыі могуць быць недаступныя па-за сеткай.</string>
   <string name="search_empty_message">Шукайце і чытайце вольную энцыклапедыю на сваёй мове</string>
   <string name="search_empty_message_multilingual_upgrade">Знайсці Вікіпедыю на іншай мове</string>
   <string name="delete_selected_items">Выдаліць выбраныя элементы</string>
@@ -198,7 +199,7 @@
   <string name="create_account_password_is_username">Пароль не можа супадаць з імем удзельніка</string>
   <string name="create_account_passwords_mismatch_error">Паролі не супадаюць</string>
   <string name="create_account_email_error">Няслушны адрас электроннай пошты</string>
-  <string name="create_account_username_error">Недапушчальныя сімвалы ў імені ўдзельніка</string>
+  <string name="create_account_username_error">Недапушчальныя сімвалы ў імі ўдзельніка</string>
   <string name="create_account_password_error">Пароль мусіць мець прынамсі 8 сімвалаў</string>
   <string name="create_account_generic_error">Немагчыма стварыць уліковы запіс</string>
   <string name="create_account_next">Далей</string>
@@ -218,19 +219,19 @@
   <string name="send_feedback">Зваротная сувязь</string>
   <string name="create_account_account_created_toast">Уліковы запіс створаны!</string>
   <string name="preferences_heading_syncing">Сінхранізацыя</string>
-  <string name="preferences_heading_data_usage">Выкарыстанне дадзеных</string>
+  <string name="preferences_heading_data_usage">Выкарыстанне даных</string>
   <string name="preferences_heading_experimental">Эксперыментальныя</string>
-  <string name="preference_title_sync_reading_lists_from_account">Сінхранізацыя спісу чытання</string>
+  <string name="preference_title_sync_reading_lists_from_account">Сінхранізацыя спісу для чытання</string>
   <string name="preference_title_download_reading_list_articles">Загрузіць артыкул са спісу чытання</string>
   <string name="preference_summary_sync_reading_lists">Сінхранізуйце спісы для чытання на розных прыладах, захаваннем іх у сваім уліковым запісе Вікіпедыі</string>
   <string name="preference_summary_sync_reading_lists_from_account">Сінхранізуйце спісы для чытання на розных прыладах, захаваўшы іх у сваім уліковым запісе Вікіпедыі «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Выдаліць сінхранізаваныя спісы чытання з \"%s\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Гэта прывядзе да поўнага выдалення ўсіх спісаў чытання, якія былі захаваны раней, з аддаленага сховішча. Выдаліць усе сінхранізаваныя спісы з вашага ўліковага запісу \" %s \"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Гэта прывядзе да поўнага выдалення ўсіх спісаў чытання, якія былі захаваны раней, з аддаленага сховішча. Выдаліць усе сінхранізаваныя спісы з вашага ўліковага запісу \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">Канфідэнцыяльнасць</string>
-  <string name="preference_title_eventlogging_opt_in">Адпраўляць звесткі аб выкарыстанні</string>
-  <string name="preference_summary_eventlogging_opt_in">Дазвольце Вікімедыі збіраць інфармацыю аб тым, як вы выкарыстоўваеце дадатак, каб зрабіць яго лепш</string>
+  <string name="preference_title_eventlogging_opt_in">Адпраўляць звесткі пра выкарыстанне</string>
+  <string name="preference_summary_eventlogging_opt_in">Дазвольце Вікімедыі збіраць інфармацыю пра тое, як вы выкарыстоўваеце дадатак, каб зрабіць яго лепш</string>
   <string name="preference_title_auto_upload_crash_reports">Дасылаць справаздачы аб збоях</string>
-  <string name="preference_summary_auto_upload_crash_reports">Дазволіць аўтаматычна адпраўляць звесткі пра збоі пабочнаму сервісу, каб мы маглі прааналізаваць праблему і выправіць памылкі хутчэй і прасцей.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Дазволіць аўтаматычна адпраўляць звесткі пра збоі пабочнаму сэрвісу, каб мы маглі прааналізаваць праблему і выправіць памылкі хутчэй і прасцей.</string>
   <string name="editing_error_spamblacklist">Выяўленыя спасылкі на заблакаваныя дамены (%s). Калі ласка, выдаліце іх і паспрабуйце зноў.</string>
   <string name="history_filter_list_hint">Гісторыя фільтра</string>
   <string name="error_can_not_process_link">Не магчыма адлюстраваць гэтую спасылку</string>
@@ -238,9 +239,9 @@
   <string name="page_protected_sysop">Гэтая старонка была цалкам абаронена.</string>
   <string name="page_protected_other">Старонка пад аховай наступных узроўняў: %s</string>
   <string name="page_protected_can_not_edit">На жаль, на дадзены момант у вашага ўліковага запісу няма дастатковых правоў для рэдагавання гэтай старонкі.</string>
-  <string name="page_protected_can_not_edit_anon">Шкада, зараз старонку нельга рэдагаваць ананімна.</string>
-  <string name="page_protected_can_not_edit_title">Гэтая старонка пад аховай</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Дадаць у спіс назіранага</string>
+  <string name="page_protected_can_not_edit_anon">На жаль, зараз старонку нельга рэдагаваць ананімна.</string>
+  <string name="page_protected_can_not_edit_title">Гэта старонка абаронена</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Дадаць у спіс назірання</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Сачыце за тым, што адбываецца з артыкуламі, якія вас цікавяць. Каб убачыць змены ў артыкуле, націсніце на дадатковае меню і выберыце &lt;b&gt;Дадаць у спіс назірання&lt;/b&gt;.</string>
   <string name="settings_item_preferences">Налады</string>
   <string name="settings_activity_title">Налады</string>
@@ -256,7 +257,7 @@
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Выкарыстаныя бібліятэкі</string>
-  <string name="about_contributors_heading">Аўтары</string>
+  <string name="about_contributors_heading">Суаўтары</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Старонка каманды&lt;/a&gt;</string>
   <string name="about_translators_heading">Перакладчыкі</string>
   <string name="about_translators_translatewiki">Гэты дадатак быў перакладзены валанцёрамі &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
@@ -270,10 +271,10 @@
   <string name="user_blocked_from_editing_title">Заблакавана</string>
   <string name="user_logged_in_blocked_from_editing">Унясенне рэдагаванняў у гэтай Вікі было заблакавана для вашага ўліковага запісу.</string>
   <string name="user_anon_blocked_from_editing">Унясенне зменаў пад Вашым IP-адрасам заблакавана.</string>
-  <string name="edit_how_page_improved">Як менавіта Вы палепшылі старонку?</string>
+  <string name="edit_how_page_improved">Як менавіта вы палепшылі старонку?</string>
   <string name="edit_next">Далей</string>
   <string name="edit_done">Апублікаваць</string>
-  <string name="edit_preview">Перадпаказ</string>
+  <string name="edit_preview">Перадпрагляд</string>
   <string name="edit_undo">Скасаваць</string>
   <string name="edit_redo">Паўтарыць</string>
   <string name="edit_rollback">Адкаціць</string>
@@ -289,10 +290,10 @@
   <string name="edit_summary_tag_grammar">Выпраўлены правапіс</string>
   <string name="edit_summary_tag_links">Дададзены спасылкі</string>
   <string name="edit_summary_tag_other">Іншае</string>
-  <string name="edit_summary_tag_other_hint">Іншыя спосабы, якімі Вы палепшылі старонку</string>
+  <string name="edit_summary_tag_other_hint">Іншыя спосабы, якімі вы палепшылі старонку</string>
   <string name="edit_conflict_title">Канфлікт правак</string>
   <string name="edit_conflict_message">Старонка ўжо была зменена іншым карыстальнікам і супярэчыць вашаму рэдагаванню. Калі ласка, скапіюйце свае рэдагаванні, вярніцеся і абнавіце старонку, затым паспрабуйце рэдагаваць яшчэ раз.</string>
-  <string name="edit_notices">Заўвагі да рэдагаванняў</string>
+  <string name="edit_notices">Заўвагі да правак</string>
   <string name="edit_notices_please_read">Калі ласка, прачытайце перад рэдагаваннем</string>
   <string name="edit_notices_show_auto">Аўтаматычна паказваць заўвагі да рэдагаванняў</string>
   <string name="edit_notices_tooltip">Націсніце гэтую кнопку, каб праглядзець паведамленні аб рэдагаванні гэтага артыкула.</string>
@@ -302,7 +303,7 @@
   <string name="find_last_occurence">Гэта апошняе супадзенне</string>
   <string name="article_opened_in_background_tab">Артыкул быў адкрыты ў фонавай укладцы.</string>
   <string name="abusefilter_title_warn">Напэўна, гэтае рэдагаванне неканструктыўнае. Ці вы згодныя з тым, каб апублікаваць яго?</string>
-  <string name="abusefilter_title_disallow">Вы не можаце захаваць гэтую праўку. Калі ласка, вярніцеся назад і зменіце яе.</string>
+  <string name="abusefilter_title_disallow">Вы не можаце захаваць гэтую праўку. Калі ласка, вярніцеся назад і змяніце яе.</string>
   <string name="abusefilter_text_warn">Аўтаматызаваны фільтр вызначыў гэтую праўку як патэнцыйна неканструктыўную. Яна можа ўтрымліваць адно або некалькі з наступных дзеянняў:&lt;br /&gt;&lt;br /&gt;· Друкаваць загалоўнымі літарамі&lt;br /&gt;· Штампоўка артыкулаў або спам&lt;br /&gt;· Непадыходзячыя знешнія спасылкі ці відарысы&lt;br /&gt;· Паўтарэнне сімвалаў</string>
   <string name="abusefilter_text_disallow">Аўтаматызаваны фільтр вызначыў гэтую праўку як патэнцыйна неканструктыўную ці як патэнцыйны вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпедыя — гэта энцыклапедыя, і тут прымальна толькі нейтральнае і значнае змесціва.</string>
   <string name="page_similar_titles">Падобныя старонкі</string>
@@ -418,7 +419,7 @@
   <string name="reference_list_title">Зноскі</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Зацямненне відарысаў (у Цёмнай тэме)</string>
   <string name="preference_title_prefer_offline_content">Надаць перавагу кантэнту па-за сеткай</string>
-  <string name="preference_summary_prefer_offline_content">Эканомце выкарыстанне дадзеных, загружаючы артыкулы, якія даступны ў пазасеткавым рэжыме, замест таго, каб заўсёды загружаць апошнюю версію артыкула</string>
+  <string name="preference_summary_prefer_offline_content">Сэканомце выкарыстанне даных, загружаючы артыкулы, якія даступны ў пазасеткавым рэжыме, замест таго, каб заўсёды загружаць апошнюю версію артыкула</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Як у сістэме</string>
   <string name="page_footer_license_text">Змест даступны на ўмовах $1, калі не пазначана іншае</string>
   <string name="empty_tab_title">Новая ўкладка</string>
@@ -737,10 +738,10 @@
   <string name="notifications_select_all_filters">Абраць усе фільтры</string>
   <string name="notifications_tab_filter_all">Усе</string>
   <string name="notifications_tab_filter_mentions">Згадванні</string>
-  <string name="notifications_search_bar_hint">Шукаць або адфільтроўваць апавяшчэнні</string>
+  <string name="notifications_search_bar_hint">Шукаць або фільтраваць апавяшчэнні</string>
   <string name="notifications_search_bar_filter_hint">Фільтр апавяшчэнняў</string>
   <string name="notifications_menu_mark_as_read">Адзначыць як прачытанае</string>
-  <string name="notifications_menu_mark_as_unread">Адзначыць, як непрачытанае</string>
+  <string name="notifications_menu_mark_as_unread">Адзначыць як непрачытанае</string>
   <string name="notifications_swipe_action_read">Чытаць</string>
   <string name="notifications_swipe_action_unread">Непрачытанае</string>
   <string name="notifications_menu_check_all">Адзначыць усе элементы</string>
@@ -799,7 +800,7 @@
   <string name="feed_item_type_featured_image">Штодзённы рэкамендаваны відарыс з Вікісховішча</string>
   <string name="feed_item_type_main_page">Галоўная старонка Вікіпедыі з штодзённа рэкамендаваным кантэнтам</string>
   <string name="feed_item_type_randomizer">Стварыць выпадковы артыкул для чытання</string>
-  <string name="feed_item_type_suggested_edits">Прапановы па даданню кантэнту ў Вікіпедыю</string>
+  <string name="feed_item_type_suggested_edits">Прапановы па даданні кантэнту ў Вікіпедыю</string>
   <string name="feed_empty_message">У вашай стужцы Агляду нічога няма</string>
   <string name="feed_configure_onboarding_action">Наладзіць</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Добра</string>
@@ -844,7 +845,7 @@
   <string name="description_starts_with_uppercase">Пачынайце з маленькай літары, калі толькі першае слова не з’яўляецца імем уласным.</string>
   <string name="description_starts_with_lowercase">Пазбягайце маленькай літары ў пачатку.</string>
   <string name="description_is_in_different_language">Здаецца, тэкст напісаны на нечаканай мове. Мова павінна быць %s .</string>
-  <string name="description_verification_notice">Калі ласка, пераканайцеся, што ваша апісанне знаходзіцца ў %1$s. Не саромейцеся адхіляць гэтае апавяшчэнне, калі апісанне, якое вы напісалі, утрымвае %2$s.</string>
+  <string name="description_verification_notice">Калі ласка, пераканайцеся, што ваша апісанне знаходзіцца ў %1$s. Не саромейцеся адхіляць гэтае апавяшчэнне, калі апісанне, якое вы напісалі, змяшчае %2$s.</string>
   <string name="description_edit_success_saved">Апісаннне артыкула апублікавана!</string>
   <string name="description_edit_success_saved_snackbar">Апісаннне артыкула апублікавана!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Апісанне артыкула апублікавана! ( %s )</string>
@@ -857,9 +858,9 @@
   <string name="description_edit_success_did_you_know">Ці ведаеце вы?</string>
   <string name="description_edit_success_article_edit_hint">Вы таксама можаце рэдагаваць артыкулы ў гэтым дадатку. Паспрабуйце выправіць памылкі друку і дробныя выразы, націснуўшы на значок ^1 у наступны раз</string>
   <string name="description_edit_tutorial_title_descriptions">Апісанні артыкулаў</string>
-  <string name="description_edit_tutorial_title_descriptions_summary">Абагульняе артыкул, каб дапамагчы чытачам зразумець тэму з першага погляду</string>
-  <string name="description_edit_tutorial_keep_it_short">Будзьце лаканічным</string>
-  <string name="description_edit_tutorial_keep_it_short_instructions">У ідэале – адзін радок змяшчае ад двух, да дванаццаці слоў</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Апісвае артыкул, каб дапамагчы чытачам зразумець тэму з першага позірку</string>
+  <string name="description_edit_tutorial_keep_it_short">Будзьце лаканічнымі</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">У ідэале – адзін радок змяшчае ад двух да дванаццаці слоў</string>
   <string name="description_edit_tutorial_button_label_start_editing">Пачаць рэдагаванне</string>
   <string name="description_edit_tutorial_promise">Пачынаючы, я абяцаю не злоўжываць гэтай функцыяй.</string>
   <string name="customize_toolbar_title">Наладзіць панэль інструментаў</string>
@@ -867,9 +868,9 @@
   <string name="customize_toolbar_category_toolbar">Панэль інструментаў</string>
   <string name="customize_toolbar_category_menu">Меню</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Перацягніце вашыя любімыя інструменты сюды 👋</string>
-  <string name="customize_toolbar_reset_to_default_button">Скінуць да наладаў па змаўчанні</string>
+  <string name="customize_toolbar_reset_to_default_button">Скінуць да прадвызначаных наладак</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Утрымвайце значок перацягвання, каб перамясціць элемент</string>
-  <string name="customize_toolbar_item_default_tooltip">Націсніце і перацягніце элемент, каб змяніць яго месцаванне</string>
+  <string name="customize_toolbar_item_default_tooltip">Націсніце і перацягніце элемент, каб змяніць яго размяшчэнне</string>
   <string name="suggested_edits_describe_articles">Апісаць артыкулы</string>
   <string name="suggested_edits_caption_images">Апісанне выяў</string>
   <string name="suggested_edits_tag_images">Тэгаванне выяў</string>
@@ -883,17 +884,17 @@
   <string name="suggested_edits_review_image_caption">Перадпрагляд подпісаў выяў</string>
   <string name="suggested_edits_my_contributions">Мае ўнёскі</string>
   <string name="suggested_edits_no_description">Гэты файл не мае апісання</string>
-  <string name="suggested_edits_license_notice">Дадаючы кароткае апісанне, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на неадклічную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_image_caption_license_notice">Дадаючы апісанне выявы, я згаджаюся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаюся на неадклічную публікацыю майго ўнёска па ліцэнзіі &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_license_notice">Дадаючы кароткае апісанне, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на неадклікальную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">Дадаючы апісанне выявы, я згаджаюся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаюся на неадклікальную публікацыю майго ўнёска па ліцэнзіі &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Інфармацыя</string>
   <string name="suggested_edits_task_add_description_title">Даданне апісанняў артыкулаў</string>
   <string name="suggested_edits_task_add_description_description">Рабіце ўнёскі ў артыкулы без апісання</string>
   <string name="suggested_edits_task_image_caption_title">Дадаць подпіс відарысу</string>
-  <string name="suggested_edits_task_image_caption_description">Дадаць кароткі подпіс, які адсутнічае, відарысу</string>
+  <string name="suggested_edits_task_image_caption_description">Дадаць адсутны кароткі подпіс выявы</string>
   <string name="suggested_edits_task_translate_caption_title">Перакласці подпіс відарыса</string>
   <string name="suggested_edits_task_translate_caption_description">Перакласці подпіс на іншыя мовы</string>
   <string name="suggested_edits_task_multilingual_title">Больш задач для асоб, якія ведаюць некалькі моў</string>
-  <string name="suggested_edits_task_multilingual_description">Заданні для перакладу даступныя, калі вы чытаеце і пішаце на больш чым адной мове Вікіпедыі.</string>
+  <string name="suggested_edits_task_multilingual_description">Заданні для перакладу даступныя, калі вы чытаеце і пішаце на больш за адну мову Вікіпедыі.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Заблакавана, пакуль вы не адрэдагуеце %d подпісы відарысаў</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заблакавана, пакуль вы не зробіце %d правераных апісанняў артыкулаў</string>
   <string name="suggested_edits_task_multilingual_negative">Не для мяне</string>
@@ -923,7 +924,7 @@
   <string name="suggested_edits_image_preview_dialog_source">Крыніца/Фатограф</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Ліцэнзаванне</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Дадатковая інфармацыя</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Старонка файлу на Вікісховішча</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Старонка файла на Вікісховішчы</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Назва файла ў Вікіпедыі</string>
   <string name="suggested_edits_article_cta_image_tags">Дадаць тэгі відарысаў</string>
   <string name="suggested_edits_article_cta_image_caption">Дадаць подпіс відарысу</string>
@@ -940,26 +941,42 @@
   <string name="suggested_edits_image_tags">Тэгі відарысаў</string>
   <string name="suggested_edits_image_tags_publishing">Публікацыя</string>
   <string name="suggested_edits_image_tags_published">Апублікавана</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Тэгаванне выяў робіць пошук лягчэйшым.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Дадаўшы тэгі выяў, вы дапаможаце спрасціць пошук выяў у Вікісховішчы, бясплатным ліцэнзійным сховішчы выяў, якое Вікіпедыя выкарыстоўвае для захавання выяў, якія выкарыстоўваюцца для артыкулаў.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">Да выяў будуць дададзены толькі тыя тэгі, якія вы выбераце.</string>
   <string name="suggested_edits_image_tags_task_detail">Дадайце ўласныя тэгі да відарысу, каб яго было лягчэй знайсці.</string>
   <string name="suggested_edits_image_tags_choose">Дадайце або абярыце адпаведныя тэгі</string>
+  <string name="suggested_edits_image_tags_published_list">Апублікаваныя тэгі</string>
   <string name="suggested_edits_image_tags_search">Шукаць тэгі</string>
+  <string name="suggested_edits_image_tags_select_title">Вы не выбралі тэгі для гэтай выявы</string>
+  <string name="suggested_edits_image_tags_select_text">Толькі выбраныя вамі тэгі будуць дададзены да выяў. Тэгі, якія не выбраны, будуць пазначаны як адхіленыя. Вы ўпэўнены, што хочаце пазначыць усе тэгі як адхіленыя?</string>
   <string name="suggested_edits_image_tags_add_tag">Дадаць тэг</string>
+  <string name="suggested_edits_image_zoom_tooltip">Сцісніце, каб павялічыць выяву.</string>
   <string name="suggested_edits_encouragement_message">%s , дзякуй за вашыя рэдагаванні. Ніжэй вы можаце знайсці іншыя спосабы, каб унесці свой уклад у Вікіпедыю.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Прывітанне, %s&lt;/b&gt;, ніжэй вы можаце знайсці некалькі хуткіх і простых спосабаў дапамагчы палепшыць Вікіпедыю. Як толькі пачнеце, вы заўважыце змены, якія вы робіце. Шчаслівага рэдагавання!</string>
+  <string name="suggested_edits_image_captions_task_detail">Апішыце выяву, каб дапамагчы чытачам зразумець яе значэнне і кантэкст.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Апішыце артыкул, каб дапамагчы чытачам з першага погляду зразумець тэму.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Ваша агульная колькасць унёскаў на дадзены момант.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Колькі дзён запар вы рабілі ўнёскі. Калі вы нейкі час не рабілі ўнёскі, у ім адлюстроўваецца дата апошняй зробленай вамі ўнёскі.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Агульная колькасць праглядаў старонак элементаў, у якія вы зрабілі ўнёскі, за апошнія 30 дзён.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">У залежнасці ад таго, колькі разоў адзін з вашых унёскаў быў адхілены (скасаваны іншым рэдактарам). Адхіленыя рэдагаванні: %d .</string>
   <string name="suggested_edits_paused_message">Прапанаваныя рэдагаванні, на жаль, былі тымчасова адключаныя да %1$s. Калі ласка, даруйце, %2$s, але некаторыя вашыя апошнія ўнёскі былі скасаваны.</string>
   <string name="suggested_edits_disabled_message">Прапанаваныя рэдагаванні адключаны. На жаль, %s, занадта шмат вашых нядаўніх унёскаў было адхілена.</string>
   <string name="suggested_edits_ip_blocked_message">Мяркуючы па ўсім, ваш IP-адрас (або дыяпазон IP-адрасоў) зараз забаронены для рэдагавання Вікіпедыі.</string>
+  <string name="suggested_edits_gate_message">Прабачце, %s, вы павінны ўнесці як мінімум тры рэдагаванні непасрэдна ў артыкуле, каб карыстацца гэтай магчымасцю.</string>
   <string name="suggested_edits_editing_tips_link_text">Парады і рэкамендацыі па рэдагаванні</string>
   <string name="suggested_edits_help_page_link_text">Даведка па прапанаваным рэдагаванням</string>
   <string name="suggested_edits_edit_streak_label_text">Серыя рэдагаванняў</string>
   <string name="suggested_edits_views_label_text">Прагляды</string>
   <string name="suggested_edits_quality_label_text">Якасць рэдагаванняў</string>
   <string name="suggested_edits_quality_perfect_text">Выдатна</string>
+  <string name="suggested_edits_quality_excellent_text">Цудоўна</string>
+  <string name="suggested_edits_quality_very_good_text">Вельмі добра</string>
+  <string name="suggested_edits_quality_good_text">Добра</string>
   <string name="suggested_edits_quality_okay_text">Добра</string>
+  <string name="suggested_edits_quality_sufficient_text">Задавальняльна</string>
+  <string name="suggested_edits_quality_poor_text">Незадавальняльна</string>
+  <string name="suggested_edits_quality_bad_text">Дрэнна</string>
   <string name="suggested_edits_label">Прапанаваныя рэдагаванні</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Унёсак.</item>
@@ -967,28 +984,115 @@
     <item quantity="many">Унёскаў.</item>
     <item quantity="other">Унёскаў.</item>
   </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d дзень.</item>
+    <item quantity="few">%d дні.</item>
+    <item quantity="many">%d дзён.</item>
+    <item quantity="other">%d дзён.</item>
+  </plurals>
   <string name="suggested_edits_what_is_title">Што такое Прапанаваныя рэдагаванні?</string>
   <string name="suggested_edits_what_is_text">Прапанаваныя рэдагаванні даюць магчымасці для невялікіх, але жыццёва важных унёскаў у Вікіпедыю.</string>
+  <string name="suggested_edits_learn_more">Даведацца болей</string>
+  <string name="suggested_edits_paused_title">Прыпынена</string>
+  <string name="suggested_edits_disabled_title">Выключана</string>
+  <string name="suggested_edits_ip_blocked_title">IP заблакаваны</string>
   <string name="suggested_edits_last_edited">Апошняе рэдагаванне</string>
+  <string name="suggested_edits_last_edited_never">Ніколі</string>
+  <string name="suggested_edits_task_new">новы</string>
+  <string name="suggested_edits_cc0_notice">Публікуючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на неадклікальную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Прапанаваныя рэдагаванні</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Дзякуй за рэдагаванне ў Вікіпедыі! Чаму б не працягнуць там, дзе вы спыніліся?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Ці маеце хвілінку, каб працягнуць удасканаленне Вікіпедыі? Праверце гэтыя прапанаваныя рэдагаванні.</string>
   <string name="suggested_edits_contributions_screen_title">Унёсак %s</string>
+  <string name="suggested_edits_contribution_language_label">Мова</string>
   <string name="suggested_edits_contribution_date_time_label">Дата / Час</string>
+  <string name="suggested_edits_contribution_type_label">Тып унёску</string>
+  <string name="suggested_edits_contribution_image_label">Выява</string>
   <string name="suggested_edits_contribution_article_label">Артыкул</string>
   <string name="suggested_edits_contribution_views">%s праглядаў</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Бачылі адзін раз за апошнія 30 дзён.</item>
+    <item quantity="few">Бачылі %s разы за апошнія 30 дзён.</item>
+    <item quantity="many">Бачылі %s разоў за апошнія 30 дзён.</item>
+    <item quantity="other">Бачылі %s разоў за апошнія 30 дзён.</item>
+  </plurals>
+  <string name="suggested_edits_contribution_seen_text">Бачылі %s разоў за апошнія 30 дзён.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Вы дадалі %d тэг.</item>
+    <item quantity="few">Вы дадалі %d тэгі.</item>
+    <item quantity="many">Вы дадалі %d тэгаў.</item>
+    <item quantity="other">Вы дадалі %d тэгаў.</item>
+  </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Учора</string>
   <string name="suggested_edits_encourage_account_creation_title">Ці ведаеце вы, што кожны можа рэдагаваць Вікіпедыю?</string>
   <string name="suggested_edits_encourage_account_creation_message">Прапанаваныя рэдагаванні — гэта новы спосаб рэдагавання Вікіпедыі на Андроід. Гэта дапаможа вам зрабіць невялікі, але важны ўнёсак у Вікіпедыю.\nНаша мэта — зрабіць рэдагаванне прасцейшым і больш даступным для ўсіх! Увайдзіце або далучыцеся да Вікіпедыі, каб пачаць.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Увайсці / далучыцца да Вікіпедыі</string>
+  <string name="suggested_edits_contribution_type_image_tag">Тэг выявы</string>
   <string name="suggested_edits_contribution_current_revision_text">Вашае рэдагаванне цяпер даступна ў Вікіпедыі</string>
   <string name="suggested_card_more_edits">Больш прапанаваных рэдагаванняў</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s тэг.</item>
+    <item quantity="few">%1$s тэгі.</item>
+    <item quantity="many">%1$s тэгаў.</item>
+    <item quantity="other">%1$s тэгаў.</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s сімвал.</item>
+    <item quantity="few">%1$s сімвалы.</item>
+    <item quantity="many">%1$s сімвалаў.</item>
+    <item quantity="other">%1$s сімвалаў.</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Вы выдалілі %d сімвал.</item>
+    <item quantity="few">Вы выдалілі %d сімвалы.</item>
+    <item quantity="many">Вы выдалілі %d сімвалаў.</item>
+    <item quantity="other">Вы выдалілі %d сімвалаў.</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Вы дадалі %d сімвал.</item>
+    <item quantity="few">Вы дадалі %d сімвалы.</item>
+    <item quantity="many">Вы дадалі %d сімвалаў.</item>
+    <item quantity="other">Вы дадалі %d сімвалаў.</item>
+  </plurals>
+  <string name="file_page_activity_title">Старонка файла</string>
   <string name="file_page_add_image_caption_button">Дадаць подпіс відарысу</string>
   <string name="file_page_add_image_tags_button">Дадаць тэгі відарысаў</string>
   <string name="file_page_edit_button_content_description">Рэдагаваць %s</string>
   <string name="description_edit_revert_subtitle">Дзякуй за рэдагаванне Вікіпедыі!</string>
   <string name="description_edit_revert_intro">Мы ведаем, што вы намагаліся як маглі, але ў аднаго з перагляднікаў узніклі сумневы. Імаверныя прычыны скасавання вашага рэдагавання:</string>
+  <string name="description_edit_revert_reason1">ваш унёсак не адпавядаў ніводнаму з &lt;a href=\"%1$s\"&gt;кіроўных прынцыпаў&lt;/a&gt;</string>
+  <string name="description_edit_revert_reason2">ваш унёсак выглядаў, як эксперымент або вандалізм.</string>
   <string name="description_edit_revert_history">Калі вы зацікаўлены, можаце прагледзець &lt;a href=\"%1$s\"&gt;гісторыю правак&lt;/a&gt;.</string>
-  <string name="onboarding_explore_text">Вандруйце ў прасторах Вікіпедыі з шторазова абнаўляльнай стужкай Агляду. &lt;br/&gt; &lt;b&gt;Наладзьце&lt;/b&gt; стужку адпаведна вашым зацікаўленасцям - няхай гэта будзе вывучэнне гістарычных падзей &lt;b&gt;У гэты дзень&lt;/b&gt;, альбо шукайце нешта новае з &lt;b&gt;Выпадковым артыкулам&lt;/b&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Скасаваць</string>
+  <string name="offline_read_permission_rationale">Для прагляду ў пазасеткавым рэжыме патрэбен дазвол на доступ да сховішча ў вашай прыладзе.</string>
+  <string name="offline_read_final_rationale">Для выкарыстання пазасеткавай бібліятэкі трэба дазвол на доступ да сховішча на вашай прыладзе.</string>
+  <string name="size_gb">%.2f ГБ</string>
+  <string name="size_mb">%.2f МБ</string>
+  <string name="onboarding_skip">Прапусціць</string>
+  <string name="onboarding_continue">Працягнуць</string>
+  <string name="onboarding_get_started">Пачаць</string>
+  <string name="onboarding_maybe_later">Можа, пазней</string>
+  <string name="onboarding_explore_title">Новыя спосабы даследаванняў</string>
+  <string name="onboarding_explore_text">Вандруйце ў прасторах Вікіпедыі з шторазова абнаўляльнай стужкай Агляду. &lt;br/&gt; &lt;b&gt;Наладзьце&lt;/b&gt; стужку адпаведна вашым зацікаўленасцям - няхай гэта будзе вывучэнне гістарычных падзей &lt;b&gt;У гэты дзень&lt;/b&gt;, або шукайце нешта новае з &lt;b&gt;Выпадковым артыкулам&lt;/b&gt;.</string>
+  <string name="onboarding_reading_list_sync_title">Спісы для чытання з сінхранізацыяй</string>
+  <string name="onboarding_reading_list_sync_text_v2">Вы можаце складаць спісы для чытання з артыкулаў, якія вы хочаце прачытаць пазней, нават калі вы знаходзіцеся ў пазасеткавым рэжыме. &lt;br/&gt;Увайдзіце ў свой уліковы запіс Вікіпедыі, каб сінхранізаваць свае спісы для чытання. &lt;a href=\"#login\"&gt;Далучайцеся да Вікіпедыі&lt;/a&gt;</string>
+  <string name="onboarding_analytics_title">Адпраўляць ананімныя даныя</string>
+  <string name="onboarding_analytics_offline_text">Дапамажыце зрабіць дадатак лепш, паведаміце нам, як вы ім карыстаецеся. Сабраныя даныя будуць ананімнымі. &lt;a href=\"#privacy\"&gt;Даведацца больш&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Адправіць даныя пра выкарыстанне</string>
+  <string name="onboarding_got_it">Зразумела</string>
+  <string name="onboarding_multilingual_secondary_text">Мы знайшлі наступнае на вашай прыладзе:</string>
   <string name="onboarding_multilingual_add_language_text">Дадаць або рэдагаваць мовы</string>
+  <string name="onboarding_welcome_title_v2">Бясплатная энцыклапедыя\n…на больш за 300 мовах</string>
+  <string name="app_shortcuts_random">Выпадкова</string>
+  <string name="app_shortcuts_continue_reading">Працягнуць чытанне</string>
+  <string name="app_shortcuts_search">Пошук</string>
   <string name="on_this_day_card_title">У гэты дзень</string>
+  <string name="more_events_text">Падрабязней у гэты дзень</string>
+  <string name="events_count_text">%1$s падзей з %2$s–%3$d</string>
+  <string name="this_year">Сёлета</string>
+  <string name="on_this_day_dialog_next_month">Наступны месяц</string>
+  <string name="on_this_day_dialog_previous_month">Папярэдні месяц</string>
   <string name="on_this_day_open_date_picker">Выбар даты</string>
   <plurals name="diff_years" fuzzy="true">
     <item quantity="one">%d год таму.</item>
@@ -996,20 +1100,39 @@
     <item quantity="many">%d гадоў таму.</item>
     <item quantity="other">%d гадоў таму.</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Вы здзейснілі падарожжа ў часе 🚀</string>
+  <string name="on_this_day_back_to_future">Назад у будучыню</string>
   <string name="languages_list_activity_title">Дадаць мову</string>
+  <string name="languages_list_suggested_text">Прапанаваныя</string>
+  <string name="languages_list_all_text">Усе мовы</string>
   <string name="wikipedia_languages_title">Мовы Вікіпедыі</string>
   <string name="wikipedia_languages_your_languages_text">Вашы мовы</string>
   <string name="wikipedia_languages_add_language_text">Дадаць мову</string>
   <string name="wikipedia_languages_remove_text">Выдаліць мову</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Выдаліць мову</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Выдаліць абарную мову?.</item>
+    <item quantity="few">Выдаліць абраныя мовы?.</item>
+    <item quantity="many">Выдаліць абраныя мовы?.</item>
+    <item quantity="other">Выдаліць абраныя мовы?.</item>
+  </plurals>
+  <string name="wikipedia_languages_remove_dialog_content">Вы ўбачыце кантэнт толькі ў стужцы Агляду і ў фільтрах хуткага пошуку для астатніх моў Вікіпедыі.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Немагчыма выдаліць усе мовы</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Выкарыстоўвайце хаця б адну мову Вікіпедыі для пошуку і чытання кантэнту.</string>
   <string name="more_language_options">болей</string>
   <string name="add_wikipedia_languages_text">Дадаць мову Вікіпедыі</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Выдаліць кітайскую мову з варыянтаў моў вашага дадатку?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Зараз у мовах вашага дадатку ўсталяваны як традыцыйны, так і спрошчаны варыянты кітайскай мовы. Абнавіць наладкі моў вашага дадатку?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Рэдагаваць мовы</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не, дзякуй</string>
+  <string name="remove_language_dialog_cancel_button_text">Скасаваць</string>
   <string name="remove_language_dialog_ok_button_text">Добра</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Добра</string>
   <string name="protected_page_warning_dialog_ok_button_text">Добра</string>
   <string name="account_editing_blocked_dialog_ok_button_text">Добра</string>
   <string name="edit_conflict_dialog_ok_button_text">Добра</string>
   <string name="reverted_edit_dialog_ok_button_text">Добра</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Скасаваць</string>
   <string name="edit_type_all">Усе ўнёскі</string>
   <string name="content_description_for_page_indicator">Старонка %1$d з %2$d</string>
   <string name="wikitext_bold">Цёмны</string>
@@ -1042,7 +1165,7 @@
   <string name="insert_media_settings_alternative_text_description">Тэкставае апісанне для чытачоў, якія не бачаць выяў</string>
   <string name="insert_media_advanced_settings">Дадатковыя параметры</string>
   <string name="insert_media_advanced_settings_wrap_image">Абцяканне тэкстам вакол выявы</string>
-  <string name="insert_media_advanced_settings_image_position">Месцаванне выявы</string>
+  <string name="insert_media_advanced_settings_image_position">Размяшчэнне выявы</string>
   <string name="insert_media_advanced_settings_image_position_right">Справа</string>
   <string name="insert_media_advanced_settings_image_position_left">Злева</string>
   <string name="insert_media_advanced_settings_image_position_center">Па цэнтры</string>
@@ -1054,7 +1177,7 @@
   <string name="insert_media_advanced_settings_image_type_basic">Базавая</string>
   <string name="insert_media_advanced_settings_image_type_tip">Вы можаце наладзіць спосаб адлюстравання элемента мультымедыя на старонцы. Гэта павінен быць фармат мініяцюр, каб амаль ва ўсіх выпадках ён адпявадаў іншым старонкам.</string>
   <string name="insert_media_advanced_settings_image_size">Памер выявы</string>
-  <string name="insert_media_advanced_settings_image_size_default">Па змаўчанні</string>
+  <string name="insert_media_advanced_settings_image_size_default">Прадвызначаны</string>
   <string name="insert_media_advanced_settings_image_size_custom">Адмысловы</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">Шырыня</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">Вышыня</string>
@@ -1066,7 +1189,7 @@
   <string name="main_tooltip_text_v2">Ці ведаеце вы, што кожны можа рэдагаваць Вікіпедыю?</string>
   <string name="main_tooltip_action_button">Пачаць</string>
   <string name="main_tooltip_watchlist_title">Спіс назірання</string>
-  <string name="main_tooltip_watchlist_text">Знайдзіце артыкулы і старонкі, якія вы раней дадавалі ў свой спіс назірання, у меню Дадаткова ў падзеле &lt;b&gt;Спіс назірання&lt;/b&gt;.</string>
+  <string name="main_tooltip_watchlist_text">Знайдзіце артыкулы і старонкі, якія вы раней дадавалі ў свой спіс назірання, у меню Дадаткова ў раздзеле &lt;b&gt;Спіс назірання&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Добра</string>
   <string name="text_input_dialog_ok_button_text">Добра</string>
   <string name="text_input_dialog_cancel_button_text">Скасаваць</string>
@@ -1092,44 +1215,144 @@
   <string name="talk_snackbar_survey_action_text">Пачаць</string>
   <string name="talk_share_discussion_subject">Вікіпедыя — абмеркаванне ў тэме «%s»</string>
   <string name="talk_share_talk_page">Вікіпедыя — старонка абмеркавання</string>
+  <string name="talk_edit_disclaimer">Гэтая старонка абмеркавання. Калі ласка, выконвайце правілы вядзення абмеркаванняў і не забывайце падпісваць свае паведамленні чатырма тыльдамі: ~~~~ пры публікацыі праз Вікітэкст.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Вікіпедыя:Правілы абмеркаванняў&lt;/a&gt;</string>
+  <string name="talk_search_hint">Пошук паведамленняў</string>
   <string name="talk_search_topics_hint">Шукаць тэмы</string>
+  <string name="talk_search_find_in_talk_topics_hint">Пошук тэмы на старонцы абмеркаванняў</string>
+  <string name="talk_overflow_sort_by">Сартаваць па</string>
   <string name="talk_overflow_sort_date_published">Дата публікацыі</string>
+  <string name="talk_overflow_sort_date_updated">Дата абнаўлення</string>
+  <string name="talk_overflow_sort_topic_name">Назва тэмы</string>
+  <string name="talk_new_topic_exit_dialog_title">Вы ўпэўнены, што хочаце выйсці?</string>
+  <string name="talk_new_topic_exit_dialog_message">Тэма і змест не будуць захаваны.</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Паказаць адказ.</item>
+    <item quantity="few">Паказаць адказы (%d).</item>
+    <item quantity="many">Паказаць адказы (%d).</item>
+    <item quantity="other">Паказаць адказы (%d).</item>
+  </plurals>
   <plurals name="talk_hide_replies_count">
     <item quantity="one">Схаваць адказ.</item>
     <item quantity="few">Схаваць адказы (%d).</item>
     <item quantity="many">Схаваць адказы (%d).</item>
     <item quantity="other">Схаваць адказы (%d).</item>
   </plurals>
+  <string name="talk_thread_subscribed_to">Падпісаны на «%s»</string>
+  <string name="talk_thread_unsubscribed_from">Адпісаны ад «%s»</string>
+  <string name="talk_list_item_overflow_subscribe">Падпісацца</string>
+  <string name="talk_list_item_overflow_subscribed">Падпісаны</string>
   <string name="talk_list_item_overflow_mark_as_read">Адзначыць як прачытанае</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Адзначыць як непрачытанае</string>
+  <string name="talk_list_item_overflow_share">Падзяліцца</string>
   <string name="talk_list_item_last_comment_date">Апошні каментар: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Агулам адказаў</string>
+  <string name="talk_list_item_user_icon_content_description">Значок удзельніка</string>
+  <string name="talk_list_item_swipe_mark_as_read">Прачытана</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Непрачытана</string>
+  <string name="talk_login_to_subscribe_dialog_title">Увайдзіце, каб падпісацца на тэмы</string>
+  <string name="talk_login_to_subscribe_dialog_content">Падпіска на тэму дазволяць вам атрымліваць апавяшчэнні пра новыя каментары у гэтай тэме. Калі ласка, стварыце ўліковы запіс або ўвайдзіце ў яго, каб падпісацца на тэму.</string>
+  <string name="talk_archived_title">Архіў абмеркаванняў: %s</string>
+  <string name="menu_option_share_talk_discussion">Падзяліцца абмеркаваннем</string>
+  <string name="menu_option_share_talk_page">Падзяліцца старонкай абмеркаванняў</string>
   <string name="menu_option_share_edit">Падзяліцца рэдагаваннем</string>
   <string name="menu_option_user_contributions">Унёсак ад %s</string>
   <string name="menu_option_edit_source">Рэдагаваць код</string>
+  <string name="menu_option_user_page">Старонка ўдзельніка %s</string>
+  <string name="menu_option_find_in_talk_page_topic">Знайсці тэму ў старонцы абмеркаванняў</string>
+  <string name="menu_option_copy_link_to_clipboard">Скапіяваць спасылку ў буфер абмену</string>
+  <string name="talk_menu_copy_text">Скапіяваць тэкст</string>
+  <string name="talk_menu_expand_threads">Разгарнуць галіны</string>
+  <string name="talk_menu_collapse_threads">Згарнуць галіны</string>
+  <string name="watchlist_details_watching_label">Сачу</string>
+  <string name="watchlist_details_watch_label">Сачыць</string>
   <string name="watchlist_details_next_edit">Наступнае рэдагаванне</string>
   <string name="watchlist_details_prev_edit">Папярэдняе рэдагаванне</string>
-  <string name="thank_dialog_text">\"Дзякуй\" - гэта просты спосаб выказаць удзячнасць за працу рэдактара ў Вікіпедыі. \"Дзякуй\" нельга скасаваць, і яны даступныя для агульнага прагляду</string>
+  <string name="thank_label">Дзякуй</string>
+  <string name="view_user_page">Праглядзець старонку ўдзельніка</string>
+  <string name="thank_dialog_title_text">Публічна адправіць \"Дзякуй\"</string>
+  <string name="thank_dialog_text">\"Дзякуй\" - просты спосаб падзякаваць за працу удзельніка ў Вікіпедыі. \"Дзякуй\" нельга скасаваць, і яны даступныя для агульнага прагляду</string>
+  <string name="thank_dialog_positive_button_text">Даслаць падзяку</string>
+  <string name="thank_dialog_negative_button_text">Скасаваць</string>
+  <string name="thank_success_message">Ваш \"Дзякуй\" адпраўлены %s 👍</string>
+  <string name="menu_option_view_user_profile">Праглядзець старонку ўдзельніка</string>
+  <string name="menu_option_view_user_talk">Праглядзець старонку абмеркаванняў</string>
   <string name="menu_option_view_user_contributions">Праглядзець унёсак</string>
+  <string name="revision_diff_compare">Параўнаць версіі</string>
+  <string name="revision_diff_compare_title">Параўнаць версіі: %s</string>
+  <string name="revision_diff_from">Ад:</string>
+  <string name="revision_diff_to">Да:</string>
+  <string name="revision_diff_line_num">Радок %d</string>
+  <string name="revision_diff_line_nums">Радкі %d–%d</string>
+  <string name="revision_diff_lines_from_to">Радкі %1$d–%2$d</string>
+  <string name="revision_diff_line_added">Радок дададзены</string>
+  <string name="revision_diff_line_removed">Радок выдалены</string>
+  <string name="revision_diff_paragraph_added">Абзац дададзены</string>
+  <string name="revision_diff_paragraph_removed">Абзац выдалены</string>
   <string name="revision_undo_title">Скасаваць рэдагаванне</string>
+  <string name="revision_undo_message">Гэта скасуе змяненні, зробленыя ў рамках паказанай тут версіі (рэдакцыі) артыкула.</string>
   <string name="revision_undo_reason">Каб працягнуць, калі ласка, вызначце прычыну скасавання гэтага рэдагавання:</string>
+  <string name="revision_undo_success">Версія была скасавана.</string>
   <string name="revision_rollback_dialog_title">Вы ўпэўнены, што жадаеце адкаціць рэдагаванні?</string>
+  <string name="revision_rollback_success">Рэдагаванні адхілены.</string>
+  <string name="revision_compare_button">Параўнаць</string>
+  <string name="revision_compare_two_only">Магчыма абраць толькі дзве версіі.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s і яго старока абмеркаванняў былі дададзены ў ваш спіс назіранняў %2$s.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Змяніць</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">стала</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">на 1 тыдзень</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">на 1 месяц</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">на 3 месяца</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">на 6 месяцаў</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s і яго старонка абмеркаванняў былі выдалены з вашага спісу назіранняў.</string>
   <string name="watchlist_expiry_dialog_title">Выберыце перыяд часу, на працягу якога сачыць за старонкай</string>
+  <string name="watchlist_expiry_dialog_permanent">Стала</string>
+  <string name="watchlist_expiry_dialog_one_week">1 тыдзень</string>
   <string name="watchlist_expiry_dialog_one_month">1 месяц</string>
   <string name="watchlist_expiry_dialog_three_months">3 месяца</string>
   <string name="watchlist_expiry_dialog_six_months">6 месяцаў</string>
+  <string name="watchlist_empty">У вашым спісе назірання няма артыкулаў.</string>
   <string name="watchlist_filter_all">Усе</string>
+  <string name="watchlist_filter_talk">Размовы</string>
+  <string name="watchlist_filter_pages">Старонкі</string>
+  <string name="watchlist_filter_other">Іншае</string>
+  <string name="watchlist_page_moved">Перамешчана</string>
+  <string name="watchlist_page_protected">Абаронена</string>
+  <string name="watchlist_page_deleted">Выдалена</string>
   <string name="preview_edit_title">Перадпрагляд рэдагавання</string>
   <string name="preview_edit_summarize_edit_title">Апісаць рэдагаванне</string>
+  <string name="preview_edit_summarize_edit_hint">Як вы палепшылі гэтую старонку?</string>
   <string name="preview_edit_minor_edit">Гэта дробнае рэдагаванне</string>
+  <string name="preview_edit_watch_this_page">Назіраць за гэтай старонкай</string>
   <string name="preview_edit_learn_more">Даведайцеся больш аб абагуленых рэдагаваннях</string>
+  <string name="action_item_categories">Катэгорыі</string>
+  <string name="page_no_categories">Гэта старонка не належыць ні да адной катэгорыі.</string>
   <string name="category_tab_articles">Артыкулы</string>
+  <string name="category_tab_subcategories">Падкатэгорыі</string>
+  <string name="category_empty">У гэтай катэгорыі артыкулы не знойдзены.</string>
+  <string name="subcategory_empty">У гэтай катэгорыі не знойдзены падкатэгорыі.</string>
   <string name="search_namespaces">Прастора назваў</string>
+  <string name="revision_initial_none">Няма (гэта першая версія)</string>
   <string name="user_contrib_activity_title">Унёсак %s</string>
+  <string name="archive_empty">Архіўныя старонкі не знойдзены.</string>
   <string name="user_contrib_filter_ns">Фільтраваць па прасторы назваў</string>
   <string name="user_contrib_filter_all">Усе прасторы назваў</string>
   <string name="user_contrib_filter_ns_header">Фільтр прасторы назваў</string>
   <string name="namespace_article">Артыкул</string>
+  <string name="user_contrib_current">бягучая</string>
+  <string name="media_playback_error">Памылка прайгравання мультымедыя.</string>
   <string name="user_contrib_menu_label">Уклад</string>
   <string name="user_contrib_filter_activity_title">Фільтр унёскаў</string>
+  <string name="shareable_reading_lists_import_dialog_title">Імпартаваць спіс для чытання</string>
+  <string name="shareable_reading_lists_import_dialog_content">Як бы вы хацелі назваць спіс, якім з вамі падзяліліся?</string>
+  <string name="shareable_reading_lists_new_indicator">*новы*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">З вамі падзяліліся спісам для чытання</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Мы заўважылі, што з вамі падзяліліся спісам для чытання. Каб праглядзець гэты спіс у дадатку, вярніцеся да зыходнага паведамлення і зноў націсніце на спасылку.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Зразумела</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Спіс чытання імпартаваны</string>
+  <string name="reading_list_share_menu_label">Падзяліцца...</string>
+  <string name="reading_list_share_menu_tooltip">Падзяліцца гэтым спісам для чытання з іншымі</string>
+  <string name="reading_list_share_title_tooltip">Змяненні, якія вы ўнеслі ў гэты спіс, не бачны іншым.</string>
+  <string name="reading_list_share_message_v2">Прывітанне! Я хацеў бы падзяліцца з вамі сваім спісам для чытання ў Вікіпедыі:</string>
+  <string name="reading_list_share_survey_title">Ці не маглі б вы дапамагчы нам палепшыць \"Падзяліцца спісам для чытання\"?</string>
+  <string name="reading_list_share_survey_body">\"Падзяліцца спісам для чытання\" – гэта тэставая функцыя, і нам патрабуюцца вашыя водгукі, каб палепшыць або выдаліць яе.</string>
 </resources>

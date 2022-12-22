@@ -361,7 +361,7 @@
   <string name="all_tab_items_closed">Vsi zavihki zaprti.</string>
   <string name="tool_tip_bookmark_icon_title">Dodaj na bralni seznam</string>
   <string name="tool_tip_bookmark_icon_text">Da shranite članek na bralni seznam, tapnite ikono za zaznamek.</string>
-  <string name="page_view_in_browser">Prikaži stran v brskalniku</string>
+  <string name="page_view_in_browser">Ogled strani v brskalniku</string>
   <string name="tool_tip_toc_title">Hitri dostop do vsebinskega kazala</string>
   <string name="tool_tip_toc_text">Zdaj lahko podrsate levo, da odprete vsebinsko kazalo, ali tapnete drsnik in ga povlečete, da hitro preidete na drug razdelek članka.</string>
   <string name="tool_tip_lang_button">Zdaj lahko Wikipedijo v aplikaciji berete in raziskujete v več jezikih</string>
@@ -674,9 +674,9 @@
   <string name="notifications_mark_all_as_unread_message">%d označenih kot neprebrano</string>
   <plurals name="notifications_mark_as_read_plural">
     <item quantity="one">1 označeno kot prebrano</item>
-    <item quantity="two">%d označeni kot prebrano</item>
-    <item quantity="few">%d označena kot prebrano</item>
-    <item quantity="other">%d označenih kot prebrano</item>
+    <item quantity="two">%d označeni kot prebrani</item>
+    <item quantity="few">%d označena kot prebrana</item>
+    <item quantity="other">%d označenih kot prebrana</item>
   </plurals>
   <plurals name="notifications_mark_as_unread_plural">
     <item quantity="one">1 označeno kot neprebrano</item>
