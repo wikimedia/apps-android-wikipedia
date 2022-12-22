@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.collection.LruCache
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
@@ -47,10 +47,8 @@ class SearchResultsFragment : Fragment() {
 
     private var _binding: FragmentSearchResultsBinding? = null
     private val binding get() = _binding!!
-    private val viewModel = SearchResultsViewModel()
+    private val viewModel: SearchResultsViewModel by viewModels { SearchResultsViewModel.Factory(callback()?.getFunnel()) }
     private val searchResultsAdapter = SearchResultsAdapter()
-    private val searchResultsCache = LruCache<String, MutableList<SearchResult>>(MAX_CACHE_SIZE_SEARCH_RESULTS)
-    private val searchResultsCountCache = LruCache<String, List<Int>>(MAX_CACHE_SIZE_SEARCH_RESULTS)
     private var currentSearchTerm: String? = ""
     private var lastFullTextResults: SearchResults? = null
     private val totalResults = mutableListOf<SearchResult>()
@@ -135,10 +133,6 @@ class SearchResultsFragment : Fragment() {
         viewModel.languageCode = searchLanguageCode
         callback()?.onSearchProgressBar(true)
         searchResultsAdapter.refresh()
-    }
-
-    fun clearSearchResultsCountCache() {
-        searchResultsCountCache.evictAll()
     }
 
     private fun clearResults() {
@@ -272,14 +266,6 @@ class SearchResultsFragment : Fragment() {
             }
             view.setOnCreateContextMenuListener(LongPressHandler(view,
                     HistoryEntry.SOURCE_SEARCH, SearchResultsFragmentLongPressHandler(position), pageTitle))
-        }
-    }
-
-    private fun cache(resultList: List<SearchResult>, searchTerm: String) {
-        val cacheKey = "$searchLanguageCode-$searchTerm"
-        searchResultsCache[cacheKey]?.let {
-            it.addAll(resultList)
-            searchResultsCache.put(cacheKey, it)
         }
     }
 

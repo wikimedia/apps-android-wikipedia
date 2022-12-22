@@ -2,6 +2,7 @@ package org.wikipedia.search
 
 import androidx.collection.LruCache
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.Dispatchers
@@ -9,14 +10,16 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.onEmpty
 import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.SearchFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.util.StringUtil
 import java.util.*
+import java.util.concurrent.TimeUnit
 
-class SearchResultsViewModel : ViewModel() {
+class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
 
     private val batchSize = 20
     private val maxCacheSize = 4
@@ -27,7 +30,7 @@ class SearchResultsViewModel : ViewModel() {
     var searchTerm: String? = null
     var languageCode: String? = null
     val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize)) {
-        SearchResultsPagingSource(searchTerm, languageCode)
+        SearchResultsPagingSource(searchTerm, languageCode, searchFunnel)
     }.flow.onEmpty {
         WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
             if (langCode == languageCode) {
@@ -56,10 +59,12 @@ class SearchResultsViewModel : ViewModel() {
 
     class SearchResultsPagingSource(
             val searchTerm: String?,
-            val languageCode: String?
+            val languageCode: String?,
+            private val searchFunnel: SearchFunnel?
     ) : PagingSource<MwQueryResponse.Continuation, SearchResult>() {
 
         private var prefixSearch = true
+        private var startTime: Long = 0
 
         override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, SearchResult> {
             return try {
@@ -91,8 +96,12 @@ class SearchResultsViewModel : ViewModel() {
                 }
 
                 if (response?.query?.pages == null) {
+                    startTime = System.nanoTime()
                     response = ServiceFactory.get(wikiSite)
                         .fullTextSearchMedia(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
+                } else {
+                    // Log prefix search
+                    searchFunnel?.searchResults(true, response.query?.pages?.size ?: 0, displayTime(startTime), languageCode)
                 }
 
                 val resultList = mutableListOf<SearchResult>()
@@ -109,6 +118,7 @@ class SearchResultsViewModel : ViewModel() {
                 }.take(1))
 
                 val searchResults = response.query?.pages?.let { list ->
+                    searchFunnel?.searchResults(true, response.query?.pages?.size ?: 0, displayTime(startTime), languageCode)
                     list.sortedBy { it.index }.map {
                         SearchResult(it, wikiSite)
                     }
@@ -118,6 +128,7 @@ class SearchResultsViewModel : ViewModel() {
 
                 return LoadResult.Page(resultList, null, response.continuation)
             } catch (e: Exception) {
+                searchFunnel?.searchError(!prefixSearch, displayTime(startTime), languageCode)
                 LoadResult.Error(e)
             }
         }
@@ -139,6 +150,17 @@ class SearchResultsViewModel : ViewModel() {
                     }
                 }
             }
+        }
+
+        private fun displayTime(startTime: Long): Int {
+            return TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime).toInt()
+        }
+    }
+
+    class Factory(private val searchFunnel: SearchFunnel?) : ViewModelProvider.Factory {
+        @Suppress("unchecked_cast")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return SearchResultsViewModel(searchFunnel) as T
         }
     }
 }
