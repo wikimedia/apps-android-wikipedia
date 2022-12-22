@@ -50,8 +50,6 @@ class SearchResultsFragment : Fragment() {
     private val searchResultsAdapter = SearchResultsAdapter()
     private var currentSearchTerm: String? = ""
     private var lastFullTextResults: SearchResults? = null
-    private val totalResults = mutableListOf<SearchResult>()
-    private val resultsCountList = mutableListOf<Int>()
     private val disposables = CompositeDisposable()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -109,28 +107,14 @@ class SearchResultsFragment : Fragment() {
         if (!force && currentSearchTerm == term) {
             return
         }
-        callback()?.onSearchProgressBar(false)
+        callback()?.onSearchProgressBar(true)
         currentSearchTerm = term
         if (term.isNullOrBlank()) {
             clearResults()
             return
         }
-        // TODO: load cache in viewModel?
-//        val cacheResult = searchResultsCache["$searchLanguageCode-$term"]
-//        val cacheResultsCount = searchResultsCountCache["$searchLanguageCode-$term"]
-//        if (!cacheResult.isNullOrEmpty()) {
-//            clearResults()
-//            displayResults(cacheResult)
-//            return
-//        } else if (!cacheResultsCount.isNullOrEmpty()) {
-//            clearResults()
-//            displayResultsCount(cacheResultsCount)
-//            return
-//        }
-//        doTitlePrefixSearch(term, force)
         viewModel.searchTerm = term
         viewModel.languageCode = searchLanguageCode
-        callback()?.onSearchProgressBar(true)
         searchResultsAdapter.refresh()
     }
 
@@ -139,8 +123,7 @@ class SearchResultsFragment : Fragment() {
         binding.searchErrorView.visibility = View.GONE
         binding.searchErrorView.visibility = View.GONE
         lastFullTextResults = null
-        totalResults.clear()
-        resultsCountList.clear()
+        viewModel.resultsCount.clear()
         binding.searchResultsList.adapter?.notifyDataSetChanged()
     }
 
@@ -182,7 +165,7 @@ class SearchResultsFragment : Fragment() {
 
         override fun onBindViewHolder(holder: DefaultViewHolder<View>, pos: Int) {
             getItem(pos)?.let {
-                (holder as SearchResultItemViewHolder).bindItem(it)
+                (holder as SearchResultItemViewHolder).bindItem(pos, it)
             }
         }
     }
@@ -192,10 +175,10 @@ class SearchResultsFragment : Fragment() {
         private val secondaryColorStateList = getThemedColorStateList(requireContext(), R.attr.material_theme_secondary_color)
         fun bindItem(position: Int) {
             val langCode = WikipediaApp.instance.languageState.appLanguageCodes[position]
-            val resultsCount = resultsCountList[position]
+            val resultsCount = viewModel.resultsCount[position]
             itemBinding.resultsText.text = if (resultsCount == 0) getString(R.string.search_results_count_zero) else resources.getQuantityString(R.plurals.search_results_count, resultsCount, resultsCount)
             itemBinding.resultsText.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
-            itemBinding.languageCode.visibility = if (resultsCountList.size == 1) View.GONE else View.VISIBLE
+            itemBinding.languageCode.visibility = if (viewModel.resultsCount.size == 1) View.GONE else View.VISIBLE
             itemBinding.languageCode.text = langCode
             itemBinding.languageCode.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
             ViewCompat.setBackgroundTintList(itemBinding.languageCode, if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
@@ -212,7 +195,7 @@ class SearchResultsFragment : Fragment() {
     }
 
     private inner class SearchResultItemViewHolder(val itemBinding: ItemSearchResultBinding) : DefaultViewHolder<View>(itemBinding.root) {
-        fun bindItem(searchResult: SearchResult) {
+        fun bindItem(position: Int, searchResult: SearchResult) {
             val (pageTitle, redirectFrom, type) = searchResult
             if (redirectFrom.isNullOrEmpty()) {
                 itemBinding.pageListItemRedirect.visibility = View.GONE
@@ -224,12 +207,9 @@ class SearchResultsFragment : Fragment() {
                 itemBinding.pageListItemRedirect.text = getString(R.string.search_redirect_from, redirectFrom)
                 itemBinding.pageListItemDescription.visibility = View.GONE
             }
-            if (type === SearchResult.SearchResultType.SEARCH) {
-                itemBinding.pageListIcon.visibility = View.GONE
-            } else {
-                itemBinding.pageListIcon.visibility = View.VISIBLE
-                itemBinding.pageListIcon.setImageResource(if (type === SearchResult.SearchResultType.HISTORY) R.drawable.ic_history_24 else if (type === SearchResult.SearchResultType.TAB_LIST) R.drawable.ic_tab_one_24px else R.drawable.ic_bookmark_white_24dp)
-            }
+
+            itemBinding.pageListIcon.visibility = View.VISIBLE
+            itemBinding.pageListIcon.setImageResource(if (type === SearchResult.SearchResultType.HISTORY) R.drawable.ic_history_24 else if (type === SearchResult.SearchResultType.TAB_LIST) R.drawable.ic_tab_one_24px else R.drawable.ic_bookmark_white_24dp)
 
             // highlight search term within the text
             StringUtil.boldenKeywordText(itemBinding.pageListItemTitle, pageTitle.displayText, currentSearchTerm)
@@ -238,9 +218,7 @@ class SearchResultsFragment : Fragment() {
 
             view.isLongClickable = true
             view.setOnClickListener {
-                if (position < totalResults.size) {
-                    callback()?.navigateToTitle(totalResults[position].pageTitle, false, position)
-                }
+                callback()?.navigateToTitle(searchResult.pageTitle, false, position)
             }
             view.setOnCreateContextMenuListener(LongPressHandler(view,
                     HistoryEntry.SOURCE_SEARCH, SearchResultsFragmentLongPressHandler(position), pageTitle))
@@ -253,8 +231,4 @@ class SearchResultsFragment : Fragment() {
 
     private val searchLanguageCode get() =
         if (isAdded) (requireParentFragment() as SearchFragment).searchLanguageCode else WikipediaApp.instance.languageState.appLanguageCode
-
-    companion object {
-        private const val MAX_CACHE_SIZE_SEARCH_RESULTS = 4
-    }
 }

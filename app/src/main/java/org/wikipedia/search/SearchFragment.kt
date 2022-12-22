@@ -94,7 +94,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
                     position = app.languageState.appLanguageCodes.indexOf(searchLanguageCode)
                 }
             }
-            searchResultsFragment.clearSearchResultsCountCache()
             Prefs.selectedLanguagePositionInSearch = position
         }
     }
