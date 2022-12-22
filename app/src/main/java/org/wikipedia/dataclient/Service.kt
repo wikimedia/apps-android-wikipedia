@@ -60,8 +60,8 @@ interface Service {
     ): Observable<MwQueryResponse>
 
     @GET(
-        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=info" +
-                "&generator=prefixsearch&inprop=varianttitles|displaytitle"
+        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=description|pageimages|info&piprop=thumbnail" +
+                "&pilicense=any&generator=prefixsearch&gpsnamespace=0&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE
     )
     suspend fun prefixSearch(@Query("gpssearch") searchTerm: String?,
                              @Query("gpslimit") maxResults: Int,
@@ -69,10 +69,10 @@ interface Service {
 
     @GET(
         MW_API_PREFIX + "action=query&converttitles=" +
-                "&prop=imageinfo" +
+                "&prop=description|pageimages|pageprops|info&ppprop=mainpage|disambiguation" +
                 "&generator=search&gsrnamespace=0&gsrwhat=text" +
-                "&iiprop=timestamp|user|url|mime|extmetadata" +
-                "&gsrinfo=&gsrprop=redirecttitle&iiurlwidth=" +
+                "&inprop=varianttitles|displaytitle" +
+                "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
                 PREFERRED_THUMB_SIZE
     )
     suspend fun fullTextSearchMedia(

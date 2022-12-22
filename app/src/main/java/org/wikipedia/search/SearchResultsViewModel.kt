@@ -93,6 +93,7 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
                         }.await()
                     }
                     response = ServiceFactory.get(wikiSite).prefixSearch(searchTerm, params.loadSize, params.key?.gpsoffset)
+                    prefixSearch = false
                 }
 
                 if (response?.query?.pages == null) {
