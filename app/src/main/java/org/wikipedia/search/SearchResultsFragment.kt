@@ -12,10 +12,7 @@ import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.LongPressHandler
@@ -23,13 +20,9 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.SearchFunnel
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchResultsBinding
 import org.wikipedia.databinding.ItemSearchNoResultsBinding
 import org.wikipedia.databinding.ItemSearchResultBinding
-import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
@@ -40,7 +33,6 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.ViewUtil.formatLangButton
 import org.wikipedia.views.ViewUtil.loadImageWithRoundedCorners
-import java.util.*
 import java.util.concurrent.TimeUnit
 
 class SearchResultsFragment : Fragment() {
@@ -78,6 +70,7 @@ class SearchResultsFragment : Fragment() {
         lifecycleScope.launch {
             viewModel.searchResultsFlow.collectLatest {
                 binding.searchResultsList.visibility = View.VISIBLE
+                callback()?.onSearchProgressBar(false)
                 searchResultsAdapter.submitData(it)
             }
         }
@@ -119,7 +112,7 @@ class SearchResultsFragment : Fragment() {
         if (!force && currentSearchTerm == term) {
             return
         }
-        cancelSearchTask()
+        callback()?.onSearchProgressBar(false)
         currentSearchTerm = term
         if (term.isNullOrBlank()) {
             clearResults()
@@ -140,183 +133,12 @@ class SearchResultsFragment : Fragment() {
 //        doTitlePrefixSearch(term, force)
         viewModel.searchTerm = term
         viewModel.languageCode = searchLanguageCode
+        callback()?.onSearchProgressBar(true)
         searchResultsAdapter.refresh()
     }
 
     fun clearSearchResultsCountCache() {
         searchResultsCountCache.evictAll()
-    }
-
-    private fun doTitlePrefixSearch(searchTerm: String, force: Boolean) {
-        cancelSearchTask()
-        val startTime = System.nanoTime()
-        updateProgressBar(true)
-        disposables.add(Observable.timer(if (force) 0 else DELAY_MILLIS.toLong(), TimeUnit.MILLISECONDS).flatMap {
-            Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode)).prefixSearch(searchTerm, BATCH_SIZE, searchTerm),
-                    if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.instance.readingListPageDao().findPageForSearchQueryInAnyList(searchTerm) } else Observable.just(SearchResults()),
-                    if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.instance.historyEntryWithImageDao().findHistoryItem(searchTerm) } else
-                        Observable.just(SearchResults())) { searchResponse, readingListSearchResults, historySearchResults ->
-                        val searchResults = searchResponse.query?.pages?.let {
-                            SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode),
-                                searchResponse.continuation)
-                        } ?: SearchResults()
-
-                        val resultList = mutableListOf<SearchResult>()
-                        addSearchResultsFromTabs(resultList)
-                        resultList.addAll(readingListSearchResults.results.filterNot { res ->
-                            resultList.map { it.pageTitle.prefixedText }
-                                .contains(res.pageTitle.prefixedText)
-                        }.take(1))
-                        resultList.addAll(historySearchResults.results.filterNot { res ->
-                            resultList.map { it.pageTitle.prefixedText }
-                                .contains(res.pageTitle.prefixedText)
-                        }.take(1))
-                        resultList.addAll(searchResults.results)
-                        resultList
-                    }
-                }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate { updateProgressBar(false) }
-                .subscribe({ results ->
-                    binding.searchErrorView.visibility = View.GONE
-                    handleResults(results, searchTerm, startTime)
-                }) { caught ->
-                    binding.searchErrorView.visibility = View.VISIBLE
-                    binding.searchErrorView.setError(caught)
-                    logError(false, startTime)
-                })
-    }
-
-    private fun addSearchResultsFromTabs(resultList: MutableList<SearchResult>) {
-        currentSearchTerm?.let { term ->
-            if (term.length < 2) {
-                return
-            }
-            WikipediaApp.instance.tabList.forEach { tab ->
-                tab.backStackPositionTitle?.let {
-                    if (StringUtil.fromHtml(it.displayText).toString().lowercase(Locale.getDefault()).contains(term.lowercase(Locale.getDefault()))) {
-                        resultList.add(SearchResult(it, SearchResult.SearchResultType.TAB_LIST))
-                        return
-                    }
-                }
-            }
-        }
-    }
-
-    private fun handleResults(resultList: MutableList<SearchResult>, searchTerm: String, startTime: Long) {
-        // To ease data analysis and better make the funnel track with user behaviour,
-        // only transmit search results events if there are a nonzero number of results
-        if (resultList.isNotEmpty()) {
-            clearResults()
-            displayResults(resultList)
-            log(resultList, startTime)
-        }
-
-        // add titles to cache...
-        searchResultsCache.put("$searchLanguageCode-$searchTerm", resultList)
-
-        // scroll to top, but post it to the message queue, because it should be done
-        // after the data set is updated.
-        binding.searchResultsList.post {
-            if (!isAdded) {
-                return@post
-            }
-            binding.searchResultsList.scrollToPosition(0)
-        }
-        if (resultList.isEmpty()) {
-            // kick off full text search if we get no results
-            doFullTextSearch(currentSearchTerm, null, true)
-        }
-    }
-
-    private fun cancelSearchTask() {
-        updateProgressBar(false)
-    }
-
-    private fun doFullTextSearch(searchTerm: String?,
-                                 continuation: MwQueryResponse.Continuation?,
-                                 clearOnSuccess: Boolean) {
-        val startTime = System.nanoTime()
-        updateProgressBar(true)
-        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode)).fullTextSearchMedia(searchTerm, BATCH_SIZE,
-                continuation?.continuation, continuation?.gsroffset?.toString())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .map { response ->
-                    response.query?.pages?.let {
-                        // noinspection ConstantConditions
-                        return@map SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode), response.continuation)
-                    }
-                    SearchResults()
-                }
-                .flatMap { results ->
-                    val resultList = results.results
-                    cache(resultList, searchTerm!!)
-                    log(resultList, startTime)
-                    if (clearOnSuccess) {
-                        clearResults()
-                    }
-                    binding.searchErrorView.visibility = View.GONE
-
-                    // full text special:
-                    lastFullTextResults = results
-                    if (resultList.isNotEmpty()) {
-                        displayResults(resultList)
-                    } else {
-                        updateProgressBar(true)
-                    }
-                    if (resultList.isEmpty()) doSearchResultsCountObservable(searchTerm) else Observable.empty()
-                }
-                .toList()
-                .doAfterTerminate { updateProgressBar(false) }
-                .subscribe({ list ->
-                    var resultsCount = list
-                    if (resultsCount.isNotEmpty()) {
-
-                        // make a singleton list if all results are empty.
-                        var sum = 0
-                        for (count in resultsCount) {
-                            sum += count
-                            if (sum > 0) {
-                                break
-                            }
-                        }
-                        if (sum == 0) {
-                            resultsCount = listOf(0)
-                        }
-                        searchResultsCountCache.put("$searchLanguageCode-$searchTerm", resultsCount)
-                        displayResultsCount(resultsCount)
-                    }
-                }) {
-                    // If there's an error, just log it and let the existing prefix search results be.
-                    logError(true, startTime)
-                })
-    }
-
-    private fun doSearchResultsCountObservable(searchTerm: String?): Observable<Int> {
-        return Observable.fromIterable(WikipediaApp.instance.languageState.appLanguageCodes)
-                .concatMap { langCode ->
-                    if (langCode == searchLanguageCode) {
-                        return@concatMap Observable.just(MwQueryResponse())
-                    }
-                    ServiceFactory.get(WikiSite.forLanguageCode(langCode)).prefixSearch(searchTerm, BATCH_SIZE, searchTerm)
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .flatMap { response ->
-                                response.query?.pages?.let {
-                                    return@flatMap Observable.just(response)
-                                }
-                                ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearchMedia(searchTerm, BATCH_SIZE, null, null)
-                            }
-                }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .map { response -> response.query?.pages?.size ?: 0 }
-    }
-
-    private fun updateProgressBar(enabled: Boolean) {
-        callback()?.onSearchProgressBar(enabled)
     }
 
     private fun clearResults() {
@@ -442,17 +264,6 @@ class SearchResultsFragment : Fragment() {
             itemBinding.pageListItemImage.visibility = if (pageTitle.thumbUrl.isNullOrEmpty()) if (type === SearchResult.SearchResultType.SEARCH) View.GONE else View.INVISIBLE else View.VISIBLE
             loadImageWithRoundedCorners(itemBinding.pageListItemImage, pageTitle.thumbUrl)
 
-            // ...and lastly, if we've scrolled to the last item in the list, then
-            // continue searching!
-            if (position == totalResults.size - 1 && WikipediaApp.instance.isOnline) {
-                if (lastFullTextResults == null) {
-                    // the first full text search
-                    doFullTextSearch(currentSearchTerm, null, false)
-                } else if (lastFullTextResults!!.continuation != null) {
-                    // subsequent full text searches
-                    doFullTextSearch(currentSearchTerm, lastFullTextResults!!.continuation, false)
-                }
-            }
             view.isLongClickable = true
             view.setOnClickListener {
                 if (position < totalResults.size) {
@@ -498,10 +309,6 @@ class SearchResultsFragment : Fragment() {
         if (isAdded) (requireParentFragment() as SearchFragment).searchLanguageCode else WikipediaApp.instance.languageState.appLanguageCode
 
     companion object {
-        private const val VIEW_TYPE_ITEM = 0
-        private const val VIEW_TYPE_NO_RESULTS = 1
-        private const val BATCH_SIZE = 20
-        private const val DELAY_MILLIS = 300
         private const val MAX_CACHE_SIZE_SEARCH_RESULTS = 4
     }
 }
