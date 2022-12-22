@@ -65,13 +65,13 @@ class SearchResultsFragment : Fragment() {
         lifecycleScope.launch {
             viewModel.searchResultsFlow.collectLatest {
                 binding.searchResultsList.visibility = View.VISIBLE
-                callback()?.onSearchProgressBar(false)
                 searchResultsAdapter.submitData(it)
             }
         }
 
         lifecycleScope.launchWhenCreated {
             searchResultsAdapter.loadStateFlow.collectLatest {
+                callback()?.onSearchProgressBar(it.append is LoadState.Loading || it.refresh is LoadState.Loading)
                 val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && searchResultsAdapter.itemCount == 0)
                 if (showEmpty) {
                     // TODO: show search count adapter
@@ -107,7 +107,6 @@ class SearchResultsFragment : Fragment() {
         if (!force && currentSearchTerm == term) {
             return
         }
-        callback()?.onSearchProgressBar(true)
         currentSearchTerm = term
         if (term.isNullOrBlank()) {
             clearResults()
@@ -208,9 +207,12 @@ class SearchResultsFragment : Fragment() {
                 itemBinding.pageListItemDescription.visibility = View.GONE
             }
 
-            itemBinding.pageListIcon.visibility = View.VISIBLE
-            itemBinding.pageListIcon.setImageResource(if (type === SearchResult.SearchResultType.HISTORY) R.drawable.ic_history_24 else if (type === SearchResult.SearchResultType.TAB_LIST) R.drawable.ic_tab_one_24px else R.drawable.ic_bookmark_white_24dp)
-
+            if (type === SearchResult.SearchResultType.SEARCH) {
+                itemBinding.pageListIcon.visibility = View.GONE
+            } else {
+                itemBinding.pageListIcon.visibility = View.VISIBLE
+                itemBinding.pageListIcon.setImageResource(if (type === SearchResult.SearchResultType.HISTORY) R.drawable.ic_history_24 else if (type === SearchResult.SearchResultType.TAB_LIST) R.drawable.ic_tab_one_24px else R.drawable.ic_bookmark_white_24dp)
+            }
             // highlight search term within the text
             StringUtil.boldenKeywordText(itemBinding.pageListItemTitle, pageTitle.displayText, currentSearchTerm)
             itemBinding.pageListItemImage.visibility = if (pageTitle.thumbUrl.isNullOrEmpty()) if (type === SearchResult.SearchResultType.SEARCH) View.GONE else View.INVISIBLE else View.VISIBLE
