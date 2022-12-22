@@ -10,9 +10,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import io.reactivex.rxjava3.disposables.CompositeDisposable
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.LongPressHandler
@@ -30,6 +31,7 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.ViewUtil.formatLangButton
 import org.wikipedia.views.ViewUtil.loadImageWithRoundedCorners
@@ -48,14 +50,14 @@ class SearchResultsFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: SearchResultsViewModel by viewModels { SearchResultsViewModel.Factory(callback()?.getFunnel()) }
     private val searchResultsAdapter = SearchResultsAdapter()
+    private val noSearchResultsAdapter = NoSearchResultAdapter()
+    private val searchResultsConcatAdapter = ConcatAdapter(noSearchResultsAdapter, searchResultsAdapter)
     private var currentSearchTerm: String? = ""
-    private var lastFullTextResults: SearchResults? = null
-    private val disposables = CompositeDisposable()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSearchResultsBinding.inflate(inflater, container, false)
         binding.searchResultsList.layoutManager = LinearLayoutManager(requireActivity())
-        binding.searchResultsList.adapter = searchResultsAdapter
+        binding.searchResultsList.adapter = searchResultsConcatAdapter
         binding.searchErrorView.backClickListener = View.OnClickListener { requireActivity().finish() }
         binding.searchErrorView.retryClickListener = View.OnClickListener {
             binding.searchErrorView.visibility = View.GONE
@@ -74,7 +76,7 @@ class SearchResultsFragment : Fragment() {
                 callback()?.onSearchProgressBar(it.append is LoadState.Loading || it.refresh is LoadState.Loading)
                 val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && searchResultsAdapter.itemCount == 0)
                 if (showEmpty) {
-                    // TODO: show search count adapter
+                    searchResultsConcatAdapter.addAdapter(noSearchResultsAdapter)
                 }
             }
         }
@@ -84,7 +86,6 @@ class SearchResultsFragment : Fragment() {
 
     override fun onDestroyView() {
         binding.searchErrorView.retryClickListener = null
-        disposables.clear()
         _binding = null
         super.onDestroyView()
     }
@@ -121,7 +122,6 @@ class SearchResultsFragment : Fragment() {
         binding.searchResultsList.visibility = View.GONE
         binding.searchErrorView.visibility = View.GONE
         binding.searchErrorView.visibility = View.GONE
-        lastFullTextResults = null
         viewModel.resultsCount.clear()
         binding.searchResultsList.adapter?.notifyDataSetChanged()
     }
@@ -167,6 +167,18 @@ class SearchResultsFragment : Fragment() {
                 (holder as SearchResultItemViewHolder).bindItem(pos, it)
             }
         }
+    }
+
+    private inner class NoSearchResultAdapter : RecyclerView.Adapter<NoSearchResultItemViewHolder>() {
+        override fun onBindViewHolder(holder: NoSearchResultItemViewHolder, position: Int) {
+            holder.bindItem(position)
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoSearchResultItemViewHolder {
+            return NoSearchResultItemViewHolder(ItemSearchNoResultsBinding.inflate(layoutInflater, parent, false))
+        }
+
+        override fun getItemCount(): Int { return viewModel.resultsCount.size }
     }
 
     private inner class NoSearchResultItemViewHolder(val itemBinding: ItemSearchNoResultsBinding) : DefaultViewHolder<View>(itemBinding.root) {

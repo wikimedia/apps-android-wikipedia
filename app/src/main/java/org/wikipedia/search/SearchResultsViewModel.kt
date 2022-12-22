@@ -1,6 +1,5 @@
 package org.wikipedia.search
 
-import androidx.collection.LruCache
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -22,10 +21,7 @@ import java.util.concurrent.TimeUnit
 class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
 
     private val batchSize = 20
-    private val maxCacheSize = 4
-    // TODO: add cache logic
-    private val searchResultsCache = LruCache<String, MutableList<SearchResult>>(maxCacheSize)
-    private val searchResultsCountCache = LruCache<String, List<Int>>(maxCacheSize)
+    // TODO: add cache logic?
     var resultsCount = mutableListOf<Int>()
     var searchTerm: String? = null
     var languageCode: String? = null
