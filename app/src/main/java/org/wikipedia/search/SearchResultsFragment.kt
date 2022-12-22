@@ -33,7 +33,6 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.ViewUtil.formatLangButton
 import org.wikipedia.views.ViewUtil.loadImageWithRoundedCorners
-import java.util.concurrent.TimeUnit
 
 class SearchResultsFragment : Fragment() {
     interface Callback {
@@ -116,7 +115,7 @@ class SearchResultsFragment : Fragment() {
             clearResults()
             return
         }
-        // TODO: load cache in viewModel
+        // TODO: load cache in viewModel?
 //        val cacheResult = searchResultsCache["$searchLanguageCode-$term"]
 //        val cacheResultsCount = searchResultsCountCache["$searchLanguageCode-$term"]
 //        if (!cacheResult.isNullOrEmpty()) {
@@ -142,27 +141,6 @@ class SearchResultsFragment : Fragment() {
         lastFullTextResults = null
         totalResults.clear()
         resultsCountList.clear()
-        binding.searchResultsList.adapter?.notifyDataSetChanged()
-    }
-
-    private fun displayResults(results: List<SearchResult>) {
-        // TODO: add this logic into viewModel
-        for (newResult in results) {
-            val res = totalResults.find { newResult.pageTitle == it.pageTitle }
-            if (res == null) {
-                totalResults.add(newResult)
-            } else if (!newResult.pageTitle.description.isNullOrEmpty()) {
-                res.pageTitle.description = newResult.pageTitle.description
-            }
-        }
-        binding.searchResultsList.visibility = View.VISIBLE
-        binding.searchResultsList.adapter?.notifyDataSetChanged()
-    }
-
-    private fun displayResultsCount(list: List<Int>) {
-        resultsCountList.clear()
-        resultsCountList.addAll(list)
-        binding.searchResultsList.visibility = View.VISIBLE
         binding.searchResultsList.adapter?.notifyDataSetChanged()
     }
 
@@ -267,24 +245,6 @@ class SearchResultsFragment : Fragment() {
             view.setOnCreateContextMenuListener(LongPressHandler(view,
                     HistoryEntry.SOURCE_SEARCH, SearchResultsFragmentLongPressHandler(position), pageTitle))
         }
-    }
-
-    private fun log(resultList: List<SearchResult>, startTime: Long) {
-        // To ease data analysis and better make the funnel track with user behaviour,
-        // only transmit search results events if there are a nonzero number of results
-        if (resultList.isNotEmpty()) {
-            // noinspection ConstantConditions
-            callback()?.getFunnel()?.searchResults(true, resultList.size, displayTime(startTime), searchLanguageCode)
-        }
-    }
-
-    private fun logError(fullText: Boolean, startTime: Long) {
-        // noinspection ConstantConditions
-        callback()?.getFunnel()?.searchError(fullText, displayTime(startTime), searchLanguageCode)
-    }
-
-    private fun displayTime(startTime: Long): Int {
-        return TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime).toInt()
     }
 
     private fun callback(): Callback? {
