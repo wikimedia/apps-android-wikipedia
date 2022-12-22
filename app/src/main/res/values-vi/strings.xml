@@ -14,6 +14,7 @@
 * Ngoxuannguyenchuong
 * NguoiDungKhongDinhDanh
 * NguyenHung
+* Nguyenphutrong2
 * Nguyên Lê
 * Nguyễn Mạnh An
 * Nhatminh01
@@ -1052,6 +1053,8 @@
   <string name="talk_new_topic">Đề tài mới</string>
   <string name="talk_new_topic_submitted">Đã đăng chủ đề.</string>
   <string name="talk_page_empty">Trang thảo luận này hiện đang trống.</string>
+  <string name="talk_page_empty_title">Cuộc trò chuyện bắt đầu từ đây</string>
+  <string name="talk_page_empty_content">Các trang thảo luận là nơi mọi người thảo luận về cách làm cho nội dung Wikipedia trở nên tốt nhất có thể. Bắt đầu bằng cách thêm chủ đề thảo luận mới để kết nối và cộng tác với cộng đồng thành viên Wikipedia.</string>
   <string name="talk_add_reply">Trả lời</string>
   <string name="talk_no_subject">(Không tiêu đề)</string>
   <string name="talk_reply_subject">Tiêu đề</string>
@@ -1066,6 +1069,8 @@
   <string name="talk_snackbar_survey_action_text">Bắt đầu</string>
   <string name="talk_share_discussion_subject">Wikipedia – thảo luận về chủ đề “%s” tại trang thảo luận</string>
   <string name="talk_share_talk_page">Wikipedia – thảo luận tại trang thảo luận</string>
+  <string name="talk_new_topic_exit_dialog_title">Bạn có chắc bạn muốn thoát?</string>
+  <string name="talk_new_topic_exit_dialog_message">Chủ đề và văn bản nội dung sẽ không được lưu.</string>
   <string name="menu_option_share_talk_discussion">Chia sẻ thảo luận</string>
   <string name="menu_option_share_talk_page">Chia sẻ trang thảo luận</string>
   <string name="menu_option_share_edit">Chia sẻ sửa đổi</string>
@@ -1110,4 +1115,8 @@
   <string name="watchlist_page_protected">Đã khóa</string>
   <string name="watchlist_page_deleted">Đã xóa</string>
   <string name="category_tab_articles">Bài viết</string>
+  <string name="shareable_reading_lists_import_dialog_title">Nhập danh sách đọc được chia sẻ</string>
+  <string name="shareable_reading_lists_import_dialog_content">Bạn muốn đặt tên cho danh sách đã được chia sẻ với bạn như thế nào?</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Một danh sách đọc đã được chia sẻ với bạn</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Chúng tôi nhận thấy rằng một danh sách đọc đã được chia sẻ với bạn. Để xem danh sách này trong ứng dụng, hãy quay lại tin nhắn gốc và nhấn lại vào liên kết.</string>
 </resources>
