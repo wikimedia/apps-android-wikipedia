@@ -31,7 +31,6 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.ViewUtil.formatLangButton
 import org.wikipedia.views.ViewUtil.loadImageWithRoundedCorners
@@ -50,8 +49,7 @@ class SearchResultsFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: SearchResultsViewModel by viewModels { SearchResultsViewModel.Factory(callback()?.getFunnel()) }
     private val searchResultsAdapter = SearchResultsAdapter()
-    private val noSearchResultsAdapter = NoSearchResultAdapter()
-    private val searchResultsConcatAdapter = ConcatAdapter(noSearchResultsAdapter, searchResultsAdapter)
+    private val searchResultsConcatAdapter = ConcatAdapter(searchResultsAdapter)
     private var currentSearchTerm: String? = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -76,7 +74,7 @@ class SearchResultsFragment : Fragment() {
                 callback()?.onSearchProgressBar(it.append is LoadState.Loading || it.refresh is LoadState.Loading)
                 val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && searchResultsAdapter.itemCount == 0)
                 if (showEmpty) {
-                    searchResultsConcatAdapter.addAdapter(noSearchResultsAdapter)
+                    searchResultsConcatAdapter.addAdapter(NoSearchResultAdapter(viewModel.resultsCount))
                 }
             }
         }
@@ -169,24 +167,23 @@ class SearchResultsFragment : Fragment() {
         }
     }
 
-    private inner class NoSearchResultAdapter : RecyclerView.Adapter<NoSearchResultItemViewHolder>() {
+    private inner class NoSearchResultAdapter(val resultCounts: List<Int>) : RecyclerView.Adapter<NoSearchResultItemViewHolder>() {
         override fun onBindViewHolder(holder: NoSearchResultItemViewHolder, position: Int) {
-            holder.bindItem(position)
+            holder.bindItem(position, resultCounts[position])
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoSearchResultItemViewHolder {
             return NoSearchResultItemViewHolder(ItemSearchNoResultsBinding.inflate(layoutInflater, parent, false))
         }
 
-        override fun getItemCount(): Int { return viewModel.resultsCount.size }
+        override fun getItemCount(): Int { return resultCounts.size }
     }
 
     private inner class NoSearchResultItemViewHolder(val itemBinding: ItemSearchNoResultsBinding) : DefaultViewHolder<View>(itemBinding.root) {
         private val accentColorStateList = getThemedColorStateList(requireContext(), R.attr.colorAccent)
         private val secondaryColorStateList = getThemedColorStateList(requireContext(), R.attr.material_theme_secondary_color)
-        fun bindItem(position: Int) {
+        fun bindItem(position: Int, resultsCount: Int) {
             val langCode = WikipediaApp.instance.languageState.appLanguageCodes[position]
-            val resultsCount = viewModel.resultsCount[position]
             itemBinding.resultsText.text = if (resultsCount == 0) getString(R.string.search_results_count_zero) else resources.getQuantityString(R.plurals.search_results_count, resultsCount, resultsCount)
             itemBinding.resultsText.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
             itemBinding.languageCode.visibility = if (viewModel.resultsCount.size == 1) View.GONE else View.VISIBLE

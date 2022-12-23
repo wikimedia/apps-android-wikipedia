@@ -28,6 +28,7 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
     val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize)) {
         SearchResultsPagingSource(searchTerm, languageCode, searchFunnel)
     }.flow.onEmpty {
+        // TODO: move this logic to PagingSource class since "onEmpty" will not be called
         WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
             if (langCode == languageCode) {
                 resultsCount.add(0)
