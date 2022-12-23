@@ -7,7 +7,9 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.readinglist.MoveToReadingListDialog
 
-class ExclusiveBottomSheetPresenter {
+object ExclusiveBottomSheetPresenter {
+    const val BOTTOM_SHEET_FRAGMENT_TAG = "bottom_sheet_fragment"
+
     fun showAddToListDialog(fm: FragmentManager,
                             title: PageTitle,
                             source: InvokeSource) {
@@ -47,9 +49,5 @@ class ExclusiveBottomSheetPresenter {
 
     fun dismiss(manager: FragmentManager) {
         getCurrentBottomSheet(manager)?.dismiss()
-    }
-
-    companion object {
-        private const val BOTTOM_SHEET_FRAGMENT_TAG = "bottom_sheet_fragment"
     }
 }
