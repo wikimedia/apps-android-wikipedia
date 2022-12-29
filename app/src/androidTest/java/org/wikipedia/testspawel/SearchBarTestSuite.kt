@@ -1,12 +1,13 @@
 package org.wikipedia.testspawel
 
+import androidx.test.espresso.Espresso
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
+import junit.framework.Assert
 import junit.framework.Assert.assertEquals
-import org.junit.Assert
-import org.junit.Assert.assertTrue
+import junit.framework.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -44,11 +45,10 @@ class InitializeSearchingAndAbort {
         searchHistoryPage.typeTextSearch(text)
         Thread.sleep(2000)//wait to be added- line to delete
         searchHistoryPage.tapOnFoundExactResultItem(text)
-        articlePage.checkArticleTitle(text) //temporary solution
-//assertTrue("searched for text is displayed", articlePage.checkArticleTitle("Bitcoin"))
-
+//        articlePage.checkArticleTitle("Bitcoin") //temporary solution
+        //Assertion To Be added
+     assertTrue("Is Correct Header displayed?", articlePage.checkArticleTitle(text));
     }
-
 
     @Test
     fun searchingFeatureTestFromExplorePage() {
@@ -66,6 +66,7 @@ class InitializeSearchingAndAbort {
         val text ="axaxa22"
         val labelText="No results"
 
+        explorePage.isMainPageVisible()//-> to dell
         explorePage.tapOnSearchbar()
         searchHistoryPage.typeTextSearch(text)
         Thread.sleep(2000)//wait to be added- line to delete
