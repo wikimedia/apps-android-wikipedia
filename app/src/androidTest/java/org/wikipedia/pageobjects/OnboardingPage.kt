@@ -13,7 +13,7 @@ class OnboardingPage {
     private val skipButton = withId(R.id.fragment_onboarding_skip_button)
 
     fun tapOnSkipButton(){
-       onView(allOf(withId(R.id.fragment_onboarding_skip_button),
+       onView(allOf(skipButton,
             ViewMatchers.isDisplayed())).perform(click())
         return
     }

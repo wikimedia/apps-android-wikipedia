@@ -45,9 +45,7 @@ class InitializeSearchingAndAbort {
         searchHistoryPage.typeTextSearch(text)
         Thread.sleep(2000)//wait to be added- line to delete
         searchHistoryPage.tapOnFoundExactResultItem(text)
-//        articlePage.checkArticleTitle("Bitcoin") //temporary solution
-        //Assertion To Be added
-     assertTrue("Is Correct Header displayed?", articlePage.checkArticleTitle(text));
+        assertTrue("Is Correct Header displayed?", articlePage.checkArticleTitle(text));
     }
 
     @Test

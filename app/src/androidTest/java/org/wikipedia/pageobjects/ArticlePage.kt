@@ -14,9 +14,6 @@ class ArticlePage: BasePage() {
 
     private val articleHeader = findElement(Locator.XPATH, "//h1[@data-id='0']/span[@class='mw-page-title-main']")
 
-    //    private val articleTitle= withId(R.id.list_title)
-    // private val articleTitle = withId(R.id.page_toc_item_text)
-
     fun checkArticleTitle(text: String): Boolean {
       return  checkWebArticleTitle(articleHeader,text)
     }
