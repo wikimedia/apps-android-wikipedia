@@ -7,7 +7,7 @@
 * MuratTheTurkish
 -->
 <resources>
-  <string name="app_name_prod">Уикипедия</string>
+  <string name="app_name_prod">Википедия</string>
   <string name="app_name_beta">Уикипедия Бета</string>
   <string name="app_name_alpha">Уикипедия Альфа</string>
   <string name="wikimedia">Викимедиа</string>
@@ -32,7 +32,7 @@
   <string name="langlinks_empty">Бул барак башка тилдерде жеткиликтүү эмес.</string>
   <string name="langlinks_no_match" fuzzy="true">Сиздин сурооңузга төп тил табылбады.</string>
   <string name="langlinks_activity_title">Башка тилдер</string>
-  <string name="menu_save_changes" fuzzy="true">Өзгөртүүлөрдү сактоо</string>
+  <string name="menu_save_changes">Өзгөртүүлөрдү жарыялоо</string>
   <string name="edit_saved_successfully" fuzzy="true">Оңдоо сакталды!</string>
   <string name="dialog_message_edit_failed">Оңдоо катасы!</string>
   <string name="dialog_message_edit_failed_retry">Кайра аракет кылуу</string>
