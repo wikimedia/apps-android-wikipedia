@@ -34,7 +34,6 @@ class OnThisDayPagesViewHolder(
     private val imageContainer: FrameLayout
     private val image: FaceAndColorDetectImageView
     private var selectedPage: PageSummary? = null
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     init {
         DeviceUtil.setContextClickAsLongClick(v)
@@ -103,7 +102,7 @@ class OnThisDayPagesViewHolder(
                     ReadingListBehaviorsUtil.addToDefaultList(
                         activity, entry.title, InvokeSource.NEWS_ACTIVITY
                     ) { readingListId ->
-                        bottomSheetPresenter.show(
+                        ExclusiveBottomSheetPresenter.show(
                             fragmentManager,
                             MoveToReadingListDialog.newInstance(
                                 readingListId,
@@ -113,7 +112,7 @@ class OnThisDayPagesViewHolder(
                         )
                     }
                 } else {
-                    bottomSheetPresenter.show(
+                    ExclusiveBottomSheetPresenter.show(
                         fragmentManager,
                         AddToReadingListDialog.newInstance(
                             entry.title,
@@ -124,7 +123,7 @@ class OnThisDayPagesViewHolder(
             }
 
             override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                bottomSheetPresenter.show(
+                ExclusiveBottomSheetPresenter.show(
                     fragmentManager,
                     MoveToReadingListDialog.newInstance(
                         page!!.listId,

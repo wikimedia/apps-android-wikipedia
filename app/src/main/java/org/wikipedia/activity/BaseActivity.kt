@@ -9,8 +9,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.MotionEvent
-import android.view.ViewConfiguration
-import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
@@ -24,6 +22,7 @@ import io.reactivex.rxjava3.functions.Consumer
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
@@ -32,7 +31,6 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.events.*
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
-import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.ReadingListsReceiveSurveyHelper
 import org.wikipedia.readinglist.ReadingListsShareSurveyHelper
@@ -46,8 +44,6 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
-import org.wikipedia.views.ViewUtil
-import kotlin.math.abs
 
 abstract class BaseActivity : AppCompatActivity() {
     interface Callback {
@@ -112,7 +108,6 @@ abstract class BaseActivity : AppCompatActivity() {
             ReadingListsReceiveSurveyHelper.maybeShowSurvey(this)
         }
 
-        touchSlopPx = ViewConfiguration.get(this).scaledTouchSlop
         Prefs.localClassName = localClassName
     }
 
@@ -166,33 +161,7 @@ abstract class BaseActivity : AppCompatActivity() {
             dismissCurrentTooltip()
         }
 
-        when (event.action) {
-            MotionEvent.ACTION_DOWN -> {
-                startTouchMillis = System.currentTimeMillis()
-                startTouchX = event.x
-                startTouchY = event.y
-            }
-            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                val touchMillis = System.currentTimeMillis() - startTouchMillis
-                val dx = abs(startTouchX - event.x)
-                val dy = abs(startTouchY - event.y)
-
-                if (dx <= touchSlopPx && dy <= touchSlopPx) {
-                    ViewUtil.findClickableViewAtPoint(window.decorView, startTouchX.toInt(), startTouchY.toInt())?.let {
-                        if (it is TextView && it.movementMethod is LinkMovementMethodExt) {
-                            // If they clicked a link in a TextView, it will be handled by the
-                            // MovementMethod instead of here.
-                        } else {
-                            if (touchMillis > ViewConfiguration.getLongPressTimeout()) {
-                                BreadCrumbLogEvent.logLongClick(this@BaseActivity, it)
-                            } else {
-                                BreadCrumbLogEvent.logClick(this@BaseActivity, it)
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        BreadcrumbsContextHelper.dispatchTouchEvent(window, event)
 
         imageZoomHelper?.let {
             return it.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event)

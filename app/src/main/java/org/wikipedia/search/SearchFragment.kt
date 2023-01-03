@@ -53,7 +53,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private var isSearchActive = false
     private var query: String? = null
     private var returnLink = false
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private lateinit var recentSearchesFragment: RecentSearchesFragment
     private lateinit var searchResultsFragment: SearchResultsFragment
     private lateinit var funnel: SearchFunnel
@@ -236,13 +235,13 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
                 onSearchMovePageToList(readingListId, entry)
             }
         } else {
-            bottomSheetPresenter.show(childFragmentManager,
+            ExclusiveBottomSheetPresenter.show(childFragmentManager,
                     AddToReadingListDialog.newInstance(entry.title, InvokeSource.FEED))
         }
     }
 
     override fun onSearchMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 MoveToReadingListDialog.newInstance(sourceReadingListId, entry.title, InvokeSource.FEED))
     }
 

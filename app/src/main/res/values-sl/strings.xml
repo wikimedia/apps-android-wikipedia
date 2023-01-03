@@ -248,7 +248,7 @@
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Uporabljene knjižnice</string>
-  <string name="about_contributors_heading">Prispevajoči</string>
+  <string name="about_contributors_heading">Sodelavci</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Stran ekipe&lt;/a&gt;</string>
   <string name="about_translators_heading">Prevajalci</string>
   <string name="about_translators_translatewiki">Aplikacijo so prevedli prostovoljci projekta &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
@@ -361,7 +361,7 @@
   <string name="all_tab_items_closed">Vsi zavihki zaprti.</string>
   <string name="tool_tip_bookmark_icon_title">Dodaj na bralni seznam</string>
   <string name="tool_tip_bookmark_icon_text">Da shranite članek na bralni seznam, tapnite ikono za zaznamek.</string>
-  <string name="page_view_in_browser">Prikaži stran v brskalniku</string>
+  <string name="page_view_in_browser">Ogled strani v brskalniku</string>
   <string name="tool_tip_toc_title">Hitri dostop do vsebinskega kazala</string>
   <string name="tool_tip_toc_text">Zdaj lahko podrsate levo, da odprete vsebinsko kazalo, ali tapnete drsnik in ga povlečete, da hitro preidete na drug razdelek članka.</string>
   <string name="tool_tip_lang_button">Zdaj lahko Wikipedijo v aplikaciji berete in raziskujete v več jezikih</string>
@@ -674,9 +674,9 @@
   <string name="notifications_mark_all_as_unread_message">%d označenih kot neprebrano</string>
   <plurals name="notifications_mark_as_read_plural">
     <item quantity="one">1 označeno kot prebrano</item>
-    <item quantity="two">%d označeni kot prebrano</item>
-    <item quantity="few">%d označena kot prebrano</item>
-    <item quantity="other">%d označenih kot prebrano</item>
+    <item quantity="two">%d označeni kot prebrani</item>
+    <item quantity="few">%d označena kot prebrana</item>
+    <item quantity="other">%d označenih kot prebrana</item>
   </plurals>
   <plurals name="notifications_mark_as_unread_plural">
     <item quantity="one">1 označeno kot neprebrano</item>
@@ -717,7 +717,7 @@
   <string name="notifications_channel_group_other_title">Drugo</string>
   <string name="notifications_channel_group_other_description">Druga obvestila iz aplikacije</string>
   <string name="notifications_filter_label">Filtriranje obvestil</string>
-  <string name="notifications_filter_icon_content_description">Filtriraj obvestila</string>
+  <string name="notifications_filter_icon_content_description">Filtrirajte obvestila</string>
   <string name="notifications_filter_update_app_languages">Posodobi jezike aplikacije</string>
   <string name="notifications_empty_search_message">Če želite videti več obvestil, poskusite odstraniti %s</string>
   <plurals name="notifications_number_of_filters">
@@ -1232,7 +1232,7 @@
     <item quantity="other">Skrij odgovore (%d)</item>
   </plurals>
   <string name="talk_thread_subscribed_to">Naročeni ste na »%s«</string>
-  <string name="talk_thread_unsubscribed_from">Odjavljeni ste od »%s«</string>
+  <string name="talk_thread_unsubscribed_from">Odnaročeni ste od »%s«</string>
   <string name="talk_list_item_overflow_subscribe">Naroči se</string>
   <string name="talk_list_item_overflow_subscribed">Odnaroči</string>
   <string name="talk_list_item_overflow_mark_as_read">Označi kot prebrano</string>

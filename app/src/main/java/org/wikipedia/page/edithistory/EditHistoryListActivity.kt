@@ -39,7 +39,6 @@ import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
@@ -62,7 +61,6 @@ class EditHistoryListActivity : BaseActivity() {
     private val loadHeader = LoadingItemAdapter { editHistoryListAdapter.retry() }
     private val loadFooter = LoadingItemAdapter { editHistoryListAdapter.retry() }
     private val viewModel: EditHistoryListViewModel by viewModels { EditHistoryListViewModel.Factory(intent.extras!!) }
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
@@ -449,7 +447,7 @@ class EditHistoryListActivity : BaseActivity() {
             if (viewModel.comparing) {
                 toggleSelectState()
             } else {
-                UserTalkPopupHelper.show(this@EditHistoryListActivity, bottomSheetPresenter,
+                UserTalkPopupHelper.show(this@EditHistoryListActivity,
                         PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode),
                                 revision.user, viewModel.pageTitle.wikiSite), revision.isAnon, v,
                     Constants.InvokeSource.DIFF_ACTIVITY, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS,
