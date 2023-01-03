@@ -1088,6 +1088,8 @@
   <string name="wikitext_template">قالب</string>
   <string name="wikitext_reference">مرجع</string>
   <string name="wikitext_preview_link">معاينة الرابط</string>
+  <string name="insert_media_settings_caption">تعليق</string>
+  <string name="insert_media_settings_alternative_text">نص بديل</string>
   <string name="insert_media_advanced_settings_image_size">حجم الصورة</string>
   <string name="main_drawer_help">مساعدة</string>
   <string name="main_drawer_login">سجل الدخول / انضم لويكيبيديا</string>
@@ -1211,6 +1213,7 @@
   <string name="revision_initial_none">لا شيء (هذه هي المراجعة الأولى)</string>
   <string name="user_contrib_filter_all">جميع النطاقات</string>
   <string name="namespace_article">المقالات</string>
+  <string name="user_contrib_menu_label">مساهمات</string>
   <string name="reading_list_share_menu_label">المشاركة…</string>
   <string name="reading_list_share_menu_tooltip">شارك قائمة القراءة هذه مع الآخرين</string>
   <string name="reading_list_share_title_tooltip">التغييرات التي تجريها على هذه القائمة غير مرئية للآخرين.</string>
