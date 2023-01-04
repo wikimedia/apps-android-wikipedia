@@ -198,7 +198,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
                     val contributions = (wikidataResponse.query!!.userContributions +
                             commonsResponse.query!!.userContributions +
-                            homeSiteResponse.query!!.userContributions).sortedByDescending { it.date() }
+                            homeSiteResponse.query!!.userContributions).sortedByDescending { it.parsedInstant }
                     latestEditStreak = getEditStreak(contributions)
                     revertSeverity = UserContribStats.getRevertSeverity()
                     wikidataResponse
@@ -368,10 +368,11 @@ class SuggestedEditsTasksFragment : Fragment() {
         val dayMillis = TimeUnit.DAYS.toMillis(1)
         var streak = 0
         for (c in contributions) {
-            if (c.date().time >= baseCal.timeInMillis) {
+            val epochMilli = c.parsedInstant.toEpochMilli()
+            if (epochMilli >= baseCal.timeInMillis) {
                 // this contribution was on the same day.
                 continue
-            } else if (c.date().time < (baseCal.timeInMillis - dayMillis)) {
+            } else if (epochMilli < (baseCal.timeInMillis - dayMillis)) {
                 // this contribution is more than one day apart, so the streak is broken.
                 break
             }

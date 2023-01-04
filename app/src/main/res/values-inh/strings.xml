@@ -447,7 +447,7 @@
   <string name="reading_focus_mode_detail">Тоадара функцеши лохера кечалий панели къайлайоаккх лакхехьа е лохехьа хьал-Ӏо озача хана</string>
   <string name="editing_syntax_highlight_label">Синтаксис сийрдаяккхар</string>
   <string name="editing_line_numbers_label">МугӀарий номераш гуш хилийта</string>
-  <string name="editing_monospace_font_label">Моношера шрифт лелае</string>
+  <string name="editing_monospace_font_label">Моно-шера шрифт лелае</string>
   <string name="nav_item_saved">ДӀайилай</string>
   <string name="reading_list_save_to">Éша дIаяхкача оагIонашта тIатоха</string>
   <string name="reading_list_move_to">Éша дIаяхкача оагIонашта юкъеяккха</string>

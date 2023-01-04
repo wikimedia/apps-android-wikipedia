@@ -15,6 +15,7 @@
 * InternerowyGołąb
 * Kareyac
 * Lantuszka
+* Luku123
 * Masti
 * Matik7
 * Matma Rex
@@ -772,6 +773,8 @@
   <string name="description_edit_license_notice">Zmieniając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">zwykle zaczynają się od małej litery</string>
   <string name="description_edit_voice_input_description">Wprowadzanie głosowe</string>
+  <string name="description_edit_description_learn_more_url">https\n://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Tekst jest zbyt krótki.</string>
   <string name="description_ends_with_punctuation">Tekst nie może kończyć się znakiem interpunkcyjnym.</string>
   <string name="description_starts_with_article">Unikaj rozpoczynania artykułów od „a” bądź „the” (ang).</string>
@@ -1023,6 +1026,8 @@
   <string name="wikitext_strikethrough">Przekreślenie</string>
   <string name="wikitext_sup">Indeks górny</string>
   <string name="wikitext_sub">Indeks dolny</string>
+  <string name="wikitext_large">Duży tekst</string>
+  <string name="wikitext_small">Mały tekst</string>
   <string name="wikitext_code">Kod</string>
   <string name="wikitext_link">Link</string>
   <string name="wikitext_formatting">Formatowanie</string>

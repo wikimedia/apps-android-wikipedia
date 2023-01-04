@@ -29,7 +29,7 @@
   <string name="error_network_error">Ji înternetê re nikare bê girêdan.</string>
   <string name="page_error_retry">Dîsa hewl bide</string>
   <string name="card_offline_error_retry">Dîsa hewl bide</string>
-  <string name="storage_access_error_retry">Dîsa bicerribîne</string>
+  <string name="storage_access_error_retry">Dîsa biceribîne</string>
   <string name="article_load_error_retry">Dîsa hewl bide</string>
   <string name="offline_load_error_retry">Dîsa hewl bide</string>
   <string name="page_error_back_to_main">Vegere</string>
@@ -921,6 +921,7 @@
     <item quantity="one">Bila zimanê bijartî jê were rakirin?</item>
     <item quantity="other">Bila zimanên bijartî jê werin rakirin?</item>
   </plurals>
+  <string name="more_language_options">bêhtir</string>
   <string name="wikitext_reference">Çavkanî</string>
   <string name="main_tooltip_text_v2">Te zanibû ku her kes dikare li ser Wîkîpediyayê sererastkirinan bike?</string>
   <string name="main_tooltip_watchlist_title">Lîsteya şopandinê</string>
