@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
-import kotlinx.coroutines.flow.onEmpty
 import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SearchFunnel
@@ -15,6 +14,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -26,40 +26,17 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
     var searchTerm: String? = null
     var languageCode: String? = null
     val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize)) {
-        SearchResultsPagingSource(searchTerm, languageCode, searchFunnel)
-    }.flow.onEmpty {
-        // TODO: move this logic to PagingSource class since "onEmpty" will not be called
-        WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
-            if (langCode == languageCode) {
-                resultsCount.add(0)
-            } else {
-                val prefixSearchResponse = withContext(Dispatchers.IO) {
-                    ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                        .prefixSearch(searchTerm, batchSize, 0)
-                }
-                prefixSearchResponse.query?.pages?.let {
-                    resultsCount.add(it.size)
-                } ?: run {
-                    val fullTextSearchResponse = withContext(Dispatchers.IO) {
-                        ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                            .fullTextSearchMedia(searchTerm, batchSize.toString(), batchSize, null)
-                    }
-                    resultsCount.add(fullTextSearchResponse.query?.pages?.size ?: 0)
-                }
-            }
-        }
-        // make a singleton list if all results are empty.
-        if (resultsCount.sum() == 0) {
-            resultsCount = mutableListOf(0)
-        }
-    }.cachedIn(viewModelScope)
+        SearchResultsPagingSource(searchTerm, languageCode, resultsCount, searchFunnel)
+    }.flow.cachedIn(viewModelScope)
 
     class SearchResultsPagingSource(
             val searchTerm: String?,
             val languageCode: String?,
+            var resultsCount: MutableList<Int>?,
             private val searchFunnel: SearchFunnel?
     ) : PagingSource<MwQueryResponse.Continuation, SearchResult>() {
 
+        private val batchSize = 20
         private var prefixSearch = true
         private var startTime: Long = 0
 
@@ -121,6 +98,34 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
                         SearchResult(it, wikiSite)
                     }
                 } ?: emptyList()
+
+                if (searchResults.isEmpty() && response.continuation == null) {
+                    resultsCount?.clear()
+                    L.d("Start checking result count...")
+                    WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
+                        if (langCode == languageCode) {
+                            resultsCount?.add(0)
+                        } else {
+                            val prefixSearchResponse = withContext(Dispatchers.IO) {
+                                ServiceFactory.get(WikiSite.forLanguageCode(langCode))
+                                    .prefixSearch(searchTerm, batchSize, 0)
+                            }
+                            prefixSearchResponse.query?.pages?.let {
+                                resultsCount?.add(it.size)
+                            } ?: run {
+                                val fullTextSearchResponse = withContext(Dispatchers.IO) {
+                                    ServiceFactory.get(WikiSite.forLanguageCode(langCode))
+                                        .fullTextSearchMedia(searchTerm, batchSize.toString(), batchSize, null)
+                                }
+                                resultsCount?.add(fullTextSearchResponse.query?.pages?.size ?: 0)
+                            }
+                        }
+                    }
+                    // make a singleton list if all results are empty.
+                    if (resultsCount?.sum() == 0) {
+                        resultsCount = mutableListOf(0)
+                    }
+                }
 
                 resultList.addAll(searchResults)
 

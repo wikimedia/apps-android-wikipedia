@@ -49,6 +49,7 @@ class SearchResultsFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: SearchResultsViewModel by viewModels { SearchResultsViewModel.Factory(callback()?.getFunnel()) }
     private val searchResultsAdapter = SearchResultsAdapter()
+    private val noSearchResultAdapter = NoSearchResultAdapter()
     private val searchResultsConcatAdapter = ConcatAdapter(searchResultsAdapter)
     private var currentSearchTerm: String? = ""
 
@@ -74,7 +75,9 @@ class SearchResultsFragment : Fragment() {
                 callback()?.onSearchProgressBar(it.append is LoadState.Loading || it.refresh is LoadState.Loading)
                 val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && searchResultsAdapter.itemCount == 0)
                 if (showEmpty) {
-                    searchResultsConcatAdapter.addAdapter(NoSearchResultAdapter(viewModel.resultsCount))
+                    searchResultsConcatAdapter.addAdapter(noSearchResultAdapter)
+                } else {
+                    searchResultsConcatAdapter.removeAdapter(noSearchResultAdapter)
                 }
             }
         }
@@ -167,16 +170,16 @@ class SearchResultsFragment : Fragment() {
         }
     }
 
-    private inner class NoSearchResultAdapter(val resultCounts: List<Int>) : RecyclerView.Adapter<NoSearchResultItemViewHolder>() {
+    private inner class NoSearchResultAdapter : RecyclerView.Adapter<NoSearchResultItemViewHolder>() {
         override fun onBindViewHolder(holder: NoSearchResultItemViewHolder, position: Int) {
-            holder.bindItem(position, resultCounts[position])
+            holder.bindItem(position, viewModel.resultsCount[position])
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoSearchResultItemViewHolder {
             return NoSearchResultItemViewHolder(ItemSearchNoResultsBinding.inflate(layoutInflater, parent, false))
         }
 
-        override fun getItemCount(): Int { return resultCounts.size }
+        override fun getItemCount(): Int { return viewModel.resultsCount.size }
     }
 
     private inner class NoSearchResultItemViewHolder(val itemBinding: ItemSearchNoResultsBinding) : DefaultViewHolder<View>(itemBinding.root) {
