@@ -5,7 +5,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.async
+import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SearchFunnel
@@ -21,12 +23,15 @@ import java.util.concurrent.TimeUnit
 class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
 
     private val batchSize = 20
+    private val delayMillis = 200L
     var resultsCount = mutableListOf<Int>()
     var searchTerm: String? = null
     var languageCode: String? = null
+
+    @OptIn(FlowPreview::class) // TODO: revisit if the debounce method changed.
     val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize)) {
         SearchResultsPagingSource(searchTerm, languageCode, resultsCount, searchFunnel)
-    }.flow.cachedIn(viewModelScope)
+    }.flow.debounce(delayMillis).cachedIn(viewModelScope)
 
     class SearchResultsPagingSource(
             val searchTerm: String?,
@@ -41,7 +46,6 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
 
         override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, SearchResult> {
             return try {
-                // TODO: add delay logic
                 // The default offset is 0 but we send the initial offset from 1 to prevent showing the same talk page from the results.
                 if (searchTerm.isNullOrEmpty() || languageCode.isNullOrEmpty()) {
                     return LoadResult.Page(emptyList(), null, null)

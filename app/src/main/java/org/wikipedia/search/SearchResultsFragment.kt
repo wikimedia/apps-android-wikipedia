@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.LongPressHandler
@@ -51,7 +52,7 @@ class SearchResultsFragment : Fragment() {
     private val searchResultsAdapter = SearchResultsAdapter()
     private val noSearchResultAdapter = NoSearchResultAdapter()
     private val searchResultsConcatAdapter = ConcatAdapter(searchResultsAdapter)
-    private var currentSearchTerm: String? = ""
+    private val searchJob: Job? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSearchResultsBinding.inflate(inflater, container, false)
@@ -60,7 +61,7 @@ class SearchResultsFragment : Fragment() {
         binding.searchErrorView.backClickListener = View.OnClickListener { requireActivity().finish() }
         binding.searchErrorView.retryClickListener = View.OnClickListener {
             binding.searchErrorView.visibility = View.GONE
-            startSearch(currentSearchTerm, true)
+            startSearch(viewModel.searchTerm, true)
         }
 
         lifecycleScope.launch {
@@ -106,14 +107,14 @@ class SearchResultsFragment : Fragment() {
     }
 
     fun startSearch(term: String?, force: Boolean) {
-        if (!force && currentSearchTerm == term) {
+        if (!force && viewModel.searchTerm == term) {
             return
         }
-        currentSearchTerm = term
         if (term.isNullOrBlank()) {
             clearResults()
             return
         }
+
         viewModel.searchTerm = term
         viewModel.languageCode = searchLanguageCode
         searchResultsAdapter.refresh()
@@ -226,7 +227,7 @@ class SearchResultsFragment : Fragment() {
                 itemBinding.pageListIcon.setImageResource(if (type === SearchResult.SearchResultType.HISTORY) R.drawable.ic_history_24 else if (type === SearchResult.SearchResultType.TAB_LIST) R.drawable.ic_tab_one_24px else R.drawable.ic_bookmark_white_24dp)
             }
             // highlight search term within the text
-            StringUtil.boldenKeywordText(itemBinding.pageListItemTitle, pageTitle.displayText, currentSearchTerm)
+            StringUtil.boldenKeywordText(itemBinding.pageListItemTitle, pageTitle.displayText, viewModel.searchTerm)
             itemBinding.pageListItemImage.visibility = if (pageTitle.thumbUrl.isNullOrEmpty()) if (type === SearchResult.SearchResultType.SEARCH) View.GONE else View.INVISIBLE else View.VISIBLE
             loadImageWithRoundedCorners(itemBinding.pageListItemImage, pageTitle.thumbUrl)
 
