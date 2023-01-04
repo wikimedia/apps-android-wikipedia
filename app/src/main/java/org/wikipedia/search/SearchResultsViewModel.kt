@@ -21,7 +21,6 @@ import java.util.concurrent.TimeUnit
 class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
 
     private val batchSize = 20
-    // TODO: add cache logic?
     var resultsCount = mutableListOf<Int>()
     var searchTerm: String? = null
     var languageCode: String? = null
