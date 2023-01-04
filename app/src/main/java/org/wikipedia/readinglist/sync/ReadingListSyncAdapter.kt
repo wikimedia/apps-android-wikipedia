@@ -427,8 +427,7 @@ class ReadingListSyncAdapter : JobIntentService() {
         return if (lastDateHeader.isNullOrEmpty()) {
             lastSyncTime
         } else try {
-            val date = DateUtil.getHttpLastModifiedDate(lastDateHeader)
-            DateUtil.iso8601DateFormat(date)
+            DateUtil.getHttpLastModifiedDate(lastDateHeader).toInstant().toString()
         } catch (e: ParseException) {
             lastSyncTime
         }
