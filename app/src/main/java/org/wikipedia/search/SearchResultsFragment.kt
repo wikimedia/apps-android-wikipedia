@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.LongPressHandler
@@ -52,7 +51,6 @@ class SearchResultsFragment : Fragment() {
     private val searchResultsAdapter = SearchResultsAdapter()
     private val noSearchResultAdapter = NoSearchResultAdapter()
     private val searchResultsConcatAdapter = ConcatAdapter(searchResultsAdapter)
-    private val searchJob: Job? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSearchResultsBinding.inflate(inflater, container, false)

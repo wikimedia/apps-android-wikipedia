@@ -8,6 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SearchFunnel
@@ -24,6 +25,7 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
 
     private val batchSize = 20
     private val delayMillis = 200L
+    private val totalResults = mutableListOf<SearchResult>()
     var resultsCount = mutableListOf<Int>()
     var searchTerm: String? = null
     var languageCode: String? = null
@@ -31,7 +33,14 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
     @OptIn(FlowPreview::class) // TODO: revisit if the debounce method changed.
     val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
         SearchResultsPagingSource(searchTerm, languageCode, resultsCount, searchFunnel)
-    }.flow.debounce(delayMillis).cachedIn(viewModelScope)
+    }.flow.debounce(delayMillis).map { pagingData ->
+        pagingData.filter { searchResult ->
+            totalResults.find { it.pageTitle.prefixedText == searchResult.pageTitle.prefixedText } == null
+        }.map {
+            totalResults.add(it)
+            it
+        }
+    }.cachedIn(viewModelScope)
 
     class SearchResultsPagingSource(
             val searchTerm: String?,
