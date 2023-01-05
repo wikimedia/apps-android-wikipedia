@@ -78,12 +78,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private var importMode: Boolean = false
     private var shouldShowImportedSnackbar = false
 
-    val filePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            if (it.resultCode == AppCompatActivity.RESULT_OK) {
-                val uri: Uri = it.data?.data!!
-                onListsImportResult(uri)
-            }
+    val filePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+    { activityResult ->
+        if (activityResult.resultCode == AppCompatActivity.RESULT_OK) {
+            val uri = activityResult.data?.data
+            uri?.let { onListsImportResult(it) }
         }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -199,7 +200,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
         override fun editList() {
             beginMultiSelect()
-            updateSelectActionModeTitleAndAlpha(selectedListsCount)
+            updateSelectActionModeTitleAndAlpha()
             adapter.notifyDataSetChanged()
         }
 
@@ -209,12 +210,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    private fun updateSelectActionModeTitleAndAlpha(selectedListsCount: Int) {
-        val fullOpacity = 255
-        val halfOpacity = 80
+    private fun updateSelectActionModeTitleAndAlpha() {
         actionMode?.let {
             it.title = if (selectedListsCount == 0) "" else getString(R.string.multi_select_items_selected, selectedListsCount)
-            updateMenuItemsAlpha(if (selectedListsCount == 0) halfOpacity else fullOpacity, it.menu)
+            updateActionMenuItems(it.menu)
         }
     }
 
@@ -311,14 +310,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         if (!importMode) {
             return
         }
-        lists.forEach {
-            it.pages.forEach { page ->
-                if (page.sizeBytes == 0L) {
-                    return
-                }
-            }
-        }
-        importMode = false
+        importMode = lists.any { it.pages.any { pages -> pages.sizeBytes == 0L } }
     }
 
     private fun maybeShowListLimitMessage() {
@@ -505,7 +497,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     list.selected = !list.selected
                 }
             }
-            updateSelectActionModeTitleAndAlpha(selectedListsCount)
+            updateSelectActionModeTitleAndAlpha()
             adapter.notifyDataSetChanged()
         }
     }
@@ -591,7 +583,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }
         }
 
-    private fun updateMenuItemsAlpha(alpha: Int, menu: Menu) {
+    private fun updateActionMenuItems(menu: Menu) {
+        val fullOpacity = 255
+        val halfOpacity = 80
+        val alpha = if (selectedListsCount == 0) halfOpacity else fullOpacity
+        val isEnabled = selectedListsCount != 0
         val deleteItem = menu.findItem(R.id.menu_delete_selected)
         val exportItem = menu.findItem(R.id.menu_export_selected)
         val exportItemTitleColor = ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)
@@ -600,6 +596,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         spanString.setSpan(ForegroundColorSpan(exportItemAlphaColor), 0, spanString.length, 0)
         exportItem.title = spanString
         deleteItem.icon?.alpha = alpha
+        exportItem.isEnabled = isEnabled
+        deleteItem.isEnabled = isEnabled
     }
 
     private inner class MultiSelectCallback : MultiSelectActionModeCallback() {
@@ -609,6 +607,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             actionMode = mode
             val deleteItem = menu.findItem(R.id.menu_delete_selected)
             val deleteIconColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.colorError)
+            deleteItem.isEnabled = false
             MenuItemCompat.setIconTintList(deleteItem, deleteIconColor)
             return true
         }
@@ -617,7 +616,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             when (menuItem.itemId) {
                 R.id.menu_delete_selected -> {
                     onDeleteSelected()
-                    finishActionMode()
                     return true
                 }
                 R.id.menu_export_selected -> {
@@ -649,6 +647,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 ReadingListBehaviorsUtil.deleteReadingLists(requireActivity(), it) {
                     ReadingListBehaviorsUtil.showDeleteListsUndoSnackbar(requireActivity(), it) { updateLists() }
                     it.forEach { list -> funnel.logDeleteList(list, displayedLists.size) }
+                    finishActionMode()
                     updateLists()
                 }
             }
@@ -667,7 +666,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             it.forEach { list ->
                 list.selected = false
             }
-            updateSelectActionModeTitleAndAlpha(selectedListsCount)
+            updateSelectActionModeTitleAndAlpha()
             adapter.notifyDataSetChanged()
         }
     }
@@ -678,7 +677,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 .filter { !it.selected }
                 .onEach { it.selected = true }
         }
-        updateSelectActionModeTitleAndAlpha(selectedListsCount)
+        updateSelectActionModeTitleAndAlpha()
         adapter.notifyDataSetChanged()
     }
 
