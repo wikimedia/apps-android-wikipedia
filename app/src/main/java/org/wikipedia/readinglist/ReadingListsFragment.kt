@@ -848,6 +848,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     fun onListsImportResult(uri: Uri) {
+        binding.swipeRefreshLayout.isRefreshing = true
         val inputStr = activity?.contentResolver?.openInputStream(uri)
         inputStr?.let { inputStream ->
             val inputString = inputStream.bufferedReader().use { it.readText() }
