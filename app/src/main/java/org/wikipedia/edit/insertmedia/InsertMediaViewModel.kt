@@ -32,7 +32,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             return try {
                 val wikiSite = WikiSite(Service.COMMONS_URL)
                 val response = ServiceFactory.get(WikiSite(Service.COMMONS_URL))
-                    .fullTextSearchMedia("File: $searchQuery", params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
+                    .fullTextSearch("File: $searchQuery", params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
 
                 return response.query?.pages?.let { list ->
                     val results = list.sortedBy { it.index }.map {

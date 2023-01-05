@@ -76,7 +76,7 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
                 if (response?.query?.pages == null) {
                     startTime = System.nanoTime()
                     response = ServiceFactory.get(wikiSite)
-                        .fullTextSearchMedia(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
+                        .fullTextSearch(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
                 } else {
                     // Log prefix search
                     searchFunnel?.searchResults(true, response.query?.pages?.size ?: 0, displayTime(startTime), languageCode)
@@ -118,7 +118,7 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
                             } ?: run {
                                 val fullTextSearchResponse = withContext(Dispatchers.IO) {
                                     ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                                        .fullTextSearchMedia(searchTerm, batchSize.toString(), batchSize, null)
+                                        .fullTextSearch(searchTerm, batchSize.toString(), batchSize, null)
                                 }
                                 resultsCount?.add(fullTextSearchResponse.query?.pages?.size ?: 0)
                             }
