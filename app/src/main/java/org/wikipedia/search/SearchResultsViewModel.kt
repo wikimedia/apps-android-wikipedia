@@ -29,7 +29,7 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
     var languageCode: String? = null
 
     @OptIn(FlowPreview::class) // TODO: revisit if the debounce method changed.
-    val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize)) {
+    val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
         SearchResultsPagingSource(searchTerm, languageCode, resultsCount, searchFunnel)
     }.flow.debounce(delayMillis).cachedIn(viewModelScope)
 
@@ -75,8 +75,10 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
 
                 if (response?.query?.pages == null) {
                     startTime = System.nanoTime()
+                    // Prevent using continuation string from prefix search
+                    val continuation = if (params.key?.continuation?.contains("description") == true) null else params.key?.continuation
                     response = ServiceFactory.get(wikiSite)
-                        .fullTextSearch(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
+                        .fullTextSearch(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, continuation)
                 } else {
                     // Log prefix search
                     searchFunnel?.searchResults(true, response.query?.pages?.size ?: 0, displayTime(startTime), languageCode)
