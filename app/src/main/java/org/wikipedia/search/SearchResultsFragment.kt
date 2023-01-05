@@ -108,13 +108,16 @@ class SearchResultsFragment : Fragment() {
         if (!force && viewModel.searchTerm == term) {
             return
         }
+
+        viewModel.searchTerm = term
+        viewModel.languageCode = searchLanguageCode
+
         if (term.isNullOrBlank()) {
             clearResults()
             return
         }
 
-        viewModel.searchTerm = term
-        viewModel.languageCode = searchLanguageCode
+        // TODO: fix issue when changing tabs or resuming from home screen
         searchResultsAdapter.refresh()
     }
 
