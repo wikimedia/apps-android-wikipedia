@@ -89,6 +89,7 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
                     response = ServiceFactory.get(wikiSite)
                         .fullTextSearch(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, continuation)
                 } else {
+                    startTime = System.nanoTime()
                     // Log prefix search
                     searchFunnel?.searchResults(true, response.query?.pages?.size ?: 0, displayTime(startTime), languageCode)
                 }
@@ -151,6 +152,7 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
         }
 
         override fun getRefreshKey(state: PagingState<MwQueryResponse.Continuation, SearchResult>): MwQueryResponse.Continuation? {
+            prefixSearch = true
             return null
         }
 
