@@ -1148,10 +1148,12 @@
   <string name="wikitext_underline">Підкреслення</string>
   <string name="wikitext_strikethrough">Закреслення</string>
   <string name="wikitext_sup">Верхній індекс</string>
+  <string name="wikitext_sub">Нижній індекс</string>
   <string name="wikitext_large">Великий текст</string>
   <string name="wikitext_small">Малий текст</string>
   <string name="wikitext_code">Код</string>
   <string name="wikitext_link">Посилання</string>
+  <string name="wikitext_heading_n">Підзаголовок %d</string>
   <string name="wikitext_formatting">Форматування</string>
   <string name="wikitext_headings">Заголовки</string>
   <string name="wikitext_insert_media">Вставити медіа</string>
@@ -1168,6 +1170,7 @@
   <string name="insert_media_settings_caption">Підпис</string>
   <string name="insert_media_settings_alternative_text">Альтернативний текст</string>
   <string name="insert_media_advanced_settings">Розширені налаштування</string>
+  <string name="insert_media_advanced_settings_wrap_image">Обтікання текстом зображення</string>
   <string name="insert_media_advanced_settings_image_position">Розташування зображення</string>
   <string name="insert_media_advanced_settings_image_position_right">Праворуч</string>
   <string name="insert_media_advanced_settings_image_position_left">Ліворуч</string>
@@ -1316,8 +1319,10 @@
   <string name="watchlist_page_protected">Захищені</string>
   <string name="watchlist_page_deleted">Вилучені</string>
   <string name="preview_edit_title">Попередній перегляд редагування</string>
+  <string name="preview_edit_summarize_edit_title">Резюмуйте правку</string>
   <string name="preview_edit_summarize_edit_hint">Як Ви поліпшили цю сторінку?</string>
   <string name="preview_edit_minor_edit">Це незначна зміна</string>
+  <string name="preview_edit_watch_this_page">Перегляньте цю сторінку</string>
   <string name="action_item_categories">Категорії</string>
   <string name="page_no_categories">Ця сторінка не належить до жодної категорії.</string>
   <string name="category_tab_articles">Статті</string>
@@ -1335,7 +1340,11 @@
   <string name="user_contrib_current">поточний</string>
   <string name="media_playback_error">Помилка відтворення медіа.</string>
   <string name="user_contrib_menu_label">Внесок</string>
+  <string name="user_contrib_filter_activity_title">Фільтрувати внески</string>
   <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Імпорт списку для читання</string>
   <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Ви впевнені, що бажаєте імпортувати цей список для читання?</string>
   <string name="shareable_reading_lists_new_indicator">*новий*</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Зрозуміло</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Список для читання імпортовано</string>
+  <string name="reading_list_share_menu_label">Поширити…</string>
 </resources>
