@@ -78,8 +78,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private var importMode: Boolean = false
     private var shouldShowImportedSnackbar = false
 
-    val filePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-    { activityResult ->
+    val filePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult ->
         if (activityResult.resultCode == AppCompatActivity.RESULT_OK) {
             val uri = activityResult.data?.data
             uri?.let { onListsImportResult(it) }
