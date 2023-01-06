@@ -5,14 +5,12 @@ import android.content.Context
 import android.net.Uri
 import android.widget.ScrollView
 import org.wikipedia.Constants
-import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.feed.announcement.Announcement
 import org.wikipedia.feed.announcement.AnnouncementCard
 import org.wikipedia.feed.announcement.AnnouncementCardView
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.model.CardType
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
