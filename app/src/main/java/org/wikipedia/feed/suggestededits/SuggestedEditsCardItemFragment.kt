@@ -15,7 +15,6 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource.FEED
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.FeedFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsCardItemBinding
@@ -26,7 +25,6 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
 import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
-import org.wikipedia.feed.model.CardType
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
@@ -53,7 +51,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private var targetSummaryForEdit: PageSummaryForEdit? = null
     private var imageTagPage: MwQueryPage? = null
     private var itemClickable = false
-    private var funnel = FeedFunnel(app)
     private var previousImageTagPage: MwQueryPage? = null
     private var previousSourceSummaryForEdit: PageSummaryForEdit? = null
 
@@ -123,7 +120,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
 
     private fun startDescriptionEditScreenListener() = View.OnClickListener {
         if (itemClickable) {
-            funnel.cardClicked(CardType.SUGGESTED_EDITS, if (targetLanguage != null && targetLanguage.equals(langFromCode)) langFromCode else targetLanguage)
             startDescriptionEditScreen()
         }
     }
