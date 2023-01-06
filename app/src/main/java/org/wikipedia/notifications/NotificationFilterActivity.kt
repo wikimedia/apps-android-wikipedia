@@ -13,7 +13,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.databinding.ActivityNotificationsFiltersBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
@@ -155,7 +154,6 @@ class NotificationFilterActivity : BaseActivity() {
             }
             Prefs.notificationExcludedWikiCodes = excludedWikiCodes
             Prefs.notificationExcludedTypeCodes = excludedTypeCodes
-            NotificationPreferencesFunnel(WikipediaApp.instance).logNotificationFilterPrefs()
             notifyItemRangeChanged(0, itemCount)
         }
     }
