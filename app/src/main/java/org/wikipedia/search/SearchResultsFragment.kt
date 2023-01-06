@@ -117,7 +117,6 @@ class SearchResultsFragment : Fragment() {
             return
         }
 
-        // TODO: fix issue when changing tabs or resuming from home screen
         searchResultsAdapter.refresh()
     }
 
@@ -125,7 +124,7 @@ class SearchResultsFragment : Fragment() {
         binding.searchResultsList.visibility = View.GONE
         binding.searchErrorView.visibility = View.GONE
         binding.searchErrorView.visibility = View.GONE
-        viewModel.resultsCount.clear()
+        viewModel.clearResults()
         binding.searchResultsList.adapter?.notifyDataSetChanged()
     }
 

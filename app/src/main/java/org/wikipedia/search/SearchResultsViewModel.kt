@@ -32,7 +32,7 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
 
     @OptIn(FlowPreview::class) // TODO: revisit if the debounce method changed.
     val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
-        SearchResultsPagingSource(searchTerm, languageCode, resultsCount, searchFunnel)
+        SearchResultsPagingSource(searchTerm, languageCode, resultsCount, totalResults, searchFunnel)
     }.flow.debounce(delayMillis).map { pagingData ->
         pagingData.filter { searchResult ->
             totalResults.find { it.pageTitle.prefixedText == searchResult.pageTitle.prefixedText } == null
@@ -42,10 +42,16 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
         }
     }.cachedIn(viewModelScope)
 
+    fun clearResults() {
+        resultsCount.clear()
+        totalResults.clear()
+    }
+
     class SearchResultsPagingSource(
             val searchTerm: String?,
             val languageCode: String?,
             var resultsCount: MutableList<Int>?,
+            var totalResults: MutableList<SearchResult>?,
             private val searchFunnel: SearchFunnel?
     ) : PagingSource<MwQueryResponse.Continuation, SearchResult>() {
 
@@ -153,6 +159,7 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
 
         override fun getRefreshKey(state: PagingState<MwQueryResponse.Continuation, SearchResult>): MwQueryResponse.Continuation? {
             prefixSearch = true
+            totalResults?.clear()
             return null
         }
 
