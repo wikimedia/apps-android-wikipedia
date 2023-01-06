@@ -133,7 +133,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private val disposables = CompositeDisposable()
     private val scrollTriggerListener = WebViewScrollTriggerListener()
     private val tabFunnel = TabFunnel()
-    private val watchlistFunnel = WatchlistFunnel()
     private val pageRefreshListener = OnRefreshListener { refreshPage() }
     private val pageActionItemCallback = PageActionItemCallback()
 

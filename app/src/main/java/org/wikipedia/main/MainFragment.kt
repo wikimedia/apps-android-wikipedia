@@ -32,7 +32,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.ReadingListsFunnel
-import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentMainBinding
@@ -465,7 +464,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun watchlistClick() {
         if (AccountUtil.isLoggedIn) {
-            WatchlistFunnel().logViewWatchlist()
             startActivity(WatchlistActivity.newIntent(requireActivity()))
         }
     }
@@ -584,7 +582,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             enqueueTooltip {
                 FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer, R.layout.view_watchlist_main_tooltip, 0, 0, aboveOrBelow = true, autoDismiss = false)
                         .setOnBalloonDismissListener {
-                            WatchlistFunnel().logShowTooltipMore()
                             Prefs.isWatchlistMainOnboardingTooltipShown = true
                         }
             }
