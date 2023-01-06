@@ -117,6 +117,7 @@ class SearchResultsFragment : Fragment() {
             return
         }
 
+        // TODO: fix voice search does not do search immediately
         searchResultsAdapter.refresh()
     }
 
