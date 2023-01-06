@@ -131,15 +131,18 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
                                 ServiceFactory.get(WikiSite.forLanguageCode(langCode))
                                     .prefixSearch(searchTerm, batchSize, 0)
                             }
+                            var countResultSize = 0
                             prefixSearchResponse.query?.pages?.let {
-                                resultsCount?.add(it.size)
-                            } ?: run {
+                                countResultSize = it.size
+                            }
+                            if (countResultSize == 0) {
                                 val fullTextSearchResponse = withContext(Dispatchers.IO) {
                                     ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                                        .fullTextSearch(searchTerm, batchSize.toString(), batchSize, null)
+                                        .fullTextSearch(searchTerm, null, batchSize, null)
                                 }
-                                resultsCount?.add(fullTextSearchResponse.query?.pages?.size ?: 0)
+                                countResultSize = fullTextSearchResponse.query?.pages?.size ?: 0
                             }
+                            resultsCount?.add(countResultSize)
                         }
                     }
                     // make a singleton list if all results are empty.

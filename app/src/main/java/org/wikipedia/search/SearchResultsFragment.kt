@@ -126,7 +126,6 @@ class SearchResultsFragment : Fragment() {
         binding.searchErrorView.visibility = View.GONE
         binding.searchErrorView.visibility = View.GONE
         viewModel.clearResults()
-        binding.searchResultsList.adapter?.notifyDataSetChanged()
     }
 
     private inner class SearchResultsFragmentLongPressHandler(private val lastPositionRequested: Int) : LongPressMenu.Callback {
