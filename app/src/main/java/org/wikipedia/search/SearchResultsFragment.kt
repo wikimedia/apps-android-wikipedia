@@ -114,6 +114,7 @@ class SearchResultsFragment : Fragment() {
             return
         }
 
+        binding.searchResultsList.scrollToPosition(0)
         searchResultsAdapter.refresh()
     }
 
