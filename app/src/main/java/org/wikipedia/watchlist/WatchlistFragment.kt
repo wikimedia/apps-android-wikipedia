@@ -17,7 +17,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentWatchlistBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -49,7 +48,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     private val totalItems = ArrayList<MwQueryResult.WatchlistItem>()
     private var filterMode = FILTER_MODE_ALL
     private var displayLanguages = listOf<String>()
-    private val funnel = WatchlistFunnel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -73,8 +71,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         notificationButtonView = NotificationButtonView(requireActivity())
         updateDisplayLanguages()
         fetchWatchlist(false)
-
-        funnel.logOpenWatchlist()
     }
 
     override fun onDestroyView() {
@@ -324,7 +320,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
     override fun onLanguageChanged() {
         updateDisplayLanguages()
-        funnel.logChangeLanguage(displayLanguages)
         fetchWatchlist(false)
     }
 

@@ -23,7 +23,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.IntentFunnel
 import org.wikipedia.analytics.LinkPreviewFunnel
-import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -77,7 +76,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private var wasTransitionShown = false
     private val currentActionModes = mutableSetOf<ActionMode>()
     private val disposables = CompositeDisposable()
-    private val watchlistFunnel = WatchlistFunnel()
     private val listDialogDismissListener = DialogInterface.OnDismissListener { pageFragment.updateBookmarkAndMenuOptionsFromDao() }
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
@@ -404,7 +402,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onPageWatchlistExpirySelect(expiry: WatchlistExpiry) {
-        watchlistFunnel.logAddExpiry()
         pageFragment.updateWatchlist(expiry, false)
     }
 
@@ -701,7 +698,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS &&
                     Prefs.loggedInPageActivityVisitCount >= 3) {
                 enqueueTooltip {
-                    watchlistFunnel.logShowTooltip()
                     Prefs.isWatchlistPageOnboardingTooltipShown = true
                     FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
                         R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)

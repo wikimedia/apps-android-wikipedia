@@ -132,7 +132,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private val activeTimer = ActiveTimer()
     private val disposables = CompositeDisposable()
     private val scrollTriggerListener = WebViewScrollTriggerListener()
-    private val watchlistFunnel = WatchlistFunnel()
     private val pageRefreshListener = OnRefreshListener { refreshPage() }
     private val pageActionItemCallback = PageActionItemCallback()
 
@@ -1237,11 +1236,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         if (watchlistExpiryChanged && unwatch) {
                             watchlistExpiryChanged = false
                         }
-                        if (unwatch) {
-                            watchlistFunnel.logRemoveSuccess()
-                        } else {
-                            watchlistFunnel.logAddSuccess()
-                        }
                         showWatchlistSnackbar(expiry, watch)
                     }
                 }) { caught -> L.d(caught) })
@@ -1416,10 +1410,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onAddToWatchlistSelected() {
             if (model.isWatched) {
-                watchlistFunnel.logRemoveArticle()
                 articleInteractionEvent?.logUnWatchClick()
             } else {
-                watchlistFunnel.logAddArticle()
                 articleInteractionEvent?.logWatchClick()
             }
             updateWatchlist(WatchlistExpiry.NEVER, model.isWatched)
