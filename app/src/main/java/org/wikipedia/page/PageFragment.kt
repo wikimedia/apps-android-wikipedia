@@ -504,7 +504,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
             return
         }
-        tabFunnel.logOpenInNew(app.tabList.size)
         if (shouldCreateNewTab) {
             // create a new tab
             val tab = Tab()
