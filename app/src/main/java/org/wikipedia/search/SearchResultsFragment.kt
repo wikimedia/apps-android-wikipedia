@@ -31,6 +31,7 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.ViewUtil.formatLangButton
 import org.wikipedia.views.ViewUtil.loadImageWithRoundedCorners
@@ -42,7 +43,6 @@ class SearchResultsFragment : Fragment() {
         fun onSearchProgressBar(enabled: Boolean)
         fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int)
         fun setSearchText(text: CharSequence)
-        fun getFunnel(): SearchFunnel
     }
 
     private var _binding: FragmentSearchResultsBinding? = null
@@ -239,7 +239,7 @@ class SearchResultsFragment : Fragment() {
                     HistoryEntry.SOURCE_SEARCH, SearchResultsFragmentLongPressHandler(position), pageTitle))
         }
     }
-
+    
     private fun callback(): Callback? {
         return getCallback(this, Callback::class.java)
     }
