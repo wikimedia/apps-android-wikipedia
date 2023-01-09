@@ -1,7 +1,6 @@
 package org.wikipedia.search
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.Dispatchers
@@ -11,17 +10,14 @@ import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.SearchFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.log.L
 import java.util.*
-import java.util.concurrent.TimeUnit
 
-class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
+class SearchResultsViewModel : ViewModel() {
 
     private val batchSize = 20
     private val delayMillis = 200L
@@ -32,7 +28,7 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
 
     @OptIn(FlowPreview::class) // TODO: revisit if the debounce method changed.
     val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
-        SearchResultsPagingSource(searchTerm, languageCode, resultsCount, totalResults, searchFunnel)
+        SearchResultsPagingSource(searchTerm, languageCode, resultsCount, totalResults)
     }.flow.debounce(delayMillis).map { pagingData ->
         pagingData.filter { searchResult ->
             totalResults.find { it.pageTitle.prefixedText == searchResult.pageTitle.prefixedText } == null
@@ -51,13 +47,11 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
             val searchTerm: String?,
             val languageCode: String?,
             var resultsCount: MutableList<Int>?,
-            var totalResults: MutableList<SearchResult>?,
-            private val searchFunnel: SearchFunnel?
+            var totalResults: MutableList<SearchResult>?
     ) : PagingSource<MwQueryResponse.Continuation, SearchResult>() {
 
         private val batchSize = 20
         private var prefixSearch = true
-        private var startTime: Long = 0
 
         override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, SearchResult> {
             return try {
@@ -89,15 +83,10 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
                 }
 
                 if (response?.query?.pages == null) {
-                    startTime = System.nanoTime()
                     // Prevent using continuation string from prefix search
                     val continuation = if (params.key?.continuation?.contains("description") == true) null else params.key?.continuation
                     response = ServiceFactory.get(wikiSite)
                         .fullTextSearch(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, continuation)
-                } else {
-                    startTime = System.nanoTime()
-                    // Log prefix search
-                    searchFunnel?.searchResults(true, response.query?.pages?.size ?: 0, displayTime(startTime), languageCode)
                 }
 
                 val resultList = mutableListOf<SearchResult>()
@@ -114,7 +103,6 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
                 }.take(1))
 
                 val searchResults = response.query?.pages?.let { list ->
-                    searchFunnel?.searchResults(true, response.query?.pages?.size ?: 0, displayTime(startTime), languageCode)
                     list.sortedBy { it.index }.map {
                         SearchResult(it, wikiSite)
                     }
@@ -122,7 +110,6 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
 
                 if (searchResults.isEmpty() && response.continuation == null) {
                     resultsCount?.clear()
-                    L.d("Start checking result count...")
                     WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
                         if (langCode == languageCode) {
                             resultsCount?.add(0)
@@ -155,7 +142,6 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
 
                 return LoadResult.Page(resultList, null, response.continuation)
             } catch (e: Exception) {
-                searchFunnel?.searchError(!prefixSearch, displayTime(startTime), languageCode)
                 LoadResult.Error(e)
             }
         }
@@ -179,17 +165,6 @@ class SearchResultsViewModel(searchFunnel: SearchFunnel?) : ViewModel() {
                     }
                 }
             }
-        }
-
-        private fun displayTime(startTime: Long): Int {
-            return TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime).toInt()
-        }
-    }
-
-    class Factory(private val searchFunnel: SearchFunnel?) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return SearchResultsViewModel(searchFunnel) as T
         }
     }
 }

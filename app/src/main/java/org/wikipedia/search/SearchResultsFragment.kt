@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
@@ -20,7 +19,6 @@ import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
-import org.wikipedia.analytics.SearchFunnel
 import org.wikipedia.databinding.FragmentSearchResultsBinding
 import org.wikipedia.databinding.ItemSearchNoResultsBinding
 import org.wikipedia.databinding.ItemSearchResultBinding
@@ -31,7 +29,6 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.ViewUtil.formatLangButton
 import org.wikipedia.views.ViewUtil.loadImageWithRoundedCorners
@@ -47,7 +44,7 @@ class SearchResultsFragment : Fragment() {
 
     private var _binding: FragmentSearchResultsBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: SearchResultsViewModel by viewModels { SearchResultsViewModel.Factory(callback()?.getFunnel()) }
+    private val viewModel = SearchResultsViewModel()
     private val searchResultsAdapter = SearchResultsAdapter()
     private val noSearchResultAdapter = NoSearchResultAdapter()
     private val searchResultsConcatAdapter = ConcatAdapter(searchResultsAdapter)
@@ -117,7 +114,6 @@ class SearchResultsFragment : Fragment() {
             return
         }
 
-        // TODO: fix voice search does not do search immediately
         searchResultsAdapter.refresh()
     }
 
