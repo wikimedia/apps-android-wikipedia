@@ -132,7 +132,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private val activeTimer = ActiveTimer()
     private val disposables = CompositeDisposable()
     private val scrollTriggerListener = WebViewScrollTriggerListener()
-    private val tabFunnel = TabFunnel()
     private val watchlistFunnel = WatchlistFunnel()
     private val pageRefreshListener = OnRefreshListener { refreshPage() }
     private val pageActionItemCallback = PageActionItemCallback()
@@ -505,7 +504,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
             return
         }
-        tabFunnel.logOpenInNew(app.tabList.size)
         if (shouldCreateNewTab) {
             // create a new tab
             val tab = Tab()
