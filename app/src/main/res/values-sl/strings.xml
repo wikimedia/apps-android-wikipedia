@@ -1251,7 +1251,7 @@
   <string name="menu_option_share_edit">Deli urejanje</string>
   <string name="menu_option_user_contributions">Prispevki uporabnika_ce %s</string>
   <string name="menu_option_edit_source">Uredi vir</string>
-  <string name="menu_option_user_page">Uporabniška stran uporabnika/ce %s</string>
+  <string name="menu_option_user_page">Uporabniška stran uporabnika_ce %s</string>
   <string name="menu_option_find_in_talk_page_topic">Poišči v temi pogovorne strani</string>
   <string name="menu_option_copy_link_to_clipboard">Kopiraj povezavo v odložišče</string>
   <string name="talk_menu_copy_text">Kopiraj besedilo</string>
@@ -1267,7 +1267,7 @@
   <string name="thank_dialog_text">Zahvale so preprost način za izražanje priznanja za delo urejevalca v Wikipediji. Zahval ni mogoče razveljaviti in so javno razvidne.</string>
   <string name="thank_dialog_positive_button_text">Pošlji zahvalo</string>
   <string name="thank_dialog_negative_button_text">Prekliči</string>
-  <string name="thank_success_message">Uporabniku/ci %s ste poslali zahvalo 👍</string>
+  <string name="thank_success_message">Uporabniku_ci %s ste poslali zahvalo 👍</string>
   <string name="menu_option_view_user_profile">Ogled uporabnikove strani</string>
   <string name="menu_option_view_user_talk">Ogled pogovorne strani</string>
   <string name="menu_option_view_user_contributions">Ogled uporabnikovih prispevkov</string>
