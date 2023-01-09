@@ -345,7 +345,7 @@
   <string name="license_title">Ліцэнзія для %s</string>
   <string name="gallery_menu_share">Падзяліцца</string>
   <string name="gallery_share_error">Не атрымалася падзяліцца відарысам: %s</string>
-  <string name="gallery_save_progress">Спампаванне файлу…</string>
+  <string name="gallery_save_progress">Спампоўванне файла…</string>
   <string name="gallery_save_success">Файл захаваны.</string>
   <string name="gallery_error_video_failed">Немагчыма прайграць відэа.</string>
   <string name="gallery_save_image_write_permission_rationale">Для захавання відарысаў патрабуецца дазвол на запіс у сховішча Вашай прылады.</string>
@@ -435,7 +435,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Наладзьце панэль інструментаў</string>
   <string name="error_blocked_footer_no_blocker">Вы можаце звязацца з &lt;a href=\"https://be.wikipedia.org/wiki/Вікіпедыя: Адміністратары\"&gt;адміністратарам&lt;/a&gt;, каб абмеркаваць блакіроўку.</string>
   <string name="crash_report_activity_title">Памылка праграмы</string>
-  <string name="crash_report_relaunch_or_quit">На жаль, у праграме Вікіпедыі адбылася памылка, і яна была закрыта.\n\nХочаце запусціць яе ізноў або выйсці?</string>
+  <string name="crash_report_relaunch_or_quit">На жаль, у праграме Вікіпедыі адбылася памылка, і яна была закрыта.\n\nХочаце запусціць яе зноў або выйсці?</string>
   <string name="crash_report_relaunch">Перазапусціць</string>
   <string name="crash_report_quit">Выйсці</string>
   <string name="article_menu_bar_save_button">Захаваць</string>
@@ -473,9 +473,9 @@
   <string name="reading_list_create_new">Стварыць новы</string>
   <string name="reading_list_title_exists">Спіс для чытання «%s» ужо існуе.</string>
   <string name="reading_list_article_added_to_named">%1$s дададзены да %2$s.</string>
-  <string name="reading_list_article_added_to_default_list">%s захаваны. Ці вы хочаце дадаць яго ў спіс?</string>
+  <string name="reading_list_article_added_to_default_list">%s захаваны. Ці хочаце вы дадаць яго ў спіс?</string>
   <string name="reading_list_article_moved_to_named">%1$s перамешчаны ў %2$s.</string>
-  <string name="reading_list_article_already_exists_message">Усё добра! %1$s ужо ўтрымлівае %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Усё добра! %1$s ужо змяшчае %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Усё добра! %s ужо ўтрымвае ўсе артыкулы.</string>
   <string name="reading_list_added_view_button">Прагляд спіса</string>
   <string name="reading_list_add_to_list_button">Дадаць у спіс</string>
