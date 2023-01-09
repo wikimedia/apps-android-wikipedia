@@ -101,8 +101,11 @@
   <string name="feed_configure_menu_select_all" fuzzy="true">Харжа массо</string>
   <string name="suggested_edits_edit_description_button">Нисбе хаам</string>
   <string name="suggested_edits_task_multilingual_positive">ТӀетоха меттанаш</string>
+  <string name="suggested_edits_feed_card_title">Кховдийна нисдарш</string>
+  <string name="suggested_edits_label">Кховдийна нисдарш</string>
   <string name="suggested_edits_learn_more">Цул совнаха хаа</string>
   <string name="suggested_edits_ip_blocked_title">IP заблоктоьхна ду</string>
+  <string name="suggested_edits_reactivation_notification_title">Кховдийна нисдарш</string>
   <string name="suggested_edits_contribution_image_label">Сурт</string>
   <string name="app_shortcuts_search">Лахар</string>
   <string name="on_this_day_dialog_next_month">РогӀера бутт</string>
