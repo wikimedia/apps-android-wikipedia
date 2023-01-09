@@ -21,7 +21,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.TabFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTabsBinding
 import org.wikipedia.main.MainActivity
@@ -38,7 +37,6 @@ class TabActivity : BaseActivity() {
     private lateinit var binding: ActivityTabsBinding
     private val app: WikipediaApp = WikipediaApp.instance
     private val tabListener = TabListener()
-    private val funnel = TabFunnel()
     private var launchedFromPageActivity = false
     private var cancelled = true
     private var tabUpdatedTimeMillis: Long = 0
@@ -47,7 +45,6 @@ class TabActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityTabsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        funnel.logEnterList(app.tabCount)
         binding.tabCountsView.updateTabCount(false)
         binding.tabCountsView.setOnClickListener { onBackPressed() }
         FeedbackUtil.setButtonLongPressToast(binding.tabCountsView, binding.tabButtonNotifications)
@@ -131,9 +128,6 @@ class TabActivity : BaseActivity() {
     }
 
     override fun onDestroy() {
-        if (cancelled) {
-            funnel.logCancel(app.tabCount)
-        }
         binding.tabSwitcher.removeListener(tabListener)
         clearFirstTabBitmap()
         super.onDestroy()
@@ -208,7 +202,6 @@ class TabActivity : BaseActivity() {
 
     private fun openNewTab() {
         cancelled = false
-        funnel.logCreateNew(app.tabCount)
         if (launchedFromPageActivity) {
             setResult(RESULT_NEW_TAB)
         } else {
@@ -255,7 +248,6 @@ class TabActivity : BaseActivity() {
                 cancelled = false
                 val tabUpdateDebounceMillis = 250
                 if (System.currentTimeMillis() - tabUpdatedTimeMillis > tabUpdateDebounceMillis) {
-                    funnel.logSelect(app.tabCount, tabIndex)
                     if (launchedFromPageActivity) {
                         setResult(RESULT_LOAD_FROM_BACKSTACK)
                     } else {
@@ -275,7 +267,6 @@ class TabActivity : BaseActivity() {
             if (app.tabList.isNotEmpty() && index < app.tabList.size) {
                 val tabIndex = app.tabList.size - index - 1
                 val appTab = app.tabList.removeAt(tabIndex)
-                funnel.logClose(app.tabCount, tabIndex)
                 binding.tabCountsView.updateTabCount(false)
                 setResult(RESULT_LOAD_FROM_BACKSTACK)
                 showUndoSnackbar(tab, index, appTab, tabIndex)
