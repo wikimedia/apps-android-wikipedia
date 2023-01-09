@@ -22,7 +22,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.IntentFunnel
-import org.wikipedia.analytics.SearchFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.history.HistoryEntry
@@ -55,7 +54,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private var returnLink = false
     private lateinit var recentSearchesFragment: RecentSearchesFragment
     private lateinit var searchResultsFragment: SearchResultsFragment
-    private lateinit var funnel: SearchFunnel
     private lateinit var invokeSource: InvokeSource
     private lateinit var initialLanguageList: String
     var searchLanguageCode = app.languageState.appLanguageCode
@@ -63,7 +61,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private val searchCloseListener = SearchView.OnCloseListener {
         closeSearch()
-        funnel.searchCancel(searchLanguageCode)
         false
     }
 
@@ -107,7 +104,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         query = requireArguments().getString(ARG_QUERY)
         returnLink = requireArguments().getBoolean(SearchActivity.EXTRA_RETURN_LINK, false)
-        funnel = SearchFunnel(app, invokeSource)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -187,12 +183,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.setOnCloseListener(null)
         binding.searchCabView.setOnQueryTextListener(null)
         _binding = null
-        funnel.searchCancel(searchLanguageCode)
         super.onDestroyView()
-    }
-
-    override fun getFunnel(): SearchFunnel {
-        return funnel
     }
 
     override fun switchToSearch(text: String) {
@@ -216,7 +207,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         if (!isAdded) {
             return
         }
-        funnel.searchClick(position, searchLanguageCode)
         if (returnLink) {
             val intent = Intent().putExtra(SearchActivity.EXTRA_RETURN_LINK_TITLE, item)
             requireActivity().setResult(SearchActivity.RESULT_LINK_SUCCESS, intent)
@@ -279,9 +269,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     private fun openSearch() {
-        // create a new funnel every time Search is opened, to get a new session ID
-        funnel = SearchFunnel(app, invokeSource)
-        funnel.searchStart()
         isSearchActive = true
         binding.searchCabView.isIconified = false
         // if we already have a previous search query, then put it into the SearchView, and it will
@@ -358,8 +345,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         } else {
             // We need a temporary language code holder because the previously selected search language code[searchLanguageCode]
             // gets overwritten when UI is re-drawn
-            funnel.searchLanguageSwitch((if (!tempLangCodeHolder.isNullOrEmpty() && tempLangCodeHolder != selectedLanguageCode)
-                tempLangCodeHolder else searchLanguageCode)!!, selectedLanguageCode)
             tempLangCodeHolder = null
         }
         searchLanguageCode = selectedLanguageCode
