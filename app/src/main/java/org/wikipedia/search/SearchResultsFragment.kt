@@ -235,7 +235,7 @@ class SearchResultsFragment : Fragment() {
                     HistoryEntry.SOURCE_SEARCH, SearchResultsFragmentLongPressHandler(position), pageTitle))
         }
     }
-    
+
     private fun callback(): Callback? {
         return getCallback(this, Callback::class.java)
     }
