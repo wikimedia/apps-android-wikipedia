@@ -15,7 +15,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
-import org.wikipedia.analytics.FeedFunnel
 import org.wikipedia.databinding.FragmentFeedBinding
 import org.wikipedia.feed.FeedCoordinatorBase.FeedUpdateListener
 import org.wikipedia.feed.configure.ConfigureActivity
@@ -52,7 +51,6 @@ class FeedFragment : Fragment(), BackPressedHandler {
     private val callback get() = getCallback(this, Callback::class.java)
     private var app: WikipediaApp = WikipediaApp.instance
     private var coordinator: FeedCoordinator = FeedCoordinator(app)
-    private var funnel: FeedFunnel = FeedFunnel(app)
     private var shouldElevateToolbar = false
 
     interface Callback {
@@ -149,16 +147,10 @@ class FeedFragment : Fragment(), BackPressedHandler {
     override fun onResume() {
         super.onResume()
         showRemoveChineseVariantPrompt()
-        funnel.enter()
 
         // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
         // on certain devices. (TODO: investigate further)
         feedAdapter.notifyDataSetChanged()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        funnel.exit()
     }
 
     override fun onDestroyView() {
@@ -200,7 +192,6 @@ class FeedFragment : Fragment(), BackPressedHandler {
     }
 
     fun refresh() {
-        funnel.refresh(coordinator.age)
         binding.emptyContainer.visibility = View.GONE
         coordinator.reset()
         feedAdapter.notifyDataSetChanged()
@@ -212,14 +203,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
     }
 
     private inner class FeedCallback : FeedAdapter.Callback {
-        override fun onShowCard(card: Card?) {
-            card?.let {
-                funnel.cardShown(it.type(), getCardLanguageCode(it))
-            }
-        }
-
         override fun onRequestMore() {
-            funnel.requestMore(coordinator.age)
             binding.feedView.post {
                 if (isAdded) {
                     coordinator.incrementAge()
@@ -237,17 +221,11 @@ class FeedFragment : Fragment(), BackPressedHandler {
         }
 
         override fun onSelectPage(card: Card, entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
-            callback?.let {
-                it.onFeedSelectPage(entry, openInNewBackgroundTab)
-                funnel.cardClicked(card.type(), getCardLanguageCode(card))
-            }
+            callback?.onFeedSelectPage(entry, openInNewBackgroundTab)
         }
 
         override fun onSelectPage(card: Card, entry: HistoryEntry, sharedElements: Array<Pair<View, String>>) {
-            callback?.let {
-                it.onFeedSelectPageWithAnimation(entry, sharedElements)
-                funnel.cardClicked(card.type(), getCardLanguageCode(card))
-            }
+            callback?.onFeedSelectPageWithAnimation(entry, sharedElements)
         }
 
         override fun onAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
@@ -271,7 +249,6 @@ class FeedFragment : Fragment(), BackPressedHandler {
             if (position < 0) {
                 return false
             }
-            funnel.dismissCard(card.type(), position)
             showDismissCardUndoSnackbar(card, position)
             return true
         }
@@ -285,10 +262,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
         }
 
         override fun onNewsItemSelected(card: NewsCard, view: NewsItemView) {
-            callback?.let {
-                it.onFeedNewsItemSelected(card, view)
-                funnel.cardClicked(card.type(), card.wikiSite().languageCode)
-            }
+            callback?.onFeedNewsItemSelected(card, view)
         }
 
         override fun onShareImage(card: FeaturedImageCard) {
@@ -300,14 +274,10 @@ class FeedFragment : Fragment(), BackPressedHandler {
         }
 
         override fun onFeaturedImageSelected(card: FeaturedImageCard) {
-            callback?.let {
-                it.onFeaturedImageSelected(card)
-                funnel.cardClicked(card.type(), null)
-            }
+            callback?.onFeaturedImageSelected(card)
         }
 
         override fun onAnnouncementPositiveAction(card: Card, uri: Uri) {
-            funnel.cardClicked(card.type(), getCardLanguageCode(card))
             when {
                 uri.toString() == UriUtil.LOCAL_URL_LOGIN -> callback?.onLoginRequested()
                 uri.toString() == UriUtil.LOCAL_URL_SETTINGS -> requestLanguageChangeLauncher.launch(SettingsActivity.newIntent(requireContext()))
