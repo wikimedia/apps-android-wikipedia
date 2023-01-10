@@ -7,21 +7,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentWatchlistBinding
-import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
@@ -34,7 +29,6 @@ import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.NotificationButtonView
 import java.util.*
 
@@ -43,11 +37,11 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     private var _binding: FragmentWatchlistBinding? = null
 
     private lateinit var notificationButtonView: NotificationButtonView
+    private val viewModel: WatchlistViewModel by viewModels()
     private val binding get() = _binding!!
     private val disposables = CompositeDisposable()
     private val totalItems = ArrayList<MwQueryResult.WatchlistItem>()
     private var filterMode = FILTER_MODE_ALL
-    private var displayLanguages = listOf<String>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -128,7 +122,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     private fun updateDisplayLanguages() {
-        displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
+        viewModel.displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
     }
 
     private fun fetchWatchlist(refreshing: Boolean) {
@@ -141,7 +135,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
             return
         }
 
-        if (displayLanguages.isEmpty()) {
+        if (viewModel.displayLanguages.isEmpty()) {
             binding.watchlistEmptyContainer.visibility = View.VISIBLE
             binding.watchlistProgressBar.visibility = View.GONE
             return
@@ -150,34 +144,34 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         if (!refreshing) {
             binding.watchlistProgressBar.visibility = View.VISIBLE
         }
-
-        val calls = displayLanguages.map {
-            ServiceFactory.get(WikiSite.forLanguageCode(it)).watchlist.subscribeOn(Schedulers.io())
-        }
-
-        disposables.add(Observable.zip(calls) { resultList ->
-                    val items = ArrayList<MwQueryResult.WatchlistItem>()
-                    resultList.forEachIndexed { index, result ->
-                        val wiki = WikiSite.forLanguageCode(displayLanguages[index])
-                        (result as MwQueryResponse).query?.watchlist?.forEach { item ->
-                            item.wiki = wiki
-                            items.add(item)
-                        }
-                    }
-                    items
-                }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate {
-                    binding.watchlistRefreshView.isRefreshing = false
-                    binding.watchlistProgressBar.visibility = View.GONE
-                }
-                .subscribe({ items ->
-                    onSuccess(items)
-                }, { t ->
-                    L.e(t)
-                    onError(t)
-                }))
+//
+//        val calls = displayLanguages.map {
+//            ServiceFactory.get(WikiSite.forLanguageCode(it)).watchlist.subscribeOn(Schedulers.io())
+//        }
+//
+//        disposables.add(Observable.zip(calls) { resultList ->
+//                    val items = ArrayList<MwQueryResult.WatchlistItem>()
+//                    resultList.forEachIndexed { index, result ->
+//                        val wiki = WikiSite.forLanguageCode(displayLanguages[index])
+//                        (result as MwQueryResponse).query?.watchlist?.forEach { item ->
+//                            item.wiki = wiki
+//                            items.add(item)
+//                        }
+//                    }
+//                    items
+//                }
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .doAfterTerminate {
+//                    binding.watchlistRefreshView.isRefreshing = false
+//                    binding.watchlistProgressBar.visibility = View.GONE
+//                }
+//                .subscribe({ items ->
+//                    onSuccess(items)
+//                }, { t ->
+//                    L.e(t)
+//                    onError(t)
+//                }))
     }
 
     private fun onSuccess(watchlistItems: List<MwQueryResult.WatchlistItem>) {
