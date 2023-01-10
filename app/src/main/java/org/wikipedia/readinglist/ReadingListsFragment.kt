@@ -197,7 +197,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             filePickerLauncher.launch(filePickerIntent)
         }
 
-        override fun editList() {
+        override fun selectListClick() {
             beginMultiSelect()
             updateSelectActionModeTitleAndAlpha()
             adapter.notifyDataSetChanged()

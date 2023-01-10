@@ -23,7 +23,7 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
         fun sortByClick()
         fun createNewListClick()
         fun importNewList()
-        fun editList()
+        fun selectListClick()
         fun refreshClick()
     }
 
@@ -47,7 +47,7 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
         }
         binding.readingListsOverflowEdit.setOnClickListener {
             dismissPopupWindowHost()
-            callback?.editList()
+            callback?.selectListClick()
         }
         binding.readingListsOverflowRefresh.setOnClickListener {
             dismissPopupWindowHost()

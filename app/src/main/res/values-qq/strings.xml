@@ -1310,7 +1310,6 @@
     <item quantity="one">User message when import of single reading list has been successful.</item>
     <item quantity="other">User message when import of multiple reading lists has been successful.</item>
   </plurals>
-  <string name="reading_lists_menu_edit">Label text for editing reading lists menu option.</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Delete action button text in warning pop-up dialog for deleteing multiple reading lists.</string>
   <string name="reading_list_delete_lists_confirm_dialog_title">Confirmation dialog title shown to user while deleting multiple reading lists.</string>
   <plurals name="reading_list_delete_lists_confirm_dialog_message">

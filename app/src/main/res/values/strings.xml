@@ -585,7 +585,6 @@
     <string name="reading_lists_limit_message">Can\'t create another list. You\'ve reached the limit of 100 reading lists per account.</string>
     <string name="reading_lists_menu_create_list">Create new list</string>
     <string name="reading_lists_menu_import_list">Import list</string>
-    <string name="reading_lists_menu_edit">Edit</string>
     <string name="reading_lists_menu_sort_by">Sort by</string>
     <string name="reading_lists_refresh_sync_option">Refresh sync</string>
     <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Log in / sign up</string>
