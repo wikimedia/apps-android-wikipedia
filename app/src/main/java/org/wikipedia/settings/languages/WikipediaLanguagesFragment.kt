@@ -19,7 +19,6 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.AppLanguageSettingsFunnel
 import org.wikipedia.databinding.FragmentWikipediaLanguagesBinding
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.language.LanguagesListActivity
@@ -37,7 +36,6 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
     private lateinit var adapter: WikipediaLanguageItemAdapter
     private lateinit var invokeSource: InvokeSource
     private lateinit var initialLanguageList: String
-    private lateinit var funnel: AppLanguageSettingsFunnel
     private var app: WikipediaApp = WikipediaApp.instance
     private val wikipediaLanguages = mutableListOf<String>()
     private val selectedCodes = mutableListOf<String>()
@@ -50,7 +48,6 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
         _binding = FragmentWikipediaLanguagesBinding.inflate(inflater, container, false)
         invokeSource = requireActivity().intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         initialLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty()
-        funnel = AppLanguageSettingsFunnel()
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         prepareWikipediaLanguagesList()
         setupRecyclerView()
@@ -72,7 +69,6 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
     }
 
     override fun onDestroyView() {
-        funnel.logLanguageSetting(invokeSource, initialLanguageList, JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty(), interactionsCount, isLanguageSearched)
         binding.wikipediaLanguagesRecycler.adapter = null
         _binding = null
         super.onDestroyView()
@@ -196,7 +192,6 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
                 holder.view.visibility = if (checkboxEnabled) View.GONE else View.VISIBLE
                 holder.view.setOnClickListener {
                     Intent(requireActivity(), LanguagesListActivity::class.java).let {
-                        it.putExtra(SESSION_TOKEN, funnel.sessionToken)
                         startActivityForResult(it, Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
                         actionMode?.finish()
                     }
