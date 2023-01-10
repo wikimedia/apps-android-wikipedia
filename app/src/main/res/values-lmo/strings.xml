@@ -68,7 +68,7 @@
   <string name="menu_page_find_in_page">Troeuva in la vos</string>
   <string name="menu_page_add_to_watchlist">Sgionta a la lista di pagine che te tegnet d\'oeugg</string>
   <string name="menu_page_watch">Ten d\'oeugg</string>
-  <string name="menu_page_unwatch">Ten pù d\'oeugg</string>
+  <string name="menu_page_unwatch">Ten pu d\'oeugg</string>
   <string name="menu_page_view_talk">Varda la pagina de discussion</string>
   <string name="menu_page_talk_page">Pagina de discussion</string>
   <string name="menu_page_view_edit_history">Varda la storia di modifeghe</string>
@@ -350,7 +350,7 @@
   <string name="notifications_wiki_filter_header">Wiki-filter</string>
   <string name="feed_accessibility_card_load_more_button">Careghen an\'mò</string>
   <string name="tabs_activity_title">Schede</string>
-  <string name="suggested_edits_my_contributions">I me contrbuzzion</string>
+  <string name="suggested_edits_my_contributions">I mè contrbuzzion</string>
   <string name="file_page_edit_button_content_description">Modifega %s</string>
   <string name="talk_search_hint">Cerca di messagg</string>
   <string name="talk_overflow_sort_by">Ordina perː</string>

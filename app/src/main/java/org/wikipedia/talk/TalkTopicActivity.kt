@@ -48,7 +48,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val viewModel: TalkTopicViewModel by viewModels { TalkTopicViewModel.Factory(intent.extras!!) }
     private val threadAdapter = TalkReplyItemAdapter()
     private val headerAdapter = HeaderItemAdapter()
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
 
@@ -380,7 +379,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onUserNameClick(item: ThreadItem, view: View) {
-            UserTalkPopupHelper.show(this@TalkTopicActivity, bottomSheetPresenter,
+            UserTalkPopupHelper.show(this@TalkTopicActivity,
                     PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), item.author, viewModel.pageTitle.wikiSite),
                     !AccountUtil.isLoggedIn, view, Constants.InvokeSource.TALK_TOPIC_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
         }
@@ -425,7 +424,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onInternalLinkClicked(title: PageTitle) {
-            UserTalkPopupHelper.show(this@TalkTopicActivity, bottomSheetPresenter, title, false, lastX, lastY,
+            UserTalkPopupHelper.show(this@TalkTopicActivity, title, false, lastX, lastY,
                     Constants.InvokeSource.TALK_TOPICS_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
         }
     }
@@ -456,7 +455,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
-        bottomSheetPresenter.show(supportFragmentManager,
+        ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                 AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_TOPIC_ACTIVITY))
     }
 

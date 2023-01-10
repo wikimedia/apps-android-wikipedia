@@ -205,10 +205,10 @@ class SmokeTests {
         TestUtil.delay(2)
 
         // Bring up the theme chooser dialog
-        onView(withId(R.id.article_menu_font_and_theme))
+        onView(withId(R.id.page_theme))
                 .perform(click())
 
-        TestUtil.delay(1)
+        TestUtil.delay(2)
 
         // Switch off the "match system theme" option
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
@@ -236,7 +236,7 @@ class SmokeTests {
                 .check(matches(TestUtil.hasBackgroundColor(Color.BLACK)))
 
         // Go back to the Light theme
-        onView(withId(R.id.article_menu_font_and_theme))
+        onView(withId(R.id.page_theme))
                 .perform(click())
 
         TestUtil.delay(1)
@@ -258,40 +258,81 @@ class SmokeTests {
         onView(allOf(withId(R.id.title), withText("Edit introduction"), isDisplayed()))
                 .perform(click())
 
+        TestUtil.delay(3)
+
+        // Click on the fonts and theme icon
+        onView(allOf(withId(R.id.menu_edit_theme), isDisplayed()))
+            .perform(click())
+
         TestUtil.delay(2)
 
-        // Increase text size
-        onView(allOf(withId(R.id.menu_edit_zoom_in), isDisplayed()))
-                .perform(click())
+        // Increase text size by clicking on increase text icon
+        onView(allOf(withId(R.id.buttonIncreaseTextSize)))
+            .perform(scrollTo(), click())
 
-        TestUtil.delay(1)
+        TestUtil.delay(2)
 
-        // Decrease text size
-        onView(allOf(withId(R.id.menu_edit_zoom_out), isDisplayed()))
-                .perform(click())
+        onView(allOf(withId(R.id.buttonIncreaseTextSize)))
+            .perform(scrollTo(), click())
 
-        TestUtil.delay(1)
+        TestUtil.delay(2)
+
+        // Exit bottom sheet
+        pressBack()
+
+        TestUtil.delay(4)
+
+        onView(allOf(withId(R.id.menu_edit_theme), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(3)
+
+        // Decrease text size by clicking on decrease text icon
+        onView(allOf(withId(R.id.buttonDecreaseTextSize)))
+            .perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.buttonDecreaseTextSize)))
+            .perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
+        // Exit bottom sheet
+        pressBack()
+
+        TestUtil.delay(3)
 
         // Type in some stuff into the edit window
         onView(allOf(withId(R.id.edit_section_text)))
                 .perform(replaceText("abc"))
 
-        TestUtil.delay(1)
+        TestUtil.delay(3)
 
         // Proceed to edit preview
         onView(allOf(withId(R.id.edit_actionbar_button_text), isDisplayed()))
                 .perform(click())
 
         // Give sufficient time for the API to load the preview
-        TestUtil.delay(5)
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.edit_actionbar_button_text), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(3)
 
         // Click one of the default edit summary choices
         onView(allOf(withText("Fixed typo")))
                 .perform(scrollTo(), click())
 
-        TestUtil.delay(1)
+        TestUtil.delay(3)
 
         // Go back out of the editing workflow
+        onView(allOf(withContentDescription("Navigate up"), isDisplayed()))
+                .perform(click())
+
+        TestUtil.delay(1)
+
         onView(allOf(withContentDescription("Navigate up"), isDisplayed()))
                 .perform(click())
 
@@ -316,7 +357,7 @@ class SmokeTests {
         onView(allOf(withId(android.R.id.button1), withText("Yes")))
                 .perform(scrollTo(), click())
 
-        TestUtil.delay(1)
+        TestUtil.delay(2)
 
         // Click on the Tabs button to launch the tabs screen
         onView(allOf(withId(R.id.page_toolbar_button_tabs), isDisplayed()))
@@ -375,10 +416,6 @@ class SmokeTests {
 
         TestUtil.delay(4)
 
-        // Click on the second topic of the talk page
-        onView(allOf(withId(R.id.topicTitleText), withText(TALK_TOPIC_TITLE), isDisplayed()))
-            .check(matches(withText(TALK_TOPIC_TITLE)))
-
         // Click on the 3rd topic
         onView(withId(R.id.talkRecyclerView))
             .perform(actionOnItemAtPosition<ViewHolder>(2, click()))
@@ -387,6 +424,9 @@ class SmokeTests {
         TestUtil.delay(5)
 
         // Go back out of the Talk interface
+        pressBack()
+
+        // Get back to article screen
         pressBack()
 
         if (AccountUtil.isLoggedIn) {
@@ -413,14 +453,10 @@ class SmokeTests {
             pressBack()
         }
 
-        // Go back out of the article page
-        pressBack()
-
         TestUtil.delay(1)
 
-        // TODO: update the following actions when the customizable toolbar feature is released
         // Click on the Save button to add article to reading list
-        onView(withId(R.id.article_menu_bookmark)).perform(click())
+        onView(withId(R.id.page_save)).perform(click())
 
         TestUtil.delay(1)
 
@@ -464,7 +500,7 @@ class SmokeTests {
         TestUtil.delay(5)
 
         // Click on bookmark icon and open the menu
-        onView(withId(R.id.article_menu_bookmark)).perform(click())
+        onView(withId(R.id.page_save)).perform(click())
 
         TestUtil.delay(2)
 
@@ -482,6 +518,5 @@ class SmokeTests {
     companion object {
         private val SEARCH_TERM = "hopf fibration"
         private val ARTICLE_TITLE = "Hopf fibration"
-        private val TALK_TOPIC_TITLE = "natural metric?"
     }
 }

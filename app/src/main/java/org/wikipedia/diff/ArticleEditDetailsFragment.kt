@@ -51,7 +51,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private var isWatched = false
     private var hasWatchlistExpiry = false
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     private val viewModel: ArticleEditDetailsViewModel by viewModels { ArticleEditDetailsViewModel.Factory(requireArguments()) }
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
@@ -213,7 +212,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (viewModel.pageTitle.namespace() == Namespace.USER_TALK || viewModel.pageTitle.namespace() == Namespace.TALK) {
                 startActivity(TalkTopicsActivity.newIntent(requireContext(), viewModel.pageTitle, InvokeSource.DIFF_ACTIVITY))
             } else {
-                bottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(
+                ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(
                         HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS), null))
             }
         }
@@ -292,7 +291,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun showUserPopupMenu(revision: Revision?, anchorView: View) {
         revision?.let {
-            UserTalkPopupHelper.show(requireActivity() as AppCompatActivity, bottomSheetPresenter,
+            UserTalkPopupHelper.show(requireActivity() as AppCompatActivity,
                     PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode),
                             it.user, viewModel.pageTitle.wikiSite), it.isAnon, anchorView,
                     InvokeSource.DIFF_ACTIVITY, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS)
@@ -404,7 +403,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (!viewModel.watchlistExpiryChanged) {
                 snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
                     viewModel.watchlistExpiryChanged = true
-                    bottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
+                    ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
                 }
             }
             snackbar.show()
@@ -465,7 +464,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     override fun onExpirySelect(expiry: WatchlistExpiry) {
         viewModel.watchOrUnwatch(isWatched, expiry, false)
-        bottomSheetPresenter.dismiss(childFragmentManager)
+        ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
     }
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
@@ -481,7 +480,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
     }
 

@@ -16,7 +16,7 @@ public class GeoIPCookieUnmarshallerTest {
     private static final double LONGITUDE = -121.89;
 
     @Test public void testGeoIPWithLocation() {
-        GeoIPCookie cookie = GeoIPCookieUnmarshaller.unmarshal("US:California:San Francisco:" + LATITUDE + ":" + LONGITUDE + ":v4");
+        GeoIPCookie cookie = GeoIPCookieUnmarshaller.INSTANCE.unmarshal("US:California:San Francisco:" + LATITUDE + ":" + LONGITUDE + ":v4");
         assertThat(cookie.country(), is("US"));
         assertThat(cookie.region(), is("California"));
         assertThat(cookie.city(), is("San Francisco"));
@@ -26,7 +26,7 @@ public class GeoIPCookieUnmarshallerTest {
     }
 
     @Test public void testGeoIPWithoutLocation() {
-        GeoIPCookie cookie = GeoIPCookieUnmarshaller.unmarshal("FR::Paris:::v4");
+        GeoIPCookie cookie = GeoIPCookieUnmarshaller.INSTANCE.unmarshal("FR::Paris:::v4");
         assertThat(cookie.country(), is("FR"));
         assertThat(cookie.region(), is(""));
         assertThat(cookie.city(), is("Paris"));
@@ -34,7 +34,7 @@ public class GeoIPCookieUnmarshallerTest {
     }
 
     @Test public void testGeoIPEmpty() {
-        GeoIPCookie cookie = GeoIPCookieUnmarshaller.unmarshal(":::::v4");
+        GeoIPCookie cookie = GeoIPCookieUnmarshaller.INSTANCE.unmarshal(":::::v4");
         assertThat(cookie.country(), is(""));
         assertThat(cookie.region(), is(""));
         assertThat(cookie.city(), is(""));
@@ -43,21 +43,21 @@ public class GeoIPCookieUnmarshallerTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testGeoIPWrongVersion() {
-        GeoIPCookieUnmarshaller.unmarshal("RU::Moscow:1:2:v5");
+        GeoIPCookieUnmarshaller.INSTANCE.unmarshal("RU::Moscow:1:2:v5");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testGeoIPWrongParamCount() {
-        GeoIPCookieUnmarshaller.unmarshal("CA:Toronto:v4");
+        GeoIPCookieUnmarshaller.INSTANCE.unmarshal("CA:Toronto:v4");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testGeoIPMalformed() {
-        GeoIPCookieUnmarshaller.unmarshal("foo");
+        GeoIPCookieUnmarshaller.INSTANCE.unmarshal("foo");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testGeoIPWithBadLocation() {
-        GeoIPCookieUnmarshaller.unmarshal("US:California:San Francisco:foo:bar:v4");
+        GeoIPCookieUnmarshaller.INSTANCE.unmarshal("US:California:San Francisco:foo:bar:v4");
     }
 }

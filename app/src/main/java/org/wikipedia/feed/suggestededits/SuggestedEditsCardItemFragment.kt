@@ -11,13 +11,10 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource.FEED
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.FeedFunnel
-import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsCardItemBinding
@@ -28,7 +25,6 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
 import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
-import org.wikipedia.feed.model.CardType
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
@@ -55,7 +51,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private var targetSummaryForEdit: PageSummaryForEdit? = null
     private var imageTagPage: MwQueryPage? = null
     private var itemClickable = false
-    private var funnel = FeedFunnel(app)
     private var previousImageTagPage: MwQueryPage? = null
     private var previousSourceSummaryForEdit: PageSummaryForEdit? = null
 
@@ -74,7 +69,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                     }
                     val pageTitle = previousSourceSummaryForEdit!!.pageTitle
                     if (cardActionType === ADD_CAPTION || cardActionType === TRANSLATE_CAPTION) {
-                        startActivity(GalleryActivity.newIntent(requireActivity(), pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
+                        startActivity(GalleryActivity.newIntent(requireActivity(), pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0, GalleryActivity.SOURCE_NON_LEAD_IMAGE))
                     } else {
                         startActivity(PageActivity.newIntentForNewTab(requireContext(), HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle))
                     }
@@ -125,7 +120,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
 
     private fun startDescriptionEditScreenListener() = View.OnClickListener {
         if (itemClickable) {
-            funnel.cardClicked(CardType.SUGGESTED_EDITS, if (targetLanguage != null && targetLanguage.equals(langFromCode)) langFromCode else targetLanguage)
             startDescriptionEditScreen()
         }
     }
@@ -205,7 +199,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
         binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_caption)
         binding.viewArticleTitle.visibility = GONE
         binding.viewArticleExtract.visibility = VISIBLE
-        binding.viewArticleExtract.text = StringUtil.removeNamespace(StringUtils.defaultString(sourceSummaryForEdit?.displayTitle))
+        binding.viewArticleExtract.text = StringUtil.removeNamespace(sourceSummaryForEdit?.displayTitle.orEmpty())
         showItemImage()
     }
 

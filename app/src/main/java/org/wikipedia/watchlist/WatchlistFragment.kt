@@ -17,7 +17,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentWatchlistBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -27,7 +26,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationActivity
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -50,8 +48,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     private val totalItems = ArrayList<MwQueryResult.WatchlistItem>()
     private var filterMode = FILTER_MODE_ALL
     private var displayLanguages = listOf<String>()
-    private val funnel = WatchlistFunnel()
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -75,8 +71,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         notificationButtonView = NotificationButtonView(requireActivity())
         updateDisplayLanguages()
         fetchWatchlist(false)
-
-        funnel.logOpenWatchlist()
     }
 
     override fun onDestroyView() {
@@ -326,7 +320,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
     override fun onLanguageChanged() {
         updateDisplayLanguages()
-        funnel.logChangeLanguage(displayLanguages)
         fetchWatchlist(false)
     }
 
@@ -339,7 +332,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     override fun onUserClick(item: MwQueryResult.WatchlistItem, view: View) {
-        UserTalkPopupHelper.show(requireActivity() as AppCompatActivity, bottomSheetPresenter,
+        UserTalkPopupHelper.show(requireActivity() as AppCompatActivity,
                 PageTitle(UserAliasData.valueFor(item.wiki!!.languageCode), item.user, item.wiki!!),
             item.isAnon, view, Constants.InvokeSource.WATCHLIST_ACTIVITY, HistoryEntry.SOURCE_WATCHLIST, revisionId = item.revid, pageId = item.pageId)
     }

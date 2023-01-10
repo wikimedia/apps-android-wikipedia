@@ -29,7 +29,7 @@
   <string name="error_network_error">Ji înternetê re nikare bê girêdan.</string>
   <string name="page_error_retry">Dîsa hewl bide</string>
   <string name="card_offline_error_retry">Dîsa hewl bide</string>
-  <string name="storage_access_error_retry">Dîsa bicerribîne</string>
+  <string name="storage_access_error_retry">Dîsa biceribîne</string>
   <string name="article_load_error_retry">Dîsa hewl bide</string>
   <string name="offline_load_error_retry">Dîsa hewl bide</string>
   <string name="page_error_back_to_main">Vegere</string>
@@ -56,7 +56,7 @@
   <string name="search_redirect_from">Ji %s hate beralîkirin</string>
   <string name="page_edit_history_activity_title">Dîroka guhartoyê: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;b&lt;/b&gt; %s</string>
-  <string name="page_edit_history_comment_placeholder">Kurteya guhertina vala</string>
+  <string name="page_edit_history_comment_placeholder">Kurteya guhartina vala</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Li guhartinan bigere yan guhartinan parzûn bike</string>
   <string name="page_edit_history_filter_by">Biparzîne bi</string>
   <string name="page_edit_history_filter_by_all">Temamê guhartinan (%s)</string>
@@ -573,7 +573,7 @@
   <string name="reading_list_split_dialog_ok_button_text">Baş e</string>
   <string name="reading_list_activity_title">Lîsta xwendinê: %s</string>
   <string name="user_option_sync_label">Tercîhên min</string>
-  <string name="notification_reverted_title">Guhertina zivirandî</string>
+  <string name="notification_reverted_title">Guhartina vegerandî</string>
   <string name="notification_channel_title">Gotaran dadixîne</string>
   <string name="notification_channel_description">Proseya daxistinê</string>
   <string name="notification_syncing_pause_button">Rawestîne</string>
@@ -660,14 +660,14 @@
   <string name="preference_summary_notification_user_talk">Peyam û cewabên ji rûpelên gotûbêjan</string>
   <string name="preference_title_notification_email_user">Agahdariya wergirtina emaîlê</string>
   <string name="preference_summary_notification_email_user">Yekî bi riya wîkiyê epeyamekê şande te</string>
-  <string name="preference_title_notification_user_rights">Guhertina mafên bikarhênerî/ê</string>
+  <string name="preference_title_notification_user_rights">Guhartina mafên bikarhênerî/ê</string>
   <string name="preference_summary_notification_user_rights">Gava mafên te yên bikarhêneriyê were guhartin tê wergirtin</string>
   <string name="preference_title_notification_article_linked">Lînkên li gotarên te çêkiriye</string>
   <string name="preference_summary_notification_article_linked">Gava lînkeke nû li gotara te çêkiriye were çêkirin tê wergirtin</string>
   <string name="preference_category_push_notifications">Agahdariyên yekser</string>
   <string name="preference_title_customize_push_notifications">Agahdariyên yekser bike xisûsî</string>
   <string name="preference_category_display_settings">Mîhengên nîşandanê</string>
-  <string name="preference_title_hide_read_notifications">Agahdariyên xwendî biveşêre</string>
+  <string name="preference_title_hide_read_notifications">Agahdariyên xwendî veşêre</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wîkîpediya</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Agahdariyên ji Wîkîpediyayê</string>
   <string name="notifications_channel_group_other_title">Yên din</string>
@@ -711,7 +711,7 @@
   <string name="view_featured_image_card_title">Wêneyê rojê</string>
   <string name="view_featured_image_card_download">Daxe</string>
   <string name="view_featured_image_card_share">Parve bike</string>
-  <string name="menu_feed_card_dismiss">Vê kartê biveşêre</string>
+  <string name="menu_feed_card_dismiss">Vê kartê veşêre</string>
   <string name="menu_feed_card_dismissed">Kart hate veşartin.</string>
   <string name="menu_feed_card_edit_card_languages">Zimanên kartê sererast bike</string>
   <string name="menu_feed_overflow_label">Zêdetir opsiyon</string>
@@ -733,7 +733,7 @@
   <string name="feed_configure_activity_title">Kanal xisûsî bike</string>
   <string name="feed_configure_menu_reset">Xuyabûna standard dîsa bîne</string>
   <string name="feed_configure_menu_select_all">Hemûyan nîşan bide</string>
-  <string name="feed_configure_menu_deselect_all">Temamê wan biveşêre</string>
+  <string name="feed_configure_menu_deselect_all">Temamê wan veşêre</string>
   <string name="feed_configure_language_warning">Ji bîr neke ku temamê çeşîdên kartan li ser hemû zimanên Wîkîpediyayê tine ne. Zimanê xwe yê bijartî ji Mîhengan biguhêre.</string>
   <string name="feed_item_type_news">Gotarên di derbarê çalakiyên rojane de</string>
   <string name="feed_item_type_on_this_day">Bûyerên dî dîrokê de îro</string>
@@ -921,6 +921,7 @@
     <item quantity="one">Bila zimanê bijartî jê were rakirin?</item>
     <item quantity="other">Bila zimanên bijartî jê werin rakirin?</item>
   </plurals>
+  <string name="more_language_options">bêhtir</string>
   <string name="wikitext_reference">Çavkanî</string>
   <string name="main_tooltip_text_v2">Te zanibû ku her kes dikare li ser Wîkîpediyayê sererastkirinan bike?</string>
   <string name="main_tooltip_watchlist_title">Lîsteya şopandinê</string>
