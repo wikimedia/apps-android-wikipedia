@@ -158,8 +158,9 @@ class SearchResultsViewModel : ViewModel() {
             }
             WikipediaApp.instance.tabList.forEach { tab ->
                 tab.backStackPositionTitle?.let {
-                    if (StringUtil.fromHtml(it.displayText).toString().lowercase(Locale.getDefault()).contains(searchTerm.lowercase(
-                            Locale.getDefault()))) {
+                    if (StringUtil.fromHtml(it.displayText).toString()
+                            .lowercase(Locale.getDefault())
+                            .contains(searchTerm.lowercase(Locale.getDefault()))) {
                         resultList.add(SearchResult(it, SearchResult.SearchResultType.TAB_LIST))
                         return
                     }
