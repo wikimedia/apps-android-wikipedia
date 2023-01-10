@@ -35,7 +35,6 @@ class TopReadFragment : Fragment() {
 
     private var _binding: FragmentMostReadBinding? = null
     private val binding get() = _binding!!
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val viewModel: TopReadViewModel by viewModels { TopReadViewModel.Factory(requireActivity().intent.extras!!) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -104,13 +103,13 @@ class TopReadFragment : Fragment() {
                 ReadingListBehaviorsUtil.addToDefaultList(requireActivity(),
                     entry.title, InvokeSource.MOST_READ_ACTIVITY) { readingListId -> onMovePageToList(readingListId, entry) }
             } else {
-                bottomSheetPresenter.show(childFragmentManager,
+                ExclusiveBottomSheetPresenter.show(childFragmentManager,
                     AddToReadingListDialog.newInstance(entry.title, InvokeSource.MOST_READ_ACTIVITY))
             }
         }
 
         override fun onMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-            bottomSheetPresenter.show(childFragmentManager,
+            ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 MoveToReadingListDialog.newInstance(sourceReadingListId, entry.title, InvokeSource.MOST_READ_ACTIVITY))
         }
     }

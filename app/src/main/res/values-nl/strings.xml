@@ -12,6 +12,7 @@
 * Festina90
 * Goefie
 * Jeroen N
+* Jillids
 * Klaas van Buiten
 * KlaasZ4usV
 * Mainframe98
@@ -1154,6 +1155,8 @@
   <string name="talk_new_topic">Nieuw onderwerp</string>
   <string name="talk_new_topic_submitted">Onderwerp geplaatst.</string>
   <string name="talk_page_empty">Deze overlegpagina is leeg.</string>
+  <string name="talk_page_empty_title">Het overleg begint hier</string>
+  <string name="talk_page_empty_content">Op overlegpagina\'s wordt besproken hoe de inhoud van Wikipedia zo goed mogelijk kan worden gemaakt. Voeg een een nieuw gespreksonderwerp toe om in contact te komen en samen te werken met een gemeenschap van Wikipedianen.</string>
   <string name="talk_add_reply">Reageren</string>
   <string name="talk_no_subject">(Geen onderwerp)</string>
   <string name="talk_reply_subject">Onderwerp</string>
@@ -1176,6 +1179,8 @@
   <string name="talk_overflow_sort_date_published">Publicatiedatum</string>
   <string name="talk_overflow_sort_date_updated">Bijgewerkt op</string>
   <string name="talk_overflow_sort_topic_name">Onderwerpsnaam</string>
+  <string name="talk_new_topic_exit_dialog_title">Weet u zeker dat u wilt sluiten?</string>
+  <string name="talk_new_topic_exit_dialog_message">Het onderwerp en de inhoudstekst worden niet opgeslagen.</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Antwoord tonen</item>
     <item quantity="other">Antwoorden tonen (%d)</item>
@@ -1283,9 +1288,23 @@
   <string name="archive_empty">Geen gearchiveerde pagina\'s gevonden.</string>
   <string name="user_contrib_filter_ns">Filteren op naamruimte</string>
   <string name="user_contrib_filter_all">Alle naamruimten</string>
+  <string name="user_contrib_filter_ns_header">Naamruimte filter</string>
   <string name="namespace_article">Artikel</string>
   <string name="user_contrib_current">huidige versie</string>
   <string name="media_playback_error">Fout bij het afspelen van media.</string>
   <string name="user_contrib_menu_label">Bijdragen</string>
   <string name="user_contrib_filter_activity_title">Bijdragen filteren</string>
+  <string name="shareable_reading_lists_import_dialog_title">Importeer gedeelde leeslijst</string>
+  <string name="shareable_reading_lists_import_dialog_content">Hoe zou je de lijst willen noemen die met je is gedeeld?</string>
+  <string name="shareable_reading_lists_new_indicator">*nieuw*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Er is een leeslijst met u gedeeld</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">We hebben gemerkt dat er een leeslijst met jullie is gedeeld. Om deze lijst in de app te bekijken, ga je terug naar het oorspronkelijke bericht en tik je nogmaals op de link.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Begrepen</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Leeslijst geïmporteerd</string>
+  <string name="reading_list_share_menu_label">Delen…</string>
+  <string name="reading_list_share_menu_tooltip">Deel deze leeslijst met anderen</string>
+  <string name="reading_list_share_title_tooltip">Wijzigingen die u in deze lijst aanbrengt, zijn niet zichtbaar voor anderen.</string>
+  <string name="reading_list_share_message_v2">Hoi! Ik wil graag mijn Wikipedia leeslijst met je delen:</string>
+  <string name="reading_list_share_survey_title">Kun je ons helpen om \"Leeslijsten delen\" te verbeteren?</string>
+  <string name="reading_list_share_survey_body">\"Leeslijsten delen\" is een testfunctie en we hebben uw feedback nodig om deze te verbeteren of te verwijderen.</string>
 </resources>

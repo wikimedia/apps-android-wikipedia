@@ -21,7 +21,7 @@ object OkHttpConnectionFactory {
 
     private fun createClient(): OkHttpClient {
         return OkHttpClient.Builder()
-                .cookieJar(SharedPreferenceCookieManager.getInstance())
+                .cookieJar(SharedPreferenceCookieManager.instance)
                 .cache(Cache(File(WikipediaApp.instance.cacheDir, CACHE_DIR_NAME), NET_CACHE_SIZE))
                 .readTimeout(20, TimeUnit.SECONDS)
                 .addInterceptor(HttpLoggingInterceptor().setLevel(Prefs.retrofitLogLevel))

@@ -19,7 +19,6 @@ import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
-import org.wikipedia.analytics.SearchFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchResultsBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -32,6 +31,7 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.GoneIfEmptyTextView
 import org.wikipedia.views.ViewUtil.formatLangButton
@@ -46,7 +46,6 @@ class SearchResultsFragment : Fragment() {
         fun onSearchProgressBar(enabled: Boolean)
         fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int)
         fun setSearchText(text: CharSequence)
-        fun getFunnel(): SearchFunnel
     }
 
     private var _binding: FragmentSearchResultsBinding? = null
@@ -154,7 +153,6 @@ class SearchResultsFragment : Fragment() {
                 }) { caught ->
                     binding.searchErrorView.visibility = View.VISIBLE
                     binding.searchErrorView.setError(caught)
-                    logError(false, startTime)
                 })
     }
 
@@ -180,7 +178,6 @@ class SearchResultsFragment : Fragment() {
         if (resultList.isNotEmpty()) {
             clearResults()
             displayResults(resultList)
-            log(resultList, startTime)
         }
 
         // add titles to cache...
@@ -224,7 +221,6 @@ class SearchResultsFragment : Fragment() {
                 .flatMap { results ->
                     val resultList = results.results
                     cache(resultList, searchTerm!!)
-                    log(resultList, startTime)
                     if (clearOnSuccess) {
                         clearResults()
                     }
@@ -261,7 +257,7 @@ class SearchResultsFragment : Fragment() {
                     }
                 }) {
                     // If there's an error, just log it and let the existing prefix search results be.
-                    logError(true, startTime)
+                    L.e(it)
                 })
     }
 
@@ -456,20 +452,6 @@ class SearchResultsFragment : Fragment() {
             it.addAll(resultList)
             searchResultsCache.put(cacheKey, it)
         }
-    }
-
-    private fun log(resultList: List<SearchResult>, startTime: Long) {
-        // To ease data analysis and better make the funnel track with user behaviour,
-        // only transmit search results events if there are a nonzero number of results
-        if (resultList.isNotEmpty()) {
-            // noinspection ConstantConditions
-            callback()?.getFunnel()?.searchResults(true, resultList.size, displayTime(startTime), searchLanguageCode)
-        }
-    }
-
-    private fun logError(fullText: Boolean, startTime: Long) {
-        // noinspection ConstantConditions
-        callback()?.getFunnel()?.searchError(fullText, displayTime(startTime), searchLanguageCode)
     }
 
     private fun displayTime(startTime: Long): Int {

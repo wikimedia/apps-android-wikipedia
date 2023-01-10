@@ -240,11 +240,16 @@
   <string name="about_contributors_heading">Papituut</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Kaca seka&lt;/a&gt;</string>
   <string name="about_translators_heading">Pangalih basa</string>
+  <string name="about_translators_translatewiki">Aplikasi puniki sampun kaalih basa olih rélawan pangalih basa ring &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisénsi</string>
+  <string name="about_app_license">Kode wit kasedia ring &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; miwah &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ring sor &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\"&gt;Lisénsi Apache 2.0&lt;/a&gt;. Kontén kasedia ring sor &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisénsi Atribusi-MawagiSarupa Creative Commons&lt;/a&gt; tiosan kanikayang liyanan.</string>
+  <string name="about_wmf">Satunggil produk saking &lt;a href=\"https://wikimediafoundation.org/\"&gt;Yayasan Wikimédia&lt;/a&gt;</string>
   <string name="about_activity_title">Indik</string>
+  <string name="edit_abandon_confirm">Kaca puniki sampun kauah. Napiké ragané yakti pacang medal tanpa nyimpen pagentosan?</string>
   <string name="edit_abandon_confirm_yes">Inggih</string>
   <string name="edit_abandon_confirm_no">Nénten</string>
   <string name="user_blocked_from_editing_title">Kablokir</string>
+  <string name="user_logged_in_blocked_from_editing">Akun sang anganggé ragané sampun kacadel saking panguahan ring wiki puniki.</string>
   <string name="user_anon_blocked_from_editing">Alamat IP ida sampun kablokir saking panguahan.</string>
   <string name="edit_how_page_improved">Sapunapi ida ngembangang kaca?</string>
   <string name="edit_next">Selanturné</string>
@@ -262,7 +267,10 @@
   <string name="edit_summary_tag_grammar">Becikang tata basa</string>
   <string name="edit_summary_tag_links">Katambahang pranala</string>
   <string name="edit_summary_tag_other">Lianan</string>
+  <string name="edit_summary_tag_other_hint">Cara liyanan Ragané nyampurnayang kaca</string>
   <string name="edit_conflict_title">Papas panguahan</string>
+  <string name="edit_notices">Panguningan uahan</string>
+  <string name="edit_notices_please_read">Durus wacén sadurung nguahin</string>
   <string name="find_next">Rereh salanturnyané</string>
   <string name="find_previous">Rereh sadurungnyané</string>
   <string name="page_similar_titles">Kaca sarupa</string>
@@ -280,11 +288,16 @@
   <string name="table_infobox">Indik bawak</string>
   <string name="table_other">Pidarta lianan</string>
   <string name="table_close">Sineb</string>
+  <string name="widget_name_featured_page">Suratan pilihan Wikipédia</string>
+  <string name="widget_title_featured_page">Suratan pilihan rahina mangkin:</string>
   <string name="widget_name_search">Rereh Wikipédia</string>
+  <string name="wiktionary_no_definitions_found">Nénten wénten définisi sané kacunduk</string>
+  <string name="alpha_update_notification_title">Pangayaran alpha anyar sampun kasedia</string>
   <string name="alpha_update_notification_text">Gecek antuk ngunduh</string>
   <string name="dialog_close_description">Sineb</string>
   <string name="preference_title_show_images">Sinahang gambar</string>
   <string name="preference_title_download_only_over_wifi">Unduh wantah saking Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Konfirmasi unduhan nganggén data sélulér?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Lugrayang</string>
   <string name="read_more_section">Wacen malih</string>
   <string name="about_article_section">Indik suratan puniki</string>
@@ -306,6 +319,7 @@
   <string name="captcha_image">Gambar kapsa</string>
   <string name="gallery_fair_use_license">Pawigunaan adil</string>
   <string name="gallery_uploader_unknown">Pangunggah tan kauningin</string>
+  <string name="gallery_not_available_offline_snackbar">Cingakan galeri nénten kasedia luring.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">Tutup</string>
   <string name="menu_new_tab">Tab anyar</string>
   <string name="menu_close_all_tabs">Sineb makasami tab</string>
@@ -317,6 +331,7 @@
   <string name="tab_item_closed">%s katutup.</string>
   <string name="all_tab_items_closed">Makejang tab katutup.</string>
   <string name="tool_tip_bookmark_icon_title">Nambahin ring lis wacaan</string>
+  <string name="page_view_in_browser">Cingak kaca ring peramban</string>
   <string name="format_error_server_message">Séwala: \"%s\"</string>
   <string name="button_continue_to_article">Wacén suratan</string>
   <string name="button_continue_to_talk_page">Buka kaca pabligbagan</string>
@@ -343,6 +358,7 @@
   <string name="menu_save_all_tabs">Raksa samian tab</string>
   <string name="error_blocked_reason">Hawanan sané kaicain punika: %s</string>
   <string name="error_blocked_id">ID Blokir: %s</string>
+  <string name="crash_report_relaunch">Ngawitin malih</string>
   <string name="crash_report_quit">Medal</string>
   <string name="article_menu_bar_save_button">Raksa</string>
   <string name="article_menu_bar_language_button">Basa</string>
@@ -350,6 +366,8 @@
   <string name="article_menu_bar_theme_button">Theme</string>
   <string name="article_menu_bar_contents_button">Daging</string>
   <string name="article_header_edit_hint">Uah...</string>
+  <string name="article_header_edit_description">Uah déskripsi suratan</string>
+  <string name="article_header_edit_lead_section">Uah pamahbah</string>
   <string name="color_theme_select">Téma</string>
   <string name="color_theme_light">Terang</string>
   <string name="color_theme_dark">Peteng</string>
@@ -357,10 +375,14 @@
   <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Conto suratan</string>
   <string name="preference_title_app_theme">Tema aplikasi</string>
+  <string name="preference_summary_color_theme">Silurin nuju téma aplikasi warna peteng</string>
+  <string name="text_size_increase">Tingkatang ukuran téks</string>
+  <string name="text_size_decrease">Kirangin ukuran téks</string>
   <string name="text_size_percent_default">%s (Baku)</string>
   <string name="text_style_title">Aksara</string>
   <string name="theme_category_reading">Wacén</string>
   <string name="theme_category_editing">Nguahin</string>
+  <string name="reading_focus_mode">Mode fokus ngawacén</string>
   <string name="nav_item_saved">Karaksa</string>
   <string name="reading_list_save_to">Raksa nuju lis wacénan</string>
   <string name="reading_list_move_to">Gingsirang nuju lis wacénan</string>
@@ -422,6 +444,7 @@
   <string name="reading_list_remove_from_list">Usap saking %s</string>
   <string name="reading_list_remove_from_lists">Usap saking lis wacénan</string>
   <string name="reading_list_select_item">Pilih</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Apus saking luring</string>
   <string name="reading_lists_login_button">Manjing log / sarengin Wikipédia</string>
   <string name="reading_lists_ignore_button">Nyanan</string>
   <string name="reading_lists_confirm_remote_delete_yes">Inggih</string>
@@ -448,10 +471,26 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_activity_title">Lis wacaan: %s</string>
   <string name="user_option_sync_label">Pustaka</string>
+  <string name="notification_channel_title">Ngunduh suratan</string>
   <string name="notification_syncing_pause_button">Rérénang</string>
   <string name="notification_syncing_resume_button">Lanjutang</string>
   <string name="notification_syncing_cancel_button">Wangdé</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Ngunduh asuratan</item>
+    <item quantity="other">Ngunduh suratan</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Ngunduh %1$d suratan...</item>
+    <item quantity="other">Ngunduh %1$d suratan...</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">%1$d suratan masisa</item>
+    <item quantity="other">%1$d suratan masisa</item>
+  </plurals>
   <string name="notifications_activity_title">Pakélingan</string>
+  <string name="notifications_search">Selehin pikélingan</string>
+  <string name="notifications_view_unread">Cingak durung kawacén</string>
+  <string name="notifications_view_archived">Cingak arsipan</string>
   <string name="notifications_poll_enable_positive">Idupang</string>
   <string name="notifications_poll_enable_negative">Nyanan</string>
   <string name="notifications_mark_unread">Cihna dados durung kawacén</string>
@@ -532,9 +571,16 @@
   <string name="description_edit_translate_image_caption">Alih basa sesirah gambar</string>
   <string name="description_edit_cancel_hint">Wangdé</string>
   <string name="description_edit_help_about_wikidata">Indik Wikidata</string>
+  <string name="description_edit_success_saved">Déskripsi suratan sampun kawedar!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Sesirah gambar kawedar!</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Cihna gambar kawedar!</string>
   <string name="description_edit_success_done">Puput</string>
+  <string name="description_edit_success_did_you_know">Uningké ragané?</string>
+  <string name="description_edit_tutorial_title_descriptions">Déskripsi suratan</string>
+  <string name="description_edit_tutorial_keep_it_short">Jaga mangda cutet</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Becikné abaris, riantara 2-12 kruna</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Ngawit nguahin</string>
+  <string name="customize_toolbar_category_menu">Menu</string>
   <string name="suggested_edits_caption_images">Sesirah gambar</string>
   <string name="suggested_edits_review_image_caption">Turéksa sesirah gambar</string>
   <string name="suggested_edits_task_image_caption_title">Wewehin sesirah gambar</string>
@@ -557,6 +603,7 @@
   <string name="suggested_edits_article_cta_image_tags">Wewehin cihna gambar</string>
   <string name="suggested_edits_article_cta_image_caption">Wewehin sesirah gambar</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Sesirah gambar (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Cingak</string>
   <string name="suggested_edits_feed_card_add_image_caption">Wewehin sesirah gambar</string>
   <string name="suggested_edits_feed_card_add_image_tags">Wewehin cihna gambar</string>
   <string name="suggested_edits_task_action_text_add">Weweh</string>
@@ -582,6 +629,12 @@
     <item quantity="one">arahina</item>
     <item quantity="other">%d rahina</item>
   </plurals>
+  <string name="suggested_edits_learn_more">Pelajahin malih</string>
+  <string name="suggested_edits_paused_title">Karérénang</string>
+  <string name="suggested_edits_disabled_title">Kapademang</string>
+  <string name="suggested_edits_ip_blocked_title">IP kacadel</string>
+  <string name="suggested_edits_last_edited">Kauah ungkur</string>
+  <string name="suggested_edits_last_edited_never">Nénten naénin</string>
   <string name="suggested_edits_task_new">anyar</string>
   <string name="suggested_edits_contributions_screen_title">%s\'s pituut</string>
   <string name="suggested_edits_contribution_language_label">Basa</string>
@@ -592,6 +645,7 @@
   <string name="suggested_edits_contribution_views">%s cingakan</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Dibi</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Manjing log / sarengin Wikipédia</string>
   <string name="suggested_edits_contribution_type_image_tag">Cihna gambar</string>
   <string name="file_page_activity_title">Berkas kaca</string>
   <string name="file_page_add_image_caption_button">Wewehin sesirah gambar</string>
@@ -710,6 +764,11 @@
   <string name="talk_snackbar_undo">Ulihang</string>
   <string name="talk_last_modified">&lt;b&gt;Untat kauah %1$s&lt;/b&gt; olih %2$s</string>
   <string name="talk_snackbar_survey_action_text">Kawitin</string>
+  <string name="talk_overflow_sort_by">Bacak mawit</string>
+  <string name="talk_overflow_sort_date_published">Tanggal kawedar</string>
+  <string name="talk_overflow_sort_date_updated">Tanggal kaanyarin</string>
+  <string name="talk_overflow_sort_topic_name">Adan topik</string>
+  <string name="talk_new_topic_exit_dialog_title">Napiké ragané yakti pacang medal?</string>
   <string name="menu_option_user_contributions">%s\'s pituut</string>
   <string name="watchlist_details_watching_label">Ngawasin</string>
   <string name="watchlist_details_watch_label">Awasin</string>
@@ -740,4 +799,10 @@
   <string name="watchlist_page_moved">Kagingsirang</string>
   <string name="watchlist_page_protected">Kasaibin</string>
   <string name="watchlist_page_deleted">Kausap</string>
+  <string name="namespace_article">Suratan</string>
+  <string name="user_contrib_current">mangkin</string>
+  <string name="user_contrib_menu_label">Pituut</string>
+  <string name="shareable_reading_lists_new_indicator">*anyar*</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Ngerti</string>
+  <string name="reading_list_share_menu_label">Sobyahang…</string>
 </resources>

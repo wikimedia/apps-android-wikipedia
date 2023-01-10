@@ -28,7 +28,7 @@
   <string name="wikidata">Wikidata</string>
   <string name="page_edit_history_activity_title">Muʹttemhistoria: %s</string>
   <string name="page_edit_history_filter_by_bot">Bottimuttâz (%s)</string>
-  <string name="menu_page_other_languages">Muuʹtt ǩiõl</string>
+  <string name="menu_page_other_languages">Vaajât ǩiõl</string>
   <string name="menu_page_find_in_page">Ooʒʒ artikkeeʹlest</string>
   <string name="menu_page_add_to_watchlist">Lââʹzzet valvvâmliʹstte</string>
   <string name="menu_page_unwatch">Jõõsk valvvmest</string>
@@ -42,6 +42,7 @@
   <string name="feed_card_add_to_list">Lââʹzzet lookkâmliʹstte</string>
   <string name="feed_card_add_to_default_list">Ruõkk</string>
   <string name="menu_page_share">Jueʹjj liiŋk</string>
+  <string name="menu_article_share">Jueʹjj artikkeeʹl</string>
   <string name="menu_page_article_share">Jueʹjj</string>
   <string name="menu_page_open_a_new_tab">Ääʹved ođđ kõskklõõst</string>
   <string name="menu_page_new_tab">Ođđ kõskklõstt</string>
@@ -52,6 +53,7 @@
   <string name="menu_long_press_copy_page">Kopiââʹst liiŋk addrõõzz</string>
   <string name="on_this_day_page_share">Jueʹjj</string>
   <string name="reading_list_page_share">Jueʹjj</string>
+  <string name="menu_edit_article">Muuʹtt artikeeʹl</string>
   <string name="last_updated_text">Mââimõssân peiʹvvuum %s</string>
   <string name="talk_page_link_text">Čuäʹjet saǥstõõllâmseeid</string>
   <string name="edit_history_link_text">Čuäʹjet muʹttemhistoria.</string>
@@ -153,6 +155,7 @@
   <string name="article_menu_bar_search_button">Ooʒʒ</string>
   <string name="article_menu_bar_contents_button">Siiskâžlooǥǥtõs</string>
   <string name="article_header_edit_hint">Muuʹtt…</string>
+  <string name="article_header_edit_description">Muuʹtt artikeeʹl deskriipt</string>
   <string name="text_style_title">Fontt</string>
   <string name="nav_item_saved">Ruõkkum</string>
   <string name="reading_list_save_to">Ruõkk lookkâmliʹstte</string>
@@ -195,6 +198,7 @@
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_other_title">Jeeʹres saaǥǥ</string>
   <string name="notifications_tab_filter_all">Puk</string>
+  <string name="notifications_swipe_action_read">Lokkum</string>
   <string name="view_random_article_card_title">Håʹt mii artikkel</string>
   <string name="view_main_page_card_title">Täʹbbe Wikipediast</string>
   <string name="view_main_page_card_action">Čuäʹjet ouddseeid</string>
@@ -209,19 +213,26 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Jõõsk</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Jõõsk</string>
   <string name="feed_accessibility_card_load_more_button">Laadd lââʹzz</string>
+  <string name="description_edit_text_hint">Artikeeʹl deskriipt</string>
   <string name="description_edit_article_description_label">Artikkel</string>
+  <string name="description_edit_translate_article_description_label_per_language">Artikeeʹl deskriptt (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Artikeeʹl deskriptt (%s)</string>
   <string name="description_edit_add_caption_hint">Kartt- leʹbe snimldõkteʹkstt</string>
   <string name="description_edit_translate_caption_label_per_language">Kartt- leʹbe snimldõkteʹkstt (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Kartt- leʹbe snimldõkteʹkstt (%s)</string>
   <string name="description_edit_save">Õlmstââʹtt</string>
   <string name="description_edit_read">Looǥǥ</string>
+  <string name="description_edit_add_description">Lââʹzzet artikeeʹl deskriipt</string>
   <string name="description_edit_translate_description">Jåårǥlââʹtt artikkeeʹl deskriipt</string>
+  <string name="description_edit_edit_description">Muuʹtt artikeeʹl deskriipt</string>
   <string name="description_edit_add_image_caption">Lââʹzzet kartt- leʹbe snimldõkteeʹkst</string>
   <string name="description_edit_edit_image_caption">Muuʹtt kartt- leʹbe snimldõkteeʹkst</string>
   <string name="description_edit_translate_image_caption">Jåårǥlââʹtt kartt- leʹbe snimldõkteeʹkst</string>
   <string name="description_edit_cancel_hint">Jõõsk</string>
   <string name="description_edit_help_about_wikidata">Teâđ Wikidata pirr</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Kartt-teeʹkst õlmstõʹtteš!</string>
   <string name="description_edit_success_did_you_know">Tiõʹttiǩ-a ton, što...?</string>
+  <string name="description_edit_tutorial_title_descriptions">Artikeeʹl deskriipt</string>
   <string name="customize_toolbar_category_menu">Vaʹlljõk</string>
   <string name="suggested_edits_tag_images">Ǩeâlgglââʹst kaartid da snimldõõǥǥid</string>
   <string name="suggested_edits_add_description_button">Lââʹzzet deskriipt</string>
@@ -234,6 +245,8 @@
   <string name="suggested_edits_image_caption_summary_title_license">Liseʹnss</string>
   <string name="suggested_edits_image_caption_summary_title_date">Peiʹvvmieʹrr</string>
   <string name="suggested_edits_feed_card_title">Eʹtǩǩuum muttâz</string>
+  <string name="suggested_edits_feed_card_add_description_button">Lââʹzzet artikeeʹl deskriipt</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Lââʹzzet artikeeʹl deskriipt (%s)</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Kartt- leʹbe snimldõkteʹkstt (%s)</string>
   <string name="suggested_edits_image_preview_dialog_tags">Ǩeâlggal</string>
   <string name="suggested_edits_image_preview_dialog_date">Peiʹvvmieʹrr</string>
@@ -245,6 +258,9 @@
   <string name="suggested_edits_feed_card_translate_image_caption">Lââʹzzet kartt- leʹbe snimldõkteeʹkst (%s)</string>
   <string name="suggested_edits_task_action_text_add">Lââʹzzet</string>
   <string name="suggested_edits_task_action_text_translate">Jåårǥlââʹtt</string>
+  <string name="suggested_edits_image_tags_published">Õlmstõttum</string>
+  <string name="suggested_edits_image_tags_published_list">Õlmstõttum ǩeâlggal</string>
+  <string name="suggested_edits_image_tags_search">Ooʒʒ ǩeâlgglid</string>
   <string name="suggested_edits_image_tags_add_tag">Lââʹzzet ǩeâlggal</string>
   <string name="suggested_edits_contributions_stat_tooltip">Tuu muttsi obbmieʹrr tän räjja</string>
   <string name="suggested_edits_label">Eʹtǩǩuum muttâz</string>
@@ -257,6 +273,7 @@
   <string name="suggested_edits_contribution_article_label">Artikkel</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Jåhtta</string>
   <string name="suggested_edits_encourage_account_creation_title">Tiõʹđžiǩ-a ton, što puk vuäiʹtte Wikipedia muʹtted?</string>
+  <string name="suggested_edits_contribution_type_image_tag">Karttǩeâlǥal</string>
   <string name="file_page_activity_title">Teâttõsseidd</string>
   <string name="file_page_add_image_caption_button">Lââʹzzet kartt- leʹbe snimldõkteeʹkst</string>
   <string name="file_page_edit_button_content_description">Muuʹtt %s</string>
@@ -269,6 +286,8 @@
   <string name="languages_list_all_text">Puk ǩiõl</string>
   <string name="wikipedia_languages_title">Wikipedia ǩiõl</string>
   <string name="wikipedia_languages_add_language_text">Lââʹzzet ǩiõl</string>
+  <string name="wikipedia_languages_remove_text">Jaukkâd ǩiõl</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Jaukkâd ǩiõl</string>
   <string name="add_wikipedia_languages_text">Lââʹzzet Wikipedia-ǩiõlid</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Muuʹtt ǩiõlid</string>
   <string name="remove_language_dialog_cancel_button_text">Jõõsk</string>
@@ -278,6 +297,7 @@
   <string name="wikitext_template">Mall</string>
   <string name="wikitext_reference">Teâttkäivv</string>
   <string name="insert_media_advanced_settings">Lââʹssasetõõzz</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Snimldõõǥǥâž</string>
   <string name="main_tooltip_text">Tiõrv %s! Tiõʹđžiǩ-a ton, što puk vuäiʹtte Wikipedia muʹtted?</string>
   <string name="main_tooltip_text_v2">Tiõʹđžiǩ-a ton, što puk vuäiʹtte Wikipedia muʹtted?</string>
   <string name="main_tooltip_watchlist_title">Valvvâmlistt</string>
@@ -287,17 +307,22 @@
   <string name="talk_user_title">Õõʹnni %s saǥstõõllmõõžž</string>
   <string name="talk_add_reply">Vaʹstted</string>
   <string name="talk_snackbar_undo">Kååʹmet</string>
+  <string name="talk_search_hint">Ooʒʒ saaǥǥid</string>
+  <string name="talk_list_item_overflow_subscribe">Tiʹlle</string>
   <string name="talk_list_item_overflow_share">Jueʹjj</string>
+  <string name="talk_list_item_swipe_mark_as_read">Lokkum</string>
   <string name="talk_archived_title">Saǥstõõllâmarkiiv: %s</string>
   <string name="menu_option_share_talk_discussion">Jueʼjj saǥstõõllmõõžž</string>
   <string name="menu_option_user_contributions">Õõʹnni %s muttâz</string>
   <string name="menu_option_edit_source">Muuʹtt wikiteeʹkst</string>
+  <string name="menu_option_user_page">Õõʹnni %s õõʹnniseidd</string>
   <string name="talk_menu_copy_text">Kopiââʹst teeʹkst</string>
   <string name="watchlist_details_watch_label">Vaalv</string>
   <string name="thank_label">Späʹssbõõžž</string>
   <string name="view_user_page">Čuäʹjet õõʹnniseeid</string>
   <string name="thank_dialog_positive_button_text">Späʹssbõõžž</string>
   <string name="thank_dialog_negative_button_text">Jõõsk</string>
+  <string name="menu_option_view_user_profile">Čuäʹjet õõʹnniseeid</string>
   <string name="menu_option_view_user_talk">Čuäʹjet saǥstõõllâmseeid</string>
   <string name="revision_diff_compare">Verddõõl versioid</string>
   <string name="revision_diff_compare_title">Verddõõl versioid: %s</string>
@@ -316,5 +341,7 @@
   <string name="watchlist_page_deleted">Jaukkuum</string>
   <string name="action_item_categories">Kategoria</string>
   <string name="category_tab_articles">Artikkeeʹl</string>
+  <string name="namespace_article">Artikkel</string>
   <string name="shareable_reading_lists_new_indicator">*ođđ*</string>
+  <string name="reading_list_share_menu_label">Jueʹjj…</string>
 </resources>

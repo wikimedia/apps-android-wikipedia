@@ -31,7 +31,6 @@ class InsertMediaSettingsFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel get() = activity.viewModel
     private var currentVoiceInputParentLayout: View? = null
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     val isActive get() = binding.root.visibility == View.VISIBLE
     val alternativeText get() = binding.mediaAlternativeText.text.toString().trim()
@@ -68,7 +67,7 @@ class InsertMediaSettingsFragment : Fragment() {
             viewModel.selectedImage?.let {
                 val summary = PageSummaryForEdit(it.pageTitle.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode, it.pageTitle,
                     it.pageTitle.displayText, RichTextUtil.stripHtml(it.imageInfo!!.metadata!!.imageDescription()), it.imageInfo.thumbUrl)
-                bottomSheetPresenter.show(childFragmentManager,
+                ExclusiveBottomSheetPresenter.show(childFragmentManager,
                     ImagePreviewDialog.newInstance(summary))
             }
         }

@@ -1,5 +1,6 @@
 package org.wikipedia.analytics.eventplatform
 
+import android.widget.Toast
 import androidx.core.os.postDelayed
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.BuildConfig
@@ -106,8 +107,8 @@ object EventPlatformClient {
          * If another item is added to QUEUE during this time, reset the countdown.
          */
         private const val WAIT_MS = 30000L
-        private const val MAX_QUEUE_SIZE = 128
         private const val TOKEN = "sendScheduled"
+        private val MAX_QUEUE_SIZE = if (ReleaseUtil.isDevRelease) 4 else 128
 
         @Synchronized
         fun sendAllScheduled() {
@@ -171,22 +172,20 @@ object EventPlatformClient {
                             }
                         }
                     }) {
+                        L.e(it)
                         if (it is HttpStatusException) {
-                            when (it.code) {
-                                HttpURLConnection.HTTP_BAD_REQUEST,
-                                HttpURLConnection.HTTP_INTERNAL_ERROR,
-                                HttpURLConnection.HTTP_UNAVAILABLE,
-                                HttpURLConnection.HTTP_GATEWAY_TIMEOUT -> {
-                                    L.e(it)
-                                    // TODO: queue up to retry?
-                                }
-                                else -> {
-                                    // Something unexpected happened. Crash if this is a pre-production build.
-                                    L.logRemoteErrorIfProd(it)
+                            if (it.code >= HttpURLConnection.HTTP_INTERNAL_ERROR) {
+                                // TODO: For errors >= 500, queue up to retry?
+                            } else {
+                                // Something unexpected happened.
+                                if (ReleaseUtil.isDevRelease) {
+                                    // If it's a pre-beta release, show a loud toast to signal that
+                                    // a potential issue should be investigated.
+                                    WikipediaApp.instance.mainThreadHandler.post {
+                                        Toast.makeText(WikipediaApp.instance, it.message, Toast.LENGTH_LONG).show()
+                                    }
                                 }
                             }
-                        } else {
-                            L.w(it)
                         }
                     }
         }

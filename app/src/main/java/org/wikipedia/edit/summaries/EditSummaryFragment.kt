@@ -6,14 +6,12 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
-import android.util.SparseArray
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.StringRes
 import androidx.core.widget.TextViewCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -38,7 +36,6 @@ class EditSummaryFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var editSummaryHandler: EditSummaryHandler
-    private lateinit var localizeSummaryTags: SparseArray<String>
     lateinit var title: PageTitle
 
     val summaryText get() = binding.editSummaryText
@@ -97,7 +94,6 @@ class EditSummaryFragment : Fragment() {
 
         getWatchedStatus()
 
-        localizeSummaryTags = L10nUtil.getStringsForArticleLanguage(title, summaryTagStrings)
         addEditSummaries()
 
         return binding.root
@@ -140,14 +136,14 @@ class EditSummaryFragment : Fragment() {
     }
 
     private fun addEditSummaries() {
+        val localizedSummaries = L10nUtil.getStringsForArticleLanguage(title, summaryTagStrings)
         summaryTagStrings.forEach {
-            addChip(it)
+            addChip(localizedSummaries[it])
         }
     }
 
-    private fun addChip(@StringRes editSummaryResource: Int): Chip {
+    private fun addChip(editSummary: String): Chip {
         val chip = Chip(requireContext())
-        val editSummary = getString(editSummaryResource)
         chip.text = editSummary
         TextViewCompat.setTextAppearance(chip, R.style.CustomChipStyle)
         chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
