@@ -11,9 +11,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
-import org.wikipedia.page.Namespace
 import org.wikipedia.settings.Prefs
-import java.util.*
 
 class WatchlistViewModel : ViewModel() {
 
@@ -21,7 +19,6 @@ class WatchlistViewModel : ViewModel() {
         _uiState.value = UiState.Error(throwable)
     }
 
-    var filterMode = WatchlistFragment.FILTER_MODE_ALL
     var displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
 
     private val _uiState = MutableStateFlow(UiState())
@@ -38,36 +35,12 @@ class WatchlistViewModel : ViewModel() {
                     list.add(it)
                 }
             }
-
-            list.sortByDescending { it.date }
-
-            val items = mutableListOf<Any>()
-            items.add("") // placeholder for header
-
-            val calendar = Calendar.getInstance()
-            var curDay = -1
-
-            for (item in list) {
-                if ((filterMode == WatchlistFragment.FILTER_MODE_ALL) ||
-                    (filterMode == WatchlistFragment.FILTER_MODE_PAGES && Namespace.of(item.ns).main()) ||
-                    (filterMode == WatchlistFragment.FILTER_MODE_TALK && Namespace.of(item.ns).talk()) ||
-                    (filterMode == WatchlistFragment.FILTER_MODE_OTHER && !Namespace.of(item.ns).main() && !Namespace.of(item.ns).talk())) {
-
-                    calendar.time = item.date
-                    if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
-                        curDay = calendar.get(Calendar.DAY_OF_YEAR)
-                        items.add(item.date)
-                    }
-
-                    items.add(item)
-                }
-            }
-            _uiState.value = UiState.Success(items)
+            _uiState.value = UiState.Success(list)
         }
     }
 
     open class UiState {
-        data class Success(val watchlistItem: List<Any>) : UiState()
+        data class Success(val watchlistItem: List<MwQueryResult.WatchlistItem>) : UiState()
         data class Error(val throwable: Throwable) : UiState()
     }
 }
