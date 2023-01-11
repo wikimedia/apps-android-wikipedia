@@ -524,6 +524,9 @@
         <item quantity="one">%d list deleted</item>
         <item quantity="other">%d lists deleted</item>
     </plurals>
+    <string name="reading_lists_default_list_delete_message">The default list (Saved) can’t be deleted</string>
+    <string name="reading_lists_default_plus_one_list_delete_message">%s deleted. The default list (Saved) can’t be deleted.</string>
+    <string name="reading_lists_default_plus_many_lists_delete_message">Lists deleted. The default list (Saved) can’t be deleted.</string>
     <string name="reading_list_items_deleted">%d articles removed from list</string>
     <string name="reading_lists_item_deleted">%s removed from lists</string>
     <string name="reading_list_item_delete_undo">Undo</string>

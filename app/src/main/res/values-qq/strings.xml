@@ -1339,4 +1339,7 @@
   <string name="reading_lists_import_conflict_dialog_primary_action_text">Primary action text for import conflict dialog.</string>
   <string name="reading_lists_import_conflict_dialog_secondary_action_text">Secondary action text for import conflict dialog.</string>
   <string name="reading_lists_import_conflict_dialog_neutral_action_text">Neutral action text for import conflict dialog.</string>
+  <string name="reading_lists_default_list_delete_message">The message shown to users when they attempt selecting default list for deletion</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">The message shown to users when they attempt selecting default list with one other list for deletion. %s represents the name of the non-default list.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">The message shown to users when they attempt selecting default list as one of the many lists for deletion.</string>
 </resources>

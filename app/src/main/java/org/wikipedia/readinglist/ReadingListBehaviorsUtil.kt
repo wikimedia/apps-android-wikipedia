@@ -229,20 +229,35 @@ object ReadingListBehaviorsUtil {
         if (readingLists == null) {
             return
         }
-        FeedbackUtil.makeSnackbar(activity, activity.resources.getQuantityString(R.plurals.reading_lists_deleted_message, readingLists.size, readingLists.size))
-            .setAction(R.string.reading_list_item_delete_undo) {
+        val snackBar = FeedbackUtil.makeSnackbar(activity, getDeleteListMessage(activity, readingLists))
+        if (!(readingLists.size == 1 && readingLists[0].isDefault)) {
+            snackBar.setAction(R.string.reading_list_item_delete_undo) {
                 readingLists.forEach {
-                    val newList =
-                        AppDatabase.instance.readingListDao().createList(it.title, it.description)
-                    val newPages = ArrayList<ReadingListPage>()
-                    for (page in it.pages) {
-                        newPages.add(ReadingListPage(ReadingListPage.toPageTitle(page)))
+                    if (!it.isDefault) {
+                        val newList = AppDatabase.instance.readingListDao().createList(it.title, it.description)
+                        val newPages = ArrayList<ReadingListPage>()
+                        for (page in it.pages) {
+                            newPages.add(ReadingListPage(ReadingListPage.toPageTitle(page)))
+                        }
+                        AppDatabase.instance.readingListPageDao().addPagesToList(newList, newPages, true)
                     }
-                    AppDatabase.instance.readingListPageDao().addPagesToList(newList, newPages, true)
                 }
                 callback.onUndoDeleteClicked()
             }
-            .show()
+        }
+        snackBar.show()
+    }
+
+    private fun getDeleteListMessage(activity: Activity, readingLists: List<ReadingList>): String {
+        return if (readingLists.any { it.isDefault }) {
+            when (readingLists.size) {
+                1 -> activity.getString(R.string.reading_lists_default_list_delete_message)
+                2 -> activity.getString(R.string.reading_lists_default_plus_one_list_delete_message, readingLists.first { !it.isDefault }.title)
+                else -> activity.getString(R.string.reading_lists_default_plus_many_lists_delete_message)
+            }
+        } else {
+            activity.resources.getQuantityString(R.plurals.reading_lists_deleted_message, readingLists.size, readingLists.size)
+        }
     }
 
     fun togglePageOffline(activity: Activity, page: ReadingListPage?, callback: Callback) {
