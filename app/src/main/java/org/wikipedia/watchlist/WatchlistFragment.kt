@@ -21,7 +21,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationActivity
-import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
@@ -165,34 +164,13 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     private fun onUpdateList() {
-        val items = ArrayList<Any>()
-        items.add("") // placeholder for header
-
-        val calendar = Calendar.getInstance()
-        var curDay = -1
-
-        for (item in viewModel.watchlistItems) {
-            if ((viewModel.filterMode == FILTER_MODE_ALL) ||
-                    (viewModel.filterMode == FILTER_MODE_PAGES && Namespace.of(item.ns).main()) ||
-                    (viewModel.filterMode == FILTER_MODE_TALK && Namespace.of(item.ns).talk()) ||
-                    (viewModel.filterMode == FILTER_MODE_OTHER && !Namespace.of(item.ns).main() && !Namespace.of(item.ns).talk())) {
-
-                calendar.time = item.date
-                if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
-                    curDay = calendar.get(Calendar.DAY_OF_YEAR)
-                    items.add(item.date)
-                }
-
-                items.add(item)
-            }
-        }
-
-        if (viewModel.filterMode == FILTER_MODE_ALL && items.size < 2) {
+        viewModel.updateList()
+        if (viewModel.filterMode == FILTER_MODE_ALL && viewModel.finalList.size < 2) {
             binding.watchlistRecyclerView.visibility = View.GONE
             binding.watchlistEmptyContainer.visibility = View.VISIBLE
         } else {
             binding.watchlistEmptyContainer.visibility = View.GONE
-            binding.watchlistRecyclerView.adapter = RecyclerAdapter(items)
+            binding.watchlistRecyclerView.adapter = RecyclerAdapter(viewModel.finalList)
             binding.watchlistRecyclerView.visibility = View.VISIBLE
         }
     }
