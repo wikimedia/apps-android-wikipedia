@@ -144,7 +144,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         if (!refreshing) {
             binding.watchlistProgressBar.visibility = View.VISIBLE
         }
-//
+
 //        val calls = displayLanguages.map {
 //            ServiceFactory.get(WikiSite.forLanguageCode(it)).watchlist.subscribeOn(Schedulers.io())
 //        }
