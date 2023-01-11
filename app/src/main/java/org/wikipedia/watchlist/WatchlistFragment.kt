@@ -39,7 +39,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     private lateinit var notificationButtonView: NotificationButtonView
     private val viewModel: WatchlistViewModel by viewModels()
     private val binding get() = _binding!!
-    private val totalItems = ArrayList<MwQueryResult.WatchlistItem>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -66,7 +65,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect {
                 when (it) {
-                    is WatchlistViewModel.UiState.Success -> onSuccess(it.watchlistItem)
+                    is WatchlistViewModel.UiState.Success -> onSuccess()
                     is WatchlistViewModel.UiState.Error -> onError(it.throwable)
                 }
             }
@@ -154,13 +153,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         viewModel.fetchWatchlist()
     }
 
-    private fun onSuccess(watchlistItems: List<MwQueryResult.WatchlistItem>) {
+    private fun onSuccess() {
         binding.watchlistRefreshView.isRefreshing = false
         binding.watchlistProgressBar.visibility = View.GONE
-        totalItems.clear()
-        totalItems.addAll(watchlistItems)
-        totalItems.sortByDescending { it.date }
-        onUpdateList(totalItems)
+        onUpdateList()
     }
 
     private fun onError(t: Throwable) {
@@ -168,14 +164,14 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         binding.watchlistErrorView.visibility = View.VISIBLE
     }
 
-    private fun onUpdateList(watchlistItems: List<MwQueryResult.WatchlistItem>) {
+    private fun onUpdateList() {
         val items = ArrayList<Any>()
         items.add("") // placeholder for header
 
         val calendar = Calendar.getInstance()
         var curDay = -1
 
-        for (item in watchlistItems) {
+        for (item in viewModel.watchlistItems) {
             if ((viewModel.filterMode == FILTER_MODE_ALL) ||
                     (viewModel.filterMode == FILTER_MODE_PAGES && Namespace.of(item.ns).main()) ||
                     (viewModel.filterMode == FILTER_MODE_TALK && Namespace.of(item.ns).talk()) ||
@@ -276,22 +272,22 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
     override fun onSelectFilterAll() {
         viewModel.filterMode = FILTER_MODE_ALL
-        onUpdateList(totalItems)
+        onUpdateList()
     }
 
     override fun onSelectFilterTalk() {
         viewModel.filterMode = FILTER_MODE_TALK
-        onUpdateList(totalItems)
+        onUpdateList()
     }
 
     override fun onSelectFilterPages() {
         viewModel.filterMode = FILTER_MODE_PAGES
-        onUpdateList(totalItems)
+        onUpdateList()
     }
 
     override fun onSelectFilterOther() {
         viewModel.filterMode = FILTER_MODE_OTHER
-        onUpdateList(totalItems)
+        onUpdateList()
     }
 
     override fun onLanguageChanged() {

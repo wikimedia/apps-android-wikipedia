@@ -19,6 +19,7 @@ class WatchlistViewModel : ViewModel() {
         _uiState.value = UiState.Error(throwable)
     }
 
+    val watchlistItems = ArrayList<MwQueryResult.WatchlistItem>()
     var displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
     var filterMode = WatchlistFragment.FILTER_MODE_ALL
 
@@ -27,16 +28,17 @@ class WatchlistViewModel : ViewModel() {
 
     fun fetchWatchlist() {
         viewModelScope.launch(handler) {
-            val list = mutableListOf<MwQueryResult.WatchlistItem>()
+            watchlistItems.clear()
             displayLanguages.map { language ->
                 withContext(Dispatchers.Default) {
                     ServiceFactory.get(WikiSite.forLanguageCode(language)).getWatchlist()
                 }.query?.watchlist?.map {
                     it.wiki = WikiSite.forLanguageCode(language)
-                    list.add(it)
+                    watchlistItems.add(it)
                 }
             }
-            _uiState.value = UiState.Success(list)
+            watchlistItems.sortByDescending { it.date }
+            _uiState.value = UiState.Success(watchlistItems)
         }
     }
 
