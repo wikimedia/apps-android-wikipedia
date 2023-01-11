@@ -2,11 +2,8 @@ package org.wikipedia.watchlist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -21,8 +18,8 @@ class WatchlistViewModel : ViewModel() {
         _uiState.value = UiState.Error(throwable)
     }
 
-    private val watchlistItems = mutableListOf<MwQueryResult.WatchlistItem>()
-    val finalList = mutableListOf<Any>()
+    private var watchlistItems = mutableListOf<MwQueryResult.WatchlistItem>()
+    var finalList = mutableListOf<Any>()
     var displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
     var filterMode = WatchlistFragment.FILTER_MODE_ALL
 
@@ -30,7 +27,7 @@ class WatchlistViewModel : ViewModel() {
     val uiState = _uiState
 
     fun updateList() {
-        finalList.clear()
+        finalList = mutableListOf()
         finalList.add("") // placeholder for header
 
         val calendar = Calendar.getInstance()
@@ -55,15 +52,17 @@ class WatchlistViewModel : ViewModel() {
 
     fun fetchWatchlist() {
         viewModelScope.launch(handler) {
-            watchlistItems.clear()
+            watchlistItems = mutableListOf()
             displayLanguages.map { language ->
-                withContext(Dispatchers.Default) {
-                    ServiceFactory.get(WikiSite.forLanguageCode(language)).getWatchlist()
-                }.query?.watchlist?.map {
-                    it.wiki = WikiSite.forLanguageCode(language)
-                    watchlistItems.add(it)
+                async {
+                    withContext(Dispatchers.IO) {
+                        ServiceFactory.get(WikiSite.forLanguageCode(language)).getWatchlist()
+                    }.query?.watchlist?.map {
+                        it.wiki = WikiSite.forLanguageCode(language)
+                        watchlistItems.add(it)
+                    }
                 }
-            }
+            }.awaitAll()
             watchlistItems.sortByDescending { it.date }
             _uiState.value = UiState.Success(watchlistItems)
         }
