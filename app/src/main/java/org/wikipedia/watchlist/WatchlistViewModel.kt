@@ -2,8 +2,11 @@ package org.wikipedia.watchlist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -23,18 +26,16 @@ class WatchlistViewModel : ViewModel() {
 
     fun fetchWatchlist() {
         viewModelScope.launch(handler) {
-            withContext(Dispatchers.IO) {
-                val list = mutableListOf<MwQueryResult.WatchlistItem>()
-                displayLanguages.map { language ->
-                    async {
-                        ServiceFactory.get(WikiSite.forLanguageCode(language)).getWatchlist().query?.watchlist?.map {
-                            it.wiki = WikiSite.forLanguageCode(language)
-                            list.add(it)
-                        }
-                    }
-                }.awaitAll()
-                _uiState.value = UiState.Success(list)
+            val list = mutableListOf<MwQueryResult.WatchlistItem>()
+            displayLanguages.map { language ->
+                withContext(Dispatchers.Default) {
+                    ServiceFactory.get(WikiSite.forLanguageCode(language)).getWatchlist()
+                }.query?.watchlist?.map {
+                    it.wiki = WikiSite.forLanguageCode(language)
+                    list.add(it)
+                }
             }
+            _uiState.value = UiState.Success(list)
         }
     }
 
