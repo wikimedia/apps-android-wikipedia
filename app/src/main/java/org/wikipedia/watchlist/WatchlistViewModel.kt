@@ -24,45 +24,52 @@ class WatchlistViewModel : ViewModel() {
     var filterMode = WatchlistFragment.FILTER_MODE_ALL
     var displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
 
+    private val watchlistItems = mutableListOf<MwQueryResult.WatchlistItem>()
+    val finalList = mutableListOf<Any>()
+
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState
 
+    fun updateList() {
+        finalList.clear()
+        finalList.add("") // placeholder for header
+
+        val calendar = Calendar.getInstance()
+        var curDay = -1
+
+        for (item in watchlistItems) {
+            if ((filterMode == WatchlistFragment.FILTER_MODE_ALL) ||
+                (filterMode == WatchlistFragment.FILTER_MODE_PAGES && Namespace.of(item.ns).main()) ||
+                (filterMode == WatchlistFragment.FILTER_MODE_TALK && Namespace.of(item.ns).talk()) ||
+                (filterMode == WatchlistFragment.FILTER_MODE_OTHER && !Namespace.of(item.ns).main() && !Namespace.of(item.ns).talk())) {
+
+                calendar.time = item.date
+                if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
+                    curDay = calendar.get(Calendar.DAY_OF_YEAR)
+                    finalList.add(item.date)
+                }
+
+                finalList.add(item)
+            }
+        }
+        _uiState.value = UiState.Success(finalList)
+    }
+
     fun fetchWatchlist() {
         viewModelScope.launch(handler) {
-            val list = mutableListOf<MwQueryResult.WatchlistItem>()
+            watchlistItems.clear()
             displayLanguages.map { language ->
                 withContext(Dispatchers.Default) {
                     ServiceFactory.get(WikiSite.forLanguageCode(language)).getWatchlist()
                 }.query?.watchlist?.map {
                     it.wiki = WikiSite.forLanguageCode(language)
-                    list.add(it)
+                    watchlistItems.add(it)
                 }
             }
 
-            list.sortByDescending { it.date }
+            watchlistItems.sortByDescending { it.date }
 
-            val items = mutableListOf<Any>()
-            items.add("") // placeholder for header
-
-            val calendar = Calendar.getInstance()
-            var curDay = -1
-
-            for (item in list) {
-                if ((filterMode == WatchlistFragment.FILTER_MODE_ALL) ||
-                    (filterMode == WatchlistFragment.FILTER_MODE_PAGES && Namespace.of(item.ns).main()) ||
-                    (filterMode == WatchlistFragment.FILTER_MODE_TALK && Namespace.of(item.ns).talk()) ||
-                    (filterMode == WatchlistFragment.FILTER_MODE_OTHER && !Namespace.of(item.ns).main() && !Namespace.of(item.ns).talk())) {
-
-                    calendar.time = item.date
-                    if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
-                        curDay = calendar.get(Calendar.DAY_OF_YEAR)
-                        items.add(item.date)
-                    }
-
-                    items.add(item)
-                }
-            }
-            _uiState.value = UiState.Success(items)
+            updateList()
         }
     }
 
