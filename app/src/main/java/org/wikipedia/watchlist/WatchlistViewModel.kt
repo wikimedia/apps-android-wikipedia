@@ -20,6 +20,7 @@ class WatchlistViewModel : ViewModel() {
     }
 
     var displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
+    var filterMode = WatchlistFragment.FILTER_MODE_ALL
 
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState

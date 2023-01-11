@@ -40,7 +40,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     private val viewModel: WatchlistViewModel by viewModels()
     private val binding get() = _binding!!
     private val totalItems = ArrayList<MwQueryResult.WatchlistItem>()
-    private var filterMode = FILTER_MODE_ALL
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -177,10 +176,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         var curDay = -1
 
         for (item in watchlistItems) {
-            if ((filterMode == FILTER_MODE_ALL) ||
-                    (filterMode == FILTER_MODE_PAGES && Namespace.of(item.ns).main()) ||
-                    (filterMode == FILTER_MODE_TALK && Namespace.of(item.ns).talk()) ||
-                    (filterMode == FILTER_MODE_OTHER && !Namespace.of(item.ns).main() && !Namespace.of(item.ns).talk())) {
+            if ((viewModel.filterMode == FILTER_MODE_ALL) ||
+                    (viewModel.filterMode == FILTER_MODE_PAGES && Namespace.of(item.ns).main()) ||
+                    (viewModel.filterMode == FILTER_MODE_TALK && Namespace.of(item.ns).talk()) ||
+                    (viewModel.filterMode == FILTER_MODE_OTHER && !Namespace.of(item.ns).main() && !Namespace.of(item.ns).talk())) {
 
                 calendar.time = item.date
                 if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
@@ -192,7 +191,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
             }
         }
 
-        if (filterMode == FILTER_MODE_ALL && items.size < 2) {
+        if (viewModel.filterMode == FILTER_MODE_ALL && items.size < 2) {
             binding.watchlistRecyclerView.visibility = View.GONE
             binding.watchlistEmptyContainer.visibility = View.VISIBLE
         } else {
@@ -220,7 +219,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     internal inner class WatchlistHeaderViewHolder(view: WatchlistHeaderView) : RecyclerView.ViewHolder(view) {
         fun bindItem() {
             (itemView as WatchlistHeaderView).callback = this@WatchlistFragment
-            itemView.enableByFilterMode(filterMode)
+            itemView.enableByFilterMode(viewModel.filterMode)
         }
     }
 
@@ -276,22 +275,22 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     override fun onSelectFilterAll() {
-        filterMode = FILTER_MODE_ALL
+        viewModel.filterMode = FILTER_MODE_ALL
         onUpdateList(totalItems)
     }
 
     override fun onSelectFilterTalk() {
-        filterMode = FILTER_MODE_TALK
+        viewModel.filterMode = FILTER_MODE_TALK
         onUpdateList(totalItems)
     }
 
     override fun onSelectFilterPages() {
-        filterMode = FILTER_MODE_PAGES
+        viewModel.filterMode = FILTER_MODE_PAGES
         onUpdateList(totalItems)
     }
 
     override fun onSelectFilterOther() {
-        filterMode = FILTER_MODE_OTHER
+        viewModel.filterMode = FILTER_MODE_OTHER
         onUpdateList(totalItems)
     }
 
