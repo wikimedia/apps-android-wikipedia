@@ -12,6 +12,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import io.reactivex.rxjava3.disposables.CompositeDisposable
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -38,6 +39,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     private lateinit var notificationButtonView: NotificationButtonView
     private val viewModel: WatchlistViewModel by viewModels()
     private val binding get() = _binding!!
+    private val disposables = CompositeDisposable()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -64,7 +66,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect {
                 when (it) {
-                    is WatchlistViewModel.UiState.Success -> onSuccess()
+                    is WatchlistViewModel.UiState.Success -> onSuccess(it.watchlistItem)
                     is WatchlistViewModel.UiState.Error -> onError(it.throwable)
                 }
             }
@@ -75,6 +77,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
     override fun onDestroyView() {
         super.onDestroyView()
+        disposables.clear()
         _binding = null
     }
 
@@ -131,6 +134,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     private fun fetchWatchlist(refreshing: Boolean) {
+        disposables.clear()
         binding.watchlistEmptyContainer.visibility = View.GONE
         binding.watchlistRecyclerView.visibility = View.GONE
         binding.watchlistErrorView.visibility = View.GONE
@@ -152,10 +156,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         viewModel.fetchWatchlist()
     }
 
-    private fun onSuccess() {
+    private fun onSuccess(watchlistItems: List<Any>) {
         binding.watchlistRefreshView.isRefreshing = false
         binding.watchlistProgressBar.visibility = View.GONE
-        onUpdateList()
+        onUpdateList(watchlistItems)
     }
 
     private fun onError(t: Throwable) {
@@ -163,13 +167,13 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         binding.watchlistErrorView.visibility = View.VISIBLE
     }
 
-    private fun onUpdateList() {
-        if (viewModel.filterMode == FILTER_MODE_ALL && viewModel.finalList.size < 2) {
+    private fun onUpdateList(watchlistItems: List<Any>) {
+        if (viewModel.filterMode == FILTER_MODE_ALL && watchlistItems.size < 2) {
             binding.watchlistRecyclerView.visibility = View.GONE
             binding.watchlistEmptyContainer.visibility = View.VISIBLE
         } else {
             binding.watchlistEmptyContainer.visibility = View.GONE
-            binding.watchlistRecyclerView.adapter = RecyclerAdapter(viewModel.finalList)
+            binding.watchlistRecyclerView.adapter = RecyclerAdapter(watchlistItems)
             binding.watchlistRecyclerView.visibility = View.VISIBLE
         }
     }
@@ -249,22 +253,18 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
     override fun onSelectFilterAll() {
         viewModel.filterMode = FILTER_MODE_ALL
-        viewModel.updateList()
     }
 
     override fun onSelectFilterTalk() {
         viewModel.filterMode = FILTER_MODE_TALK
-        viewModel.updateList()
     }
 
     override fun onSelectFilterPages() {
         viewModel.filterMode = FILTER_MODE_PAGES
-        viewModel.updateList()
     }
 
     override fun onSelectFilterOther() {
         viewModel.filterMode = FILTER_MODE_OTHER
-        viewModel.updateList()
     }
 
     override fun onLanguageChanged() {
