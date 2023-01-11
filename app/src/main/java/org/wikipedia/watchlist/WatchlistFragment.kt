@@ -9,6 +9,7 @@ import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -64,6 +65,16 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
         notificationButtonView = NotificationButtonView(requireActivity())
         updateDisplayLanguages()
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.uiState.collect {
+                when (it) {
+                    is WatchlistViewModel.UiState.Success -> onSuccess(it.watchlistItem)
+                    is WatchlistViewModel.UiState.Error -> onError(it.throwable)
+                }
+            }
+        }
+
         fetchWatchlist(false)
     }
 
@@ -144,34 +155,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         if (!refreshing) {
             binding.watchlistProgressBar.visibility = View.VISIBLE
         }
-
-//        val calls = displayLanguages.map {
-//            ServiceFactory.get(WikiSite.forLanguageCode(it)).watchlist.subscribeOn(Schedulers.io())
-//        }
-//
-//        disposables.add(Observable.zip(calls) { resultList ->
-//                    val items = ArrayList<MwQueryResult.WatchlistItem>()
-//                    resultList.forEachIndexed { index, result ->
-//                        val wiki = WikiSite.forLanguageCode(displayLanguages[index])
-//                        (result as MwQueryResponse).query?.watchlist?.forEach { item ->
-//                            item.wiki = wiki
-//                            items.add(item)
-//                        }
-//                    }
-//                    items
-//                }
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .doAfterTerminate {
-//                    binding.watchlistRefreshView.isRefreshing = false
-//                    binding.watchlistProgressBar.visibility = View.GONE
-//                }
-//                .subscribe({ items ->
-//                    onSuccess(items)
-//                }, { t ->
-//                    L.e(t)
-//                    onError(t)
-//                }))
     }
 
     private fun onSuccess(watchlistItems: List<MwQueryResult.WatchlistItem>) {
