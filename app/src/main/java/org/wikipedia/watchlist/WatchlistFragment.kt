@@ -155,9 +155,13 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         if (!refreshing) {
             binding.watchlistProgressBar.visibility = View.VISIBLE
         }
+
+        viewModel.fetchWatchlist()
     }
 
     private fun onSuccess(watchlistItems: List<MwQueryResult.WatchlistItem>) {
+        binding.watchlistRefreshView.isRefreshing = false
+        binding.watchlistProgressBar.visibility = View.GONE
         totalItems.clear()
         totalItems.addAll(watchlistItems)
         totalItems.sortByDescending { it.date }
