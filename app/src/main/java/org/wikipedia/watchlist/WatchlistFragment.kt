@@ -22,7 +22,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationActivity
-import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
@@ -41,8 +40,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     private val viewModel: WatchlistViewModel by viewModels()
     private val binding get() = _binding!!
     private val disposables = CompositeDisposable()
-    private val totalItems = ArrayList<MwQueryResult.WatchlistItem>()
-    private var filterMode = FILTER_MODE_ALL
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -159,13 +156,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         viewModel.fetchWatchlist()
     }
 
-    private fun onSuccess(watchlistItems: List<MwQueryResult.WatchlistItem>) {
+    private fun onSuccess(watchlistItems: List<Any>) {
         binding.watchlistRefreshView.isRefreshing = false
         binding.watchlistProgressBar.visibility = View.GONE
-        totalItems.clear()
-        totalItems.addAll(watchlistItems)
-        totalItems.sortByDescending { it.date }
-        onUpdateList(totalItems)
+        onUpdateList(watchlistItems)
     }
 
     private fun onError(t: Throwable) {
@@ -173,35 +167,13 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         binding.watchlistErrorView.visibility = View.VISIBLE
     }
 
-    private fun onUpdateList(watchlistItems: List<MwQueryResult.WatchlistItem>) {
-        val items = ArrayList<Any>()
-        items.add("") // placeholder for header
-
-        val calendar = Calendar.getInstance()
-        var curDay = -1
-
-        for (item in watchlistItems) {
-            if ((filterMode == FILTER_MODE_ALL) ||
-                    (filterMode == FILTER_MODE_PAGES && Namespace.of(item.ns).main()) ||
-                    (filterMode == FILTER_MODE_TALK && Namespace.of(item.ns).talk()) ||
-                    (filterMode == FILTER_MODE_OTHER && !Namespace.of(item.ns).main() && !Namespace.of(item.ns).talk())) {
-
-                calendar.time = item.date
-                if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
-                    curDay = calendar.get(Calendar.DAY_OF_YEAR)
-                    items.add(item.date)
-                }
-
-                items.add(item)
-            }
-        }
-
-        if (filterMode == FILTER_MODE_ALL && items.size < 2) {
+    private fun onUpdateList(watchlistItems: List<Any>) {
+        if (viewModel.filterMode == FILTER_MODE_ALL && watchlistItems.size < 2) {
             binding.watchlistRecyclerView.visibility = View.GONE
             binding.watchlistEmptyContainer.visibility = View.VISIBLE
         } else {
             binding.watchlistEmptyContainer.visibility = View.GONE
-            binding.watchlistRecyclerView.adapter = RecyclerAdapter(items)
+            binding.watchlistRecyclerView.adapter = RecyclerAdapter(watchlistItems)
             binding.watchlistRecyclerView.visibility = View.VISIBLE
         }
     }
@@ -224,7 +196,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     internal inner class WatchlistHeaderViewHolder(view: WatchlistHeaderView) : RecyclerView.ViewHolder(view) {
         fun bindItem() {
             (itemView as WatchlistHeaderView).callback = this@WatchlistFragment
-            itemView.enableByFilterMode(filterMode)
+            itemView.enableByFilterMode(viewModel.filterMode)
         }
     }
 
@@ -280,23 +252,19 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     override fun onSelectFilterAll() {
-        filterMode = FILTER_MODE_ALL
-        onUpdateList(totalItems)
+        viewModel.filterMode = FILTER_MODE_ALL
     }
 
     override fun onSelectFilterTalk() {
-        filterMode = FILTER_MODE_TALK
-        onUpdateList(totalItems)
+        viewModel.filterMode = FILTER_MODE_TALK
     }
 
     override fun onSelectFilterPages() {
-        filterMode = FILTER_MODE_PAGES
-        onUpdateList(totalItems)
+        viewModel.filterMode = FILTER_MODE_PAGES
     }
 
     override fun onSelectFilterOther() {
-        filterMode = FILTER_MODE_OTHER
-        onUpdateList(totalItems)
+        viewModel.filterMode = FILTER_MODE_OTHER
     }
 
     override fun onLanguageChanged() {
