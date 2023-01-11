@@ -12,7 +12,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.rxjava3.disposables.CompositeDisposable
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -40,7 +39,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     private lateinit var notificationButtonView: NotificationButtonView
     private val viewModel: WatchlistViewModel by viewModels()
     private val binding get() = _binding!!
-    private val disposables = CompositeDisposable()
     private val totalItems = ArrayList<MwQueryResult.WatchlistItem>()
     private var filterMode = FILTER_MODE_ALL
 
@@ -80,7 +78,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
     override fun onDestroyView() {
         super.onDestroyView()
-        disposables.clear()
         _binding = null
     }
 
@@ -137,7 +134,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     private fun fetchWatchlist(refreshing: Boolean) {
-        disposables.clear()
         binding.watchlistEmptyContainer.visibility = View.GONE
         binding.watchlistRecyclerView.visibility = View.GONE
         binding.watchlistErrorView.visibility = View.GONE
