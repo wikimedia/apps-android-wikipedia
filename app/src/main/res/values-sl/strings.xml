@@ -1273,8 +1273,8 @@
   <string name="menu_option_view_user_contributions">Ogled uporabnikovih prispevkov</string>
   <string name="revision_diff_compare">Primerjava redakcij</string>
   <string name="revision_diff_compare_title">Primerjava redakcij: %s</string>
-  <string name="revision_diff_from">Od:</string>
-  <string name="revision_diff_to">Do:</string>
+  <string name="revision_diff_from">Iz:</string>
+  <string name="revision_diff_to">V:</string>
   <string name="revision_diff_line_num">Vrstica %d</string>
   <string name="revision_diff_line_nums">Vrstice %d–%d</string>
   <string name="revision_diff_lines_from_to">Vrstice %1$d–%2$d</string>
