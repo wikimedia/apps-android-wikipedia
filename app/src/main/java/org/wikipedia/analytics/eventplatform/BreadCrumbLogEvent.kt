@@ -8,8 +8,6 @@ import androidx.appcompat.widget.SwitchCompat
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
-import org.wikipedia.createaccount.CreateAccountActivity
-import org.wikipedia.login.LoginActivity
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.util.log.L
 
