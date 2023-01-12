@@ -33,7 +33,7 @@ class BreadCrumbLogEvent(
         private const val STREAM_NAME = "android.breadcrumbs_event"
 
         fun logClick(context: Context, view: View) {
-            if (context is SettingsActivity || context is LoginActivity || context is CreateAccountActivity) {
+            if (context is SettingsActivity) {
                 return
             }
             val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
@@ -46,9 +46,6 @@ class BreadCrumbLogEvent(
         }
 
         fun logLongClick(context: Context, view: View) {
-            if (context is SettingsActivity || context is LoginActivity || context is CreateAccountActivity) {
-                return
-            }
             val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), "$viewReadableName.longclick"))
         }
