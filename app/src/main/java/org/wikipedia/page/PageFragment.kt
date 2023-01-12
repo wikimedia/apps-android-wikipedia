@@ -1150,7 +1150,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 AlertDialog.Builder(requireActivity())
                     .setMessage(R.string.description_edit_anon_limit)
                     .setPositiveButton(R.string.page_editing_login) { _, _ ->
-                        startActivity(LoginActivity.newIntent(requireContext(), LoginFunnel.SOURCE_EDIT))
+                        startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_EDIT))
                     }
                     .setNegativeButton(R.string.description_edit_login_cancel_button_text, null)
                     .show()
