@@ -22,7 +22,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.DescriptionEditFunnel
 import org.wikipedia.analytics.LoginFunnel
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
@@ -101,7 +100,6 @@ class DescriptionEditFragment : Fragment() {
         }
         Prefs.lastDescriptionEditTime = Date().time
         Prefs.isSuggestedEditsReactivationPassStageOne = false
-        SuggestedEditsFunnel.get().success(action)
         binding.fragmentDescriptionEditView.setSaveState(false)
         if (Prefs.showDescriptionEditSuccessPrompt && invokeSource != InvokeSource.SUGGESTED_EDITS) {
             editSuccessLauncher.launch(DescriptionEditSuccessActivity.newIntent(requireContext(), invokeSource))
@@ -388,10 +386,10 @@ class DescriptionEditFragment : Fragment() {
         private fun getEditComment(): String? {
             if (invokeSource == InvokeSource.SUGGESTED_EDITS || invokeSource == InvokeSource.FEED) {
                 return when (action) {
-                    DescriptionEditActivity.Action.ADD_DESCRIPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
-                    DescriptionEditActivity.Action.ADD_CAPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
-                    DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT
-                    DescriptionEditActivity.Action.TRANSLATE_CAPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT
+                    DescriptionEditActivity.Action.ADD_DESCRIPTION -> SUGGESTED_EDITS_ADD_COMMENT
+                    DescriptionEditActivity.Action.ADD_CAPTION -> SUGGESTED_EDITS_ADD_COMMENT
+                    DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> SUGGESTED_EDITS_TRANSLATE_COMMENT
+                    DescriptionEditActivity.Action.TRANSLATE_CAPTION -> SUGGESTED_EDITS_TRANSLATE_COMMENT
                     else -> null
                 }
             }
@@ -406,7 +404,6 @@ class DescriptionEditFragment : Fragment() {
                 funnel.logError(caught.message)
                 EditAttemptStepEvent.logSaveFailure(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
             }
-            SuggestedEditsFunnel.get().failure(action)
         }
 
         override fun onCancelClick() {
@@ -450,6 +447,11 @@ class DescriptionEditFragment : Fragment() {
         private const val ARG_ACTION = "action"
         private const val ARG_SOURCE_SUMMARY = "sourceSummary"
         private const val ARG_TARGET_SUMMARY = "targetSummary"
+        private const val SUGGESTED_EDITS_UI_VERSION = "1.0"
+        const val SUGGESTED_EDITS_ADD_COMMENT = "#suggestededit-add $SUGGESTED_EDITS_UI_VERSION"
+        const val SUGGESTED_EDITS_TRANSLATE_COMMENT = "#suggestededit-translate $SUGGESTED_EDITS_UI_VERSION"
+        const val SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT = "#suggestededit-imgtag-auto $SUGGESTED_EDITS_UI_VERSION"
+        const val SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT = "#suggestededit-imgtag-custom $SUGGESTED_EDITS_UI_VERSION"
         private val DESCRIPTION_TEMPLATES = arrayOf("Short description", "SHORTDESC")
         // Don't remove the ending escaped `\\}`
         @Suppress("RegExpRedundantEscape")
