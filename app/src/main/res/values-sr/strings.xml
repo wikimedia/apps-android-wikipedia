@@ -578,6 +578,8 @@
   <string name="notifications_mark_all_as_read">Означи све као прочитано</string>
   <string name="notifications_direct_reply_action">Одговори</string>
   <string name="notifications_direct_reply_success">Одговор објављен.</string>
+  <string name="notifications_mark_all_as_read_message">Означено прочитаним: %d</string>
+  <string name="notifications_mark_all_as_unread_message">Означено непрочитаним: %d</string>
   <string name="watchlist_title">Списак надгледања</string>
   <string name="preference_title_notification_poll">Примај обавештења</string>
   <string name="preference_summary_notification_poll">Дозволите апликацији да користи податке ради провере да ли су доступна нова обавештења.</string>
@@ -709,6 +711,8 @@
   <string name="description_edit_tutorial_button_label_start_editing">Започни уређивање</string>
   <string name="description_edit_tutorial_promise">Када почнем, обећавам да нећу злоупотребити ову функцију.</string>
   <string name="customize_toolbar_category_menu">Мени</string>
+  <string name="suggested_edits_describe_articles">Опис чланака</string>
+  <string name="suggested_edits_caption_images">Опис слике</string>
   <string name="suggested_edits_tag_images">Означавање слика</string>
   <string name="suggested_edits_review_description">Преглед описа чланка</string>
   <string name="suggested_edits_add_description_button">Додај опис</string>
@@ -927,6 +931,7 @@
   <string name="insert_media_advanced_settings_image_size_custom">Прилагођено</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">Ширина</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">Висина</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">п</string>
   <string name="insert_media_insert_button">Уметни</string>
   <string name="main_drawer_help">Помоћ</string>
   <string name="main_drawer_login">Пријави ме / придружи ме Википедији</string>
@@ -946,6 +951,7 @@
   <string name="talk_add_reply">Одговори</string>
   <string name="talk_no_subject">(Без наслова)</string>
   <string name="talk_reply_subject">Тема</string>
+  <string name="talk_response_submitted">Одговор објављен.</string>
   <string name="talk_snackbar_undo">Опозови</string>
   <string name="talk_list_item_overflow_mark_as_read">Означи као прочитано</string>
   <string name="talk_list_item_overflow_mark_as_unread">Означи као непрочитано</string>
