@@ -8,6 +8,8 @@ import androidx.appcompat.widget.SwitchCompat
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
+import org.wikipedia.createaccount.CreateAccountActivity
+import org.wikipedia.login.LoginActivity
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.util.log.L
 
@@ -31,7 +33,7 @@ class BreadCrumbLogEvent(
         private const val STREAM_NAME = "android.breadcrumbs_event"
 
         fun logClick(context: Context, view: View) {
-            if (context is SettingsActivity) {
+            if (context is SettingsActivity || context is LoginActivity || context is CreateAccountActivity) {
                 return
             }
             val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
@@ -44,6 +46,9 @@ class BreadCrumbLogEvent(
         }
 
         fun logLongClick(context: Context, view: View) {
+            if (context is SettingsActivity || context is LoginActivity || context is CreateAccountActivity) {
+                return
+            }
             val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), "$viewReadableName.longclick"))
         }
