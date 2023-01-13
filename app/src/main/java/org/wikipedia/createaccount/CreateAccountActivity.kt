@@ -31,6 +31,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NonEmptyValidator
+import java.util.*
 import java.util.concurrent.TimeUnit
 import java.util.regex.Pattern
 
@@ -60,7 +61,7 @@ class CreateAccountActivity : BaseActivity() {
         funnel = CreateAccountFunnel(WikipediaApp.instance, intent.getStringExtra(LOGIN_REQUEST_SOURCE)!!)
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
-            funnel.logStart(intent.getStringExtra(LOGIN_SESSION_TOKEN))
+            funnel.logStart(UUID.randomUUID().toString())
         }
         // Set default result to failed, so we can override if it did not
         setResult(RESULT_ACCOUNT_NOT_CREATED)
@@ -309,7 +310,6 @@ class CreateAccountActivity : BaseActivity() {
         const val RESULT_ACCOUNT_NOT_CREATED = 2
         const val RESULT_ACCOUNT_LOGIN = 3
         const val LOGIN_REQUEST_SOURCE = "login_request_source"
-        const val LOGIN_SESSION_TOKEN = "login_session_token"
         const val CREATE_ACCOUNT_RESULT_USERNAME = "username"
         const val CREATE_ACCOUNT_RESULT_PASSWORD = "password"
 
@@ -336,9 +336,8 @@ class CreateAccountActivity : BaseActivity() {
             return ValidateResult.SUCCESS
         }
 
-        fun newIntent(context: Context, sessionToken: String, source: String): Intent {
+        fun newIntent(context: Context, source: String): Intent {
             return Intent(context, CreateAccountActivity::class.java)
-                    .putExtra(LOGIN_SESSION_TOKEN, sessionToken)
                     .putExtra(LOGIN_REQUEST_SOURCE, source)
         }
     }

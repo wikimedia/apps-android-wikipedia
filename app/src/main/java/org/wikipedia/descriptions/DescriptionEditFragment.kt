@@ -21,7 +21,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.DescriptionEditFunnel
-import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
@@ -140,7 +139,7 @@ class DescriptionEditFragment : Fragment() {
 
         binding.fragmentDescriptionEditView.setLoginCallback {
             val loginIntent = LoginActivity.newIntent(requireActivity(),
-                    LoginFunnel.SOURCE_EDIT, funnel.sessionToken)
+                    LoginActivity.SOURCE_EDIT, funnel.sessionToken)
             loginLauncher.launch(loginIntent)
         }
 

@@ -17,7 +17,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.EditFunnel
-import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTalkReplyBinding
@@ -278,7 +277,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.licenseText.movementMethod = LinkMovementMethodExt { url: String ->
             if (url == "https://#login") {
                 val loginIntent = LoginActivity.newIntent(this,
-                        LoginFunnel.SOURCE_EDIT, editFunnel.sessionToken)
+                        LoginActivity.SOURCE_EDIT, editFunnel.sessionToken)
                 requestLogin.launch(loginIntent)
             } else {
                 UriUtil.handleExternalLink(this, Uri.parse(url))

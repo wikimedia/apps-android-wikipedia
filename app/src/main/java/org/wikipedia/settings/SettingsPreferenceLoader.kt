@@ -9,7 +9,6 @@ import androidx.preference.SwitchPreferenceCompat
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
@@ -88,7 +87,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                         .setPositiveButton(R.string.reading_list_preference_login_to_enable_sync_dialog_login
                         ) { _: DialogInterface, _: Int ->
                             val loginIntent = LoginActivity.newIntent(activity,
-                                    LoginFunnel.SOURCE_SETTINGS)
+                                    LoginActivity.SOURCE_SETTINGS)
                             activity.startActivity(loginIntent)
                         }
                         .setNegativeButton(R.string.reading_list_preference_login_to_enable_sync_dialog_cancel, null)
