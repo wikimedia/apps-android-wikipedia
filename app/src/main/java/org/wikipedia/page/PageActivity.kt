@@ -21,7 +21,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.IntentFunnel
 import org.wikipedia.analytics.LinkPreviewFunnel
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.auth.AccountUtil
@@ -539,7 +538,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_SEARCH)
             loadPage(title, historyEntry, TabPosition.EXISTING_TAB)
         } else if (intent.hasExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET)) {
-            IntentFunnel(app).logFeaturedArticleWidgetTap()
             val title = intent.getParcelableExtra<PageTitle>(EXTRA_PAGETITLE)
             title?.let {
                 val historyEntry = HistoryEntry(it, HistoryEntry.SOURCE_WIDGET)

@@ -7,7 +7,6 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
@@ -30,7 +29,6 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
         val title = intent.getParcelableExtra<PageTitle>(EXTRA_TITLE)!!
-        SuggestedEditsFunnel.get().click(title.displayText, action)
         return DescriptionEditFragment.newInstance(title,
                 intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT),
                 intent.getParcelableExtra(EXTRA_SOURCE_SUMMARY),
@@ -44,7 +42,6 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
             fragment.binding.fragmentDescriptionEditView.loadReviewContent(false)
         } else {
             DeviceUtil.hideSoftKeyboard(this)
-            SuggestedEditsFunnel.get().cancel(fragment.action)
             super.onBackPressed()
         }
     }
