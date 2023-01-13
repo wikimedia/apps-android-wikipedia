@@ -13,7 +13,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.model.EnumCode
 import org.wikipedia.model.EnumCodeMap
@@ -46,7 +45,7 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
 
     override fun onLinkClick(view: OnboardingPageView, url: String) {
         when (url) {
-            "#login" -> loginLauncher.launch(LoginActivity.newIntent(requireContext(), LoginFunnel.SOURCE_ONBOARDING))
+            "#login" -> loginLauncher.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_ONBOARDING))
             "#privacy" -> FeedbackUtil.showPrivacyPolicy(requireContext())
             "#about" -> FeedbackUtil.showAboutWikipedia(requireContext())
             "#offline" -> FeedbackUtil.showOfflineReadingAndData(requireContext())
