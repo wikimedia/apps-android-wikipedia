@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTalkTopicBinding
@@ -338,7 +337,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                     .setTitle(R.string.talk_login_to_subscribe_dialog_title)
                     .setMessage(R.string.talk_login_to_subscribe_dialog_content)
                     .setPositiveButton(R.string.login_join_wikipedia) { _, _ ->
-                        requestLogin.launch(LoginActivity.newIntent(this@TalkTopicActivity, LoginFunnel.SOURCE_SUBSCRIBE))
+                        requestLogin.launch(LoginActivity.newIntent(this@TalkTopicActivity, LoginActivity.SOURCE_SUBSCRIBE))
                     }
                     .setNegativeButton(R.string.onboarding_maybe_later, null)
                     .show()

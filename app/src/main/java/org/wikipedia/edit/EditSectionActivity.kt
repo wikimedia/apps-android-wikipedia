@@ -27,7 +27,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.EditFunnel
-import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil.isLoggedIn
@@ -292,7 +291,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             if (url == "https://#login") {
                 funnel.logLoginAttempt()
                 val loginIntent = LoginActivity.newIntent(this@EditSectionActivity,
-                        LoginFunnel.SOURCE_EDIT, funnel.sessionToken)
+                        LoginActivity.SOURCE_EDIT, funnel.sessionToken)
                 requestLogin.launch(loginIntent)
             } else {
                 UriUtil.handleExternalLink(this@EditSectionActivity, url.toUri())

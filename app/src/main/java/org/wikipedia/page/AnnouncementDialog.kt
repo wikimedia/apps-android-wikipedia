@@ -5,7 +5,6 @@ import android.content.Context
 import android.net.Uri
 import android.widget.ScrollView
 import org.wikipedia.Constants
-import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.feed.announcement.Announcement
 import org.wikipedia.feed.announcement.AnnouncementCard
 import org.wikipedia.feed.announcement.AnnouncementCardView
@@ -32,7 +31,7 @@ class AnnouncementDialog internal constructor(context: Context, val announcement
     override fun onAnnouncementPositiveAction(card: Card, uri: Uri) {
         when {
             uri.toString() == UriUtil.LOCAL_URL_LOGIN ->
-                context.startActivity(LoginActivity.newIntent(context, LoginFunnel.SOURCE_NAV))
+                context.startActivity(LoginActivity.newIntent(context, LoginActivity.SOURCE_NAV))
             uri.toString() == UriUtil.LOCAL_URL_SETTINGS ->
                 context.startActivity(SettingsActivity.newIntent(context))
             uri.toString() == UriUtil.LOCAL_URL_CUSTOMIZE_FEED ->
