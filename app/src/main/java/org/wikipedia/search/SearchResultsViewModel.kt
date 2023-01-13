@@ -55,7 +55,6 @@ class SearchResultsViewModel : ViewModel() {
 
         override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, SearchResult> {
             return try {
-                // The default offset is 0 but we send the initial offset from 1 to prevent showing the same talk page from the results.
                 if (searchTerm.isNullOrEmpty() || languageCode.isNullOrEmpty()) {
                     return LoadResult.Page(emptyList(), null, null)
                 }
@@ -83,7 +82,9 @@ class SearchResultsViewModel : ViewModel() {
                 }
 
                 if (response?.query?.pages == null) {
-                    // Prevent using continuation string from prefix search
+                    // Prevent using continuation string from prefix search.
+                    // We will do prefix search at the beginning, and if the response is not empty, then the continuation from prefix search will contain "description".
+                    // If we pass the "description" to the next full text search API call, it will not be able to show a complete response properly.
                     val continuation = if (params.key?.continuation?.contains("description") == true) null else params.key?.continuation
                     response = ServiceFactory.get(wikiSite)
                         .fullTextSearch(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, continuation)
