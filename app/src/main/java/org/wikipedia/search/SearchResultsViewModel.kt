@@ -50,7 +50,6 @@ class SearchResultsViewModel : ViewModel() {
             var totalResults: MutableList<SearchResult>?
     ) : PagingSource<MwQueryResponse.Continuation, SearchResult>() {
 
-        private val batchSize = 20
         private var prefixSearch = true
 
         override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, SearchResult> {
@@ -61,21 +60,29 @@ class SearchResultsViewModel : ViewModel() {
 
                 val wikiSite = WikiSite.forLanguageCode(languageCode)
                 var response: MwQueryResponse? = null
-                var readingListSearch = SearchResults()
-                var historySearch = SearchResults()
+                val resultList = mutableListOf<SearchResult>()
                 if (prefixSearch) {
                     if (searchTerm.length > 2) {
-                        readingListSearch = withContext(Dispatchers.IO) {
-                            async {
+                        withContext(Dispatchers.IO) {
+                            val readingListSearch = async {
                                 AppDatabase.instance.readingListPageDao().findPageForSearchQueryInAnyList(searchTerm)
                             }
-                        }.await()
 
-                        historySearch = withContext(Dispatchers.IO) {
-                            async {
+                            val historySearch = async {
                                 AppDatabase.instance.historyEntryWithImageDao().findHistoryItem(searchTerm)
                             }
-                        }.await()
+
+                            val tabsSearch = async {
+                                getSearchResultsFromTabs(searchTerm)
+                            }
+
+                            tabsSearch.await()?.let {
+                                resultList.add(it)
+                            }
+
+                            resultList.addAll(findFirstMatchItem(resultList, readingListSearch.await()))
+                            resultList.addAll(findFirstMatchItem(resultList, historySearch.await()))
+                        }
                     }
                     response = ServiceFactory.get(wikiSite).prefixSearch(searchTerm, params.loadSize, params.key?.gpsoffset)
                     prefixSearch = false
@@ -87,19 +94,6 @@ class SearchResultsViewModel : ViewModel() {
                     response = ServiceFactory.get(wikiSite)
                         .fullTextSearch(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, continuation)
                 }
-
-                val resultList = mutableListOf<SearchResult>()
-                addSearchResultsFromTabs(searchTerm, resultList)
-
-                resultList.addAll(readingListSearch.results.filterNot { res ->
-                    resultList.map { it.pageTitle.prefixedText }
-                        .contains(res.pageTitle.prefixedText)
-                }.take(1))
-
-                resultList.addAll(historySearch.results.filterNot { res ->
-                    resultList.map { it.pageTitle.prefixedText }
-                        .contains(res.pageTitle.prefixedText)
-                }.take(1))
 
                 val searchResults = response.query?.pages?.let { list ->
                     list.sortedBy { it.index }.map {
@@ -115,7 +109,7 @@ class SearchResultsViewModel : ViewModel() {
                         } else {
                             val prefixSearchResponse = withContext(Dispatchers.IO) {
                                 ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                                    .prefixSearch(searchTerm, batchSize, 0)
+                                    .prefixSearch(searchTerm, params.loadSize, 0)
                             }
                             var countResultSize = 0
                             prefixSearchResponse.query?.pages?.let {
@@ -124,7 +118,7 @@ class SearchResultsViewModel : ViewModel() {
                             if (countResultSize == 0) {
                                 val fullTextSearchResponse = withContext(Dispatchers.IO) {
                                     ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                                        .fullTextSearch(searchTerm, null, batchSize, null)
+                                        .fullTextSearch(searchTerm, null, params.loadSize, null)
                                 }
                                 countResultSize = fullTextSearchResponse.query?.pages?.size ?: 0
                             }
@@ -151,20 +145,27 @@ class SearchResultsViewModel : ViewModel() {
             return null
         }
 
-        private fun addSearchResultsFromTabs(searchTerm: String, resultList: MutableList<SearchResult>) {
+        private fun findFirstMatchItem(resultList: List<SearchResult>, searchResults: SearchResults): List<SearchResult> {
+            return searchResults.results.filterNot { res ->
+                resultList.map { it.pageTitle.prefixedText }
+                    .contains(res.pageTitle.prefixedText)
+            }.take(1)
+        }
+
+        private fun getSearchResultsFromTabs(searchTerm: String): SearchResult? {
             if (searchTerm.length < 2) {
-                return
+                return null
             }
             WikipediaApp.instance.tabList.forEach { tab ->
                 tab.backStackPositionTitle?.let {
                     if (StringUtil.fromHtml(it.displayText).toString()
                             .lowercase(Locale.getDefault())
                             .contains(searchTerm.lowercase(Locale.getDefault()))) {
-                        resultList.add(SearchResult(it, SearchResult.SearchResultType.TAB_LIST))
-                        return
+                        return SearchResult(it, SearchResult.SearchResultType.TAB_LIST)
                     }
                 }
             }
+            return null
         }
     }
 }
