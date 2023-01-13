@@ -4,9 +4,7 @@ import android.content.Context
 import android.content.Intent
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
-import org.wikipedia.analytics.IntentFunnel
 import org.wikipedia.util.log.L
 
 class SearchActivity : SingleFragmentActivity<SearchFragment>() {
@@ -32,9 +30,6 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
         const val RESULT_LINK_SUCCESS = 1
 
         fun newIntent(context: Context, source: InvokeSource, query: String?, returnLink: Boolean = false): Intent {
-            if (source == InvokeSource.WIDGET) {
-                IntentFunnel(WikipediaApp.instance).logSearchWidgetTap()
-            }
             return Intent(context, SearchActivity::class.java)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
                     .putExtra(QUERY_EXTRA, query)

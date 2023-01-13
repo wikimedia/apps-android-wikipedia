@@ -17,7 +17,6 @@ import com.skydoves.balloon.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.databinding.ViewPlainTextTooltipBinding
 import org.wikipedia.dataclient.WikiSite
@@ -104,7 +103,6 @@ object FeedbackUtil {
 
     fun showAndroidAppEditingFAQ(context: Context,
                                  @StringRes urlStr: Int = R.string.android_app_edit_help_url) {
-        SuggestedEditsFunnel.get().helpOpened()
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)))
     }
 

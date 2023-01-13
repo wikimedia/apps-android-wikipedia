@@ -15,7 +15,6 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource.FEED
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsCardItemBinding
 import org.wikipedia.dataclient.WikiSite
@@ -59,8 +58,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
             if (isAdded) {
                 previousImageTagPage = imageTagPage
                 previousSourceSummaryForEdit = sourceSummaryForEdit
-                SuggestedEditsFunnel.get().log()
-                SuggestedEditsFunnel.reset()
 
                 val openPageListener = SuggestedEditsSnackbars.OpenPageListener {
                     if (cardActionType === ADD_IMAGE_TAGS) {
@@ -95,7 +92,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
                 imageTagPage = JsonUtil.decodeFromString(it.getString(IMAGE_TAG_PAGE))
             }
         }
-        SuggestedEditsFunnel[FEED].impression(cardActionType)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
