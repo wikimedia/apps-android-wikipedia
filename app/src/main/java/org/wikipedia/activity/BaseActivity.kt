@@ -23,7 +23,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
-import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.appshortcuts.AppShortcuts
@@ -218,7 +217,7 @@ abstract class BaseActivity : AppCompatActivity() {
                     .setCancelable(false)
                     .setTitle(R.string.logged_out_in_background_title)
                     .setMessage(R.string.logged_out_in_background_dialog)
-                    .setPositiveButton(R.string.logged_out_in_background_login) { _, _ -> startActivity(LoginActivity.newIntent(this@BaseActivity, LoginFunnel.SOURCE_LOGOUT_BACKGROUND)) }
+                    .setPositiveButton(R.string.logged_out_in_background_login) { _, _ -> startActivity(LoginActivity.newIntent(this@BaseActivity, LoginActivity.SOURCE_LOGOUT_BACKGROUND)) }
                     .setNegativeButton(R.string.logged_out_in_background_cancel, null)
                     .show()
         }
