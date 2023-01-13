@@ -82,9 +82,7 @@ class SearchResultsViewModel : ViewModel() {
                 }
 
                 if (response?.query?.pages == null) {
-                    // Prevent using continuation string from prefix search.
-                    // We will do prefix search at the beginning, and if the response is not empty, then the continuation from prefix search will contain "description".
-                    // If we pass the "description" to the next full text search API call, it will not be able to show a complete response properly.
+                    // Prevent using continuation string from prefix search after the first round of LoadResult.
                     val continuation = if (params.key?.continuation?.contains("description") == true) null else params.key?.continuation
                     response = ServiceFactory.get(wikiSite)
                         .fullTextSearch(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, continuation)
