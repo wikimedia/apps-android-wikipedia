@@ -13,7 +13,6 @@ import com.google.android.material.textfield.TextInputLayout
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.auth.AccountUtil.updateAccount
 import org.wikipedia.createaccount.CreateAccountActivity
 import org.wikipedia.databinding.ActivityLoginBinding
@@ -33,7 +32,6 @@ class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginSource: String
     private var firstStepToken: String? = null
-    private var funnel: LoginFunnel = LoginFunnel(WikipediaApp.instance)
     private val loginClient = LoginClient()
     private val loginCallback = LoginCallback()
     private var shouldLogLogin = true
@@ -44,12 +42,10 @@ class LoginActivity : BaseActivity() {
             CreateAccountActivity.RESULT_ACCOUNT_CREATED -> {
                 binding.loginUsernameText.editText?.setText(it.data!!.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_USERNAME))
                 binding.loginPasswordInput.editText?.setText(it.data?.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_PASSWORD))
-                funnel.logCreateAccountSuccess()
                 FeedbackUtil.showMessage(this, R.string.create_account_account_created_toast)
                 doLogin()
             }
             CreateAccountActivity.RESULT_ACCOUNT_NOT_CREATED -> finish()
-            else -> funnel.logCreateAccountFailure()
         }
     }
 
@@ -78,7 +74,7 @@ class LoginActivity : BaseActivity() {
         }
 
         loginSource = intent.getStringExtra(LOGIN_REQUEST_SOURCE).orEmpty()
-        if (loginSource.isNotEmpty() && loginSource == LoginFunnel.SOURCE_SUGGESTED_EDITS) {
+        if (loginSource.isNotEmpty() && loginSource == SOURCE_SUGGESTED_EDITS) {
             Prefs.isSuggestedEditsHighestPriorityEnabled = true
         }
 
@@ -141,25 +137,15 @@ class LoginActivity : BaseActivity() {
 
     private fun logLoginStart() {
         if (shouldLogLogin && loginSource.isNotEmpty()) {
-            if (loginSource == LoginFunnel.SOURCE_EDIT) {
-                funnel.logStart(
-                        LoginFunnel.SOURCE_EDIT,
-                        intent.getStringExtra(EDIT_SESSION_TOKEN).orEmpty()
-                )
-            } else {
-                funnel.logStart(loginSource)
-            }
             shouldLogLogin = false
         }
     }
 
     private fun startCreateAccountActivity() {
-        funnel.logCreateAccountAttempt()
-        createAccountLauncher.launch(CreateAccountActivity.newIntent(this, funnel.sessionToken, loginSource))
+        createAccountLauncher.launch(CreateAccountActivity.newIntent(this, loginSource))
     }
 
     private fun onLoginSuccess() {
-        funnel.logSuccess()
         DeviceUtil.hideSoftKeyboard(this@LoginActivity)
         setResult(RESULT_LOGIN_SUCCESS)
 
@@ -199,7 +185,6 @@ class LoginActivity : BaseActivity() {
             } else if (result.fail()) {
                 val message = result.message.orEmpty()
                 FeedbackUtil.showMessage(this@LoginActivity, message)
-                funnel.logError(message)
                 L.w("Login failed with result $message")
             }
         }
@@ -242,6 +227,16 @@ class LoginActivity : BaseActivity() {
         const val RESULT_LOGIN_FAIL = 2
         const val LOGIN_REQUEST_SOURCE = "login_request_source"
         const val EDIT_SESSION_TOKEN = "edit_session_token"
+        const val SOURCE_NAV = "navigation"
+        const val SOURCE_EDIT = "edit"
+        const val SOURCE_BLOCKED = "blocked"
+        const val SOURCE_SYSTEM = "system"
+        const val SOURCE_ONBOARDING = "onboarding"
+        const val SOURCE_SETTINGS = "settings"
+        const val SOURCE_SUBSCRIBE = "subscribe"
+        const val SOURCE_READING_MANUAL_SYNC = "reading_lists_manual_sync"
+        const val SOURCE_LOGOUT_BACKGROUND = "logout_background"
+        const val SOURCE_SUGGESTED_EDITS = "suggestededits"
 
         fun newIntent(context: Context, source: String, token: String? = null): Intent {
             return Intent(context, LoginActivity::class.java)
