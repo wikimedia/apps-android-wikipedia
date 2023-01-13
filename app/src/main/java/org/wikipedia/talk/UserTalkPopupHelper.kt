@@ -34,16 +34,14 @@ import org.wikipedia.util.log.L
 @SuppressLint("RestrictedApi")
 object UserTalkPopupHelper {
 
-    fun show(activity: AppCompatActivity, bottomSheetPresenter: ExclusiveBottomSheetPresenter,
-             title: PageTitle, anon: Boolean, anchorView: View,
+    fun show(activity: AppCompatActivity, title: PageTitle, anon: Boolean, anchorView: View,
              invokeSource: Constants.InvokeSource, historySource: Int, revisionId: Long? = null, pageId: Int? = null) {
         val pos = IntArray(2)
         anchorView.getLocationInWindow(pos)
-        show(activity, bottomSheetPresenter, title, anon, pos[0], pos[1], invokeSource, historySource, revisionId = revisionId, pageId = pageId)
+        show(activity, title, anon, pos[0], pos[1], invokeSource, historySource, revisionId = revisionId, pageId = pageId)
     }
 
-    fun show(activity: AppCompatActivity, bottomSheetPresenter: ExclusiveBottomSheetPresenter,
-             title: PageTitle, anon: Boolean, x: Int, y: Int, invokeSource: Constants.InvokeSource,
+    fun show(activity: AppCompatActivity, title: PageTitle, anon: Boolean, x: Int, y: Int, invokeSource: Constants.InvokeSource,
              historySource: Int, showContribs: Boolean = true, revisionId: Long? = null, pageId: Int? = null) {
         if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
             activity.startActivity(TalkTopicsActivity.newIntent(activity, title, invokeSource))
@@ -62,7 +60,7 @@ object UserTalkPopupHelper {
 
             helper.show()
         } else {
-            bottomSheetPresenter.show(activity.supportFragmentManager,
+            ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager,
                     LinkPreviewDialog.newInstance(HistoryEntry(title, historySource), null))
         }
     }

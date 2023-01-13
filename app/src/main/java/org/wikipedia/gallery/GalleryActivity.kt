@@ -30,7 +30,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.commons.FilePageActivity
@@ -62,7 +61,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     private lateinit var binding: ActivityGalleryBinding
     private lateinit var sourceWiki: WikiSite
-    private lateinit var funnel: GalleryFunnel
     private lateinit var galleryAdapter: GalleryItemAdapter
     private var pageChangeListener = GalleryPageChangeListener()
     private var pageTitle: PageTitle? = null
@@ -82,7 +80,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private var initialImageIndex = -1
     private var targetLanguageCode: String? = null
     private val app = WikipediaApp.instance
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val downloadReceiver = MediaDownloadReceiver()
     private val downloadReceiverCallback = MediaDownloadReceiverCallback()
 
@@ -139,12 +136,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         binding.pager.adapter = galleryAdapter
         binding.pager.registerOnPageChangeCallback(pageChangeListener)
         binding.pager.offscreenPageLimit = 2
-        funnel = GalleryFunnel(app, intent.getParcelableExtra(EXTRA_WIKI), intent.getIntExtra(EXTRA_SOURCE, 0))
-        if (savedInstanceState == null) {
-            initialFilename?.let {
-                funnel.logGalleryOpen(pageTitle, it)
-            }
-        } else {
+        if (savedInstanceState != null) {
             controlsShowing = savedInstanceState.getBoolean(KEY_CONTROLS_SHOWING)
             initialImageIndex = savedInstanceState.getInt(KEY_PAGER_INDEX)
             // if we have a savedInstanceState, then the initial index overrides
@@ -216,9 +208,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     override fun onDownload(item: GalleryItemFragment) {
-        item.imageTitle?.let {
-            funnel.logGallerySave(pageTitle, it.displayText)
-        }
         if (item.imageTitle != null && item.mediaInfo != null) {
             downloadReceiver.download(this, item.imageTitle!!, item.mediaInfo!!)
             FeedbackUtil.showMessage(this, R.string.gallery_save_progress)
@@ -228,9 +217,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     override fun onShare(item: GalleryItemFragment, bitmap: Bitmap?, subject: String, title: PageTitle) {
-        item.imageTitle?.let {
-            funnel.logGalleryShare(pageTitle, it.displayText)
-        }
         if (bitmap != null && item.mediaInfo != null) {
             ShareUtil.shareImage(this, bitmap,
                 File(ImageUrlUtil.getUrlForPreferredSize(item.mediaInfo!!.thumbUrl, Constants.PREFERRED_GALLERY_IMAGE_SIZE)).name,
@@ -335,15 +321,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             // the pager has settled on a new position
             currentItem?.let { item ->
                 layOutGalleryDescription(item)
-                item.imageTitle?.let {
-                    if (currentPosition != -1) {
-                        if (position < currentPosition) {
-                            funnel.logGallerySwipeLeft(pageTitle, it.displayText)
-                        } else if (position > currentPosition) {
-                            funnel.logGallerySwipeRight(pageTitle, it.displayText)
-                        }
-                    }
-                }
             }
             currentPosition = position
         }
@@ -365,11 +342,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     override fun onBackPressed() {
-        // log the "gallery close" event only upon explicit closing of the activity
-        // (back button, or home-as-up button in the toolbar)
-        currentItem?.imageTitle?.let {
-            funnel.logGalleryClose(pageTitle, it.displayText)
-        }
         if (TRANSITION_INFO != null) {
             showTransitionReceiver()
         }
@@ -418,7 +390,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     private fun showLinkPreview(title: PageTitle) {
-        bottomSheetPresenter.show(supportFragmentManager,
+        ExclusiveBottomSheetPresenter.show(supportFragmentManager,
             LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_GALLERY), null))
     }
 
@@ -466,7 +438,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
-        bottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, InvokeSource.LINK_PREVIEW_MENU)
+        ExclusiveBottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, InvokeSource.LINK_PREVIEW_MENU)
     }
 
     override fun onLinkPreviewShareLink(title: PageTitle) {
@@ -702,6 +674,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         const val EXTRA_WIKI = "wiki"
         const val EXTRA_REVISION = "revision"
         const val EXTRA_SOURCE = "source"
+        const val SOURCE_LEAD_IMAGE = 0
+        const val SOURCE_NON_LEAD_IMAGE = 1
+        const val SOURCE_LINK_PREVIEW = 2
         private var TRANSITION_INFO: JavaScriptActionHandler.ImageHitInfo? = null
 
         fun newIntent(context: Context, pageTitle: PageTitle?, filename: String, wiki: WikiSite, revision: Long, source: Int): Intent {

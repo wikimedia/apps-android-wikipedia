@@ -4,8 +4,6 @@ import android.content.Context
 import android.icu.text.RelativeDateTimeFormatter
 import android.os.Build
 import android.text.format.DateFormat
-import kotlinx.datetime.LocalDate
-import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.toJavaLocalDate
 import kotlinx.datetime.toJavaLocalDateTime
 import org.wikipedia.R
@@ -13,8 +11,12 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.UtcDate
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.Instant
+import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 import java.time.temporal.TemporalAccessor
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
@@ -24,12 +26,8 @@ object DateUtil {
     private val DATE_TIME_FORMATTERS = ConcurrentHashMap<String, DateTimeFormatter>()
 
     // TODO: Switch to DateTimeFormatter when minSdk = 26.
-    fun iso8601DateFormat(date: Date): String {
-        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).format(date)
-    }
-
     fun iso8601DateParse(date: String): Date {
-        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ROOT, true).parse(date)!!
+        return Date.from(Instant.parse(date))
     }
 
     fun iso8601ShortDateParse(date: String): Date {
@@ -101,6 +99,11 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, datePattern)
     }
 
+    fun getTimeString(context: Context, localDateTime: LocalDateTime): String {
+        val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm" else "hh:mm a"
+        return getDateStringWithSkeletonPattern(localDateTime, datePattern)
+    }
+
     fun getShortDayWithTimeString(dateStr: String): String {
         return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "MMM d HH:mm")
     }
@@ -120,20 +123,13 @@ object DateUtil {
         return getCachedDateFormat(datePattern, Locale.getDefault(), false).format(date)
     }
 
-    private fun getDateStringWithSkeletonPattern(temporalAccessor: TemporalAccessor, pattern: String): String {
-        return getCachedDateTimeFormatter(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern),
-            Locale.getDefault(), false).format(temporalAccessor)
-    }
-
-    private fun getCachedDateTimeFormatter(pattern: String, locale: Locale, utc: Boolean): DateTimeFormatter {
-        return DATE_TIME_FORMATTERS.getOrPut(pattern) {
-            val dtf = DateTimeFormatter.ofPattern(pattern, locale)
-            if (utc) dtf.withZone(ZoneOffset.UTC) else dtf
-        }
-    }
-
     private fun getDateStringWithSkeletonPattern(date: Date, pattern: String): String {
         return getCachedDateFormat(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false).format(date)
+    }
+
+    private fun getDateStringWithSkeletonPattern(temporalAccessor: TemporalAccessor, pattern: String): String {
+        return getCachedDateTimeFormatter(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false)
+            .format(temporalAccessor)
     }
 
     private fun getCachedDateFormat(pattern: String, locale: Locale, utc: Boolean): SimpleDateFormat {
@@ -146,6 +142,13 @@ object DateUtil {
         }
     }
 
+    private fun getCachedDateTimeFormatter(pattern: String, locale: Locale, utc: Boolean): DateTimeFormatter {
+        return DATE_TIME_FORMATTERS.getOrPut(pattern) {
+            val dtf = DateTimeFormatter.ofPattern(pattern, locale)
+            return if (utc) dtf.withZone(ZoneOffset.UTC) else dtf
+        }
+    }
+
     fun getShortDateString(date: Date): String {
         // todo: consider allowing TWN date formats. It would be useful to have but might be
         //       difficult for translators to write correct format specifiers without being able to
@@ -154,6 +157,10 @@ object DateUtil {
         val dateFormat = DateFormat.getMediumDateFormat(WikipediaApp.instance)
         dateFormat.timeZone = TimeZone.getTimeZone("UTC")
         return dateFormat.format(date)
+    }
+
+    fun getShortDateString(localDate: LocalDate): String {
+        return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(localDate)
     }
 
     fun getUtcRequestDateFor(age: Int): UtcDate {

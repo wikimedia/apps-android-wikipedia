@@ -60,21 +60,16 @@ class AnnouncementClient : FeedClient {
         }
 
         fun shouldShow(announcement: Announcement?, country: String?, instant: Instant): Boolean {
-            return (announcement != null && !announcement.platforms.isNullOrEmpty() && (announcement.platforms.contains(PLATFORM_CODE) ||
+            return (announcement != null && announcement.platforms.isNotEmpty() && (announcement.platforms.contains(PLATFORM_CODE) ||
                     announcement.platforms.contains(PLATFORM_CODE_NEW)) &&
                     matchesCountryCode(announcement, country) && matchesDate(announcement, instant) &&
                     matchesVersionCodes(announcement.minVersion(), announcement.maxVersion()) && matchesConditions(announcement))
         }
 
         private fun matchesCountryCode(announcement: Announcement, country: String?): Boolean {
-            var countryCode = country
-            val announcementsCountryOverride = Prefs.announcementsCountryOverride
-            if (!announcementsCountryOverride.isNullOrEmpty()) {
-                countryCode = announcementsCountryOverride
-            }
-            return if (countryCode.isNullOrEmpty() || announcement.countries.isEmpty()) {
+            return if (country.isNullOrEmpty() || announcement.countries.isEmpty()) {
                 false
-            } else announcement.countries.contains(countryCode)
+            } else announcement.countries.contains(country)
         }
 
         private fun matchesDate(announcement: Announcement, instant: Instant): Boolean {

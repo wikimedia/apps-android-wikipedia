@@ -22,7 +22,6 @@ import kotlinx.datetime.TimeZone
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
@@ -118,16 +117,10 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.userStatsClickTarget.setOnClickListener(listener)
     }
 
-    override fun onPause() {
-        super.onPause()
-        SuggestedEditsFunnel.get().pause()
-    }
-
     override fun onResume() {
         super.onResume()
         setUpTasks()
         refreshContents()
-        SuggestedEditsFunnel.get().resume()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -146,8 +139,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.tasksRecyclerView.adapter = null
         disposables.clear()
         binding.suggestedEditsScrollView.removeCallbacks(sequentialTooltipRunnable)
-        SuggestedEditsFunnel.get().log()
-        SuggestedEditsFunnel.reset()
         _binding = null
         super.onDestroyView()
     }
@@ -190,7 +181,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
                     val contributions = (wikidataResponse.query!!.userContributions +
                             commonsResponse.query!!.userContributions +
-                            homeSiteResponse.query!!.userContributions).sortedByDescending { it.date() }
+                            homeSiteResponse.query!!.userContributions).sortedByDescending { it.parsedInstant }
                     latestEditStreak = getEditStreak(contributions)
                     revertSeverity = UserContribStats.getRevertSeverity()
                     wikidataResponse
@@ -364,10 +355,11 @@ class SuggestedEditsTasksFragment : Fragment() {
         val dayMillis = TimeUnit.DAYS.toMillis(1)
         var streak = 0
         for (c in contributions) {
-            if (c.date().time >= baseCal.timeInMillis) {
+            val epochMilli = c.parsedInstant.toEpochMilli()
+            if (epochMilli >= baseCal.timeInMillis) {
                 // this contribution was on the same day.
                 continue
-            } else if (c.date().time < (baseCal.timeInMillis - dayMillis)) {
+            } else if (epochMilli < (baseCal.timeInMillis - dayMillis)) {
                 // this contribution is more than one day apart, so the streak is broken.
                 break
             }

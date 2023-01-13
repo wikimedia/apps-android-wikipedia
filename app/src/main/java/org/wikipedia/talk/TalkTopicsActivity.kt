@@ -61,7 +61,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
     private var goToTopic = false
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     private val requestLanguageChange = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
@@ -267,7 +266,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
     override fun onExpirySelect(expiry: WatchlistExpiry) {
         viewModel.watchOrUnwatch(expiry, false)
-        bottomSheetPresenter.dismiss(supportFragmentManager)
+        ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
     }
 
     private fun resetViews() {
@@ -352,6 +351,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnEmpty() {
+        binding.talkRefreshView.isRefreshing = false
         binding.talkEmptyContainer.isVisible = true
         binding.talkConditionContainer.isVisible = true
         // Allow them to create a new topic anyway
@@ -407,7 +407,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             if (!viewModel.watchlistExpiryChanged) {
                 snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
                     viewModel.watchlistExpiryChanged = true
-                    bottomSheetPresenter.show(supportFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.lastWatchExpiry))
+                    ExclusiveBottomSheetPresenter.show(supportFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.lastWatchExpiry))
                 }
             }
             snackbar.show()

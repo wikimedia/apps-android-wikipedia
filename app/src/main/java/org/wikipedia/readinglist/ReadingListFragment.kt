@@ -12,6 +12,7 @@ import androidx.appcompat.view.ActionMode
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.MenuProvider
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -70,11 +71,11 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private val readingListPageItemCallback = ReadingListPageItemCallback()
     private val searchActionModeCallback = SearchCallback()
     private val multiSelectActionModeCallback = MultiSelectCallback()
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var toolbarExpanded = true
     private var displayedLists = mutableListOf<Any>()
     private var currentSearchQuery: String? = null
     private var articleLimitMessageShown = false
+    private var exclusiveTooltipRunnable: Runnable? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -98,6 +99,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     override fun onResume() {
         super.onResume()
         updateReadingListData()
+        ReadingListsShareSurveyHelper.maybeShowSurvey(requireActivity())
     }
 
     override fun onDestroyView() {
@@ -119,7 +121,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val sortByNameItem = menu.findItem(R.id.menu_sort_by_name)
         val sortByRecentItem = menu.findItem(R.id.menu_sort_by_recent)
         val sortMode = Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC)
-        menu.findItem(R.id.menu_reading_list_share)?.isVisible = ReadingListsShareHelper.shareEnabled()
         sortByNameItem.setTitle(if (sortMode == ReadingList.SORT_BY_NAME_ASC) R.string.reading_list_sort_by_name_desc else R.string.reading_list_sort_by_name)
         sortByRecentItem.setTitle(if (sortMode == ReadingList.SORT_BY_RECENT_DESC) R.string.reading_list_sort_by_recent_desc else R.string.reading_list_sort_by_recent)
         val searchItem = menu.findItem(R.id.menu_search_lists)
@@ -180,10 +181,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 }
                 true
             }
-            R.id.menu_reading_list_share -> {
-                ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
-                true
-            }
             else -> false
         }
     }
@@ -203,6 +200,37 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.setThumbnailVisible(false)
         headerView.setTitleTextAppearance(R.style.ReadingListTitleTextAppearance)
         headerView.setOverflowViewVisibility(View.VISIBLE)
+        if (ReadingListsShareHelper.shareEnabled()) {
+            headerView.shareButton.isVisible = true
+            if (Prefs.readingListRecentReceivedId == readingListId && !Prefs.readingListRecentReceivedTooltipShown) {
+                enqueueTooltip {
+                    FeedbackUtil.showTooltip(
+                        requireActivity(),
+                        headerView.listTitle,
+                        getString(R.string.reading_list_share_title_tooltip),
+                        aboveOrBelow = false,
+                        autoDismiss = true,
+                        showDismissButton = true
+                    )
+                    Prefs.readingListRecentReceivedTooltipShown = true
+                }
+            }
+            if (!Prefs.readingListShareTooltipShown) {
+                enqueueTooltip {
+                    FeedbackUtil.showTooltip(
+                        requireActivity(),
+                        headerView.shareButton,
+                        getString(R.string.reading_list_share_menu_tooltip),
+                        aboveOrBelow = false,
+                        autoDismiss = true,
+                        showDismissButton = true
+                    )
+                    Prefs.readingListShareTooltipShown = true
+                }
+            }
+        } else {
+            headerView.shareButton.isVisible = false
+        }
     }
 
     private fun setRecyclerView() {
@@ -257,6 +285,20 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     // In this case, there's nothing for us to do, so just bail from the activity.
                     requireActivity().finish()
                 })
+    }
+
+    private fun enqueueTooltip(runnable: Runnable) {
+        if (exclusiveTooltipRunnable != null) {
+            return
+        }
+        exclusiveTooltipRunnable = runnable
+        binding.readingListSwipeRefresh.postDelayed({
+            exclusiveTooltipRunnable = null
+            if (!isAdded) {
+                return@postDelayed
+            }
+            runnable.run()
+        }, 500)
     }
 
     private fun setSearchQuery() {
@@ -379,7 +421,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val pages = selectedPages
         if (pages.isNotEmpty()) {
             val titles = pages.map { ReadingListPage.toPageTitle(it) }
-            bottomSheetPresenter.show(childFragmentManager,
+            ExclusiveBottomSheetPresenter.show(childFragmentManager,
                     AddToReadingListDialog.newInstance(titles, InvokeSource.READING_LIST_ACTIVITY))
             update()
         }
@@ -389,7 +431,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val pages = selectedPages
         if (pages.isNotEmpty()) {
             val titles = pages.map { ReadingListPage.toPageTitle(it) }
-            bottomSheetPresenter.show(childFragmentManager,
+            ExclusiveBottomSheetPresenter.show(childFragmentManager,
                     MoveToReadingListDialog.newInstance(readingListId, titles, InvokeSource.READING_LIST_ACTIVITY))
             update()
         }
@@ -419,13 +461,13 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     override fun onAddItemToOther(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
     }
 
     override fun onMoveItemToOther(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 MoveToReadingListDialog.newInstance(readingListId, ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
     }
 
@@ -667,7 +709,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
         override fun onLongClick(item: ReadingListPage?): Boolean {
             item?.let {
-                bottomSheetPresenter.show(childFragmentManager,
+                ExclusiveBottomSheetPresenter.show(childFragmentManager,
                         ReadingListItemActionsDialog.newInstance(if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!)
                         else ReadingListBehaviorsUtil.getListsContainPage(it), it.id, actionMode != null))
                 return true

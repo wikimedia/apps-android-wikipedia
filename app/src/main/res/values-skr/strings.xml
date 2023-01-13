@@ -330,7 +330,7 @@
   <string name="onboarding_continue">جاری</string>
   <string name="onboarding_get_started">شروع کرو</string>
   <string name="onboarding_got_it">گھن گھندا</string>
-  <string name="app_shortcuts_random">قݨے نال</string>
+  <string name="app_shortcuts_random">بے ترتیبا</string>
   <string name="app_shortcuts_continue_reading">پڑھݨ جاری رکھو</string>
   <string name="app_shortcuts_search">ڳولو</string>
   <string name="on_this_day_card_title">ایں ݙینہ کوں</string>
@@ -379,4 +379,7 @@
   <string name="text_input_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="text_input_dialog_cancel_button_text">منسوخ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">منسوخ</string>
+  <string name="shareable_reading_lists_new_indicator">*نواں*</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">سمجھ آڳئی</string>
+  <string name="reading_list_share_menu_label">شیئر۔۔۔</string>
 </resources>

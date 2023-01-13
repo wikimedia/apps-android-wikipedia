@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.core.util.lruCache
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
@@ -16,7 +17,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.EditFunnel
-import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTalkReplyBinding
@@ -40,7 +40,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private lateinit var textWatcher: TextWatcher
 
     private val viewModel: TalkReplyViewModel by viewModels { TalkReplyViewModel.Factory(intent.extras!!) }
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var userMentionScrolled = false
     private var savedSuccess = false
 
@@ -201,7 +200,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
 
         override fun onInternalLinkClicked(title: PageTitle) {
-            UserTalkPopupHelper.show(this@TalkReplyActivity, bottomSheetPresenter, title, false, lastX, lastY,
+            UserTalkPopupHelper.show(this@TalkReplyActivity, title, false, lastX, lastY,
                     Constants.InvokeSource.TALK_REPLY_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
         }
     }
@@ -278,7 +277,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.licenseText.movementMethod = LinkMovementMethodExt { url: String ->
             if (url == "https://#login") {
                 val loginIntent = LoginActivity.newIntent(this,
-                        LoginFunnel.SOURCE_EDIT, editFunnel.sessionToken)
+                        LoginActivity.SOURCE_EDIT, editFunnel.sessionToken)
                 requestLogin.launch(loginIntent)
             } else {
                 UriUtil.handleExternalLink(this, Uri.parse(url))
@@ -297,7 +296,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
-        bottomSheetPresenter.show(supportFragmentManager,
+        ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                 AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_REPLY_ACTIVITY))
     }
 
@@ -307,7 +306,18 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     override fun onBackPressed() {
         setResult(RESULT_BACK_FROM_TOPIC)
-        super.onBackPressed()
+        if (viewModel.isNewTopic && (!binding.replySubjectText.text.isNullOrEmpty() ||
+                    !binding.replyInputView.editText.text.isNullOrEmpty())) {
+            AlertDialog.Builder(this)
+                .setCancelable(false)
+                .setTitle(R.string.talk_new_topic_exit_dialog_title)
+                .setMessage(R.string.talk_new_topic_exit_dialog_message)
+                .setPositiveButton(R.string.edit_abandon_confirm_yes) { _, _ -> super.onBackPressed() }
+                .setNegativeButton(R.string.edit_abandon_confirm_no, null)
+                .show()
+        } else {
+            super.onBackPressed()
+        }
     }
 
     override fun onUserMentionListUpdate() {

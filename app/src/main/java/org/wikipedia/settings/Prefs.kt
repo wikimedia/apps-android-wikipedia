@@ -51,15 +51,15 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_font_family, "").orEmpty().ifEmpty { "sans-serif" }
         set(fontFamily) = PrefsIoUtil.setString(R.string.preference_key_font_family, fontFamily)
 
-    var cookies
+    var cookies: Map<String, MutableList<Cookie>>
         get() = if (!PrefsIoUtil.contains(R.string.preference_key_cookie_map)) {
             emptyMap()
         } else {
-            val map = JsonUtil.decodeFromString<Map<String, List<String>>>(PrefsIoUtil
+            val map = JsonUtil.decodeFromString<Map<String, MutableList<String>>>(PrefsIoUtil
                 .getString(R.string.preference_key_cookie_map, "").orEmpty()).orEmpty()
             map.mapValues { (key, values) ->
                 val url = "${WikiSite.DEFAULT_SCHEME}://$key".toHttpUrlOrNull()
-                url?.let { values.mapNotNull { value -> Cookie.parse(url, value) } }.orEmpty()
+                url?.let { values.mapNotNull { value -> Cookie.parse(url, value) } }.orEmpty().toMutableList()
             }
         }
         set(cookieMap) {
@@ -123,7 +123,7 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_eventlogging_opt_in, true)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_eventlogging_opt_in, enabled)
 
-    val announcementsCountryOverride
+    val geoIPCountryOverride
         get() = PrefsIoUtil.getString(R.string.preference_key_announcement_country_override, null)
 
     val ignoreDateForAnnouncements
@@ -650,4 +650,24 @@ object Prefs {
     var readingListShareSurveyMode
         get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_share_survey_mode, 0)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_share_survey_mode, value)
+
+    var readingListShareTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, value)
+
+    var readingListReceiveSurveyAttempts
+        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_receive_survey_attempts, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_receive_survey_attempts, value)
+
+    var readingListReceiveSurveyMode
+        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_receive_survey_mode, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_receive_survey_mode, value)
+
+    var readingListRecentReceivedTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_recent_receive_tooltip_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_recent_receive_tooltip_shown, value)
+
+    var readingListRecentReceivedId
+        get() = PrefsIoUtil.getLong(R.string.preference_key_reading_lists_recent_receive_id, -1)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_reading_lists_recent_receive_id, value)
 }

@@ -2,7 +2,6 @@ package org.wikipedia.readinglist.sync
 
 import android.content.*
 import android.os.Bundle
-import android.text.TextUtils
 import androidx.core.app.JobIntentService
 import androidx.core.os.bundleOf
 import org.wikipedia.WikipediaApp
@@ -80,7 +79,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             // -----------------------------------------------
             var remoteListsModified = mutableListOf<RemoteReadingList>()
             var remoteEntriesModified = mutableListOf<RemoteReadingListEntry>()
-            if (TextUtils.isEmpty(lastSyncTime)) {
+            if (lastSyncTime.isEmpty()) {
                 syncEverything = true
             }
             if (syncEverything) {
@@ -428,8 +427,7 @@ class ReadingListSyncAdapter : JobIntentService() {
         return if (lastDateHeader.isNullOrEmpty()) {
             lastSyncTime
         } else try {
-            val date = DateUtil.getHttpLastModifiedDate(lastDateHeader)
-            DateUtil.iso8601DateFormat(date)
+            DateUtil.getHttpLastModifiedDate(lastDateHeader).toInstant().toString()
         } catch (e: ParseException) {
             lastSyncTime
         }

@@ -36,7 +36,6 @@ class NewsFragment : Fragment() {
 
     private var _binding: FragmentNewsBinding? = null
     private val binding get() = _binding!!
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val viewModel: NewsViewModel by viewModels { NewsViewModel.Factory(requireArguments()) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -122,12 +121,12 @@ class NewsFragment : Fragment() {
             if (addToDefault) {
                 ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, InvokeSource.NEWS_ACTIVITY) { readingListId -> onMovePageToList(readingListId, entry) }
             } else {
-                bottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(entry.title, InvokeSource.NEWS_ACTIVITY))
+                ExclusiveBottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(entry.title, InvokeSource.NEWS_ACTIVITY))
             }
         }
 
         override fun onMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-            bottomSheetPresenter.show(childFragmentManager, MoveToReadingListDialog.newInstance(sourceReadingListId, entry.title, InvokeSource.NEWS_ACTIVITY))
+            ExclusiveBottomSheetPresenter.show(childFragmentManager, MoveToReadingListDialog.newInstance(sourceReadingListId, entry.title, InvokeSource.NEWS_ACTIVITY))
         }
     }
 

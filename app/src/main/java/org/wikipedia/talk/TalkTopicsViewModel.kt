@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
-import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -33,7 +32,6 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
         uiState.value = UiState.EditError(throwable)
     }
 
-    private val watchlistFunnel = WatchlistFunnel()
     val threadItems = mutableListOf<ThreadItem>()
     var sortedThreadItems = listOf<ThreadItem>()
     var lastRevision: MwQueryPage.Revision? = null
@@ -203,15 +201,6 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     fun watchOrUnwatch(expiry: WatchlistExpiry, unwatch: Boolean) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
             withContext(Dispatchers.IO) {
-                if (expiry != WatchlistExpiry.NEVER) {
-                    watchlistFunnel.logAddExpiry()
-                } else {
-                    if (isWatched) {
-                        watchlistFunnel.logRemoveArticle()
-                    } else {
-                        watchlistFunnel.logAddArticle()
-                    }
-                }
                 val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
                 val response = ServiceFactory.get(pageTitle.wikiSite)
                     .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
@@ -219,12 +208,6 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
                 lastWatchExpiry = expiry
                 if (watchlistExpiryChanged && unwatch) {
                     watchlistExpiryChanged = false
-                }
-
-                if (unwatch) {
-                    watchlistFunnel.logRemoveSuccess()
-                } else {
-                    watchlistFunnel.logAddSuccess()
                 }
 
                 response.getFirst()?.let {

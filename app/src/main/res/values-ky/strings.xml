@@ -7,14 +7,14 @@
 * MuratTheTurkish
 -->
 <resources>
-  <string name="app_name_prod">Уикипедия</string>
+  <string name="app_name_prod">Википедия</string>
   <string name="app_name_beta">Уикипедия Бета</string>
   <string name="app_name_alpha">Уикипедия Альфа</string>
   <string name="wikimedia">Викимедиа</string>
   <string name="nav_item_back">Артка</string>
   <string name="page_tabs_back">Артка</string>
   <string name="nav_item_forward">Алдыга</string>
-  <string name="search_hint">Уикипедиядан издөө</string>
+  <string name="search_hint">Википедиядан издөө</string>
   <string name="nav_item_search">Издөө</string>
   <string name="error_network_error" fuzzy="true">Тармакка туташуу туруктуу эмес.</string>
   <string name="page_error_retry">Кайра аракет кылуу</string>
@@ -32,7 +32,7 @@
   <string name="langlinks_empty">Бул барак башка тилдерде жеткиликтүү эмес.</string>
   <string name="langlinks_no_match" fuzzy="true">Сиздин сурооңузга төп тил табылбады.</string>
   <string name="langlinks_activity_title">Башка тилдер</string>
-  <string name="menu_save_changes" fuzzy="true">Өзгөртүүлөрдү сактоо</string>
+  <string name="menu_save_changes">Өзгөртүүлөрдү жарыялоо</string>
   <string name="edit_saved_successfully" fuzzy="true">Оңдоо сакталды!</string>
   <string name="dialog_message_edit_failed">Оңдоо катасы!</string>
   <string name="dialog_message_edit_failed_retry">Кайра аракет кылуу</string>
@@ -48,7 +48,7 @@
   <string name="login_password_hint">Сырсөз</string>
   <string name="menu_login">Кирүү</string>
   <string name="login_activity_title" fuzzy="true">Уикипедияга кирүү</string>
-  <string name="login_in_progress_dialog_message">Системге кирип жатасыз…</string>
+  <string name="login_in_progress_dialog_message">Кирүүдө…</string>
   <string name="login_success_toast" fuzzy="true">Сиз ийгиликтүү кирдиңиз!</string>
   <string name="preference_title_logout">Чыгуу</string>
   <string name="toast_logout_complete">Сиз системден чыктыңыз</string>
@@ -114,7 +114,10 @@
   <string name="error_browser_not_found">Веб-баракты ачууга мүмкүнчүлүк болбоду (браузер тиркемеси табылган жок).</string>
   <string name="alpha_update_notification_title">Альфа-нусканын жаңы жаңылануусу жеткиликтүү</string>
   <string name="alpha_update_notification_text">Жүктөп алуу үчүн басыңыз</string>
+  <string name="article_menu_bar_language_button">Тил</string>
+  <string name="article_menu_bar_search_button">Издөө</string>
   <string name="color_theme_select">Жасалга</string>
   <string name="color_theme_light">Ачык</string>
   <string name="color_theme_dark">Караңгы</string>
+  <string name="app_shortcuts_search">Издөө</string>
 </resources>
