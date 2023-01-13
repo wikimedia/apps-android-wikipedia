@@ -9,6 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.forEach
+import com.mapbox.mapboxsdk.Mapbox
+import com.mapbox.mapboxsdk.WellKnownTileServer
+import com.mapbox.mapboxsdk.maps.Style
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -24,11 +27,18 @@ class AboutActivity : BaseActivity() {
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
+        Mapbox.getInstance(this.applicationContext, "", WellKnownTileServer.MapLibre)
+
+
         binding = ActivityAboutBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.aboutContributors.text = fromHtml(getString(R.string.about_contributors))
         RichTextUtil.removeUnderlinesFromLinks(binding.aboutContributors)
-        binding.aboutTranslators.text = fromHtml(getString(R.string.about_translators_translatewiki))
+        binding.aboutTranslators.text =
+            fromHtml(getString(R.string.about_translators_translatewiki))
         RichTextUtil.removeUnderlinesFromLinks(binding.aboutTranslators)
         binding.aboutWmf.text = fromHtml(getString(R.string.about_wmf))
         RichTextUtil.removeUnderlinesFromLinks(binding.aboutWmf)
@@ -41,14 +51,27 @@ class AboutActivity : BaseActivity() {
 
         binding.sendFeedbackText.setOnClickListener {
             val intent = Intent()
-                    .setAction(Intent.ACTION_SENDTO)
-                    .setData(Uri.parse("mailto:android-support@wikimedia.org?subject=Android App ${BuildConfig.VERSION_NAME} Feedback"))
+                .setAction(Intent.ACTION_SENDTO)
+                .setData(Uri.parse("mailto:android-support@wikimedia.org?subject=Android App ${BuildConfig.VERSION_NAME} Feedback"))
             try {
                 startActivity(intent)
             } catch (e: Exception) {
                 L.e(e)
             }
         }
+
+
+        supportActionBar?.title = "Nearby"
+
+
+
+
+        binding.mapView.getMapAsync { map ->
+            map.setStyle(Style.Builder().fromUri("asset://mapstyle.json"), { style ->
+
+            })
+        }
+
     }
 
     private fun makeEverythingClickable(vg: ViewGroup) {
