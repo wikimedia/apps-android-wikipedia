@@ -15,16 +15,14 @@ import java.util.*
 class WatchlistViewModel : ViewModel() {
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = UiState.Error(throwable)
+        uiState.value = UiState.Error(throwable)
     }
 
     private var watchlistItems = mutableListOf<MwQueryResult.WatchlistItem>()
     var finalList = mutableListOf<Any>()
     var displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
     var filterMode = WatchlistFragment.FILTER_MODE_ALL
-
-    private val _uiState = MutableStateFlow(UiState())
-    val uiState = _uiState
+    val uiState = MutableStateFlow(UiState())
 
     fun updateList() {
         finalList = mutableListOf()
@@ -64,7 +62,7 @@ class WatchlistViewModel : ViewModel() {
                 }
             }.awaitAll()
             watchlistItems.sortByDescending { it.date }
-            _uiState.value = UiState.Success(watchlistItems)
+            uiState.value = UiState.Success(watchlistItems)
         }
     }
 
