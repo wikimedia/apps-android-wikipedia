@@ -4,6 +4,8 @@ import android.content.Context
 import android.icu.text.RelativeDateTimeFormatter
 import android.os.Build
 import android.text.format.DateFormat
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.toJavaLocalDate
 import kotlinx.datetime.toJavaLocalDateTime
 import org.wikipedia.R
@@ -12,8 +14,6 @@ import org.wikipedia.feed.model.UtcDate
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.time.Instant
-import java.time.LocalDate
-import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -101,7 +101,7 @@ object DateUtil {
 
     fun getTimeString(context: Context, localDateTime: LocalDateTime): String {
         val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm" else "hh:mm a"
-        return getDateStringWithSkeletonPattern(localDateTime, datePattern)
+        return getDateStringWithSkeletonPattern(localDateTime.toJavaLocalDateTime(), datePattern)
     }
 
     fun getShortDayWithTimeString(dateStr: String): String {
@@ -160,7 +160,8 @@ object DateUtil {
     }
 
     fun getShortDateString(localDate: LocalDate): String {
-        return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(localDate)
+        return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
+            .format(localDate.toJavaLocalDate())
     }
 
     fun getUtcRequestDateFor(age: Int): UtcDate {

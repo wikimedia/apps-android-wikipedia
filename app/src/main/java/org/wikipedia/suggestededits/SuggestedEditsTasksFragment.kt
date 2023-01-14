@@ -17,7 +17,9 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.datetime.*
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
+import kotlinx.datetime.toLocalDateTime
 import kotlinx.datetime.TimeZone
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -181,7 +183,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
                     val contributions = (wikidataResponse.query!!.userContributions +
                             commonsResponse.query!!.userContributions +
-                            homeSiteResponse.query!!.userContributions).sortedByDescending { it.parsedInstant }
+                            homeSiteResponse.query!!.userContributions).sortedByDescending { it.timestamp }
                     latestEditStreak = getEditStreak(contributions)
                     revertSeverity = UserContribStats.getRevertSeverity()
                     wikidataResponse
@@ -355,7 +357,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         val dayMillis = TimeUnit.DAYS.toMillis(1)
         var streak = 0
         for (c in contributions) {
-            val epochMilli = c.parsedInstant.toEpochMilli()
+            val epochMilli = c.timestamp!!.toEpochMilliseconds()
             if (epochMilli >= baseCal.timeInMillis) {
                 // this contribution was on the same day.
                 continue

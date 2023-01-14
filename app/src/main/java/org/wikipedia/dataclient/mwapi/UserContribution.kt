@@ -1,9 +1,9 @@
 package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.Serializable
-import java.time.Instant
-import java.time.LocalDateTime
-import java.time.ZoneId
+import kotlinx.datetime.Instant
+import kotlinx.datetime.toLocalDateTime
+import kotlinx.datetime.TimeZone
 
 @Serializable
 class UserContribution {
@@ -14,7 +14,7 @@ class UserContribution {
     val parentid: Long = 0
     val ns: Int = 0
     val title: String = ""
-    private val timestamp: String = ""
+    val timestamp: Instant? = null
     val comment: String = ""
     val new: Boolean = false
     val minor: Boolean = false
@@ -23,10 +23,7 @@ class UserContribution {
     val sizediff: Int = 0
     val tags: List<String> = emptyList()
 
-    val parsedInstant: Instant by lazy {
-        Instant.parse(timestamp)
-    }
-    val parsedDateTime: LocalDateTime by lazy {
-        LocalDateTime.ofInstant(parsedInstant, ZoneId.systemDefault())
+    val parsedDateTime by lazy {
+        timestamp?.toLocalDateTime(TimeZone.currentSystemDefault())
     }
 }
