@@ -821,6 +821,8 @@
   <string name="description_edit_license_notice">この記事の説明を変更すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
   <string name="description_edit_helper_text_lowercase_warning">小文字で書き始めてください(日本語以外)</string>
   <string name="description_edit_voice_input_description">音声入力</string>
+  <string name="description_edit_learn_more">記事の説明に関してもっと知る</string>
+  <string name="description_edit_image_caption_learn_more">画像のキャプションに関してもっと知る</string>
   <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja#記事の説明</string>
   <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja#画像のキャプション</string>
   <string name="description_too_short">文章が短すぎます。</string>
