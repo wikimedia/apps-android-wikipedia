@@ -569,8 +569,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         }
         if (entry.source != HistoryEntry.SOURCE_INTERNAL_LINK || !Prefs.isLinkPreviewEnabled) {
             val articleLinkPreviewInteractionEvent = ArticleLinkPreviewInteractionEvent(pageTitle.wikiSite.dbName(),
-                pageFragment.page?.pageProperties?.pageId!!.or(0), entry.source)
-            articleLinkPreviewInteractionEvent?.logNavigate()
+                pageFragment.page?.pageProperties?.pageId?:0, entry.source)
+            articleLinkPreviewInteractionEvent.logNavigate()
         }
         app.putCrashReportProperty("api", pageTitle.wikiSite.authority())
         app.putCrashReportProperty("title", pageTitle.toString())
