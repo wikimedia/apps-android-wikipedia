@@ -27,6 +27,10 @@ class WatchlistViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState.asStateFlow()
 
+    init {
+        fetchWatchlist()
+    }
+
     fun updateList() {
         finalList = mutableListOf()
         finalList.add("") // placeholder for header

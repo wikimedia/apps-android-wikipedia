@@ -149,7 +149,9 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
             binding.watchlistProgressBar.visibility = View.VISIBLE
         }
 
-        viewModel.fetchWatchlist()
+        if (refreshing) {
+            viewModel.fetchWatchlist()
+        }
     }
 
     private fun onSuccess() {
@@ -270,7 +272,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
     override fun onLanguageChanged() {
         updateDisplayLanguages()
-        fetchWatchlist(false)
+        fetchWatchlist(true)
     }
 
     override fun onItemClick(item: MwQueryResult.WatchlistItem) {
