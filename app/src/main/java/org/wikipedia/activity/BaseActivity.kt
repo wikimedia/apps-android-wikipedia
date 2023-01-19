@@ -54,11 +54,6 @@ abstract class BaseActivity : AppCompatActivity() {
     private val disposables = CompositeDisposable()
     private var currentTooltip: Balloon? = null
     private var imageZoomHelper: ImageZoomHelper? = null
-
-    private var startTouchX = 0f
-    private var startTouchY = 0f
-    private var startTouchMillis = 0L
-    private var touchSlopPx = 0
     var callback: Callback? = null
 
     val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->

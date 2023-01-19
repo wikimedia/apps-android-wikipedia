@@ -212,7 +212,7 @@ class ReadingListItemView : ConstraintLayout {
                 }
                 R.id.menu_reading_list_export -> {
                     list?.let { ReadingListsExportImportHelper
-                        .exportLists(context as BaseActivity, Collections.singletonList(it)) }
+                        .exportLists(context as BaseActivity, listOf(it)) }
                     return true
                 }
                 R.id.menu_reading_list_select -> {

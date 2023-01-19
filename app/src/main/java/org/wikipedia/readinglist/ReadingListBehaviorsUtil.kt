@@ -110,11 +110,9 @@ object ReadingListBehaviorsUtil {
             .setTitle(R.string.reading_list_delete_lists_confirm_dialog_title)
             .setMessage(activity.resources.getQuantityString(R.plurals.reading_list_delete_lists_confirm_dialog_message, readingLists.size, readingLists.size))
             .setPositiveButton(R.string.reading_list_delete_lists_dialog_delete_button_text) { _, _ ->
-                readingLists.forEach {
-                    if (!it.isDefault) {
-                        AppDatabase.instance.readingListDao().deleteList(it)
-                        AppDatabase.instance.readingListPageDao().markPagesForDeletion(it, it.pages, false)
-                    }
+                readingLists.filterNot { it.isDefault }.forEach {
+                    AppDatabase.instance.readingListDao().deleteList(it)
+                    AppDatabase.instance.readingListPageDao().markPagesForDeletion(it, it.pages, false)
                 }
                 callback.onCompleted()
             }
@@ -232,15 +230,13 @@ object ReadingListBehaviorsUtil {
         val snackBar = FeedbackUtil.makeSnackbar(activity, getDeleteListMessage(activity, readingLists))
         if (!(readingLists.size == 1 && readingLists[0].isDefault)) {
             snackBar.setAction(R.string.reading_list_item_delete_undo) {
-                readingLists.forEach {
-                    if (!it.isDefault) {
-                        val newList = AppDatabase.instance.readingListDao().createList(it.title, it.description)
-                        val newPages = ArrayList<ReadingListPage>()
-                        for (page in it.pages) {
-                            newPages.add(ReadingListPage(ReadingListPage.toPageTitle(page)))
-                        }
-                        AppDatabase.instance.readingListPageDao().addPagesToList(newList, newPages, true)
+                readingLists.filterNot { it.isDefault }.forEach {
+                    val newList = AppDatabase.instance.readingListDao().createList(it.title, it.description)
+                    val newPages = ArrayList<ReadingListPage>()
+                    for (page in it.pages) {
+                        newPages.add(ReadingListPage(ReadingListPage.toPageTitle(page)))
                     }
+                    AppDatabase.instance.readingListPageDao().addPagesToList(newList, newPages, true)
                 }
                 callback.onUndoDeleteClicked()
             }

@@ -1326,7 +1326,6 @@
   <string name="shareable_reading_lists_new_install_dialog_title">Title text for the onboarding import reading list dialog.</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Content text for the onboarding import reading list dialog.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Button label of the onboarding import reading list dialog that dismisses the dialog.</string>
-  <string name="shareable_reading_lists_new_imported_list_title">Item title of the newly imported reading list.</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Snackbar text that indicates the reading list was imported successfully.</string>
   <string name="reading_list_share_menu_label">Menu label for sharing the selected reading list.</string>
   <string name="reading_list_share_menu_tooltip">Tooltip text for the share reading list button.</string>
@@ -1334,11 +1333,6 @@
   <string name="reading_list_share_message_v2">Message that is sent to a recipient when sharing a reading list.</string>
   <string name="reading_list_share_survey_title">Title for dialog box that leads to a survey about sharing reading lists.</string>
   <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
-  <string name="reading_lists_import_conflict_dialog_title">Title text for the dialog shown when there is already a list with the same name as imported list.</string>
-  <string name="reading_lists_import_conflict_dialog_message">Message text for the dialog shown when there is already a list with the same name as imported list.</string>
-  <string name="reading_lists_import_conflict_dialog_primary_action_text">Primary action text for import conflict dialog.</string>
-  <string name="reading_lists_import_conflict_dialog_secondary_action_text">Secondary action text for import conflict dialog.</string>
-  <string name="reading_lists_import_conflict_dialog_neutral_action_text">Neutral action text for import conflict dialog.</string>
   <string name="reading_lists_default_list_delete_message">The message shown to users when they attempt selecting default list for deletion</string>
   <string name="reading_lists_default_plus_one_list_delete_message">The message shown to users when they attempt selecting default list with one other list for deletion. %s represents the name of the non-default list.</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">The message shown to users when they attempt selecting default list as one of the many lists for deletion.</string>

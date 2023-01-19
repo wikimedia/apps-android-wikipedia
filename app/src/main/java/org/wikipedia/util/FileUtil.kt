@@ -39,9 +39,7 @@ object FileUtil {
                 val downloadsFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
                 val exportFile = File(downloadsFolder, filename)
                 exportFile.delete() // To overwrite when file exists
-                FileOutputStream(exportFile, true).bufferedWriter().use { writer ->
-                    writer.write(data)
-                }
+                FileOutputStream(exportFile, true).bufferedWriter().use { it.write(data) }
             }
         } catch (e: Exception) {
             // ignore
