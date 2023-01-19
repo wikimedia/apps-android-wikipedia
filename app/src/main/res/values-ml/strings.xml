@@ -40,12 +40,27 @@
   <string name="app_settings">അപ്ലിക്കേഷൻ സജ്ജീകരണങ്ങൾ</string>
   <string name="search_tab_tooltip">ഒരു തിരയൽ പദം ടൈപ്പുചെയ്യുന്നത് നേരിട്ട് ആരംഭിക്കാൻ ഐക്കണിൽ വീണ്ടും ടാപ്പുചെയ്യുക.</string>
   <string name="history_list_title">നാൾവഴി</string>
+  <string name="image_content_description">ചിത്രം: %s</string>
+  <string name="page_content_description">പേജ്: %s</string>
+  <string name="wikimedia_commons">വിക്കിമീഡിയ കോമൺസ്</string>
+  <string name="wikidata">വിക്കിഡാറ്റ</string>
   <string name="dialog_title_clear_history">ബ്രൗസിങ് ഹിസ്റ്ററി ശൂന്യമാക്കണോ?</string>
   <string name="dialog_message_clear_history">ഇത് താങ്കളുടെ എല്ലാ ബ്രൗസിങ്ങ് ചരിത്രവും ശൂന്യമാക്കും, അതിനുശേഷം നിലവിൽ തുറന്നിരിക്കുന്ന എല്ലാ ടാബുകളും അടയ്ക്കും. താങ്കൾക്ക് ഉറപ്പാണോ?</string>
   <string name="dialog_message_clear_history_yes">അതെ</string>
   <string name="dialog_message_clear_history_no">അല്ല</string>
   <string name="share_via">ഇതുവഴി പങ്ക് വെയ്ക്കുക</string>
+  <string name="image_share_via">ഇതുവഴി പങ്ക് വെയ്ക്കുക</string>
   <string name="search_redirect_from">%s എന്നതിൽനിന്നും തിരിച്ചുവിടപ്പെട്ടപ്രകാരം</string>
+  <string name="page_edit_history_activity_title">നാൾവഴി: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">ശൂന്യമായ എഡിറ്റ് സംഗ്രഹം</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">തിരയുക അല്ലെങ്കിൽ ഫിൽട്ടർ ചെയ്യുക</string>
+  <string name="page_edit_history_filter_by">ഇതനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക</string>
+  <string name="page_edit_history_filter_by_all">എല്ലാ എഡിറ്റുകളും ( %s )</string>
+  <string name="page_edit_history_filter_by_user">ഉപയോക്തൃ എഡിറ്റുകൾ ( %s )</string>
+  <string name="page_edit_history_filter_by_anon">അനോൺ എഡിറ്റുകൾ ( %s )</string>
+  <string name="page_edit_history_filter_by_bot">ബോട്ട് എഡിറ്റുകൾ ( %s )</string>
+  <string name="page_edit_history_metrics_content_description">%1$s മുതൽ %2$s s വരെയുള്ള മെട്രിക്കുകൾ</string>
   <string name="menu_page_show_tabs">ടാബുകൾ പ്രദർശിപ്പിക്കുക</string>
   <string name="menu_page_other_languages">ഭാഷ മാറ്റുക</string>
   <string name="menu_page_find_in_page" fuzzy="true">താളിൽ കണ്ടെത്തുക</string>
