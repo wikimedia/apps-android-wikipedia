@@ -104,6 +104,7 @@ object Constants {
         TOOLBAR("toolbar"),
         VOICE("voice"),
         WATCHLIST_ACTIVITY("watchlist"),
+        WATCHLIST_FILTER_ACTIVITY("watchlistFilter"),
         WIDGET("widget"),
         USER_CONTRIB_ACTIVITY("userContribActivity"),
     }

@@ -1,0 +1,99 @@
+package org.wikipedia.watchlist
+
+import android.content.Context
+import android.graphics.Typeface
+import android.os.Build
+import android.util.AttributeSet
+import android.util.TypedValue
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.isVisible
+import androidx.core.widget.ImageViewCompat
+import org.wikipedia.Constants
+import org.wikipedia.R
+import org.wikipedia.WikipediaApp
+import org.wikipedia.databinding.ItemWatchlistFilterBinding
+import org.wikipedia.search.SearchFragment
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.views.ViewUtil
+
+class WatchlistFilterItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+
+    interface Callback {
+        fun onCheckedChanged(filter: WatchlistFilterActivity.Filter?)
+    }
+
+    private var binding = ItemWatchlistFilterBinding.inflate(LayoutInflater.from(context), this)
+    private var filter: WatchlistFilterActivity.Filter? = null
+    var callback: Callback? = null
+
+    init {
+        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.roundedDpToPx(48f))
+        setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
+        }
+        setOnClickListener {
+            callback?.onCheckedChanged(filter)
+        }
+    }
+
+    fun setContents(filter: WatchlistFilterActivity.Filter) {
+        this.filter = filter
+        binding.watchlistFilterTitle.text = getTitleFor(filter.filterCode)
+        binding.watchlistFilterCheck.isVisible = filter.isEnabled()
+        getTitleCodeFor(filter.filterCode)?.let {
+            binding.watchlistFilterLanguageCode.text = it
+            binding.watchlistFilterLanguageCode.visibility = View.VISIBLE
+            ViewUtil.formatLangButton(binding.watchlistFilterLanguageCode, it,
+                SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+        } ?: run {
+            if (filter.filterCode == context.getString(R.string.notifications_all_wikis_text) || filter.filterCode == context.getString(R.string.notifications_all_types_text))
+                binding.watchlistFilterLanguageCode.visibility = View.INVISIBLE
+            else binding.watchlistFilterLanguageCode.visibility = View.GONE
+        }
+        filter.imageRes?.let {
+            ImageViewCompat.setImageTintList(binding.watchlistFilterWikiLogo,
+                ResourceUtil.getThemedColorStateList(context, R.attr.secondary_text_color))
+            binding.watchlistFilterWikiLogo.setImageResource(it)
+            binding.watchlistFilterWikiLogo.visibility = View.VISIBLE
+        } ?: run {
+            binding.watchlistFilterWikiLogo.visibility = View.GONE
+        }
+    }
+
+    fun setSingleLabel(text: String) {
+        val accentColor = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
+        binding.watchlistFilterLanguageCode.visibility = View.GONE
+        binding.watchlistFilterWikiLogo.visibility = View.VISIBLE
+        ImageViewCompat.setImageTintList(binding.watchlistFilterWikiLogo, accentColor)
+        binding.watchlistFilterWikiLogo.setImageResource(R.drawable.ic_mode_edit_themed_24dp)
+        binding.watchlistFilterCheck.visibility = View.GONE
+        binding.watchlistFilterTitle.setTextColor(accentColor)
+        binding.watchlistFilterTitle.text = text.uppercase()
+        binding.watchlistFilterTitle.typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+        binding.watchlistFilterTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
+    }
+
+    private fun getTitleCodeFor(filterCode: String): String? {
+        return if (filterCode == Constants.WIKI_CODE_COMMONS || filterCode == Constants.WIKI_CODE_WIKIDATA ||
+                filterCode == context.getString(R.string.notifications_all_wikis_text) ||
+                filterCode == context.getString(R.string.notifications_all_types_text) || NotificationCategory.isFiltersGroup(filterCode)) null
+        else filterCode
+    }
+
+    private fun getTitleFor(filterCode: String): String {
+        if (NotificationCategory.isFiltersGroup(filterCode)) {
+            return context.getString(NotificationCategory.find(filterCode).title)
+        }
+        return when (filterCode) {
+            context.getString(R.string.notifications_all_wikis_text) -> filterCode
+            context.getString(R.string.notifications_all_types_text) -> filterCode
+            else -> WikipediaApp.instance.languageState.getAppLanguageCanonicalName(filterCode).orEmpty()
+        }
+    }
+}
