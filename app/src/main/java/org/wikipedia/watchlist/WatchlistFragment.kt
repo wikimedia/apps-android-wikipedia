@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.MenuProvider
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -134,6 +135,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         binding.watchlistEmptyContainer.visibility = View.GONE
         binding.watchlistRecyclerView.visibility = View.GONE
         binding.watchlistErrorView.visibility = View.GONE
+        binding.watchlistProgressBar.isVisible = !binding.watchlistRefreshView.isRefreshing
     }
 
     private fun onSuccess() {
