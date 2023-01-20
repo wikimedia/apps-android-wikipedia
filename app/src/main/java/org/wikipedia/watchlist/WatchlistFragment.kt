@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.MenuProvider
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -54,7 +55,8 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         binding.watchlistRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
-        binding.watchlistRefreshView.setOnRefreshListener { fetchWatchlist(true) }
+        binding.watchlistRefreshView.setOnRefreshListener { viewModel.fetchWatchlist() }
+        binding.watchlistErrorView.retryClickListener = View.OnClickListener { viewModel.fetchWatchlist() }
 
         binding.watchlistRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -64,13 +66,12 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect {
                 when (it) {
+                    is WatchlistViewModel.UiState.Loading -> onLoading()
                     is WatchlistViewModel.UiState.Success -> onSuccess()
                     is WatchlistViewModel.UiState.Error -> onError(it.throwable)
                 }
             }
         }
-
-        fetchWatchlist(false)
     }
 
     override fun onDestroyView() {
@@ -130,37 +131,23 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         viewModel.displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
     }
 
-    private fun fetchWatchlist(refreshing: Boolean) {
+    private fun onLoading() {
         binding.watchlistEmptyContainer.visibility = View.GONE
         binding.watchlistRecyclerView.visibility = View.GONE
         binding.watchlistErrorView.visibility = View.GONE
-
-        if (!AccountUtil.isLoggedIn) {
-            return
-        }
-
-        if (viewModel.displayLanguages.isEmpty()) {
-            binding.watchlistEmptyContainer.visibility = View.VISIBLE
-            binding.watchlistProgressBar.visibility = View.GONE
-            return
-        }
-
-        if (!refreshing) {
-            binding.watchlistProgressBar.visibility = View.VISIBLE
-        }
-
-        if (refreshing) {
-            viewModel.fetchWatchlist()
-        }
+        binding.watchlistProgressBar.isVisible = !binding.watchlistRefreshView.isRefreshing
     }
 
     private fun onSuccess() {
+        binding.watchlistErrorView.visibility = View.GONE
         binding.watchlistRefreshView.isRefreshing = false
         binding.watchlistProgressBar.visibility = View.GONE
         onUpdateList()
     }
 
     private fun onError(t: Throwable) {
+        binding.watchlistRefreshView.isRefreshing = false
+        binding.watchlistProgressBar.visibility = View.GONE
         binding.watchlistErrorView.setError(t)
         binding.watchlistErrorView.visibility = View.VISIBLE
     }
@@ -272,7 +259,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
     override fun onLanguageChanged() {
         updateDisplayLanguages()
-        fetchWatchlist(true)
+        viewModel.fetchWatchlist()
     }
 
     override fun onItemClick(item: MwQueryResult.WatchlistItem) {
