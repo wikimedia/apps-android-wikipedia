@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
@@ -34,7 +34,7 @@ class NotificationViewModel : ViewModel() {
     var allUnreadCount: Int = 0
 
     private val _uiState = MutableStateFlow(UiState())
-    val uiState = _uiState
+    val uiState = _uiState.asStateFlow()
 
     init {
         viewModelScope.launch(handler) {
