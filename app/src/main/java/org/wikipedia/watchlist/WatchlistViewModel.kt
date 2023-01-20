@@ -56,6 +56,7 @@ class WatchlistViewModel : ViewModel() {
     }
 
     fun fetchWatchlist() {
+        _uiState.value = UiState.Loading()
         viewModelScope.launch(handler) {
             watchlistItems = mutableListOf()
             displayLanguages.map { language ->
@@ -69,12 +70,13 @@ class WatchlistViewModel : ViewModel() {
                 }
             }.awaitAll()
             watchlistItems.sortByDescending { it.date }
-            _uiState.value = UiState.Success(watchlistItems)
+            _uiState.value = UiState.Success()
         }
     }
 
     open class UiState {
-        data class Success(val watchlistItem: List<MwQueryResult.WatchlistItem>) : UiState()
-        data class Error(val throwable: Throwable) : UiState()
+        class Loading : UiState()
+        class Success : UiState()
+        class Error(val throwable: Throwable) : UiState()
     }
 }
