@@ -1308,12 +1308,12 @@
   <string name="watchlist_filter_watchlist_activity_seen">Option text for watchlist seen changes activity.</string>
   <string name="watchlist_filter_contribution_quality_header">Header text for watchlist contribution quality predictions.</string>
   <string name="watchlist_filter_contribution_quality_good">Option text for the contribution quality that indicates very likely good.</string>
-  <string name="watchlist_filter_contribution_quality_problems">Option text for the contribution quality that indicates may have problems.</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Option text for the contribution quality that indicates may have problems.</string>
   <string name="watchlist_filter_contribution_quality_likely_problems">Option text for the contribution quality that indicates likely have problems.</string>
   <string name="watchlist_filter_contribution_quality_bad">Option text for the contribution quality that indicates very likely have problems.</string>
   <string name="watchlist_filter_user_intent_header">Header text for watchlist user intent predictions.</string>
   <string name="watchlist_filter_user_intent_good">Option text for the user intent that indicates very likely good faith.</string>
-  <string name="watchlist_filter_user_intent_problems">Option text for the user intent that indicates may be bad faith.</string>
+  <string name="watchlist_filter_user_intent_may_problems">Option text for the user intent that indicates may be bad faith.</string>
   <string name="watchlist_filter_user_intent_likely_problems">Option text for the user intent that indicates likely bad faith.</string>
   <string name="watchlist_filter_user_intent_bad">Option text for the user intent that indicates very likely bad faith.</string>
   <string name="watchlist_filter_user_status_header">Header text for watchlist user registration and experience.</string>

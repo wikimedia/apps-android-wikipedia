@@ -1329,12 +1329,12 @@
     <string name="watchlist_filter_watchlist_activity_seen">Seen changes</string>
     <string name="watchlist_filter_contribution_quality_header">Contribution quality predictions</string>
     <string name="watchlist_filter_contribution_quality_good">Very likely good</string>
-    <string name="watchlist_filter_contribution_quality_problems">May have problems</string>
+    <string name="watchlist_filter_contribution_quality_may_problems">May have problems</string>
     <string name="watchlist_filter_contribution_quality_likely_problems">Likely have problems</string>
     <string name="watchlist_filter_contribution_quality_bad">Very likely have problems</string>
     <string name="watchlist_filter_user_intent_header">User intent predictions</string>
     <string name="watchlist_filter_user_intent_good">Very likely good faith</string>
-    <string name="watchlist_filter_user_intent_problems">May be bad faith</string>
+    <string name="watchlist_filter_user_intent_may_problems">May be bad faith</string>
     <string name="watchlist_filter_user_intent_likely_problems">Likely bad faith</string>
     <string name="watchlist_filter_user_intent_bad">Very likely bad faith</string>
     <string name="watchlist_filter_user_status_header">User registration and experience</string>
