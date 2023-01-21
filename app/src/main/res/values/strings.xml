@@ -1322,6 +1322,16 @@
     <string name="watchlist_page_moved">Moved</string>
     <string name="watchlist_page_protected">Protected</string>
     <string name="watchlist_page_deleted">Deleted</string>
+    <string name="watchlist_filter_title">Filter Watchlist</string>
+    <string name="watchlist_filter_wiki_filter_header">Wiki filter</string>
+    <string name="watchlist_filter_watchlist_activity_header">Watchlist activity</string>
+    <string name="watchlist_filter_watchlist_activity_unseen">Unseen changes</string>
+    <string name="watchlist_filter_watchlist_activity_seen">Seen changes</string>
+    <string name="watchlist_filter_contribution_quality_header">Contribution quality predictions</string>
+    <string name="watchlist_filter_contribution_quality_good">Very likely good</string>
+    <string name="watchlist_filter_contribution_quality_problems">May have problems</string>
+    <string name="watchlist_filter_contribution_quality_likely_problems">Likely have problems</string>
+    <string name="watchlist_filter_contribution_quality_bad">Very likely have problems</string>
     <!-- /Watchlist -->
 
     <!-- Preview edit -->
