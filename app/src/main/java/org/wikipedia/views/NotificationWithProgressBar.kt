@@ -13,8 +13,8 @@ import androidx.core.content.getSystemService
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.notifications.NotificationCategory
-import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.MathUtil.percentage
+import org.wikipedia.util.PendingIntentCompat
 
 class NotificationWithProgressBar {
     lateinit var notificationCategory: NotificationCategory
@@ -107,9 +107,9 @@ class NotificationWithProgressBar {
                                      intentExtra: String,
                                      requestCode: Int): PendingIntent {
         val resultIntent = Intent(context, targetClass)
-        resultIntent.putExtra(intentExtra, true)
-        resultIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        return PendingIntent.getBroadcast(context, requestCode,
-                resultIntent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
+            .putExtra(intentExtra, true)
+            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        return PendingIntentCompat.getBroadcast(context, requestCode, resultIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT)
     }
 }
