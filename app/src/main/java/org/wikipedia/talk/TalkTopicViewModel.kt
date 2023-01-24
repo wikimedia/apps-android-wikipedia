@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -62,16 +63,17 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
                 ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
                     OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
             }
-            val subscribeResponse = async {
-                ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(topicName,
-                    OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
-            }
             val oldItemsFlattened = topic?.allReplies.orEmpty()
 
             topic = discussionToolsInfoResponse.await().pageInfo?.threads.orEmpty().find { it.id == topicId }
 
-            val res = subscribeResponse.await()
-            subscribed = res.subscriptions[topicName] == 1
+            if (WikipediaApp.instance.isOnline) {
+                val subscribeResponse = async {
+                    ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(topicName)
+                }
+                val res = subscribeResponse.await()
+                subscribed = res.subscriptions[topicName] == 1
+            }
 
             threadSha(topic)?.let {
                 AppDatabase.instance.talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(it))

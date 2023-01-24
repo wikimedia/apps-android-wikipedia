@@ -199,8 +199,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     }
 
     suspend fun isSubscribed(commentName: String): Boolean {
-        val response = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(commentName,
-            OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+        if (!WikipediaApp.instance.isOnline) {
+            return false
+        }
+        val response = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(commentName)
         return response.subscriptions[commentName] == 1
     }
 

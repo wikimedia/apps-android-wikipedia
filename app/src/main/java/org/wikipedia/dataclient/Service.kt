@@ -561,12 +561,7 @@ interface Service {
     ): DiscussionToolsSubscribeResponse
 
     @GET(MW_API_PREFIX + "action=discussiontoolsgetsubscriptions")
-    suspend fun getTalkPageTopicSubscriptions(
-            @Query("commentname") topicNames: String,
-            @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String,
-            @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String,
-            @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String
-    ): DiscussionToolsSubscriptionList
+    suspend fun getTalkPageTopicSubscriptions(@Query("commentname") topicNames: String): DiscussionToolsSubscriptionList
 
     @POST(MW_API_PREFIX + "action=discussiontoolsedit&paction=addtopic")
     @FormUrlEncoded
