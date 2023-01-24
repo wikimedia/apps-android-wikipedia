@@ -7,6 +7,7 @@ import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscribeResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscriptionList
 import org.wikipedia.dataclient.mwapi.*
+import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.rollback.RollbackPostResponse
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.Claims
@@ -539,7 +540,10 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=discussiontoolspageinfo&prop=threaditemshtml")
     suspend fun getTalkPageTopics(
-            @Query("page") page: String
+            @Query("page") page: String,
+            @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String,
+            @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String,
+            @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String
     ): DiscussionToolsInfoResponse
 
     @POST(MW_API_PREFIX + "action=discussiontoolssubscribe")
@@ -553,7 +557,10 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=discussiontoolsgetsubscriptions")
     suspend fun getTalkPageTopicSubscriptions(
-            @Query("commentname") topicNames: String
+            @Query("commentname") topicNames: String,
+            @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String,
+            @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String,
+            @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String
     ): DiscussionToolsSubscriptionList
 
     @POST(MW_API_PREFIX + "action=discussiontoolsedit&paction=addtopic")

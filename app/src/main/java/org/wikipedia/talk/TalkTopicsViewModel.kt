@@ -10,6 +10,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.mwapi.MwQueryPage
+import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.edit.Edit
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
@@ -32,9 +33,9 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
         uiState.value = UiState.EditError(throwable)
     }
 
-    val threadItems = mutableListOf<ThreadItem>()
+    private val threadItems = mutableListOf<ThreadItem>()
+    private var lastRevision: MwQueryPage.Revision? = null
     var sortedThreadItems = listOf<ThreadItem>()
-    var lastRevision: MwQueryPage.Revision? = null
     var watchlistExpiryChanged = false
     var isWatched = false
     var hasWatchlistExpiry = false
@@ -93,7 +94,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
                 }
             }
 
-            val discussionToolsInfoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText) }
+            val discussionToolsInfoResponse = async {
+                ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
+                    OfflineCacheInterceptor.SAVE_HEADER, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+            }
             val lastModifiedResponse = async { ServiceFactory.get(pageTitle.wikiSite).getLastModified(pageTitle.prefixedText) }
             val watchStatus = withContext(Dispatchers.Default) {
                     if (!sidePanel) ServiceFactory.get(pageTitle.wikiSite)
@@ -146,7 +150,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     }
 
     private fun threadSha(threadItem: ThreadItem?): String? {
-        return threadItem?.let { it.id + "|" + it.allReplies.map { reply -> reply.timestamp }.maxOrNull() }
+        return threadItem?.let { it.id + "|" + it.allReplies.maxOfOrNull { reply -> reply.timestamp } }
     }
 
     fun subscribeTopic(commentName: String, subscribed: Boolean) {
@@ -194,7 +198,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     }
 
     suspend fun isSubscribed(commentName: String): Boolean {
-        val response = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(commentName)
+        val response = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(commentName, OfflineCacheInterceptor.SAVE_HEADER, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
         return response.subscriptions[commentName] == 1
     }
 
