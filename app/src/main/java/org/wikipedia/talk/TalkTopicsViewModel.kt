@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
+import org.wikipedia.WikipediaApp
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -34,7 +35,6 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     }
 
     private val threadItems = mutableListOf<ThreadItem>()
-    private var lastRevision: MwQueryPage.Revision? = null
     var sortedThreadItems = listOf<ThreadItem>()
     var watchlistExpiryChanged = false
     var isWatched = false
@@ -76,7 +76,8 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
         viewModelScope.launch(handler) {
             if (resolveTitleRequired) {
                 val siteInfoResponse = withContext(Dispatchers.IO) {
-                    ServiceFactory.get(pageTitle.wikiSite).getPageNamespaceWithSiteInfo(pageTitle.prefixedText)
+                    ServiceFactory.get(pageTitle.wikiSite).getPageNamespaceWithSiteInfo(pageTitle.prefixedText,
+                        OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
                 }
                 resolveTitleRequired = false
                 siteInfoResponse.query?.namespaces?.let { namespaces ->
@@ -96,21 +97,21 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
 
             val discussionToolsInfoResponse = async {
                 ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
-                    OfflineCacheInterceptor.SAVE_HEADER, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
-            }
-            val lastModifiedResponse = async { ServiceFactory.get(pageTitle.wikiSite).getLastModified(pageTitle.prefixedText) }
-            val watchStatus = withContext(Dispatchers.Default) {
-                    if (!sidePanel) ServiceFactory.get(pageTitle.wikiSite)
-                        .getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!! else MwQueryPage()
+                    OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
             }
 
             threadItems.clear()
             threadItems.addAll(discussionToolsInfoResponse.await().pageInfo?.threads ?: emptyList())
-            lastRevision = lastModifiedResponse.await().query?.firstPage()?.revisions?.firstOrNull()
             sortAndFilterThreadItems()
 
-            isWatched = watchStatus.watched
-            hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
+            if (WikipediaApp.instance.isOnline) {
+                val watchStatus = withContext(Dispatchers.Default) {
+                    if (!sidePanel) ServiceFactory.get(pageTitle.wikiSite)
+                        .getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!! else MwQueryPage()
+                }
+                isWatched = watchStatus.watched
+                hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
+            }
 
             uiState.value = UiState.LoadTopic(pageTitle, threadItems)
         }
@@ -198,7 +199,8 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     }
 
     suspend fun isSubscribed(commentName: String): Boolean {
-        val response = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(commentName, OfflineCacheInterceptor.SAVE_HEADER, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+        val response = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(commentName,
+            OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
         return response.subscriptions[commentName] == 1
     }
 

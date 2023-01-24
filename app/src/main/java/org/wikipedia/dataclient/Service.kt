@@ -144,7 +144,12 @@ interface Service {
     suspend fun getSiteMatrix(): SiteMatrix
 
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=namespaces")
-    suspend fun getPageNamespaceWithSiteInfo(@Query("titles") title: String?): MwQueryResponse
+    suspend fun getPageNamespaceWithSiteInfo(
+        @Query("titles") title: String?,
+        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String? = null,
+        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String? = null,
+        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null
+    ): MwQueryResponse
 
     @get:GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     val siteInfo: Observable<MwQueryResponse>

@@ -60,11 +60,11 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         }) {
             val discussionToolsInfoResponse = async {
                 ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
-                    OfflineCacheInterceptor.SAVE_HEADER, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+                    OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
             }
             val subscribeResponse = async {
                 ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(topicName,
-                    OfflineCacheInterceptor.SAVE_HEADER, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+                    OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
             }
             val oldItemsFlattened = topic?.allReplies.orEmpty()
 
