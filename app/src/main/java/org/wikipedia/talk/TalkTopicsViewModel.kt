@@ -20,7 +20,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.talk.db.TalkPageSeen
-import org.wikipedia.util.log.L
 import org.wikipedia.views.TalkTopicsSortOverflowView
 import org.wikipedia.watchlist.WatchlistExpiry
 
@@ -30,8 +29,8 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     private val handler = CoroutineExceptionHandler { _, throwable ->
         uiState.value = UiState.LoadError(throwable)
     }
-    private val editHandler = CoroutineExceptionHandler { _, throwable ->
-        uiState.value = UiState.EditError(throwable)
+    private val actionHandler = CoroutineExceptionHandler { _, throwable ->
+        uiState.value = UiState.ActionError(throwable)
     }
 
     private val threadItems = mutableListOf<ThreadItem>()
@@ -123,7 +122,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     }
 
     fun undoSave(newRevisionId: Long, undoneSubject: CharSequence, undoneBody: CharSequence) {
-        viewModelScope.launch(editHandler) {
+        viewModelScope.launch(actionHandler) {
             val token = withContext(Dispatchers.IO) {
                 CsrfTokenClient.getToken(pageTitle.wikiSite).blockingFirst()
             }
@@ -134,7 +133,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
 
     fun markAsSeen(threadItem: ThreadItem?, force: Boolean = false) {
         threadSha(threadItem)?.let {
-            viewModelScope.launch(editHandler) {
+            viewModelScope.launch(actionHandler) {
                 withContext(Dispatchers.Main) {
                     if (topicSeen(threadItem) && !force) {
                         talkPageDao.deleteTalkPageSeen(it)
@@ -155,7 +154,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     }
 
     fun subscribeTopic(commentName: String, subscribed: Boolean) {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
+        viewModelScope.launch(actionHandler) {
             val token = withContext(Dispatchers.IO) {
                 CsrfTokenClient.getToken(pageTitle.wikiSite).blockingFirst()
             }
@@ -207,7 +206,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     }
 
     fun watchOrUnwatch(expiry: WatchlistExpiry, unwatch: Boolean) {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
+        viewModelScope.launch(actionHandler) {
             withContext(Dispatchers.IO) {
                 val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
                 val response = ServiceFactory.get(pageTitle.wikiSite)
@@ -243,6 +242,6 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
         data class LoadError(val throwable: Throwable) : UiState()
         data class UndoEdit(val edit: Edit, val undoneSubject: CharSequence, val undoneBody: CharSequence) : UiState()
         data class DoWatch(val isWatched: Boolean, val hasWatchlistExpiry: Boolean) : UiState()
-        data class EditError(val throwable: Throwable) : UiState()
+        data class ActionError(val throwable: Throwable) : UiState()
     }
 }

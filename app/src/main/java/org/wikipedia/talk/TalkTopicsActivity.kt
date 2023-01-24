@@ -172,6 +172,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                     is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.undoneSubject, it.undoneBody)
                     is TalkTopicsViewModel.UiState.DoWatch -> updateOnWatch()
                     is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
+                    is TalkTopicsViewModel.UiState.ActionError -> FeedbackUtil.showError(this@TalkTopicsActivity, it.throwable)
                 }
             }
         }
