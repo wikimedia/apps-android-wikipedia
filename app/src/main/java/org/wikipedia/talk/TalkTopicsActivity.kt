@@ -381,7 +381,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
     }
 
-    fun updateNotificationDot(animate: Boolean) {
+    private fun updateNotificationDot(animate: Boolean) {
         if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
             notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
             if (animate) {
