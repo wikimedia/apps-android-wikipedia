@@ -14,9 +14,9 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.log.L
-import java.io.UnsupportedEncodingException
 import java.net.URLDecoder
 import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
 
 object UriUtil {
     const val LOCAL_URL_SETTINGS = "#settings"
@@ -29,25 +29,19 @@ object UriUtil {
         return try {
             // Force decoding of plus sign, since the built-in decode() function will replace
             // plus sign with space.
-            URLDecoder.decode(url.replace("+", "%2B"), "UTF-8")
+            URLDecoder.decode(url.replace("+", "%2B"), StandardCharsets.UTF_8)
         } catch (e: IllegalArgumentException) {
             // Swallow IllegalArgumentException (can happen with malformed encoding), and just
             // return the original string.
             L.d("URL decoding failed. String was: $url")
             url
-        } catch (e: UnsupportedEncodingException) {
-            throw RuntimeException(e)
         }
     }
 
     fun encodeURL(url: String): String {
-        return try {
-            // Before returning, explicitly convert plus signs to encoded spaces, since URLEncoder
-            // does that for some reason.
-            URLEncoder.encode(url, "UTF-8").replace("+", "%20")
-        } catch (e: UnsupportedEncodingException) {
-            throw RuntimeException(e)
-        }
+        // Before returning, explicitly convert plus signs to encoded spaces, since URLEncoder
+        // does that for some reason.
+        return URLEncoder.encode(url, StandardCharsets.UTF_8).replace("+", "%20")
     }
 
     fun visitInExternalBrowser(context: Context, uri: Uri) {
