@@ -12,7 +12,6 @@ import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemWatchlistFilterBinding
@@ -44,26 +43,21 @@ class WatchlistFilterItemView constructor(context: Context, attrs: AttributeSet?
 
     fun setContents(filter: WatchlistFilterActivity.Filter) {
         this.filter = filter
-        binding.watchlistFilterTitle.text = getTitleFor(filter.filterCode)
+        binding.watchlistFilterTitle.text = getTitleFor(filter)
         binding.watchlistFilterCheck.isVisible = filter.isEnabled()
-        getTitleCodeFor(filter.filterCode)?.let {
+        getTitleCodeFor(filter)?.let {
             binding.watchlistFilterLanguageCode.text = it
             binding.watchlistFilterLanguageCode.visibility = View.VISIBLE
             ViewUtil.formatLangButton(binding.watchlistFilterLanguageCode, it,
                 SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
         } ?: run {
-            if (filter.filterCode == context.getString(R.string.notifications_all_wikis_text) || filter.filterCode == context.getString(R.string.notifications_all_types_text))
+            if (filter.filterCode == context.getString(R.string.watchlist_filter_all_wikis_text))
                 binding.watchlistFilterLanguageCode.visibility = View.INVISIBLE
             else binding.watchlistFilterLanguageCode.visibility = View.GONE
         }
-        filter.imageRes?.let {
-            ImageViewCompat.setImageTintList(binding.watchlistFilterWikiLogo,
-                ResourceUtil.getThemedColorStateList(context, R.attr.secondary_text_color))
-            binding.watchlistFilterWikiLogo.setImageResource(it)
-            binding.watchlistFilterWikiLogo.visibility = View.VISIBLE
-        } ?: run {
-            binding.watchlistFilterWikiLogo.visibility = View.GONE
-        }
+
+        // TODO: remove this layouut setting
+        binding.watchlistFilterWikiLogo.visibility = View.GONE
     }
 
     fun setSingleLabel(text: String) {
@@ -79,21 +73,18 @@ class WatchlistFilterItemView constructor(context: Context, attrs: AttributeSet?
         binding.watchlistFilterTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
     }
 
-    private fun getTitleCodeFor(filterCode: String): String? {
-        return if (filterCode == Constants.WIKI_CODE_COMMONS || filterCode == Constants.WIKI_CODE_WIKIDATA ||
-                filterCode == context.getString(R.string.notifications_all_wikis_text) ||
-                filterCode == context.getString(R.string.notifications_all_types_text) || NotificationCategory.isFiltersGroup(filterCode)) null
-        else filterCode
+    private fun getTitleCodeFor(filter: WatchlistFilterActivity.Filter): String? {
+        return if (filter.filterCode == context.getString(R.string.watchlist_filter_all_wikis_text) || filter.type == WatchlistFilterActivity.FILTER_TYPE_WIKI) null
+        else filter.filterCode
     }
 
-    private fun getTitleFor(filterCode: String): String {
-        if (NotificationCategory.isFiltersGroup(filterCode)) {
-            return context.getString(NotificationCategory.find(filterCode).title)
+    private fun getTitleFor(filter: WatchlistFilterActivity.Filter): String {
+        if (filter.type == WatchlistFilterActivity.FILTER_TYPE_WIKI) {
+            return context.getString(WatchlistFilterTypes.find(filter.filterCode).title)
         }
-        return when (filterCode) {
-            context.getString(R.string.notifications_all_wikis_text) -> filterCode
-            context.getString(R.string.notifications_all_types_text) -> filterCode
-            else -> WikipediaApp.instance.languageState.getAppLanguageCanonicalName(filterCode).orEmpty()
+        return when (filter.filterCode) {
+            context.getString(R.string.notifications_all_wikis_text) -> filter.filterCode
+            else -> WikipediaApp.instance.languageState.getAppLanguageCanonicalName(filter.filterCode).orEmpty()
         }
     }
 }

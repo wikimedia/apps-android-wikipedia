@@ -78,13 +78,13 @@ class WatchlistFilterActivity : BaseActivity() {
 
     private inner class WatchlistFilterAdapter(val context: Context, private val filtersList: List<Any>) :
         RecyclerView.Adapter<DefaultViewHolder<*>>(), WatchlistFilterItemView.Callback {
-        private var excludedWikiCodes = Prefs.notificationExcludedWikiCodes.toMutableSet()
-        private var excludedTypeCodes = Prefs.notificationExcludedTypeCodes.toMutableSet()
+        private var excludedWikiCodes = Prefs.watchlistExcludedWikiCodes.toMutableSet()
+        private var includedWikiCodes = Prefs.watchlistIncludedTypeCodes.toMutableSet()
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): DefaultViewHolder<*> {
             return when (type) {
                 VIEW_TYPE_HEADER -> {
-                    WatchlistFilterHeaderViewHolder(layoutInflater.inflate(R.layout.view_notification_filter_header, parent, false))
+                    WatchlistFilterHeaderViewHolder(layoutInflater.inflate(R.layout.view_watchlist_filter_header, parent, false))
                 }
                 VIEW_TYPE_ADD_LANGUAGE -> {
                     WatchlistFilterItemViewAddLanguageViewHolder(WatchlistFilterItemView(context))
@@ -117,16 +117,9 @@ class WatchlistFilterActivity : BaseActivity() {
 
         override fun onCheckedChanged(filter: Filter?) {
             when (filter!!.filterCode) {
-                context.getString(R.string.notifications_all_types_text) -> {
-                    if (excludedTypeCodes.isEmpty()) {
-                        excludedTypeCodes.addAll(allTypesIdList())
-                    } else {
-                        excludedTypeCodes.clear()
-                    }
-                }
-                context.getString(R.string.notifications_all_wikis_text) -> {
+                context.getString(R.string.watchlist_filter_all_wikis_text) -> {
                     if (excludedWikiCodes.isEmpty()) {
-                        excludedWikiCodes.addAll(allWikisList())
+                        excludedWikiCodes.addAll(WikipediaApp.instance.languageState.appLanguageCodes)
                     } else {
                         excludedWikiCodes.clear()
                     }
@@ -136,28 +129,24 @@ class WatchlistFilterActivity : BaseActivity() {
                         if (excludedWikiCodes.contains(filter.filterCode)) excludedWikiCodes.remove(filter.filterCode)
                         else excludedWikiCodes.add(filter.filterCode)
                     } else if (filter.type == Companion.FILTER_TYPE_CATEGORY) {
-                        if (excludedTypeCodes.contains(filter.filterCode)) excludedTypeCodes.remove(filter.filterCode)
-                        else excludedTypeCodes.add(filter.filterCode)
+                        if (includedWikiCodes.contains(filter.filterCode)) includedWikiCodes.remove(filter.filterCode)
+                        else includedWikiCodes.add(filter.filterCode)
                     }
                 }
             }
-            Prefs.notificationExcludedWikiCodes = excludedWikiCodes
-            Prefs.notificationExcludedTypeCodes = excludedTypeCodes
+            Prefs.watchlistExcludedWikiCodes = excludedWikiCodes
+            Prefs.watchlistIncludedTypeCodes = includedWikiCodes
             notifyItemRangeChanged(0, itemCount)
         }
     }
 
-    inner class Filter constructor(val type: Int, val filterCode: String, val imageRes: Int? = null) {
+    inner class Filter constructor(val type: Int, val filterCode: String) {
         fun isEnabled(): Boolean {
-            val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
-            val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
-            if (filterCode == getString(R.string.notifications_all_types_text)) {
-                return allTypesIdList().find { excludedTypeCodes.contains(it) } == null
-            }
+            val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
             if (filterCode == getString(R.string.notifications_all_wikis_text)) {
-                return allWikisList().find { excludedWikiCodes.contains(it) } == null
+                return WikipediaApp.instance.languageState.appLanguageCodes.find { excludedWikiCodes.contains(it) } == null
             }
-            return !excludedWikiCodes.contains(filterCode) && !excludedTypeCodes.contains(filterCode)
+            return !excludedWikiCodes.contains(filterCode) || Prefs.watchlistIncludedTypeCodes.contains(filterCode)
         }
     }
 
@@ -166,20 +155,8 @@ class WatchlistFilterActivity : BaseActivity() {
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
         private const val VIEW_TYPE_ADD_LANGUAGE = 2
-        private const val FILTER_TYPE_WIKI = 0
-        private const val FILTER_TYPE_CATEGORY = 1
-
-        fun allWikisList(): List<String> {
-            val wikiList = mutableListOf<String>()
-            wikiList.addAll(WikipediaApp.instance.languageState.appLanguageCodes)
-            wikiList.add(Constants.WIKI_CODE_COMMONS)
-            wikiList.add(Constants.WIKI_CODE_WIKIDATA)
-            return wikiList
-        }
-
-        fun allTypesIdList(): List<String> {
-            return NotificationCategory.FILTERS_GROUP.map { it.id }
-        }
+        const val FILTER_TYPE_WIKI = 0
+        const val FILTER_TYPE_CATEGORY = 1
 
         fun newIntent(context: Context): Intent {
             return Intent(context, WatchlistFilterActivity::class.java)

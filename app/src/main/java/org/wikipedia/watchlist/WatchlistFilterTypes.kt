@@ -3,6 +3,7 @@ package org.wikipedia.watchlist
 import androidx.annotation.StringRes
 import org.wikipedia.R
 import org.wikipedia.model.EnumCode
+import org.wikipedia.model.EnumCodeMap
 
 @Suppress("unused")
 enum class WatchlistFilterTypes constructor(val id: String,
@@ -88,5 +89,23 @@ enum class WatchlistFilterTypes constructor(val id: String,
         // This enumeration is not marshalled so tying declaration order to presentation order is
         // convenient and consistent.
         return ordinal
+    }
+
+    companion object {
+        val LATEST_REVISIONS_GROUP = listOf(LATEST_REVISION, NOT_LATEST_REVISION)
+        val TYPE_OF_CHANGES_GROUP = listOf(PAGE_EDITS, PAGE_CREATIONS, CATEGORY_CHANGES, WIKIDATA_EDITS, LOGGED_ACTIONS)
+        val MINOR_EDITS_GROUP = listOf(MINOR_EDITS, NON_MINOR_EDITS)
+        val BOT_EDITS_GROUP = listOf(BOT, HUMAN)
+        val UNSEEN_CHANGES_GROUP = listOf(UNSEEN_CHANGES, SEEN_CHANGES)
+
+        private val MAP = EnumCodeMap(WatchlistFilterTypes::class.java)
+
+        private fun findOrNull(id: String): WatchlistFilterTypes? {
+            return MAP.valueIterator().asSequence().firstOrNull { id == it.id || id.startsWith(it.id) }
+        }
+
+        fun find(id: String): WatchlistFilterTypes {
+            return findOrNull(id) ?: MAP[0]
+        }
     }
 }

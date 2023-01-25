@@ -1324,6 +1324,7 @@
     <string name="watchlist_page_deleted">Deleted</string>
     <string name="watchlist_filter_title">Filter Watchlist</string>
     <string name="watchlist_filter_wiki_filter_header">Wiki filter</string>
+    <string name="watchlist_filter_all_wikis_text">All \"wiki\"</string>
     <string name="watchlist_filter_watchlist_activity_header">Watchlist activity</string>
     <string name="watchlist_filter_watchlist_activity_unseen">Unseen changes</string>
     <string name="watchlist_filter_watchlist_activity_seen">Seen changes</string>
@@ -1362,6 +1363,8 @@
     <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata edits</string>
     <string name="watchlist_filter_type_of_change_logged_actions">Logged actions</string>
     <string name="watchlist_filter_type_of_change_new_users">New users</string>
+    <string name="watchlist_search_bar_hint">Search or filter watchlist</string>
+    <string name="watchlist_search_bar_filter_hint">Watchlist filter</string>
     <!-- /Watchlist -->
 
     <!-- Preview edit -->

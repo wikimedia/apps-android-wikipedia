@@ -670,4 +670,14 @@ object Prefs {
     var readingListRecentReceivedId
         get() = PrefsIoUtil.getLong(R.string.preference_key_reading_lists_recent_receive_id, -1)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_reading_lists_recent_receive_id, value)
+
+    var watchlistExcludedWikiCodes
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_excluded_wiki_codes_watchlist, null))
+            ?: emptySet()
+        set(wikis) = PrefsIoUtil.setString(R.string.preference_key_excluded_wiki_codes_watchlist, JsonUtil.encodeToString(wikis))
+
+    var watchlistIncludedTypeCodes
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_included_type_codes_watchlist, null))
+            ?: emptySet()
+        set(types) = PrefsIoUtil.setString(R.string.preference_key_included_type_codes_watchlist, JsonUtil.encodeToString(types))
 }

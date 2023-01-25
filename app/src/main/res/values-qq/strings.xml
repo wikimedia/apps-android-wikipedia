@@ -1303,6 +1303,7 @@
   <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
   <string name="watchlist_filter_title">Title of the filter watchlist screen</string>
   <string name="watchlist_filter_wiki_filter_header">Header text for watchlist wiki filter.</string>
+  <string name="watchlist_filter_all_wikis_text">Label text for button to enable all wikis for watchlist</string>
   <string name="watchlist_filter_watchlist_activity_header">Header text for watchlist activity.</string>
   <string name="watchlist_filter_watchlist_activity_unseen">Option text for watchlist unseen changes activity.</string>
   <string name="watchlist_filter_watchlist_activity_seen">Option text for watchlist seen changes activity.</string>
