@@ -60,11 +60,11 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
     }
 
     fun pageFetchStart() {
-        pageLoadStartTime = System.currentTimeMillis()
+        pageLoadStartTime = System.nanoTime()
     }
 
     fun pageFetchEnd() {
-        sessionData.addPageLatency(System.currentTimeMillis() - pageLoadStartTime)
+        sessionData.addPageLatency(System.nanoTime() - pageLoadStartTime)
     }
 
     private fun hasTimedOut(): Boolean {

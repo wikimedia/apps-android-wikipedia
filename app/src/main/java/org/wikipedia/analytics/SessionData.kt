@@ -4,6 +4,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.util.MathUtil
+import java.util.concurrent.TimeUnit
 
 @Serializable
 class SessionData {
@@ -46,7 +47,7 @@ class SessionData {
     }
 
     fun addPageLatency(pageLatency: Long) {
-        this.pageLatency.addSample(pageLatency)
+        this.pageLatency.addSample(TimeUnit.NANOSECONDS.toMillis(pageLatency))
     }
 
     fun addPageFromBack() {
