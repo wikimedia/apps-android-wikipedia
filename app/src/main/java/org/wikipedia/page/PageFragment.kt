@@ -42,7 +42,6 @@ import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.*
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.FragmentUtil.getCallback
-import org.wikipedia.analytics.*
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
 import org.wikipedia.auth.AccountUtil
@@ -140,7 +139,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private lateinit var pageFragmentLoadState: PageFragmentLoadState
     private lateinit var bottomBarHideHandler: ViewHideHandler
     internal var articleInteractionEvent: ArticleInteractionEvent? = null
-    private var pageScrollFunnel: PageScrollFunnel? = null
     private var pageRefreshed = false
     private var errorState = false
     private var watchlistExpiryChanged = false
@@ -265,7 +263,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         addTimeSpentReading(activeTimer.elapsedSec)
         pageFragmentLoadState.updateCurrentBackStackItem()
         app.commitTabState()
-        closePageScrollFunnel()
         val time = if (app.tabList.size >= 1 && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
         Prefs.pageLastShown = time
         articleInteractionEvent?.pause()
@@ -273,7 +270,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     override fun onResume() {
         super.onResume()
-        initPageScrollFunnel()
         activeTimer.resume()
         val params = CoordinatorLayout.LayoutParams(1, 1)
         binding.pageImageTransitionHolder.layoutParams = params
@@ -360,9 +356,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             // update our session, since it's possible for the user to remain on the page for
             // a long time, and we wouldn't want the session to time out.
             app.sessionFunnel.touchSession()
-        }
-        webView.addOnScrollChangeListener { oldScrollY, scrollY, isHumanScroll ->
-            pageScrollFunnel?.onPageScrolled(oldScrollY, scrollY, isHumanScroll)
         }
         webView.addOnContentHeightChangedListener(scrollTriggerListener)
         webView.webViewClient = object : OkHttpWebViewClient() {
@@ -524,15 +517,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             pageFragmentLoadState.setTab(currentTab)
             currentTab.backStack.add(PageBackStackItem(title, entry))
         }
-    }
-
-    private fun closePageScrollFunnel() {
-        if (webView.contentHeight > 0) {
-            pageScrollFunnel?.setViewportHeight(webView.height)
-            pageScrollFunnel?.setPageHeight(webView.contentHeight)
-            pageScrollFunnel?.logDone()
-        }
-        pageScrollFunnel = null
     }
 
     private fun dismissBottomSheet() {
@@ -700,12 +684,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
                 override fun onDestroyActionMode(mode: ActionMode) {}
             })
-        }
-    }
-
-    private fun initPageScrollFunnel() {
-        model.page?.run {
-            pageScrollFunnel = PageScrollFunnel(app, pageProperties.pageId)
         }
     }
 
@@ -883,7 +861,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageRefreshContainer.isEnabled = true
         binding.pageRefreshContainer.isRefreshing = false
         requireActivity().invalidateOptionsMenu()
-        initPageScrollFunnel()
         model.readingListPage?.let { page ->
             model.title?.let { title ->
                 disposables.add(Completable.fromAction {
@@ -983,7 +960,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         pageRefreshed = isRefresh
         references = null
         revision = 0
-        closePageScrollFunnel()
         pageFragmentLoadState.load(pushBackStack)
         scrollTriggerListener.stagedScrollY = stagedScrollY
     }

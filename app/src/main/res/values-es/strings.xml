@@ -508,7 +508,6 @@
   <string name="editing_typing_suggestions">Mostrar sugerencias de escritura</string>
   <string name="nav_item_saved">Guardado</string>
   <string name="reading_list_save_to">Guardar en lista de lectura</string>
-  <string name="reading_list_move_to">Trasladar a una lista de lectura</string>
   <string name="reading_list_create_new">Crear una nueva</string>
   <string name="reading_list_title_exists">La lista de lectura «%s» ya existe.</string>
   <string name="reading_list_article_added_to_named">Se agregó %1$s a %2$s.</string>
@@ -989,7 +988,6 @@
   <string name="suggested_edits_reactivation_notification_title">Ediciones sugeridas</string>
   <string name="suggested_edits_reactivation_notification_stage_one">¡Gracias por editar Wikipedia! ¿Por qué no continúas donde lo dejaste?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">¿Tienes un minuto para seguir mejorando Wikipedia? Echa un vistazo a estas sugerencias de edición.</string>
-  <string name="suggested_edits_contributions_screen_title">Contribuciones de %s</string>
   <string name="suggested_edits_contribution_language_label">Idioma</string>
   <string name="suggested_edits_contribution_date_time_label">Fecha y hora</string>
   <string name="suggested_edits_contribution_type_label">Tipo de contribución</string>
@@ -1000,17 +998,15 @@
     <item quantity="one">Visto una vez en los pasados 30 días.</item>
     <item quantity="other">Visto %s veces en los pasados 30 días.</item>
   </plurals>
-  <string name="suggested_edits_contribution_seen_text">Hubo %s visitas en los últimos 30 días.</string>
+  <string name="suggested_edits_contribution_seen_text">Vista %s veces durante los pasados 30 días.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Añadiste %d etiqueta</item>
     <item quantity="other">Añadiste %d etiquetas</item>
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
-  <string name="suggested_edits_contribution_date_yesterday_text">Ayer</string>
   <string name="suggested_edits_encourage_account_creation_title">¿Sabías que todos pueden editar Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Las ediciones sugeridas son una nueva forma de editar Wikipedia en Android. Te ayudan a hacer pequeñas pero vitales contribuciones a Wikipedia. ¡Nuestro objetivo es hacer que la edición sea más fácil y accesible para todos! Accede o únete a Wikipedia para comenzar.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Acceder / unirse a Wikipedia</string>
-  <string name="suggested_edits_contribution_type_image_tag">Etiqueta de imagen</string>
   <string name="suggested_edits_contribution_current_revision_text">Tu edición es la más reciente en Wikipedia</string>
   <string name="suggested_card_more_edits">Más ediciones sugeridas</string>
   <plurals name="suggested_edits_tags_diff_count_text">
