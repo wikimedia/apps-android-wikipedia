@@ -1342,4 +1342,6 @@
   <string name="watchlist_filter_type_of_change_wikidata_edits">Option text for the type of change that indicates Wikidata edits.</string>
   <string name="watchlist_filter_type_of_change_logged_actions">Option text for the type of change that indicates logged actions.</string>
   <string name="watchlist_filter_type_of_change_new_users">Option text for the type of change that indicates new users.</string>
+  <string name="watchlist_search_bar_hint">Hint text for the watchlist search bar.</string>
+  <string name="watchlist_search_bar_filter_hint">Hint text for the filter icon on the watchlist search bar.</string>
 </resources>
