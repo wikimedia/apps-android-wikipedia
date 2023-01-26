@@ -36,6 +36,18 @@
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/history_export"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/actionBarItemBackground"
+            android:clickable="true"
+            android:contentDescription="@string/history_export"
+            android:focusable="true"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/ic_share"
+            app:tint="?attr/material_theme_secondary_color" />
+
+        <ImageView
             android:id="@+id/history_filter"
             android:layout_width="48dp"
             android:layout_height="48dp"
