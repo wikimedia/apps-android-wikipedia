@@ -353,7 +353,7 @@
   <string name="tool_tip_bookmark_icon_text">Стиснете на бележникот за да ја зачувате статијата во список за читање.</string>
   <string name="page_view_in_browser">Погледај во прелистувач</string>
   <string name="tool_tip_toc_title">Брз пристап до прегледот на содржините</string>
-  <string name="tool_tip_toc_text">Сега можете да повлечете лево за да го отворите прегледот на содржините, и да го допрете и влечете овој лизгач за брз преод низ разните поднаслови на статијата.</string>
+  <string name="tool_tip_toc_text">Сега можете да повлечете лево за да го отворите прегледот на содржините, и да го допрете и влечете овој лизгач за брз преод низ разните оддели на статијата.</string>
   <string name="tool_tip_lang_button">Сега можете да пребарувате и читате на повеќе јазици во прилогот.\n\n\nДопрете на иконката за да додадете уште јазици.</string>
   <string name="error_response_malformed">Одѕивот од опслужувачот не е исправно форматиран.</string>
   <string name="error_unknown">Се појави непозната грешка.</string>
@@ -1265,7 +1265,7 @@
   <string name="user_contrib_menu_label">Придонеси</string>
   <string name="user_contrib_filter_activity_title">Филтер на придонеси</string>
   <string name="shareable_reading_lists_import_dialog_title">Уевзи споделен список за читање</string>
-  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Како би сакале да го наречете списокот за читање што се споделува со вас?</string>
+  <string name="shareable_reading_lists_import_dialog_content">Како би сакале да го наречете списокот за читање што се споделува со вас?</string>
   <string name="shareable_reading_lists_new_indicator">*ново*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Некој сподели список за читање со вас</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Забележавме дека некој сподели список за читање со вас. За да го видите списокот во овој прилог, вратете се на изворната порака и пак допрете ја врската.</string>
