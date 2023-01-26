@@ -20,6 +20,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.talk.db.TalkPageSeen
+import org.wikipedia.util.UriUtil
 import org.wikipedia.views.TalkTopicsSortOverflowView
 import org.wikipedia.watchlist.WatchlistExpiry
 
@@ -76,7 +77,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
             if (resolveTitleRequired) {
                 val siteInfoResponse = withContext(Dispatchers.IO) {
                     ServiceFactory.get(pageTitle.wikiSite).getPageNamespaceWithSiteInfo(pageTitle.prefixedText,
-                        OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+                        OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, UriUtil.encodeURL(pageTitle.prefixedText))
                 }
                 resolveTitleRequired = false
                 siteInfoResponse.query?.namespaces?.let { namespaces ->
@@ -96,7 +97,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
 
             val discussionToolsInfoResponse = async {
                 ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
-                    OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+                    OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, UriUtil.encodeURL(pageTitle.prefixedText))
             }
 
             threadItems.clear()

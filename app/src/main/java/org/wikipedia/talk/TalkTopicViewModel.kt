@@ -20,6 +20,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
+import org.wikipedia.util.UriUtil
 
 class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
 
@@ -61,7 +62,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         }) {
             val discussionToolsInfoResponse = async {
                 ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
-                    OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+                    OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, UriUtil.encodeURL(pageTitle.prefixedText))
             }
             val oldItemsFlattened = topic?.allReplies.orEmpty()
 
