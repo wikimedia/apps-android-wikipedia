@@ -5,7 +5,6 @@ import android.view.*
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -35,8 +34,7 @@ import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.WikiCardView
 import java.util.*
 
-class WatchlistFragment : Fragment(), WatchlistItemView.Callback,
-        WatchlistLanguagePopupView.Callback, MenuProvider {
+class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
     private var _binding: FragmentWatchlistBinding? = null
 
     private lateinit var notificationButtonView: NotificationButtonView
@@ -44,11 +42,8 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback,
     private val binding get() = _binding!!
 
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == WatchlistFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
-            onUpdateList()
-        } else {
-            // TODO
-        }
+        updateDisplayLanguages()
+        viewModel.fetchWatchlist()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -94,6 +89,10 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback,
         inflater.inflate(R.menu.menu_watchlist, menu)
     }
 
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        return false
+    }
+
     override fun onPrepareMenu(menu: Menu) {
         menu.findItem(R.id.menu_change_language).isVisible = WikipediaApp.instance.languageState.appLanguageCodes.size > 1
 
@@ -114,17 +113,6 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback,
             notificationMenuItem.isVisible = false
         }
         updateNotificationDot(false)
-    }
-
-    override fun onMenuItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_change_language -> {
-                val overflowView = WatchlistLanguagePopupView(requireContext())
-                overflowView.show(ActivityCompat.requireViewById(requireActivity(), R.id.menu_change_language), this)
-                true
-            }
-            else -> false
-        }
     }
 
     fun updateNotificationDot(animate: Boolean) {
@@ -259,6 +247,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback,
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             when (holder) {
+                is WatchlistSearchBarHolder -> { }
                 is WatchlistDateViewHolder -> {
                     holder.bindItem((items[position] as Date))
                 }
@@ -267,11 +256,6 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback,
                 }
             }
         }
-    }
-
-    override fun onLanguageChanged() {
-        updateDisplayLanguages()
-        viewModel.fetchWatchlist()
     }
 
     override fun onItemClick(item: MwQueryResult.WatchlistItem) {

@@ -23,7 +23,6 @@ class WatchlistFilterActivity : BaseActivity() {
     private lateinit var binding: ActivityWatchlistFiltersBinding
 
     private val languageChooserLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        setResult(ACTIVITY_RESULT_LANGUAGES_CHANGED)
         setUpRecyclerView()
     }
 
@@ -172,7 +171,6 @@ class WatchlistFilterActivity : BaseActivity() {
     }
 
     companion object {
-        const val ACTIVITY_RESULT_LANGUAGES_CHANGED = 2
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
         private const val VIEW_TYPE_ADD_LANGUAGE = 2
