@@ -3,6 +3,7 @@ package org.wikipedia.watchlist
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.MenuProvider
@@ -18,6 +19,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentWatchlistBinding
+import org.wikipedia.databinding.ViewWatchlistSearchBarBinding
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
@@ -30,15 +32,24 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.NotificationButtonView
+import org.wikipedia.views.WikiCardView
 import java.util.*
 
-class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistItemView.Callback,
+class WatchlistFragment : Fragment(), WatchlistItemView.Callback,
         WatchlistLanguagePopupView.Callback, MenuProvider {
     private var _binding: FragmentWatchlistBinding? = null
 
     private lateinit var notificationButtonView: NotificationButtonView
     private val viewModel: WatchlistViewModel by viewModels()
     private val binding get() = _binding!!
+
+    private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == WatchlistFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
+            onUpdateList()
+        } else {
+            // TODO
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -179,10 +190,34 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         }
     }
 
-    internal inner class WatchlistHeaderViewHolder(view: WatchlistHeaderView) : RecyclerView.ViewHolder(view) {
-        fun bindItem() {
-            (itemView as WatchlistHeaderView).callback = this@WatchlistFragment
-            itemView.enableByFilterMode(viewModel.filterMode)
+    inner class WatchlistSearchBarHolder constructor(private val itemBinding: ViewWatchlistSearchBarBinding) : RecyclerView.ViewHolder(itemBinding.root) {
+        init {
+            (itemBinding.root as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22))
+
+            itemBinding.root.setOnClickListener {
+//                if (actionMode == null) {
+//                    actionMode = startSupportActionMode(searchActionModeCallback)
+//                    postprocessAndDisplay()
+//                }
+            }
+
+            itemBinding.filterButton.setOnClickListener {
+                resultLauncher.launch(WatchlistFilterActivity.newIntent(it.context))
+            }
+
+            FeedbackUtil.setButtonLongPressToast(itemBinding.filterButton)
+        }
+
+        fun updateFilterIconAndCount() {
+//            val excludedFilters = viewModel.excludedFiltersCount()
+//            if (excludedFilters == 0) {
+//                itemBinding.filterCount.visibility = View.GONE
+//                ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.color_group_9))
+//            } else {
+//                itemBinding.filterCount.visibility = View.VISIBLE
+//                itemBinding.filterCount.text = excludedFilters.toString()
+//                ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.colorAccent))
+//            }
         }
     }
 
@@ -199,7 +234,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
         override fun getItemViewType(position: Int): Int {
             if (position == 0) {
-                return VIEW_TYPE_HEADER
+                return VIEW_TYPE_SEARCH_BAR
             }
             return if (items[position] is Date) {
                 VIEW_TYPE_DATE
@@ -210,8 +245,8 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             return when (viewType) {
-                VIEW_TYPE_HEADER -> {
-                    WatchlistHeaderViewHolder(WatchlistHeaderView(requireContext()))
+                VIEW_TYPE_SEARCH_BAR -> {
+                    WatchlistSearchBarHolder(ViewWatchlistSearchBarBinding.inflate(layoutInflater, parent, false))
                 }
                 VIEW_TYPE_DATE -> {
                     WatchlistDateViewHolder(LayoutInflater.from(requireContext()).inflate(R.layout.item_watchlist_date, parent, false))
@@ -224,9 +259,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             when (holder) {
-                is WatchlistHeaderViewHolder -> {
-                    holder.bindItem()
-                }
                 is WatchlistDateViewHolder -> {
                     holder.bindItem((items[position] as Date))
                 }
@@ -235,26 +267,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
                 }
             }
         }
-    }
-
-    override fun onSelectFilterAll() {
-        viewModel.filterMode = FILTER_MODE_ALL
-        onUpdateList()
-    }
-
-    override fun onSelectFilterTalk() {
-        viewModel.filterMode = FILTER_MODE_TALK
-        onUpdateList()
-    }
-
-    override fun onSelectFilterPages() {
-        viewModel.filterMode = FILTER_MODE_PAGES
-        onUpdateList()
-    }
-
-    override fun onSelectFilterOther() {
-        viewModel.filterMode = FILTER_MODE_OTHER
-        onUpdateList()
     }
 
     override fun onLanguageChanged() {
@@ -282,7 +294,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         const val FILTER_MODE_PAGES = 2
         const val FILTER_MODE_OTHER = 3
 
-        const val VIEW_TYPE_HEADER = 0
+        const val VIEW_TYPE_SEARCH_BAR = 0
         const val VIEW_TYPE_DATE = 1
         const val VIEW_TYPE_ITEM = 2
 
