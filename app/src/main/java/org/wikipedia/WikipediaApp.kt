@@ -18,7 +18,7 @@ import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.analytics.FunnelManager
 import org.wikipedia.analytics.InstallReferrerListener
-import org.wikipedia.analytics.SessionFunnel
+import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
@@ -47,7 +47,7 @@ class WikipediaApp : Application() {
     val mainThreadHandler by lazy { Handler(mainLooper) }
     val languageState by lazy { AppLanguageState(this) }
     val funnelManager by lazy { FunnelManager(this) }
-    val sessionFunnel by lazy { SessionFunnel(this) }
+    val appSessionEvent by lazy { AppSessionEvent() }
     val userAgent by lazy {
         var channel = ReleaseUtil.getChannel(this)
         channel = if (channel.isBlank()) "" else " $channel"

@@ -7,7 +7,7 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SessionData
-import org.wikipedia.analytics.SessionFunnel
+import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
@@ -108,8 +108,8 @@ object Prefs {
     val sessionTimeout
         get() = PrefsIoUtil.getInt(
             R.string.preference_key_session_timeout,
-            SessionFunnel.DEFAULT_SESSION_TIMEOUT
-        ).coerceAtLeast(SessionFunnel.MIN_SESSION_TIMEOUT)
+            AppSessionEvent.DEFAULT_SESSION_TIMEOUT
+        ).coerceAtLeast(AppSessionEvent.MIN_SESSION_TIMEOUT)
 
     var textSizeMultiplier
         get() = PrefsIoUtil.getInt(R.string.preference_key_text_size_multiplier, 0)
