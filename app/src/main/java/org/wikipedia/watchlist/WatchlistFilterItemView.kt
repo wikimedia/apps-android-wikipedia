@@ -51,12 +51,10 @@ class WatchlistFilterItemView constructor(context: Context, attrs: AttributeSet?
             ViewUtil.formatLangButton(binding.watchlistFilterLanguageCode, it,
                 SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
         } ?: run {
-            if (filter.filterCode == context.getString(R.string.watchlist_filter_all_wikis_text))
-                binding.watchlistFilterLanguageCode.visibility = View.INVISIBLE
-            else binding.watchlistFilterLanguageCode.visibility = View.GONE
+            binding.watchlistFilterLanguageCode.visibility = View.INVISIBLE
         }
 
-        // TODO: remove this layouut setting
+        // TODO: remove this layout setting
         binding.watchlistFilterWikiLogo.visibility = View.GONE
     }
 
@@ -74,12 +72,12 @@ class WatchlistFilterItemView constructor(context: Context, attrs: AttributeSet?
     }
 
     private fun getTitleCodeFor(filter: WatchlistFilterActivity.Filter): String? {
-        return if (filter.filterCode == context.getString(R.string.watchlist_filter_all_wikis_text) || filter.type == WatchlistFilterActivity.FILTER_TYPE_WIKI) null
+        return if (filter.filterCode == context.getString(R.string.watchlist_filter_all_wikis_text) || filter.type == WatchlistFilterActivity.FILTER_TYPE_CATEGORY) null
         else filter.filterCode
     }
 
     private fun getTitleFor(filter: WatchlistFilterActivity.Filter): String {
-        if (filter.type == WatchlistFilterActivity.FILTER_TYPE_WIKI) {
+        if (filter.type == WatchlistFilterActivity.FILTER_TYPE_CATEGORY) {
             return context.getString(WatchlistFilterTypes.find(filter.filterCode).title)
         }
         return when (filter.filterCode) {
