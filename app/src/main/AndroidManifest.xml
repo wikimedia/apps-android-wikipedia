@@ -275,7 +275,7 @@
 
         <activity
             android:name=".watchlist.WatchlistFilterActivity"
-            android:label="@string/watchlist_title"
+            android:label="@string/watchlist_filter_title"
             android:theme="@style/AppTheme.ActionBar"/>
 
         <activity

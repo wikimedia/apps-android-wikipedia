@@ -166,7 +166,7 @@ class WatchlistFilterActivity : BaseActivity() {
             if (filterCode == getString(R.string.notifications_all_wikis_text)) {
                 return WikipediaApp.instance.languageState.appLanguageCodes.find { excludedWikiCodes.contains(it) } == null
             }
-            return !excludedWikiCodes.contains(filterCode) || Prefs.watchlistIncludedTypeCodes.contains(filterCode)
+            return Prefs.watchlistIncludedTypeCodes.contains(filterCode)
         }
     }
 

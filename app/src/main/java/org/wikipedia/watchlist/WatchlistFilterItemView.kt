@@ -51,6 +51,7 @@ class WatchlistFilterItemView constructor(context: Context, attrs: AttributeSet?
             ViewUtil.formatLangButton(binding.watchlistFilterLanguageCode, it,
                 SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
         } ?: run {
+            // TODO: revisit after getting feedback from design
             binding.watchlistFilterLanguageCode.visibility = View.INVISIBLE
         }
 
