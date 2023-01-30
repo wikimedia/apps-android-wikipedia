@@ -135,4 +135,26 @@ import static org.hamcrest.Matchers.nullValue;
         assertThat(pageTitle.getText(), is(":"));
         assertThat(pageTitle.getFragment(), nullValue());
     }
+
+    @Test public void testEquality() {
+        PageTitle title1 = new PageTitle("Test Article", WikiSite.forLanguageCode("en"));
+        PageTitle title2 = new PageTitle("Test Article", WikiSite.forLanguageCode("en"));
+        assertThat(title1.equals(title2), is(true));
+        assertThat(title2.equals(title1), is(true));
+        title2.setDisplayText("TEST ARTICLE");
+        title2.setThumbUrl("http://thumb.url");
+        title2.setExtract("Foo");
+        title2.setDescription("Bar");
+        assertThat(title1.equals(title2), is(true));
+        assertThat(title2.equals(title1), is(true));
+        title2.setNamespace("File");
+        assertThat(title1.equals(title2), is(false));
+        assertThat(title2.equals(title1), is(false));
+
+        title2 = new PageTitle("Test Article", WikiSite.forLanguageCode("ru"));
+        assertThat(title1.equals(title2), is(false));
+        assertThat(title2.equals(title1), is(false));
+
+        assertThat(title1.equals(new Object()), is(false));
+    }
 }

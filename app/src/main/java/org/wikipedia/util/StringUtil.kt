@@ -23,6 +23,7 @@ import org.wikipedia.staticdata.UserAliasData
 import java.nio.charset.StandardCharsets
 import java.text.Collator
 import java.text.Normalizer
+import java.util.*
 import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
 
@@ -149,14 +150,12 @@ object StringUtil {
     fun boldenKeywordText(textView: TextView, parentText: String, searchQuery: String?) {
         var parentTextStr = parentText
         val startIndex = indexOf(parentTextStr, searchQuery)
-        if (startIndex >= 0) {
+        if (startIndex >= 0 && !isIndexInsideHtmlTag(parentTextStr, startIndex)) {
             parentTextStr = (parentTextStr.substring(0, startIndex) + "<strong>" +
                     parentTextStr.substring(startIndex, startIndex + searchQuery!!.length) + "</strong>" +
                     parentTextStr.substring(startIndex + searchQuery.length))
-            textView.text = fromHtml(parentTextStr)
-        } else {
-            textView.text = parentTextStr
         }
+        textView.text = fromHtml(parentTextStr)
     }
 
     fun highlightAndBoldenText(textView: TextView, input: String?, shouldBolden: Boolean, highlightColor: Int) {
@@ -174,6 +173,15 @@ object StringUtil {
             }
             textView.text = spannableString
         }
+    }
+
+    private fun isIndexInsideHtmlTag(text: String, index: Int): Boolean {
+        var tagStack = 0
+        for (i in text.indices) {
+            if (text[i] == '<') { tagStack++ } else if (text[i] == '>') { tagStack-- }
+            if (i == index) { break }
+        }
+        return tagStack > 0
     }
 
     // case insensitive indexOf, also more lenient with similar chars, like chars with accents
@@ -251,5 +259,9 @@ object StringUtil {
 
     fun getDiffBytesText(context: Context, diffSize: Int): String {
         return context.resources.getQuantityString(R.plurals.edit_diff_bytes, diffSize.absoluteValue, if (diffSize > 0) "+$diffSize" else diffSize.toString())
+    }
+
+    fun capitalize(str: String?): String? {
+        return str?.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
     }
 }

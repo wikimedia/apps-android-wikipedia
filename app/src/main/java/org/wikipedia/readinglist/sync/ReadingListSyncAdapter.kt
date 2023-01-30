@@ -2,7 +2,6 @@ package org.wikipedia.readinglist.sync
 
 import android.content.*
 import android.os.Bundle
-import android.text.TextUtils
 import androidx.core.app.JobIntentService
 import androidx.core.os.bundleOf
 import org.wikipedia.WikipediaApp
@@ -80,7 +79,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             // -----------------------------------------------
             var remoteListsModified = mutableListOf<RemoteReadingList>()
             var remoteEntriesModified = mutableListOf<RemoteReadingListEntry>()
-            if (TextUtils.isEmpty(lastSyncTime)) {
+            if (lastSyncTime.isEmpty()) {
                 syncEverything = true
             }
             if (syncEverything) {
@@ -239,8 +238,24 @@ class ReadingListSyncAdapter : JobIntentService() {
             }
 
             // Do any remote pages need to be deleted?
-            val pageIdsToDelete = mutableListOf<String>()
+            val pageIdsToDelete = mutableSetOf<String>()
             pageIdsToDelete.addAll(pageIdsDeleted)
+
+            // Determine if any articles need to be de-duplicated (because of bugs in previous sync inconsistencies)
+            if (syncEverything) {
+                allLocalLists.forEach { list ->
+                    val distinct = list.pages.distinctBy { pageTitleFromRemoteEntry(remoteEntryFromLocalPage(it)) }
+                    val toRemove = list.pages.toMutableSet()
+                    toRemove.removeAll(distinct.toSet())
+                    if (toRemove.isNotEmpty()) {
+                        toRemove.forEach {
+                            AppDatabase.instance.readingListPageDao().deleteReadingListPage(it)
+                        }
+                        pageIdsToDelete.addAll(createIdsForDeletion(list, toRemove))
+                    }
+                }
+            }
+
             for (id in pageIdsToDelete) {
                 L.d("Deleting remote page id $id")
                 val listAndPageId = id.split(":").toTypedArray()
@@ -412,8 +427,7 @@ class ReadingListSyncAdapter : JobIntentService() {
         return if (lastDateHeader.isNullOrEmpty()) {
             lastSyncTime
         } else try {
-            val date = DateUtil.getHttpLastModifiedDate(lastDateHeader)
-            DateUtil.iso8601DateFormat(date)
+            DateUtil.getHttpLastModifiedDate(lastDateHeader).toInstant().toString()
         } catch (e: ParseException) {
             lastSyncTime
         }
@@ -495,11 +509,12 @@ class ReadingListSyncAdapter : JobIntentService() {
             manualSync()
         }
 
+        fun createIdsForDeletion(list: ReadingList, pages: Set<ReadingListPage>): Set<String> {
+            return if (list.remoteId <= 0) emptySet() else pages.map { it.remoteId }.filter { it > 0 }.map { "${list.remoteId}:$it" }.toSet()
+        }
+
         fun manualSyncWithDeletePages(list: ReadingList, pages: List<ReadingListPage>) {
-            if (list.remoteId <= 0) {
-                return
-            }
-            val ids = pages.map { it.remoteId }.filter { it > 0 }.map { "${list.remoteId}:$it" }.toSet()
+            val ids = createIdsForDeletion(list, pages.toSet())
             if (ids.isNotEmpty()) {
                 Prefs.addReadingListPagesDeletedIds(ids)
                 manualSync()

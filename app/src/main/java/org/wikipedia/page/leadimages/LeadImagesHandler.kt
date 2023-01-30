@@ -1,7 +1,7 @@
 package org.wikipedia.page.leadimages
 
-import android.app.ActivityOptions
 import android.net.Uri
+import androidx.core.app.ActivityOptionsCompat
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -11,7 +11,6 @@ import org.wikipedia.Constants.ImageEditType
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.commons.ImageTagsProvider
@@ -25,14 +24,14 @@ import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
-import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ObservableWebView
 
 class LeadImagesHandler(private val parentFragment: PageFragment,
                         webView: ObservableWebView,
-                        private val pageHeaderView: PageHeaderView) {
+                        private val pageHeaderView: PageHeaderView,
+                        private val callback: PageFragment.Callback?) {
     private var displayHeightDp = 0
     private var callToActionSourceSummary: PageSummaryForEdit? = null
     private var callToActionTargetSummary: PageSummaryForEdit? = null
@@ -114,7 +113,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 }
                 .flatMap { pair ->
                     val labelMap = pair.first.first?.labels?.values?.associate { v -> v.language to v.value }.orEmpty()
-                    val depicts = ImageTagsProvider.getDepictsClaims(pair.first.first?.statements.orEmpty())
+                    val depicts = ImageTagsProvider.getDepictsClaims(pair.first.first?.getStatements().orEmpty())
                     captionSourcePageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, it.wikiSite.languageCode))
                     captionSourcePageTitle!!.description = labelMap[it.wikiSite.languageCode]
                     imagePage = pair.second.query?.firstPage()
@@ -182,7 +181,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             override fun onCallToActionClicked() {
                 if (imageEditType == ImageEditType.ADD_TAGS) {
                     imagePage?.let {
-                        activity.startActivityForResult(SuggestedEditsImageTagEditActivity.newIntent(activity, it, InvokeSource.LEAD_IMAGE), Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT)
+                        callback?.onPageRequestAddImageTags(it, InvokeSource.LEAD_IMAGE)
                     }
                     return
                 }
@@ -191,12 +190,10 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     callToActionSourceSummary?.let { source ->
                         if (callToActionIsTranslation) {
                             callToActionTargetSummary?.let { target ->
-                                activity.startActivityForResult(DescriptionEditActivity.newIntent(activity, target.pageTitle, null,
-                                        source, target, DescriptionEditActivity.Action.TRANSLATE_CAPTION, InvokeSource.LEAD_IMAGE), Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT)
+                                callback?.onPageRequestEditDescription(null, target.pageTitle, source, target, DescriptionEditActivity.Action.TRANSLATE_CAPTION, InvokeSource.LEAD_IMAGE)
                             }
                         } else {
-                            activity.startActivityForResult(DescriptionEditActivity.newIntent(activity, source.pageTitle, null,
-                                    source, null, DescriptionEditActivity.Action.ADD_CAPTION, InvokeSource.LEAD_IMAGE), Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT)
+                            callback?.onPageRequestEditDescription(null, source.pageTitle, source, null, DescriptionEditActivity.Action.ADD_CAPTION, InvokeSource.LEAD_IMAGE)
                         }
                     }
                 }
@@ -234,10 +231,8 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                         pageHeaderView.imageView.top.toFloat(), leadImageWidth.toFloat(), leadImageHeight.toFloat(),
                         leadImageUrl!!, true)
                     GalleryActivity.setTransitionInfo(hitInfo)
-                    val options = ActivityOptions.makeSceneTransitionAnimation(activity, pageHeaderView.imageView, activity.getString(R.string.transition_page_gallery))
-                    activity.startActivityForResult(GalleryActivity.newIntent(activity,
-                        parentFragment.title, filename, wiki, parentFragment.revision, GalleryFunnel.SOURCE_LEAD_IMAGE),
-                        Constants.ACTIVITY_REQUEST_GALLERY, options.toBundle())
+                    val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, pageHeaderView.imageView, activity.getString(R.string.transition_page_gallery))
+                    callback?.onPageRequestGallery(it, filename, wiki, parentFragment.revision, GalleryActivity.SOURCE_LEAD_IMAGE, options)
                 }
             }
         }

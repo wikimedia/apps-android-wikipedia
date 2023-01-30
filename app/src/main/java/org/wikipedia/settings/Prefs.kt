@@ -5,6 +5,7 @@ import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SessionData
 import org.wikipedia.analytics.SessionFunnel
 import org.wikipedia.analytics.eventplatform.StreamConfig
@@ -50,15 +51,15 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_font_family, "").orEmpty().ifEmpty { "sans-serif" }
         set(fontFamily) = PrefsIoUtil.setString(R.string.preference_key_font_family, fontFamily)
 
-    var cookies
+    var cookies: Map<String, MutableList<Cookie>>
         get() = if (!PrefsIoUtil.contains(R.string.preference_key_cookie_map)) {
             emptyMap()
         } else {
-            val map = JsonUtil.decodeFromString<Map<String, List<String>>>(PrefsIoUtil
+            val map = JsonUtil.decodeFromString<Map<String, MutableList<String>>>(PrefsIoUtil
                 .getString(R.string.preference_key_cookie_map, "").orEmpty()).orEmpty()
             map.mapValues { (key, values) ->
                 val url = "${WikiSite.DEFAULT_SCHEME}://$key".toHttpUrlOrNull()
-                url?.let { values.mapNotNull { value -> Cookie.parse(url, value) } }.orEmpty()
+                url?.let { values.mapNotNull { value -> Cookie.parse(url, value) } }.orEmpty().toMutableList()
             }
         }
         set(cookieMap) {
@@ -122,7 +123,7 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_eventlogging_opt_in, true)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_eventlogging_opt_in, enabled)
 
-    val announcementsCountryOverride
+    val geoIPCountryOverride
         get() = PrefsIoUtil.getString(R.string.preference_key_announcement_country_override, null)
 
     val ignoreDateForAnnouncements
@@ -602,10 +603,26 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_talk_topic_expand_all, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_talk_topic_expand_all, value)
 
-    var userContribFilterNs
-        get() = JsonUtil.decodeFromString<Set<Int>>(PrefsIoUtil.getString(R.string.preference_key_user_contrib_filter_ns, null))
+    var userContribFilterExcludedNs
+        get() = JsonUtil.decodeFromString<Set<Int>>(PrefsIoUtil.getString(R.string.preference_key_user_contrib_filter_excluded_ns, null))
                 ?: emptySet()
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_user_contrib_filter_ns, JsonUtil.encodeToString(value))
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_user_contrib_filter_excluded_ns, JsonUtil.encodeToString(value))
+
+    var userContribFilterLangCode
+        get() = PrefsIoUtil.getString(R.string.preference_key_user_contrib_filter_lang_code, WikipediaApp.instance.appOrSystemLanguageCode)!!
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_user_contrib_filter_lang_code, value)
+
+    var importReadingListsNewInstallDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_import_reading_lists_new_install_dialog_shown, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_import_reading_lists_new_install_dialog_shown, value)
+
+    var importReadingListsDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_import_reading_lists_dialog_shown, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_import_reading_lists_dialog_shown, value)
+
+    var importReadingListsData
+        get() = PrefsIoUtil.getString(R.string.preference_key_import_reading_lists_data, null)
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_import_reading_lists_data, value)
 
     var editSyntaxHighlightEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_syntax_highlight, true)
@@ -622,4 +639,35 @@ object Prefs {
     var editTypingSuggestionsEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_typing_suggestions, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_typing_suggestions, value)
+
+    val useUrlShortenerForSharing
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_url_shorten, false)
+
+    var readingListShareSurveyAttempts
+        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_share_survey_attempts, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_share_survey_attempts, value)
+
+    var readingListShareSurveyMode
+        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_share_survey_mode, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_share_survey_mode, value)
+
+    var readingListShareTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, value)
+
+    var readingListReceiveSurveyAttempts
+        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_receive_survey_attempts, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_receive_survey_attempts, value)
+
+    var readingListReceiveSurveyMode
+        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_receive_survey_mode, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_receive_survey_mode, value)
+
+    var readingListRecentReceivedTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_recent_receive_tooltip_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_recent_receive_tooltip_shown, value)
+
+    var readingListRecentReceivedId
+        get() = PrefsIoUtil.getLong(R.string.preference_key_reading_lists_recent_receive_id, -1)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_reading_lists_recent_receive_id, value)
 }

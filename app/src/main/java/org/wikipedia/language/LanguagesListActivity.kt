@@ -13,19 +13,18 @@ import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.AppLanguageSearchingFunnel
 import org.wikipedia.databinding.ActivityLanguagesListBinding
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.Resource
+import org.wikipedia.util.StringUtil
 import java.util.*
 
 class LanguagesListActivity : BaseActivity() {
     private lateinit var binding: ActivityLanguagesListBinding
     private lateinit var languageAdapter: LanguagesListAdapter
     private lateinit var searchActionModeCallback: LanguageSearchCallback
-    private lateinit var searchingFunnel: AppLanguageSearchingFunnel
 
     private var app = WikipediaApp.instance
     private var currentSearchQuery: String? = null
@@ -47,8 +46,6 @@ class LanguagesListActivity : BaseActivity() {
         binding.languagesListRecycler.layoutManager = LinearLayoutManager(this)
         binding.languagesListLoadProgress.visibility = View.VISIBLE
         searchActionModeCallback = LanguageSearchCallback()
-
-        searchingFunnel = AppLanguageSearchingFunnel(intent.getStringExtra(WikipediaLanguagesFragment.SESSION_TOKEN).orEmpty())
 
         viewModel.siteListData.observe(this) {
             if (it is Resource.Success) {
@@ -80,7 +77,6 @@ class LanguagesListActivity : BaseActivity() {
         val returnIntent = Intent()
         returnIntent.putExtra(LANGUAGE_SEARCHED, isLanguageSearched)
         setResult(RESULT_OK, returnIntent)
-        searchingFunnel.logNoLanguageAdded(false, currentSearchQuery)
         super.onBackPressed()
     }
 
@@ -186,7 +182,6 @@ class LanguagesListActivity : BaseActivity() {
                 app.languageState.addAppLanguageCode(item.code)
             }
             interactionsCount++
-            searchingFunnel.logLanguageAdded(true, item.code, currentSearchQuery)
             DeviceUtil.hideSoftKeyboard(this@LanguagesListActivity)
             val returnIntent = Intent()
             returnIntent.putExtra(WikipediaLanguagesFragment.ADD_LANGUAGE_INTERACTIONS, interactionsCount)
@@ -206,7 +201,7 @@ class LanguagesListActivity : BaseActivity() {
         fun bindItem(listItem: LanguagesListViewModel.LanguageListItem) {
             val languageCode = listItem.code
             itemView.findViewById<TextView>(R.id.localized_language_name).text =
-                app.languageState.getAppLanguageLocalizedName(languageCode).orEmpty().capitalize(Locale.getDefault())
+                    StringUtil.capitalize(app.languageState.getAppLanguageLocalizedName(languageCode).orEmpty())
             val canonicalName = viewModel.getCanonicalName(languageCode)
             if (binding.languagesListLoadProgress.visibility != View.VISIBLE) {
                 itemView.findViewById<TextView>(R.id.language_subtitle).text =

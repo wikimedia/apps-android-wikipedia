@@ -23,7 +23,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.EditFunnel
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.csrf.CsrfTokenClient
@@ -31,7 +30,7 @@ import org.wikipedia.databinding.FragmentSuggestedEditsImageTagsItemBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
@@ -164,7 +163,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
         disposables.add(
-                ServiceFactory.get(Constants.commonsWikiSite).getWikidataEntityTerms(page!!.title, callback().getLangCode())
+                ServiceFactory.get(Constants.commonsWikiSite).getWikidataEntityTerms(page!!.title, LanguageUtil.convertToUselangIfNeeded(callback().getLangCode()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { response ->
@@ -390,7 +389,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun onSuccess() {
-        SuggestedEditsFunnel.get().success(ADD_IMAGE_TAGS)
 
         val duration = 500L
         binding.publishProgressBar.alpha = 1f
@@ -427,7 +425,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun onError(caught: Throwable) {
         // TODO: expand this a bit.
-        SuggestedEditsFunnel.get().failure(ADD_IMAGE_TAGS)
         funnel?.logError(caught.localizedMessage)
         EditAttemptStepEvent.logSaveFailure(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
         binding.publishOverlayContainer.visibility = GONE

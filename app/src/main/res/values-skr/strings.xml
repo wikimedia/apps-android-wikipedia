@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Dbrant
 * Saraiki
 -->
 <resources>
@@ -24,13 +25,18 @@
   <string name="offline_load_error_retry">ولدا کوشش کرو</string>
   <string name="page_error_back_to_main">واپس ڄُلو</string>
   <string name="error_back">واپس ڄُلو</string>
+  <string name="error_next">اڳلا</string>
   <string name="menu_clear_all_history">تاریخچہ مٹاؤ</string>
   <string name="history_item_deleted">%s تاریخ توں مٹا ݙتن</string>
   <string name="history_items_deleted">%d ورقے تاریخ توں ہٹا ݙتن</string>
   <string name="history_item_delete_undo">واپس</string>
   <string name="notification_archive_undo">واپس</string>
   <string name="app_settings">اے پی پی ترتیباں</string>
+  <string name="history_list_title">تاریخ</string>
+  <string name="image_content_description" fuzzy="true">تصویر: %s</string>
   <string name="page_content_description">ورقہ: %s</string>
+  <string name="wikimedia_commons">وِکیمیڈیا کامنز</string>
+  <string name="wikidata">وکی ڈیٹا</string>
   <string name="dialog_title_clear_history">براؤزر دی تاریخ مٹاؤ</string>
   <string name="dialog_message_clear_history_yes">جیا</string>
   <string name="dialog_message_clear_history_no">کو</string>
@@ -41,6 +47,13 @@
   <string name="menu_page_other_languages">زبان وٹاؤ</string>
   <string name="menu_page_find_in_page">مضمون وچ ڳولو</string>
   <string name="menu_page_add_to_watchlist">دیداں ہیٹھ تندیر وچ شامل کرو</string>
+  <string name="menu_page_watch">پارھا ݙیوو</string>
+  <string name="menu_page_unwatch">اکھ ہیٹھوں ہٹاؤ</string>
+  <string name="menu_page_view_talk">ڳالھ مہاڑ ورقہ ݙیکھو</string>
+  <string name="menu_page_talk_page">ڳالھ مہاڑ ورقہ</string>
+  <string name="menu_page_view_edit_history"> تبدیلی دا تاریخچہ ݙیکھو</string>
+  <string name="menu_page_edit_history">تاریخچۂ ترمیم</string>
+  <string name="menu_page_remove_from_watchlist">پارھاتندیر کنوں ہٹاؤ</string>
   <string name="edit_section_find_in_page">ورقے وچ لبھو</string>
   <string name="menu_page_font_and_theme">فانٹ  تے تھیم</string>
   <string name="menu_page_add_to_list">مطالعہ دی فہرست وچ شامل کرو</string>
@@ -124,6 +137,7 @@
   <string name="create_account_button">کھاتہ کھولو</string>
   <string name="create_account_ip_block_details">تفصیلاں</string>
   <string name="preferences_general_heading">عمومی</string>
+  <string name="preferences_account_heading">کھاتہ</string>
   <string name="wikipedia_app_faq">وکیپیڈیا ایپ عمومی سوالات</string>
   <string name="create_account_account_created_toast">کھاتہ کھل ڳیا!</string>
   <string name="preferences_privacy_settings_heading">پرائیویسی</string>
@@ -192,6 +206,7 @@
   <string name="button_continue_to_article">مضمون پڑھو</string>
   <string name="button_continue_to_disambiguation">رلدے ملدے ورقے ݙیکھو</string>
   <string name="button_add_to_reading_list">مطالعہ دی فہرست وچ شامل کرو</string>
+  <string name="nav_item_donate">عطیہ</string>
   <string name="enable_location_service">فعال کرو</string>
   <string name="location_permissions_enable_action">بند کرو</string>
   <string name="multi_select_items_selected">%d چُݨیج ڳیا</string>
@@ -256,15 +271,22 @@
   <string name="notifications_activity_title">اطلاع نامے</string>
   <string name="notifications_poll_enable_positive">فعال کرو</string>
   <string name="notifications_poll_enable_negative">ہُݨ نہ</string>
+  <string name="notifications_direct_reply_action">جواب</string>
+  <string name="preference_title_notification_system">نظام</string>
   <string name="preference_title_notification_milestone">سنگ میل</string>
   <string name="preference_title_notification_thanks">شکریہ</string>
   <string name="preference_title_notification_revert">واپس</string>
-  <string name="view_featured_image_card_download">ڈاؤن لوڈ کرو ، لہاؤ</string>
+  <string name="preference_title_notification_login_fail">لاگ ان</string>
+  <string name="preference_title_notification_mention">ذکر کرݨ</string>
+  <string name="notifications_channel_group_other_title">ٻیا</string>
+  <string name="notifications_tab_filter_all">یکے</string>
+  <string name="view_featured_image_card_download">ڈاؤن لوڈ</string>
   <string name="menu_feed_card_dismiss">ایں کارڈ کوں لکاؤ</string>
   <string name="menu_feed_overflow_label">ٻئے اختیار</string>
   <string name="feed">پھرولو</string>
   <string name="view_continue_reading_card_subtitle_today">اڄ</string>
   <string name="view_announcement_card_negative_action">کو، شکریہ</string>
+  <string name="view_static_card_save_button_label">بچاؤ</string>
   <string name="feed_configure_menu_select_all">سب ݙکھاؤ</string>
   <string name="feed_configure_menu_deselect_all">سارے لُکاؤ</string>
   <string name="feed_configure_onboarding_action">مرضی مطابق بݨاؤ</string>
@@ -308,7 +330,7 @@
   <string name="onboarding_continue">جاری</string>
   <string name="onboarding_get_started">شروع کرو</string>
   <string name="onboarding_got_it">گھن گھندا</string>
-  <string name="app_shortcuts_random">قݨے نال</string>
+  <string name="app_shortcuts_random">بے ترتیبا</string>
   <string name="app_shortcuts_continue_reading">پڑھݨ جاری رکھو</string>
   <string name="app_shortcuts_search">ڳولو</string>
   <string name="on_this_day_card_title">ایں ݙینہ کوں</string>
@@ -333,7 +355,15 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">منسوخ</string>
   <string name="wikitext_bold">موٹا</string>
   <string name="wikitext_italic">ترچھا</string>
+  <string name="wikitext_underline">ہیٹھاں لکیر</string>
+  <string name="wikitext_strikethrough">کشیدہ</string>
+  <string name="wikitext_sup">اتے لکھت</string>
+  <string name="wikitext_sub">ذیلی لکھت</string>
+  <string name="wikitext_large">وݙی عبارت</string>
+  <string name="wikitext_small">چھوٹی عبارت</string>
+  <string name="wikitext_code">کوڈ</string>
   <string name="wikitext_link">ربط</string>
+  <string name="wikitext_headings">سرخیاں</string>
   <string name="wikitext_bulleted_list">ڳولی لڳی تندیر</string>
   <string name="wikitext_numbered_list">عدد لڳی تندیر</string>
   <string name="wikitext_template">سانچہ</string>
@@ -349,4 +379,7 @@
   <string name="text_input_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="text_input_dialog_cancel_button_text">منسوخ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">منسوخ</string>
+  <string name="shareable_reading_lists_new_indicator">*نواں*</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">سمجھ آڳئی</string>
+  <string name="reading_list_share_menu_label">شیئر۔۔۔</string>
 </resources>

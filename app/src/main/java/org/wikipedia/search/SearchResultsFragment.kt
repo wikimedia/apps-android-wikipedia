@@ -19,7 +19,6 @@ import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
-import org.wikipedia.analytics.SearchFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchResultsBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -31,8 +30,8 @@ import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
-import org.wikipedia.util.StringUtil.boldenKeywordText
-import org.wikipedia.util.StringUtil.fromHtml
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.GoneIfEmptyTextView
 import org.wikipedia.views.ViewUtil.formatLangButton
@@ -47,7 +46,6 @@ class SearchResultsFragment : Fragment() {
         fun onSearchProgressBar(enabled: Boolean)
         fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int)
         fun setSearchText(text: CharSequence)
-        fun getFunnel(): SearchFunnel
     }
 
     private var _binding: FragmentSearchResultsBinding? = null
@@ -69,7 +67,6 @@ class SearchResultsFragment : Fragment() {
             binding.searchErrorView.visibility = View.GONE
             startSearch(currentSearchTerm, true)
         }
-        binding.searchSuggestion.setOnClickListener { onSuggestionClick() }
         return binding.root
     }
 
@@ -78,13 +75,6 @@ class SearchResultsFragment : Fragment() {
         disposables.clear()
         _binding = null
         super.onDestroyView()
-    }
-
-    private fun onSuggestionClick() {
-        val suggestion = binding.searchSuggestion.tag as String
-        callback()?.getFunnel()?.searchDidYouMean(searchLanguageCode)
-        callback()?.setSearchText(suggestion)
-        startSearch(suggestion, true)
     }
 
     fun show() {
@@ -141,11 +131,9 @@ class SearchResultsFragment : Fragment() {
 
                         val searchResults = searchResponse.query?.pages?.let {
                             SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode),
-                                searchResponse.continuation,
-                                searchResponse.suggestion())
+                                searchResponse.continuation)
                         } ?: SearchResults()
 
-                        handleSuggestion(searchResults.suggestion)
                         val resultList = mutableListOf<SearchResult>()
                         addSearchResultsFromTabs(resultList)
                         resultList.addAll(readingListSearchResults.results.filterNot { res ->
@@ -165,8 +153,6 @@ class SearchResultsFragment : Fragment() {
                 }) { caught ->
                     binding.searchErrorView.visibility = View.VISIBLE
                     binding.searchErrorView.setError(caught)
-                    binding.searchResultsContainer.visibility = View.GONE
-                    logError(false, startTime)
                 })
     }
 
@@ -177,7 +163,7 @@ class SearchResultsFragment : Fragment() {
             }
             WikipediaApp.instance.tabList.forEach { tab ->
                 tab.backStackPositionTitle?.let {
-                    if (it.displayText.lowercase(Locale.getDefault()).contains(term.lowercase(Locale.getDefault()))) {
+                    if (StringUtil.fromHtml(it.displayText).toString().lowercase(Locale.getDefault()).contains(term.lowercase(Locale.getDefault()))) {
                         resultList.add(SearchResult(it, SearchResult.SearchResultType.TAB_LIST))
                         return
                     }
@@ -192,7 +178,6 @@ class SearchResultsFragment : Fragment() {
         if (resultList.isNotEmpty()) {
             clearResults()
             displayResults(resultList)
-            log(resultList, startTime)
         }
 
         // add titles to cache...
@@ -209,17 +194,6 @@ class SearchResultsFragment : Fragment() {
         if (resultList.isEmpty()) {
             // kick off full text search if we get no results
             doFullTextSearch(currentSearchTerm, null, true)
-        }
-    }
-
-    private fun handleSuggestion(suggestion: String?) {
-        if (suggestion != null) {
-            binding.searchSuggestion.text = fromHtml("<u>" +
-                    getString(R.string.search_did_you_mean, suggestion) + "</u>")
-            binding.searchSuggestion.tag = suggestion
-            binding.searchSuggestion.visibility = View.VISIBLE
-        } else {
-            binding.searchSuggestion.visibility = View.GONE
         }
     }
 
@@ -240,16 +214,15 @@ class SearchResultsFragment : Fragment() {
                 .map { response ->
                     response.query?.pages?.let {
                         // noinspection ConstantConditions
-                        return@map SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode), response.continuation, null)
+                        return@map SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode), response.continuation)
                     }
                     SearchResults()
                 }
                 .flatMap { results ->
                     val resultList = results.results
                     cache(resultList, searchTerm!!)
-                    log(resultList, startTime)
                     if (clearOnSuccess) {
-                        clearResults(false)
+                        clearResults()
                     }
                     binding.searchErrorView.visibility = View.GONE
 
@@ -284,7 +257,7 @@ class SearchResultsFragment : Fragment() {
                     }
                 }) {
                     // If there's an error, just log it and let the existing prefix search results be.
-                    logError(true, startTime)
+                    L.e(it)
                 })
     }
 
@@ -313,14 +286,10 @@ class SearchResultsFragment : Fragment() {
         callback()?.onSearchProgressBar(enabled)
     }
 
-    private fun clearResults(clearSuggestion: Boolean = true) {
-        binding.searchResultsContainer.visibility = View.GONE
+    private fun clearResults() {
+        binding.searchResultsList.visibility = View.GONE
         binding.searchErrorView.visibility = View.GONE
-        binding.searchResultsContainer.visibility = View.GONE
         binding.searchErrorView.visibility = View.GONE
-        if (clearSuggestion) {
-            binding.searchSuggestion.visibility = View.GONE
-        }
         lastFullTextResults = null
         totalResults.clear()
         resultsCountList.clear()
@@ -332,21 +301,21 @@ class SearchResultsFragment : Fragment() {
 
     private fun displayResults(results: List<SearchResult>) {
         for (newResult in results) {
-            val res = totalResults.find { newResult.pageTitle.matches(it.pageTitle) }
+            val res = totalResults.find { newResult.pageTitle == it.pageTitle }
             if (res == null) {
                 totalResults.add(newResult)
             } else if (!newResult.pageTitle.description.isNullOrEmpty()) {
                 res.pageTitle.description = newResult.pageTitle.description
             }
         }
-        binding.searchResultsContainer.visibility = View.VISIBLE
+        binding.searchResultsList.visibility = View.VISIBLE
         adapter.notifyDataSetChanged()
     }
 
     private fun displayResultsCount(list: List<Int>) {
         resultsCountList.clear()
         resultsCountList.addAll(list)
-        binding.searchResultsContainer.visibility = View.VISIBLE
+        binding.searchResultsList.visibility = View.VISIBLE
         adapter.notifyDataSetChanged()
     }
 
@@ -451,7 +420,7 @@ class SearchResultsFragment : Fragment() {
             }
 
             // highlight search term within the text
-            boldenKeywordText(pageTitleText, pageTitle.displayText, currentSearchTerm)
+            StringUtil.boldenKeywordText(pageTitleText, pageTitle.displayText, currentSearchTerm)
             searchResultItemImage.visibility = if (pageTitle.thumbUrl.isNullOrEmpty()) if (type === SearchResult.SearchResultType.SEARCH) View.GONE else View.INVISIBLE else View.VISIBLE
             loadImageWithRoundedCorners(searchResultItemImage, pageTitle.thumbUrl)
 
@@ -483,20 +452,6 @@ class SearchResultsFragment : Fragment() {
             it.addAll(resultList)
             searchResultsCache.put(cacheKey, it)
         }
-    }
-
-    private fun log(resultList: List<SearchResult>, startTime: Long) {
-        // To ease data analysis and better make the funnel track with user behaviour,
-        // only transmit search results events if there are a nonzero number of results
-        if (resultList.isNotEmpty()) {
-            // noinspection ConstantConditions
-            callback()?.getFunnel()?.searchResults(true, resultList.size, displayTime(startTime), searchLanguageCode)
-        }
-    }
-
-    private fun logError(fullText: Boolean, startTime: Long) {
-        // noinspection ConstantConditions
-        callback()?.getFunnel()?.searchError(fullText, displayTime(startTime), searchLanguageCode)
     }
 
     private fun displayTime(startTime: Long): Int {

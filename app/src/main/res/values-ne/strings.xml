@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Bada Kaji
+* CAPTAIN MEDUSA
 * Drjpoudel
 * MuratTheTurkish
 * Nirajan pant
@@ -24,7 +25,8 @@
   <string name="search_hint">विकिपिडियामा खोज्नुहोस्</string>
   <string name="search_hint_voice_search">आवाज आगत खोज</string>
   <string name="search_hint_search_languages">कुनै भाषाको लागि खोजी गर्नुहोस्</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">सुझाइएका सम्पादनहरू</string>
+  <string name="filter_hint_filter_my_lists_and_articles">मेरा सूचीहरू फिल्टर गर्ने</string>
+  <string name="nav_item_suggested_edits">सम्पादनहरू</string>
   <string name="nav_item_more">थप</string>
   <string name="nav_item_search">खोज्नुहोस्</string>
   <string name="error_network_error">इन्टरनेटमा जडान हुन सकेन।</string>
@@ -42,6 +44,7 @@
   <string name="history_item_delete_undo">पुर्ववत गर्नुहोस्</string>
   <string name="notification_archive_undo">पुर्ववत गर्नुहोस्</string>
   <string name="app_settings">अनुप्रयाेग सेटिङहरू</string>
+  <string name="search_tab_tooltip">सीधै खोज शब्द टाइप गर्न सुरु गर्न आइकन फेरि ट्याप गर्नुहोस्।</string>
   <string name="history_list_title">इतिहास</string>
   <string name="image_content_description">चित्र: %s</string>
   <string name="page_content_description">पृष्ठ: %s</string>
@@ -57,26 +60,37 @@
   <string name="page_edit_history_activity_title">पुनरावलोकन इतिहास: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;सा&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">खाली सम्पादन सारांश</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">सम्पादनहरू खोज्ने वा छान्ने</string>
+  <string name="page_edit_history_filter_by">द्वारा छान्ने</string>
   <string name="page_edit_history_filter_by_all">सबै सम्पादनहरू (%s)</string>
+  <string name="page_edit_history_filter_by_user">प्रयोगकर्ता सम्पादनहरू (%s)</string>
+  <string name="page_edit_history_filter_by_bot">बोट सम्पादनहरू (%s)</string>
   <string name="menu_page_show_tabs">ट्याबहरू देखाउनुहोस्</string>
   <string name="menu_page_other_languages">भाषा परिवर्तन गर्नुहोस्</string>
-  <string name="menu_page_find_in_page" fuzzy="true">पृष्ठमा खोज्नुहोस्</string>
+  <string name="menu_page_find_in_page">लेखमा खोज्ने</string>
   <string name="menu_page_add_to_watchlist">अवलोकनसूचीमा थप्नुहोस्</string>
+  <string name="menu_page_watch">हेर्ने</string>
   <string name="menu_page_unwatch">अवलोकनसूचीबाट हटाउनुहोस्</string>
   <string name="menu_page_view_talk">वार्तालाप पृष्ठ हेर्नुहोस्</string>
   <string name="menu_page_talk_page">वार्तालाप</string>
   <string name="menu_page_view_edit_history">सम्पादन इतिहास हेर्नुहोस्</string>
   <string name="menu_page_edit_history">सम्पादन इतिहास</string>
   <string name="menu_page_remove_from_watchlist">अवलोकनसूचीबाट हटाउनुहोस्</string>
+  <string name="menu_page_watched">हेरिएको</string>
   <string name="edit_section_find_in_page">पृष्ठमा खोज्नुहोस्</string>
   <string name="menu_page_font_and_theme">फन्ट र थिम</string>
   <string name="menu_page_add_to_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
+  <string name="menu_page_add_to_default_list">बचत</string>
   <string name="feed_card_add_to_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
+  <string name="feed_card_add_to_default_list">बचत</string>
   <string name="menu_page_share">सूत्र आदान-प्रदान गर्नुहोस्</string>
+  <string name="menu_article_share">लेख साझा गर्ने</string>
+  <string name="menu_page_article_share">साझा</string>
   <string name="menu_page_open_a_new_tab">नयाँ ट्याबमा खोल्नुहोस्</string>
   <string name="menu_page_new_tab">नयाँ ट्याब</string>
   <string name="menu_page_reading_lists">अध्ययन सूचीहरू</string>
   <string name="menu_page_recently_viewed">भर्खरै हेरिएको</string>
+  <string name="menu_page_archive">संग्रह</string>
   <string name="menu_long_press_open_page">खोल्नुहोस्</string>
   <string name="menu_long_press_open_in_new_tab">नयाँ ट्याबमा खोल्नुहोस्</string>
   <string name="menu_long_press_copy_page">सूत्रकाे ठेगाना प्रतिलिपि गर्नुहोस्</string>
@@ -99,7 +113,7 @@
   <string name="langlinks_empty">यो पृष्ठ अन्य भाषाहरूमा उपलब्ध छैन।</string>
   <string name="langlinks_no_match">कुनै पनि भाषा फेला परेन</string>
   <string name="langlinks_activity_title">अन्य भाषाहरू</string>
-  <string name="langlinks_your_wikipedia_languages">तपाईँका विकिपिडिया भाषाहरू</string>
+  <string name="langlinks_your_wikipedia_languages">तपाईंको विकिपिडिया भाषाहरू</string>
   <string name="menu_save_changes">परिवर्तनहरू प्रकाशित गर्नुहोस्</string>
   <string name="edit_saved_successfully">प्रकाशित भएकोलाई सम्पादन गर्नुहोस्!</string>
   <string name="dialog_message_edit_failed">सम्पादन असफल भयो!</string>
@@ -160,14 +174,15 @@
   <string name="dialog_create_account_checking_progress">रुजू गर्दै</string>
   <string name="create_account_email_hint">विडाँक (वैकल्पिक)</string>
   <string name="create_account_password_repeat_hint">पासवर्ड पुनः प्रविष्ट गर्नुहोस्</string>
+  <string name="create_account_password_is_username">पासवर्ड प्रयोगकर्ता नाम जस्तै हुन सक्दैन</string>
   <string name="create_account_passwords_mismatch_error">पासवर्डहरू मिलेनन्</string>
   <string name="create_account_email_error">अमान्य विडाँक ठेगाना</string>
   <string name="create_account_username_error">प्रयोगकर्ताको नाममा अमान्य वर्णहरू छन्</string>
-  <string name="create_account_password_error" fuzzy="true">पासवर्ड मान्य छैन।</string>
+  <string name="create_account_password_error">पासवर्ड कम्तिमा पनि ८ अक्षरको हुनु पर्दछ</string>
   <string name="create_account_generic_error">खाता सृजना गर्न सकिएन</string>
   <string name="create_account_next">अर्को</string>
   <string name="email_recommendation_dialog_title">विडाँक ठेगाना विना नै खाता सृजना गर्ने हो?</string>
-  <string name="email_recommendation_dialog_message">इमेल ठेगाना वैकल्पिक भएता पनि, यो &lt;b&gt;अत्यधिक सिफारिश गरिएको छ&lt;/b&gt; ,किनकि तपाईले आफ्नो पासवर्ड गुमाउनु भयो भने इमेल खाता प्रयोग गरि पासवर्ड पुन प्राप्त गर्न सक्नुहुनेछ।</string>
+  <string name="email_recommendation_dialog_message">इमेल ठेगाना वैकल्पिक भएता पनि, यो &lt;b&gt;अत्यधिक सिफारिश गरिएको छ&lt;/b&gt; ,किनकि तपाईंले आफ्नो पासवर्ड गुमाउनु भयो भने इमेल खाता प्रयोग गरि पासवर्ड पुन प्राप्त गर्न सक्नुहुनेछ।</string>
   <string name="email_recommendation_message">सुझाव दिइएको किनभने खाता पुन: प्राप्तिको लागि विडाँक आवश्यक हुन्छ ।</string>
   <string name="email_recommendation_dialog_create_without_email_action">विडाँक बिना नै निरन्तरता दिनुहोस्</string>
   <string name="email_recommendation_dialog_create_with_email_action">विडाँक ठेगाना थप्नुहोस्</string>
@@ -191,10 +206,11 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">यसले पहिले समक्रमण गरिएको अध्ययन सूचीलाई रिमोट भण्डारणबाट हटाउने छ। सबै समक्रमण गरिएको सूचीहरू तपाईको खाता \"%s\" बाट हटाउने हो?</string>
   <string name="preferences_privacy_settings_heading">गोपनीयता</string>
   <string name="preference_title_eventlogging_opt_in">उपयोगसम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
-  <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगलाई अझ राम्रो बनाउन तपाईले अनुप्रयोगको उपयोग कसरी गर्नुहुन्छ भन्नेबारे विकिपिडियालाई जानकारी सङ्कलन गर्ने अनुमति दिनुहोस्</string>
+  <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगलाई अझ राम्रो बनाउन तपाईंले अनुप्रयोगको उपयोग कसरी गर्नुहुन्छ भन्नेबारे विकिपिडियालाई जानकारी सङ्कलन गर्ने अनुमति दिनुहोस्</string>
   <string name="preference_title_auto_upload_crash_reports">खरावी सम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
   <string name="preference_summary_auto_upload_crash_reports">क्र्यास प्रतिवेदनहरू HockeyApp नामक एक तेस्रो-पक्षीय सेवा प्रदायकलाई स्वतः पठाउन अनुप्रयोगलाई अनुमति दिनुहोस् जसले गर्दा हामी अझ छिटो र सरल तरिकाले तपाईंको क्र्यासको समीक्षा गरी उक्त समस्याको समाधान गर्न सक्छौं।</string>
   <string name="editing_error_spamblacklist">रोक लगाइएका डोमेनहरू (%s) को लिङ्क पत्ता लाग्यो। तिनीहरूलाई हटाएर फेरि प्रयास गर्नुहोस्।</string>
+  <string name="history_filter_list_hint">इतिहास छान्ने</string>
   <string name="error_can_not_process_link">यो सूत्र प्रदर्शन गर्न सकिएन</string>
   <string name="page_protected_autoconfirmed">यो पृष्ठ अर्ध-संरक्षित गरिएको छ।</string>
   <string name="page_protected_sysop">यो पृष्ठ पूर्ण संरक्षित गरिएको छ।</string>
@@ -219,7 +235,7 @@
   <string name="about_translators_heading">अनुवादकहरू</string>
   <string name="about_translators_translatewiki">यो अनुप्रयोग &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; का अनुवाद स्वयंसेवकहरूद्वारा अनुवाद गरिएको हो।</string>
   <string name="about_app_license_heading">इजाजतपत्र</string>
-  <string name="about_app_license" fuzzy="true">स्रोत कोड &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; तथा &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; मा &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; अन्तर्गत् उपलब्ध छ। अन्यथा निर्दिष्ट नभएसम्म, सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; अन्तर्गत् उपलब्ध छ।</string>
+  <string name="about_app_license">स्रोत कोड &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; तथा &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; मा &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; अन्तर्गत् उपलब्ध छ। अन्यथा निर्दिष्ट नभएसम्म, सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; अन्तर्गत् उपलब्ध छ।</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;विकिमिडिया फाउन्डेसनको&lt;/a&gt;एक उत्पादन</string>
   <string name="about_activity_title">बारेमा</string>
   <string name="edit_abandon_confirm">यो पृष्ठ परिवर्तन भइसक्यो। आफ्ना परिवर्तनहरू सङ्ग्रह नगरी बाहिर निक्लन चाहनुहुन्छ?</string>
@@ -234,6 +250,11 @@
   <string name="edit_preview">पूर्वावलोकन</string>
   <string name="edit_undo">अन्डू गर्नुहोस्</string>
   <string name="edit_redo">पुन: कायम गर्नुहाेस्</string>
+  <string name="edit_rollback">पूर्ववत गर्ने</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s बाइट</item>
+    <item quantity="other">%s बाइटहरू</item>
+  </plurals>
   <string name="edit_zoom_in">ठुलो पार्नुहोस्</string>
   <string name="edit_zoom_out">सानो पार्नुहोस्</string>
   <string name="edit_summary_tag_typo">टाइपो सुधार गरियो</string>
@@ -311,6 +332,7 @@
   <string name="button_continue_to_article">लेख पढ्नुहोस्</string>
   <string name="button_continue_to_talk_page">वार्तालाप पृष्ठ हेर्नुहोस्</string>
   <string name="button_continue_to_disambiguation">मिल्दाेजुल्दाे पृष्ठहरू हेर्नुहाेस्</string>
+  <string name="link_preview_disambiguation_description">यो शीर्षक एक भन्दा बढी पृष्ठसँग सम्बन्धित छ:</string>
   <string name="button_add_to_reading_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="button_get_directions">दिशानिर्देशन प्राप्त गर्नुहोस्</string>
   <string name="error_no_maps_app">दिशानिर्देशन प्रदान गर्ने कुनै पनि अनुप्रयोग फेला पार्न सकिएन।</string>
@@ -351,8 +373,14 @@
   <string name="text_size_percent_default">%s (पूर्वनिर्धारित)</string>
   <string name="text_style_title">लिपि</string>
   <string name="theme_category_reading">अध्ययन</string>
+  <string name="theme_category_editing">सम्पादन गरिँदै</string>
+  <string name="editing_typing_suggestions">टाइपिङ सुझावहरू देखाउने</string>
+  <string name="nav_item_saved">बचत गरिएको</string>
   <string name="reading_list_save_to">अध्ययन सूचीमा सुरक्षित गर्नुहोस्</string>
+  <string name="reading_list_move_to">पाठ्यसूचीमा सार्ने</string>
   <string name="reading_list_create_new">नयाँ सिर्जना गर्नुहोस्</string>
+  <string name="reading_list_title_exists">पाठ्यसूची \"%s\" पहिल्यै छ।</string>
+  <string name="reading_list_article_added_to_named">%1$s लाई %2$s मा थपियो।</string>
   <string name="reading_list_added_view_button">सूची हेर्नुहोस्</string>
   <string name="reading_list_add_to_list_button">सूचीमा थप्नुहाेस्</string>
   <string name="format_reading_list_statistical_summary_singular">१ लेख, %1$.2f एमबी</string>
@@ -426,7 +454,7 @@
   <string name="notifications_poll_enable_title">जानकारी सक्षम पार्नुहोस्</string>
   <string name="notifications_poll_enable_positive">सक्षम पार्नुहोस्</string>
   <string name="notifications_poll_enable_negative">अहिले हैन</string>
-  <string name="notifications_empty_message">तपाईँका सबै जानकारीहरू पढेर सकियो!</string>
+  <string name="notifications_empty_message">तपाईंको सबै जानकारीहरू पढेर सकियो!</string>
   <string name="notifications_view_archived_button_text">अभिलेख गरिएका जानकारीहरू हेर्नुहोस्</string>
   <string name="notification_preferences_title">जानकारी अभिरुचीहरू</string>
   <string name="notifications_direct_reply_action">जवाफ दिनुहोस्</string>
@@ -452,6 +480,8 @@
   <string name="notifications_swipe_action_unread">नपढिएको</string>
   <string name="view_because_you_read_card_title">तपाईंले यो लेख पढ्नुभएको हुनाले</string>
   <string name="view_random_card_title">क्रमरहित ढङ्गले चुनिएको लेख</string>
+  <string name="view_random_article_card_title">अनियमित लेख</string>
+  <string name="view_random_article_card_action">थप अनियमित लेखहरू</string>
   <string name="view_top_read_card_title">धेरै पढिएको</string>
   <string name="view_next_random_article">अर्को अनियमित लेख खाेल्नुहाेस्</string>
   <string name="view_main_page_card_title">विकिपिडियामा आज</string>
@@ -514,7 +544,7 @@
   <string name="description_edit_help_about_wikidata">विकिडेटाको बारेमा</string>
   <string name="description_too_short">पाठ धेरै छोटो छ।</string>
   <string name="description_edit_success_saved" fuzzy="true">विवरण प्रकाशित भयो!</string>
-  <string name="description_edit_success_encouragement">तपाईले विकिपिडियालाई सबैको लागि अझ राम्रो बनाउनु भएकाे छ</string>
+  <string name="description_edit_success_encouragement">तपाईंले विकिपिडियालाई सबैको लागि अझ राम्रो बनाउनु भएकाे छ</string>
   <string name="description_edit_success_done">सम्पन्न भयो</string>
   <string name="description_edit_success_did_you_know">के तपाईँलाई थाह छ?</string>
   <string name="description_edit_tutorial_title_descriptions">लेख विवरणहरू</string>
@@ -579,6 +609,7 @@
   <string name="suggested_edits_last_edited">अन्तिम पटक सम्पादन</string>
   <string name="suggested_edits_last_edited_never">कहिल्यै</string>
   <string name="suggested_edits_task_new">नयाँ</string>
+  <string name="suggested_edits_reactivation_notification_title">सुझाइएका सम्पादनहरू</string>
   <string name="suggested_edits_contribution_language_label">भाषा</string>
   <string name="suggested_edits_contribution_date_time_label">मिति/समय</string>
   <string name="suggested_edits_contribution_type_label">योगदानको प्रकार</string>
@@ -653,7 +684,7 @@
   <string name="edit_type_all">सबै योगदानहरू</string>
   <string name="wikitext_bold">गाढा</string>
   <string name="wikitext_italic">छड्के</string>
-  <string name="wikitext_link">सूत्र</string>
+  <string name="wikitext_link">कडी</string>
   <string name="wikitext_numbered_list">अंकित सूची</string>
   <string name="wikitext_template">ढाँचा</string>
   <string name="wikitext_reference">सन्दर्भ</string>
@@ -696,6 +727,7 @@
   <string name="menu_option_view_user_contributions">प्रयोगकर्ताको योगदानहरू हेर्नुहोस्</string>
   <string name="revision_diff_compare">संशोधनहरू तुलना गर्नुहोस्</string>
   <string name="revision_diff_from">बाट:</string>
+  <string name="revision_rollback_success">पूर्ववत् सम्पादनहरू</string>
   <string name="watchlist_expiry_dialog_one_week">१ हप्ता</string>
   <string name="watchlist_expiry_dialog_one_month">१ महिना</string>
   <string name="watchlist_expiry_dialog_three_months">३ महिना</string>
@@ -711,4 +743,5 @@
   <string name="category_tab_articles">लेखहरू</string>
   <string name="category_tab_subcategories">उपश्रेणीहरू</string>
   <string name="category_empty">यस श्रेणीमा कुनै लेख फेला परेन।</string>
+  <string name="user_contrib_menu_label">योगदानहरू</string>
 </resources>

@@ -5,16 +5,22 @@ import org.wikipedia.R
 import org.wikipedia.views.TextInputDialog
 
 object ReadingListTitleDialog {
-    fun interface Callback {
+    interface Callback {
         fun onSuccess(text: String, description: String)
+        fun onCancel()
     }
 
     fun readingListTitleDialog(activity: Activity,
                                title: String,
                                description: String?,
                                otherTitles: List<String?>,
+                               fromShareableLink: Boolean = false,
                                callback: Callback?): TextInputDialog {
         return TextInputDialog(activity).let { textInputDialog ->
+            if (fromShareableLink) {
+                textInputDialog.setTitle(R.string.shareable_reading_lists_import_dialog_title)
+                textInputDialog.setMessage(activity.getString(R.string.shareable_reading_lists_import_dialog_content))
+            }
             textInputDialog.callback = object : TextInputDialog.Callback {
                 override fun onShow(dialog: TextInputDialog) {
                     dialog.setHint(R.string.reading_list_name_hint)
@@ -46,7 +52,9 @@ object ReadingListTitleDialog {
                     callback?.onSuccess(text.toString().trim(), secondaryText.toString().trim())
                 }
 
-                override fun onCancel() {}
+                override fun onCancel() {
+                    callback?.onCancel()
+                }
             }
             textInputDialog.showSecondaryText(true)
         }

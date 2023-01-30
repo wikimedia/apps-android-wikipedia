@@ -4,11 +4,12 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.util.MathUtil
+import java.util.concurrent.TimeUnit
 
 @Serializable
 class SessionData {
 
-    @Transient private val leadLatency = MathUtil.Averaged<Long>()
+    @Transient private val pageLatency = MathUtil.Averaged<Long>()
     var startTime: Long
     var lastTouchTime: Long
     var pagesFromSearch = 0
@@ -41,12 +42,12 @@ class SessionData {
         }
     }
 
-    fun getLeadLatency(): Long {
-        return leadLatency.average.toLong()
+    fun getPageLatency(): Long {
+        return pageLatency.average.toLong()
     }
 
-    fun addLeadLatency(leadLatency: Long) {
-        this.leadLatency.addSample(leadLatency)
+    fun addPageLatency(pageLatency: Long) {
+        this.pageLatency.addSample(TimeUnit.NANOSECONDS.toMillis(pageLatency))
     }
 
     fun addPageFromBack() {

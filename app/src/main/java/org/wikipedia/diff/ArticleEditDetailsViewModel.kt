@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
-import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -51,8 +50,6 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     private var diffRevisionId = 0L
 
     val diffSize get() = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size
-
-    private val watchlistFunnel = WatchlistFunnel()
 
     init {
         getWatchedStatusAndPageId()
@@ -181,15 +178,6 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             watchResponse.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                if (expiry != WatchlistExpiry.NEVER) {
-                    watchlistFunnel.logAddExpiry()
-                } else {
-                    if (isWatched) {
-                        watchlistFunnel.logRemoveArticle()
-                    } else {
-                        watchlistFunnel.logAddArticle()
-                    }
-                }
                 val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
                 val response = ServiceFactory.get(pageTitle.wikiSite)
                         .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
@@ -199,11 +187,6 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
                     watchlistExpiryChanged = false
                 }
 
-                if (unwatch) {
-                    watchlistFunnel.logRemoveSuccess()
-                } else {
-                    watchlistFunnel.logAddSuccess()
-                }
                 watchResponse.postValue(Resource.Success(response))
             }
         }

@@ -6,12 +6,9 @@ import org.wikipedia.dataclient.WikiSite
 object Constants {
 
     const val ACTIVITY_REQUEST_ADD_A_LANGUAGE = 59
-    const val ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH = 60
     const val ACTIVITY_REQUEST_BROWSE_TABS = 61
-    const val ACTIVITY_REQUEST_CREATE_ACCOUNT = 42
     const val ACTIVITY_REQUEST_DESCRIPTION_EDIT = 55
     const val ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL = 56
-    const val ACTIVITY_REQUEST_EDIT_SECTION = 51
     const val ACTIVITY_REQUEST_FEED_CONFIGURE = 58
     const val ACTIVITY_REQUEST_GALLERY = 52
     const val ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT = 64
@@ -33,6 +30,7 @@ object Constants {
     const val INTENT_EXTRA_GO_TO_SE_TAB = "goToSETab"
     const val INTENT_EXTRA_HAS_TRANSITION_ANIM = "hasTransitionAnim"
     const val INTENT_EXTRA_INVOKE_SOURCE = "invokeSource"
+    const val INTENT_EXTRA_IMPORT_READING_LISTS = "importReadingLists"
     const val INTENT_EXTRA_NOTIFICATION_ID = "notificationId"
     const val INTENT_EXTRA_NOTIFICATION_SYNC_CANCEL = "syncCancel"
     const val INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume"
@@ -99,7 +97,9 @@ object Constants {
         SNACKBAR_ACTION("snackbar"),
         SUGGESTED_EDITS("suggestedEdits"),
         TABS_ACTIVITY("tabsActivity"),
-        TALK_ACTIVITY("talkActivity"),
+        TALK_TOPICS_ACTIVITY("talkTopicsActivity"),
+        TALK_TOPIC_ACTIVITY("talkTopicActivity"),
+        TALK_REPLY_ACTIVITY("talkReplyActivity"),
         EDIT_ACTIVITY("editActivity"),
         TOOLBAR("toolbar"),
         VOICE("voice"),

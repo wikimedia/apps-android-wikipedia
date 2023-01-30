@@ -9,7 +9,6 @@ import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Handler
 import android.speech.RecognizerIntent
-import android.text.TextUtils
 import android.view.Window
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
@@ -45,17 +44,22 @@ import org.wikipedia.util.log.L
 import java.util.*
 
 class WikipediaApp : Application() {
-
-    lateinit var mainThreadHandler: Handler
-        private set
-    lateinit var languageState: AppLanguageState
-        private set
-    lateinit var funnelManager: FunnelManager
-        private set
-    lateinit var sessionFunnel: SessionFunnel
-        private set
-    lateinit var userAgent: String
-        private set
+    val mainThreadHandler by lazy { Handler(mainLooper) }
+    val languageState by lazy { AppLanguageState(this) }
+    val funnelManager by lazy { FunnelManager(this) }
+    val sessionFunnel by lazy { SessionFunnel(this) }
+    val userAgent by lazy {
+        var channel = ReleaseUtil.getChannel(this)
+        channel = if (channel.isBlank()) "" else " $channel"
+        String.format("WikipediaApp/%s (Android %s; %s; %s Build/%s)%s",
+            BuildConfig.VERSION_NAME,
+            Build.VERSION.RELEASE,
+            getString(R.string.device_type),
+            Build.MODEL,
+            Build.ID,
+            channel
+        )
+    }
 
     private val connectivityReceiver = NetworkConnectivityReceiver()
     private val activityLifecycleHandler = ActivityLifecycleHandler()
@@ -162,23 +166,7 @@ class WikipediaApp : Application() {
         // TODO: consider more comprehensive handling of these errors.
         RxJavaPlugins.setErrorHandler(Functions.emptyConsumer())
 
-        mainThreadHandler = Handler(mainLooper)
-
-        var channel = ReleaseUtil.getChannel(this)
-        channel = if (channel.isBlank()) "" else " $channel"
-        userAgent = String.format("WikipediaApp/%s (Android %s; %s; %s Build/%s)%s",
-                BuildConfig.VERSION_NAME,
-                Build.VERSION.RELEASE,
-                getString(R.string.device_type),
-                Build.MODEL,
-                Build.ID,
-                channel
-        )
-
         currentTheme = unmarshalTheme(Prefs.currentThemeId)
-        languageState = AppLanguageState(this)
-        funnelManager = FunnelManager(this)
-        sessionFunnel = SessionFunnel(this)
 
         initTabs()
         enableWebViewDebugging()
@@ -277,7 +265,7 @@ class WikipediaApp : Application() {
                     WikipediaFirebaseMessagingService.unsubscribePushToken(csrfToken!!, Prefs.pushNotificationToken)
                             .flatMap { ServiceFactory.get(wikiSite).postLogout(csrfToken).subscribeOn(Schedulers.io()) }
                 }
-                .doFinally { SharedPreferenceCookieManager.getInstance().clearAllCookies() }
+                .doFinally { SharedPreferenceCookieManager.instance.clearAllCookies() }
                 .subscribe({ L.d("Logout complete.") }) { L.e(it) }
     }
 
@@ -298,7 +286,7 @@ class WikipediaApp : Application() {
 
     @SuppressLint("CheckResult")
     private fun getUserIdForLanguage(code: String) {
-        if (!AccountUtil.isLoggedIn || TextUtils.isEmpty(AccountUtil.userName)) {
+        if (!AccountUtil.isLoggedIn || AccountUtil.userName.isNullOrEmpty()) {
             return
         }
         val wikiSite = WikiSite.forLanguageCode(code)

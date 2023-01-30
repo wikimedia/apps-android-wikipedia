@@ -27,7 +27,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.EditFunnel
-import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil.isLoggedIn
@@ -87,7 +86,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
     // Current revision of the article, to be passed back to the server to detect possible edit conflicts.
     private var currentRevision: Long = 0
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var actionMode: ActionMode? = null
     private val disposables = CompositeDisposable()
 
@@ -135,8 +133,17 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
     private val syntaxButtonCallback = object : WikiTextKeyboardView.Callback {
         override fun onPreviewLink(title: String) {
-            bottomSheetPresenter.show(supportFragmentManager,
-                    LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null))
+            val dialog = LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null)
+            ExclusiveBottomSheetPresenter.show(supportFragmentManager, dialog)
+            binding.root.post {
+                dialog.dialog?.setOnDismissListener {
+                    if (!isDestroyed) {
+                        binding.root.postDelayed({
+                            DeviceUtil.showSoftKeyboard(binding.editSectionText)
+                        }, 200)
+                    }
+                }
+            }
         }
 
         override fun onRequestInsertMedia() {
@@ -284,7 +291,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             if (url == "https://#login") {
                 funnel.logLoginAttempt()
                 val loginIntent = LoginActivity.newIntent(this@EditSectionActivity,
-                        LoginFunnel.SOURCE_EDIT, funnel.sessionToken)
+                        LoginActivity.SOURCE_EDIT, funnel.sessionToken)
                 requestLogin.launch(loginIntent)
             } else {
                 UriUtil.handleExternalLink(this@EditSectionActivity, url.toUri())
@@ -478,7 +485,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             }
             R.id.menu_edit_theme -> {
                 binding.editSectionText.enqueueNoScrollingLayoutChange()
-                bottomSheetPresenter.show(supportFragmentManager, ThemeChooserDialog.newInstance(Constants.InvokeSource.EDIT_ACTIVITY, true))
+                ExclusiveBottomSheetPresenter.show(supportFragmentManager, ThemeChooserDialog.newInstance(Constants.InvokeSource.EDIT_ACTIVITY, true))
                 true
             }
             R.id.menu_find_in_editor -> {
@@ -618,7 +625,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                             editingAllowed = true
                         } else {
                             val error = editError[0]
-                            FeedbackUtil.showError(this, MwException(error))
+                            FeedbackUtil.showError(this, MwException(error), pageTitle.wikiSite)
                         }
                         displaySectionText()
                         maybeShowEditSourceDialog()
@@ -697,10 +704,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         if (highlightText == null || !TextUtils.isGraphic(highlightText)) {
             return
         }
-        binding.editSectionText.post {
-            binding.editSectionScroll.fullScroll(View.FOCUS_DOWN)
-            StringUtil.highlightEditText(binding.editSectionText, sectionWikitext!!, highlightText)
-        }
+        binding.editSectionText.highlightText(highlightText)
     }
 
     private fun hideAllSyntaxModals() {

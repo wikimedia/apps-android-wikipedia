@@ -14,6 +14,7 @@
 * Ngoxuannguyenchuong
 * NguoiDungKhongDinhDanh
 * NguyenHung
+* Nguyenphutrong2
 * Nguyên Lê
 * Nguyễn Mạnh An
 * Nhatminh01
@@ -740,9 +741,9 @@
   <string name="tabs_activity_title">Các tab</string>
   <string name="description_edit_text_hint">Miêu tả bài viết</string>
   <string name="description_edit_article_description_label">Bài viết</string>
-  <string name="description_edit_translate_article_description_label_per_language">Mô tả bài viết (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language">Miêu tả bài viết (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Mô tả bài viết (%s)</string>
-  <string name="description_edit_add_caption_label">Mô tả hình ảnh</string>
+  <string name="description_edit_add_caption_label">Miêu tả hình ảnh</string>
   <string name="description_edit_add_caption_hint">Chú thích hình ảnh</string>
   <string name="description_edit_translate_caption_label_per_language">Chú thích hình ảnh (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Chú thích hình ảnh (%s)</string>
@@ -750,7 +751,7 @@
   <string name="description_edit_read">Đọc</string>
   <string name="description_edit_add_description">Thêm miêu tả bài viết</string>
   <string name="description_edit_translate_description">Dịch mô tả bài viết</string>
-  <string name="description_edit_edit_description">Sửa đổi mô tả bài viết</string>
+  <string name="description_edit_edit_description">Sửa đổi lời miêu tả bài viết</string>
   <string name="description_edit_add_image_caption">Thêm chú thích hình ảnh</string>
   <string name="description_edit_edit_image_caption">Sửa đổi chú thích hình ảnh</string>
   <string name="description_edit_translate_image_caption">Dịch chú thích hình ảnh</string>
@@ -763,6 +764,7 @@
   <string name="description_edit_license_notice">Với việc thay đổi miêu tả bài viết, tôi chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của mình theo giấy phép &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">thường bắt đầu bằng chữ viết thường</string>
   <string name="description_edit_voice_input_description">Dữ liệu giọng nói đầu vào.</string>
+  <string name="description_edit_learn_more">Tìm hiểu thêm về lời miêu tả bài viết</string>
   <string name="description_too_short">Văn bản quá ngắn.</string>
   <string name="description_ends_with_punctuation">Văn bản không được kết thúc bằng dấu chấm câu.</string>
   <string name="description_starts_with_article">Không bắt đầu với các loại từ như “cái”, “chiếc”, …</string>
@@ -770,7 +772,7 @@
   <string name="description_starts_with_lowercase">Tránh chữ hoa ở đầu lời tóm lược.</string>
   <string name="description_is_in_different_language">Văn bản có vẻ bằng một ngôn ngữ sai. Ngôn ngữ phải là %s.</string>
   <string name="description_edit_success_saved">Đã đăng miêu tả bài viết!</string>
-  <string name="description_edit_success_saved_snackbar">Đã đăng mô tả bài viết!</string>
+  <string name="description_edit_success_saved_snackbar">Đã đăng lời miêu tả bài viết!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Đã đăng mô tả bài viết! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Đã đăng chú thích hình ảnh!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Đã đăng chú thích hình ảnh! (%s)</string>
@@ -789,7 +791,7 @@
   <string name="suggested_edits_describe_articles">Mô tả các bài viết</string>
   <string name="suggested_edits_caption_images">Chú thích hình ảnh</string>
   <string name="suggested_edits_tag_images">Thể loại hình ảnh.</string>
-  <string name="suggested_edits_review_description">Xem lại mô tả bài viết.</string>
+  <string name="suggested_edits_review_description">Xem lại lời miêu tả bài viết.</string>
   <string name="suggested_edits_add_description_button">Thêm mô tả.</string>
   <string name="suggested_edits_edit_description_button">Sửa miêu tả.</string>
   <string name="suggested_edits_add_translation_button">Thêm bản dịch.</string>
@@ -798,12 +800,12 @@
   <string name="suggested_edits_edit_caption_button">Sửa chú thích.</string>
   <string name="suggested_edits_review_image_caption">Xem trước chú thích hình ảnh.</string>
   <string name="suggested_edits_my_contributions">Những đóng góp của tôi.</string>
-  <string name="suggested_edits_no_description">Tập tin này không có mô tả.</string>
+  <string name="suggested_edits_no_description">Tập tin này không có lời miêu tả.</string>
   <string name="suggested_edits_license_notice">Với việc sửa đổi mô tả bài viết, tôi chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của mình theo giấy phép &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Với việc thay đổi miêu tả hình ảnh, tôi chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của mình theo giấy phép &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Thông tin</string>
-  <string name="suggested_edits_task_add_description_title">Thêm mô tả bài viết</string>
-  <string name="suggested_edits_task_add_description_description">Đóng góp vào các bài viết mà không có mô tả</string>
+  <string name="suggested_edits_task_add_description_title">Thêm lời miêu tả bài viết</string>
+  <string name="suggested_edits_task_add_description_description">Đóng góp vào các bài viết mà không có lời miêu tả</string>
   <string name="suggested_edits_task_image_caption_title">Thêm chú thích hình ảnh.</string>
   <string name="suggested_edits_task_image_caption_description">Thêm chú thích ngắn còn thiếu vào hình ảnh</string>
   <string name="suggested_edits_task_translate_caption_title">Dịch chú thích hình ảnh</string>
@@ -825,7 +827,7 @@
     <item quantity="other">%d đóng góp</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Sửa đổi gợi ý</string>
-  <string name="suggested_edits_feed_card_add_description_button">Thêm mô tả bài viết</string>
+  <string name="suggested_edits_feed_card_add_description_button">Thêm lời miêu tả bài viết</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Thêm mô tả bài viết (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Bắt đầu</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Chú thích hình ảnh (%s)</string>
@@ -1051,6 +1053,8 @@
   <string name="talk_new_topic">Đề tài mới</string>
   <string name="talk_new_topic_submitted">Đã đăng chủ đề.</string>
   <string name="talk_page_empty">Trang thảo luận này hiện đang trống.</string>
+  <string name="talk_page_empty_title">Cuộc trò chuyện bắt đầu từ đây</string>
+  <string name="talk_page_empty_content">Các trang thảo luận là nơi mọi người thảo luận về cách làm cho nội dung Wikipedia trở nên tốt nhất có thể. Bắt đầu bằng cách thêm chủ đề thảo luận mới để kết nối và cộng tác với cộng đồng thành viên Wikipedia.</string>
   <string name="talk_add_reply">Trả lời</string>
   <string name="talk_no_subject">(Không tiêu đề)</string>
   <string name="talk_reply_subject">Tiêu đề</string>
@@ -1065,6 +1069,8 @@
   <string name="talk_snackbar_survey_action_text">Bắt đầu</string>
   <string name="talk_share_discussion_subject">Wikipedia – thảo luận về chủ đề “%s” tại trang thảo luận</string>
   <string name="talk_share_talk_page">Wikipedia – thảo luận tại trang thảo luận</string>
+  <string name="talk_new_topic_exit_dialog_title">Bạn có chắc bạn muốn thoát?</string>
+  <string name="talk_new_topic_exit_dialog_message">Chủ đề và văn bản nội dung sẽ không được lưu.</string>
   <string name="menu_option_share_talk_discussion">Chia sẻ thảo luận</string>
   <string name="menu_option_share_talk_page">Chia sẻ trang thảo luận</string>
   <string name="menu_option_share_edit">Chia sẻ sửa đổi</string>
@@ -1109,4 +1115,8 @@
   <string name="watchlist_page_protected">Đã khóa</string>
   <string name="watchlist_page_deleted">Đã xóa</string>
   <string name="category_tab_articles">Bài viết</string>
+  <string name="shareable_reading_lists_import_dialog_title">Nhập danh sách đọc được chia sẻ</string>
+  <string name="shareable_reading_lists_import_dialog_content">Bạn muốn đặt tên cho danh sách đã được chia sẻ với bạn như thế nào?</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Một danh sách đọc đã được chia sẻ với bạn</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Chúng tôi nhận thấy rằng một danh sách đọc đã được chia sẻ với bạn. Để xem danh sách này trong ứng dụng, hãy quay lại tin nhắn gốc và nhấn lại vào liên kết.</string>
 </resources>

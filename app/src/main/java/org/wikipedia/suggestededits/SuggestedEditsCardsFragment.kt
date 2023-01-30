@@ -10,7 +10,9 @@ import android.view.View.VISIBLE
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.os.bundleOf
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -18,8 +20,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.SuggestedEditsFeedFunnel
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.databinding.FragmentSuggestedEditsCardsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -34,7 +34,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
-class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callback {
+class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItemFragment.Callback {
     private var _binding: FragmentSuggestedEditsCardsBinding? = null
     private val binding get() = _binding!!
 
@@ -45,7 +45,6 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     private var languageList: MutableList<String> = mutableListOf()
     private var swappingLanguageSpinners: Boolean = false
     private var resettingViewPager: Boolean = false
-    private var funnel: SuggestedEditsFeedFunnel? = null
 
     var langFromCode: String = app.languageState.appLanguageCode
     var langToCode: String = app.languageState.appLanguageCodes.getOrElse(1) { "" }
@@ -74,12 +73,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
-        action = arguments?.getSerializable(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
-
-        funnel = SuggestedEditsFeedFunnel(action, requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
-
-        // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
-        SuggestedEditsFunnel.get().impression(action)
+        action =
+            arguments?.getSerializable(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -90,13 +85,11 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setHasOptionsMenu(true)
+        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         setInitialUiState()
         binding.cardsViewPager.offscreenPageLimit = 2
         binding.cardsViewPager.registerOnPageChangeCallback(viewPagerListener) // addOnPageChangeListener(viewPagerListener)
         resetViewPagerItemAdapter()
-
-        funnel?.start()
 
         if (binding.wikiLanguageDropdownContainer.visibility == VISIBLE) {
             if (languageList.isEmpty()) {
@@ -124,12 +117,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         maybeShowOnboarding()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_suggested_edits, menu)
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.menu_suggested_edits, menu)
         ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onMenuItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_help -> {
                 when (action) {
@@ -143,7 +136,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
                 }
                 true
             }
-            else -> super.onOptionsItemSelected(item)
+            else -> false
         }
     }
 
@@ -210,22 +203,11 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     }
 
     override fun onDestroyView() {
-        funnel?.stop()
         disposables.clear()
         binding.cardsViewPager.unregisterOnPageChangeCallback(viewPagerListener)
         binding.cardsViewPager.adapter = null
         _binding = null
         super.onDestroyView()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        SuggestedEditsFunnel.get().pause()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        SuggestedEditsFunnel.get().resume()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -262,7 +244,6 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     }
 
     override fun logSuccess() {
-        funnel?.editSuccess()
     }
 
     fun onSelectPage() {
@@ -399,7 +380,6 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         override fun onPageSelected(position: Int) {
             updateBackButton(position)
             updateActionButton()
-            SuggestedEditsFunnel.get().impression(action)
 
             nextPageSelectedAutomatic = false
             prevPosition = position

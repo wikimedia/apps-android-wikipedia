@@ -126,7 +126,7 @@
   <string name="menu_page_recently_viewed">&gt;Menu item text for opening the history page.</string>
   <string name="menu_page_archive">Menu item text for opening the archive page.</string>
   <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.\n{{Identical|Open}}</string>
-  <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab.</string>
+  <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab. Appears next to {{msg-wm|Wikipedia-android-strings-button continue to article}}</string>
   <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipboard for pasting later.</string>
   <string name="menu_text_select_define">Menu item caption for launching a dialog containing Wiktionary definitions for the selected text.\n{{Identical|Define}}</string>
   <string name="on_this_day_page_share">Text on button to share the On This Day article.\n{{Identical|Share}}</string>
@@ -390,7 +390,7 @@
   <string name="format_error_server_message">Message displayed to the user that shows the actual error response received from the server. The \"%s\" symbol is replaced with the API onThisDay from the server.\n{{Identical|Message}}</string>
   <string name="address_copied">Message shown after copying a link to the system clipboard.</string>
   <string name="text_copied">Message shown after copying text to the system clipboard.</string>
-  <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>
+  <string name="button_continue_to_article">Button to continue to the full article from the current link preview. Appears next to {{msg-wm|Wikipedia-android-strings-menu long press open in new tab}}</string>
   <string name="button_continue_to_talk_page">Button to continue to the talk page that is currently being previewed.</string>
   <string name="button_continue_to_disambiguation">Button to continue to the disambiguation page for the selected title.</string>
   <string name="link_preview_disambiguation_description">Message shown when a selected title refers to more than one page, ending with a colon after which the disambiguations will be listed.</string>
@@ -947,8 +947,8 @@
   <string name="suggested_edits_quality_label_text">Suggested edits label text for edit quality</string>
   <string name="suggested_edits_quality_perfect_text">Suggested edits label text indicating that the edit quality of the user is perfect</string>
   <string name="suggested_edits_quality_excellent_text">Suggested edits label text indicating that the edit quality of the user is excellent</string>
-  <string name="suggested_edits_quality_very_good_text">Suggested edits label text indicating that the edit quality of the user is very good</string>
-  <string name="suggested_edits_quality_good_text">Suggested edits label text indicating that the edit quality of the user is good</string>
+  <string name="suggested_edits_quality_very_good_text">Suggested edits label text indicating that the edit quality of the user is very good.\n{{Identical|Good}}</string>
+  <string name="suggested_edits_quality_good_text">Suggested edits label text indicating that the edit quality of the user is good.\n{{Identical|Good}}</string>
   <string name="suggested_edits_quality_okay_text">Suggested edits label text indicating that the edit quality of the user is okay</string>
   <string name="suggested_edits_quality_sufficient_text">Suggested edits label text indicating that the edit quality of the user is sufficient</string>
   <string name="suggested_edits_quality_poor_text">Suggested edits label text indicating that the edit quality of the user is poor\n\n{{Identical|Poor}}</string>
@@ -1093,11 +1093,11 @@
   <string name="wikitext_sub">Button label for making the selected text as subscript.</string>
   <string name="wikitext_large">Button label for making the selected text large.</string>
   <string name="wikitext_small">Button label for making the selected text small.</string>
-  <string name="wikitext_code">Button label for putting the selected text in a code tag.</string>
-  <string name="wikitext_formatting">Button label for showing options for formatting text.</string>
-  <string name="wikitext_headings">Button label for showing options for inserting headings into the text.</string>
+  <string name="wikitext_code">Button label for putting the selected text in a code tag.\n{{identical|Code}}</string>
   <string name="wikitext_link">Button label for making the selected text into a link.\n{{Identical|Link}}</string>
   <string name="wikitext_heading_n">Button label for inserting a heading. The %d symbol is replaced with the level of the heading.</string>
+  <string name="wikitext_formatting">Button label for showing options for formatting text.</string>
+  <string name="wikitext_headings">Button label for showing options for inserting headings into the text.</string>
   <string name="wikitext_insert_media">Button label for adding a media at the current cursor position.</string>
   <string name="wikitext_bulleted_list">Button label for starting a bulleted list at the current cursor position.</string>
   <string name="wikitext_numbered_list">Button label for starting a numbered list at the current cursor position.</string>
@@ -1149,6 +1149,8 @@
   <string name="talk_new_topic">Button label for creating a new talk topic.</string>
   <string name="talk_new_topic_submitted">Message shown when a new talk topic has been submitted.</string>
   <string name="talk_page_empty">Label stating that this talk page is currently empty.</string>
+  <string name="talk_page_empty_title">Title text for stating that this talk page is currently empty.</string>
+  <string name="talk_page_empty_content">Content test for stating that this talk page is currently empty.</string>
   <string name="talk_add_reply">Button label for adding a reply to a talk page topic.\n\nThe functionality is similar to {{msg-mw|Discussiontools-replylink}}, so the translation can be identical.</string>
   <string name="talk_no_subject">Label for talk page topic that does not have a title.</string>
   <string name="talk_reply_subject">Hint for text field for entering a new talk page topic.</string>
@@ -1171,6 +1173,8 @@
   <string name="talk_overflow_sort_date_published">Menu item label for sorting the list by the published date.</string>
   <string name="talk_overflow_sort_date_updated">Menu item label for sorting the list by the updated date.</string>
   <string name="talk_overflow_sort_topic_name">Menu item label for sorting the list by the topic name.</string>
+  <string name="talk_new_topic_exit_dialog_title">Confirmation title text shown to user when they are exiting from a new talk topic screen without saving.</string>
+  <string name="talk_new_topic_exit_dialog_message">Confirmation message text shown to user when they are exiting from a new talk topic screen without saving.</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Button label for showing one reply to the current thread.</item>
     <item quantity="other">Button label for showing replies to the current thread. The %d symbol is replaced with the number of replies.</item>
@@ -1191,6 +1195,8 @@
   <string name="talk_list_item_user_icon_content_description">Content description of the user icon.</string>
   <string name="talk_list_item_swipe_mark_as_read">Label text for the swipe gesture that markes the item as read.</string>
   <string name="talk_list_item_swipe_mark_as_unread">Label text for the swipe gesture that markes the item as unread.</string>
+  <string name="talk_login_to_subscribe_dialog_title">Title text for the dialog for the needed actions in order to make a subscription.</string>
+  <string name="talk_login_to_subscribe_dialog_content">Content text for the dialog for the needed actions in order to make a subscription.</string>
   <string name="talk_archived_title">Title text for archived talk pages. %s will be replaced by the title of the talk page.</string>
   <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
   <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
@@ -1223,6 +1229,7 @@
   <string name="revision_diff_to">Label for newer revision to be compared.</string>
   <string name="revision_diff_line_num">Label for line number seen in a diff between revisions. The %d symbol is replaced with the line number.</string>
   <string name="revision_diff_line_nums">Label for range of line numbers seen in a diff between revisions. The first %d symbol is the starting line number, and the second %d symbol is the ending line number.</string>
+  <string name="revision_diff_lines_from_to">Label for range of line numbers seen in a diff between revisions. The %1$d symbol is the starting line number, and the %2$d symbol is the ending line number.</string>
   <string name="revision_diff_line_added">Label shown in a diff when a line was added.</string>
   <string name="revision_diff_line_removed">Label shown in a diff when a line was removed.</string>
   <string name="revision_diff_paragraph_added">Label shown in a diff when a paragraph was added.</string>
@@ -1261,11 +1268,8 @@
   <string name="preview_edit_summarize_edit_title">Title of the summarize edit screen.</string>
   <string name="preview_edit_summarize_edit_hint">Hint text for edit summaries text field.</string>
   <string name="preview_edit_minor_edit">Label text of the checkbox that indicates the current edit is a minor edit.</string>
-  <string name="preview_edit_minor_edit_url">URL leading to the help page of the minor edit. If you can find the appropriate language specific URL of the mobile site please do so. You may be able to find it easily by going to https://en.wikipedia.org/wiki/Help:Minor_edit and clicking the interlanguage link.</string>
   <string name="preview_edit_watch_this_page">Label text of the checkbox that helps to watch the page after publishing.</string>
-  <string name="preview_edit_watch_this_page_url">URL leading to the help page of the Watchlist. If you can find the appropriate language specific URL of the mobile site please do so. You may be able to find it easily by going to https://en.wikipedia.org/wiki/Help:Watchlist and clicking the interlanguage link.</string>
   <string name="preview_edit_learn_more">Label text of the link to learn more about edit summaries.</string>
-  <string name="preview_edit_learn_more_url">URL leading to the help page of the edit summary. If you can find the appropriate language specific URL of the mobile site please do so. You may be able to find it easily by going to https://en.wikipedia.org/wiki/Help:Edit_summary and clicking the interlanguage link.</string>
   <string name="action_item_categories">Label for menu item for viewing the categories to which an article belongs.</string>
   <string name="page_no_categories">Error message saying that the article does not belong to any categories.</string>
   <string name="category_tab_articles">Label for tab that lists all the articles in a category.</string>
@@ -1278,9 +1282,23 @@
   <string name="archive_empty">Error shown when the current page does not have subpages.</string>
   <string name="user_contrib_filter_ns">Label for menu that allows to filter contributions by namespace.</string>
   <string name="user_contrib_filter_all">Label for showing all contributions, regardless of namespace.</string>
+  <string name="user_contrib_filter_ns_header">Label for filter list that allows to filter contributions by namespace.</string>
   <string name="namespace_article">Label for showing contributions to the Main (article) namespace.\n{{identical|Article}}</string>
   <string name="user_contrib_current">Label indicating that this contribution is the current revision of the article.\n{{identical|Current}}</string>
   <string name="media_playback_error">Error shown when the selected media could not be played.</string>
   <string name="user_contrib_menu_label">Menu label for accessing the contributions of the current user.</string>
-  <string name="user_contrib_wiki_select">Screen title for viewing the contributions of a user from a selected wiki.</string>
+  <string name="user_contrib_filter_activity_title">Screen title for applying the filters for the contributions of a user.</string>
+  <string name="shareable_reading_lists_import_dialog_title">Title text for the import reading list dialog.</string>
+  <string name="shareable_reading_lists_import_dialog_content">Content text for the import reading list dialog.</string>
+  <string name="shareable_reading_lists_new_indicator">Label indicating that the imported list in the list view.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Title text for the onboarding import reading list dialog.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Content text for the onboarding import reading list dialog.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Button label of the onboarding import reading list dialog that dismisses the dialog.</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Snackbar text that indicates the reading list was imported successfully.</string>
+  <string name="reading_list_share_menu_label">Menu label for sharing the selected reading list.</string>
+  <string name="reading_list_share_menu_tooltip">Tooltip text for the share reading list button.</string>
+  <string name="reading_list_share_title_tooltip">Tooltip text for the reading list title after user created the reading list from the reading list link.</string>
+  <string name="reading_list_share_message_v2">Message that is sent to a recipient when sharing a reading list.</string>
+  <string name="reading_list_share_survey_title">Title for dialog box that leads to a survey about sharing reading lists.</string>
+  <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
 </resources>

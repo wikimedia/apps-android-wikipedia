@@ -7,11 +7,11 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
-import org.hamcrest.Matchers.*
+import org.hamcrest.Matchers.`is`
+import org.hamcrest.Matchers.allOf
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.TestUtil
 
@@ -52,10 +52,10 @@ class LoggedInTests {
 
         // Type in an incorrect username and password
         onView(allOf(TestUtil.withGrandparent(withId(R.id.login_username_text)), withClassName(`is`("org.wikipedia.views.PlainPasteEditText"))))
-                .perform(replaceText(BuildConfig.TEST_LOGIN_USERNAME), closeSoftKeyboard())
+                .perform(replaceText("Foo"), closeSoftKeyboard())
 
         onView(allOf(TestUtil.withGrandparent(withId(R.id.login_password_input)), withClassName(`is`("org.wikipedia.views.PlainPasteEditText"))))
-                .perform(replaceText(BuildConfig.TEST_LOGIN_PASSWORD), closeSoftKeyboard())
+                .perform(replaceText("Bar"), closeSoftKeyboard())
 
         // Click the login button
         onView(withId(R.id.login_button))

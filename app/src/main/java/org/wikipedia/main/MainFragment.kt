@@ -10,13 +10,17 @@ import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.util.Pair
 import android.view.*
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
@@ -26,12 +30,12 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
-import org.wikipedia.analytics.LoginFunnel
-import org.wikipedia.analytics.WatchlistFunnel
+import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.events.ImportReadingListsEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.feed.image.FeaturedImage
@@ -76,7 +80,7 @@ import org.wikipedia.watchlist.WatchlistActivity
 import java.io.File
 import java.util.concurrent.TimeUnit
 
-class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback, MenuNavTabDialog.Callback {
+class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback, MenuNavTabDialog.Callback {
     interface Callback {
         fun onTabChanged(tab: NavTab)
         fun updateToolbarElevation(elevate: Boolean)
@@ -88,7 +92,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     private lateinit var notificationButtonView: NotificationButtonView
     private var tabCountsView: TabCountsView? = null
     private var showTabCountsAnimation = false
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val downloadReceiver = MediaDownloadReceiver()
     private val downloadReceiverCallback = MediaDownloadReceiverCallback()
     private val pageChangeCallback = PageChangeCallback()
@@ -113,6 +116,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentMainBinding.inflate(inflater, container, false)
+        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
         binding.mainViewPager.isUserInputEnabled = false
@@ -121,16 +125,17 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
         FeedbackUtil.setButtonLongPressToast(binding.navMoreContainer)
         binding.navMoreContainer.setOnClickListener {
-            bottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
+            ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
         }
 
-        binding.mainNavTabLayout.setOnNavigationItemSelectedListener { item ->
-            if (currentFragment is FeedFragment && item.order == 0) {
-                (currentFragment as FeedFragment?)!!.scrollToTop()
+        binding.mainNavTabLayout.setOnItemSelectedListener { item ->
+            val fragment = currentFragment
+            if (fragment is FeedFragment && item.order == 0) {
+                fragment.scrollToTop()
             }
-            if (currentFragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
+            if (fragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
                 openSearchActivity(InvokeSource.NAV_MENU, null, null)
-                return@setOnNavigationItemSelectedListener true
+                return@setOnItemSelectedListener true
             }
             binding.mainViewPager.setCurrentItem(item.order, false)
             true
@@ -143,7 +148,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         if (savedInstanceState == null) {
             handleIntent(requireActivity().intent)
         }
-        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -214,13 +218,30 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
+    override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_main, menu)
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu) {
-        super.onPrepareOptionsMenu(menu)
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        val fragment = currentFragment
+        return when (menuItem.itemId) {
+            R.id.menu_search_lists -> {
+                if (fragment is ReadingListsFragment) {
+                    fragment.startSearchActionMode()
+                }
+                true
+            }
+            R.id.menu_overflow_button -> {
+                if (fragment is ReadingListsFragment) {
+                    fragment.showReadingListsOverflowMenu()
+                }
+                true
+            }
+            else -> false
+        }
+    }
+
+    override fun onPrepareMenu(menu: Menu) {
         requestUpdateToolbarElevation()
 
         menu.findItem(R.id.menu_search_lists).isVisible = currentFragment is ReadingListsFragment
@@ -281,6 +302,8 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB)) {
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())))
+        } else if (intent.hasExtra(Constants.INTENT_EXTRA_IMPORT_READING_LISTS)) {
+            goToTab(NavTab.READING_LISTS)
         } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.instance.tabCount > 0) {
             startActivity(PageActivity.newIntent(requireContext()))
         }
@@ -323,12 +346,12 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         if (addToDefault) {
             ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, InvokeSource.FEED) { readingListId -> onFeedMovePageToList(readingListId, entry) }
         } else {
-            bottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(entry.title, InvokeSource.FEED))
+            ExclusiveBottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(entry.title, InvokeSource.FEED))
         }
     }
 
     override fun onFeedMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 MoveToReadingListDialog.newInstance(sourceReadingListId, entry.title, InvokeSource.FEED))
     }
 
@@ -360,7 +383,8 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     override fun onFeedDownloadImage(image: FeaturedImage) {
         pendingDownloadImage = image
-        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU ||
+            ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             download(image)
         } else {
             requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -372,7 +396,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     override fun onLoginRequested() {
-        startActivityForResult(LoginActivity.newIntent(requireContext(), LoginFunnel.SOURCE_NAV),
+        startActivityForResult(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV),
                 Constants.ACTIVITY_REQUEST_LOGIN)
     }
 
@@ -402,7 +426,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
-        bottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
+        ExclusiveBottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
     }
 
     override fun onLinkPreviewShareLink(title: PageTitle) {
@@ -439,7 +463,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     override fun watchlistClick() {
         if (AccountUtil.isLoggedIn) {
-            WatchlistFunnel().logViewWatchlist()
             startActivity(WatchlistActivity.newIntent(requireActivity()))
         }
     }
@@ -527,6 +550,18 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         }
     }
 
+    private fun maybeShowImportReadingListsNewInstallDialog() {
+        if (!Prefs.importReadingListsNewInstallDialogShown) {
+            ReadingListsFunnel().logReceiveStart()
+            AlertDialog.Builder(requireContext())
+                .setTitle(R.string.shareable_reading_lists_new_install_dialog_title)
+                .setMessage(R.string.shareable_reading_lists_new_install_dialog_content)
+                .setNegativeButton(R.string.shareable_reading_lists_new_install_dialog_got_it, null)
+                .show()
+            Prefs.importReadingListsNewInstallDialogShown = true
+        }
+    }
+
     private fun maybeShowEditsTooltip() {
         if (currentFragment !is SuggestedEditsTasksFragment && Prefs.showSuggestedEditsTooltip &&
                 Prefs.exploreFeedVisitCount >= SHOW_EDITS_SNACKBAR_COUNT) {
@@ -546,7 +581,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             enqueueTooltip {
                 FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer, R.layout.view_watchlist_main_tooltip, 0, 0, aboveOrBelow = true, autoDismiss = false)
                         .setOnBalloonDismissListener {
-                            WatchlistFunnel().logShowTooltipMore()
                             Prefs.isWatchlistMainOnboardingTooltipShown = true
                         }
             }
@@ -569,6 +603,8 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         override fun accept(event: Any) {
             if (event is LoggedOutInBackgroundEvent) {
                 refreshContents()
+            } else if (event is ImportReadingListsEvent) {
+                maybeShowImportReadingListsNewInstallDialog()
             }
         }
     }

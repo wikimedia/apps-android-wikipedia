@@ -115,9 +115,12 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun showCreateListDialog() {
-        readingListTitleDialog(requireActivity(), "", "", readingLists.map { it.title }) { text, description ->
-            addAndDismiss(AppDatabase.instance.readingListDao().createList(text, description), titles)
-        }.show()
+        readingListTitleDialog(requireActivity(), "", "", readingLists.map { it.title }, callback = object : ReadingListTitleDialog.Callback {
+            override fun onSuccess(text: String, description: String) {
+                addAndDismiss(AppDatabase.instance.readingListDao().createList(text, description), titles)
+            }
+            override fun onCancel() { }
+        }).show()
     }
 
     private fun addAndDismiss(readingList: ReadingList, titles: List<PageTitle>?) {
@@ -167,6 +170,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         override fun onDelete(readingList: ReadingList) {}
         override fun onSaveAllOffline(readingList: ReadingList) {}
         override fun onRemoveAllOffline(readingList: ReadingList) {}
+        override fun onShare(readingList: ReadingList) {}
     }
 
     private class ReadingListItemHolder constructor(itemView: ReadingListItemView) : RecyclerView.ViewHolder(itemView) {

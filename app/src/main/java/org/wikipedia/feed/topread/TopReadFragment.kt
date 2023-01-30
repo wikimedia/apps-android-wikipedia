@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -34,13 +35,13 @@ class TopReadFragment : Fragment() {
 
     private var _binding: FragmentMostReadBinding? = null
     private val binding get() = _binding!!
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private val viewModel: TopReadViewModel by viewModels { TopReadViewModel.Factory(requireActivity().intent.extras!!) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentMostReadBinding.inflate(inflater, container, false)
 
-        val card = requireActivity().intent.getParcelableExtra<TopReadListCard>(TopReadArticlesActivity.TOP_READ_CARD)!!
+        val card = viewModel.card
 
         appCompatActivity.setSupportActionBar(binding.toolbar)
         appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -102,13 +103,13 @@ class TopReadFragment : Fragment() {
                 ReadingListBehaviorsUtil.addToDefaultList(requireActivity(),
                     entry.title, InvokeSource.MOST_READ_ACTIVITY) { readingListId -> onMovePageToList(readingListId, entry) }
             } else {
-                bottomSheetPresenter.show(childFragmentManager,
+                ExclusiveBottomSheetPresenter.show(childFragmentManager,
                     AddToReadingListDialog.newInstance(entry.title, InvokeSource.MOST_READ_ACTIVITY))
             }
         }
 
         override fun onMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-            bottomSheetPresenter.show(childFragmentManager,
+            ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 MoveToReadingListDialog.newInstance(sourceReadingListId, entry.title, InvokeSource.MOST_READ_ACTIVITY))
         }
     }

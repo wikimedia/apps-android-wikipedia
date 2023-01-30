@@ -709,7 +709,13 @@
   <string name="content_description_for_page_indicator">Säit %1$d vu(n) %2$d</string>
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
+  <string name="wikitext_underline">Ënnersträichen</string>
+  <string name="wikitext_sup">Exposant</string>
+  <string name="wikitext_large">Groussen Text</string>
+  <string name="wikitext_small">Klengen Text</string>
+  <string name="wikitext_code">Code</string>
   <string name="wikitext_link">Link</string>
+  <string name="wikitext_headings">Iwwerschrëften</string>
   <string name="wikitext_numbered_list">Nummeréiert Lëscht</string>
   <string name="wikitext_template">Schabloun</string>
   <string name="wikitext_reference">Referenz</string>
@@ -785,9 +791,7 @@
   <string name="preview_edit_summarize_edit_title">Resuméiert d\'Ännerung</string>
   <string name="preview_edit_summarize_edit_hint">Wéi hutt Dir dës Säit verbessert?</string>
   <string name="preview_edit_minor_edit">Dëst ass eng kleng Ännerung</string>
-  <string name="preview_edit_minor_edit_url">https://en.wikipedia.org/wiki/Help:Minor_edit</string>
   <string name="preview_edit_watch_this_page">Dës Säit iwwerwaachen</string>
-  <string name="preview_edit_watch_this_page_url">https://en.wikipedia.org/wiki/Help:Watchlist</string>
   <string name="preview_edit_learn_more">Méi gewuer ginn iwwer d\'Resuméë vun Ännerungen</string>
   <string name="action_item_categories">Kategorien</string>
   <string name="category_tab_articles">Artikelen</string>
@@ -795,7 +799,11 @@
   <string name="category_empty">Keng Artikelen an dëser Kategorie fonnt.</string>
   <string name="search_namespaces">Nummraim</string>
   <string name="user_contrib_activity_title">Kontributioune vum %s</string>
-  <string name="user_contrib_filter_all">All Ännerungen</string>
+  <string name="user_contrib_filter_all" fuzzy="true">All Ännerungen</string>
   <string name="namespace_article">Artikel</string>
   <string name="user_contrib_menu_label">Kontributiounen</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Lieslëscht importéieren</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Verstanen</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Lieslëscht importéiert</string>
+  <string name="reading_list_share_menu_label">Deelen...</string>
 </resources>
