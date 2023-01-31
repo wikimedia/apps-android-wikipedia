@@ -1315,6 +1315,7 @@
     <string name="watchlist_expiry_dialog_three_months">3 months</string>
     <string name="watchlist_expiry_dialog_six_months">6 months</string>
     <string name="watchlist_empty">You do not have any articles in your watchlist.</string>
+    <string name="watchlist_search">Search watchlist</string>
     <string name="watchlist_filter_all">All</string>
     <string name="watchlist_filter_talk">Talk</string>
     <string name="watchlist_filter_pages">Pages</string>

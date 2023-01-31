@@ -1,12 +1,16 @@
 package org.wikipedia.watchlist
 
+import android.content.Context
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.ActionMode
+import androidx.core.view.MenuItemCompat
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
+import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -22,26 +26,30 @@ import org.wikipedia.databinding.ViewWatchlistSearchBarBinding
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.NotificationButtonView
-import org.wikipedia.views.WikiCardView
+import org.wikipedia.views.SearchAndFilterActionProvider
 import java.util.*
 
 class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
     private var _binding: FragmentWatchlistBinding? = null
 
     private lateinit var notificationButtonView: NotificationButtonView
+    private var actionMode: ActionMode? = null
     private val viewModel: WatchlistViewModel by viewModels()
+    private val searchActionModeCallback = SearchCallback()
     private val binding get() = _binding!!
 
-    private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+    private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         updateDisplayLanguages()
         viewModel.fetchWatchlist()
     }
@@ -76,6 +84,16 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
                     is WatchlistViewModel.UiState.Success -> onSuccess()
                     is WatchlistViewModel.UiState.Error -> onError(it.throwable)
                 }
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        actionMode?.let {
+            onUpdateList()
+            if (SearchActionModeCallback.`is`(it)) {
+                searchActionModeCallback.refreshProvider()
             }
         }
     }
@@ -150,7 +168,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
     }
 
     private fun onUpdateList() {
-        viewModel.updateList()
+        viewModel.updateList(actionMode == null)
         if (viewModel.filterMode == FILTER_MODE_ALL && viewModel.finalList.size < 2) {
             binding.watchlistRecyclerView.visibility = View.GONE
             binding.watchlistEmptyContainer.visibility = View.VISIBLE
@@ -178,13 +196,13 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
 
     inner class WatchlistSearchBarHolder constructor(private val itemBinding: ViewWatchlistSearchBarBinding) : RecyclerView.ViewHolder(itemBinding.root) {
         init {
-            (itemBinding.root as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22))
+            itemBinding.root.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22))
 
             itemBinding.root.setOnClickListener {
-//                if (actionMode == null) {
-//                    actionMode = startSupportActionMode(searchActionModeCallback)
-//                    postprocessAndDisplay()
-//                }
+                if (actionMode == null) {
+                    actionMode = (requireActivity() as WatchlistActivity).startSupportActionMode(searchActionModeCallback)
+                    onUpdateList()
+                }
             }
 
             itemBinding.filterButton.setOnClickListener {
@@ -195,15 +213,15 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         }
 
         fun updateFilterIconAndCount() {
-//            val excludedFilters = viewModel.excludedFiltersCount()
-//            if (excludedFilters == 0) {
-//                itemBinding.filterCount.visibility = View.GONE
-//                ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.color_group_9))
-//            } else {
-//                itemBinding.filterCount.visibility = View.VISIBLE
-//                itemBinding.filterCount.text = excludedFilters.toString()
-//                ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.colorAccent))
-//            }
+            val excludedFilters = viewModel.excludedFiltersCount()
+            if (excludedFilters == 0) {
+                itemBinding.filterCount.visibility = View.GONE
+                ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.color_group_9))
+            } else {
+                itemBinding.filterCount.visibility = View.VISIBLE
+                itemBinding.filterCount.text = excludedFilters.toString()
+                ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.colorAccent))
+            }
         }
     }
 
@@ -219,7 +237,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         }
 
         override fun getItemViewType(position: Int): Int {
-            if (position == 0) {
+            if (position == 0 && actionMode == null) {
                 return VIEW_TYPE_SEARCH_BAR
             }
             return if (items[position] is Date) {
@@ -245,14 +263,70 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             when (holder) {
-                is WatchlistSearchBarHolder -> { }
-                is WatchlistDateViewHolder -> {
-                    holder.bindItem((items[position] as Date))
-                }
-                else -> {
-                    (holder as WatchlistItemViewHolder).bindItem((items[position] as MwQueryResult.WatchlistItem))
-                }
+                is WatchlistSearchBarHolder -> holder.updateFilterIconAndCount()
+                is WatchlistDateViewHolder -> holder.bindItem(items[position] as Date)
+                else -> (holder as WatchlistItemViewHolder).bindItem((items[position] as MwQueryResult.WatchlistItem))
             }
+        }
+    }
+
+    private inner class SearchCallback : SearchActionModeCallback() {
+
+        var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
+        override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(requireContext(), searchHintString,
+                object : SearchAndFilterActionProvider.Callback {
+                    override fun onQueryTextChange(s: String) {
+                        onQueryChange(s)
+                    }
+
+                    override fun onQueryTextFocusChange() {
+                    }
+
+                    override fun onFilterIconClick() {
+                        DeviceUtil.hideSoftKeyboard(requireActivity())
+                        startActivity(WatchlistFilterActivity.newIntent(requireContext()))
+                    }
+
+                    override fun getExcludedFilterCount(): Int {
+                        return viewModel.excludedFiltersCount()
+                    }
+
+                    override fun getFilterIconContentDescription(): Int {
+                        return R.string.watchlist_search_bar_filter_hint
+                    }
+                })
+
+            val menuItem = menu.add(searchHintString)
+
+            MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
+
+            actionMode = mode
+            return super.onCreateActionMode(mode, menu)
+        }
+
+        override fun onQueryChange(s: String) {
+            viewModel.updateSearchQuery(s.trim())
+            onUpdateList()
+        }
+
+        override fun onDestroyActionMode(mode: ActionMode) {
+            super.onDestroyActionMode(mode)
+            actionMode = null
+            viewModel.updateSearchQuery(null)
+            onUpdateList()
+        }
+
+        override fun getSearchHintString(): String {
+            return getString(R.string.watchlist_search)
+        }
+
+        override fun getParentContext(): Context {
+            return requireContext()
+        }
+
+        fun refreshProvider() {
+            searchAndFilterActionProvider?.updateFilterIconAndText()
         }
     }
 

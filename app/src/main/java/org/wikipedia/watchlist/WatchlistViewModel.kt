@@ -20,6 +20,8 @@ class WatchlistViewModel : ViewModel() {
     }
 
     private var watchlistItems = mutableListOf<MwQueryResult.WatchlistItem>()
+    var currentSearchQuery: String? = null
+        private set
     var finalList = mutableListOf<Any>()
     var displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
     var filterMode = WatchlistFragment.FILTER_MODE_ALL
@@ -31,9 +33,11 @@ class WatchlistViewModel : ViewModel() {
         fetchWatchlist()
     }
 
-    fun updateList() {
+    fun updateList(searchBarPlaceholder: Boolean = true) {
         finalList = mutableListOf()
-        finalList.add("") // placeholder for header
+        if (searchBarPlaceholder) {
+            finalList.add("") // placeholder for search bar
+        }
 
         val calendar = Calendar.getInstance()
         var curDay = -1
@@ -72,6 +76,17 @@ class WatchlistViewModel : ViewModel() {
             watchlistItems.sortByDescending { it.date }
             _uiState.value = UiState.Success()
         }
+    }
+
+    fun updateSearchQuery(query: String?) {
+        currentSearchQuery = query
+        fetchWatchlist()
+    }
+
+    fun excludedFiltersCount(): Int {
+        val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
+        val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
+        return WikipediaApp.instance.languageState.appLanguageCodes.count { excludedWikiCodes.contains(it) } + includedTypesCodes.size
     }
 
     open class UiState {
