@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -113,6 +114,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         recentSearchesFragment.callback = this
         searchResultsFragment = childFragmentManager.findFragmentById(
                 R.id.fragment_search_results) as SearchResultsFragment
+        (activity as? AppCompatActivity)?.setSupportActionBar(binding.searchToolbar)
         binding.searchToolbar.setNavigationOnClickListener { requireActivity().supportFinishAfterTransition() }
         initialLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty()
         binding.searchContainer.setOnClickListener { onSearchContainerClick() }

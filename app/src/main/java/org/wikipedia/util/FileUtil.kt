@@ -56,15 +56,6 @@ object FileUtil {
         return inputStream.reader().readLines().joinToString(separator = "\n")
     }
 
-    fun deleteRecursively(f: File) {
-        if (f.isDirectory) {
-            f.listFiles()?.forEach {
-                deleteRecursively(it)
-            }
-        }
-        f.delete()
-    }
-
     fun sanitizeFileName(fileName: String): String {
         return fileName.replace("[:\\\\/*\"?|<>']".toRegex(), "_")
     }
