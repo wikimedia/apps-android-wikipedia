@@ -1,6 +1,7 @@
 package org.wikipedia.analytics.eventplatform
 
 import android.content.Context
+import android.view.MenuItem
 import android.view.View
 import android.widget.CheckBox
 import android.widget.TextView
@@ -70,6 +71,10 @@ class BreadCrumbLogEvent(
             val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
             val str = "$viewReadableName." + (view as TextView).text
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), str))
+        }
+
+        fun logMenuItemSelection(context:Context, actionStr: String) {
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), actionStr))
         }
     }
 }

@@ -17,7 +17,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.analytics.ReadingListsFunnel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.DialogAddToReadingListBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -60,9 +60,6 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         binding.listOfLists.layoutManager = LinearLayoutManager(requireActivity())
         binding.listOfLists.adapter = adapter
         binding.createButton.setOnClickListener(createClickListener)
-
-        // Log a click event, but only the first time the dialog is shown.
-        logClick(savedInstanceState)
         updateLists()
         return binding.root
     }
@@ -134,8 +131,8 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     open fun logClick(savedInstanceState: Bundle?) {
-        if (savedInstanceState == null) {
-            ReadingListsFunnel().logAddClick(invokeSource)
+        if (savedInstanceState == null && activity!=null) {
+            BreadCrumbLogEvent.logMenuItemSelection(requireActivity(), "add_to_reading_list from" + invokeSource.ordinal)
         }
     }
 
@@ -149,7 +146,6 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
                         message = if (titles.size == 1) getString(R.string.reading_list_article_already_exists_message, readingList.title, titles[0].displayText) else getString(R.string.reading_list_articles_already_exist_message, readingList.title)
                     } else {
                         message = if (addedTitlesList.size == 1) getString(R.string.reading_list_article_added_to_named, addedTitlesList[0], readingList.title) else getString(R.string.reading_list_articles_added_to_named, addedTitlesList.size, readingList.title)
-                        ReadingListsFunnel().logAddToList(readingList, readingLists.size, invokeSource)
                     }
                     showViewListSnackBar(readingList, message)
                     dismiss()

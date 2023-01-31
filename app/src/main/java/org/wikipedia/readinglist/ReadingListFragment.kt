@@ -31,7 +31,6 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.PageDownloadEvent
@@ -66,7 +65,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private var actionMode: ActionMode? = null
     private val appBarListener = AppBarListener()
     private var showOverflowMenu = false
-    private val funnel = ReadingListsFunnel()
     private val readingListItemCallback = ReadingListItemCallback()
     private val readingListPageItemCallback = ReadingListPageItemCallback()
     private val searchActionModeCallback = SearchCallback()
@@ -351,7 +349,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private fun rename() {
         ReadingListBehaviorsUtil.renameReadingList(requireActivity(), readingList) {
             update()
-            funnel.logModifyList(readingList!!, 0)
         }
     }
 
@@ -410,7 +407,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             if (pages.isNotEmpty()) {
                 AppDatabase.instance.readingListPageDao().markPagesForDeletion(it, pages)
                 it.pages.removeAll(pages)
-                funnel.logDeleteItem(it, 0)
                 ReadingListBehaviorsUtil.showDeletePagesUndoSnackbar(requireActivity(), it, pages) { updateReadingListData() }
                 update()
             }
@@ -484,8 +480,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         readingList?.let {
             val listsContainPage = if (currentSearchQuery.isNullOrEmpty()) listOf(it) else ReadingListBehaviorsUtil.getListsContainPage(page)
             ReadingListBehaviorsUtil.deletePages(requireActivity(), listsContainPage, page, { updateReadingListData() }, {
-                // TODO: need to verify the log of delete item since this action will delete multiple items in the same time.
-                funnel.logDeleteItem(it, 0)
                 update()
             })
         }
@@ -557,7 +551,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             readingList?.let {
                 if (currentSearchQuery.isNullOrEmpty()) {
                     ReadingListBehaviorsUtil.deletePages(requireActivity(), listOf(it), page, { updateReadingListData() }, {
-                        funnel.logDeleteItem(it, 0)
                         update()
                     })
                 }

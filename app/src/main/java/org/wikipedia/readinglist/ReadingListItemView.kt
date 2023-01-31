@@ -2,6 +2,7 @@ package org.wikipedia.readinglist
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -12,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.databinding.ItemReadingListBinding
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.*
@@ -177,6 +179,7 @@ class ReadingListItemView : ConstraintLayout {
 
     private inner class OverflowMenuClickListener constructor(private val list: ReadingList?) : PopupMenu.OnMenuItemClickListener {
         override fun onMenuItemClick(item: MenuItem): Boolean {
+            BreadCrumbLogEvent.logMenuItemSelection(context, item.title.toString())
             when (item.itemId) {
                 R.id.menu_reading_list_rename -> {
                     list?.let { callback?.onRename(it) }

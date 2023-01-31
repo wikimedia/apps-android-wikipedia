@@ -10,7 +10,6 @@ import kotlinx.coroutines.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
@@ -251,7 +250,6 @@ object ReadingListBehaviorsUtil {
         val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
         val addedTitles = AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(defaultList, listOf(title))
         if (addedTitles.isNotEmpty()) {
-            ReadingListsFunnel().logAddToList(defaultList, 1, invokeSource)
             FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, title.displayText))
                 .setAction(R.string.reading_list_add_to_list_button) { addToDefaultListCallback.onMoveClicked(defaultList.id) }.show()
             callback?.onCompleted()

@@ -9,7 +9,6 @@ import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
@@ -57,8 +56,6 @@ object ReadingListsShareHelper {
             val url = WikipediaApp.instance.wikiSite.url() + "/wiki/Special:ReadingLists?limport=$param"
 
             val finalUrl = if (Prefs.useUrlShortenerForSharing) ServiceFactory.get(WikipediaApp.instance.wikiSite).shortenUrl(url).shortenUrl?.shortUrl.orEmpty() else url
-
-            ReadingListsFunnel().logShareList(readingList)
 
             val intent = Intent(Intent.ACTION_SEND)
                     .putExtra(Intent.EXTRA_SUBJECT, readingList.title)

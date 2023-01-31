@@ -14,12 +14,10 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.log.L
-import java.util.*
 
 class MoveToReadingListDialog : AddToReadingListDialog() {
     private var sourceReadingList: ReadingList? = null
@@ -36,9 +34,6 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
     }
 
     override fun logClick(savedInstanceState: Bundle?) {
-        if (savedInstanceState == null) {
-            ReadingListsFunnel().logMoveClick(invokeSource)
-        }
     }
 
     override fun commitChanges(readingList: ReadingList, titles: List<PageTitle>) {
@@ -46,7 +41,6 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ movedTitlesList ->
-                    ReadingListsFunnel().logMoveToList(readingList, readingLists.size, invokeSource)
                     showViewListSnackBar(readingList, if (movedTitlesList.size == 1) getString(R.string.reading_list_article_moved_to_named, movedTitlesList[0], readingList.title) else getString(R.string.reading_list_articles_moved_to_named, movedTitlesList.size, readingList.title))
                     dismiss()
                 }) { obj -> L.w(obj) })
