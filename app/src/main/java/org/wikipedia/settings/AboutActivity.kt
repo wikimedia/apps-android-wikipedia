@@ -65,12 +65,17 @@ class AboutActivity : BaseActivity() {
 
 
 
+        // Style JSON taken from:
+        // https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Kartographer/+/663867 (mvt-style.json)
+        // https://tegola-wikimedia.s3.amazonaws.com/wikimedia-tilejson.json (for some reason)
 
         binding.mapView.getMapAsync { map ->
             map.setStyle(Style.Builder().fromUri("asset://mapstyle.json"), { style ->
 
             })
         }
+
+
 
     }
 
