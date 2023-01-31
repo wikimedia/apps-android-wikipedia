@@ -131,7 +131,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     open fun logClick(savedInstanceState: Bundle?) {
-        if (savedInstanceState == null && activity!=null) {
+        if (savedInstanceState == null && activity != null) {
             BreadCrumbLogEvent.logMenuItemSelection(requireActivity(), "add_to_reading_list from" + invokeSource.ordinal)
         }
     }
