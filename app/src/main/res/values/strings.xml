@@ -1368,4 +1368,6 @@
     <string name="reading_list_share_survey_body">\"Share reading lists\" is a test feature and we need your feedback to improve or remove it.</string>
     <!-- /Shareable reading lists -->
 
+    <string name="nearby_title">Nearby</string>
+
 </resources>

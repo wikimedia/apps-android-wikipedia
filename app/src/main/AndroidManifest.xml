@@ -327,6 +327,9 @@
             android:name=".edit.insertmedia.InsertMediaActivity"
             android:label="@string/insert_media_title"/>
 
+        <activity
+            android:name=".nearby.NearbyActivity" />
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"

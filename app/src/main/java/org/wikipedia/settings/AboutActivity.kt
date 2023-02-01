@@ -9,9 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.forEach
-import com.mapbox.mapboxsdk.Mapbox
-import com.mapbox.mapboxsdk.WellKnownTileServer
-import com.mapbox.mapboxsdk.maps.Style
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -27,12 +24,6 @@ class AboutActivity : BaseActivity() {
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-
-        Mapbox.getInstance(this.applicationContext, "", WellKnownTileServer.MapLibre)
-
-
         binding = ActivityAboutBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.aboutContributors.text = fromHtml(getString(R.string.about_contributors))
@@ -59,24 +50,6 @@ class AboutActivity : BaseActivity() {
                 L.e(e)
             }
         }
-
-
-        supportActionBar?.title = "Nearby"
-
-
-
-        // Style JSON taken from:
-        // https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Kartographer/+/663867 (mvt-style.json)
-        // https://tegola-wikimedia.s3.amazonaws.com/wikimedia-tilejson.json (for some reason)
-
-        binding.mapView.getMapAsync { map ->
-            map.setStyle(Style.Builder().fromUri("asset://mapstyle.json"), { style ->
-
-            })
-        }
-
-
-
     }
 
     private fun makeEverythingClickable(vg: ViewGroup) {
