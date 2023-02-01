@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="ThemeSepia" parent="ThemeLight">
+    <style name="ThemeSepia">
 
         <!-- Default background for all activities -->
         <item name="android:windowBackground">@color/parchment</item>
