@@ -40,7 +40,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/empty_view_top_margin">
 
                     <ImageView
                         android:layout_width="120dp"

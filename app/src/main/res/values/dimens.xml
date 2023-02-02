@@ -101,6 +101,8 @@
     <!-- WikiCard -->
     <dimen name="wiki_card_radius">12dp</dimen>
 
+    <dimen name="empty_view_top_margin">120dp</dimen>
+
     <!-- This override system snackbar vertical padding -->
     <dimen name="design_snackbar_padding_vertical">12dp</dimen>
     <dimen name="design_snackbar_padding_vertical_2lines">12dp</dimen>

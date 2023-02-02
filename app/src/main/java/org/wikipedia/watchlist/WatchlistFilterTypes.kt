@@ -11,12 +11,6 @@ enum class WatchlistFilterTypes constructor(val id: String,
                                             val attribute: String,
                                             val value: String
 ) : EnumCode {
-    LATEST_REVISION("latestRevision",
-        R.string.watchlist_filter_latest_revisions_latest_revision,
-        "wlallrev", "true"),
-    NOT_LATEST_REVISION("notLatestRevision",
-        R.string.watchlist_filter_latest_revisions_not_latest_revision,
-        "wlallrev", "false"),
     PAGE_EDITS("pageEdits",
         R.string.watchlist_filter_type_of_change_page_edits,
         "wltype", "edit"),
@@ -51,6 +45,12 @@ enum class WatchlistFilterTypes constructor(val id: String,
         R.string.watchlist_filter_watchlist_activity_seen,
         "wlshow", "!unread");
     // TODO: implement for the next iteration
+//    LATEST_REVISION("latestRevision",
+//    R.string.watchlist_filter_latest_revisions_latest_revision,
+//    "wlallrev", "true"),
+//    NOT_LATEST_REVISION("notLatestRevision",
+//    R.string.watchlist_filter_latest_revisions_not_latest_revision,
+//    "wlallrev", "false"),
 //    NEW_USERS("newUsers",
 //        R.string.watchlist_filter_type_of_change_new_users,
 //        "wltype", "log"),
@@ -92,7 +92,6 @@ enum class WatchlistFilterTypes constructor(val id: String,
     }
 
     companion object {
-        val LATEST_REVISIONS_GROUP = listOf(LATEST_REVISION, NOT_LATEST_REVISION)
         val TYPE_OF_CHANGES_GROUP = listOf(PAGE_EDITS, PAGE_CREATIONS, CATEGORY_CHANGES, WIKIDATA_EDITS, LOGGED_ACTIONS)
         val MINOR_EDITS_GROUP = listOf(MINOR_EDITS, NON_MINOR_EDITS)
         val BOT_EDITS_GROUP = listOf(BOT, HUMAN)

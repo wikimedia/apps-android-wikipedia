@@ -43,9 +43,11 @@ class WatchlistViewModel : ViewModel() {
         var curDay = -1
 
         val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
-        val list = watchlistItems.filterNot { excludedWikiCodes.contains(it.wiki?.languageCode)  }
 
-        for (item in list) {
+        for (item in watchlistItems) {
+            if (excludedWikiCodes.contains(item.wiki?.languageCode)) {
+                return
+            }
             calendar.time = item.date
             if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
                 curDay = calendar.get(Calendar.DAY_OF_YEAR)
