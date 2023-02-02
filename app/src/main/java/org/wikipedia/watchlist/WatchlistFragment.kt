@@ -297,12 +297,14 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
 
         override fun onQueryChange(s: String) {
             viewModel.updateSearchQuery(s.trim())
+            viewModel.updateList(false)
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
             viewModel.updateSearchQuery(null)
+            viewModel.updateList(true)
         }
 
         override fun getSearchHintString(): String {

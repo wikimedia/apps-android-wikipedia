@@ -90,7 +90,6 @@ class WatchlistViewModel : ViewModel() {
 
     fun updateSearchQuery(query: String?) {
         currentSearchQuery = query
-        updateList(false)
     }
 
     fun excludedFiltersCount(): Int {
