@@ -1,5 +1,4 @@
 <resources>
     <dimen name="randomizer_card_view_bottom_padding">17dp</dimen>
     <dimen name="view_feed_day_header_margin_bottom">0dp</dimen>
-    <dimen name="empty_view_top_margin">20dp</dimen>
 </resources>

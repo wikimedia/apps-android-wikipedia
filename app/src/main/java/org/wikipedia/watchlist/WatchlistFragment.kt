@@ -51,7 +51,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
 
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         updateDisplayLanguages()
-        viewModel.fetchWatchlist()
+        viewModel.fetchWatchlist(actionMode == null)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -69,8 +69,8 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         binding.watchlistRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
-        binding.watchlistRefreshView.setOnRefreshListener { viewModel.fetchWatchlist() }
-        binding.watchlistErrorView.retryClickListener = View.OnClickListener { viewModel.fetchWatchlist() }
+        binding.watchlistRefreshView.setOnRefreshListener { viewModel.fetchWatchlist(actionMode == null) }
+        binding.watchlistErrorView.retryClickListener = View.OnClickListener { viewModel.fetchWatchlist(actionMode == null) }
 
         binding.watchlistRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 

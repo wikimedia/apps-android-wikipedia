@@ -44,10 +44,10 @@ class WatchlistViewModel : ViewModel() {
 
         val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
 
-        for (item in watchlistItems) {
+        watchlistItems.forEach { item ->
 
             if (excludedWikiCodes.contains(item.wiki?.languageCode)) {
-                return
+                return@forEach
             }
 
             val searchQuery = currentSearchQuery
@@ -55,7 +55,7 @@ class WatchlistViewModel : ViewModel() {
                 !(item.title.contains(searchQuery, true) ||
                         item.user.contains(searchQuery, true) ||
                         item.parsedComment.contains(searchQuery, true))) {
-                continue
+                return@forEach
             }
 
             calendar.time = item.date
@@ -69,7 +69,7 @@ class WatchlistViewModel : ViewModel() {
         _uiState.value = UiState.Success()
     }
 
-    fun fetchWatchlist() {
+    fun fetchWatchlist(searchBarPlaceholder: Boolean = true) {
         _uiState.value = UiState.Loading()
         viewModelScope.launch(handler) {
             watchlistItems = mutableListOf()
@@ -84,7 +84,7 @@ class WatchlistViewModel : ViewModel() {
                 }
             }.awaitAll()
             watchlistItems.sortByDescending { it.date }
-            updateList(true)
+            updateList(searchBarPlaceholder)
         }
     }
 
