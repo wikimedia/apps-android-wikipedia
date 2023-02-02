@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
@@ -44,7 +45,7 @@ class SearchResultsFragment : Fragment() {
 
     private var _binding: FragmentSearchResultsBinding? = null
     private val binding get() = _binding!!
-    private val viewModel = SearchResultsViewModel()
+    private val viewModel: SearchResultsViewModel by viewModels()
     private val searchResultsAdapter = SearchResultsAdapter()
     private val noSearchResultAdapter = NoSearchResultAdapter()
     private val searchResultsConcatAdapter = ConcatAdapter(searchResultsAdapter)
