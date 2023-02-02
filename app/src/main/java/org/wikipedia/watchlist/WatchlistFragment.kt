@@ -169,14 +169,9 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
 
     private fun onUpdateList() {
         viewModel.updateList(actionMode == null)
-        if (viewModel.filterMode == FILTER_MODE_ALL && viewModel.finalList.size < 2) {
-            binding.watchlistRecyclerView.visibility = View.GONE
-            binding.watchlistEmptyContainer.visibility = View.VISIBLE
-        } else {
-            binding.watchlistEmptyContainer.visibility = View.GONE
-            binding.watchlistRecyclerView.adapter = RecyclerAdapter(viewModel.finalList)
-            binding.watchlistRecyclerView.visibility = View.VISIBLE
-        }
+        binding.watchlistRecyclerView.adapter = RecyclerAdapter(viewModel.finalList)
+        binding.watchlistRecyclerView.visibility = View.VISIBLE
+        binding.watchlistEmptyContainer.isVisible = viewModel.finalList.size < 2
     }
 
     internal inner class WatchlistItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {

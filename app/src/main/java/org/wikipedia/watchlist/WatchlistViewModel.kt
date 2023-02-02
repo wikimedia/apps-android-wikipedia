@@ -9,7 +9,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
-import org.wikipedia.page.Namespace
 import org.wikipedia.settings.Prefs
 import java.util.*
 
@@ -24,7 +23,6 @@ class WatchlistViewModel : ViewModel() {
         private set
     var finalList = mutableListOf<Any>()
     var displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
-    var filterMode = WatchlistFragment.FILTER_MODE_ALL
 
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState.asStateFlow()
@@ -34,7 +32,9 @@ class WatchlistViewModel : ViewModel() {
     }
 
     fun updateList(searchBarPlaceholder: Boolean = true) {
+
         finalList = mutableListOf()
+
         if (searchBarPlaceholder) {
             finalList.add("") // placeholder for search bar
         }
@@ -42,20 +42,17 @@ class WatchlistViewModel : ViewModel() {
         val calendar = Calendar.getInstance()
         var curDay = -1
 
-        for (item in watchlistItems) {
-            if (filterMode == WatchlistFragment.FILTER_MODE_ALL ||
-                (filterMode == WatchlistFragment.FILTER_MODE_PAGES && Namespace.of(item.ns).main()) ||
-                (filterMode == WatchlistFragment.FILTER_MODE_TALK && Namespace.of(item.ns).talk()) ||
-                (filterMode == WatchlistFragment.FILTER_MODE_OTHER && !Namespace.of(item.ns).main() && !Namespace.of(item.ns).talk())) {
+        val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
+        val list = watchlistItems.filterNot { excludedWikiCodes.contains(it.wiki?.languageCode)  }
 
-                calendar.time = item.date
-                if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
-                    curDay = calendar.get(Calendar.DAY_OF_YEAR)
-                    finalList.add(item.date)
-                }
-
-                finalList.add(item)
+        for (item in list) {
+            calendar.time = item.date
+            if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
+                curDay = calendar.get(Calendar.DAY_OF_YEAR)
+                finalList.add(item.date)
             }
+
+            finalList.add(item)
         }
     }
 
