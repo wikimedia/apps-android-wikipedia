@@ -32,7 +32,7 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
     private var popupWindowHost: PopupWindow? = null
 
     init {
-        binding.readingListsOverflowEdit.isVisible = ReleaseUtil.isPreBetaRelease
+        binding.readingListsOverflowSelect.isVisible = ReleaseUtil.isPreBetaRelease
         binding.readingListsOverflowSortBy.setOnClickListener {
             dismissPopupWindowHost()
             callback?.sortByClick()
@@ -45,7 +45,7 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
             dismissPopupWindowHost()
             callback?.importNewList()
         }
-        binding.readingListsOverflowEdit.setOnClickListener {
+        binding.readingListsOverflowSelect.setOnClickListener {
             dismissPopupWindowHost()
             callback?.selectListClick()
         }

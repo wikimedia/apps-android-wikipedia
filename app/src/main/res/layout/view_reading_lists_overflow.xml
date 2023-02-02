@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/reading_lists_overflow_edit"
+                android:id="@+id/reading_lists_overflow_select"
                 style="@style/OverflowMenuItem"
                 android:text="@string/reading_list_menu_select" />
 

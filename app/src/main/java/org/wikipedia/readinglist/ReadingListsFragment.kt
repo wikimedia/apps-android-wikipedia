@@ -289,7 +289,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     (lists[0] as ReadingList).pages.isEmpty()) {
                 lists.removeAt(0)
             }
-            displayedLists = lists
+
+            // Asynchronous update fo lists affects the multiselect process
+            if (!isTagType(actionMode)) {
+                displayedLists = lists
+            }
+
             if (invalidateAll) {
                 adapter.notifyDataSetChanged()
             } else {
