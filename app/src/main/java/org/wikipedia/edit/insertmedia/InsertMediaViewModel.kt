@@ -16,7 +16,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
     var searchQuery = StringUtil.removeHTMLTags(StringUtil.removeUnderscores(bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!))
     val originalSearchQuery = searchQuery
-    var selectedImage: MediaSearchResult? = null
+    var selectedImage: PageTitle? = null
     var imagePosition = IMAGE_POSITION_RIGHT
     var imageType = IMAGE_TYPE_THUMBNAIL
     var imageSize = IMAGE_SIZE_DEFAULT
@@ -27,8 +27,8 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
     class InsertMediaPagingSource(
         val searchQuery: String,
-    ) : PagingSource<MwQueryResponse.Continuation, MediaSearchResult>() {
-        override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, MediaSearchResult> {
+    ) : PagingSource<MwQueryResponse.Continuation, PageTitle>() {
+        override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, PageTitle> {
             return try {
                 val wikiSite = WikiSite(Service.COMMONS_URL)
                 val response = ServiceFactory.get(WikiSite(Service.COMMONS_URL))
@@ -36,8 +36,9 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
                 return response.query?.pages?.let { list ->
                     val results = list.sortedBy { it.index }.map {
-                        val pageTitle = PageTitle(it.title, wikiSite, it.imageInfo()?.thumbUrl)
-                        MediaSearchResult(pageTitle, it.imageInfo())
+                        val pageTitle = PageTitle(it.title, wikiSite, it.thumbUrl())
+                        pageTitle.description = it.description
+                        pageTitle
                     }
                     LoadResult.Page(results, null, response.continuation)
                 } ?: run {
@@ -48,7 +49,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             }
         }
 
-        override fun getRefreshKey(state: PagingState<MwQueryResponse.Continuation, MediaSearchResult>): MwQueryResponse.Continuation? {
+        override fun getRefreshKey(state: PagingState<MwQueryResponse.Continuation, PageTitle>): MwQueryResponse.Continuation? {
             return null
         }
     }
