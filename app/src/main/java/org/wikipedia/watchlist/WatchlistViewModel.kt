@@ -45,9 +45,19 @@ class WatchlistViewModel : ViewModel() {
         val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
 
         for (item in watchlistItems) {
+
             if (excludedWikiCodes.contains(item.wiki?.languageCode)) {
                 return
             }
+
+            val searchQuery = currentSearchQuery
+            if (!searchQuery.isNullOrEmpty() &&
+                !(item.title.contains(searchQuery, true) ||
+                        item.user.contains(searchQuery, true) ||
+                        item.parsedComment.contains(searchQuery, true))) {
+                continue
+            }
+
             calendar.time = item.date
             if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
                 curDay = calendar.get(Calendar.DAY_OF_YEAR)
@@ -56,6 +66,7 @@ class WatchlistViewModel : ViewModel() {
 
             finalList.add(item)
         }
+        _uiState.value = UiState.Success()
     }
 
     fun fetchWatchlist() {
@@ -73,13 +84,13 @@ class WatchlistViewModel : ViewModel() {
                 }
             }.awaitAll()
             watchlistItems.sortByDescending { it.date }
-            _uiState.value = UiState.Success()
+            updateList(true)
         }
     }
 
     fun updateSearchQuery(query: String?) {
         currentSearchQuery = query
-        fetchWatchlist()
+        updateList(false)
     }
 
     fun excludedFiltersCount(): Int {

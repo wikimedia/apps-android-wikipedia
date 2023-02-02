@@ -91,7 +91,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
     override fun onResume() {
         super.onResume()
         actionMode?.let {
-            onUpdateList()
+            viewModel.updateList(false)
             if (SearchActionModeCallback.`is`(it)) {
                 searchActionModeCallback.refreshProvider()
             }
@@ -157,7 +157,9 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         binding.watchlistErrorView.visibility = View.GONE
         binding.watchlistRefreshView.isRefreshing = false
         binding.watchlistProgressBar.visibility = View.GONE
-        onUpdateList()
+        binding.watchlistRecyclerView.adapter = RecyclerAdapter(viewModel.finalList)
+        binding.watchlistRecyclerView.visibility = View.VISIBLE
+        binding.watchlistEmptyContainer.isVisible = viewModel.finalList.size < 2
     }
 
     private fun onError(t: Throwable) {
@@ -165,13 +167,6 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         binding.watchlistProgressBar.visibility = View.GONE
         binding.watchlistErrorView.setError(t)
         binding.watchlistErrorView.visibility = View.VISIBLE
-    }
-
-    private fun onUpdateList() {
-        viewModel.updateList(actionMode == null)
-        binding.watchlistRecyclerView.adapter = RecyclerAdapter(viewModel.finalList)
-        binding.watchlistRecyclerView.visibility = View.VISIBLE
-        binding.watchlistEmptyContainer.isVisible = viewModel.finalList.size < 2
     }
 
     internal inner class WatchlistItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -196,7 +191,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
             itemBinding.root.setOnClickListener {
                 if (actionMode == null) {
                     actionMode = (requireActivity() as WatchlistActivity).startSupportActionMode(searchActionModeCallback)
-                    onUpdateList()
+                    viewModel.updateList(false)
                 }
             }
 
@@ -302,14 +297,12 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
 
         override fun onQueryChange(s: String) {
             viewModel.updateSearchQuery(s.trim())
-            onUpdateList()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
             viewModel.updateSearchQuery(null)
-            onUpdateList()
         }
 
         override fun getSearchHintString(): String {
@@ -340,11 +333,6 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
     }
 
     companion object {
-        const val FILTER_MODE_ALL = 0
-        const val FILTER_MODE_TALK = 1
-        const val FILTER_MODE_PAGES = 2
-        const val FILTER_MODE_OTHER = 3
-
         const val VIEW_TYPE_SEARCH_BAR = 0
         const val VIEW_TYPE_DATE = 1
         const val VIEW_TYPE_ITEM = 2
