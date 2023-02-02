@@ -5,6 +5,9 @@ import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.page.Namespace
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
 
 @Serializable
 class MwQueryPage {
@@ -95,6 +98,10 @@ class MwQueryPage {
         val parsedcomment: String = ""
 
         var diffSize = 0
+
+        val localDateTime: LocalDateTime by lazy {
+            LocalDateTime.ofInstant(Instant.parse(timeStamp), ZoneId.systemDefault())
+        }
 
         fun getContentFromSlot(slot: String): String {
             return slots?.get(slot)?.content.orEmpty()
