@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
@@ -39,6 +40,7 @@ import org.wikipedia.recurring.RecurringTasksExecutor
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient
+import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -174,7 +176,9 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected open fun setTheme() {
-        setTheme(WikipediaApp.instance.currentTheme.resourceId)
+        if (WikipediaApp.instance.currentTheme != Theme.LIGHT) {
+            setTheme(WikipediaApp.instance.currentTheme.resourceId)
+        }
     }
 
     protected open fun onGoOffline() {}
@@ -196,7 +200,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     private fun removeSplashBackground() {
-        window.setBackgroundDrawable(null)
+        window.setBackgroundDrawable(ColorDrawable(ResourceUtil.getThemedColor(this, R.attr.paper_color)))
     }
 
     private fun unregisterExclusiveBusMethods() {
