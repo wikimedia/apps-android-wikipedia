@@ -177,7 +177,6 @@ class MwQueryResult {
         val newlen = 0
         var wiki: WikiSite? = null
         @SerialName("parsedcomment") val parsedComment: String = ""
-        @SerialName("notificationtimestamp") val notificationTimestamp: String = ""
         val date: Date
             get() = DateUtil.iso8601DateParse(timestamp.orEmpty())
     }

@@ -477,9 +477,13 @@ interface Service {
     @get:Headers("Cache-Control: no-cache")
     val watchlist: Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo|notificationtimestamp")
+    @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
     @Headers("Cache-Control: no-cache")
-    suspend fun getWatchlist(): MwQueryResponse
+    suspend fun getWatchlist(
+        @Query("wlallrev") latestRevisions: String?,
+        @Query("wlshow") showCriteria: String?,
+        @Query("wltype") typeOfChanges: String?
+    ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=timestamp|user|ids|comment|tags")
     suspend fun getLastModified(@Query("titles") titles: String): MwQueryResponse

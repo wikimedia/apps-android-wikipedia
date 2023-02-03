@@ -43,7 +43,6 @@ class WatchlistViewModel : ViewModel() {
         var curDay = -1
 
         val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
-        val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
 
         watchlistItems.forEach { item ->
 
@@ -57,40 +56,6 @@ class WatchlistViewModel : ViewModel() {
                         item.user.contains(searchQuery, true) ||
                         item.parsedComment.contains(searchQuery, true))) {
                 return@forEach
-            }
-
-            if (!includedTypesCodes.containsAll(WatchlistFilterTypes.UNSEEN_CHANGES_GROUP.map { it.id })) {
-                if (includedTypesCodes.contains(WatchlistFilterTypes.UNSEEN_CHANGES.id) && item.notificationTimestamp.isEmpty()) {
-                    return@forEach
-                }
-                if (includedTypesCodes.contains(WatchlistFilterTypes.SEEN_CHANGES.id) && item.notificationTimestamp.isNotEmpty()) {
-                    return@forEach
-                }
-            }
-
-            if (!includedTypesCodes.containsAll(WatchlistFilterTypes.BOT_EDITS_GROUP.map { it.id })) {
-                if (includedTypesCodes.contains(WatchlistFilterTypes.BOT.id) && !item.isBot) {
-                    return@forEach
-                }
-                if (includedTypesCodes.contains(WatchlistFilterTypes.HUMAN.id) && item.isBot) {
-                    return@forEach
-                }
-            }
-
-            if (!includedTypesCodes.containsAll(WatchlistFilterTypes.MINOR_EDITS_GROUP.map { it.id })) {
-                if (includedTypesCodes.contains(WatchlistFilterTypes.MINOR_EDITS.id) && !item.isMinor) {
-                    return@forEach
-                }
-                if (includedTypesCodes.contains(WatchlistFilterTypes.NON_MINOR_EDITS.id) && item.isMinor) {
-                    return@forEach
-                }
-            }
-
-            if (includedTypesCodes.any { WatchlistFilterTypes.TYPE_OF_CHANGES_GROUP.any { item -> it == item.id } }) {
-                val matched = WatchlistFilterTypes.TYPE_OF_CHANGES_GROUP.any { includedTypesCodes.contains(it.id) && item.type == it.value }
-                if (!matched) {
-                    return@forEach
-                }
             }
 
             calendar.time = item.date
@@ -111,7 +76,8 @@ class WatchlistViewModel : ViewModel() {
             displayLanguages.map { language ->
                 async {
                     withContext(Dispatchers.IO) {
-                        ServiceFactory.get(WikiSite.forLanguageCode(language)).getWatchlist()
+                        ServiceFactory.get(WikiSite.forLanguageCode(language))
+                            .getWatchlist(latestRevisions(), showCriteriaString(), showTypesString())
                     }.query?.watchlist?.map {
                         it.wiki = WikiSite.forLanguageCode(language)
                         watchlistItems.add(it)
@@ -131,6 +97,62 @@ class WatchlistViewModel : ViewModel() {
         val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
         val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
         return WikipediaApp.instance.languageState.appLanguageCodes.count { excludedWikiCodes.contains(it) } + includedTypesCodes.size
+    }
+
+    private fun latestRevisions(): String? {
+        val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
+        if (!includedTypesCodes.containsAll(WatchlistFilterTypes.LATEST_REVISIONS_GROUP.map { it.id }) &&
+            includedTypesCodes.contains(WatchlistFilterTypes.NOT_LATEST_REVISION.id)) {
+            return WatchlistFilterTypes.NOT_LATEST_REVISION.value
+        }
+        return null
+    }
+
+    private fun showCriteriaString(): String {
+        val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
+        val list = mutableListOf<String>()
+        if (!includedTypesCodes.containsAll(WatchlistFilterTypes.UNSEEN_CHANGES_GROUP.map { it.id })) {
+            if (includedTypesCodes.contains(WatchlistFilterTypes.UNSEEN_CHANGES.id)) {
+                list.add(WatchlistFilterTypes.UNSEEN_CHANGES.value)
+            }
+            if (includedTypesCodes.contains(WatchlistFilterTypes.SEEN_CHANGES.id)) {
+                list.add(WatchlistFilterTypes.SEEN_CHANGES.value)
+            }
+        }
+
+        if (!includedTypesCodes.containsAll(WatchlistFilterTypes.BOT_EDITS_GROUP.map { it.id })) {
+            if (includedTypesCodes.contains(WatchlistFilterTypes.BOT.id)) {
+                list.add(WatchlistFilterTypes.BOT.value)
+            }
+            if (includedTypesCodes.contains(WatchlistFilterTypes.HUMAN.id)) {
+                list.add(WatchlistFilterTypes.HUMAN.value)
+            }
+        }
+
+        if (!includedTypesCodes.containsAll(WatchlistFilterTypes.MINOR_EDITS_GROUP.map { it.id })) {
+            if (includedTypesCodes.contains(WatchlistFilterTypes.MINOR_EDITS.id)) {
+                list.add(WatchlistFilterTypes.MINOR_EDITS.value)
+            }
+            if (includedTypesCodes.contains(WatchlistFilterTypes.NON_MINOR_EDITS.id)) {
+                list.add(WatchlistFilterTypes.NON_MINOR_EDITS.value)
+            }
+        }
+
+        if (!includedTypesCodes.containsAll(WatchlistFilterTypes.USER_STATUS_GROUP.map { it.id })) {
+            if (includedTypesCodes.contains(WatchlistFilterTypes.REGISTERED.id)) {
+                list.add(WatchlistFilterTypes.REGISTERED.value)
+            }
+            if (includedTypesCodes.contains(WatchlistFilterTypes.UNREGISTERED.id)) {
+                list.add(WatchlistFilterTypes.UNREGISTERED.value)
+            }
+        }
+        return list.joinToString(separator = "|")
+    }
+
+    private fun showTypesString(): String {
+        val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
+        val types = WatchlistFilterTypes.TYPE_OF_CHANGES_GROUP.filter { includedTypesCodes.contains(it.id) }.map { it.value }
+        return types.joinToString(separator = "|")
     }
 
     open class UiState {

@@ -48,6 +48,10 @@ class WatchlistFilterActivity : BaseActivity() {
             filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, it))
         }
         filterListWithHeaders.add(getString(R.string.notifications_filter_update_app_languages))
+        filterListWithHeaders.add(getString(R.string.watchlist_filter_latest_revisions_header))
+        WatchlistFilterTypes.LATEST_REVISIONS_GROUP.forEach {
+            filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id))
+        }
         filterListWithHeaders.add(getString(R.string.watchlist_filter_watchlist_activity_header))
         WatchlistFilterTypes.UNSEEN_CHANGES_GROUP.forEach {
             filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id))
@@ -58,6 +62,10 @@ class WatchlistFilterActivity : BaseActivity() {
         }
         filterListWithHeaders.add(getString(R.string.watchlist_filter_significance_header))
         WatchlistFilterTypes.MINOR_EDITS_GROUP.forEach {
+            filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id))
+        }
+        filterListWithHeaders.add(getString(R.string.watchlist_filter_user_status_header))
+        WatchlistFilterTypes.USER_STATUS_GROUP.forEach {
             filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id))
         }
         filterListWithHeaders.add(getString(R.string.watchlist_filter_type_of_change_header))
