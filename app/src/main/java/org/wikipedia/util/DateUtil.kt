@@ -94,23 +94,21 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(localDateTime, "MMM d HH:mm")
     }
 
+    fun getShortDayWithTimeString(date: Date): String {
+        return getDateStringWithSkeletonPattern(date, "MM/dd/yyyy HH:mm")
+    }
+
     fun getTimeAndDateString(context: Context, localDateTime: LocalDateTime): String {
         val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm, MMM d, yyyy" else "hh:mm a, MMM d, yyyy"
         return getDateStringWithSkeletonPattern(localDateTime, datePattern)
     }
 
-    fun getShortDayWithTimeString(date: Date): String {
-        return getDateStringWithSkeletonPattern(date, "MM/dd/yyyy HH:mm")
-    }
-
-    fun getTimeAndDateString(context: Context, date: Date): String {
-        val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm, MMM d, yyyy" else "hh:mm a, MMM d, yyyy"
-        return getDateStringWithSkeletonPattern(date, datePattern)
+    fun getTimeAndDateString(context: Context, instant: Instant): String {
+        return getTimeAndDateString(context, LocalDateTime.ofInstant(instant, ZoneId.systemDefault()))
     }
 
     fun getTimeAndDateString(context: Context, dateStr: String): String {
-        val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm, MMM d, yyyy" else "hh:mm a, MMM d, yyyy"
-        return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), datePattern)
+        return getTimeAndDateString(context, Instant.parse(dateStr))
     }
 
     fun getDateAndTime(context: Context, date: Date): String {
