@@ -90,8 +90,13 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(localDateTime, datePattern)
     }
 
-    fun getShortDayWithTimeString(dateStr: String): String {
-        return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "MMM d HH:mm")
+    fun getShortDayWithTimeString(localDateTime: LocalDateTime): String {
+        return getDateStringWithSkeletonPattern(localDateTime, "MMM d HH:mm")
+    }
+
+    fun getTimeAndDateString(context: Context, localDateTime: LocalDateTime): String {
+        val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm, MMM d, yyyy" else "hh:mm a, MMM d, yyyy"
+        return getDateStringWithSkeletonPattern(localDateTime, datePattern)
     }
 
     fun getShortDayWithTimeString(date: Date): String {

@@ -7,8 +7,9 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DateUtil
-import java.util.*
+import java.time.LocalDateTime
+import java.time.temporal.ChronoUnit
+import java.util.Date
 import java.util.concurrent.TimeUnit
 
 object AnonymousNotificationHelper {
@@ -42,10 +43,10 @@ object AnonymousNotificationHelper {
     }
 
     fun anonTalkPageHasRecentMessage(response: MwQueryResponse, title: PageTitle): Boolean {
-        response.query?.firstPage()?.revisions?.firstOrNull()?.timeStamp?.let {
-            if (Date().time - DateUtil.iso8601DateParse(it).time < TimeUnit.DAYS.toMillis(NOTIFICATION_DURATION_DAYS)) {
+        response.query?.firstPage()?.revisions?.firstOrNull()?.localDateTime?.let {
+            if (it.until(LocalDateTime.now(), ChronoUnit.DAYS) < NOTIFICATION_DURATION_DAYS) {
                 Prefs.hasAnonymousNotification = true
-                Prefs.lastAnonNotificationTime = Date().time
+                Prefs.lastAnonNotificationTime = System.currentTimeMillis()
                 Prefs.lastAnonNotificationLang = title.wikiSite.languageCode
                 return true
             }
