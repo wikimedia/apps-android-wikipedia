@@ -10,8 +10,10 @@ import androidx.fragment.app.Fragment
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.WellKnownTileServer
 import com.mapbox.mapboxsdk.maps.Style
+import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
 import org.wikipedia.databinding.FragmentNearbyBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 
 class NearbyFragment : Fragment() {
 
@@ -22,6 +24,8 @@ class NearbyFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         Mapbox.getInstance(requireActivity().applicationContext, "", WellKnownTileServer.MapLibre)
+
+        HttpRequestImpl.setOkHttpClient(OkHttpConnectionFactory.client)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
