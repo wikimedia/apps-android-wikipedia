@@ -420,11 +420,6 @@ object Prefs {
         PrefsIoUtil.remove(R.string.preference_key_announcement_shown_dialogs)
     }
 
-    var watchlistDisabledLanguages
-        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_watchlist_disabled_langs, null))
-            ?: emptySet()
-        set(langCodes) = PrefsIoUtil.setString(R.string.preference_key_watchlist_disabled_langs, JsonUtil.encodeToString(langCodes))
-
     var shouldMatchSystemTheme
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_match_system_theme, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_match_system_theme, value)

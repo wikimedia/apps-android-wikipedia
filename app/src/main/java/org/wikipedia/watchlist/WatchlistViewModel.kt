@@ -22,7 +22,7 @@ class WatchlistViewModel : ViewModel() {
     var currentSearchQuery: String? = null
         private set
     var finalList = mutableListOf<Any>()
-    var displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
+    var displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistExcludedWikiCodes.contains(it) }
 
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState.asStateFlow()
