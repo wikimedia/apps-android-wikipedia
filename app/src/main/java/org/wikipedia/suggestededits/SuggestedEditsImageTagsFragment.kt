@@ -22,7 +22,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.csrf.CsrfTokenClient
@@ -54,7 +53,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     private var wasCaptionLongClicked = false
     private var lastSearchTerm = ""
     var invokeSource = InvokeSource.SUGGESTED_EDITS
-    private var funnel: EditFunnel? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -153,8 +151,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         if (page == null) {
             return
         }
-
-        funnel = EditFunnel(WikipediaApp.instance, pageTitle)
 
         binding.tagsLicenseText.visibility = GONE
         binding.tagsHintText.visibility = VISIBLE
@@ -328,7 +324,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishing = true
         publishSuccess = false
 
-        funnel?.logSaveAttempt()
         EditAttemptStepEvent.logSaveAttempt(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
 
         binding.publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
@@ -374,7 +369,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                             }
                             .subscribe({
                                 if (it.entity != null) {
-                                    funnel?.logSaved(it.entity.lastRevId, invokeSource.value)
                                     EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                                 }
                                 publishSuccess = true
@@ -424,8 +418,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun onError(caught: Throwable) {
-        // TODO: expand this a bit.
-        funnel?.logError(caught.localizedMessage)
         EditAttemptStepEvent.logSaveFailure(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
         binding.publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)

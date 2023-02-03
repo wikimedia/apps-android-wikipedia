@@ -18,9 +18,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.analytics.DescriptionEditFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
@@ -54,7 +52,6 @@ class DescriptionEditFragment : Fragment() {
 
     private var _binding: FragmentDescriptionEditBinding? = null
     val binding get() = _binding!!
-    private lateinit var funnel: DescriptionEditFunnel
     private lateinit var invokeSource: InvokeSource
     private lateinit var pageTitle: PageTitle
     lateinit var action: DescriptionEditActivity.Action
@@ -68,10 +65,7 @@ class DescriptionEditFragment : Fragment() {
     private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             binding.fragmentDescriptionEditView.loadReviewContent(binding.fragmentDescriptionEditView.showingReviewContent())
-            funnel.logLoginSuccess()
             FeedbackUtil.showMessage(this, R.string.login_success_toast)
-        } else {
-            funnel.logLoginFailure()
         }
     }
 
@@ -126,9 +120,6 @@ class DescriptionEditFragment : Fragment() {
         requireArguments().getParcelable<PageSummaryForEdit>(ARG_TARGET_SUMMARY)?.let {
             targetSummary = it
         }
-        val type = if (pageTitle.description == null) DescriptionEditFunnel.Type.NEW else DescriptionEditFunnel.Type.EXISTING
-        funnel = DescriptionEditFunnel(WikipediaApp.instance, pageTitle, type, invokeSource)
-        funnel.logStart()
         EditAttemptStepEvent.logInit(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
     }
 
@@ -139,11 +130,9 @@ class DescriptionEditFragment : Fragment() {
 
         binding.fragmentDescriptionEditView.setLoginCallback {
             val loginIntent = LoginActivity.newIntent(requireActivity(),
-                    LoginActivity.SOURCE_EDIT, funnel.sessionToken)
+                    LoginActivity.SOURCE_EDIT, UUID.randomUUID().toString())
             loginLauncher.launch(loginIntent)
         }
-
-        funnel.logReady()
         return binding.root
     }
 
@@ -231,7 +220,6 @@ class DescriptionEditFragment : Fragment() {
                 binding.fragmentDescriptionEditView.setSaveState(true)
                 cancelCalls()
                 getEditTokenThenSave()
-                funnel.logSaveAttempt()
                 EditAttemptStepEvent.logSaveAttempt(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
             }
         }
@@ -283,13 +271,7 @@ class DescriptionEditFragment : Fragment() {
                                 editSucceeded -> {
                                     AnonymousNotificationHelper.onEditSubmitted()
                                     waitForUpdatedRevision(newRevId)
-                                    funnel.logSaved(newRevId)
                                     EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
-                                }
-                                hasCaptchaResponse -> {
-                                    // TODO: handle captcha.
-                                    // new CaptchaResult(result.edit().captchaId());
-                                    funnel.logCaptchaShown()
                                 }
                                 hasEditErrorCode -> {
                                     editFailed(MwException(MwServiceError(code, spamblacklist)), false)
@@ -329,7 +311,6 @@ class DescriptionEditFragment : Fragment() {
                         AnonymousNotificationHelper.onEditSubmitted()
                         if (response.success > 0) {
                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
-                            funnel.logSaved(response.entity?.run { lastRevId } ?: 0)
                             EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                         } else {
                             editFailed(RuntimeException("Received unrecognized description edit response"), true)
@@ -400,7 +381,6 @@ class DescriptionEditFragment : Fragment() {
             FeedbackUtil.showError(requireActivity(), caught)
             L.e(caught)
             if (logError) {
-                funnel.logError(caught.message)
                 EditAttemptStepEvent.logSaveFailure(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
             }
         }

@@ -23,8 +23,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.button.MaterialButton
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
@@ -54,7 +52,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private val viewModel: ArticleEditDetailsViewModel by viewModels { ArticleEditDetailsViewModel.Factory(requireArguments()) }
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
-    private var editFunnel: EditFunnel? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -162,9 +159,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             binding.progressBar.isVisible = false
             if (it is Resource.Success) {
                 updateUndoAndRollbackButtons()
-                if (viewModel.hasRollbackRights) {
-                    editFunnel = WikipediaApp.instance.funnelManager.getEditFunnel(viewModel.pageTitle)
-                }
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
                 FeedbackUtil.showError(requireActivity(), it.throwable)
@@ -177,11 +171,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 setLoadingState()
                 viewModel.getRevisionDetails(it.data.rollback?.revision ?: 0)
                 FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_rollback_success), FeedbackUtil.LENGTH_DEFAULT).show()
-                editFunnel?.logRollbackSuccess(it.data.rollback?.revision ?: -1)
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
                 FeedbackUtil.showError(requireActivity(), it.throwable)
-                editFunnel?.logRollbackFailure()
             }
         }
 
@@ -247,7 +239,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         binding.rollbackButton.setOnClickListener {
             showRollbackDialog()
-            editFunnel?.logRollbackAttempt()
         }
 
         binding.errorView.backClickListener = View.OnClickListener { requireActivity().finish() }
