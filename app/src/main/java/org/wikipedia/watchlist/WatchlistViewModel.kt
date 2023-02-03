@@ -43,6 +43,7 @@ class WatchlistViewModel : ViewModel() {
         var curDay = -1
 
         val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
+        val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
 
         watchlistItems.forEach { item ->
 
@@ -56,6 +57,40 @@ class WatchlistViewModel : ViewModel() {
                         item.user.contains(searchQuery, true) ||
                         item.parsedComment.contains(searchQuery, true))) {
                 return@forEach
+            }
+
+            if (!includedTypesCodes.containsAll(WatchlistFilterTypes.UNSEEN_CHANGES_GROUP.map { it.id })) {
+                if (includedTypesCodes.contains(WatchlistFilterTypes.UNSEEN_CHANGES.id) && item.notificationTimestamp.isEmpty()) {
+                    return@forEach
+                }
+                if (includedTypesCodes.contains(WatchlistFilterTypes.SEEN_CHANGES.id) && item.notificationTimestamp.isNotEmpty()) {
+                    return@forEach
+                }
+            }
+
+            if (!includedTypesCodes.containsAll(WatchlistFilterTypes.BOT_EDITS_GROUP.map { it.id })) {
+                if (includedTypesCodes.contains(WatchlistFilterTypes.BOT.id) && !item.isBot) {
+                    return@forEach
+                }
+                if (includedTypesCodes.contains(WatchlistFilterTypes.HUMAN.id) && item.isBot) {
+                    return@forEach
+                }
+            }
+
+            if (!includedTypesCodes.containsAll(WatchlistFilterTypes.MINOR_EDITS_GROUP.map { it.id })) {
+                if (includedTypesCodes.contains(WatchlistFilterTypes.MINOR_EDITS.id) && !item.isMinor) {
+                    return@forEach
+                }
+                if (includedTypesCodes.contains(WatchlistFilterTypes.NON_MINOR_EDITS.id) && item.isMinor) {
+                    return@forEach
+                }
+            }
+
+            if (includedTypesCodes.any { WatchlistFilterTypes.TYPE_OF_CHANGES_GROUP.any { item -> it == item.id } }) {
+                val matched = WatchlistFilterTypes.TYPE_OF_CHANGES_GROUP.any { includedTypesCodes.contains(it.id) && item.type == it.value }
+                if (!matched) {
+                    return@forEach
+                }
             }
 
             calendar.time = item.date
