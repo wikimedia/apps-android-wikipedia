@@ -162,13 +162,19 @@ class ReadingListItemView : ConstraintLayout {
     }
 
     private fun buildStatisticalSummaryText(readingList: ReadingList): String {
-        return resources.getQuantityString(R.plurals.format_reading_list_statistical_summary,
-                readingList.pages.size, readingList.pages.size, statsTextListSize(readingList))
+        val totalListSize = statsTextListSize(readingList)
+        return if (totalListSize > 0) resources.getQuantityString(R.plurals.format_reading_list_statistical_summary,
+            readingList.pages.size, readingList.pages.size, statsTextListSize(readingList))
+        else resources.getQuantityString(R.plurals.format_reading_list_statistical_summary_without_size,
+            readingList.pages.size, readingList.pages.size)
     }
 
     private fun buildStatisticalDetailText(readingList: ReadingList): String {
-        return resources.getQuantityString(R.plurals.format_reading_list_statistical_detail,
-                readingList.pages.size, readingList.numPagesOffline, readingList.pages.size, statsTextListSize(readingList))
+        val totalListSize = statsTextListSize(readingList)
+        return if (totalListSize > 0) resources.getQuantityString(R.plurals.format_reading_list_statistical_detail,
+            readingList.pages.size, readingList.numPagesOffline, readingList.pages.size, totalListSize)
+        else resources.getQuantityString(R.plurals.format_reading_list_statistical_detail_without_size,
+            readingList.pages.size, readingList.numPagesOffline, readingList.pages.size)
     }
 
     private fun statsTextListSize(readingList: ReadingList): Float {
