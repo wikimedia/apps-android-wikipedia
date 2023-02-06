@@ -26,6 +26,6 @@ class CreateAccountEvent(private val requestSource: String) {
     @SerialName("/analytics/mobile_apps/android_create_account_interaction/1.0.0")
     class CreateAccountEventImpl(private val action: String,
                                  private val source: String,
-                                 private val errorText: String) :
+                                 @SerialName("error_text")private val errorText: String) :
         MobileAppsEvent("android.create_account_interaction")
 }
