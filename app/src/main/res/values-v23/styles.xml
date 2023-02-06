@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="AppTheme" parent="BaseAppTheme">
-        <!-- System status bar color. May be overridden in onCreate. -->
-        <item name="android:statusBarColor">?attr/paper_color</item>
-    </style>
-</resources>
