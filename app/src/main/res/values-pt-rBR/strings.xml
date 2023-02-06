@@ -28,6 +28,7 @@
 * Lowvy
 * Luk3
 * Macofe
+* Mello25
 * Mordecool
 * MuratTheTurkish
 * Peter Fernando
@@ -1305,4 +1306,7 @@
   <string name="reading_list_share_menu_label">Compartilhar...</string>
   <string name="reading_list_share_menu_tooltip">Compartilhar esta lista de leitura com outras pessoas</string>
   <string name="reading_list_share_title_tooltip">As alterações feitas nesta lista não são visíveis para outras pessoas.</string>
+  <string name="reading_list_share_message_v2">Olá! Gostaria de compartilhar a minha lista de leitura da Wikipédia com você:</string>
+  <string name="reading_list_share_survey_title">Pode nos ajudar a melhorar \"Compartilhar listas de leitura\"?</string>
+  <string name="reading_list_share_survey_body">\"Compartilhar listas de leitura\" é um recurso de teste e precisamos do seu feedback para melhorá-lo ou removê-lo.</string>
 </resources>
