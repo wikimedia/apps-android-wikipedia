@@ -401,8 +401,8 @@
   <string name="error_response_malformed">La réponse du serveur n’a pas été mise en forme correctement.</string>
   <string name="error_unknown">Une erreur inconnue s’est produite.</string>
   <string name="format_error_server_message">Message : « %s »</string>
-  <string name="address_copied">Adresse copiée dans le presse-papier.</string>
-  <string name="text_copied">Texte copié dans le presse-papier.</string>
+  <string name="address_copied">Adresse copiée dans le presse-papiers.</string>
+  <string name="text_copied">Texte copié dans le presse-papiers.</string>
   <string name="button_continue_to_article">Lire l’article</string>
   <string name="button_continue_to_talk_page">Ouvrir la page de discussion</string>
   <string name="button_continue_to_disambiguation">Afficher les pages similaires</string>
