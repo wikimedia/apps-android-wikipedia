@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 @SerialName("/analytics/mobile_apps/android_install_referrer_event/1.0.0")
 class InstallReferrerEvent(@SerialName("referrer_url") private val referrerUrl: String,
-                           @SerialName("campaign_id") private val campaignId: Int,
+                           @SerialName("campaign_id") private val campaignId: String,
                            @SerialName("utm_medium") private val utfMedium: String,
                            @SerialName("utm_campaign") private val utfCampaign: String,
                            @SerialName("utm_source") private val utfSource: String) :
@@ -21,7 +21,7 @@ class InstallReferrerEvent(@SerialName("referrer_url") private val referrerUrl: 
         const val PARAM_UTM_SOURCE = "utm_source"
         const val PARAM_CHANNEL = "channel"
         fun logInstall(referrerUrl: String?, utfMedium: String?, utfCampaign: String?, utfSource: String?) {
-            EventPlatformClient.submit(InstallReferrerEvent(referrerUrl.orEmpty(), 0, utfMedium.toString(), utfCampaign.toString(), utfSource.toString()))
+            EventPlatformClient.submit(InstallReferrerEvent(referrerUrl.orEmpty(), "android", utfMedium.toString(), utfCampaign.toString(), utfSource.toString()))
         }
     }
 }
