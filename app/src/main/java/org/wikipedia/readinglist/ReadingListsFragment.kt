@@ -597,10 +597,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         if (shouldShowImportedSnackbar) {
             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.shareable_reading_lists_new_imported_snackbar))
                 .addCallback(object : Snackbar.Callback() {
-                    override fun onDismissed(
-                        transientBottomBar: Snackbar,
-                        @DismissEvent event: Int
-                    ) {
+                    override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
                         if (!isAdded) {
                             return
                         }
