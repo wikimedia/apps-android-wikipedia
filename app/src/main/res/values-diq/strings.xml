@@ -653,6 +653,7 @@
   <string name="text_input_dialog_cancel_button_text">Bıtexelne</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Bıtexelne</string>
   <string name="watchlist_filter_all">Pêro</string>
+  <string name="watchlist_page_deleted">Esteriya</string>
   <string name="shareable_reading_lists_new_indicator">*newe*</string>
   <string name="reading_list_share_menu_label">Vıla ke...</string>
 </resources>

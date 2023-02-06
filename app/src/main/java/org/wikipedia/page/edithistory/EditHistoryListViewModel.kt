@@ -67,10 +67,10 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         }.map {
             EditHistoryItem(it)
         }.insertSeparators { before, after ->
-            val dateBefore = if (before != null) DateUtil.getShortDateString(DateUtil.iso8601DateParse(before.item.timeStamp)) else ""
-            val dateAfter = if (after != null) DateUtil.getShortDateString(DateUtil.iso8601DateParse(after.item.timeStamp)) else ""
-            if (dateAfter.isNotEmpty() && dateAfter != dateBefore) {
-                EditHistorySeparator(dateAfter)
+            val dateBefore = before?.item?.localDateTime?.toLocalDate()
+            val dateAfter = after?.item?.localDateTime?.toLocalDate()
+            if (dateAfter != null && dateAfter != dateBefore) {
+                EditHistorySeparator(DateUtil.getShortDateString(dateAfter))
             } else {
                 null
             }

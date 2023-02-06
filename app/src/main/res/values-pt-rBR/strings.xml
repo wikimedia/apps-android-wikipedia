@@ -28,6 +28,7 @@
 * Lowvy
 * Luk3
 * Macofe
+* Mello25
 * Mordecool
 * MuratTheTurkish
 * Peter Fernando
@@ -1288,13 +1289,24 @@
   <string name="user_contrib_activity_title">Contribuições de %s</string>
   <string name="archive_empty">Nenhuma página arquivada encontrada.</string>
   <string name="user_contrib_filter_ns">Filtrar por espaço nominal</string>
-  <string name="user_contrib_filter_all" fuzzy="true">Todas as edições</string>
+  <string name="user_contrib_filter_all">Todos os espaços nominais</string>
+  <string name="user_contrib_filter_ns_header">Filtro de domínio</string>
   <string name="namespace_article">Artigo</string>
   <string name="user_contrib_current">atual</string>
   <string name="media_playback_error">Erro na reprodução de multimédia.</string>
   <string name="user_contrib_menu_label">Contribuições</string>
-  <string name="user_contrib_filter_activity_title" fuzzy="true">Contribuições em:</string>
+  <string name="user_contrib_filter_activity_title">Filtrar contribuições</string>
   <string name="shareable_reading_lists_import_dialog_title">Importar lista de leitura compartilhada</string>
+  <string name="shareable_reading_lists_import_dialog_content">Como você gostaria de nomear a lista que foi compartilhada com você?</string>
+  <string name="shareable_reading_lists_new_indicator">*nova*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Foi compartilhado com você uma lista de leitura</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Notámos que foi compartilhado com você uma lista de leitura. Para ver esta lista na aplicação móvel, volte à mensagem original e prima novamente um link.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Entendi</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Lista de leitura importada</string>
+  <string name="reading_list_share_menu_label">Compartilhar...</string>
+  <string name="reading_list_share_menu_tooltip">Compartilhar esta lista de leitura com outras pessoas</string>
+  <string name="reading_list_share_title_tooltip">As alterações feitas nesta lista não são visíveis para outras pessoas.</string>
+  <string name="reading_list_share_message_v2">Olá! Gostaria de compartilhar a minha lista de leitura da Wikipédia com você:</string>
+  <string name="reading_list_share_survey_title">Pode nos ajudar a melhorar \"Compartilhar listas de leitura\"?</string>
+  <string name="reading_list_share_survey_body">\"Compartilhar listas de leitura\" é um recurso de teste e precisamos do seu feedback para melhorá-lo ou removê-lo.</string>
 </resources>
