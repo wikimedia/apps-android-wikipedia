@@ -634,6 +634,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private inner class HeaderCallback : ReadingListItemView.Callback {
         override fun onClick(readingList: ReadingList) {}
+
         override fun onRename(readingList: ReadingList) {
             rename()
         }
@@ -654,6 +655,14 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 adapter.notifyDataSetChanged()
                 update()
             }
+        }
+
+        override fun onSelectList(readingList: ReadingList) {
+            // ignore
+        }
+
+        override fun onChecked(readingList: ReadingList) {
+            // ignore
         }
 
         override fun onShare(readingList: ReadingList) {
@@ -686,6 +695,13 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) { setSearchQuery() }
         }
 
+        override fun onSelectList(readingList: ReadingList) {
+            // ignore
+        }
+
+        override fun onChecked(readingList: ReadingList) {
+            // ignore
+        }
         override fun onShare(readingList: ReadingList) {
             ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
         }
