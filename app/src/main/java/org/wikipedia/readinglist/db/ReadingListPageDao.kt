@@ -47,6 +47,10 @@ interface ReadingListPageDao {
     fun getPageByParams(wiki: WikiSite, lang: String, ns: Namespace,
         apiTitle: String, excludedStatus: Long): ReadingListPage?
 
+    @Query("SELECT * FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND apiTitle = :apiTitle AND status != :excludedStatus ORDER BY id DESC")
+    fun getLatestPageByParams(wiki: WikiSite, lang: String, ns: Namespace,
+                        apiTitle: String, excludedStatus: Long): ReadingListPage?
+
     @Query("SELECT * FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND apiTitle = :apiTitle AND status != :excludedStatus")
     suspend fun getPagesByParams(wiki: WikiSite, lang: String, ns: Namespace,
         apiTitle: String, excludedStatus: Long): List<ReadingListPage>
@@ -133,6 +137,13 @@ interface ReadingListPageDao {
 
     fun findPageInAnyList(title: PageTitle): ReadingListPage? {
         return getPageByParams(
+            title.wikiSite, title.wikiSite.languageCode, title.namespace(),
+            title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
+        )
+    }
+
+    fun findLatestPageInAnyList(title: PageTitle): ReadingListPage? {
+        return getLatestPageByParams(
             title.wikiSite, title.wikiSite.languageCode, title.namespace(),
             title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
         )
