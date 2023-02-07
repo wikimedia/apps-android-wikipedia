@@ -31,7 +31,8 @@ object ReadingListsImportHelper {
                     page.displayTitle(wikiSite.languageCode),
                     page.title,
                     page.description,
-                    page.thumbUrl()
+                    page.thumbUrl(),
+                    lang = wikiSite.languageCode
                 )
                 listPages.add(readingListPage)
             }

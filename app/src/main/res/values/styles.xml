@@ -130,6 +130,7 @@
     <style name="AppTheme.Splash">
         <item name="android:windowBackground">@drawable/splash_bg</item>
         <item name="android:navigationBarColor">@color/base10</item>
+        <item name="actionModeStyle">@style/ActionModeStyle.Notification</item>
     </style>
 
     <style name="AppTheme.Page">
