@@ -1334,7 +1334,7 @@
   <string name="reading_lists_default_plus_many_lists_delete_message">The message shown to users when they attempt selecting default list as one of the many lists for deletion.</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">Summary shown for a reading list that contains one article which is not downloaded, and hence not taking up disk space.</item>
-    <item quantity="other">Summary shown for a reading list that contains multiple articles; The %1$d parameter is the number of pages in the list which are not downloaded, and hence not taking up disk space.</item>
+    <item quantity="other">Summary shown for a reading list that contains multiple articles; The %d parameter is the number of pages in the list which are not downloaded, and hence not taking up disk space.</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail_without_size">
     <item quantity="one">Detailed description Summary shown for a reading list that contains one article which is not downloaded, and hence not taking up disk space</item>
