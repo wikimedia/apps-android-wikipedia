@@ -1334,9 +1334,6 @@
   <string name="reading_lists_default_plus_many_lists_delete_message">Message shown to users when they attempt selecting the default list as one of the multiple lists for deletion. %s is replaced with the name of the default list.</string>
   <string name="single_list_json_file_name">File name to be given to a single exported reading list, with %s representing the name of the reading list. Please preserve the .json extension, and do not use any illegal filename characters.</string>
   <string name="multiple_lists_json_file_name">File name to be given to a file containing multiple exported reading lists, with %s representing the name of the first list. Please preserve the .json extension, and do not use any illegal filename characters.</string>
-  <string name="reading_lists_default_list_delete_message">The message shown to users when they attempt selecting default list for deletion</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">The message shown to users when they attempt selecting default list with one other list for deletion. %s represents the name of the non-default list.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">The message shown to users when they attempt selecting default list as one of the many lists for deletion.</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">Summary shown for a reading list that contains one article which is not downloaded, and hence not taking up disk space.</item>
     <item quantity="other">Summary shown for a reading list that contains multiple articles; The %d parameter is the number of pages in the list which are not downloaded, and hence not taking up disk space.</item>
