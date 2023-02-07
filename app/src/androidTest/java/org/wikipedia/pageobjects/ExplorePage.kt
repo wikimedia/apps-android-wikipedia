@@ -14,32 +14,12 @@ import org.hamcrest.CoreMatchers
 import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.Matcher
 import org.wikipedia.R
-import org.wikipedia.customs.NoAction
-class ExplorePage  {
+class ExplorePage: BasePage()  {
 
     private val wikiLogo = withId(R.id.main_toolbar_wordmark)
     private val searchbar = withId(R.id.search_container)
 
-        fun tapOnSearchbar(){
-            onView(searchbar).perform(ViewActions.click())
-            return
-        }
-
-    fun isMainPageVisible(): Boolean {
-        return viewExists(
-            allOf(
-                wikiLogo,
-                isDisplayed()
-            )
-                )
-    }
-
-    fun viewExists(viewMatcher: Matcher<View>): Boolean {
-        return try {
-            onView(viewMatcher).check(matches(isDisplayed()))
-            true
-        } catch (e: NoMatchingViewException) {
-            false
-        }
+    fun tapOnSearchBar(){
+        onView(searchbar).perform(ViewActions.click())
     }
 }

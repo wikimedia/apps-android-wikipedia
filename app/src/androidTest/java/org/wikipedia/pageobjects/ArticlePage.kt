@@ -14,17 +14,17 @@ class ArticlePage: BasePage() {
 
     private val articleHeader = findElement(Locator.XPATH, "//h1[@data-id='0']/span[@class='mw-page-title-main']")
 
-    fun checkArticleTitle(text: String): Boolean {
-      return  checkWebArticleTitle(articleHeader,text)
+    fun isArticleDisplayed(expectedArticleHeader: String): Boolean {
+      return  isWebArticleTitleDisplayed(articleHeader,expectedArticleHeader)
     }
 
-    private fun checkWebArticleTitle(articleHeader: Atom<ElementReference>, text: String): Boolean {
+    private fun isWebArticleTitleDisplayed(articleHeader: Atom<ElementReference>, expectedArticleHeader: String): Boolean {
         return try {
             onWebView()
                 .withElement(articleHeader).check(
                     WebViewAssertions.webMatches(
                         DriverAtoms.getText(),
-                        CoreMatchers.containsString(text)
+                        CoreMatchers.containsString(expectedArticleHeader)
                     )
                 )
             true

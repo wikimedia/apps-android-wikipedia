@@ -5,7 +5,6 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
-import junit.framework.Assert
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertTrue
 import org.junit.Before
@@ -14,17 +13,15 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.main.MainActivity
 import org.wikipedia.pageobjects.*
-
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class InitializeSearchingAndAbort {
+class SearchBarTestSuite {
 
     private val onboardingPage = OnboardingPage()
-    private val navbarPage= NavbarPage()
-    private val searchHistoryPage= SearchHistoryPage()
-    private val explorePage= ExplorePage()
-    private val articlePage= ArticlePage()
-
+    private val navbarPage = NavbarPage()
+    private val searchHistoryPage = SearchHistoryPage()
+    private val explorePage = ExplorePage()
+    private val articlePage = ArticlePage()
 
     @Before
     fun beforeTests() {
@@ -34,40 +31,34 @@ class InitializeSearchingAndAbort {
     @Rule
     @JvmField
     var mActivityTestRule = ActivityScenarioRule(MainActivity::class.java)
-    val text ="Bitcoin"
+    val searchedPhrase = "Bitcoin"
 
     @Test
     fun searchingFeatureTestFromSearchPage() {
 
-        explorePage.isMainPageVisible()
-        navbarPage.tapOnNavSearchButton()
+        navbarPage.tapOnNavSearchBtn()
         searchHistoryPage.tapOnSearchBar()
-        searchHistoryPage.typeTextSearch(text)
-        Thread.sleep(2000)//wait to be added- line to delete
-        searchHistoryPage.tapOnFoundExactResultItem(text)
-        assertTrue("Is Correct Header displayed?", articlePage.checkArticleTitle(text));
+        searchHistoryPage.typeTextSearch(searchedPhrase)
+        searchHistoryPage.tapOnSearchResultItem(searchedPhrase)
+        assertTrue("Article header `$searchedPhrase` is not displayed in article view.", articlePage.isArticleDisplayed(searchedPhrase))
     }
 
     @Test
     fun searchingFeatureTestFromExplorePage() {
 
-        explorePage.isMainPageVisible()
-        explorePage.tapOnSearchbar()
-        searchHistoryPage.typeTextSearch(text)
-        Thread.sleep(2000)//wait to be added- line to delete
-        searchHistoryPage.tapOnFoundExactResultItem(text)
-        //Assertion To Be added
+        explorePage.tapOnSearchBar()
+        searchHistoryPage.typeTextSearch(searchedPhrase)
+        searchHistoryPage.tapOnSearchResultItem(searchedPhrase)
+        assertTrue("Article header `$searchedPhrase` is not displayed in article view.", articlePage.isArticleDisplayed(searchedPhrase))
     }
 
     @Test
     fun searchingFeatureTestFromExplorePageNoResultsFound() {
-        val text ="axaxa22"
-        val labelText="No results"
+        val typedPhrase = "axaxa22"
+        val labelText = "No results"
 
-        explorePage.isMainPageVisible()//-> to dell
-        explorePage.tapOnSearchbar()
-        searchHistoryPage.typeTextSearch(text)
-        Thread.sleep(2000)//wait to be added- line to delete
+        explorePage.tapOnSearchBar()
+        searchHistoryPage.typeTextSearch(typedPhrase)
         assertEquals( labelText, searchHistoryPage.verifyNoResultFound());
     }
 }

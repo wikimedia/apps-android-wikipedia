@@ -2,7 +2,6 @@ package org.wikipedia.pageobjects
 import android.view.View
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.NoMatchingViewException
-import androidx.test.espresso.PerformException
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -11,23 +10,45 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import org.hamcrest.Matcher
 import android.widget.TextView
 import androidx.test.espresso.*
-
+import java.util.concurrent.TimeoutException
 
 open class BasePage {
-    var text= "Bitcoin"
+
+    fun waitUntilElementsAreDisplayed(
+        viewMatcher: Matcher<View>,
+        timeout: Int = 1000
+    ) {
+        waitForCondition({ viewExists(viewMatcher) }, timeout.toLong())
+    }
+
+    private fun waitForCondition(condition: () -> Boolean, timeoutMillis: Long) {
+        var totalTime: Long = 0
+
+        do {
+            if(condition()) {
+                break
+            }
+
+            val step:Long = 250
+            Thread.sleep(step)
+            totalTime += step
+
+            if(totalTime > timeoutMillis) {
+                throw TimeoutException("Condition timed out")
+            }
+        } while (true)
+    }
 
     fun viewExists(viewMatcher: Matcher<View>): Boolean {
         return try {
             onView(viewMatcher).check(matches(isDisplayed()))
             true
-        } catch (e: PerformException) {
-            false
         } catch (e: NoMatchingViewException) {
             false
         }
     }
 
-    fun invokeText(matcher: ViewInteraction): String {
+    fun getText(matcher: ViewInteraction): String {
         var text = String()
         matcher.perform(object : ViewAction {
             override fun getConstraints(): Matcher<View> {
@@ -43,8 +64,6 @@ open class BasePage {
                 text = tv.text.toString()
             }
         })
-
         return text
     }
-    //https://www.testrisk.com/2019/12/getting-text-of-element-in-espresso.html
 }

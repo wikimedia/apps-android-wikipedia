@@ -1,23 +1,10 @@
 package org.wikipedia.pageobjects
 
-
-import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.espresso.action.ViewActions.*
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItem
-import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
-import androidx.test.espresso.web.assertion.WebViewAssertions.webMatches
-import androidx.test.espresso.web.sugar.Web
-import androidx.test.espresso.web.sugar.Web.onWebView
-import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
-import androidx.test.espresso.web.webdriver.DriverAtoms.getText
-import androidx.test.espresso.web.webdriver.Locator
-import junit.framework.Assert.assertEquals
 import org.hamcrest.CoreMatchers.*
 import org.wikipedia.R
 
@@ -32,24 +19,33 @@ class SearchHistoryPage : BasePage() {
 
     fun tapOnSearchBar() {
         onView(searchCard).perform(click())
-        return
     }
 
-    fun typeTextSearch(text: String) {
-        onView(searchTextInput).perform(typeText(text))
+    fun typeTextSearch(itemText: String) {
+        onView(searchTextInput).perform(typeText(itemText))
     }
 
-    fun tapOnFoundExactResultItem(text: String) {
+    fun tapOnSearchResultItem(itemText: String) {
+        waitForResult(itemText)
         onView(findingsList)
             .perform(
                 actionOnItem<RecyclerView.ViewHolder>(
-                    hasDescendant(withText(text)),
+                    hasDescendant(withText(itemText)),
                     click()
                 )
             );
     }
-
     fun verifyNoResultFound(): String {
-        return invokeText(onView(noResultsLable))
+        waitForResult("No results")
+        return getText(onView(noResultsLable))
+    }
+
+    private fun waitForResult(foundPhrase: String) {
+        waitUntilElementsAreDisplayed(
+            allOf(
+                hasDescendant(withText(foundPhrase)),
+                withParent(findingsList)
+            )
+        )
     }
 }
