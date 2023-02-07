@@ -22,18 +22,20 @@ object ReadingListsImportHelper {
         // Request API by languages
         readingListData?.list?.forEach {
             val wikiSite = WikiSite.forLanguageCode(it.key)
-            val response = ServiceFactory.get(wikiSite).getPageTitlesByPageId(it.value.joinToString(separator = "|"))
-
-            response.query?.pages?.forEach { page ->
-                val readingListPage = ReadingListPage(
-                    wikiSite,
-                    page.namespace(),
-                    page.displayTitle(wikiSite.languageCode),
-                    page.title,
-                    page.description,
-                    page.thumbUrl()
-                )
-                listPages.add(readingListPage)
+            it.value.windowed(ReadingListsShareHelper.API_MAX_SIZE, ReadingListsShareHelper.API_MAX_SIZE, true).forEach { list ->
+                val response = ServiceFactory.get(wikiSite).getPageTitlesByPageId(list.joinToString(separator = "|"))
+                response.query?.pages?.forEach { page ->
+                    val readingListPage = ReadingListPage(
+                        wikiSite,
+                        page.namespace(),
+                        page.displayTitle(wikiSite.languageCode),
+                        page.title,
+                        page.description,
+                        page.thumbUrl(),
+                        lang = wikiSite.languageCode
+                    )
+                    listPages.add(readingListPage)
+                }
             }
         }
 
