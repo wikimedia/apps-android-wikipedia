@@ -102,10 +102,7 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    fun deleteReadingLists(activity: Activity, readingLists: List<ReadingList>?, callback: Callback) {
-        if (readingLists == null) {
-            return
-        }
+    fun deleteReadingLists(activity: Activity, readingLists: List<ReadingList>, callback: Callback) {
         AlertDialog.Builder(activity)
             .setTitle(R.string.reading_list_delete_lists_confirm_dialog_title)
             .setMessage(activity.resources.getQuantityString(R.plurals.reading_list_delete_lists_confirm_dialog_message, readingLists.size, readingLists.size))
@@ -247,9 +244,9 @@ object ReadingListBehaviorsUtil {
     private fun getDeleteListMessage(activity: Activity, readingLists: List<ReadingList>): String {
         return if (readingLists.any { it.isDefault }) {
             when (readingLists.size) {
-                1 -> activity.getString(R.string.reading_lists_default_list_delete_message)
-                2 -> activity.getString(R.string.reading_lists_default_plus_one_list_delete_message, readingLists.first { !it.isDefault }.title)
-                else -> activity.getString(R.string.reading_lists_default_plus_many_lists_delete_message)
+                1 -> activity.getString(R.string.reading_lists_default_list_delete_message, activity.getString(R.string.default_reading_list_name))
+                2 -> activity.getString(R.string.reading_lists_default_plus_one_list_delete_message, readingLists.first { !it.isDefault }.title, activity.getString(R.string.default_reading_list_name))
+                else -> activity.getString(R.string.reading_lists_default_plus_many_lists_delete_message, activity.getString(R.string.default_reading_list_name))
             }
         } else {
             activity.resources.getQuantityString(R.plurals.reading_lists_deleted_message, readingLists.size, readingLists.size)
