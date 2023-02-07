@@ -25,13 +25,13 @@ object FileUtil {
         return destinationFile
     }
 
-    fun createFileInDownloadsFolder(context: Context, filename: String, data: String?) {
+    fun createFileInDownloadsFolder(context: Context, filename: String, mimeType: String, data: String?) {
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 val contentResolver = context.contentResolver
                 val contentValues = ContentValues()
                 contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
-                contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "application/json")
+                contentValues.put(MediaStore.MediaColumns.MIME_TYPE, mimeType)
                 contentResolver.insert(MediaStore.Downloads.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY), contentValues)?.let { uri ->
                     contentResolver.openOutputStream(uri)?.use { it.write(data?.toByteArray()) }
                 }

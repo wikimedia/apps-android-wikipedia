@@ -1333,7 +1333,9 @@
   <string name="reading_list_share_message_v2">Message that is sent to a recipient when sharing a reading list.</string>
   <string name="reading_list_share_survey_title">Title for dialog box that leads to a survey about sharing reading lists.</string>
   <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
-  <string name="reading_lists_default_list_delete_message">The message shown to users when they attempt selecting default list for deletion</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">The message shown to users when they attempt selecting default list with one other list for deletion. %s represents the name of the non-default list.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">The message shown to users when they attempt selecting default list as one of the many lists for deletion.</string>
+  <string name="reading_lists_default_list_delete_message">Message shown to users when they attempt selecting the default list for deletion. %s is replaced with the name of the default list.</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">Message shown to users when they attempt selecting the default list with one other list for deletion. %1$s represents the name of the non-default list, and %2$s represents the name of the default list.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Message shown to users when they attempt selecting the default list as one of the multiple lists for deletion. %s is replaced with the name of the default list.</string>
+  <string name="single_list_json_file_name">File name to be given to a single exported reading list. Please preserve the .json extension, and do not use any illegal filename characters.</string>
+  <string name="multiple_lists_json_file_name">File name to be given to a file containing multiple exported reading lists. Please preserve the .json extension, and do not use any illegal filename characters.</string>
 </resources>

@@ -524,9 +524,11 @@
         <item quantity="one">%d list deleted</item>
         <item quantity="other">%d lists deleted</item>
     </plurals>
-    <string name="reading_lists_default_list_delete_message">The default list (Saved) can’t be deleted</string>
-    <string name="reading_lists_default_plus_one_list_delete_message">%s deleted. The default list (Saved) can’t be deleted.</string>
-    <string name="reading_lists_default_plus_many_lists_delete_message">Lists deleted. The default list (Saved) can’t be deleted.</string>
+    <string name="reading_lists_default_list_delete_message">The default list (%s) can\'t be deleted</string>
+    <string name="reading_lists_default_plus_one_list_delete_message">%1$s deleted. The default list (%2$s) can\'t be deleted.</string>
+    <string name="reading_lists_default_plus_many_lists_delete_message">Lists deleted. The default list (%s) can\'t be deleted.</string>
+    <string name="single_list_json_file_name">%s (Wikipedia reading list).json</string>
+    <string name="multiple_lists_json_file_name">Wikipedia reading lists (%s and more).json</string>
     <string name="reading_list_items_deleted">%d articles removed from list</string>
     <string name="reading_lists_item_deleted">%s removed from lists</string>
     <string name="reading_list_item_delete_undo">Undo</string>
