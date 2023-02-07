@@ -30,7 +30,6 @@ import org.wikipedia.util.FileUtil
 object ReadingListsExportImportHelper : BaseActivity.Callback {
 
     var lists: List<ReadingList>? = null
-    val funnel = ReadingListsFunnel()
 
     fun exportLists(activity: BaseActivity, readingLists: List<ReadingList>?) {
         lists = readingLists
@@ -45,27 +44,25 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
     }
 
     private fun extractListDataToExport(activity: AppCompatActivity, readingLists: List<ReadingList>?) {
-        val exportedLists = mutableListOf<ExportableReadingList>()
-        try {
-            readingLists?.let { exportLists ->
-                exportLists.forEach {
+        readingLists?.let { exportLists ->
+            try {
+                val exportedLists = exportLists.map {
                     val wikiPageTitlesMap = mutableMapOf<String, String>()
                     it.pages.forEach { page ->
                         wikiPageTitlesMap[page.apiTitle] = page.lang
                     }
-                    val exportedList = ExportableReadingList(it.title, it.description, wikiPageTitlesMap)
-                    exportedLists.add(exportedList)
+                    ExportableReadingList(it.title, it.description, wikiPageTitlesMap)
                 }
                 FileUtil.createFileInDownloadsFolder(activity, activity.getString(if (exportLists.size == 1) R.string.single_list_json_file_name
-                else R.string.multiple_lists_json_file_name, exportLists[0].title), JsonUtil.encodeToString(exportedLists))
+                else R.string.multiple_lists_json_file_name, exportLists[0].title), "application/json", JsonUtil.encodeToString(exportedLists))
                 val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
                 activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent, exportLists.size).build())
                 FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_lists_export_completed_message))
                     .setAction(R.string.suggested_edits_article_cta_snackbar_action) { activity.startActivity(intent) }.show()
-                funnel.logExportLists(exportLists.size)
+                ReadingListsFunnel().logExportLists(exportLists.size)
+            } catch (e: Exception) {
+                FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_export_failed_message, exportLists.size))
             }
-        } catch (e: Exception) {
-            FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_export_failed_message, exportedLists.size))
         }
     }
 
@@ -84,6 +81,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
     }
 
     fun importLists(activity: BaseActivity, jsonString: String) {
+        val funnel = ReadingListsFunnel()
         funnel.logImportStart()
         var readingLists: List<ExportableReadingList>? = null
         try {
@@ -122,6 +120,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
     override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
         if (isGranted) {
             extractListDataToExport(activity, lists)
+            lists = null
         } else {
             FeedbackUtil.showMessage(activity, R.string.reading_list_export_write_permission_rationale)
         }
