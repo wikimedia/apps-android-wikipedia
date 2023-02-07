@@ -9,6 +9,7 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.StringUtil
 import java.util.*
 
 object ReadingListsImportHelper {
@@ -29,7 +30,7 @@ object ReadingListsImportHelper {
                         wikiSite,
                         page.namespace(),
                         page.displayTitle(wikiSite.languageCode),
-                        page.title,
+                        StringUtil.addUnderscores(page.title),
                         page.description,
                         page.thumbUrl(),
                         lang = wikiSite.languageCode

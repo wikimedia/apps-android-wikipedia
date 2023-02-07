@@ -53,21 +53,26 @@ interface OfflineObjectDao {
         var obj = getOfflineObject(url, lang)
 
         var doInsert = false
+        var doModify = false
         if (obj == null) {
             obj = OfflineObject(url = url, lang = lang, path = path, status = 0)
             doInsert = true
         }
 
         // try to find the associated title in a reading list, and add its id to the usedBy list.
-        val page = AppDatabase.instance.readingListPageDao().findLatestPageInAnyList(
+        val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(
             PageTitle(pageTitle, WikiSite.forLanguageCode(lang))
         )
-        if (page != null && !obj.usedBy.contains(page.id)) {
-            obj.addUsedBy(page.id)
+
+        pages.forEach {
+            if (!obj.usedBy.contains(it.id)) {
+                obj.addUsedBy(it.id)
+                doModify = true
+            }
         }
         if (doInsert) {
             insertOfflineObject(obj)
-        } else {
+        } else if (doModify) {
             if (path != obj.path) {
                 L.w("Existing offline object path is inconsistent.")
             }
