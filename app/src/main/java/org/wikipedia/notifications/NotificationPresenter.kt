@@ -141,7 +141,7 @@ object NotificationPresenter {
         builder.addAction(action)
     }
 
-    private fun drawNotificationBitmap(context: Context, @ColorRes color: Int, @DrawableRes icon: Int, lang: String): Bitmap {
+    fun drawNotificationBitmap(context: Context, @ColorRes color: Int, @DrawableRes icon: Int, lang: String): Bitmap {
         val bitmapHalfSize = DimenUtil.roundedDpToPx(24f)
         val iconHalfSize = DimenUtil.roundedDpToPx(14f)
         return createBitmap(bitmapHalfSize * 2, bitmapHalfSize * 2).applyCanvas {

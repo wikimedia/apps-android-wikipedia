@@ -240,7 +240,7 @@
   <string name="gallery_save_success">File salveguardate.</string>
   <string name="gallery_add_image_caption_button">Adder legenda al imagine</string>
   <string name="err_cannot_save_file">Impossibile salveguardar le file</string>
-  <string name="expand_refs">Tocca pro displicar</string>
+  <string name="expand_refs">Tocca pro expander</string>
   <string name="cc_logo">Licentia Creative Commons</string>
   <string name="captcha_image">Imagine CAPTCHA</string>
   <string name="page_view_in_browser">Visitar iste pagina in le navigator</string>
