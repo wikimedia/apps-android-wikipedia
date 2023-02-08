@@ -475,18 +475,22 @@
     <string name="reading_list_articles_already_exist_message">All good! %s already contains all articles.</string>
     <string name="reading_list_added_view_button">View list</string>
     <string name="reading_list_add_to_list_button">Add to list</string>
+    <plurals name="format_reading_list_statistical_summary_without_size">
+        <item quantity="one">1 article</item>
+        <item quantity="other">%d articles</item>
+    </plurals>
     <plurals name="format_reading_list_statistical_summary">
         <item quantity="one">1 article, %2$.2f MB</item>
         <item quantity="other">%1$d articles, %2$.2f MB</item>
+    </plurals>
+    <plurals name="format_reading_list_statistical_detail_without_size">
+        <item quantity="one">%1$d of 1 article available offline</item>
+        <item quantity="other">%1$d of %2$d articles available offline</item>
     </plurals>
     <plurals name="format_reading_list_statistical_detail">
         <item quantity="one">%1$d of 1 article available offline, %3$.2f MB</item>
         <item quantity="other">%1$d of %2$d articles available offline, %3$.2f MB</item>
     </plurals>
-    <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
-    <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>
-    <string name="format_reading_list_statistical_detail_singular">%1$d of 1 articles available offline, %2$.2f MB</string>
-    <string name="format_reading_list_statistical_detail_plural">%1$d of %2$d articles available offline, %3$.2f MB</string>
     <string name="reading_list_sort">Sort</string>
     <string name="reading_list_sort_ellipsis">Sort by…</string>
     <string name="reading_list_sort_by_name">Sort by name</string>
