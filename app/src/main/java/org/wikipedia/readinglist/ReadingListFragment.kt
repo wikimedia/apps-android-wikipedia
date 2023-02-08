@@ -198,7 +198,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 true
             }
             R.id.menu_reading_list_select -> {
-                beginMultiSelect() 
+                beginMultiSelect()
                 true
             }
             else -> false
