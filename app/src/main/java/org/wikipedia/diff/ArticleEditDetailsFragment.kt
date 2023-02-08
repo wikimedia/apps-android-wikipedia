@@ -261,8 +261,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         val watchlistItem = menu.findItem(R.id.menu_add_watchlist)
         watchlistItem.title = getString(if (isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
         watchlistItem.setIcon(getWatchlistIcon(isWatched, hasWatchlistExpiry))
-        menu.findItem(R.id.menu_undo).isVisible = (viewModel.revisionFrom != null) &&
-                !AccountUtil.isLoggedIn || (viewModel.hasRollbackRights && !viewModel.canGoForward)
     }
 
     override fun onMenuItemSelected(item: MenuItem): Boolean {
@@ -279,10 +277,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
             R.id.menu_copy_link_to_clipboard -> {
                 copyLink(getSharableDiffUrl())
-                true
-            }
-            R.id.menu_undo -> {
-                showUndoDialog()
                 true
             }
             else -> false
@@ -454,8 +448,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun updateUndoAndRollbackButtons() {
         binding.rollbackButton.isVisible = AccountUtil.isLoggedIn && viewModel.hasRollbackRights && !viewModel.canGoForward
-        binding.undoButton.isVisible = AccountUtil.isLoggedIn && !binding.rollbackButton.isVisible
-        requireActivity().invalidateOptionsMenu()
+        binding.undoButton.isVisible = AccountUtil.isLoggedIn
     }
 
     private fun getSharableDiffUrl(): String {
