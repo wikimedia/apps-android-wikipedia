@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemWatchlistBinding
@@ -65,6 +66,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
 
         binding.userNameText.setIconResource(if (item.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_avatar)
         if (item.logtype.isNotEmpty()) {
+            binding.diffText.isVisible = true
             when (item.logtype) {
                 context.getString(R.string.page_moved) -> {
                     setButtonTextAndIconColor(context.getString(R.string.watchlist_page_moved), R.drawable.ic_info_outline_black_24dp)
@@ -74,6 +76,10 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
                 }
                 context.getString(R.string.page_deleted) -> {
                     setButtonTextAndIconColor(context.getString(R.string.watchlist_page_deleted), R.drawable.ic_delete_white_24dp)
+                }
+                else -> {
+                    binding.diffText.isVisible = false
+                    binding.summaryText.text = StringUtil.fromHtml(item.logdisplay)
                 }
             }
             binding.containerView.alpha = 0.5f
@@ -87,6 +93,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
             } else {
                 binding.diffText.setTextColor(ContextCompat.getColor(context, R.color.red50))
             }
+            binding.diffText.isVisible = true
             binding.containerView.alpha = 1.0f
             binding.containerView.isClickable = true
         }
