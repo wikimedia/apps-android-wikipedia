@@ -1329,6 +1329,8 @@
   <string name="reading_list_share_message_v2">Message that is sent to a recipient when sharing a reading list.</string>
   <string name="reading_list_share_survey_title">Title for dialog box that leads to a survey about sharing reading lists.</string>
   <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
+  <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
+  <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
   <string name="reading_lists_default_list_delete_message">Message shown to users when they attempt selecting the default list for deletion. %s is replaced with the name of the default list.</string>
   <string name="reading_lists_default_plus_one_list_delete_message">Message shown to users when they attempt selecting the default list with one other list for deletion. %1$s represents the name of the non-default list, and %2$s represents the name of the default list.</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">Message shown to users when they attempt selecting the default list as one of the multiple lists for deletion. %s is replaced with the name of the default list.</string>

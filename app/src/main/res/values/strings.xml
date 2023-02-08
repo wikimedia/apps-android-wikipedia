@@ -617,7 +617,7 @@
     <string name="reading_list_delete_lists_dialog_delete_button_text">Delete</string>
     <string name="reading_list_activity_title">Reading list: %s</string>
     <string name="reading_list_notification_title">Reading list(s) exported</string>
-    <string name="reading_list_notification_text"> %d Reading list(s) have been exported as \'reading_lists export.json\' to your downloads folder</string>
+    <string name="reading_list_notification_text">%d Reading list(s) have been exported as \'reading_lists export.json\' to your downloads folder</string>
     <string name="reading_list_notification_detailed_text">Reading lists have been exported to \'reading_lists_export.json\'</string>
     <string name="reading_lists_action_menu_export_lists">Export</string>
     <string name="reading_lists_import_file_picker_title">Choose the file to import</string>
@@ -1407,5 +1407,8 @@
     <string name="reading_list_share_survey_title">Could you help us improve \"Share reading lists\"?</string>
     <string name="reading_list_share_survey_body">\"Share reading lists\" is a test feature and we need your feedback to improve or remove it.</string>
     <!-- /Shareable reading lists -->
+
+    <string name="data_opt_in_accept">Accept</string>
+    <string name="data_opt_in_reject">Reject</string>
 
 </resources>
