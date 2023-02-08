@@ -81,7 +81,7 @@ object ShareUtil {
                 context.resources.getString(R.string.image_share_via))
     }
 
-    private fun getUriFromFile(context: Context, file: File?): Uri? {
+     fun getUriFromFile(context: Context, file: File?): Uri? {
         if (file == null) {
             return null
         }

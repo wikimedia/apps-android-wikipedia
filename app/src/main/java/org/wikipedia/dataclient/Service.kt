@@ -103,7 +103,7 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info|description&inprop=varianttitles|displaytitle&redirects=1")
     fun getInfoByPageId(@Query("pageids") pageIds: String): Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&prop=description|pageimages&redirects=1")
+    @GET(MW_API_PREFIX + "action=query&prop=info|description|pageimages&inprop=varianttitles|displaytitle&redirects=1")
     suspend fun getPageTitlesByPageId(@Query("pageids") pageIds: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query")

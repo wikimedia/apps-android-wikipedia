@@ -60,8 +60,8 @@ class ReadingListsFunnel : Funnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID) {
         log("action", "import_start")
     }
 
-    fun logImportCancel(listCount: Int) {
-        log("action", "import_cancel", "listcount", listCount)
+    fun logImportCancel() {
+        log("action", "import_cancel")
     }
 
     fun logImportFinish(listCount: Int) {
