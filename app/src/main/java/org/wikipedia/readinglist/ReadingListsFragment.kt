@@ -727,7 +727,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             if (event is ReadingListSyncEvent) {
                 binding.recyclerView.post {
                     if (isAdded) {
-                        updateLists()
+                        updateLists(currentSearchQuery, !currentSearchQuery.isNullOrEmpty() || recentImportedReadingList != null)
                     }
                 }
             } else if (event is ArticleSavedOrDeletedEvent) {
@@ -787,6 +787,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private fun importReadingListAndRefresh(readingList: ReadingList) {
         binding.swipeRefreshLayout.isRefreshing = true
         readingList.id = AppDatabase.instance.readingListDao().insertReadingList(readingList)
+        updateLists()
         AppDatabase.instance.readingListPageDao().addPagesToList(readingList, readingList.pages, true)
         recentImportedReadingList = readingList
         shouldShowImportedSnackbar = true
@@ -796,10 +797,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         if (shouldShowImportedSnackbar) {
             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.shareable_reading_lists_new_imported_snackbar))
                 .addCallback(object : Snackbar.Callback() {
-                    override fun onDismissed(
-                        transientBottomBar: Snackbar,
-                        @DismissEvent event: Int
-                    ) {
+                    override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
                         if (!isAdded) {
                             return
                         }
