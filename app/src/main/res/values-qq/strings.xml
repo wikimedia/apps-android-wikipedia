@@ -495,10 +495,6 @@
     <item quantity="one">Detailed description shown for a reading list that contains one article; The %1$d parameter is the number pages saved to disk for offline reading (zero or one), and the %3$.2f parameter is the number of megabytes saved to disk for this list.</item>
     <item quantity="other">Detailed description shown for a reading list that contains multiple articles; The %1$d parameter is the number of pages saved to disk for offline reading, the %2$d parameter is the number of total pages in the list, and the %3$.2f parameter is the total number of megabytes saved to disk for this list.</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">Summary shown for a reading list that contains one article (singular); this string is formatted with a parameter containing the number of megabytes saved to disk for offline page reading. The %1$.2f symbol is replaced with the cache size of the article.</string>
-  <string name="format_reading_list_statistical_summary_plural">Summary shown for a reading list that contains zero or multiple articles (plural); this string is formatted with two arguments: 1)(%1$d) the number of pages in the list, 2)(%2$.2f) a parameter containing the total number of megabytes saved to disk for offline page reading.</string>
-  <string name="format_reading_list_statistical_detail_singular">Detailed description shown for a reading list that contains one article (singular); this string is formatted with two arguments: 1)(%1$d) the number, zero or one, of pages saved to disk for offline reading, 2)(%2$.2f) a parameter containing the number of megabytes saved to disk for offline page reading.</string>
-  <string name="format_reading_list_statistical_detail_plural">Detailed description shown for a reading list that contains zero or multiple articles (plural); this string is formatted with three arguments: 1)(%1$d) the number of pages saved to disk for offline reading, 2)(%2$d) the number of pages in the list total, 3)(%3$.2f) a parameter containing the total number of megabytes saved to disk for offline page reading.</string>
   <string name="reading_list_sort">Button label to sort reading lists.\n{{Identical|Sort}}</string>
   <string name="reading_list_sort_ellipsis">Menu option suggesting that the user can sort the reading listsin many ways.</string>
   <string name="reading_list_sort_by_name">Menu option to sort reading lists by name.</string>
@@ -1338,4 +1334,12 @@
   <string name="reading_lists_default_plus_many_lists_delete_message">Message shown to users when they attempt selecting the default list as one of the multiple lists for deletion. %s is replaced with the name of the default list.</string>
   <string name="single_list_json_file_name">File name to be given to a single exported reading list, with %s representing the name of the reading list. Please preserve the .json extension, and do not use any illegal filename characters.</string>
   <string name="multiple_lists_json_file_name">File name to be given to a file containing multiple exported reading lists, with %s representing the name of the first list. Please preserve the .json extension, and do not use any illegal filename characters.</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">Summary shown for a reading list that contains one article which is not downloaded, and hence not taking up disk space.</item>
+    <item quantity="other">Summary shown for a reading list that contains multiple articles; The %d parameter is the number of pages in the list which are not downloaded, and hence not taking up disk space.</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">Detailed description Summary shown for a reading list that contains one article which is not downloaded, and hence not taking up disk space</item>
+    <item quantity="other">Detailed description shown for a reading list that contains multiple articles; The %1$d parameter is the number of pages saved to disk for offline reading, the %2$d parameter is the number of total pages in the list.</item>
+  </plurals>
 </resources>
