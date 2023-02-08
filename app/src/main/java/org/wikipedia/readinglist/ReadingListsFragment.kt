@@ -727,7 +727,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             if (event is ReadingListSyncEvent) {
                 binding.recyclerView.post {
                     if (isAdded) {
-                        updateLists()
+                        updateLists(currentSearchQuery, !currentSearchQuery.isNullOrEmpty() || recentImportedReadingList != null)
                     }
                 }
             } else if (event is ArticleSavedOrDeletedEvent) {
