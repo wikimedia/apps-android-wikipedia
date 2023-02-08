@@ -9,17 +9,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
+import androidx.core.view.isVisible
 import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewReadingListsOverflowBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.ReleaseUtil
 import java.text.ParseException
 
 class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
     interface Callback {
         fun sortByClick()
         fun createNewListClick()
+        fun importNewList()
+        fun selectListClick()
         fun refreshClick()
     }
 
@@ -28,6 +32,7 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
     private var popupWindowHost: PopupWindow? = null
 
     init {
+        binding.readingListsOverflowSelect.isVisible = ReleaseUtil.isPreBetaRelease
         binding.readingListsOverflowSortBy.setOnClickListener {
             dismissPopupWindowHost()
             callback?.sortByClick()
@@ -35,6 +40,14 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
         binding.readingListsOverflowCreateNewList.setOnClickListener {
             dismissPopupWindowHost()
             callback?.createNewListClick()
+        }
+        binding.readingListsOverflowImportList.setOnClickListener {
+            dismissPopupWindowHost()
+            callback?.importNewList()
+        }
+        binding.readingListsOverflowSelect.setOnClickListener {
+            dismissPopupWindowHost()
+            callback?.selectListClick()
         }
         binding.readingListsOverflowRefresh.setOnClickListener {
             dismissPopupWindowHost()
