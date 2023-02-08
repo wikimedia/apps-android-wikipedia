@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Lorem ipsum" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/view_list_card_header_lang_background"
         android:layout_width="0dp"
         android:layout_height="18dp"
@@ -50,6 +50,17 @@
         app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_menu"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="zh-hant" />
+
+    <ImageView
+        android:id="@+id/view_list_card_header_secondary_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_menu"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        app:tint="?attr/secondary_text_color" />
 
     <ImageView
         android:id="@+id/view_list_card_header_menu"
