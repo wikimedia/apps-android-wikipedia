@@ -622,7 +622,7 @@
     <string name="reading_lists_action_menu_export_lists">Export</string>
     <string name="reading_lists_import_file_picker_title">Choose the file to import</string>
     <string name="reading_lists_import_failure_message">Reading lists import failed</string>
-    <string name="reading_lists_export_select_lists_message">Select list(s) to  export</string>
+    <string name="reading_lists_export_select_lists_message">Select list(s) to export</string>
     <string name="reading_lists_export_completed_message">Reading list(s) exported</string>
     <plurals name="reading_list_export_failed_message">
         <item quantity="one">Reading list export failed</item>
