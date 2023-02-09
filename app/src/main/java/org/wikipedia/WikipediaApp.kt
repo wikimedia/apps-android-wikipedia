@@ -16,7 +16,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.internal.functions.Functions
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.wikipedia.analytics.FunnelManager
 import org.wikipedia.analytics.InstallReferrerListener
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
@@ -46,7 +45,6 @@ import java.util.*
 class WikipediaApp : Application() {
     val mainThreadHandler by lazy { Handler(mainLooper) }
     val languageState by lazy { AppLanguageState(this) }
-    val funnelManager by lazy { FunnelManager(this) }
     val appSessionEvent by lazy { AppSessionEvent() }
     val userAgent by lazy {
         var channel = ReleaseUtil.getChannel(this)

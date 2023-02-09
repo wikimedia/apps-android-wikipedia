@@ -120,7 +120,7 @@ object Prefs {
         set(multiplier) = PrefsIoUtil.setInt(R.string.preference_key_editing_text_size_multiplier, multiplier)
 
     var isEventLoggingEnabled
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_eventlogging_opt_in, true)
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_eventlogging_opt_in, false)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_eventlogging_opt_in, enabled)
 
     val geoIPCountryOverride

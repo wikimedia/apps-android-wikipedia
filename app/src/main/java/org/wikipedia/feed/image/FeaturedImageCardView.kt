@@ -2,6 +2,7 @@ package org.wikipedia.feed.image
 
 import android.content.Context
 import android.view.LayoutInflater
+import org.wikipedia.R
 import org.wikipedia.databinding.ViewCardFeaturedImageBinding
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
@@ -91,7 +92,7 @@ class FeaturedImageCardView(context: Context) : DefaultFeedCardView<FeaturedImag
 
     private fun header(card: FeaturedImageCard) {
         binding.viewFeaturedImageCardHeader.setTitle(card.title())
-            .setLangCode(null)
+            .setSecondaryIcon(R.drawable.ic_commons_logo)
             .setCard(card)
             .setCallback(callback)
     }
