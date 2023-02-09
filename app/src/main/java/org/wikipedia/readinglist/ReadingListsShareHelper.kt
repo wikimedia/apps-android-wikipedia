@@ -22,6 +22,8 @@ import org.wikipedia.util.log.L
 
 object ReadingListsShareHelper {
 
+    const val API_MAX_SIZE = 50
+
     fun shareEnabled(): Boolean {
         return ReleaseUtil.isPreBetaRelease ||
                 (listOf("EG", "DZ", "MA", "KE", "CG", "AO", "GH", "NG", "IN", "BD", "PK", "LK", "NP").contains(GeoUtil.geoIPCountry.orEmpty()) &&
@@ -45,10 +47,10 @@ object ReadingListsShareHelper {
             val wikiPageIdsMap = mutableMapOf<String, MutableMap<String, Int>>()
 
             wikiPageTitlesMap.keys.forEach { wikiLang ->
-                val titleList = wikiPageTitlesMap[wikiLang].orEmpty()
-                val pages = ServiceFactory.get(WikiSite.forLanguageCode(wikiLang)).getPageIds(titleList.joinToString("|")).query?.pages!!
-                pages.forEach { page ->
-                    wikiPageIdsMap.getOrPut(wikiLang) { mutableMapOf() }[StringUtil.addUnderscores(page.title)] = page.pageId
+                wikiPageTitlesMap[wikiLang].orEmpty().windowed(API_MAX_SIZE, API_MAX_SIZE, true).forEach { list ->
+                    ServiceFactory.get(WikiSite.forLanguageCode(wikiLang)).getPageIds(list.joinToString("|")).query?.pages!!.forEach { page ->
+                        wikiPageIdsMap.getOrPut(wikiLang) { mutableMapOf() }[StringUtil.addUnderscores(page.title)] = page.pageId
+                    }
                 }
             }
 

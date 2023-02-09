@@ -23,6 +23,7 @@ import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -59,7 +60,8 @@ object NotificationPresenter {
             }
         }
 
-        val themedContext = ContextThemeWrapper(context, WikipediaApp.instance.currentTheme.resourceId)
+        val themedContext = if (WikipediaApp.instance.currentTheme == Theme.LIGHT) context else
+            ContextThemeWrapper(context, WikipediaApp.instance.currentTheme.resourceId)
 
         showNotification(context, builder, id, n.agent?.name ?: wikiSiteName, title, title, lang,
                 notificationCategory.iconResId, ResourceUtil.getThemedAttributeId(themedContext, notificationCategory.iconColor), activityIntent)
@@ -139,7 +141,7 @@ object NotificationPresenter {
         builder.addAction(action)
     }
 
-    private fun drawNotificationBitmap(context: Context, @ColorRes color: Int, @DrawableRes icon: Int, lang: String): Bitmap {
+    fun drawNotificationBitmap(context: Context, @ColorRes color: Int, @DrawableRes icon: Int, lang: String): Bitmap {
         val bitmapHalfSize = DimenUtil.roundedDpToPx(24f)
         val iconHalfSize = DimenUtil.roundedDpToPx(14f)
         return createBitmap(bitmapHalfSize * 2, bitmapHalfSize * 2).applyCanvas {

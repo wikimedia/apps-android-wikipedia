@@ -166,6 +166,8 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         override fun onDelete(readingList: ReadingList) {}
         override fun onSaveAllOffline(readingList: ReadingList) {}
         override fun onRemoveAllOffline(readingList: ReadingList) {}
+        override fun onSelectList(readingList: ReadingList) {}
+        override fun onChecked(readingList: ReadingList) {}
         override fun onShare(readingList: ReadingList) {}
     }
 

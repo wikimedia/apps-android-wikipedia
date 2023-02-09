@@ -23,7 +23,6 @@ import org.wikipedia.Constants.InvokeSource.TALK_TOPICS_ACTIVITY
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.databinding.ItemTalkTopicBinding
@@ -57,7 +56,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     private val concatAdapter = ConcatAdapter()
     private val headerAdapter = HeaderItemAdapter()
     private val talkTopicItemAdapter = TalkTopicItemAdapter()
-    private var funnel: TalkFunnel? = null
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
     private var goToTopic = false
@@ -68,7 +66,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                 if (intent.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
                     val pos = intent.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
                     if (pos < WikipediaApp.instance.languageState.appLanguageCodes.size) {
-                        funnel?.logChangeLanguage()
 
                         val newNamespace = when {
                             viewModel.pageTitle.namespace() == Namespace.USER -> {
@@ -145,13 +142,11 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         }
 
         binding.talkNewTopicButton.setOnClickListener {
-            funnel?.logNewTopicClick()
             requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, viewModel.pageTitle, null, null, TALK_TOPICS_ACTIVITY))
         }
 
         binding.talkRefreshView.setOnRefreshListener {
             binding.talkRefreshView.isRefreshing = false
-            funnel?.logRefresh()
             resetViews()
             viewModel.loadTopics()
         }
@@ -172,6 +167,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                     is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.undoneSubject, it.undoneBody)
                     is TalkTopicsViewModel.UiState.DoWatch -> updateOnWatch()
                     is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
+                    is TalkTopicsViewModel.UiState.ActionError -> FeedbackUtil.showError(this@TalkTopicsActivity, it.throwable)
                 }
             }
         }
@@ -252,7 +248,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                 return true
             }
             R.id.menu_archive -> {
-                funnel?.logOpenArchive()
                 startActivity(ArchivedTalkPagesActivity.newIntent(this, viewModel.pageTitle))
                 return true
             }
@@ -279,7 +274,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnSuccess(pageTitle: PageTitle, threadItems: List<ThreadItem>) {
-        funnel = TalkFunnel(pageTitle, invokeSource)
         setToolbarTitle(pageTitle)
 
         if (binding.talkRecyclerView.adapter == null) {
@@ -329,8 +323,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             }
             talkTopicItemAdapter.notifyDataSetChanged()
         }
-        funnel?.logOpenTalk()
-
         binding.talkProgressBar.isVisible = false
         invalidateOptionsMenu()
     }
@@ -380,7 +372,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
     }
 
-    fun updateNotificationDot(animate: Boolean) {
+    private fun updateNotificationDot(animate: Boolean) {
         if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
             notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
             if (animate) {
@@ -449,7 +441,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             }
 
             binding.talkSortButton.setOnClickListener {
-                TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(binding.talkSortButton, viewModel.currentSortMode, funnel) {
+                TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(binding.talkSortButton, viewModel.currentSortMode) {
                     viewModel.currentSortMode = it
                     talkTopicItemAdapter.notifyDataSetChanged()
                 }
