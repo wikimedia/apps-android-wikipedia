@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTalkTopicBinding
 import org.wikipedia.dataclient.WikiSite
@@ -41,7 +40,6 @@ import org.wikipedia.views.ViewUtil
 
 class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private lateinit var binding: ActivityTalkTopicBinding
-    private lateinit var talkFunnel: TalkFunnel
     private lateinit var linkHandler: TalkLinkHandler
 
     private val viewModel: TalkTopicViewModel by viewModels { TalkTopicViewModel.Factory(intent.extras!!) }
@@ -107,12 +105,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         binding.talkRefreshView.setOnRefreshListener {
-            talkFunnel.logRefresh()
             loadTopics()
         }
-
-        talkFunnel = TalkFunnel(viewModel.pageTitle, intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
-        talkFunnel.logOpenTopic()
 
         binding.talkRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -204,11 +198,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun expandOrCollapseAll(expand: Boolean) {
-        if (expand) {
-            talkFunnel.logThreadGlobalExpand()
-        } else {
-            talkFunnel.logThreadGlobalCollapse()
-        }
         Prefs.talkTopicExpandOrCollapseByDefault = expand
         viewModel.expandOrCollapseAll().dispatchUpdatesTo(threadAdapter)
         threadAdapter.notifyItemRangeChanged(0, threadAdapter.itemCount)
@@ -358,11 +347,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onExpandClick(item: ThreadItem) {
-            if (item.isExpanded) {
-                talkFunnel.logThreadItemCollapse()
-            } else {
-                talkFunnel.logThreadItemExpand()
-            }
             viewModel.toggleItemExpanded(item).dispatchUpdatesTo(threadAdapter)
             invalidateOptionsMenu()
         }
@@ -429,7 +413,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun startReplyActivity(item: ThreadItem, undoSubject: CharSequence? = null, undoBody: CharSequence? = null) {
-        talkFunnel.logReplyClick()
         replyResult.launch(TalkReplyActivity.newIntent(this@TalkTopicActivity, viewModel.pageTitle, viewModel.topic?.html,
                 item, Constants.InvokeSource.TALK_TOPIC_ACTIVITY, undoSubject, undoBody))
     }
