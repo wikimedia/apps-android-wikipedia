@@ -60,6 +60,8 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         binding.listOfLists.layoutManager = LinearLayoutManager(requireActivity())
         binding.listOfLists.adapter = adapter
         binding.createButton.setOnClickListener(createClickListener)
+        // Log a click event, but only the first time the dialog is shown.
+        logClick()
         updateLists()
         return binding.root
     }
@@ -130,10 +132,8 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         commitChanges(readingList, titles)
     }
 
-    open fun logClick(savedInstanceState: Bundle?) {
-        if (savedInstanceState == null && activity != null) {
-            BreadCrumbLogEvent.logMenuItemSelection(requireActivity(), "add_to_reading_list from" + invokeSource.ordinal)
-        }
+    open fun logClick() {
+        BreadCrumbLogEvent.logMenuItemSelection(requireActivity(), null, "add_to_reading_list from" + invokeSource.ordinal)
     }
 
     open fun commitChanges(readingList: ReadingList, titles: List<PageTitle>) {

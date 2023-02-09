@@ -35,12 +35,12 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
     init {
         binding.readingListsOverflowSelect.isVisible = ReleaseUtil.isPreBetaRelease
         binding.readingListsOverflowSortBy.setOnClickListener {
-            BreadCrumbLogEvent.logMenuItemSelection(context, "sort_lists_click")
+            BreadCrumbLogEvent.logMenuItemSelection(context, it)
             dismissPopupWindowHost()
             callback?.sortByClick()
         }
         binding.readingListsOverflowCreateNewList.setOnClickListener {
-            BreadCrumbLogEvent.logMenuItemSelection(context, "create_list_click")
+            BreadCrumbLogEvent.logMenuItemSelection(context, it)
             dismissPopupWindowHost()
             callback?.createNewListClick()
         }
@@ -53,7 +53,7 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
             callback?.selectListClick()
         }
         binding.readingListsOverflowRefresh.setOnClickListener {
-            BreadCrumbLogEvent.logMenuItemSelection(context, "refresh_sync_lists_click")
+            BreadCrumbLogEvent.logMenuItemSelection(context, it)
             dismissPopupWindowHost()
             callback?.refreshClick()
         }

@@ -14,6 +14,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
@@ -33,7 +34,8 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
         return parentView
     }
 
-    override fun logClick(savedInstanceState: Bundle?) {
+    override fun logClick() {
+        BreadCrumbLogEvent.logMenuItemSelection(requireActivity(), null, "add_to_reading_list from " + invokeSource.ordinal)
     }
 
     override fun commitChanges(readingList: ReadingList, titles: List<PageTitle>) {

@@ -72,8 +72,14 @@ class BreadCrumbLogEvent(
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), str))
         }
 
-        fun logMenuItemSelection(context: Context, actionStr: String) {
-            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), actionStr))
+        fun logMenuItemSelection(context: Context, view: View?, addDialogLogString: String? = null) {
+            addDialogLogString?.let {
+                EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), addDialogLogString))
+                return
+            }
+            view?.let {
+                EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), BreadCrumbViewUtil.getReadableNameForView(view)))
+            }
         }
     }
 }
