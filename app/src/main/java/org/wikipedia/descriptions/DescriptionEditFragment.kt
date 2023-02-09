@@ -275,6 +275,10 @@ class DescriptionEditFragment : Fragment() {
                                 hasEditErrorCode -> {
                                     editFailed(MwException(MwServiceError(code, spamblacklist)), false)
                                 }
+                                hasCaptchaResponse -> {
+                                    // TODO: handle captcha
+                                    // new CaptchaResult(result.edit().captchaId());
+                                }
                                 hasSpamBlacklistResponse -> {
                                     editFailed(MwException(MwServiceError(code, info)), false)
                                 }
