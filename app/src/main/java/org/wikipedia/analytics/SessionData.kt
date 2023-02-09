@@ -11,14 +11,13 @@ import java.util.concurrent.TimeUnit
 class SessionData {
 
     @Transient private val pageLatency = MathUtil.Averaged<Long>()
-    @SerialName("total_pages")
-    val totalPages: Int
+    @SerialName("total_pages") var totalPages: Int = 0
         get() = pagesFromSearch + pagesFromRandom + pagesFromLangLink + pagesFromInternal +
                 pagesFromExternal + pagesFromHistory + pagesFromReadingList + pagesFromSuggestedEdits
     @Transient var startTime: Long = 0
     @Transient var lastTouchTime: Long = 0
-    @SerialName("page_load_latency_ms") private val averagedPageLatency
-    get() = getPageLatency().toInt()
+    @SerialName("page_load_latency_ms") private var averagedPageLatency = 0
+        get() = getPageLatency().toInt()
     @SerialName("from_search") var pagesFromSearch = 0
     @SerialName("from_random") var pagesFromRandom = 0
     @SerialName("from_lang_link") var pagesFromLangLink = 0
