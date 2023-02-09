@@ -283,8 +283,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 getString(R.string.cc_by_sa_3_url)))
         editLicenseText.movementMethod = LinkMovementMethodExt { url: String ->
             if (url == "https://#login") {
-                val loginIntent = LoginActivity.newIntent(this@EditSectionActivity,
-                        LoginActivity.SOURCE_EDIT, UUID.randomUUID().toString())
+                val loginIntent = LoginActivity.newIntent(this@EditSectionActivity, LoginActivity.SOURCE_EDIT)
                 requestLogin.launch(loginIntent)
             } else {
                 UriUtil.handleExternalLink(this@EditSectionActivity, url.toUri())

@@ -226,7 +226,6 @@ class LoginActivity : BaseActivity() {
         const val RESULT_LOGIN_SUCCESS = 1
         const val RESULT_LOGIN_FAIL = 2
         const val LOGIN_REQUEST_SOURCE = "login_request_source"
-        const val EDIT_SESSION_TOKEN = "edit_session_token"
         const val SOURCE_NAV = "navigation"
         const val SOURCE_EDIT = "edit"
         const val SOURCE_BLOCKED = "blocked"

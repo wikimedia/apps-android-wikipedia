@@ -263,8 +263,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                 getString(R.string.cc_by_sa_3_url)))
         binding.licenseText.movementMethod = LinkMovementMethodExt { url: String ->
             if (url == "https://#login") {
-                val loginIntent = LoginActivity.newIntent(this,
-                        LoginActivity.SOURCE_EDIT, UUID.randomUUID().toString())
+                val loginIntent = LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT)
                 requestLogin.launch(loginIntent)
             } else {
                 UriUtil.handleExternalLink(this, Uri.parse(url))

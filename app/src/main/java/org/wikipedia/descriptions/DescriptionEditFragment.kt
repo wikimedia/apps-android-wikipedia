@@ -129,8 +129,7 @@ class DescriptionEditFragment : Fragment() {
         loadPageSummaryIfNeeded(savedInstanceState)
 
         binding.fragmentDescriptionEditView.setLoginCallback {
-            val loginIntent = LoginActivity.newIntent(requireActivity(),
-                    LoginActivity.SOURCE_EDIT, UUID.randomUUID().toString())
+            val loginIntent = LoginActivity.newIntent(requireActivity(), LoginActivity.SOURCE_EDIT)
             loginLauncher.launch(loginIntent)
         }
         return binding.root
