@@ -184,10 +184,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 true
             }
             R.id.menu_reading_list_share -> {
-                if (ReadingListsShareHelper.shareEnabled()) {
-                    readingList?.let {
-                        ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, it)
-                    }
+                readingList?.let {
+                    ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, it)
                 }
                 true
             }
