@@ -240,7 +240,6 @@ class LoginActivity : BaseActivity() {
         fun newIntent(context: Context, source: String, token: String? = null): Intent {
             return Intent(context, LoginActivity::class.java)
                     .putExtra(LOGIN_REQUEST_SOURCE, source)
-                    .putExtra(EDIT_SESSION_TOKEN, token)
         }
     }
 }
