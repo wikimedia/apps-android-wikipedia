@@ -116,6 +116,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     }
 
     private fun setVoiceInput() {
+        binding.viewDescriptionEditTextLayout.isEndIconVisible = WikipediaApp.instance.voiceRecognitionAvailable
         binding.viewDescriptionEditTextLayout.setEndIconOnClickListener {
             callback?.onVoiceInputClick()
         }

@@ -60,8 +60,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toEndOf="@id/item_select_checkbox"
         app:layout_constraintEnd_toStartOf="@+id/item_share_button"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:flexWrap="wrap"
         app:justifyContent="flex_start">
@@ -139,4 +139,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_more_vert_white_24dp" />
+
+    <CheckBox
+        android:id="@+id/item_select_checkbox"
+        android:layout_width="@dimen/view_list_card_item_image"
+        android:layout_height="@dimen/view_list_card_item_image"
+        android:layout_marginStart="@dimen/list_item_horizontal_padding"
+        android:layout_marginEnd="@dimen/list_item_horizontal_padding"
+        android:contentDescription="@null"
+        android:padding="8dp"
+        android:visibility="gone"
+        app:backgroundTint="@color/accent50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_check_black_24dp"
+        app:tint="@android:color/white"
+        tools:visibility="visible" />
 </merge>

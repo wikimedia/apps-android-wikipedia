@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.MotionEvent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -46,12 +47,20 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
 
 abstract class BaseActivity : AppCompatActivity() {
+    interface Callback {
+        fun onPermissionResult(activity: BaseActivity, isGranted: Boolean)
+    }
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
     private val networkStateReceiver = NetworkStateReceiver()
     private var previousNetworkState = WikipediaApp.instance.isOnline
     private val disposables = CompositeDisposable()
     private var currentTooltip: Balloon? = null
     private var imageZoomHelper: ImageZoomHelper? = null
+    var callback: Callback? = null
+
+    val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            callback?.onPermissionResult(this, isGranted)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

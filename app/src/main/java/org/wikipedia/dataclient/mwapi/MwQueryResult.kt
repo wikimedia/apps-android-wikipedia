@@ -173,6 +173,7 @@ class MwQueryResult {
         val title: String = ""
         val user: String = ""
         val logtype: String = ""
+        val logdisplay: String = ""
         val oldlen = 0
         val newlen = 0
         var wiki: WikiSite? = null

@@ -475,18 +475,22 @@
     <string name="reading_list_articles_already_exist_message">All good! %s already contains all articles.</string>
     <string name="reading_list_added_view_button">View list</string>
     <string name="reading_list_add_to_list_button">Add to list</string>
+    <plurals name="format_reading_list_statistical_summary_without_size">
+        <item quantity="one">1 article</item>
+        <item quantity="other">%d articles</item>
+    </plurals>
     <plurals name="format_reading_list_statistical_summary">
         <item quantity="one">1 article, %2$.2f MB</item>
         <item quantity="other">%1$d articles, %2$.2f MB</item>
+    </plurals>
+    <plurals name="format_reading_list_statistical_detail_without_size">
+        <item quantity="one">%1$d of 1 article available offline</item>
+        <item quantity="other">%1$d of %2$d articles available offline</item>
     </plurals>
     <plurals name="format_reading_list_statistical_detail">
         <item quantity="one">%1$d of 1 article available offline, %3$.2f MB</item>
         <item quantity="other">%1$d of %2$d articles available offline, %3$.2f MB</item>
     </plurals>
-    <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
-    <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>
-    <string name="format_reading_list_statistical_detail_singular">%1$d of 1 articles available offline, %2$.2f MB</string>
-    <string name="format_reading_list_statistical_detail_plural">%1$d of %2$d articles available offline, %3$.2f MB</string>
     <string name="reading_list_sort">Sort</string>
     <string name="reading_list_sort_ellipsis">Sort by…</string>
     <string name="reading_list_sort_by_name">Sort by name</string>
@@ -496,6 +500,10 @@
     <string name="reading_list_sort_by_created">Sort by date created (newest)</string>
     <string name="reading_list_sort_by_created_desc">Sort by date created (oldest)</string>
     <string name="reading_list_menu_delete">Delete list</string>
+    <string name="reading_list_menu_export">Export list</string>
+    <string name="reading_list_menu_select">Select</string>
+    <string name="reading_list_menu_unselect">Unselect</string>
+    <string name="reading_list_export_write_permission_rationale">Permission to write to storage on your device is required for exporting your reading list.</string>
     <string name="reading_list_menu_rename">Edit name/description</string>
     <string name="reading_list_action_menu_remove_from_offline">Remove from offline</string>
     <string name="reading_list_action_menu_save_for_offline">Save for offline</string>
@@ -516,6 +524,15 @@
         <item quantity="one">%d article removed from %s</item>
         <item quantity="other">%d articles removed from %s</item>
     </plurals>
+    <plurals name="reading_lists_deleted_message">
+        <item quantity="one">%d list deleted</item>
+        <item quantity="other">%d lists deleted</item>
+    </plurals>
+    <string name="reading_lists_default_list_delete_message">The default list (%s) can\'t be deleted</string>
+    <string name="reading_lists_default_plus_one_list_delete_message">%1$s deleted. The default list (%2$s) can\'t be deleted.</string>
+    <string name="reading_lists_default_plus_many_lists_delete_message">Lists deleted. The default list (%s) can\'t be deleted.</string>
+    <string name="single_list_json_file_name">%s (Wikipedia reading list).json</string>
+    <string name="multiple_lists_json_file_name">Wikipedia reading lists (%s and more).json</string>
     <string name="reading_list_items_deleted">%d articles removed from list</string>
     <string name="reading_lists_item_deleted">%s removed from lists</string>
     <string name="reading_list_item_delete_undo">Undo</string>
@@ -548,6 +565,11 @@
     <string name="reading_list_articles_added_to_named">Added %1$d articles to %2$s</string>
     <string name="reading_list_articles_moved_to_named">Moved %1$d articles to %2$s</string>
     <string name="reading_list_delete_confirm">Are you sure you want to delete %s?</string>
+    <string name="reading_list_delete_lists_confirm_dialog_title">Delete selected list(s)?</string>
+    <plurals name="reading_list_delete_lists_confirm_dialog_message">
+        <item quantity="one">Are you sure you want to delete %d list?</item>
+        <item quantity="other">Are you sure you want to delete %d lists?</item>
+    </plurals>
     <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log in to enable sync</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log in to allow your reading lists to be saved to your account.</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancel</string>
@@ -571,6 +593,7 @@
     <string name="reading_list_article_limit_message">Can\'t add to this list. You\'ve reached the limit of %2$d articles per list for \"%1$s\".</string>
     <string name="reading_lists_limit_message">Can\'t create another list. You\'ve reached the limit of 100 reading lists per account.</string>
     <string name="reading_lists_menu_create_list">Create new list</string>
+    <string name="reading_lists_menu_import_list">Import list</string>
     <string name="reading_lists_menu_sort_by">Sort by</string>
     <string name="reading_lists_refresh_sync_option">Refresh sync</string>
     <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Log in / sign up</string>
@@ -591,7 +614,24 @@
     <string name="reading_list_remove_from_offline_cancel_button_text">Cancel</string>
     <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancel</string>
     <string name="reading_list_split_dialog_ok_button_text">OK</string>
+    <string name="reading_list_delete_lists_dialog_delete_button_text">Delete</string>
     <string name="reading_list_activity_title">Reading list: %s</string>
+    <string name="reading_list_notification_title">Reading list(s) exported</string>
+    <string name="reading_list_notification_text">%d Reading list(s) have been exported as \'reading_lists export.json\' to your downloads folder</string>
+    <string name="reading_list_notification_detailed_text">Reading lists have been exported to \'reading_lists_export.json\'</string>
+    <string name="reading_lists_action_menu_export_lists">Export</string>
+    <string name="reading_lists_import_file_picker_title">Choose the file to import</string>
+    <string name="reading_lists_import_failure_message">Reading lists import failed</string>
+    <string name="reading_lists_export_select_lists_message">Select list(s) to export</string>
+    <string name="reading_lists_export_completed_message">Reading list(s) exported</string>
+    <plurals name="reading_list_export_failed_message">
+        <item quantity="one">Reading list export failed</item>
+        <item quantity="other">Reading lists export failed</item>
+    </plurals>
+    <plurals name="reading_list_import_success_message">
+        <item quantity="one">Reading list imported</item>
+        <item quantity="other">Reading lists imported</item>
+    </plurals>
     <!-- /Reading lists -->
 
     <!-- User options -->
@@ -1411,5 +1451,8 @@
     <string name="reading_list_share_survey_title">Could you help us improve \"Share reading lists\"?</string>
     <string name="reading_list_share_survey_body">\"Share reading lists\" is a test feature and we need your feedback to improve or remove it.</string>
     <!-- /Shareable reading lists -->
+
+    <string name="data_opt_in_accept">Accept</string>
+    <string name="data_opt_in_reject">Reject</string>
 
 </resources>
