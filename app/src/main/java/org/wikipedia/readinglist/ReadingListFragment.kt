@@ -31,6 +31,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
@@ -127,6 +128,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val sortOptionsItem = menu.findItem(R.id.menu_sort_options)
         val iconColor = if (toolbarExpanded) AppCompatResources.getColorStateList(requireContext(), android.R.color.white)
         else ResourceUtil.getThemedColorStateList(requireContext(), R.attr.toolbar_icon_color)
+        menu.findItem(R.id.menu_reading_list_share)?.isVisible = ReadingListsShareHelper.shareEnabled()
         MenuItemCompat.setIconTintList(searchItem, iconColor)
         MenuItemCompat.setIconTintList(sortOptionsItem, iconColor)
         readingList?.let {
@@ -179,6 +181,22 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                         update()
                     }
                 }
+                true
+            }
+            R.id.menu_reading_list_share -> {
+                readingList?.let {
+                    ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, it)
+                }
+                true
+            }
+            R.id.menu_reading_list_export -> {
+                readingList?.let {
+                    ReadingListsExportImportHelper.exportLists(requireActivity() as BaseActivity, listOf(it))
+                }
+                true
+            }
+            R.id.menu_reading_list_select -> {
+                beginMultiSelect()
                 true
             }
             else -> false
