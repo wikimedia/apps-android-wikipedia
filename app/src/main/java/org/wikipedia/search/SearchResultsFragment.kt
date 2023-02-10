@@ -103,7 +103,7 @@ class SearchResultsFragment : Fragment() {
     }
 
     fun startSearch(term: String?, force: Boolean) {
-        if (!force && viewModel.searchTerm == term) {
+        if (!force && viewModel.searchTerm == term && viewModel.languageCode == searchLanguageCode) {
             return
         }
 
