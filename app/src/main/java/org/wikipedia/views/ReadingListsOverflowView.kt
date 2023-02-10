@@ -12,6 +12,7 @@ import android.widget.PopupWindow
 import androidx.core.view.isVisible
 import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.databinding.ViewReadingListsOverflowBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -34,10 +35,12 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
     init {
         binding.readingListsOverflowSelect.isVisible = ReleaseUtil.isPreBetaRelease
         binding.readingListsOverflowSortBy.setOnClickListener {
+            BreadCrumbLogEvent.logMenuItemSelection(context, it)
             dismissPopupWindowHost()
             callback?.sortByClick()
         }
         binding.readingListsOverflowCreateNewList.setOnClickListener {
+            BreadCrumbLogEvent.logMenuItemSelection(context, it)
             dismissPopupWindowHost()
             callback?.createNewListClick()
         }
@@ -50,6 +53,7 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
             callback?.selectListClick()
         }
         binding.readingListsOverflowRefresh.setOnClickListener {
+            BreadCrumbLogEvent.logMenuItemSelection(context, it)
             dismissPopupWindowHost()
             callback?.refreshClick()
         }
