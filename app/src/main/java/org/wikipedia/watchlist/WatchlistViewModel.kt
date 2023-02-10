@@ -102,7 +102,7 @@ class WatchlistViewModel : ViewModel() {
     private fun latestRevisions(): String? {
         val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
         if (!includedTypesCodes.containsAll(WatchlistFilterTypes.LATEST_REVISIONS_GROUP.map { it.id }) &&
-            includedTypesCodes.contains(WatchlistFilterTypes.NOT_LATEST_REVISION.id)) {
+            !includedTypesCodes.contains(WatchlistFilterTypes.LATEST_REVISION.id)) {
             return WatchlistFilterTypes.NOT_LATEST_REVISION.value
         }
         return null

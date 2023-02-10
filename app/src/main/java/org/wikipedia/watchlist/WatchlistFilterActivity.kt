@@ -70,7 +70,7 @@ class WatchlistFilterActivity : BaseActivity() {
         }
         filterListWithHeaders.add(getString(R.string.watchlist_filter_type_of_change_header))
         WatchlistFilterTypes.TYPE_OF_CHANGES_GROUP.forEach {
-            filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id, false))
+            filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id, true))
         }
         return filterListWithHeaders
     }
@@ -107,7 +107,7 @@ class WatchlistFilterActivity : BaseActivity() {
     private inner class WatchlistFilterAdapter(val context: Context, private val filtersList: List<Any>) :
         RecyclerView.Adapter<DefaultViewHolder<*>>(), WatchlistFilterItemView.Callback {
         private var excludedWikiCodes = Prefs.watchlistExcludedWikiCodes.toMutableSet()
-        private var includedWikiCodes = Prefs.watchlistIncludedTypeCodes.toMutableSet()
+        private var includedTypeCodes = Prefs.watchlistIncludedTypeCodes.toMutableSet()
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): DefaultViewHolder<*> {
             return when (type) {
@@ -156,14 +156,21 @@ class WatchlistFilterActivity : BaseActivity() {
                     if (filter.type == FILTER_TYPE_WIKI) {
                         if (excludedWikiCodes.contains(filter.filterCode)) excludedWikiCodes.remove(filter.filterCode)
                         else excludedWikiCodes.add(filter.filterCode)
-                    } else if (filter.type == Companion.FILTER_TYPE_CATEGORY) {
-                        if (includedWikiCodes.contains(filter.filterCode)) includedWikiCodes.remove(filter.filterCode)
-                        else includedWikiCodes.add(filter.filterCode)
+                    } else if (filter.type == FILTER_TYPE_CATEGORY) {
+                        if (filter.isCheckBox) {
+                            if (includedTypeCodes.contains(filter.filterCode)) includedTypeCodes.remove(filter.filterCode)
+                            else includedTypeCodes.add(filter.filterCode)
+                        } else {
+                            val group = WatchlistFilterTypes.findGroup(filter.filterCode)
+                            includedTypeCodes.removeAll(group.map { it.id }.toSet())
+                            // Find the group belongs to it and remove others.
+                            includedTypeCodes.add(filter.filterCode)
+                        }
                     }
                 }
             }
             Prefs.watchlistExcludedWikiCodes = excludedWikiCodes
-            Prefs.watchlistIncludedTypeCodes = includedWikiCodes
+            Prefs.watchlistIncludedTypeCodes = includedTypeCodes
             notifyItemRangeChanged(0, itemCount)
         }
     }

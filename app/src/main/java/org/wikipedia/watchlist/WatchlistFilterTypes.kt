@@ -104,5 +104,10 @@ enum class WatchlistFilterTypes constructor(val id: String,
         fun find(id: String): WatchlistFilterTypes {
             return findOrNull(id) ?: MAP[0]
         }
+
+        fun findGroup(id: String): List<WatchlistFilterTypes> {
+            val groups = listOf(MINOR_EDITS_GROUP, BOT_EDITS_GROUP, UNSEEN_CHANGES_GROUP, LATEST_REVISIONS_GROUP, USER_STATUS_GROUP)
+            return groups.find { it.contains(find(id)) }.orEmpty()
+        }
     }
 }
