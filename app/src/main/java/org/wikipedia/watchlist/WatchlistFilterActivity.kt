@@ -16,6 +16,8 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityWatchlistFiltersBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.DefaultViewHolder
 
 class WatchlistFilterActivity : BaseActivity() {
@@ -32,6 +34,8 @@ class WatchlistFilterActivity : BaseActivity() {
         setResult(RESULT_OK)
         setUpRecyclerView()
         setContentView(binding.root)
+        window.statusBarColor = ResourceUtil.getThemedColor(this, android.R.attr.colorBackground)
+        DeviceUtil.setNavigationBarColor(window, ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
     }
 
     private fun setUpRecyclerView() {
