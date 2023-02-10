@@ -91,6 +91,9 @@ class WatchlistFilterActivity : BaseActivity() {
         private val headerText = itemView.findViewById<TextView>(R.id.filter_header_title)!!
 
         fun bindItem(filterHeader: String) {
+            if (filterHeader == itemView.context.getString(R.string.watchlist_filter_wiki_filter_header)) {
+                itemView.setPadding(0, 0, 0, 0)
+            }
             headerText.text = filterHeader
         }
     }
