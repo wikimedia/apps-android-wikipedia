@@ -53,7 +53,7 @@
   <string name="app_settings">Налады праграмы</string>
   <string name="search_tab_tooltip">Націсніце на іконку зноў, каб пачаць увод пошукавага запыту.</string>
   <string name="history_list_title">Гісторыя</string>
-  <string name="image_content_description">Выява: %s</string>
+  <string name="image_content_description">Відарыс: %s</string>
   <string name="page_content_description">Старонка: %s</string>
   <string name="wikimedia_commons">Вікісховішча</string>
   <string name="wikidata">Вікіданыя</string>
