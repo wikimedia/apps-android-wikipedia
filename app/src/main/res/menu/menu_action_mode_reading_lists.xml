@@ -3,20 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/menu_check_all"
+    <item android:id="@+id/menu_select"
         android:icon="@drawable/ic_outline_library_add_check_24"
         android:title="@string/notifications_menu_check_all"
-        app:showAsAction="always" />
-
-    <item android:id="@+id/menu_select_indeterminate"
-        android:icon="@drawable/ic_select_indeterminate"
-        android:visible="false"
-        app:showAsAction="always" />
-
-    <item android:id="@+id/menu_uncheck_all"
-        android:icon="@drawable/ic_deselect_all"
-        android:visible="false"
-        android:title="@string/notifications_menu_uncheck_all"
         app:showAsAction="always" />
 
     <item
