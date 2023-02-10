@@ -3,12 +3,9 @@ package org.wikipedia.search
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.async
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -64,24 +61,15 @@ class SearchResultsViewModel : ViewModel() {
                 if (prefixSearch) {
                     if (searchTerm.length > 2) {
                         withContext(Dispatchers.IO) {
-                            val readingListSearch = async {
-                                AppDatabase.instance.readingListPageDao().findPageForSearchQueryInAnyList(searchTerm)
-                            }
-
-                            val historySearch = async {
-                                AppDatabase.instance.historyEntryWithImageDao().findHistoryItem(searchTerm)
-                            }
-
-                            val tabsSearch = async {
+                            listOf(async {
                                 getSearchResultsFromTabs(searchTerm)
+                            }, async {
+                                AppDatabase.instance.historyEntryWithImageDao().findHistoryItem(searchTerm)
+                            }, async {
+                                AppDatabase.instance.readingListPageDao().findPageForSearchQueryInAnyList(searchTerm)
+                            }).awaitAll().forEach {
+                                resultList.addAll(it.results.take(1))
                             }
-
-                            tabsSearch.await()?.let {
-                                resultList.add(it)
-                            }
-
-                            resultList.addAll(findFirstMatchItem(resultList, readingListSearch.await()))
-                            resultList.addAll(findFirstMatchItem(resultList, historySearch.await()))
                         }
                     }
                     response = ServiceFactory.get(wikiSite).prefixSearch(searchTerm, params.loadSize, params.key?.gpsoffset)
@@ -133,7 +121,7 @@ class SearchResultsViewModel : ViewModel() {
 
                 resultList.addAll(searchResults)
 
-                return LoadResult.Page(resultList, null, response.continuation)
+                return LoadResult.Page(resultList.distinctBy { it.pageTitle.prefixedText }, null, response.continuation)
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }
@@ -145,27 +133,19 @@ class SearchResultsViewModel : ViewModel() {
             return null
         }
 
-        private fun findFirstMatchItem(resultList: List<SearchResult>, searchResults: SearchResults): List<SearchResult> {
-            return searchResults.results.filterNot { res ->
-                resultList.map { it.pageTitle.prefixedText }
-                    .contains(res.pageTitle.prefixedText)
-            }.take(1)
-        }
-
-        private fun getSearchResultsFromTabs(searchTerm: String): SearchResult? {
-            if (searchTerm.length < 2) {
-                return null
-            }
-            WikipediaApp.instance.tabList.forEach { tab ->
-                tab.backStackPositionTitle?.let {
-                    if (StringUtil.fromHtml(it.displayText).toString()
-                            .lowercase(Locale.getDefault())
-                            .contains(searchTerm.lowercase(Locale.getDefault()))) {
-                        return SearchResult(it, SearchResult.SearchResultType.TAB_LIST)
+        private fun getSearchResultsFromTabs(searchTerm: String): SearchResults {
+            if (searchTerm.length >= 2) {
+                WikipediaApp.instance.tabList.forEach { tab ->
+                    tab.backStackPositionTitle?.let {
+                        if (StringUtil.fromHtml(it.displayText).toString()
+                                .lowercase(Locale.getDefault())
+                                .contains(searchTerm.lowercase(Locale.getDefault()))) {
+                            return SearchResults(mutableListOf(SearchResult(it, SearchResult.SearchResultType.TAB_LIST)))
+                        }
                     }
                 }
             }
-            return null
+            return SearchResults()
         }
     }
 }
