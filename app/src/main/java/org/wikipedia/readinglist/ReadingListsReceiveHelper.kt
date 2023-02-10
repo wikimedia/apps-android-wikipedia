@@ -12,7 +12,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import java.util.*
 
-object ReadingListsImportHelper {
+object ReadingListsReceiveHelper {
 
     suspend fun importReadingLists(context: Context, encodedJson: String): ReadingList {
         val readingListData = getExportedReadingLists(encodedJson)
