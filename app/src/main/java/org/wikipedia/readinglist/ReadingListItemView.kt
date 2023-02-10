@@ -199,7 +199,7 @@ class ReadingListItemView : ConstraintLayout {
 
     private inner class OverflowMenuClickListener constructor(private val list: ReadingList?) : PopupMenu.OnMenuItemClickListener {
         override fun onMenuItemClick(item: MenuItem): Boolean {
-            BreadCrumbLogEvent.logMenuItemSelection(context, item.actionView)
+            BreadCrumbLogEvent.logClick(context, item)
             when (item.itemId) {
                 R.id.menu_reading_list_rename -> {
                     list?.let { callback?.onRename(it) }
