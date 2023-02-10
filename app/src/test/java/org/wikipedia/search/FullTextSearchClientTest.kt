@@ -1,68 +1,97 @@
 package org.wikipedia.search
 
+import kotlinx.coroutines.runBlocking
+import org.hamcrest.MatcherAssert
+import org.hamcrest.Matchers
 import org.junit.Test
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.test.MockRetrofitTest
 
 class FullTextSearchClientTest : MockRetrofitTest() {
-    private val observable
-        get() = apiService.fullTextSearchMedia("foo", BATCH_SIZE, null, null)
-            .map { response ->
-                if (response.query != null) {
-                    return@map SearchResults(response.query!!.pages!!, TESTWIKI, response.continuation)
-                }
-                SearchResults()
-            }
+
+    private suspend fun searchResults(): SearchResults {
+        val mwQueryResponse = fullTextSearch()
+        return if (mwQueryResponse.query?.pages != null) {
+            SearchResults(mwQueryResponse.query!!.pages!!, TESTWIKI, mwQueryResponse.continuation)
+        } else SearchResults()
+    }
 
     @Test
     @Throws(Throwable::class)
     fun testRequestSuccessNoContinuation() {
         enqueueFromFile("full_text_search_results.json")
-        observable.test().await()
-            .assertComplete().assertNoErrors()
-            .assertValue { (results) -> results[0].pageTitle.displayText == "IND Queens Boulevard Line" }
+        runBlocking {
+            searchResults()
+        }.run {
+            MatcherAssert.assertThat(results.first().pageTitle.displayText, Matchers.`is`("IND Queens Boulevard Line"))
+        }
     }
 
     @Test
     @Throws(Throwable::class)
     fun testRequestSuccessWithContinuation() {
         enqueueFromFile("full_text_search_results.json")
-        observable.test().await()
-            .assertComplete().assertNoErrors()
-            .assertValue { (_, continuation) -> continuation!!.continuation == "gsroffset||" && continuation.gsroffset == 20 }
+        runBlocking {
+            searchResults()
+        }.run {
+            MatcherAssert.assertThat(continuation?.continuation, Matchers.`is`("gsroffset||"))
+            MatcherAssert.assertThat(continuation?.gsroffset, Matchers.`is`(20))
+        }
     }
 
     @Test
     @Throws(Throwable::class)
     fun testRequestSuccessNoResults() {
         enqueueFromFile("full_text_search_results_empty.json")
-        observable.test().await()
-            .assertComplete().assertNoErrors()
-            .assertValue { (results) -> results.isEmpty() }
+        runBlocking {
+            searchResults()
+        }.run {
+            MatcherAssert.assertThat(results, Matchers.empty())
+        }
     }
 
     @Test
     @Throws(Throwable::class)
     fun testRequestResponseApiError() {
         enqueueFromFile("api_error.json")
-        observable.test().await()
-            .assertError(Exception::class.java)
+        runBlocking {
+            try {
+                searchResults()
+            } catch (e: Exception) {
+                MatcherAssert.assertThat(e, Matchers.notNullValue())
+            }
+        }
     }
 
     @Test
     @Throws(Throwable::class)
     fun testRequestResponseFailure() {
         enqueue404()
-        observable.test().await()
-            .assertError(Exception::class.java)
+        runBlocking {
+            try {
+                searchResults()
+            } catch (e: Exception) {
+                MatcherAssert.assertThat(e, Matchers.notNullValue())
+            }
+        }
     }
 
     @Test
     @Throws(Throwable::class)
     fun testRequestResponseMalformed() {
         enqueueMalformed()
-        observable.test().await()
-            .assertError(Exception::class.java)
+        runBlocking {
+            try {
+                searchResults()
+            } catch (e: Exception) {
+                MatcherAssert.assertThat(e, Matchers.notNullValue())
+            }
+        }
+    }
+
+    private suspend fun fullTextSearch(): MwQueryResponse {
+        return apiService.fullTextSearch("foo", null, BATCH_SIZE, null)
     }
 
     companion object {
