@@ -122,13 +122,13 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
-        WikipediaApp.instance.sessionFunnel.persistSession()
+        WikipediaApp.instance.appSessionEvent.persistSession()
         super.onStop()
     }
 
     override fun onResume() {
         super.onResume()
-        WikipediaApp.instance.sessionFunnel.touchSession()
+        WikipediaApp.instance.appSessionEvent.touchSession()
 
         // allow this activity's exclusive bus methods to override any existing ones.
         unregisterExclusiveBusMethods()
