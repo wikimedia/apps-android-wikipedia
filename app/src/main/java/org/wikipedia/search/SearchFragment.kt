@@ -91,7 +91,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
                     position = app.languageState.appLanguageCodes.indexOf(searchLanguageCode)
                 }
             }
-            searchResultsFragment.clearSearchResultsCountCache()
             Prefs.selectedLanguagePositionInSearch = position
         }
     }
@@ -263,7 +262,12 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         if (term.isNullOrBlank() && !force) {
             return
         }
-        searchResultsFragment.startSearch(term, force)
+        binding.searchContainer.postDelayed({
+            if (!isAdded) {
+                return@postDelayed
+            }
+            searchResultsFragment.startSearch(term, force)
+        }, if (invokeSource == InvokeSource.VOICE) VOICE_SEARCH_DELAY_MILLIS else 0)
     }
 
     private fun openSearch() {
@@ -359,6 +363,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         private const val ARG_QUERY = "lastQuery"
         private const val PANEL_RECENT_SEARCHES = 0
         private const val PANEL_SEARCH_RESULTS = 1
+        private const val VOICE_SEARCH_DELAY_MILLIS = 500L
         const val RESULT_LANG_CHANGED = 1
         const val LANG_BUTTON_TEXT_SIZE_LARGER = 12
         const val LANG_BUTTON_TEXT_SIZE_MEDIUM = 10
