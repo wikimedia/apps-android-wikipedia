@@ -8,6 +8,11 @@
         android:title="@string/notifications_menu_check_all"
         app:showAsAction="always" />
 
+    <item android:id="@+id/menu_select_indeterminate"
+        android:icon="@drawable/ic_select_indeterminate"
+        android:visible="false"
+        app:showAsAction="always" />
+
     <item android:id="@+id/menu_uncheck_all"
         android:icon="@drawable/ic_deselect_all"
         android:visible="false"
