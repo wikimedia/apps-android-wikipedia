@@ -16,7 +16,6 @@ import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.dataclient.wikidata.Search
 import org.wikipedia.edit.Edit
 import org.wikipedia.login.LoginClient.LoginResponse
-import org.wikipedia.search.PrefixSearchResponse
 import retrofit2.http.*
 
 /**
@@ -33,17 +32,12 @@ interface Service {
     fun getPageImages(@Query("titles") titles: String): Observable<MwQueryResponse>
 
     @GET(
-        MW_API_PREFIX + "action=query&redirects=" +
-                "&converttitles=&prop=description|pageimages|info&piprop=thumbnail" +
-                "&pilicense=any&generator=prefixsearch&gpsnamespace=0&list=search&srnamespace=0" +
-                "&inprop=varianttitles|displaytitle" +
-                "&srwhat=text&srinfo=suggestion&srprop=&sroffset=0&srlimit=1&pithumbsize=" + PREFERRED_THUMB_SIZE
+        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=description|pageimages|info&piprop=thumbnail" +
+                "&pilicense=any&generator=prefixsearch&gpsnamespace=0&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE
     )
-    fun prefixSearch(
-        @Query("gpssearch") title: String?,
-        @Query("gpslimit") maxResults: Int,
-        @Query("srsearch") repeat: String?
-    ): Observable<PrefixSearchResponse>
+    suspend fun prefixSearch(@Query("gpssearch") searchTerm: String?,
+                             @Query("gpslimit") maxResults: Int,
+                             @Query("gpsoffset") gpsOffset: Int?): MwQueryResponse
 
     @GET(
         MW_API_PREFIX + "action=query&converttitles=" +
@@ -53,30 +47,7 @@ interface Service {
                 "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
                 PREFERRED_THUMB_SIZE
     )
-    fun fullTextSearchMedia(
-        @Query("gsrsearch") searchTerm: String?,
-        @Query("gsrlimit") gsrLimit: Int,
-        @Query("continue") cont: String?,
-        @Query("gsroffset") gsrOffset: String?
-    ): Observable<MwQueryResponse>
-
-    @GET(
-        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=info" +
-                "&generator=prefixsearch&inprop=varianttitles|displaytitle"
-    )
-    suspend fun prefixSearch(@Query("gpssearch") searchTerm: String?,
-                             @Query("gpslimit") maxResults: Int,
-                             @Query("gpsoffset") gpsOffset: Int?): MwQueryResponse
-
-    @GET(
-        MW_API_PREFIX + "action=query&converttitles=" +
-                "&prop=imageinfo" +
-                "&generator=search&gsrnamespace=0&gsrwhat=text" +
-                "&iiprop=timestamp|user|url|mime|extmetadata" +
-                "&gsrinfo=&gsrprop=redirecttitle&iiurlwidth=" +
-                PREFERRED_THUMB_SIZE
-    )
-    suspend fun fullTextSearchMedia(
+    suspend fun fullTextSearch(
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsroffset") gsrOffset: String?,
         @Query("gsrlimit") gsrLimit: Int,

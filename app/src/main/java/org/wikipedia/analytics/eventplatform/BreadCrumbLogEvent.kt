@@ -71,5 +71,15 @@ class BreadCrumbLogEvent(
             val str = "$viewReadableName." + (view as TextView).text
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), str))
         }
+
+        fun logMenuItemSelection(context: Context, view: View?, addDialogLogString: String? = null) {
+            addDialogLogString?.let {
+                EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), addDialogLogString))
+                return
+            }
+            view?.let {
+                EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), BreadCrumbViewUtil.getReadableNameForView(view)))
+            }
+        }
     }
 }

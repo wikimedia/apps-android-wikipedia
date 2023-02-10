@@ -6,7 +6,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
@@ -53,7 +52,6 @@ object ReadingListsReceiveSurveyHelper {
         dialog.findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethodExt { url ->
             CustomTabsUtil.openInCustomTab(activity, url)
         }
-        ReadingListsFunnel().logSurveyShown()
     }
 
     private fun isActive(): Boolean {

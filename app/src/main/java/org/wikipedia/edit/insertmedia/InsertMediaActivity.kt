@@ -34,6 +34,7 @@ import org.wikipedia.databinding.ItemEditActionbarButtonBinding
 import org.wikipedia.databinding.ItemInsertMediaBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.SearchActionModeCallback
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
@@ -165,7 +166,7 @@ class InsertMediaActivity : BaseActivity() {
     }
 
     private fun combineMediaWikitext(): String {
-        viewModel.selectedImage?.pageTitle?.prefixedText?.let {
+        viewModel.selectedImage?.prefixedText?.let {
             var wikiText = "[[$it|${viewModel.imageSize}px|${viewModel.imageType}|${viewModel.imagePosition}"
 
             if (insertMediaSettingsFragment.alternativeText.isNotEmpty()) {
@@ -217,7 +218,7 @@ class InsertMediaActivity : BaseActivity() {
             binding.selectedImageContainer.isVisible = true
             binding.progressBar.isVisible = true
             binding.selectedImage.loadImage(
-                Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it.pageTitle.thumbUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)),
+                Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)),
                 roundedCorners = false, cropped = false, emptyPlaceholder = true, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
                     override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
                         if (!isDestroyed) {
@@ -244,9 +245,8 @@ class InsertMediaActivity : BaseActivity() {
                 })
 
             binding.selectedImageContainer.setOnClickListener { _ ->
-                val pageTitle = it.pageTitle
-                pageTitle.wikiSite = WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)
-                startActivity(FilePageActivity.newIntent(this@InsertMediaActivity, pageTitle))
+                it.wikiSite = WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)
+                startActivity(FilePageActivity.newIntent(this@InsertMediaActivity, it))
             }
         } ?: run {
             binding.emptyImageContainer.isVisible = true
@@ -254,17 +254,17 @@ class InsertMediaActivity : BaseActivity() {
         }
     }
 
-    private inner class InsertMediaDiffCallback : DiffUtil.ItemCallback<MediaSearchResult>() {
-        override fun areItemsTheSame(oldItem: MediaSearchResult, newItem: MediaSearchResult): Boolean {
+    private inner class InsertMediaDiffCallback : DiffUtil.ItemCallback<PageTitle>() {
+        override fun areItemsTheSame(oldItem: PageTitle, newItem: PageTitle): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: MediaSearchResult, newItem: MediaSearchResult): Boolean {
-            return oldItem.pageTitle.prefixedText == newItem.pageTitle.prefixedText && oldItem.pageTitle.namespace == newItem.pageTitle.namespace
+        override fun areContentsTheSame(oldItem: PageTitle, newItem: PageTitle): Boolean {
+            return oldItem.prefixedText == newItem.prefixedText && oldItem.namespace == newItem.namespace
         }
     }
 
-    private inner class InsertMediaAdapter : PagingDataAdapter<MediaSearchResult, RecyclerView.ViewHolder>(InsertMediaDiffCallback()) {
+    private inner class InsertMediaAdapter : PagingDataAdapter<PageTitle, RecyclerView.ViewHolder>(InsertMediaDiffCallback()) {
         override fun onCreateViewHolder(parent: ViewGroup, pos: Int): InsertMediaItemHolder {
             return InsertMediaItemHolder(ItemInsertMediaBinding.inflate(layoutInflater))
         }
@@ -277,14 +277,14 @@ class InsertMediaActivity : BaseActivity() {
     }
 
     private inner class InsertMediaItemHolder constructor(val binding: ItemInsertMediaBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bindItem(searchResult: MediaSearchResult) {
-            ViewUtil.loadImageWithRoundedCorners(binding.imageView, searchResult.pageTitle.thumbUrl)
-            binding.imageDescription.text = StringUtil.removeHTMLTags(searchResult.imageInfo?.metadata?.imageDescription().orEmpty().ifEmpty { searchResult.pageTitle.displayText })
+        fun bindItem(pageTitle: PageTitle) {
+            ViewUtil.loadImageWithRoundedCorners(binding.imageView, pageTitle.thumbUrl)
+            binding.imageDescription.text = StringUtil.removeHTMLTags(pageTitle.description.orEmpty().ifEmpty { pageTitle.displayText })
 
-            binding.selectedIcon.isVisible = searchResult == viewModel.selectedImage
+            binding.selectedIcon.isVisible = pageTitle == viewModel.selectedImage
 
             binding.root.setOnClickListener {
-                viewModel.selectedImage = if (searchResult == viewModel.selectedImage) null else searchResult
+                viewModel.selectedImage = if (pageTitle == viewModel.selectedImage) null else pageTitle
                 actionMode?.finish()
                 showSelectedImage()
                 invalidateOptionsMenu()

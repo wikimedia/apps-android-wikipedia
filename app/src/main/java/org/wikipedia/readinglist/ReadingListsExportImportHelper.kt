@@ -15,7 +15,6 @@ import androidx.core.content.getSystemService
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
@@ -59,7 +58,6 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
                 activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent, exportLists.size).build())
                 FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_lists_export_completed_message))
                     .setAction(R.string.suggested_edits_article_cta_snackbar_action) { activity.startActivity(intent) }.show()
-                ReadingListsFunnel().logExportLists(exportLists.size)
             } catch (e: Exception) {
                 FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_export_failed_message, exportLists.size))
             }
@@ -81,8 +79,6 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
     }
 
     fun importLists(activity: BaseActivity, jsonString: String) {
-        val funnel = ReadingListsFunnel()
-        funnel.logImportStart()
         var readingLists: List<ExportableReadingList>? = null
         try {
             readingLists = JsonUtil.decodeFromString(jsonString)
@@ -90,7 +86,6 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
                 throw Exception()
             }
         } catch (e: Exception) {
-            funnel.logImportCancel()
             FeedbackUtil.showMessage(activity, R.string.reading_lists_import_failure_message)
         }
         readingLists?.let { lists ->
@@ -104,7 +99,6 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
                 val readingList = AppDatabase.instance.readingListDao().createList(list.name!!, list.description)
                 addTitlesToList(list, readingList)
             }
-            funnel.logImportFinish(readingLists.size)
             FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_import_success_message, readingLists.size))
         }
     }
