@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
-    android:orientation="vertical">
+    android:paddingTop="16dp"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
 
     <TextView
         android:id="@+id/filter_header_title"
@@ -11,12 +12,8 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:gravity="center_vertical"
-        android:textColor="?attr/colorAccent"
-        android:textSize="14sp"
+        android:textColor="?attr/primary_text_color"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="?attr/material_theme_border_color" />
 </LinearLayout>

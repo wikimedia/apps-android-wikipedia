@@ -1363,8 +1363,8 @@
     <string name="watchlist_page_moved">Moved</string>
     <string name="watchlist_page_protected">Protected</string>
     <string name="watchlist_page_deleted">Deleted</string>
-    <string name="watchlist_filter_title">Filter Watchlist</string>
-    <string name="watchlist_filter_wiki_filter_header">Wiki filter</string>
+    <string name="watchlist_filter_title">Watchlist filter</string>
+    <string name="watchlist_filter_wiki_filter_header">Wiki</string>
     <string name="watchlist_filter_all_wikis_text">All \"wiki\"</string>
     <string name="watchlist_filter_all_text">All</string>
     <string name="watchlist_filter_watchlist_activity_header">Watchlist activity</string>
