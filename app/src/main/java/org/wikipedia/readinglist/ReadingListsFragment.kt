@@ -590,6 +590,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         val isEnabled = selectedListsCount != 0
         val deleteItem = menu.findItem(R.id.menu_delete_selected)
         val exportItem = menu.findItem(R.id.menu_export_selected)
+        val checkAll = menu.findItem(R.id.menu_check_all)
+        val unCheckAll = menu.findItem(R.id.menu_uncheck_all)
+        val indeterminate = menu.findItem(R.id.menu_select_indeterminate)
         val exportItemTitleColor = ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)
         val exportItemAlphaColor = ColorUtils.setAlphaComponent(exportItemTitleColor, alpha)
         val spanString = SpannableString(exportItem.title.toString())
@@ -598,6 +601,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         deleteItem.icon?.alpha = alpha
         exportItem.isEnabled = isEnabled
         deleteItem.isEnabled = isEnabled
+        unCheckAll.isVisible = selectedListsCount == displayedLists.count { it is ReadingList }
+        checkAll.isVisible = selectedListsCount == 0
+        indeterminate.isVisible = !checkAll.isVisible && !unCheckAll.isVisible
     }
 
     private inner class MultiSelectCallback : MultiSelectActionModeCallback() {
@@ -632,11 +638,19 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     selectAllLists()
                     mode.menu.findItem(R.id.menu_check_all).isVisible = false
                     mode.menu.findItem(R.id.menu_uncheck_all).isVisible = true
+                    mode.menu.findItem(R.id.menu_select_indeterminate).isVisible = false
+                }
+                R.id.menu_select_indeterminate -> {
+                    selectAllLists()
+                    mode.menu.findItem(R.id.menu_check_all).isVisible = false
+                    mode.menu.findItem(R.id.menu_uncheck_all).isVisible = true
+                    mode.menu.findItem(R.id.menu_select_indeterminate).isVisible = false
                 }
                 R.id.menu_uncheck_all -> {
                     unselectAllLists()
                     mode.menu.findItem(R.id.menu_uncheck_all).isVisible = false
                     mode.menu.findItem(R.id.menu_check_all).isVisible = true
+                    mode.menu.findItem(R.id.menu_select_indeterminate).isVisible = false
                 }
             }
             return false
