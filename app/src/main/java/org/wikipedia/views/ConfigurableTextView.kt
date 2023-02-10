@@ -8,6 +8,8 @@ import org.wikipedia.util.L10nUtil
 open class ConfigurableTextView constructor(context: Context, attrs: AttributeSet? = null) : AppCompatTextView(context, attrs) {
     fun setText(text: CharSequence?, languageCode: String?) {
         super.setText(text)
-        L10nUtil.setConditionalLayoutDirection(this, languageCode!!)
+        if (!isInEditMode) {
+            L10nUtil.setConditionalLayoutDirection(this, languageCode!!)
+        }
     }
 }

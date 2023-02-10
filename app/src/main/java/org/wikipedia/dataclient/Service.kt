@@ -7,6 +7,7 @@ import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscribeResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscriptionList
 import org.wikipedia.dataclient.mwapi.*
+import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.rollback.RollbackPostResponse
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.Claims
@@ -102,7 +103,7 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info|description&inprop=varianttitles|displaytitle&redirects=1")
     fun getInfoByPageId(@Query("pageids") pageIds: String): Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&prop=description|pageimages&redirects=1")
+    @GET(MW_API_PREFIX + "action=query&prop=info|description|pageimages&inprop=varianttitles|displaytitle&redirects=1")
     suspend fun getPageTitlesByPageId(@Query("pageids") pageIds: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query")
@@ -143,7 +144,12 @@ interface Service {
     suspend fun getSiteMatrix(): SiteMatrix
 
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=namespaces")
-    suspend fun getPageNamespaceWithSiteInfo(@Query("titles") title: String?): MwQueryResponse
+    suspend fun getPageNamespaceWithSiteInfo(
+        @Query("titles") title: String?,
+        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String? = null,
+        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String? = null,
+        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null
+    ): MwQueryResponse
 
     @get:GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     val siteInfo: Observable<MwQueryResponse>
@@ -539,7 +545,10 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=discussiontoolspageinfo&prop=threaditemshtml")
     suspend fun getTalkPageTopics(
-            @Query("page") page: String
+            @Query("page") page: String,
+            @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String,
+            @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String,
+            @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String
     ): DiscussionToolsInfoResponse
 
     @POST(MW_API_PREFIX + "action=discussiontoolssubscribe")
@@ -552,9 +561,7 @@ interface Service {
     ): DiscussionToolsSubscribeResponse
 
     @GET(MW_API_PREFIX + "action=discussiontoolsgetsubscriptions")
-    suspend fun getTalkPageTopicSubscriptions(
-            @Query("commentname") topicNames: String
-    ): DiscussionToolsSubscriptionList
+    suspend fun getTalkPageTopicSubscriptions(@Query("commentname") topicNames: String): DiscussionToolsSubscriptionList
 
     @POST(MW_API_PREFIX + "action=discussiontoolsedit&paction=addtopic")
     @FormUrlEncoded

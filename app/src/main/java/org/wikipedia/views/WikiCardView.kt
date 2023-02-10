@@ -16,18 +16,21 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
         MaterialCardView(context, attrs, defStyleAttr) {
 
     init {
-        var hasBorder = true
-        var cardRadius = context.resources.getDimension(R.dimen.wiki_card_radius)
-        var elevation = DimenUtil.dpToPx(if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) 8f else 2f)
-        if (attrs != null) {
-            context.withStyledAttributes(attrs, R.styleable.WikiCardView) {
-                hasBorder = getBoolean(R.styleable.WikiCardView_hasBorder, true)
-                cardRadius = getDimension(R.styleable.WikiCardView_radius, cardRadius)
-                elevation = getDimension(R.styleable.WikiCardView_elevation, elevation)
+        if (!isInEditMode) {
+            var hasBorder = true
+            var cardRadius = context.resources.getDimension(R.dimen.wiki_card_radius)
+            var elevation =
+                DimenUtil.dpToPx(if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) 8f else 2f)
+            if (attrs != null) {
+                context.withStyledAttributes(attrs, R.styleable.WikiCardView) {
+                    hasBorder = getBoolean(R.styleable.WikiCardView_hasBorder, true)
+                    cardRadius = getDimension(R.styleable.WikiCardView_radius, cardRadius)
+                    elevation = getDimension(R.styleable.WikiCardView_elevation, elevation)
+                }
             }
-        }
 
-        setup(cardRadius, elevation, hasBorder)
+            setup(cardRadius, elevation, hasBorder)
+        }
     }
 
     private fun setup(cardRadius: Float, elevation: Float, hasBorder: Boolean) {

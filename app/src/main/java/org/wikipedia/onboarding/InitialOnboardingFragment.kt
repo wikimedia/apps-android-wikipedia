@@ -37,9 +37,10 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
 
     override val doneButtonText = R.string.onboarding_get_started
 
-    override fun onSwitchChange(view: OnboardingPageView, checked: Boolean) {
+    override fun onAcceptOrReject(view: OnboardingPageView, accept: Boolean) {
         if (OnboardingPage.of(view.tag as Int) == OnboardingPage.PAGE_USAGE_DATA) {
-            Prefs.isEventLoggingEnabled = checked
+            Prefs.isEventLoggingEnabled = accept
+            advancePage()
         }
     }
 
@@ -78,9 +79,6 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
             super.onCreateView(inflater, container, savedInstanceState)
             val position = requireArguments().getInt("position", 0)
             val view = inflater.inflate(OnboardingPage.of(position).layout, container, false) as OnboardingPageView
-            if (OnboardingPage.PAGE_USAGE_DATA.code() == position) {
-                view.setSwitchChecked(Prefs.isEventLoggingEnabled)
-            }
             view.tag = position
             view.callback = callback
             return view

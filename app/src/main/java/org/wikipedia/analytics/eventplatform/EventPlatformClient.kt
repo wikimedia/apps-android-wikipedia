@@ -314,7 +314,7 @@ object EventPlatformClient {
                 return AssociationController.pageViewId
             }
             if (unit == SamplingConfig.UNIT_DEVICE) {
-                return Prefs.appInstallId.orEmpty()
+                return WikipediaApp.instance.appInstallID
             }
             L.e("Bad identifier type")
             return UUID.randomUUID().toString()
