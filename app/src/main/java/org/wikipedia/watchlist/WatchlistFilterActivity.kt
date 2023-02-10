@@ -43,9 +43,9 @@ class WatchlistFilterActivity : BaseActivity() {
     private fun filterListWithHeaders(): List<Any> {
         val filterListWithHeaders = mutableListOf<Any>()
         filterListWithHeaders.add(getString(R.string.watchlist_filter_wiki_filter_header))
-        filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, getString(R.string.watchlist_filter_all_wikis_text)))
+        filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, getString(R.string.watchlist_filter_all_wikis_text), true))
         WikipediaApp.instance.languageState.appLanguageCodes.forEach {
-            filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, it))
+            filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, it, true))
         }
         filterListWithHeaders.add(getString(R.string.notifications_filter_update_app_languages))
         filterListWithHeaders.add(getString(R.string.watchlist_filter_latest_revisions_header))
@@ -70,7 +70,7 @@ class WatchlistFilterActivity : BaseActivity() {
         }
         filterListWithHeaders.add(getString(R.string.watchlist_filter_type_of_change_header))
         WatchlistFilterTypes.TYPE_OF_CHANGES_GROUP.forEach {
-            filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id))
+            filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id, false))
         }
         return filterListWithHeaders
     }
@@ -168,7 +168,7 @@ class WatchlistFilterActivity : BaseActivity() {
         }
     }
 
-    inner class Filter constructor(val type: Int, val filterCode: String) {
+    inner class Filter constructor(val type: Int, val filterCode: String, val isCheckBox: Boolean = false) {
         fun isEnabled(): Boolean {
             val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
             if (filterCode == getString(R.string.notifications_all_wikis_text)) {

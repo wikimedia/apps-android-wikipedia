@@ -20,22 +20,32 @@ enum class WatchlistFilterTypes constructor(val id: String,
         R.string.watchlist_filter_type_of_change_wikidata_edits, "external"),
     LOGGED_ACTIONS("loggedActions",
         R.string.watchlist_filter_type_of_change_logged_actions, "log"),
+    ALL_EDITS("allEdits",
+        R.string.watchlist_filter_all_text, ""),
     MINOR_EDITS("minorEdits",
         R.string.watchlist_filter_significance_minor, "minor"),
     NON_MINOR_EDITS("nonMinorEdits",
         R.string.watchlist_filter_significance_edits, "!minor"),
+    ALL_EDITORS("allEditors",
+        R.string.watchlist_filter_all_text, ""),
     BOT("bot",
         R.string.watchlist_filter_automated_contributions_bot, "bot"),
     HUMAN("human",
         R.string.watchlist_filter_automated_contributions_human, "!bot"),
+    ALL_CHANGES("allChanges",
+        R.string.watchlist_filter_all_text, ""),
     UNSEEN_CHANGES("unseenChanges",
         R.string.watchlist_filter_watchlist_activity_unseen, "unread"),
     SEEN_CHANGES("seenChanges",
         R.string.watchlist_filter_watchlist_activity_seen, "!unread"),
+    ALL_REVISIONS("allRevisions",
+        R.string.watchlist_filter_all_text, ""),
     LATEST_REVISION("latestRevision",
         R.string.watchlist_filter_latest_revisions_latest_revision, ""),
     NOT_LATEST_REVISION("notLatestRevision",
         R.string.watchlist_filter_latest_revisions_not_latest_revision, "1"),
+    ALL_USERS("allUsers",
+        R.string.watchlist_filter_all_text, ""),
     UNREGISTERED("unregistered",
         R.string.watchlist_filter_user_status_unregistered, "anon"),
     REGISTERED("registered",
@@ -79,11 +89,11 @@ enum class WatchlistFilterTypes constructor(val id: String,
 
     companion object {
         val TYPE_OF_CHANGES_GROUP = listOf(PAGE_EDITS, PAGE_CREATIONS, CATEGORY_CHANGES, WIKIDATA_EDITS, LOGGED_ACTIONS)
-        val MINOR_EDITS_GROUP = listOf(MINOR_EDITS, NON_MINOR_EDITS)
-        val BOT_EDITS_GROUP = listOf(BOT, HUMAN)
-        val UNSEEN_CHANGES_GROUP = listOf(UNSEEN_CHANGES, SEEN_CHANGES)
-        val LATEST_REVISIONS_GROUP = listOf(LATEST_REVISION, NOT_LATEST_REVISION)
-        val USER_STATUS_GROUP = listOf(UNREGISTERED, REGISTERED)
+        val MINOR_EDITS_GROUP = listOf(ALL_EDITS, MINOR_EDITS, NON_MINOR_EDITS)
+        val BOT_EDITS_GROUP = listOf(ALL_EDITORS, BOT, HUMAN)
+        val UNSEEN_CHANGES_GROUP = listOf(ALL_CHANGES, UNSEEN_CHANGES, SEEN_CHANGES)
+        val LATEST_REVISIONS_GROUP = listOf(ALL_REVISIONS, LATEST_REVISION, NOT_LATEST_REVISION)
+        val USER_STATUS_GROUP = listOf(ALL_USERS, UNREGISTERED, REGISTERED)
 
         private val MAP = EnumCodeMap(WatchlistFilterTypes::class.java)
 

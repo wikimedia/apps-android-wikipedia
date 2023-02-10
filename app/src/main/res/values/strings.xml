@@ -1366,6 +1366,7 @@
     <string name="watchlist_filter_title">Filter Watchlist</string>
     <string name="watchlist_filter_wiki_filter_header">Wiki filter</string>
     <string name="watchlist_filter_all_wikis_text">All \"wiki\"</string>
+    <string name="watchlist_filter_all_text">All</string>
     <string name="watchlist_filter_watchlist_activity_header">Watchlist activity</string>
     <string name="watchlist_filter_watchlist_activity_unseen">Unseen changes</string>
     <string name="watchlist_filter_watchlist_activity_seen">Seen changes</string>

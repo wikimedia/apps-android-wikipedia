@@ -45,17 +45,17 @@ class WatchlistFilterItemView constructor(context: Context, attrs: AttributeSet?
         this.filter = filter
         binding.watchlistFilterTitle.text = getTitleFor(filter)
         binding.watchlistFilterCheck.isVisible = filter.isEnabled()
+        binding.watchlistFilterCheck.setImageResource(if (filter.isCheckBox) R.drawable.ic_check_borderless else R.drawable.ic_baseline_radio_button_checked_24)
+
         getTitleCodeFor(filter)?.let {
             binding.watchlistFilterLanguageCode.text = it
             binding.watchlistFilterLanguageCode.visibility = View.VISIBLE
             ViewUtil.formatLangButton(binding.watchlistFilterLanguageCode, it,
                 SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
         } ?: run {
-            // TODO: revisit after getting feedback from design
-            binding.watchlistFilterLanguageCode.visibility = View.INVISIBLE
+            binding.watchlistFilterLanguageCode.visibility = View.GONE
         }
 
-        // TODO: remove this layout setting
         binding.watchlistFilterWikiLogo.visibility = View.GONE
     }
 
