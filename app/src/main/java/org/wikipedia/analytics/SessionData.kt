@@ -7,6 +7,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.util.MathUtil
 import java.util.concurrent.TimeUnit
 
+@Suppress("suspiciousVarProperty")
 @Serializable
 class SessionData {
 
@@ -17,7 +18,7 @@ class SessionData {
     @Transient var startTime: Long = 0
     @Transient var lastTouchTime: Long = 0
     @SerialName("page_load_latency_ms") private var averagedPageLatency = 0
-        get() = getPageLatency().toInt()
+        get() = pageLatency.average.toInt()
     @SerialName("from_search") var pagesFromSearch = 0
     @SerialName("from_random") var pagesFromRandom = 0
     @SerialName("from_lang_link") var pagesFromLangLink = 0
@@ -46,10 +47,6 @@ class SessionData {
             HistoryEntry.SOURCE_SUGGESTED_EDITS -> pagesFromSuggestedEdits++
             else -> pagesFromInternal++
         }
-    }
-
-    private fun getPageLatency(): Long {
-        return pageLatency.average.toLong()
     }
 
     fun addPageLatency(pageLatency: Long) {
