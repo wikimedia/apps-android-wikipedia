@@ -276,7 +276,7 @@
         <activity
             android:name=".watchlist.WatchlistFilterActivity"
             android:label="@string/watchlist_filter_title"
-            android:theme="@style/AppTheme.ActionBar"/>
+            android:theme="@style/AppTheme.ActionBar.Watchlist"/>
 
         <activity
             android:name=".suggestededits.SuggestedEditsImageTagEditActivity"
