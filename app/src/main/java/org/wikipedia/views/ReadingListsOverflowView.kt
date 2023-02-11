@@ -3,10 +3,7 @@ package org.wikipedia.views
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.core.view.isVisible
@@ -35,25 +32,27 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
     init {
         binding.readingListsOverflowSelect.isVisible = ReleaseUtil.isPreBetaRelease
         binding.readingListsOverflowSortBy.setOnClickListener {
-            BreadCrumbLogEvent.logMenuItemSelection(context, it)
+            BreadCrumbLogEvent.logClick(context, it)
             dismissPopupWindowHost()
             callback?.sortByClick()
         }
         binding.readingListsOverflowCreateNewList.setOnClickListener {
-            BreadCrumbLogEvent.logMenuItemSelection(context, it)
+            BreadCrumbLogEvent.logClick(context, it)
             dismissPopupWindowHost()
             callback?.createNewListClick()
         }
         binding.readingListsOverflowImportList.setOnClickListener {
+            BreadCrumbLogEvent.logClick(context, it)
             dismissPopupWindowHost()
             callback?.importNewList()
         }
         binding.readingListsOverflowSelect.setOnClickListener {
+            BreadCrumbLogEvent.logClick(context, it)
             dismissPopupWindowHost()
             callback?.selectListClick()
         }
         binding.readingListsOverflowRefresh.setOnClickListener {
-            BreadCrumbLogEvent.logMenuItemSelection(context, it)
+            BreadCrumbLogEvent.logClick(context, it)
             dismissPopupWindowHost()
             callback?.refreshClick()
         }
