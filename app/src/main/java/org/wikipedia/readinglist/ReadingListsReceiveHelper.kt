@@ -14,7 +14,7 @@ import java.util.*
 
 object ReadingListsReceiveHelper {
 
-    suspend fun importReadingLists(context: Context, encodedJson: String): ReadingList {
+    suspend fun receiveReadingLists(context: Context, encodedJson: String): ReadingList {
         val readingListData = getExportedReadingLists(encodedJson)
         val listTitle = readingListData?.name.orEmpty().ifEmpty { context.getString(R.string.reading_list_name_sample) }
         val listDescription = readingListData?.description.orEmpty().ifEmpty { DateUtil.getTimeAndDateString(context, Date()) }
