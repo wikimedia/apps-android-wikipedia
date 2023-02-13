@@ -663,10 +663,6 @@ object Prefs {
         get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_receive_survey_mode, 0)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_receive_survey_mode, value)
 
-    var readingListRecentReceivedTooltipShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_recent_receive_tooltip_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_recent_receive_tooltip_shown, value)
-
     var readingListRecentReceivedId
         get() = PrefsIoUtil.getLong(R.string.preference_key_reading_lists_recent_receive_id, -1)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_reading_lists_recent_receive_id, value)
