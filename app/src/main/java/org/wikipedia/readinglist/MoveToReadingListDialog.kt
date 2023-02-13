@@ -11,7 +11,10 @@ import androidx.core.os.bundleOf
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -31,9 +34,7 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
         CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, exception ->
             L.w(exception)
         }) {
-            sourceReadingList = withContext(Dispatchers.IO) {
-                AppDatabase.instance.readingListDao().getListById(sourceReadingListId, false)
-            }
+            sourceReadingList = AppDatabase.instance.readingListDao().getListById(sourceReadingListId, false)
             if (sourceReadingList == null) {
                 dismiss()
             }
