@@ -284,7 +284,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     private fun updateReadingListData() {
-        CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, exception ->
+        CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, _ ->
             // If we failed to retrieve the requested list, it means that the list is no
             // longer in the database (likely removed due to sync).
             // In this case, there's nothing for us to do, so just bail from the activity.
@@ -299,7 +299,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
             }
             update()
-
         }
     }
 
