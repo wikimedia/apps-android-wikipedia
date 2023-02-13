@@ -218,7 +218,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.setOverflowViewVisibility(View.VISIBLE)
         if (ReadingListsShareHelper.shareEnabled()) {
             headerView.shareButton.isVisible = true
-            if (!Prefs.readingListShareTooltipShown) {
+            if (Prefs.readingListRecentReceivedId == readingListId && !Prefs.readingListShareTooltipShown) {
                 enqueueTooltip {
                     FeedbackUtil.showTooltip(
                         requireActivity(),
