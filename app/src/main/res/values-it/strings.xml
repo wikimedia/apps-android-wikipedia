@@ -497,18 +497,22 @@
   <string name="reading_list_articles_already_exist_message">Tutto bene! %s contiene già tutte le voci.</string>
   <string name="reading_list_added_view_button">Visualizza elenco</string>
   <string name="reading_list_add_to_list_button">Aggiungi all\'elenco</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 voce</item>
+    <item quantity="other">%d voci</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 voce, %2$.2f MB</item>
     <item quantity="other">%1$d voci, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d di 1 voce disponile in assenza di connessione Internet</item>
+    <item quantity="other">%1$d di %2$d voci disponili in assenza di connessione Internet</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d di 1 voce disponile in assenza di connessione Internet, %3$.2f MB</item>
     <item quantity="other">%1$d di %2$d voci disponili in assenza di connessione Internet, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 voce, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d voci, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d di 1 voce disponibile offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d di %2$d voci disponibili offline, %3$.2f MB</string>
   <string name="reading_list_sort">Ordina</string>
   <string name="reading_list_sort_ellipsis">Ordina per…</string>
   <string name="reading_list_sort_by_name">Ordina per nome</string>
@@ -518,6 +522,7 @@
   <string name="reading_list_sort_by_created">Ordina per data creazione (più recente)</string>
   <string name="reading_list_sort_by_created_desc">Ordina per data di creazione (meno recente)</string>
   <string name="reading_list_menu_delete">Cancella elenco</string>
+  <string name="reading_list_menu_export">Esporta elenco</string>
   <string name="reading_list_menu_rename">Modifica nome/descrizione</string>
   <string name="reading_list_action_menu_remove_from_offline">Rimuovi da offline</string>
   <string name="reading_list_action_menu_save_for_offline">Salva per offline</string>
@@ -538,6 +543,13 @@
     <item quantity="one">%d voce rimossa da %s</item>
     <item quantity="other">%d voci rimosse da %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d elenco cancellato</item>
+    <item quantity="other">%d elenchi cancellati</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">L\'elenco predefinito (%s) non può essere cancellato.</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s cancellato. L\'elenco predefinito (%2$s) non può essere cancellato.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Elenchi cancellati. L\'elenco predefinito (%s) non può essere cancellato.</string>
   <string name="reading_list_items_deleted">%d voci rimosse dagli elenchi</string>
   <string name="reading_lists_item_deleted">%s rimosso dagli elenchi</string>
   <string name="reading_list_item_delete_undo">Annulla</string>
@@ -593,6 +605,7 @@
   <string name="reading_list_article_limit_message">Impossibile aggiungere a questo elenco. Hai raggiunto il limite di %2$d voci per elenco per \"%1$s\".</string>
   <string name="reading_lists_limit_message">Impossibile creare un altro elenco. Hai raggiunto il limite di 100 elenchi di lettura per utenza.</string>
   <string name="reading_lists_menu_create_list">Crea nuovo elenco</string>
+  <string name="reading_lists_menu_import_list">Importa elenco</string>
   <string name="reading_lists_menu_sort_by">Ordina per</string>
   <string name="reading_lists_refresh_sync_option">Aggiorna la sincronizzazione</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Entra / registrati</string>
@@ -613,7 +626,11 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Annulla</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Annulla</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Cancella</string>
   <string name="reading_list_activity_title">Elenco di lettura: %s</string>
+  <string name="reading_lists_action_menu_export_lists">Esporta</string>
+  <string name="reading_lists_import_file_picker_title">Scegli il file da importare</string>
+  <string name="reading_lists_export_select_lists_message">Seleziona l\'elenco o gli elenchi da esportare</string>
   <string name="user_option_sync_label">Preferenze</string>
   <string name="notification_reverted_title">Modifica annullata</string>
   <string name="notification_channel_title">Download delle voci</string>
@@ -1317,4 +1334,6 @@
   <string name="reading_list_share_message_v2">Ciao! Vorrei condividere il mio elenco di lettura di Wikipedia con te:</string>
   <string name="reading_list_share_survey_title">Puoi aiutarci a migliorare \"Condividi elenchi di lettura\"?</string>
   <string name="reading_list_share_survey_body">\"Condividi elenchi di lettura\" è una funzione di prova e abbiamo bisogno del tuo commento per migliorarla o rimuoverla.</string>
+  <string name="data_opt_in_accept">Accetta</string>
+  <string name="data_opt_in_reject">Rifiuta</string>
 </resources>

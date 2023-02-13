@@ -478,10 +478,6 @@
     <item quantity="few">%1$d de %2$d articole disponibile offline, %3$.2f MB</item>
     <item quantity="other">%1$d de %2$d articole disponibile offline, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 articol, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d articole, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d din 1 articole disponibile offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d din %2$d articole disponibile offline, %3$.2f MB</string>
   <string name="reading_list_sort">Sortare</string>
   <string name="reading_list_sort_ellipsis">Sortare după:</string>
   <string name="reading_list_sort_by_name">Sortare după titlu</string>
@@ -1275,4 +1271,8 @@
   <string name="user_contrib_filter_ns_header">Filtru de spațiu de nume</string>
   <string name="namespace_article">Articol</string>
   <string name="user_contrib_menu_label">Contribuții</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Am înțeles</string>
+  <string name="reading_list_share_menu_label">Distribuiți...</string>
+  <string name="data_opt_in_accept">Accept</string>
+  <string name="data_opt_in_reject">Refuz</string>
 </resources>

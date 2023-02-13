@@ -358,6 +358,8 @@
   <string name="menu_save_all_tabs">Raksa samian tab</string>
   <string name="error_blocked_reason">Hawanan sané kaicain punika: %s</string>
   <string name="error_blocked_id">ID Blokir: %s</string>
+  <string name="crash_report_activity_title">Pikobet aplikasi</string>
+  <string name="crash_report_relaunch_or_quit">Iraga nunas ampura, aplikasi Wikipédia keni pikobet miwah karérénang.\n\nNapiké ragané jagi ngawitin malih utawi medal?</string>
   <string name="crash_report_relaunch">Ngawitin malih</string>
   <string name="crash_report_quit">Medal</string>
   <string name="article_menu_bar_save_button">Raksa</string>
@@ -403,10 +405,6 @@
     <item quantity="one">%1$d suratan kasedia luring, %3$.2f MB</item>
     <item quantity="other">%1$d saking %2$d suratan kasedia luring, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 suratan, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d suratan, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d of 1 suratan kasedia luring, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d of %2$d suratan kasedia luring, %3$.2f MB</string>
   <string name="reading_list_sort">Urut</string>
   <string name="reading_list_sort_ellipsis">Urut mawit...</string>
   <string name="reading_list_sort_by_name">Urur mawit aran</string>
@@ -416,6 +414,8 @@
   <string name="reading_list_sort_by_created">Urut mawit tanggal kakardi (pinih anyar)</string>
   <string name="reading_list_sort_by_created_desc">Urut mawit tanggal kakardi (pinih kuna)</string>
   <string name="reading_list_menu_delete">Usap lis</string>
+  <string name="reading_list_menu_select">Pilih</string>
+  <string name="reading_list_menu_unselect">Ten pilih</string>
   <string name="reading_list_menu_rename">Uah aran/déskripsi</string>
   <string name="reading_list_action_menu_remove_from_offline">Usap saking luring</string>
   <string name="reading_list_action_menu_save_for_offline">Raksa antuk luring</string>
@@ -441,6 +441,7 @@
   <string name="reading_list_item_delete_undo">Ulihang</string>
   <string name="reading_list_deleted">%s kausap</string>
   <string name="saved_list_empty_title">Kaca durung karaksa</string>
+  <string name="reading_list_article_offline">Kasedia luring</string>
   <string name="reading_list_remove_from_list">Usap saking %s</string>
   <string name="reading_list_remove_from_lists">Usap saking lis wacénan</string>
   <string name="reading_list_select_item">Pilih</string>

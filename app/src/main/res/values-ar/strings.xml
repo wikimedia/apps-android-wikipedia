@@ -97,7 +97,8 @@
   <string name="page_edit_history_filter_by_user">تعديلات المستخدمين (%s)</string>
   <string name="page_edit_history_filter_by_anon">تعديلات المجهولين (%s)</string>
   <string name="page_edit_history_filter_by_bot">تعديلات البوتات (%s)</string>
-  <string name="page_edit_history_metrics_content_description" fuzzy="true">مصفوفات%1$s - %2$s</string>
+  <string name="page_edit_history_metrics_content_description">المصفوفات من %1$s إلى %2$s</string>
+  <string name="page_edit_history_empty_search_message">حاول تغيير &lt;a href=\"#\"&gt;عوامل التصفية&lt;/a&gt; لرؤية المزيد من التعديلات</string>
   <string name="menu_page_show_tabs">أظهر التبويبات</string>
   <string name="menu_page_other_languages">غير اللغة</string>
   <string name="menu_page_find_in_page">ابحث في المقالة</string>
@@ -492,10 +493,6 @@
     <item quantity="many">...</item>
     <item quantity="other">%1$d من %2$d مقالات متاحة بلا اتصال، %3$.2f ميغابايت</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">مقالة واحدة، %1$.2f ميجا بايت</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d مقالة/مقالات، %2$.2f ميجا بايت</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d من أصل المقالة متاحة بدون اتصال، %2$.2f ميجا بايت</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d من أصل %2$d مقالات متاحة دون اتصال، %3$.2f ميغابايت</string>
   <string name="reading_list_sort">رتب</string>
   <string name="reading_list_sort_ellipsis">الترتيب حسب…</string>
   <string name="reading_list_sort_by_name">فرز حسب الاسم</string>
