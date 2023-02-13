@@ -8,10 +8,16 @@ import androidx.annotation.StyleRes
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.wikipedia.analytics.BreadcrumbsContextHelper
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 
 open class ExtendedBottomSheetDialogFragment : BottomSheetDialogFragment() {
     protected fun disableBackgroundDim() {
         requireDialog().window?.setDimAmount(0f)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        BreadCrumbLogEvent.logScreenShown(requireContext(), this)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

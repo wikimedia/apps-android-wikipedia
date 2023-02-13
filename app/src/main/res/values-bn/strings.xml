@@ -462,10 +462,6 @@
     <item quantity="one">১টি নিবন্ধ, %2$.2f এমবি</item>
     <item quantity="other">%1$dটি নিবন্ধ, %2$.2f এমবি</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">১টি নিবন্ধ, %1$.2f মেগাবাইট</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$dটি নিবন্ধ, %2$.2f মেগাবাইট</string>
-  <string name="format_reading_list_statistical_detail_singular">১টি নিবন্ধের %1$dটি অফলাইনে উপলব্ধ, %2$.2f মেগাবাইট</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$dটি নিবন্ধের %1$dটি অফলাইনে উপলব্ধ, %3$.2f মেগাবাইট</string>
   <string name="reading_list_sort">বাছাই করুন</string>
   <string name="reading_list_sort_ellipsis">বাছাই করুন...</string>
   <string name="reading_list_sort_by_name">নাম অনুযায়ী বাছাই</string>

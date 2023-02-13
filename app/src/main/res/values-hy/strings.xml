@@ -273,6 +273,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Չեղարկել</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Չեղարկել</string>
   <string name="reading_list_split_dialog_ok_button_text">Լավ</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Ջնջել</string>
   <string name="user_option_sync_label">Նախընտրություններ</string>
   <string name="notification_syncing_pause_button">Դադար</string>
   <string name="notification_syncing_resume_button">Շարունակել</string>

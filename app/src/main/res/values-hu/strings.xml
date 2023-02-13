@@ -7,6 +7,7 @@
 * Csigabi
 * Dbrant
 * Dj
+* Eukarióta
 * Fitoschido
 * Hanna Tardos
 * Luckylukee81
@@ -476,10 +477,6 @@
     <item quantity="one">1 szócikkből %1$d elérhető offline, %3$.2f MB</item>
     <item quantity="other">%2$d szócikkből %1$d elérhető offline, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 cikk, %1$.2f megabyte</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d szócikk, %2$.2f megabyte</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d / 1 cikk érhető el kapcsolat nélkül, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d / %2$d cikk érhető el kapcsolat nélkül, %3$.2f MB</string>
   <string name="reading_list_sort">Rendezés</string>
   <string name="reading_list_sort_ellipsis">Rendezés módja</string>
   <string name="reading_list_sort_by_name">Rendezés név szerint</string>
@@ -1280,4 +1277,6 @@
   <string name="reading_list_share_message_v2">Szia! Szeretném megosztani veled a Wikipédia-olvasólistámat:</string>
   <string name="reading_list_share_survey_title">Tudnál segíteni nekünk ennek a funkciónak a fejlesztésében?</string>
   <string name="reading_list_share_survey_body">Az olvasólisták megosztása egy tesztelés alatt álló funkció, és szükségünk van a visszajelzésedre a fejlesztéséhez vagy eltávolításához.</string>
+  <string name="data_opt_in_accept">Elfogad</string>
+  <string name="data_opt_in_reject">Elutasít</string>
 </resources>

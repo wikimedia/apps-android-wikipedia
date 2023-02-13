@@ -442,10 +442,6 @@
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="other">%1$d จาก %2$d บทความสามารถใช้ได้ขณะออฟไลน์, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 บทความ, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d บทความ, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d จาก 1 บทความที่ใช้ได้ขณะออฟไลน์, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d จาก %2$d บทความที่ใช้ได้ขณะออฟไลน์, %3$.2f MB</string>
   <string name="reading_list_sort">เรียงลำดับ</string>
   <string name="reading_list_sort_ellipsis">เรียงตาม…</string>
   <string name="reading_list_sort_by_name">เรียงตามชื่อ</string>

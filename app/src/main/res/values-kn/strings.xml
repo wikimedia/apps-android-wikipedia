@@ -272,7 +272,6 @@
   <string name="reading_list_article_added_to_default_list">%s ಅನ್ನು ಉಳಿಸಲಾಯಿತು. ನೀವು ಇದನ್ನು ಒಂದು ಪಟ್ಟಿಗೆ ಸೇರಿಸ ಬಯಸುವಿರಾ?</string>
   <string name="reading_list_added_view_button">ಪಟ್ಟಿಯನ್ನು ನೋಡಿ</string>
   <string name="reading_list_add_to_list_button">ಪಟ್ಟಿಗೆ ಸೇರಿಸಿ</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d ಲೇಖನಗಳು, %2$.2f MB</string>
   <string name="reading_list_sort">ವಿಂಗಡಿಸು</string>
   <string name="reading_list_menu_delete">ಪಟ್ಟಿಯನ್ನು ಅಳಿಸಿ</string>
   <string name="reading_list_menu_rename">ಹೆಸರು/ವರ್ಣನೆಯನ್ನು ಸಂಪಾದಿಸಿ</string>

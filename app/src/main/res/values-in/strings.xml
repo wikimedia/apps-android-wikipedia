@@ -488,10 +488,6 @@
     <item quantity="one">%1$d of 1 artikel tersedia offline, %3$.2f MB</item>
     <item quantity="other">%1$d of %2$d artikel tersedia offline, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikel, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d dari 1 artikel tersedia luring, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d dari %2$d artikel tersedia luring, %3$.2f MB</string>
   <string name="reading_list_sort">Urutkan</string>
   <string name="reading_list_sort_ellipsis">Urut berdasarkan...</string>
   <string name="reading_list_sort_by_name">Urutkan berdasarkan nama</string>
