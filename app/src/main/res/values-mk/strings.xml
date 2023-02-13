@@ -457,18 +457,22 @@
   <string name="reading_list_articles_already_exist_message">Сè е во ред! %s веќе ги содржи сите статии.</string>
   <string name="reading_list_added_view_button">Погл. списокот</string>
   <string name="reading_list_add_to_list_button">Додај во список</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 статија</item>
+    <item quantity="other">%d статии</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">Една статија, %2$.2f МБ</item>
     <item quantity="other">%1$d статии, %2$.2f МБ</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d од една вонмрежно достапна статија</item>
+    <item quantity="other">%1$d од %2$d вонмрежно достапни статии</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d од една вонмрежно достапна статија, %3$.2f МБ</item>
     <item quantity="other">%1$d од %2$d вонмрежно достапни статии, %3$.2f МБ</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 статија, %1$.2f МБ</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d статии, %2$.2f МБ</string>
-  <string name="format_reading_list_statistical_detail_singular">Вонмрежно достапна %1$d од 1 статија, %2$.2f МБ</string>
-  <string name="format_reading_list_statistical_detail_plural">Вонмрежно достапни %1$d од %2$d статии, %3$.2f МБ</string>
   <string name="reading_list_sort">Подреди</string>
   <string name="reading_list_sort_ellipsis">Подреди по…</string>
   <string name="reading_list_sort_by_name">Подреди по назив</string>
@@ -478,6 +482,10 @@
   <string name="reading_list_sort_by_created">Подреди по скорешност на создавање</string>
   <string name="reading_list_sort_by_created_desc">Подреди по дамнешност на создавање</string>
   <string name="reading_list_menu_delete">Избриши список</string>
+  <string name="reading_list_menu_export">Извези список</string>
+  <string name="reading_list_menu_select">Избери</string>
+  <string name="reading_list_menu_unselect">Одизбери</string>
+  <string name="reading_list_export_write_permission_rationale">Се бара дозвола за зачувување на вашиот уред за да може да се извезе списокот за читање.</string>
   <string name="reading_list_menu_rename">Измени име/опис</string>
   <string name="reading_list_action_menu_remove_from_offline">Отстрани од вонмрежни</string>
   <string name="reading_list_action_menu_save_for_offline">Зачувај за вонмрежно</string>
@@ -498,6 +506,15 @@
     <item quantity="one">Отстранета %d статија од %s</item>
     <item quantity="other">Отстранети %d статии од %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d избришан список</item>
+    <item quantity="other">%d избришани списоци</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Стандардниот список (%s) не може да се избрише</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s е избришан. Стандардниот список (%2$s) не може да се избрише.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Списоците се избришани. Стандардниот список (%s) не може да се избрише.</string>
+  <string name="single_list_json_file_name">%s (список за читање од Википедија).json</string>
+  <string name="multiple_lists_json_file_name">Списоци за читање од Википедија (%s и повеќе).json</string>
   <string name="reading_list_items_deleted">%d статии се отстранети од списокот</string>
   <string name="reading_lists_item_deleted">%s е отстранета од списоците</string>
   <string name="reading_list_item_delete_undo">Откажи</string>
@@ -530,6 +547,11 @@
   <string name="reading_list_articles_added_to_named">Додадени %1$d статии во %2$s</string>
   <string name="reading_list_articles_moved_to_named">Преместени %1$d статии во %2$s</string>
   <string name="reading_list_delete_confirm">Дали сте сигурни дека сакате да го избришете %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Да го избришан избраното?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Дали сигурно сакате да избришете %d список?</item>
+    <item quantity="other">Дали сигурно сакате да избришете %d списоци?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Најавете се за да го овозможите усогласувањето</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Најавете се за да дозволите списоците за читање да се зачуваат во вашата сметка.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Откажи</string>
@@ -553,6 +575,7 @@
   <string name="reading_list_article_limit_message">Не можам да го дополнам списоков. Ја достигнавте границата од %2$d статии по список за „%1$s“.</string>
   <string name="reading_lists_limit_message">Не можете да направите друг список. Ја достигнавте границата од 100 списоци по сметка.</string>
   <string name="reading_lists_menu_create_list">Создај нов список</string>
+  <string name="reading_lists_menu_import_list">Увези список</string>
   <string name="reading_lists_menu_sort_by">Подреди по</string>
   <string name="reading_lists_refresh_sync_option">Превчитај усогласување</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Најава / зачленување</string>
@@ -573,7 +596,24 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Откажи</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Откажи</string>
   <string name="reading_list_split_dialog_ok_button_text">ОК</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Избриши</string>
   <string name="reading_list_activity_title">Список за читање: %s</string>
+  <string name="reading_list_notification_title">Список/ците за читање (с)е извезен(и)</string>
+  <string name="reading_list_notification_text"> %d Список/ците за читање (с)е извезен(и) како „reading_lists export.json“ во вашата папка со преземања</string>
+  <string name="reading_list_notification_detailed_text">Списоците за читање се извезени во „reading_lists_export.json“</string>
+  <string name="reading_lists_action_menu_export_lists">Извези</string>
+  <string name="reading_lists_import_file_picker_title">Изберете податотека за увоз</string>
+  <string name="reading_lists_import_failure_message">Увозот на списоци за читање не успеа</string>
+  <string name="reading_lists_export_select_lists_message">Изберете список/ци за извоз</string>
+  <string name="reading_lists_export_completed_message">Список/ците за читање (с)е увезен(и)</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Извозот на списокот за читање не успеа</item>
+    <item quantity="other">Извозот на списоците за читање не успеа</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Списокот за читање е увезен</item>
+    <item quantity="other">Списоците за читање се увезени</item>
+  </plurals>
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_reverted_title">Отповикано уредување</string>
   <string name="notification_channel_title">Преземање на статии</string>
@@ -1277,4 +1317,6 @@
   <string name="reading_list_share_message_v2">Здраво! Сакам да споделам список за читање со вас:</string>
   <string name="reading_list_share_survey_title">Можете ли да ни помогнете да го подобриме „Споделување на списоци за читање“?</string>
   <string name="reading_list_share_survey_body">„Споделување на списоци за читање“ е пробна функција и ни требаат ваши мислења за да ја подобриме или отстраниме.</string>
+  <string name="data_opt_in_accept">Прифати</string>
+  <string name="data_opt_in_reject">Одбиј</string>
 </resources>

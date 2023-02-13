@@ -373,4 +373,6 @@
   <string name="user_contrib_current">trenutno</string>
   <string name="user_contrib_menu_label">Doprinosi</string>
   <string name="user_contrib_filter_activity_title">Filtriraj doprinose</string>
+  <string name="data_opt_in_accept">Prihvati</string>
+  <string name="data_opt_in_reject">Odbij</string>
 </resources>

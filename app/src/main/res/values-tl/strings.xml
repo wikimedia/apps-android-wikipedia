@@ -459,10 +459,6 @@
     <item quantity="one">%1$d sa 1 artikulo ang offline, %3$.2f (na) MB</item>
     <item quantity="other">%1$d sa %2$d (na) artikulo ang offline, %3$.2f (na) MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artikulo, %1$.2f (na) MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d (na) artikulo, %2$.2f (na) MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d sa 1 artikulo ang offline, %2$.2f (na) MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d sa %2$d (na) artikulo ang offline, %3$.2f (na) MB</string>
   <string name="reading_list_sort">Ayusin</string>
   <string name="reading_list_sort_ellipsis">Ayusin...</string>
   <string name="reading_list_sort_by_name">Ayusin base sa pangalan</string>
