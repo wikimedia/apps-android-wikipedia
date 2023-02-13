@@ -339,10 +339,6 @@
   <string name="reading_list_create_new">Nowu wutworić</string>
   <string name="reading_list_title_exists">Čitanska lisćina „%s“ hižo eksistuje.</string>
   <string name="reading_list_added_view_button">Lisćinu sej wobhladać</string>
-  <string name="format_reading_list_statistical_summary_singular">Jedyn nastawk, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d nastawkow, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d wot 1 nastawka offline přistupne, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d wot %2$d nastawkow offline přistupne, %3$.2f MB</string>
   <string name="reading_list_sort">Sortěrować</string>
   <string name="reading_list_sort_ellipsis">Sortěrować po...</string>
   <string name="reading_list_sort_by_name">Sortěrować po mjenje</string>

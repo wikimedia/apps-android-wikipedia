@@ -17,7 +17,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.DialogAddToReadingListBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -60,8 +59,6 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         binding.listOfLists.layoutManager = LinearLayoutManager(requireActivity())
         binding.listOfLists.adapter = adapter
         binding.createButton.setOnClickListener(createClickListener)
-        // Log a click event, but only the first time the dialog is shown.
-        logClick()
         updateLists()
         return binding.root
     }
@@ -130,10 +127,6 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
             return
         }
         commitChanges(readingList, titles)
-    }
-
-    open fun logClick() {
-        BreadCrumbLogEvent.logMenuItemSelection(requireActivity(), null, "add_to_reading_list from" + invokeSource.ordinal)
     }
 
     open fun commitChanges(readingList: ReadingList, titles: List<PageTitle>) {

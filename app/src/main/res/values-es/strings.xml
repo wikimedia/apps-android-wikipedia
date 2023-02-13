@@ -525,10 +525,6 @@
     <item quantity="one">%1$d de 1 artículo disponible sin conexión, %3$.2f MB</item>
     <item quantity="other">%1$d de %2$d artículos disponibles sin conexión, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artículo, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artículos, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d de 1 artículos disponibles sin conexión, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d de %2$d artículos disponibles sin conexión, %3$.2f MB</string>
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_ellipsis">Ordenar por…</string>
   <string name="reading_list_sort_by_name">Ordenar por nombre</string>

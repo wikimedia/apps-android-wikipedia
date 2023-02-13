@@ -414,10 +414,6 @@
     <item quantity="one">%1$d ဂှ် လိက်ပရေင် ၁ ဗှ်ကေတ်ဂွံ မ္ၚးလာင်, %3$.2f MB</item>
     <item quantity="other">%1$d %2$d လိက်ပရေင်ဂမၠိုင် ဗှ်ကေတ်ဂွံ မ္ၚးလာင်, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">၁ လိက်ပရေင်, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d လိက်ပရေင်, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d of ၁ လိက်ပရေင် ဗှ်မ္ၚးလာင် ဂွံ, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d ဒဒက်တဴ %2$d လိက်ပရေင်မဗှ်မ္ၚးလာင်ဂွံ, %3$.2f MB</string>
   <string name="reading_list_sort">ဖျေဟ်ဒၞာဲ</string>
   <string name="reading_list_sort_ellipsis">ဖျေဟ်ဒၞာဲ နကဵု</string>
   <string name="reading_list_sort_by_name">ဖျေဟ်ဒၞာဲ နကဵု ယၟု</string>
