@@ -252,6 +252,10 @@ object EventPlatformClient {
             Prefs.eventPlatformSessionId = null
 
             // A session refresh implies a pageview refresh, so clear runtime value of PAGEVIEW_ID.
+            beginNewPageView()
+        }
+
+        fun beginNewPageView() {
             PAGEVIEW_ID = null
         }
 
