@@ -243,8 +243,6 @@
     <item quantity="one">1 ጽሑፍ፣ %2$.2f መ.ባ</item>
     <item quantity="other">%1$d ጽሑፋት፣ %2$.2f መ.ባ</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 ጽሑፍ፣ %1$.2f መ.ባ</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d ጽሑፋት፣ %2$.2f መ.ባ</string>
   <string name="reading_list_sort">ጎጅል</string>
   <string name="reading_list_sort_ellipsis">ጎጅል ብ...</string>
   <string name="reading_list_sort_by_name">ብስም ጎጅል</string>

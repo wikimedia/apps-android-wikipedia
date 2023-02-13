@@ -468,10 +468,6 @@
     <item quantity="one">1 статьяй %1$d оагӀув офлайне я, %3$.2f MB</item>
     <item quantity="other">%2$d статьяй %1$d оагӀув офлайне я, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">Цхьа статья, %1$.2f МБ</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d статья, %2$.2f МБ</string>
-  <string name="format_reading_list_statistical_detail_singular">Цхьан статья чура %1$d тӀакхоачача я дуненмазаца хоттам а боацаш, %2$.2f МБ</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d статья чура %1$d тӀакхоачача я офлайн, %3$.2f МБ</string>
   <string name="reading_list_sort">Къоастадеш дӀанийсде</string>
   <string name="reading_list_sort_ellipsis">Къоастадеш дӀанийсде укх тайпара...</string>
   <string name="reading_list_sort_by_name">ЦӀерашка гӀолла дӀанийсдар</string>
