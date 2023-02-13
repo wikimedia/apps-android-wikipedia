@@ -43,6 +43,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
+import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
@@ -939,6 +940,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             // explicitly check notifications for the current user
             PollNotificationWorker.schedulePollNotificationJob(requireContext())
         }
+
+        EventPlatformClient.AssociationController.beginNewPageView()
 
         // update the time spent reading of the current page, before loading the new one
         addTimeSpentReading(activeTimer.elapsedSec)
