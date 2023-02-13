@@ -424,10 +424,6 @@
     <item quantity="one">%1$d af 1 artikel tilgængelig offline, %3$.2f MB</item>
     <item quantity="other">%1$d af %2$d artikler tilgængelige offline, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikler, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d af 1 artikler tilgængelige offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d of %2$d artikler tilgængelige offline, %3$.2f MB</string>
   <string name="reading_list_sort">Sortér</string>
   <string name="reading_list_sort_ellipsis">Sorter efter ...</string>
   <string name="reading_list_sort_by_name">Sortér efter navn</string>

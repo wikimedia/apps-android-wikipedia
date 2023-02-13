@@ -408,8 +408,6 @@
     <item quantity="one">ရောမ်ဖြုဲင်ꩻ 1 ဗာႏ လꩻနွောင်ꩻလိုႏတဝ်းလဲင်းစား %1$d ဗာႏ၊ %3$.2f MB</item>
     <item quantity="other"> ရောမ်ဖြုဲင်ꩻ %2$d ဗာႏ လꩻနွောင်ꩻလိုႏတဝ်းလဲင်းစား %1$d ဗာႏ၊ %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">ရောမ်ဖြုဲင်ꩻ 1 ဗာႏ၊ %1$.2f မီဂါဗုဲက်</string>
-  <string name="format_reading_list_statistical_summary_plural">ရောမ်ဖြုဲင်ꩻ %1$d ဗာႏ၊ %2$.2f မီဂါဗုဲက်</string>
   <string name="reading_list_sort">စီႏစဲဉ်ႏ</string>
   <string name="reading_list_sort_ellipsis">အရဲဉ်ႏအတွိုင်ꩻ...</string>
   <string name="reading_list_sort_by_name">ရဲဉ်းတောမ်ႏမိဉ်ꩻစဲဉ်ႏ</string>
