@@ -302,6 +302,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB)) {
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_IMPORT_READING_LISTS)) {
+            Prefs.readingListReceiveMode = true
             goToTab(NavTab.READING_LISTS)
         } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.instance.tabCount > 0) {
             startActivity(PageActivity.newIntent(requireContext()))
@@ -561,8 +562,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     private fun maybeShowEditsTooltip() {
-        if (currentFragment !is SuggestedEditsTasksFragment && Prefs.showSuggestedEditsTooltip &&
-                Prefs.exploreFeedVisitCount >= SHOW_EDITS_SNACKBAR_COUNT) {
+        if (currentFragment !is SuggestedEditsTasksFragment && !Prefs.readingListReceiveMode &&
+            Prefs.showSuggestedEditsTooltip && Prefs.exploreFeedVisitCount >= SHOW_EDITS_SNACKBAR_COUNT) {
             enqueueTooltip {
                 FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.EDITS.id()),
                     if (AccountUtil.isLoggedIn) getString(R.string.main_tooltip_text, AccountUtil.userName)

@@ -643,9 +643,9 @@ object Prefs {
     val useUrlShortenerForSharing
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_url_shorten, false)
 
-    var readingListShareSurveyAttempts
-        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_share_survey_attempts, 0)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_share_survey_attempts, value)
+    var readingListShareSurveyDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_survey_dialog_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_share_survey_dialog_shown, value)
 
     var readingListShareSurveyMode
         get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_share_survey_mode, 0)
@@ -655,9 +655,9 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, value)
 
-    var readingListReceiveSurveyAttempts
-        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_receive_survey_attempts, 0)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_receive_survey_attempts, value)
+    var readingListReceiveSurveyDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_receive_survey_dialog_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_receive_survey_dialog_shown, value)
 
     var readingListReceiveSurveyMode
         get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_receive_survey_mode, 0)
@@ -666,4 +666,8 @@ object Prefs {
     var readingListRecentReceivedId
         get() = PrefsIoUtil.getLong(R.string.preference_key_reading_lists_recent_receive_id, -1)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_reading_lists_recent_receive_id, value)
+
+    var readingListReceiveMode
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_receive_survey_dialog_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_receive_survey_dialog_shown, value)
 }
