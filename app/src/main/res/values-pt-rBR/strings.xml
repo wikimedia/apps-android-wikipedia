@@ -539,9 +539,9 @@
     <item quantity="one">%d lista excluída</item>
     <item quantity="other">%d listas excluídas</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message" fuzzy="true">A lista padrão (Salva) não pode ser excluída</string>
+  <string name="reading_lists_default_list_delete_message">A lista padrão (%s) não pode ser excluída</string>
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s deletada. A lista padrão (%2$s) não pode ser excluída.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">Listas excluídas. A lista padrão (Salva) não pode ser excluída.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Listas excluídas. A lista padrão (%s) não pode ser excluída.</string>
   <string name="multiple_lists_json_file_name">lista de leitura da wikipedia (%s e mais).json</string>
   <string name="reading_list_items_deleted">%d artigos removidos da lista</string>
   <string name="reading_lists_item_deleted">%s removido das listas</string>

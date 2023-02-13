@@ -510,7 +510,7 @@
   </plurals>
   <plurals name="format_reading_list_statistical_detail_without_size">
     <item quantity="one">%1$d sur 1 article disponible hors ligne</item>
-    <item quantity="other">%2$d articles disponibles hors ligne</item>
+    <item quantity="other">%1$d sur %2$d articles disponibles hors ligne</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d sur 1 article disponible hors ligne, %3$.2f Mo</item>
