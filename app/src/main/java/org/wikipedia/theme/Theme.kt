@@ -5,7 +5,7 @@ import androidx.annotation.StyleRes
 import org.wikipedia.R
 import org.wikipedia.model.EnumCode
 
-enum class Theme(val marshallingId: Int, val funnelName: String, @field:StyleRes @get:StyleRes
+enum class Theme(val marshallingId: Int, val tag: String, @field:StyleRes @get:StyleRes
 @param:StyleRes val resourceId: Int, @field:StringRes @get:StringRes @param:StringRes val nameId: Int) : EnumCode {
 
     LIGHT(0, "light", 0, R.string.color_theme_light),
