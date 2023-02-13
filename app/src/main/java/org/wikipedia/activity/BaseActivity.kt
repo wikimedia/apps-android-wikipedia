@@ -107,11 +107,6 @@ abstract class BaseActivity : AppCompatActivity() {
         Prefs.localClassName = localClassName
     }
 
-    override fun onResumeFragments() {
-        super.onResumeFragments()
-        BreadCrumbLogEvent.logScreenShown(this)
-    }
-
     override fun onDestroy() {
         unregisterReceiver(networkStateReceiver)
         disposables.dispose()
@@ -122,13 +117,14 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
-        WikipediaApp.instance.sessionFunnel.persistSession()
+        WikipediaApp.instance.appSessionEvent.persistSession()
         super.onStop()
     }
 
     override fun onResume() {
         super.onResume()
-        WikipediaApp.instance.sessionFunnel.touchSession()
+        WikipediaApp.instance.appSessionEvent.touchSession()
+        BreadCrumbLogEvent.logScreenShown(this)
 
         // allow this activity's exclusive bus methods to override any existing ones.
         unregisterExclusiveBusMethods()

@@ -1,12 +1,14 @@
-package org.wikipedia.analytics
+package org.wikipedia.analytics.eventplatform
 
 import android.text.format.DateUtils
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.SessionData
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 
-class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
+class AppSessionEvent {
 
     private var sessionData: SessionData
     private var pageLoadStartTime: Long = 0
@@ -72,30 +74,11 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
     }
 
     private fun logSessionData() {
-        val sessionLengthSeconds = (sessionData.lastTouchTime - sessionData.startTime) / DateUtils.SECOND_IN_MILLIS
-        log(
-                "length", sessionLengthSeconds,
-                "fromSearch", sessionData.pagesFromSearch,
-                "fromRandom", sessionData.pagesFromRandom,
-                "fromLanglink", sessionData.pagesFromLangLink,
-                "fromInternal", sessionData.pagesFromInternal,
-                "fromExternal", sessionData.pagesFromExternal,
-                "fromHistory", sessionData.pagesFromHistory,
-                "fromReadingList", sessionData.pagesFromReadingList,
-                "fromBack", sessionData.pagesFromBack,
-                "noDescription", sessionData.pagesWithNoDescription,
-                "fromSuggestedEdits", sessionData.pagesFromSuggestedEdits,
-                "totalPages", sessionData.totalPages,
-                "pageLoadLatency", sessionData.getPageLatency(),
-                "languages", JsonUtil.encodeToString(app.languageState.appLanguageCodes),
-                "apiMode", 2
-        )
+        val sessionLength = (sessionData.lastTouchTime - sessionData.startTime).toInt()
+        EventPlatformClient.submit(AppSessionEventImpl(sessionLength, sessionData, WikipediaApp.instance.languageState.appLanguageCodes))
     }
 
     companion object {
-        private const val SCHEMA_NAME = "MobileWikiAppSessions"
-        private const val REVISION = 19851683
-
         /**
          * Definition of a "session timeout", as agreed upon by the Apps and Analytics teams.
          * (currently 30 minutes)
@@ -103,4 +86,12 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
         const val DEFAULT_SESSION_TIMEOUT = 30
         const val MIN_SESSION_TIMEOUT = 1
     }
+
+    @Suppress("unused")
+    @Serializable
+    @SerialName("/analytics/mobile_apps/android_app_session/1.0.0")
+    class AppSessionEventImpl(@SerialName("length_ms") private val length: Int,
+                              @SerialName("session_data") private val sessionData: SessionData,
+                              private val languages: List<String>) :
+        MobileAppsEvent("android.app_session")
 }
