@@ -378,10 +378,6 @@
   <string name="reading_list_articles_already_exist_message">Dena ondo! %s(e)k artikulu guztiak biltzen ditu dagoeneko.</string>
   <string name="reading_list_added_view_button">Ikusi zerrenda</string>
   <string name="reading_list_add_to_list_button">Zerrendara gehitu</string>
-  <string name="format_reading_list_statistical_summary_singular">Artikulu 1, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikulu, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d artikulu 1 artikuluetatik eskuragarri daude konexiorik gabe, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d artikulu %2$d artikuluetatik erabilgarri konexiorik gabe, %3$.2f MB</string>
   <string name="reading_list_sort">Sailkatu</string>
   <string name="reading_list_sort_ellipsis">Honen arabera sailkatu...</string>
   <string name="reading_list_sort_by_name">Sailkatu izenaren arabera</string>

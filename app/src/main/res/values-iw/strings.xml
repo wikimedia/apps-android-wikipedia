@@ -484,11 +484,23 @@
   <string name="reading_list_articles_already_exist_message">הכול טוב! הרשימה %s כבר מכילה את כל הערכים.</string>
   <string name="reading_list_added_view_button">הצגת הרשימה</string>
   <string name="reading_list_add_to_list_button">הוספת לרשימה</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">ערך אחד</item>
+    <item quantity="two">%d ערכים</item>
+    <item quantity="many">%d ערכים</item>
+    <item quantity="other">%d ערכים</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">ערך אחד, %2$.2f מ״ב</item>
     <item quantity="two">שני ערכים %2$.2f מ״ב</item>
     <item quantity="many">%1$d ערכים, %2$.2f מ״ב</item>
     <item quantity="other">%1$d ערכים, %2$.2f מ״ב</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">ערך אחד זמין ללא חיבור לרשת</item>
+    <item quantity="two">%1$d מתוך %2$d ערכים זמינים ללא חיבור לרשת</item>
+    <item quantity="many">%1$d מתוך %2$d ערכים זמינים ללא חיבור לרשת</item>
+    <item quantity="other">%1$d מתוך %2$d ערכים זמינים ללא חיבור לרשת</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d מתוך ערך אחד זמינים מקומית, %3$.2f מ״ב</item>
@@ -496,10 +508,6 @@
     <item quantity="many">%1$d מתוך %2$d ערכים זמינים מקומית, %3$.2f מ״ב</item>
     <item quantity="other">%1$d מתוך %2$d ערכים זמינים מקומית, %3$.2f מ״ב</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">ערך אחד %1$.2f מ\"ב</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d ערכים %2$.2f מ\"ב</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d מתוך 1 ערכים זמינים ללא חיבור לרשת, %2$.2f מ\"ב</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d מתוך %2$d ערכים זמינים ללא חיבור לרשת, %3$.2f מ\"ב</string>
   <string name="reading_list_sort">מיון</string>
   <string name="reading_list_sort_ellipsis">מיון לפי...</string>
   <string name="reading_list_sort_by_name">מיון לפי שם</string>
@@ -509,6 +517,10 @@
   <string name="reading_list_sort_by_created">מיון לפי מועד היצירה (החדש ביותר)</string>
   <string name="reading_list_sort_by_created_desc">מיון לפי מועד היצירה (הישן ביותר)</string>
   <string name="reading_list_menu_delete">מחיקת רשימה</string>
+  <string name="reading_list_menu_export">יצוא רשימה</string>
+  <string name="reading_list_menu_select">בחירה</string>
+  <string name="reading_list_menu_unselect">ביטול בחירה</string>
+  <string name="reading_list_export_write_permission_rationale">הרשאה לכתוב לאחסון במכשיר שלך דרושה ליצוא רשימת הקריאה שלך.</string>
   <string name="reading_list_menu_rename">שינוי שם/תיאור</string>
   <string name="reading_list_action_menu_remove_from_offline">הסרה מקריאה ללא חיבור לרשת</string>
   <string name="reading_list_action_menu_save_for_offline">שמירה לקריאה ללא חיבור לרשת</string>
@@ -533,6 +545,17 @@
     <item quantity="many">%d ערכים הוסרו מהרשימה %s</item>
     <item quantity="other">%d ערכים הוסרו מהרשימה %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">נחמקה רשימה אחת</item>
+    <item quantity="two">נמחקו %d רשימות</item>
+    <item quantity="many">נמחקו %d רשימות</item>
+    <item quantity="other">נמחקו %d רשימות</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">לא ניתן למחוק את הרשימה ההתחלתית (%s).</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s נמחקה. לא ניתן למחוק את הרשימה ההתחלתית (%2$s).</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">רשימות נמחקו. לא ניתן למחוק את הרשימה ההתחלתית (%s).</string>
+  <string name="single_list_json_file_name">%s (רשימת קריאה של ויקיפדיה).json</string>
+  <string name="multiple_lists_json_file_name">רשימות קריאה של ויקיפדיה (%s ועוד).json</string>
   <string name="reading_list_items_deleted">%d ערכים הוסרו מהרשימה</string>
   <string name="reading_lists_item_deleted">%s הוסר מהרשימות</string>
   <string name="reading_list_item_delete_undo">ביטול</string>
@@ -565,6 +588,13 @@
   <string name="reading_list_articles_added_to_named">נוספו %1$d ערכים לרשימה %2$s</string>
   <string name="reading_list_articles_moved_to_named">הועברו %1$d ערכים לרשימה %2$s</string>
   <string name="reading_list_delete_confirm">למחוק את %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">למחוק את הרשימות שנבחרו?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">האם ברצונך באמת למחוק את הרשימה %d</item>
+    <item quantity="two">האם ברצונך באמת למחוק את הרשימות %d</item>
+    <item quantity="many">האם ברצונך באמת למחוק את הרשימות %d</item>
+    <item quantity="other">האם ברצונך באמת למחוק את הרשימות %d</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">נא להיכנס לשם הפעלת הסנכרון</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">נא להיכנס כדי לאפשר את השמירה של רשימות הקריאה שלך לחשבון שלך.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">ביטול</string>
@@ -588,6 +618,7 @@
   <string name="reading_list_article_limit_message">אי־אפשר להוסיף לרשימה הזאת. הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
   <string name="reading_lists_limit_message">לא ניתן ליצור עוד רשימה. הגעת למגבלה של 100 רשימות קריאה לחשבון.</string>
   <string name="reading_lists_menu_create_list">יצירת רשימה חדשה</string>
+  <string name="reading_lists_menu_import_list">יבוא רשימה</string>
   <string name="reading_lists_menu_sort_by">מיון לפי</string>
   <string name="reading_lists_refresh_sync_option">רענון סנכרון</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">כניסה / הרשמה לחשבון</string>
@@ -612,7 +643,28 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">ביטול</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">ביטול</string>
   <string name="reading_list_split_dialog_ok_button_text">אישור</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">מחיקה</string>
   <string name="reading_list_activity_title">רשימת קריאה: %s</string>
+  <string name="reading_list_notification_title">רשימות קריאה יוצאו</string>
+  <string name="reading_list_notification_text">%d רשימות קריאה יוצאו בתור \'reading_lists export.json\' לתיקיית ההורדות שלך</string>
+  <string name="reading_list_notification_detailed_text">רשימות קריאה יוצאו אל \'reading_lists_export.json\'</string>
+  <string name="reading_lists_action_menu_export_lists">יצוא</string>
+  <string name="reading_lists_import_file_picker_title">בחירת קובץ ליבוא</string>
+  <string name="reading_lists_import_failure_message">יבוא רשימות הקריאה נכשל</string>
+  <string name="reading_lists_export_select_lists_message">נא לבחור רשימות ליצוא</string>
+  <string name="reading_lists_export_completed_message">רשימות הקריאה יוצאו</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">יצוא רשימת הקריאה נכשל</item>
+    <item quantity="two">יצוא רשימות הקריאה נכשל</item>
+    <item quantity="many">יצוא רשימות הקריאה נכשל</item>
+    <item quantity="other">יצוא רשימות הקריאה נכשל</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">רשימת הקריאה יובאה</item>
+    <item quantity="two">רשימות הקריאה יובאו</item>
+    <item quantity="many">רשימות הקריאה יובאו</item>
+    <item quantity="other">רשימות הקריאה יובאו</item>
+  </plurals>
   <string name="user_option_sync_label">העדפות</string>
   <string name="notification_reverted_title">עריכה משוחזרת</string>
   <string name="notification_channel_title">הורדת ערכים</string>
@@ -1356,11 +1408,13 @@
   <string name="shareable_reading_lists_new_install_dialog_title">רשימת קריאה שותפה איתך</string>
   <string name="shareable_reading_lists_new_install_dialog_content">שמנו לב שרשימת קריאה שותפה איתך. כדי להציג את הרשימה הזאת ביישום, נא לחזור להודעה המקורית ולהקיש שוב על הקישור.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">הבנתי</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">רשימת הקריאה יובאה בהצלחה</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">רשימת הקריאה יובאה</string>
   <string name="reading_list_share_menu_label">שיתוף...</string>
   <string name="reading_list_share_menu_tooltip">שיתוף רשימת הקריאה הזאת עם אחרים</string>
   <string name="reading_list_share_title_tooltip">שינויים שנעשים ברשימה הזאת אינם גלויים לאחרים.</string>
   <string name="reading_list_share_message_v2">שלום! אני רוצה לשתף את רשימת הקריאה שלי בוויקיפדיה איתך:</string>
   <string name="reading_list_share_survey_title">אפשר לבקש ממך לעזור לנו לשפר את התכונה \"שיתוף רשימות קריאה\"?</string>
   <string name="reading_list_share_survey_body">\"שיתוף רשימות קריאה\" היא תכונת הבדיקה ואנחנו זקוקים למשוב שלך כדי לשפר או להסיר אותה.</string>
+  <string name="data_opt_in_accept">לקבל</string>
+  <string name="data_opt_in_reject">לדחות</string>
 </resources>

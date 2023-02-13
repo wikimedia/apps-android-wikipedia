@@ -388,10 +388,6 @@
   <string name="reading_list_article_moved_to_named">%1$s کو %2$s پر منتقل کر دیا گیا۔</string>
   <string name="reading_list_added_view_button">فہرست دیکھیں</string>
   <string name="reading_list_add_to_list_button">فہرست میں شامل کریں</string>
-  <string name="format_reading_list_statistical_summary_singular">ایک مضمون، %1$.2f ایم بی</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d مضمون، %2$.2f ایم بی</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d میں سے ایک مضمون آف لائن دستیاب ہے، %2$.2f ایم بی</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d کیں سے %2$d مضامین آف لائن دستیاب ہیں، %3$.2f ایم بی</string>
   <string name="reading_list_sort">چھانٹ</string>
   <string name="reading_list_sort_ellipsis">ترتیب بمطابق</string>
   <string name="reading_list_sort_by_name">نام سے ترتیب دیں</string>
