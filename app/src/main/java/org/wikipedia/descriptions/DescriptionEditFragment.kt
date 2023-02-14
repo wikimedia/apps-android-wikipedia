@@ -39,6 +39,7 @@ import org.wikipedia.suggestededits.SuggestedEditsSurvey
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
@@ -200,7 +201,7 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
 
-        if (pageTitle.description.isNullOrEmpty()) {
+        if (ReleaseUtil.isPreBetaRelease && pageTitle.description.isNullOrEmpty()) {
             requestSuggestion()
         }
     }
