@@ -632,6 +632,7 @@
         <item quantity="one">Reading list imported</item>
         <item quantity="other">Reading lists imported</item>
     </plurals>
+    <string name="reading_lists_preview_header_title">Shared list</string>
     <!-- /Reading lists -->
 
     <!-- User options -->
