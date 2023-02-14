@@ -633,6 +633,12 @@
         <item quantity="other">Reading lists imported</item>
     </plurals>
     <string name="reading_lists_preview_header_title">Shared list</string>
+    <string name="reading_lists_preview_save_button">Save</string>
+    <string name="reading_lists_preview_save_dialog_title">Save list</string>
+    <string name="reading_lists_preview_save_dialog_text">Name list and select articles to save.</string>
+    <string name="reading_lists_preview_save_dialog_title_hint">Title</string>
+    <string name="reading_lists_preview_save_dialog_cancel">Cancel</string>
+    <string name="reading_lists_preview_save_dialog_save">Save</string>
     <!-- /Reading lists -->
 
     <!-- User options -->

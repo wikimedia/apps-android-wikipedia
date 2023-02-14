@@ -145,7 +145,7 @@
         android:id="@+id/item_preview_save_button"
         style="@style/FlatButton.Small"
         android:layout_marginEnd="@dimen/list_item_horizontal_padding"
-        android:text="@string/menu_page_add_to_default_list"
+        android:text="@string/reading_lists_preview_save_button"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

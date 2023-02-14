@@ -645,6 +645,12 @@
     <item quantity="other">User message when import of multiple reading lists has been successful.</item>
   </plurals>
   <string name="reading_lists_preview_header_title">Title for the preview reading list that has been shared with the user.</string>
+  <string name="reading_lists_preview_save_button">Button text for saving the preview reading list.</string>
+  <string name="reading_lists_preview_save_dialog_title">Title for the dialog of saving the reading list.</string>
+  <string name="reading_lists_preview_save_dialog_text">Description for the dialog of saving the reading list.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Hint for the input field in the dialog of saving the reading list.</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Cancel button for the dialog of saving the reading list.</string>
+  <string name="reading_lists_preview_save_dialog_save">Save button for the dialog of saving the reading list.</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.\n{{Identical|Preferences}}</string>
   <string name="notification_reverted_title">Title for notification when an edit made by the user is reverted.</string>
   <string name="notification_channel_title">Title of the notification channel</string>

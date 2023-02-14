@@ -294,7 +294,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             maybeShowListLimitMessage()
             updateEmptyState(searchQuery)
             maybeDeleteListFromIntent()
-            //maybeShowImportReadingListsDialog()
             maybeShowImportReadingListsSnackbar()
             currentSearchQuery = searchQuery
             maybeTurnOffImportMode(lists.filterIsInstance<ReadingList>().toMutableList())
