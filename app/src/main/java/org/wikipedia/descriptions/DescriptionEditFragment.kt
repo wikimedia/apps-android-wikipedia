@@ -219,6 +219,7 @@ class DescriptionEditFragment : Fragment() {
 
                     // TODO: do something with the list of suggestions.
                     L.d("Received suggestion: " + list.first())
+                    L.d("And is it a BLP? " + response.blp)
                     //
                     //
                 }, { L.e(it) })
