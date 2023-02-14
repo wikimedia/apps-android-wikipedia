@@ -122,8 +122,6 @@ class DescriptionEditFragment : Fragment() {
             targetSummary = it
         }
         EditAttemptStepEvent.logInit(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
-
-        requestSuggestion()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -201,6 +199,10 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.showProgressBar(false)
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
+
+        if (pageTitle.description.isNullOrEmpty()) {
+            requestSuggestion()
+        }
     }
 
     private fun requestSuggestion() {
