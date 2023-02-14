@@ -39,6 +39,7 @@ import org.wikipedia.suggestededits.SuggestedEditsSurvey
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
 import java.util.*
@@ -121,6 +122,8 @@ class DescriptionEditFragment : Fragment() {
             targetSummary = it
         }
         EditAttemptStepEvent.logInit(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+
+        requestSuggestion()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -198,6 +201,28 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.showProgressBar(false)
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
+    }
+
+    private fun requestSuggestion() {
+        disposables.add(
+            ServiceFactory[pageTitle.wikiSite, DescriptionSuggestionService.API_URL, DescriptionSuggestionService::class.java]
+                .getSuggestion(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ response ->
+                    // Perform some post-processing on the predictions.
+                    // 1) Capitalize them, if we're dealing with enwiki.
+                    // 2) Remove duplicates.
+                    val list = (if (pageTitle.wikiSite.languageCode == "en") {
+                        response.prediction.map { StringUtil.capitalize(it)!! }
+                    } else response.prediction).distinct()
+
+                    // TODO: do something with the list of suggestions.
+                    L.d("Received suggestion: " + list.first())
+                    //
+                    //
+                }, { L.e(it) })
+        )
     }
 
     private fun callback(): Callback? {
