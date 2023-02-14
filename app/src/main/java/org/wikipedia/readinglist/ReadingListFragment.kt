@@ -15,6 +15,7 @@ import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +28,10 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -49,6 +54,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.settings.SiteInfoClient.maxPagesPerReadingList
 import org.wikipedia.util.*
+import org.wikipedia.util.log.L
 import org.wikipedia.views.*
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 
@@ -60,6 +66,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private lateinit var touchCallback: SwipeableItemTouchHelperCallback
     private lateinit var headerView: ReadingListItemView
     private val disposables = CompositeDisposable()
+    private var isPreview: Boolean = false
     private var readingList: ReadingList? = null
     private var readingListId: Long = 0
     private val adapter = ReadingListPageItemAdapter()
@@ -85,7 +92,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         DeviceUtil.updateStatusBarTheme(requireActivity(), binding.readingListToolbar, true)
         touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         ItemTouchHelper(touchCallback).attachToRecyclerView(binding.readingListRecyclerView)
-        readingListId = requireArguments().getLong(ReadingListActivity.EXTRA_READING_LIST_ID)
+        isPreview = requireArguments().getBoolean(ReadingListActivity.EXTRA_READING_LIST_PREVIEW, false)
+        readingListId = requireArguments().getLong(ReadingListActivity.EXTRA_READING_LIST_ID, -1)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         setToolbar()
         setHeaderView()
@@ -216,6 +224,12 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.setThumbnailVisible(false)
         headerView.setTitleTextAppearance(R.style.ReadingListTitleTextAppearance)
         headerView.setOverflowViewVisibility(View.VISIBLE)
+
+        if (isPreview) {
+            // TODO: hide menu items and show only save button
+            return
+        }
+
         if (ReadingListsShareHelper.shareEnabled()) {
             headerView.shareButton.isVisible = true
             if (Prefs.readingListRecentReceivedId == readingListId && !Prefs.readingListRecentReceivedTooltipShown) {
@@ -285,7 +299,29 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     private fun updateReadingListData() {
-        disposables.add(Observable.fromCallable { AppDatabase.instance.readingListDao().getListById(readingListId, true) }
+        if (isPreview) {
+            if (readingList == null) {
+                val encodedJson = Prefs.receiveReadingListsData
+                if (!Prefs.importReadingListsDialogShown && !encodedJson.isNullOrEmpty()) {
+                    lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                        L.e(throwable)
+                        FeedbackUtil.showError(requireActivity(), throwable)
+                        requireActivity().finish()
+                    }) {
+                        withContext(Dispatchers.Main) {
+                            readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
+                        }
+                        readingList?.let {
+                            binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
+                        }
+                        update()
+                    }
+                }
+            } else {
+                update()
+            }
+        } else {
+            disposables.add(Observable.fromCallable { AppDatabase.instance.readingListDao().getListById(readingListId, true) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ list ->
@@ -301,6 +337,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     // In this case, there's nothing for us to do, so just bail from the activity.
                     requireActivity().finish()
                 })
+        }
     }
 
     private fun enqueueTooltip(runnable: Runnable) {

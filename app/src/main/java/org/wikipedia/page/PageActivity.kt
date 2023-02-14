@@ -39,11 +39,11 @@ import org.wikipedia.events.ChangeTextSizeEvent
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
-import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient
@@ -496,8 +496,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     val encodedListFromParameter = uri.getQueryParameter("limport")
                     Prefs.importReadingListsDialogShown = false
                     Prefs.receiveReadingListsData = encodedListFromParameter
-                    startActivity(MainActivity.newIntent(this).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                        .putExtra(Constants.INTENT_EXTRA_RECEIVE_READING_LISTS, true))
+                    startActivity(ReadingListActivity.newIntent(this, true).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                     finish()
                     return
                 }
