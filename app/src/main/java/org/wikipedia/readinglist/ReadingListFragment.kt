@@ -886,5 +886,11 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 arguments = bundleOf(ReadingListActivity.EXTRA_READING_LIST_ID to listId)
             }
         }
+
+        fun newInstance(preview: Boolean): ReadingListFragment {
+            return ReadingListFragment().apply {
+                arguments = bundleOf(ReadingListActivity.EXTRA_READING_LIST_PREVIEW to preview)
+            }
+        }
     }
 }

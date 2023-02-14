@@ -752,7 +752,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun maybeShowImportReadingListsDialog() {
-        val encodedJson = Prefs.importReadingListsData
+        val encodedJson = Prefs.receiveReadingListsData
         if (!Prefs.importReadingListsDialogShown && !encodedJson.isNullOrEmpty()) {
             lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.e(throwable)

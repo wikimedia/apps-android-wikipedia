@@ -495,9 +495,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     L.d("Received shareable reading lists")
                     val encodedListFromParameter = uri.getQueryParameter("limport")
                     Prefs.importReadingListsDialogShown = false
-                    Prefs.importReadingListsData = encodedListFromParameter
+                    Prefs.receiveReadingListsData = encodedListFromParameter
                     startActivity(MainActivity.newIntent(this).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                        .putExtra(Constants.INTENT_EXTRA_IMPORT_READING_LISTS, true))
+                        .putExtra(Constants.INTENT_EXTRA_RECEIVE_READING_LISTS, true))
                     finish()
                     return
                 }
