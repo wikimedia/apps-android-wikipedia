@@ -224,6 +224,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.setThumbnailVisible(false)
         headerView.setTitleTextAppearance(R.style.ReadingListTitleTextAppearance)
         headerView.setOverflowViewVisibility(View.VISIBLE)
+        headerView.setPreviewMode(isPreview)
 
         if (isPreview) {
             // TODO: hide menu items and show only save button
