@@ -39,7 +39,7 @@ abstract class RecurringTask {
     private val lastRunDate: Date
         get() = Date(Prefs.getLastRunTime(name))
 
-    protected fun timeSinceLastRun(lastRun: Date): Long {
+    protected fun millisSinceLastRun(lastRun: Date): Long {
         return min(Int.MAX_VALUE.toLong(), max(0, absoluteTime - lastRun.time))
     }
 }
