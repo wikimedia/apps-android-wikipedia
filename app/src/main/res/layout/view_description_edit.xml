@@ -180,6 +180,16 @@
                         </com.google.android.material.textfield.TextInputLayout>
                     </FrameLayout>
 
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/suggestedDescButton"
+                        style="@style/CustomChipWithIconStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginEnd="12dp"
+                        android:text="@string/description_edit_suggested_description_button_text"
+                        app:chipIcon="@drawable/ic_robot_24" />
+
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/learnMoreButton"
                         style="@style/FlatButton.Small.Transparent"

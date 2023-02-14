@@ -620,6 +620,25 @@
         <item name="chipMinTouchTargetSize">48dp</item>
     </style>
 
+    <style name="CustomChipWithIconStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">?attr/chart_shade1</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="ensureMinTouchTargetSize">true</item>
+        <item name="chipMinTouchTargetSize">48dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="chipBackgroundColor">?attr/suggestions_background_color</item>
+        <item name="chipCornerRadius">8dp</item>
+        <item name="chipIconSize">14dp</item>
+        <item name="chipIconTint">?attr/chart_shade1</item>
+        <item name="chipIconVisible">true</item>
+        <item name="iconStartPadding">12dp</item>
+        <item name="iconGravity">start</item>
+        <item name="android:elevation">1dp</item>
+    </style>
+
     <style name="AlertDialogStyle" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:textColorPrimary">?attr/material_theme_secondary_color</item>
