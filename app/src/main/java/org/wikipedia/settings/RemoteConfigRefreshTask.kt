@@ -13,7 +13,7 @@ class RemoteConfigRefreshTask : RecurringTask() {
     override val name = "remote-config-refresher"
 
     override fun shouldRun(lastRun: Date): Boolean {
-        return System.currentTimeMillis() - lastRun.time >= RUN_INTERVAL_MILLIS
+        return timeSinceLastRun(lastRun) >= RUN_INTERVAL_MILLIS
     }
 
     override fun run(lastRun: Date) {
