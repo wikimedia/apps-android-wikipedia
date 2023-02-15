@@ -5,6 +5,24 @@
     android:orientation="vertical"
     android:paddingTop="16dp">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/readingListTitleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="@string/reading_lists_preview_save_dialog_title_hint">
+
+        <org.wikipedia.views.PlainPasteEditText
+            android:id="@+id/readingListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="text"
+            android:lineSpacingExtra="6sp"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"

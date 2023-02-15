@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.view.ActionMode
@@ -227,7 +228,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.setPreviewMode(isPreview)
 
         if (isPreview) {
-            // TODO: hide menu items and show only save button
+            // TODO: hide menu items and show only save button and also disable long press / press actions
+            headerView.previewSaveButton.setOnClickListener {
+                previewSaveDialog()
+            }
             return
         }
 
@@ -441,6 +445,23 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 page.selected = false
             }
             adapter.notifyDataSetChanged()
+        }
+    }
+
+    private fun previewSaveDialog() {
+        readingList?.let {
+            val view = ReadingListPreviewSaveDialogView(requireContext())
+            view.setContentType(it)
+            AlertDialog.Builder(requireContext())
+                .setView(view)
+                .setTitle(R.string.reading_lists_preview_save_dialog_title)
+                .setMessage(R.string.reading_lists_preview_save_dialog_text)
+                .setPositiveButton(R.string.reading_lists_preview_save_dialog_save) { _, _ ->
+                    readingList = view.readingList
+                }
+                .setNegativeButton(R.string.reading_lists_preview_save_dialog_cancel, null)
+                .create()
+                .show()
         }
     }
 

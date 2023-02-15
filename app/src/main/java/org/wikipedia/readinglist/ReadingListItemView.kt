@@ -38,6 +38,7 @@ class ReadingListItemView : ConstraintLayout {
     var callback: Callback? = null
     val shareButton get() = binding.itemShareButton
     val listTitle get() = binding.itemTitle
+    val previewSaveButton get() = binding.itemPreviewSaveButton
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)

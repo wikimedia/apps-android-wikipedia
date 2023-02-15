@@ -20,7 +20,7 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
 
     private val binding = ViewReadingListPreviewSaveDialogBinding.inflate(LayoutInflater.from(context), this, true)
 
-    private lateinit var readingList: ReadingList
+    lateinit var readingList: ReadingList
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
