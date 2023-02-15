@@ -800,7 +800,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any?) {
+        override fun accept(event: Any) {
             when (event) {
                 is ChangeTextSizeEvent -> {
                     pageFragment.updateFontSize()
