@@ -639,6 +639,8 @@
     <string name="reading_lists_preview_save_dialog_title_hint">Title</string>
     <string name="reading_lists_preview_save_dialog_cancel">Cancel</string>
     <string name="reading_lists_preview_save_dialog_save">Save</string>
+    <string name="reading_lists_preview_saved_snackbar">Reading list saved</string>
+    <string name="reading_lists_preview_saved_snackbar_action">View</string>
     <!-- /Reading lists -->
 
     <!-- User options -->
