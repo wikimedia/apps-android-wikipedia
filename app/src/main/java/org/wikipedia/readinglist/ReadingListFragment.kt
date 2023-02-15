@@ -446,13 +446,15 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private fun previewSaveDialog() {
         readingList?.let {
             val view = ReadingListPreviewSaveDialogView(requireContext())
-            view.setContentType(it)
+            val savedPages = it.pages.toMutableList()
+            view.setContentType(it, savedPages)
             AlertDialog.Builder(requireContext())
                 .setView(view)
                 .setTitle(R.string.reading_lists_preview_save_dialog_title)
                 .setMessage(R.string.reading_lists_preview_save_dialog_text)
                 .setPositiveButton(R.string.reading_lists_preview_save_dialog_save) { _, _ ->
-                    readingList = view.readingList
+                    it.pages.clear()
+                    it.pages.addAll(savedPages)
                 }
                 .setNegativeButton(R.string.reading_lists_preview_save_dialog_cancel, null)
                 .create()

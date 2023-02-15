@@ -22,7 +22,8 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
 
     private val binding = ViewReadingListPreviewSaveDialogBinding.inflate(LayoutInflater.from(context), this, true)
 
-    lateinit var readingList: ReadingList
+    private lateinit var readingList: ReadingList
+    private lateinit var savedReadingListPages: MutableList<ReadingListPage>
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -37,8 +38,9 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(context, R.attr.list_separator_drawable, drawStart = true, drawEnd = true, skipSearchBar = true))
     }
 
-    fun setContentType(readingList: ReadingList) {
+    fun setContentType(readingList: ReadingList, savedReadingListPages: MutableList<ReadingListPage>) {
         this.readingList = readingList
+        this.savedReadingListPages = savedReadingListPages
         binding.recyclerView.adapter = ReadingListItemAdapter()
     }
 
@@ -56,16 +58,16 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
         }
 
         override fun onClick(v: View) {
-            if (readingList.pages.contains(readingListPage)) {
-                readingList.pages.remove(readingListPage)
+            if (savedReadingListPages.contains(readingListPage)) {
+                savedReadingListPages.remove(readingListPage)
             } else {
-                readingList.pages.add(readingListPage)
+                savedReadingListPages.add(readingListPage)
             }
             updateState()
         }
 
         private fun updateState() {
-            itemBinding.checkbox.isChecked = !readingList.pages.contains(readingListPage)
+            itemBinding.checkbox.isChecked = savedReadingListPages.contains(readingListPage)
         }
     }
 
