@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="-8dp"
-            android:gravity="center">
+            android:gravity="center_vertical">
 
             <TextView
                 android:layout_width="0dp"
@@ -36,7 +36,7 @@
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/close_button"
+                android:id="@+id/closeButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
@@ -49,10 +49,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:layout_marginTop="16dp">
 
             <TextView
-                android:id="@+id/first_suggestion"
+                android:id="@+id/firstSuggestion"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -60,11 +61,11 @@
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="Conceptual artworks made from plant"
                 android:textColor="?attr/primary_text_color"
                 android:textSize="14sp" />
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/firstSuggestionFlag"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
@@ -77,10 +78,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:layout_marginTop="16dp">
 
             <TextView
-                android:id="@+id/second_suggestion"
+                android:id="@+id/secondSuggestion"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -88,7 +90,6 @@
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="Artworks made from plant, animal, or synthetic fibers by native peoples"
                 android:textColor="?attr/primary_text_color"
                 android:textSize="14sp"
                 app:chipBackgroundColor="?attr/suggestions_background_color"
@@ -96,6 +97,7 @@
                 app:singleLine="false" />
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/secondSuggestionFlag"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"

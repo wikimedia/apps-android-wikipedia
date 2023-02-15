@@ -29,6 +29,17 @@ class ArticleDescriptionsDialog(context: Context,
             secondDescriptionSuggestion?.let { callback.onSuggestionClicked(it) }
             dismiss()
         }
+
+        binding.firstSuggestionFlag.setOnClickListener {
+            ArticleSuggestionReportDialog(context, firstDescriptionSuggestion!!).show()
+            dismiss()
+        }
+
+        binding.secondSuggestionFlag.setOnClickListener {
+            ArticleSuggestionReportDialog(context, secondDescriptionSuggestion!!).show()
+            dismiss()
+        }
+
         binding.firstSuggestion.text = firstDescriptionSuggestion
         binding.secondSuggestion.text = secondDescriptionSuggestion
     }
