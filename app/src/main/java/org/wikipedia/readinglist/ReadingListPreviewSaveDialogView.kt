@@ -8,12 +8,14 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import org.wikipedia.R
 import org.wikipedia.databinding.ItemReadingListPreviewSaveSelectItemBinding
 import org.wikipedia.databinding.ViewReadingListPreviewSaveDialogBinding
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
 
 class ReadingListPreviewSaveDialogView : FrameLayout {
@@ -31,12 +33,14 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
-        binding.list.layoutManager = LinearLayoutManager(context)
+        binding.recyclerView.layoutManager = LinearLayoutManager(context)
+        binding.recyclerView.addItemDecoration(DrawableItemDecoration(context, R.attr.list_separator_drawable, drawStart = true, drawEnd = true, skipSearchBar = true))
+
     }
 
     fun setContentType(readingList: ReadingList) {
         this.readingList = readingList
-        binding.list.adapter = ReadingListItemAdapter()
+        binding.recyclerView.adapter = ReadingListItemAdapter()
     }
 
     private inner class ReadingListItemHolder constructor(val itemBinding: ItemReadingListPreviewSaveSelectItemBinding) : DefaultViewHolder<View>(itemBinding.root), OnClickListener {

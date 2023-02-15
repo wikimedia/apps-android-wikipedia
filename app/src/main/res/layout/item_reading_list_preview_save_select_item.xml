@@ -8,9 +8,7 @@
     android:background="?attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
-    android:paddingStart="24dp"
     android:paddingTop="16dp"
-    android:paddingEnd="20dp"
     android:paddingBottom="16dp">
 
     <CheckBox
