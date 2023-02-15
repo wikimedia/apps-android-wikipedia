@@ -760,18 +760,18 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 withContext(Dispatchers.Main) {
                     val readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
                     val existingTitles = displayedLists.filterIsInstance<ReadingList>().map { it.title }
-                    val dialog = ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
-                        existingTitles, true, callback = object : ReadingListTitleDialog.Callback {
-                            override fun onSuccess(text: String, description: String) {
-                                readingList.listTitle = text
-                                readingList.description = description
-                                importReadingListAndRefresh(readingList)
-                            }
-                            override fun onCancel() {
-                            }
-                        }
-                    )
-                    dialog.show()
+//                    val dialog = ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
+//                        existingTitles, true, callback = object : ReadingListTitleDialog.Callback {
+//                            override fun onSuccess(text: String, description: String) {
+//                                readingList.listTitle = text
+//                                readingList.description = description
+//                                importReadingListAndRefresh(readingList)
+//                            }
+//                            override fun onCancel() {
+//                            }
+//                        }
+//                    )
+//                    dialog.show()
                     Prefs.importReadingListsDialogShown = true
                 }
             }
