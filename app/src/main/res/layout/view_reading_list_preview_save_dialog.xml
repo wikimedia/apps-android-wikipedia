@@ -5,12 +5,29 @@
     android:orientation="vertical"
     android:layout_marginBottom="16dp">
 
+    <TextView
+        style="@style/MaterialLargePrimaryTitle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:textAlignment="textStart"
+        android:text="@string/reading_lists_preview_save_dialog_title" />
+
+    <TextView
+        style="@style/MaterialMediumSecondaryCaption"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="16dp"
+        android:textAlignment="textStart"
+        android:text="@string/reading_lists_preview_save_dialog_text" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/readingListTitleLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_margin="16dp"
         android:hint="@string/reading_lists_preview_save_dialog_title_hint">
 
         <org.wikipedia.views.PlainPasteEditText
@@ -27,7 +44,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginHorizontal="16dp" />
 
 </LinearLayout>

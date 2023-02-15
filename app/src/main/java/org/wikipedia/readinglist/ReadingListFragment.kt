@@ -456,8 +456,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             view.setContentType(it, savedPages)
             AlertDialog.Builder(requireContext())
                 .setView(view)
-                .setTitle(R.string.reading_lists_preview_save_dialog_title)
-                .setMessage(R.string.reading_lists_preview_save_dialog_text)
                 .setPositiveButton(R.string.reading_lists_preview_save_dialog_save) { _, _ ->
                     it.pages.clear()
                     it.pages.addAll(savedPages)

@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:textColor="?attr/material_theme_primary_color"
         android:textSize="16sp"
-        android:layout_marginStart="16dp"
+        android:layout_marginHorizontal="8dp"
         app:layout_constraintStart_toEndOf="@id/checkbox"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
