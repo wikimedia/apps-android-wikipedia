@@ -3,12 +3,14 @@ package org.wikipedia.readinglist
 import android.content.Context
 import android.util.Base64
 import org.wikipedia.R
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.StringUtil
 import java.util.*
 
@@ -32,7 +34,7 @@ object ReadingListsReceiveHelper {
                         page.displayTitle(wikiSite.languageCode),
                         StringUtil.addUnderscores(page.title),
                         page.description,
-                        page.thumbUrl(),
+                        ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl().orEmpty(), Service.PREFERRED_THUMB_SIZE),
                         lang = wikiSite.languageCode
                     )
                     listPages.add(readingListPage)
