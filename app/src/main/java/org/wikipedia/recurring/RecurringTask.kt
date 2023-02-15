@@ -3,6 +3,8 @@ package org.wikipedia.recurring
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 import java.util.*
+import kotlin.math.max
+import kotlin.math.min
 
 /**
  * Represents a task that needs to be run periodically.
@@ -36,4 +38,8 @@ abstract class RecurringTask {
         get() = System.currentTimeMillis()
     private val lastRunDate: Date
         get() = Date(Prefs.getLastRunTime(name))
+
+    protected fun millisSinceLastRun(lastRun: Date): Long {
+        return min(Int.MAX_VALUE.toLong(), max(0, absoluteTime - lastRun.time))
+    }
 }

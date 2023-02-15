@@ -12,7 +12,8 @@ class RecurringTasksExecutor(private val app: WikipediaApp) {
         Completable.fromAction {
             val allTasks = arrayOf( // Has list of all rotating tasks that need to be run
                     RemoteConfigRefreshTask(),
-                    DailyEventTask(app)
+                    DailyEventTask(app),
+                    TalkOfflineCleanupTask(app)
             )
             for (task in allTasks) {
                 task.runIfNecessary()
