@@ -321,22 +321,22 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 update()
             }
         } else {
-          CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, _ ->
-              // If we failed to retrieve the requested list, it means that the list is no
-              // longer in the database (likely removed due to sync).
-              // In this case, there's nothing for us to do, so just bail from the activity.
-              requireActivity().finish()
-          }) {
-              val list = withContext(Dispatchers.IO) {
-                  AppDatabase.instance.readingListDao().getListById(readingListId, true)
-              }
-              binding.readingListSwipeRefresh.isRefreshing = false
-              readingList = list
-              readingList?.let {
-                  binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
-              }
-              update()
-          }
+            lifecycleScope.launch(CoroutineExceptionHandler { _, _ ->
+                // If we failed to retrieve the requested list, it means that the list is no
+                // longer in the database (likely removed due to sync).
+                // In this case, there's nothing for us to do, so just bail from the activity.
+                requireActivity().finish()
+            }) {
+                val list = withContext(Dispatchers.IO) {
+                    AppDatabase.instance.readingListDao().getListById(readingListId, true)
+                }
+                binding.readingListSwipeRefresh.isRefreshing = false
+                readingList = list
+                readingList?.let {
+                    binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
+                }
+                update()
+            }
         }
     }
 
