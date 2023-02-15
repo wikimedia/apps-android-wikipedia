@@ -114,6 +114,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
+        if (isPreview) {
+            return
+        }
         inflater.inflate(R.menu.menu_reading_list, menu)
         if (showOverflowMenu) {
             inflater.inflate(R.menu.menu_reading_list_item, menu)
@@ -121,6 +124,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     override fun onPrepareMenu(menu: Menu) {
+        if (isPreview) {
+            return
+        }
         val sortByNameItem = menu.findItem(R.id.menu_sort_by_name)
         val sortByRecentItem = menu.findItem(R.id.menu_sort_by_recent)
         val sortMode = Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC)
@@ -587,6 +593,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private inner class ReadingListItemHolder constructor(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
         fun bindItem(readingList: ReadingList) {
             view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY)
+            view.setPreviewMode(isPreview)
             view.setSearchQuery(currentSearchQuery)
         }
 
@@ -603,7 +610,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             view.setImageUrl(page.thumbUrl)
             view.isSelected = page.selected
             view.setSecondaryActionIcon(if (page.saving) R.drawable.ic_download_in_progress else R.drawable.ic_download_circle_gray_24dp,
-                    !page.offline || page.saving)
+                    if (isPreview) false else !page.offline || page.saving)
             view.setCircularProgressVisibility(page.downloadProgress > 0 && page.downloadProgress < CircularProgressBar.MAX_PROGRESS)
             view.setProgress(if (page.downloadProgress == CircularProgressBar.MAX_PROGRESS) 0 else page.downloadProgress)
             view.setActionHint(R.string.reading_list_article_make_offline)
@@ -622,6 +629,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
 
         override fun onSwipe() {
+            if (isPreview) {
+                return
+            }
             readingList?.let {
                 if (currentSearchQuery.isNullOrEmpty()) {
                     ReadingListBehaviorsUtil.deletePages(requireActivity(), listOf(it), page, { updateReadingListData() }, {
@@ -631,7 +641,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             }
         }
 
-        override fun isSwipeable(): Boolean { return true }
+        override fun isSwipeable(): Boolean { return !isPreview }
 
         private val imageDimension
             get() = DimenUtil.roundedDpToPx(if (currentSearchQuery.isNullOrEmpty()) DimenUtil.getDimension(R.dimen.view_list_card_item_image) else ReadingListsFragment.ARTICLE_ITEM_IMAGE_DIMENSION.toFloat())
@@ -791,6 +801,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
 
         override fun onLongClick(item: ReadingListPage?): Boolean {
+            if (isPreview) {
+                return false
+            }
             item?.let {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager,
                         ReadingListItemActionsDialog.newInstance(if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!)

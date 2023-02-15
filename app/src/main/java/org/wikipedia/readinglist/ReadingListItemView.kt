@@ -143,6 +143,10 @@ class ReadingListItemView : ConstraintLayout {
         binding.itemPreviewSaveButton.isVisible = isPreview
         binding.itemOverflowMenu.isVisible = !isPreview
         binding.itemReadingListStatisticalDescription.visibility = if (isPreview) View.GONE else View.VISIBLE
+        setOnLongClickListener {
+            // Ignore onLongClick action
+            false
+        }
     }
 
     private fun updateDetails(showCheckBoxes: Boolean) {
