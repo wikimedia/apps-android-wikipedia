@@ -224,11 +224,9 @@ class DescriptionEditFragment : Fragment() {
                     response.prediction.map { StringUtil.capitalize(it)!! }
                 } else response.prediction).distinct()
 
-                // TODO: do something with the list of suggestions.
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
-                //
-                //
+                binding.fragmentDescriptionEditView.updateDescriptionSuggestions(list.first(), list.last())
             }
         }
     }

@@ -1,5 +1,6 @@
 package org.wikipedia.descriptions
 
+import android.app.Activity
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -9,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.addTextChangedListener
 import org.wikipedia.R
@@ -41,6 +43,8 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     private val mlKitLanguageDetector = MlKitLanguageDetector()
     private val languageDetectRunnable = Runnable { mlKitLanguageDetector.detectLanguageFromText(binding.viewDescriptionEditText.text.toString()) }
     private val textValidateRunnable = Runnable { validateText() }
+    private var firstDescriptionSuggestion: String? = null
+    private var secondDescriptionSuggestion: String? = null
     private var originalDescription: String? = null
     private var isTranslationEdit = false
     private var isLanguageWrong = false
@@ -91,7 +95,12 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         }
 
         binding.suggestedDescButton.setOnClickListener {
-            ArticleDescriptionsDialog(context).show()
+            ArticleDescriptionsDialog(context, firstDescriptionSuggestion, secondDescriptionSuggestion,
+                object : ArticleDescriptionsDialog.Callback {
+                    override fun onSuggestionClicked(suggestion: String) {
+                        binding.viewDescriptionEditText.setText(suggestion)
+                    }
+                }).show()
         }
 
         binding.learnMoreButton.setOnClickListener {
@@ -398,6 +407,11 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION ||
                 action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) context.getString(R.string.description_edit_learn_more)
             else context.getString(R.string.description_edit_image_caption_learn_more)
+    }
+    fun updateDescriptionSuggestions(first: String, second: String) {
+        firstDescriptionSuggestion = first
+        secondDescriptionSuggestion = second
+        (context as Activity).let { it.runOnUiThread { binding.suggestedDescButton.isVisible = true } }
     }
 
     companion object {

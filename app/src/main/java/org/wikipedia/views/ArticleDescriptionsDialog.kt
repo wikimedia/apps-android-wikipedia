@@ -6,7 +6,14 @@ import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AlertDialog
 import org.wikipedia.databinding.DialogArticleDescriptionsBinding
 
-class ArticleDescriptionsDialog constructor(context: Context) : AlertDialog(context) {
+class ArticleDescriptionsDialog(context: Context,
+                                firstDescriptionSuggestion: String?,
+                                secondDescriptionSuggestion: String?,
+                                callback: Callback) : AlertDialog(context) {
+
+    interface Callback {
+        fun onSuggestionClicked(suggestion: String)
+    }
 
     private val binding = DialogArticleDescriptionsBinding.inflate(layoutInflater)
 
@@ -14,5 +21,15 @@ class ArticleDescriptionsDialog constructor(context: Context) : AlertDialog(cont
         setView(binding.root)
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         binding.closeButton.setOnClickListener { dismiss() }
+        binding.firstSuggestion.setOnClickListener {
+            firstDescriptionSuggestion?.let { callback.onSuggestionClicked(it) }
+            dismiss()
+        }
+        binding.secondSuggestion.setOnClickListener {
+            secondDescriptionSuggestion?.let { callback.onSuggestionClicked(it) }
+            dismiss()
+        }
+        binding.firstSuggestion.text = firstDescriptionSuggestion
+        binding.secondSuggestion.text = secondDescriptionSuggestion
     }
 }

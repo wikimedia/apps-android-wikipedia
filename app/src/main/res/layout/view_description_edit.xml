@@ -187,6 +187,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="18dp"
                         android:layout_marginEnd="12dp"
+                        android:visibility="gone"
                         android:text="@string/description_edit_suggested_description_button_text"
                         app:chipIcon="@drawable/ic_robot_24" />
 

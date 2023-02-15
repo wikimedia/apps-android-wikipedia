@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/dialog_16dp_radius_background"
+    android:layout_margin="24dp"
     android:padding="24dp">
 
     <org.wikipedia.views.CircularProgressBar
@@ -51,6 +52,7 @@
             android:layout_marginTop="16dp">
 
             <TextView
+                android:id="@+id/first_suggestion"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -78,6 +80,7 @@
             android:layout_marginTop="16dp">
 
             <TextView
+                android:id="@+id/second_suggestion"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
