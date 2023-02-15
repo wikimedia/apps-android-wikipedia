@@ -35,7 +35,6 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
         )
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(context, R.attr.list_separator_drawable, drawStart = true, drawEnd = true, skipSearchBar = true))
-
     }
 
     fun setContentType(readingList: ReadingList) {
