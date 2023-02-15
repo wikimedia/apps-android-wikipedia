@@ -23,16 +23,11 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -326,22 +321,22 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 update()
             }
         } else {
-            disposables.add(Observable.fromCallable { AppDatabase.instance.readingListDao().getListById(readingListId, true) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ list ->
-                    binding.readingListSwipeRefresh.isRefreshing = false
-                    readingList = list
-                    readingList?.let {
-                        binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
-                    }
-                    update()
-                }) {
-                    // If we failed to retrieve the requested list, it means that the list is no
-                    // longer in the database (likely removed due to sync).
-                    // In this case, there's nothing for us to do, so just bail from the activity.
-                    requireActivity().finish()
-                })
+          CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, _ ->
+              // If we failed to retrieve the requested list, it means that the list is no
+              // longer in the database (likely removed due to sync).
+              // In this case, there's nothing for us to do, so just bail from the activity.
+              requireActivity().finish()
+          }) {
+              val list = withContext(Dispatchers.IO) {
+                  AppDatabase.instance.readingListDao().getListById(readingListId, true)
+              }
+              binding.readingListSwipeRefresh.isRefreshing = false
+              readingList = list
+              readingList?.let {
+                  binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
+              }
+              update()
+          }
         }
     }
 
