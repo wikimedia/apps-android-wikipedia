@@ -19,6 +19,7 @@ import org.wikipedia.mlkit.MlKitLanguageDetector
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.*
+import org.wikipedia.views.ArticleDescriptionsDialog
 import java.util.*
 
 class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
@@ -87,6 +88,10 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 return@setOnEditorActionListener true
             }
             false
+        }
+
+        binding.suggestedDescButton.setOnClickListener {
+            ArticleDescriptionsDialog(context).show()
         }
 
         binding.learnMoreButton.setOnClickListener {

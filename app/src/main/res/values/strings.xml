@@ -1056,6 +1056,8 @@
     <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
     <string name="suggested_edits_contribution_current_revision_text">Your edit is currently live on Wikipedia</string>
     <string name="suggested_card_more_edits">More suggested edits</string>
+    <string name="suggested_edits_article_descriptions_dialog_title">Suggested descriptions</string>
+    <string name="suggested_edits_article_descriptions_dialog_close">Close suggested suggestions</string>
     <plurals name="suggested_edits_tags_diff_count_text">
         <item quantity="one">%1$s tag</item>
         <item quantity="other">%1$s tags</item>

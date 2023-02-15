@@ -1344,4 +1344,6 @@
   <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
   <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
   <string name="description_edit_suggested_description_button_text">Suggested edits article descriptions suggestions button label.</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Suggested edits article descriptions suggestions dialog title text.</string>
+  <string name="suggested_edits_article_descriptions_dialog_close">Suggested edits article descriptions suggestions dialog close button text for screen readers.</string>
 </resources>
