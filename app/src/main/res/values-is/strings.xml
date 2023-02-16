@@ -485,6 +485,7 @@
   <string name="reading_list_menu_export">Flytja út lista</string>
   <string name="reading_list_menu_select">Velja</string>
   <string name="reading_list_menu_unselect">Afvelja</string>
+  <string name="reading_list_export_write_permission_rationale">Nauðsynlegt er að hafa heimild til að skrifa í gagnageymslu tækisins til að geta flutt út leslista.</string>
   <string name="reading_list_menu_rename">Breyta nafni/lýsingu</string>
   <string name="reading_list_action_menu_remove_from_offline">Fjarlægja úr ónettengdum aðgangi</string>
   <string name="reading_list_action_menu_save_for_offline">Vista til lestrar án nettengingar</string>
@@ -505,6 +506,15 @@
     <item quantity="one">%d grein fjarlægð af %s</item>
     <item quantity="other">%d greinar fjarlægðar af %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d lista eytt</item>
+    <item quantity="other"> %d listum eytt</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Ekki er hægt að eyða sjálfgefna listanum ( %s ).</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s eytt. Ekki er hægt að eyða sjálfgefna listanum ( %2$s ).</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Listum eytt. Ekki er hægt að eyða sjálfgefna listanum ( %s ).</string>
+  <string name="single_list_json_file_name">%s (Wikipedia leslisti).json</string>
+  <string name="multiple_lists_json_file_name">Wikipedia leslistar ( %s og fleira).json</string>
   <string name="reading_list_items_deleted">%d greinar fjarlægðar af lista</string>
   <string name="reading_lists_item_deleted">%s fjarlægt af listum</string>
   <string name="reading_list_item_delete_undo">Afturkalla</string>
@@ -537,6 +547,11 @@
   <string name="reading_list_articles_added_to_named">Bætti %1$d greinum við %2$s</string>
   <string name="reading_list_articles_moved_to_named">Færði %1$d greinum yfir á %2$s</string>
   <string name="reading_list_delete_confirm">Ertu viss um að þú viljir eyða %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Eyða völdum lista/listum?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Ertu viss um að þú viljir eyða %d lista?</item>
+    <item quantity="other">Ertu viss um að þú viljir eyða %d listum?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Skráðu inn til að virkja samstillingu</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Skráðu þig inn til að leyfa vistun leslista inn á aðganginn þinn.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Hætta við</string>
@@ -1151,6 +1166,7 @@
   <string name="talk_new_topic_submitted">Umræðuefni birt.</string>
   <string name="talk_page_empty">Þessi spjallsíða er tóm.</string>
   <string name="talk_page_empty_title">Umræðan hefst hér</string>
+  <string name="talk_page_empty_content">Spjallsíður eru þar sem fólk ræðir hvernig hægt sé að gera Wikipedia-efni eins og best verður á kosið. Byrjaðu á því að bæta við nýju umræðuefni til að tengjast og vinna með samfélagi Wikipedia-fólks.</string>
   <string name="talk_add_reply">Svara</string>
   <string name="talk_no_subject">(ekkert viðfangsefni)</string>
   <string name="talk_reply_subject">Viðfangsefni</string>

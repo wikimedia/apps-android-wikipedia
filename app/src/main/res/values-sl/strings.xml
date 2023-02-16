@@ -650,6 +650,15 @@
     <item quantity="few">Bralni seznami so uvoženi</item>
     <item quantity="other">Bralni seznami so uvoženi</item>
   </plurals>
+  <string name="reading_lists_preview_header_title">Deljeni seznam</string>
+  <string name="reading_lists_preview_save_button">Shrani</string>
+  <string name="reading_lists_preview_save_dialog_title">Shrani seznam</string>
+  <string name="reading_lists_preview_save_dialog_text">Poimenujte seznam in izberite članke za shranitev.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Naslov</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Prekliči</string>
+  <string name="reading_lists_preview_save_dialog_save">Shrani</string>
+  <string name="reading_lists_preview_saved_snackbar">Bralni seznam shranjen</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Prikaži</string>
   <string name="user_option_sync_label">Nastavitve</string>
   <string name="notification_reverted_title">Vrnjeno urejanje</string>
   <string name="notification_channel_title">Prenos člankov</string>

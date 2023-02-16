@@ -500,6 +500,7 @@
   <string name="reading_list_sort_by_created">Сартаваць па даце стварэння (найнавейшыя)</string>
   <string name="reading_list_sort_by_created_desc">Сартаваць па даце стварэння (найстарэйшыя)</string>
   <string name="reading_list_menu_delete">Выдаліць спіс</string>
+  <string name="reading_list_menu_select">Выбраць</string>
   <string name="reading_list_menu_rename">Рэдагаваць назву/апісанне</string>
   <string name="reading_list_action_menu_remove_from_offline">Выдаліць з файлаў, якія дасяжны па-за сеткай</string>
   <string name="reading_list_action_menu_save_for_offline">Захаваць па-за сеткай</string>
