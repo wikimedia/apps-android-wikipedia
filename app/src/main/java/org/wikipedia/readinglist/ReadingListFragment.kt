@@ -61,6 +61,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private lateinit var touchCallback: SwipeableItemTouchHelperCallback
     private lateinit var headerView: ReadingListItemView
+    private var previewSaveDialog: AlertDialog? = null
     private val disposables = CompositeDisposable()
     private var isPreview: Boolean = false
     private var readingList: ReadingList? = null
@@ -107,6 +108,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     override fun onDestroyView() {
         disposables.clear()
+        previewSaveDialog?.dismiss()
         binding.readingListRecyclerView.adapter = null
         binding.readingListAppBar.removeOnOffsetChangedListener(appBarListener)
         _binding = null
@@ -229,7 +231,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.setPreviewMode(isPreview)
 
         if (isPreview) {
-            // TODO: hide menu items and show only save button and also disable long press / press actions
             headerView.previewSaveButton.setOnClickListener {
                 previewSaveDialog()
             }
@@ -454,26 +455,26 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             val view = ReadingListPreviewSaveDialogView(requireContext())
             val savedPages = it.pages.toMutableList()
 
-            val builder = AlertDialog.Builder(requireContext())
+            previewSaveDialog = AlertDialog.Builder(requireContext())
                 .setPositiveButton(R.string.reading_lists_preview_save_dialog_save) { _, _ ->
                     it.pages.clear()
                     it.pages.addAll(savedPages)
                 }
                 .setNegativeButton(R.string.reading_lists_preview_save_dialog_cancel, null)
+                .create()
 
-            val dialog = builder.create()
             view.setContentType(it, savedPages, object : ReadingListPreviewSaveDialogView.Callback {
                 override fun onError() {
-                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = false
+                    previewSaveDialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = false
                 }
 
                 override fun onSuccess() {
-                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = true
+                    previewSaveDialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = true
                 }
             })
 
-            dialog.setView(view)
-            dialog.show()
+            previewSaveDialog?.setView(view)
+            previewSaveDialog?.show()
         }
     }
 
