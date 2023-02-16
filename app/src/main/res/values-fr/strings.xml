@@ -192,7 +192,7 @@
   <string name="create_account_login">Se connecter</string>
   <string name="menu_login">Se connecter</string>
   <string name="login_activity_title">Se connecter</string>
-  <string name="login_in_progress_dialog_message">Connexion en cours…</string>
+  <string name="login_in_progress_dialog_message">Connexion en cours...</string>
   <string name="login_success_toast">Connecté !</string>
   <string name="reset_password_title">Définir votre mot de passe</string>
   <string name="reset_password_description">Vous êtes connecté avec un mot de passe temporaire. Pour finaliser votre connexion, veuillez définir votre nouveau mot de passe ici.</string>
@@ -657,6 +657,15 @@
     <item quantity="one">Liste de lecture importée</item>
     <item quantity="other">Listes de lecture importées</item>
   </plurals>
+  <string name="reading_lists_preview_header_title">Liste partagée</string>
+  <string name="reading_lists_preview_save_button">Enregistrer</string>
+  <string name="reading_lists_preview_save_dialog_title">Enregistrer la liste</string>
+  <string name="reading_lists_preview_save_dialog_text">Nommez la liste et sélectionnez les articles à enregistrer.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Titre</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Annuler</string>
+  <string name="reading_lists_preview_save_dialog_save">Enregistrer</string>
+  <string name="reading_lists_preview_saved_snackbar">Liste de lecture enregistrée</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Afficher</string>
   <string name="user_option_sync_label">Préférences</string>
   <string name="notification_reverted_title">Modification annulée</string>
   <string name="notification_channel_title">Téléchargement des articles</string>
