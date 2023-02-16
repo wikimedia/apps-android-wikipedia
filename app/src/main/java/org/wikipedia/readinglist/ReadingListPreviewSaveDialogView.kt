@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ItemReadingListPreviewSaveSelectItemBinding
 import org.wikipedia.databinding.ViewReadingListPreviewSaveDialogBinding
 import org.wikipedia.readinglist.database.ReadingList
@@ -20,10 +22,17 @@ import org.wikipedia.views.ViewUtil
 
 class ReadingListPreviewSaveDialogView : FrameLayout {
 
+    interface Callback {
+        fun onError()
+        fun onSuccess()
+    }
+
     private val binding = ViewReadingListPreviewSaveDialogBinding.inflate(LayoutInflater.from(context), this, true)
 
     private lateinit var readingList: ReadingList
     private lateinit var savedReadingListPages: MutableList<ReadingListPage>
+    private lateinit var callback: Callback
+    private var currentReadingLists: MutableList<ReadingList>
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -36,11 +45,26 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
         )
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(context, R.attr.list_separator_drawable, drawStart = true, drawEnd = true, skipSearchBar = true))
+        currentReadingLists = AppDatabase.instance.readingListDao().getAllLists().toMutableList()
+        binding.readingListTitle.doOnTextChanged() { text, _, _, _ ->
+            if (currentReadingLists.any { it.title == text.toString() }) {
+                binding.readingListTitleLayout.error =
+                    context.getString(R.string.reading_list_title_exists, text.toString())
+                callback.onError()
+            } else if (text.toString().isEmpty()) {
+                binding.readingListTitleLayout.error = null
+                callback.onError()
+            } else {
+                binding.readingListTitleLayout.error = null
+                callback.onSuccess()
+            }
+        }
     }
 
-    fun setContentType(readingList: ReadingList, savedReadingListPages: MutableList<ReadingListPage>) {
+    fun setContentType(readingList: ReadingList, savedReadingListPages: MutableList<ReadingListPage>, callback: Callback) {
         this.readingList = readingList
         this.savedReadingListPages = savedReadingListPages
+        this.callback = callback
         binding.recyclerView.adapter = ReadingListItemAdapter()
     }
 
