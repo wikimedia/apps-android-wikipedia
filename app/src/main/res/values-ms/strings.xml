@@ -436,10 +436,6 @@
     <item quantity="one">1 rencana, %2$.2f MB</item>
     <item quantity="other">%1$d rencana, %2$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 rencana, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d rencana, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d dari 1 rencana tersedia di luar talian, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d dari %2$d rencana tersedia di luar talian, %3$.2f MB</string>
   <string name="reading_list_sort">Isih</string>
   <string name="reading_list_sort_ellipsis">Isih mengikut...</string>
   <string name="reading_list_sort_by_name">Isih ikut nama</string>

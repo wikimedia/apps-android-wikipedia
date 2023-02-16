@@ -397,10 +397,6 @@
   <string name="reading_list_articles_already_exist_message">Pep tra zo mat ! Emañ an holl bennadoù e %s c\'hoazh.</string>
   <string name="reading_list_added_view_button">Diskwel ar roll</string>
   <string name="reading_list_add_to_list_button">Ouzhpennañ d\'ar roll</string>
-  <string name="format_reading_list_statistical_summary_singular">1 pennad, %1$.2f Mo</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d pennadoù, %2$.2f Mo</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d eus 1 pennad a c\'haller kaout ezlinenn, %2$.2f Mo</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d pennad(où) diwar %2$d pennad(où) a c\'haller kaout ezlinenn, %3$.2f Mo</string>
   <string name="reading_list_sort">Rummañ</string>
   <string name="reading_list_sort_ellipsis">Rummañ dre</string>
   <string name="reading_list_sort_by_name">Rummañ dre anv</string>

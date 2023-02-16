@@ -491,10 +491,6 @@
     <item quantity="one">%1$d / 1 artikkeli saatavilla offline-tilassa, %3$.2f Mt</item>
     <item quantity="other">%1$d / %2$d artikkelia saatavilla offline-tilassa, %3$.2f Mt</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artikkeli, %1$.2f Mt</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikkelia, %2$.2f Mt</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d yhdestä artikkelista on saatavilla offline-tilassa vieden %2$.2f Mt tilaa</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d kaikkiaan %2$d artikkelista on saatavilla offline-tilassa vieden %3$.2f Mt tilaa</string>
   <string name="reading_list_sort">Lajittele</string>
   <string name="reading_list_sort_ellipsis">Lajitteluperuste</string>
   <string name="reading_list_sort_by_name">Lajittele nimen mukaan</string>

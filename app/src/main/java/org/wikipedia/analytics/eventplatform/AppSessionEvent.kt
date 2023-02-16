@@ -40,6 +40,7 @@ class AppSessionEvent {
         if (hasTimedOut()) {
             logSessionData()
             // start a new session by clearing everything.
+            EventPlatformClient.AssociationController.beginNewSession()
             sessionData = SessionData()
             persistSession()
         }

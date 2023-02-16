@@ -487,9 +487,17 @@
   <string name="reading_list_articles_already_exist_message">Message shown to users when they try to add already existing articles to a reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_added_view_button">Button label to view the reading list to which the article was just added.</string>
   <string name="reading_list_add_to_list_button">Button label to add the article to a reading list.</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">Summary shown for a reading list that contains one article which is not downloaded, and hence not taking up disk space.</item>
+    <item quantity="other">Summary shown for a reading list that contains multiple articles; The %d parameter is the number of pages in the list which are not downloaded, and hence not taking up disk space.</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">Summary shown for a reading list that contains one article. The %2$.2f parameter is replaced with the cache size of the article.</item>
     <item quantity="other">Summary shown for a reading list that contains multiple articles; The %1$d parameter is the number of pages in the list, and  the %2$.2f parameter is the total number of megabytes saved to disk for offline page reading.</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">Detailed description Summary shown for a reading list that contains one article which is not downloaded, and hence not taking up disk space</item>
+    <item quantity="other">Detailed description shown for a reading list that contains multiple articles; The %1$d parameter is the number of pages saved to disk for offline reading, the %2$d parameter is the number of total pages in the list.</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">Detailed description shown for a reading list that contains one article; The %1$d parameter is the number pages saved to disk for offline reading (zero or one), and the %3$.2f parameter is the number of megabytes saved to disk for this list.</item>
@@ -504,6 +512,10 @@
   <string name="reading_list_sort_by_created">Menu option to sort reading lists from newest to oldest, based on the date the items were created.</string>
   <string name="reading_list_sort_by_created_desc">Menu option to sort reading lists from oldest to newest, based on the date the items were created.</string>
   <string name="reading_list_menu_delete">Button label to delete the current reading list.</string>
+  <string name="reading_list_menu_export">Label for menu item for the user to export the reading list.</string>
+  <string name="reading_list_menu_select">Label for menu item for the user to select list item.</string>
+  <string name="reading_list_menu_unselect">Label for menu item for the user to unselect list item.</string>
+  <string name="reading_list_export_write_permission_rationale">Text asking the user for permission to access their internal storage for exporting reading lists.</string>
   <string name="reading_list_menu_rename">Menu item for changing the name and description of a reading list.</string>
   <string name="reading_list_action_menu_remove_from_offline">Label for a menu option allowing the user to remove selected articles from offline storage</string>
   <string name="reading_list_action_menu_save_for_offline">Label for a menu option allowing the user to save article content for offline availability</string>
@@ -524,6 +536,15 @@
     <item quantity="one">Message shown when one article is removed from a reading list.The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
     <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">Toast message shown when one reading list is deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
+    <item quantity="other">Toast message shown when multiple reading lists are deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Message shown to users when they attempt selecting the default list for deletion. %s is replaced with the name of the default list.</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">Message shown to users when they attempt selecting the default list with one other list for deletion. %1$s represents the name of the non-default list, and %2$s represents the name of the default list.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Message shown to users when they attempt selecting the default list as one of the multiple lists for deletion. %s is replaced with the name of the default list.</string>
+  <string name="single_list_json_file_name">File name to be given to a single exported reading list, with %s representing the name of the reading list. Please preserve the .json extension, and do not use any illegal filename characters.</string>
+  <string name="multiple_lists_json_file_name">File name to be given to a file containing multiple exported reading lists, with %s representing the name of the first list. Please preserve the .json extension, and do not use any illegal filename characters.</string>
   <string name="reading_list_items_deleted">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</string>
   <string name="reading_lists_item_deleted">Menu item to remove an article from selected reading lists. The %s symbol is replaced with the name of the article.</string>
   <string name="reading_list_item_delete_undo">Button label to undo the operation of deleting an item from a list.\n{{Identical|Undo}}</string>
@@ -556,6 +577,11 @@
   <string name="reading_list_articles_added_to_named">Message shown when the user adds articles to a named reading list. The %1$d symbol is replaced with the number of articles added, and the %2$s symbol is replaced with the list name.</string>
   <string name="reading_list_articles_moved_to_named">Message shown when the user moves articles to a named reading list. The %1$d symbol is replaced with the number of articles moved, and the %2$s symbol is replaced with the list name.</string>
   <string name="reading_list_delete_confirm">Confirmation message shown when deleting a reading list. The \"%s\" symbol is replaced with the name of the list.</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Confirmation dialog title shown to user while deleting multiple reading lists.</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Confirmation dialog message shown to user while deleting one reading list. The \"%d\" symbol is replaced with the number of lists up for deletion.</item>
+    <item quantity="other">Confirmation dialog message shown to user while deleting multiple reading lists. The \"%d\" symbol is replaced with the number of lists up for deletion.</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Title of warning message shown to a user to login for enabling syncing of reading lists.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Warning message shown to a user to login for enabling syncing of reading lists.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Negative answer to cancel the current process.\n{{Identical|Cancel}}</string>
@@ -579,6 +605,7 @@
   <string name="reading_list_article_limit_message">Message shown to the users when the limit for maximum number of articles in a list is reached, denoted by the \"%2$d\" symbol, informing them that they will not be able to add anymore to that list, named \"%1$s\".</string>
   <string name="reading_lists_limit_message">Message shown to the users when the limit for maimum number of reading lists is reached, informing them that they will not be able to create anymore lists</string>
   <string name="reading_lists_menu_create_list">Menu option offering user an option to create a new reading list.</string>
+  <string name="reading_lists_menu_import_list">Menu option offering user an option to import a reading list from a csv file.</string>
   <string name="reading_lists_menu_sort_by">Heading for a list of suggested sort options.\n{{Identical|Sort by}}</string>
   <string name="reading_lists_refresh_sync_option">Menu option suggesting that the user can manually sync using this option.</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Affirmative answer to confirm and redirect to the login / Sign up page.\n{{Identical|Log in / Sign up}}\n\n{{Identical|Log in / create account}}\n\n{{Identical|Log in}}</string>
@@ -599,7 +626,33 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Negative action button text in pop-up dialog for removing article from offline storage.\n{{Identical|Cancel}}</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Negative action button text in pop-up dialog for downloading content on mobile data connection.\n{{Identical|Cancel}}</string>
   <string name="reading_list_split_dialog_ok_button_text">Positive action button text in warning pop-up dialog for splitting large reading lists.\n{{Identical|OK}}</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Delete action button text in warning pop-up dialog for deleteing multiple reading lists.</string>
   <string name="reading_list_activity_title">Title for reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
+  <string name="reading_list_notification_title">Notification title text when a reading lists are exported.</string>
+  <string name="reading_list_notification_text">Notification description text for reading lists export. %d represents the number of lists exported.</string>
+  <string name="reading_list_notification_detailed_text">Notification detailed description text for reading list export.</string>
+  <string name="reading_lists_action_menu_export_lists">Label for a menu option allowing the user to export multiple lists to phone storage.</string>
+  <string name="reading_lists_import_file_picker_title">Title message text shsown to user while choosing a file from the downloads folder to import.</string>
+  <string name="reading_lists_import_failure_message">User message when imports of reading lists has not been successful.</string>
+  <string name="reading_lists_export_select_lists_message">User message asking the user to select reading lists for export.</string>
+  <string name="reading_lists_export_completed_message">Text to let the user know that the list export process has been completed.</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">User message when export of a single reading list has not been successful.</item>
+    <item quantity="other">User message when export of multiple reading lists has not been successful.</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">User message when import of single reading list has been successful.</item>
+    <item quantity="other">User message when import of multiple reading lists has been successful.</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Title for the preview reading list that has been shared with the user.</string>
+  <string name="reading_lists_preview_save_button">Button text for saving the preview reading list.</string>
+  <string name="reading_lists_preview_save_dialog_title">Title for the dialog of saving the reading list.</string>
+  <string name="reading_lists_preview_save_dialog_text">Description for the dialog of saving the reading list.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Hint for the input field in the dialog of saving the reading list.</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Cancel button for the dialog of saving the reading list.</string>
+  <string name="reading_lists_preview_save_dialog_save">Save button for the dialog of saving the reading list.</string>
+  <string name="reading_lists_preview_saved_snackbar">Message text for the snackbar that shows up after the user saved the reading list.</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Action text in the snackbar that shows up after the user saved the reading list.</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.\n{{Identical|Preferences}}</string>
   <string name="notification_reverted_title">Title for notification when an edit made by the user is reverted.</string>
   <string name="notification_channel_title">Title of the notification channel</string>
@@ -1284,38 +1337,6 @@
   <string name="media_playback_error">Error shown when the selected media could not be played.</string>
   <string name="user_contrib_menu_label">Menu label for accessing the contributions of the current user.</string>
   <string name="user_contrib_filter_activity_title">Screen title for applying the filters for the contributions of a user.</string>
-  <string name="user_contrib_wiki_select">Screen title for viewing the contributions of a user from a selected wiki.</string>
-  <string name="reading_list_notification_text">Notification description text for reading lists export. %d represents the number of lists exported.</string>
-  <string name="reading_list_notification_detailed_text">Notification detailed description text for reading list export.</string>
-  <string name="reading_list_export_write_permission_rationale">Text asking the user for permission to access their internal storage for exporting reading lists.</string>
-  <string name="reading_lists_menu_import_list">Menu option offering user an option to import a reading list from a csv file.</string>
-  <string name="reading_lists_action_menu_export_lists">Label for a menu option allowing the user to export multiple lists to phone storage.</string>
-  <string name="reading_list_menu_select">Label for menu item for the user to select list item.</string>
-  <string name="reading_list_menu_unselect">Label for menu item for the user to unselect list item.</string>
-  <string name="reading_list_menu_export">Label for menu item for the user to export the reading list.</string>
-  <string name="reading_lists_import_file_picker_title">Title message text shsown to user while choosing a file from the downloads folder to import.</string>
-  <string name="reading_lists_import_failure_message">User message when imports of reading lists has not been successful.</string>
-  <string name="reading_lists_export_select_lists_message">User message asking the user to select reading lists for export.</string>
-  <string name="reading_lists_export_completed_message">Text to let the user know that the list export process has been completed.</string>
-  <string name="reading_list_notification_title">Notification title text when a reading lists are exported.</string>
-  <plurals name="reading_list_export_failed_message">
-    <item quantity="one">User message when export of a single reading list has not been successful.</item>
-    <item quantity="other">User message when export of multiple reading lists has not been successful.</item>
-  </plurals>
-  <plurals name="reading_list_import_success_message">
-    <item quantity="one">User message when import of single reading list has been successful.</item>
-    <item quantity="other">User message when import of multiple reading lists has been successful.</item>
-  </plurals>
-  <string name="reading_list_delete_lists_dialog_delete_button_text">Delete action button text in warning pop-up dialog for deleteing multiple reading lists.</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">Confirmation dialog title shown to user while deleting multiple reading lists.</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message">
-    <item quantity="one">Confirmation dialog message shown to user while deleting one reading list. The \"%d\" symbol is replaced with the number of lists up for deletion.</item>
-    <item quantity="other">Confirmation dialog message shown to user while deleting multiple reading lists. The \"%d\" symbol is replaced with the number of lists up for deletion.</item>
-  </plurals>
-  <plurals name="reading_lists_deleted_message">
-    <item quantity="one">Toast message shown when one reading list is deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
-    <item quantity="other">Toast message shown when multiple reading lists are deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
-  </plurals>
   <string name="shareable_reading_lists_import_dialog_title">Title text for the import reading list dialog.</string>
   <string name="shareable_reading_lists_import_dialog_content">Content text for the import reading list dialog.</string>
   <string name="shareable_reading_lists_new_indicator">Label indicating that the imported list in the list view.</string>
@@ -1331,17 +1352,4 @@
   <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
   <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
   <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
-  <string name="reading_lists_default_list_delete_message">Message shown to users when they attempt selecting the default list for deletion. %s is replaced with the name of the default list.</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">Message shown to users when they attempt selecting the default list with one other list for deletion. %1$s represents the name of the non-default list, and %2$s represents the name of the default list.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">Message shown to users when they attempt selecting the default list as one of the multiple lists for deletion. %s is replaced with the name of the default list.</string>
-  <string name="single_list_json_file_name">File name to be given to a single exported reading list, with %s representing the name of the reading list. Please preserve the .json extension, and do not use any illegal filename characters.</string>
-  <string name="multiple_lists_json_file_name">File name to be given to a file containing multiple exported reading lists, with %s representing the name of the first list. Please preserve the .json extension, and do not use any illegal filename characters.</string>
-  <plurals name="format_reading_list_statistical_summary_without_size">
-    <item quantity="one">Summary shown for a reading list that contains one article which is not downloaded, and hence not taking up disk space.</item>
-    <item quantity="other">Summary shown for a reading list that contains multiple articles; The %d parameter is the number of pages in the list which are not downloaded, and hence not taking up disk space.</item>
-  </plurals>
-  <plurals name="format_reading_list_statistical_detail_without_size">
-    <item quantity="one">Detailed description Summary shown for a reading list that contains one article which is not downloaded, and hence not taking up disk space</item>
-    <item quantity="other">Detailed description shown for a reading list that contains multiple articles; The %1$d parameter is the number of pages saved to disk for offline reading, the %2$d parameter is the number of total pages in the list.</item>
-  </plurals>
 </resources>

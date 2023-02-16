@@ -495,10 +495,6 @@
     <item quantity="many">%1$d %2$d статей доступно офлайн, %3$.2f MB</item>
     <item quantity="other">%1$d %2$d статей доступно офлайн, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 стаття, %1$.2f Mб</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d статті, %2$.2f Mб</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d з 1 статтей доступні автономно, %2$.2f Mб</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d із %2$d статей доступні автономно, %3$.2f Mб</string>
   <string name="reading_list_sort">Сортувати</string>
   <string name="reading_list_sort_ellipsis">Сортувати за…</string>
   <string name="reading_list_sort_by_name">Сортувати за назвою</string>
