@@ -293,6 +293,15 @@
     <item quantity="one">Lista de lectura importate</item>
     <item quantity="other">Listas de lectura importate</item>
   </plurals>
+  <string name="reading_lists_preview_header_title">Lista condividite</string>
+  <string name="reading_lists_preview_save_button">Salveguardar</string>
+  <string name="reading_lists_preview_save_dialog_title">Salveguardar lista</string>
+  <string name="reading_lists_preview_save_dialog_text">Nomina le lista e selige le articulos a salveguardar.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Titulo</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Cancellar</string>
+  <string name="reading_lists_preview_save_dialog_save">Salveguardar</string>
+  <string name="reading_lists_preview_saved_snackbar">Lista de lectura salveguardate</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Vider</string>
   <string name="notification_echo_channel_description">Notificationes de Wikipedia</string>
   <string name="notifications_activity_title">Notificationes</string>
   <string name="notifications_activity_title_archived">Notificationes (archivate)</string>
