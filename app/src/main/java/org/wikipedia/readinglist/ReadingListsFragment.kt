@@ -16,7 +16,6 @@ import androidx.core.graphics.ColorUtils
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,10 +25,6 @@ import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -71,9 +66,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private var actionMode: ActionMode? = null
     private val overflowCallback = OverflowCallback()
     private var currentSearchQuery: String? = null
-    private var recentImportedReadingList: ReadingList? = null
     private var selectMode: Boolean = false
     private var importMode: Boolean = false
+    private var recentPreviewSavedReadingList: ReadingList? = null
     private var shouldShowImportedSnackbar = false
 
     val filePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -290,11 +285,15 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             } else {
                 result.dispatchUpdatesTo(adapter)
             }
+
+            recentPreviewSavedReadingList = displayedLists.filterIsInstance<ReadingList>()
+                .find { it.id == Prefs.readingListRecentReceivedId }?.also { shouldShowImportedSnackbar = true }
+
             binding.swipeRefreshLayout.isRefreshing = false
             maybeShowListLimitMessage()
             updateEmptyState(searchQuery)
             maybeDeleteListFromIntent()
-            maybeShowImportReadingListsSnackbar()
+            maybeShowPreviewSavedReadingListsSnackbar()
             currentSearchQuery = searchQuery
             maybeTurnOffImportMode(lists.filterIsInstance<ReadingList>().toMutableList())
         }
@@ -352,8 +351,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private inner class ReadingListItemHolder constructor(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
         fun bindItem(readingList: ReadingList) {
-            Prefs.readingListRecentReceivedId = recentImportedReadingList?.id ?: -1
-            view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY, selectMode, readingList.id == recentImportedReadingList?.id)
+            view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY, selectMode, readingList.id == recentPreviewSavedReadingList?.id)
             view.setSearchQuery(currentSearchQuery)
         }
 
@@ -724,7 +722,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             if (event is ReadingListSyncEvent) {
                 binding.recyclerView.post {
                     if (isAdded) {
-                        updateLists(currentSearchQuery, !currentSearchQuery.isNullOrEmpty() || recentImportedReadingList != null)
+                        updateLists(currentSearchQuery, !currentSearchQuery.isNullOrEmpty() || recentPreviewSavedReadingList != null)
                     }
                 }
             } else if (event is ArticleSavedOrDeletedEvent) {
@@ -743,53 +741,16 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             if (AccountUtil.isLoggedIn) {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(requireActivity())
             } else {
-                if (recentImportedReadingList == null) {
+                if (recentPreviewSavedReadingList == null) {
                     ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity())
                 }
             }
         }
     }
 
-    private fun maybeShowImportReadingListsDialog() {
-        val encodedJson = Prefs.receiveReadingListsData
-        if (!Prefs.importReadingListsDialogShown && !encodedJson.isNullOrEmpty()) {
-            lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
-                L.e(throwable)
-                FeedbackUtil.showError(requireActivity(), throwable)
-            }) {
-                withContext(Dispatchers.Main) {
-                    val readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
-                    val existingTitles = displayedLists.filterIsInstance<ReadingList>().map { it.title }
-//                    val dialog = ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
-//                        existingTitles, true, callback = object : ReadingListTitleDialog.Callback {
-//                            override fun onSuccess(text: String, description: String) {
-//                                readingList.listTitle = text
-//                                readingList.description = description
-//                                importReadingListAndRefresh(readingList)
-//                            }
-//                            override fun onCancel() {
-//                            }
-//                        }
-//                    )
-//                    dialog.show()
-                    Prefs.importReadingListsDialogShown = true
-                }
-            }
-        }
-    }
-
-    private fun importReadingListAndRefresh(readingList: ReadingList) {
-        binding.swipeRefreshLayout.isRefreshing = true
-        readingList.id = AppDatabase.instance.readingListDao().insertReadingList(readingList)
-        updateLists()
-        AppDatabase.instance.readingListPageDao().addPagesToList(readingList, readingList.pages, true)
-        recentImportedReadingList = readingList
-        shouldShowImportedSnackbar = true
-    }
-
-    private fun maybeShowImportReadingListsSnackbar() {
+    private fun maybeShowPreviewSavedReadingListsSnackbar() {
         if (shouldShowImportedSnackbar) {
-            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.shareable_reading_lists_new_imported_snackbar))
+            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.reading_lists_preview_saved_snackbar))
                 .addCallback(object : Snackbar.Callback() {
                     override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
                         if (!isAdded) {
@@ -800,12 +761,15 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     }
                 })
                 .setAction(R.string.suggested_edits_article_cta_snackbar_action) {
-                    recentImportedReadingList?.let {
+                    recentPreviewSavedReadingList?.let {
                         startActivity(ReadingListActivity.newIntent(requireContext(), it))
                     }
                 }
                 .show()
             shouldShowImportedSnackbar = false
+            recentPreviewSavedReadingList = null
+            Prefs.receiveReadingListsData = null
+            Prefs.readingListRecentReceivedId = -1L
         }
     }
 

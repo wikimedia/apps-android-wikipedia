@@ -24,7 +24,7 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
 
     interface Callback {
         fun onError()
-        fun onSuccess()
+        fun onSuccess(listTitle: String)
     }
 
     private val binding = ViewReadingListPreviewSaveDialogBinding.inflate(LayoutInflater.from(context), this, true)
@@ -56,7 +56,7 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
                 callback.onError()
             } else {
                 binding.readingListTitleLayout.error = null
-                callback.onSuccess()
+                callback.onSuccess(text.toString())
             }
         }
     }

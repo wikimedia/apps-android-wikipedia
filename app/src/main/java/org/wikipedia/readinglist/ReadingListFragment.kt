@@ -1,6 +1,7 @@
 package org.wikipedia.readinglist
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -309,7 +310,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         if (isPreview) {
             if (readingList == null) {
                 val encodedJson = Prefs.receiveReadingListsData
-                if (!Prefs.importReadingListsDialogShown && !encodedJson.isNullOrEmpty()) {
+                if (!encodedJson.isNullOrEmpty()) {
                     lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
                         L.e(throwable)
                         FeedbackUtil.showError(requireActivity(), throwable)
@@ -317,11 +318,11 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     }) {
                         withContext(Dispatchers.Main) {
                             readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
+                            readingList?.let {
+                                binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
+                            }
+                            update()
                         }
-                        readingList?.let {
-                            binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
-                        }
-                        update()
                     }
                 }
             } else {
@@ -454,24 +455,34 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         readingList?.let {
             val view = ReadingListPreviewSaveDialogView(requireContext())
             val savedPages = it.pages.toMutableList()
-
-            previewSaveDialog = AlertDialog.Builder(requireContext())
-                .setPositiveButton(R.string.reading_lists_preview_save_dialog_save) { _, _ ->
-                    it.pages.clear()
-                    it.pages.addAll(savedPages)
-                }
-                .setNegativeButton(R.string.reading_lists_preview_save_dialog_cancel, null)
-                .create()
+            var readingListTitle = getString(R.string.reading_list_name_sample)
 
             view.setContentType(it, savedPages, object : ReadingListPreviewSaveDialogView.Callback {
                 override fun onError() {
                     previewSaveDialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = false
                 }
 
-                override fun onSuccess() {
+                override fun onSuccess(listTitle: String) {
                     previewSaveDialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = true
+                    readingListTitle = listTitle
                 }
             })
+
+            previewSaveDialog = AlertDialog.Builder(requireContext())
+                .setPositiveButton(R.string.reading_lists_preview_save_dialog_save) { _, _ ->
+                    it.pages.clear()
+                    it.pages.addAll(savedPages)
+                    it.listTitle = readingListTitle
+                    // Save reading list to database
+                    it.id = AppDatabase.instance.readingListDao().insertReadingList(it)
+                    AppDatabase.instance.readingListPageDao().addPagesToList(it, it.pages, true)
+                    Prefs.readingListRecentReceivedId = it.id
+                    requireActivity().startActivity(MainActivity.newIntent(requireContext())
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS, true))
+                    requireActivity().finish()
+                }
+                .setNegativeButton(R.string.reading_lists_preview_save_dialog_cancel, null)
+                .create()
 
             previewSaveDialog?.setView(view)
             previewSaveDialog?.show()
