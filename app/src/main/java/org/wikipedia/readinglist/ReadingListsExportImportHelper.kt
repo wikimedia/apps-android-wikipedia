@@ -20,6 +20,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPresenter
+import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.DeviceUtil
@@ -46,14 +47,14 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
         readingLists?.let { exportLists ->
             try {
                 val exportedLists = exportLists.map {
-                    val wikiPageTitlesMap = mutableMapOf<String, String>()
+                    val pages = mutableListOf<ExportablePage>()
                     it.pages.forEach { page ->
-                        wikiPageTitlesMap[page.apiTitle] = page.lang
+                        pages.add(ExportablePage(page.apiTitle, page.wiki.languageCode, page.namespace.code()))
                     }
-                    ExportableReadingList(it.title, it.description, wikiPageTitlesMap)
+                    ExportableReadingList(it.title, it.description, pages)
                 }
                 FileUtil.createFileInDownloadsFolder(activity, activity.getString(if (exportLists.size == 1) R.string.single_list_json_file_name
-                else R.string.multiple_lists_json_file_name, exportLists[0].title), "application/json", JsonUtil.encodeToString(exportedLists))
+                else R.string.multiple_lists_json_file_name, exportLists[0].title), "application/json", JsonUtil.encodeToString(ExportableReadingLists(exportedLists)))
                 val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
                 activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent, exportLists.size).build())
                 FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_lists_export_completed_message))
@@ -79,12 +80,14 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
     }
 
     fun importLists(activity: BaseActivity, jsonString: String) {
+        val exportableReadingLists: ExportableReadingLists?
         var readingLists: List<ExportableReadingList>? = null
         try {
-            readingLists = JsonUtil.decodeFromString(jsonString)
-            if (readingLists !is List<ExportableReadingList>) {
+            exportableReadingLists = JsonUtil.decodeFromString(jsonString)
+            if (exportableReadingLists !is ExportableReadingLists) {
                 throw Exception()
             }
+            readingLists = exportableReadingLists.readingListsV1
         } catch (e: Exception) {
             FeedbackUtil.showMessage(activity, R.string.reading_lists_import_failure_message)
         }
@@ -105,8 +108,10 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
 
     private fun addTitlesToList(exportedList: ExportableReadingList, list: ReadingList) {
         val titles = mutableListOf<PageTitle>()
-        exportedList.pages.keys.forEach { apiTitle ->
-            titles.add(PageTitle(apiTitle, WikiSite.forLanguageCode(exportedList.pages[apiTitle].orEmpty())))
+        exportedList.pages.forEach { page ->
+            val pageTitle = PageTitle(page.title, WikiSite.forLanguageCode(page.wikiLangCode.orEmpty()))
+            pageTitle.namespace = Namespace.of(page.ns).name
+            titles.add(pageTitle)
         }
         AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(list, titles)
     }
@@ -122,9 +127,16 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
 
     @Suppress("unused")
     @Serializable
-    private class ExportableReadingList(
-            val name: String? = null,
-            val description: String? = null,
-            val pages: Map<String, String>
-        )
+    private class ExportableReadingLists(val readingListsV1: List<ExportableReadingList>)
+
+    @Suppress("unused")
+    @Serializable
+    private class ExportableReadingList(val name: String? = null,
+                                        val description: String? = null,
+                                        val pages: List<ExportablePage>)
+
+    @Serializable
+    private class ExportablePage(val title: String? = null,
+                                 val wikiLangCode: String? = null,
+                                 val ns: Int)
 }
