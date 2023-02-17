@@ -523,10 +523,6 @@
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="other">%1$d 篇（共 %2$d 篇）文章可供离线使用，%3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1篇条目，%1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d篇条目，%2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">1篇条目中的%1$d篇条目离线可用，%2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d篇条目的%1$d篇条目离线可用，%3$.2f MB</string>
   <string name="reading_list_sort">排序</string>
   <string name="reading_list_sort_ellipsis">排序方式…</string>
   <string name="reading_list_sort_by_name">按名称排序</string>

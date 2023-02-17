@@ -473,6 +473,10 @@
   <string name="reading_list_articles_already_exist_message">%s inneholder allerede alle artiklene.</string>
   <string name="reading_list_added_view_button">Vis liste</string>
   <string name="reading_list_add_to_list_button">Legg til i liste</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 artikkel</item>
+    <item quantity="other">%d artikler</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 artikkel, %2$.2f MB</item>
     <item quantity="other">%1$d artikler, %2$.2f MB</item>
@@ -481,10 +485,6 @@
     <item quantity="one">%1$d av 1 artikkel tilgjengelig offline, %3$.2f MB</item>
     <item quantity="other">%1$d av %2$d artikler tilgjengelig offline, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artikkel, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikler, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikler tilgjengelig offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artikler tilgjengelig offline, %3$.2f MB</string>
   <string name="reading_list_sort">Sorter</string>
   <string name="reading_list_sort_ellipsis">Sorter etter…</string>
   <string name="reading_list_sort_by_name">Sorter etter navn</string>
@@ -494,6 +494,10 @@
   <string name="reading_list_sort_by_created">Sorter etter opprettelsestidspunkt (nyeste)</string>
   <string name="reading_list_sort_by_created_desc">Sorter etter opprettelsestidspunkt (eldste)</string>
   <string name="reading_list_menu_delete">Slett listen</string>
+  <string name="reading_list_menu_export">Eksporter liste</string>
+  <string name="reading_list_menu_select">Velg</string>
+  <string name="reading_list_menu_unselect">Fjern valg</string>
+  <string name="reading_list_export_write_permission_rationale">Tilgang til lagring på enheten din behøves for å eksportere leselista di.</string>
   <string name="reading_list_menu_rename">Endre navn/beskrivelse</string>
   <string name="reading_list_action_menu_remove_from_offline">Fjern lokal kopi</string>
   <string name="reading_list_action_menu_save_for_offline">Lagre for lesing offline</string>
@@ -514,6 +518,15 @@
     <item quantity="one">%d artikkel fjernet fra %s</item>
     <item quantity="other">%d artikler fjernet fra %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d liste slettet</item>
+    <item quantity="other">%d lister slettet</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Standardlista (%s) kan ikke slettes</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s slettet. Standardlista (%2$s) kan ikke slettes.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Lister slettet. Standardlista (%s) kan ikke slettes.</string>
+  <string name="single_list_json_file_name">%s (Wikipedia-leselist).json</string>
+  <string name="multiple_lists_json_file_name">Wikipedia-leselister (%s og mer).json</string>
   <string name="reading_list_items_deleted">%d artikler ble fjernet fra lista</string>
   <string name="reading_lists_item_deleted">%s fjernet fra lister</string>
   <string name="reading_list_item_delete_undo">Angre</string>
@@ -546,6 +559,11 @@
   <string name="reading_list_articles_added_to_named">La til %1$d artikler i %2$s</string>
   <string name="reading_list_articles_moved_to_named">Flyttet %1$d artikler til %2$s</string>
   <string name="reading_list_delete_confirm">Er du sikker på at du vil slette %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Slette valgte liste(r)?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Er du sikker på at du vil slette %d liste?</item>
+    <item quantity="other">Er du sikker på at du vil slette %d lister?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Logg inn for å aktivere synkronisering</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Logg inn om du ønsker at leselistene skal lagres i brukerkontoen din.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Avbryt</string>
@@ -569,6 +587,7 @@
   <string name="reading_list_article_limit_message">Kan ikke legge til denne lista. Du har nådd grensa på %2$d artikler per liste for «%1$s».</string>
   <string name="reading_lists_limit_message">Kan ikke opprette ny liste. Du har nådd grensa på 100 leselister per konto.</string>
   <string name="reading_lists_menu_create_list">Opprett liste</string>
+  <string name="reading_lists_menu_import_list">Importer liste</string>
   <string name="reading_lists_menu_sort_by">Sorter etter</string>
   <string name="reading_lists_refresh_sync_option">Synkroniser nå</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Logg inn / registrer deg</string>
@@ -589,7 +608,24 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Avbryt</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Avbryt</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Slett</string>
   <string name="reading_list_activity_title">Leseliste: %s</string>
+  <string name="reading_list_notification_title">Leseliste(r) eksportert</string>
+  <string name="reading_list_notification_text">%d leseliste(r) har blitt eksportert som «reading_lists export.json» til nedlastingsmappa di</string>
+  <string name="reading_list_notification_detailed_text">Leselister har blitt eksportert til «reading_lists_export.json»</string>
+  <string name="reading_lists_action_menu_export_lists">Eksporter</string>
+  <string name="reading_lists_import_file_picker_title">Velg fila som skal importeres</string>
+  <string name="reading_lists_import_failure_message">Importering av leselister feilet</string>
+  <string name="reading_lists_export_select_lists_message">Velg liste(r) som skal eksporteres</string>
+  <string name="reading_lists_export_completed_message">Leseliste(r) eksportert</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Eksportering av leseliste feilet</item>
+    <item quantity="other">Eksportering av leselister feilet</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Leseliste importert</item>
+    <item quantity="other">Leselister importert</item>
+  </plurals>
   <string name="user_option_sync_label">Innstillinger</string>
   <string name="notification_reverted_title">Tilbakestilt redigering</string>
   <string name="notification_channel_title">Laster ned artikler</string>
@@ -1292,4 +1328,6 @@
   <string name="reading_list_share_message_v2">Hei! Jeg ønsker å dele leselista mi på Wikipedia med deg:</string>
   <string name="reading_list_share_survey_title">Kan du hjelpe oss å forbedre «Del leselister»?</string>
   <string name="reading_list_share_survey_body">«Del leselister» er en testfunksjon, og vi trenger tilbakemelding fra brukerne for å forbedre eller fjerne den.</string>
+  <string name="data_opt_in_accept">Godta</string>
+  <string name="data_opt_in_reject">Avvis</string>
 </resources>

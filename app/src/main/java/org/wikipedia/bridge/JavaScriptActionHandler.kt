@@ -101,7 +101,7 @@ object JavaScriptActionHandler {
                 "       \"tableOther\": \"${res[R.string.table_other]}\"," +
                 "       \"tableClose\": \"${res[R.string.table_close]}\"" +
                 "   }," +
-                "   \"theme\": \"${app.currentTheme.funnelName}\"," +
+                "   \"theme\": \"${app.currentTheme.tag}\"," +
                 "   \"bodyFont\": \"$fontFamily\"," +
                 "   \"dimImages\": ${(app.currentTheme.isDark && Prefs.dimDarkModeImages)}," +
                 "   \"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +

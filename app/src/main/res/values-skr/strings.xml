@@ -239,6 +239,8 @@
   <string name="reading_list_sort_ellipsis">ترتیب بمطابق۔۔۔</string>
   <string name="reading_list_sort_by_name">ناں نال ترتیب ݙیوو</string>
   <string name="reading_list_menu_delete">تندیر مٹاؤ</string>
+  <string name="reading_list_menu_export">تندیر برآمد کرو</string>
+  <string name="reading_list_menu_select">چݨو</string>
   <string name="reading_list_menu_rename">ناں یا وضاحت وچ تبدیلی لکھو</string>
   <string name="reading_list_action_menu_save_for_offline">آف لائن کیتے محفوظ کرو</string>
   <string name="reading_list_name_hint">ایں فہرست دا ناں</string>
@@ -255,6 +257,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">کو، شکریہ</string>
   <string name="default_reading_list_name">محفوظ تھی ڳیا</string>
   <string name="reading_lists_menu_create_list">نویں لسٹ بݨاؤ</string>
+  <string name="reading_lists_menu_import_list">تندیر درآمد کرو</string>
   <string name="reading_lists_menu_sort_by">ترتیب بمطابق</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">لاگ ان/ کھاتہ بݨاو</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ٹھیک ہے</string>
@@ -264,6 +267,9 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">منسوخ</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">منسوخ</string>
   <string name="reading_list_split_dialog_ok_button_text">ٹھیک ہے</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">مٹاؤ</string>
+  <string name="reading_lists_action_menu_export_lists">ٻاہر بھیڄو</string>
+  <string name="reading_lists_import_file_picker_title">درآمد کرݨ کیتے فائل چݨو</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_syncing_pause_button">اجھکو</string>
   <string name="notification_syncing_resume_button">ولدا شروع کرو</string>
@@ -382,4 +388,6 @@
   <string name="shareable_reading_lists_new_indicator">*نواں*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">سمجھ آڳئی</string>
   <string name="reading_list_share_menu_label">شیئر۔۔۔</string>
+  <string name="data_opt_in_accept">قبول کرو</string>
+  <string name="data_opt_in_reject">مسترد کرو</string>
 </resources>

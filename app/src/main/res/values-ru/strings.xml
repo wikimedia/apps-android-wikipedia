@@ -540,10 +540,6 @@
     <item quantity="many">Статей доступно офлайн: %1$d из %2$d, %3$.2f МБ</item>
     <item quantity="other">Статей доступно офлайн: %1$d из %2$d, %3$.2f МБ</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 статья, %1$.2f МБ</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d статей, %2$.2f МБ</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d из 1 статьи доступно без подключения к интернету, %2$.2f МБ</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d из %2$d статей доступно офлайн, %3$.2f МБ</string>
   <string name="reading_list_sort">Сортировать</string>
   <string name="reading_list_sort_ellipsis">Сортировать по...</string>
   <string name="reading_list_sort_by_name">Сортировка по названию</string>
@@ -553,6 +549,7 @@
   <string name="reading_list_sort_by_created">Сортировка по дате создания (новые сверху)</string>
   <string name="reading_list_sort_by_created_desc">Сортировка по дате создания (старые сверху)</string>
   <string name="reading_list_menu_delete">Удалить список</string>
+  <string name="reading_list_menu_select">Выбрать</string>
   <string name="reading_list_menu_rename">Изменить название/описание</string>
   <string name="reading_list_action_menu_remove_from_offline">Удалить из офлайн-режима</string>
   <string name="reading_list_action_menu_save_for_offline">Сохранить в автономный режим</string>
@@ -656,6 +653,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Отмена</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Отмена</string>
   <string name="reading_list_split_dialog_ok_button_text">ОК</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Удалить</string>
   <string name="reading_list_activity_title">Список чтения: %s</string>
   <string name="user_option_sync_label">Настройки</string>
   <string name="notification_reverted_title">Отменённая правка</string>
@@ -1399,4 +1397,6 @@
   <string name="reading_list_share_menu_label">Поделиться…</string>
   <string name="reading_list_share_survey_title">Могли бы вы помочь нам улучшить «Поделиться списком для чтения»?</string>
   <string name="reading_list_share_survey_body">«Поделиться списком для чтения» — тестовый функционал, и нам была бы полезная ваша обратная связь, чтобы в дальнейшем улучшить или удалить этот функционал.</string>
+  <string name="data_opt_in_accept">Принять</string>
+  <string name="data_opt_in_reject">Отклонить</string>
 </resources>

@@ -260,8 +260,6 @@
   <string name="reading_list_create_new">Skep nuwe</string>
   <string name="reading_list_title_exists">Leeslys “%s” bestaan reeds.</string>
   <string name="reading_list_added_view_button">Bekyk lys</string>
-  <string name="format_reading_list_statistical_summary_singular">1 bladsy, %1$.2f MG</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d bladsye, %2$.2f MG</string>
   <string name="reading_list_sort">Sorteer</string>
   <string name="reading_list_sort_ellipsis">Sorteer volgens…</string>
   <string name="reading_list_sort_by_name">Sorteer volgens naam</string>

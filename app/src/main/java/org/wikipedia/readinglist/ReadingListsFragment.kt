@@ -35,7 +35,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListsBinding
@@ -63,7 +62,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private var _binding: FragmentReadingListsBinding? = null
     private val binding get() = _binding!!
     private var displayedLists = listOf<Any>()
-    private val funnel = ReadingListsFunnel()
     private val disposables = CompositeDisposable()
     private val adapter = ReadingListAdapter()
     private val readingListItemCallback = ReadingListItemCallback()
@@ -200,20 +198,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
         override fun selectListClick() {
             beginMultiSelect()
-            updateSelectActionModeTitleAndAlpha()
             adapter.notifyDataSetChanged()
         }
 
         override fun refreshClick() {
             binding.swipeRefreshLayout.isRefreshing = true
             refreshSync(this@ReadingListsFragment, binding.swipeRefreshLayout)
-        }
-    }
-
-    private fun updateSelectActionModeTitleAndAlpha() {
-        actionMode?.let {
-            it.title = if (selectedListsCount == 0) "" else getString(R.string.multi_select_items_selected, selectedListsCount)
-            updateActionMenuItems(it.menu)
         }
     }
 
@@ -459,14 +449,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             ReadingListBehaviorsUtil.renameReadingList(requireActivity(), readingList) {
                 ReadingListSyncAdapter.manualSync()
                 updateLists(currentSearchQuery, true)
-                funnel.logModifyList(readingList, displayedLists.size)
             }
         }
 
         override fun onDelete(readingList: ReadingList) {
             ReadingListBehaviorsUtil.deleteReadingList(requireActivity(), readingList, true) {
                 ReadingListBehaviorsUtil.showDeleteListUndoSnackbar(requireActivity(), readingList) { updateLists() }
-                funnel.logDeleteList(readingList, displayedLists.size)
                 updateLists()
             }
         }
@@ -502,7 +490,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     list.selected = !list.selected
                 }
             }
-            updateSelectActionModeTitleAndAlpha()
+            actionMode?.invalidate()
             adapter.notifyDataSetChanged()
         }
     }
@@ -569,7 +557,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 if (it is ReadingList && it.title == titleToDelete) {
                     ReadingListBehaviorsUtil.deleteReadingList(requireActivity(), it, false) {
                         ReadingListBehaviorsUtil.showDeleteListUndoSnackbar(requireActivity(), it) { updateLists() }
-                        funnel.logDeleteList(it, displayedLists.size)
                         updateLists()
                     }
                 }
@@ -588,24 +575,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }
         }
 
-    private fun updateActionMenuItems(menu: Menu) {
-        val fullOpacity = 255
-        val halfOpacity = 80
-        val alpha = if (selectedListsCount == 0) halfOpacity else fullOpacity
-        val isEnabled = selectedListsCount != 0
-        val deleteItem = menu.findItem(R.id.menu_delete_selected)
-        val exportItem = menu.findItem(R.id.menu_export_selected)
-        val exportItemTitleColor = ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)
-        val exportItemAlphaColor = ColorUtils.setAlphaComponent(exportItemTitleColor, alpha)
-        val spanString = SpannableString(exportItem.title.toString())
-        spanString.setSpan(ForegroundColorSpan(exportItemAlphaColor), 0, spanString.length, 0)
-        exportItem.title = spanString
-        deleteItem.icon?.alpha = alpha
-        exportItem.isEnabled = isEnabled
-        deleteItem.isEnabled = isEnabled
-    }
-
     private inner class MultiSelectCallback : MultiSelectActionModeCallback() {
+        private val allSelected get() = selectedListsCount == displayedLists.count { it is ReadingList }
+        private val noneSelected get() = selectedListsCount == 0
+
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             super.onCreateActionMode(mode, menu)
             mode.menuInflater.inflate(R.menu.menu_action_mode_reading_lists, menu)
@@ -615,6 +588,37 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             deleteItem.isEnabled = false
             MenuItemCompat.setIconTintList(deleteItem, deleteIconColor)
             return true
+        }
+
+        override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
+            mode.title = if (selectedListsCount == 0) "" else getString(R.string.multi_select_items_selected, selectedListsCount)
+            val fullOpacity = 255
+            val halfOpacity = 80
+            val alpha = if (selectedListsCount == 0) halfOpacity else fullOpacity
+            val isEnabled = selectedListsCount != 0
+            val deleteItem = menu.findItem(R.id.menu_delete_selected)
+            val exportItem = menu.findItem(R.id.menu_export_selected)
+            val exportItemTitleColor = ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)
+            val exportItemAlphaColor = ColorUtils.setAlphaComponent(exportItemTitleColor, alpha)
+            val spanString = SpannableString(exportItem.title.toString())
+            spanString.setSpan(ForegroundColorSpan(exportItemAlphaColor), 0, spanString.length, 0)
+            exportItem.title = spanString
+            deleteItem.icon?.alpha = alpha
+            exportItem.isEnabled = isEnabled
+            deleteItem.isEnabled = isEnabled
+
+            val selectButton = menu.findItem(R.id.menu_select)
+            selectButton.setIcon(when {
+                noneSelected -> R.drawable.ic_outline_library_add_check_24
+                allSelected -> R.drawable.ic_deselect_all
+                else -> R.drawable.ic_select_indeterminate
+            })
+            selectButton.title = when {
+                noneSelected -> getString(R.string.notifications_menu_check_all)
+                allSelected -> getString(R.string.notifications_menu_uncheck_all)
+                else -> ""
+            }
+            return super.onPrepareActionMode(mode, menu)
         }
 
         override fun onActionItemClicked(mode: ActionMode, menuItem: MenuItem): Boolean {
@@ -633,15 +637,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     finishActionMode()
                     return true
                 }
-                R.id.menu_check_all -> {
-                    selectAllLists()
-                    mode.menu.findItem(R.id.menu_check_all).isVisible = false
-                    mode.menu.findItem(R.id.menu_uncheck_all).isVisible = true
-                }
-                R.id.menu_uncheck_all -> {
-                    unselectAllLists()
-                    mode.menu.findItem(R.id.menu_uncheck_all).isVisible = false
-                    mode.menu.findItem(R.id.menu_check_all).isVisible = true
+                R.id.menu_select -> {
+                    when {
+                        allSelected -> unselectAllLists()
+                        else -> selectAllLists()
+                    }
+                    mode.invalidate()
                 }
             }
             return false
@@ -651,7 +652,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             selectedLists.let {
                 ReadingListBehaviorsUtil.deleteReadingLists(requireActivity(), it) {
                     ReadingListBehaviorsUtil.showDeleteListsUndoSnackbar(requireActivity(), it) { updateLists() }
-                    it.forEach { list -> funnel.logDeleteList(list, displayedLists.size) }
                     finishActionMode()
                     updateLists()
                 }
@@ -671,7 +671,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             it.forEach { list ->
                 list.selected = false
             }
-            updateSelectActionModeTitleAndAlpha()
             adapter.notifyDataSetChanged()
         }
     }
@@ -682,7 +681,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 .filter { !it.selected }
                 .onEach { it.selected = true }
         }
-        updateSelectActionModeTitleAndAlpha()
         adapter.notifyDataSetChanged()
     }
 
@@ -761,19 +759,16 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 FeedbackUtil.showError(requireActivity(), throwable)
             }) {
                 withContext(Dispatchers.Main) {
-                    val readingList = ReadingListsImportHelper.importReadingLists(requireContext(), encodedJson)
-                    ReadingListsFunnel().logReceivePreview(readingList)
+                    val readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
                     val existingTitles = displayedLists.filterIsInstance<ReadingList>().map { it.title }
                     val dialog = ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
                         existingTitles, true, callback = object : ReadingListTitleDialog.Callback {
                             override fun onSuccess(text: String, description: String) {
                                 readingList.listTitle = text
                                 readingList.description = description
-                                ReadingListsFunnel().logReceiveFinish(readingList)
                                 importReadingListAndRefresh(readingList)
                             }
                             override fun onCancel() {
-                                ReadingListsFunnel().logReceiveCancel(readingList)
                             }
                         }
                     )

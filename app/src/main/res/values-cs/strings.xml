@@ -465,10 +465,6 @@
   <string name="reading_list_articles_already_exist_message">Vše je v pořádku! Seznam %s obsahuje všechny články.</string>
   <string name="reading_list_added_view_button">Zobrazit seznam</string>
   <string name="reading_list_add_to_list_button">Přidejte do seznamu</string>
-  <string name="format_reading_list_statistical_summary_singular">1 článek, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d článků, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d z 1 článků je dostupný offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d z %2$d článků je dostupných offline, %3$.2f MB</string>
   <string name="reading_list_sort">Seřadit</string>
   <string name="reading_list_sort_ellipsis">Seřadit podle...</string>
   <string name="reading_list_sort_by_name">Seřadit podle abecedy (A-Ž)</string>

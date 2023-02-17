@@ -507,10 +507,6 @@
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="other">%2$d件中%1$d件の記事がオフラインで利用可能です、%3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1件の記事、%1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d記事、%2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">1つの記事のうちの%1$dをオフラインで利用できます。%2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d件の記事のうち、%1$d件がオフラインで利用できます。  %3$.2f MB</string>
   <string name="reading_list_sort">並べ替え</string>
   <string name="reading_list_sort_ellipsis">並び順:</string>
   <string name="reading_list_sort_by_name">名前順に並べ替え</string>
@@ -520,6 +516,7 @@
   <string name="reading_list_sort_by_created">作成日で検索(降順)</string>
   <string name="reading_list_sort_by_created_desc">作成日で検索(昇順)</string>
   <string name="reading_list_menu_delete">リストを削除</string>
+  <string name="reading_list_menu_select">選択</string>
   <string name="reading_list_menu_rename">名前/説明を編集</string>
   <string name="reading_list_action_menu_remove_from_offline">オフラインから削除</string>
   <string name="reading_list_action_menu_save_for_offline">オフラインで保存</string>
@@ -615,7 +612,16 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">キャンセル</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">キャンセル</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">削除</string>
   <string name="reading_list_activity_title">あとで読むリスト：%s</string>
+  <string name="reading_lists_action_menu_export_lists">エクスポート</string>
+  <string name="reading_lists_import_file_picker_title">インポートするファイルを選択</string>
+  <string name="reading_lists_preview_save_button">保存</string>
+  <string name="reading_lists_preview_save_dialog_title">リストを保存</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">タイトル</string>
+  <string name="reading_lists_preview_save_dialog_cancel">キャンセル</string>
+  <string name="reading_lists_preview_save_dialog_save">保存</string>
+  <string name="reading_lists_preview_saved_snackbar_action">表示</string>
   <string name="user_option_sync_label">設定</string>
   <string name="notification_reverted_title">編集が差し戻されました</string>
   <string name="notification_channel_title">ページのダウンロード中</string>
@@ -1300,4 +1306,6 @@
   <string name="reading_list_share_menu_label">共有…</string>
   <string name="reading_list_share_menu_tooltip">このあとで読むリストを他の人と共有する</string>
   <string name="reading_list_share_title_tooltip">このリストに行った変更は他の人には見えません。</string>
+  <string name="data_opt_in_accept">承認</string>
+  <string name="data_opt_in_reject">却下</string>
 </resources>

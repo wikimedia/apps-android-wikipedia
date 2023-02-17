@@ -429,10 +429,6 @@
   <string name="reading_list_articles_already_exist_message">အားလုံးကောင်းပါတယ်! %sမှာ ဆောင်းပါးအားလုံးပါပြီးသားပါ</string>
   <string name="reading_list_added_view_button">စာရင်းအား ကြည့်ရန်</string>
   <string name="reading_list_add_to_list_button">စာရင်းသို့ ပေါင်းထည့်ရန်</string>
-  <string name="format_reading_list_statistical_summary_singular">ဆောင်းပါး ၁ ခု၊ %1$.2f မက်ဂါဘိုက်</string>
-  <string name="format_reading_list_statistical_summary_plural">ဆောင်းပါး %1$d ခု၊ %2$.2f မက်ဂါဘိုက်</string>
-  <string name="format_reading_list_statistical_detail_singular">ဆောင်းပါး ၁ ခု၏ %1$d ကို အင်တာနက်မရှိပဲ ဖတ်ရှုနိုင်သည်၊ %2$.2f မက်ဂါဘိုက်။</string>
-  <string name="format_reading_list_statistical_detail_plural">ဆောင်းပါးများ %2$d ခု၏ %1$d ခုသည် အော့ဖ်လိုင်းတွင် ရရှိနိုင်ပါပြီ၊ %3$.2f MB</string>
   <string name="reading_list_sort">စီစဉ်ရန်</string>
   <string name="reading_list_sort_ellipsis">အစဉ်လိုက်...</string>
   <string name="reading_list_sort_by_name">အမည်ဖြင့် စီစဉ်</string>

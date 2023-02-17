@@ -499,10 +499,6 @@
     <item quantity="one">%1$d von 1 Artikel offline verfügbar, %3$.2f MB</item>
     <item quantity="other">%1$d von %2$d Artikel offline verfügbar, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">Ein Artikel, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d Artikel, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d Seiten von einem Artikel offline verfügbar, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d Seiten von %2$d Artikeln offline verfügbar, %3$.2f MB</string>
   <string name="reading_list_sort">Sortieren</string>
   <string name="reading_list_sort_ellipsis">Sortieren nach …</string>
   <string name="reading_list_sort_by_name">Nach Name sortieren</string>

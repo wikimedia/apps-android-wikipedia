@@ -427,10 +427,6 @@
   <string name="reading_list_article_moved_to_named">Чланак „%1$s” је премештен на листу „%2$s”</string>
   <string name="reading_list_added_view_button">Прикажи листу</string>
   <string name="reading_list_add_to_list_button">Додај на листу</string>
-  <string name="format_reading_list_statistical_summary_singular">1 чланак, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d чланака, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">Офлајн је доступно %1$d од 1 чланак, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">Офлајн је доступно %1$d од %2$d чланака, %3$.2f MB</string>
   <string name="reading_list_sort">Сортирај</string>
   <string name="reading_list_sort_ellipsis">Сортирај по…</string>
   <string name="reading_list_sort_by_name">Сортирај по имену</string>
@@ -440,6 +436,8 @@
   <string name="reading_list_sort_by_created">Сортирај по датуму прављења (најновији)</string>
   <string name="reading_list_sort_by_created_desc">Сортирај по датуму прављења (најстарији)</string>
   <string name="reading_list_menu_delete">Избриши листу</string>
+  <string name="reading_list_menu_select">Изабери</string>
+  <string name="reading_list_menu_unselect">Поништи избор</string>
   <string name="reading_list_menu_rename">Уреди име/опис</string>
   <string name="reading_list_action_menu_remove_from_offline">Уклони из офлајн-меморије</string>
   <string name="reading_list_action_menu_save_for_offline">Сачувај у офлајн-меморију</string>
@@ -525,6 +523,13 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Откажи</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Откажи</string>
   <string name="reading_list_split_dialog_ok_button_text">У реду</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Обриши</string>
+  <string name="reading_lists_action_menu_export_lists">Извоз</string>
+  <string name="reading_lists_preview_save_button">Сачувај</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Наслов</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Откажи</string>
+  <string name="reading_lists_preview_save_dialog_save">Сачувај</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Прикажи</string>
   <string name="user_option_sync_label">Подешавања</string>
   <string name="notification_reverted_title">Враћена измена</string>
   <string name="notification_channel_title">Преузимање чланака</string>
@@ -1042,4 +1047,6 @@
   <string name="shareable_reading_lists_new_indicator">*ново*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Разумео</string>
   <string name="reading_list_share_menu_label">Дели…</string>
+  <string name="data_opt_in_accept">Прихватам</string>
+  <string name="data_opt_in_reject">Одбаци</string>
 </resources>

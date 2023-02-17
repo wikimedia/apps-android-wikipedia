@@ -370,10 +370,6 @@
     <item quantity="many">სტატია: %1$d, %2$.2f MB</item>
     <item quantity="other">სტატია: %1$d, %2$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 სტატია, %1$.2f მბ</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d სტატია, %2$.2f მბ</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d-შე 1 სტატია ხემიოჭირინაფუს რე ინტერნეტწკჷმა რსხუშ უმუშო, %2$.2f მბ</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d-შე %1$d სტატია ხემიოჭირინაფუს რე ინტერნეტწკჷმა რსხუშ უმუშო, %3$.2f მბ</string>
   <string name="reading_list_sort">სორტირაფა</string>
   <string name="reading_list_sort_ellipsis">დონწყუალა...</string>
   <string name="reading_list_sort_by_name">დონწყუალა ჯოხოშ მეჯიანთ</string>

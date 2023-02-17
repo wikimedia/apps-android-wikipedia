@@ -24,6 +24,9 @@ interface OfflineObjectDao {
     @Query("SELECT * FROM OfflineObject WHERE url LIKE '%/' || :urlFragment || '/%' LIMIT 1")
     fun searchForOfflineObject(urlFragment: String): OfflineObject?
 
+    @Query("SELECT * FROM OfflineObject WHERE url LIKE '%' || :urlFragment || '%'")
+    fun searchForOfflineObjects(urlFragment: String): List<OfflineObject>
+
     @Query("SELECT * FROM OfflineObject WHERE usedByStr LIKE '%|' || :id || '|%'")
     fun getFromUsedById(id: Long): List<OfflineObject>
 

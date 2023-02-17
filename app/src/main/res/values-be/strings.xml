@@ -223,7 +223,7 @@
   <string name="preferences_heading_data_usage">Выкарыстанне даных</string>
   <string name="preferences_heading_experimental">Эксперыментальныя</string>
   <string name="preference_title_sync_reading_lists_from_account">Сінхранізацыя спісу для чытання</string>
-  <string name="preference_title_download_reading_list_articles">Загрузіць артыкул са спісу чытання</string>
+  <string name="preference_title_download_reading_list_articles">Загрузіць спіс артыкулаў для чытання</string>
   <string name="preference_summary_sync_reading_lists">Сінхранізуйце спісы для чытання на розных прыладах, захаваннем іх у сваім уліковым запісе Вікіпедыі</string>
   <string name="preference_summary_sync_reading_lists_from_account">Сінхранізуйце спісы для чытання на розных прыладах, захаваўшы іх у сваім уліковым запісе Вікіпедыі «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Выдаліць сінхранізаваныя спісы чытання з \"%s\"?</string>
@@ -491,10 +491,6 @@
     <item quantity="many">%1$d з %2$d артыкулаў дасяжны па-за сеткай, %3$.2f МБ</item>
     <item quantity="other">%1$d з %2$d артыкулаў дасяжны па-за сеткай, %3$.2f МБ</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 артыкул, %1$.2f МБ</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d артыкулаў, %2$.2f МБ</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d з 1 артыкула дасяжна па-за сеткай, %2$.2f МБ</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d з %2$d артыкулаў дасяжна па-за сеткай, %3$.2f МБ</string>
   <string name="reading_list_sort">Сартаваць</string>
   <string name="reading_list_sort_ellipsis">Сартаваць па...</string>
   <string name="reading_list_sort_by_name">Сартаваць паводле назвы</string>
@@ -504,6 +500,7 @@
   <string name="reading_list_sort_by_created">Сартаваць па даце стварэння (найнавейшыя)</string>
   <string name="reading_list_sort_by_created_desc">Сартаваць па даце стварэння (найстарэйшыя)</string>
   <string name="reading_list_menu_delete">Выдаліць спіс</string>
+  <string name="reading_list_menu_select">Выбраць</string>
   <string name="reading_list_menu_rename">Рэдагаваць назву/апісанне</string>
   <string name="reading_list_action_menu_remove_from_offline">Выдаліць з файлаў, якія дасяжны па-за сеткай</string>
   <string name="reading_list_action_menu_save_for_offline">Захаваць па-за сеткай</string>
@@ -607,7 +604,9 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Скасаваць</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Скасаваць</string>
   <string name="reading_list_split_dialog_ok_button_text">Добра</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Выдаліць</string>
   <string name="reading_list_activity_title">Спіс чытання: %s</string>
+  <string name="reading_lists_action_menu_export_lists">Экспартаваць</string>
   <string name="user_option_sync_label">Параметры</string>
   <string name="notification_reverted_title">Адноўленае рэдагаванне</string>
   <string name="notification_channel_title">Спампоўка артыкулаў</string>
@@ -765,7 +764,7 @@
   <string name="view_main_page_card_title">Сёння ў Вікіпедыі</string>
   <string name="view_main_page_card_action">Праглядзець галоўную старонку</string>
   <string name="view_featured_image_card_title">Выява дня</string>
-  <string name="view_featured_image_card_download">Загрузіць</string>
+  <string name="view_featured_image_card_download">Спампаваць</string>
   <string name="view_featured_image_card_share">Падзяліцца</string>
   <string name="menu_feed_card_dismiss">Схаваць гэту картку</string>
   <string name="menu_feed_card_dismissed">Картка схавана.</string>

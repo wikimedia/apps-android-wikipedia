@@ -252,6 +252,7 @@
   <string name="reading_list_sort">Տեսակավորել</string>
   <string name="reading_list_sort_ellipsis">Տեսակավորել ըստ...</string>
   <string name="reading_list_menu_delete">Ջնջել ցանկ</string>
+  <string name="reading_list_menu_select">Ընտրել</string>
   <string name="reading_list_menu_rename">Խմբագրել անվանումը/նկարագրությունը</string>
   <string name="reading_list_item_delete_undo">Հետ շրջել</string>
   <string name="reading_list_select_item">Ընտրել</string>
@@ -265,6 +266,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ոչ, շնորհակալություն</string>
   <string name="default_reading_list_name">Պահպանված է</string>
   <string name="default_reading_list_description">Ձեր պահպանված հոդվածների կանխադրված ցանկը</string>
+  <string name="reading_lists_menu_import_list">Ներմուծման ցանկ</string>
   <string name="reading_lists_menu_sort_by">Տեսակավորել ըստ</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Լավ</string>
   <string name="reading_list_delete_dialog_ok_button_text">Լավ</string>
@@ -273,6 +275,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Չեղարկել</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Չեղարկել</string>
   <string name="reading_list_split_dialog_ok_button_text">Լավ</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Ջնջել</string>
   <string name="user_option_sync_label">Նախընտրություններ</string>
   <string name="notification_syncing_pause_button">Դադար</string>
   <string name="notification_syncing_resume_button">Շարունակել</string>
@@ -484,4 +487,6 @@
   <string name="user_contrib_menu_label">Ներդրումներ</string>
   <string name="shareable_reading_lists_new_indicator">*նոր*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Հասկանալի է</string>
+  <string name="data_opt_in_accept">Ընդունել</string>
+  <string name="data_opt_in_reject">Մերժել</string>
 </resources>

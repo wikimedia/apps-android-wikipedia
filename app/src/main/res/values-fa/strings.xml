@@ -498,10 +498,6 @@
     <item quantity="one">%1$d از ۱ مقاله در حالت آفلاین در دسترس است، %3$.2f مگابایت</item>
     <item quantity="other">%1$d از %2$d مقاله در حالت آفلاین در دسترس است، %3$.2f مگابایت</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">۱ مقاله، %1$.2f مگابایت</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d مقاله، %2$.2f مگابایت</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d مقاله از ۱ مقالهٔ موجود در حالت آفلاین، %2$.2f مگابایت</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d مقاله از %2$d مقالهٔ موجود در حالت آفلاین، %3$.2f مگابایت</string>
   <string name="reading_list_sort">مرتب‌کردن</string>
   <string name="reading_list_sort_ellipsis">مرتب‌سازی بر اساس...</string>
   <string name="reading_list_sort_by_name">مرتب‌سازی بر اساس نام</string>

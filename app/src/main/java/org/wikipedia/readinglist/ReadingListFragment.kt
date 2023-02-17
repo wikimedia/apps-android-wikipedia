@@ -21,18 +21,16 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.*
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.PageDownloadEvent
@@ -67,7 +65,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private var actionMode: ActionMode? = null
     private val appBarListener = AppBarListener()
     private var showOverflowMenu = false
-    private val funnel = ReadingListsFunnel()
     private val readingListItemCallback = ReadingListItemCallback()
     private val readingListPageItemCallback = ReadingListPageItemCallback()
     private val searchActionModeCallback = SearchCallback()
@@ -287,22 +284,22 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     private fun updateReadingListData() {
-        disposables.add(Observable.fromCallable { AppDatabase.instance.readingListDao().getListById(readingListId, true) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ list ->
-                    binding.readingListSwipeRefresh.isRefreshing = false
-                    readingList = list
-                    readingList?.let {
-                        binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
-                    }
-                    update()
-                }) {
-                    // If we failed to retrieve the requested list, it means that the list is no
-                    // longer in the database (likely removed due to sync).
-                    // In this case, there's nothing for us to do, so just bail from the activity.
-                    requireActivity().finish()
-                })
+        CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, _ ->
+            // If we failed to retrieve the requested list, it means that the list is no
+            // longer in the database (likely removed due to sync).
+            // In this case, there's nothing for us to do, so just bail from the activity.
+            requireActivity().finish()
+        }) {
+            val list = withContext(Dispatchers.IO) {
+                AppDatabase.instance.readingListDao().getListById(readingListId, true)
+            }
+            binding.readingListSwipeRefresh.isRefreshing = false
+            readingList = list
+            readingList?.let {
+                binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
+            }
+            update()
+        }
     }
 
     private fun enqueueTooltip(runnable: Runnable) {
@@ -369,7 +366,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private fun rename() {
         ReadingListBehaviorsUtil.renameReadingList(requireActivity(), readingList) {
             update()
-            funnel.logModifyList(readingList!!, 0)
         }
     }
 
@@ -428,7 +424,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             if (pages.isNotEmpty()) {
                 AppDatabase.instance.readingListPageDao().markPagesForDeletion(it, pages)
                 it.pages.removeAll(pages)
-                funnel.logDeleteItem(it, 0)
                 ReadingListBehaviorsUtil.showDeletePagesUndoSnackbar(requireActivity(), it, pages) { updateReadingListData() }
                 update()
             }
@@ -502,8 +497,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         readingList?.let {
             val listsContainPage = if (currentSearchQuery.isNullOrEmpty()) listOf(it) else ReadingListBehaviorsUtil.getListsContainPage(page)
             ReadingListBehaviorsUtil.deletePages(requireActivity(), listsContainPage, page, { updateReadingListData() }, {
-                // TODO: need to verify the log of delete item since this action will delete multiple items in the same time.
-                funnel.logDeleteItem(it, 0)
                 update()
             })
         }
@@ -575,7 +568,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             readingList?.let {
                 if (currentSearchQuery.isNullOrEmpty()) {
                     ReadingListBehaviorsUtil.deletePages(requireActivity(), listOf(it), page, { updateReadingListData() }, {
-                        funnel.logDeleteItem(it, 0)
                         update()
                     })
                 }
