@@ -47,17 +47,7 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(context, R.attr.list_separator_drawable, drawStart = true, drawEnd = true, skipSearchBar = true))
         currentReadingLists = AppDatabase.instance.readingListDao().getAllLists().toMutableList()
         binding.readingListTitle.doOnTextChanged { text, _, _, _ ->
-            if (currentReadingLists.any { it.title == text.toString() }) {
-                binding.readingListTitleLayout.error =
-                    context.getString(R.string.reading_list_title_exists, text.toString())
-                callback.onError()
-            } else if (text.toString().isEmpty()) {
-                binding.readingListTitleLayout.error = null
-                callback.onError()
-            } else {
-                binding.readingListTitleLayout.error = null
-                callback.onSuccess(text.toString())
-            }
+            checkReadingListTitle(text.toString())
         }
     }
 
@@ -65,7 +55,22 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
         this.readingList = readingList
         this.savedReadingListPages = savedReadingListPages
         this.callback = callback
+        checkReadingListTitle(context.getString(R.string.reading_list_name_sample))
         binding.recyclerView.adapter = ReadingListItemAdapter()
+    }
+
+    private fun checkReadingListTitle(name: String) {
+        if (currentReadingLists.any { it.title == name }) {
+            binding.readingListTitleLayout.error =
+                context.getString(R.string.reading_list_title_exists, name)
+            callback.onError()
+        } else if (name.isEmpty()) {
+            binding.readingListTitleLayout.error = null
+            callback.onError()
+        } else {
+            binding.readingListTitleLayout.error = null
+            callback.onSuccess(name)
+        }
     }
 
     private inner class ReadingListItemHolder constructor(val itemBinding: ItemReadingListPreviewSaveSelectItemBinding) : DefaultViewHolder<View>(itemBinding.root), OnClickListener {
