@@ -23,6 +23,9 @@ class ArticleSuggestionReportDialog(context: Context, suggestion: String) : Aler
                 context.getString(R.string.suggested_edits_suggestion_report_submitted)).show()
             dismiss()
         }
+        binding.suggestionReportOther.setEndIconOnClickListener {
+            binding.suggestionReportOtherEditText.setText("")
+        }
         binding.cancelButton.setOnClickListener { dismiss() }
     }
 

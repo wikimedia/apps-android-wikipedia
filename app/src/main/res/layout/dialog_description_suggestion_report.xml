@@ -130,8 +130,7 @@
             app:counterEnabled="true"
             app:counterMaxLength="@integer/description_max_chars"
             app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance"
-            app:endIconContentDescription="@string/description_edit_voice_input_description"
-            app:endIconDrawable="@drawable/ic_mic_black_24dp"
+            app:endIconDrawable="@drawable/chip_close_button_dark"
             app:endIconMode="custom"
             app:endIconTint="?attr/material_theme_de_emphasised_color"
             app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
