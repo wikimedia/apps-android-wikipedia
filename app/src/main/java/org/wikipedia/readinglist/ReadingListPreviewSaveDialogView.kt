@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,10 +16,12 @@ import org.wikipedia.databinding.ItemReadingListPreviewSaveSelectItemBinding
 import org.wikipedia.databinding.ViewReadingListPreviewSaveDialogBinding
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
+import java.util.*
 
 class ReadingListPreviewSaveDialogView : FrameLayout {
 
@@ -55,7 +58,9 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
         this.readingList = readingList
         this.savedReadingListPages = savedReadingListPages
         this.callback = callback
-        checkReadingListTitle(context.getString(R.string.reading_list_name_sample))
+        val defaultListTitle = context.getString(R.string.reading_lists_preview_header_title).plus(" " + DateUtil.getShortDayWithTimeString(Date()))
+        binding.readingListTitleLayout.editText?.setText(defaultListTitle)
+        checkReadingListTitle(defaultListTitle)
         binding.recyclerView.adapter = ReadingListItemAdapter()
     }
 
@@ -80,6 +85,8 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
             this.readingListPage = readingListPage
             itemBinding.container.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
             itemBinding.articleName.text = StringUtil.fromHtml(readingListPage.displayTitle)
+            itemBinding.articleDescription.isVisible = !readingListPage.description.isNullOrEmpty()
+            itemBinding.articleDescription.text = StringUtil.fromHtml(readingListPage.description)
             ViewUtil.loadImage(itemBinding.articleThumbnail, readingListPage.thumbUrl, true)
             itemBinding.container.setOnClickListener(this)
             itemBinding.checkbox.setOnClickListener(this)

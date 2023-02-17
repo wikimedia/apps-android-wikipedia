@@ -28,9 +28,22 @@
         android:layout_marginHorizontal="8dp"
         app:layout_constraintStart_toEndOf="@id/checkbox"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/articleThumbnail"
-        tools:text="English" />
+        app:layout_constraintBottom_toTopOf="@id/articleDescription"
+        tools:text="English"/>
+
+    <TextView
+        android:id="@+id/articleDescription"
+        style="@style/MaterialListSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="@+id/articleName"
+        app:layout_constraintStart_toStartOf="@+id/articleName"
+        app:layout_constraintTop_toBottomOf="@id/articleName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="language" />
 
     <ImageView
         android:id="@+id/articleThumbnail"

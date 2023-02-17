@@ -40,7 +40,7 @@
             android:inputType="text"
             android:lineSpacingExtra="6sp"
             android:textSize="16sp"
-            android:text="@string/reading_list_name_sample"/>
+            android:text="@string/reading_lists_preview_header_title"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
