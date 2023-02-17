@@ -1363,4 +1363,5 @@
   <string name="suggested_edits_do_not_understand_suggestion">Report label text suggesting that they do not understand the task.</string>
   <string name="suggested_edits_report_suggestion">Button text indicating that the user can report an issue.</string>
   <string name="suggested_edits_suggestion_report_submitted">Snackbar text shown to user as a confirmation after they have submitted a report.</string>
+  <string name="description_edit_suggested_description_button_tooltip">Tooltip text for machine generated description suggestion button.</string>
 </resources>

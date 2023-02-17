@@ -19,6 +19,7 @@ import org.wikipedia.databinding.ViewDescriptionEditBinding
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.mlkit.MlKitLanguageDetector
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.*
 import org.wikipedia.views.ArticleDescriptionsDialog
@@ -409,9 +410,18 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             else context.getString(R.string.description_edit_image_caption_learn_more)
     }
     fun updateDescriptionSuggestions(first: String, second: String) {
+        val activity = context as Activity
         firstDescriptionSuggestion = first
         secondDescriptionSuggestion = second
-        (context as Activity).let { it.runOnUiThread { binding.suggestedDescButton.isVisible = true } }
+        binding.suggestedDescButton.post {
+            binding.suggestedDescButton.isVisible = true
+            if (!Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown) {
+                FeedbackUtil.showTooltip(activity, binding.suggestedDescButton,
+                    activity.getString(R.string.description_edit_suggested_description_button_tooltip),
+                    aboveOrBelow = true, autoDismiss = true, showDismissButton = true)
+                Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown = true
+            }
+        }
     }
 
     companion object {

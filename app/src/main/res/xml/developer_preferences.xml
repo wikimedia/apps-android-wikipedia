@@ -432,6 +432,10 @@
             android:key="@string/preference_key_reading_lists_receive_survey_attempts"
             android:title="readingListReceiveSurveyAttempts" />
 
+        <org.wikipedia.settings.IntPreference
+            android:key="@string/preference_key_se_machine_generated_descriptions_tooltip_shown"
+            android:title="seMachineGeneratedDescriptionsTooltipShown" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

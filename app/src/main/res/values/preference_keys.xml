@@ -157,4 +157,5 @@
     <string name="preference_key_reading_lists_receive_survey_mode">readingListReceiveSurveyMode</string>
     <string name="preference_key_reading_lists_recent_receive_tooltip_shown">readingListRecentReceiveTooltipShown</string>
     <string name="preference_key_reading_lists_recent_receive_id">readingListRecentReceiveId</string>
+    <string name="preference_key_se_machine_generated_descriptions_tooltip_shown">seMachineGeneratedDescriptionsTooltipShown</string>
 </resources>
