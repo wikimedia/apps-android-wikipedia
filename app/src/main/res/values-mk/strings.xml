@@ -614,6 +614,15 @@
     <item quantity="one">Списокот за читање е увезен</item>
     <item quantity="other">Списоците за читање се увезени</item>
   </plurals>
+  <string name="reading_lists_preview_header_title">Споделен список</string>
+  <string name="reading_lists_preview_save_button">Зачувај</string>
+  <string name="reading_lists_preview_save_dialog_title">Зачувај список</string>
+  <string name="reading_lists_preview_save_dialog_text">Именувајте го списокот и одберете статии за зачувување.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Наслов</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Откажи</string>
+  <string name="reading_lists_preview_save_dialog_save">Зачувај</string>
+  <string name="reading_lists_preview_saved_snackbar">Списокот а читање е зачуван</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Преглед</string>
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_reverted_title">Отповикано уредување</string>
   <string name="notification_channel_title">Преземање на статии</string>
