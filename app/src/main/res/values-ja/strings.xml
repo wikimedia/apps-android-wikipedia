@@ -616,6 +616,12 @@
   <string name="reading_list_activity_title">あとで読むリスト：%s</string>
   <string name="reading_lists_action_menu_export_lists">エクスポート</string>
   <string name="reading_lists_import_file_picker_title">インポートするファイルを選択</string>
+  <string name="reading_lists_preview_save_button">保存</string>
+  <string name="reading_lists_preview_save_dialog_title">リストを保存</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">タイトル</string>
+  <string name="reading_lists_preview_save_dialog_cancel">キャンセル</string>
+  <string name="reading_lists_preview_save_dialog_save">保存</string>
+  <string name="reading_lists_preview_saved_snackbar_action">表示</string>
   <string name="user_option_sync_label">設定</string>
   <string name="notification_reverted_title">編集が差し戻されました</string>
   <string name="notification_channel_title">ページのダウンロード中</string>
