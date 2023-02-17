@@ -396,6 +396,10 @@
             android:key="@string/preference_key_show_sequential_user_stats_tooltip"
             android:title="@string/preference_key_show_sequential_user_stats_tooltip" />
 
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_se_machine_generated_descriptions_tooltip_shown"
+            android:title="seMachineGeneratedDescriptionsTooltipShown" />
+
         <Preference
             android:key="@string/preferences_developer_suggested_edits_reactivation_notification_stage_one"
             android:title="@string/preferences_developer_suggested_edits_reactivation_notification_stage_one"/>
@@ -431,11 +435,6 @@
             style="@style/IntPreference"
             android:key="@string/preference_key_reading_lists_receive_survey_attempts"
             android:title="readingListReceiveSurveyAttempts" />
-
-        <org.wikipedia.settings.IntPreference
-            android:key="@string/preference_key_se_machine_generated_descriptions_tooltip_shown"
-            android:title="seMachineGeneratedDescriptionsTooltipShown" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>
