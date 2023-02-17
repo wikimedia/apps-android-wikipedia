@@ -15,7 +15,6 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.navtab.NavTab
-import org.wikipedia.navtab.NavTab.READING_LISTS
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.PageActivity
 import org.wikipedia.settings.Prefs
@@ -68,9 +67,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     }
 
     override fun onTabChanged(tab: NavTab) {
-        if (tab != READING_LISTS && Prefs.readingListReceiveMode) {
-            Prefs.readingListReceiveMode = false
-        }
         if (tab == NavTab.EXPLORE) {
             binding.mainToolbarWordmark.visibility = View.VISIBLE
             binding.mainToolbar.title = ""
@@ -125,6 +121,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (fragment.onBackPressed()) {
             return
         }
+        Prefs.readingListReceiveMode = false
         super.onBackPressed()
     }
 
