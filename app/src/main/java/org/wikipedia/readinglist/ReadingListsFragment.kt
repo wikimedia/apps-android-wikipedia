@@ -767,7 +767,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 }
                 .show()
             shouldShowImportedSnackbar = false
-            recentPreviewSavedReadingList = null
             Prefs.receiveReadingListsData = null
             Prefs.readingListRecentReceivedId = -1L
         }
