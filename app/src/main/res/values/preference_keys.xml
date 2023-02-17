@@ -155,6 +155,5 @@
     <string name="preference_key_reading_lists_share_tooltip_shown">readingListShareTooltipShown</string>
     <string name="preference_key_reading_lists_receive_survey_attempts">readingListReceiveSurveyAttempts</string>
     <string name="preference_key_reading_lists_receive_survey_mode">readingListReceiveSurveyMode</string>
-    <string name="preference_key_reading_lists_recent_receive_tooltip_shown">readingListRecentReceiveTooltipShown</string>
     <string name="preference_key_reading_lists_recent_receive_id">readingListRecentReceiveId</string>
 </resources>

@@ -808,7 +808,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    fun onListsImportResult(uri: Uri) {
+    private fun onListsImportResult(uri: Uri) {
         binding.swipeRefreshLayout.isRefreshing = true
         val inputStr = activity?.contentResolver?.openInputStream(uri)
         inputStr?.let { inputStream ->
