@@ -32,6 +32,9 @@ class ArticleDescriptionsDialog(context: Context,
         binding.descriptionsContainer.isVisible = false
         setView(binding.root)
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        requestSuggestion()
+
         binding.closeButton.setOnClickListener { dismiss() }
         binding.firstSuggestion.setOnClickListener {
              callback.onSuggestionClicked(binding.firstSuggestion.text.toString())
@@ -43,15 +46,22 @@ class ArticleDescriptionsDialog(context: Context,
         }
 
         binding.firstSuggestionFlag.setOnClickListener {
-            ArticleSuggestionReportDialog(context, binding.firstSuggestion.text.toString()).show()
-            dismiss()
+            ArticleSuggestionReportDialog(context, binding.firstSuggestion.text.toString(), object :
+                ArticleSuggestionReportDialog.Callback {
+                override fun onReportClick() {
+                    dismiss()
+                }
+            }).show()
         }
 
         binding.secondSuggestionFlag.setOnClickListener {
-            ArticleSuggestionReportDialog(context, binding.firstSuggestion.text.toString()).show()
-            dismiss()
+            ArticleSuggestionReportDialog(context, binding.firstSuggestion.text.toString(), object :
+                ArticleSuggestionReportDialog.Callback {
+                override fun onReportClick() {
+                    dismiss()
+                }
+            }).show()
         }
-        requestSuggestion()
     }
 
     private fun requestSuggestion() {

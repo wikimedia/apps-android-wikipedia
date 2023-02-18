@@ -8,8 +8,13 @@ import androidx.appcompat.app.AlertDialog
 import org.wikipedia.R
 import org.wikipedia.databinding.DialogDescriptionSuggestionReportBinding
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.views.ArticleDescriptionsDialog.Callback
 
-class ArticleSuggestionReportDialog(context: Context, suggestion: String) : AlertDialog(context) {
+class ArticleSuggestionReportDialog(context: Context, suggestion: String, callback: Callback) : AlertDialog(context) {
+
+    interface Callback {
+        fun onReportClick()
+    }
 
     private val binding = DialogDescriptionSuggestionReportBinding.inflate(layoutInflater)
 
@@ -21,6 +26,7 @@ class ArticleSuggestionReportDialog(context: Context, suggestion: String) : Aler
             collectReportData()
             FeedbackUtil.makeSnackbar(context as Activity,
                 context.getString(R.string.suggested_edits_suggestion_report_submitted)).show()
+            callback.onReportClick()
             dismiss()
         }
         binding.suggestionReportOther.setEndIconOnClickListener {
