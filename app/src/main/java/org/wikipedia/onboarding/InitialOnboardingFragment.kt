@@ -23,6 +23,8 @@ import org.wikipedia.util.UriUtil
 
 class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callback {
     private var onboardingPageView: OnboardingPageView? = null
+    override val doneButtonText = R.string.onboarding_get_started
+    override val showDoneButton = false
 
     private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
@@ -34,8 +36,6 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
     override fun getAdapter(): FragmentStateAdapter {
         return OnboardingPagerAdapter(this)
     }
-
-    override val doneButtonText = R.string.onboarding_get_started
 
     override fun onAcceptOrReject(view: OnboardingPageView, accept: Boolean) {
         if (OnboardingPage.of(view.tag as Int) == OnboardingPage.PAGE_USAGE_DATA) {

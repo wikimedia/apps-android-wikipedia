@@ -95,6 +95,7 @@
   <string name="menu_page_new_tab">แท็บใหม่</string>
   <string name="menu_page_reading_lists">รายการอ่าน</string>
   <string name="menu_page_recently_viewed">ดูล่าสุด</string>
+  <string name="menu_page_archive">เก็บถาวร</string>
   <string name="menu_long_press_open_page">เปิด</string>
   <string name="menu_long_press_open_in_new_tab">เปิดในแท็บใหม่</string>
   <string name="menu_long_press_copy_page">คัดลอกที่อยู่ลิงก์</string>
@@ -258,6 +259,7 @@
   <string name="edit_preview">แสดงตัวอย่าง</string>
   <string name="edit_undo">เลิกทำ</string>
   <string name="edit_redo">ทำซ้ำ</string>
+  <string name="edit_rollback">ย้อนรวดเดียว</string>
   <string name="edit_zoom_in">ซูมเข้า</string>
   <string name="edit_zoom_out">ซูมออก</string>
   <string name="edit_summary_tag_typo">แก้ไขการสะกด</string>
@@ -423,6 +425,7 @@
   <string name="text_size_percent_default">%s (ค่าเริ่มต้น)</string>
   <string name="text_style_title">แบบอักษร</string>
   <string name="theme_category_reading">การอ่าน</string>
+  <string name="theme_category_editing">การแก้ไข</string>
   <string name="reading_focus_mode">โหมดโฟกัสการอ่าน</string>
   <string name="nav_item_saved">บันทึกแล้ว</string>
   <string name="reading_list_save_to">บันทึกลงในรายการอ่าน</string>
@@ -451,6 +454,8 @@
   <string name="reading_list_sort_by_created">เรียงตามวันที่สร้าง (ล่าสุด)</string>
   <string name="reading_list_sort_by_created_desc">เรียงตามวันที่สร้าง (เก่าสุด)</string>
   <string name="reading_list_menu_delete">ลบรายการ</string>
+  <string name="reading_list_menu_select">เลือก</string>
+  <string name="reading_list_menu_unselect">ยกเลิกเลือก</string>
   <string name="reading_list_menu_rename">แก้ไขชื่อ/คำอธิบาย</string>
   <string name="reading_list_action_menu_remove_from_offline">เอาออกจากออฟไลน์</string>
   <string name="reading_list_action_menu_save_for_offline">บันทึกสำหรับออฟไลน์</string>
@@ -543,7 +548,15 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">ยกเลิก</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">ยกเลิก</string>
   <string name="reading_list_split_dialog_ok_button_text">ตกลง</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">ลบ</string>
   <string name="reading_list_activity_title">รายการอ่าน: %s</string>
+  <string name="reading_lists_action_menu_export_lists">ส่งออก</string>
+  <string name="reading_lists_preview_save_button">บันทึก</string>
+  <string name="reading_lists_preview_save_dialog_title">บันทึกรายการ</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">ชื่อเรื่อง</string>
+  <string name="reading_lists_preview_save_dialog_cancel">ยกเลิก</string>
+  <string name="reading_lists_preview_save_dialog_save">บันทึก</string>
+  <string name="reading_lists_preview_saved_snackbar_action">ดู</string>
   <string name="user_option_sync_label">การตั้งค่า</string>
   <string name="notification_reverted_title">การแก้ไขที่ถูกย้อน</string>
   <string name="notification_channel_title">กำลังดาวน์โหลดบทความ</string>
@@ -622,6 +635,7 @@
   <string name="preference_category_display_settings">การตั้งค่าการแสดงผล</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">วิกิพีเดีย</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">การแจ้งเตือนจากวิกิพีเดีย</string>
+  <string name="notifications_channel_group_other_title">อื่น ๆ</string>
   <string name="notifications_filter_label">กรองการแจ้งเตือน</string>
   <string name="notifications_filter_icon_content_description">กรองการแจ้งเตือน</string>
   <string name="notifications_filter_update_app_languages">ปรับปรุงภาษาของแอป</string>
@@ -691,6 +705,7 @@
   <string name="feed_accessibility_card_text">คุณได้มาถึงส่วนล่างสุดของฟีดแล้ว</string>
   <string name="feed_accessibility_card_load_more_button">โหลดเพิ่มเติม</string>
   <string name="top_read_activity_title">อ่านมากที่สุดบน %s</string>
+  <string name="tabs_activity_title">ป้ายกำกับ</string>
   <string name="description_edit_text_hint">คำอธิบายบทความ</string>
   <string name="description_edit_article_description_label">บทความ</string>
   <string name="description_edit_translate_article_description_label_per_language">คำอธิบายบทความ (%s)</string>
@@ -737,7 +752,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">ควรเขียนให้พอดีหนึ่งบรรทัด และเขียนตั้งแต่ 2-12 คำ</string>
   <string name="description_edit_tutorial_button_label_start_editing">เริ่มแก้ไข</string>
   <string name="description_edit_tutorial_promise">ฉันสัญญาว่าจะไม่ใช้คุณลักษณะนี้ในทางที่ผิด</string>
+  <string name="customize_toolbar_category_toolbar">แถบเครื่องมือ</string>
   <string name="customize_toolbar_category_menu">เมนู</string>
+  <string name="customize_toolbar_reset_to_default_button">รีเซ็ตเป็นค่าเริ่มต้น</string>
   <string name="suggested_edits_describe_articles">อธิบายบทความ</string>
   <string name="suggested_edits_caption_images">เขียนคำอธิบายภาพ</string>
   <string name="suggested_edits_tag_images">เพิ่มป้ายระบุให้กับภาพ</string>
@@ -856,6 +873,7 @@
   <string name="file_page_activity_title">หน้าไฟล์</string>
   <string name="file_page_add_image_caption_button">เพิ่มคำบรรยายภาพ</string>
   <string name="file_page_add_image_tags_button">เพิ่มป้ายกำกับภาพ</string>
+  <string name="file_page_edit_button_content_description">แก้ไข %s</string>
   <string name="description_edit_revert_subtitle">ขอบคุณที่แก้ไขวิกิพีเดีย!</string>
   <string name="description_edit_revert_intro">เรารู้ว่าคุณพยายามอย่างดีที่สุด แต่ผู้ตรวจทานคนใดคนหนึ่งมีข้อสงสัย เหตุผลที่เป็นไปได้ที่การแก้ไขของคุณถูกย้อนมี:</string>
   <string name="description_edit_revert_reason1">การมีส่วนร่วมของคุณไม่สอดคล้องตาม&lt;a href=\"%1$s\"&gt;แนวปฏิบัติ&lt;/a&gt;ข้อใดข้อหนึ่ง</string>
@@ -930,6 +948,7 @@
   <string name="content_description_for_page_indicator">หน้า %1$d จาก %2$d</string>
   <string name="wikitext_bold">ตัวหนา</string>
   <string name="wikitext_italic">ตัวเอน</string>
+  <string name="wikitext_code">รหัส</string>
   <string name="wikitext_link">ลิงก์</string>
   <string name="wikitext_bulleted_list">รายการสัญลักษณ์</string>
   <string name="wikitext_numbered_list">รายการลำดับเลข</string>

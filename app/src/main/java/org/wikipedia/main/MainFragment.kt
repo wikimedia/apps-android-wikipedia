@@ -137,6 +137,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                 return@setOnItemSelectedListener true
             }
             binding.mainViewPager.setCurrentItem(item.order, false)
+            requireActivity().invalidateOptionsMenu()
             true
         }
 

@@ -525,6 +525,11 @@
   <string name="reading_list_split_dialog_ok_button_text">У реду</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Обриши</string>
   <string name="reading_lists_action_menu_export_lists">Извоз</string>
+  <string name="reading_lists_preview_save_button">Сачувај</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Наслов</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Откажи</string>
+  <string name="reading_lists_preview_save_dialog_save">Сачувај</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Прикажи</string>
   <string name="user_option_sync_label">Подешавања</string>
   <string name="notification_reverted_title">Враћена измена</string>
   <string name="notification_channel_title">Преузимање чланака</string>

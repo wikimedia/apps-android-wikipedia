@@ -631,6 +631,15 @@
   <string name="reading_lists_action_menu_export_lists">Esporta</string>
   <string name="reading_lists_import_file_picker_title">Scegli il file da importare</string>
   <string name="reading_lists_export_select_lists_message">Seleziona l\'elenco o gli elenchi da esportare</string>
+  <string name="reading_lists_preview_header_title">Elenco condiviso</string>
+  <string name="reading_lists_preview_save_button">Salva</string>
+  <string name="reading_lists_preview_save_dialog_title">Salva elenco</string>
+  <string name="reading_lists_preview_save_dialog_text">Assegna un nome all\'elenco e seleziona le voci da salvare.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Titolo</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Annulla</string>
+  <string name="reading_lists_preview_save_dialog_save">Salva</string>
+  <string name="reading_lists_preview_saved_snackbar">Elenco di lettura salvato</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Visualizza</string>
   <string name="user_option_sync_label">Preferenze</string>
   <string name="notification_reverted_title">Modifica annullata</string>
   <string name="notification_channel_title">Download delle voci</string>
