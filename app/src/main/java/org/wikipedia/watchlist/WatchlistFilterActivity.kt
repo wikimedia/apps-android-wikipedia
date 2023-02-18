@@ -3,6 +3,8 @@ package org.wikipedia.watchlist
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -19,6 +21,7 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.views.DrawableItemDecoration
 
 class WatchlistFilterActivity : BaseActivity() {
 
@@ -38,11 +41,40 @@ class WatchlistFilterActivity : BaseActivity() {
         DeviceUtil.setNavigationBarColor(window, ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_watchlist_filter, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        val shouldShowResetButton = Prefs.watchlistExcludedWikiCodes.isNotEmpty() || !Prefs.watchlistIncludedTypeCodes.containsAll(WatchlistFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id })
+        menu.findItem(R.id.menu_filter_reset).isVisible = shouldShowResetButton
+        return super.onPrepareOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_filter_reset -> {
+                resetFilterSettings()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun setUpRecyclerView() {
         binding.watchlistFiltersRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.watchlistFiltersRecyclerView.adapter = WatchlistFilterAdapter(this, filterListWithHeaders())
+        binding.watchlistFiltersRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable_light, drawStart = false, drawEnd = true, skipSearchBar = true))
         binding.watchlistFiltersRecyclerView.itemAnimator = null
     }
+
+    private fun resetFilterSettings() {
+        Prefs.watchlistExcludedWikiCodes = emptySet()
+        Prefs.watchlistIncludedTypeCodes = WatchlistFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }
+        setUpRecyclerView()
+        invalidateOptionsMenu()
+     }
 
     private fun filterListWithHeaders(): List<Any> {
         val filterListWithHeaders = mutableListOf<Any>()
@@ -179,6 +211,7 @@ class WatchlistFilterActivity : BaseActivity() {
             Prefs.watchlistExcludedWikiCodes = excludedWikiCodes
             Prefs.watchlistIncludedTypeCodes = includedTypeCodes
             notifyItemRangeChanged(0, itemCount)
+            invalidateOptionsMenu()
         }
     }
 

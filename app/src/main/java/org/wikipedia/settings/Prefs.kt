@@ -18,6 +18,7 @@ import org.wikipedia.util.DateUtil.dbDateFormat
 import org.wikipedia.util.DateUtil.dbDateParse
 import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
+import org.wikipedia.watchlist.WatchlistFilterTypes
 import java.util.*
 
 /** Shared preferences utility for convenient POJO access.  */
@@ -673,6 +674,6 @@ object Prefs {
 
     var watchlistIncludedTypeCodes
         get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_included_type_codes_watchlist, null))
-            ?: emptySet()
+            ?: WatchlistFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }
         set(types) = PrefsIoUtil.setString(R.string.preference_key_included_type_codes_watchlist, JsonUtil.encodeToString(types))
 }
