@@ -204,8 +204,10 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
 
-        if (ReleaseUtil.isPreBetaRelease && pageTitle.description.isNullOrEmpty()) {
+        if (ReleaseUtil.isPreBetaRelease && action == DescriptionEditActivity.Action.ADD_DESCRIPTION &&
+            pageTitle.description.isNullOrEmpty()) {
             requestSuggestion()
+            binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton()
         }
     }
 
@@ -226,7 +228,6 @@ class DescriptionEditFragment : Fragment() {
 
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
-                binding.fragmentDescriptionEditView.updateDescriptionSuggestions(list.first(), list.last())
             }
         }
     }

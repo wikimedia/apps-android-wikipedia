@@ -7,13 +7,15 @@
     android:layout_margin="24dp"
     android:padding="24dp">
 
-    <org.wikipedia.views.CircularProgressBar
+    <ProgressBar
+        android:id="@+id/circularProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="gone" />
 
     <LinearLayout
+        android:id="@+id/descriptionsContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">

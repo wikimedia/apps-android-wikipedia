@@ -44,8 +44,6 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     private val mlKitLanguageDetector = MlKitLanguageDetector()
     private val languageDetectRunnable = Runnable { mlKitLanguageDetector.detectLanguageFromText(binding.viewDescriptionEditText.text.toString()) }
     private val textValidateRunnable = Runnable { validateText() }
-    private var firstDescriptionSuggestion: String? = null
-    private var secondDescriptionSuggestion: String? = null
     private var originalDescription: String? = null
     private var isTranslationEdit = false
     private var isLanguageWrong = false
@@ -96,12 +94,11 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         }
 
         binding.suggestedDescButton.setOnClickListener {
-            ArticleDescriptionsDialog(context, firstDescriptionSuggestion, secondDescriptionSuggestion,
-                object : ArticleDescriptionsDialog.Callback {
-                    override fun onSuggestionClicked(suggestion: String) {
-                        binding.viewDescriptionEditText.setText(suggestion)
-                    }
-                }).show()
+            ArticleDescriptionsDialog(context, pageTitle, object : ArticleDescriptionsDialog.Callback {
+                override fun onSuggestionClicked(suggestion: String) {
+                    binding.viewDescriptionEditText.setText(suggestion)
+                }
+            }).show()
         }
 
         binding.learnMoreButton.setOnClickListener {
@@ -409,18 +406,14 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) context.getString(R.string.description_edit_learn_more)
             else context.getString(R.string.description_edit_image_caption_learn_more)
     }
-    fun updateDescriptionSuggestions(first: String, second: String) {
-        val activity = context as Activity
-        firstDescriptionSuggestion = first
-        secondDescriptionSuggestion = second
-        binding.suggestedDescButton.post {
-            binding.suggestedDescButton.isVisible = true
-            if (!Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown) {
-                FeedbackUtil.showTooltip(activity, binding.suggestedDescButton,
-                    activity.getString(R.string.description_edit_suggested_description_button_tooltip),
-                    aboveOrBelow = true, autoDismiss = true, showDismissButton = true)
-                Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown = true
-            }
+
+    fun showSuggestedDescriptionsButton() {
+        binding.suggestedDescButton.isVisible = true
+        if (!Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown) {
+            FeedbackUtil.showTooltip(context as Activity, binding.suggestedDescButton,
+                context.getString(R.string.description_edit_suggested_description_button_tooltip),
+                aboveOrBelow = true, autoDismiss = true, showDismissButton = true)
+            Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown = true
         }
     }
 
