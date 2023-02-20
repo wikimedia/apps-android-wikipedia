@@ -37,6 +37,7 @@
 * Rodrigo codignoli
 * Teles
 * TheEduGobi
+* Trooper57
 * Walesson
 * Webysther
 * Welerson98
@@ -642,6 +643,15 @@
     <item quantity="one">Lista de leitura importada</item>
     <item quantity="other">Listas de leitura imporatadas</item>
   </plurals>
+  <string name="reading_lists_preview_header_title">Lista compartilhada</string>
+  <string name="reading_lists_preview_save_button">Salvar</string>
+  <string name="reading_lists_preview_save_dialog_title">Salvar lista</string>
+  <string name="reading_lists_preview_save_dialog_text">Nomeie a lista e selecione os artigos a serem salvos.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Título</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Cancelar</string>
+  <string name="reading_lists_preview_save_dialog_save">Salvar</string>
+  <string name="reading_lists_preview_saved_snackbar">Lista de leitura salva</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Visualizar</string>
   <string name="user_option_sync_label">Preferências</string>
   <string name="notification_reverted_title">Edição revertida</string>
   <string name="notification_channel_title">Baixando artigos</string>

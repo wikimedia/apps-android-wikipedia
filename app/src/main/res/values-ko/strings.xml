@@ -594,6 +594,11 @@
   <string name="reading_list_activity_title">읽기 목록: %s</string>
   <string name="reading_lists_action_menu_export_lists">내보내기</string>
   <string name="reading_lists_export_select_lists_message">내보낼 목록을 선택하십시오</string>
+  <string name="reading_lists_preview_save_button">저장</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">제목</string>
+  <string name="reading_lists_preview_save_dialog_cancel">취소</string>
+  <string name="reading_lists_preview_save_dialog_save">저장</string>
+  <string name="reading_lists_preview_saved_snackbar_action">보기</string>
   <string name="user_option_sync_label">환경 설정</string>
   <string name="notification_reverted_title">되돌려진 편집</string>
   <string name="notification_channel_title">문서를 다운로드하는 중</string>
