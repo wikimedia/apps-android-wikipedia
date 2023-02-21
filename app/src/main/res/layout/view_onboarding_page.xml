@@ -100,8 +100,6 @@
                         android:text="@string/data_opt_in_accept"
                         android:letterSpacing="0"
                         android:textSize="16sp"
-                        android:backgroundTint="?attr/colorAccent"
-                        android:textColor="@android:color/white"
                         android:textAllCaps="false" />
 
                 </LinearLayout>

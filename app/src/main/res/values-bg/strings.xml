@@ -493,6 +493,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Отказ</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Отказ</string>
   <string name="reading_list_split_dialog_ok_button_text">Добре</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Изтриване</string>
   <string name="user_option_sync_label">Предпочитания</string>
   <string name="notification_reverted_title">Отменена редакция</string>
   <string name="notification_channel_description">Напредък на изтеглянето</string>

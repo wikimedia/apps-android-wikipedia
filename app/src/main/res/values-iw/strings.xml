@@ -665,6 +665,15 @@
     <item quantity="many">רשימות הקריאה יובאו</item>
     <item quantity="other">רשימות הקריאה יובאו</item>
   </plurals>
+  <string name="reading_lists_preview_header_title">רשימה ששותפה</string>
+  <string name="reading_lists_preview_save_button">שמירה</string>
+  <string name="reading_lists_preview_save_dialog_title">שמירת רשימה</string>
+  <string name="reading_lists_preview_save_dialog_text">נא לתת לרשימה שם ולבחור אילו ערכים לשמור.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">כותרת</string>
+  <string name="reading_lists_preview_save_dialog_cancel">ביטול</string>
+  <string name="reading_lists_preview_save_dialog_save">שמירה</string>
+  <string name="reading_lists_preview_saved_snackbar">רשימת הקריאה נשמרה</string>
+  <string name="reading_lists_preview_saved_snackbar_action">הצגה</string>
   <string name="user_option_sync_label">העדפות</string>
   <string name="notification_reverted_title">עריכה משוחזרת</string>
   <string name="notification_channel_title">הורדת ערכים</string>

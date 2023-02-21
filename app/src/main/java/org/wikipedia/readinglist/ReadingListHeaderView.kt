@@ -24,9 +24,9 @@ class ReadingListHeaderView : FrameLayout {
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     init {
-        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-        binding.readingListHeaderImageGradient.background = GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP)
         if (!isInEditMode) {
+            layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+            binding.readingListHeaderImageGradient.background = GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP)
             clearThumbnails()
         }
     }

@@ -648,6 +648,15 @@
     <item quantity="one">Leeslijst geïmporteerd</item>
     <item quantity="other">Leeslijsten geïmporteerd</item>
   </plurals>
+  <string name="reading_lists_preview_header_title">Gedeelde lijst</string>
+  <string name="reading_lists_preview_save_button">Opslaan</string>
+  <string name="reading_lists_preview_save_dialog_title">Lijst opslaan</string>
+  <string name="reading_lists_preview_save_dialog_text">Benoem de lijst en selecteer artikelen om op te slaan.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Titel</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Annuleren</string>
+  <string name="reading_lists_preview_save_dialog_save">Opslaan</string>
+  <string name="reading_lists_preview_saved_snackbar">Leeslijst opgeslagen</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Bekijken</string>
   <string name="user_option_sync_label">Voorkeuren</string>
   <string name="notification_reverted_title">Bewerking teruggedraaid</string>
   <string name="notification_channel_title">Bestanden downloaden</string>
@@ -858,6 +867,8 @@
   <string name="description_edit_voice_input_description">Steminvoer</string>
   <string name="description_edit_learn_more">Meer informatie over artikelbeschrijvingen</string>
   <string name="description_edit_image_caption_learn_more">Meer informatie over afbeeldingsbijschriften</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">De tekst is te kort.</string>
   <string name="description_ends_with_punctuation">Tekst mag niet eindigen met een interpuctie.</string>
   <string name="description_starts_with_uppercase">Start met een kleine letter tenzij het eerste woord een eigennaam is.</string>

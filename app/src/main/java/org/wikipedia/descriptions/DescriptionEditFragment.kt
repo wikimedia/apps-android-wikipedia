@@ -11,10 +11,12 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.*
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -39,8 +41,11 @@ import org.wikipedia.suggestededits.SuggestedEditsSurvey
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
+import java.lang.Runnable
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -198,6 +203,34 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.showProgressBar(false)
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
+
+        if (ReleaseUtil.isPreBetaRelease && pageTitle.description.isNullOrEmpty()) {
+            requestSuggestion()
+        }
+    }
+
+    private fun requestSuggestion() {
+        lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            withContext(Dispatchers.IO) {
+                val response = ServiceFactory[pageTitle.wikiSite, DescriptionSuggestionService.API_URL, DescriptionSuggestionService::class.java]
+                    .getSuggestion(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2)
+
+                // Perform some post-processing on the predictions.
+                // 1) Capitalize them, if we're dealing with enwiki.
+                // 2) Remove duplicates.
+                val list = (if (pageTitle.wikiSite.languageCode == "en") {
+                    response.prediction.map { StringUtil.capitalize(it)!! }
+                } else response.prediction).distinct()
+
+                // TODO: do something with the list of suggestions.
+                L.d("Received suggestion: " + list.first())
+                L.d("And is it a BLP? " + response.blp)
+                //
+                //
+            }
+        }
     }
 
     private fun callback(): Callback? {
