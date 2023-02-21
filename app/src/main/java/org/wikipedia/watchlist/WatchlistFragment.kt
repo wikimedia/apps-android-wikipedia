@@ -28,14 +28,13 @@ import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.talk.UserTalkPopupHelper
-import org.wikipedia.util.DateUtil
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.*
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.SearchAndFilterActionProvider
 import java.util.*
@@ -159,7 +158,17 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         binding.watchlistProgressBar.visibility = View.GONE
         binding.watchlistRecyclerView.adapter = RecyclerAdapter(viewModel.finalList)
         binding.watchlistRecyclerView.visibility = View.VISIBLE
-        binding.watchlistEmptyContainer.isVisible = viewModel.finalList.size < 2
+
+        if (viewModel.finalList.filterNot { it == "" }.isEmpty()) {
+            binding.watchlistEmptyContainer.visibility = if (actionMode == null && viewModel.filtersCount() == 0) View.VISIBLE else View.GONE
+            binding.watchlistSearchEmptyContainer.visibility = if (viewModel.filtersCount() != 0) View.VISIBLE else View.GONE
+            binding.watchlistSearchEmptyText.visibility = if (actionMode != null) View.VISIBLE else View.GONE
+            setUpEmptySearchMessage()
+        } else {
+            binding.watchlistEmptyContainer.visibility = View.GONE
+            binding.watchlistSearchEmptyContainer.visibility = View.GONE
+            binding.watchlistSearchEmptyText.visibility = View.GONE
+        }
     }
 
     private fun onError(t: Throwable) {
@@ -167,6 +176,16 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         binding.watchlistProgressBar.visibility = View.GONE
         binding.watchlistErrorView.setError(t)
         binding.watchlistErrorView.visibility = View.VISIBLE
+    }
+
+
+    private fun setUpEmptySearchMessage() {
+        val filtersStr = resources.getQuantityString(R.plurals.watchlist_number_of_filters, viewModel.filtersCount(), viewModel.filtersCount())
+        binding.watchlistEmptySearchMessage.text = StringUtil.fromHtml(getString(R.string.watchlist_empty_search_message, "<a href=\"#\">$filtersStr</a>"))
+        RichTextUtil.removeUnderlinesFromLinks(binding.watchlistEmptySearchMessage)
+        binding.watchlistEmptySearchMessage.movementMethod = LinkMovementMethodExt { _ ->
+            resultLauncher.launch(WatchlistFilterActivity.newIntent(requireContext()))
+        }
     }
 
     internal inner class WatchlistItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -203,13 +222,13 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         }
 
         fun updateFilterIconAndCount() {
-            val excludedFilters = viewModel.filtersCount()
-            if (excludedFilters == 0) {
+            val filterCount = viewModel.filtersCount()
+            if (filterCount == 0) {
                 itemBinding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.color_group_9))
             } else {
                 itemBinding.filterCount.visibility = View.VISIBLE
-                itemBinding.filterCount.text = excludedFilters.toString()
+                itemBinding.filterCount.text = filterCount.toString()
                 ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.colorAccent))
             }
         }
