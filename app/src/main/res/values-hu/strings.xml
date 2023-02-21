@@ -425,9 +425,9 @@
   <string name="error_blocked_start">A blokk kezdete: %s</string>
   <string name="error_blocked_expiry">A blokk lejárata: %s</string>
   <string name="error_blocked_id">Blokkolási azonosító: %s</string>
-  <string name="error_blocked_footer">Kapcsolatba léphetsz a blokkolás végrehajtójával (&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;) vagy egy másik &lt;a href=\"https://hu.wikipedia.org/wiki/Wikip%C3%A9dia:Adminisztr%C3%A1torok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
+  <string name="error_blocked_footer">Kapcsolatba léphetsz a blokkolás végrehajtójával (&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;) vagy egy másik &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Adminisztrátorok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Eszköztár testreszabása</string>
-  <string name="error_blocked_footer_no_blocker">Kapcsolatba léphetsz egy &lt;a href=\"https://hu.wikipedia.org/wiki/Wikip%C3%A9dia:Adminisztr%C3%A1torok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
+  <string name="error_blocked_footer_no_blocker">Kapcsolatba léphetsz egy &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Adminisztrátorok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
   <string name="crash_report_activity_title">Alkalmazáshiba</string>
   <string name="crash_report_relaunch_or_quit">Sajnáljuk, a Wikipédia alkalmazás hibát észlelt és leállt.\n\nSzeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="crash_report_relaunch">Újrakezdés</string>
