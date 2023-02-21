@@ -203,7 +203,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         }
 
         fun updateFilterIconAndCount() {
-            val excludedFilters = viewModel.excludedFiltersCount()
+            val excludedFilters = viewModel.filtersCount()
             if (excludedFilters == 0) {
                 itemBinding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.color_group_9))
@@ -279,7 +279,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
                     }
 
                     override fun getExcludedFilterCount(): Int {
-                        return viewModel.excludedFiltersCount()
+                        return viewModel.filtersCount()
                     }
 
                     override fun getFilterIconContentDescription(): Int {

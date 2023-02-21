@@ -93,10 +93,11 @@ class WatchlistViewModel : ViewModel() {
         currentSearchQuery = query
     }
 
-    fun excludedFiltersCount(): Int {
+    fun filtersCount(): Int {
         val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
-        val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
-        return WikipediaApp.instance.languageState.appLanguageCodes.count { excludedWikiCodes.contains(it) } + includedTypesCodes.size
+        val findExcludedTypesOfChanges = WatchlistFilterTypes.TYPE_OF_CHANGES_GROUP.count { !Prefs.watchlistIncludedTypeCodes.contains(it.id) }
+        val findFiltersOtherThanDefault = Prefs.watchlistIncludedTypeCodes.count { code -> !WatchlistFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }.contains(code) }
+        return WikipediaApp.instance.languageState.appLanguageCodes.count { excludedWikiCodes.contains(it) } + findExcludedTypesOfChanges + findFiltersOtherThanDefault
     }
 
     private fun latestRevisions(): String? {
