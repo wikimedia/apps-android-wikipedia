@@ -1417,6 +1417,11 @@
     <string name="watchlist_filter_reset_button">Reset</string>
     <string name="watchlist_search_bar_hint">Search or filter watchlist</string>
     <string name="watchlist_search_bar_filter_hint">Watchlist filter</string>
+    <string name="watchlist_empty_search_message">No results, try removing %s to see more.</string>
+    <plurals name="watchlist_number_of_filters">
+        <item quantity="one">%d filter</item>
+        <item quantity="other">%d filters</item>
+    </plurals>
     <!-- /Watchlist -->
 
     <!-- Preview edit -->

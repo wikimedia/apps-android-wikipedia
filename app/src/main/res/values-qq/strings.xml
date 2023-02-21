@@ -1396,6 +1396,11 @@
   <string name="watchlist_filter_reset_button">Button label for the reset button in the watchlist filter screen.</string>
   <string name="watchlist_search_bar_hint">Hint text for the watchlist search bar.</string>
   <string name="watchlist_search_bar_filter_hint">Hint text for the filter icon on the watchlist search bar.</string>
+  <string name="watchlist_empty_search_message">Empty message text hinting the user to remove filters to see watchlist. %s indicates the number of filters, formatted using {{msg-wikimedia|wikipedia-android-strings-watchlist_number_of_filters}}.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">Text indicating a single filter. %d indicates the number of filters.</item>
+    <item quantity="other">Text indicating more than one filter.  %d indicates the number of filters.</item>
+  </plurals>
   <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
   <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
 </resources>
