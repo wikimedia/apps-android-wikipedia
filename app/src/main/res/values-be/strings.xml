@@ -53,12 +53,12 @@
   <string name="app_settings">Налады праграмы</string>
   <string name="search_tab_tooltip">Націсніце на іконку зноў, каб пачаць увод пошукавага запыту.</string>
   <string name="history_list_title">Гісторыя</string>
-  <string name="image_content_description">Відарыс: %s</string>
+  <string name="image_content_description">Выява: %s</string>
   <string name="page_content_description">Старонка: %s</string>
   <string name="wikimedia_commons">Вікісховішча</string>
   <string name="wikidata">Вікіданыя</string>
   <string name="dialog_title_clear_history">Ачысціць гісторыю праглядаў</string>
-  <string name="dialog_message_clear_history">Гэта выдаліць усю гісторыю праглядаў і закрые ўсе адкрытыя цяпер укладкі. Вы ўпэўнены ў гэтым?</string>
+  <string name="dialog_message_clear_history">Гэта выдаліць усю гісторыю праглядаў і закрые ўсе адкрытыя ўкладкі. Вы ўпэўнены ў гэтым?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
   <string name="dialog_message_clear_history_no">Не</string>
   <string name="share_via">Падзяліцца праз</string>
@@ -139,7 +139,7 @@
   <string name="langlinks_your_wikipedia_languages">Вашыя мовы Вікіпедыі</string>
   <string name="menu_save_changes">Апублікаваць змены</string>
   <string name="edit_saved_successfully">Праўка апублікавана!</string>
-  <string name="dialog_message_edit_failed">Памылка рэдагавання!</string>
+  <string name="dialog_message_edit_failed">Праўка не апублікавана!</string>
   <string name="dialog_message_edit_failed_retry">Паўтарыць</string>
   <string name="dialog_message_edit_failed_cancel">Скасаваць</string>
   <string name="dialog_message_leaving_edit">Унесеныя змены не захаваны. Вы ўпэўнены, што хочаце пакінуць старонку?</string>
@@ -182,7 +182,7 @@
   <string name="logged_out_in_background_login">Увайсці</string>
   <string name="logged_out_in_background_cancel">Скасаваць</string>
   <string name="history_empty_title">Няма нядаўна прагледжаных артыкулаў</string>
-  <string name="history_empty_message">Адсочвайце тое, што вы ўжо чыталі тут.</string>
+  <string name="history_empty_message">Сачыць за тым, што вы ўжо прачыталі.</string>
   <string name="history_offline_articles_toast">Некаторыя артыкулы ў гісторыі могуць быць недаступныя па-за сеткай.</string>
   <string name="search_empty_message">Шукайце і чытайце вольную энцыклапедыю на сваёй мове</string>
   <string name="search_empty_message_multilingual_upgrade">Знайсці Вікіпедыю на іншай мове</string>
@@ -293,7 +293,7 @@
   <string name="edit_summary_tag_other">Іншае</string>
   <string name="edit_summary_tag_other_hint">Іншыя спосабы, якімі вы палепшылі старонку</string>
   <string name="edit_conflict_title">Канфлікт правак</string>
-  <string name="edit_conflict_message">Старонка ўжо была зменена іншым удзельнікам і канфліктуе з вашай праўкай. Калі ласка, скапіюйце свае праўкі, вярніцеся і абнавіце старонку, затым паспрабуйце рэдагаваць яшчэ раз.</string>
+  <string name="edit_conflict_message">Старонка ўжо была зменена іншым удзельнікам і канфліктуе з вашай праўкай. Калі ласка, скапіюйце свае праўкі, вярніцеся і абнавіце старонку, затым паспрабуйце правіць яшчэ раз.</string>
   <string name="edit_notices">Заўвагі да правак</string>
   <string name="edit_notices_please_read">Калі ласка, прачытайце перад рэдагаваннем</string>
   <string name="edit_notices_show_auto">Аўтаматычна паказваць заўвагі да рэдагаванняў</string>
@@ -305,8 +305,8 @@
   <string name="article_opened_in_background_tab">Артыкул быў адкрыты ў фонавай укладцы.</string>
   <string name="abusefilter_title_warn">Магчыма, гэта праўка неканструктыўная. Вы ўпэўнены, што хочаце апублікаваць яе?</string>
   <string name="abusefilter_title_disallow">Вы не можаце захаваць гэтую праўку. Калі ласка, вярніцеся назад і змяніце яе.</string>
-  <string name="abusefilter_text_warn">Аўтаматызаваны фільтр вызначыў гэтую праўку як патэнцыйна неканструктыўную. Яна можа ўтрымліваць адно або некалькі з наступных дзеянняў:&lt;br /&gt;&lt;br /&gt;· Друкаваць загалоўнымі літарамі&lt;br /&gt;· Штампоўка артыкулаў або спам&lt;br /&gt;· Непадыходзячыя знешнія спасылкі ці відарысы&lt;br /&gt;· Паўтарэнне сімвалаў</string>
-  <string name="abusefilter_text_disallow">Аўтаматызаваны фільтр вызначыў гэтую праўку як патэнцыйна неканструктыўную ці як патэнцыйны вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпедыя — гэта энцыклапедыя, і тут прымальна толькі нейтральнае і значнае змесціва.</string>
+  <string name="abusefilter_text_warn">Аўтаматызаваны фільтр вызначыў гэтую праўку як патэнцыйна неканструктыўную. Яна можа змяшчаць адно або некалькі з наступных дзеянняў:&lt;br /&gt;&lt;br /&gt;· Набор тэксту вялікімі літарамі&lt;br /&gt;· Сціранне зместу артыкулаў або спам&lt;br /&gt;· Недарэчныя вонкавыя спасылкі або відарысы&lt;br /&gt;· Паўтаральныя сімвалы</string>
+  <string name="abusefilter_text_disallow">Аўтаматызаваны фільтр вызначыў гэтую праўку як патэнцыйна неканструктыўную ці як патэнцыйны вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпедыя — энцыклапедыя і тут могуць існаваць толькі нейтральныя і змястоўныя артыкулы.</string>
   <string name="page_similar_titles">Падобныя старонкі</string>
   <string name="search_did_you_mean">Магчыма, вы мелі на ўвазе \"%s\"?</string>
   <string name="search_recent_header">Апошнія пошукі:</string>
@@ -321,9 +321,9 @@
   <string name="clear_recent_searches_confirm">Вы ўпэўненыя, што жадаеце сцерці гісторыю пошукавых запытаў?</string>
   <string name="clear_recent_searches_confirm_yes">Так</string>
   <string name="clear_recent_searches_confirm_no">Не</string>
-  <string name="error_browser_not_found">Не атрымалася адкрыць вэб-старонку (дадатак браўзера не знойдзена).</string>
-  <string name="table_infobox">Сціслыя факты</string>
-  <string name="table_other">Дадатковая інфармацыя</string>
+  <string name="error_browser_not_found">Не атрымалася адкрыць вэб-старонку (браўзер не знойдзены).</string>
+  <string name="table_infobox">Хуткія факты</string>
+  <string name="table_other">Больш інфармацыі</string>
   <string name="table_close">Закрыць</string>
   <string name="widget_name_featured_page">Абраная старонка Вікіпедыі</string>
   <string name="widget_title_featured_page">Абраная старонка дня:</string>
@@ -336,11 +336,11 @@
   <string name="preference_summary_show_images">Уключыць або выключыць загрузку выяў на старонках. Выключыце гэту наладу, калі ў вас запаволенае падключэнне да інтэрнэту, або калі ў вас абмежаваны тарыфны план.</string>
   <string name="preference_title_download_only_over_wifi">Загружаць выключна праз Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Пацвердзіць спампоўку праз мабільную перадачу даных?</string>
-  <string name="dialog_text_download_only_over_wifi">У наладах у вас уключана \"Спампоўка толькі праз Wi-Fi\". Ці вы хочаце дазволіць спампоўку па мабільнай перадачы дадзеных выключна для гэтай спампоўкі?</string>
+  <string name="dialog_text_download_only_over_wifi">У вас уключана налада \"Спампоўка толькі праз Wi-Fi\". Ці вы хочаце дазволіць спампаванне па мабільнай перадачы даных выключна для гэтай спампоўкі?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Дазволіць</string>
   <string name="read_more_section">Даведацца больш</string>
   <string name="about_article_section">Пра гэты артыкул</string>
-  <string name="menu_gallery_visit_image_page">Перайсці да старонкі файла</string>
+  <string name="menu_gallery_visit_image_page">Перайсці да старонкі выявы</string>
   <string name="gallery_error_draw_failed">Не атрымалася адлюстраваць відарыс.</string>
   <string name="license_title">Ліцэнзія для %s</string>
   <string name="gallery_menu_share">Падзяліцца</string>
@@ -350,15 +350,15 @@
   <string name="gallery_error_video_failed">Немагчыма прайграць відэа.</string>
   <string name="gallery_save_image_write_permission_rationale">Для захавання відарысаў патрабуецца дазвол на запіс у сховішча Вашай прылады.</string>
   <string name="gallery_edit_button_content_description">Рэдагаваць подпіс відарыса</string>
-  <string name="gallery_add_image_caption_button">Дадаць подпіс відарыса</string>
+  <string name="gallery_add_image_caption_button">Дадаць подпіс выявы</string>
   <string name="gallery_add_image_caption_in_language_button">Дадаць подпіс відарысу (%s)</string>
   <string name="err_cannot_save_file">Немагчыма захаваць файл</string>
   <string name="expand_refs">Націсніце, каб разгарнуць</string>
   <string name="cc_logo">Ліцэнзія Creative Commons</string>
   <string name="captcha_image">Капча-выява</string>
   <string name="gallery_fair_use_license">Добрасумленнае выкарыстанне</string>
-  <string name="gallery_uploader_unknown">Спампаваўшы невядомы</string>
-  <string name="gallery_not_available_offline_snackbar">Прагляд галерэі недасяжны ў аўтаномным рэжыме.</string>
+  <string name="gallery_uploader_unknown">Той, хто загрузіў, невядомы</string>
+  <string name="gallery_not_available_offline_snackbar">Прагляд галерэі недаступны ў аўтаномным рэжыме.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">Адхіліць</string>
   <string name="menu_new_tab">Новая ўкладка</string>
   <string name="menu_close_all_tabs">Закрыць усе ўкладкі</string>
@@ -366,12 +366,12 @@
   <string name="close_all_tabs_confirm_yes">Так</string>
   <string name="close_all_tabs_confirm_no">Не</string>
   <string name="button_close_tab">Закрыць укладку</string>
-  <string name="unnamed_tab_closed">Укладка зачынена.</string>
-  <string name="tab_item_closed">Зачынена: %s.</string>
-  <string name="all_tab_items_closed">Усе ўкладкі зачыненыя.</string>
+  <string name="unnamed_tab_closed">Укладка закрыта.</string>
+  <string name="tab_item_closed">%s закрыта.</string>
+  <string name="all_tab_items_closed">Усе ўкладкі закрыты.</string>
   <string name="tool_tip_bookmark_icon_title">Дадаць у спіс для чытання</string>
-  <string name="tool_tip_bookmark_icon_text">Націсніце на памету закладкі, каб захаваць артыкул у спіс чытання.</string>
-  <string name="page_view_in_browser">Прагляд старонкі ў браўзэры</string>
+  <string name="tool_tip_bookmark_icon_text">Націсніце на іконку закладкі, каб захаваць артыкул у спісе для чытання.</string>
+  <string name="page_view_in_browser">Прагляд старонкі ў браўзеры</string>
   <string name="tool_tip_toc_title">Хуткі доступ да зместу</string>
   <string name="tool_tip_toc_text">Цяпер вы можаце правесці пальцам улева, каб адкрыць змест, а таксама націснуць і перацягнуць гэтую кнопку скролера, каб хутка пераходзіць да розных раздзелаў артыкула.</string>
   <string name="tool_tip_lang_button">Цяпер вы можаце шукаць і чытаць на некалькіх мовах Вікіпедыі ў дадатку.\n\n\n\nНацісніце на значок, каб дадаць больш моў.</string>
@@ -479,11 +479,23 @@
   <string name="reading_list_articles_already_exist_message">Усё добра! %s ужо ўтрымвае ўсе артыкулы.</string>
   <string name="reading_list_added_view_button">Прагляд спіса</string>
   <string name="reading_list_add_to_list_button">Дадаць у спіс</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 артыкул</item>
+    <item quantity="few">%d артыкулы</item>
+    <item quantity="many">%d артыкулаў</item>
+    <item quantity="other">%d артыкулаў</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 артыкул, %2$.2f МБ</item>
     <item quantity="few">%1$d артыкулы, %2$.2f МБ</item>
     <item quantity="many">%1$d артыкулаў, %2$.2f МБ</item>
     <item quantity="other">%1$d артыкулаў, %2$.2f МБ</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d з 1 артыкула даступна па-за сеткай</item>
+    <item quantity="few">%1$d з %2$d артыкулаў даступна па-за сеткай</item>
+    <item quantity="many">%1$d з %2$d артыкулаў даступна па-за сеткай</item>
+    <item quantity="other">%1$d з %2$d артыкулаў даступна па-за сеткай</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d з 1-го артыкула дасяжна па-за сеткай, %3$.2f МБ</item>
@@ -500,7 +512,10 @@
   <string name="reading_list_sort_by_created">Сартаваць па даце стварэння (найнавейшыя)</string>
   <string name="reading_list_sort_by_created_desc">Сартаваць па даце стварэння (найстарэйшыя)</string>
   <string name="reading_list_menu_delete">Выдаліць спіс</string>
+  <string name="reading_list_menu_export">Спіс экспарту</string>
   <string name="reading_list_menu_select">Выбраць</string>
+  <string name="reading_list_menu_unselect">Адмяніць выбар</string>
+  <string name="reading_list_export_write_permission_rationale">Патрабуецца дазвол для запісу ў сховішча прылады, каб мець магчымасць экспартаваць спіс для чытання.</string>
   <string name="reading_list_menu_rename">Рэдагаваць назву/апісанне</string>
   <string name="reading_list_action_menu_remove_from_offline">Выдаліць з файлаў, якія дасяжны па-за сеткай</string>
   <string name="reading_list_action_menu_save_for_offline">Захаваць па-за сеткай</string>
@@ -525,6 +540,17 @@
     <item quantity="many">%d артыкулаў выдалена з %s</item>
     <item quantity="other">%d артыкулаў выдалена з %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d спіс выдалены</item>
+    <item quantity="few">%d спісы выдалена</item>
+    <item quantity="many">%d спісаў выдалена</item>
+    <item quantity="other">%d спісаў выдалена</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Прадвызначаны спіс (%s) не можа быць выдалены</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s выдалены. Прадвызначаны спіс (%2$s) не можа быць выдалены.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Спісы выдалены. Прадвызначаны спіс (%s) не можа быць выдалены.</string>
+  <string name="single_list_json_file_name">%s (спіс для чытання Вікіпедыі).json</string>
+  <string name="multiple_lists_json_file_name">Спісы для чытання Вікіпедыі (%s і больш).json</string>
   <string name="reading_list_items_deleted">%d выдалена са спіса</string>
   <string name="reading_lists_item_deleted">%s выдалена са спісаў</string>
   <string name="reading_list_item_delete_undo">Скасаваць</string>
@@ -539,7 +565,7 @@
   <string name="reading_list_move_from_to_other_list">Перамясціць з %s у іншы спіс для чытання</string>
   <string name="reading_list_remove_from_list">Выдаліць з %s</string>
   <string name="reading_list_remove_from_lists">Выдаліць са спісаў чытання</string>
-  <string name="reading_list_select_item">Абраць</string>
+  <string name="reading_list_select_item">Выбраць</string>
   <string name="reading_list_confirm_remove_article_from_offline">Выдаліць з файлаў, якія дасяжны па-за сеткай</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Артыкул знаходзіцца ў некалькіх спісах</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s больш не будзе дасяжны па-за сеткай для ўсіх спісаў чытання:</string>
@@ -557,6 +583,13 @@
   <string name="reading_list_articles_added_to_named">Дададзена %1$d артыкулаў у %2$s</string>
   <string name="reading_list_articles_moved_to_named">Перасунута %1$d артыкулаў у %2$s</string>
   <string name="reading_list_delete_confirm">Ці вы згодныя, каб выдаліць %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Выдаліць выбраны(-я) спіс(-ы)?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Ці вы згодныя, каб выдаліць %d спіс?</item>
+    <item quantity="few">Ці вы згодныя, каб выдаліць %d спісы?</item>
+    <item quantity="many">Ці вы згодныя, каб выдаліць %d спісаў?</item>
+    <item quantity="other">Ці вы згодныя, каб выдаліць %d спісаў?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Увайдзіце, каб уключыць сінхранізацыю</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Увайдзіце, каб вашыя спісы чытання былі захаваны ў вашым уліковым запісе.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Скасаваць</string>
@@ -580,6 +613,7 @@
   <string name="reading_list_article_limit_message">Немагчыма дадаць у гэты спіс. Вы дасягнулі абмежавання ў %2$d артыкулаў у спісе для \"%1$s\".</string>
   <string name="reading_lists_limit_message">Немагчыма стварыць яшчэ адзін спіс. Вы дасягнулі ліміту ў 100 спісаў чытання на ўліковы запіс.</string>
   <string name="reading_lists_menu_create_list">Стварыць новы спіс</string>
+  <string name="reading_lists_menu_import_list">Спіс імпарту</string>
   <string name="reading_lists_menu_sort_by">Сартаваць па</string>
   <string name="reading_lists_refresh_sync_option">Абнавіць сінхранізацыю</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Увайсці / зарэгістравацца</string>
@@ -606,7 +640,35 @@
   <string name="reading_list_split_dialog_ok_button_text">Добра</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Выдаліць</string>
   <string name="reading_list_activity_title">Спіс чытання: %s</string>
+  <string name="reading_list_notification_title">Спіс(-ы) для чытання экспартаваны</string>
+  <string name="reading_list_notification_text">%d спіс(-ы) былі экспартаваны, як \"reading_lists export.json\" у тэчку спамповак</string>
+  <string name="reading_list_notification_detailed_text">Спісы для чытанне былі экспартаваны ў \'reading_lists_export.json\'</string>
   <string name="reading_lists_action_menu_export_lists">Экспартаваць</string>
+  <string name="reading_lists_import_file_picker_title">Выберыце файл для імпарту</string>
+  <string name="reading_lists_import_failure_message">Не атрымалася імпартаваць спісы для чытання</string>
+  <string name="reading_lists_export_select_lists_message">Выберыце спіс(-ы) для экспарту</string>
+  <string name="reading_lists_export_completed_message">Спіс(-ы) для чытання экспартаваны</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Спіс для чытання не атрымалася экспартаваць</item>
+    <item quantity="few">Спісы для чытання не атрымался экспартаваць</item>
+    <item quantity="many">Спісы для чытання не атрымалася экспартаваць</item>
+    <item quantity="other">Спісы для чытання не атрымалася экспартаваць</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Спіс для чытання імпартаваны</item>
+    <item quantity="few">Спісы для чытання імпартаваны</item>
+    <item quantity="many">Спісы для чытання імпартаваны</item>
+    <item quantity="other">Спісы для чытання імпартаваны</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Абагулены спіс</string>
+  <string name="reading_lists_preview_save_button">Захаваць</string>
+  <string name="reading_lists_preview_save_dialog_title">Захаваць спіс</string>
+  <string name="reading_lists_preview_save_dialog_text">Назваць спіс і выбраць артыкулы для захавання.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Назва</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Скасаваць</string>
+  <string name="reading_lists_preview_save_dialog_save">Захаваць</string>
+  <string name="reading_lists_preview_saved_snackbar">Спіс для чытання захаваны</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Прагляд</string>
   <string name="user_option_sync_label">Параметры</string>
   <string name="notification_reverted_title">Адноўленае рэдагаванне</string>
   <string name="notification_channel_title">Спампоўка артыкулаў</string>
@@ -735,7 +797,7 @@
     <item quantity="many">%d фільтраў</item>
     <item quantity="other">%d фільтраў</item>
   </plurals>
-  <string name="notifications_select_all_filters">Абраць усе фільтры</string>
+  <string name="notifications_select_all_filters">Выбраць усе фільтры</string>
   <string name="notifications_tab_filter_all">Усе</string>
   <string name="notifications_tab_filter_mentions">Згадкі</string>
   <string name="notifications_search_bar_hint">Шукаць або фільтраваць апавяшчэнні</string>
@@ -770,7 +832,7 @@
   <string name="menu_feed_card_dismissed">Картка схавана.</string>
   <string name="menu_feed_card_edit_card_languages">Змяніць мовы картак</string>
   <string name="menu_feed_overflow_label">Больш наладак</string>
-  <string name="feed_featured_image_share_subject">Абраная выява з Вікісховішча</string>
+  <string name="feed_featured_image_share_subject">Выбраная выява з Вікісховішча</string>
   <string name="feed">Агляд</string>
   <string name="home">Галоўная</string>
   <string name="view_static_card_icon_content_description">Значок карткі</string>
@@ -849,9 +911,9 @@
   <string name="description_edit_success_saved">Апісаннне артыкула апублікавана!</string>
   <string name="description_edit_success_saved_snackbar">Апісаннне артыкула апублікавана!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Апісанне артыкула апублікавана! ( %s )</string>
-  <string name="description_edit_success_saved_image_caption_snackbar">Подпіс да выявы апублікаваны!</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Подпіс выявы апублікаваны!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Подпіс да выявы апублікаваны! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Тэг(і) выявы апублікаваны!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Тэг(-і) выявы апублікаваны!</string>
   <string name="description_edit_success_se_general_feed_link_snackbar">Спадабалася? Дапамажыце нам дадаць больш.</string>
   <string name="description_edit_success_encouragement">Вы толькі што зрабілі Вікіпедыю лепш для ўсіх</string>
   <string name="description_edit_success_done">Гатова</string>
@@ -926,13 +988,13 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Дадатковая інфармацыя</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Старонка файла на Вікісховішчы</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Назва файла ў Вікіпедыі</string>
-  <string name="suggested_edits_article_cta_image_tags">Дадаць тэгі выяў</string>
+  <string name="suggested_edits_article_cta_image_tags">Дадаць тэгі выяве</string>
   <string name="suggested_edits_article_cta_image_caption">Дадаць подпіс выявы</string>
-  <string name="suggested_edits_article_cta_image_caption_in_language">Дадаць подпіс выявы (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Дадаць подпіс выяве (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Прагляд</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Дадаць подпіс выявы</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Дадаць подпіс выяве</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Дадаць подпіс выявы (%s)</string>
-  <string name="suggested_edits_feed_card_add_image_tags">Дадаць тэгі выяў</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Дадаць тэгі выявам</string>
   <string name="suggested_edits_snackbar_survey_text">Якім быў ваш досвед рэдагавання? Калі ласка, знайдзіце час, каб запоўніць апытанне пра рэдагаванне ў праграме.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Прайсці апытанне</string>
   <string name="suggested_edits_task_action_text_add">Дадаць</string>
@@ -942,7 +1004,7 @@
   <string name="suggested_edits_image_tags_publishing">Публікацыя</string>
   <string name="suggested_edits_image_tags_published">Апублікавана</string>
   <string name="suggested_edits_image_tags_onboarding_title">Тэгаванне выяў робіць пошук лягчэйшым.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Дадаўшы тэгі выяў, вы дапаможаце спрасціць пошук выяў у Вікісховішчы, бясплатным ліцэнзійным сховішчы выяў, якое Вікіпедыя выкарыстоўвае для захавання выяў, якія выкарыстоўваюцца для артыкулаў.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Дадаўшы тэгі выяў, вы дапаможаце спрасціць пошук іх у Вікісховішчы, бясплатным ліцэнзійным сховішчы выяў, якое Вікіпедыя выкарыстоўвае для захавання іх і далейшага выкарыстання ў артыкулах.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Да выяў будуць дададзены толькі тыя тэгі, якія вы выбераце.</string>
   <string name="suggested_edits_image_tags_task_detail">Дадайце ўласныя тэгі да выявы, каб яе было лягчэй знайсці.</string>
   <string name="suggested_edits_image_tags_choose">Дадайце або абярыце адпаведныя тэгі</string>
@@ -1162,7 +1224,7 @@
   <string name="insert_media_settings_caption">Подпіс</string>
   <string name="insert_media_settings_caption_description">Цэтлік, які адлюстроўваецца побач з элементам для ўсіх чытачоў</string>
   <string name="insert_media_settings_alternative_text">Альтэрнатыўны тэкст</string>
-  <string name="insert_media_settings_alternative_text_description">Тэкставае апісанне для чытачоў, якія не бачаць выяў</string>
+  <string name="insert_media_settings_alternative_text_description">Тэкставае апісанне для чытачоў, якія не бачаць выяву</string>
   <string name="insert_media_advanced_settings">Дадатковыя параметры</string>
   <string name="insert_media_advanced_settings_wrap_image">Абцяканне тэкстам вакол выявы</string>
   <string name="insert_media_advanced_settings_image_position">Размяшчэнне выявы</string>
@@ -1355,4 +1417,6 @@
   <string name="reading_list_share_message_v2">Прывітанне! Я хацеў бы падзяліцца з вамі сваім спісам для чытання ў Вікіпедыі:</string>
   <string name="reading_list_share_survey_title">Ці не маглі б вы дапамагчы нам палепшыць \"Падзяліцца спісам для чытання\"?</string>
   <string name="reading_list_share_survey_body">\"Падзяліцца спісам для чытання\" – гэта тэставая функцыя, і нам патрабуюцца вашыя водгукі, каб палепшыць або выдаліць яе.</string>
+  <string name="data_opt_in_accept">Прыняць</string>
+  <string name="data_opt_in_reject">Адхіліць</string>
 </resources>
