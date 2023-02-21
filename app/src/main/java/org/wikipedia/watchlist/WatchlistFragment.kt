@@ -178,7 +178,6 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         binding.watchlistErrorView.visibility = View.VISIBLE
     }
 
-
     private fun setUpEmptySearchMessage() {
         val filtersStr = resources.getQuantityString(R.plurals.watchlist_number_of_filters, viewModel.filtersCount(), viewModel.filtersCount())
         binding.watchlistEmptySearchMessage.text = StringUtil.fromHtml(getString(R.string.watchlist_empty_search_message, "<a href=\"#\">$filtersStr</a>"))

@@ -73,8 +73,8 @@ class WatchlistFilterItemView constructor(context: Context, attrs: AttributeSet?
     }
 
     private fun getTitleCodeFor(filter: WatchlistFilterActivity.Filter): String? {
-        return if (filter.filterCode == context.getString(R.string.watchlist_filter_all_wikis_text) || filter.type == WatchlistFilterActivity.FILTER_TYPE_CATEGORY) null
-        else filter.filterCode
+        return if (filter.filterCode != context.getString(R.string.watchlist_filter_all_text) && filter.type == WatchlistFilterActivity.FILTER_TYPE_WIKI) filter.filterCode
+        else null
     }
 
     private fun getTitleFor(filter: WatchlistFilterActivity.Filter): String {
