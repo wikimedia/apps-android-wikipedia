@@ -410,10 +410,23 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     fun showSuggestedDescriptionsButton() {
         binding.suggestedDescButton.isVisible = true
         if (!Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown) {
-            FeedbackUtil.showTooltip(context as Activity, binding.suggestedDescButton,
-                context.getString(R.string.description_edit_suggested_description_button_tooltip),
-                aboveOrBelow = true, autoDismiss = true, showDismissButton = true)
-            Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown = true
+            binding.root.postDelayed({
+                DeviceUtil.hideSoftKeyboard(context as Activity)
+                binding.suggestedDescButton.postDelayed({
+                    FeedbackUtil.showTooltip(
+                        context as Activity, binding.suggestedDescButton,
+                        context.getString(R.string.description_edit_suggested_description_button_tooltip),
+                        aboveOrBelow = false, autoDismiss = true, showDismissButton = true
+                    ).apply {
+                        setOnBalloonDismissListener {
+                            binding.root.postDelayed({
+                                DeviceUtil.showSoftKeyboard(binding.viewDescriptionEditText)
+                            }, 500)
+                        }
+                    }
+                    Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown = true
+                }, 500)
+            }, 500)
         }
     }
 

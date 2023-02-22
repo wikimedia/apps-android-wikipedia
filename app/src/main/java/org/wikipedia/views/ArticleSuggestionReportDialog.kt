@@ -21,7 +21,6 @@ class ArticleSuggestionReportDialog(context: Context, suggestion: String, callba
     init {
         setView(binding.root)
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        binding.closeButton.setOnClickListener { dismiss() }
         binding.reportButton.setOnClickListener {
             collectReportData()
             FeedbackUtil.makeSnackbar(context as Activity,

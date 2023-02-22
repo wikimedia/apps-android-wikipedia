@@ -9,40 +9,26 @@
     android:padding="24dp">
 
     <ImageView
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:contentDescription="@null"
         app:srcCompat="@drawable/ic_warning_24" />
 
-    <LinearLayout
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            android:text="@string/suggested_edits_descriptions_report_dialog_title"
-            android:textColor="?attr/primary_text_color"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/closeButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/suggested_edits_article_descriptions_dialog_close"
-            android:padding="8dp"
-            app:srcCompat="@drawable/ic_close_themed_24dp"
-            app:tint="?attr/primary_text_color" />
-    </LinearLayout>
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="@string/suggested_edits_descriptions_report_dialog_title"
+        android:textColor="?attr/primary_text_color"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <View
         android:layout_width="match_parent"
@@ -127,9 +113,6 @@
             android:gravity="start"
             android:hint="@string/edit_summary_tag_other"
             android:textAlignment="viewStart"
-            app:counterEnabled="true"
-            app:counterMaxLength="@integer/description_max_chars"
-            app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance"
             app:endIconDrawable="@drawable/chip_close_button_dark"
             app:endIconMode="custom"
             app:endIconTint="?attr/material_theme_de_emphasised_color"
