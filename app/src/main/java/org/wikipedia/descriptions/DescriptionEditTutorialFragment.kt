@@ -12,7 +12,8 @@ import org.wikipedia.onboarding.OnboardingFragment
 import org.wikipedia.onboarding.OnboardingPageView
 
 class DescriptionEditTutorialFragment : OnboardingFragment() {
-    override val doneButtonText get() = R.string.description_edit_tutorial_button_label_start_editing
+    override val doneButtonText = R.string.description_edit_tutorial_button_label_start_editing
+    override val showDoneButton = true
 
     override fun getAdapter(): FragmentStateAdapter {
         return DescriptionEditTutorialPagerAdapter(this)

@@ -4,6 +4,7 @@ import android.content.Context
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.DailyStatsEvent
+import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -16,5 +17,6 @@ class DailyEventTask(context: Context) : RecurringTask() {
 
     override fun run(lastRun: Date) {
         DailyStatsEvent.log(WikipediaApp.instance)
+        EventPlatformClient.refreshStreamConfigs()
     }
 }

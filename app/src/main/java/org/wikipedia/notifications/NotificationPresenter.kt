@@ -60,8 +60,7 @@ object NotificationPresenter {
             }
         }
 
-        val themedContext = if (WikipediaApp.instance.currentTheme == Theme.LIGHT) context else
-            ContextThemeWrapper(context, WikipediaApp.instance.currentTheme.resourceId)
+        val themedContext = ContextThemeWrapper(context, if (WikipediaApp.instance.currentTheme == Theme.LIGHT) R.style.AppTheme else WikipediaApp.instance.currentTheme.resourceId)
 
         showNotification(context, builder, id, n.agent?.name ?: wikiSiteName, title, title, lang,
                 notificationCategory.iconResId, ResourceUtil.getThemedAttributeId(themedContext, notificationCategory.iconColor), activityIntent)
