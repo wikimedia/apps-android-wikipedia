@@ -152,7 +152,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> R.string.description_edit_translate_description
                 DescriptionEditActivity.Action.ADD_CAPTION -> R.string.description_edit_add_image_caption
                 DescriptionEditActivity.Action.TRANSLATE_CAPTION -> R.string.description_edit_translate_image_caption
-                else -> R.string.description_edit_add_description
+                else -> R.string.description_edit_text_hint
             }
         } else {
             if (action == DescriptionEditActivity.Action.ADD_CAPTION || action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
@@ -204,8 +204,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
         if (context is DescriptionEditActivity && action in actions) {
             binding.viewDescriptionEditToolbarContainer.setBackgroundResource(if (enabled) android.R.color.black else ResourceUtil.getThemedAttributeId(context, R.attr.paper_color))
-            ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton,
-                ColorStateList.valueOf(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.themed_icon_color)))
+            binding.viewDescriptionEditSaveButton.setTextColor(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.themed_icon_color))
             ImageViewCompat.setImageTintList(binding.viewDescriptionEditCancelButton,
                 ColorStateList.valueOf(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.toolbar_icon_color)))
             binding.viewDescriptionEditHeader.setTextColor(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.material_theme_primary_color))
@@ -361,19 +360,16 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     private fun enableSaveButton(enabled: Boolean, saveInProgress: Boolean) {
         if (saveInProgress) {
-            binding.viewDescriptionEditSaveButton.setImageResource(R.drawable.ic_check_circle_black_24dp)
-            ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ResourceUtil.getThemedColorStateList(context, R.attr.themed_icon_color))
+            binding.viewDescriptionEditSaveButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color))
             binding.viewDescriptionEditSaveButton.isEnabled = false
             binding.viewDescriptionEditSaveButton.alpha = 1 / 2f
         } else {
             binding.viewDescriptionEditSaveButton.alpha = 1f
             if (enabled) {
-                binding.viewDescriptionEditSaveButton.setImageResource(R.drawable.ic_check_circle_black_24dp)
-                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ResourceUtil.getThemedColorStateList(context, R.attr.themed_icon_color))
+                binding.viewDescriptionEditSaveButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color))
                 binding.viewDescriptionEditSaveButton.isEnabled = true
             } else {
-                binding.viewDescriptionEditSaveButton.setImageResource(R.drawable.ic_check_black_24dp)
-                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ResourceUtil.getThemedColorStateList(context, R.attr.material_theme_de_emphasised_color))
+                ResourceUtil.getThemedColorStateList(context, R.attr.material_theme_de_emphasised_color)
                 binding.viewDescriptionEditSaveButton.isEnabled = false
             }
         }

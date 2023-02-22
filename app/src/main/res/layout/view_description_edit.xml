@@ -45,18 +45,14 @@
                 android:textSize="20sp"
                 android:padding="16dp" />
 
-            <ImageView
+            <TextView
                 android:id="@+id/view_description_edit_save_button"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                style="@style/TransparentButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="4dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:contentDescription="@string/description_edit_save"
-                android:focusable="true"
-                android:padding="12dp"
-                app:srcCompat="@drawable/ic_check_black_24dp" />
+                android:text="@string/description_edit_save" />
 
         </LinearLayout>
 
@@ -186,7 +182,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="18dp"
-                        android:layout_marginTop="-28dp"
+                        android:layout_marginTop="-8dp"
                         android:layout_marginEnd="12dp"
                         android:text="@string/description_edit_suggested_description_button_text"
                         android:visibility="gone"
