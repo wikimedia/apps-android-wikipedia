@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dialog_16dp_radius_background"
     android:layout_margin="24dp"
+    android:background="@drawable/dialog_16dp_radius_background"
     android:padding="24dp">
 
     <ProgressBar
@@ -51,20 +51,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/firstSuggestion"
+                style="@style/CustomChipStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/background_8dp_radius"
-                android:fontFamily="sans-serif"
-                android:gravity="center"
+                android:elevation="1dp"
                 android:padding="8dp"
-                android:textColor="?attr/primary_text_color"
-                android:textSize="14sp" />
+
+                android:gravity="center" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/firstSuggestionFlag"
@@ -80,8 +80,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_marginTop="16dp">
+            android:clipToPadding="false"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/secondSuggestion"
@@ -89,14 +90,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/background_8dp_radius"
-                android:fontFamily="sans-serif"
+                android:elevation="1dp"
+                android:fontFamily="sans-serif-medium"
                 android:gravity="center"
+                android:lineSpacingExtra="2sp"
                 android:padding="8dp"
-                android:textColor="?attr/primary_text_color"
-                android:textSize="14sp"
-                app:chipBackgroundColor="?attr/suggestions_background_color"
-                app:chipCornerRadius="8dp"
-                app:singleLine="false" />
+                android:textColor="?attr/color_group_9"
+                android:textSize="14sp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/secondSuggestionFlag"

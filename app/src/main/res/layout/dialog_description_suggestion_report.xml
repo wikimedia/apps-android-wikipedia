@@ -140,6 +140,7 @@
 
         <TextView
             android:id="@+id/cancelButton"
+            style="@style/AlertDialogButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
@@ -147,6 +148,7 @@
 
         <TextView
             android:id="@+id/reportButton"
+            style="@style/AlertDialogButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/suggested_edits_report_suggestion"

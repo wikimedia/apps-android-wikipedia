@@ -620,15 +620,8 @@
         <item name="chipMinTouchTargetSize">48dp</item>
     </style>
 
-    <style name="CustomChipWithIconStyle">
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textColor">?attr/chart_shade1</item>
-        <item name="android:lineSpacingExtra">2sp</item>
-        <item name="ensureMinTouchTargetSize">true</item>
-        <item name="chipMinTouchTargetSize">48dp</item>
+    <style name="CustomChipWithIconStyle" parent="CustomChipStyle">
         <item name="textAllCaps">false</item>
-        <item name="android:textStyle">bold</item>
         <item name="chipBackgroundColor">?attr/suggestions_background_color</item>
         <item name="chipCornerRadius">8dp</item>
         <item name="chipIconSize">14dp</item>
