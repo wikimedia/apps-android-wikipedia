@@ -3,43 +3,18 @@ package org.wikipedia.connectivity
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.net.ConnectivityManager
-import androidx.core.net.ConnectivityManagerCompat
-import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.EventPlatformClient
-import org.wikipedia.events.NetworkConnectEvent
-import java.util.concurrent.TimeUnit
 
 class NetworkConnectivityReceiver : BroadcastReceiver() {
-    private var online = true
-    private var lastCheckedMillis: Long = 0
 
-    fun isOnline(): Boolean {
-        if (System.currentTimeMillis() - lastCheckedMillis > ONLINE_CHECK_THRESHOLD_MILLIS) {
-            updateOnlineState()
-            lastCheckedMillis = System.currentTimeMillis()
-        }
-        return online
-    }
+    private var connectionStateMonitor: ConnectionStateMonitor? = null
 
     override fun onReceive(context: Context, intent: Intent) {
-        if (ConnectivityManager.CONNECTIVITY_ACTION == intent.action) {
-            val networkInfo = ConnectivityManagerCompat
-                    .getNetworkInfoFromBroadcast(context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager, intent)
-            updateOnlineState()
-            if (networkInfo != null && networkInfo.isConnected) {
-                WikipediaApp.instance.bus.post(NetworkConnectEvent())
-            }
-        }
+        connectionStateMonitor = ConnectionStateMonitor()
+        connectionStateMonitor?.enable(context)
     }
 
-    private fun updateOnlineState() {
-        val info = (WikipediaApp.instance.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).activeNetworkInfo
-        online = info != null && info.isConnected
-        EventPlatformClient.setEnabled(online)
-    }
-
-    companion object {
-        private val ONLINE_CHECK_THRESHOLD_MILLIS = TimeUnit.MINUTES.toMillis(1)
+    fun isOnline(): Boolean {
+        val isOnline = connectionStateMonitor?.isOnline() ?: true
+        return isOnline
     }
 }
