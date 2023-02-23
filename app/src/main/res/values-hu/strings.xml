@@ -616,7 +616,7 @@
   <string name="reading_list_activity_title">Olvasólista: %s</string>
   <string name="reading_list_notification_title">Olvasólistá(k) exportálva</string>
   <string name="reading_list_notification_text">%d olvasólista exportálva lett „reading_lists export.json” néven a letöltések mappádba</string>
-  <string name="reading_list_notification_detailed_text">Olvasólisták exportálva lett „reading_lists export.json” néven</string>
+  <string name="reading_list_notification_detailed_text">Olvasólisták exportálva „reading_lists export.json” néven</string>
   <string name="reading_lists_action_menu_export_lists">Exportálás</string>
   <string name="reading_lists_import_file_picker_title">Válaszd ki az importálandó fájlt</string>
   <string name="reading_lists_import_failure_message">Az olvasólisták importálása sikertelen</string>
