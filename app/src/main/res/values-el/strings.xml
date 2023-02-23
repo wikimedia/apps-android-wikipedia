@@ -448,6 +448,9 @@
   <string name="reading_list_sort_by_created">Ταξινόμηση ανά ημερομηνία δημιουργίας (νεότερη)</string>
   <string name="reading_list_sort_by_created_desc">Ταξινόμηση ανά ημερομηνία προσθήκης (παλαιότερη)</string>
   <string name="reading_list_menu_delete">Διαγραφή λίστας</string>
+  <string name="reading_list_menu_export">Εξαγωγή λίστας</string>
+  <string name="reading_list_menu_select">Επιλογή</string>
+  <string name="reading_list_menu_unselect">Αποεπιλογή</string>
   <string name="reading_list_menu_rename">Επεξεργασία ονόματος/περιγραφής</string>
   <string name="reading_list_action_menu_remove_from_offline">Αφαίρεση από τη λίστα εκτός σύνδεσης</string>
   <string name="reading_list_action_menu_save_for_offline">Αποθήκευση στη λίστα εκτός σύνδεσης</string>
@@ -523,6 +526,7 @@
   <string name="reading_list_article_limit_message">Δεν είναι δυνατή η προσθήκη σε αυτή τη λίστα. Έχετε φτάσει το όριο του %2$d άρθρων ανά λίστα για \"%1$s\".</string>
   <string name="reading_lists_limit_message">Δεν μπορείτε να δημιουργήσετε άλλη λίστα. Έχετε φτάσει το όριο των 100 λιστών ανάγνωσης ανά λογαριασμό.</string>
   <string name="reading_lists_menu_create_list">Δημιουργία νέας λίστας</string>
+  <string name="reading_lists_menu_import_list">Εισαγωγή λίστας</string>
   <string name="reading_lists_menu_sort_by">Ταξινόμηση κατά</string>
   <string name="reading_lists_refresh_sync_option">Ανανέωση συγχρονισμού</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Σύνδεση / Εγγραφή</string>
@@ -543,7 +547,16 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Άκυρο</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Άκυρο</string>
   <string name="reading_list_split_dialog_ok_button_text">Εντάξει</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Διαγραφή</string>
   <string name="reading_list_activity_title">Λίστα ανάγνωσης:%s</string>
+  <string name="reading_lists_action_menu_export_lists">Εξαγωγή</string>
+  <string name="reading_lists_import_file_picker_title">Επιλέξτε αρχείο για εισαγωγή</string>
+  <string name="reading_lists_preview_save_button">Αποθήκευση</string>
+  <string name="reading_lists_preview_save_dialog_title">Αποθήκευση λίστας</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Τίτλος</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Ακύρωση</string>
+  <string name="reading_lists_preview_save_dialog_save">Αποθήκευση</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Προβολή</string>
   <string name="user_option_sync_label">Προτιμήσεις</string>
   <string name="notification_reverted_title">Ανεστραμμένη επεξεργασία</string>
   <string name="notification_channel_title">Λήψη άρθρων</string>
@@ -982,4 +995,6 @@
   <string name="category_tab_subcategories">Υποκατηγορίες</string>
   <string name="category_empty">Δε βρέθηκαν άρθρα σε αυτή την κατηγορία</string>
   <string name="subcategory_empty">Δε βρέθηκαν υποκατηγορίες σε αυτή την κατηγορία.</string>
+  <string name="data_opt_in_accept">Αποδοχή</string>
+  <string name="data_opt_in_reject">Απόρριψη</string>
 </resources>
