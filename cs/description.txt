@@ -1,4 +1,4 @@
-Oficiální aplikace Wikipedie pro Android. Wikipedie je otevřená encyklopedie obsahující více než 32 milionů článků ve 280 jazycích, je to nejrozsáhlejší a nejšířeji používané referenční dílo, které lidstvo kdy vyrobilo. Aplikace byla přebudována od nuly a je lepší než kdy předtím.
+Oficiální aplikace Wikipedie pro Android je navržena tak, aby vám pomohla najít, objevit a prozkoumat znalosti ve Wikipedii. Vyřešte sázku s přítelem rychlým vyhledáváním v aplikaci nebo se ponořte do doporučených článků, obrázků, doporučených článků a dalších informací pomocí kanálu pro zkoumání. S více než 39 miliony článků v téměř 300 jazycích máte nyní svou oblíbenou bezplatnou online encyklopedii na dosah ruky.
 
 Funkce:
 

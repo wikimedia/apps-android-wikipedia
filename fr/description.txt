@@ -18,7 +18,7 @@ Listes de lecture — Organisez les articles que vous trouvez dans des listes de
 
 Galerie d'images — Tapez sur une image pour la voir en plein-écran et en haute résolution, avec des options via glissement du doigt pour rechercher d'autres images.
 
-Définitions de Wikitionnaire — Tapez et maintenez pour surligner un mot, puis tapez le bouton « Définir » pour voir une définition du mot de Wikitionnaire.
+Définitions du Wiktionnaire — Tapez et maintenez pour surligner un mot, puis tapez le bouton « Définir » pour voir une définition du mot du Wiktionnaire.
 
 Wikipédia Zero — Accéder à Wikipédia sur Android sans frais avec les opérateurs mobile participants. (liens des opérateurs participants).
 
