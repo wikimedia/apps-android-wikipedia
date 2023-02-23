@@ -223,10 +223,10 @@
   <string name="privacy_policy_description">Pravila o privatnosti</string>
   <string name="terms_of_use_description">Uslovi korištenja</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/bs</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -335,13 +335,16 @@
   <string name="button_continue_to_article">Pročitaj članak</string>
   <string name="button_continue_to_talk_page">Prikaži stranicu za razgovor</string>
   <string name="button_continue_to_disambiguation">Prikaži slične stranice</string>
+  <string name="link_preview_disambiguation_description">Naslov se odnosi na više od jedne stranice:</string>
   <string name="button_add_to_reading_list">Dodaj na spisak za čitanje</string>
   <string name="page_offline_notice_cannot_load_while_offline">Članak se ne može učitati dok ste van mreže.</string>
   <string name="page_offline_notice_add_to_reading_list">Savjet: Dodajte članak na spisak za čitanje i bit će preuzet čim se ponovo povežete.</string>
   <string name="page_offline_notice_last_date">Čitate vanmrežnu verziju članka, sačuvanu na %s.</string>
   <string name="button_get_directions">Dobij uputstva</string>
   <string name="error_no_maps_app">Ne mogu pronaći aplikacije koje pružaju uputstva.</string>
+  <string name="preference_title_customize_explore_feed">Stranica Istraži</string>
   <string name="preference_title_show_link_previews">Prikaži preglede linkova</string>
+  <string name="preference_summary_customize_explore_feed">Prilagodite stranicu Istraži</string>
   <string name="preference_summary_show_link_previews">Omogućite brz pregled članaka kad dodirnete linkove.</string>
   <string name="preference_title_collapse_tables">Skupljanje tabela</string>
   <string name="nav_item_donate">Donirajte</string>
@@ -371,6 +374,7 @@
   <string name="crash_report_relaunch_or_quit">Žao nam je. Došlo je do greške u aplikaciji Wikipedia i prekinula je s radom.\n\nŽelite li je ponovo pokrenuti ili je zatvoriti?</string>
   <string name="crash_report_relaunch">Ponovo pokreni</string>
   <string name="crash_report_quit">Zatvori</string>
+  <string name="article_menu_bar_save_button">Sačuvaj</string>
   <string name="article_menu_bar_language_button">Jezik</string>
   <string name="article_menu_bar_search_button">Pretraži</string>
   <string name="article_menu_bar_theme_button">Tema</string>
@@ -390,6 +394,9 @@
   <string name="text_size_increase">Povećaj veličinu teksta</string>
   <string name="text_size_decrease">Smanji veličinu teksta</string>
   <string name="text_size_percent_default">%s (predodređeno)</string>
+  <string name="text_style_title">Font</string>
+  <string name="theme_category_reading">Čitanje</string>
+  <string name="theme_category_editing">Uređivanje</string>
   <string name="nav_item_saved">Sačuvano</string>
   <string name="reading_list_save_to">Sačuvaj na spisak za čitanje</string>
   <string name="reading_list_move_to">Premjesti na spisak za čitanje</string>
@@ -405,6 +412,8 @@
   <string name="reading_list_sort_by_created">Sortiraj po datumu dodavanja (najnoviji)</string>
   <string name="reading_list_sort_by_created_desc">Sortiraj po datumu dodavanja (najstariji)</string>
   <string name="reading_list_menu_delete">Izbriši spisak</string>
+  <string name="reading_list_menu_select">Izaberi</string>
+  <string name="reading_list_menu_unselect">Poništi izbor</string>
   <string name="reading_list_menu_rename">Izmijeni ime/opis</string>
   <string name="reading_list_action_menu_remove_from_offline">Ukloni iz vanmrežnih</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Ukloni sve iz vanmrežnih</string>

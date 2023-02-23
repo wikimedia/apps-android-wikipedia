@@ -43,6 +43,10 @@ import org.wikipedia.util.log.L
 import java.util.*
 
 class WikipediaApp : Application() {
+    init {
+        instance = this
+    }
+
     val mainThreadHandler by lazy { Handler(mainLooper) }
     val languageState by lazy { AppLanguageState(this) }
     val appSessionEvent by lazy { AppSessionEvent() }
@@ -140,10 +144,6 @@ class WikipediaApp : Application() {
             L.e(e)
             false
         }
-    }
-
-    init {
-        instance = this
     }
 
     override fun onCreate() {

@@ -532,6 +532,10 @@
     <item quantity="one">Lieslëscht importéiert</item>
     <item quantity="other">Lieslëschten importéiert</item>
   </plurals>
+  <string name="reading_lists_preview_save_button">Späicheren</string>
+  <string name="reading_lists_preview_save_dialog_title">Lëscht späicheren</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Ofbriechen</string>
+  <string name="reading_lists_preview_save_dialog_save">Späicheren</string>
   <string name="user_option_sync_label">Astellungen</string>
   <string name="notification_reverted_title">Zréckgesaten Ännerung</string>
   <string name="notification_channel_title">Artikelen eroflueden</string>

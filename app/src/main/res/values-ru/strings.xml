@@ -655,6 +655,8 @@
   <string name="reading_list_split_dialog_ok_button_text">ОК</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Удалить</string>
   <string name="reading_list_activity_title">Список чтения: %s</string>
+  <string name="reading_lists_preview_save_button">Сохранить</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Отмена</string>
   <string name="user_option_sync_label">Настройки</string>
   <string name="notification_reverted_title">Отменённая правка</string>
   <string name="notification_channel_title">Скачивание статей</string>
