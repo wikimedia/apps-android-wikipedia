@@ -173,7 +173,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         super.onOptionsItemSelected(item)
         return when (item.itemId) {
             R.id.menu_talk_topic_share -> {
-                ShareUtil.shareText(this, getString(R.string.talk_share_discussion_subject, viewModel.topic?.html?.ifEmpty { getString(R.string.talk_no_subject) }), viewModel.pageTitle.uri + "#" + StringUtil.addUnderscores(StringUtil.fromHtml(viewModel.topic?.html).toString()))
+                ShareUtil.shareText(this, getString(R.string.talk_share_discussion_subject, viewModel.topic?.html?.ifEmpty { getString(R.string.talk_no_subject) }), viewModel.pageTitle.uri + "#" + UriUtil.encodeURL(StringUtil.addUnderscores(StringUtil.fromHtml(viewModel.topic?.html).toString())))
                 true
             }
             R.id.menu_edit_source -> {
