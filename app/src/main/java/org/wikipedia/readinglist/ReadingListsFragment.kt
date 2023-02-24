@@ -826,7 +826,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 Prefs.isReadingListSyncReminderEnabled = false
             }, false)
             binding.onboardingView.isVisible = true
-        } else if (!Prefs.readingListReceiveMode && !AccountUtil.isLoggedIn && Prefs.isReadingListLoginReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
+        } else if (!AccountUtil.isLoggedIn && Prefs.isReadingListLoginReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
             binding.onboardingView.setMessageTitle(getString(R.string.reading_list_login_reminder_title))
             binding.onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text))
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)

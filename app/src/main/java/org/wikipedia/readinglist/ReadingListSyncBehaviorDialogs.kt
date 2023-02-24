@@ -48,7 +48,7 @@ object ReadingListSyncBehaviorDialogs {
     }
 
     fun promptLogInToSyncDialog(activity: Activity) {
-        if (Prefs.readingListReceiveMode || !Prefs.showReadingListSyncEnablePrompt || PROMPT_LOGIN_TO_SYNC_DIALOG_SHOWING) {
+        if (!Prefs.showReadingListSyncEnablePrompt || PROMPT_LOGIN_TO_SYNC_DIALOG_SHOWING) {
             return
         }
         val binding = DialogWithCheckboxBinding.inflate(activity.layoutInflater)

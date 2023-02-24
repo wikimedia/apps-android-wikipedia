@@ -121,7 +121,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (fragment.onBackPressed()) {
             return
         }
-        Prefs.readingListReceiveMode = false
         super.onBackPressed()
     }
 
