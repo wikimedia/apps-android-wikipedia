@@ -648,7 +648,7 @@
   <string name="reading_lists_preview_save_button">Button text for saving the preview reading list.</string>
   <string name="reading_lists_preview_save_dialog_title">Title for the dialog of saving the reading list.</string>
   <string name="reading_lists_preview_save_dialog_text">Description for the dialog of saving the reading list.</string>
-  <string name="reading_lists_preview_save_dialog_title_hint">Hint for the input field in the dialog of saving the reading list.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Hint for the input field in the dialog of saving the reading list.\n{{identical|Title}}</string>
   <string name="reading_lists_preview_save_dialog_cancel">Cancel button for the dialog of saving the reading list.</string>
   <string name="reading_lists_preview_save_dialog_save">Save button for the dialog of saving the reading list.</string>
   <string name="reading_lists_preview_saved_snackbar">Message text for the snackbar that shows up after the user saved the reading list.</string>
