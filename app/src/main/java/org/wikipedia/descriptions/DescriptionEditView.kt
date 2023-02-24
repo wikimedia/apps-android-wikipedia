@@ -404,7 +404,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     }
 
     fun showSuggestedDescriptionsButton() {
-        binding.suggestedDescButton.isVisible = true
+        binding.suggestedDescButton.isVisible = ArticleDescriptionsDialog.availableLanguages().contains(pageSummaryForEdit.lang)
         if (!Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown) {
             binding.root.postDelayed({
                 DeviceUtil.hideSoftKeyboard(context as Activity)

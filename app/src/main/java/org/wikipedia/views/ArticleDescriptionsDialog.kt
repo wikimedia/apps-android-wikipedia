@@ -91,4 +91,11 @@ class ArticleDescriptionsDialog(context: Context,
             binding.descriptionsContainer.isVisible = true
         }
     }
+
+    companion object {
+        fun availableLanguages(): List<String> {
+            return listOf("en", "ru", "vi", "ja", "de", "ro", "fr", "fi", "ko", "es", "zh", "it",
+                "nl", "ar", "tr", "hi", "cs", "lt", "lv", "kk", "et", "ni", "si", "gu", "my")
+        }
+    }
 }
