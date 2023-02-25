@@ -5,13 +5,12 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
 import android.speech.RecognizerIntent
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import by.kirich1409.viewbindingdelegate.viewBinding
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -49,14 +48,16 @@ import java.lang.Runnable
 import java.util.*
 import java.util.concurrent.TimeUnit
 
-class DescriptionEditFragment : Fragment() {
+class DescriptionEditFragment : Fragment(R.layout.fragment_description_edit) {
     interface Callback {
         fun onDescriptionEditSuccess()
         fun onBottomBarContainerClicked(action: DescriptionEditActivity.Action)
     }
 
-    private var _binding: FragmentDescriptionEditBinding? = null
-    val binding get() = _binding!!
+    val binding by viewBinding(FragmentDescriptionEditBinding::bind, onViewDestroyed = {
+        it.fragmentDescriptionEditView.callback = null
+    })
+
     private lateinit var invokeSource: InvokeSource
     private lateinit var pageTitle: PageTitle
     lateinit var action: DescriptionEditActivity.Action
@@ -128,22 +129,13 @@ class DescriptionEditFragment : Fragment() {
         EditAttemptStepEvent.logInit(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentDescriptionEditBinding.inflate(inflater, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         loadPageSummaryIfNeeded(savedInstanceState)
 
         binding.fragmentDescriptionEditView.setLoginCallback {
             val loginIntent = LoginActivity.newIntent(requireActivity(), LoginActivity.SOURCE_EDIT)
             loginLauncher.launch(loginIntent)
         }
-        return binding.root
-    }
-
-    override fun onDestroyView() {
-        binding.fragmentDescriptionEditView.callback = null
-        _binding = null
-        super.onDestroyView()
     }
 
     override fun onDestroy() {

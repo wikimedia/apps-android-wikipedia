@@ -3,13 +3,13 @@ package org.wikipedia.edit.preview
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import by.kirich1409.viewbindingdelegate.viewBinding
 import org.wikipedia.R
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener
@@ -29,10 +29,11 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.ViewAnimations
 
-class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDialog.Callback {
-
-    private var _binding: FragmentPreviewEditBinding? = null
-    private val binding get() = _binding!!
+class EditPreviewFragment : Fragment(R.layout.fragment_preview_edit), CommunicationBridgeListener, ReferenceDialog.Callback {
+    private val binding by viewBinding(FragmentPreviewEditBinding::bind, onViewDestroyed = {
+        it.editPreviewWebview.clearAllListeners()
+        (it.editPreviewWebview.parent as ViewGroup).removeView(it.editPreviewWebview)
+    })
 
     private lateinit var bridge: CommunicationBridge
     private lateinit var references: PageReferences
@@ -46,8 +47,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     override val referencesGroup get() = references.referencesGroup
     override val selectedReferenceIndex get() = references.selectedIndex
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentPreviewEditBinding.inflate(layoutInflater, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         bridge = CommunicationBridge(this)
         val pageTitle = (requireActivity() as EditSectionActivity).pageTitle
         model.title = pageTitle
@@ -56,7 +56,6 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         initWebView()
 
         binding.editPreviewContainer.visibility = View.GONE
-        return binding.root
     }
 
     /**
@@ -112,10 +111,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     }
 
     override fun onDestroyView() {
-        binding.editPreviewWebview.clearAllListeners()
-        (binding.editPreviewWebview.parent as ViewGroup).removeView(binding.editPreviewWebview)
         bridge.cleanup()
-        _binding = null
         super.onDestroyView()
     }
 

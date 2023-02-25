@@ -7,7 +7,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.view.KeyEvent
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
@@ -16,6 +15,7 @@ import androidx.core.widget.TextViewCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.chip.Chip
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -31,9 +31,8 @@ import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewAnimations
 
-class EditSummaryFragment : Fragment() {
-    private var _binding: FragmentPreviewSummaryBinding? = null
-    private val binding get() = _binding!!
+class EditSummaryFragment : Fragment(R.layout.fragment_preview_summary) {
+    private val binding by viewBinding(FragmentPreviewSummaryBinding::bind)
 
     private lateinit var editSummaryHandler: EditSummaryHandler
     lateinit var title: PageTitle
@@ -54,9 +53,7 @@ class EditSummaryFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentPreviewSummaryBinding.inflate(layoutInflater, container, false)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         // Explicitly enable standard dictionary autocompletion in the edit summary box
         // We should be able to do this in the XML, but doing it there doesn't work. Thanks Android!
         binding.editSummaryText.inputType = binding.editSummaryText.inputType and EditorInfo.TYPE_TEXT_FLAG_AUTO_COMPLETE.inv()
@@ -95,18 +92,11 @@ class EditSummaryFragment : Fragment() {
         getWatchedStatus()
 
         addEditSummaries()
-
-        return binding.root
     }
 
     override fun onStart() {
         super.onStart()
         editSummaryHandler = EditSummaryHandler(binding.root, binding.editSummaryText, title)
-    }
-
-    override fun onDestroyView() {
-        _binding = null
-        super.onDestroyView()
     }
 
     private fun launchVoiceInput() {
