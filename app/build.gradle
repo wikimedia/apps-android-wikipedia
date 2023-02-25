@@ -230,6 +230,9 @@ dependencies {
     implementation("androidx.room:room-ktx:$roomVersion")
     implementation "androidx.room:room-rxjava3:$roomVersion"
 
+    // View binding extensions
+    implementation "com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.8"
+
     // For language detection during editing
     prodImplementation "com.google.mlkit:language-id:$mlKitVersion"
     betaImplementation "com.google.mlkit:language-id:$mlKitVersion"
