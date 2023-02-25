@@ -12,9 +12,11 @@ import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.ZoneId
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
+import java.time.format.TextStyle
 import java.time.temporal.TemporalAccessor
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
@@ -72,8 +74,9 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "MMMM d")
     }
 
-    fun getMonthOnlyWithoutDayDateString(date: Date): String {
-        return getDateStringWithSkeletonPattern(date, "MMMM")
+    fun getMonthOnlyWithoutDayDateString(calendar: Calendar): String {
+        val localDateTime = LocalDateTime.ofInstant(calendar.toInstant(), ZoneId.systemDefault())
+        return localDateTime.month.getDisplayName(TextStyle.FULL, Locale.getDefault())
     }
 
     fun getYearOnlyDateString(date: Date): String {
