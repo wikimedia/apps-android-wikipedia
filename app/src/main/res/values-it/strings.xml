@@ -44,6 +44,7 @@
 * Stefano
 * SuperVirtual
 * The Polish
+* UnGiglio
 * Vivbod
 * Yacine Boussoufa
 -->
@@ -523,6 +524,8 @@
   <string name="reading_list_sort_by_created_desc">Ordina per data di creazione (meno recente)</string>
   <string name="reading_list_menu_delete">Cancella elenco</string>
   <string name="reading_list_menu_export">Esporta elenco</string>
+  <string name="reading_list_menu_select">Seleziona</string>
+  <string name="reading_list_menu_unselect">Deseleziona</string>
   <string name="reading_list_menu_rename">Modifica nome/descrizione</string>
   <string name="reading_list_action_menu_remove_from_offline">Rimuovi da offline</string>
   <string name="reading_list_action_menu_save_for_offline">Salva per offline</string>
@@ -582,6 +585,7 @@
   <string name="reading_list_articles_added_to_named">Aggiunte %1$d voci a %2$s</string>
   <string name="reading_list_articles_moved_to_named">Spostate %1$d voci in %2$s</string>
   <string name="reading_list_delete_confirm">Sei sicuro di voler cancellare %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Cancellare gli elenchi selezionati?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Accedi per abilitare la sincronizzazione</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Accedi per consentire il salvataggio degli elenchi di lettura sulla tua utenza.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annulla</string>
@@ -628,6 +632,7 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Cancella</string>
   <string name="reading_list_activity_title">Elenco di lettura: %s</string>
+  <string name="reading_list_notification_title">Elenco di lettura esportato</string>
   <string name="reading_lists_action_menu_export_lists">Esporta</string>
   <string name="reading_lists_import_file_picker_title">Scegli il file da importare</string>
   <string name="reading_lists_export_select_lists_message">Seleziona l\'elenco o gli elenchi da esportare</string>

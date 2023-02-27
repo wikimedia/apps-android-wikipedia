@@ -1232,7 +1232,7 @@
   <string name="menu_option_user_page">%s foydalanuvchi sahifasi</string>
   <string name="menu_option_find_in_talk_page_topic">Muhokama sahifasida mavzuni izlamoq</string>
   <string name="menu_option_copy_link_to_clipboard">Nusxa olmoq</string>
-  <string name="talk_menu_copy_text">Matnni nusxalash</string>
+  <string name="talk_menu_copy_text">Matndan nusxa olish</string>
   <string name="talk_menu_expand_threads">Oqimlarni yoymoq</string>
   <string name="talk_menu_collapse_threads">Oqimni yigʻishtirmoq</string>
   <string name="watchlist_details_watching_label">Kuzatilmoqda</string>
