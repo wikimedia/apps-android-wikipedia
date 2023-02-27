@@ -16,6 +16,8 @@ import org.wikipedia.databinding.DatePickerDialogBinding
 import org.wikipedia.databinding.ViewCustomCalendarDayBinding
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
+import java.time.MonthDay
+import java.time.format.TextStyle
 import java.util.*
 
 class CustomDatePicker : DialogFragment() {
@@ -27,7 +29,7 @@ class CustomDatePicker : DialogFragment() {
     private val binding get() = _binding!!
 
     private val today = Calendar.getInstance()
-    private val selectedDay = Calendar.getInstance()
+    private var selectedDayMonth = MonthDay.now()
     private val callbackDay = Calendar.getInstance()
 
     var callback: Callback? = null
@@ -48,16 +50,14 @@ class CustomDatePicker : DialogFragment() {
 
     private fun setPreviousMonthClickListener() {
         binding.previousMonth.setOnClickListener {
-            val currentMonth = selectedDay[Calendar.MONTH]
-            selectedDay[LEAP_YEAR, if (currentMonth == 0) Calendar.DECEMBER else currentMonth - 1] = 1
+            selectedDayMonth = selectedDayMonth.with(selectedDayMonth.month - 1)
             setMonthString()
         }
     }
 
     private fun setNextMonthClickListener() {
         binding.nextMonth.setOnClickListener {
-            val currentMonth = selectedDay[Calendar.MONTH]
-            selectedDay[LEAP_YEAR, if (currentMonth == Calendar.DECEMBER) Calendar.JANUARY else currentMonth + 1] = 1
+            selectedDayMonth = selectedDayMonth.with(selectedDayMonth.month + 1)
             setMonthString()
         }
     }
@@ -68,7 +68,7 @@ class CustomDatePicker : DialogFragment() {
     }
 
     private fun setMonthString() {
-        binding.currentMonth.text = DateUtil.getMonthOnlyWithoutDayDateString(selectedDay)
+        binding.currentMonth.text = selectedDayMonth.month.getDisplayName(TextStyle.FULL, Locale.getDefault())
         binding.calendarGrid.adapter!!.notifyDataSetChanged()
     }
 
@@ -83,7 +83,7 @@ class CustomDatePicker : DialogFragment() {
         }
 
         override fun getItemCount(): Int {
-            return selectedDay.getActualMaximum(Calendar.DAY_OF_MONTH)
+            return selectedDayMonth.month.maxLength()
         }
 
         inner class ViewHolder internal constructor(private val binding: ViewCustomCalendarDayBinding) :
@@ -91,20 +91,20 @@ class CustomDatePicker : DialogFragment() {
 
             init {
                 binding.root.setOnClickListener {
-                    selectedDay[Calendar.DATE] = bindingAdapterPosition + 1
-                    callbackDay[LEAP_YEAR, selectedDay[Calendar.MONTH]] = bindingAdapterPosition + 1
+                    selectedDayMonth = selectedDayMonth.withDayOfMonth(bindingAdapterPosition + 1)
+                    callbackDay[LEAP_YEAR, selectedDayMonth.monthValue - 1] = bindingAdapterPosition + 1
                     setDayString()
                     notifyItemRangeChanged(0, itemCount)
                 }
             }
 
             fun setFields(position: Int) {
-                if (position == today[Calendar.DATE] && today[Calendar.MONTH] == selectedDay[Calendar.MONTH]) {
+                if (position == today[Calendar.DATE] && today[Calendar.MONTH] == selectedDayMonth.monthValue - 1) {
                     binding.dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
                 } else {
                     binding.dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color))
                 }
-                if (position == callbackDay[Calendar.DATE] && selectedDay[Calendar.MONTH] == callbackDay[Calendar.MONTH]) {
+                if (position == callbackDay[Calendar.DATE] && selectedDayMonth.monthValue - 1 == callbackDay[Calendar.MONTH]) {
                     binding.dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
                     binding.dayText.typeface = Typeface.DEFAULT_BOLD
                     binding.dayCircleBackground.visibility = View.VISIBLE
@@ -118,11 +118,11 @@ class CustomDatePicker : DialogFragment() {
     }
 
     private fun setDayString() {
-        binding.calendarDay.text = DateUtil.getFeedCardShortDateString(selectedDay)
+        binding.calendarDay.text = DateUtil.getFeedCardShortDateString(selectedDayMonth)
     }
 
     fun setSelectedDay(month: Int, day: Int) {
-        selectedDay[LEAP_YEAR, month] = day
+        selectedDayMonth = MonthDay.of(month + 1, day)
         callbackDay[LEAP_YEAR, month] = day
     }
 

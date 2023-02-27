@@ -12,11 +12,10 @@ import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
-import java.time.ZoneId
+import java.time.MonthDay
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
-import java.time.format.TextStyle
 import java.time.temporal.TemporalAccessor
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
@@ -32,10 +31,6 @@ object DateUtil {
 
     fun iso8601ShortDateParse(date: String): Date {
         return getCachedDateFormat("yyyy-MM-dd'Z'", Locale.ROOT, true).parse(date)!!
-    }
-
-    fun iso8601LocalDateFormat(date: Date): String {
-        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT, false).format(date)
     }
 
     fun dbDateFormat(date: Date): String {
@@ -62,6 +57,10 @@ object DateUtil {
         return getShortDateString(date)
     }
 
+    fun getFeedCardShortDateString(monthDay: MonthDay): String {
+        return getDateStringWithSkeletonPattern(monthDay, "MMM d")
+    }
+
     fun getFeedCardShortDateString(date: Calendar): String {
         return getExtraShortDateString(date.time)
     }
@@ -72,11 +71,6 @@ object DateUtil {
 
     fun getMonthOnlyDateString(date: Date): String {
         return getDateStringWithSkeletonPattern(date, "MMMM d")
-    }
-
-    fun getMonthOnlyWithoutDayDateString(calendar: Calendar): String {
-        val localDateTime = LocalDateTime.ofInstant(calendar.toInstant(), ZoneId.systemDefault())
-        return localDateTime.month.getDisplayName(TextStyle.FULL, Locale.getDefault())
     }
 
     fun getYearOnlyDateString(date: Date): String {
