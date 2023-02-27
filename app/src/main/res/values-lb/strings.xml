@@ -48,6 +48,7 @@
   <string name="share_via">Deelen iwwer</string>
   <string name="image_share_via">Deelen iwwer</string>
   <string name="search_redirect_from">Virugeleet vu(n) %s</string>
+  <string name="page_edit_history_activity_title">Historique vun de Versiounen: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Eidele Resumé vun der Ännerung</string>
   <string name="page_edit_history_search_or_filter_edits_hint">No Ännerunge sichen oder Ännerunge filteren</string>
@@ -56,6 +57,15 @@
   <string name="page_edit_history_filter_by_user">Benotzer-Ännerungen (%s)</string>
   <string name="page_edit_history_filter_by_anon">Anonym Ännerungen (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot-Ännerungen (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Metrike vum %1$s bis de(n) %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d Ännerung zanter %2$s</item>
+    <item quantity="other">%1$d Ännerungen zanter %2$s</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d Ännerung zanter %2$s (%3$s)</item>
+    <item quantity="other">%1$d Ännerungen zanter %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Versicht d\'&lt;a href=\"#\"&gt;Filteren&lt;/a&gt; z\'ännere fir méi Ännerungen ze gesinn</string>
   <string name="menu_page_show_tabs">Tabs weisen</string>
   <string name="menu_page_other_languages">Sprooch wiesselen</string>
@@ -79,6 +89,7 @@
   <string name="menu_article_share">Artikel deelen</string>
   <string name="menu_page_article_share">Deelen</string>
   <string name="menu_page_open_a_new_tab">En neien Tab opmaachen</string>
+  <string name="menu_page_new_tab">Neien Tab</string>
   <string name="menu_page_reading_lists">Lieslëschten</string>
   <string name="menu_page_recently_viewed">Rezent gekuckt</string>
   <string name="menu_page_archive">Archiv</string>
@@ -534,8 +545,11 @@
   </plurals>
   <string name="reading_lists_preview_save_button">Späicheren</string>
   <string name="reading_lists_preview_save_dialog_title">Lëscht späicheren</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Titel</string>
   <string name="reading_lists_preview_save_dialog_cancel">Ofbriechen</string>
   <string name="reading_lists_preview_save_dialog_save">Späicheren</string>
+  <string name="reading_lists_preview_saved_snackbar">Lieslëscht gespäichert</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Weisen</string>
   <string name="user_option_sync_label">Astellungen</string>
   <string name="notification_reverted_title">Zréckgesaten Ännerung</string>
   <string name="notification_channel_title">Artikelen eroflueden</string>
