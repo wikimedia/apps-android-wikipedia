@@ -25,7 +25,7 @@ object ReadingListsReceiveHelper {
         // Request API by languages
         readingListData?.list?.forEach {
             val wikiSite = WikiSite.forLanguageCode(it.key)
-            it.value.windowed(ReadingListsShareHelper.API_MAX_SIZE, ReadingListsShareHelper.API_MAX_SIZE, true).forEach { list ->
+            it.value.chunked(ReadingListsShareHelper.API_MAX_SIZE).forEach { list ->
                 val response = ServiceFactory.get(wikiSite).getPageTitlesByPageId(list.joinToString(separator = "|"))
                 response.query?.pages?.forEach { page ->
                     val readingListPage = ReadingListPage(
