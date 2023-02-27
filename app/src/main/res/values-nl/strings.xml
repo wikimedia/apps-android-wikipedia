@@ -311,7 +311,7 @@
   <string name="edit_conflict_title">Bewerkingsconflict</string>
   <string name="edit_conflict_message">Deze pagina is reeds aangepast door een andere gebruiker en deze bewerking conflicteert met die van u. Kopieer alstublieft uw bewerkingen, ga terug, ververs de pagina en probeer opnieuw te bewerken.</string>
   <string name="edit_notices">Bewerkingsmeldingen</string>
-  <string name="edit_notices_please_read">Gelieve te lezen voor het doen van bewerkingen</string>
+  <string name="edit_notices_please_read">Gelieve te lezen alvorens te bewerken</string>
   <string name="edit_notices_show_auto">Automatisch bewerkingsmeldingen tonen</string>
   <string name="edit_notices_tooltip">Druk op deze knop om bewerkingsmeldingen te zien voor deze pagina.</string>
   <string name="find_next">Volgende zoeken</string>
@@ -491,18 +491,22 @@
   <string name="reading_list_articles_already_exist_message">Perfect! %s bevat al alle artikels.</string>
   <string name="reading_list_added_view_button">Lijst bekijken</string>
   <string name="reading_list_add_to_list_button">Aan lijst toevoegen</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 artikel</item>
+    <item quantity="other">%d artikelen</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 artikel, %2$.2f MB</item>
     <item quantity="other">%1$d artikelen, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d van 1 artikel offline beschikbaar</item>
+    <item quantity="other">%1$d van %2$d artikelen offline beschikbaar</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d artikel offline beschikbaar, %3$.2f MB</item>
     <item quantity="other">%1$d van de %2$d artikelen offline beschikbaar, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 pagina, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d pagina\'s, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d van de 1 pagina\'s offline beschikbaar, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d van de %2$d pagina\'s offline beschikbaar, %3$.2f MB</string>
   <string name="reading_list_sort">Sorteren</string>
   <string name="reading_list_sort_ellipsis">Sorteren op…</string>
   <string name="reading_list_sort_by_name">Sorteren op naam</string>
@@ -512,6 +516,10 @@
   <string name="reading_list_sort_by_created">Sorteren op datum van aanmaak (nieuwste)</string>
   <string name="reading_list_sort_by_created_desc">Sorteren op datum van aanmaak (oudste)</string>
   <string name="reading_list_menu_delete">Lijst verwijderen</string>
+  <string name="reading_list_menu_export">Lijst exporteren</string>
+  <string name="reading_list_menu_select">Selecteren</string>
+  <string name="reading_list_menu_unselect">Selectie opheffen</string>
+  <string name="reading_list_export_write_permission_rationale">Toestemming om naar de opslag op uw apparaat te schrijven is vereist voor het exporteren van uw leeslijst.</string>
   <string name="reading_list_menu_rename">Bewerk naam/beschrijving</string>
   <string name="reading_list_action_menu_remove_from_offline">Uit offline verwijderen</string>
   <string name="reading_list_action_menu_save_for_offline">Voor offline opslaan</string>
@@ -532,6 +540,15 @@
     <item quantity="one">%d artikel verwijderd uit %s</item>
     <item quantity="other">%d artikelen verwijderd uit %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d lijst verwijderd</item>
+    <item quantity="other">%d lijsten verwijderd</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">De standaardlijst (%s) kan niet worden verwijderd.</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s is verwijderd. De standaardlijst (%2$s) kan niet worden verwijderd.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">De lijsten zijn verwijderd. De standaardlijst (%s) kan niet worden verwijderd.</string>
+  <string name="single_list_json_file_name">%s (Wikipedia-leeslijst).json</string>
+  <string name="multiple_lists_json_file_name">Wikipedia-leeslijsten (%s en meer).json</string>
   <string name="reading_list_items_deleted">%d pagina\'s uit lijst verwijderd</string>
   <string name="reading_lists_item_deleted">%s verwijderd uit lijsten</string>
   <string name="reading_list_item_delete_undo">Ongedaan maken</string>
@@ -564,6 +581,11 @@
   <string name="reading_list_articles_added_to_named">%1$d pagina\'s aan %2$s toegevoegd</string>
   <string name="reading_list_articles_moved_to_named">%1$d artikelen naar %2$s verplaatst</string>
   <string name="reading_list_delete_confirm">Weet u zeker dat u %s wilt verwijderen?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Geselecteerde lijst(en) verwijderen?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Weet u zeker dat u %d lijst wilt verwijderen?</item>
+    <item quantity="other">Weet u zeker dat u %d lijsten wilt verwijderen?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Aanmelden om synchronisatie te activeren</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Meld u zich aan om leeslijsten op te slaan in uw account</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annuleren</string>
@@ -587,6 +609,7 @@
   <string name="reading_list_article_limit_message">Toevoegen aan deze lijst niet mogelijk. U heeft de limiet van %2$d artikelen per lijst bereikt voor \"%1$s\".</string>
   <string name="reading_lists_limit_message">Kan geen nieuwe lijst aanmaken. U heeft de limiet van 100 leeslijsten per account bereikt.</string>
   <string name="reading_lists_menu_create_list">Nieuwe lijst aanmaken</string>
+  <string name="reading_lists_menu_import_list">Lijst importeren</string>
   <string name="reading_lists_menu_sort_by">Sorteren op</string>
   <string name="reading_lists_refresh_sync_option">Vernieuw synchronisatie</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Meld aan / registreer</string>
@@ -607,7 +630,33 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Annuleren</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Annuleren</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Verwijderen</string>
   <string name="reading_list_activity_title">Leeslijst: %s</string>
+  <string name="reading_list_notification_title">Leeslijst(en) geëxporteerd</string>
+  <string name="reading_list_notification_text">%d leeslijst(en) zijn geëxporteerd als \'reading_lists export.json\' in uw downloadmap.</string>
+  <string name="reading_list_notification_detailed_text">Leeslijsten zijn geëxporteerd in \'reading_lists_export.json\'</string>
+  <string name="reading_lists_action_menu_export_lists">Exporteren</string>
+  <string name="reading_lists_import_file_picker_title">Kies het te importeren bestand</string>
+  <string name="reading_lists_import_failure_message">Het importeren van leeslijsten is mislukt</string>
+  <string name="reading_lists_export_select_lists_message">Selecteer lijst(en) om te exporteren</string>
+  <string name="reading_lists_export_completed_message">Leeslijst(en) geëxporteerd</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Leeslijst exporteren mislukt</item>
+    <item quantity="other">Leeslijsten exporteren mislukt</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Leeslijst geïmporteerd</item>
+    <item quantity="other">Leeslijsten geïmporteerd</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Gedeelde lijst</string>
+  <string name="reading_lists_preview_save_button">Opslaan</string>
+  <string name="reading_lists_preview_save_dialog_title">Lijst opslaan</string>
+  <string name="reading_lists_preview_save_dialog_text">Benoem de lijst en selecteer artikelen om op te slaan.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Titel</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Annuleren</string>
+  <string name="reading_lists_preview_save_dialog_save">Opslaan</string>
+  <string name="reading_lists_preview_saved_snackbar">Leeslijst opgeslagen</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Bekijken</string>
   <string name="user_option_sync_label">Voorkeuren</string>
   <string name="notification_reverted_title">Bewerking teruggedraaid</string>
   <string name="notification_channel_title">Bestanden downloaden</string>
@@ -818,6 +867,8 @@
   <string name="description_edit_voice_input_description">Steminvoer</string>
   <string name="description_edit_learn_more">Meer informatie over artikelbeschrijvingen</string>
   <string name="description_edit_image_caption_learn_more">Meer informatie over afbeeldingsbijschriften</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">De tekst is te kort.</string>
   <string name="description_ends_with_punctuation">Tekst mag niet eindigen met een interpuctie.</string>
   <string name="description_starts_with_uppercase">Start met een kleine letter tenzij het eerste woord een eigennaam is.</string>
@@ -1307,4 +1358,6 @@
   <string name="reading_list_share_message_v2">Hoi! Ik wil graag mijn Wikipedia leeslijst met je delen:</string>
   <string name="reading_list_share_survey_title">Kun je ons helpen om \"Leeslijsten delen\" te verbeteren?</string>
   <string name="reading_list_share_survey_body">\"Leeslijsten delen\" is een testfunctie en we hebben uw feedback nodig om deze te verbeteren of te verwijderen.</string>
+  <string name="data_opt_in_accept">Aanvaarden</string>
+  <string name="data_opt_in_reject">Afwijzen</string>
 </resources>

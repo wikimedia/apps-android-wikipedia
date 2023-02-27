@@ -197,7 +197,7 @@
   <string name="create_account_ip_block_message">Pardonez, vua IP-adreso esas nun blokusita, e ne povas krear nova konti.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detali</string>
-  <string name="preferences_general_heading">generale</string>
+  <string name="preferences_general_heading">Ordinara preferaji</string>
   <string name="preferences_account_heading">Konto</string>
   <string name="wikipedia_app_faq">FAQ pri la Wikipedio</string>
   <string name="send_feedback">Retrosendar informi pri l\' app</string>
@@ -464,10 +464,6 @@
     <item quantity="one">%1$d de 1 artiklo disponebla \'\'offline\'\', %3$.2f MB</item>
     <item quantity="other">%1$d de %2$d artikli disponebla \'\'offline\'\', %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artiklo, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikli, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d ek 1 artikli disponebla \'offline\'; %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d ek %2$d artikli disponebla \'offline\', %3$.2f MB</string>
   <string name="reading_list_sort">Klasifikez</string>
   <string name="reading_list_sort_ellipsis">Ordenar segun...</string>
   <string name="reading_list_sort_by_name">Ordenar segun nomo</string>

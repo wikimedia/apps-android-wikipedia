@@ -33,9 +33,11 @@
 * MuratTheTurkish
 * Peter Fernando
 * Ppena
+* Re demz
 * Rodrigo codignoli
 * Teles
 * TheEduGobi
+* Trooper57
 * Walesson
 * Webysther
 * Welerson98
@@ -490,6 +492,10 @@
   <string name="reading_list_articles_already_exist_message">Tudo certo! %s já contém todos os artigos.</string>
   <string name="reading_list_added_view_button">Ver lista</string>
   <string name="reading_list_add_to_list_button">Adicionar à lista</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 artigo</item>
+    <item quantity="other">%d artigos</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 artigo, %2$.2f MB</item>
     <item quantity="other">%1$d artigos, %2$.2f MB</item>
@@ -498,10 +504,6 @@
     <item quantity="one">%1$d de 1 artigo disponível offline, %3$.2f MB</item>
     <item quantity="other">%1$d de %2$d artigos disponíveis offline, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artigo, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artigos, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d de 1 artigos disponíveis off-line, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d de %2$d artigos disponíveis off-line, %3$.2f MB</string>
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_ellipsis">Ordenar por…</string>
   <string name="reading_list_sort_by_name">Ordenar por nome</string>
@@ -511,6 +513,10 @@
   <string name="reading_list_sort_by_created">Ordenar por data criada (mais nova)</string>
   <string name="reading_list_sort_by_created_desc">Ordenar por data criada (a mais antiga)</string>
   <string name="reading_list_menu_delete">Excluir lista</string>
+  <string name="reading_list_menu_export">Lista exportada</string>
+  <string name="reading_list_menu_select">Selecionar</string>
+  <string name="reading_list_menu_unselect">Desmarcar</string>
+  <string name="reading_list_export_write_permission_rationale">Permissão para gravar no armazenamento do seu dispositivo é necessária para exportar a sua lista de leitura.</string>
   <string name="reading_list_menu_rename">Editar nome/descrição</string>
   <string name="reading_list_action_menu_remove_from_offline">Remover do modo offline</string>
   <string name="reading_list_action_menu_save_for_offline">Salvar off-line</string>
@@ -530,6 +536,14 @@
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="other">um=%d artigo removido de %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d lista excluída</item>
+    <item quantity="other">%d listas excluídas</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">A lista padrão (%s) não pode ser excluída</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s deletada. A lista padrão (%2$s) não pode ser excluída.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Listas excluídas. A lista padrão (%s) não pode ser excluída.</string>
+  <string name="multiple_lists_json_file_name">lista de leitura da wikipedia (%s e mais).json</string>
   <string name="reading_list_items_deleted">%d artigos removidos da lista</string>
   <string name="reading_lists_item_deleted">%s removido das listas</string>
   <string name="reading_list_item_delete_undo">Desfazer</string>
@@ -562,6 +576,11 @@
   <string name="reading_list_articles_added_to_named">Adicionado %1$d artigos para %2$s</string>
   <string name="reading_list_articles_moved_to_named">Movido %1$d artigos para %2$s</string>
   <string name="reading_list_delete_confirm">Tem a certeza de que pretende eliminar %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Excluir lista(s) selecionada(s)?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Tem certeza que quer deletar %d lista?</item>
+    <item quantity="other">Tem certeza que quer deletar %d listas?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Entre para ativar a sincronização</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Entre para permitir que as suas listas de leitura sejam guardadas na sua conta.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancelar</string>
@@ -585,6 +604,7 @@
   <string name="reading_list_article_limit_message">Não foi possível acrescentar a esta lista. Atingiu o limite máximo de %2$d artigos por lista para \"%1$s\".</string>
   <string name="reading_lists_limit_message">Não foi possível criar outra lista. Atingiu o limite máximo de 100 listas de leitura por conta.</string>
   <string name="reading_lists_menu_create_list">Criar nova lista</string>
+  <string name="reading_lists_menu_import_list">Lista importada</string>
   <string name="reading_lists_menu_sort_by">Ordenar por</string>
   <string name="reading_lists_refresh_sync_option">Atualizar sincronização</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Entrar / Inscrever-se</string>
@@ -605,7 +625,33 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Cancelar</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancelar</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Excluir</string>
   <string name="reading_list_activity_title">Lista de leitura: %s</string>
+  <string name="reading_list_notification_title">Lista(s) de leitura exportada(s)</string>
+  <string name="reading_list_notification_text">%d Lista(s) de leitura foram exportada(s) como \'reading_lists export.json\' para a sua pasta de downloads</string>
+  <string name="reading_list_notification_detailed_text">Listas de leitura foram exportadas para \'reading_lists_export.json\'</string>
+  <string name="reading_lists_action_menu_export_lists">Exportar</string>
+  <string name="reading_lists_import_file_picker_title">Escolha documento para importar</string>
+  <string name="reading_lists_import_failure_message">Falha ao importar listas de leitura</string>
+  <string name="reading_lists_export_select_lists_message">Lista(s) selecionada(s) para exportar</string>
+  <string name="reading_lists_export_completed_message">Lista(s) de leitura exportada(s)</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">exportação de lista de leitura falhou</item>
+    <item quantity="other">exportação de listas de leitura falhou</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Lista de leitura importada</item>
+    <item quantity="other">Listas de leitura imporatadas</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Lista compartilhada</string>
+  <string name="reading_lists_preview_save_button">Salvar</string>
+  <string name="reading_lists_preview_save_dialog_title">Salvar lista</string>
+  <string name="reading_lists_preview_save_dialog_text">Nomeie a lista e selecione os artigos a serem salvos.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Título</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Cancelar</string>
+  <string name="reading_lists_preview_save_dialog_save">Salvar</string>
+  <string name="reading_lists_preview_saved_snackbar">Lista de leitura salva</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Visualizar</string>
   <string name="user_option_sync_label">Preferências</string>
   <string name="notification_reverted_title">Edição revertida</string>
   <string name="notification_channel_title">Baixando artigos</string>
@@ -1309,4 +1355,6 @@
   <string name="reading_list_share_message_v2">Olá! Gostaria de compartilhar a minha lista de leitura da Wikipédia com você:</string>
   <string name="reading_list_share_survey_title">Pode nos ajudar a melhorar \"Compartilhar listas de leitura\"?</string>
   <string name="reading_list_share_survey_body">\"Compartilhar listas de leitura\" é um recurso de teste e precisamos do seu feedback para melhorá-lo ou removê-lo.</string>
+  <string name="data_opt_in_accept">Aceitar</string>
+  <string name="data_opt_in_reject">Recusar</string>
 </resources>

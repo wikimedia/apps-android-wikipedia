@@ -469,11 +469,23 @@
   <string name="reading_list_articles_already_exist_message">Vse je v redu! %s že vsebuje vse članke.</string>
   <string name="reading_list_added_view_button">Prikaži seznam</string>
   <string name="reading_list_add_to_list_button">Dodaj na seznam</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 članek</item>
+    <item quantity="two">%d članka</item>
+    <item quantity="few">%d članki</item>
+    <item quantity="other">%d člankov</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 članek, %2$.2f MB</item>
     <item quantity="two">%1$d članka, %2$.2f MB</item>
     <item quantity="few">%1$d članki, %2$.2f MB</item>
     <item quantity="other">%1$d člankov, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">Brez povezave je na voljo %1$d od 1 članka</item>
+    <item quantity="two">Brez povezave je na voljo %1$d od 2 člankov</item>
+    <item quantity="few">Brez povezave je na voljo %1$d od %2$d člankov</item>
+    <item quantity="other">Brez povezave je na voljo %1$d od %2$d člankov</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">Brez povezave je na voljo %1$d od 1 članka, %3$.2f MB</item>
@@ -481,10 +493,6 @@
     <item quantity="few">Brez povezave je na voljo %1$d od %2$d člankov, %3$.2f MB</item>
     <item quantity="other">Brez povezave je na voljo %1$d od %2$d člankov, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 članek, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d čl., %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">Brez povezave je na voljo %1$d od 1 članka, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">Brez povezave je na voljo %1$d od %2$d člankov, %3$.2f MB</string>
   <string name="reading_list_sort">Razvrsti</string>
   <string name="reading_list_sort_ellipsis">Razvrsti po ...</string>
   <string name="reading_list_sort_by_name">Razvrsti po naslovu</string>
@@ -494,6 +502,10 @@
   <string name="reading_list_sort_by_created">Razvrsti po datumu ustvaritve (najnovejše)</string>
   <string name="reading_list_sort_by_created_desc">Razvrsti po datumu ustvaritve (najstarejše)</string>
   <string name="reading_list_menu_delete">Izbriši seznam</string>
+  <string name="reading_list_menu_export">Izvozi seznam</string>
+  <string name="reading_list_menu_select">Izberi</string>
+  <string name="reading_list_menu_unselect">Odizberi</string>
+  <string name="reading_list_export_write_permission_rationale">Za izvoz vašega bralnega seznama je potrebno dovoljenje za shranjevanje v vaši napravi.</string>
   <string name="reading_list_menu_rename">Uredi naslov/opis</string>
   <string name="reading_list_action_menu_remove_from_offline">Odstrani preneseno</string>
   <string name="reading_list_action_menu_save_for_offline">Prenesi</string>
@@ -518,6 +530,17 @@
     <item quantity="few">%d članki odstranjeni s seznama %s</item>
     <item quantity="other">%d člankov odstranjenih s seznama %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d seznam izbrisan</item>
+    <item quantity="two">%d seznama izbrisana</item>
+    <item quantity="few">%d seznami izbrisani</item>
+    <item quantity="other">%d seznamov izbrisanih</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Privzetega seznama (%s) ni mogoče izbrisati.</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s izbrisani. Privzetega seznama (%2$s) ni mogoče izbrisati.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Seznami izbrisani. Privzetega seznama (%s) ni mogoče izbrisati.</string>
+  <string name="single_list_json_file_name">%s (seznam za branje Wikipedije).json</string>
+  <string name="multiple_lists_json_file_name">Bralni seznami Wikipedije (vsaj %s).json</string>
   <string name="reading_list_items_deleted">%d člankov odstranjenih s seznama</string>
   <string name="reading_lists_item_deleted">%s odstranjen s seznamov</string>
   <string name="reading_list_item_delete_undo">Razveljavi</string>
@@ -550,6 +573,13 @@
   <string name="reading_list_articles_added_to_named">%1$d člankov dodanih na %2$s</string>
   <string name="reading_list_articles_moved_to_named">%1$d člankov prestavljenih na %2$s</string>
   <string name="reading_list_delete_confirm">Ali res želite izbrisati %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Izbrišem izbrani(e) seznam(e)?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Ste prepričani, da želite izbrisati %d seznam?</item>
+    <item quantity="two">Ste prepričani, da želite izbrisati %d seznama</item>
+    <item quantity="few">Ste prepričani, da želite izbrisati %d sezname</item>
+    <item quantity="other">Ste prepričani, da želite izbrisati %d sezname?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Za uporabo sinhroniziranja se prijavite</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Za shranjevanje bralnih seznamov na svoj račun se prijavite.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Prekliči</string>
@@ -573,6 +603,7 @@
   <string name="reading_list_article_limit_message">Na ta seznam ni mogoče dodati. Dosegli ste omejitev seznama »%1$s« na %2$d člankov.</string>
   <string name="reading_lists_limit_message">Še enega seznama ni mogoče ustvariti. Dosegli ste omejitev 100 bralnih seznamov na račun.</string>
   <string name="reading_lists_menu_create_list">Ustvari nov seznam</string>
+  <string name="reading_lists_menu_import_list">Uvozi seznam</string>
   <string name="reading_lists_menu_sort_by">Razvrsti po</string>
   <string name="reading_lists_refresh_sync_option">Osveži sinhroniziranje</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Prijava/registracija</string>
@@ -597,7 +628,37 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Prekliči</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Prekliči</string>
   <string name="reading_list_split_dialog_ok_button_text">V redu</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Izbriši</string>
   <string name="reading_list_activity_title">Bralni seznam: %s</string>
+  <string name="reading_list_notification_title">Bralni seznam(i) je(so) izvožen(i)</string>
+  <string name="reading_list_notification_text">%d bralnih seznamov je bilo izvoženih kot \'reading_lists export.json\' v vašo mapo s prenosi</string>
+  <string name="reading_list_notification_detailed_text">Bralni seznami so bili izvoženi v »reading_lists_export.json«</string>
+  <string name="reading_lists_action_menu_export_lists">Izvozi</string>
+  <string name="reading_lists_import_file_picker_title">Izberite datoteko za uvoz</string>
+  <string name="reading_lists_import_failure_message">Uvoz bralnega seznama ni uspel</string>
+  <string name="reading_lists_export_select_lists_message">Izberite seznam(e) za izvoz</string>
+  <string name="reading_lists_export_completed_message">Bralni seznam(i) izvoženi</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Izvoz bralnega seznama je spodletel</item>
+    <item quantity="two">Izvoz bralnih seznamov je spodletel</item>
+    <item quantity="few">Izvoz bralnih seznamov je spodletel</item>
+    <item quantity="other">Izvoz bralnih seznamov je spodletel</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Bralni seznam je uvožen</item>
+    <item quantity="two">Bralna seznama sta uvožena</item>
+    <item quantity="few">Bralni seznami so uvoženi</item>
+    <item quantity="other">Bralni seznami so uvoženi</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Deljeni seznam</string>
+  <string name="reading_lists_preview_save_button">Shrani</string>
+  <string name="reading_lists_preview_save_dialog_title">Shrani seznam</string>
+  <string name="reading_lists_preview_save_dialog_text">Poimenujte seznam in izberite članke za shranitev.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Naslov</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Prekliči</string>
+  <string name="reading_lists_preview_save_dialog_save">Shrani</string>
+  <string name="reading_lists_preview_saved_snackbar">Bralni seznam shranjen</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Prikaži</string>
   <string name="user_option_sync_label">Nastavitve</string>
   <string name="notification_reverted_title">Vrnjeno urejanje</string>
   <string name="notification_channel_title">Prenos člankov</string>
@@ -1349,4 +1410,6 @@
   <string name="reading_list_share_message_v2">Zdravo! S tabo želim deliti svoj bralni seznam Wikipedije:</string>
   <string name="reading_list_share_survey_title">Nam lahko pomagate izboljšati možnost »Deli bralne sezname«?</string>
   <string name="reading_list_share_survey_body">»Deli bralne sezname« je preizkusna možnost in potrebujemo vaše povratne informacije, da jo izboljšamo ali odstranimo.</string>
+  <string name="data_opt_in_accept">Sprejmem</string>
+  <string name="data_opt_in_reject">Zavrnem</string>
 </resources>

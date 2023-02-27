@@ -372,10 +372,6 @@
   <string name="reading_list_articles_already_exist_message">Kullec igerrez! %s igber yakan akk imagraden.</string>
   <string name="reading_list_added_view_button">Sken tabdart</string>
   <string name="reading_list_add_to_list_button">Rnu ɣer wumuɣ</string>
-  <string name="format_reading_list_statistical_summary_singular">1 n umagrad, %1$.2f MAṬ</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d n imagraden, %2$.2f MAṬ</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d si 1 n imagraden yellan s war tuqqna, %2$.2f MAṬ</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d si %2$d n imagraden yellan s war tuqqna, %3$.2f MAṬ</string>
   <string name="reading_list_sort">Smizzwer</string>
   <string name="reading_list_sort_ellipsis">Fren s...</string>
   <string name="reading_list_sort_by_name">Smizzwer s yisem</string>

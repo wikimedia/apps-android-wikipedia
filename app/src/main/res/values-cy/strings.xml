@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Afalau
 * Cymrodor
 * Johnogwen123
 * Lloffiwr
@@ -275,9 +276,19 @@
   <string name="reading_list_sort_by_created">Sortio yn ôl dyddiad creu (newydd)</string>
   <string name="reading_list_sort_by_created_desc">Sortio yn ôl dyddiad creu (hen)</string>
   <string name="reading_list_menu_delete">Dileu\'r rhestr</string>
+  <string name="reading_list_menu_export">Allforio rhestr</string>
+  <string name="reading_list_menu_select">Dewis</string>
   <string name="reading_list_name_sample">Fy rhestr ddarllen</string>
   <string name="reading_list_name_hint">Enw ar y rhestr</string>
   <string name="saved_list_empty_title">Dim rhestrau darllen eto</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Dileu</string>
+  <string name="reading_lists_action_menu_export_lists">Allforio</string>
+  <string name="reading_lists_preview_save_button">Cadw</string>
+  <string name="reading_lists_preview_save_dialog_title">Cadw rhestr</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Teitl</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Canslo</string>
+  <string name="reading_lists_preview_save_dialog_save">Cadw</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Gweld</string>
   <string name="user_option_sync_label">Dewisiadau</string>
   <string name="view_main_page_card_title">Heddiw ar Wicipedia</string>
   <string name="view_featured_image_card_title">Llun y dydd</string>
@@ -289,4 +300,6 @@
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Heddiw</string>
   <string name="view_announcement_card_negative_action">Dim diolch</string>
   <string name="description_edit_help_about_wikidata">Ynglŷn â Wicidata</string>
+  <string name="data_opt_in_accept">Cytuno</string>
+  <string name="data_opt_in_reject">Gwrthod</string>
 </resources>

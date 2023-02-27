@@ -478,10 +478,6 @@
     <item quantity="one">%1$d में से 1 लेख ऑफ़लाइन उपलब्ध, %3$.2f एमबी</item>
     <item quantity="other"> %2$d लेखों में से %1$d लेख ऑफ़लाइन उपलब्ध , %3$.2f एमबी</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 लेख, %1$.2f मेगाबाइट</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d लेख, %2$.2f मेगाबाइट</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d में से 1 लेख ऑफलाइन उपलब्ध हैं, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d में से %1$d लेख ऑफलाइन उपलब्ध हैं, %3$.2f MiB</string>
   <string name="reading_list_sort">छांटें</string>
   <string name="reading_list_sort_ellipsis">के अनुसार क्रमबद्ध करें</string>
   <string name="reading_list_sort_by_name">नाम से छांटें</string>
@@ -587,6 +583,11 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द करें</string>
   <string name="reading_list_split_dialog_ok_button_text">ठीक है</string>
   <string name="reading_list_activity_title">पठन सूची: %s</string>
+  <string name="reading_lists_preview_save_button">सहेजें</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">शीर्षक</string>
+  <string name="reading_lists_preview_save_dialog_cancel">रद्द करें</string>
+  <string name="reading_lists_preview_save_dialog_save">सहेजें</string>
+  <string name="reading_lists_preview_saved_snackbar_action">देखें</string>
   <string name="user_option_sync_label">वरीयता</string>
   <string name="notification_reverted_title">संपादन वापस लिया गया</string>
   <string name="notification_channel_title">लेख डाउनलोड हो रहे हैं</string>

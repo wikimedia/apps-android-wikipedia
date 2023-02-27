@@ -484,10 +484,6 @@
     <item quantity="one">읽을 수 있는 오프라인 글 1개 중 %1$d개, %3$.2f MB</item>
     <item quantity="other">읽을 수 있는 오프라인 글 %2$d개 중 %1$d개, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1개의 문서, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d개의 문서, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">1개의 문서 중 %1$d개를 오프라인에서 읽을 수 있음, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d개의 문서 중 %1$d개를 오프라인에서 읽을 수 있음, %3$.2f MB</string>
   <string name="reading_list_sort">정렬</string>
   <string name="reading_list_sort_ellipsis">정렬 기준...</string>
   <string name="reading_list_sort_by_name">이름순</string>
@@ -497,6 +493,8 @@
   <string name="reading_list_sort_by_created">만든 날짜 순으로 정렬 (최근 순서)</string>
   <string name="reading_list_sort_by_created_desc">만든 날짜 순으로 정렬 (가장 오래된 순서)</string>
   <string name="reading_list_menu_delete">목록 삭제</string>
+  <string name="reading_list_menu_select">선택</string>
+  <string name="reading_list_menu_unselect">선택 해제</string>
   <string name="reading_list_menu_rename">이름/설명 편집</string>
   <string name="reading_list_action_menu_remove_from_offline">오프라인에서 제거</string>
   <string name="reading_list_action_menu_save_for_offline">오프라인을 위해 저장</string>
@@ -592,7 +590,15 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">취소</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">취소</string>
   <string name="reading_list_split_dialog_ok_button_text">확인</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">삭제</string>
   <string name="reading_list_activity_title">읽기 목록: %s</string>
+  <string name="reading_lists_action_menu_export_lists">내보내기</string>
+  <string name="reading_lists_export_select_lists_message">내보낼 목록을 선택하십시오</string>
+  <string name="reading_lists_preview_save_button">저장</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">제목</string>
+  <string name="reading_lists_preview_save_dialog_cancel">취소</string>
+  <string name="reading_lists_preview_save_dialog_save">저장</string>
+  <string name="reading_lists_preview_saved_snackbar_action">보기</string>
   <string name="user_option_sync_label">환경 설정</string>
   <string name="notification_reverted_title">되돌려진 편집</string>
   <string name="notification_channel_title">문서를 다운로드하는 중</string>
@@ -1272,4 +1278,6 @@
   <string name="reading_list_share_message_v2">안녕하세요! 저의 위키백과 읽기 목록을 당신께 공유하고 싶습니다:</string>
   <string name="reading_list_share_survey_title">\"읽기 목록 공유\" 개선에 도움을 주시겠습니까?</string>
   <string name="reading_list_share_survey_body">\"읽기 목록 공유\"는 시험 기능이며, 이를 개선하거나 제거하려면 여러분의 의견이 필요합니다.</string>
+  <string name="data_opt_in_accept">수락</string>
+  <string name="data_opt_in_reject">거부</string>
 </resources>
