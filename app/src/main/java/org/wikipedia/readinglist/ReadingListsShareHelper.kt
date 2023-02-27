@@ -47,7 +47,7 @@ object ReadingListsShareHelper {
             val wikiPageIdsMap = mutableMapOf<String, MutableMap<String, Int>>()
 
             wikiPageTitlesMap.keys.forEach { wikiLang ->
-                wikiPageTitlesMap[wikiLang].orEmpty().windowed(API_MAX_SIZE, API_MAX_SIZE, true).forEach { list ->
+                wikiPageTitlesMap[wikiLang].orEmpty().chunked(API_MAX_SIZE).forEach { list ->
                     ServiceFactory.get(WikiSite.forLanguageCode(wikiLang)).getPageIds(list.joinToString("|")).query?.pages!!.forEach { page ->
                         wikiPageIdsMap.getOrPut(wikiLang) { mutableMapOf() }[StringUtil.addUnderscores(page.title)] = page.pageId
                     }
