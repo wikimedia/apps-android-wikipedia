@@ -343,6 +343,8 @@
   <string name="tool_tip_bookmark_icon_text">Dodirnite sličicu dočitnice da biste sačuvali članak na listu za čitanje.</string>
   <string name="theme_category_editing">Uređivanje</string>
   <string name="editing_syntax_highlight_label">Isticanje sintakse</string>
+  <string name="reading_lists_preview_save_button">Sačuvaj</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Otkaži</string>
   <string name="wikitext_underline">Podvučeno</string>
   <string name="wikitext_strikethrough">Precrtano</string>
   <string name="wikitext_sup">Eksponent</string>
