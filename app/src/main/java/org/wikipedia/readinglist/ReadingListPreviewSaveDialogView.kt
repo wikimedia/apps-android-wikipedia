@@ -49,8 +49,8 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(context, R.attr.list_separator_drawable, drawStart = true, drawEnd = true, skipSearchBar = true))
         currentReadingLists = AppDatabase.instance.readingListDao().getAllLists().toMutableList()
-        binding.readingListTitle.doOnTextChanged { text, _, _, _ ->
-            checkReadingListTitle(text.toString())
+        binding.readingListTitle.doOnTextChanged { _, _, _, _ ->
+            validateTitleAndList()
         }
     }
 
@@ -60,21 +60,25 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
         this.callback = callback
         val defaultListTitle = context.getString(R.string.reading_lists_preview_header_title).plus(" " + DateUtil.getShortDayWithTimeString(Date()))
         binding.readingListTitleLayout.editText?.setText(defaultListTitle)
-        checkReadingListTitle(defaultListTitle)
+        validateTitleAndList()
         binding.recyclerView.adapter = ReadingListItemAdapter()
     }
 
-    private fun checkReadingListTitle(name: String) {
-        if (currentReadingLists.any { it.title == name }) {
+    private fun validateTitleAndList() {
+        val listTitle = binding.readingListTitle.text.toString()
+        if (currentReadingLists.any { it.title == listTitle }) {
             binding.readingListTitleLayout.error =
-                context.getString(R.string.reading_list_title_exists, name)
+                context.getString(R.string.reading_list_title_exists, listTitle)
             callback.onError()
-        } else if (name.isEmpty()) {
+        } else if (listTitle.isEmpty()) {
+            binding.readingListTitleLayout.error = null
+            callback.onError()
+        } else if (savedReadingListPages.isEmpty()) {
             binding.readingListTitleLayout.error = null
             callback.onError()
         } else {
             binding.readingListTitleLayout.error = null
-            callback.onSuccess(name)
+            callback.onSuccess(listTitle)
         }
     }
 
@@ -104,6 +108,7 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
 
         private fun updateState() {
             itemBinding.checkbox.isChecked = savedReadingListPages.contains(readingListPage)
+            validateTitleAndList()
         }
     }
 
