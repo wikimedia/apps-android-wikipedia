@@ -57,6 +57,7 @@ object DiffUtil {
     }
 
     class DiffLinesAdapter(val diffLines: List<DiffLine>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
         override fun getItemCount(): Int {
             return diffLines.size
         }

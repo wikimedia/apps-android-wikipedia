@@ -40,7 +40,7 @@ import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwParseResponse
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
-import org.wikipedia.dataclient.restbase.DiffResponse
+import org.wikipedia.diff.DiffUtil
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.edit.richtext.SyntaxHighlighter
@@ -79,7 +79,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     private var sectionAnchor: String? = null
     private var textToHighlight: String? = null
     private var sectionWikitext: String? = null
-    private var diffResponse: DiffResponse? = null
+    private var diffLines: List<DiffUtil.DiffLine>? = null
     private var revisionId: Long? = null
     private var revisionIdAfter: Long? = null
     private val editNotices = mutableListOf<String>()
@@ -191,7 +191,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         sectionAnchor = intent.getStringExtra(EXTRA_SECTION_ANCHOR)
         textToHighlight = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
         // For undo editing
-        diffResponse = JsonUtil.decodeFromString(intent.getStringExtra(EXTRA_DIFF_RESPONSE))
+        diffLines = JsonUtil.decodeFromString(intent.getStringExtra(EXTRA_DIFF_LINES))
         revisionId = intent.getLongExtra(EXTRA_REVISION_ID, -1)
         revisionIdAfter = intent.getLongExtra(EXTRA_REVISION_ID_AFTER, -1)
         supportActionBar?.title = ""
@@ -754,7 +754,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
         const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
         const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight"
-        const val EXTRA_DIFF_RESPONSE = "org.wikipedia.edit_section.diffresponse"
+        const val EXTRA_DIFF_LINES = "org.wikipedia.edit_section.difflines"
         const val EXTRA_REVISION_ID = "org.wikipedia.edit_section.revisionid"
         const val EXTRA_REVISION_ID_AFTER = "org.wikipedia.edit_section.revisionid.after"
 
@@ -766,9 +766,9 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
         }
 
-        fun newIntent(context: Context, diffResponse: String, title: PageTitle, revisionId: Long, revisionIdAfter: Long): Intent {
+        fun newIntent(context: Context, diffLines: String, title: PageTitle, revisionId: Long, revisionIdAfter: Long): Intent {
             return Intent(context, EditSectionActivity::class.java)
-                .putExtra(EXTRA_DIFF_RESPONSE, diffResponse)
+                .putExtra(EXTRA_DIFF_LINES, diffLines)
                 .putExtra(EXTRA_TITLE, title)
                 .putExtra(EXTRA_REVISION_ID, revisionId)
                 .putExtra(EXTRA_REVISION_ID_AFTER, revisionIdAfter)

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.FrameLayout
 import android.widget.ImageView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
@@ -28,7 +29,9 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.dataclient.watch.Watch
+import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
@@ -52,6 +55,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private val viewModel: ArticleEditDetailsViewModel by viewModels { ArticleEditDetailsViewModel.Factory(requireArguments()) }
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
+
+    private val requestEditUnoLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        // TODO: go to the latest revision
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -97,7 +104,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         viewModel.diffText.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
-                binding.diffRecyclerView.adapter = DiffUtil.DiffLinesAdapter(DiffUtil.buildDiffLinesList(requireContext(), it.data.diff))
+                binding.diffRecyclerView.adapter = DiffUtil.DiffLinesAdapter(DiffUtil.buildDiffLinesList(requireContext(), it.data.diff)).also { adapter ->
+                    viewModel.diffLines = adapter.diffLines
+                }
                 updateAfterDiffFetchSuccess()
                 binding.progressBar.isVisible = false
             } else if (it is Resource.Error) {
@@ -107,7 +116,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         viewModel.singleRevisionText.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
-                binding.diffRecyclerView.adapter = DiffUtil.DiffLinesAdapter(DiffUtil.buildDiffLinesList(requireContext(), it.data))
+                binding.diffRecyclerView.adapter = DiffUtil.DiffLinesAdapter(DiffUtil.buildDiffLinesList(requireContext(), it.data)).also { adapter ->
+                    viewModel.diffLines = adapter.diffLines
+                }
                 updateAfterDiffFetchSuccess()
                 binding.progressBar.isVisible = false
             } else if (it is Resource.Error) {
@@ -233,7 +244,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
 
         binding.undoButton.setOnClickListener {
-            showUndoDialog()
+            // showUndoDialog()
+            val diffLines = JsonUtil.encodeToString(viewModel.diffLines)
+            diffLines?.let {
+                requestEditUnoLauncher.launch(EditSectionActivity.newIntent(requireContext(), it, viewModel.pageTitle, viewModel.revisionToId, 0))
+            }
             editHistoryInteractionEvent?.logUndoTry()
         }
 
@@ -418,6 +433,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         val dialog = UndoEditDialog(editHistoryInteractionEvent, requireActivity()) { text ->
             viewModel.revisionTo?.let {
                 binding.progressBar.isVisible = true
+                // TODO: check whether we should send revisionIdAfter or not
                 viewModel.undoEdit(viewModel.pageTitle, it.user, text.toString(), viewModel.revisionToId, 0)
             }
         }
