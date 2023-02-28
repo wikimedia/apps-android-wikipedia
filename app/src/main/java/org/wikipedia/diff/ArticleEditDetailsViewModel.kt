@@ -46,7 +46,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     var revisionFrom: MwQueryPage.Revision? = null
     var canGoForward = false
     var hasRollbackRights = false
-    var diffLines: List<DiffUtil.DiffLine>? = null
+    var diffItems: List<DiffResponse.DiffItem>? = null
 
     private var diffRevisionId = 0L
 

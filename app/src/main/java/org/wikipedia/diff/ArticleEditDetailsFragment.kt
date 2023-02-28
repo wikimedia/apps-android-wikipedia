@@ -105,7 +105,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         viewModel.diffText.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
                 binding.diffRecyclerView.adapter = DiffUtil.DiffLinesAdapter(DiffUtil.buildDiffLinesList(requireContext(), it.data.diff)).also { adapter ->
-                    viewModel.diffLines = adapter.diffLines
+                    viewModel.diffItems = adapter.diffLines.map { line -> line.diff }
                 }
                 updateAfterDiffFetchSuccess()
                 binding.progressBar.isVisible = false
@@ -117,7 +117,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         viewModel.singleRevisionText.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
                 binding.diffRecyclerView.adapter = DiffUtil.DiffLinesAdapter(DiffUtil.buildDiffLinesList(requireContext(), it.data)).also { adapter ->
-                    viewModel.diffLines = adapter.diffLines
+                    viewModel.diffItems = adapter.diffLines.map { line -> line.diff }
                 }
                 updateAfterDiffFetchSuccess()
                 binding.progressBar.isVisible = false
@@ -245,8 +245,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         binding.undoButton.setOnClickListener {
             // showUndoDialog()
-            val diffLines = JsonUtil.encodeToString(viewModel.diffLines)
+            val diffLines = JsonUtil.encodeToString(viewModel.diffItems)
             diffLines?.let {
+                // TODO: check whether we should send revisionIdAfter or not
                 requestEditUnoLauncher.launch(EditSectionActivity.newIntent(requireContext(), it, viewModel.pageTitle, viewModel.revisionToId, 0))
             }
             editHistoryInteractionEvent?.logUndoTry()
@@ -433,7 +434,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         val dialog = UndoEditDialog(editHistoryInteractionEvent, requireActivity()) { text ->
             viewModel.revisionTo?.let {
                 binding.progressBar.isVisible = true
-                // TODO: check whether we should send revisionIdAfter or not
                 viewModel.undoEdit(viewModel.pageTitle, it.user, text.toString(), viewModel.revisionToId, 0)
             }
         }
