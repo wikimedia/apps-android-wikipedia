@@ -152,7 +152,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> R.string.description_edit_translate_description
                 DescriptionEditActivity.Action.ADD_CAPTION -> R.string.description_edit_add_image_caption
                 DescriptionEditActivity.Action.TRANSLATE_CAPTION -> R.string.description_edit_translate_image_caption
-                else -> R.string.description_edit_text_hint
+                else -> R.string.suggested_edits_add_description_button
             }
         } else {
             if (action == DescriptionEditActivity.Action.ADD_CAPTION || action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
