@@ -144,7 +144,7 @@
     <string name="preference_key_user_contrib_filter_lang_code">userContribFilterLangCode</string>
     <string name="preference_key_import_reading_lists_new_install_dialog_shown">importReadingListsNewInstallDialogShown</string>
     <string name="preference_key_import_reading_lists_dialog_shown">importReadingListsDialogShown</string>
-    <string name="preference_key_import_reading_lists_data">importReadingListsData</string>
+    <string name="preference_key_receive_reading_lists_data">receiveReadingListsData</string>
     <string name="preference_key_edit_syntax_highlight">editSyntaxHighlight</string>
     <string name="preference_key_edit_monospace_font">editMonospaceFont</string>
     <string name="preference_key_edit_line_numbers">editLineNumbers</string>
@@ -155,7 +155,6 @@
     <string name="preference_key_reading_lists_share_tooltip_shown">readingListShareTooltipShown</string>
     <string name="preference_key_reading_lists_receive_survey_attempts">readingListReceiveSurveyAttempts</string>
     <string name="preference_key_reading_lists_receive_survey_mode">readingListReceiveSurveyMode</string>
-    <string name="preference_key_reading_lists_recent_receive_tooltip_shown">readingListRecentReceiveTooltipShown</string>
     <string name="preference_key_reading_lists_recent_receive_id">readingListRecentReceiveId</string>
     <string name="preference_key_se_machine_generated_descriptions_tooltip_shown">seMachineGeneratedDescriptionsTooltipShown</string>
 </resources>

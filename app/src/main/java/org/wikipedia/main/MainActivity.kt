@@ -38,7 +38,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         super.onCreate(savedInstanceState)
 
         setImageZoomHelper()
-        if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null && !intent.hasExtra(Constants.INTENT_EXTRA_IMPORT_READING_LISTS)) {
+        if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null && !intent.hasExtra(
+                Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS)) {
             // Updating preference so the search multilingual tooltip
             // is not shown again for first time users
             Prefs.isMultilingualSearchTooltipShown = false

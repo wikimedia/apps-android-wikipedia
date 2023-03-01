@@ -620,9 +620,9 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_import_reading_lists_dialog_shown, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_import_reading_lists_dialog_shown, value)
 
-    var importReadingListsData
-        get() = PrefsIoUtil.getString(R.string.preference_key_import_reading_lists_data, null)
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_import_reading_lists_data, value)
+    var receiveReadingListsData
+        get() = PrefsIoUtil.getString(R.string.preference_key_receive_reading_lists_data, null)
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_receive_reading_lists_data, value)
 
     var editSyntaxHighlightEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_syntax_highlight, true)
@@ -662,10 +662,6 @@ object Prefs {
     var readingListReceiveSurveyMode
         get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_receive_survey_mode, 0)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_receive_survey_mode, value)
-
-    var readingListRecentReceivedTooltipShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_recent_receive_tooltip_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_recent_receive_tooltip_shown, value)
 
     var readingListRecentReceivedId
         get() = PrefsIoUtil.getLong(R.string.preference_key_reading_lists_recent_receive_id, -1)

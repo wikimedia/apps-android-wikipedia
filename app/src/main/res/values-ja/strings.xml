@@ -100,7 +100,7 @@
   <string name="page_edit_history_activity_title">変更履歴: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;細&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">編集の要約がありません</string>
-  <string name="page_edit_history_search_or_filter_edits_hint">編集を検索またはフィルタリングする</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">編集を検索または絞り込む</string>
   <string name="page_edit_history_filter_by">絞り込みの条件：</string>
   <string name="page_edit_history_filter_by_all">すべての編集（ %s ）</string>
   <string name="page_edit_history_filter_by_user">ユーザー編集（ %s ）</string>
@@ -500,9 +500,15 @@
   <string name="reading_list_articles_already_exist_message">大丈夫！指定した記事はすべて既に%sに含まれています。</string>
   <string name="reading_list_added_view_button">リストを表示</string>
   <string name="reading_list_add_to_list_button">リストに追加</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="other">%d件の記事</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1記事、%2$.2f MB</item>
     <item quantity="other">%1$d記事、%2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="other">%2$d件中%1$d件の記事がオフラインで利用可能</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="other">%2$d件中%1$d件の記事がオフラインで利用可能です、%3$.2f MB</item>
@@ -516,7 +522,10 @@
   <string name="reading_list_sort_by_created">作成日で検索(降順)</string>
   <string name="reading_list_sort_by_created_desc">作成日で検索(昇順)</string>
   <string name="reading_list_menu_delete">リストを削除</string>
+  <string name="reading_list_menu_export">リストをエクスポート</string>
   <string name="reading_list_menu_select">選択</string>
+  <string name="reading_list_menu_unselect">選択解除</string>
+  <string name="reading_list_export_write_permission_rationale">あとで読むリストをエクスポートするにはデバイスのストレージへの書き込み権限が必要です。</string>
   <string name="reading_list_menu_rename">名前/説明を編集</string>
   <string name="reading_list_action_menu_remove_from_offline">オフラインから削除</string>
   <string name="reading_list_action_menu_save_for_offline">オフラインで保存</string>
@@ -537,6 +546,14 @@
     <item quantity="one">%d件の記事を%sから削除しました</item>
     <item quantity="other">%d件の記事を%sから削除しました</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="other">%d件のリストが削除されました</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">既定のリスト (%s) は削除できません</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$sは削除されました。既定のリスト (%2$s) は削除できません。</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">リストを削除しました。既定のリスト (%s) は削除できません。</string>
+  <string name="single_list_json_file_name">%s (ウィキペディアのあとで読むリスト).json</string>
+  <string name="multiple_lists_json_file_name">ウィキペディアのあとで読むリスト (%sほか).json</string>
   <string name="reading_list_items_deleted">リストから%d件の記事を削除しました</string>
   <string name="reading_lists_item_deleted">リストから%sを削除しました</string>
   <string name="reading_list_item_delete_undo">取り消す</string>
@@ -569,6 +586,10 @@
   <string name="reading_list_articles_added_to_named">%1$dに%2$sを追加しました</string>
   <string name="reading_list_articles_moved_to_named">%1$d記事を%2$sに移動しました</string>
   <string name="reading_list_delete_confirm">%sを本当に削除しますか?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">選択したリストを削除しますか？</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="other">本当に%d件のリストを削除しますか？</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">ログインして同期を有効にする</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">ログインして、あとで読むリストをアカウントに保存することを許可</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">キャンセル</string>
@@ -592,6 +613,7 @@
   <string name="reading_list_article_limit_message">リストに追加できません。「%1$s」はリスト項目の上限%2$d件に達しました。</string>
   <string name="reading_lists_limit_message">これ以上リストを作成できません。は1アカウント当たりのあとで読むリストの上限100件に達しました。</string>
   <string name="reading_lists_menu_create_list">新しいリストを作成</string>
+  <string name="reading_lists_menu_import_list">リストをインポート</string>
   <string name="reading_lists_menu_sort_by">並び順:</string>
   <string name="reading_lists_refresh_sync_option">同期を更新</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ログイン / 登録</string>
@@ -614,13 +636,28 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">削除</string>
   <string name="reading_list_activity_title">あとで読むリスト：%s</string>
+  <string name="reading_list_notification_title">あとで読むリストをエクスポートしました</string>
+  <string name="reading_list_notification_text">%d件のあとで読むリストが「reading_lists export.json」として、あなたのダウンロードフォルダにエクスポートされました</string>
+  <string name="reading_list_notification_detailed_text">あとで読むリストが「reading_lists_export.json」にエクスポートされました</string>
   <string name="reading_lists_action_menu_export_lists">エクスポート</string>
   <string name="reading_lists_import_file_picker_title">インポートするファイルを選択</string>
+  <string name="reading_lists_import_failure_message">あとで読むリストのインポートに失敗しました</string>
+  <string name="reading_lists_export_select_lists_message">エクスポートするリストを選択してください</string>
+  <string name="reading_lists_export_completed_message">あとで読むリストをエクスポートしました</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="other">あとで読むリストのエクスポートに失敗しました</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="other">あとで読むリストをインポートしました</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">共有したリスト</string>
   <string name="reading_lists_preview_save_button">保存</string>
   <string name="reading_lists_preview_save_dialog_title">リストを保存</string>
+  <string name="reading_lists_preview_save_dialog_text">リストに名前を付けて保存する記事を選択します。</string>
   <string name="reading_lists_preview_save_dialog_title_hint">タイトル</string>
   <string name="reading_lists_preview_save_dialog_cancel">キャンセル</string>
   <string name="reading_lists_preview_save_dialog_save">保存</string>
+  <string name="reading_lists_preview_saved_snackbar">あとで読むリストを保存しました</string>
   <string name="reading_lists_preview_saved_snackbar_action">表示</string>
   <string name="user_option_sync_label">設定</string>
   <string name="notification_reverted_title">編集が差し戻されました</string>
@@ -629,7 +666,7 @@
   <string name="notification_syncing_pause_button">一時停止</string>
   <string name="notification_syncing_resume_button">継続</string>
   <string name="notification_syncing_cancel_button">キャンセル</string>
-  <string name="notification_syncing_reading_list_channel_title">あとで読むリストを同期しています</string>
+  <string name="notification_syncing_reading_list_channel_title">あとで読むリストを同期中</string>
   <string name="notification_syncing_reading_list_channel_description">あとで読むリストを同期中です</string>
   <string name="notification_many_unread">未読のお知らせが%d件あります</string>
   <plurals name="notification_channel_name">

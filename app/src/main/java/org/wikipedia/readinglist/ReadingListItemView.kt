@@ -2,10 +2,7 @@ package org.wikipedia.readinglist
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.ViewGroup
+import android.view.*
 import androidx.annotation.StyleRes
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -41,6 +38,7 @@ class ReadingListItemView : ConstraintLayout {
     var callback: Callback? = null
     val shareButton get() = binding.itemShareButton
     val listTitle get() = binding.itemTitle
+    val previewSaveButton get() = binding.itemPreviewSaveButton
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -139,6 +137,16 @@ class ReadingListItemView : ConstraintLayout {
 
     fun setOverflowViewVisibility(visibility: Int) {
         binding.itemOverflowMenu.visibility = visibility
+    }
+
+    fun setPreviewMode(isPreview: Boolean) {
+        binding.itemPreviewSaveButton.isVisible = isPreview
+        binding.itemOverflowMenu.isVisible = !isPreview
+        binding.itemReadingListStatisticalDescription.visibility = if (isPreview) View.GONE else View.VISIBLE
+        setOnLongClickListener {
+            // Ignore onLongClick action
+            false
+        }
     }
 
     private fun updateDetails(showCheckBoxes: Boolean) {

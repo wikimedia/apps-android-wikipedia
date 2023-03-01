@@ -628,6 +628,15 @@
     <item quantity="one">Misslyckades att importera läslista</item>
     <item quantity="other">Misslyckades att importera läslistor</item>
   </plurals>
+  <string name="reading_lists_preview_header_title">Dela lista</string>
+  <string name="reading_lists_preview_save_button">Spara</string>
+  <string name="reading_lists_preview_save_dialog_title">Spara lista</string>
+  <string name="reading_lists_preview_save_dialog_text">Namnge lista och välj artiklar att spara.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Titel</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Avbryt</string>
+  <string name="reading_lists_preview_save_dialog_save">Spara</string>
+  <string name="reading_lists_preview_saved_snackbar">Läslista sparades</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Visa</string>
   <string name="user_option_sync_label">Inställningar</string>
   <string name="notification_reverted_title">Ogjord redigering</string>
   <string name="notification_channel_title">Laddar ned artiklar</string>
