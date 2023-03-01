@@ -563,15 +563,14 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     private fun maybeShowEditsTooltip() {
         if (currentFragment !is SuggestedEditsTasksFragment && Prefs.showSuggestedEditsTooltip &&
-            Prefs.exploreFeedVisitCount >= SHOW_EDITS_SNACKBAR_COUNT) {
+                Prefs.exploreFeedVisitCount >= SHOW_EDITS_SNACKBAR_COUNT) {
             enqueueTooltip {
                 FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.EDITS.id()),
                     if (AccountUtil.isLoggedIn) getString(
                         R.string.main_tooltip_text,
                         AccountUtil.userName
                     )
-                    else getString(R.string.main_tooltip_text_v2), aboveOrBelow = true, autoDismiss = false)
-                    .setOnBalloonDismissListener {
+                    else getString(R.string.main_tooltip_text_v2), aboveOrBelow = true, autoDismiss = false).setOnBalloonDismissListener {
                     Prefs.showSuggestedEditsTooltip = false
                 }
             }
