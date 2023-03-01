@@ -430,10 +430,6 @@
             android:key="@string/preference_key_reading_lists_receive_survey_dialog_shown"
             android:title="readingListReceiveSurveyDialogShown" />
 
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_reading_lists_receive_mode"
-            android:title="readingListReceiveMode" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>
