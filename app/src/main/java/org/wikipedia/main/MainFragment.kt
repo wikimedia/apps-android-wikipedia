@@ -269,11 +269,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             showTabCountsAnimation = false
         }
         val notificationMenuItem = menu.findItem(R.id.menu_notifications)
-        if (AccountUtil.isLoggedIn) {
+        if (AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
             notificationMenuItem.isVisible = true
             notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
             notificationButtonView.setOnClickListener {
-                if (AccountUtil.isLoggedIn) {
+                if (AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
                     startActivity(NotificationActivity.newIntent(requireActivity()))
                 }
             }
@@ -448,12 +448,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun talkClick() {
-        if (AccountUtil.isLoggedIn) {
-            AccountUtil.userName?.let {
-                startActivity(TalkTopicsActivity.newIntent(requireActivity(),
-                        PageTitle(UserTalkAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode), it,
-                                WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)), InvokeSource.NAV_MENU))
-            }
+        if (AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
+            startActivity(TalkTopicsActivity.newIntent(requireActivity(),
+                    PageTitle(UserTalkAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode), AccountUtil.userName,
+                            WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)), InvokeSource.NAV_MENU))
         }
     }
 
@@ -462,14 +460,14 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun watchlistClick() {
-        if (AccountUtil.isLoggedIn) {
+        if (AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
             startActivity(WatchlistActivity.newIntent(requireActivity()))
         }
     }
 
     override fun contribsClick() {
-        if (AccountUtil.isLoggedIn) {
-            startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName.orEmpty()))
+        if (AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
+            startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
     }
 
@@ -496,7 +494,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     fun updateNotificationDot(animate: Boolean) {
-        if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
+        if ((AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) && Prefs.notificationUnreadCount > 0) {
             notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
             if (animate) {
                 notificationButtonView.runAnimation()

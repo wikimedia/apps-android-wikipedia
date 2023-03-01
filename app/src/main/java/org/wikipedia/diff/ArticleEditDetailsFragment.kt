@@ -343,7 +343,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         binding.thankButton.isEnabled = true
         binding.thankButton.isVisible = AccountUtil.isLoggedIn &&
-                !AccountUtil.userName.equals(viewModel.revisionTo?.user) &&
+                AccountUtil.userName != viewModel.revisionTo?.user &&
                 viewModel.revisionTo?.isAnon == false
         binding.revisionDetailsView.isVisible = true
         binding.errorView.isVisible = false

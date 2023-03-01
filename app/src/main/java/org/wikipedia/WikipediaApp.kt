@@ -284,7 +284,7 @@ class WikipediaApp : Application() {
 
     @SuppressLint("CheckResult")
     private fun getUserIdForLanguage(code: String) {
-        if (!AccountUtil.isLoggedIn || AccountUtil.userName.isNullOrEmpty()) {
+        if (!AccountUtil.isLoggedIn || AccountUtil.userName.isEmpty()) {
             return
         }
         val wikiSite = WikiSite.forLanguageCode(code)

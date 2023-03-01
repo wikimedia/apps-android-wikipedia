@@ -41,7 +41,7 @@ object UserContribStats {
     }
 
     fun getPageViewsObservable(): Observable<Long> {
-        return ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName!!, 10, null)
+        return ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName, 10, null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->

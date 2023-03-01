@@ -138,7 +138,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             binding.replySubjectLayout.isVisible = false
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_reply_hint)
             binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
-            binding.replyInputView.maybePrepopulateUserName(AccountUtil.userName.orEmpty(), viewModel.pageTitle)
+            binding.replyInputView.maybePrepopulateUserName(AccountUtil.userName, viewModel.pageTitle)
             binding.talkScrollContainer.post {
                 if (!isDestroyed) {
                     binding.replyInputView.editText.requestFocus()

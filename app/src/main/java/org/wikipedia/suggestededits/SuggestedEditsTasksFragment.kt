@@ -85,7 +85,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         setupTestingButtons()
 
         binding.userStatsViewsGroup.addOnClickListener {
-            startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName.orEmpty()))
+            startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
 
         binding.learnMoreCard.setOnClickListener {
@@ -156,9 +156,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         revertSeverity = 0
         binding.progressBar.visibility = VISIBLE
 
-        disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
-                ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
-                ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
+        disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName, 10, null).subscribeOn(Schedulers.io()),
+                ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName, 10, null).subscribeOn(Schedulers.io()),
+                ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName, 10, null).subscribeOn(Schedulers.io()),
                 UserContribStats.getEditCountsObservable()) { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
                     var blockInfo: MwServiceError.BlockInfo? = null
                     when {
