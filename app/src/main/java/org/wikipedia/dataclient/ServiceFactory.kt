@@ -61,7 +61,11 @@ object ServiceFactory {
     }
 
     private fun getBasePath(wiki: WikiSite): String {
-        return Prefs.mediaWikiBaseUrl.ifEmpty { wiki.url() + "/" }
+        var path = wiki.url()
+        if (!path.endsWith("/")) {
+            path += "/"
+        }
+        return path
     }
 
     fun getRestBasePath(wiki: WikiSite): String {
