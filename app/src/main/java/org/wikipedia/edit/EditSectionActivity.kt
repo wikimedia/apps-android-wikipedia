@@ -600,7 +600,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                         pageTitle = PageTitle(firstPage.title, pageTitle.wikiSite).apply {
                             this.displayText = pageTitle.displayText
                         }
-                        sectionWikitext = rev.content
+                        sectionWikitext = rev.getContentFromSlot("main")
                         currentRevision = rev.revId
 
                         val editError = response.query?.firstPage()!!.getErrorForAction("edit")

@@ -61,7 +61,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         }.filter {
             if (currentQuery.isNotEmpty()) {
                 it.comment.contains(currentQuery, true) ||
-                        it.content.contains(currentQuery, true) ||
+                        it.getContentFromSlot("main").contains(currentQuery, true) ||
                         it.user.contains(currentQuery, true)
             } else true
         }.map {
@@ -92,7 +92,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
                 calendar.add(Calendar.YEAR, -1)
                 val lastYear = DateUtil.getYMDDateString(calendar.time)
 
-                val mwResponse = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsAscending(pageTitle.prefixedText, 0, null) }
+                val mwResponse = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsAscending(pageTitle.prefixedText, 1, null) }
                 val editCountsResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS) }
                 val editCountsUserResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITORS) }
                 val editCountsAnonResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_ANONYMOUS) }
