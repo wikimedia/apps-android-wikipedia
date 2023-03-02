@@ -483,6 +483,9 @@
   <string name="reading_list_articles_already_exist_message">Berhasil! %s telah berisi semua artikel.</string>
   <string name="reading_list_added_view_button">Lihat daftar</string>
   <string name="reading_list_add_to_list_button">Tambah ke daftar</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="other">%d artikel</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary">%1$d artikel, %2$.2f MB</string>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d of 1 artikel tersedia offline, %3$.2f MB</item>
@@ -497,6 +500,9 @@
   <string name="reading_list_sort_by_created">Urutkan menurut tanggal dibuat (terbaru)</string>
   <string name="reading_list_sort_by_created_desc">Urutkan menurut tanggal dibuat (terlama)</string>
   <string name="reading_list_menu_delete">Hapus daftar</string>
+  <string name="reading_list_menu_export">Ekspor daftar</string>
+  <string name="reading_list_menu_select">Pilih</string>
+  <string name="reading_list_menu_unselect">Batal pilih</string>
   <string name="reading_list_menu_rename">Sunting nama/deskripsi</string>
   <string name="reading_list_action_menu_remove_from_offline">Hapus dari luring</string>
   <string name="reading_list_action_menu_save_for_offline">Simpan untuk luring</string>
@@ -545,6 +551,10 @@
   <string name="reading_list_articles_added_to_named">%1$d ditambahkan ke %2$s</string>
   <string name="reading_list_articles_moved_to_named">%1$d artikel dipindahkan ke %2$s</string>
   <string name="reading_list_delete_confirm">Apakah Anda yakin ingin menghapus %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Hapus daftar terpilih?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="other">Apakah Anda yakin ingin menghapus %d daftar?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Masuk log untuk mengaktifkan sinkronisasi</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Masuk log untuk membolehkan daftar bacaan Anda disimpan ke akun Anda.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Batal</string>
@@ -568,6 +578,7 @@
   <string name="reading_list_article_limit_message">Tidak dapat menambahkan ke daftar ini. Anda telah mencapai batas %2$d artikel per daftar untuk daftar \"%1$s\".</string>
   <string name="reading_lists_limit_message">Tidak bisa membuat daftar lain. Anda telah mencapai batas 100 daftar bacaan per akun.</string>
   <string name="reading_lists_menu_create_list">Buat daftar baru</string>
+  <string name="reading_lists_menu_import_list">Impor daftar</string>
   <string name="reading_lists_menu_sort_by">Urut berdasarkan</string>
   <string name="reading_lists_refresh_sync_option">Segarkan sinkronisasi</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Masuk log / buat akun</string>
@@ -588,7 +599,29 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Batalkan</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Batalkan</string>
   <string name="reading_list_split_dialog_ok_button_text">Oke</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Hapus</string>
   <string name="reading_list_activity_title">Daftar bacaan: %s</string>
+  <string name="reading_list_notification_title">Daftar bacaan telah diekspor</string>
+  <string name="reading_list_notification_text">%d daftar bacaan telah diekspor sebagai \'reading_lists export.json\' ke folder unduhan Anda</string>
+  <string name="reading_lists_action_menu_export_lists">Ekspor</string>
+  <string name="reading_lists_import_file_picker_title">Pilih berkas untuk diimpor</string>
+  <string name="reading_lists_import_failure_message">Gagal mengimpor daftar bacaan</string>
+  <string name="reading_lists_export_select_lists_message">Pilih daftar untuk diekspor</string>
+  <string name="reading_lists_export_completed_message">Daftar bacaan telah diekspor</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="other">Gagal mengekspor daftar bacaan</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="other">Daftar bacaan telah diimpor</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Daftar bersama</string>
+  <string name="reading_lists_preview_save_button">Simpan</string>
+  <string name="reading_lists_preview_save_dialog_title">Simpan daftar</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Judul</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Batal</string>
+  <string name="reading_lists_preview_save_dialog_save">Simpan</string>
+  <string name="reading_lists_preview_saved_snackbar">Daftar bacaan disimpan</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Lihat</string>
   <string name="user_option_sync_label">Preferensi</string>
   <string name="notification_reverted_title">Suntingan yang dibalikkan</string>
   <string name="notification_channel_title">Mengunduh artikel</string>
@@ -1257,11 +1290,13 @@
   <string name="shareable_reading_lists_new_install_dialog_title">Daftar bacaan telah dibagikan dengan Anda</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Kami melihat bahwa daftar bacaan telah dibagikan kepada Anda. Untuk melihat daftar ini di aplikasi, kembali ke pesan awal dan ketuk lagi tautannya.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Mengerti</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">Daftar bacaan diimpor</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Daftar bacaan telah diimpor</string>
   <string name="reading_list_share_menu_label">Bagikan...</string>
   <string name="reading_list_share_menu_tooltip">Bagikan daftar bacaan ini dengan orang lain</string>
   <string name="reading_list_share_title_tooltip">Perubahan yang Anda buat pada daftar ini tidak dapat dilihat oleh orang lain.</string>
   <string name="reading_list_share_message_v2">Hai! Saya ingin berbagi daftar bacaan Wikipedia saya dengan Anda:</string>
   <string name="reading_list_share_survey_title">Bisakah Anda membantu kami meningkatkan \"Bagikan daftar bacaan\"?</string>
   <string name="reading_list_share_survey_body">\"Bagikan daftar bacaan\" adalah fitur pengujian dan kami membutuhkan umpan balik Anda untuk meningkatkan atau menghapusnya.</string>
+  <string name="data_opt_in_accept">Terima</string>
+  <string name="data_opt_in_reject">Tolak</string>
 </resources>
