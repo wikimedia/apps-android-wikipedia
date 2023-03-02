@@ -340,7 +340,7 @@
   <string name="preference_title_show_images">顯示圖片</string>
   <string name="preference_summary_show_images">在頁面中開啟或停用圖片載入。如果您的網路連線很慢，或如果您的行動數據方案有限制，則取消選擇此設定。</string>
   <string name="preference_title_download_only_over_wifi">只以WiFi下載</string>
-  <string name="dialog_title_download_only_over_wifi">確認使用流動數據下載？</string>
+  <string name="dialog_title_download_only_over_wifi">確認使用行動數據下載？</string>
   <string name="dialog_text_download_only_over_wifi">您已在設定裡啟用「只以WiFi下載」，要否允許本次下載使用流動數據？</string>
   <string name="dialog_title_download_only_over_wifi_allow">允許</string>
   <string name="read_more_section">延伸閱讀</string>
