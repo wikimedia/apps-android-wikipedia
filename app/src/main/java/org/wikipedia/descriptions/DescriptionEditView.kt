@@ -10,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.addTextChangedListener
 import org.wikipedia.R
@@ -91,14 +90,6 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 return@setOnEditorActionListener true
             }
             false
-        }
-
-        binding.suggestedDescButton.setOnClickListener {
-            ArticleDescriptionsDialog(context, pageTitle, object : ArticleDescriptionsDialog.Callback {
-                override fun onSuggestionClicked(suggestion: String) {
-                    binding.viewDescriptionEditText.setText(suggestion)
-                }
-            }).show()
         }
 
         binding.learnMoreButton.setOnClickListener {
@@ -403,25 +394,35 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             else context.getString(R.string.description_edit_image_caption_learn_more)
     }
 
-    fun showSuggestedDescriptionsButton() {
-        binding.suggestedDescButton.isVisible = ArticleDescriptionsDialog.availableLanguages().contains(pageSummaryForEdit.lang)
+    fun showSuggestedDescriptionsLoadingProgress() {
+        binding.progressBar.visibility = VISIBLE
+    }
+    fun showSuggestedDescriptionsButton(firstSuggestion: String, secondSuggestion: String) {
+        binding.root.post {
+            binding.progressBar.visibility = GONE
+            binding.suggestedDescButton.visibility = VISIBLE
+        }
+        binding.suggestedDescButton.setOnClickListener {
+            ArticleDescriptionsDialog(context, pageTitle, firstSuggestion, secondSuggestion, object : ArticleDescriptionsDialog.Callback {
+                override fun onSuggestionClicked(suggestion: String) {
+                    binding.viewDescriptionEditText.setText(suggestion)
+                    binding.viewDescriptionEditText.setSelection(binding.viewDescriptionEditText.text?.length ?: 0)
+                }
+            }).show()
+        }
         if (!Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown) {
             binding.root.postDelayed({
                 DeviceUtil.hideSoftKeyboard(context as Activity)
-                binding.suggestedDescButton.postDelayed({
                     FeedbackUtil.showTooltip(
                         context as Activity, binding.suggestedDescButton,
                         context.getString(R.string.description_edit_suggested_description_button_tooltip),
                         aboveOrBelow = false, autoDismiss = true, showDismissButton = true
                     ).apply {
                         setOnBalloonDismissListener {
-                            binding.root.postDelayed({
-                                DeviceUtil.showSoftKeyboard(binding.viewDescriptionEditText)
-                            }, 500)
+                            binding.root.postDelayed({ DeviceUtil.showSoftKeyboard(binding.viewDescriptionEditText) }, 500)
                         }
                     }
                     Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown = true
-                }, 500)
             }, 500)
         }
     }

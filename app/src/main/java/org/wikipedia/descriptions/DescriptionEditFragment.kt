@@ -44,6 +44,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.ArticleDescriptionsDialog
 import java.io.IOException
 import java.lang.Runnable
 import java.util.*
@@ -204,10 +205,10 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
 
-        if (ReleaseUtil.isPreBetaRelease && action == DescriptionEditActivity.Action.ADD_DESCRIPTION &&
-            pageTitle.description.isNullOrEmpty()) {
+        if (ReleaseUtil.isPreBetaRelease && ArticleDescriptionsDialog.availableLanguages().contains(pageTitle.wikiSite.languageCode) &&
+            action == DescriptionEditActivity.Action.ADD_DESCRIPTION && pageTitle.description.isNullOrEmpty()) {
+            binding.fragmentDescriptionEditView.showSuggestedDescriptionsLoadingProgress()
             requestSuggestion()
-            binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton()
         }
     }
 
@@ -228,6 +229,7 @@ class DescriptionEditFragment : Fragment() {
 
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
+                binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(list.first(), list.last())
             }
         }
     }
