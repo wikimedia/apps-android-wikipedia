@@ -1205,6 +1205,7 @@
   <string name="talk_new_topic_submitted">トピックが投稿されました。</string>
   <string name="talk_page_empty">トークページは空です。</string>
   <string name="talk_page_empty_title">議論を始める</string>
+  <string name="talk_page_empty_content">ノートページはウィキペディアのコンテンツを改善する方法について議論する場所です。新しい議論の話題を追加することから、ウィキペディア編集者のコミュニティと共同作業をはじめましょう。</string>
   <string name="talk_add_reply">返信</string>
   <string name="talk_no_subject">(件名なし)</string>
   <string name="talk_reply_subject">件名</string>

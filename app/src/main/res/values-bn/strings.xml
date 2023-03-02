@@ -547,6 +547,8 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">বাতিল</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">বাতিল</string>
   <string name="reading_list_split_dialog_ok_button_text">ঠিক আছে</string>
+  <string name="reading_lists_preview_save_button">সংরক্ষণ</string>
+  <string name="reading_lists_preview_save_dialog_cancel">বাতিল</string>
   <string name="reading_lists_preview_saved_snackbar_action">দেখুন</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
   <string name="notification_reverted_title">সম্পাদনা বাতিল হয়েছে</string>
