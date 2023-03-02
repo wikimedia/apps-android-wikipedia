@@ -163,6 +163,16 @@
                             app:counterMaxLength="@integer/description_max_chars"
                             app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance">
 
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/suggestedDescButton"
+                                style="@style/CustomChipWithIconStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/description_edit_suggested_description_button_text"
+                                android:visibility="gone"
+                                android:layout_marginTop="-24dp"
+                                app:chipIcon="@drawable/ic_robot_24" />
+
                             <org.wikipedia.views.PlainPasteEditText
                                 android:id="@+id/view_description_edit_text"
                                 android:layout_width="match_parent"
@@ -175,27 +185,9 @@
 
                                 <requestFocus />
                             </org.wikipedia.views.PlainPasteEditText>
+
                         </com.google.android.material.textfield.TextInputLayout>
                     </FrameLayout>
-
-                    <ProgressBar
-                        android:id="@+id/progressBar"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginStart="18dp" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/suggestedDescButton"
-                        style="@style/CustomChipWithIconStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="18dp"
-                        android:layout_marginTop="-8dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_marginBottom="48dp"
-                        android:text="@string/description_edit_suggested_description_button_text"
-                        android:visibility="gone"
-                        app:chipIcon="@drawable/ic_robot_24" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/learnMoreButton"

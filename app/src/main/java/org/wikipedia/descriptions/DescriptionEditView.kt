@@ -10,8 +10,10 @@ import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.addTextChangedListener
+import de.mrapp.android.view.drawable.CircularProgressDrawable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewDescriptionEditBinding
@@ -327,6 +329,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             clearError()
         }
         updateSaveButtonEnabled()
+        updateSuggestedDescriptionsButtonVisibility()
     }
 
     fun setHighlightText(text: String?) {
@@ -395,12 +398,19 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     }
 
     fun showSuggestedDescriptionsLoadingProgress() {
-        binding.progressBar.visibility = VISIBLE
+        binding.suggestedDescButton.isVisible = true
+        binding.suggestedDescButton.isEnabled = false
+        binding.suggestedDescButton.chipIcon = CircularProgressDrawable(ResourceUtil.getThemedColor(context, R.attr.material_theme_primary_color), 1).also { it.start() }
     }
+
+    private fun updateSuggestedDescriptionsButtonVisibility() {
+        binding.suggestedDescButton.isVisible = binding.viewDescriptionEditTextLayout.error.isNullOrEmpty()
+    }
+
     fun showSuggestedDescriptionsButton(firstSuggestion: String, secondSuggestion: String) {
         binding.root.post {
-            binding.progressBar.visibility = GONE
-            binding.suggestedDescButton.visibility = VISIBLE
+            binding.suggestedDescButton.isEnabled = true
+            binding.suggestedDescButton.chipIcon = AppCompatResources.getDrawable(context, R.drawable.ic_robot_24)
         }
         binding.suggestedDescButton.setOnClickListener {
             ArticleDescriptionsDialog(context, pageTitle, firstSuggestion, secondSuggestion, object : ArticleDescriptionsDialog.Callback {
