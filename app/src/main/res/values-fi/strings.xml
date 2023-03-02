@@ -483,6 +483,10 @@
   <string name="reading_list_articles_already_exist_message">Kaikki hyvin! %s sisältää jo kaikki artikkelit.</string>
   <string name="reading_list_added_view_button">Näytä lista</string>
   <string name="reading_list_add_to_list_button">Lisää listaan</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 artikkeli</item>
+    <item quantity="other">%d artikkelia</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 artikkeli • %2$.2f MB</item>
     <item quantity="other">%1$d artikkelia • %2$.2f MB</item>
@@ -600,6 +604,7 @@
   <string name="reading_list_delete_lists_dialog_delete_button_text">Poista</string>
   <string name="reading_list_activity_title">Lukulista: %s</string>
   <string name="reading_lists_preview_save_button">Tallenna</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Peruuta</string>
   <string name="reading_lists_preview_save_dialog_save">Tallenna</string>
   <string name="user_option_sync_label">Asetukset</string>
   <string name="notification_reverted_title">Kumottu muokkaus</string>
