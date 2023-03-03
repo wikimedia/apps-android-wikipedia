@@ -92,6 +92,8 @@ class MwQueryPage {
         val comment: String = ""
         val parsedcomment: String = ""
 
+        val contentMain get() = getContentFromSlot("main")
+
         var diffSize = 0
 
         val localDateTime: LocalDateTime by lazy {
