@@ -619,14 +619,13 @@
     </style>
 
     <style name="CustomChipWithIconStyle" parent="CustomChipStyle">
-        <item name="chipBackgroundColor">?attr/suggestions_background_color</item>
+        <item name="chipBackgroundColor">?attr/material_theme_border_color</item>
         <item name="chipCornerRadius">8dp</item>
         <item name="chipIconSize">14dp</item>
         <item name="chipIconTint">?attr/chart_shade1</item>
         <item name="chipIconVisible">true</item>
         <item name="iconStartPadding">12dp</item>
         <item name="iconGravity">start</item>
-        <item name="android:elevation">1dp</item>
     </style>
 
     <style name="AlertDialogStyle" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
