@@ -18,6 +18,7 @@ import org.wikipedia.util.DateUtil.dbDateFormat
 import org.wikipedia.util.DateUtil.dbDateParse
 import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
+import org.wikipedia.watchlist.WatchlistFilterTypes
 import java.util.*
 
 /** Shared preferences utility for convenient POJO access.  */
@@ -420,11 +421,6 @@ object Prefs {
         PrefsIoUtil.remove(R.string.preference_key_announcement_shown_dialogs)
     }
 
-    var watchlistDisabledLanguages
-        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_watchlist_disabled_langs, null))
-            ?: emptySet()
-        set(langCodes) = PrefsIoUtil.setString(R.string.preference_key_watchlist_disabled_langs, JsonUtil.encodeToString(langCodes))
-
     var shouldMatchSystemTheme
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_match_system_theme, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_match_system_theme, value)
@@ -666,4 +662,14 @@ object Prefs {
     var readingListRecentReceivedId
         get() = PrefsIoUtil.getLong(R.string.preference_key_reading_lists_recent_receive_id, -1)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_reading_lists_recent_receive_id, value)
+
+    var watchlistExcludedWikiCodes
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_excluded_wiki_codes_watchlist, null))
+            ?: emptySet()
+        set(wikis) = PrefsIoUtil.setString(R.string.preference_key_excluded_wiki_codes_watchlist, JsonUtil.encodeToString(wikis))
+
+    var watchlistIncludedTypeCodes
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_included_type_codes_watchlist, null))
+            ?: WatchlistFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }
+        set(types) = PrefsIoUtil.setString(R.string.preference_key_included_type_codes_watchlist, JsonUtil.encodeToString(types))
 }
