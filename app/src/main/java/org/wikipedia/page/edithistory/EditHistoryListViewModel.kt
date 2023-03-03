@@ -61,7 +61,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         }.filter {
             if (currentQuery.isNotEmpty()) {
                 it.comment.contains(currentQuery, true) ||
-                        it.getContentFromSlot("main").contains(currentQuery, true) ||
+                        it.contentMain.contains(currentQuery, true) ||
                         it.user.contains(currentQuery, true)
             } else true
         }.map {
