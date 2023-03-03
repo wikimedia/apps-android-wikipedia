@@ -54,9 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/background_8dp_radius"
-                android:elevation="1dp"
                 android:gravity="center"
-
                 android:padding="8dp" />
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -79,17 +77,13 @@
 
             <TextView
                 android:id="@+id/secondSuggestion"
+                style="@style/CustomChipStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/background_8dp_radius"
-                android:elevation="1dp"
-                android:fontFamily="sans-serif-medium"
                 android:gravity="center"
-                android:lineSpacingExtra="2sp"
-                android:padding="8dp"
-                android:textColor="?attr/color_group_9"
-                android:textSize="14sp" />
+                android:padding="8dp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/secondSuggestionFlag"

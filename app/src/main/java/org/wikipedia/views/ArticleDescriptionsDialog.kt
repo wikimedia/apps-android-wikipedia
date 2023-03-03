@@ -5,13 +5,11 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AlertDialog
 import org.wikipedia.databinding.DialogArticleDescriptionsBinding
-import org.wikipedia.page.PageTitle
 
 class ArticleDescriptionsDialog(
     context: Context,
-    var pageTitle: PageTitle,
-    var firstSuggestion: String,
-    var secondSuggestion: String,
+    firstSuggestion: String,
+    secondSuggestion: String,
     callback: Callback
 ) : AlertDialog(context) {
 
