@@ -17,7 +17,12 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
     }
 
     public override fun createFragment(): ReadingListFragment {
-        return ReadingListFragment.newInstance(intent.getLongExtra(EXTRA_READING_LIST_ID, 0))
+        val isPreview = intent.getBooleanExtra(EXTRA_READING_LIST_PREVIEW, false)
+        return if (isPreview) {
+            ReadingListFragment.newInstance(true)
+        } else {
+            ReadingListFragment.newInstance(intent.getLongExtra(EXTRA_READING_LIST_ID, 0))
+        }
     }
 
     fun updateNavigationBarColor() {
@@ -27,10 +32,17 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
     companion object {
         private const val EXTRA_READING_LIST_TITLE = "readingListTitle"
         const val EXTRA_READING_LIST_ID = "readingListId"
+        const val EXTRA_READING_LIST_PREVIEW = "previewReadingList"
+
         fun newIntent(context: Context, list: ReadingList): Intent {
             return Intent(context, ReadingListActivity::class.java)
                     .putExtra(EXTRA_READING_LIST_TITLE, list.title)
                     .putExtra(EXTRA_READING_LIST_ID, list.id)
+        }
+
+        fun newIntent(context: Context, preview: Boolean): Intent {
+            return Intent(context, ReadingListActivity::class.java)
+                .putExtra(EXTRA_READING_LIST_PREVIEW, preview)
         }
     }
 }
