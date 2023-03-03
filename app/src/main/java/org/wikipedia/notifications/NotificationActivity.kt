@@ -66,7 +66,7 @@ class NotificationActivity : BaseActivity() {
     private var linkHandler = NotificationLinkHandler(this)
     private var notificationActionOverflowView: NotificationActionsOverflowView? = null
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
-    // TODO: maybe making the result observable and put into ViewModel class?
+
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == NotificationFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
             beginUpdateList()
