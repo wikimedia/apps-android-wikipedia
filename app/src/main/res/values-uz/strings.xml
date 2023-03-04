@@ -617,6 +617,15 @@
     <item quantity="one">Oʻqish roʻyxati import qilindi</item>
     <item quantity="other">Oʻqish roʻyxatlari import qilindi</item>
   </plurals>
+  <string name="reading_lists_preview_header_title">Ulashilgan roʻyxat</string>
+  <string name="reading_lists_preview_save_button">Saqlamoq</string>
+  <string name="reading_lists_preview_save_dialog_title">Roʻyxatni saqlash</string>
+  <string name="reading_lists_preview_save_dialog_text">Roʻyxatni nomlang va saqlash uchun maqolalarni tanlang.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Sarlavha</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Bekor qilish</string>
+  <string name="reading_lists_preview_save_dialog_save">Saqlash</string>
+  <string name="reading_lists_preview_saved_snackbar">Oʻqish roʻyxati saqlandi</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Koʻrish</string>
   <string name="user_option_sync_label">Tanlovlar</string>
   <string name="notification_reverted_title">Qayta tahrir</string>
   <string name="notification_channel_title">Fayl yuklanmoqda...</string>
@@ -1223,7 +1232,7 @@
   <string name="menu_option_user_page">%s foydalanuvchi sahifasi</string>
   <string name="menu_option_find_in_talk_page_topic">Muhokama sahifasida mavzuni izlamoq</string>
   <string name="menu_option_copy_link_to_clipboard">Nusxa olmoq</string>
-  <string name="talk_menu_copy_text">Matnni nusxalash</string>
+  <string name="talk_menu_copy_text">Matndan nusxa olish</string>
   <string name="talk_menu_expand_threads">Oqimlarni yoymoq</string>
   <string name="talk_menu_collapse_threads">Oqimni yigʻishtirmoq</string>
   <string name="watchlist_details_watching_label">Kuzatilmoqda</string>

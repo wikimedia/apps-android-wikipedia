@@ -75,6 +75,7 @@
   <string name="page_edit_history_filter_by_user">Bejelentkezett szerkesztők (%s)</string>
   <string name="page_edit_history_filter_by_anon">Anonim szerkesztők (%s)</string>
   <string name="page_edit_history_filter_by_bot">Botszerkesztések (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Metrikák %1$s és %2$s között</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d szerkesztés %2$s óta</item>
     <item quantity="other">%1$d szerkesztés %2$s óta</item>
@@ -406,6 +407,7 @@
   <string name="error_message_generic">Hiba történt</string>
   <string name="view_link_preview_error_button_dismiss">Bezárás</string>
   <string name="error_page_does_not_exist">Ez a lap nem létezik</string>
+  <string name="error_user_page_does_not_exist">Nincs pontosan ilyen nevű &lt;a href=\"%1$s\"&gt;szerkesztői lap&lt;/a&gt; a Wikipédián. Általánosságban ezt a lapot csak a tulajdonosának (&lt;b&gt;%2$s&lt;/b&gt;) szabad létrehoznia és szerkesztenie. Ha kétséged van, ellenőrizd, hogy létezik-e „%3$s” nevű regisztrált szerkesztő.</string>
   <string name="view_wiki_error_message_offline">Nem sikerült csatlakozni az internethez</string>
   <string name="view_wiki_error_message_timeout">Nem sikerült csatlakozni a Wikipédiához. Ellenőrizd hálózati beállításaidat vagy próbáld meg később</string>
   <string name="reference_title">Hivatkozás: %s</string>
@@ -423,7 +425,9 @@
   <string name="error_blocked_start">A blokk kezdete: %s</string>
   <string name="error_blocked_expiry">A blokk lejárata: %s</string>
   <string name="error_blocked_id">Blokkolási azonosító: %s</string>
+  <string name="error_blocked_footer">Kapcsolatba léphetsz a blokkolás végrehajtójával (&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;) vagy egy másik &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Adminisztrátorok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Eszköztár testreszabása</string>
+  <string name="error_blocked_footer_no_blocker">Kapcsolatba léphetsz egy &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Adminisztrátorok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
   <string name="crash_report_activity_title">Alkalmazáshiba</string>
   <string name="crash_report_relaunch_or_quit">Sajnáljuk, a Wikipédia alkalmazás hibát észlelt és leállt.\n\nSzeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="crash_report_relaunch">Újrakezdés</string>
@@ -612,7 +616,7 @@
   <string name="reading_list_activity_title">Olvasólista: %s</string>
   <string name="reading_list_notification_title">Olvasólistá(k) exportálva</string>
   <string name="reading_list_notification_text">%d olvasólista exportálva lett „reading_lists export.json” néven a letöltések mappádba</string>
-  <string name="reading_list_notification_detailed_text">Olvasólisták exportálva lett „reading_lists export.json” néven</string>
+  <string name="reading_list_notification_detailed_text">Olvasólisták exportálva „reading_lists export.json” néven</string>
   <string name="reading_lists_action_menu_export_lists">Exportálás</string>
   <string name="reading_lists_import_file_picker_title">Válaszd ki az importálandó fájlt</string>
   <string name="reading_lists_import_failure_message">Az olvasólisták importálása sikertelen</string>
@@ -626,6 +630,15 @@
     <item quantity="one">Olvasólista importálva</item>
     <item quantity="other">Olvasólisták importálva</item>
   </plurals>
+  <string name="reading_lists_preview_header_title">Megosztott lista</string>
+  <string name="reading_lists_preview_save_button">Mentés</string>
+  <string name="reading_lists_preview_save_dialog_title">Lista mentése</string>
+  <string name="reading_lists_preview_save_dialog_text">Nevezd el a listát, és válaszd ki az elmentendő szócikkeket.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Cím</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Mégse</string>
+  <string name="reading_lists_preview_save_dialog_save">Mentés</string>
+  <string name="reading_lists_preview_saved_snackbar">Az olvasólista elmentve</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Megtekintés</string>
   <string name="user_option_sync_label">Beállítások</string>
   <string name="notification_reverted_title">Szerkesztés visszavonva</string>
   <string name="notification_channel_title">Szócikkek letöltése</string>
@@ -729,6 +742,7 @@
   <string name="notifications_filter_label">Értesítések szűrése</string>
   <string name="notifications_filter_icon_content_description">Értesítések szűrése</string>
   <string name="notifications_filter_update_app_languages">Nyelvek listájának frissítése</string>
+  <string name="notifications_empty_search_message">Próbálkozz %s eltávolításával több értesítés megjelenítéséhez</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d szűrő</item>
     <item quantity="other">%d szűrő</item>
@@ -1175,6 +1189,8 @@
   <string name="talk_new_topic">Új téma létrehozása</string>
   <string name="talk_new_topic_submitted">Téma közzétéve.</string>
   <string name="talk_page_empty">Ez a vitalap üres.</string>
+  <string name="talk_page_empty_title">A beszélgetés itt kezdődik</string>
+  <string name="talk_page_empty_content">A vitalapok annak megbeszélésére szolgálnak, hogy hogyan lehet a Wikipédia tartalmát a lehető legjobbá tenni. Indíts egy új témát a wikipédisták közösségével való kapcsolódáshoz és együttműködéshez.</string>
   <string name="talk_add_reply">Válasz</string>
   <string name="talk_no_subject">(Nincs tárgy)</string>
   <string name="talk_reply_subject">Tárgy</string>
@@ -1261,6 +1277,8 @@
   <string name="revision_undo_message">Ezzel visszavonod a szócikk itt látható lapváltozata(i) által végzett módosításokat.</string>
   <string name="revision_undo_reason">A folytatáshoz add meg a visszavonás okát:</string>
   <string name="revision_undo_success">A változtatás visszavonva.</string>
+  <string name="revision_rollback_dialog_title">Biztosan vissza akarod vonni a szerkesztéseket?</string>
+  <string name="revision_rollback_success">Szerkesztések visszavonva.</string>
   <string name="revision_compare_button">Összehasonlít</string>
   <string name="revision_compare_two_only">Csak két lapváltozat választható ki.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">A(z) „%1$s” lap és vitalapja %2$s hozzáadva a figyelőlistádhoz.</string>

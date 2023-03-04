@@ -583,6 +583,11 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द करें</string>
   <string name="reading_list_split_dialog_ok_button_text">ठीक है</string>
   <string name="reading_list_activity_title">पठन सूची: %s</string>
+  <string name="reading_lists_preview_save_button">सहेजें</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">शीर्षक</string>
+  <string name="reading_lists_preview_save_dialog_cancel">रद्द करें</string>
+  <string name="reading_lists_preview_save_dialog_save">सहेजें</string>
+  <string name="reading_lists_preview_saved_snackbar_action">देखें</string>
   <string name="user_option_sync_label">वरीयता</string>
   <string name="notification_reverted_title">संपादन वापस लिया गया</string>
   <string name="notification_channel_title">लेख डाउनलोड हो रहे हैं</string>

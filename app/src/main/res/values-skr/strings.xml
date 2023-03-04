@@ -270,6 +270,13 @@
   <string name="reading_list_delete_lists_dialog_delete_button_text">مٹاؤ</string>
   <string name="reading_lists_action_menu_export_lists">ٻاہر بھیڄو</string>
   <string name="reading_lists_import_file_picker_title">درآمد کرݨ کیتے فائل چݨو</string>
+  <string name="reading_lists_preview_header_title">شیئر تھئی تندیر</string>
+  <string name="reading_lists_preview_save_button">بچاؤ</string>
+  <string name="reading_lists_preview_save_dialog_title">تندیر محفوظ کرو</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">عنوان</string>
+  <string name="reading_lists_preview_save_dialog_cancel">منسوخ</string>
+  <string name="reading_lists_preview_save_dialog_save">محفوظ کرو</string>
+  <string name="reading_lists_preview_saved_snackbar_action">ݙیکھو</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_syncing_pause_button">اجھکو</string>
   <string name="notification_syncing_resume_button">ولدا شروع کرو</string>

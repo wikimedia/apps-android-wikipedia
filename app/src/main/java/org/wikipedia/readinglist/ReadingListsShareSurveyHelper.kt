@@ -30,14 +30,12 @@ object ReadingListsShareSurveyHelper {
     }
 
     fun shouldShowSurvey(activity: Activity): Boolean {
-        val attempts = Prefs.readingListShareSurveyAttempts
-        return !activity.isDestroyed && attempts <= 1 &&
+        return !activity.isDestroyed && !Prefs.readingListShareSurveyDialogShown &&
                 (Prefs.readingListShareSurveyMode == MODE_OVERRIDE || (isActive() && ReadingListsShareHelper.shareEnabled() && fallsWithinDateRange()))
     }
 
     private fun showSurveyDialog(activity: Activity) {
-        val attempts = Prefs.readingListShareSurveyAttempts
-        Prefs.readingListShareSurveyAttempts = attempts + 1
+        Prefs.readingListShareSurveyDialogShown = true
 
         val dialog = AlertDialog.Builder(activity)
                 .setTitle(activity.getString(R.string.reading_list_share_survey_title))
@@ -45,7 +43,7 @@ object ReadingListsShareSurveyHelper {
                         "<br/><br/><small><a href=\"${getLanguageSpecificPrivacyPolicyUrl()}\">" +
                         activity.getString(R.string.privacy_policy_description) + "</a></small>"))
                 .setPositiveButton(R.string.talk_snackbar_survey_action_text) { _, _ -> takeUserToSurvey(activity) }
-                .setNegativeButton(if (attempts == 0) R.string.onboarding_maybe_later else android.R.string.cancel, null)
+                .setNegativeButton(R.string.reading_list_prompt_turned_sync_on_dialog_no_thanks, null)
                 .setCancelable(false)
                 .create()
         dialog.show()
@@ -64,7 +62,6 @@ object ReadingListsShareSurveyHelper {
     }
 
     private fun takeUserToSurvey(context: Context) {
-        Prefs.readingListShareSurveyAttempts = 10
         CustomTabsUtil.openInCustomTab(context, getLanguageSpecificUrl())
     }
 

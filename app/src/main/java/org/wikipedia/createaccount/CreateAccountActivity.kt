@@ -316,7 +316,6 @@ class CreateAccountActivity : BaseActivity() {
 
         val USERNAME_PATTERN: Pattern = Pattern.compile("[^#<>\\[\\]|{}/@]*")
 
-        @JvmStatic
         fun validateInput(username: CharSequence,
                           password: CharSequence,
                           passwordRepeat: CharSequence,

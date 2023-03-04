@@ -483,6 +483,10 @@
   <string name="reading_list_articles_already_exist_message">Kaikki hyvin! %s sisältää jo kaikki artikkelit.</string>
   <string name="reading_list_added_view_button">Näytä lista</string>
   <string name="reading_list_add_to_list_button">Lisää listaan</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 artikkeli</item>
+    <item quantity="other">%d artikkelia</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 artikkeli • %2$.2f MB</item>
     <item quantity="other">%1$d artikkelia • %2$.2f MB</item>
@@ -500,6 +504,8 @@
   <string name="reading_list_sort_by_created">Lajittele luomispäivän mukaan (uusin)</string>
   <string name="reading_list_sort_by_created_desc">Lajittele luomispäivän mukaan (vanhin)</string>
   <string name="reading_list_menu_delete">Poista lista</string>
+  <string name="reading_list_menu_select">Valitse</string>
+  <string name="reading_list_menu_unselect">Poista valinta</string>
   <string name="reading_list_menu_rename">Muokkaa nimeä/kuvausta</string>
   <string name="reading_list_action_menu_remove_from_offline">Poista offlinesta</string>
   <string name="reading_list_action_menu_save_for_offline">Tallenna offline-tilassa</string>
@@ -595,7 +601,11 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Peruuta</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Peruuta</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Poista</string>
   <string name="reading_list_activity_title">Lukulista: %s</string>
+  <string name="reading_lists_preview_save_button">Tallenna</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Peruuta</string>
+  <string name="reading_lists_preview_save_dialog_save">Tallenna</string>
   <string name="user_option_sync_label">Asetukset</string>
   <string name="notification_reverted_title">Kumottu muokkaus</string>
   <string name="notification_channel_title">Artikkelien lataaminen</string>
@@ -1180,6 +1190,7 @@
   <string name="talk_list_item_user_icon_content_description">Käyttäjäkuvake</string>
   <string name="talk_list_item_swipe_mark_as_read">Luettu</string>
   <string name="talk_list_item_swipe_mark_as_unread">Lukematon</string>
+  <string name="talk_archived_title">Keskusteluarkisto: %s</string>
   <string name="menu_option_share_talk_discussion">Jaa keskustelu</string>
   <string name="menu_option_share_talk_page">Jaa keskustelusivu</string>
   <string name="menu_option_share_edit">Jaa muokkaus</string>
@@ -1281,4 +1292,6 @@
   <string name="reading_list_share_message_v2">Hei! Haluan jakaa Wikipedian lukulistani kanssasi:</string>
   <string name="reading_list_share_survey_title">Voisitko auttaa meitä parantamaan lukulistojen jakamista?</string>
   <string name="reading_list_share_survey_body">Lukulistojen jakaminen on testiominaisuus, jonka kehittämiseen tarvitsemme palautettasi.</string>
+  <string name="data_opt_in_accept">Hyväksy</string>
+  <string name="data_opt_in_reject">Hylkää</string>
 </resources>

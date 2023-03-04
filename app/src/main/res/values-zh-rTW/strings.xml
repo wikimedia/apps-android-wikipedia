@@ -340,7 +340,7 @@
   <string name="preference_title_show_images">顯示圖片</string>
   <string name="preference_summary_show_images">在頁面中開啟或停用圖片載入。如果您的網路連線很慢，或如果您的行動數據方案有限制，則取消選擇此設定。</string>
   <string name="preference_title_download_only_over_wifi">只以WiFi下載</string>
-  <string name="dialog_title_download_only_over_wifi">確認使用流動數據下載？</string>
+  <string name="dialog_title_download_only_over_wifi">確認使用行動數據下載？</string>
   <string name="dialog_text_download_only_over_wifi">您已在設定裡啟用「只以WiFi下載」，要否允許本次下載使用流動數據？</string>
   <string name="dialog_title_download_only_over_wifi_allow">允許</string>
   <string name="read_more_section">延伸閱讀</string>
@@ -482,9 +482,17 @@
   <string name="reading_list_articles_already_exist_message">一切完成！%s已包含所有條目。</string>
   <string name="reading_list_added_view_button">檢視清單</string>
   <string name="reading_list_add_to_list_button">添加至清單</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 個條目</item>
+    <item quantity="other">%d 個條目</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 個條目，%2$.2f MB</item>
     <item quantity="other">%1$d 個條目，%2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">1 個條目裡有 %1$d 個可離線使用</item>
+    <item quantity="other">%1$d 個條目裡有 %2$d 個可離線使用</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d 個裡有 1 個條目可離線使用，%3$.2f MB</item>
@@ -499,6 +507,10 @@
   <string name="reading_list_sort_by_created">按建立日期排序 (最新)</string>
   <string name="reading_list_sort_by_created_desc">按建立日期排序 (最舊)</string>
   <string name="reading_list_menu_delete">刪除清單</string>
+  <string name="reading_list_menu_export">匯出清單</string>
+  <string name="reading_list_menu_select">選擇</string>
+  <string name="reading_list_menu_unselect">取消選擇</string>
+  <string name="reading_list_export_write_permission_rationale">需要您的裝置儲存庫的寫入權限方能匯出您的閱讀清單。</string>
   <string name="reading_list_menu_rename">編輯名稱/描述</string>
   <string name="reading_list_action_menu_remove_from_offline">從離線移除</string>
   <string name="reading_list_action_menu_save_for_offline">儲存用於離線使用</string>
@@ -519,6 +531,15 @@
     <item quantity="one">已從%s移除 %d 個條目</item>
     <item quantity="other">已從%s移除 %d 個條目</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">已刪除 %d 個清單</item>
+    <item quantity="other">已刪除 %d 個清單</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">不能刪除預設清單（%s）</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">已刪除%1$s。預設清單（%2$s）則無法刪除。</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">已刪除清單。預設清單（%s）則無法刪除。</string>
+  <string name="single_list_json_file_name">%s(維基百科閱讀清單).json</string>
+  <string name="multiple_lists_json_file_name">維基百科閱讀清單(%s以及更多).json</string>
   <string name="reading_list_items_deleted">從清單移除%d個條目</string>
   <string name="reading_lists_item_deleted">%s已從清單之中移除</string>
   <string name="reading_list_item_delete_undo">撤銷</string>
@@ -551,6 +572,11 @@
   <string name="reading_list_articles_added_to_named">已添加 %1$d 個條目至%2$s</string>
   <string name="reading_list_articles_moved_to_named">已移動 %1$d 個條目至%2$s</string>
   <string name="reading_list_delete_confirm">你確定要刪除%s？</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">刪除所選的清單？</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">您確定要刪除 %d 個清單？</item>
+    <item quantity="other">您確定要刪除 %d 個清單？</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">登入來啟用同步</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">登入來允許您的閱讀清單可儲存至您的帳號裡。</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">取消</string>
@@ -574,6 +600,7 @@
   <string name="reading_list_article_limit_message">無法添加至此清單。您已達到在「%1$s」方面各清單的最多 %2$d 個條目上限。</string>
   <string name="reading_lists_limit_message">無法建立其它清單。您已達到各使用者的最多 100 個閱讀清單上限。</string>
   <string name="reading_lists_menu_create_list">建立新清單</string>
+  <string name="reading_lists_menu_import_list">匯入清單</string>
   <string name="reading_lists_menu_sort_by">排序依</string>
   <string name="reading_lists_refresh_sync_option">重整同步</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">登入 / 註冊</string>
@@ -594,7 +621,33 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">取消</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">取消</string>
   <string name="reading_list_split_dialog_ok_button_text">確認</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">刪除</string>
   <string name="reading_list_activity_title">閱讀清單：%s</string>
+  <string name="reading_list_notification_title">已匯出閱讀清單</string>
+  <string name="reading_list_notification_text">%d 個閱讀清單已匯出成「reading_lists export.json」到您的下載資料夾</string>
+  <string name="reading_list_notification_detailed_text">閱讀清單已匯出到「reading_lists_export.json」</string>
+  <string name="reading_lists_action_menu_export_lists">匯出</string>
+  <string name="reading_lists_import_file_picker_title">選擇要匯入的檔案</string>
+  <string name="reading_lists_import_failure_message">匯入閱讀清單失敗</string>
+  <string name="reading_lists_export_select_lists_message">選擇要匯出的清單</string>
+  <string name="reading_lists_export_completed_message">已匯出閱讀清單</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">閱讀清單匯出失敗</item>
+    <item quantity="other">閱讀清單匯出失敗</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">已匯入閱讀清單</item>
+    <item quantity="other">已匯入閱讀清單</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">分享清單</string>
+  <string name="reading_lists_preview_save_button">儲存</string>
+  <string name="reading_lists_preview_save_dialog_title">儲存清單</string>
+  <string name="reading_lists_preview_save_dialog_text">為清單命名並選擇要保存的條目。</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">標題</string>
+  <string name="reading_lists_preview_save_dialog_cancel">取消</string>
+  <string name="reading_lists_preview_save_dialog_save">儲存</string>
+  <string name="reading_lists_preview_saved_snackbar">已儲存閱讀清單</string>
+  <string name="reading_lists_preview_saved_snackbar_action">檢視</string>
   <string name="user_option_sync_label">偏好設定</string>
   <string name="notification_reverted_title">回退的編輯</string>
   <string name="notification_channel_title">正在下載條目</string>
@@ -1297,4 +1350,6 @@
   <string name="reading_list_share_message_v2">您好！我想與您分享我的維基百科閱讀清單：</string>
   <string name="reading_list_share_survey_title">您願意幫助我們改善「分享閱讀清單」嗎？</string>
   <string name="reading_list_share_survey_body">「分享閱讀清單」是一項測試功能，我們需要您的意見回饋來改善、或是移除這項功能。</string>
+  <string name="data_opt_in_accept">接受</string>
+  <string name="data_opt_in_reject">拒絕</string>
 </resources>
