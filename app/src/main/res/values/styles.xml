@@ -61,8 +61,6 @@
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogLight</item>
 
         <!-- Overrides of our own custom style attributes -->
-        <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_light</item>
-        <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_light</item>
         <item name="list_separator_drawable">@drawable/divider_light</item>
         <item name="list_separator_drawable_bottom_content">@drawable/divider_bottom_content_light</item>
         <item name="list_separator_drawable_light">@drawable/side_panel_divider_light</item>
@@ -117,13 +115,11 @@
         <item name="color_group_68">@color/yellow30</item>
         <item name="color_group_69">@color/green50_10l</item>
         <item name="color_group_70">@color/green80</item>
-        <item name="action_mode_green_background">@color/green50</item>
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_light</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_light</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base100</item>
-        <item name="suggestions_background_color">@color/base90</item>
 
     </style>
 

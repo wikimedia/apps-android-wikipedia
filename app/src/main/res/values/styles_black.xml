@@ -15,7 +15,6 @@
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base0</item>
-        <item name="suggestions_background_color">@color/base0</item>
         <item name="color_group_22">@color/base14</item>
         <item name="color_group_53">@color/accent20</item>
         <item name="color_group_54">@color/base10</item>
