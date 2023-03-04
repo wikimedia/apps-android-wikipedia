@@ -631,6 +631,8 @@
   <string name="reading_list_split_dialog_ok_button_text">Aceptar</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Eliminar</string>
   <string name="reading_list_activity_title">Lista de lectura: %s</string>
+  <string name="reading_lists_preview_save_button">Guardar</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Cancelar</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_reverted_title">Edición revertida</string>
   <string name="notification_channel_title">Descargando archivos</string>
