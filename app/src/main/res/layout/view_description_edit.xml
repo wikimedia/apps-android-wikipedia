@@ -168,11 +168,11 @@
                                 style="@style/CustomChipWithIconStyle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="-24dp"
+                                android:layout_marginTop="-20dp"
                                 android:text="@string/description_edit_suggested_description_button_text"
                                 android:visibility="visible"
-                                app:chipStrokeColor="?attr/chip_background_color"
-                                app:chipStrokeWidth="0.5dp"
+                                app:chipStrokeColor="?attr/border"
+                                app:chipStrokeWidth="1dp"
                                 app:chipIcon="@drawable/ic_robot_24" />
 
                             <org.wikipedia.views.PlainPasteEditText

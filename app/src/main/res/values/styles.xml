@@ -118,6 +118,8 @@
         <item name="color_group_69">@color/green50_10l</item>
         <item name="color_group_70">@color/green80</item>
         <item name="action_mode_green_background">@color/green50</item>
+        <item name="border">@color/base80</item>
+        <item name="chip_background">@color/base90</item>
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_light</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_light</item>
 
@@ -619,7 +621,7 @@
     </style>
 
     <style name="CustomChipWithIconStyle" parent="CustomChipStyle">
-        <item name="chipBackgroundColor">?attr/material_theme_border_color</item>
+        <item name="chipBackgroundColor">?attr/chip_background</item>
         <item name="chipCornerRadius">8dp</item>
         <item name="chipIconSize">14dp</item>
         <item name="chipIconTint">?attr/chart_shade1</item>

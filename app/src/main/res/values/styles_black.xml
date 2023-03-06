@@ -12,6 +12,8 @@
         <item name="tab_placeholder_text_color">@color/base4</item>
         <item name="chip_background_color">@color/base14</item>
         <item name="color_group_9">@color/base70</item>
+        <item name="border">@color/base12</item>
+        <item name="chip_background">@color/base10</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base0</item>
