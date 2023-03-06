@@ -12,10 +12,8 @@ import androidx.core.view.forEach
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityAboutBinding
 import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.FeedbackUtil.showMessage
 import org.wikipedia.util.StringUtil.fromHtml
 import org.wikipedia.util.log.L
@@ -51,8 +49,6 @@ class AboutActivity : BaseActivity() {
                 L.e(e)
             }
         }
-
-        FeedbackUtil.showMessage(this, ">>> " + AccountUtil.getTempAccountName())
     }
 
     private fun makeEverythingClickable(vg: ViewGroup) {

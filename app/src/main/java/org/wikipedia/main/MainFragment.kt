@@ -494,7 +494,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     fun updateNotificationDot(animate: Boolean) {
-        if ((AccountUtil.isLoggedIn) && Prefs.notificationUnreadCount > 0) {
+        if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
             notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
             if (animate) {
                 notificationButtonView.runAnimation()
