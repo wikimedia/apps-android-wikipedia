@@ -372,7 +372,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
                     android:paddingBottom="8dp"
-                    android:textColor="?attr/action_mode_green_background"
+                    android:textColor="?attr/color_group_43"
                     android:textStyle="bold"
                     android:gravity="center_vertical"
                     tools:text="Lorem ipsum"/>
