@@ -73,7 +73,6 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
             StringUtil.highlightAndBoldenText(binding.timeStampText, searchQuery, true, Color.YELLOW)
         }
         binding.bodyText.text = StringUtil.fromHtml(StringUtil.removeStyleTags(item.html)).trim()
-        //  RichTextUtil.removeUnderlinesFromLinks(binding.bodyText)
         StringUtil.highlightAndBoldenText(binding.bodyText, searchQuery, true, Color.YELLOW)
         binding.bodyText.movementMethod = movementMethod
 

@@ -51,24 +51,6 @@ object RichTextUtil {
         return spanned.getSpanFlags(span) and Spanned.SPAN_COMPOSING == Spanned.SPAN_COMPOSING
     }
 
-    fun removeUnderlinesFromLinks(textView: TextView) {
-        val text = textView.text
-        if (text is Spanned) {
-            val spannable = text.toSpannable()
-            removeUnderlinesFromLinks(spannable, spannable.getSpans())
-            textView.text = spannable
-        }
-    }
-
-    private fun removeUnderlinesFromLinks(spannable: Spannable, spans: Array<out URLSpan>) {
-        for (span in spans) {
-            val start = spannable.getSpanStart(span)
-            val end = spannable.getSpanEnd(span)
-            spannable.removeSpan(span)
-            spannable.setSpan(URLSpanNoUnderline(span.url), start, end, 0)
-        }
-    }
-
     fun removeUnderlinesFromLinksAndMakeBold(textView: TextView) {
         val text = textView.text
         if (text is Spanned) {

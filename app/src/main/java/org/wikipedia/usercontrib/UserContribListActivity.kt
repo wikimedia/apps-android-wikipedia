@@ -42,7 +42,6 @@ import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.*
@@ -338,7 +337,6 @@ class UserContribListActivity : BaseActivity() {
 
         fun bindItem() {
             binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.page_edit_history_empty_search_message))
-            RichTextUtil.removeUnderlinesFromLinks(binding.emptySearchMessage)
         }
     }
 

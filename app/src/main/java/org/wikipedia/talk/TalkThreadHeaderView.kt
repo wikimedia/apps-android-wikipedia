@@ -12,7 +12,6 @@ import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkThreadHeaderBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.page.PageTitle
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -38,14 +37,12 @@ class TalkThreadHeaderView constructor(context: Context, attrs: AttributeSet? = 
         val baseTitle = TalkTopicsActivity.getNonTalkPageTitle(pageTitle)
         binding.pageTitleText.text = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } +
                 ": " + "<a href='" + baseTitle.uri + "'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
-        RichTextUtil.removeUnderlinesFromLinks(binding.pageTitleText)
         StringUtil.highlightAndBoldenText(binding.pageTitleText, searchQuery, true, Color.YELLOW)
 
         binding.threadTitleText.isVisible = !TalkTopicActivity.isHeaderTemplate(item)
         binding.threadTitleText.movementMethod = movementMethod
         val titleStr = StringUtil.fromHtml(item?.html).trim()
         binding.threadTitleText.text = titleStr.ifEmpty { context.getString(R.string.talk_no_subject) }
-        RichTextUtil.removeUnderlinesFromLinks(binding.threadTitleText)
         StringUtil.highlightAndBoldenText(binding.threadTitleText, searchQuery, true, Color.YELLOW)
 
         if (TalkTopicActivity.isSubscribable(item)) {

@@ -26,11 +26,9 @@ import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.util.*
 import org.wikipedia.views.UserMentionInputView
-import java.util.*
 
 class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentionInputView.Listener {
     private lateinit var binding: ActivityTalkReplyBinding
@@ -161,7 +159,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
             startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
         }
-        RichTextUtil.removeUnderlinesFromLinks(binding.toolbarTitle)
         FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
     }
 
