@@ -269,11 +269,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             showTabCountsAnimation = false
         }
         val notificationMenuItem = menu.findItem(R.id.menu_notifications)
-        if (AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
+        if (AccountUtil.isLoggedIn) {
             notificationMenuItem.isVisible = true
             notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
             notificationButtonView.setOnClickListener {
-                if (AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
+                if (AccountUtil.isLoggedIn) {
                     startActivity(NotificationActivity.newIntent(requireActivity()))
                 }
             }
@@ -448,7 +448,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun talkClick() {
-        if (AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
+        if (AccountUtil.isLoggedIn) {
             startActivity(TalkTopicsActivity.newIntent(requireActivity(),
                     PageTitle(UserTalkAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode), AccountUtil.userName,
                             WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)), InvokeSource.NAV_MENU))
@@ -460,13 +460,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun watchlistClick() {
-        if (AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
+        if (AccountUtil.isLoggedIn) {
             startActivity(WatchlistActivity.newIntent(requireActivity()))
         }
     }
 
     override fun contribsClick() {
-        if (AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
+        if (AccountUtil.isLoggedIn) {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
     }
@@ -494,7 +494,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     fun updateNotificationDot(animate: Boolean) {
-        if ((AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) && Prefs.notificationUnreadCount > 0) {
+        if ((AccountUtil.isLoggedIn) && Prefs.notificationUnreadCount > 0) {
             notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
             if (animate) {
                 notificationButtonView.runAnimation()

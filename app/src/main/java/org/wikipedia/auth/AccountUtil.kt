@@ -33,10 +33,10 @@ object AccountUtil {
     }
 
     val isLoggedIn: Boolean
-        get() = account() != null
+        get() = account() != null || isTemporaryAccount
 
     val isTemporaryAccount: Boolean
-        get() = !isLoggedIn && getTempAccountName().isNotEmpty()
+        get() = account() == null && getTempAccountName().isNotEmpty()
 
     val userName: String
         get() = account()?.name ?: getTempAccountName()

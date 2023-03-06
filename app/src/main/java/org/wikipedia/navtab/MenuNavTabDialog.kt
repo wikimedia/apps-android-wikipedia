@@ -98,24 +98,12 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun updateState() {
         if (AccountUtil.isLoggedIn) {
-            binding.mainDrawerAccountAvatar.setImageResource(R.drawable.ic_baseline_person_24)
+            binding.mainDrawerAccountAvatar.setImageResource(if (AccountUtil.isTemporaryAccount) R.drawable.ic_anonymous_ooui else R.drawable.ic_baseline_person_24)
             ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.material_theme_secondary_color))
             binding.mainDrawerAccountName.text = AccountUtil.userName
             binding.mainDrawerAccountName.visibility = View.VISIBLE
             binding.mainDrawerLoginButton.visibility = View.GONE
             binding.mainDrawerLoginOpenExternalIcon.visibility = View.VISIBLE
-            binding.mainDrawerTalkContainer.visibility = View.VISIBLE
-            binding.mainDrawerWatchlistContainer.visibility = View.VISIBLE
-            binding.mainDrawerContribsContainer.visibility = View.VISIBLE
-        } else if (AccountUtil.isTemporaryAccount) {
-            binding.mainDrawerAccountAvatar.setImageResource(R.drawable.ic_anonymous_ooui)
-            ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.material_theme_secondary_color))
-            binding.mainDrawerAccountName.text = AccountUtil.userName
-            binding.mainDrawerAccountName.visibility = View.VISIBLE
-            binding.mainDrawerLoginButton.textAlignment = View.TEXT_ALIGNMENT_TEXT_START
-            binding.mainDrawerLoginButton.text = getString(R.string.main_drawer_login)
-            binding.mainDrawerLoginButton.setTextColor(getThemedColorStateList(requireContext(), R.attr.colorAccent))
-            binding.mainDrawerLoginOpenExternalIcon.visibility = View.GONE
             binding.mainDrawerTalkContainer.visibility = View.VISIBLE
             binding.mainDrawerWatchlistContainer.visibility = View.VISIBLE
             binding.mainDrawerContribsContainer.visibility = View.VISIBLE
