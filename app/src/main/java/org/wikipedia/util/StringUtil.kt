@@ -13,12 +13,12 @@ import android.text.style.StyleSpan
 import android.widget.EditText
 import android.widget.TextView
 import androidx.annotation.IntRange
-import androidx.core.text.parseAsHtml
 import androidx.core.text.toSpanned
 import okio.ByteString.Companion.encodeUtf8
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
+import org.wikipedia.richtext.CustomHtmlParser
 import org.wikipedia.staticdata.UserAliasData
 import java.nio.charset.StandardCharsets
 import java.text.Collator
@@ -117,13 +117,7 @@ object StringUtil {
             .replace("&#8207;", "\u200F")
             .replace("&amp;", "&")
 
-        // HACK: We don't want to display "images" in the html string, because they will just show
-        // up as a green square. Therefore, let's just disable the parsing of images by renaming
-        // <img> tags to something that the native Html parser doesn't recognize.
-        // This automatically covers both <img></img> and <img /> variations.
-        sourceStr = sourceStr.replace("<img ", "<figure ").replace("</img>", "</figure>")
-
-        return sourceStr.parseAsHtml()
+        return CustomHtmlParser.fromHtml(sourceStr)
     }
 
     fun highlightEditText(editText: EditText, parentText: String, highlightText: String) {
