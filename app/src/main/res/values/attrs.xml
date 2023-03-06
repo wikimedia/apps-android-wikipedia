@@ -2,8 +2,6 @@
 <resources>
     <attr name="toolbar_icon_color" format="reference"/>
     <attr name="themed_icon_color" format="reference"/>
-    <attr name="edit_improve_tag_selected_drawable" format="reference" />
-    <attr name="edit_improve_tag_unselected_drawable" format="reference" />
     <attr name="list_separator_drawable" format="reference"/>
     <attr name="list_separator_drawable_bottom_content" format="reference"/>
     <attr name="list_separator_drawable_light" format="reference"/>
@@ -38,7 +36,6 @@
     <attr name="button_background_color" format="color" />
     <attr name="tab_placeholder_text_color" format="color" />
     <attr name="chip_background_color" format="color"/>
-    <attr name="suggestions_background_color" format="color"/>
     <attr name="color_group_9" format="color"/>
     <attr name="color_group_22" format="reference"/>
     <attr name="color_group_43" format="color"/>
