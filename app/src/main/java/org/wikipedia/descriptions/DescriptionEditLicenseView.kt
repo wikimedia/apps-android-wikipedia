@@ -33,9 +33,11 @@ class DescriptionEditLicenseView constructor(context: Context, attrs: AttributeS
 
     init {
         orientation = VERTICAL
-        binding.licenseText.movementMethod = movementMethod
-        binding.anonWarningText.movementMethod = movementMethod
-        buildLicenseNotice(ARG_NOTICE_DEFAULT)
+        if (!isInEditMode) {
+            binding.licenseText.movementMethod = movementMethod
+            binding.anonWarningText.movementMethod = movementMethod
+            buildLicenseNotice(ARG_NOTICE_DEFAULT)
+        }
     }
 
     fun buildLicenseNotice(arg: String, lang: String? = null) {

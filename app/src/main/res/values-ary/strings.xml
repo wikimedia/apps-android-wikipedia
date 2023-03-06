@@ -257,6 +257,7 @@
   <string name="format_error_server_message">ميساج: \"%s\"</string>
   <string name="button_continue_to_article">قرا لمقال</string>
   <string name="button_continue_to_talk_page">حل صفحة لهضرة</string>
+  <string name="link_preview_disambiguation_description">هاد لعنوان مرتابط ب كتر من صفحة وحدة:</string>
   <string name="button_add_to_reading_list">زيد ل ليستة ديال لقراية</string>
   <string name="button_get_directions">خود لإتجاهات</string>
   <string name="nav_item_donate">تبرع</string>

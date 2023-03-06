@@ -15,6 +15,7 @@
 * InternerowyGołąb
 * Kareyac
 * Lantuszka
+* Luku123
 * Masti
 * Matik7
 * Matma Rex
@@ -451,8 +452,13 @@
   <string name="text_size_percent_default">%s (domyślnie)</string>
   <string name="text_style_title">Czcionka</string>
   <string name="theme_category_reading">Czytanie</string>
+  <string name="theme_category_editing">Edycja</string>
   <string name="reading_focus_mode">Tryb skupienia na czytaniu</string>
   <string name="reading_focus_mode_detail">Ukrywa funkcje edycji i dolny pasek narzędzi podczas przewijania</string>
+  <string name="editing_syntax_highlight_label">Podświetlanie składni</string>
+  <string name="editing_line_numbers_label">Pokaż numery linii</string>
+  <string name="editing_monospace_font_label">Użyj czcionki o stałej szerokości</string>
+  <string name="editing_typing_suggestions">Pokaż sugestie pisania</string>
   <string name="nav_item_saved">Zapisane</string>
   <string name="reading_list_save_to">Zapisz do przeczytania</string>
   <string name="reading_list_move_to">Przejdź do listy lektur</string>
@@ -465,10 +471,6 @@
   <string name="reading_list_articles_already_exist_message">Wszystko dobrze! %s zawiera teraz wszystkie artykuły.</string>
   <string name="reading_list_added_view_button">Zobacz listę</string>
   <string name="reading_list_add_to_list_button">Dodaj do listy</string>
-  <string name="format_reading_list_statistical_summary_singular">1 artykuł, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artykułów, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d z 1 artykułów dostępnych offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d z %2$d artykułów dostępnych offline, %3$.2f MB</string>
   <string name="reading_list_sort">Sortuj</string>
   <string name="reading_list_sort_ellipsis">Sortuj według:</string>
   <string name="reading_list_sort_by_name">Sortuj według nazwy</string>
@@ -478,6 +480,10 @@
   <string name="reading_list_sort_by_created">Sortuj wg daty utworzenia (od najnowszych)</string>
   <string name="reading_list_sort_by_created_desc">Sortuj wg daty utworzenia (od najstarszych)</string>
   <string name="reading_list_menu_delete">Usuń listę</string>
+  <string name="reading_list_menu_export">Eksportuj listę</string>
+  <string name="reading_list_menu_select">Zaznacz</string>
+  <string name="reading_list_menu_unselect">Odznacz</string>
+  <string name="reading_list_export_write_permission_rationale">Pozwolenie na zapis w pamięci urządzenia jest wymagane, aby móc wyeksportować listę rzeczy do przeczytania.</string>
   <string name="reading_list_menu_rename">Edytuj nazwę/opis</string>
   <string name="reading_list_action_menu_remove_from_offline">Usuń z zapisanych na później</string>
   <string name="reading_list_action_menu_save_for_offline">Zapisz na później</string>
@@ -545,6 +551,7 @@
   <string name="reading_list_article_limit_message">Nie można dodać tego do tej listy. Osiągnąłeś limit %2$d artykułów na listę dla \"%1$s\".</string>
   <string name="reading_lists_limit_message">Nie można utworzyć kolejnej listy. Osiągnąłeś limit 100 list dla tego konta.</string>
   <string name="reading_lists_menu_create_list">Utwórz nową listę</string>
+  <string name="reading_lists_menu_import_list">Importuj listę</string>
   <string name="reading_lists_menu_sort_by">Sortuj według</string>
   <string name="reading_lists_refresh_sync_option">Odśwież synchronizację</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Zaloguj się / zarejestruj</string>
@@ -565,7 +572,10 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Anuluj</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Anuluj</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Usuń</string>
   <string name="reading_list_activity_title">Lista do przeczytania: %s</string>
+  <string name="reading_lists_action_menu_export_lists">Eksport</string>
+  <string name="reading_lists_import_file_picker_title">Wybierz plik do importu</string>
   <string name="user_option_sync_label">Preferencje</string>
   <string name="notification_reverted_title">Wycofana edycja</string>
   <string name="notification_channel_title">Pobieranie artykułów</string>
@@ -768,6 +778,8 @@
   <string name="description_edit_license_notice">Zmieniając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">zwykle zaczynają się od małej litery</string>
   <string name="description_edit_voice_input_description">Wprowadzanie głosowe</string>
+  <string name="description_edit_description_learn_more_url">https\n://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Tekst jest zbyt krótki.</string>
   <string name="description_ends_with_punctuation">Tekst nie może kończyć się znakiem interpunkcyjnym.</string>
   <string name="description_starts_with_article">Unikaj rozpoczynania artykułów od „a” bądź „the” (ang).</string>
@@ -1015,12 +1027,35 @@
   <string name="content_description_for_page_indicator">Strona %1$d z %2$d</string>
   <string name="wikitext_bold">Pogrubienie</string>
   <string name="wikitext_italic">Kursywa</string>
+  <string name="wikitext_underline">Podkreślenie</string>
+  <string name="wikitext_strikethrough">Przekreślenie</string>
+  <string name="wikitext_sup">Indeks górny</string>
+  <string name="wikitext_sub">Indeks dolny</string>
+  <string name="wikitext_large">Duży tekst</string>
+  <string name="wikitext_small">Mały tekst</string>
+  <string name="wikitext_code">Kod</string>
   <string name="wikitext_link">Link</string>
+  <string name="wikitext_formatting">Formatowanie</string>
+  <string name="wikitext_headings">Nagłówki</string>
+  <string name="wikitext_insert_media">Wstaw media</string>
   <string name="wikitext_bulleted_list">Lista wypunktowana</string>
   <string name="wikitext_numbered_list">Lista numerowana</string>
   <string name="wikitext_template">Szablon</string>
   <string name="wikitext_reference">Przypis</string>
   <string name="wikitext_preview_link">Zobacz link</string>
+  <string name="insert_media_title">Wstaw media</string>
+  <string name="insert_media_settings">Ustawienia multimediów</string>
+  <string name="insert_media_settings_uploaded_image">Przesłany obraz</string>
+  <string name="insert_media_settings_alternative_text">Tekst alternatywny</string>
+  <string name="insert_media_advanced_settings">Ustawienia zaawansowane</string>
+  <string name="insert_media_advanced_settings_image_position">Pozycja obrazu</string>
+  <string name="insert_media_advanced_settings_image_position_right">Do prawej</string>
+  <string name="insert_media_advanced_settings_image_position_left">Do lewej</string>
+  <string name="insert_media_advanced_settings_image_position_center">Wyśrodkowane</string>
+  <string name="insert_media_advanced_settings_image_position_none">Brak</string>
+  <string name="insert_media_advanced_settings_image_type">Typ obrazu</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Szerokość</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Wysokość</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
   <string name="main_tooltip_text">Cześć %s, czy wiesz, że każdy może edytować Wikipedię?</string>
@@ -1105,7 +1140,7 @@
   <string name="thank_dialog_positive_button_text">Wyślij podziękowanie</string>
   <string name="thank_dialog_negative_button_text">Anuluj</string>
   <string name="thank_success_message">Twoje podziękowanie zostało wysłane do %s 👍</string>
-  <string name="menu_option_view_user_profile" fuzzy="true">Wyświetl stronę profilu użytkownika</string>
+  <string name="menu_option_view_user_profile">Wyświetl stronę użytkownika</string>
   <string name="menu_option_view_user_talk">Wyświetl stronę dyskusji</string>
   <string name="menu_option_view_user_contributions">Wyświetl wkład użytkownika</string>
   <string name="revision_diff_compare">Porównaj wersje</string>
@@ -1148,6 +1183,7 @@
   <string name="watchlist_page_moved">Przeniesiona</string>
   <string name="watchlist_page_protected">Zabezpieczona</string>
   <string name="watchlist_page_deleted">Usunięta</string>
+  <string name="preview_edit_minor_edit">To jest drobna zmiana</string>
   <string name="action_item_categories">Kategorie</string>
   <string name="page_no_categories">Ta strona nie należy do żadnej kategorii.</string>
   <string name="category_tab_articles">Artykuły</string>
@@ -1157,4 +1193,6 @@
   <string name="search_namespaces">Przestrzenie nazw</string>
   <string name="revision_initial_none">Brak (to pierwsza wersja)</string>
   <string name="archive_empty">Nie znaleziono zarchiwizowanych stron.</string>
+  <string name="user_contrib_filter_all">Wszystkie przestrzenie nazw</string>
+  <string name="namespace_article">Artykuł</string>
 </resources>

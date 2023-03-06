@@ -34,12 +34,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayout
-import kotlinx.coroutines.flow.collect
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.databinding.ItemNotificationBinding
@@ -68,7 +66,7 @@ class NotificationActivity : BaseActivity() {
     private var linkHandler = NotificationLinkHandler(this)
     private var notificationActionOverflowView: NotificationActionsOverflowView? = null
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
-    // TODO: maybe making the result observable and put into ViewModel class?
+
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == NotificationFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
             beginUpdateList()
@@ -76,7 +74,6 @@ class NotificationActivity : BaseActivity() {
             viewModel.updateTabSelection(binding.notificationTabLayout.selectedTabPosition)
         }
     }
-    var funnel = NotificationPreferencesFunnel(WikipediaApp.instance)
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -517,14 +514,12 @@ class NotificationActivity : BaseActivity() {
 
             itemView.setOnClickListener {
                 if (actionMode == null) {
-                    funnel.logSearchClick()
                     actionMode = startSupportActionMode(searchActionModeCallback)
                     postprocessAndDisplay()
                 }
             }
 
             notificationFilterButton.setOnClickListener {
-                funnel.logFilterClick()
                 resultLauncher.launch(NotificationFilterActivity.newIntent(it.context))
             }
 
@@ -588,7 +583,6 @@ class NotificationActivity : BaseActivity() {
                     }
 
                     override fun onFilterIconClick() {
-                        NotificationPreferencesFunnel(WikipediaApp.instance).logFilterClick()
                         DeviceUtil.hideSoftKeyboard(this@NotificationActivity)
                         startActivity(NotificationFilterActivity.newIntent(this@NotificationActivity))
                     }

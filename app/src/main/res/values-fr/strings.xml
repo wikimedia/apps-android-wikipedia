@@ -192,7 +192,7 @@
   <string name="create_account_login">Se connecter</string>
   <string name="menu_login">Se connecter</string>
   <string name="login_activity_title">Se connecter</string>
-  <string name="login_in_progress_dialog_message">Connexion en cours…</string>
+  <string name="login_in_progress_dialog_message">Connexion en cours...</string>
   <string name="login_success_toast">Connecté !</string>
   <string name="reset_password_title">Définir votre mot de passe</string>
   <string name="reset_password_description">Vous êtes connecté avec un mot de passe temporaire. Pour finaliser votre connexion, veuillez définir votre nouveau mot de passe ici.</string>
@@ -307,8 +307,8 @@
   <string name="edit_redo">Refaire</string>
   <string name="edit_rollback">Révoquer</string>
   <plurals name="edit_diff_bytes">
-    <item quantity="one">%s octet</item>
-    <item quantity="other">%s octets</item>
+    <item quantity="one">%s octet</item>
+    <item quantity="other">%s octets</item>
   </plurals>
   <string name="edit_zoom_in">Zoom avant</string>
   <string name="edit_zoom_out">Zoom arrière</string>
@@ -401,8 +401,8 @@
   <string name="error_response_malformed">La réponse du serveur n’a pas été mise en forme correctement.</string>
   <string name="error_unknown">Une erreur inconnue s’est produite.</string>
   <string name="format_error_server_message">Message : « %s »</string>
-  <string name="address_copied">Adresse copiée dans le presse-papier.</string>
-  <string name="text_copied">Texte copié dans le presse-papier.</string>
+  <string name="address_copied">Adresse copiée dans le presse-papiers.</string>
+  <string name="text_copied">Texte copié dans le presse-papiers.</string>
   <string name="button_continue_to_article">Lire l’article</string>
   <string name="button_continue_to_talk_page">Ouvrir la page de discussion</string>
   <string name="button_continue_to_disambiguation">Afficher les pages similaires</string>
@@ -500,18 +500,22 @@
   <string name="reading_list_articles_already_exist_message">Tout va bien ! %s contient déjà tous les articles.</string>
   <string name="reading_list_added_view_button">Afficher la liste</string>
   <string name="reading_list_add_to_list_button">Ajouter à la liste</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 article</item>
+    <item quantity="other">%d articles</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 article, %2$.2f Mo</item>
     <item quantity="other">%1$d articles, %2$.2f Mo</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d sur 1 article disponible hors ligne</item>
+    <item quantity="other">%1$d sur %2$d articles disponibles hors ligne</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d sur 1 article disponible hors ligne, %3$.2f Mo</item>
     <item quantity="other">%1$d sur %2$d articles disponibles hors ligne, %3$.2f Mo</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f Mo</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f Mo</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d de 1 article disponible hors ligne, %2$.2f Mo</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d article(s) sur %2$d disponible(s) hors ligne, %3$.2f Mo</string>
   <string name="reading_list_sort">Trier</string>
   <string name="reading_list_sort_ellipsis">Trier par...</string>
   <string name="reading_list_sort_by_name">Trier par nom</string>
@@ -521,6 +525,10 @@
   <string name="reading_list_sort_by_created">Trier par date de création (la plus récente)</string>
   <string name="reading_list_sort_by_created_desc">Trier par date de création (la plus ancienne)</string>
   <string name="reading_list_menu_delete">Supprimer la liste</string>
+  <string name="reading_list_menu_export">Exporter la liste</string>
+  <string name="reading_list_menu_select">Sélectionner</string>
+  <string name="reading_list_menu_unselect">Désélectionner</string>
+  <string name="reading_list_export_write_permission_rationale">L’autorisation d’écrire sur le stockage de votre appareil est requise pour exporter votre liste de lecture.</string>
   <string name="reading_list_menu_rename">Modifier le nom/description</string>
   <string name="reading_list_action_menu_remove_from_offline">Purger du cache hors connexion</string>
   <string name="reading_list_action_menu_save_for_offline">Enregistrer pour hors connexion</string>
@@ -541,6 +549,15 @@
     <item quantity="one">%d article supprimé de %s</item>
     <item quantity="other">%d articles supprimés de %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d liste supprimée</item>
+    <item quantity="other">%d listes supprimées</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">La liste par défaut (%s) ne peut pas être supprimée</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s supprimé. La liste par défaut (%2$s) ne peut pas être supprimée.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Listes supprimées. La liste par défaut (%s) ne peut pas être supprimée.</string>
+  <string name="single_list_json_file_name">%s (liste de lecture de Wikipédia).json</string>
+  <string name="multiple_lists_json_file_name">Listes de lecture de Wikipédia (%s et plus).json</string>
   <string name="reading_list_items_deleted">%d articles supprimés de la liste</string>
   <string name="reading_lists_item_deleted">%s supprimé des listes</string>
   <string name="reading_list_item_delete_undo">Annuler</string>
@@ -573,6 +590,11 @@
   <string name="reading_list_articles_added_to_named">%1$d articles ajoutés à %2$s</string>
   <string name="reading_list_articles_moved_to_named">%1$d articles déplacés vers %2$s</string>
   <string name="reading_list_delete_confirm">Êtes-vous sûr(e) de vouloir supprimer %s ?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Supprimer la (ou les) liste(s) sélectionnée(s) ?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Êtes-vous sûr(e) de vouloir supprimer %d liste ?</item>
+    <item quantity="other">Êtes-vous sûr(e) de vouloir supprimer %d listes ?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Connectez-vous pour activer la synchronisation</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Connectez-vous pour permettre à vos listes de lecture d’être enregistrée dans votre compte.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annuler</string>
@@ -596,6 +618,7 @@
   <string name="reading_list_article_limit_message">Impossible d’ajouter à cette liste. Vous avez atteint la limite de %2$d articles par liste pour « %1$s ».</string>
   <string name="reading_lists_limit_message">Impossible de créer une autre liste. Vous avez atteint la limite de 100 listes de lecture par compte.</string>
   <string name="reading_lists_menu_create_list">Créer une nouvelle liste</string>
+  <string name="reading_lists_menu_import_list">Importer la liste</string>
   <string name="reading_lists_menu_sort_by">Trier par</string>
   <string name="reading_lists_refresh_sync_option">Rafraîchir la synchronisation</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Se connecter / s’inscrire</string>
@@ -616,7 +639,33 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Annuler</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Annuler</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Supprimer</string>
   <string name="reading_list_activity_title">Liste de lecture : %s</string>
+  <string name="reading_list_notification_title">Liste(s) de lecture exportée(s)</string>
+  <string name="reading_list_notification_text"> %d liste(s) de lecture a (ont) été exportée(s) vers « reading_lists export.json » dans votre dossier de téléchargements</string>
+  <string name="reading_list_notification_detailed_text">Les listes de lecture ont été exportées vers « reading_lists_export.json »</string>
+  <string name="reading_lists_action_menu_export_lists">Exporter</string>
+  <string name="reading_lists_import_file_picker_title">Choisir le fichier à importer</string>
+  <string name="reading_lists_import_failure_message">Échec d’importation des listes de lecture</string>
+  <string name="reading_lists_export_select_lists_message">Sélectionner la (ou les) liste(s) à exporter</string>
+  <string name="reading_lists_export_completed_message">Liste(s) de lecture exportée(s)</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Échec d’exportation de la liste de lecture</item>
+    <item quantity="other">Échec d’exportation des listes de lecture</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Liste de lecture importée</item>
+    <item quantity="other">Listes de lecture importées</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Liste partagée</string>
+  <string name="reading_lists_preview_save_button">Enregistrer</string>
+  <string name="reading_lists_preview_save_dialog_title">Enregistrer la liste</string>
+  <string name="reading_lists_preview_save_dialog_text">Nommez la liste et sélectionnez les articles à enregistrer.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Titre</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Annuler</string>
+  <string name="reading_lists_preview_save_dialog_save">Enregistrer</string>
+  <string name="reading_lists_preview_saved_snackbar">Liste de lecture enregistrée</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Afficher</string>
   <string name="user_option_sync_label">Préférences</string>
   <string name="notification_reverted_title">Modification annulée</string>
   <string name="notification_channel_title">Téléchargement des articles</string>
@@ -720,7 +769,7 @@
   <string name="notifications_filter_label">Filtrer les notifications</string>
   <string name="notifications_filter_icon_content_description">Filtrer les notifications</string>
   <string name="notifications_filter_update_app_languages">Mettre à jour les langues de l’application</string>
-  <string name="notifications_empty_search_message">Essayez d’enlever %s pour voir plus de notifications</string>
+  <string name="notifications_empty_search_message">Essayez de retirer %s pour voir plus de notifications</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filtre</item>
     <item quantity="other">%d filtres</item>
@@ -1168,6 +1217,8 @@
   <string name="talk_new_topic">Nouveau sujet</string>
   <string name="talk_new_topic_submitted">Sujet posté.</string>
   <string name="talk_page_empty">Cette page de discussion est vide.</string>
+  <string name="talk_page_empty_title">La conversation commence ici</string>
+  <string name="talk_page_empty_content">Les pages de discussion sont des endroits pour discuter de la façon de rendre le contenu de Wikipédia le meilleur possible. Commencez par ajouter un nouveau sujet de discussion pour vous connecter et collaborer avec une communauté de Wikipédiens.</string>
   <string name="talk_add_reply">Répondre</string>
   <string name="talk_no_subject">(Aucun sujet)</string>
   <string name="talk_reply_subject">Sujet</string>
@@ -1190,6 +1241,8 @@
   <string name="talk_overflow_sort_date_published">Date de publication</string>
   <string name="talk_overflow_sort_date_updated">Dernière mise à jour</string>
   <string name="talk_overflow_sort_topic_name">Nom du sujet</string>
+  <string name="talk_new_topic_exit_dialog_title">Voulez-vous vraiment quitter ?</string>
+  <string name="talk_new_topic_exit_dialog_message">Le sujet et le texte du contenu ne seront pas enregistrés.</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Afficher la réponse</item>
     <item quantity="other">Afficher les %d réponses</item>
@@ -1296,11 +1349,26 @@
   <string name="user_contrib_activity_title">Contributions de %s</string>
   <string name="archive_empty">Aucune page archivée trouvée.</string>
   <string name="user_contrib_filter_ns">Filtrer par espace de noms</string>
-  <string name="user_contrib_filter_all">Tous les « espaces de noms »</string>
+  <string name="user_contrib_filter_all">Tous les espaces de noms</string>
   <string name="user_contrib_filter_ns_header">Filtre d’espaces de noms</string>
   <string name="namespace_article">Article</string>
   <string name="user_contrib_current">actuel</string>
   <string name="media_playback_error">Erreur lors de la lecture du média.</string>
   <string name="user_contrib_menu_label">Contributions</string>
   <string name="user_contrib_filter_activity_title">Filtre des contributions</string>
+  <string name="shareable_reading_lists_import_dialog_title">Importer une liste de lecture partagée</string>
+  <string name="shareable_reading_lists_import_dialog_content">Comment désirez-vous nommer la liste de lecture qui a été partagée avec vous ?</string>
+  <string name="shareable_reading_lists_new_indicator">*nouveau*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Une liste de lecture a été partagée avec vous.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Nous avons remarqué qu’une liste de lecture a été partagée avec vous. Pour afficher cette liste dans l’application, revenez au message d’origine et appuyez à nouveau sur le lien partagé.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">C’est bon</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Liste de lecture importée</string>
+  <string name="reading_list_share_menu_label">Partager...</string>
+  <string name="reading_list_share_menu_tooltip">Partager cette liste de lecture avec d’autres personnes</string>
+  <string name="reading_list_share_title_tooltip">Les modifications que vous apportez à cette liste ne sont pas visibles pour les autres.</string>
+  <string name="reading_list_share_message_v2">Bonjour ! J’aimerais partager ma liste de lecture Wikipédia avec vous :</string>
+  <string name="reading_list_share_survey_title">Pourriez-vous nous aider à améliorer la fonctionnalité « Partager des listes de lecture » ?</string>
+  <string name="reading_list_share_survey_body">Le « Partage de listes de lecture » est une fonctionnalité en test et nous avons besoin de vos commentaires pour l’améliorer ou la supprimer.</string>
+  <string name="data_opt_in_accept">Accepter</string>
+  <string name="data_opt_in_reject">Rejeter</string>
 </resources>

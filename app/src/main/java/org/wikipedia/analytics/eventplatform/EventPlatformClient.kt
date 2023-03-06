@@ -1,5 +1,7 @@
 package org.wikipedia.analytics.eventplatform
 
+import android.annotation.SuppressLint
+import android.widget.Toast
 import androidx.core.os.postDelayed
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.BuildConfig
@@ -70,7 +72,8 @@ object EventPlatformClient {
         OutputBuffer.sendAllScheduled()
     }
 
-    private fun refreshStreamConfigs() {
+    @SuppressLint("CheckResult")
+    fun refreshStreamConfigs() {
         ServiceFactory.get(WikiSite(BuildConfig.META_WIKI_BASE_URI)).streamConfigs
                 .subscribeOn(Schedulers.io())
                 .subscribe({ updateStreamConfigs(it.streamConfigs) }) { L.e(it) }
@@ -83,6 +86,7 @@ object EventPlatformClient {
         Prefs.streamConfigs = STREAM_CONFIGS
     }
 
+    @Synchronized
     fun setUpStreamConfigs() {
         STREAM_CONFIGS.clear()
         STREAM_CONFIGS.putAll(Prefs.streamConfigs)
@@ -106,8 +110,8 @@ object EventPlatformClient {
          * If another item is added to QUEUE during this time, reset the countdown.
          */
         private const val WAIT_MS = 30000L
-        private const val MAX_QUEUE_SIZE = 128
         private const val TOKEN = "sendScheduled"
+        private val MAX_QUEUE_SIZE = if (ReleaseUtil.isDevRelease) 4 else 128
 
         @Synchronized
         fun sendAllScheduled() {
@@ -155,6 +159,7 @@ object EventPlatformClient {
             }
         }
 
+        @SuppressLint("CheckResult")
         fun sendEventsForStream(streamConfig: StreamConfig, events: List<Event>) {
             (if (ReleaseUtil.isDevRelease)
                 ServiceFactory.getAnalyticsRest(streamConfig).postEvents(events)
@@ -171,22 +176,20 @@ object EventPlatformClient {
                             }
                         }
                     }) {
+                        L.e(it)
                         if (it is HttpStatusException) {
-                            when (it.code) {
-                                HttpURLConnection.HTTP_BAD_REQUEST,
-                                HttpURLConnection.HTTP_INTERNAL_ERROR,
-                                HttpURLConnection.HTTP_UNAVAILABLE,
-                                HttpURLConnection.HTTP_GATEWAY_TIMEOUT -> {
-                                    L.e(it)
-                                    // TODO: queue up to retry?
-                                }
-                                else -> {
-                                    // Something unexpected happened. Crash if this is a pre-production build.
-                                    L.logRemoteErrorIfProd(it)
+                            if (it.code >= HttpURLConnection.HTTP_INTERNAL_ERROR) {
+                                // TODO: For errors >= 500, queue up to retry?
+                            } else {
+                                // Something unexpected happened.
+                                if (ReleaseUtil.isDevRelease) {
+                                    // If it's a pre-beta release, show a loud toast to signal that
+                                    // a potential issue should be investigated.
+                                    WikipediaApp.instance.mainThreadHandler.post {
+                                        Toast.makeText(WikipediaApp.instance, it.message, Toast.LENGTH_LONG).show()
+                                    }
                                 }
                             }
-                        } else {
-                            L.w(it)
                         }
                     }
         }
@@ -253,6 +256,10 @@ object EventPlatformClient {
             Prefs.eventPlatformSessionId = null
 
             // A session refresh implies a pageview refresh, so clear runtime value of PAGEVIEW_ID.
+            beginNewPageView()
+        }
+
+        fun beginNewPageView() {
             PAGEVIEW_ID = null
         }
 
@@ -315,7 +322,7 @@ object EventPlatformClient {
                 return AssociationController.pageViewId
             }
             if (unit == SamplingConfig.UNIT_DEVICE) {
-                return Prefs.appInstallId.orEmpty()
+                return WikipediaApp.instance.appInstallID
             }
             L.e("Bad identifier type")
             return UUID.randomUUID().toString()

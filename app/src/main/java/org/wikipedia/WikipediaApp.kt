@@ -9,7 +9,6 @@ import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Handler
 import android.speech.RecognizerIntent
-import android.text.TextUtils
 import android.view.Window
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
@@ -17,9 +16,8 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.internal.functions.Functions
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.wikipedia.analytics.FunnelManager
 import org.wikipedia.analytics.InstallReferrerListener
-import org.wikipedia.analytics.SessionFunnel
+import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
@@ -45,10 +43,13 @@ import org.wikipedia.util.log.L
 import java.util.*
 
 class WikipediaApp : Application() {
+    init {
+        instance = this
+    }
+
     val mainThreadHandler by lazy { Handler(mainLooper) }
     val languageState by lazy { AppLanguageState(this) }
-    val funnelManager by lazy { FunnelManager(this) }
-    val sessionFunnel by lazy { SessionFunnel(this) }
+    val appSessionEvent by lazy { AppSessionEvent() }
     val userAgent by lazy {
         var channel = ReleaseUtil.getChannel(this)
         channel = if (channel.isBlank()) "" else " $channel"
@@ -143,10 +144,6 @@ class WikipediaApp : Application() {
             L.e(e)
             false
         }
-    }
-
-    init {
-        instance = this
     }
 
     override fun onCreate() {
@@ -266,7 +263,7 @@ class WikipediaApp : Application() {
                     WikipediaFirebaseMessagingService.unsubscribePushToken(csrfToken!!, Prefs.pushNotificationToken)
                             .flatMap { ServiceFactory.get(wikiSite).postLogout(csrfToken).subscribeOn(Schedulers.io()) }
                 }
-                .doFinally { SharedPreferenceCookieManager.getInstance().clearAllCookies() }
+                .doFinally { SharedPreferenceCookieManager.instance.clearAllCookies() }
                 .subscribe({ L.d("Logout complete.") }) { L.e(it) }
     }
 
@@ -287,7 +284,7 @@ class WikipediaApp : Application() {
 
     @SuppressLint("CheckResult")
     private fun getUserIdForLanguage(code: String) {
-        if (!AccountUtil.isLoggedIn || TextUtils.isEmpty(AccountUtil.userName)) {
+        if (!AccountUtil.isLoggedIn || AccountUtil.userName.isNullOrEmpty()) {
             return
         }
         val wikiSite = WikiSite.forLanguageCode(code)

@@ -51,7 +51,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 if (WikipediaFirebaseMessagingService.isUsingPush()) {
                     return
                 }
-                LOCALLY_KNOWN_NOTIFICATIONS = Prefs.locallyKnownNotifications.toMutableList()
                 PollNotificationWorker.schedulePollNotificationJob(context)
             }
             ACTION_CANCEL == intent.action -> {
@@ -88,9 +87,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private const val MAX_LOCALLY_KNOWN_NOTIFICATIONS = 32
         private const val FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3
         private const val SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7
-        val DBNAME_WIKI_SITE_MAP = mutableMapOf<String, WikiSite>().withDefault { WikipediaApp.instance.wikiSite }
-        val DBNAME_WIKI_NAME_MAP = mutableMapOf<String, String>()
-        private var LOCALLY_KNOWN_NOTIFICATIONS = Prefs.locallyKnownNotifications.toMutableList()
 
         fun startPollTask(context: Context) {
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
@@ -127,21 +123,25 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             return PendingIntent.getBroadcast(context, id.toInt(), intent, DeviceUtil.pendingIntentFlags)
         }
 
-         fun onNotificationsComplete(context: Context, notifications: List<Notification>) {
+         fun onNotificationsComplete(context: Context,
+                                     notifications: List<Notification>,
+                                     dbWikiSiteMap: Map<String, WikiSite>,
+                                     dbWikiNameMap: Map<String, String>) {
             if (Prefs.isSuggestedEditsHighestPriorityEnabled) {
                 return
             }
             var locallyKnownModified = false
             val knownNotifications = mutableListOf<Notification>()
             val notificationsToDisplay = mutableListOf<Notification>()
+            val locallyKnownNotifications = Prefs.locallyKnownNotifications.toMutableList()
             for (n in notifications) {
                 knownNotifications.add(n)
-                if (LOCALLY_KNOWN_NOTIFICATIONS.contains(n.key())) {
+                if (locallyKnownNotifications.contains(n.key())) {
                     continue
                 }
-                LOCALLY_KNOWN_NOTIFICATIONS.add(n.key())
-                if (LOCALLY_KNOWN_NOTIFICATIONS.size > MAX_LOCALLY_KNOWN_NOTIFICATIONS) {
-                    LOCALLY_KNOWN_NOTIFICATIONS.removeAt(0)
+                locallyKnownNotifications.add(n.key())
+                if (locallyKnownNotifications.size > MAX_LOCALLY_KNOWN_NOTIFICATIONS) {
+                    locallyKnownNotifications.removeAt(0)
                 }
                 notificationsToDisplay.add(n)
                 locallyKnownModified = true
@@ -163,20 +163,20 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     // Record that there is an incoming notification to track/compare further actions on it.
                     NotificationInteractionEvent.logIncoming(n, null)
                     NotificationPresenter.showNotification(context, n,
-                        DBNAME_WIKI_NAME_MAP.getOrElse(n.wiki) { n.wiki },
-                        DBNAME_WIKI_SITE_MAP.getValue(n.wiki).languageCode)
+                        dbWikiNameMap.getOrElse(n.wiki) { n.wiki },
+                        dbWikiSiteMap.getValue(n.wiki).languageCode)
                 }
             }
             if (locallyKnownModified) {
-                Prefs.locallyKnownNotifications = LOCALLY_KNOWN_NOTIFICATIONS
+                Prefs.locallyKnownNotifications = locallyKnownNotifications
             }
             if (knownNotifications.size > MAX_LOCALLY_KNOWN_NOTIFICATIONS) {
-                markItemsAsRead(knownNotifications.subList(0, knownNotifications.size - MAX_LOCALLY_KNOWN_NOTIFICATIONS))
+                markItemsAsRead(knownNotifications.subList(0, knownNotifications.size - MAX_LOCALLY_KNOWN_NOTIFICATIONS), dbWikiSiteMap)
             }
         }
 
-        private fun markItemsAsRead(items: List<Notification>) {
-            val notificationsPerWiki = items.groupBy { DBNAME_WIKI_SITE_MAP.getValue(it.wiki) }
+        private fun markItemsAsRead(items: List<Notification>, dbWikiSiteMap: Map<String, WikiSite>) {
+            val notificationsPerWiki = items.groupBy { dbWikiSiteMap.getValue(it.wiki) }
             for ((wiki, notifications) in notificationsPerWiki) {
                 markRead(wiki, notifications, false)
             }

@@ -324,10 +324,6 @@
     <item quantity="one">%1$d a̱si̱ a̱ti̱kut 1 shyia̱ ma̱ntalang, %3$.2f MB</item>
     <item quantity="other">%1$d a̱si̱ a̱yaati̱kut %2$d shyia̱ ma̱ntalang, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">A̱ti̱kut 1, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">A̱yaati̱kut %1$d, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d a̱si̱ a̱yaati̱kut 1 shyia̱ ma̱ntalang, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d a̱si̱ a̱yaati̱kut %2$d shyia̱ ma̱ntalang, %3$.2f MB</string>
   <string name="reading_list_sort">Tswang</string>
   <string name="reading_list_sort_ellipsis">Tswang di̱n vak...</string>
   <string name="reading_list_sort_by_name">Tswang di̱n vak a̱lyoot</string>

@@ -9,7 +9,6 @@ object Constants {
     const val ACTIVITY_REQUEST_BROWSE_TABS = 61
     const val ACTIVITY_REQUEST_DESCRIPTION_EDIT = 55
     const val ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL = 56
-    const val ACTIVITY_REQUEST_EDIT_SECTION = 51
     const val ACTIVITY_REQUEST_FEED_CONFIGURE = 58
     const val ACTIVITY_REQUEST_GALLERY = 52
     const val ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT = 64
@@ -31,6 +30,7 @@ object Constants {
     const val INTENT_EXTRA_GO_TO_SE_TAB = "goToSETab"
     const val INTENT_EXTRA_HAS_TRANSITION_ANIM = "hasTransitionAnim"
     const val INTENT_EXTRA_INVOKE_SOURCE = "invokeSource"
+    const val INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS = "previewSavedReadingList"
     const val INTENT_EXTRA_NOTIFICATION_ID = "notificationId"
     const val INTENT_EXTRA_NOTIFICATION_SYNC_CANCEL = "syncCancel"
     const val INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume"
@@ -97,11 +97,14 @@ object Constants {
         SNACKBAR_ACTION("snackbar"),
         SUGGESTED_EDITS("suggestedEdits"),
         TABS_ACTIVITY("tabsActivity"),
-        TALK_ACTIVITY("talkActivity"),
+        TALK_TOPICS_ACTIVITY("talkTopicsActivity"),
+        TALK_TOPIC_ACTIVITY("talkTopicActivity"),
+        TALK_REPLY_ACTIVITY("talkReplyActivity"),
         EDIT_ACTIVITY("editActivity"),
         TOOLBAR("toolbar"),
         VOICE("voice"),
         WATCHLIST_ACTIVITY("watchlist"),
+        WATCHLIST_FILTER_ACTIVITY("watchlistFilter"),
         WIDGET("widget"),
         USER_CONTRIB_ACTIVITY("userContribActivity"),
     }

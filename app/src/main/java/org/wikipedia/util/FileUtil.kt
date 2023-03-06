@@ -1,8 +1,14 @@
 package org.wikipedia.util
 
+import android.content.ContentValues
+import android.content.Context
 import android.graphics.Bitmap
+import android.os.Build
+import android.os.Environment
+import android.provider.MediaStore
 import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.FileOutputStream
 import java.io.InputStream
 
 object FileUtil {
@@ -19,6 +25,27 @@ object FileUtil {
         return destinationFile
     }
 
+    fun createFileInDownloadsFolder(context: Context, filename: String, mimeType: String, data: String?) {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                val contentResolver = context.contentResolver
+                val contentValues = ContentValues()
+                contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
+                contentValues.put(MediaStore.MediaColumns.MIME_TYPE, mimeType)
+                contentResolver.insert(MediaStore.Downloads.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY), contentValues)?.let { uri ->
+                    contentResolver.openOutputStream(uri)?.use { it.write(data?.toByteArray()) }
+                }
+            } else {
+                val downloadsFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+                val exportFile = File(downloadsFolder, filename)
+                exportFile.delete() // To overwrite when file exists
+                FileOutputStream(exportFile, true).bufferedWriter().use { it.write(data) }
+            }
+        } catch (e: Exception) {
+            // ignore
+        }
+    }
+
     fun compressBmpToJpg(bitmap: Bitmap): ByteArrayOutputStream {
         val bytes = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.JPEG, JPEG_QUALITY, bytes)
@@ -27,15 +54,6 @@ object FileUtil {
 
     fun readFile(inputStream: InputStream): String {
         return inputStream.reader().readLines().joinToString(separator = "\n")
-    }
-
-    fun deleteRecursively(f: File) {
-        if (f.isDirectory) {
-            f.listFiles()?.forEach {
-                deleteRecursively(it)
-            }
-        }
-        f.delete()
     }
 
     fun sanitizeFileName(fileName: String): String {

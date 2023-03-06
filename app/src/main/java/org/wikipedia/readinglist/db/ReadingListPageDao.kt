@@ -13,6 +13,7 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
+import org.wikipedia.util.StringUtil
 import java.util.*
 
 @Dao
@@ -47,7 +48,7 @@ interface ReadingListPageDao {
         apiTitle: String, excludedStatus: Long): ReadingListPage?
 
     @Query("SELECT * FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND apiTitle = :apiTitle AND status != :excludedStatus")
-    suspend fun getPagesByParams(wiki: WikiSite, lang: String, ns: Namespace,
+    fun getPagesByParams(wiki: WikiSite, lang: String, ns: Namespace,
         apiTitle: String, excludedStatus: Long): List<ReadingListPage>
 
     @Query("SELECT * FROM ReadingListPage WHERE listId = :listId AND status != :excludedStatus")
@@ -145,7 +146,8 @@ interface ReadingListPageDao {
         normalizedQuery = normalizedQuery.replace("\\", "\\\\")
             .replace("%", "\\%").replace("_", "\\_")
 
-        val pages = findPageBySearchTerm("%$normalizedQuery%").filter { it.accentAndCaseInvariantTitle().contains(normalizedQuery) }
+        val pages = findPageBySearchTerm("%$normalizedQuery%")
+                .filter { StringUtil.fromHtml(it.accentAndCaseInvariantTitle()).contains(normalizedQuery) }
 
         return if (pages.isEmpty()) SearchResults()
         else SearchResults(pages.take(2).map {
@@ -258,7 +260,7 @@ interface ReadingListPageDao {
         }
     }
 
-    suspend fun getAllPageOccurrences(title: PageTitle): List<ReadingListPage> {
+    fun getAllPageOccurrences(title: PageTitle): List<ReadingListPage> {
         return getPagesByParams(
             title.wikiSite, title.wikiSite.languageCode, title.namespace(),
             title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE

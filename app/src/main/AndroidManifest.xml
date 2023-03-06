@@ -85,6 +85,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="wikipedia" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".page.PageActivity"
@@ -266,6 +272,11 @@
             android:name=".watchlist.WatchlistActivity"
             android:label="@string/watchlist_title"
             android:theme="@style/AppTheme.ActionBar"/>
+
+        <activity
+            android:name=".watchlist.WatchlistFilterActivity"
+            android:label="@string/watchlist_filter_title"
+            android:theme="@style/AppTheme.ActionBar.Watchlist"/>
 
         <activity
             android:name=".suggestededits.SuggestedEditsImageTagEditActivity"

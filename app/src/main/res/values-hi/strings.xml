@@ -5,6 +5,7 @@
 * Anamdas
 * AnupamM
 * Bhatakati aatma
+* Cooltey
 * Dbrant
 * Kaartic
 * Mgaved
@@ -454,6 +455,7 @@
   <string name="text_size_percent_default">%s (डिफ़ॉल्ट)</string>
   <string name="text_style_title">फ़ॉन्ट</string>
   <string name="theme_category_reading">पढ़ना</string>
+  <string name="theme_category_editing">संपादन</string>
   <string name="reading_focus_mode">पढ़ने हेतु फोकस मोड</string>
   <string name="reading_focus_mode_detail">स्क्रॉल पर संपादन सुविधाएँ और निचला टूलबार छुपाता है</string>
   <string name="nav_item_saved">सहेजा गया</string>
@@ -476,10 +478,6 @@
     <item quantity="one">%1$d में से 1 लेख ऑफ़लाइन उपलब्ध, %3$.2f एमबी</item>
     <item quantity="other"> %2$d लेखों में से %1$d लेख ऑफ़लाइन उपलब्ध , %3$.2f एमबी</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 लेख, %1$.2f मेगाबाइट</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d लेख, %2$.2f मेगाबाइट</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d में से 1 लेख ऑफलाइन उपलब्ध हैं, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d में से %1$d लेख ऑफलाइन उपलब्ध हैं, %3$.2f MiB</string>
   <string name="reading_list_sort">छांटें</string>
   <string name="reading_list_sort_ellipsis">के अनुसार क्रमबद्ध करें</string>
   <string name="reading_list_sort_by_name">नाम से छांटें</string>
@@ -585,6 +583,11 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द करें</string>
   <string name="reading_list_split_dialog_ok_button_text">ठीक है</string>
   <string name="reading_list_activity_title">पठन सूची: %s</string>
+  <string name="reading_lists_preview_save_button">सहेजें</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">शीर्षक</string>
+  <string name="reading_lists_preview_save_dialog_cancel">रद्द करें</string>
+  <string name="reading_lists_preview_save_dialog_save">सहेजें</string>
+  <string name="reading_lists_preview_saved_snackbar_action">देखें</string>
   <string name="user_option_sync_label">वरीयता</string>
   <string name="notification_reverted_title">संपादन वापस लिया गया</string>
   <string name="notification_channel_title">लेख डाउनलोड हो रहे हैं</string>
@@ -1030,7 +1033,10 @@
   <string name="content_description_for_page_indicator">पेज %1$d %2$d में से</string>
   <string name="wikitext_bold">बोल्ड</string>
   <string name="wikitext_italic">इटैलिक</string>
+  <string name="wikitext_underline">रेखांकन</string>
+  <string name="wikitext_code">कोड</string>
   <string name="wikitext_link">कड़ी</string>
+  <string name="wikitext_headings">शीर्षक</string>
   <string name="wikitext_insert_media">मीडिया जोड़ें</string>
   <string name="wikitext_bulleted_list">बिंदु सूची</string>
   <string name="wikitext_numbered_list">संख्यात्मक सूची</string>
@@ -1194,9 +1200,15 @@
   <string name="user_contrib_activity_title">%s द्वारा योगदान</string>
   <string name="archive_empty">कोई पुरालेखित पृष्ठ नहीं मिला।</string>
   <string name="user_contrib_filter_ns">नामस्थान के अनुसार छानें</string>
-  <string name="user_contrib_filter_all" fuzzy="true">सभी सम्पादन</string>
+  <string name="user_contrib_filter_all">सभी नामस्थान</string>
   <string name="namespace_article">लेख</string>
   <string name="user_contrib_current">वर्तमान</string>
   <string name="media_playback_error">मीडिया चलाने में त्रुटि।</string>
   <string name="user_contrib_menu_label">योगदान</string>
+  <string name="reading_list_share_menu_label">साझा करें…</string>
+  <string name="reading_list_share_menu_tooltip">यह रीडिंग लिस्ट अन्य लोगों के साथ साझा करें</string>
+  <string name="reading_list_share_title_tooltip">आप इस लिस्ट में जो भी बदलाव करते हैं, उन्हें दूसरे लोग नहीं देख सकते हैं।</string>
+  <string name="reading_list_share_message_v2">हैलो! मैं अपना Wikipedia रीडिंग लिस्ट आपके साथ साझा करना चाहता/चाहती हूं :</string>
+  <string name="reading_list_share_survey_title">क्या आप \"रीडिंग लिस्ट साझा करें\" में सुधार लाने में हमारी सहायता करेंगे?</string>
+  <string name="reading_list_share_survey_body">\"रीडिंग लिस्ट साझा करें\" इस टेस्ट फीचर है और उसे सुधरने या हटाने में आपकी फीडबैक की जरूरत है।</string>
 </resources>

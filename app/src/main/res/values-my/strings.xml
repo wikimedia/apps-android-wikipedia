@@ -415,6 +415,8 @@
   <string name="text_size_decrease">စာလုံးအရွယ်အစား သေးရန်။</string>
   <string name="text_size_percent_default">%s (နဂိုအတိုင်း)</string>
   <string name="text_style_title">ဖောင့်</string>
+  <string name="theme_category_reading">စာဖတ်ခြင်း</string>
+  <string name="theme_category_editing">တည်းဖြတ်ခြင်း</string>
   <string name="nav_item_saved">သိမ်းဆည်းပြီး</string>
   <string name="reading_list_save_to">စာဖတ်စာရင်းသို့ သိမ်းရန်</string>
   <string name="reading_list_move_to">ဖတ်ရှုနေသောစာရင်သို့ ရွှေ့ရန်</string>
@@ -427,10 +429,6 @@
   <string name="reading_list_articles_already_exist_message">အားလုံးကောင်းပါတယ်! %sမှာ ဆောင်းပါးအားလုံးပါပြီးသားပါ</string>
   <string name="reading_list_added_view_button">စာရင်းအား ကြည့်ရန်</string>
   <string name="reading_list_add_to_list_button">စာရင်းသို့ ပေါင်းထည့်ရန်</string>
-  <string name="format_reading_list_statistical_summary_singular">ဆောင်းပါး ၁ ခု၊ %1$.2f မက်ဂါဘိုက်</string>
-  <string name="format_reading_list_statistical_summary_plural">ဆောင်းပါး %1$d ခု၊ %2$.2f မက်ဂါဘိုက်</string>
-  <string name="format_reading_list_statistical_detail_singular">ဆောင်းပါး ၁ ခု၏ %1$d ကို အင်တာနက်မရှိပဲ ဖတ်ရှုနိုင်သည်၊ %2$.2f မက်ဂါဘိုက်။</string>
-  <string name="format_reading_list_statistical_detail_plural">ဆောင်းပါးများ %2$d ခု၏ %1$d ခုသည် အော့ဖ်လိုင်းတွင် ရရှိနိုင်ပါပြီ၊ %3$.2f MB</string>
   <string name="reading_list_sort">စီစဉ်ရန်</string>
   <string name="reading_list_sort_ellipsis">အစဉ်လိုက်...</string>
   <string name="reading_list_sort_by_name">အမည်ဖြင့် စီစဉ်</string>
@@ -707,6 +705,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">စာတစ်ကြောင်းထဲ၊ စာလုံး နှစ်လုံးမှ တစ်ဆယ့်နှစ်လုံးအကြား</string>
   <string name="description_edit_tutorial_button_label_start_editing">စတင်တည်းဖြတ်</string>
   <string name="description_edit_tutorial_promise">စတင်ခြင်းဖြင့် ဤအင်္ဂရပ်ကို တလွဲအသုံးမပြုပါဟု ကတိပြုပါသည်။</string>
+  <string name="customize_toolbar_category_menu">မီးနူး</string>
   <string name="suggested_edits_describe_articles">ဆောင်းပါးများ ဖော်ပြရန်</string>
   <string name="suggested_edits_caption_images">ရုပ်ပုံများကို ပုံစံသတ်မှတ်ရန်</string>
   <string name="suggested_edits_review_description">ဆောင်းပါးဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
@@ -901,6 +900,24 @@
   <string name="wikitext_template">တမ်းပလိတ်</string>
   <string name="wikitext_reference">ရည်ညွှန်း</string>
   <string name="wikitext_preview_link">အကြိုမြင်ကွင်း လင့်ခ်</string>
+  <string name="insert_media_title">မီဒီယာ ထည့်သွင်းရန်</string>
+  <string name="insert_media_search_description">ဝီကီမီဒီယာကွန်မွန်းစ်မှ ဖိုင်တစ်ခုကိုရွေးချယ်ပါ</string>
+  <string name="insert_media_search_hint">မီဒီယာ ရှာဖွေရန်</string>
+  <string name="insert_media_settings">မီဒီယာ အပြင်အဆင်များ</string>
+  <string name="insert_media_settings_uploaded_image">အက်ပလုတ်တင်ထားသော ရုပ်ပုံ</string>
+  <string name="insert_media_settings_caption">ပုံစာ</string>
+  <string name="insert_media_advanced_settings_image_position_right">ညာ</string>
+  <string name="insert_media_advanced_settings_image_position_left">ဘယ်</string>
+  <string name="insert_media_advanced_settings_image_position_center">အလယ်</string>
+  <string name="insert_media_advanced_settings_image_position_none">တစ်ခုမှ မဟုတ်</string>
+  <string name="insert_media_advanced_settings_image_type">ပုံအမျိုးအစား</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">နမူနာပုံငယ်</string>
+  <string name="insert_media_advanced_settings_image_size">ရုပ်ပုံ အရွယ်အစား</string>
+  <string name="insert_media_advanced_settings_image_size_default">နဂိုအတိုင်း</string>
+  <string name="insert_media_advanced_settings_image_size_custom">စိတ်ကြိုက်</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">အကျယ်</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">အမြင့်</string>
+  <string name="insert_media_insert_button">ထည့်သွင်းရန်</string>
   <string name="main_drawer_help">အကူအညီ</string>
   <string name="main_drawer_login">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
   <string name="main_tooltip_text">ဟိုင်း %s၊ ဝီကီပီးဒီးယားကို လူတိုင်းတည်းဖြတ်နိုင်တယ်ဆိုတာ သင်သိပါသလား</string>
@@ -936,6 +953,7 @@
   <string name="menu_option_share_edit">တည်းဖြတ်မှုကိုမျှဝေရန်</string>
   <string name="menu_option_user_contributions">%s ၏ ပံ့ပိုးမှုများ</string>
   <string name="menu_option_edit_source">ရင်းမြစ်ကို တည်းဖြတ်ရန်</string>
+  <string name="menu_option_user_page">%s အသုံးပြုသူ စာမျက်နှာ</string>
   <string name="talk_menu_copy_text">စာသားကိုကူးယူရန်</string>
   <string name="watchlist_details_watching_label">စောင့်ကြည့်နေသည်</string>
   <string name="watchlist_details_watch_label">စောင့်ကြည့်ရန်</string>
@@ -977,4 +995,8 @@
   <string name="category_tab_subcategories">ကဏ္ဍခွဲများ</string>
   <string name="category_empty">ဤကဏ္ဍတွင် ဆောင်းပါးများ မတွေ့ပါ။</string>
   <string name="search_namespaces">အမည်ညွှန်းများ</string>
+  <string name="namespace_article">ဆောင်းပါး</string>
+  <string name="user_contrib_menu_label">ဆောင်ရွက်ချက်များ</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">သဘောပေါက်ပြီ</string>
+  <string name="reading_list_share_menu_label">မျှဝေ...</string>
 </resources>

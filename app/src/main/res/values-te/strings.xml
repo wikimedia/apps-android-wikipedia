@@ -7,6 +7,8 @@
 * Kiranmayee
 * MuratTheTurkish
 * Praveen Illa
+* Thirumalgoud
+* V Bhavya
 * Veeven
 * రహ్మానుద్దీన్
 -->
@@ -448,10 +450,6 @@
     <item quantity="one">ఉన్న 1 వ్యాసంలో %1$d ఆఫ్‌లైనులో అందుబాటులో ఉంది, %3$.2f MB</item>
     <item quantity="other">%2$d వ్యాసాల్లో %1$d ఆఫ్‌లైనులో అందుబాటులో ఉన్నాయి, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 వ్యాసం, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d వ్యాసాలు, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">1 వ్యాసంలో %1$d ఆఫ్‌లైనులో అందుబాటులో ఉంది, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d వ్యాసాల్లో %1$d ఆఫ్‌లైనులో అందుబాటులో ఉన్నాయి, %3$.2f MB</string>
   <string name="reading_list_sort">పేర్చు</string>
   <string name="reading_list_sort_ellipsis">ఈ విధంగా పేర్చు...</string>
   <string name="reading_list_sort_by_name">పేరు ప్రకారం పేర్చు</string>
@@ -555,6 +553,12 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">రద్దుచేయి</string>
   <string name="reading_list_split_dialog_ok_button_text">సరే</string>
   <string name="reading_list_activity_title">చదివే జాబితా: %s</string>
+  <string name="reading_lists_preview_header_title">భాగస్వామ్య జాబితా</string>
+  <string name="reading_lists_preview_save_button">భద్రపరచు</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">శీర్షిక</string>
+  <string name="reading_lists_preview_save_dialog_cancel">రద్దుచేయి</string>
+  <string name="reading_lists_preview_save_dialog_save">భద్రపరచు</string>
+  <string name="reading_lists_preview_saved_snackbar_action">చూడండి</string>
   <string name="user_option_sync_label">అభిరుచులు</string>
   <string name="notification_reverted_title">దిద్దుబాటును తిప్పికొట్టారు</string>
   <string name="notification_channel_title">వ్యాసాలను దిగుమతి చేస్తున్నాం</string>

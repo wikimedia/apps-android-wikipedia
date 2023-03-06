@@ -23,8 +23,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.button.MaterialButton
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
@@ -51,11 +49,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private var isWatched = false
     private var hasWatchlistExpiry = false
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     private val viewModel: ArticleEditDetailsViewModel by viewModels { ArticleEditDetailsViewModel.Factory(requireArguments()) }
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
-    private var editFunnel: EditFunnel? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -163,9 +159,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             binding.progressBar.isVisible = false
             if (it is Resource.Success) {
                 updateUndoAndRollbackButtons()
-                if (viewModel.hasRollbackRights) {
-                    editFunnel = WikipediaApp.instance.funnelManager.getEditFunnel(viewModel.pageTitle)
-                }
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
                 FeedbackUtil.showError(requireActivity(), it.throwable)
@@ -178,11 +171,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 setLoadingState()
                 viewModel.getRevisionDetails(it.data.rollback?.revision ?: 0)
                 FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_rollback_success), FeedbackUtil.LENGTH_DEFAULT).show()
-                editFunnel?.logRollbackSuccess(it.data.rollback?.revision ?: -1)
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
                 FeedbackUtil.showError(requireActivity(), it.throwable)
-                editFunnel?.logRollbackFailure()
             }
         }
 
@@ -213,7 +204,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (viewModel.pageTitle.namespace() == Namespace.USER_TALK || viewModel.pageTitle.namespace() == Namespace.TALK) {
                 startActivity(TalkTopicsActivity.newIntent(requireContext(), viewModel.pageTitle, InvokeSource.DIFF_ACTIVITY))
             } else {
-                bottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(
+                ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(
                         HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS), null))
             }
         }
@@ -248,7 +239,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         binding.rollbackButton.setOnClickListener {
             showRollbackDialog()
-            editFunnel?.logRollbackAttempt()
         }
 
         binding.errorView.backClickListener = View.OnClickListener { requireActivity().finish() }
@@ -262,8 +252,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         val watchlistItem = menu.findItem(R.id.menu_add_watchlist)
         watchlistItem.title = getString(if (isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
         watchlistItem.setIcon(getWatchlistIcon(isWatched, hasWatchlistExpiry))
-        menu.findItem(R.id.menu_undo).isVisible = (viewModel.revisionFrom != null) &&
-                !AccountUtil.isLoggedIn || (viewModel.hasRollbackRights && !viewModel.canGoForward)
     }
 
     override fun onMenuItemSelected(item: MenuItem): Boolean {
@@ -282,17 +270,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 copyLink(getSharableDiffUrl())
                 true
             }
-            R.id.menu_undo -> {
-                showUndoDialog()
-                true
-            }
             else -> false
         }
     }
 
     private fun showUserPopupMenu(revision: Revision?, anchorView: View) {
         revision?.let {
-            UserTalkPopupHelper.show(requireActivity() as AppCompatActivity, bottomSheetPresenter,
+            UserTalkPopupHelper.show(requireActivity() as AppCompatActivity,
                     PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode),
                             it.user, viewModel.pageTitle.wikiSite), it.isAnon, anchorView,
                     InvokeSource.DIFF_ACTIVITY, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS)
@@ -404,7 +388,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (!viewModel.watchlistExpiryChanged) {
                 snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
                     viewModel.watchlistExpiryChanged = true
-                    bottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
+                    ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
                 }
             }
             snackbar.show()
@@ -455,8 +439,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun updateUndoAndRollbackButtons() {
         binding.rollbackButton.isVisible = AccountUtil.isLoggedIn && viewModel.hasRollbackRights && !viewModel.canGoForward
-        binding.undoButton.isVisible = AccountUtil.isLoggedIn && !binding.rollbackButton.isVisible
-        requireActivity().invalidateOptionsMenu()
+        binding.undoButton.isVisible = AccountUtil.isLoggedIn
     }
 
     private fun getSharableDiffUrl(): String {
@@ -465,7 +448,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     override fun onExpirySelect(expiry: WatchlistExpiry) {
         viewModel.watchOrUnwatch(isWatched, expiry, false)
-        bottomSheetPresenter.dismiss(childFragmentManager)
+        ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
     }
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
@@ -481,7 +464,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
     }
 

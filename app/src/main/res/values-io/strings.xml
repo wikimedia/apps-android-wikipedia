@@ -65,6 +65,10 @@
     <item quantity="one">%1$d redakturo depos %2$s</item>
     <item quantity="other">%1$d redakturi depos %2$s</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d redakturo depos %2$s (%3$s)</item>
+    <item quantity="other">%1$d redakturi depos %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Probez modifikar &lt;a href=\"#\"&gt;filtrili&lt;/a&gt; por vidar plusa redakturi</string>
   <string name="menu_page_show_tabs">Montrar etiketi</string>
   <string name="menu_page_other_languages">Chanjar linguo</string>
@@ -91,6 +95,7 @@
   <string name="menu_page_new_tab">Nov etiketo</string>
   <string name="menu_page_reading_lists">Listo di lektado</string>
   <string name="menu_page_recently_viewed">Recente vidita</string>
+  <string name="menu_page_archive">Arkivo</string>
   <string name="menu_long_press_open_page">Apertar</string>
   <string name="menu_long_press_open_in_new_tab">Apertar en nova etiketo</string>
   <string name="menu_long_press_copy_page">Kopiar ligilo-adreso</string>
@@ -192,7 +197,7 @@
   <string name="create_account_ip_block_message">Pardonez, vua IP-adreso esas nun blokusita, e ne povas krear nova konti.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detali</string>
-  <string name="preferences_general_heading">generale</string>
+  <string name="preferences_general_heading">Ordinara preferaji</string>
   <string name="preferences_account_heading">Konto</string>
   <string name="wikipedia_app_faq">FAQ pri la Wikipedio</string>
   <string name="send_feedback">Retrosendar informi pri l\' app</string>
@@ -256,6 +261,11 @@
   <string name="edit_preview">Previdar</string>
   <string name="edit_undo">Desfacez</string>
   <string name="edit_redo">Rifacez</string>
+  <string name="edit_rollback">Retrorulez</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s bicoko*</item>
+    <item quantity="other">%s bicoki*</item>
+  </plurals>
   <string name="edit_zoom_in">Augmentez la videbleso</string>
   <string name="edit_zoom_out">Diminutez la videbleso</string>
   <string name="edit_summary_tag_typo">Ajustita ortografio</string>
@@ -427,8 +437,13 @@
   <string name="text_size_percent_default">%s (Default)</string>
   <string name="text_style_title">Litero-fonto</string>
   <string name="theme_category_reading">Lektado</string>
+  <string name="theme_category_editing">Redaktanta</string>
   <string name="reading_focus_mode">Modo por enfokigar la lektado</string>
   <string name="reading_focus_mode_detail">Celas redakto-utensili e l\'infra stango, dum volvo di la pagino</string>
+  <string name="editing_syntax_highlight_label">Emfazar sintaxo</string>
+  <string name="editing_line_numbers_label">Montrar numero di linei</string>
+  <string name="editing_monospace_font_label">Uzar fonto \'\'monospace\'\'</string>
+  <string name="editing_typing_suggestions">Sugestar mashinoskriburi</string>
   <string name="nav_item_saved">Registragita</string>
   <string name="reading_list_save_to">Adjuntez a la lektebla listo</string>
   <string name="reading_list_move_to">Movar a lektebla listo</string>
@@ -449,10 +464,6 @@
     <item quantity="one">%1$d de 1 artiklo disponebla \'\'offline\'\', %3$.2f MB</item>
     <item quantity="other">%1$d de %2$d artikli disponebla \'\'offline\'\', %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artiklo, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikli, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d ek 1 artikli disponebla \'offline\'; %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d ek %2$d artikli disponebla \'offline\', %3$.2f MB</string>
   <string name="reading_list_sort">Klasifikez</string>
   <string name="reading_list_sort_ellipsis">Ordenar segun...</string>
   <string name="reading_list_sort_by_name">Ordenar segun nomo</string>
@@ -502,6 +513,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ne divenos disponebla \'\'offline\'\' por omna lekto-listi:</string>
   <string name="reading_lists_sync_reminder_title">Ka sinkronigar listi pri lektado?</string>
   <string name="reading_lists_sync_reminder_text">Artikli konservita che lektado-listi nun povas sinkronigesar a vua Wikipedio-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Savez pluse&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Nun vu povas sinkronigar vua listi pri lektado. Facez \'log in\' en vua konto che Wikipedio, e permisez konservar vua listi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Permisar sinkronigo</string>
   <string name="reading_list_login_reminder_title">Sinkronigo di listi pri lektado</string>
   <string name="reading_lists_login_reminder_text">Listi pri lektado nun povas sinkronigesar en multa utensili. Facez \'\'log in\'\' en vua Wikipedio-konto, e permisez konservar la listi.</string>
@@ -518,8 +530,10 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Nuligar</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Enirar</string>
   <string name="reading_list_turned_sync_off_dialog_title">Sinkronigo di lektado-listo deskapabligesis</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Sinkronigo di lektado di listi deskapabligesis en vua konto. Nun, ne existas kopiuri (\'\'backup\'\') di listi di artikli por vu. Sinkronigez itere vua listi, kliktant en \"ajusti\" (\'\'Settings\'\').</string>
   <string name="reading_list_turned_sync_off_dialog_ok">O.K.</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Parametri</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Ka sinkronigar vua listi pri lektado?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_text">Artikli konservita che lekto-listi nun povas sinkronigesar a vua konto che wikipedio &lt;a href=\"#faq\"&gt;Savez pluse&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne pluse montrez me co</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Permisar sinkronigo</string>
@@ -762,6 +776,10 @@
   <string name="description_edit_license_notice">Per modifiko di la deskripto dil artiklo, me aceptas la &lt;a href=\"%1$s\"&gt;Formo di uzado&lt;/a&gt;, e nerevokeble liberigos mea kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">ordinare, komencez skribanta minuskula litero</string>
   <string name="description_edit_voice_input_description">Eniro di voco</string>
+  <string name="description_edit_learn_more">Lektez pluse pri deskripto di artikli</string>
+  <string name="description_edit_image_caption_learn_more">Lektez pluse pri texti (\'\'captions\'\') pri imaji</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">La texto esas tro kurta.</string>
   <string name="description_ends_with_punctuation">La texto ne povas finar per puntizosigno.</string>
   <string name="description_starts_with_uppercase">Komencez skribanta minuskula litero, ecepte se l\'unesma vorto esas propra nomo.</string>
@@ -864,9 +882,11 @@
   <string name="suggested_edits_image_tags_onboarding_title">Pozanta etiketi en imaji faciligos trovar li.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Adjuntanta etiketi ad imaji, vu faciligos la sercho di imaji en Commons, la depozeyo di libera imaji uzata che Wikipedio.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Nur etiketi quin vu selektos adjuntesos ad imaji.</string>
+  <string name="suggested_edits_image_tags_task_detail">Adjuntez informo-etiketi ad imajo, por faciligar lua lokizo.</string>
   <string name="suggested_edits_image_tags_choose">Adjuntez o selektez parigita etiketi</string>
   <string name="suggested_edits_image_tags_published_list">Publikigita etiketi</string>
   <string name="suggested_edits_image_tags_search">Serchez deskripti</string>
+  <string name="suggested_edits_image_tags_select_title">Vu selektis nula etiketo por ca imajo</string>
   <string name="suggested_edits_image_tags_add_tag">Adjuntez deskripto</string>
   <string name="suggested_edits_image_zoom_tooltip">Kliktez por plugrandigar ca imajo.</string>
   <string name="suggested_edits_encouragement_message">%s, danko pro vua redakturi. Vu povas deskovrar plusa formi pri quale helpar Wikipedio adinfre.</string>
@@ -1029,6 +1049,18 @@
   <string name="wikitext_template">Shablono</string>
   <string name="wikitext_reference">Refero</string>
   <string name="wikitext_preview_link">Previdar ligilo</string>
+  <string name="insert_media_advanced_settings_image_position_right">Dextre</string>
+  <string name="insert_media_advanced_settings_image_position_left">Sinistre</string>
+  <string name="insert_media_advanced_settings_image_position_center">Centre</string>
+  <string name="insert_media_advanced_settings_image_position_none">Nula</string>
+  <string name="insert_media_advanced_settings_image_type">Imajo-tipo</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Miniaturo</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Senkadra</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Kadro</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Bazala</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Altajo</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
+  <string name="insert_media_insert_button">Insertar</string>
   <string name="main_drawer_help">Helpo</string>
   <string name="main_drawer_login">Enirar / partoprenar Wikipedio</string>
   <string name="main_tooltip_text">Saluto, %s! Ka tu savis ke omni povas redaktar Wikipedio?</string>
@@ -1146,5 +1178,17 @@
   <string name="category_tab_subcategories">Subkategorii</string>
   <string name="category_empty">Nul artiklo trovesis en ca kategorio.</string>
   <string name="subcategory_empty">Nula subkategorii trovesis en ca kategorio.</string>
+  <string name="search_namespaces">\'Namespaces\'</string>
   <string name="revision_initial_none">Nula (to esas l\'unesma revizo)</string>
+  <string name="user_contrib_activity_title">Kontributadi da %s</string>
+  <string name="archive_empty">Nula pagino konservita trovesis.</string>
+  <string name="user_contrib_filter_ns">Filtrar segun nomaro (\'\'namespace\'\')</string>
+  <string name="user_contrib_filter_all">Omna \'\'namespace\'\'</string>
+  <string name="user_contrib_filter_ns_header">Filtro pri nomaro (\'\'namespace\'\')</string>
+  <string name="namespace_article">Artiklo</string>
+  <string name="user_contrib_current">nuna</string>
+  <string name="reading_list_share_menu_label">Partigez...</string>
+  <string name="reading_list_share_menu_tooltip">Partigez ca texto kun altri</string>
+  <string name="reading_list_share_title_tooltip">Modifikuri quin vu facos en ca listo ne esos videbla por altri.</string>
+  <string name="reading_list_share_survey_title" fuzzy="true">Ka vu povos helpar ni plubonigar ca temo?</string>
 </resources>

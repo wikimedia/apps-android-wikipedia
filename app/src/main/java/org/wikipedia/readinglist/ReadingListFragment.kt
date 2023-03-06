@@ -1,36 +1,39 @@
 package org.wikipedia.readinglist
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.view.ActionMode
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.MenuProvider
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.*
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.ReadingListsFunnel
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.PageDownloadEvent
@@ -48,6 +51,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.settings.SiteInfoClient.maxPagesPerReadingList
 import org.wikipedia.util.*
+import org.wikipedia.util.log.L
 import org.wikipedia.views.*
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 
@@ -58,23 +62,24 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private lateinit var touchCallback: SwipeableItemTouchHelperCallback
     private lateinit var headerView: ReadingListItemView
+    private var previewSaveDialog: AlertDialog? = null
     private val disposables = CompositeDisposable()
+    private var isPreview: Boolean = false
     private var readingList: ReadingList? = null
     private var readingListId: Long = 0
     private val adapter = ReadingListPageItemAdapter()
     private var actionMode: ActionMode? = null
     private val appBarListener = AppBarListener()
     private var showOverflowMenu = false
-    private val funnel = ReadingListsFunnel()
     private val readingListItemCallback = ReadingListItemCallback()
     private val readingListPageItemCallback = ReadingListPageItemCallback()
     private val searchActionModeCallback = SearchCallback()
     private val multiSelectActionModeCallback = MultiSelectCallback()
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var toolbarExpanded = true
     private var displayedLists = mutableListOf<Any>()
     private var currentSearchQuery: String? = null
     private var articleLimitMessageShown = false
+    private var exclusiveTooltipRunnable: Runnable? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -85,7 +90,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         DeviceUtil.updateStatusBarTheme(requireActivity(), binding.readingListToolbar, true)
         touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         ItemTouchHelper(touchCallback).attachToRecyclerView(binding.readingListRecyclerView)
-        readingListId = requireArguments().getLong(ReadingListActivity.EXTRA_READING_LIST_ID)
+        isPreview = requireArguments().getBoolean(ReadingListActivity.EXTRA_READING_LIST_PREVIEW, false)
+        readingListId = requireArguments().getLong(ReadingListActivity.EXTRA_READING_LIST_ID, -1)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         setToolbar()
         setHeaderView()
@@ -98,10 +104,12 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     override fun onResume() {
         super.onResume()
         updateReadingListData()
+        ReadingListsShareSurveyHelper.maybeShowSurvey(requireActivity())
     }
 
     override fun onDestroyView() {
         disposables.clear()
+        previewSaveDialog?.dismiss()
         binding.readingListRecyclerView.adapter = null
         binding.readingListAppBar.removeOnOffsetChangedListener(appBarListener)
         _binding = null
@@ -109,6 +117,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
+        if (isPreview) {
+            return
+        }
         inflater.inflate(R.menu.menu_reading_list, menu)
         if (showOverflowMenu) {
             inflater.inflate(R.menu.menu_reading_list_item, menu)
@@ -116,6 +127,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     override fun onPrepareMenu(menu: Menu) {
+        if (isPreview) {
+            return
+        }
         val sortByNameItem = menu.findItem(R.id.menu_sort_by_name)
         val sortByRecentItem = menu.findItem(R.id.menu_sort_by_recent)
         val sortMode = Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC)
@@ -125,6 +139,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val sortOptionsItem = menu.findItem(R.id.menu_sort_options)
         val iconColor = if (toolbarExpanded) AppCompatResources.getColorStateList(requireContext(), android.R.color.white)
         else ResourceUtil.getThemedColorStateList(requireContext(), R.attr.toolbar_icon_color)
+        menu.findItem(R.id.menu_reading_list_share)?.isVisible = ReadingListsShareHelper.shareEnabled()
         MenuItemCompat.setIconTintList(searchItem, iconColor)
         MenuItemCompat.setIconTintList(sortOptionsItem, iconColor)
         readingList?.let {
@@ -179,6 +194,22 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 }
                 true
             }
+            R.id.menu_reading_list_share -> {
+                readingList?.let {
+                    ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, it)
+                }
+                true
+            }
+            R.id.menu_reading_list_export -> {
+                readingList?.let {
+                    ReadingListsExportImportHelper.exportLists(requireActivity() as BaseActivity, listOf(it))
+                }
+                true
+            }
+            R.id.menu_reading_list_select -> {
+                beginMultiSelect()
+                true
+            }
             else -> false
         }
     }
@@ -198,6 +229,33 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.setThumbnailVisible(false)
         headerView.setTitleTextAppearance(R.style.ReadingListTitleTextAppearance)
         headerView.setOverflowViewVisibility(View.VISIBLE)
+        headerView.setPreviewMode(isPreview)
+
+        if (isPreview) {
+            headerView.previewSaveButton.setOnClickListener {
+                previewSaveDialog()
+            }
+            return
+        }
+
+        if (ReadingListsShareHelper.shareEnabled()) {
+            headerView.shareButton.isVisible = true
+            if (!Prefs.readingListShareTooltipShown) {
+                enqueueTooltip {
+                    FeedbackUtil.showTooltip(
+                        requireActivity(),
+                        headerView.shareButton,
+                        getString(R.string.reading_list_share_menu_tooltip),
+                        aboveOrBelow = false,
+                        autoDismiss = true,
+                        showDismissButton = true
+                    )
+                    Prefs.readingListShareTooltipShown = true
+                }
+            }
+        } else {
+            headerView.shareButton.isVisible = false
+        }
     }
 
     private fun setRecyclerView() {
@@ -236,22 +294,59 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     private fun updateReadingListData() {
-        disposables.add(Observable.fromCallable { AppDatabase.instance.readingListDao().getListById(readingListId, true) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ list ->
-                    binding.readingListSwipeRefresh.isRefreshing = false
-                    readingList = list
-                    readingList?.let {
-                        binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
+        if (isPreview) {
+            if (readingList == null) {
+                val encodedJson = Prefs.receiveReadingListsData
+                if (!encodedJson.isNullOrEmpty()) {
+                    lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                        L.e(throwable)
+                        FeedbackUtil.showError(requireActivity(), throwable)
+                        requireActivity().finish()
+                    }) {
+                        withContext(Dispatchers.Main) {
+                            readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
+                            readingList?.let {
+                                binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
+                            }
+                            update()
+                        }
                     }
-                    update()
-                }) {
-                    // If we failed to retrieve the requested list, it means that the list is no
-                    // longer in the database (likely removed due to sync).
-                    // In this case, there's nothing for us to do, so just bail from the activity.
-                    requireActivity().finish()
-                })
+                }
+            } else {
+                update()
+            }
+        } else {
+            lifecycleScope.launch(CoroutineExceptionHandler { _, _ ->
+                // If we failed to retrieve the requested list, it means that the list is no
+                // longer in the database (likely removed due to sync).
+                // In this case, there's nothing for us to do, so just bail from the activity.
+                requireActivity().finish()
+            }) {
+                val list = withContext(Dispatchers.IO) {
+                    AppDatabase.instance.readingListDao().getListById(readingListId, true)
+                }
+                binding.readingListSwipeRefresh.isRefreshing = false
+                readingList = list
+                readingList?.let {
+                    binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
+                }
+                update()
+            }
+        }
+    }
+
+    private fun enqueueTooltip(runnable: Runnable) {
+        if (exclusiveTooltipRunnable != null) {
+            return
+        }
+        exclusiveTooltipRunnable = runnable
+        binding.readingListSwipeRefresh.postDelayed({
+            exclusiveTooltipRunnable = null
+            if (!isAdded) {
+                return@postDelayed
+            }
+            runnable.run()
+        }, 500)
     }
 
     private fun setSearchQuery() {
@@ -304,7 +399,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private fun rename() {
         ReadingListBehaviorsUtil.renameReadingList(requireActivity(), readingList) {
             update()
-            funnel.logModifyList(readingList!!, 0)
         }
     }
 
@@ -344,6 +438,44 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
     }
 
+    private fun previewSaveDialog() {
+        readingList?.let {
+            val view = ReadingListPreviewSaveDialogView(requireContext())
+            val savedPages = it.pages.toMutableList()
+            var readingListTitle = getString(R.string.reading_list_name_sample)
+
+            view.setContentType(it, savedPages, object : ReadingListPreviewSaveDialogView.Callback {
+                override fun onError() {
+                    previewSaveDialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = false
+                }
+
+                override fun onSuccess(listTitle: String) {
+                    previewSaveDialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = true
+                    readingListTitle = listTitle
+                }
+            })
+
+            previewSaveDialog = AlertDialog.Builder(requireContext())
+                .setPositiveButton(R.string.reading_lists_preview_save_dialog_save) { _, _ ->
+                    it.pages.clear()
+                    it.pages.addAll(savedPages)
+                    it.listTitle = readingListTitle
+                    // Save reading list to database
+                    it.id = AppDatabase.instance.readingListDao().insertReadingList(it)
+                    AppDatabase.instance.readingListPageDao().addPagesToList(it, it.pages, true)
+                    Prefs.readingListRecentReceivedId = it.id
+                    requireActivity().startActivity(MainActivity.newIntent(requireContext())
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS, true))
+                    requireActivity().finish()
+                }
+                .setNegativeButton(R.string.reading_lists_preview_save_dialog_cancel, null)
+                .create()
+
+            previewSaveDialog?.setView(view)
+            previewSaveDialog?.show()
+        }
+    }
+
     /**
      * CAUTION: This returns the selected pages AND automatically marks them as unselected.
      * Make sure to call this getter once, and operate only on the returned list.
@@ -363,7 +495,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             if (pages.isNotEmpty()) {
                 AppDatabase.instance.readingListPageDao().markPagesForDeletion(it, pages)
                 it.pages.removeAll(pages)
-                funnel.logDeleteItem(it, 0)
                 ReadingListBehaviorsUtil.showDeletePagesUndoSnackbar(requireActivity(), it, pages) { updateReadingListData() }
                 update()
             }
@@ -374,7 +505,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val pages = selectedPages
         if (pages.isNotEmpty()) {
             val titles = pages.map { ReadingListPage.toPageTitle(it) }
-            bottomSheetPresenter.show(childFragmentManager,
+            ExclusiveBottomSheetPresenter.show(childFragmentManager,
                     AddToReadingListDialog.newInstance(titles, InvokeSource.READING_LIST_ACTIVITY))
             update()
         }
@@ -384,7 +515,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val pages = selectedPages
         if (pages.isNotEmpty()) {
             val titles = pages.map { ReadingListPage.toPageTitle(it) }
-            bottomSheetPresenter.show(childFragmentManager,
+            ExclusiveBottomSheetPresenter.show(childFragmentManager,
                     MoveToReadingListDialog.newInstance(readingListId, titles, InvokeSource.READING_LIST_ACTIVITY))
             update()
         }
@@ -414,13 +545,13 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     override fun onAddItemToOther(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
     }
 
     override fun onMoveItemToOther(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        bottomSheetPresenter.show(childFragmentManager,
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
                 MoveToReadingListDialog.newInstance(readingListId, ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
     }
 
@@ -437,8 +568,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         readingList?.let {
             val listsContainPage = if (currentSearchQuery.isNullOrEmpty()) listOf(it) else ReadingListBehaviorsUtil.getListsContainPage(page)
             ReadingListBehaviorsUtil.deletePages(requireActivity(), listsContainPage, page, { updateReadingListData() }, {
-                // TODO: need to verify the log of delete item since this action will delete multiple items in the same time.
-                funnel.logDeleteItem(it, 0)
                 update()
             })
         }
@@ -472,6 +601,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private inner class ReadingListItemHolder constructor(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
         fun bindItem(readingList: ReadingList) {
             view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY)
+            view.setPreviewMode(isPreview)
             view.setSearchQuery(currentSearchQuery)
         }
 
@@ -488,7 +618,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             view.setImageUrl(page.thumbUrl)
             view.isSelected = page.selected
             view.setSecondaryActionIcon(if (page.saving) R.drawable.ic_download_in_progress else R.drawable.ic_download_circle_gray_24dp,
-                    !page.offline || page.saving)
+                    if (isPreview) false else !page.offline || page.saving)
             view.setCircularProgressVisibility(page.downloadProgress > 0 && page.downloadProgress < CircularProgressBar.MAX_PROGRESS)
             view.setProgress(if (page.downloadProgress == CircularProgressBar.MAX_PROGRESS) 0 else page.downloadProgress)
             view.setActionHint(R.string.reading_list_article_make_offline)
@@ -507,17 +637,19 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
 
         override fun onSwipe() {
+            if (isPreview) {
+                return
+            }
             readingList?.let {
                 if (currentSearchQuery.isNullOrEmpty()) {
                     ReadingListBehaviorsUtil.deletePages(requireActivity(), listOf(it), page, { updateReadingListData() }, {
-                        funnel.logDeleteItem(it, 0)
                         update()
                     })
                 }
             }
         }
 
-        override fun isSwipeable(): Boolean { return true }
+        override fun isSwipeable(): Boolean { return !isPreview }
 
         private val imageDimension
             get() = DimenUtil.roundedDpToPx(if (currentSearchQuery.isNullOrEmpty()) DimenUtil.getDimension(R.dimen.view_list_card_item_image) else ReadingListsFragment.ARTICLE_ITEM_IMAGE_DIMENSION.toFloat())
@@ -587,6 +719,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private inner class HeaderCallback : ReadingListItemView.Callback {
         override fun onClick(readingList: ReadingList) {}
+
         override fun onRename(readingList: ReadingList) {
             rename()
         }
@@ -607,6 +740,18 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 adapter.notifyDataSetChanged()
                 update()
             }
+        }
+
+        override fun onSelectList(readingList: ReadingList) {
+            // ignore
+        }
+
+        override fun onChecked(readingList: ReadingList) {
+            // ignore
+        }
+
+        override fun onShare(readingList: ReadingList) {
+            ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
         }
     }
 
@@ -634,6 +779,17 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         override fun onRemoveAllOffline(readingList: ReadingList) {
             ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) { setSearchQuery() }
         }
+
+        override fun onSelectList(readingList: ReadingList) {
+            // ignore
+        }
+
+        override fun onChecked(readingList: ReadingList) {
+            // ignore
+        }
+        override fun onShare(readingList: ReadingList) {
+            ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
+        }
     }
 
     private inner class ReadingListPageItemCallback : PageItemView.Callback<ReadingListPage?> {
@@ -653,8 +809,11 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
 
         override fun onLongClick(item: ReadingListPage?): Boolean {
+            if (isPreview) {
+                return false
+            }
             item?.let {
-                bottomSheetPresenter.show(childFragmentManager,
+                ExclusiveBottomSheetPresenter.show(childFragmentManager,
                         ReadingListItemActionsDialog.newInstance(if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!)
                         else ReadingListBehaviorsUtil.getListsContainPage(it), it.id, actionMode != null))
                 return true
@@ -802,6 +961,12 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         fun newInstance(listId: Long): ReadingListFragment {
             return ReadingListFragment().apply {
                 arguments = bundleOf(ReadingListActivity.EXTRA_READING_LIST_ID to listId)
+            }
+        }
+
+        fun newInstance(preview: Boolean): ReadingListFragment {
+            return ReadingListFragment().apply {
+                arguments = bundleOf(ReadingListActivity.EXTRA_READING_LIST_PREVIEW to preview)
             }
         }
     }

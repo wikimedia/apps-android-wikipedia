@@ -11,18 +11,16 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.*
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.analytics.DescriptionEditFunnel
-import org.wikipedia.analytics.LoginFunnel
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
@@ -43,8 +41,11 @@ import org.wikipedia.suggestededits.SuggestedEditsSurvey
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
+import java.lang.Runnable
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -56,7 +57,6 @@ class DescriptionEditFragment : Fragment() {
 
     private var _binding: FragmentDescriptionEditBinding? = null
     val binding get() = _binding!!
-    private lateinit var funnel: DescriptionEditFunnel
     private lateinit var invokeSource: InvokeSource
     private lateinit var pageTitle: PageTitle
     lateinit var action: DescriptionEditActivity.Action
@@ -70,10 +70,7 @@ class DescriptionEditFragment : Fragment() {
     private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             binding.fragmentDescriptionEditView.loadReviewContent(binding.fragmentDescriptionEditView.showingReviewContent())
-            funnel.logLoginSuccess()
             FeedbackUtil.showMessage(this, R.string.login_success_toast)
-        } else {
-            funnel.logLoginFailure()
         }
     }
 
@@ -101,7 +98,6 @@ class DescriptionEditFragment : Fragment() {
         }
         Prefs.lastDescriptionEditTime = Date().time
         Prefs.isSuggestedEditsReactivationPassStageOne = false
-        SuggestedEditsFunnel.get().success(action)
         binding.fragmentDescriptionEditView.setSaveState(false)
         if (Prefs.showDescriptionEditSuccessPrompt && invokeSource != InvokeSource.SUGGESTED_EDITS) {
             editSuccessLauncher.launch(DescriptionEditSuccessActivity.newIntent(requireContext(), invokeSource))
@@ -129,9 +125,6 @@ class DescriptionEditFragment : Fragment() {
         requireArguments().getParcelable<PageSummaryForEdit>(ARG_TARGET_SUMMARY)?.let {
             targetSummary = it
         }
-        val type = if (pageTitle.description == null) DescriptionEditFunnel.Type.NEW else DescriptionEditFunnel.Type.EXISTING
-        funnel = DescriptionEditFunnel(WikipediaApp.instance, pageTitle, type, invokeSource)
-        funnel.logStart()
         EditAttemptStepEvent.logInit(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
     }
 
@@ -141,12 +134,9 @@ class DescriptionEditFragment : Fragment() {
         loadPageSummaryIfNeeded(savedInstanceState)
 
         binding.fragmentDescriptionEditView.setLoginCallback {
-            val loginIntent = LoginActivity.newIntent(requireActivity(),
-                    LoginFunnel.SOURCE_EDIT, funnel.sessionToken)
+            val loginIntent = LoginActivity.newIntent(requireActivity(), LoginActivity.SOURCE_EDIT)
             loginLauncher.launch(loginIntent)
         }
-
-        funnel.logReady()
         return binding.root
     }
 
@@ -213,6 +203,34 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.showProgressBar(false)
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
+
+        if (ReleaseUtil.isPreBetaRelease && pageTitle.description.isNullOrEmpty()) {
+            requestSuggestion()
+        }
+    }
+
+    private fun requestSuggestion() {
+        lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            withContext(Dispatchers.IO) {
+                val response = ServiceFactory[pageTitle.wikiSite, DescriptionSuggestionService.API_URL, DescriptionSuggestionService::class.java]
+                    .getSuggestion(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2)
+
+                // Perform some post-processing on the predictions.
+                // 1) Capitalize them, if we're dealing with enwiki.
+                // 2) Remove duplicates.
+                val list = (if (pageTitle.wikiSite.languageCode == "en") {
+                    response.prediction.map { StringUtil.capitalize(it)!! }
+                } else response.prediction).distinct()
+
+                // TODO: do something with the list of suggestions.
+                L.d("Received suggestion: " + list.first())
+                L.d("And is it a BLP? " + response.blp)
+                //
+                //
+            }
+        }
     }
 
     private fun callback(): Callback? {
@@ -234,7 +252,6 @@ class DescriptionEditFragment : Fragment() {
                 binding.fragmentDescriptionEditView.setSaveState(true)
                 cancelCalls()
                 getEditTokenThenSave()
-                funnel.logSaveAttempt()
                 EditAttemptStepEvent.logSaveAttempt(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
             }
         }
@@ -269,7 +286,7 @@ class DescriptionEditFragment : Fragment() {
                             val error = mwQueryResponse.query?.firstPage()!!.getErrorForAction("edit")[0]
                             throw MwException(error)
                         }
-                        var text = mwQueryResponse.query?.firstPage()!!.revisions[0].content
+                        var text = mwQueryResponse.query?.firstPage()!!.revisions[0].contentMain
                         val baseRevId = mwQueryResponse.query?.firstPage()!!.revisions[0].revId
                         text = updateDescriptionInArticle(text, binding.fragmentDescriptionEditView.description.orEmpty())
 
@@ -286,16 +303,14 @@ class DescriptionEditFragment : Fragment() {
                                 editSucceeded -> {
                                     AnonymousNotificationHelper.onEditSubmitted()
                                     waitForUpdatedRevision(newRevId)
-                                    funnel.logSaved(newRevId)
                                     EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
-                                }
-                                hasCaptchaResponse -> {
-                                    // TODO: handle captcha.
-                                    // new CaptchaResult(result.edit().captchaId());
-                                    funnel.logCaptchaShown()
                                 }
                                 hasEditErrorCode -> {
                                     editFailed(MwException(MwServiceError(code, spamblacklist)), false)
+                                }
+                                hasCaptchaResponse -> {
+                                    // TODO: handle captcha
+                                    // new CaptchaResult(result.edit().captchaId());
                                 }
                                 hasSpamBlacklistResponse -> {
                                     editFailed(MwException(MwServiceError(code, info)), false)
@@ -332,7 +347,6 @@ class DescriptionEditFragment : Fragment() {
                         AnonymousNotificationHelper.onEditSubmitted()
                         if (response.success > 0) {
                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
-                            funnel.logSaved(response.entity?.run { lastRevId } ?: 0)
                             EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                         } else {
                             editFailed(RuntimeException("Received unrecognized description edit response"), true)
@@ -388,10 +402,10 @@ class DescriptionEditFragment : Fragment() {
         private fun getEditComment(): String? {
             if (invokeSource == InvokeSource.SUGGESTED_EDITS || invokeSource == InvokeSource.FEED) {
                 return when (action) {
-                    DescriptionEditActivity.Action.ADD_DESCRIPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
-                    DescriptionEditActivity.Action.ADD_CAPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
-                    DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT
-                    DescriptionEditActivity.Action.TRANSLATE_CAPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT
+                    DescriptionEditActivity.Action.ADD_DESCRIPTION -> SUGGESTED_EDITS_ADD_COMMENT
+                    DescriptionEditActivity.Action.ADD_CAPTION -> SUGGESTED_EDITS_ADD_COMMENT
+                    DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> SUGGESTED_EDITS_TRANSLATE_COMMENT
+                    DescriptionEditActivity.Action.TRANSLATE_CAPTION -> SUGGESTED_EDITS_TRANSLATE_COMMENT
                     else -> null
                 }
             }
@@ -403,10 +417,8 @@ class DescriptionEditFragment : Fragment() {
             FeedbackUtil.showError(requireActivity(), caught)
             L.e(caught)
             if (logError) {
-                funnel.logError(caught.message)
                 EditAttemptStepEvent.logSaveFailure(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
             }
-            SuggestedEditsFunnel.get().failure(action)
         }
 
         override fun onCancelClick() {
@@ -450,6 +462,11 @@ class DescriptionEditFragment : Fragment() {
         private const val ARG_ACTION = "action"
         private const val ARG_SOURCE_SUMMARY = "sourceSummary"
         private const val ARG_TARGET_SUMMARY = "targetSummary"
+        private const val SUGGESTED_EDITS_UI_VERSION = "1.0"
+        const val SUGGESTED_EDITS_ADD_COMMENT = "#suggestededit-add $SUGGESTED_EDITS_UI_VERSION"
+        const val SUGGESTED_EDITS_TRANSLATE_COMMENT = "#suggestededit-translate $SUGGESTED_EDITS_UI_VERSION"
+        const val SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT = "#suggestededit-imgtag-auto $SUGGESTED_EDITS_UI_VERSION"
+        const val SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT = "#suggestededit-imgtag-custom $SUGGESTED_EDITS_UI_VERSION"
         private val DESCRIPTION_TEMPLATES = arrayOf("Short description", "SHORTDESC")
         // Don't remove the ending escaped `\\}`
         @Suppress("RegExpRedundantEscape")

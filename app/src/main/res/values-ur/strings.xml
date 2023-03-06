@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abdulq
 * BukhariSaeed
+* Cooltey
 * Hindustanilanguage
 * Meno25
 * Muhammad Shuaib
@@ -387,10 +388,6 @@
   <string name="reading_list_article_moved_to_named">%1$s کو %2$s پر منتقل کر دیا گیا۔</string>
   <string name="reading_list_added_view_button">فہرست دیکھیں</string>
   <string name="reading_list_add_to_list_button">فہرست میں شامل کریں</string>
-  <string name="format_reading_list_statistical_summary_singular">ایک مضمون، %1$.2f ایم بی</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d مضمون، %2$.2f ایم بی</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d میں سے ایک مضمون آف لائن دستیاب ہے، %2$.2f ایم بی</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d کیں سے %2$d مضامین آف لائن دستیاب ہیں، %3$.2f ایم بی</string>
   <string name="reading_list_sort">چھانٹ</string>
   <string name="reading_list_sort_ellipsis">ترتیب بمطابق</string>
   <string name="reading_list_sort_by_name">نام سے ترتیب دیں</string>
@@ -691,4 +688,10 @@
   <string name="text_input_dialog_cancel_button_text">منسوخ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">منسوخ</string>
   <string name="watchlist_expiry_dialog_permanent">مستقل</string>
+  <string name="reading_list_share_menu_label">شیئر کریں...</string>
+  <string name="reading_list_share_menu_tooltip">اس مطالعہ کی فہرست \n کو دوسروں کے ساتھ شیئر کریں</string>
+  <string name="reading_list_share_title_tooltip">اس فہرست میں آپ جو تبدیلیاں کرتے ہیں وہ دوسروں کو نظر نہیں آتی ہیں۔</string>
+  <string name="reading_list_share_message_v2">آداب! میں آپ کے ساتھ اپنی ویکیپیڈیا کی مطالعہ کی فہرست شیئر کرنا چاہتا/چاہتی ہوں:</string>
+  <string name="reading_list_share_survey_title">کیا آپ \'مطالعہ کی فہرستیں شیئر کریں\' کو بہتر بنانے میں ہماری مدد کر سکتے ہیں؟</string>
+  <string name="reading_list_share_survey_body">مطالعہ کی فہرستیں\' شیئر کریں ایک ٹیسٹنگ خصوصیت ہے اور اسے بہتر بنانے یا ہٹانے کے لیے ہمیں آپ کے تاثرات درکار ہیں۔</string>
 </resources>

@@ -143,7 +143,6 @@ class PageFragmentLoadState(private var model: PageViewModel,
             }
             fragment.requireActivity().invalidateOptionsMenu()
             fragment.callback()?.onPageUpdateProgressBar(true)
-            app.sessionFunnel.leadSectionFetchStart()
             model.page = null
             val delayLoadHtml = title.prefixedText.contains(":")
             if (!delayLoadHtml) {
@@ -241,7 +240,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 title.fragment = response.raw().request.url.fragment
             }
             if (title.description.isNullOrEmpty()) {
-                app.sessionFunnel.noDescription()
+                app.appSessionEvent.noDescription()
             }
             if (!title.isMainPage) {
                 title.displayText = page?.displayTitle.orEmpty()
@@ -257,9 +256,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             }
 
             // Update our tab list to prevent ZH variants issue.
-            if (app.tabList[app.tabCount - 1] != null) {
-                app.tabList[app.tabCount - 1].setBackStackPositionTitle(title)
-            }
+            app.tabList.getOrNull(app.tabCount - 1)?.setBackStackPositionTitle(title)
 
             // Save the thumbnail URL to the DB
             val pageImage = PageImage(title, pageSummary?.thumbnailUrl)

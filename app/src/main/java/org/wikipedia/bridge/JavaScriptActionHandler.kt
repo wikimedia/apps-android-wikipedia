@@ -25,7 +25,7 @@ object JavaScriptActionHandler {
     fun getCssStyles(wikiSite: WikiSite): String {
         val baseCSS = "<link rel=\"stylesheet\" href=\"https://meta.wikimedia.org/api/rest_v1/data/css/mobile/base\">"
         val siteCSS = "<link rel=\"stylesheet\" href=\"https://${wikiSite.subdomain()}.wikipedia.org/api/rest_v1/data/css/mobile/site\">"
-        val extraCSS = if (WikipediaApp.instance.currentTheme.isDark) "<style>img { background-color: white; } </style>" else ""
+        val extraCSS = if (WikipediaApp.instance.currentTheme.isDark) "<style>img.mwe-math-fallback-image-inline { -webkit-filter: invert(1); } </style>" else ""
         return baseCSS + siteCSS + extraCSS
     }
 
@@ -101,7 +101,7 @@ object JavaScriptActionHandler {
                 "       \"tableOther\": \"${res[R.string.table_other]}\"," +
                 "       \"tableClose\": \"${res[R.string.table_close]}\"" +
                 "   }," +
-                "   \"theme\": \"${app.currentTheme.funnelName}\"," +
+                "   \"theme\": \"${app.currentTheme.tag}\"," +
                 "   \"bodyFont\": \"$fontFamily\"," +
                 "   \"dimImages\": ${(app.currentTheme.isDark && Prefs.dimDarkModeImages)}," +
                 "   \"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +

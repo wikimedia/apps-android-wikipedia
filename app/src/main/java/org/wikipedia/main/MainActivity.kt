@@ -2,23 +2,28 @@ package org.wikipedia.main
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.databinding.ActivityMainBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
+import org.wikipedia.page.PageActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
+
     private lateinit var binding: ActivityMainBinding
 
     private var controlNavTabInFragment = false
@@ -33,7 +38,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         super.onCreate(savedInstanceState)
 
         setImageZoomHelper()
-        if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null) {
+        if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null && !intent.hasExtra(
+                Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS)) {
             // Updating preference so the search multilingual tooltip
             // is not shown again for first time users
             Prefs.isMultilingualSearchTooltipShown = false
@@ -46,6 +52,10 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
         binding.mainToolbar.navigationIcon = null
+
+        if (savedInstanceState == null) {
+            handleIntent(intent)
+        }
     }
 
     override fun onResume() {
@@ -113,6 +123,21 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             return
         }
         super.onBackPressed()
+    }
+
+    private fun handleIntent(intent: Intent) {
+        if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
+            // TODO: handle special cases of non-article content, e.g. shared reading lists.
+            intent.data?.let {
+                if (it.authority.orEmpty().endsWith(WikiSite.BASE_DOMAIN)) {
+                    // Pass it right along to PageActivity
+                    val uri = Uri.parse(it.toString().replace("wikipedia://", WikiSite.DEFAULT_SCHEME + "://"))
+                    startActivity(Intent(this, PageActivity::class.java)
+                            .setAction(Intent.ACTION_VIEW)
+                            .setData(uri))
+                }
+            }
+        }
     }
 
     fun isCurrentFragmentSelected(f: Fragment): Boolean {
