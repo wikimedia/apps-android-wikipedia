@@ -39,7 +39,6 @@
         <item name="paper_color">@color/parchment</item>
         <item name="chip_background_color">@color/amate</item>
         <item name="color_group_9">@color/masi</item>
-        <item name="suggestions_background_color">@color/dawn</item>
 
     </style>
 

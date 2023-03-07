@@ -61,11 +61,9 @@
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogLight</item>
 
         <!-- Overrides of our own custom style attributes -->
-        <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_light</item>
-        <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_light</item>
         <item name="list_separator_drawable">@drawable/divider_light</item>
         <item name="list_separator_drawable_bottom_content">@drawable/divider_bottom_content_light</item>
-        <item name="side_panel_list_separator_drawable">@drawable/side_panel_divider_light</item>
+        <item name="list_separator_drawable_light">@drawable/side_panel_divider_light</item>
         <item name="talk_page_empty_state_drawable">@drawable/talk_page_empty_state_illustration_light</item>
 
         <!-- Overrides of our own custom color attributes -->
@@ -117,7 +115,6 @@
         <item name="color_group_68">@color/yellow30</item>
         <item name="color_group_69">@color/green50_10l</item>
         <item name="color_group_70">@color/green80</item>
-        <item name="action_mode_green_background">@color/green50</item>
         <item name="border">@color/base80</item>
         <item name="chip_background">@color/base90</item>
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_light</item>
@@ -125,7 +122,6 @@
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base100</item>
-        <item name="suggestions_background_color">@color/base90</item>
 
     </style>
 
@@ -146,6 +142,10 @@
         <item name="windowActionBar">true</item>
         <item name="windowActionBarOverlay">false</item>
         <item name="windowActionModeOverlay">false</item>
+    </style>
+
+    <style name="AppTheme.ActionBar.Watchlist">
+        <item name="actionBarTheme">@style/WatchlistToolbarTheme</item>
     </style>
 
     <style name="AppTheme.Notification">
@@ -195,6 +195,10 @@
         <item name="android:minWidth">0dp</item>
         <item name="android:paddingStart">16dp</item>
         <item name="android:paddingEnd">16dp</item>
+    </style>
+
+    <style name="WatchlistToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
+        <item name="android:background">?android:attr/colorBackground</item>
     </style>
 
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
