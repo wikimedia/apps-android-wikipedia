@@ -19,7 +19,7 @@
             android:layout_marginTop="8dp"
             android:layout_gravity="center_horizontal"
             app:srcCompat="@drawable/ic_warning_24"
-            app:tint="@color/yellow30"
+            app:tint="@color/yellow700"
             android:contentDescription="@null"/>
 
         <TextView

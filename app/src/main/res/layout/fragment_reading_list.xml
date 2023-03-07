@@ -25,7 +25,7 @@
                 android:id="@+id/reading_list_header"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/base50"
+                android:background="@color/gray400"
                 android:fitsSystemWindows="true"
                 app:layout_collapseMode="parallax" />
 

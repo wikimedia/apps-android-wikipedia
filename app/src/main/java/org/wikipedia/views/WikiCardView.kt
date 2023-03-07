@@ -43,16 +43,16 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
             when (WikipediaApp.instance.currentTheme) {
                 Theme.DARK -> {
                     cardElevation = elevation
-                    outlineAmbientShadowColor = ContextCompat.getColor(context, R.color.base0)
-                    outlineSpotShadowColor = ContextCompat.getColor(context, R.color.base0)
+                    outlineAmbientShadowColor = ContextCompat.getColor(context, R.color.black)
+                    outlineSpotShadowColor = ContextCompat.getColor(context, R.color.black)
                 }
                 Theme.BLACK -> {
                     cardElevation = 0f
                 }
                 else -> {
                     cardElevation = elevation
-                    outlineAmbientShadowColor = ContextCompat.getColor(context, R.color.base70)
-                    outlineSpotShadowColor = ContextCompat.getColor(context, R.color.base70)
+                    outlineAmbientShadowColor = ContextCompat.getColor(context, R.color.gray300)
+                    outlineSpotShadowColor = ContextCompat.getColor(context, R.color.gray300)
                 }
             }
         } else {
@@ -69,11 +69,11 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
                 DimenUtil.roundedDpToPx(0f)
             }
             Theme.BLACK -> {
-                strokeColor = ContextCompat.getColor(context, R.color.base10)
+                strokeColor = ContextCompat.getColor(context, R.color.gray700)
                 DimenUtil.roundedDpToPx(1f)
             }
             else -> {
-                strokeColor = ContextCompat.getColor(context, R.color.base80)
+                strokeColor = ContextCompat.getColor(context, R.color.gray200)
                 DimenUtil.roundedDpToPx(0.5f)
             }
         }

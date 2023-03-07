@@ -10,7 +10,7 @@ import org.wikipedia.util.ResourceUtil
 
 class GraphView(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
     private val gradientColor1 = ResourceUtil.getThemedColor(context, R.attr.colorAccent)
-    private val gradientColor2 = ContextCompat.getColor(context, R.color.green50)
+    private val gradientColor2 = ContextCompat.getColor(context, R.color.green600)
     private val dataSet = mutableListOf<Float>()
     private var maxX = 0f
     private var maxY = 0f

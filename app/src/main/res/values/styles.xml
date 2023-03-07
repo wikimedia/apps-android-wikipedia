@@ -37,19 +37,19 @@
         <item name="actionBarPopupTheme">@style/ToolbarPopupTheme</item>
 
         <!-- Background for popup menus, text areas -->
-        <item name="android:colorBackground">@color/base90</item>
+        <item name="android:colorBackground">@color/gray100</item>
 
-        <item name="android:textColorPrimary">@color/base10</item>
-        <item name="android:textColorSecondary">@color/base20</item>
-        <item name="android:textColorTertiary">@color/base30</item>
-        <item name="android:textColorHint">@color/base50</item>
+        <item name="android:textColorPrimary">@color/gray700</item>
+        <item name="android:textColorSecondary">@color/gray600</item>
+        <item name="android:textColorTertiary">@color/gray500</item>
+        <item name="android:textColorHint">@color/gray400</item>
 
         <!-- Toolbar color, list overscroll effect -->
-        <item name="colorPrimary">@color/accent50</item>
+        <item name="colorPrimary">@color/blue600</item>
 
         <!-- Control color (switch, progress bar, etc), text link color, edit text underline,
              edit text cursor, text selection markers -->
-        <item name="colorAccent">@color/accent50</item>
+        <item name="colorAccent">@color/blue600</item>
 
         <!-- Error text in TextInputLayout -->
         <item name="colorError">@color/red50</item>
@@ -67,65 +67,65 @@
         <item name="talk_page_empty_state_drawable">@drawable/talk_page_empty_state_illustration_light</item>
 
         <!-- Overrides of our own custom color attributes -->
-        <item name="toolbar_icon_color">@color/base30</item>
-        <item name="themed_icon_color">@color/accent50</item>
-        <item name="nav_tab_background_color">@color/base100</item>
+        <item name="toolbar_icon_color">@color/gray500</item>
+        <item name="themed_icon_color">@color/blue600</item>
+        <item name="nav_tab_background_color">@color/white</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_light</item>
         <item name="multi_select_background_color">@color/accent90</item>
-        <item name="searchItemBackground">@color/base100</item>
+        <item name="searchItemBackground">@color/white</item>
         <item name="material_theme_primary_color">@color/black87</item>
         <item name="material_theme_secondary_color">@color/black54</item>
         <item name="material_theme_de_emphasised_color">@color/black38</item>
         <item name="material_theme_border_color">@color/black12</item>
-        <item name="primary_text_color">@color/base10</item>
-        <item name="secondary_text_color">@color/base30</item>
-        <item name="section_title_color">@color/base20</item>
-        <item name="chart_shade1">@color/base10</item>
-        <item name="chart_shade4">@color/base50</item>
-        <item name="chart_shade5">@color/base70</item>
-        <item name="chart_shade7">@color/base100</item>
-        <item name="green_highlight_color">@color/green30</item>
+        <item name="primary_text_color">@color/gray700</item>
+        <item name="secondary_text_color">@color/gray500</item>
+        <item name="section_title_color">@color/gray600</item>
+        <item name="chart_shade1">@color/gray700</item>
+        <item name="chart_shade4">@color/gray400</item>
+        <item name="chart_shade5">@color/gray300</item>
+        <item name="chart_shade7">@color/white</item>
+        <item name="green_highlight_color">@color/green700</item>
         <item name="randomizer_dice_icon_color">@android:color/white</item>
-        <item name="thumb_off_color">@color/base90</item>
-        <item name="track_off_color">@color/base0</item>
-        <item name="toc_h1_h2_color">@color/base0</item>
-        <item name="toc_scroller_button_color">@color/base100</item>
-        <item name="button_background_color">@color/base100</item>
-        <item name="tab_placeholder_text_color">@color/base80</item>
-        <item name="chip_background_color">@color/base80</item>
-        <item name="color_group_9">@color/base20</item>
-        <item name="color_group_22">@color/base90</item>
-        <item name="color_group_43">@color/green50</item>
+        <item name="thumb_off_color">@color/gray100</item>
+        <item name="track_off_color">@color/black</item>
+        <item name="toc_h1_h2_color">@color/black</item>
+        <item name="toc_scroller_button_color">@color/white</item>
+        <item name="button_background_color">@color/white</item>
+        <item name="tab_placeholder_text_color">@color/gray200</item>
+        <item name="chip_background_color">@color/gray200</item>
+        <item name="color_group_9">@color/gray600</item>
+        <item name="color_group_22">@color/gray100</item>
+        <item name="color_group_43">@color/green600</item>
         <item name="color_group_44">@color/red50</item>
-        <item name="color_group_52">@color/accent75</item>
+        <item name="color_group_52">@color/blue300</item>
         <item name="color_group_53">@color/accent90</item>
         <item name="color_group_54">@color/accent90</item>
         <item name="color_group_55">@color/accent90</item>
         <item name="color_group_56">@color/accent30</item>
         <item name="color_group_57">@color/green90</item>
-        <item name="color_group_58">@color/green30</item>
-        <item name="color_group_59">@color/base30</item>
-        <item name="color_group_60">@color/base80</item>
+        <item name="color_group_58">@color/green700</item>
+        <item name="color_group_59">@color/gray500</item>
+        <item name="color_group_60">@color/gray200</item>
         <item name="color_group_61">@color/black26</item>
         <item name="color_group_63">@color/black54</item>
-        <item name="color_group_64">@color/base10</item>
+        <item name="color_group_64">@color/gray700</item>
         <item name="color_group_65">@color/green90</item>
-        <item name="color_group_66">@color/base10</item>
+        <item name="color_group_66">@color/gray700</item>
         <item name="color_group_67">@color/red90</item>
-        <item name="color_group_68">@color/yellow30</item>
+        <item name="color_group_68">@color/yellow700</item>
         <item name="color_group_69">@color/green50_10l</item>
         <item name="color_group_70">@color/green80</item>
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_light</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_light</item>
 
         <!-- Background for cards, lists, and controls -->
-        <item name="paper_color">@color/base100</item>
+        <item name="paper_color">@color/white</item>
 
     </style>
 
     <style name="AppTheme.Splash">
         <item name="android:windowBackground">@drawable/splash_bg</item>
-        <item name="android:navigationBarColor">@color/base10</item>
+        <item name="android:navigationBarColor">@color/gray700</item>
     </style>
 
     <style name="AppTheme.Page">
@@ -153,7 +153,7 @@
     <style name="DialogLight" parent="Theme.MaterialComponents.Light.Dialog">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="colorAccent">@color/accent50</item>
+        <item name="colorAccent">@color/blue600</item>
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:lineSpacingExtra">@dimen/dialog_line_spacing_extra</item>
     </style>
@@ -164,9 +164,9 @@
 
     <style name="BottomSheetDialogLight" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
-        <item name="colorAccent">@color/accent50</item>
-        <item name="colorPrimary">@color/accent50</item>
-        <item name="colorSwitchThumbNormal">@color/base90</item>
+        <item name="colorAccent">@color/blue600</item>
+        <item name="colorPrimary">@color/blue600</item>
+        <item name="colorSwitchThumbNormal">@color/gray100</item>
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:disabledAlpha">1.0</item>
     </style>
@@ -379,7 +379,7 @@
 
     <style name="App.Button.White">
         <item name="backgroundTint">@color/color_state_white</item>
-        <item name="android:textColor">@color/base30</item>
+        <item name="android:textColor">@color/gray500</item>
     </style>
 
     <style name="ThemeColorCircularButton" parent="@style/Widget.MaterialComponents.Button.Icon">
@@ -396,7 +396,7 @@
         <item name="android:text">Aa</item>
         <item name="android:textAllCaps">false</item>
         <item name="cornerRadius">30dp</item>
-        <item name="strokeColor">@color/accent50</item>
+        <item name="strokeColor">@color/blue600</item>
     </style>
 
     <style name="FlatButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
@@ -456,8 +456,8 @@
 
     <style name="OnboardingSwitch">
         <item name="colorControlActivated">?attr/colorAccent</item>
-        <item name="colorSwitchThumbNormal">@color/base50</item>
-        <item name="android:colorForeground">@color/base30</item>
+        <item name="colorSwitchThumbNormal">@color/gray400</item>
+        <item name="android:colorForeground">@color/gray500</item>
     </style>
 
     <style name="AppBottomSheetModalStyle" parent="Widget.Design.BottomSheet.Modal">

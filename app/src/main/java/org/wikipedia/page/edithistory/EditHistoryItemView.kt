@@ -51,7 +51,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         val diffSize = itemRevision.diffSize
         binding.diffText.text = StringUtil.getDiffBytesText(context, diffSize)
         if (diffSize >= 0) {
-            binding.diffText.setTextColor(if (diffSize > 0) ContextCompat.getColor(context, R.color.green50)
+            binding.diffText.setTextColor(if (diffSize > 0) ContextCompat.getColor(context, R.color.green600)
             else ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))
         } else {
             binding.diffText.setTextColor(ContextCompat.getColor(context, R.color.red50))
@@ -107,7 +107,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         } else if (selectedState == EditHistoryListViewModel.SELECT_TO) {
             binding.selectButton.setImageResource(R.drawable.ic_check_circle_black_24dp)
             ImageViewCompat.setImageTintList(binding.selectButton, ColorStateList.valueOf(colorTo))
-            binding.cardView.strokeColor = ContextCompat.getColor(context, R.color.osage)
+            binding.cardView.strokeColor = ContextCompat.getColor(context, R.color.orange500)
             val cardBackground = ColorUtils.blendARGB(colorDefault, colorTo, 0.05f)
             binding.cardView.setCardBackgroundColor(cardBackground)
             val buttonBackground = ColorUtils.blendARGB(cardBackground, colorTo, 0.05f)

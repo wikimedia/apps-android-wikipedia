@@ -82,8 +82,8 @@
                 android:maxHeight="128dp"
                 android:scrollbarStyle="insideInset"
                 android:scrollbars="vertical"
-                android:textColor="@color/base90"
-                android:textColorLink="@color/base90"
+                android:textColor="@color/gray100"
+                android:textColorLink="@color/gray100"
                 android:textIsSelectable="true"
                 tools:text="Sample image description text" />
 
@@ -94,7 +94,7 @@
                 android:padding="6dp"
                 android:layout_marginTop="-6dp"
                 app:srcCompat="@drawable/ic_mode_edit_white_24dp"
-                app:tint="@color/base90"
+                app:tint="@color/gray100"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:focusable="true"
@@ -136,7 +136,7 @@
                     android:layout_marginStart="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:textAllCaps="true"
-                    android:textColor="@color/base100"
+                    android:textColor="@color/white"
                     android:letterSpacing="0.1" />
 
             </LinearLayout>

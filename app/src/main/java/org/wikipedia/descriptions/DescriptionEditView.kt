@@ -270,7 +270,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     private fun setWarning(text: CharSequence?) {
         binding.viewDescriptionEditTextLayout.setErrorIconDrawable(R.drawable.ic_warning_24)
-        val colorStateList = AppCompatResources.getColorStateList(context, R.color.yellow30)
+        val colorStateList = AppCompatResources.getColorStateList(context, R.color.yellow700)
         binding.viewDescriptionEditTextLayout.setErrorIconTintList(colorStateList)
         binding.viewDescriptionEditTextLayout.setErrorTextColor(colorStateList)
         binding.viewDescriptionEditTextLayout.boxStrokeErrorColor = colorStateList

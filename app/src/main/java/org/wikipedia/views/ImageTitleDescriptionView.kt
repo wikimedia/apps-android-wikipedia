@@ -56,12 +56,12 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         val circleProgress: Double
 
         when (severity) {
-            0 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.green50; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_perfect_text; circleProgress = 100.0 }
-            1 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.green50; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_excellent_text; circleProgress = 85.0 }
-            2 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.green50; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_very_good_text; circleProgress = 75.0 }
-            3 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.green50; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_good_text; circleProgress = 55.0 }
-            4 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.yellow50; backgroundTint = R.color.yellow90; textRes = R.string.suggested_edits_quality_okay_text; circleProgress = 40.0 }
-            5 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.yellow50; backgroundTint = R.color.yellow90; textRes = R.string.suggested_edits_quality_sufficient_text; circleProgress = 30.0 }
+            0 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.green600; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_perfect_text; circleProgress = 100.0 }
+            1 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.green600; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_excellent_text; circleProgress = 85.0 }
+            2 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.green600; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_very_good_text; circleProgress = 75.0 }
+            3 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.green600; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_good_text; circleProgress = 55.0 }
+            4 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.yellow500; backgroundTint = R.color.yellow90; textRes = R.string.suggested_edits_quality_okay_text; circleProgress = 40.0 }
+            5 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.yellow500; backgroundTint = R.color.yellow90; textRes = R.string.suggested_edits_quality_sufficient_text; circleProgress = 30.0 }
             else -> { iconRes = R.drawable.ic_exclamation_borderless; iconTint = R.color.red50; backgroundTint = R.color.red90; textRes = R.string.suggested_edits_quality_poor_text; circleProgress = 20.0 }
         }
 

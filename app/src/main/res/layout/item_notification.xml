@@ -27,7 +27,7 @@
         android:contentDescription="@null"
         app:tint="@android:color/white"
         android:visibility="gone"
-        app:backgroundTint="@color/accent50"
+        app:backgroundTint="@color/blue600"
         app:layout_constraintStart_toStartOf="@id/notificationItemImage"
         app:layout_constraintTop_toTopOf="@id/notificationItemImage"
         app:srcCompat="@drawable/ic_check_black_24dp" />

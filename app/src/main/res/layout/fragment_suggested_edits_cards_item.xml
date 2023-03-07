@@ -84,7 +84,7 @@
                         android:id="@+id/accentSideBar"
                         android:layout_width="4dp"
                         android:layout_height="match_parent"
-                        android:background="@color/accent50" />
+                        android:background="@color/blue600" />
 
                     <org.wikipedia.views.GoneIfEmptyTextView
                         android:id="@+id/viewArticleSubtitle"

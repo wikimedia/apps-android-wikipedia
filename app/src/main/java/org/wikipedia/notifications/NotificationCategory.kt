@@ -104,7 +104,7 @@ enum class NotificationCategory constructor(val id: String,
                         .setName(context.getString(it.title))
                         .setDescription(context.getString(it.description))
                         .setGroup(it.group)
-                        .setLightColor(ContextCompat.getColor(context, R.color.accent50))
+                        .setLightColor(ContextCompat.getColor(context, R.color.blue600))
                         .setVibrationEnabled(true)
                         .build()
                 } else {

@@ -4,39 +4,39 @@
     <style name="ThemeSepia">
 
         <!-- Default background for all activities -->
-        <item name="android:windowBackground">@color/parchment</item>
-        <item name="android:colorBackground">@color/papyrus</item>
+        <item name="android:windowBackground">@color/beige100</item>
+        <item name="android:colorBackground">@color/beige300</item>
 
-        <item name="colorError">@color/red30</item>
+        <item name="colorError">@color/red700</item>
 
-        <item name="android:textColorSecondary">@color/masi</item>
-        <item name="android:textColorTertiary">@color/base30</item>
+        <item name="android:textColorSecondary">@color/taupe600</item>
+        <item name="android:textColorTertiary">@color/gray500</item>
 
-        <item name="section_title_color">@color/masi</item>
-        <item name="secondary_text_color">@color/masi</item>
-        <item name="searchItemBackground">@color/parchment</item>
-        <item name="nav_tab_background_color">@color/amate</item>
-        <item name="toc_scroller_button_color">@color/parchment</item>
-        <item name="button_background_color">@color/parchment</item>
-        <item name="tab_placeholder_text_color">@color/amate</item>
-        <item name="color_group_22">@color/papyrus</item>
-        <item name="color_group_44">@color/red30</item>
-        <item name="color_group_53">@color/amate</item>
-        <item name="color_group_54">@color/amate</item>
-        <item name="color_group_59">@color/masi</item>
-        <item name="color_group_60">@color/amate</item>
-        <item name="chart_shade5">@color/kraft</item>
-        <item name="green_highlight_color">@color/green50</item>
-        <item name="color_group_64">@color/green30</item>
+        <item name="section_title_color">@color/taupe600</item>
+        <item name="secondary_text_color">@color/taupe600</item>
+        <item name="searchItemBackground">@color/beige100</item>
+        <item name="nav_tab_background_color">@color/beige400</item>
+        <item name="toc_scroller_button_color">@color/beige100</item>
+        <item name="button_background_color">@color/beige100</item>
+        <item name="tab_placeholder_text_color">@color/beige400</item>
+        <item name="color_group_22">@color/beige300</item>
+        <item name="color_group_44">@color/red700</item>
+        <item name="color_group_53">@color/beige400</item>
+        <item name="color_group_54">@color/beige400</item>
+        <item name="color_group_59">@color/taupe600</item>
+        <item name="color_group_60">@color/beige400</item>
+        <item name="chart_shade5">@color/taupe200</item>
+        <item name="green_highlight_color">@color/green600</item>
+        <item name="color_group_64">@color/green700</item>
         <item name="color_group_65">@android:color/transparent</item>
-        <item name="color_group_66">@color/red30</item>
+        <item name="color_group_66">@color/red700</item>
         <item name="color_group_67">@android:color/transparent</item>
         <item name="color_group_69">@color/green50_10s</item>
 
         <!-- Background for cards, lists, and controls -->
-        <item name="paper_color">@color/parchment</item>
-        <item name="chip_background_color">@color/amate</item>
-        <item name="color_group_9">@color/masi</item>
+        <item name="paper_color">@color/beige100</item>
+        <item name="chip_background_color">@color/beige400</item>
+        <item name="color_group_9">@color/taupe600</item>
 
     </style>
 

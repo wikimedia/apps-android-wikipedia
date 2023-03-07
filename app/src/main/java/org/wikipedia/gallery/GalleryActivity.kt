@@ -119,8 +119,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         binding.infoGradient.background = GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM)
         binding.descriptionText.movementMethod = linkMovementMethod
         binding.creditText.movementMethod = linkMovementMethod
-        binding.errorView.setIconColorFilter(ContextCompat.getColor(this, R.color.base70))
-        binding.errorView.setErrorTextColor(ContextCompat.getColor(this, R.color.base70))
+        binding.errorView.setIconColorFilter(ContextCompat.getColor(this, R.color.gray300))
+        binding.errorView.setErrorTextColor(ContextCompat.getColor(this, R.color.gray300))
         binding.errorView.backClickListener = View.OnClickListener { onBackPressed() }
         binding.errorView.retryClickListener = View.OnClickListener {
             binding.errorView.visibility = View.GONE

@@ -106,7 +106,7 @@
             android:layout_height="48dp"
             android:backgroundTint="?attr/colorAccent"
             android:text="@string/suggested_edits_add_description_button"
-            android:textColor="@color/base100"
+            android:textColor="@color/white"
             android:textSize="14sp"
             android:fontFamily="sans-serif-medium"
             android:textAllCaps="true"
@@ -123,7 +123,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:rippleColor="?attr/color_group_56"
             app:cornerRadius="2dp"
-            app:iconTint="@color/base100"
+            app:iconTint="@color/white"
             app:iconPadding="8dp"
             app:icon="@drawable/ic_add_gray_white_24dp"/>
 

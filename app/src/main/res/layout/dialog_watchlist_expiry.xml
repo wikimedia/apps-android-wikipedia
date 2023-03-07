@@ -29,7 +29,7 @@
             android:layout_height="24dp"
             android:contentDescription="@null"
             app:srcCompat="@drawable/ic_star_24"
-            app:tint="@color/yellow50" />
+            app:tint="@color/yellow500" />
 
         <TextView
             style="@android:style/TextAppearance"
@@ -59,7 +59,7 @@
             android:layout_height="24dp"
             android:contentDescription="@null"
             app:srcCompat="@drawable/ic_baseline_star_half_24"
-            app:tint="@color/yellow50" />
+            app:tint="@color/yellow500" />
 
         <TextView
             style="@android:style/TextAppearance"

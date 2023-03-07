@@ -46,7 +46,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/taskTitle"
             android:layout_marginStart="4dp"
             android:textSize="14sp"
-            android:textColor="@color/green50"
+            android:textColor="@color/green600"
             android:textStyle="bold"
             android:textAllCaps="true"
             android:text="@string/suggested_edits_task_new"/>

@@ -60,7 +60,7 @@
                     android:contentDescription="@null"
                     android:padding="10dp"
                     app:srcCompat="@drawable/ic_add_gray_white_24dp"
-                    app:tint="@color/base30" />
+                    app:tint="@color/gray500" />
 
                 <TextView
                     android:layout_width="match_parent"

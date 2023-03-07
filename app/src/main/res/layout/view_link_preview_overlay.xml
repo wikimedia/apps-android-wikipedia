@@ -25,7 +25,7 @@
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:text="@string/button_get_directions"
-            android:textColor="@color/base30" />
+            android:textColor="@color/gray500" />
 
         <Button
             android:id="@+id/link_preview_secondary_button"

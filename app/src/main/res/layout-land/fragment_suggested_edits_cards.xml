@@ -128,7 +128,7 @@
                 app:rippleColor="?attr/color_group_56"
                 app:iconPadding="0dp"
                 app:iconGravity="textStart"
-                app:iconTint="@color/base100"
+                app:iconTint="@color/white"
                 app:icon="@drawable/ic_add_gray_white_24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

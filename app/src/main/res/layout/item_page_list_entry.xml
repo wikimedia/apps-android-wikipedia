@@ -92,7 +92,7 @@
             android:padding="8dp"
             app:tint="@android:color/white"
             android:visibility="gone"
-            app:backgroundTint="@color/accent50"
+            app:backgroundTint="@color/blue600"
             app:srcCompat="@drawable/ic_check_black_24dp"
             tools:visibility="visible" />
 

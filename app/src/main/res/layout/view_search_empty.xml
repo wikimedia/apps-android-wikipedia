@@ -10,7 +10,7 @@
         android:background="@drawable/shape_circle"
         android:contentDescription="@null"
         android:padding="20dp"
-        app:tint="@color/base30"
+        app:tint="@color/gray500"
         app:srcCompat="@drawable/ic_search_white_24dp" />
 
     <TextView

@@ -124,7 +124,7 @@
             android:paddingBottom="8dp"
             android:paddingStart="0dp"
             android:fontFamily="sans-serif-medium"
-            android:textColor="@color/green50"
+            android:textColor="@color/green600"
             android:backgroundTint="@android:color/transparent"
             app:layout_constraintTop_toTopOf="@id/userNameText"
             app:layout_constraintStart_toEndOf="@id/userNameText"

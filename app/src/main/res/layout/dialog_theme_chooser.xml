@@ -237,28 +237,28 @@
                     android:id="@+id/button_theme_light"
                     style="@style/ThemeColorCircularButton"
                     android:layout_margin="5dp"
-                    android:textColor="@color/base10"
+                    android:textColor="@color/gray700"
                     android:backgroundTint="@color/color_state_white"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_theme_sepia"
                     style="@style/ThemeColorCircularButton"
                     android:layout_margin="5dp"
-                    android:textColor="@color/base10"
-                    android:backgroundTint="@color/papyrus"/>
+                    android:textColor="@color/gray700"
+                    android:backgroundTint="@color/beige300"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_theme_dark"
                     style="@style/ThemeColorCircularButton"
                     android:layout_margin="5dp"
-                    android:textColor="@color/base90"
+                    android:textColor="@color/gray100"
                     android:backgroundTint="@color/color_state_gray" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_theme_black"
                     style="@style/ThemeColorCircularButton"
                     android:layout_margin="5dp"
-                    android:textColor="@color/base90"
+                    android:textColor="@color/gray100"
                     android:backgroundTint="@color/color_state_black" />
 
             </LinearLayout>

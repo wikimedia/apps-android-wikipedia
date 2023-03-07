@@ -38,7 +38,7 @@
         android:background="@drawable/lang_button_shape_border"
         android:fontFamily="sans-serif-medium"
         android:textAllCaps="true"
-        android:textColor="@color/base30" />
+        android:textColor="@color/gray500" />
 
     <TextView
         android:id="@+id/wiki_language_title"
