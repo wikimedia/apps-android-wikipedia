@@ -4,12 +4,9 @@ import android.text.Editable
 import android.text.Html.TagHandler
 import android.text.Spanned
 import android.text.style.URLSpan
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.text.HtmlCompat
 import androidx.core.text.getSpans
 import androidx.core.text.parseAsHtml
-import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.xml.sax.Attributes
 import org.xml.sax.ContentHandler
 import org.xml.sax.Locator
@@ -108,9 +105,9 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                                 val start = output.getSpanStart(span)
                                 val end = output.getSpanEnd(span)
                                 output.removeSpan(span)
-                                output.setSpan(URLSpanNoUnderline(span.url, if (lastAClass == "new")
-                                    ResourcesCompat.getColor(WikipediaApp.instance.resources, R.color.red50, WikipediaApp.instance.theme) else -1),
-                                    start, end, 0)
+                                // TODO: if we need to override the color (e.g. for showing red links):
+                                val color = -1 // if (lastAClass == "new") ResourcesCompat.getColor(WikipediaApp.instance.resources, R.color.red50, WikipediaApp.instance.theme) else -1
+                                output.setSpan(URLSpanNoUnderline(span.url, color), start, end, 0)
                             }
                         }
                     }
