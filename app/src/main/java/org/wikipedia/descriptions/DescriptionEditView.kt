@@ -365,7 +365,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 binding.viewDescriptionEditSaveButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color))
                 binding.viewDescriptionEditSaveButton.isEnabled = true
             } else {
-                ResourceUtil.getThemedColorStateList(context, R.attr.material_theme_de_emphasised_color)
+                binding.viewDescriptionEditSaveButton.setTextColor(ResourceUtil.getThemedColorStateList(context, R.attr.material_theme_de_emphasised_color))
                 binding.viewDescriptionEditSaveButton.isEnabled = false
             }
         }
