@@ -15,11 +15,13 @@ import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import androidx.core.text.getSpans
 import androidx.core.text.parseAsHtml
+import androidx.core.view.doOnDetach
 import androidx.lifecycle.LifecycleCoroutineScope
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.apache.commons.lang3.mutable.Mutable
 import org.wikipedia.WikipediaApp
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.log.L
@@ -102,7 +104,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
     }
 
     internal class BitmapDrawablePlaceHolder(res: Resources, bitmap: Bitmap?) : BitmapDrawable(res, bitmap) {
-        private var drawable: Drawable? = null
+        var bmp: Drawable? = null
 
         override fun draw(canvas: Canvas) {
             drawable?.draw(canvas)
@@ -114,8 +116,17 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
     }
 
     companion object {
-        private var lastImgWidth = 0
-        private var lastImgHeight = 0
+        private val viewBmpMap = mutableMapOf<View, MutableMap<String, BitmapDrawablePlaceHolder>>()
+
+        private fun pruneBitmapsForView(view: View) {
+            if (viewBmpMap.containsKey(view)) {
+                val bmpMap = viewBmpMap[view]!!
+                bmpMap.values.forEach {
+
+                }
+                viewBmpMap.remove(view)
+            }
+        }
 
         fun fromHtml(html: String): Spanned {
             // TODO: Investigate if it's necessary to inject a dummy tag at the beginning of the
@@ -149,53 +160,28 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         }
 
         fun fromHtml(html: String, view: TextView, scope: LifecycleCoroutineScope) {
+
+
+            view.doOnDetach {
+
+            }
+
+
             // TODO: Investigate if it's necessary to inject a dummy tag at the beginning of the
             // text, since there are reports that XmlReader ignores the first tag by default?
             // This would become something like "<inject/>$html".parseAsHtml(...)
             view.text = html.parseAsHtml(HtmlCompat.FROM_HTML_MODE_LEGACY, { url ->
                 try {
-                    var uri = url
-                    if (uri.startsWith("//")) {
-                        uri = "https:" + uri
-                    } else if (uri.startsWith("./")) {
-                        uri = "https://commons.wikimedia.org/" + uri.replace("./", "")
-                    }
-
-                    val holder = BitmapDrawablePlaceHolder(view.context.resources, null)
-
-                    // give it a placeholder drawable of the appropriate size
-                    if (lastImgWidth > 0 && lastImgHeight > 0) {
-                        val bmp = Bitmap.createBitmap(lastImgWidth, lastImgHeight, Bitmap.Config.RGB_565)
-                        holder.setDrawable(BitmapDrawable(view.context.resources, bmp))
-                        holder.setBounds(0, 0, lastImgWidth, lastImgHeight)
-
-                        scope.launch(Dispatchers.IO) {
-                            runCatching {
-                                val bitmap = Glide.with(WikipediaApp.instance)
-                                    .asBitmap()
-                                    .load(uri)
-                                    .submit()
-                                    .get()
-
-                                val drawable = BitmapDrawable(view.context.resources, bitmap)
-
-                                //val width = (drawable.intrinsicWidth * scale).roundToInt()
-                                //val height = (drawable.intrinsicHeight * scale).roundToInt()
-                                drawable.setBounds(0, 0, lastImgWidth, lastImgHeight)
-
-                                holder.setDrawable(drawable)
-
-
-                                withContext(Dispatchers.Main) {
-                                    view.postInvalidate()
-                                    //htmlTextView.text = htmlTextView.text
-                                }
-                            }
+                    var holder: BitmapDrawablePlaceHolder? = null
+                    if (viewBmpMap.containsKey(view)) {
+                        if (viewBmpMap[view]!!.containsKey(url)) {
+                            holder = viewBmpMap[view]!![url]
                         }
                     }
-
+                    if (holder == null) {
+                        holder = BitmapDrawablePlaceHolder(view.context.resources, null)
+                    }
                     holder
-
                 } catch (e: Exception) {
                     L.e(e)
                     null
@@ -204,12 +190,54 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                 var lastAClass = ""
 
                 override fun handleTag(opening: Boolean, tag: String?, output: Editable?, attributes: Attributes?): Boolean {
-                    if (tag == "img") {
-                        if (opening) {
-                            lastImgWidth = DimenUtil.roundedDpToPx(DimenUtil.htmlPxToInt(getValue(attributes, "width").orEmpty()).toFloat())
-                            lastImgHeight = DimenUtil.roundedDpToPx(DimenUtil.htmlPxToInt(getValue(attributes, "height").orEmpty()).toFloat())
+                    if (tag == "img" && opening) {
+                        val imgWidth = DimenUtil.roundedDpToPx(DimenUtil.htmlPxToInt(getValue(attributes, "width").orEmpty()).toFloat())
+                        val imgHeight = DimenUtil.roundedDpToPx(DimenUtil.htmlPxToInt(getValue(attributes, "height").orEmpty()).toFloat())
+                        val imgSrc = getValue(attributes, "src").orEmpty()
+
+                        if (imgWidth > 0 && imgHeight > 0 && imgSrc.isNotEmpty()) {
+                            val bmpMap = viewBmpMap.getOrPut(view) { mutableMapOf() }
+                            if (!bmpMap.containsKey(imgSrc)) {
+                                val holder = BitmapDrawablePlaceHolder(view.context.resources, null)
+                                bmpMap[imgSrc] = holder
+
+                                // give it a placeholder drawable of the appropriate size
+                                val bmp = Bitmap.createBitmap(imgWidth, imgHeight, Bitmap.Config.RGB_565)
+                                holder.setDrawable(BitmapDrawable(view.context.resources, bmp))
+                                holder.setBounds(0, 0, imgWidth, imgHeight)
+
+                                var uri = imgSrc
+                                if (uri.startsWith("//")) {
+                                    uri = "https:" + uri
+                                } else if (uri.startsWith("./")) {
+                                    uri = "https://commons.wikimedia.org/" + uri.replace("./", "")
+                                }
+                                scope.launch(Dispatchers.IO) {
+                                    runCatching {
+                                        val bitmap = Glide.with(WikipediaApp.instance)
+                                            .asBitmap()
+                                            .load(uri)
+                                            .submit()
+                                            .get()
+
+                                        val drawable = BitmapDrawable(view.context.resources, bitmap)
+
+                                        //val width = (drawable.intrinsicWidth * scale).roundToInt()
+                                        //val height = (drawable.intrinsicHeight * scale).roundToInt()
+                                        drawable.setBounds(0, 0, imgWidth, imgHeight)
+
+                                        holder.setDrawable(drawable)
+
+                                        withContext(Dispatchers.Main) {
+                                            view.forceLayout()
+                                            view.invalidate()
+                                            view.invalidateDrawable(holder)
+                                            //htmlTextView.text = htmlTextView.text
+                                        }
+                                    }
+                                }
+                            }
                         }
-                        return false
                     } else if (tag == "a") {
                         if (opening) {
                             lastAClass = getValue(attributes, "class").orEmpty()
