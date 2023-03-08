@@ -6,7 +6,6 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.text.Editable
 import android.text.style.URLSpan
-import android.view.View
 import android.widget.TextView
 import androidx.core.graphics.applyCanvas
 import androidx.core.text.HtmlCompat
@@ -71,19 +70,7 @@ fun TextView.setHtml(source: String?) {
                 imgHeight = DimenUtil.roundedDpToPx(imgHeight.toFloat())
 
                 if (imgWidth > 0 && imgHeight > 0 && imgSrc.isNotEmpty()) {
-                    val bmpMap = CustomHtmlParser.viewBmpMap.getOrPut(this@setHtml) {
-
-                        addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
-                            override fun onViewAttachedToWindow(view: View) {}
-
-                            override fun onViewDetachedFromWindow(view: View) {
-                                removeOnAttachStateChangeListener(this)
-                                CustomHtmlParser.pruneBitmapsForView(view)
-                            }
-                        })
-
-                        mutableMapOf()
-                    }
+                    val bmpMap = CustomHtmlParser.viewBmpMap.getOrPut(this@setHtml) { mutableMapOf() }
                     var drawable = bmpMap[imgSrc]
 
                     if (drawable == null || drawable.bitmap.isRecycled) {

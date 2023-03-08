@@ -99,19 +99,17 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         const val MIN_IMAGE_SIZE = 64
         val viewBmpMap = mutableMapOf<View, MutableMap<String, BitmapDrawable>>()
 
-        fun pruneBitmapsForView(view: View) {
-            if (viewBmpMap.containsKey(view)) {
-                val bmpMap = viewBmpMap[view]!!
-                bmpMap.values.forEach {
+        fun recycleBitmaps() {
+            viewBmpMap.values.forEach { map ->
+                map.values.forEach {
                     try {
                         it.bitmap.recycle()
                     } catch (e: Exception) {
                         L.e(e)
                     }
                 }
-                bmpMap.clear()
-                viewBmpMap.remove(view)
             }
+            viewBmpMap.clear()
         }
 
         fun fromHtml(html: String): Spanned {

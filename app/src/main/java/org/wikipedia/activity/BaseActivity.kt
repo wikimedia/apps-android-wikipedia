@@ -37,6 +37,7 @@ import org.wikipedia.readinglist.ReadingListsShareSurveyHelper
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.recurring.RecurringTasksExecutor
+import org.wikipedia.richtext.CustomHtmlParser
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient
@@ -113,6 +114,7 @@ abstract class BaseActivity : AppCompatActivity() {
         if (EXCLUSIVE_BUS_METHODS === exclusiveBusMethods) {
             unregisterExclusiveBusMethods()
         }
+        CustomHtmlParser.recycleBitmaps()
         super.onDestroy()
     }
 
