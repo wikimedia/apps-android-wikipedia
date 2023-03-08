@@ -2,6 +2,7 @@
 <resources>
 
     <color name="white">#FFFFFF</color>
+
     <color name="gray100">#F8F9Fa</color>
     <color name="gray200">#EAECF0</color>
     <color name="gray200_60">#99EAECF0</color>
@@ -21,6 +22,7 @@
     <color name="beige300">#F0E6D6</color>
     <color name="beige400">#E1DAD1</color>
     <color name="beige400_60">#99E1DAD1</color>
+
     <color name="taupe200">#CBC8C1</color>
     <color name="taupe600">#646059</color>
 
@@ -33,8 +35,8 @@
     <color name="green600">#00AF89</color>
     <color name="green700">#14866D</color>
 
-    <color name="red700">#B32424</color>
     <color name="red500">#FF4242</color>
+    <color name="red700">#B32424</color>
 
     <color name="yellow500">#FFCC33</color>
     <color name="yellow500_40">#66FFCC33</color>
