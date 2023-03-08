@@ -21,9 +21,9 @@ class CabSearchView @JvmOverloads constructor(context: Context, attrs: Attribute
     private val searchSrcTextView: SearchAutoComplete
 
     init {
-        val themedIconColor = ResourceUtil.getThemedColor(getContext(), R.attr.toolbar_icon_color)
+        val themedIconColor = ResourceUtil.getThemedColor(getContext(), R.attr.placeholder_color)
         searchSrcTextView = findViewById(R.id.search_src_text)
-        searchSrcTextView.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.primary_text_color))
+        searchSrcTextView.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.primary_color))
         searchSrcTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, SEARCH_TEXT_SIZE.toFloat())
         searchSrcTextView.setHintTextColor(themedIconColor)
         val searchMagIcon = findViewById<ImageView>(R.id.search_mag_icon)

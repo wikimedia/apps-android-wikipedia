@@ -35,7 +35,7 @@
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:text="@string/page_edit_history_activity_title"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
 

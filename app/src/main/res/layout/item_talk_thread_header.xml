@@ -53,7 +53,7 @@
         app:icon="@drawable/ic_notifications_black_24dp"
         app:iconTint="?attr/colorAccent"
         app:backgroundTint="?attr/color_group_22"
-        app:rippleColor="?attr/color_group_56"
+        app:rippleColor="?attr/progressive_color"
         app:cornerRadius="8dp" />
 
     <TextView

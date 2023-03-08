@@ -19,7 +19,7 @@
             android:paddingEnd="@dimen/list_item_horizontal_padding"
             android:paddingBottom="8dp"
             android:text="@string/reading_list_save_to"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="16sp" />
 
         <View
@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:text="@string/reading_list_create_new"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/primary_color"
                     android:textSize="16sp" />
             </LinearLayout>
 

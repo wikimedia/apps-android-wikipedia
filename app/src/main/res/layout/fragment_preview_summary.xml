@@ -37,7 +37,7 @@
                 android:imeOptions="actionDone|flagNoExtractUi"
                 android:maxLength="255"
                 android:maxLines="3"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 tools:ignore="LabelFor" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/preview_edit_minor_edit"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:buttonTint="?attr/colorAccent"/>
 
             <ImageView
@@ -78,7 +78,7 @@
                 android:src="@drawable/ic_info_outline_black_24dp"
                 android:contentDescription="@string/preview_edit_minor_edit"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
-                app:tint="?attr/color_group_59"/>
+                app:tint="?attr/placeholder_color"/>
 
         </LinearLayout>
 
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/preview_edit_watch_this_page"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:buttonTint="?attr/colorAccent"/>
 
             <ImageView
@@ -104,7 +104,7 @@
                 android:src="@drawable/ic_info_outline_black_24dp"
                 android:contentDescription="@string/preview_edit_watch_this_page"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
-                app:tint="?attr/color_group_59" />
+                app:tint="?attr/placeholder_color" />
 
         </LinearLayout>
 

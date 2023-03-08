@@ -111,7 +111,7 @@
         app:icon="@drawable/ic_reply_24"
         app:iconTint="@android:color/white"
         app:backgroundTint="?attr/colorAccent"
-        app:rippleColor="?attr/color_group_56"
+        app:rippleColor="?attr/progressive_color"
         app:cornerRadius="8dp" />
 
     <View

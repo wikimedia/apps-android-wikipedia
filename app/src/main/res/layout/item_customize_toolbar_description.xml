@@ -5,6 +5,6 @@
     android:layout_height="wrap_content"
     android:padding="16dp"
     android:text="@string/customize_toolbar_shortcut_description_text"
-    android:textColor="?attr/primary_text_color"
+    android:textColor="?attr/primary_color"
     android:textSize="16sp"
     android:lineSpacingMultiplier="1.12"/>

@@ -68,7 +68,7 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
         if (selected) {
             binding.pageListItemSelectedImage.visibility = VISIBLE
             binding.pageListItemImage.visibility = GONE
-            setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.multi_select_background_color))
+            setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.background_color))
         } else {
             if (imageUrl.isNullOrEmpty()) {
                 binding.pageListItemImage.visibility = GONE

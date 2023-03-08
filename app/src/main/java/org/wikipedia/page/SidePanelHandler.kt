@@ -233,7 +233,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
             } else {
                 if (section.level > 1) {
                     sectionHeading.setTextColor(
-                            ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.primary_text_color))
+                            ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.primary_color))
                 } else {
                     sectionHeading.setTextColor(
                             ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.toc_h1_h2_color))

@@ -17,7 +17,7 @@
         android:maxLines="1"
         android:paddingStart="@dimen/list_item_horizontal_padding"
         android:paddingEnd="@dimen/list_item_horizontal_padding"
-        android:textColor="?attr/primary_text_color"
+        android:textColor="?attr/primary_color"
         android:textSize="16sp"
         tools:text="Article title" />
 
@@ -52,7 +52,7 @@
             android:paddingStart="@dimen/list_item_horizontal_padding"
             android:paddingEnd="@dimen/list_item_horizontal_padding"
             android:text="@string/reading_list_article_offline"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -80,7 +80,7 @@
             android:paddingStart="@dimen/list_item_horizontal_padding"
             android:paddingEnd="@dimen/list_item_horizontal_padding"
             android:text="@string/reading_list_page_share"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -108,7 +108,7 @@
             android:paddingStart="@dimen/list_item_horizontal_padding"
             android:paddingEnd="@dimen/list_item_horizontal_padding"
             android:text="@string/reading_list_add_to_other_list"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -136,7 +136,7 @@
             android:paddingStart="@dimen/list_item_horizontal_padding"
             android:paddingEnd="@dimen/list_item_horizontal_padding"
             android:text="@string/reading_list_move_to_other_list"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -161,7 +161,7 @@
             android:paddingStart="@dimen/list_item_horizontal_padding"
             android:paddingEnd="@dimen/list_item_horizontal_padding"
             android:gravity="center_vertical"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="16sp"
             android:text="@string/reading_list_select_item"/>
     </LinearLayout>
@@ -196,7 +196,7 @@
             android:gravity="center_vertical"
             android:paddingStart="@dimen/list_item_horizontal_padding"
             android:paddingEnd="@dimen/list_item_horizontal_padding"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="16sp"
             tools:text="Remove from list" />
     </LinearLayout>

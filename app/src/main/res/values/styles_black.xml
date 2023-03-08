@@ -22,19 +22,15 @@
 
         <!-- TODO: review and remove the old references/colors -->
         <!-- Overrides of our own custom color attributes -->
-        <item name="themed_icon_color">@android:color/white</item>
         <item name="nav_tab_background_color">@color/gray650</item>
         <item name="randomizer_dice_icon_color">@color/blue600</item>
         <item name="toc_scroller_button_color">@color/gray650</item>
         <item name="button_background_color">@color/base18</item>
         <item name="tab_placeholder_text_color">@color/base4</item>
         <item name="chip_background_color">@color/gray650</item>
-        <item name="color_group_9">@color/gray300</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="color_group_22">@color/gray650</item>
-        <item name="color_group_53">@color/accent20</item>
-        <item name="color_group_54">@color/gray700</item>
         <item name="color_group_60">@color/base18</item>
         <item name="color_group_69">@color/green50_10b</item>
 

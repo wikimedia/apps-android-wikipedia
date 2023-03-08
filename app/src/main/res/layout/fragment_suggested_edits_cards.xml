@@ -121,7 +121,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:rippleColor="?attr/color_group_56"
+            app:rippleColor="?attr/progressive_color"
             app:cornerRadius="2dp"
             app:iconTint="@color/white"
             app:iconPadding="8dp"

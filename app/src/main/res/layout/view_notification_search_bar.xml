@@ -49,6 +49,6 @@
         android:focusable="true"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_baseline_tune_24"
-        app:tint="?attr/color_group_9" />
+        app:tint="?attr/primary_color" />
 
 </org.wikipedia.views.WikiCardView>

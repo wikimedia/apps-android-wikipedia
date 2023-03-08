@@ -11,17 +11,10 @@
         <!-- Background for popup menus, text areas -->
         <item name="android:colorBackground">@color/gray675</item>
 
-        <item name="android:textColorPrimary">@color/gray100</item>
-        <item name="android:textColorSecondary">@color/gray200</item>
-        <item name="android:textColorTertiary">@color/gray300</item>
         <item name="android:textColorHint">@color/gray400</item>
 
         <!-- Toolbar color, list overscroll effect -->
         <item name="colorPrimary">@color/blue300</item>
-
-        <!-- Control color (switch, progress bar, etc), text link color, edit text underline,
-             edit text cursor, text selection markers -->
-        <item name="colorAccent">@color/blue300</item>
 
         <!-- Error text in TextInputLayout -->
         <item name="colorError">@color/red75</item>
@@ -57,20 +50,14 @@
 
         <!-- TODO: review and remove the old references/colors -->
         <!-- Overrides of our own custom color attributes -->
-        <item name="toolbar_icon_color">@android:color/white</item>
-        <item name="themed_icon_color">@android:color/white</item>
         <item name="nav_tab_background_color">@color/base18</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_dark</item>
-        <item name="multi_select_background_color">@color/accent30</item>
         <item name="searchItemBackground">@color/gray675</item>
         <item name="material_theme_primary_color">@color/white</item>
         <item name="material_theme_secondary_color">@color/white70</item>
         <item name="material_theme_de_emphasised_color">@color/white50</item>
         <item name="material_theme_border_color">@color/white20</item>
-        <item name="primary_text_color">@color/gray100</item>
         <item name="secondary_text_color">@color/gray300</item>
-        <item name="section_title_color">@color/gray100</item>
-        <item name="chart_shade1">@color/white</item>
         <item name="chart_shade4">@color/gray400</item>
         <item name="chart_shade5">@color/gray500</item>
         <item name="chart_shade7">@color/gray700</item>
@@ -83,7 +70,6 @@
         <item name="button_background_color">@color/gray650</item>
         <item name="tab_placeholder_text_color">@color/gray700</item>
         <item name="chip_background_color">@color/gray600</item>
-        <item name="color_group_9">@color/gray200</item>
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_dark</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_dark</item>
 
@@ -92,19 +78,12 @@
         <item name="color_group_43">@color/green600</item>
         <item name="color_group_44">@color/red75</item>
         <item name="color_group_52">@color/blue300</item>
-        <item name="color_group_53">@color/accent30</item>
-        <item name="color_group_54">@color/gray650</item>
-        <item name="color_group_55">@color/accent20</item>
-        <item name="color_group_56">@color/blue600</item>
         <item name="color_group_57">@color/green700</item>
         <item name="color_group_58">@color/green600</item>
-        <item name="color_group_59">@color/gray400</item>
         <item name="color_group_60">@color/gray600</item>
         <item name="color_group_61">@color/gray500</item>
         <item name="color_group_63">@color/white50</item>
-        <item name="color_group_64">@color/green600</item>
         <item name="color_group_65">@android:color/transparent</item>
-        <item name="color_group_66">@color/red75</item>
         <item name="color_group_67">@android:color/transparent</item>
         <item name="color_group_68">@color/orange500</item>
         <item name="color_group_69">@color/green50_10d</item>

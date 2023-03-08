@@ -31,7 +31,7 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:text="@string/history_list_title"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="24sp"
             android:textStyle="bold" />
 

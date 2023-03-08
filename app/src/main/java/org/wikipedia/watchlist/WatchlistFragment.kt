@@ -224,7 +224,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
             val filterCount = viewModel.filtersCount()
             if (filterCount == 0) {
                 itemBinding.filterCount.visibility = View.GONE
-                ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.color_group_9))
+                ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.primary_color))
             } else {
                 itemBinding.filterCount.visibility = View.VISIBLE
                 itemBinding.filterCount.text = filterCount.toString()

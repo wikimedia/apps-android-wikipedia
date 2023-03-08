@@ -41,7 +41,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/on_this_day_card_title"
-                        android:textColor="?attr/primary_text_color"
+                        android:textColor="?attr/primary_color"
                         android:textSize="24sp"
                         android:textStyle="bold"
                         android:transitionName="@string/transition_on_this_day" />
@@ -78,7 +78,7 @@
                         android:id="@+id/day_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="?attr/primary_text_color"
+                        android:textColor="?attr/primary_color"
                         android:textSize="24sp"
                         android:textStyle="bold" />
 

@@ -16,7 +16,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:textAlignment="center"
-        android:textColor="?attr/toolbar_icon_color"
+        android:textColor="?attr/placeholder_color"
         android:textSize="12sp"
         tools:text="3" />
 </merge>

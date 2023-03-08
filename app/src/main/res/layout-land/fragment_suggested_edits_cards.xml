@@ -125,7 +125,7 @@
                 android:text="@null"
                 android:tag="landscape"
                 app:cornerRadius="2dp"
-                app:rippleColor="?attr/color_group_56"
+                app:rippleColor="?attr/progressive_color"
                 app:iconPadding="0dp"
                 app:iconGravity="textStart"
                 app:iconTint="@color/white"

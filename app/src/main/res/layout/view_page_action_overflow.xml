@@ -32,7 +32,7 @@
                     android:layoutDirection="locale"
                     android:textDirection="locale"
                     app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
-                    app:drawableTint="?attr/color_group_9" />
+                    app:drawableTint="?attr/primary_color" />
 
             </LinearLayout>
 
@@ -50,7 +50,7 @@
                 android:layoutDirection="locale"
                 android:textDirection="locale"
                 app:drawableStartCompat="@drawable/ic_settings_themed_24dp"
-                app:drawableTint="?attr/color_group_9" />
+                app:drawableTint="?attr/primary_color" />
 
         </LinearLayout>
     </ScrollView>

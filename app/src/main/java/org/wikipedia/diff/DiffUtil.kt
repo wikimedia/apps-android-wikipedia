@@ -118,8 +118,8 @@ object DiffUtil {
 
     private fun updateDiffTextDecor(context: Context, spannableText: SpannableStringBuilder, isAddition: Boolean, start: Int, end: Int) {
         val boldStyle = StyleSpan(Typeface.BOLD)
-        val foregroundAddedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(context, R.attr.color_group_64))
-        val foregroundRemovedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(context, R.attr.color_group_66))
+        val foregroundAddedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(context, R.attr.primary_color))
+        val foregroundRemovedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(context, R.attr.primary_color))
         spannableText.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(context,
                 if (isAddition) R.attr.color_group_65 else R.attr.color_group_67)), start, end, 0)
         spannableText.setSpan(boldStyle, start, end, 0)

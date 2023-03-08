@@ -36,7 +36,7 @@
                 android:layout_marginTop="4dp"
                 android:contentDescription="@null"
                 android:src="@drawable/wp_wordmark"
-                app:tint="?attr/chart_shade1" />
+                app:tint="?attr/primary_color" />
 
             <TextView
                 android:id="@+id/about_version_text"

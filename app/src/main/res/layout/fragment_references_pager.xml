@@ -56,7 +56,7 @@
             android:layout_gravity="center"
             android:background="@android:color/transparent"
             app:tabIndicator="@null"
-            app:tabRippleColor="?attr/color_group_59"
+            app:tabRippleColor="?attr/placeholder_color"
             app:tabPaddingStart="8dp"
             app:tabPaddingEnd="8dp"
             app:tabBackground="@drawable/shape_tab_dot"

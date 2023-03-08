@@ -75,7 +75,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
                 android:text=""
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:textSize="14sp"
                 android:textStyle="normal"
                 tools:text="November 1" />

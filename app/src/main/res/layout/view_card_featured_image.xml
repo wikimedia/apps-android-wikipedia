@@ -47,7 +47,7 @@
                 android:paddingTop="12dp"
                 android:paddingEnd="16dp"
                 android:fontFamily="sans-serif"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:lineSpacingExtra="8sp" />
 
             <com.google.android.flexbox.FlexboxLayout

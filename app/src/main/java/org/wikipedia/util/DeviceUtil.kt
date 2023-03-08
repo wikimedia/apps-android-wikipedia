@@ -56,7 +56,7 @@ object DeviceUtil {
     fun updateStatusBarTheme(activity: Activity, toolbar: Toolbar?, reset: Boolean) {
         activity.window.insetsControllerCompat.isAppearanceLightStatusBars = !reset ||
                 !WikipediaApp.instance.currentTheme.isDark
-        toolbar?.navigationIcon?.setTint(if (reset) Color.WHITE else ResourceUtil.getThemedColor(activity, R.attr.toolbar_icon_color))
+        toolbar?.navigationIcon?.setTint(if (reset) Color.WHITE else ResourceUtil.getThemedColor(activity, R.attr.placeholder_color))
     }
 
     fun setContextClickAsLongClick(vararg views: View) {

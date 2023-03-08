@@ -319,7 +319,7 @@ class UserContribListActivity : BaseActivity() {
             if (excludedFilters == 0) {
                 binding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.color_group_9))
+                    ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.primary_color))
             } else {
                 binding.filterCount.visibility = View.VISIBLE
                 binding.filterCount.text = excludedFilters.toString()

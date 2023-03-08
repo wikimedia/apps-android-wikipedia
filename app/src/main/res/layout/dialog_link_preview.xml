@@ -53,7 +53,7 @@
                     android:lineSpacingMultiplier="0.9"
                     android:maxLines="3"
                     android:paddingBottom="4dp"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/primary_color"
                     android:textSize="20sp"
                     tools:text="Lorem ipsum" />
 

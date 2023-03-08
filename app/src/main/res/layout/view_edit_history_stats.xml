@@ -22,7 +22,7 @@
             android:lineSpacingExtra="4sp"
             android:fontFamily="sans-serif"
             android:textStyle="bold"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="24sp"
             android:hyphenationFrequency="normal"/>
 

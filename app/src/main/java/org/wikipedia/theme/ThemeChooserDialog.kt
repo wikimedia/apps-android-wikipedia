@@ -273,7 +273,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         binding.themeChooserDarkModeDimImagesSwitch.isChecked = Prefs.dimDarkModeImages
         binding.themeChooserDarkModeDimImagesSwitch.isEnabled = app.currentTheme.isDark
         binding.themeChooserDarkModeDimImagesSwitch.setTextColor(if (binding.themeChooserDarkModeDimImagesSwitch.isEnabled)
-            ResourceUtil.getThemedColor(requireContext(), R.attr.section_title_color) else ContextCompat.getColor(requireContext(), R.color.black26))
+            ResourceUtil.getThemedColor(requireContext(), R.attr.secondary_color) else ContextCompat.getColor(requireContext(), R.color.black26))
     }
 
     private inner class ThemeButtonListener(private val theme: Theme) : View.OnClickListener {

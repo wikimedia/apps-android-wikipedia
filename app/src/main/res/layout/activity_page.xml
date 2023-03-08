@@ -51,7 +51,7 @@
                         android:drawablePadding="8dp"
                         android:paddingStart="12dp"
                         android:layout_marginEnd="4dp"
-                        app:drawableTint="?attr/toolbar_icon_color"
+                        app:drawableTint="?attr/placeholder_color"
                         app:drawableStartCompat="@drawable/ic_search_themed_24dp"/>
 
                     <org.wikipedia.views.TabCountsView
@@ -77,7 +77,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         app:srcCompat="@drawable/ic_more_vert_themed_24dp"
-                        app:tint="?attr/toolbar_icon_color" />
+                        app:tint="?attr/placeholder_color" />
 
                 </LinearLayout>
             </androidx.appcompat.widget.Toolbar>

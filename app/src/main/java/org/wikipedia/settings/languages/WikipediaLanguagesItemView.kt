@@ -52,7 +52,7 @@ class WikipediaLanguagesItemView : LinearLayout {
     }
 
     private fun updateBackgroundColor() {
-        setBackgroundColor(if (binding.wikiLanguageCheckbox.isChecked) ResourceUtil.getThemedColor(context, R.attr.multi_select_background_color)
+        setBackgroundColor(if (binding.wikiLanguageCheckbox.isChecked) ResourceUtil.getThemedColor(context, R.attr.background_color)
         else ResourceUtil.getThemedColor(context, R.attr.paper_color))
     }
 

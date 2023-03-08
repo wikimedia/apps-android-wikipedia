@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
-            app:tint="?attr/themed_icon_color"
+            app:tint="?attr/progressive_color"
             android:alpha="0.7"
             tools:src="@drawable/ic_article_description"
             android:contentDescription="@null"/>

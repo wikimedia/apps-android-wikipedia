@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="@string/insert_media_advanced_settings_wrap_image"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:layout_marginBottom="8dp"/>
 
         <View
@@ -41,7 +41,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:text="@string/insert_media_advanced_settings_image_position" />
 
             <TextView
@@ -73,7 +73,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:text="@string/insert_media_advanced_settings_image_type" />
 
             <TextView
@@ -105,7 +105,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:text="@string/insert_media_advanced_settings_image_size" />
 
             <TextView

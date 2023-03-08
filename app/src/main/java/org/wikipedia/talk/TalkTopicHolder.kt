@@ -74,7 +74,7 @@ class TalkTopicHolder internal constructor(
         // Last comment
         binding.topicContentText.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
         binding.topicContentText.text = RichTextUtil.stripHtml(allReplies.last().html).trim().replace("\n", " ")
-        binding.topicContentText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_text_color))
+        binding.topicContentText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_color))
         StringUtil.highlightAndBoldenText(binding.topicContentText, viewModel.currentSearchQuery, true, Color.YELLOW)
 
         // Username with involved user number exclude the author
@@ -90,7 +90,7 @@ class TalkTopicHolder internal constructor(
 
         // Amount of replies, exclude the topic in replies[].
         val replyNumber = allReplies.size - 1
-        val replyNumberColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_text_color
+        val replyNumberColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_color
         binding.topicReplyNumber.isVisible = replyNumber > 0
         binding.topicReplyIcon.isVisible = replyNumber > 0
         binding.topicReplyNumber.text = replyNumber.toString()

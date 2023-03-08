@@ -15,7 +15,7 @@
         android:letterSpacing="0"
         android:text="@string/on_this_day_end_of_scroll_message"
         android:textAllCaps="false"
-        android:textColor="?attr/primary_text_color"
+        android:textColor="?attr/primary_color"
         android:textSize="20sp"
         android:textStyle="bold" />
 

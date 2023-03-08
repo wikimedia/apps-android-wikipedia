@@ -39,17 +39,15 @@
         <!-- Background for popup menus, text areas -->
         <item name="android:colorBackground">@color/gray100</item>
 
-        <item name="android:textColorPrimary">@color/gray700</item>
-        <item name="android:textColorSecondary">@color/gray600</item>
-        <item name="android:textColorTertiary">@color/gray500</item>
+        <item name="android:textColorPrimary">?primary_color</item>
+        <item name="android:textColorSecondary">?secondary_color</item>
+        <item name="android:textColorTertiary">?placeholder_color</item>
         <item name="android:textColorHint">@color/gray400</item>
 
         <!-- Toolbar color, list overscroll effect -->
         <item name="colorPrimary">@color/blue600</item>
 
-        <!-- Control color (switch, progress bar, etc), text link color, edit text underline,
-             edit text cursor, text selection markers -->
-        <item name="colorAccent">@color/blue600</item>
+        <item name="colorAccent">?progressive_color</item>
 
         <!-- Error text in TextInputLayout -->
         <item name="colorError">@color/red50</item>
@@ -84,20 +82,14 @@
         <!-- Component updates -->
 
         <!-- TODO: review and remove the old references/colors -->
-        <item name="toolbar_icon_color">@color/gray500</item>
-        <item name="themed_icon_color">@color/blue600</item>
         <item name="nav_tab_background_color">@color/white</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_light</item>
-        <item name="multi_select_background_color">@color/accent90</item>
         <item name="searchItemBackground">@color/white</item>
         <item name="material_theme_primary_color">@color/black87</item>
         <item name="material_theme_secondary_color">@color/black54</item>
         <item name="material_theme_de_emphasised_color">@color/black38</item>
         <item name="material_theme_border_color">@color/black12</item>
-        <item name="primary_text_color">@color/gray700</item>
         <item name="secondary_text_color">@color/gray500</item>
-        <item name="section_title_color">@color/gray600</item>
-        <item name="chart_shade1">@color/gray700</item>
         <item name="chart_shade4">@color/gray400</item>
         <item name="chart_shade5">@color/gray300</item>
         <item name="chart_shade7">@color/white</item>
@@ -110,24 +102,16 @@
         <item name="button_background_color">@color/white</item>
         <item name="tab_placeholder_text_color">@color/gray200</item>
         <item name="chip_background_color">@color/gray200</item>
-        <item name="color_group_9">@color/gray600</item>
         <item name="color_group_22">@color/gray100</item>
         <item name="color_group_43">@color/green600</item>
         <item name="color_group_44">@color/red50</item>
         <item name="color_group_52">@color/blue300</item>
-        <item name="color_group_53">@color/accent90</item>
-        <item name="color_group_54">@color/accent90</item>
-        <item name="color_group_55">@color/accent90</item>
-        <item name="color_group_56">@color/accent30</item>
         <item name="color_group_57">@color/green90</item>
         <item name="color_group_58">@color/green700</item>
-        <item name="color_group_59">@color/gray500</item>
         <item name="color_group_60">@color/gray200</item>
         <item name="color_group_61">@color/black26</item>
         <item name="color_group_63">@color/black54</item>
-        <item name="color_group_64">@color/gray700</item>
         <item name="color_group_65">@color/green90</item>
-        <item name="color_group_66">@color/gray700</item>
         <item name="color_group_67">@color/red90</item>
         <item name="color_group_68">@color/yellow700</item>
         <item name="color_group_69">@color/green50_10l</item>
@@ -214,17 +198,17 @@
     </style>
 
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
-        <item name="colorControlNormal">?attr/toolbar_icon_color</item>
+        <item name="colorControlNormal">?attr/placeholder_color</item>
     </style>
 
     <style name="PageToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
-        <item name="colorControlNormal">?attr/toolbar_icon_color</item>
+        <item name="colorControlNormal">?attr/placeholder_color</item>
     </style>
 
     <style name="TabToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
-        <item name="colorControlNormal">?attr/toolbar_icon_color</item>
-        <item name="colorControlActivated">?attr/toolbar_icon_color</item>
-        <item name="colorControlHighlight">?attr/toolbar_icon_color</item>
+        <item name="colorControlNormal">?attr/placeholder_color</item>
+        <item name="colorControlActivated">?attr/placeholder_color</item>
+        <item name="colorControlHighlight">?attr/placeholder_color</item>
         <item name="navigationIcon">@drawable/ic_add_gray_themed_24dp</item>
         <item name="navigationContentDescription">@string/menu_new_tab</item>
     </style>
@@ -243,8 +227,8 @@
 
     <style name="ToolbarPopupTheme" parent="ThemeOverlay.MaterialComponents">
         <item name="android:backgroundTint">?android:colorBackground</item>
-        <item name="android:textColor">?attr/color_group_9</item>
-        <item name="android:tint">?attr/color_group_9</item>
+        <item name="android:textColor">?attr/primary_color</item>
+        <item name="android:tint">?attr/primary_color</item>
     </style>
 
     <style name="BottomNavigationTextAppearanceInactive">
@@ -302,11 +286,11 @@
     </style>
 
     <style name="PageActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
-        <item name="android:textColor">?attr/toolbar_icon_color</item>
+        <item name="android:textColor">?attr/placeholder_color</item>
     </style>
 
     <style name="PageActionModeSubtitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle">
-        <item name="android:textColor">?attr/toolbar_icon_color</item>
+        <item name="android:textColor">?attr/placeholder_color</item>
     </style>
 
     <style name="SearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
@@ -317,8 +301,8 @@
 
     <style name="SearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
         <item name="android:textCursorDrawable">@drawable/custom_cursor</item>
-        <item name="android:textColor">?attr/primary_text_color</item>
-        <item name="android:textColorHint">?attr/toolbar_icon_color</item>
+        <item name="android:textColor">?attr/primary_color</item>
+        <item name="android:textColorHint">?attr/placeholder_color</item>
     </style>
 
     <style name="ListView" parent="@style/Widget.AppCompat.ListView">
@@ -357,7 +341,7 @@
         <item name="android:paddingEnd">16dp</item>
         <item name="android:paddingTop">13dp</item>
         <item name="android:paddingBottom">13dp</item>
-        <item name="android:textColor">?attr/primary_text_color</item>
+        <item name="android:textColor">?attr/primary_color</item>
         <item name="android:background">?attr/selectableItemBackground</item>
         <item name="android:clickable">true</item>
     </style>
@@ -421,7 +405,7 @@
         <item name="android:paddingBottom">5dp</item>
         <item name="android:paddingStart">8dp</item>
         <item name="android:paddingEnd">12dp</item>
-        <item name="rippleColor">?attr/color_group_59</item>
+        <item name="rippleColor">?attr/placeholder_color</item>
         <item name="cornerRadius">8dp</item>
     </style>
 
@@ -465,7 +449,7 @@
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:letterSpacing">0</item>
-        <item name="android:textColor">?attr/primary_text_color</item>
+        <item name="android:textColor">?attr/primary_color</item>
     </style>
 
     <style name="OnboardingSwitch">
@@ -604,7 +588,7 @@
 
     <style name="EditSectionTextInputLayoutStyle" parent="TextInputLayoutStyle">
         <item name="android:textColorHighlight">@color/find_in_page_active</item>
-        <item name="android:textColor">?attr/primary_text_color</item>
+        <item name="android:textColor">?attr/primary_color</item>
         <item name="strokeColor">@android:color/transparent</item>
     </style>
 
@@ -632,7 +616,7 @@
     <style name="CustomChipStyle">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textColor">?attr/color_group_9</item>
+        <item name="android:textColor">?attr/primary_color</item>
         <item name="android:lineSpacingExtra">2sp</item>
         <item name="ensureMinTouchTargetSize">true</item>
         <item name="chipMinTouchTargetSize">48dp</item>

@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="0dp"
         android:text="@string/edit_section_captcha_message"
-        android:textColor="?attr/primary_text_color" />
+        android:textColor="?attr/primary_color" />
 
     <TextView
         android:id="@+id/request_account_text"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="@string/edit_section_captcha_request_an_account_message"
-        android:textColor="?attr/primary_text_color" />
+        android:textColor="?attr/primary_color" />
 
     <FrameLayout
         android:layout_width="240dp"

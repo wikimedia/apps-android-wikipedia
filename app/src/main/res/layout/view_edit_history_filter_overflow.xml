@@ -55,7 +55,7 @@
                     android:layout_weight="1"
                     android:textSize="16sp"
                     android:text="@string/page_edit_history_filter_by_all"
-                    android:textColor="?attr/primary_text_color" />
+                    android:textColor="?attr/primary_color" />
 
             </LinearLayout>
 
@@ -85,7 +85,7 @@
                     android:layout_weight="1"
                     android:textSize="16sp"
                     android:text="@string/page_edit_history_filter_by_user"
-                    android:textColor="?attr/primary_text_color" />
+                    android:textColor="?attr/primary_color" />
 
                 <ImageView
                     android:layout_width="20dp"
@@ -122,7 +122,7 @@
                     android:layout_weight="1"
                     android:textSize="16sp"
                     android:text="@string/page_edit_history_filter_by_anon"
-                    android:textColor="?attr/primary_text_color" />
+                    android:textColor="?attr/primary_color" />
 
                 <ImageView
                     android:layout_width="20dp"

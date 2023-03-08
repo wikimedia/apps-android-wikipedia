@@ -193,9 +193,9 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         if (context is DescriptionEditActivity && action in actions) {
             binding.viewDescriptionEditToolbarContainer.setBackgroundResource(if (enabled) android.R.color.black else ResourceUtil.getThemedAttributeId(context, R.attr.paper_color))
             ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton,
-                ColorStateList.valueOf(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.themed_icon_color)))
+                ColorStateList.valueOf(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.progressive_color)))
             ImageViewCompat.setImageTintList(binding.viewDescriptionEditCancelButton,
-                ColorStateList.valueOf(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.toolbar_icon_color)))
+                ColorStateList.valueOf(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.placeholder_color)))
             binding.viewDescriptionEditHeader.setTextColor(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.material_theme_primary_color))
 
             val barColor = if (enabled) Color.BLACK else ResourceUtil.getThemedColor(context, R.attr.paper_color)
@@ -350,14 +350,14 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     private fun enableSaveButton(enabled: Boolean, saveInProgress: Boolean) {
         if (saveInProgress) {
             binding.viewDescriptionEditSaveButton.setImageResource(R.drawable.ic_check_circle_black_24dp)
-            ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ResourceUtil.getThemedColorStateList(context, R.attr.themed_icon_color))
+            ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color))
             binding.viewDescriptionEditSaveButton.isEnabled = false
             binding.viewDescriptionEditSaveButton.alpha = 1 / 2f
         } else {
             binding.viewDescriptionEditSaveButton.alpha = 1f
             if (enabled) {
                 binding.viewDescriptionEditSaveButton.setImageResource(R.drawable.ic_check_circle_black_24dp)
-                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ResourceUtil.getThemedColorStateList(context, R.attr.themed_icon_color))
+                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color))
                 binding.viewDescriptionEditSaveButton.isEnabled = true
             } else {
                 binding.viewDescriptionEditSaveButton.setImageResource(R.drawable.ic_check_black_24dp)

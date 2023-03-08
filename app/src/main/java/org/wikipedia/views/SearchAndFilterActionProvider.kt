@@ -74,7 +74,7 @@ class SearchAndFilterActionProvider(context: Context,
         val enabledFilters = callback.getExcludedFilterCount()
         if (enabledFilters == 0) {
             binding.filterCount.visibility = View.GONE
-            ImageViewCompat.setImageTintList(binding.filterIcon, ResourceUtil.getThemedColorStateList(context, R.attr.color_group_9))
+            ImageViewCompat.setImageTintList(binding.filterIcon, ResourceUtil.getThemedColorStateList(context, R.attr.primary_color))
         } else {
             binding.filterCount.visibility = View.VISIBLE
             binding.filterCount.text = enabledFilters.toString()

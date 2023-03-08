@@ -26,7 +26,7 @@
             android:fontFamily="sans-serif"
             android:maxLines="1"
             android:ellipsize="end"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="20sp"
             android:textStyle="bold"/>
 
@@ -113,7 +113,7 @@
                     app:layout_constraintEnd_toStartOf="@id/newerIdButton"
                     app:layout_constraintTop_toTopOf="@id/newerIdButton"
                     app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
-                    app:tint="?attr/primary_text_color" />
+                    app:tint="?attr/primary_color" />
 
                 <ImageView
                     android:id="@+id/newerIdButton"
@@ -128,7 +128,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
-                    app:tint="?attr/primary_text_color" />
+                    app:tint="?attr/primary_color" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -341,13 +341,13 @@
                     android:letterSpacing="0.02"
                     android:text="@string/edit_undo"
                     android:textAllCaps="false"
-                    android:textColor="?attr/color_group_9"
+                    android:textColor="?attr/primary_color"
                     android:visibility="gone"
                     android:layout_marginStart="16dp"
                     app:icon="@drawable/ic_undo_themed_24dp"
                     app:iconGravity="textStart"
                     app:iconSize="20dp"
-                    app:iconTint="?attr/color_group_9"/>
+                    app:iconTint="?attr/primary_color"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/rollbackButton"

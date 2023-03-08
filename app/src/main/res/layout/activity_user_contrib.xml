@@ -28,7 +28,7 @@
                 android:lineSpacingExtra="4sp"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
 
