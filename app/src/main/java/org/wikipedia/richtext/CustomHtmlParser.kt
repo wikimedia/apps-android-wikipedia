@@ -20,6 +20,9 @@ import androidx.core.text.parseAsHtml
 import androidx.core.view.doOnDetach
 import androidx.lifecycle.LifecycleCoroutineScope
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.target.SimpleTarget
+import com.bumptech.glide.request.transition.Transition
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -117,8 +120,13 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
             if (viewBmpMap.containsKey(view)) {
                 val bmpMap = viewBmpMap[view]!!
                 bmpMap.values.forEach {
-
+                    try {
+                        it.bitmap.recycle()
+                    } catch (e: Exception) {
+                        L.e(e)
+                    }
                 }
+                bmpMap.clear()
                 viewBmpMap.remove(view)
             }
         }
@@ -155,12 +163,9 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         }
 
         fun fromHtml(html: String, view: TextView, scope: LifecycleCoroutineScope) {
-
-
             view.doOnDetach {
-
+                pruneBitmapsForView(it)
             }
-
 
             // TODO: Investigate if it's necessary to inject a dummy tag at the beginning of the
             // text, since there are reports that XmlReader ignores the first tag by default?
@@ -192,15 +197,15 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
 
                         if (imgWidth > 0 && imgHeight > 0 && imgSrc.isNotEmpty()) {
                             val bmpMap = viewBmpMap.getOrPut(view) { mutableMapOf() }
-                            if (!bmpMap.containsKey(imgSrc)) {
+                            var drawable = bmpMap[imgSrc]
 
+                            if (drawable == null || drawable.bitmap.isRecycled) {
                                 // give it a placeholder drawable of the appropriate size
-                                val bmp = Bitmap.createBitmap(imgWidth, imgHeight, Bitmap.Config.RGB_565)
+                                drawable = BitmapDrawable(view.context.resources,
+                                    Bitmap.createBitmap(imgWidth, imgHeight, Bitmap.Config.RGB_565))
+                                bmpMap[imgSrc] = drawable
 
-                                val holder = BitmapDrawable(view.context.resources, bmp)
-                                bmpMap[imgSrc] = holder
-
-                                holder.setBounds(0, 0, imgWidth, imgHeight)
+                                drawable.setBounds(0, 0, imgWidth, imgHeight)
 
                                 var uri = imgSrc
                                 if (uri.startsWith("//")) {
@@ -208,30 +213,24 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                                 } else if (uri.startsWith("./")) {
                                     uri = "https://commons.wikimedia.org/" + uri.replace("./", "")
                                 }
-                                scope.launch(Dispatchers.IO) {
-                                    runCatching {
-                                        val bitmap = Glide.with(WikipediaApp.instance)
-                                            .asBitmap()
-                                            .load(uri)
-                                            .submit()
-                                            .get()
 
-                                        //val width = (drawable.intrinsicWidth * scale).roundToInt()
-                                        //val height = (drawable.intrinsicHeight * scale).roundToInt()
-                                        holder.bitmap.applyCanvas {
-                                            val srcRect = Rect(0, 0, bitmap.width, bitmap.height)
-                                            val destRect = Rect(0, 0, holder.bitmap.width, holder.bitmap.height)
-                                            drawBitmap(bitmap, srcRect, destRect, null)
-                                        }
+                                // val width = (drawable.intrinsicWidth * scale).roundToInt()
+                                // val height = (drawable.intrinsicHeight * scale).roundToInt()
 
-                                        withContext(Dispatchers.Main) {
-                                            //view.forceLayout()
-                                            view.invalidate()
-                                            //view.invalidateDrawable(holder)
-                                            //htmlTextView.text = htmlTextView.text
+                                Glide.with(view)
+                                    .asBitmap()
+                                    .load(uri)
+                                    .into(object : CustomTarget<Bitmap>() {
+                                        override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                                            drawable.bitmap.applyCanvas {
+                                                val srcRect = Rect(0, 0, resource.width, resource.height)
+                                                drawBitmap(resource, srcRect, drawable.bounds, null)
+                                            }
+                                            view.postInvalidate()
                                         }
-                                    }
-                                }
+                                        override fun onLoadCleared(placeholder: Drawable?) {
+                                        }
+                                    })
                             }
                         }
                     } else if (tag == "a") {
