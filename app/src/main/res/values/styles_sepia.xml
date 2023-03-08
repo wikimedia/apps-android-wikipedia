@@ -12,6 +12,24 @@
         <item name="android:textColorSecondary">@color/taupe600</item>
         <item name="android:textColorTertiary">@color/gray500</item>
 
+        <!-- Component updates -->
+        <item name="paper_color">@color/beige100</item>
+        <item name="background_color">@color/beige300</item>
+        <item name="border_color">@color/beige400</item>
+        <item name="inactive_color">@color/taupe200</item>
+        <item name="placeholder_color">@color/taupe200</item>
+        <item name="secondary_color">@color/gray600</item>
+        <item name="primary_color">@color/gray700</item>
+        <item name="progressive_color">@color/blue600</item>
+        <item name="success_color">@color/green700</item>
+        <item name="destructive_color">@color/red700</item>
+        <item name="warning_color">@color/yellow700</item>
+        <item name="highlight_color">@color/yellow500</item>
+        <item name="focus_color">@color/orange500</item>
+        <item name="addition_color">@color/blue300_15</item>
+        <!-- Component updates -->
+
+        <!-- TODO: review and remove the old references/colors -->
         <item name="section_title_color">@color/taupe600</item>
         <item name="secondary_text_color">@color/taupe600</item>
         <item name="searchItemBackground">@color/beige100</item>
@@ -34,7 +52,6 @@
         <item name="color_group_69">@color/green50_10s</item>
 
         <!-- Background for cards, lists, and controls -->
-        <item name="paper_color">@color/beige100</item>
         <item name="chip_background_color">@color/beige400</item>
         <item name="color_group_9">@color/taupe600</item>
 

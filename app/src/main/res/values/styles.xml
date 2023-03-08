@@ -66,7 +66,24 @@
         <item name="list_separator_drawable_light">@drawable/side_panel_divider_light</item>
         <item name="talk_page_empty_state_drawable">@drawable/talk_page_empty_state_illustration_light</item>
 
-        <!-- Overrides of our own custom color attributes -->
+        <!-- Component updates -->
+        <item name="paper_color">@color/white</item>
+        <item name="background_color">@color/gray100</item>
+        <item name="border_color">@color/gray200</item>
+        <item name="inactive_color">@color/gray400</item>
+        <item name="placeholder_color">@color/gray500</item>
+        <item name="secondary_color">@color/gray600</item>
+        <item name="primary_color">@color/gray700</item>
+        <item name="progressive_color">@color/blue600</item>
+        <item name="success_color">@color/green700</item>
+        <item name="destructive_color">@color/red700</item>
+        <item name="warning_color">@color/yellow700</item>
+        <item name="highlight_color">@color/yellow500</item>
+        <item name="focus_color">@color/orange500</item>
+        <item name="addition_color">@color/blue300_15</item>
+        <!-- Component updates -->
+
+        <!-- TODO: review and remove the old references/colors -->
         <item name="toolbar_icon_color">@color/gray500</item>
         <item name="themed_icon_color">@color/blue600</item>
         <item name="nav_tab_background_color">@color/white</item>
@@ -117,9 +134,6 @@
         <item name="color_group_70">@color/green80</item>
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_light</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_light</item>
-
-        <!-- Background for cards, lists, and controls -->
-        <item name="paper_color">@color/white</item>
 
     </style>
 
