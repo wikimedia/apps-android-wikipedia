@@ -77,13 +77,6 @@ fun TextView.setHtml(source: String?) {
 
                     if (drawable == null || drawable.bitmap.isRecycled) {
                         // give it a placeholder drawable of the appropriate size
-
-                        if (this@setHtml.measuredWidth in 1 until imgWidth) {
-                            val ratio = this@setHtml.width.toFloat() / imgHeight.toFloat()
-                            imgWidth = this@setHtml.width
-                            imgHeight = (imgHeight.toFloat() * ratio).toInt()
-                        }
-
                         drawable = BitmapDrawable(this@setHtml.context.resources,
                             Bitmap.createBitmap(imgWidth, imgHeight, Bitmap.Config.RGB_565))
                         bmpMap[imgSrc] = drawable
@@ -102,7 +95,7 @@ fun TextView.setHtml(source: String?) {
                             .load(uri)
                             .into(object : CustomTarget<Bitmap>() {
                                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-                                    if (isAttachedToWindow) {
+                                    if (!drawable.bitmap.isRecycled) {
                                         drawable.bitmap.applyCanvas {
                                             drawBitmap(resource, Rect(0, 0, resource.width, resource.height), drawable.bounds, null)
                                         }
