@@ -15,6 +15,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import org.wikipedia.R
+import org.wikipedia.dataclient.Service
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -90,9 +92,9 @@ fun TextView.setHtml(source: String?) {
 
                         var uri = imgSrc
                         if (uri.startsWith("//")) {
-                            uri = "https:" + uri
+                            uri = WikiSite.DEFAULT_SCHEME + ":" + uri
                         } else if (uri.startsWith("./")) {
-                            uri = "https://commons.wikimedia.org/" + uri.replace("./", "")
+                            uri = Service.COMMONS_URL + uri.replace("./", "")
                         }
 
                         Glide.with(this@setHtml)
@@ -100,11 +102,12 @@ fun TextView.setHtml(source: String?) {
                             .load(uri)
                             .into(object : CustomTarget<Bitmap>() {
                                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-                                    drawable.bitmap.applyCanvas {
-                                        val srcRect = Rect(0, 0, resource.width, resource.height)
-                                        drawBitmap(resource, srcRect, drawable.bounds, null)
+                                    if (isAttachedToWindow) {
+                                        drawable.bitmap.applyCanvas {
+                                            drawBitmap(resource, Rect(0, 0, resource.width, resource.height), drawable.bounds, null)
+                                        }
+                                        this@setHtml.postInvalidate()
                                     }
-                                    this@setHtml.postInvalidate()
                                 }
                                 override fun onLoadCleared(placeholder: Drawable?) { }
                             })
