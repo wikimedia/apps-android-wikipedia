@@ -10,13 +10,16 @@ import android.graphics.Color
 import android.text.method.MovementMethod
 import android.util.AttributeSet
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.view.menu.MenuPopupHelper
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkThreadItemBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
+import org.wikipedia.richtext.CustomHtmlParser
 import org.wikipedia.util.*
 
 @SuppressLint("RestrictedApi")
@@ -72,7 +75,13 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
             binding.timeStampText.text = DateUtil.getTimeAndDateString(context, it)
             StringUtil.highlightAndBoldenText(binding.timeStampText, searchQuery, true, Color.YELLOW)
         }
-        binding.bodyText.text = StringUtil.fromHtml(StringUtil.removeStyleTags(item.html)).trim()
+
+
+        //binding.bodyText.text = StringUtil.fromHtml(StringUtil.removeStyleTags(item.html)).trim()
+
+        CustomHtmlParser.fromHtml(StringUtil.removeStyleTags(item.html), binding.bodyText, (context as AppCompatActivity).lifecycleScope)
+
+
         StringUtil.highlightAndBoldenText(binding.bodyText, searchQuery, true, Color.YELLOW)
         binding.bodyText.movementMethod = movementMethod
 
