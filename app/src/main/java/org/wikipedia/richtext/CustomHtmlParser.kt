@@ -3,6 +3,7 @@ package org.wikipedia.richtext
 import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Rect
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.text.Editable
@@ -12,6 +13,7 @@ import android.text.Spanned
 import android.text.style.URLSpan
 import android.view.View
 import android.widget.TextView
+import androidx.core.graphics.applyCanvas
 import androidx.core.text.HtmlCompat
 import androidx.core.text.getSpans
 import androidx.core.text.parseAsHtml
@@ -103,20 +105,13 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         wrapped?.skippedEntity(name)
     }
 
-    internal class BitmapDrawablePlaceHolder(res: Resources, bitmap: Bitmap?) : BitmapDrawable(res, bitmap) {
-        var bmp: Drawable? = null
-
+    internal class BlankBitmapPlaceholder(res: Resources, bitmap: Bitmap?) : BitmapDrawable(res, bitmap) {
         override fun draw(canvas: Canvas) {
-            drawable?.draw(canvas)
-        }
-
-        fun setDrawable(drawable: Drawable) {
-            this.drawable = drawable
         }
     }
 
     companion object {
-        private val viewBmpMap = mutableMapOf<View, MutableMap<String, BitmapDrawablePlaceHolder>>()
+        private val viewBmpMap = mutableMapOf<View, MutableMap<String, BitmapDrawable>>()
 
         private fun pruneBitmapsForView(view: View) {
             if (viewBmpMap.containsKey(view)) {
@@ -172,16 +167,16 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
             // This would become something like "<inject/>$html".parseAsHtml(...)
             view.text = html.parseAsHtml(HtmlCompat.FROM_HTML_MODE_LEGACY, { url ->
                 try {
-                    var holder: BitmapDrawablePlaceHolder? = null
+                    var bmp: BitmapDrawable? = null
                     if (viewBmpMap.containsKey(view)) {
                         if (viewBmpMap[view]!!.containsKey(url)) {
-                            holder = viewBmpMap[view]!![url]
+                            bmp = viewBmpMap[view]!![url]
                         }
                     }
-                    if (holder == null) {
-                        holder = BitmapDrawablePlaceHolder(view.context.resources, null)
+                    if (bmp == null) {
+                        bmp = BlankBitmapPlaceholder(view.context.resources, null)
                     }
-                    holder
+                    bmp
                 } catch (e: Exception) {
                     L.e(e)
                     null
@@ -198,12 +193,13 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                         if (imgWidth > 0 && imgHeight > 0 && imgSrc.isNotEmpty()) {
                             val bmpMap = viewBmpMap.getOrPut(view) { mutableMapOf() }
                             if (!bmpMap.containsKey(imgSrc)) {
-                                val holder = BitmapDrawablePlaceHolder(view.context.resources, null)
-                                bmpMap[imgSrc] = holder
 
                                 // give it a placeholder drawable of the appropriate size
                                 val bmp = Bitmap.createBitmap(imgWidth, imgHeight, Bitmap.Config.RGB_565)
-                                holder.setDrawable(BitmapDrawable(view.context.resources, bmp))
+
+                                val holder = BitmapDrawable(view.context.resources, bmp)
+                                bmpMap[imgSrc] = holder
+
                                 holder.setBounds(0, 0, imgWidth, imgHeight)
 
                                 var uri = imgSrc
@@ -220,18 +216,18 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                                             .submit()
                                             .get()
 
-                                        val drawable = BitmapDrawable(view.context.resources, bitmap)
-
                                         //val width = (drawable.intrinsicWidth * scale).roundToInt()
                                         //val height = (drawable.intrinsicHeight * scale).roundToInt()
-                                        drawable.setBounds(0, 0, imgWidth, imgHeight)
-
-                                        holder.setDrawable(drawable)
+                                        holder.bitmap.applyCanvas {
+                                            val srcRect = Rect(0, 0, bitmap.width, bitmap.height)
+                                            val destRect = Rect(0, 0, holder.bitmap.width, holder.bitmap.height)
+                                            drawBitmap(bitmap, srcRect, destRect, null)
+                                        }
 
                                         withContext(Dispatchers.Main) {
-                                            view.forceLayout()
+                                            //view.forceLayout()
                                             view.invalidate()
-                                            view.invalidateDrawable(holder)
+                                            //view.invalidateDrawable(holder)
                                             //htmlTextView.text = htmlTextView.text
                                         }
                                     }
