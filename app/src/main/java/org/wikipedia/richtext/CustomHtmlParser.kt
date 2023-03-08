@@ -1,5 +1,6 @@
 package org.wikipedia.richtext
 
+import android.content.Context
 import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -8,7 +9,6 @@ import android.text.Editable
 import android.text.Html.TagHandler
 import android.text.Spanned
 import android.text.style.URLSpan
-import android.view.View
 import androidx.core.text.HtmlCompat
 import androidx.core.text.getSpans
 import androidx.core.text.parseAsHtml
@@ -97,19 +97,21 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
 
     companion object {
         const val MIN_IMAGE_SIZE = 64
-        val viewBmpMap = mutableMapOf<View, MutableMap<String, BitmapDrawable>>()
+        val viewBmpMap = mutableMapOf<Context, MutableMap<String, BitmapDrawable>>()
 
-        fun recycleBitmaps() {
-            viewBmpMap.values.forEach { map ->
-                map.values.forEach {
+        fun pruneBitmaps(context: Context) {
+            if (viewBmpMap.containsKey(context)) {
+                val bmpMap = viewBmpMap[context]!!
+                bmpMap.values.forEach {
                     try {
                         it.bitmap.recycle()
                     } catch (e: Exception) {
                         L.e(e)
                     }
                 }
+                bmpMap.clear()
+                viewBmpMap.remove(context)
             }
-            viewBmpMap.clear()
         }
 
         fun fromHtml(html: String): Spanned {

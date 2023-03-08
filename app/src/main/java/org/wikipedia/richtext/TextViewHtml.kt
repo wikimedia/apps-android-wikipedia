@@ -40,9 +40,9 @@ fun TextView.setHtml(source: String?) {
     this.text = sourceStr.parseAsHtml(HtmlCompat.FROM_HTML_MODE_LEGACY, { url ->
         try {
             var bmp: BitmapDrawable? = null
-            if (CustomHtmlParser.viewBmpMap.containsKey(this)) {
-                if (CustomHtmlParser.viewBmpMap[this]!!.containsKey(url)) {
-                    bmp = CustomHtmlParser.viewBmpMap[this]!![url]
+            if (CustomHtmlParser.viewBmpMap.containsKey(this.context)) {
+                if (CustomHtmlParser.viewBmpMap[this.context]!!.containsKey(url)) {
+                    bmp = CustomHtmlParser.viewBmpMap[this.context]!![url]
                 }
             }
             if (bmp == null) {
@@ -70,7 +70,7 @@ fun TextView.setHtml(source: String?) {
                 imgHeight = DimenUtil.roundedDpToPx(imgHeight.toFloat())
 
                 if (imgWidth > 0 && imgHeight > 0 && imgSrc.isNotEmpty()) {
-                    val bmpMap = CustomHtmlParser.viewBmpMap.getOrPut(this@setHtml) { mutableMapOf() }
+                    val bmpMap = CustomHtmlParser.viewBmpMap.getOrPut(this@setHtml.context) { mutableMapOf() }
                     var drawable = bmpMap[imgSrc]
 
                     if (drawable == null || drawable.bitmap.isRecycled) {

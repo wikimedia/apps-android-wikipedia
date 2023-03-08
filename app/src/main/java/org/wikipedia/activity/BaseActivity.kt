@@ -114,7 +114,7 @@ abstract class BaseActivity : AppCompatActivity() {
         if (EXCLUSIVE_BUS_METHODS === exclusiveBusMethods) {
             unregisterExclusiveBusMethods()
         }
-        CustomHtmlParser.recycleBitmaps()
+        CustomHtmlParser.pruneBitmaps(this)
         super.onDestroy()
     }
 
