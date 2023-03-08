@@ -214,9 +214,6 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                                     uri = "https://commons.wikimedia.org/" + uri.replace("./", "")
                                 }
 
-                                // val width = (drawable.intrinsicWidth * scale).roundToInt()
-                                // val height = (drawable.intrinsicHeight * scale).roundToInt()
-
                                 Glide.with(view)
                                     .asBitmap()
                                     .load(uri)
@@ -228,8 +225,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                                             }
                                             view.postInvalidate()
                                         }
-                                        override fun onLoadCleared(placeholder: Drawable?) {
-                                        }
+                                        override fun onLoadCleared(placeholder: Drawable?) { }
                                     })
                             }
                         }
