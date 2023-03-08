@@ -46,7 +46,7 @@
                 android:id="@+id/customize_button"
                 style="@style/App.Button"
                 android:text="@string/feed_configure_onboarding_action"
-                android:textColor="?attr/secondary_text_color"
+                android:textColor="?attr/placeholder_color"
                 app:backgroundTint="?attr/button_background_color" />
 
         </LinearLayout>

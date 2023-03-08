@@ -39,7 +39,7 @@
             android:layout_marginStart="@dimen/list_item_horizontal_padding"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:contentDescription="@null"
-            app:tint="?attr/secondary_text_color"
+            app:tint="?attr/placeholder_color"
             app:srcCompat="@drawable/ic_offline_pin_black_24dp" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -69,7 +69,7 @@
             android:layout_marginStart="@dimen/list_item_horizontal_padding"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:contentDescription="@null"
-            app:tint="?attr/secondary_text_color"
+            app:tint="?attr/placeholder_color"
             app:srcCompat="@drawable/ic_share" />
 
         <TextView
@@ -97,7 +97,7 @@
             android:layout_marginStart="@dimen/list_item_horizontal_padding"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:contentDescription="@null"
-            app:tint="?attr/secondary_text_color"
+            app:tint="?attr/placeholder_color"
             app:srcCompat="@drawable/ic_icon_add_to_another_reading_list" />
 
         <TextView
@@ -125,7 +125,7 @@
             android:layout_marginStart="@dimen/list_item_horizontal_padding"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:contentDescription="@null"
-            app:tint="?attr/secondary_text_color"
+            app:tint="?attr/placeholder_color"
             app:srcCompat="@drawable/ic_icon_move_to_another_reading_list" />
 
         <TextView
@@ -152,7 +152,7 @@
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_check_box_black_24dp"
-            app:tint="?attr/secondary_text_color"
+            app:tint="?attr/placeholder_color"
             android:contentDescription="@null"/>
         <TextView
             android:layout_width="0dp"
@@ -185,7 +185,7 @@
             android:layout_marginStart="@dimen/list_item_horizontal_padding"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:contentDescription="@null"
-            app:tint="?attr/secondary_text_color"
+            app:tint="?attr/placeholder_color"
             app:srcCompat="@drawable/ic_delete_white_24dp" />
 
         <TextView

@@ -70,14 +70,14 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/color_group_60" />
+        android:background="?attr/border_color" />
 
     <View
         android:layout_width="1dp"
         android:layout_height="48dp"
         android:layout_gravity="end"
         android:layout_marginEnd="49dp"
-        android:background="?attr/color_group_60" />
+        android:background="?attr/border_color" />
 
     <ImageView
         android:id="@+id/close_button"

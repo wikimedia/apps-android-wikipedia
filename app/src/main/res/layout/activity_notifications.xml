@@ -27,7 +27,7 @@
             android:background="@drawable/tab_layout_background_bottom_line"
             android:visibility="gone"
             app:tabTextAppearance="@style/NotificationTabTextAppearance"
-            app:tabTextColor="?attr/chart_shade4"
+            app:tabTextColor="?attr/placeholder_color"
             app:tabSelectedTextColor="?attr/colorAccent">
 
             <com.google.android.material.tabs.TabItem

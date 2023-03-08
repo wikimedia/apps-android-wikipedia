@@ -35,7 +35,7 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
                 DimenUtil.roundedDpToPx(indicatorRadius.toFloat()).toFloat(),
                 DimenUtil.roundedDpToPx(indicatorPadding.toFloat()),
                 DimenUtil.roundedDpToPx(indicatorHeight.toFloat()),
-                ResourceUtil.getThemedColor(context, R.attr.chart_shade5),
+                ResourceUtil.getThemedColor(context, R.attr.border_color),
                 ResourceUtil.getThemedColor(context, R.attr.colorAccent),
                 L10nUtil.isLangRTL(card.wikiSite().languageCode)
             )

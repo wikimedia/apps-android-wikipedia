@@ -151,7 +151,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="24dp"
             android:contentDescription="@null"
-            app:tint="?attr/secondary_text_color"
+            app:tint="?attr/placeholder_color"
             app:srcCompat="@drawable/ic_wmf_logo" />
 
         <org.wikipedia.views.AppTextView

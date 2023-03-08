@@ -3,10 +3,6 @@
 
     <style name="ThemeSepia">
 
-        <!-- Default background for all activities -->
-        <item name="android:windowBackground">@color/beige100</item>
-        <item name="android:colorBackground">@color/beige300</item>
-
         <item name="colorError">@color/red700</item>
 
         <!-- Component updates -->
@@ -27,23 +23,16 @@
         <!-- Component updates -->
 
         <!-- TODO: review and remove the old references/colors -->
-        <item name="secondary_text_color">@color/taupe600</item>
         <item name="searchItemBackground">@color/beige100</item>
         <item name="nav_tab_background_color">@color/beige400</item>
         <item name="toc_scroller_button_color">@color/beige100</item>
         <item name="button_background_color">@color/beige100</item>
-        <item name="tab_placeholder_text_color">@color/beige400</item>
         <item name="color_group_22">@color/beige300</item>
         <item name="color_group_44">@color/red700</item>
-        <item name="color_group_60">@color/beige400</item>
-        <item name="chart_shade5">@color/taupe200</item>
         <item name="green_highlight_color">@color/green600</item>
         <item name="color_group_65">@android:color/transparent</item>
         <item name="color_group_67">@android:color/transparent</item>
         <item name="color_group_69">@color/green50_10s</item>
-
-        <!-- Background for cards, lists, and controls -->
-        <item name="chip_background_color">@color/beige400</item>
 
     </style>
 

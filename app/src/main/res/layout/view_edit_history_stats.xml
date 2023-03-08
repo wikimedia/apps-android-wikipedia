@@ -44,7 +44,7 @@
         android:layout_height="140dp"
         android:contentDescription="@string/about_app_license_heading"
         android:background="@drawable/graph_background_base80"
-        android:backgroundTint="?attr/chip_background_color"
+        android:backgroundTint="?attr/border_color"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_percent="0.40"/>

@@ -11,7 +11,7 @@
         android:id="@+id/main_drawer_account_container"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="?attr/color_group_60"
+        android:background="?attr/border_color"
         android:foreground="?attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:orientation="horizontal">

@@ -12,7 +12,7 @@ import org.wikipedia.util.ResourceUtil.getThemedColor
 enum class SyntaxRuleStyle {
     TEMPLATE {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return ColorSpanEx(getThemedColor(ctx, R.attr.secondary_text_color), Color.TRANSPARENT, spanStart, syntaxItem)
+            return ColorSpanEx(getThemedColor(ctx, R.attr.placeholder_color), Color.TRANSPARENT, spanStart, syntaxItem)
         }
     },
     INTERNAL_LINK {

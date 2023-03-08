@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="?attr/secondary_text_color"
+                android:textColor="?attr/placeholder_color"
                 android:textSize="16sp"
                 tools:text="100% (Default)" />
 
@@ -86,7 +86,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:max="@integer/maxTextSizeMultiplier"
-                    android:progressBackgroundTint="?attr/chart_shade5"
+                    android:progressBackgroundTint="?attr/border_color"
                     app:centerDrawable="@drawable/ic_seek_bar_center"
                     app:min="@integer/minTextSizeMultiplier"
                     app:tickDrawable="@drawable/ic_seek_bar_tick" />

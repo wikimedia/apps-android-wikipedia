@@ -77,7 +77,7 @@
                     android:ellipsize="end"
                     android:lineSpacingExtra="6sp"
                     android:maxLines="3"
-                    android:textColor="?attr/secondary_text_color"
+                    android:textColor="?attr/placeholder_color"
                     android:textSize="14sp"
                     android:visibility="gone"
                     tools:text="Lorem ipsum" />

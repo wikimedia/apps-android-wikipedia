@@ -69,7 +69,7 @@ class SyntaxHighlightableEditText : EditText {
             lineNumberPaint.textAlign = if (isRtl) Paint.Align.LEFT else Paint.Align.RIGHT
             lineNumberPaint.textSize = this.textSize * 0.8f
             lineNumberPaint.color = ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color)
-            lineNumberBackgroundPaint.color = ResourceUtil.getThemedColor(context, R.attr.chip_background_color)
+            lineNumberBackgroundPaint.color = ResourceUtil.getThemedColor(context, R.attr.border_color)
         }
     }
 

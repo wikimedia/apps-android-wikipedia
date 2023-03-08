@@ -33,9 +33,6 @@
     <attr name="material_theme_secondary_color" format="color" />
     <attr name="material_theme_de_emphasised_color" format="color" />
     <attr name="material_theme_border_color" format="color" />
-    <attr name="secondary_text_color" format="color" />
-    <attr name="chart_shade4" format="color" />
-    <attr name="chart_shade5" format="color" />
     <attr name="chart_shade7" format="color" />
     <attr name="green_highlight_color" format="color" />
     <attr name="thumb_off_color" format="color" />
@@ -43,15 +40,12 @@
     <attr name="toc_h1_h2_color" format="color" />
     <attr name="toc_scroller_button_color" format="color" />
     <attr name="button_background_color" format="color" />
-    <attr name="tab_placeholder_text_color" format="color" />
-    <attr name="chip_background_color" format="color"/>
     <attr name="color_group_22" format="reference"/>
     <attr name="color_group_43" format="color"/>
     <attr name="color_group_44" format="color"/>
     <attr name="color_group_52" format="color"/>
     <attr name="color_group_57" format="color"/>
     <attr name="color_group_58" format="color"/>
-    <attr name="color_group_60" format="color"/>
     <attr name="color_group_61" format="color"/>
     <attr name="color_group_63" format="color"/>
     <attr name="color_group_65" format="color"/>

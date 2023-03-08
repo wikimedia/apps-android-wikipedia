@@ -12,7 +12,7 @@
         android:layout_height="48dp"
         android:background="@drawable/tab_layout_background_bottom_line"
         app:tabTextAppearance="@style/NotificationTabTextAppearance"
-        app:tabTextColor="?attr/chart_shade4"
+        app:tabTextColor="?attr/placeholder_color"
         app:tabSelectedTextColor="?attr/colorAccent">
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"

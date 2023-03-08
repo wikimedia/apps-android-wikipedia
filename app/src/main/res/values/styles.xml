@@ -36,16 +36,14 @@
 
         <item name="actionBarPopupTheme">@style/ToolbarPopupTheme</item>
 
-        <!-- Background for popup menus, text areas -->
-        <item name="android:colorBackground">@color/gray100</item>
-
+        <item name="android:windowBackground">?border_color</item>
+        <item name="android:colorBackground">?background_color</item>
         <item name="android:textColorPrimary">?primary_color</item>
         <item name="android:textColorSecondary">?secondary_color</item>
         <item name="android:textColorTertiary">?placeholder_color</item>
-        <item name="android:textColorHint">@color/gray400</item>
+        <item name="android:textColorHint">?placeholder_color</item>
 
-        <!-- Toolbar color, list overscroll effect -->
-        <item name="colorPrimary">@color/blue600</item>
+        <item name="colorPrimary">?inactive_color</item>
 
         <item name="colorAccent">?progressive_color</item>
 
@@ -89,9 +87,6 @@
         <item name="material_theme_secondary_color">@color/black54</item>
         <item name="material_theme_de_emphasised_color">@color/black38</item>
         <item name="material_theme_border_color">@color/black12</item>
-        <item name="secondary_text_color">@color/gray500</item>
-        <item name="chart_shade4">@color/gray400</item>
-        <item name="chart_shade5">@color/gray300</item>
         <item name="chart_shade7">@color/white</item>
         <item name="green_highlight_color">@color/green700</item>
         <item name="randomizer_dice_icon_color">@android:color/white</item>
@@ -100,15 +95,12 @@
         <item name="toc_h1_h2_color">@color/black</item>
         <item name="toc_scroller_button_color">@color/white</item>
         <item name="button_background_color">@color/white</item>
-        <item name="tab_placeholder_text_color">@color/gray200</item>
-        <item name="chip_background_color">@color/gray200</item>
         <item name="color_group_22">@color/gray100</item>
         <item name="color_group_43">@color/green600</item>
         <item name="color_group_44">@color/red50</item>
         <item name="color_group_52">@color/blue300</item>
         <item name="color_group_57">@color/green90</item>
         <item name="color_group_58">@color/green700</item>
-        <item name="color_group_60">@color/gray200</item>
         <item name="color_group_61">@color/black26</item>
         <item name="color_group_63">@color/black54</item>
         <item name="color_group_65">@color/green90</item>

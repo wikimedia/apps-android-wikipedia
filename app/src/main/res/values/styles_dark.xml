@@ -3,19 +3,6 @@
 
     <style name="ThemeDark">
 
-        <!-- Overrides of base Android color definitions -->
-
-        <!-- Default background for all activities -->
-        <item name="android:windowBackground">?attr/paper_color</item>
-
-        <!-- Background for popup menus, text areas -->
-        <item name="android:colorBackground">@color/gray675</item>
-
-        <item name="android:textColorHint">@color/gray400</item>
-
-        <!-- Toolbar color, list overscroll effect -->
-        <item name="colorPrimary">@color/blue300</item>
-
         <!-- Error text in TextInputLayout -->
         <item name="colorError">@color/red75</item>
 
@@ -57,9 +44,6 @@
         <item name="material_theme_secondary_color">@color/white70</item>
         <item name="material_theme_de_emphasised_color">@color/white50</item>
         <item name="material_theme_border_color">@color/white20</item>
-        <item name="secondary_text_color">@color/gray300</item>
-        <item name="chart_shade4">@color/gray400</item>
-        <item name="chart_shade5">@color/gray500</item>
         <item name="chart_shade7">@color/gray700</item>
         <item name="green_highlight_color">@color/green600</item>
         <item name="randomizer_dice_icon_color">@color/blue600</item>
@@ -68,8 +52,6 @@
         <item name="toc_h1_h2_color">@color/white</item>
         <item name="toc_scroller_button_color">@color/base18</item>
         <item name="button_background_color">@color/gray650</item>
-        <item name="tab_placeholder_text_color">@color/gray700</item>
-        <item name="chip_background_color">@color/gray600</item>
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_dark</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_dark</item>
 
@@ -80,7 +62,6 @@
         <item name="color_group_52">@color/blue300</item>
         <item name="color_group_57">@color/green700</item>
         <item name="color_group_58">@color/green600</item>
-        <item name="color_group_60">@color/gray600</item>
         <item name="color_group_61">@color/gray500</item>
         <item name="color_group_63">@color/white50</item>
         <item name="color_group_65">@android:color/transparent</item>

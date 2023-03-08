@@ -148,7 +148,7 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
             TextViewCompat.setTextAppearance(chip, R.style.CustomChipStyle)
             chip.text = readingList.title
             chip.isClickable = true
-            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.chip_background_color))
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.border_color))
             chip.setOnClickListener {
                 callback?.onListChipClick(readingList)
             }

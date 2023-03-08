@@ -11,7 +11,7 @@
     <View
         android:layout_width="wrap_content"
         android:layout_height="0.5dp"
-        android:background="?attr/chart_shade5" />
+        android:background="?attr/border_color" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/languagesList"
@@ -26,7 +26,7 @@
     <View
         android:layout_width="wrap_content"
         android:layout_height="0.5dp"
-        android:background="?attr/chart_shade5" />
+        android:background="?attr/border_color" />
 
     <LinearLayout
         android:id="@+id/addLangContainer"

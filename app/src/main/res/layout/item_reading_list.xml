@@ -122,7 +122,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/reading_list_share_menu_label"
         android:visibility="gone"
-        app:tint="?attr/secondary_text_color"
+        app:tint="?attr/placeholder_color"
         app:layout_constraintEnd_toStartOf="@id/item_overflow_menu"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_share" />
@@ -134,7 +134,7 @@
         android:padding="8dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/abc_action_menu_overflow_description"
-        app:tint="?attr/secondary_text_color"
+        app:tint="?attr/placeholder_color"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

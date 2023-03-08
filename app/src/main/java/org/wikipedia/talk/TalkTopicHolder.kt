@@ -99,7 +99,7 @@ class TalkTopicHolder internal constructor(
 
         // Last comment date
         val lastCommentDate = allReplies.mapNotNull { it.date }.maxOrNull()?.run { DateUtil.getDateAndTime(context, this) }
-        val lastCommentColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.secondary_text_color
+        val lastCommentColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.placeholder_color
         binding.topicLastCommentDate.text = lastCommentDate
         binding.topicLastCommentDate.isVisible = lastCommentDate != null
         binding.topicLastCommentDate.setTextColor(ResourceUtil.getThemedColor(context, lastCommentColor))

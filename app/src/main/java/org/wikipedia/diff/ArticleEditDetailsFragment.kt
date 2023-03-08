@@ -409,7 +409,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         dialog.layoutInflater.inflate(R.layout.view_thank_dialog, parent)
         dialog.setOnShowListener {
             dialog.getButton(AlertDialog.BUTTON_NEGATIVE)
-                    .setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.secondary_text_color))
+                    .setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
         }
         dialog.show()
     }

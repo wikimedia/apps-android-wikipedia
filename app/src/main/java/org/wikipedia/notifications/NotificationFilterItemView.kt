@@ -58,7 +58,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         }
         filter.imageRes?.let {
             ImageViewCompat.setImageTintList(binding.notificationFilterWikiLogo,
-                ResourceUtil.getThemedColorStateList(context, R.attr.secondary_text_color))
+                ResourceUtil.getThemedColorStateList(context, R.attr.placeholder_color))
             binding.notificationFilterWikiLogo.setImageResource(it)
             binding.notificationFilterWikiLogo.visibility = View.VISIBLE
         } ?: run {

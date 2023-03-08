@@ -200,8 +200,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                     chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_57))
                     chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_58))
                 } else {
-                    chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-                    chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+                    chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
+                    chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
                 }
             }
         }
@@ -214,9 +214,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         val chip = Chip(requireContext())
         chip.text = label?.label ?: getString(R.string.suggested_edits_image_tags_add_tag)
         chip.textAlignment = TEXT_ALIGNMENT_CENTER
-        chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+        chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
         chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
-        chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+        chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
         chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color))
         chip.typeface = typeface
         chip.isCheckable = true
@@ -268,8 +268,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
             chip.isChipIconVisible = false
         } else {
-            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
+            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
             chip.isChipIconVisible = true
         }
         if (chip.tag != null) {

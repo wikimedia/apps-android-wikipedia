@@ -17,7 +17,7 @@
         android:lineSpacingExtra="7sp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_vertical"
-        android:background="?attr/color_group_60"/>
+        android:background="?attr/border_color"/>
 
     <LinearLayout
         android:id="@+id/imageTypeThumbnail"

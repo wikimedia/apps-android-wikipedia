@@ -64,6 +64,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="?attr/color_group_60" />
+        android:background="?attr/border_color" />
 
 </merge>

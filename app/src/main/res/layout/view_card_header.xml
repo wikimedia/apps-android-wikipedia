@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_menu"
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone"
-        app:tint="?attr/secondary_text_color" />
+        app:tint="?attr/placeholder_color" />
 
     <ImageView
         android:id="@+id/view_list_card_header_menu"
@@ -72,7 +72,7 @@
         android:focusable="true"
         android:contentDescription="@string/abc_action_menu_overflow_description"
         android:padding="12dp"
-        app:tint="?attr/secondary_text_color"
+        app:tint="?attr/placeholder_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

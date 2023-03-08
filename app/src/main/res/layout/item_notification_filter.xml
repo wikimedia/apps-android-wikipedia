@@ -16,7 +16,7 @@
         android:background="@drawable/lang_button_shape_border"
         android:fontFamily="sans-serif-medium"
         android:textAllCaps="true"
-        android:textColor="?attr/secondary_text_color" />
+        android:textColor="?attr/placeholder_color" />
 
     <ImageView
         android:id="@+id/notification_filter_wiki_logo"

@@ -48,7 +48,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginBottom="5dp"
         android:lineSpacingMultiplier="1.1"
-        android:textColor="?attr/secondary_text_color"
+        android:textColor="?attr/placeholder_color"
         android:textSize="13sp"
         android:transitionName="@string/transition_article_description"
         app:layout_constraintTop_toBottomOf="@id/articleTitle"

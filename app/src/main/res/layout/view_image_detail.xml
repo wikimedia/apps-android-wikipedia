@@ -96,5 +96,5 @@
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/chip_background_color"/>
+        android:background="?attr/border_color"/>
 </LinearLayout>
