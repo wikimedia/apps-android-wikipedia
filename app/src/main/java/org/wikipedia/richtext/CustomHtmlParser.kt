@@ -226,16 +226,15 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         }
 
         fun pruneBitmaps(context: Context) {
-            if (contextBmpMap.containsKey(context)) {
-                val bmpMap = contextBmpMap[context]!!
-                bmpMap.values.forEach {
+            contextBmpMap[context]?.let { map ->
+                map.values.forEach {
                     try {
                         it.bitmap.recycle()
                     } catch (e: Exception) {
                         L.e(e)
                     }
                 }
-                bmpMap.clear()
+                map.clear()
                 contextBmpMap.remove(context)
             }
         }
