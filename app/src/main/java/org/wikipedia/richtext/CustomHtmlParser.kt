@@ -123,7 +123,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                 imgHeight = DimenUtil.roundedDpToPx(imgHeight.toFloat())
 
                 if (imgWidth > 0 && imgHeight > 0 && imgSrc.isNotEmpty()) {
-                    val bmpMap = viewBmpMap.getOrPut(view.context) { mutableMapOf() }
+                    val bmpMap = contextBmpMap.getOrPut(view.context) { mutableMapOf() }
                     var drawable = bmpMap[imgSrc]
 
                     if (drawable == null || drawable.bitmap.isRecycled) {
@@ -180,9 +180,9 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         override fun getDrawable(source: String?): Drawable {
             var bmp: BitmapDrawable? = null
             try {
-                if (viewBmpMap.containsKey(context)) {
-                    if (viewBmpMap[context]!!.containsKey(source)) {
-                        bmp = viewBmpMap[context]!![source]
+                if (contextBmpMap.containsKey(context)) {
+                    if (contextBmpMap[context]!!.containsKey(source)) {
+                        bmp = contextBmpMap[context]!![source]
                     }
                 }
             } catch (e: Exception) {
@@ -202,7 +202,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
 
     companion object {
         private const val MIN_IMAGE_SIZE = 64
-        private val viewBmpMap = mutableMapOf<Context, MutableMap<String, BitmapDrawable>>()
+        private val contextBmpMap = mutableMapOf<Context, MutableMap<String, BitmapDrawable>>()
 
         fun fromHtml(html: String?, view: TextView? = null): Spanned {
             var sourceStr = html.orEmpty()
@@ -219,15 +219,15 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
 
             // TODO: Investigate if it's necessary to inject a dummy tag at the beginning of the
             // text, since there are reports that XmlReader ignores the first tag by default?
-            // This would become something like "<inject/>$html".parseAsHtml(...)
+            // This would become something like "<inject/>$sourceStr".parseAsHtml(...)
             return sourceStr.parseAsHtml(HtmlCompat.FROM_HTML_MODE_LEGACY,
                 if (view == null) null else CustomImageGetter(view.context),
                 CustomHtmlParser(CustomTagHandler(view)))
         }
 
         fun pruneBitmaps(context: Context) {
-            if (viewBmpMap.containsKey(context)) {
-                val bmpMap = viewBmpMap[context]!!
+            if (contextBmpMap.containsKey(context)) {
+                val bmpMap = contextBmpMap[context]!!
                 bmpMap.values.forEach {
                     try {
                         it.bitmap.recycle()
@@ -236,7 +236,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                     }
                 }
                 bmpMap.clear()
-                viewBmpMap.remove(context)
+                contextBmpMap.remove(context)
             }
         }
 
