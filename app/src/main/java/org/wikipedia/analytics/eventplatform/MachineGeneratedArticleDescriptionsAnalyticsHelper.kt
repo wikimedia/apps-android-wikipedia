@@ -43,11 +43,19 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         )
     }
 
-    fun machineGeneratedSuggestionsDialogShown(context: Context) {
+    fun machineGeneratedSuggestionsDialogSuggestionChosen(context: Context, suggestion: String) {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "MachineGeneratedArticleSuggestion.suggestionsDialogs.shown"
+                "MachineGeneratedArticleSuggestion.suggestionsDialogs.chosenSuggestion:$suggestion"
+            )
+        )
+    }
+    fun machineGeneratedSuggestionsDialogDismissed(context: Context) {
+        EventPlatformClient.submit(
+            BreadCrumbLogEvent(
+                BreadCrumbViewUtil.getReadableScreenName(context),
+                "MachineGeneratedArticleSuggestion.suggestionsDialogs.dismissed"
             )
         )
     }

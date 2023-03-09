@@ -19,21 +19,25 @@ class ArticleDescriptionsDialog(
     }
 
     private val binding = DialogArticleDescriptionsBinding.inflate(layoutInflater)
+    private var suggestionChosen = false
 
     init {
         setView(binding.root)
         binding.firstSuggestion.text = firstSuggestion
         binding.secondSuggestion.text = secondSuggestion
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDialogShown(context)
 
         binding.closeButton.setOnClickListener { dismiss() }
         binding.firstSuggestion.setOnClickListener {
             callback.onSuggestionClicked(binding.firstSuggestion.text.toString())
+            MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDialogSuggestionChosen(context, firstSuggestion)
+            suggestionChosen = true
             dismiss()
         }
         binding.secondSuggestion.setOnClickListener {
             callback.onSuggestionClicked(binding.secondSuggestion.text.toString())
+            MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDialogSuggestionChosen(context, secondSuggestion)
+            suggestionChosen = true
             dismiss()
         }
 
@@ -53,6 +57,12 @@ class ArticleDescriptionsDialog(
                     dismiss()
                 }
             }).show()
+        }
+
+        setOnDismissListener {
+            if (!suggestionChosen) {
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDialogDismissed(context)
+            }
         }
     }
 
