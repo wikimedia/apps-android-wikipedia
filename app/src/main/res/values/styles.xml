@@ -46,6 +46,7 @@
         <item name="colorPrimary">?inactive_color</item>
         <item name="colorAccent">?progressive_color</item>
         <item name="colorError">?destructive_color</item>
+        <item name="colorSwitchThumbNormal">?placeholder_color</item>
 
         <!-- Overrides of base Android styles with color sub-definitions -->
         <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.Light.PopupMenu.Overflow</item>
@@ -77,7 +78,6 @@
 
         <!-- TODO: review and remove the old references/colors -->
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_light</item>
-        <item name="thumb_off_color">@color/gray100</item>
         <item name="color_group_67">@color/red90</item>
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_light</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_light</item>
@@ -434,7 +434,7 @@
         <item name="android:listPreferredItemPaddingRight">@dimen/activity_horizontal_margin</item>
         <item name="android:listPreferredItemPaddingEnd">@dimen/activity_horizontal_margin</item>
         <item name="colorControlActivated">?attr/colorAccent</item>
-        <item name="colorSwitchThumbNormal">?attr/thumb_off_color</item>
+        <item name="colorSwitchThumbNormal">?attr/border_color</item>
         <item name="android:colorForeground">?attr/primary_color</item>
         <item name="android:disabledAlpha">0.5</item>
     </style>
