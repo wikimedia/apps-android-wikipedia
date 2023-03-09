@@ -24,7 +24,7 @@
             android:id="@+id/imageInfoContainer"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:background="?attr/color_group_22"
+            android:background="?attr/background_color"
             app:layout_scrollFlags="scroll|enterAlways">
 
             <LinearLayout
@@ -107,7 +107,7 @@
                 android:contentDescription="@string/insert_media_search_hint"
                 android:scaleType="center"
                 app:srcCompat="@drawable/ic_search_white_24dp"
-                app:tint="?attr/material_theme_de_emphasised_color" />
+                app:tint="?attr/placeholder_color" />
 
             <TextView
                 android:id="@+id/searchInputField"

@@ -120,7 +120,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-medium"
-                            android:textColor="?attr/material_theme_de_emphasised_color"
+                            android:textColor="?attr/placeholder_color"
                             android:textSize="12sp"
                             tools:text="Article" />
 
@@ -158,7 +158,7 @@
                             android:hint="@string/description_edit_text_hint"
                             app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance"
                             app:endIconDrawable="@drawable/ic_mic_black_24dp"
-                            app:endIconTint="?attr/material_theme_de_emphasised_color"
+                            app:endIconTint="?attr/placeholder_color"
                             app:endIconContentDescription="@string/description_edit_voice_input_description"
                             app:endIconMode="custom"
                             app:counterEnabled="true"

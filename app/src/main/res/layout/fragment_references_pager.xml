@@ -34,7 +34,7 @@
             android:layout_height="0.5dp"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:background="?attr/material_theme_border_color" />
+            android:background="?attr/border_color" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/reference_pager"
@@ -47,7 +47,7 @@
             android:layout_height="0.5dp"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:background="?attr/material_theme_border_color" />
+            android:background="?attr/border_color" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/page_indicator_view"

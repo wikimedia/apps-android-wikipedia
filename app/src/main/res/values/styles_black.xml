@@ -28,7 +28,6 @@
         <item name="button_background_color">@color/base18</item>
 
         <!-- Background for cards, lists, and controls -->
-        <item name="color_group_22">@color/gray650</item>
         <item name="color_group_69">@color/green50_10b</item>
 
     </style>

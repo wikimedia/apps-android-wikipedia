@@ -93,7 +93,7 @@
                                 app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
                                 app:tint="?attr/colorAccent"
                                 android:background="@drawable/shape_circle"
-                                android:backgroundTint="?attr/color_group_22"
+                                android:backgroundTint="?attr/background_color"
                                 android:contentDescription="@string/suggested_edits_my_contributions"/>
                             
                             <androidx.constraintlayout.widget.Guideline

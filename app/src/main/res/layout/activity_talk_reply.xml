@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 app:drawableStartCompat="@drawable/ic_license_cc"
-                app:drawableTint="?attr/material_theme_de_emphasised_color"
+                app:drawableTint="?attr/placeholder_color"
                 android:drawablePadding="8dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="?attr/color_group_63"

@@ -83,7 +83,7 @@ object DiffUtil {
         val spannableString = SpannableStringBuilder(diff.text.ifEmpty { "\n" })
         if (diff.text.isEmpty()) {
             spannableString.setSpan(EmptyLineSpan(ResourceUtil.getThemedColor(context, android.R.attr.colorBackground),
-                    ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color)), 0, spannableString.length, 0)
+                    ResourceUtil.getThemedColor(context, R.attr.placeholder_color)), 0, spannableString.length, 0)
             return spannableString
         }
         when (diff.type) {

@@ -69,7 +69,7 @@
                 android:layout_marginTop="35dp"
                 android:textAlignment="center"
                 android:text="@string/nav_item_more"
-                android:textColor="?attr/material_theme_de_emphasised_color"
+                android:textColor="?attr/placeholder_color"
                 android:textSize="10sp" />
 
         </FrameLayout>

@@ -16,10 +16,11 @@
     <attr name="focus_color" format="color" />
     <attr name="addition_color" format="color" />
 
-    <!-- TODO: review and remove the old references/colors -->
+    <!-- TODO: need to revisit -->
     <attr name="list_separator_drawable" format="reference"/>
-    <attr name="list_separator_drawable_bottom_content" format="reference"/>
     <attr name="list_separator_drawable_light" format="reference"/>
+
+    <!-- TODO: review and remove the old references/colors -->
     <attr name="nav_tab_background_color" format="reference" />
     <attr name="nav_tab_item_color_state" format="reference" />
     <attr name="randomizer_dice_icon_color" format="reference" />
@@ -31,22 +32,16 @@
 
     <attr name="material_theme_primary_color" format="color" />
     <attr name="material_theme_secondary_color" format="color" />
-    <attr name="material_theme_de_emphasised_color" format="color" />
-    <attr name="material_theme_border_color" format="color" />
     <attr name="chart_shade7" format="color" />
     <attr name="green_highlight_color" format="color" />
     <attr name="thumb_off_color" format="color" />
-    <attr name="track_off_color" format="color" />
-    <attr name="toc_h1_h2_color" format="color" />
     <attr name="toc_scroller_button_color" format="color" />
     <attr name="button_background_color" format="color" />
-    <attr name="color_group_22" format="reference"/>
     <attr name="color_group_43" format="color"/>
     <attr name="color_group_44" format="color"/>
     <attr name="color_group_52" format="color"/>
     <attr name="color_group_57" format="color"/>
     <attr name="color_group_58" format="color"/>
-    <attr name="color_group_61" format="color"/>
     <attr name="color_group_63" format="color"/>
     <attr name="color_group_65" format="color"/>
     <attr name="color_group_67" format="color"/>

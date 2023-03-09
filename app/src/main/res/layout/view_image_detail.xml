@@ -22,7 +22,7 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
             android:lineSpacingExtra="2sp"
-            android:textColor="?attr/material_theme_de_emphasised_color"
+            android:textColor="?attr/placeholder_color"
             android:textSize="14sp"
             tools:text="IMAGE CAPTION" />
         <ImageView
@@ -38,7 +38,7 @@
             android:layout_marginTop="-8dp"
             android:layout_marginBottom="-8dp"
             app:srcCompat="@drawable/ic_mode_edit_white_24dp"
-            app:tint="?attr/material_theme_de_emphasised_color"/>
+            app:tint="?attr/placeholder_color"/>
     </LinearLayout>
 
     <LinearLayout

@@ -58,14 +58,12 @@
 
         <!-- Overrides of our own custom style attributes -->
         <item name="list_separator_drawable">@drawable/divider_light</item>
-        <item name="list_separator_drawable_bottom_content">@drawable/divider_bottom_content_light</item>
         <item name="list_separator_drawable_light">@drawable/side_panel_divider_light</item>
         <item name="talk_page_empty_state_drawable">@drawable/talk_page_empty_state_illustration_light</item>
 
         <!-- Component updates -->
         <item name="paper_color">@color/white</item>
         <item name="background_color">@color/gray100</item>
-        <item name="border_color">@color/gray200</item>
         <item name="inactive_color">@color/gray400</item>
         <item name="placeholder_color">@color/gray500</item>
         <item name="secondary_color">@color/gray600</item>
@@ -85,23 +83,18 @@
         <item name="searchItemBackground">@color/white</item>
         <item name="material_theme_primary_color">@color/black87</item>
         <item name="material_theme_secondary_color">@color/black54</item>
-        <item name="material_theme_de_emphasised_color">@color/black38</item>
-        <item name="material_theme_border_color">@color/black12</item>
         <item name="chart_shade7">@color/white</item>
         <item name="green_highlight_color">@color/green700</item>
         <item name="randomizer_dice_icon_color">@android:color/white</item>
         <item name="thumb_off_color">@color/gray100</item>
-        <item name="track_off_color">@color/black</item>
-        <item name="toc_h1_h2_color">@color/black</item>
         <item name="toc_scroller_button_color">@color/white</item>
         <item name="button_background_color">@color/white</item>
-        <item name="color_group_22">@color/gray100</item>
         <item name="color_group_43">@color/green600</item>
         <item name="color_group_44">@color/red50</item>
         <item name="color_group_52">@color/blue300</item>
         <item name="color_group_57">@color/green90</item>
         <item name="color_group_58">@color/green700</item>
-        <item name="color_group_61">@color/black26</item>
+        <item name="border_color">@color/black26</item>
         <item name="color_group_63">@color/black54</item>
         <item name="color_group_65">@color/green90</item>
         <item name="color_group_67">@color/red90</item>
@@ -390,7 +383,7 @@
     </style>
 
     <style name="FlatButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
-        <item name="backgroundTint">?attr/color_group_22</item>
+        <item name="backgroundTint">?attr/background_color</item>
         <item name="android:textColor">?attr/colorAccent</item>
         <item name="android:minWidth">0dp</item>
         <item name="android:paddingTop">5dp</item>
@@ -412,7 +405,7 @@
     </style>
 
     <style name="FlatButton.Small.Transparent">
-        <item name="android:textColor">?attr/material_theme_de_emphasised_color</item>
+        <item name="android:textColor">?attr/placeholder_color</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
         <item name="backgroundTint">@android:color/transparent</item>
         <item name="android:foreground">?android:selectableItemBackground</item>
@@ -464,7 +457,7 @@
         <item name="android:listPreferredItemPaddingEnd">@dimen/activity_horizontal_margin</item>
         <item name="colorControlActivated">?attr/colorAccent</item>
         <item name="colorSwitchThumbNormal">?attr/thumb_off_color</item>
-        <item name="android:colorForeground">?attr/track_off_color</item>
+        <item name="android:colorForeground">?attr/primary_color</item>
         <item name="android:disabledAlpha">0.5</item>
     </style>
 
@@ -570,11 +563,11 @@
     </style>
 
     <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
-        <item name="boxBackgroundColor">?attr/color_group_22</item>
-        <item name="android:textColorHint">?attr/material_theme_de_emphasised_color</item>
+        <item name="boxBackgroundColor">?attr/background_color</item>
+        <item name="android:textColorHint">?attr/placeholder_color</item>
         <item name="hintTextColor">?attr/colorAccent</item>
-        <item name="helperTextTextColor">?attr/material_theme_de_emphasised_color</item>
-        <item name="counterTextColor">?attr/material_theme_de_emphasised_color</item>
+        <item name="helperTextTextColor">?attr/placeholder_color</item>
+        <item name="counterTextColor">?attr/placeholder_color</item>
         <item name="errorTextAppearance">@style/TextInputLayoutErrorTextAppearance</item>
     </style>
 

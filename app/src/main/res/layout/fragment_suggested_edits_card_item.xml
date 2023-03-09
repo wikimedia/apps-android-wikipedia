@@ -87,7 +87,7 @@
                     android:layout_width="222dp"
                     android:layout_height="8dp"
                     android:layout_marginTop="10dp"
-                    android:background="?attr/color_group_22"
+                    android:background="?attr/background_color"
                     android:visibility="gone" />
 
                 <View
@@ -95,7 +95,7 @@
                     android:layout_width="148dp"
                     android:layout_height="8dp"
                     android:layout_marginTop="12dp"
-                    android:background="?attr/color_group_22"
+                    android:background="?attr/background_color"
                     android:visibility="gone" />
 
                 <View
@@ -103,7 +103,7 @@
                     android:layout_width="@dimen/divider_width_for_article"
                     android:layout_height="1dp"
                     android:layout_marginTop="24dp"
-                    android:background="?attr/material_theme_border_color"
+                    android:background="?attr/border_color"
                     android:visibility="gone" />
 
                 <TextView

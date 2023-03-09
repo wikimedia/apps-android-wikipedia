@@ -24,7 +24,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="?attr/material_theme_border_color" />
+        android:background="?attr/border_color" />
 
     <LinearLayout
         android:id="@+id/reading_list_item_offline"
@@ -170,7 +170,7 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginStart="72dp"
-        android:background="?attr/material_theme_border_color" />
+        android:background="?attr/border_color" />
 
     <LinearLayout
         android:id="@+id/reading_list_item_remove"

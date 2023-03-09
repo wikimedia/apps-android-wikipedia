@@ -9,7 +9,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="?attr/material_theme_border_color" />
+        android:background="?attr/border_color" />
 
     <ProgressBar
         android:id="@+id/font_change_progress_bar"
@@ -217,7 +217,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:background="?attr/material_theme_border_color" />
+                android:background="?attr/border_color" />
 
             <TextView
                 android:layout_width="wrap_content"

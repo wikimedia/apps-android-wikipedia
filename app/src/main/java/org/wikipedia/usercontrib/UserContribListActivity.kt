@@ -298,7 +298,7 @@ class UserContribListActivity : BaseActivity() {
             val statsFlowValue = viewModel.userContribStatsData.value
             if (statsFlowValue is Resource.Success) {
                 binding.root.setCardBackgroundColor(
-                    ResourceUtil.getThemedColor(this@UserContribListActivity, R.attr.color_group_22)
+                    ResourceUtil.getThemedColor(this@UserContribListActivity, R.attr.background_color)
                 )
 
                 itemView.setOnClickListener {

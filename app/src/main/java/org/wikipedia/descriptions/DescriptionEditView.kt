@@ -361,7 +361,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 binding.viewDescriptionEditSaveButton.isEnabled = true
             } else {
                 binding.viewDescriptionEditSaveButton.setImageResource(R.drawable.ic_check_black_24dp)
-                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ResourceUtil.getThemedColorStateList(context, R.attr.material_theme_de_emphasised_color))
+                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ResourceUtil.getThemedColorStateList(context, R.attr.placeholder_color))
                 binding.viewDescriptionEditSaveButton.isEnabled = false
             }
         }

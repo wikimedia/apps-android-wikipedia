@@ -22,7 +22,7 @@ class CircularProgressBar constructor(context: Context, attrs: AttributeSet? = n
 
     init {
         var progressColor = ResourceUtil.getThemedColor(getContext(), R.attr.colorAccent)
-        var progressBackgroundColor = ResourceUtil.getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color)
+        var progressBackgroundColor = ResourceUtil.getThemedColor(getContext(), R.attr.placeholder_color)
         var progressStrokeWidth = DimenUtil.dpToPx(DEFAULT_STROKE_WIDTH_DP.toFloat()).toInt()
         if (attrs != null) {
             context.withStyledAttributes(attrs, R.styleable.CircularProgressBar) {

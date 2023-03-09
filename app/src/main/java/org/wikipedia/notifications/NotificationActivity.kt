@@ -510,7 +510,7 @@ class NotificationActivity : BaseActivity() {
         val notificationFilterCountView: TextView = itemView.findViewById(R.id.filter_count)
 
         init {
-            (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.color_group_22))
+            (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.background_color))
 
             itemView.setOnClickListener {
                 if (actionMode == null) {

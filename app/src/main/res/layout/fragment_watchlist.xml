@@ -37,7 +37,7 @@
                 android:layout_height="120dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_oojs_watchlist"
-                app:tint="?attr/material_theme_de_emphasised_color"/>
+                app:tint="?attr/placeholder_color"/>
 
             <TextView
                 style="@style/MaterialMediumSecondaryCaption"
@@ -74,7 +74,7 @@
                 android:layout_height="120dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_oojs_watchlist"
-                app:tint="?attr/material_theme_de_emphasised_color"/>
+                app:tint="?attr/placeholder_color"/>
 
             <TextView
                 android:id="@+id/watchlistEmptySearchMessage"

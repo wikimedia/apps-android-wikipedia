@@ -236,7 +236,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
                             ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.primary_color))
                 } else {
                     sectionHeading.setTextColor(
-                            ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.toc_h1_h2_color))
+                            ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.primary_color))
                 }
             }
             return newConvertView

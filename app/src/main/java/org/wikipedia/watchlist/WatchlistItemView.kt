@@ -101,7 +101,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
     }
 
     private fun setButtonTextAndIconColor(text: String, @DrawableRes iconResourceDrawable: Int = 0, textAllCaps: Boolean = true) {
-        val themedTint = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_61)
+        val themedTint = ResourceUtil.getThemedColorStateList(context, R.attr.border_color)
         binding.diffText.text = text
         binding.diffText.setTextColor(themedTint)
         binding.diffText.setIconResource(iconResourceDrawable)

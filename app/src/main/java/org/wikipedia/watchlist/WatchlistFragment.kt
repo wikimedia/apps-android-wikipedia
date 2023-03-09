@@ -204,7 +204,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
 
     inner class WatchlistSearchBarHolder constructor(private val itemBinding: ViewWatchlistSearchBarBinding) : RecyclerView.ViewHolder(itemBinding.root) {
         init {
-            itemBinding.root.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22))
+            itemBinding.root.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.background_color))
 
             itemBinding.root.setOnClickListener {
                 if (actionMode == null) {

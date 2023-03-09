@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="@+id/view_list_card_header_lang_code"
         app:layout_constraintTop_toTopOf="@+id/view_list_card_header_lang_code"
         app:srcCompat="@drawable/lang_button_shape_border"
-        app:tint="?attr/material_theme_de_emphasised_color" />
+        app:tint="?attr/placeholder_color" />
 
     <TextView
         android:id="@+id/view_list_card_header_lang_code"

@@ -39,7 +39,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="?attr/material_theme_border_color" />
+                android:background="?attr/border_color" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/customize_toolbar"

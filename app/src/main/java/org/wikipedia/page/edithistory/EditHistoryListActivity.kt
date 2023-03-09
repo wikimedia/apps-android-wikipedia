@@ -371,7 +371,7 @@ class EditHistoryListActivity : BaseActivity() {
             binding.filterByButton.isVisible = viewModel.editHistoryStatsData.value is Resource.Success
 
             binding.root.setCardBackgroundColor(
-                ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.color_group_22)
+                ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.background_color)
             )
 
             itemView.setOnClickListener {

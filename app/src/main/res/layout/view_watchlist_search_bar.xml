@@ -16,7 +16,7 @@
         android:contentDescription="@string/watchlist_search_bar_hint"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_search_white_24dp"
-        app:tint="?attr/material_theme_de_emphasised_color" />
+        app:tint="?attr/placeholder_color" />
 
     <TextView
         android:layout_width="match_parent"

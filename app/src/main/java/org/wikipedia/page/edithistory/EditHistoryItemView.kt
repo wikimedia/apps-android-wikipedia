@@ -89,7 +89,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
             ImageViewCompat.setImageTintList(binding.selectButton, colorSecondary)
             binding.cardView.setDefaultBorder()
             binding.cardView.setCardBackgroundColor(colorDefault)
-            binding.userNameText.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_22)
+            binding.userNameText.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.background_color)
             binding.userNameText.setTextColor(colorUsername)
             binding.userNameText.iconTint = colorUsername
             binding.editHistoryTimeText.setTextColor(colorSecondary)

@@ -25,10 +25,10 @@
             android:textAlignment="viewStart"
             android:hint="@string/preview_edit_summarize_edit_hint"
             app:endIconDrawable="@drawable/ic_mic_black_24dp"
-            app:endIconTint="?attr/material_theme_de_emphasised_color"
+            app:endIconTint="?attr/placeholder_color"
             app:endIconContentDescription="@string/preview_edit_summarize_edit_hint"
             app:endIconMode="custom"
-            app:boxBackgroundColor="?attr/color_group_22">
+            app:boxBackgroundColor="?attr/background_color">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/editSummaryText"

@@ -29,7 +29,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="?attr/material_theme_border_color" />
+                android:background="?attr/border_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,7 +65,7 @@
                     android:layout_width="@dimen/divider_width_for_article"
                     android:layout_height="1dp"
                     android:layout_marginTop="19dp"
-                    android:background="?attr/material_theme_border_color" />
+                    android:background="?attr/border_color" />
 
                 <TextView
                     android:id="@+id/articleExtract"
@@ -135,7 +135,7 @@
             android:id="@+id/indicatorDivider"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="?attr/material_theme_border_color" />
+            android:background="?attr/border_color" />
 
         <org.wikipedia.descriptions.DescriptionEditLicenseView
             android:id="@+id/licenseView"
