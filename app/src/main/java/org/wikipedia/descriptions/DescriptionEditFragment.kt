@@ -22,6 +22,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
+import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentDescriptionEditBinding
@@ -226,7 +227,8 @@ class DescriptionEditFragment : Fragment() {
                 val list = (if (pageTitle.wikiSite.languageCode == "en") {
                     response.prediction.map { StringUtil.capitalize(it)!! }
                 } else response.prediction).distinct()
-
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDetailsLogged(requireContext(),
+                    pageTitle.prefixedText, list, response.blp)
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
                 binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(list.first(), list.last())

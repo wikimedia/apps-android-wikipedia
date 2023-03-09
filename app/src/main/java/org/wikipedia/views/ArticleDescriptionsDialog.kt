@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AlertDialog
+import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.databinding.DialogArticleDescriptionsBinding
 
 class ArticleDescriptionsDialog(
@@ -24,6 +25,7 @@ class ArticleDescriptionsDialog(
         binding.firstSuggestion.text = firstSuggestion
         binding.secondSuggestion.text = secondSuggestion
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDialogShown(context)
 
         binding.closeButton.setOnClickListener { dismiss() }
         binding.firstSuggestion.setOnClickListener {

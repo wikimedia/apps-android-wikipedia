@@ -16,6 +16,7 @@ import androidx.core.widget.addTextChangedListener
 import de.mrapp.android.view.drawable.CircularProgressDrawable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.databinding.ViewDescriptionEditBinding
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.mlkit.MlKitLanguageDetector
@@ -413,6 +414,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         binding.root.post {
             binding.suggestedDescButton.isEnabled = true
             binding.suggestedDescButton.chipIcon = AppCompatResources.getDrawable(context, R.drawable.ic_robot_24)
+            MachineGeneratedArticleDescriptionsAnalyticsHelper.suggestedDescriptionsButtonShown(context)
         }
         binding.suggestedDescButton.setOnClickListener {
             ArticleDescriptionsDialog(context, firstSuggestion, secondSuggestion, object : ArticleDescriptionsDialog.Callback {
