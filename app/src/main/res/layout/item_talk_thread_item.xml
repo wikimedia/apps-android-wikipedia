@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_more_vert_white_24dp"
-        app:tint="?attr/material_theme_secondary_color"/>
+        app:tint="?attr/secondary_color"/>
 
     <View
         android:id="@+id/userNameTapTarget"
@@ -76,7 +76,7 @@
         app:layout_constraintEnd_toStartOf="@id/overflowButton"
         android:layout_marginStart="4dp"
         android:layout_marginTop="6dp"
-        android:textColor="?attr/material_theme_secondary_color"
+        android:textColor="?attr/secondary_color"
         android:lineSpacingExtra="6sp"
         tools:text="Lorem ipsum" />
 
@@ -90,7 +90,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="16dp"
-        android:textColor="?attr/material_theme_primary_color"
+        android:textColor="?attr/primary_color"
         android:textColorLink="?attr/colorAccent"
         android:lineSpacingExtra="6sp"
         android:textIsSelectable="true"

@@ -34,7 +34,7 @@
                     android:contentDescription="@null"
                     android:scaleType="fitCenter"
                     app:srcCompat="@drawable/ic_category_black_24dp"
-                    app:tint="?attr/material_theme_secondary_color"/>
+                    app:tint="?attr/secondary_color"/>
 
                 <TextView
                     android:id="@+id/categories_dialog_title"

@@ -61,7 +61,7 @@ class WikipediaLanguagesItemView : LinearLayout {
         binding.wikiLanguageOrder.text = (position + 1).toString()
         binding.wikiLanguageTitle.text = StringUtil.capitalize(languageLocalizedName.orEmpty())
         binding.wikiLanguageCode.text = langCode
-        val color = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_63)
+        val color = ResourceUtil.getThemedColorStateList(context, R.attr.secondary_color)
         binding.wikiLanguageCode.setTextColor(color)
         ViewCompat.setBackgroundTintList(binding.wikiLanguageCode, color)
         ViewUtil.formatLangButton(binding.wikiLanguageCode, langCode, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)

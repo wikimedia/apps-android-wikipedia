@@ -52,7 +52,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         binding.diffText.text = StringUtil.getDiffBytesText(context, diffSize)
         if (diffSize >= 0) {
             binding.diffText.setTextColor(if (diffSize > 0) ContextCompat.getColor(context, R.color.green600)
-            else ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))
+            else ResourceUtil.getThemedColor(context, R.attr.secondary_color))
         } else {
             binding.diffText.setTextColor(ContextCompat.getColor(context, R.color.red50))
         }
@@ -61,11 +61,11 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
 
         if (itemRevision.comment.isEmpty()) {
             binding.editHistoryTitle.setTypeface(Typeface.SANS_SERIF, Typeface.ITALIC)
-            binding.editHistoryTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))
+            binding.editHistoryTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.secondary_color))
             binding.editHistoryTitle.text = context.getString(R.string.page_edit_history_comment_placeholder)
         } else {
             binding.editHistoryTitle.setTypeface(Typeface.SANS_SERIF, Typeface.NORMAL)
-            binding.editHistoryTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.material_theme_primary_color))
+            binding.editHistoryTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.primary_color))
             binding.editHistoryTitle.text = if (itemRevision.minor) StringUtil.fromHtml(context.getString(R.string.page_edit_history_minor_edit, itemRevision.comment)) else itemRevision.comment
             StringUtil.highlightAndBoldenText(binding.editHistoryTitle, currentQuery, true, Color.YELLOW)
         }
@@ -77,10 +77,10 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
 
     fun setSelectedState(selectedState: Int) {
         val colorDefault = ResourceUtil.getThemedColor(context, R.attr.paper_color)
-        val colorSecondary = ResourceUtil.getThemedColorStateList(context, R.attr.material_theme_secondary_color)
+        val colorSecondary = ResourceUtil.getThemedColorStateList(context, R.attr.secondary_color)
         val colorUsername = ResourceUtil.getThemedColorStateList(context, R.attr.primary_color)
         val colorFrom = ResourceUtil.getThemedColor(context, R.attr.colorAccent)
-        val colorTo = ResourceUtil.getThemedColor(context, R.attr.color_group_68)
+        val colorTo = ResourceUtil.getThemedColor(context, R.attr.warning_color)
         binding.selectButton.isVisible = selectedState != EditHistoryListViewModel.SELECT_INACTIVE
 
         if (selectedState == EditHistoryListViewModel.SELECT_INACTIVE ||

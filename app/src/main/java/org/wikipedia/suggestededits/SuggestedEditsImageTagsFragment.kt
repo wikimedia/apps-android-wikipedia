@@ -197,8 +197,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             if (publishSuccess) {
                 chip.isEnabled = false
                 if (chip.isChecked) {
-                    chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_57))
-                    chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_58))
+                    chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.addition_color))
+                    chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.success_color))
                 } else {
                     chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
                     chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
@@ -217,7 +217,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
         chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
         chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
-        chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color))
+        chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_color))
         chip.typeface = typeface
         chip.isCheckable = true
         chip.setChipIconResource(R.drawable.ic_chip_add_24px)

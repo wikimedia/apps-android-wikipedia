@@ -3,8 +3,6 @@
 
     <style name="ThemeSepia">
 
-        <item name="colorError">@color/red700</item>
-
         <!-- Component updates -->
         <item name="paper_color">@color/beige100</item>
         <item name="background_color">@color/beige300</item>
@@ -23,15 +21,7 @@
         <!-- Component updates -->
 
         <!-- TODO: review and remove the old references/colors -->
-        <item name="searchItemBackground">@color/beige100</item>
-        <item name="nav_tab_background_color">@color/beige400</item>
-        <item name="toc_scroller_button_color">@color/beige100</item>
-        <item name="button_background_color">@color/beige100</item>
-        <item name="color_group_44">@color/red700</item>
-        <item name="green_highlight_color">@color/green600</item>
-        <item name="color_group_65">@android:color/transparent</item>
         <item name="color_group_67">@android:color/transparent</item>
-        <item name="color_group_69">@color/green50_10s</item>
 
     </style>
 

@@ -19,7 +19,7 @@
             android:imeOptions="flagNoExtractUi"
             android:hint="@string/suggested_edits_image_tags_search"
             android:textSize="14sp"
-            android:textColor="?attr/material_theme_primary_color"
+            android:textColor="?attr/primary_color"
             android:background="@null"
             android:maxLines="1">
             <requestFocus />

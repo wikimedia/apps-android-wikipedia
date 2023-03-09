@@ -78,7 +78,7 @@ class EditHistoryListActivity : BaseActivity() {
         binding.compareFromCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
                 ResourceUtil.getThemedColor(this, R.attr.colorAccent), 0.05f))
         binding.compareToCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
-                ResourceUtil.getThemedColor(this, R.attr.color_group_68), 0.05f))
+                ResourceUtil.getThemedColor(this, R.attr.warning_color), 0.05f))
         updateCompareState()
 
         binding.compareButton.setOnClickListener {
@@ -182,7 +182,7 @@ class EditHistoryListActivity : BaseActivity() {
             button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.colorAccent))
         } else {
             button.isEnabled = false
-            button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
+            button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
         }
     }
 

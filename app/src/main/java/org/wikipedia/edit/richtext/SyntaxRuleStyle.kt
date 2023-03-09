@@ -27,7 +27,7 @@ enum class SyntaxRuleStyle {
     },
     REF {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return ColorSpanEx(getThemedColor(ctx, R.attr.green_highlight_color), Color.TRANSPARENT, spanStart, syntaxItem)
+            return ColorSpanEx(getThemedColor(ctx, R.attr.success_color), Color.TRANSPARENT, spanStart, syntaxItem)
         }
     },
     BOLD {

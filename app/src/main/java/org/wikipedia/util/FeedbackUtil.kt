@@ -118,11 +118,11 @@ object FeedbackUtil {
         val view = findBestView(activity)
         val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration)
         val textView = snackbar.view.findViewById<TextView>(R.id.snackbar_text)
-        textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
+        textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod(wikiSite)
         RichTextUtil.removeUnderlinesFromLinks(textView)
         val actionView = snackbar.view.findViewById<TextView>(R.id.snackbar_action)
-        actionView.setTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
+        actionView.setTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         return snackbar
     }
 

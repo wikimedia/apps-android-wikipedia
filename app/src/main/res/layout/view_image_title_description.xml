@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
             android:textSize="@dimen/suggested_edits_icon_title_text_size"
-            android:textColor="?attr/material_theme_primary_color"
+            android:textColor="?attr/primary_color"
             android:textStyle="bold" />
 
         <TextView
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/suggested_edits_message_textview_text_size"
-            android:textColor="?attr/material_theme_secondary_color"/>
+            android:textColor="?attr/secondary_color"/>
 
     </LinearLayout>
 

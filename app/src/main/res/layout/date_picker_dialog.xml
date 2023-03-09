@@ -24,7 +24,7 @@
             android:fontFamily="sans-serif-medium"
             android:lineSpacingExtra="4sp"
             android:text="@string/on_this_day_card_title"
-            android:textColor="?attr/material_theme_primary_color"
+            android:textColor="?attr/primary_color"
             android:textSize="16sp"
             android:textStyle="normal"
             tools:text="ON THIS DAY" />
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
             android:text=""
-            android:textColor="?attr/material_theme_primary_color"
+            android:textColor="?attr/primary_color"
             android:textSize="34sp"
             android:textStyle="normal" />
     </LinearLayout>

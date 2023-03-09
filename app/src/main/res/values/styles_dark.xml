@@ -3,9 +3,6 @@
 
     <style name="ThemeDark">
 
-        <!-- Error text in TextInputLayout -->
-        <item name="colorError">@color/red75</item>
-
         <!-- Overrides of base Android styles with color sub-definitions -->
         <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.PopupMenu.Overflow</item>
         <item name="popupMenuStyle">@style/PopupMenuDark</item>
@@ -36,32 +33,11 @@
 
         <!-- TODO: review and remove the old references/colors -->
         <!-- Overrides of our own custom color attributes -->
-        <item name="nav_tab_background_color">@color/base18</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_dark</item>
-        <item name="searchItemBackground">@color/gray675</item>
-        <item name="material_theme_primary_color">@color/white</item>
-        <item name="material_theme_secondary_color">@color/white70</item>
-        <item name="chart_shade7">@color/gray700</item>
-        <item name="green_highlight_color">@color/green600</item>
-        <item name="randomizer_dice_icon_color">@color/blue600</item>
         <item name="thumb_off_color">@color/gray300</item>
-        <item name="toc_scroller_button_color">@color/base18</item>
-        <item name="button_background_color">@color/gray650</item>
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_dark</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_dark</item>
-
-        <!-- Background for cards, lists, and controls -->
-        <item name="color_group_43">@color/green600</item>
-        <item name="color_group_44">@color/red75</item>
-        <item name="color_group_52">@color/blue300</item>
-        <item name="color_group_57">@color/green700</item>
-        <item name="color_group_58">@color/green600</item>
-        <item name="color_group_63">@color/white50</item>
-        <item name="color_group_65">@android:color/transparent</item>
         <item name="color_group_67">@android:color/transparent</item>
-        <item name="color_group_68">@color/orange500</item>
-        <item name="color_group_69">@color/green50_10d</item>
-        <item name="color_group_70">@color/green20</item>
     </style>
 
     <style name="DialogDark" parent="Theme.MaterialComponents.Dialog">

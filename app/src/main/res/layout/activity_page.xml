@@ -46,7 +46,7 @@
                         android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:text="@string/search_hint"
-                        android:textColor="?attr/material_theme_secondary_color"
+                        android:textColor="?attr/secondary_color"
                         android:background="@drawable/shape_search_box"
                         android:drawablePadding="8dp"
                         android:paddingStart="12dp"
@@ -142,7 +142,7 @@
             android:elevation="8dp"
             android:focusable="true"
             android:scaleType="center"
-            app:backgroundTint="?attr/toc_scroller_button_color"
+            app:backgroundTint="?attr/background_color"
             app:srcCompat="@drawable/ic_unfold_more_black_24dp"
             app:tint="?attr/colorAccent" />
 

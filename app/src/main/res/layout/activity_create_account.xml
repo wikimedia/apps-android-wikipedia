@@ -104,7 +104,7 @@
                         android:layout_marginEnd="0dp"
                         android:enabled="false"
                         android:text="@string/email_recommendation_message"
-                        android:textColor="?attr/material_theme_secondary_color"
+                        android:textColor="?attr/secondary_color"
                         android:textSize="12sp" />
 
                     <Button
@@ -135,7 +135,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/create_account_already_have"
-                            android:textColor="?attr/material_theme_secondary_color" />
+                            android:textColor="?attr/secondary_color" />
 
                         <Button
                             android:id="@+id/create_account_login_button"

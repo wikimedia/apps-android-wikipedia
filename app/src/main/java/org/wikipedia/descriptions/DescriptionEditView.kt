@@ -196,7 +196,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 ColorStateList.valueOf(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.progressive_color)))
             ImageViewCompat.setImageTintList(binding.viewDescriptionEditCancelButton,
                 ColorStateList.valueOf(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.placeholder_color)))
-            binding.viewDescriptionEditHeader.setTextColor(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.material_theme_primary_color))
+            binding.viewDescriptionEditHeader.setTextColor(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.primary_color))
 
             val barColor = if (enabled) Color.BLACK else ResourceUtil.getThemedColor(context, R.attr.paper_color)
             context.updateStatusBarColor(barColor)

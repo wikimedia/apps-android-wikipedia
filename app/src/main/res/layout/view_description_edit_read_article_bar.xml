@@ -37,7 +37,7 @@
         android:fontFamily="serif"
         android:gravity="center_vertical"
         android:lineSpacingExtra="6sp"
-        android:textColor="?attr/material_theme_primary_color"
+        android:textColor="?attr/primary_color"
         android:textSize="14sp"
         android:maxLines="2"
         android:ellipsize="end"

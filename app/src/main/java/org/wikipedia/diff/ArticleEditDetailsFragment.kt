@@ -295,7 +295,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.diffCharacterCountView.text = StringUtil.getDiffBytesText(requireContext(), diffSize)
         if (diffSize >= 0) {
             binding.diffCharacterCountView.setTextColor(if (diffSize > 0) ContextCompat.getColor(requireContext(),
-                    R.color.green600) else ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color))
+                    R.color.green600) else ResourceUtil.getThemedColor(requireContext(), R.attr.secondary_color))
         } else {
             binding.diffCharacterCountView.setTextColor(ContextCompat.getColor(requireContext(), R.color.red50))
         }
@@ -356,7 +356,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun setEnableDisableTint(view: ImageView, isDisabled: Boolean) {
         ImageViewCompat.setImageTintList(view, AppCompatResources.getColorStateList(requireContext(),
             ResourceUtil.getThemedAttributeId(requireContext(), if (isDisabled)
-                R.attr.placeholder_color else R.attr.material_theme_secondary_color)))
+                R.attr.placeholder_color else R.attr.secondary_color)))
     }
 
     private fun setButtonTextAndIconColor(view: MaterialButton, themedColor: Int) {

@@ -68,7 +68,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     app:srcCompat="@drawable/ic_more_vert_white_24dp"
-                    app:tint="?attr/material_theme_secondary_color" />
+                    app:tint="?attr/secondary_color" />
             </LinearLayout>
 
             <View

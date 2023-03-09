@@ -41,7 +41,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:maxLines="1"
                 android:text="@string/description_edit_edit_description"
-                android:textColor="?attr/material_theme_primary_color"
+                android:textColor="?attr/primary_color"
                 android:textSize="20sp"
                 android:padding="16dp" />
 
@@ -134,7 +134,7 @@
                             android:gravity="start"
                             android:lineSpacingExtra="6sp"
                             android:maxLines="4"
-                            android:textColor="?attr/material_theme_primary_color"
+                            android:textColor="?attr/primary_color"
                             android:textSize="16sp"
                             tools:text="Lorem ipsum" />
 

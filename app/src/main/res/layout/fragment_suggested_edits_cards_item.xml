@@ -101,7 +101,7 @@
                         android:paddingTop="10dp"
                         android:paddingEnd="16dp"
                         android:paddingBottom="10dp"
-                        android:textColor="?attr/material_theme_primary_color"
+                        android:textColor="?attr/primary_color"
                         android:textSize="16sp"
                         tools:text="Lorem ipsum" />
                 </LinearLayout>

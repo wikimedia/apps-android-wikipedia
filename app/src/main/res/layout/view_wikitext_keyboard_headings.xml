@@ -22,7 +22,7 @@
             android:focusable="true"
             android:padding="12dp"
             app:srcCompat="@drawable/ic_format_heading2_24"
-            app:tint="?attr/material_theme_primary_color" />
+            app:tint="?attr/primary_color" />
 
         <ImageView
             android:id="@+id/wikitext_button_h3"
@@ -34,7 +34,7 @@
             android:focusable="true"
             android:padding="12dp"
             app:srcCompat="@drawable/ic_format_heading3_24"
-            app:tint="?attr/material_theme_primary_color" />
+            app:tint="?attr/primary_color" />
 
         <ImageView
             android:id="@+id/wikitext_button_h4"
@@ -46,7 +46,7 @@
             android:focusable="true"
             android:padding="12dp"
             app:srcCompat="@drawable/ic_format_heading4_24"
-            app:tint="?attr/material_theme_primary_color" />
+            app:tint="?attr/primary_color" />
 
         <ImageView
             android:id="@+id/wikitext_button_h5"
@@ -58,7 +58,7 @@
             android:focusable="true"
             android:padding="12dp"
             app:srcCompat="@drawable/ic_format_heading5_24"
-            app:tint="?attr/material_theme_primary_color" />
+            app:tint="?attr/primary_color" />
 
     </LinearLayout>
 

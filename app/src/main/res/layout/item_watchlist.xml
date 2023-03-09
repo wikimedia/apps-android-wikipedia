@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:textStyle="bold"
             android:textSize="16sp"
-            android:textColor="?attr/material_theme_primary_color"
+            android:textColor="?attr/primary_color"
             tools:text="Lorem ipsum"/>
 
         <TextView
@@ -39,7 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:textSize="16sp"
-            android:textColor="?attr/material_theme_secondary_color"
+            android:textColor="?attr/secondary_color"
             tools:text="12:00"/>
 
         <ImageView
@@ -52,7 +52,7 @@
             app:layout_constraintStart_toStartOf="@+id/langCodeText"
             app:layout_constraintTop_toTopOf="@+id/langCodeText"
             app:srcCompat="@drawable/lang_button_shape_border"
-            app:tint="?attr/material_theme_secondary_color" />
+            app:tint="?attr/secondary_color" />
 
         <TextView
             android:id="@+id/langCodeText"
@@ -67,7 +67,7 @@
             android:padding="3dp"
             android:paddingEnd="4dp"
             android:textAllCaps="true"
-            android:textColor="?attr/material_theme_secondary_color"
+            android:textColor="?attr/secondary_color"
             android:textSize="10sp"
             android:textStyle="bold"
             tools:text="zh-hant" />
@@ -84,8 +84,8 @@
             android:lineSpacingExtra="4sp"
             android:maxLines="4"
             android:ellipsize="end"
-            android:textColor="?attr/material_theme_secondary_color"
-            android:textColorLink="?attr/material_theme_secondary_color"
+            android:textColor="?attr/secondary_color"
+            android:textColorLink="?attr/secondary_color"
             tools:text="Lorem ipsum"/>
 
         <com.google.android.material.button.MaterialButton

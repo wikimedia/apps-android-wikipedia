@@ -24,7 +24,7 @@
             android:textSize="16sp"
             android:paddingHorizontal="16dp"
             android:paddingVertical="13dp"
-            android:textColor="?attr/material_theme_primary_color"/>
+            android:textColor="?attr/primary_color"/>
 
         <LinearLayout
             android:id="@+id/sortByDatePublishedButton"
@@ -51,7 +51,7 @@
                 android:layout_weight="1"
                 android:textSize="16sp"
                 android:text="@string/talk_overflow_sort_date_published"
-                android:textColor="?attr/material_theme_primary_color" />
+                android:textColor="?attr/primary_color" />
 
             <ImageView
                 android:id="@+id/sortByDatePublishedOrder"
@@ -91,7 +91,7 @@
                 android:layout_weight="1"
                 android:textSize="16sp"
                 android:text="@string/talk_overflow_sort_date_updated"
-                android:textColor="?attr/material_theme_primary_color" />
+                android:textColor="?attr/primary_color" />
 
             <ImageView
                 android:id="@+id/sortByDateUpdatedOrder"
@@ -130,7 +130,7 @@
                 android:layout_weight="1"
                 android:textSize="16sp"
                 android:text="@string/talk_overflow_sort_topic_name"
-                android:textColor="?attr/material_theme_primary_color" />
+                android:textColor="?attr/primary_color" />
 
             <ImageView
                 android:id="@+id/sortByTopicNameOrder"

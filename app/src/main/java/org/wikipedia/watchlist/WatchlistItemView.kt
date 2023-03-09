@@ -59,7 +59,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         }
         binding.summaryText.setTypeface(Typeface.SANS_SERIF, if (isSummaryEmpty) Typeface.ITALIC else Typeface.NORMAL)
         binding.summaryText.setTextColor(ResourceUtil.getThemedColor(context,
-            if (isSummaryEmpty) R.attr.material_theme_secondary_color else R.attr.material_theme_primary_color))
+            if (isSummaryEmpty) R.attr.secondary_color else R.attr.primary_color))
         binding.timeText.text = DateUtil.getTimeString(context, item.date)
         binding.userNameText.text = item.user
         binding.userNameText.contentDescription = context.getString(R.string.talk_user_title, item.user)
@@ -89,7 +89,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
             setButtonTextAndIconColor(StringUtil.getDiffBytesText(context, diffByteCount), textAllCaps = false)
             if (diffByteCount >= 0) {
                 binding.diffText.setTextColor(if (diffByteCount > 0) ContextCompat.getColor(context, R.color.green600)
-                else ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))
+                else ResourceUtil.getThemedColor(context, R.attr.secondary_color))
             } else {
                 binding.diffText.setTextColor(ContextCompat.getColor(context, R.color.red50))
             }

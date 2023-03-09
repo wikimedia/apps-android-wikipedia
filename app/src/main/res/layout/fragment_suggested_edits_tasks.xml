@@ -79,7 +79,7 @@
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 android:layout_marginEnd="48dp"
-                                android:textColor="?attr/material_theme_primary_color"
+                                android:textColor="?attr/primary_color"
                                 android:textSize="20sp"
                                 android:textStyle="bold"/>
                             
@@ -159,7 +159,7 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toBottomOf="@id/onboardingImageView"
-                                android:textColor="?attr/material_theme_primary_color"
+                                android:textColor="?attr/primary_color"
                                 android:lineSpacingExtra="6sp"
                                 android:textAlignment="center"
                                 android:textSize="@dimen/suggested_edits_message_textview_text_size"
@@ -177,7 +177,7 @@
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
                         android:text="@string/suggested_edits_label"
-                        android:textColor="?attr/material_theme_primary_color"
+                        android:textColor="?attr/primary_color"
                         android:textSize="20sp"
                         android:textStyle="bold"/>
 
@@ -212,7 +212,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="20sp"
                                 android:textStyle="bold"
-                                android:textColor="?attr/material_theme_primary_color"
+                                android:textColor="?attr/primary_color"
                                 android:text="@string/suggested_edits_what_is_title"/>
 
                             <TextView
@@ -221,7 +221,7 @@
                                 android:layout_marginTop="8dp"
                                 android:textSize="16sp"
                                 android:lineSpacingExtra="8sp"
-                                android:textColor="?attr/material_theme_secondary_color"
+                                android:textColor="?attr/secondary_color"
                                 android:text="@string/suggested_edits_what_is_text"/>
 
                             <com.google.android.material.button.MaterialButton

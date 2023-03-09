@@ -175,7 +175,7 @@
                 app:cardElevation="0dp"
                 app:cardCornerRadius="8dp"
                 app:strokeWidth="0.5dp"
-                app:strokeColor="?attr/color_group_68">
+                app:strokeColor="?attr/warning_color">
 
                 <TextView
                     android:id="@+id/compareToText"
@@ -184,7 +184,7 @@
                     android:paddingVertical="8dp"
                     android:paddingHorizontal="12dp"
                     android:textStyle="bold"
-                    android:textColor="?attr/color_group_68"
+                    android:textColor="?attr/warning_color"
                     tools:text="12:00" />
 
             </com.google.android.material.card.MaterialCardView>

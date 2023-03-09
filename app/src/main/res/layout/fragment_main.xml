@@ -22,7 +22,7 @@
     <LinearLayout
         android:id="@+id/main_nav_tab_container"
         android:elevation="6dp"
-        android:background="?attr/nav_tab_background_color"
+        android:background="?attr/background_color"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:baselineAligned="false"
@@ -59,7 +59,7 @@
                 android:contentDescription="@null"
                 android:layout_marginTop="9.5dp"
                 android:layout_gravity="center_horizontal"
-                app:tint="?attr/material_theme_secondary_color"
+                app:tint="?attr/secondary_color"
                 app:srcCompat="@drawable/ic_menu_themed_24dp" />
 
             <TextView

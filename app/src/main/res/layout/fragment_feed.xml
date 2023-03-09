@@ -47,7 +47,7 @@
                 style="@style/App.Button"
                 android:text="@string/feed_configure_onboarding_action"
                 android:textColor="?attr/placeholder_color"
-                app:backgroundTint="?attr/button_background_color" />
+                app:backgroundTint="?attr/background_color" />
 
         </LinearLayout>
 

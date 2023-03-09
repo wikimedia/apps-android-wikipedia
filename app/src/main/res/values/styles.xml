@@ -44,11 +44,8 @@
         <item name="android:textColorHint">?placeholder_color</item>
 
         <item name="colorPrimary">?inactive_color</item>
-
         <item name="colorAccent">?progressive_color</item>
-
-        <!-- Error text in TextInputLayout -->
-        <item name="colorError">@color/red50</item>
+        <item name="colorError">?destructive_color</item>
 
         <!-- Overrides of base Android styles with color sub-definitions -->
         <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.Light.PopupMenu.Overflow</item>
@@ -64,6 +61,7 @@
         <!-- Component updates -->
         <item name="paper_color">@color/white</item>
         <item name="background_color">@color/gray100</item>
+        <item name="border_color">@color/gray200</item>
         <item name="inactive_color">@color/gray400</item>
         <item name="placeholder_color">@color/gray500</item>
         <item name="secondary_color">@color/gray600</item>
@@ -78,29 +76,9 @@
         <!-- Component updates -->
 
         <!-- TODO: review and remove the old references/colors -->
-        <item name="nav_tab_background_color">@color/white</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_light</item>
-        <item name="searchItemBackground">@color/white</item>
-        <item name="material_theme_primary_color">@color/black87</item>
-        <item name="material_theme_secondary_color">@color/black54</item>
-        <item name="chart_shade7">@color/white</item>
-        <item name="green_highlight_color">@color/green700</item>
-        <item name="randomizer_dice_icon_color">@android:color/white</item>
         <item name="thumb_off_color">@color/gray100</item>
-        <item name="toc_scroller_button_color">@color/white</item>
-        <item name="button_background_color">@color/white</item>
-        <item name="color_group_43">@color/green600</item>
-        <item name="color_group_44">@color/red50</item>
-        <item name="color_group_52">@color/blue300</item>
-        <item name="color_group_57">@color/green90</item>
-        <item name="color_group_58">@color/green700</item>
-        <item name="border_color">@color/black26</item>
-        <item name="color_group_63">@color/black54</item>
-        <item name="color_group_65">@color/green90</item>
         <item name="color_group_67">@color/red90</item>
-        <item name="color_group_68">@color/yellow700</item>
-        <item name="color_group_69">@color/green50_10l</item>
-        <item name="color_group_70">@color/green80</item>
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_light</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_light</item>
 
@@ -225,7 +203,7 @@
     </style>
 
     <style name="ToolBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">?attr/material_theme_primary_color</item>
+        <item name="android:textColor">?attr/primary_color</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
@@ -259,7 +237,7 @@
     </style>
 
     <style name="ActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
-        <item name="android:textColor">?attr/material_theme_primary_color</item>
+        <item name="android:textColor">?attr/primary_color</item>
     </style>
 
     <style name="NotificationActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
@@ -267,7 +245,7 @@
     </style>
 
     <style name="ActionModeSubtitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle">
-        <item name="android:textColor">?attr/material_theme_primary_color</item>
+        <item name="android:textColor">?attr/primary_color</item>
     </style>
 
     <style name="PageActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
@@ -513,32 +491,32 @@
         <item name="android:textSize">20sp</item>
         <item name="android:lineSpacingExtra">8sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">?attr/material_theme_primary_color</item>
+        <item name="android:textColor">?attr/primary_color</item>
     </style>
 
     <style name="MaterialMediumSecondaryCaption">
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">16sp</item>
         <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:textColor">?attr/material_theme_secondary_color</item>
+        <item name="android:textColor">?attr/secondary_color</item>
     </style>
 
     <style name="MaterialListTitle">
         <item name="android:textSize">16sp</item>
         <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:textColor">?attr/material_theme_primary_color</item>
+        <item name="android:textColor">?attr/primary_color</item>
     </style>
 
     <style name="MaterialListSubtitle">
         <item name="android:textSize">14sp</item>
         <item name="android:lineSpacingExtra">6sp</item>
-        <item name="android:textColor">?attr/material_theme_secondary_color</item>
+        <item name="android:textColor">?attr/secondary_color</item>
     </style>
 
     <style name="MaterialListSectionHeader">
         <item name="android:textSize">14sp</item>
         <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:textColor">?attr/material_theme_secondary_color</item>
+        <item name="android:textColor">?attr/secondary_color</item>
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
@@ -584,12 +562,12 @@
 
     <style name="DialogTextAppearance">
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">?attr/material_theme_secondary_color</item>
+        <item name="android:textColor">?attr/secondary_color</item>
         <item name="android:lineSpacingExtra">@dimen/dialog_line_spacing_extra</item>
     </style>
 
     <style name="DialogTitleAppearance" parent="@style/RtlOverlay.DialogWindowTitle.AppCompat">
-        <item name="android:textColor">?attr/material_theme_primary_color</item>
+        <item name="android:textColor">?attr/primary_color</item>
         <item name="android:layout_marginBottom">5dp</item>
     </style>
 
@@ -609,11 +587,11 @@
 
     <style name="AlertDialogStyle" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
         <item name="android:colorBackground">?attr/paper_color</item>
-        <item name="android:textColorPrimary">?attr/material_theme_secondary_color</item>
+        <item name="android:textColorPrimary">?attr/secondary_color</item>
         <item name="android:windowTitleStyle">@style/DialogTitleAppearance</item>
         <item name="android:textAppearanceMedium">@style/DialogTitleTextAppearance</item>
         <item name="buttonBarButtonStyle">@style/AlertDialogButtonStyle</item>
-        <item name="textColorAlertDialogListItem">?attr/material_theme_secondary_color</item>
+        <item name="textColorAlertDialogListItem">?attr/secondary_color</item>
         <item name="android:lineSpacingExtra">@dimen/dialog_line_spacing_extra</item>
     </style>
 

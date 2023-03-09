@@ -33,7 +33,7 @@
             app:layout_constraintTop_toTopOf="@+id/taskIcon"
             android:layout_marginStart="20dp"
             android:textSize="16sp"
-            android:textColor="?attr/material_theme_primary_color"
+            android:textColor="?attr/primary_color"
             android:textStyle="bold"
             android:lineSpacingExtra="6sp"
             tools:text="Lorem ipsum"/>
@@ -61,7 +61,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:textSize="14sp"
             android:lineSpacingExtra="6sp"
-            android:textColor="?attr/material_theme_secondary_color"
+            android:textColor="?attr/secondary_color"
             tools:text="Lorem ipsum"/>
 
         <androidx.constraintlayout.helper.widget.Flow

@@ -117,7 +117,7 @@
                 android:layout_marginStart="48dp"
                 android:layout_marginEnd="48dp"
                 android:text="@string/insert_media_search_hint"
-                android:textColor="?attr/material_theme_secondary_color"/>
+                android:textColor="?attr/secondary_color"/>
 
         </org.wikipedia.views.WikiCardView>
 

@@ -58,7 +58,7 @@
                 app:drawableTint="?attr/placeholder_color"
                 android:drawablePadding="8dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="?attr/color_group_63"
+                android:textColor="?attr/secondary_color"
                 tools:text="Sample license text" />
 
         </LinearLayout>

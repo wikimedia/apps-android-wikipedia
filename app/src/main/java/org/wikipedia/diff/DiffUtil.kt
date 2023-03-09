@@ -121,7 +121,7 @@ object DiffUtil {
         val foregroundAddedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(context, R.attr.primary_color))
         val foregroundRemovedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(context, R.attr.primary_color))
         spannableText.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(context,
-                if (isAddition) R.attr.color_group_65 else R.attr.color_group_67)), start, end, 0)
+                if (isAddition) R.attr.background_color else R.attr.color_group_67)), start, end, 0)
         spannableText.setSpan(boldStyle, start, end, 0)
         if (isAddition) {
             spannableText.setSpan(foregroundAddedColor, start, end, 0)

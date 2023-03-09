@@ -102,7 +102,7 @@
                         android:letterSpacing="0.01"
                         android:lineSpacingExtra="6sp"
                         android:maxLines="3"
-                        android:textColor="?attr/material_theme_primary_color"
+                        android:textColor="?attr/primary_color"
                         android:textSize="16sp"
                         android:fontFamily="sans-serif-medium"
                         tools:text="Lorem ipsum" />

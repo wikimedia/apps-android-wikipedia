@@ -100,7 +100,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/login_dont_have_account"
-                        android:textColor="?attr/material_theme_secondary_color" />
+                        android:textColor="?attr/secondary_color" />
 
                     <Button
                         android:id="@+id/login_create_account_button"

@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/add_wikipedia_languages_text"
-            android:textColor="?attr/material_theme_secondary_color"
+            android:textColor="?attr/secondary_color"
             app:backgroundTint="?attr/border_color"
             tools:text="Add Wikipedia languages" />
     </LinearLayout>

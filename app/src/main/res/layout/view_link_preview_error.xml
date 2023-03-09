@@ -10,7 +10,7 @@
         android:layout_margin="16dp"
         android:contentDescription="@null"
         app:srcCompat="@drawable/ic_error_black_24dp"
-        app:tint="?attr/material_theme_secondary_color" />
+        app:tint="?attr/secondary_color" />
 
     <TextView
         android:id="@+id/view_link_preview_error_text"

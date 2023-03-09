@@ -45,7 +45,7 @@
             android:background="?attr/actionBarItemBackground"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/ic_filter_list_24"
-            app:tint="?attr/material_theme_secondary_color" />
+            app:tint="?attr/secondary_color" />
 
         <ImageView
             android:id="@+id/history_delete"
@@ -58,6 +58,6 @@
             android:background="?attr/actionBarItemBackground"
             android:scaleType="fitEnd"
             app:srcCompat="@drawable/ic_delete_white_24dp"
-            app:tint="?attr/material_theme_secondary_color" />
+            app:tint="?attr/secondary_color" />
     </LinearLayout>
 </LinearLayout>
