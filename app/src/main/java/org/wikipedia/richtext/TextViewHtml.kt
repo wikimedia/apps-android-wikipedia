@@ -29,6 +29,7 @@ fun TextView.setHtml(source: String?) {
         // If the string doesn't contain any hints of HTML entities, then skip the expensive
         // processing that we need to perform.
         this.text = sourceStr
+        return
     }
 
     sourceStr = sourceStr.replace("&#8206;", "\u200E")
