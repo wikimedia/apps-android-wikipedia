@@ -60,7 +60,7 @@
                     android:layout_marginTop="-6.5dp"
                     android:indeterminate="true"
                     android:indeterminateTint="?attr/colorAccent"
-                    android:progressBackgroundTint="@color/accent30"
+                    android:progressBackgroundTint="?attr/progressive_color"
                     android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

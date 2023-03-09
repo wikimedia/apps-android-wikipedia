@@ -47,13 +47,10 @@
 
     <!-- TODO: remove the old colors below -->
     <color name="accent30">#2a4b8d</color>
-    <color name="accent20">#223966</color>
     <color name="red90">#FFe7e6</color>
     <color name="red50">#d33</color>
     <color name="green90">#d5fdf4</color>
     <color name="yellow90">#fef6e7</color>
-    <color name="yellow30_a5">#0aac6600</color>
-    <color name="yellow30_a20">#32ac6600</color>
     <color name="find_in_page">#FFFF00</color>
     <color name="find_in_page_active">#FF9632</color>
     <color name="black54">#8A000000</color>
@@ -63,6 +60,5 @@
     <color name="white70">#B3ffffff</color>
     <color name="white50">#80ffffff</color>
     <color name="white20">#33ffffff</color>
-    <color name="white15">#26ffffff</color>
 
 </resources>

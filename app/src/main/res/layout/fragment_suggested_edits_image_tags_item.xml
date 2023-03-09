@@ -141,7 +141,7 @@
             android:indeterminate="false"
             android:max="100"
             android:secondaryProgress="100"
-            android:progressDrawable="@drawable/circular_progress" />
+            android:progressDrawable="@drawable/circular_progress"/>
 
         <ImageView
             android:id="@+id/publishProgressCheck"

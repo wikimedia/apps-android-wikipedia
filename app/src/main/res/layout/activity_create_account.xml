@@ -178,7 +178,7 @@
         android:layout_height="wrap_content"
         android:indeterminate="true"
         android:indeterminateTint="?attr/colorAccent"
-        android:progressBackgroundTint="@color/accent30"
+        android:progressBackgroundTint="?attr/progressive_color"
         android:visibility="gone"
         android:layout_marginTop="-6dp"
         tools:visibility="visible" />
