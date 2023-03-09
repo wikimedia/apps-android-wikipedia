@@ -250,7 +250,9 @@ class DescriptionEditFragment : Fragment() {
     private inner class EditViewCallback : DescriptionEditView.Callback {
         override fun onSaveClick() {
             if (!binding.fragmentDescriptionEditView.showingReviewContent()) {
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.articleDescriptionEditingEnd(requireContext())
+                if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
+                    MachineGeneratedArticleDescriptionsAnalyticsHelper.articleDescriptionEditingEnd(requireContext())
+                }
                 binding.fragmentDescriptionEditView.loadReviewContent(true)
             } else {
                 binding.fragmentDescriptionEditView.setError(null)
