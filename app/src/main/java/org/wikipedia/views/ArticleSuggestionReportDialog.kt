@@ -42,7 +42,7 @@ class ArticleSuggestionReportDialog(context: Context, suggestion: String, callba
         }
     }
 
-    private fun getReportReasons(): MutableList<String> {
+    private fun getReportReasons(): List<String> {
         val responses = mutableListOf<String>()
 
         if (binding.notEnoughInfoCheckbox.isChecked) {
