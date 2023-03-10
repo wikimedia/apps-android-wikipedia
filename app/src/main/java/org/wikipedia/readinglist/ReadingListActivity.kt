@@ -11,6 +11,7 @@ import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.ResourceUtil.getThemedColor
 
 class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
+
     private var isPreview = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
