@@ -44,7 +44,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.ArticleDescriptionsDialog
+import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 import java.io.IOException
 import java.lang.Runnable
 import java.util.*
@@ -205,7 +205,7 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
 
-        if (ReleaseUtil.isPreBetaRelease && ArticleDescriptionsDialog.availableLanguages().contains(pageTitle.wikiSite.languageCode) &&
+        if (ReleaseUtil.isPreBetaRelease && SuggestedArticleDescriptionsDialog.availableLanguages().contains(pageTitle.wikiSite.languageCode) &&
             action == DescriptionEditActivity.Action.ADD_DESCRIPTION && pageTitle.description.isNullOrEmpty()) {
             binding.fragmentDescriptionEditView.showSuggestedDescriptionsLoadingProgress()
             requestSuggestion()

@@ -6,14 +6,14 @@ import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AlertDialog
 import org.wikipedia.databinding.DialogArticleDescriptionsBinding
 
-class ArticleDescriptionsDialog(
+class SuggestedArticleDescriptionsDialog(
     context: Context,
     firstSuggestion: String,
     secondSuggestion: String,
     callback: Callback
 ) : AlertDialog(context) {
 
-    interface Callback {
+  fun interface Callback {
         fun onSuggestionClicked(suggestion: String)
     }
 
@@ -36,21 +36,11 @@ class ArticleDescriptionsDialog(
         }
 
         binding.firstSuggestionFlag.setOnClickListener {
-            ArticleSuggestionReportDialog(context, binding.firstSuggestion.text.toString(), object :
-                ArticleSuggestionReportDialog.Callback {
-                override fun onReportClick() {
-                    dismiss()
-                }
-            }).show()
+            SuggestedArticleDescriptionsReportDialog(context, binding.firstSuggestion.text.toString()) { dismiss() }.show()
         }
 
         binding.secondSuggestionFlag.setOnClickListener {
-            ArticleSuggestionReportDialog(context, binding.firstSuggestion.text.toString(), object :
-                ArticleSuggestionReportDialog.Callback {
-                override fun onReportClick() {
-                    dismiss()
-                }
-            }).show()
+            SuggestedArticleDescriptionsReportDialog(context, binding.firstSuggestion.text.toString()) { dismiss() }.show()
         }
     }
 

@@ -1405,7 +1405,6 @@
   <string name="suggested_edits_article_descriptions_dialog_title">Suggested edits article descriptions suggestions dialog title text.</string>
   <string name="suggested_edits_article_descriptions_dialog_close">Suggested edits article descriptions suggestions dialog close button text for screen readers.</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Title text for dialog shown to users when they click on flag to report a machine generated suggestion.</string>
-  <string name="suggested_edits_descriptions_report_dialog_close">Suggested edits article descriptions suggestions dialog close button text for screen readers.</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Report label text suggesting that a suggested description does not provide enough information.</string>
   <string name="suggested_edits_descriptions_cannot_see_suggestion">Report label text suggesting that a suggested description cannot be seen.</string>
   <string name="suggested_edits_inappropriate_suggestion">Report label text suggesting that a suggested description is an inappropriate suggestion</string>

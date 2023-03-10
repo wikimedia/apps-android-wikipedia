@@ -8,11 +8,10 @@ import androidx.appcompat.app.AlertDialog
 import org.wikipedia.R
 import org.wikipedia.databinding.DialogDescriptionSuggestionReportBinding
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.views.ArticleDescriptionsDialog.Callback
 
-class ArticleSuggestionReportDialog(context: Context, suggestion: String, callback: Callback) : AlertDialog(context) {
+class SuggestedArticleDescriptionsReportDialog(context: Context, suggestion: String, callback: Callback) : AlertDialog(context) {
 
-    interface Callback {
+    fun interface Callback {
         fun onReportClick()
     }
 

@@ -23,7 +23,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.*
-import org.wikipedia.views.ArticleDescriptionsDialog
+import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 import java.util.*
 
 class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
@@ -415,12 +415,10 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             binding.suggestedDescButton.chipIcon = AppCompatResources.getDrawable(context, R.drawable.ic_robot_24)
         }
         binding.suggestedDescButton.setOnClickListener {
-            ArticleDescriptionsDialog(context, firstSuggestion, secondSuggestion, object : ArticleDescriptionsDialog.Callback {
-                override fun onSuggestionClicked(suggestion: String) {
-                    binding.viewDescriptionEditText.setText(suggestion)
-                    binding.viewDescriptionEditText.setSelection(binding.viewDescriptionEditText.text?.length ?: 0)
-                }
-            }).show()
+            SuggestedArticleDescriptionsDialog(context, firstSuggestion, secondSuggestion) { suggestion ->
+                binding.viewDescriptionEditText.setText(suggestion)
+                binding.viewDescriptionEditText.setSelection(binding.viewDescriptionEditText.text?.length ?: 0)
+            }.show()
         }
         if (!Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown) {
             binding.root.postDelayed({
