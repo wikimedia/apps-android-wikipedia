@@ -13,7 +13,6 @@ import android.text.style.StyleSpan
 import android.widget.EditText
 import android.widget.TextView
 import androidx.annotation.IntRange
-import androidx.core.text.toSpanned
 import okio.ByteString.Companion.encodeUtf8
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
@@ -107,17 +106,7 @@ object StringUtil {
     }
 
     fun fromHtml(source: String?): Spanned {
-        var sourceStr = source ?: return "".toSpanned()
-        if ("<" !in sourceStr && "&" !in sourceStr) {
-            // If the string doesn't contain any hints of HTML entities, then skip the expensive
-            // processing that fromHtml() performs.
-            return sourceStr.toSpanned()
-        }
-        sourceStr = sourceStr.replace("&#8206;", "\u200E")
-            .replace("&#8207;", "\u200F")
-            .replace("&amp;", "&")
-
-        return CustomHtmlParser.fromHtml(sourceStr)
+        return CustomHtmlParser.fromHtml(source)
     }
 
     fun highlightEditText(editText: EditText, parentText: String, highlightText: String) {

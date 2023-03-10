@@ -4,9 +4,13 @@ import android.text.Editable
 import android.text.Html.TagHandler
 import android.text.Spanned
 import android.text.style.URLSpan
+import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import androidx.core.text.getSpans
 import androidx.core.text.parseAsHtml
+import androidx.core.text.toSpanned
+import org.wikipedia.R
+import org.wikipedia.util.ResourceUtil
 import org.xml.sax.Attributes
 import org.xml.sax.ContentHandler
 import org.xml.sax.Locator
@@ -84,45 +88,57 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         wrapped?.skippedEntity(name)
     }
 
+    class CustomTagHandler(private val view: TextView?) : TagHandler {
+        private var lastAClass = ""
+
+        override fun handleTag(opening: Boolean, tag: String?, output: Editable?, attributes: Attributes?): Boolean {
+            if (tag == "img") {
+                return true
+            } else if (tag == "a") {
+                if (opening) {
+                    lastAClass = getValue(attributes, "class").orEmpty()
+                } else if (output != null && output.isNotEmpty()) {
+                    val spans = output.getSpans<URLSpan>(output.length - 1)
+                    if (spans.isNotEmpty()) {
+                        val span = spans.last()
+                        val start = output.getSpanStart(span)
+                        val end = output.getSpanEnd(span)
+                        output.removeSpan(span)
+                        val color = if (lastAClass == "new" && view != null) ResourceUtil.getThemedColor(view.context, R.attr.colorError) else -1
+                        output.setSpan(URLSpanNoUnderline(span.url, color), start, end, 0)
+                    }
+                }
+            }
+            return false
+        }
+    }
+
     companion object {
-        fun fromHtml(html: String): Spanned {
+
+        fun fromHtml(html: String?, view: TextView? = null): Spanned {
+            var sourceStr = html.orEmpty()
+
+            if ("<" !in sourceStr && "&" !in sourceStr) {
+                // If the string doesn't contain any hints of HTML entities, then skip the expensive
+                // processing that fromHtml() performs.
+                return sourceStr.toSpanned()
+            }
+
+            sourceStr = sourceStr.replace("&#8206;", "\u200E")
+                .replace("&#8207;", "\u200F")
+                .replace("&amp;", "&")
+
             // TODO: Investigate if it's necessary to inject a dummy tag at the beginning of the
             // text, since there are reports that XmlReader ignores the first tag by default?
-            // This would become something like "<inject/>$html".parseAsHtml(...)
-            return html.parseAsHtml(HtmlCompat.FROM_HTML_MODE_LEGACY, null, CustomHtmlParser(object : TagHandler {
-                var lastAClass = ""
-
-                override fun handleTag(opening: Boolean, tag: String?, output: Editable?, attributes: Attributes?): Boolean {
-                    if (tag == "img") {
-                        return true
-                    } else if (tag == "a") {
-                        if (opening) {
-                            lastAClass = getValue(attributes, "class").orEmpty()
-                        } else if (output != null && output.isNotEmpty()) {
-                            val spans = output.getSpans<URLSpan>(output.length - 1)
-                            if (spans.isNotEmpty()) {
-                                val span = spans.last()
-                                val start = output.getSpanStart(span)
-                                val end = output.getSpanEnd(span)
-                                output.removeSpan(span)
-                                // TODO: if we need to override the color (e.g. for showing red links):
-                                val color = -1 // if (lastAClass == "new") ResourcesCompat.getColor(WikipediaApp.instance.resources, R.color.red50, WikipediaApp.instance.theme) else -1
-                                output.setSpan(URLSpanNoUnderline(span.url, color), start, end, 0)
-                            }
-                        }
-                    }
-                    return false
-                }
-            }))
+            // This would become something like "<inject/>$sourceStr".parseAsHtml(...)
+            return sourceStr.parseAsHtml(HtmlCompat.FROM_HTML_MODE_LEGACY, null,
+                CustomHtmlParser(CustomTagHandler(view)))
         }
 
-        fun getValue(attributes: Attributes?, name: String): String? {
+        private fun getValue(attributes: Attributes?, name: String): String? {
             if (attributes != null) {
-                var i = 0
-                val n: Int = attributes.length
-                while (i < n) {
-                    if (name == attributes.getLocalName(i)) return attributes.getValue(i)
-                    i++
+                for (i in 0 until attributes.length) {
+                    if (name == attributes.getLocalName(i)) { return attributes.getValue(i) }
                 }
             }
             return null

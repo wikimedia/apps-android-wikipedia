@@ -12,6 +12,7 @@ import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkThreadHeaderBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.page.PageTitle
+import org.wikipedia.richtext.setHtml
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -57,6 +58,6 @@ class TalkThreadHeaderView constructor(context: Context, attrs: AttributeSet? = 
 
         binding.otherContentText.movementMethod = movementMethod
         binding.otherContentText.isVisible = !item?.othercontent.isNullOrEmpty()
-        binding.otherContentText.text = StringUtil.fromHtml(StringUtil.removeStyleTags(item?.othercontent.orEmpty()))
+        binding.otherContentText.setHtml(StringUtil.removeStyleTags(item?.othercontent.orEmpty()))
     }
 }
