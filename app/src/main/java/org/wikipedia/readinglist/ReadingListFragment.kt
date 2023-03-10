@@ -34,6 +34,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.ReadingListsSharingAnalyticsHelper
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.PageDownloadEvent
@@ -65,7 +66,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private var previewSaveDialog: AlertDialog? = null
     private val disposables = CompositeDisposable()
     private var isPreview: Boolean = false
-    private var readingList: ReadingList? = null
     private var readingListId: Long = 0
     private val adapter = ReadingListPageItemAdapter()
     private var actionMode: ActionMode? = null
@@ -80,6 +80,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private var currentSearchQuery: String? = null
     private var articleLimitMessageShown = false
     private var exclusiveTooltipRunnable: Runnable? = null
+    var readingList: ReadingList? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -306,6 +307,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                         withContext(Dispatchers.Main) {
                             readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
                             readingList?.let {
+                                ReadingListsSharingAnalyticsHelper.logReceivePreview(requireContext(), it)
                                 binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
                             }
                             update()
