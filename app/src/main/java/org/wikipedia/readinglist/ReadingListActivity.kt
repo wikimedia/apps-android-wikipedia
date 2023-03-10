@@ -12,7 +12,6 @@ import org.wikipedia.util.ResourceUtil.getThemedColor
 
 class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
 
-    private var isPreview = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.statusBarColor = Color.TRANSPARENT
@@ -20,7 +19,7 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
     }
 
     public override fun createFragment(): ReadingListFragment {
-        isPreview = intent.getBooleanExtra(EXTRA_READING_LIST_PREVIEW, false)
+        val isPreview = intent.getBooleanExtra(EXTRA_READING_LIST_PREVIEW, false)
         return if (isPreview) {
             ReadingListFragment.newInstance(true)
         } else {
@@ -34,7 +33,7 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        if (isPreview) {
+        if (intent.getBooleanExtra(EXTRA_READING_LIST_PREVIEW, false)) {
             ReadingListsSharingAnalyticsHelper.logReceiveCancel(this, fragment.readingList)
         }
     }
