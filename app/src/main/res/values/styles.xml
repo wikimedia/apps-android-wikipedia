@@ -391,8 +391,8 @@
 
     <style name="FlatButton.Small.Tooltip">
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:backgroundTint">@color/white15</item>
-        <item name="backgroundTint">@color/white15</item>
+        <item name="android:backgroundTint">?attr/background_color</item>
+        <item name="backgroundTint">?attr/background_color</item>
         <item name="android:foreground">?android:selectableItemBackground</item>
         <item name="android:layout_marginBottom">-3dp</item>
     </style>
@@ -472,7 +472,7 @@
     </style>
 
     <style name="CounterOverflowTextAppearance" parent="@style/TextAppearance.Design.Counter.Overflow">
-        <item name="android:textColor">@color/red50</item>
+        <item name="android:textColor">?destructive_color</item>
     </style>
 
     <style name="TextInputLayoutErrorTextAppearance">
@@ -550,7 +550,7 @@
     </style>
 
     <style name="EditSectionTextInputLayoutStyle" parent="TextInputLayoutStyle">
-        <item name="android:textColorHighlight">@color/find_in_page_active</item>
+        <item name="android:textColorHighlight">?attr/focus_color</item>
         <item name="android:textColor">?attr/primary_color</item>
         <item name="strokeColor">@android:color/transparent</item>
     </style>

@@ -54,7 +54,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
             binding.diffText.setTextColor(if (diffSize > 0) ContextCompat.getColor(context, R.color.green600)
             else ResourceUtil.getThemedColor(context, R.attr.secondary_color))
         } else {
-            binding.diffText.setTextColor(ContextCompat.getColor(context, R.color.red50))
+            binding.diffText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.destructive_color))
         }
         val userIcon = if (itemRevision.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_avatar
         binding.userNameText.setIconResource(userIcon)

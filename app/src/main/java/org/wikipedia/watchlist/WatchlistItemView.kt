@@ -91,7 +91,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
                 binding.diffText.setTextColor(if (diffByteCount > 0) ContextCompat.getColor(context, R.color.green600)
                 else ResourceUtil.getThemedColor(context, R.attr.secondary_color))
             } else {
-                binding.diffText.setTextColor(ContextCompat.getColor(context, R.color.red50))
+                binding.diffText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.destructive_color))
             }
             binding.diffText.isVisible = true
             binding.containerView.alpha = 1.0f
