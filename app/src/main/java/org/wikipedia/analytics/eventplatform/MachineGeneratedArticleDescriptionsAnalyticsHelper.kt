@@ -3,6 +3,7 @@ package org.wikipedia.analytics.eventplatform
 import android.content.Context
 
 object MachineGeneratedArticleDescriptionsAnalyticsHelper {
+
     private const val MACHINE_GEN_DESC_SUGGESTIONS = "MachineGeneratedArticleSuggestions"
 
     fun articleDescriptionEditingStart(context: Context) {
