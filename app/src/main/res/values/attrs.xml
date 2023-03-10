@@ -60,7 +60,7 @@
     <attr name="color_group_70" format="color" />
     <attr name="action_mode_green_background" format="color"/>
     <attr name="border" format="color"/>
-    <attr name="chip_background" format="color"/>
+    <attr name="app_widget_background" format="color"/>
 
     <declare-styleable name="AutoFitRecyclerView">
         <attr name="minColumnWidth" format="dimension" />

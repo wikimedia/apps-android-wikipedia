@@ -3,6 +3,6 @@
     android:padding="10dp"
     android:shape="rectangle">
     <stroke android:width="1dp" android:color="?attr/border" />
-    <solid android:color="?attr/chip_background" />
+    <solid android:color="?attr/app_widget_background" />
     <corners android:radius="8dp" />
 </shape>

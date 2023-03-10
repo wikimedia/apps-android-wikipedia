@@ -10,9 +10,9 @@ import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptions
 import org.wikipedia.databinding.DialogDescriptionSuggestionReportBinding
 import org.wikipedia.util.FeedbackUtil
 
-class ArticleSuggestionReportDialog(context: Context, suggestion: String, callback: Callback) : AlertDialog(context) {
+class SuggestedArticleDescriptionsReportDialog(context: Context, suggestion: String, callback: Callback) : AlertDialog(context) {
 
-    interface Callback {
+    fun interface Callback {
         fun onReportClick()
     }
 
