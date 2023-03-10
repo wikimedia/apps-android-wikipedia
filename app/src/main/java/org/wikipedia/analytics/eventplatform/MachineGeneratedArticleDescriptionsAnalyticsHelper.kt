@@ -3,6 +3,7 @@ package org.wikipedia.analytics.eventplatform
 import android.content.Context
 
 object MachineGeneratedArticleDescriptionsAnalyticsHelper {
+    private const val MACHINE_GEN_DESC_SUGGESTIONS = "MachineGeneratedArticleSuggestions"
 
     fun articleDescriptionEditingStart(context: Context) {
         EventPlatformClient.submit(
@@ -26,7 +27,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "MachineGeneratedArticleSuggestion.suggestedDescriptionsButton.shown"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.suggestedDescriptionsButton.shown"
             )
         )
     }
@@ -36,7 +37,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "MachineGeneratedArticleSuggestionsApiResponseDetails.articleName:$articleName.isBlp:$isBlp.NumberOfSuggestionsOffered:${suggestionsList.size}.Suggestions:${
+                "$MACHINE_GEN_DESC_SUGGESTIONS.ApiResponseDetails.articleName:$articleName.isBlp:$isBlp.NumberOfSuggestionsOffered:${suggestionsList.size}.Suggestions:${
                     suggestionsList.joinToString(",")
                 }.logged"
             )
@@ -47,7 +48,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "MachineGeneratedArticleSuggestion.suggestionsDialogs.chosenSuggestion:$suggestion"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.suggestionsDialogs.chosenSuggestion:$suggestion"
             )
         )
     }
@@ -55,7 +56,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "MachineGeneratedArticleSuggestion.suggestionsDialogs.dismissed"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.suggestionsDialogs.dismissed"
             )
         )
     }
@@ -64,7 +65,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "MachineGeneratedArticleSuggestions.ReportDialog.$suggestion.reportReasons:${
+                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.$suggestion.reportReasons:${
                     reportReasonsList.joinToString(",")
                 }.reported"
             )
@@ -75,7 +76,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "MachineGeneratedArticleSuggestions.ReportDialog.$suggestion.reportReasons:${
+                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.$suggestion.reportReasons:${
                     reportReasonsList.joinToString(",")
                 }.cancelled"
             )
