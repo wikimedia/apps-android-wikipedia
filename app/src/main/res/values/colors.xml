@@ -47,10 +47,5 @@
 
     <!-- TODO: remove the old colors below -->
     <color name="red90">#FFe7e6</color>
-    <color name="red50">#d33</color>
-    <color name="green90">#d5fdf4</color>
-    <color name="yellow90">#fef6e7</color>
-    <color name="black38">#61000000</color>
-    <color name="white50">#80ffffff</color>
 
 </resources>
