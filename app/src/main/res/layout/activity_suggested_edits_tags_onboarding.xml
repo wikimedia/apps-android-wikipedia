@@ -7,7 +7,7 @@
     <org.wikipedia.onboarding.OnboardingPageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:centeredImage="?attr/image_tags_onboarding_image"
+        app:centeredImage="?attr/image_tags_onboarding_drawables"
         app:imageSize="160dp"
         app:primaryText="@string/suggested_edits_image_tags_onboarding_title"
         app:secondaryText="@string/suggested_edits_image_tags_onboarding_text"

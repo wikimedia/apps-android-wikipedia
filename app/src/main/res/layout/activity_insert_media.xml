@@ -38,7 +38,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="80dp"
-                    android:src="?attr/image_tags_onboarding_image"
+                    android:src="?attr/image_tags_onboarding_drawables"
                     android:layout_marginTop="16dp"
                     android:contentDescription="@string/insert_media_search_description" />
 

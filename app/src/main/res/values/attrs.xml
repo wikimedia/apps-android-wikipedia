@@ -17,16 +17,18 @@
     <attr name="addition_color" format="color" />
     <attr name="overlay_color" format="color" />
 
-    <!-- TODO: need to revisit -->
+    <!-- Color states -->
+    <attr name="nav_tab_item_color_state" format="reference" />
     <attr name="list_separator_drawable" format="reference"/>
     <attr name="list_separator_drawable_light" format="reference"/>
-    <attr name="color_group_67" format="color"/>
 
-    <!-- TODO: review and remove the old references/colors -->
-    <attr name="nav_tab_item_color_state" format="reference" />
-    <attr name="image_tags_onboarding_image" format="reference"/>
+    <!-- Drawables -->
+    <attr name="image_tags_onboarding_drawables" format="reference"/>
     <attr name="sync_reading_list_prompt_drawable" format="reference"/>
     <attr name="talk_page_empty_state_drawable" format="reference" />
+
+    <!-- TODO: need to revisit -->
+    <attr name="color_group_67" format="color"/>
 
     <declare-styleable name="AutoFitRecyclerView">
         <attr name="minColumnWidth" format="dimension" />
