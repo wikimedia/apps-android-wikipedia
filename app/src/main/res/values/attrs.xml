@@ -15,6 +15,7 @@
     <attr name="highlight_color" format="color" />
     <attr name="focus_color" format="color" />
     <attr name="addition_color" format="color" />
+    <attr name="overlay_color" format="color" />
 
     <!-- TODO: need to revisit -->
     <attr name="list_separator_drawable" format="reference"/>

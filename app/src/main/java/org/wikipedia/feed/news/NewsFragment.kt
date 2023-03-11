@@ -48,7 +48,7 @@ class NewsFragment : Fragment() {
 
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.wiki.languageCode)
 
-        binding.gradientView.background = GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP)
+        binding.gradientView.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(requireContext(), R.attr.overlay_color), Gravity.TOP)
         val imageUri = viewModel.item.thumb()
         if (imageUri == null) {
             binding.appBarLayout.setExpanded(false, false)

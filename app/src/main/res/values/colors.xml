@@ -50,10 +50,7 @@
     <color name="red50">#d33</color>
     <color name="green90">#d5fdf4</color>
     <color name="yellow90">#fef6e7</color>
-    <color name="black54">#8A000000</color>
     <color name="black38">#61000000</color>
-    <color name="black26">#42000000</color>
-    <color name="white70">#B3ffffff</color>
     <color name="white50">#80ffffff</color>
 
 </resources>

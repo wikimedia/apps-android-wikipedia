@@ -18,6 +18,7 @@
         <item name="highlight_color">@color/yellow500</item>
         <item name="focus_color">@color/orange500</item>
         <item name="addition_color">@color/blue300_15</item>
+        <item name="overlay_color">@color/black_30</item>
         <!-- Component updates -->
 
         <!-- TODO: review and remove the old references/colors -->
