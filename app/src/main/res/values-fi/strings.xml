@@ -504,6 +504,7 @@
   <string name="reading_list_sort_by_created">Lajittele luomispäivän mukaan (uusin)</string>
   <string name="reading_list_sort_by_created_desc">Lajittele luomispäivän mukaan (vanhin)</string>
   <string name="reading_list_menu_delete">Poista lista</string>
+  <string name="reading_list_menu_export">Vie lista</string>
   <string name="reading_list_menu_select">Valitse</string>
   <string name="reading_list_menu_unselect">Poista valinta</string>
   <string name="reading_list_menu_rename">Muokkaa nimeä/kuvausta</string>
@@ -603,9 +604,15 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Poista</string>
   <string name="reading_list_activity_title">Lukulista: %s</string>
+  <string name="reading_lists_action_menu_export_lists">Vie</string>
+  <string name="reading_lists_import_file_picker_title">Valitse tuotava tiedosto</string>
+  <string name="reading_lists_import_failure_message">Lukulistojen tuonti epäonnistui</string>
   <string name="reading_lists_preview_save_button">Tallenna</string>
+  <string name="reading_lists_preview_save_dialog_title">Tallenna lista</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Otsikko</string>
   <string name="reading_lists_preview_save_dialog_cancel">Peruuta</string>
   <string name="reading_lists_preview_save_dialog_save">Tallenna</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Näytä</string>
   <string name="user_option_sync_label">Asetukset</string>
   <string name="notification_reverted_title">Kumottu muokkaus</string>
   <string name="notification_channel_title">Artikkelien lataaminen</string>
@@ -1255,6 +1262,10 @@
   <string name="watchlist_page_moved">Siirretty</string>
   <string name="watchlist_page_protected">Suojattu</string>
   <string name="watchlist_page_deleted">Poistettu</string>
+  <string name="watchlist_filter_all_text">Kaikki</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata-muokkaukset</string>
+  <string name="watchlist_filter_type_of_change_new_users">Uudet käyttäjät</string>
+  <string name="watchlist_filter_reset_button">Nollaa</string>
   <string name="preview_edit_title">Esikatsele muokkausta</string>
   <string name="preview_edit_summarize_edit_title">Muokkauksen yhteenveto</string>
   <string name="preview_edit_summarize_edit_hint">Kuinka paransit tätä sivua?</string>
@@ -1288,7 +1299,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Lukulista tuotu</string>
   <string name="reading_list_share_menu_label">Jaa...</string>
   <string name="reading_list_share_menu_tooltip">Jaa tämä lukulista muiden kanssa</string>
-  <string name="reading_list_share_title_tooltip">Listaan tekemäsi muutokset eivät näy muille.</string>
   <string name="reading_list_share_message_v2">Hei! Haluan jakaa Wikipedian lukulistani kanssasi:</string>
   <string name="reading_list_share_survey_title">Voisitko auttaa meitä parantamaan lukulistojen jakamista?</string>
   <string name="reading_list_share_survey_body">Lukulistojen jakaminen on testiominaisuus, jonka kehittämiseen tarvitsemme palautettasi.</string>
