@@ -82,7 +82,7 @@
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_light</item>
 
         <!-- TODO: review and remove the old references/colors -->
-        <item name="color_group_67">@color/red90</item>
+        <item name="highlight_color">@color/red90</item>
 
     </style>
 

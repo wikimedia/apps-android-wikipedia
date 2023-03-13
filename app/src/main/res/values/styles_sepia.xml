@@ -21,9 +21,6 @@
         <item name="overlay_color">@color/black_30</item>
         <!-- Component updates -->
 
-        <!-- TODO: review and remove the old references/colors -->
-        <item name="color_group_67">@android:color/transparent</item>
-
     </style>
 
 </resources>

@@ -36,9 +36,6 @@
         <item name="image_tags_onboarding_drawables">@drawable/ic_image_tags_onboarding_dark</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_dark</item>
 
-        <!-- TODO: review and remove the old references/colors -->
-        <!-- Overrides of our own custom color attributes -->
-        <item name="color_group_67">@android:color/transparent</item>
     </style>
 
     <style name="DialogDark" parent="Theme.MaterialComponents.Dialog">
