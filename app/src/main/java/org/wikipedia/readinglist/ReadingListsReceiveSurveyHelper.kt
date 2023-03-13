@@ -59,7 +59,7 @@ object ReadingListsReceiveSurveyHelper {
     }
 
     private fun fallsWithinDateRange(): Boolean {
-        val endTime = GregorianCalendar(2022, Calendar.DECEMBER, 30)
+        val endTime = GregorianCalendar(2023, Calendar.APRIL, 17)
         return Calendar.getInstance().timeInMillis < endTime.timeInMillis
     }
 
