@@ -124,9 +124,10 @@ class EditSummaryFragment : Fragment() {
                 L.e(throwable)
             }) {
                 withContext(Dispatchers.IO) {
-                    val page = ServiceFactory.get(title.wikiSite)
-                        .getWatchedStatus(title.prefixedText).query?.firstPage()!!
-                    binding.watchPageCheckBox.isChecked = page.watched
+                    val query = ServiceFactory.get(title.wikiSite)
+                        .getWatchedStatusWithUserOptions(title.prefixedText).query!!
+                    binding.watchPageCheckBox.isChecked = query.firstPage()!!.watched ||
+                            query.userInfo?.options?.watchDefault == 1
                 }
             }
         } else {

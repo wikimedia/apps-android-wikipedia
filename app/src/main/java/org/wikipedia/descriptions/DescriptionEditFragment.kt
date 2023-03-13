@@ -22,6 +22,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
+import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentDescriptionEditBinding
@@ -192,6 +193,9 @@ class DescriptionEditFragment : Fragment() {
     }
 
     private fun setUpEditView(savedInstanceState: Bundle?) {
+        if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
+            MachineGeneratedArticleDescriptionsAnalyticsHelper.articleDescriptionEditingStart(requireContext())
+        }
         binding.fragmentDescriptionEditView.setAction(action)
         binding.fragmentDescriptionEditView.setPageTitle(pageTitle)
         highlightText?.let { binding.fragmentDescriptionEditView.setHighlightText(it) }
@@ -247,6 +251,9 @@ class DescriptionEditFragment : Fragment() {
     private inner class EditViewCallback : DescriptionEditView.Callback {
         override fun onSaveClick() {
             if (!binding.fragmentDescriptionEditView.showingReviewContent()) {
+                if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
+                    MachineGeneratedArticleDescriptionsAnalyticsHelper.articleDescriptionEditingEnd(requireContext())
+                }
                 binding.fragmentDescriptionEditView.loadReviewContent(true)
             } else {
                 binding.fragmentDescriptionEditView.setError(null)

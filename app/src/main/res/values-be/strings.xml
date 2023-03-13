@@ -1380,6 +1380,8 @@
   <string name="watchlist_page_moved">Перамешчана</string>
   <string name="watchlist_page_protected">Абаронена</string>
   <string name="watchlist_page_deleted">Выдалена</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Праўкі старонкі</string>
+  <string name="watchlist_filter_type_of_change_new_users">Новыя ўдзельнікі</string>
   <string name="preview_edit_title">Перадпрагляд праўкі</string>
   <string name="preview_edit_summarize_edit_title">Тлумачэнне праўкі</string>
   <string name="preview_edit_summarize_edit_hint">Як вы палепшылі гэтую старонку?</string>
@@ -1413,7 +1415,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Спіс чытання імпартаваны</string>
   <string name="reading_list_share_menu_label">Падзяліцца...</string>
   <string name="reading_list_share_menu_tooltip">Падзяліцца гэтым спісам для чытання з іншымі</string>
-  <string name="reading_list_share_title_tooltip">Змяненні, якія вы ўнеслі ў гэты спіс, не бачны іншым.</string>
   <string name="reading_list_share_message_v2">Прывітанне! Я хацеў бы падзяліцца з вамі сваім спісам для чытання ў Вікіпедыі:</string>
   <string name="reading_list_share_survey_title">Ці не маглі б вы дапамагчы нам палепшыць \"Падзяліцца спісам для чытання\"?</string>
   <string name="reading_list_share_survey_body">\"Падзяліцца спісам для чытання\" – гэта тэставая функцыя, і нам патрабуюцца вашыя водгукі, каб палепшыць або выдаліць яе.</string>

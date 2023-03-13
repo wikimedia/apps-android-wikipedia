@@ -1313,7 +1313,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Leslisti fluttur inn</string>
   <string name="reading_list_share_menu_label">Deila…</string>
   <string name="reading_list_share_menu_tooltip">Deildu þessum leslista með öðrum</string>
-  <string name="reading_list_share_title_tooltip">Breytingar sem þú gerir á þessum lista eru ekki sýnilegar öðrum.</string>
   <string name="reading_list_share_message_v2">Hæ! Mig langar að deila Wikipedia-leslistanum mínum með þér:</string>
   <string name="reading_list_share_survey_title">Gætirðu hjálpað okkur að bæta „Deila leslistum“?</string>
   <string name="reading_list_share_survey_body">\"Deila leslistum\" er prófunareiginleiki og við þurfum álit þitt til að bæta eða fjarlægja hann.</string>
