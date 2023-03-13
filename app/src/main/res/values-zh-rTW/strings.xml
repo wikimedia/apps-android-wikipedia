@@ -2,6 +2,7 @@
 <!-- Authors:
 * A2093064
 * Chubit
+* Cookai1205
 * Cwlin0416
 * Dbrant
 * DinoWP
@@ -1306,6 +1307,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 個月</string>
   <string name="watchlist_expiry_dialog_six_months">6 個月</string>
   <string name="watchlist_empty">在您的監視清單裡沒有任何條目。</string>
+  <string name="watchlist_search">在監視清單搜尋</string>
   <string name="watchlist_filter_all">全部</string>
   <string name="watchlist_filter_talk">討論</string>
   <string name="watchlist_filter_pages">頁面</string>
@@ -1313,6 +1315,55 @@
   <string name="watchlist_page_moved">已移動</string>
   <string name="watchlist_page_protected">已保護</string>
   <string name="watchlist_page_deleted">已刪除</string>
+  <string name="watchlist_filter_title">監視清單篩選</string>
+  <string name="watchlist_filter_wiki_filter_header">維基</string>
+  <string name="watchlist_filter_all_text">全部</string>
+  <string name="watchlist_filter_watchlist_activity_header">監視列表活動</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">不可見變更</string>
+  <string name="watchlist_filter_watchlist_activity_seen">可見變更</string>
+  <string name="watchlist_filter_contribution_quality_header">貢獻品質預測</string>
+  <string name="watchlist_filter_contribution_quality_good">非常良好</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">可能有問題</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">可能有問題</string>
+  <string name="watchlist_filter_contribution_quality_bad">非常可能有問題</string>
+  <string name="watchlist_filter_user_intent_header">使用者目的預測</string>
+  <string name="watchlist_filter_user_intent_good">非常可能是善意</string>
+  <string name="watchlist_filter_user_intent_may_problems">也許是惡意</string>
+  <string name="watchlist_filter_user_intent_likely_problems">可能是惡意</string>
+  <string name="watchlist_filter_user_intent_bad">非常可能是惡意</string>
+  <string name="watchlist_filter_user_status_header">使用者註冊及經驗</string>
+  <string name="watchlist_filter_user_status_unregistered">未註冊</string>
+  <string name="watchlist_filter_user_status_registered">已註冊</string>
+  <string name="watchlist_filter_user_status_newcomers">新手</string>
+  <string name="watchlist_filter_user_status_learners">初學者</string>
+  <string name="watchlist_filter_user_status_experienced">有經驗的使用者</string>
+  <string name="watchlist_filter_contribution_authorship_header">貢獻的作者</string>
+  <string name="watchlist_filter_contribution_authorship_own">由您做出的更改</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">其他人的變更</string>
+  <string name="watchlist_filter_automated_contributions_header">自動化貢獻</string>
+  <string name="watchlist_filter_automated_contributions_bot">機器人</string>
+  <string name="watchlist_filter_automated_contributions_human">非機器人</string>
+  <string name="watchlist_filter_significance_header">重要性</string>
+  <string name="watchlist_filter_significance_minor">小修改</string>
+  <string name="watchlist_filter_significance_edits">非小修改</string>
+  <string name="watchlist_filter_latest_revisions_header">最新修訂</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">最新修訂</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">不是最新修訂</string>
+  <string name="watchlist_filter_type_of_change_header">更改類型</string>
+  <string name="watchlist_filter_type_of_change_page_edits">頁面編輯次數</string>
+  <string name="watchlist_filter_type_of_change_page_creations">頁面建立次數</string>
+  <string name="watchlist_filter_type_of_change_category_changes">分類更改次數</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">維基數據統計</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">記錄的操作</string>
+  <string name="watchlist_filter_type_of_change_new_users">新使用者</string>
+  <string name="watchlist_filter_reset_button">重新設定</string>
+  <string name="watchlist_search_bar_hint">搜尋或篩選監視清單</string>
+  <string name="watchlist_search_bar_filter_hint">監視清單篩選</string>
+  <string name="watchlist_empty_search_message">沒有結果，請嘗試刪除%s來查看更多結果。</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d 個篩選</item>
+    <item quantity="other">%d 個篩選</item>
+  </plurals>
   <string name="preview_edit_title">預覽編輯</string>
   <string name="preview_edit_summarize_edit_title">總結編輯</string>
   <string name="preview_edit_summarize_edit_hint">您是如何改善此頁面？</string>
@@ -1346,7 +1397,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">已匯入閱讀清單</string>
   <string name="reading_list_share_menu_label">分享…</string>
   <string name="reading_list_share_menu_tooltip">與其他人分享這份閱讀清單</string>
-  <string name="reading_list_share_title_tooltip">其他人不會看見您對此清單做出的更改。</string>
   <string name="reading_list_share_message_v2">您好！我想與您分享我的維基百科閱讀清單：</string>
   <string name="reading_list_share_survey_title">您願意幫助我們改善「分享閱讀清單」嗎？</string>
   <string name="reading_list_share_survey_body">「分享閱讀清單」是一項測試功能，我們需要您的意見回饋來改善、或是移除這項功能。</string>
