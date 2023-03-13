@@ -54,18 +54,20 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         val iconRes: Int
         val iconTint: Int
         val textRes: Int
+        val circleProgress: Double
 
         when (severity) {
-            0 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.success_color; textRes = R.string.suggested_edits_quality_perfect_text; }
-            1 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.success_color; textRes = R.string.suggested_edits_quality_excellent_text; }
-            2 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.success_color; textRes = R.string.suggested_edits_quality_very_good_text; }
-            3 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.success_color; textRes = R.string.suggested_edits_quality_good_text; }
-            4 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.highlight_color; textRes = R.string.suggested_edits_quality_okay_text; }
-            5 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.highlight_color; textRes = R.string.suggested_edits_quality_sufficient_text; }
-            else -> { iconRes = R.drawable.ic_exclamation_borderless; iconTint = R.attr.destructive_color; textRes = R.string.suggested_edits_quality_poor_text; }
+            0 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.success_color; textRes = R.string.suggested_edits_quality_perfect_text; circleProgress = 100.0 }
+            1 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.success_color; textRes = R.string.suggested_edits_quality_excellent_text; circleProgress = 85.0 }
+            2 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.success_color; textRes = R.string.suggested_edits_quality_very_good_text; circleProgress = 75.0 }
+            3 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.success_color; textRes = R.string.suggested_edits_quality_good_text; circleProgress = 55.0 }
+            4 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.highlight_color; textRes = R.string.suggested_edits_quality_okay_text; circleProgress = 40.0 }
+            5 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.highlight_color; textRes = R.string.suggested_edits_quality_sufficient_text; circleProgress = 30.0 }
+            else -> { iconRes = R.drawable.ic_exclamation_borderless; iconTint = R.attr.destructive_color; textRes = R.string.suggested_edits_quality_poor_text; circleProgress = 20.0 }
         }
 
-        binding.circularProgressBar.setCurrentProgress(100.0) // TODO: verify if we are no longer need the percentage.
+        binding.circularProgressBar.setCurrentProgress(circleProgress)
+        binding.circularProgressBar.progressBackgroundColor = ResourceUtil.getThemedColor(context, R.attr.paper_color)
         binding.circularProgressBar.progressColor = ResourceUtil.getThemedColor(context, iconTint)
         binding.circularProgressBar.visibility = View.VISIBLE
 
