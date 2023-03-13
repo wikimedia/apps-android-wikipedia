@@ -1355,7 +1355,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Список для читання імпортовано</string>
   <string name="reading_list_share_menu_label">Поширити…</string>
   <string name="reading_list_share_menu_tooltip">Поділитися цим списком для читання з іншими</string>
-  <string name="reading_list_share_title_tooltip">Інші не бачать змін, які ви вносите в цей список.</string>
   <string name="reading_list_share_message_v2">Привіт! Хочу поділитися з вами своїм списком для читання у Вікіпедії:</string>
   <string name="reading_list_share_survey_title">Чи могли б ви допомогти нам покращити функцію спільних списків для читання?</string>
   <string name="reading_list_share_survey_body">Спільні списки читання є тестовою функцією і нам потрібні ваші відгуки, щоб ми могли її покращити або прибрати.</string>
