@@ -35,6 +35,7 @@
 * MSClaudiu
 * Macofe
 * MuratTheTurkish
+* Naheulf
 * NemesisIII
 * Niridya
 * Noé
@@ -1325,6 +1326,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 mois</string>
   <string name="watchlist_expiry_dialog_six_months">6 mois</string>
   <string name="watchlist_empty">Vous n’avez aucun article dans votre liste de suivi.</string>
+  <string name="watchlist_search">Rechercher dans la liste de suivi</string>
   <string name="watchlist_filter_all">Tous</string>
   <string name="watchlist_filter_talk">Discussion</string>
   <string name="watchlist_filter_pages">Pages</string>
@@ -1332,6 +1334,55 @@
   <string name="watchlist_page_moved">Déplacé</string>
   <string name="watchlist_page_protected">Protégé</string>
   <string name="watchlist_page_deleted">Supprimé</string>
+  <string name="watchlist_filter_title">Filtre de la liste de suivi</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">Tous</string>
+  <string name="watchlist_filter_watchlist_activity_header">Activité sur la liste de suivi</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Modifications non vues</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Modifications déjà vues</string>
+  <string name="watchlist_filter_contribution_quality_header">Prédictions de qualité de la contribution</string>
+  <string name="watchlist_filter_contribution_quality_good">Très vraisemblablement bonnes</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Peuvent avoir des problèmes</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Ont probablement des problèmes</string>
+  <string name="watchlist_filter_contribution_quality_bad">Fortement susceptibles d’avoir des problèmes</string>
+  <string name="watchlist_filter_user_intent_header">Prédictions des intentions de l’utilisateur</string>
+  <string name="watchlist_filter_user_intent_good">Très vraisemblablement de bonne foi</string>
+  <string name="watchlist_filter_user_intent_may_problems">Peut-être de mauvaise foi</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Probablement de mauvaise foi</string>
+  <string name="watchlist_filter_user_intent_bad">Très probablement de mauvaise foi</string>
+  <string name="watchlist_filter_user_status_header">Inscription et expérience des utilisateurs</string>
+  <string name="watchlist_filter_user_status_unregistered">Non inscrit</string>
+  <string name="watchlist_filter_user_status_registered">Inscrit</string>
+  <string name="watchlist_filter_user_status_newcomers">Nouveaux arrivants</string>
+  <string name="watchlist_filter_user_status_learners">Apprentis</string>
+  <string name="watchlist_filter_user_status_experienced">Utilisateurs expérimentés</string>
+  <string name="watchlist_filter_contribution_authorship_header">Paternité des contributions</string>
+  <string name="watchlist_filter_contribution_authorship_own">Modifications effectuées par vous</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Modifications effectuées par d’autres</string>
+  <string name="watchlist_filter_automated_contributions_header">Contributions automatisées</string>
+  <string name="watchlist_filter_automated_contributions_bot">Robot</string>
+  <string name="watchlist_filter_automated_contributions_human">Humain (non robot)</string>
+  <string name="watchlist_filter_significance_header">Importance</string>
+  <string name="watchlist_filter_significance_minor">Modifications mineures</string>
+  <string name="watchlist_filter_significance_edits">Modifications non mineures</string>
+  <string name="watchlist_filter_latest_revisions_header">Dernières versions</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Dernière version</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Pas la dernière version</string>
+  <string name="watchlist_filter_type_of_change_header">Type de modification</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Modifications de page</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Créations de page</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Modifications de catégorie</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Modifications dans Wikidata</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Actions journalisées</string>
+  <string name="watchlist_filter_type_of_change_new_users">Nouveaux utilisateurs</string>
+  <string name="watchlist_filter_reset_button">Réinitialiser</string>
+  <string name="watchlist_search_bar_hint">Rechercher ou filtrer la liste de suivi</string>
+  <string name="watchlist_search_bar_filter_hint">Filtre de la liste de suivi</string>
+  <string name="watchlist_empty_search_message">Aucun résultat, essayez de supprimer %s pour en voir plus.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d filtre</item>
+    <item quantity="other">%d filtres</item>
+  </plurals>
   <string name="preview_edit_title">Aperçu de la modification</string>
   <string name="preview_edit_summarize_edit_title">Résumer la modification</string>
   <string name="preview_edit_summarize_edit_hint">Comment avez-vous amélioré cette page ?</string>
@@ -1365,7 +1416,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Liste de lecture importée</string>
   <string name="reading_list_share_menu_label">Partager...</string>
   <string name="reading_list_share_menu_tooltip">Partager cette liste de lecture avec d’autres personnes</string>
-  <string name="reading_list_share_title_tooltip">Les modifications que vous apportez à cette liste ne sont pas visibles pour les autres.</string>
   <string name="reading_list_share_message_v2">Bonjour ! J’aimerais partager ma liste de lecture Wikipédia avec vous :</string>
   <string name="reading_list_share_survey_title">Pourriez-vous nous aider à améliorer la fonctionnalité « Partager des listes de lecture » ?</string>
   <string name="reading_list_share_survey_body">Le « Partage de listes de lecture » est une fonctionnalité en test et nous avons besoin de vos commentaires pour l’améliorer ou la supprimer.</string>
