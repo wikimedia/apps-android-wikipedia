@@ -476,6 +476,9 @@
   <string name="reading_list_articles_already_exist_message">좋습니다! %s은(는) 이미 모든 문서를 포함하고 있습니다.</string>
   <string name="reading_list_added_view_button">목록 보기</string>
   <string name="reading_list_add_to_list_button">목록에 추가</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="other">%d개 문서</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">글 1개, %2$.2f MB</item>
     <item quantity="other">글 %1$d개, %2$.2f MB</item>
@@ -1274,7 +1277,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">읽기 목록을 가져왔습니다</string>
   <string name="reading_list_share_menu_label">공유...</string>
   <string name="reading_list_share_menu_tooltip">이 읽기 목록을 다른 사람과 공유</string>
-  <string name="reading_list_share_title_tooltip">이 목록에 대한 변경 사항은 다른 사람에게 표시되지 않습니다.</string>
   <string name="reading_list_share_message_v2">안녕하세요! 저의 위키백과 읽기 목록을 당신께 공유하고 싶습니다:</string>
   <string name="reading_list_share_survey_title">\"읽기 목록 공유\" 개선에 도움을 주시겠습니까?</string>
   <string name="reading_list_share_survey_body">\"읽기 목록 공유\"는 시험 기능이며, 이를 개선하거나 제거하려면 여러분의 의견이 필요합니다.</string>
