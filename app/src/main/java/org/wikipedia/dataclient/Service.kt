@@ -444,6 +444,10 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched")
     suspend fun getWatchedStatus(@Query("titles") titles: String): MwQueryResponse
 
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched&meta=userinfo&uiprop=options")
+    suspend fun getWatchedStatusWithUserOptions(@Query("titles") titles: String): MwQueryResponse
+
     @get:GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
     @get:Headers("Cache-Control: no-cache")
     val watchlist: Observable<MwQueryResponse>
