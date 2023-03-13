@@ -20,6 +20,7 @@ class UserInfo : BlockInfo() {
     val rights: List<String> = emptyList()
     @SerialName("cancreate") val canCreate: Boolean = false
     @SerialName("cancreateerror") private val canCreateError: List<MwServiceError>? = null
+    val options: Options? = null
 
     val error get() = canCreateError?.get(0)?.title.orEmpty()
     val hasBlockError get() = error.contains("block")
@@ -47,4 +48,9 @@ class UserInfo : BlockInfo() {
             }
             return date
         }
+
+    @Serializable
+    class Options {
+        @SerialName("watchdefault") val watchDefault: Int = 0
+    }
 }
