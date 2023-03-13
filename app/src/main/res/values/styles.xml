@@ -81,9 +81,6 @@
         <item name="image_tags_onboarding_drawables">@drawable/ic_image_tags_onboarding_light</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_light</item>
 
-        <!-- TODO: review and remove the old references/colors -->
-        <item name="highlight_color">@color/red90</item>
-
     </style>
 
     <style name="AppTheme.Splash">
