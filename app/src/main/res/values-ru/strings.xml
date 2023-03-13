@@ -657,6 +657,7 @@
   <string name="reading_list_activity_title">Список чтения: %s</string>
   <string name="reading_lists_preview_save_button">Сохранить</string>
   <string name="reading_lists_preview_save_dialog_cancel">Отмена</string>
+  <string name="reading_lists_preview_save_dialog_save">Сохранить</string>
   <string name="user_option_sync_label">Настройки</string>
   <string name="notification_reverted_title">Отменённая правка</string>
   <string name="notification_channel_title">Скачивание статей</string>
@@ -1366,6 +1367,12 @@
   <string name="watchlist_page_moved">Перемещено</string>
   <string name="watchlist_page_protected">Защищено</string>
   <string name="watchlist_page_deleted">Удалено</string>
+  <string name="watchlist_filter_user_status_newcomers">Новички</string>
+  <string name="watchlist_filter_user_status_learners">Учащиеся</string>
+  <string name="watchlist_filter_automated_contributions_bot">Бот</string>
+  <string name="watchlist_filter_automated_contributions_human">Человек (не бот)</string>
+  <string name="watchlist_filter_significance_minor">Малые правки</string>
+  <string name="watchlist_filter_type_of_change_new_users">Новые участники</string>
   <string name="preview_edit_title">Предпросмотр правки</string>
   <string name="preview_edit_summarize_edit_title">Резюмируйте изменение</string>
   <string name="preview_edit_summarize_edit_hint">Как вы улучшили эту страницу?</string>

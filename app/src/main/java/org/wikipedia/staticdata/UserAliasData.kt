@@ -114,6 +114,8 @@ object UserAliasData {
             "gor" to "Ta ohu'uwo",
             "got" to "𐌽𐌹𐌿𐍄𐌰𐌽𐌳𐍃",
             "gu" to "સભ્ય",
+            "guc" to "Ka'yataayakalü",
+            "gur" to "Tuntuna",
             "guw" to "Zinzantọ",
             "gv" to "Ymmydeyr",
             "ha" to "User",

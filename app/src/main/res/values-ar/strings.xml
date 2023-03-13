@@ -600,6 +600,10 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">إلغاء</string>
   <string name="reading_list_split_dialog_ok_button_text">حسنا</string>
   <string name="reading_list_activity_title">قائمة القراءة\" %s</string>
+  <string name="reading_lists_preview_save_dialog_title">حفظ القائمة</string>
+  <string name="reading_lists_preview_save_dialog_text">سمّ القائمة واختر مقالات لتحفظها</string>
+  <string name="reading_lists_preview_save_dialog_cancel">إلغاء</string>
+  <string name="reading_lists_preview_save_dialog_save">حفظ</string>
   <string name="user_option_sync_label">تفضيلات</string>
   <string name="notification_reverted_title">تعديل ملغى</string>
   <string name="notification_channel_description">تقدم التنزيل</string>
@@ -1202,6 +1206,8 @@
   <string name="watchlist_page_moved">نُقلت</string>
   <string name="watchlist_page_protected">محمية</string>
   <string name="watchlist_page_deleted">حُذفت</string>
+  <string name="watchlist_filter_user_status_unregistered">غير مسجل</string>
+  <string name="watchlist_filter_type_of_change_page_edits">تعديلات الصفحة</string>
   <string name="preview_edit_title">معاينة التعديل</string>
   <string name="preview_edit_summarize_edit_title">تلخيص التحرير</string>
   <string name="preview_edit_summarize_edit_hint">كيف حسّنت الصفحة؟</string>
@@ -1221,7 +1227,6 @@
   <string name="user_contrib_menu_label">مساهمات</string>
   <string name="reading_list_share_menu_label">المشاركة…</string>
   <string name="reading_list_share_menu_tooltip">شارك قائمة القراءة هذه مع الآخرين</string>
-  <string name="reading_list_share_title_tooltip">التغييرات التي تجريها على هذه القائمة غير مرئية للآخرين.</string>
   <string name="reading_list_share_message_v2">مرحبًا! أرغب في مشاركة قائمة قراءة ويكيبيديا الخاصة بي معك:</string>
   <string name="reading_list_share_survey_title">هل يمكنك مساعدتنا في تحسين \"مشاركة قوائم القراءة\"؟</string>
   <string name="reading_list_share_survey_body">\"مشاركة قوائم القراءة\" هي ميزة اختبار ونحن بحاجة إلى ملاحظاتك لتحسينها أو إزالتها.</string>

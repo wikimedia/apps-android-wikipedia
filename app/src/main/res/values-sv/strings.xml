@@ -1335,7 +1335,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Läslistan importerad</string>
   <string name="reading_list_share_menu_label">Dela…</string>
   <string name="reading_list_share_menu_tooltip">Dela denna läslista med andra</string>
-  <string name="reading_list_share_title_tooltip">Ändringar du gör i denna lista är inte synliga för andra.</string>
   <string name="reading_list_share_message_v2">Hej! Jag skulle vilja dela min Wikipedia-läslista med dig:</string>
   <string name="reading_list_share_survey_title">Kan du hjälpa oss att förbättra \"Dela läslistor\"?</string>
   <string name="reading_list_share_survey_body">\"Dela läslistor\" är en testfunktion och vi behöver din återkoppling för att förbättra eller ta bort den.</string>
