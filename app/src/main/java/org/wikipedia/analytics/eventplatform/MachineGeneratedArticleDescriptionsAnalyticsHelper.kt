@@ -53,11 +53,11 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
             )
         )
     }
-    fun machineGeneratedSuggestionsDialogDismissed(context: Context) {
+    fun machineGeneratedSuggestionsDialogOptedOut(context: Context) {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.suggestionsDialogs.dismissed"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.suggestionsDialogs.optedOut"
             )
         )
     }
@@ -72,12 +72,12 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         )
     }
 
-    fun logReportDialogCancelled(context: Context, suggestion: String, reportReasonsList: List<String>) {
+    fun logReportDialogOptedOut(context: Context, suggestion: String, reportReasonsList: List<String>) {
         val reportReasons = reportReasonsList.joinToString(",")
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.$suggestion.reportReasons:$reportReasons.cancelled"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.$suggestion.reportReasons:$reportReasons.optedOut"
             )
         )
     }
