@@ -26,7 +26,6 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.talk.TalkTopicsActivity
 
@@ -120,7 +119,6 @@ object FeedbackUtil {
         val textView = snackbar.view.findViewById<TextView>(R.id.snackbar_text)
         textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
         textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod(wikiSite)
-        RichTextUtil.removeUnderlinesFromLinks(textView)
         val actionView = snackbar.view.findViewById<TextView>(R.id.snackbar_action)
         actionView.setTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
         return snackbar
