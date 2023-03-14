@@ -213,6 +213,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                 return sourceStr.toSpanned()
             }
 
+            // Replace a few HTML entities that are not handled automatically by the parser.
             sourceStr = sourceStr.replace("&#8206;", "\u200E")
                 .replace("&#8207;", "\u200F")
                 .replace("&amp;", "&")
@@ -242,7 +243,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         private fun getValue(attributes: Attributes?, name: String): String? {
             if (attributes != null) {
                 for (i in 0 until attributes.length) {
-                    if (name == attributes.getLocalName(i)) { return attributes.getValue(i) }
+                    if (name == attributes.getLocalName(i)) return attributes.getValue(i)
                 }
             }
             return null
