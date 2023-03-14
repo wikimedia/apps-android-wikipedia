@@ -1332,7 +1332,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">S\'ha importat la llista de lectura</string>
   <string name="reading_list_share_menu_label">Comparteix…</string>
   <string name="reading_list_share_menu_tooltip">Comparteix la llista de lectura amb altres</string>
-  <string name="reading_list_share_title_tooltip">Els canvis que feu a la llista no són visibles a altres.</string>
   <string name="reading_list_share_message_v2">Hola! Voldria compartir-vos la meva llista de lectura de la Viquipèdia:</string>
   <string name="reading_list_share_survey_title">Ens podeu ajudar a millorar la funcionalitat de «Comparteix llistes de lectura»?</string>
   <string name="reading_list_share_survey_body">«Comparteix llistes de lectura» és una funcionalitat de prova i ens calen opinions per a millorar-la o bé treure-la.</string>

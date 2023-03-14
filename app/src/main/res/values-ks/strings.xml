@@ -420,6 +420,9 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">مَنسوٗخ</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">مَنسوٗخ</string>
   <string name="reading_list_split_dialog_ok_button_text">ٹھیٖک چھُ</string>
+  <string name="reading_lists_preview_save_button">مَحفوٗظ</string>
+  <string name="reading_lists_preview_save_dialog_cancel">مَنسوٗخ</string>
+  <string name="reading_lists_preview_save_dialog_save">مَحفوٗظ</string>
   <string name="notification_syncing_pause_button">رُکٲوِو</string>
   <string name="notification_syncing_resume_button">بییہٚ ترٲوِو یَلہٕ</string>
   <string name="notification_syncing_cancel_button">مَنسوٗخ</string>
@@ -760,4 +763,6 @@
   <string name="user_contrib_menu_label">شَرکٔژ</string>
   <string name="user_contrib_filter_activity_title" fuzzy="true">کُن شَرکٲژٕ:</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">آو سمٕج!</string>
+  <string name="data_opt_in_accept">تسلیٖم کرُن</string>
+  <string name="data_opt_in_reject">رد کرن</string>
 </resources>

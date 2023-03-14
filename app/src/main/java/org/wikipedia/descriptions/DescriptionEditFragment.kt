@@ -193,6 +193,9 @@ class DescriptionEditFragment : Fragment() {
     }
 
     private fun setUpEditView(savedInstanceState: Bundle?) {
+        if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
+            MachineGeneratedArticleDescriptionsAnalyticsHelper.articleDescriptionEditingStart(requireContext())
+        }
         binding.fragmentDescriptionEditView.setAction(action)
         binding.fragmentDescriptionEditView.setPageTitle(pageTitle)
         highlightText?.let { binding.fragmentDescriptionEditView.setHighlightText(it) }
@@ -249,6 +252,9 @@ class DescriptionEditFragment : Fragment() {
     private inner class EditViewCallback : DescriptionEditView.Callback {
         override fun onSaveClick() {
             if (!binding.fragmentDescriptionEditView.showingReviewContent()) {
+                if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
+                    MachineGeneratedArticleDescriptionsAnalyticsHelper.articleDescriptionEditingEnd(requireContext())
+                }
                 binding.fragmentDescriptionEditView.loadReviewContent(true)
             } else {
                 binding.fragmentDescriptionEditView.setError(null)

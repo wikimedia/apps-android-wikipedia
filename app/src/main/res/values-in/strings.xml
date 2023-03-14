@@ -487,6 +487,9 @@
     <item quantity="other">%d artikel</item>
   </plurals>
   <string name="format_reading_list_statistical_summary">%1$d artikel, %2$.2f MB</string>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="other">%1$d dari %2$d artikel tersedia secara luring</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d of 1 artikel tersedia offline, %3$.2f MB</item>
     <item quantity="other">%1$d of %2$d artikel tersedia offline, %3$.2f MB</item>
@@ -503,6 +506,7 @@
   <string name="reading_list_menu_export">Ekspor daftar</string>
   <string name="reading_list_menu_select">Pilih</string>
   <string name="reading_list_menu_unselect">Batal pilih</string>
+  <string name="reading_list_export_write_permission_rationale">Izin untuk menulis ke penyimpanan di perangkat Anda diperlukan, untuk mengekspor daftar bacaan Anda.</string>
   <string name="reading_list_menu_rename">Sunting nama/deskripsi</string>
   <string name="reading_list_action_menu_remove_from_offline">Hapus dari luring</string>
   <string name="reading_list_action_menu_save_for_offline">Simpan untuk luring</string>
@@ -519,6 +523,14 @@
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="other">%d artikel dihapus dari %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="other">%d daftar dihapus</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Daftar tetepan (%s) tak dapat dihapus</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s dihapus. Daftar tetapan (%2$s) tak dapat dihapus.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Daftar dihapus. Daftar tetapan (%s) tak dapat dihapus.</string>
+  <string name="single_list_json_file_name">%s (daftar bacaan Wikipedia).json</string>
+  <string name="multiple_lists_json_file_name">Daftar bacaan Wikipedia (%s dan lebih).json</string>
   <string name="reading_list_items_deleted">%d artikel dihapus dari daftar</string>
   <string name="reading_lists_item_deleted">%s dihapus dari daftar</string>
   <string name="reading_list_item_delete_undo">Urungkan</string>
@@ -603,6 +615,7 @@
   <string name="reading_list_activity_title">Daftar bacaan: %s</string>
   <string name="reading_list_notification_title">Daftar bacaan telah diekspor</string>
   <string name="reading_list_notification_text">%d daftar bacaan telah diekspor sebagai \'reading_lists export.json\' ke folder unduhan Anda</string>
+  <string name="reading_list_notification_detailed_text">Daftar bacaan telah diekspor ke \'reading_lists_export.json\'</string>
   <string name="reading_lists_action_menu_export_lists">Ekspor</string>
   <string name="reading_lists_import_file_picker_title">Pilih berkas untuk diimpor</string>
   <string name="reading_lists_import_failure_message">Gagal mengimpor daftar bacaan</string>
@@ -617,6 +630,7 @@
   <string name="reading_lists_preview_header_title">Daftar bersama</string>
   <string name="reading_lists_preview_save_button">Simpan</string>
   <string name="reading_lists_preview_save_dialog_title">Simpan daftar</string>
+  <string name="reading_lists_preview_save_dialog_text">Daftar nama dan artikel terpilih untuk disimpan.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Judul</string>
   <string name="reading_lists_preview_save_dialog_cancel">Batal</string>
   <string name="reading_lists_preview_save_dialog_save">Simpan</string>
@@ -1253,6 +1267,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 bulan</string>
   <string name="watchlist_expiry_dialog_six_months">6 bulan</string>
   <string name="watchlist_empty">Anda tidak memiliki artikel apapun dalam daftar pantauan.</string>
+  <string name="watchlist_search">Cari di daftar pantauan</string>
   <string name="watchlist_filter_all">Semua</string>
   <string name="watchlist_filter_talk">Pembicaraan</string>
   <string name="watchlist_filter_pages">Halaman</string>
@@ -1260,6 +1275,54 @@
   <string name="watchlist_page_moved">Dipindahkan</string>
   <string name="watchlist_page_protected">Dilindungi</string>
   <string name="watchlist_page_deleted">Dihapus</string>
+  <string name="watchlist_filter_title">Penyaring di daftar pantauan</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">Semua</string>
+  <string name="watchlist_filter_watchlist_activity_header">Aktivitas daftar pantauan</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Perubahan yang belum dilihat</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Perubahan yang telah dilihat</string>
+  <string name="watchlist_filter_contribution_quality_header">Prediksi kualitas kontribusi</string>
+  <string name="watchlist_filter_contribution_quality_good">Kemungkinan besar bagus</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Bisa jadi bermasalah</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Kemungkinan bermasalah</string>
+  <string name="watchlist_filter_contribution_quality_bad">Kemungkinan besar bermasalah</string>
+  <string name="watchlist_filter_user_intent_header">Prediksi niat pengguna</string>
+  <string name="watchlist_filter_user_intent_good">Kemungkinan besar berniat baik</string>
+  <string name="watchlist_filter_user_intent_may_problems">Bisa jadi berniat buruk</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Kemungkinan berniat buruk</string>
+  <string name="watchlist_filter_user_intent_bad">Kemungkinan besar berniat buruk</string>
+  <string name="watchlist_filter_user_status_header">Pendaftaran dan pengalaman pengguna</string>
+  <string name="watchlist_filter_user_status_unregistered">Tidak terdaftar</string>
+  <string name="watchlist_filter_user_status_registered">Terdaftar</string>
+  <string name="watchlist_filter_user_status_newcomers">Pendatang baru</string>
+  <string name="watchlist_filter_user_status_learners">Pemula</string>
+  <string name="watchlist_filter_user_status_experienced">Pengguna berpengalaman</string>
+  <string name="watchlist_filter_contribution_authorship_header">Kepemilikan kontribusi</string>
+  <string name="watchlist_filter_contribution_authorship_own">Perubahan oleh Anda</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Perubahan orang lain</string>
+  <string name="watchlist_filter_automated_contributions_header">Kontribusi otomatis</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">Manusia (bukan bot)</string>
+  <string name="watchlist_filter_significance_header">Signifikansi</string>
+  <string name="watchlist_filter_significance_minor">Suntingan kecil</string>
+  <string name="watchlist_filter_significance_edits">Bukan suntingan kecil</string>
+  <string name="watchlist_filter_latest_revisions_header">Revisi terkini</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Revisi terkini</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Bukan revisi terkini</string>
+  <string name="watchlist_filter_type_of_change_header">Jenis perubahan</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Suntingan halaman</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Pembuatan halaman</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Perubahan kategori</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Suntingan Wikidata</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Tindakan tercatat</string>
+  <string name="watchlist_filter_type_of_change_new_users">Pengguna baru</string>
+  <string name="watchlist_filter_reset_button">Atur ulang</string>
+  <string name="watchlist_search_bar_hint">Cari atau saring daftar pantauan</string>
+  <string name="watchlist_search_bar_filter_hint">Penyaring daftar pantauan</string>
+  <string name="watchlist_empty_search_message">Tidak ada hasil, coba hapus %s untuk melihat lebih banyak.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="other">%d penyaring</item>
+  </plurals>
   <string name="preview_edit_title">Pratinjau suntingan</string>
   <string name="preview_edit_summarize_edit_title">Ringkasan suntingan</string>
   <string name="preview_edit_summarize_edit_hint">Bagaimana Anda menyempurnakan halaman ini?</string>
@@ -1293,7 +1356,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Daftar bacaan telah diimpor</string>
   <string name="reading_list_share_menu_label">Bagikan...</string>
   <string name="reading_list_share_menu_tooltip">Bagikan daftar bacaan ini dengan orang lain</string>
-  <string name="reading_list_share_title_tooltip">Perubahan yang Anda buat pada daftar ini tidak dapat dilihat oleh orang lain.</string>
   <string name="reading_list_share_message_v2">Hai! Saya ingin berbagi daftar bacaan Wikipedia saya dengan Anda:</string>
   <string name="reading_list_share_survey_title">Bisakah Anda membantu kami meningkatkan \"Bagikan daftar bacaan\"?</string>
   <string name="reading_list_share_survey_body">\"Bagikan daftar bacaan\" adalah fitur pengujian dan kami membutuhkan umpan balik Anda untuk meningkatkan atau menghapusnya.</string>
