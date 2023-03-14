@@ -30,7 +30,6 @@ import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.talk.UserTalkPopupHelper
@@ -181,7 +180,6 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
     private fun setUpEmptySearchMessage() {
         val filtersStr = resources.getQuantityString(R.plurals.watchlist_number_of_filters, viewModel.filtersCount(), viewModel.filtersCount())
         binding.watchlistEmptySearchMessage.text = StringUtil.fromHtml(getString(R.string.watchlist_empty_search_message, "<a href=\"#\">$filtersStr</a>"))
-        RichTextUtil.removeUnderlinesFromLinks(binding.watchlistEmptySearchMessage)
         binding.watchlistEmptySearchMessage.movementMethod = LinkMovementMethodExt { _ ->
             resultLauncher.launch(WatchlistFilterActivity.newIntent(requireContext()))
         }

@@ -13,7 +13,6 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityAboutBinding
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.FeedbackUtil.showMessage
 import org.wikipedia.util.StringUtil.fromHtml
 import org.wikipedia.util.log.L
@@ -27,15 +26,11 @@ class AboutActivity : BaseActivity() {
         binding = ActivityAboutBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.aboutContributors.text = fromHtml(getString(R.string.about_contributors))
-        RichTextUtil.removeUnderlinesFromLinks(binding.aboutContributors)
         binding.aboutTranslators.text = fromHtml(getString(R.string.about_translators_translatewiki))
-        RichTextUtil.removeUnderlinesFromLinks(binding.aboutTranslators)
         binding.aboutWmf.text = fromHtml(getString(R.string.about_wmf))
-        RichTextUtil.removeUnderlinesFromLinks(binding.aboutWmf)
         binding.aboutAppLicense.text = fromHtml(getString(R.string.about_app_license))
-        RichTextUtil.removeUnderlinesFromLinks(binding.aboutAppLicense)
+        binding.activityAboutLibraries.text = fromHtml(getString(R.string.libraries_list))
         binding.aboutVersionText.text = BuildConfig.VERSION_NAME
-        RichTextUtil.removeUnderlinesFromLinks(binding.activityAboutLibraries)
         binding.aboutLogoImage.setOnClickListener(AboutLogoClickListener())
         makeEverythingClickable(binding.aboutContainer)
 
