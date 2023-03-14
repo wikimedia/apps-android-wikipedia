@@ -35,12 +35,12 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
 
     fun machineGeneratedSuggestionsDetailsLogged(context: Context, articleName: String,
                                                  suggestionsList: List<String>, isBlp: Boolean) {
+        val suggestions = suggestionsList.joinToString(",")
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.ApiResponseDetails.articleName:$articleName.isBlp:$isBlp.NumberOfSuggestionsOffered:${suggestionsList.size}.Suggestions:${
-                    suggestionsList.joinToString(",")
-                }.logged"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.ApiResponseDetails.articleName:$articleName.isBlp:$isBlp" +
+                        ".NumberOfSuggestionsOffered:${suggestionsList.size}.Suggestions:$suggestions.logged"
             )
         )
     }
@@ -63,23 +63,21 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     fun logSuggestionReported(context: Context, suggestion: String, reportReasonsList: List<String>) {
+        val reportReasons = reportReasonsList.joinToString(",")
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.$suggestion.reportReasons:${
-                    reportReasonsList.joinToString(",")
-                }.reported"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.$suggestion.reportReasons:$reportReasons.reported"
             )
         )
     }
 
     fun logReportDialogCancelled(context: Context, suggestion: String, reportReasonsList: List<String>) {
+        val reportReasons = reportReasonsList.joinToString(",")
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.$suggestion.reportReasons:${
-                    reportReasonsList.joinToString(",")
-                }.cancelled"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.$suggestion.reportReasons:$reportReasons.cancelled"
             )
         )
     }
