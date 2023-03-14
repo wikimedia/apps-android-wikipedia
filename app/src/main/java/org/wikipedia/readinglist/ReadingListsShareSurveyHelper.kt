@@ -11,7 +11,8 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.StringUtil
-import java.util.*
+import java.time.LocalDate
+import java.time.Month
 
 object ReadingListsShareSurveyHelper {
     private const val MODE_INACTIVE = 0
@@ -59,8 +60,7 @@ object ReadingListsShareSurveyHelper {
     }
 
     private fun fallsWithinDateRange(): Boolean {
-        val endTime = GregorianCalendar(2023, Calendar.APRIL, 17)
-        return Calendar.getInstance().timeInMillis < endTime.timeInMillis
+        return LocalDate.now() < LocalDate.of(2023, Month.APRIL, 17)
     }
 
     private fun takeUserToSurvey(context: Context) {
