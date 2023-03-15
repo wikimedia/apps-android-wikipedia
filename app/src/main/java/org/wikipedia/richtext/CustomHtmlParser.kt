@@ -26,6 +26,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.WhiteBackgroundTransformation
 import org.wikipedia.util.log.L
 import org.xml.sax.Attributes
 import org.xml.sax.ContentHandler
@@ -150,6 +151,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                                         drawable.bitmap.applyCanvas {
                                             drawBitmap(resource, Rect(0, 0, resource.width, resource.height), drawable.bounds, null)
                                         }
+                                        WhiteBackgroundTransformation.maybeDimImage(drawable.bitmap)
                                         view.postInvalidate()
                                     }
                                 }
