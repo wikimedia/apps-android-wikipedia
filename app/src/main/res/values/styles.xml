@@ -534,8 +534,9 @@
     </style>
 
     <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
-        <item name="boxBackgroundColor">?attr/background_color</item>
         <item name="android:textColorHint">?attr/placeholder_color</item>
+        <item name="boxBackgroundColor">?attr/background_color</item>
+        <item name="boxStrokeColor">?attr/placeholder_color</item>
         <item name="hintTextColor">?attr/colorAccent</item>
         <item name="helperTextTextColor">?attr/placeholder_color</item>
         <item name="counterTextColor">?attr/placeholder_color</item>
