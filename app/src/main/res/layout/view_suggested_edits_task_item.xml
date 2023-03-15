@@ -21,7 +21,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:tint="?attr/colorAccent"
-            android:alpha="0.7"
             tools:src="@drawable/ic_article_description"
             android:contentDescription="@null"/>
 

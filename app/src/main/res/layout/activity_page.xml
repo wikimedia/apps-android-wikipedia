@@ -76,8 +76,8 @@
                         android:paddingEnd="12dp"
                         android:clickable="true"
                         android:focusable="true"
-                        app:srcCompat="@drawable/ic_more_vert_themed_24dp"
-                        app:tint="?attr/placeholder_color" />
+                        app:srcCompat="@drawable/ic_more_vert_white_24dp"
+                        app:tint="?attr/primary_color" />
 
                 </LinearLayout>
             </androidx.appcompat.widget.Toolbar>

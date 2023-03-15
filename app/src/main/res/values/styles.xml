@@ -275,7 +275,8 @@
     </style>
 
     <style name="ActionButtonOverflow" parent="Widget.AppCompat.ActionButton.Overflow">
-        <item name="srcCompat">@drawable/ic_more_vert_themed_24dp</item>
+        <item name="srcCompat">@drawable/ic_more_vert_white_24dp</item>
+        <item name="tint">?attr/primary_color</item>
     </style>
 
     <style name="SideDrawerMenuItem">

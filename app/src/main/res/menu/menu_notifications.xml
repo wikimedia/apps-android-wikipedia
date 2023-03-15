@@ -5,8 +5,9 @@
 
     <item
         android:id="@+id/menu_notifications_group"
-        android:icon="@drawable/ic_more_vert_themed_24dp"
+        android:icon="@drawable/ic_more_vert_white_24dp"
         android:title="@string/nav_item_more"
+        app:iconTint="?attr/primary_color"
         app:showAsAction="always">
         <menu>
 
