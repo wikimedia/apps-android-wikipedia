@@ -11,7 +11,6 @@ import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewDescriptionEditLicenseBinding
 import org.wikipedia.page.LinkMovementMethodExt
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -55,8 +54,6 @@ class DescriptionEditLicenseView constructor(context: Context, attrs: AttributeS
         }
         binding.anonWarningText.text = StringUtil.fromHtml(context.getString(R.string.edit_anon_warning))
         binding.anonWarningText.isVisible = !AccountUtil.isLoggedIn
-        RichTextUtil.removeUnderlinesFromLinks(binding.licenseText)
-        RichTextUtil.removeUnderlinesFromLinks(binding.anonWarningText)
     }
 
     fun darkLicenseView() {

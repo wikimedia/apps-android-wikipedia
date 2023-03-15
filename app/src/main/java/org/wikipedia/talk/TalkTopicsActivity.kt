@@ -36,7 +36,6 @@ import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.*
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.edithistory.EditHistoryListActivity
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
@@ -368,7 +367,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                 goToPage()
             }
         }
-        RichTextUtil.removeUnderlinesFromLinks(binding.toolbarTitle)
         FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
     }
 

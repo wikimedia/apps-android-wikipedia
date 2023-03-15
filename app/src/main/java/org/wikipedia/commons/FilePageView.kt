@@ -19,7 +19,6 @@ import org.wikipedia.databinding.ViewFilePageBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.LinkMovementMethodExt
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
@@ -160,7 +159,6 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
             val view = ImageDetailView(context)
             view.binding.titleText.text = titleString
             view.binding.contentText.text = StringUtil.strip(StringUtil.fromHtml(detail))
-            RichTextUtil.removeUnderlinesFromLinks(view.binding.contentText)
             if (!externalLink.isNullOrEmpty()) {
                 view.binding.contentText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
                 view.binding.contentText.setTextIsSelectable(false)

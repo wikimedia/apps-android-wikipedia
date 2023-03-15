@@ -271,7 +271,6 @@ class NotificationActivity : BaseActivity() {
     private fun setUpEmptySearchMessage() {
         val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, viewModel.excludedFiltersCount(), viewModel.excludedFiltersCount())
         binding.notificationsEmptySearchMessage.text = StringUtil.fromHtml(getString(R.string.notifications_empty_search_message, "<a href=\"#\">$filtersStr</a>"))
-        RichTextUtil.removeUnderlinesFromLinks(binding.notificationsEmptySearchMessage)
         binding.notificationsEmptySearchMessage.movementMethod = LinkMovementMethodExt { _ ->
             resultLauncher.launch(NotificationFilterActivity.newIntent(this))
         }
