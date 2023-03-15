@@ -478,9 +478,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     companion object {
-        fun newInstance(title: PageTitle, revisionFrom: Long, revisionTo: Long): ArticleEditDetailsFragment {
+        fun newInstance(title: PageTitle, pageId: Int, revisionFrom: Long, revisionTo: Long): ArticleEditDetailsFragment {
             return ArticleEditDetailsFragment().apply {
                 arguments = bundleOf(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE to title,
+                        ArticleEditDetailsActivity.EXTRA_PAGE_ID to pageId,
                         ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM to revisionFrom,
                         ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO to revisionTo)
             }

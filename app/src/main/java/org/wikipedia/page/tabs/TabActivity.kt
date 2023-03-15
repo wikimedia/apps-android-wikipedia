@@ -319,8 +319,10 @@ class TabActivity : BaseActivity() {
         fun captureFirstTabBitmap(view: View, title: String) {
             clearFirstTabBitmap()
             try {
-                FIRST_TAB_BITMAP = view.drawToBitmap(Bitmap.Config.RGB_565)
-                FIRST_TAB_BITMAP_TITLE = title
+                if (view.isLaidOut) {
+                    FIRST_TAB_BITMAP = view.drawToBitmap(Bitmap.Config.RGB_565)
+                    FIRST_TAB_BITMAP_TITLE = title
+                }
             } catch (e: OutOfMemoryError) {
                 // don't worry about it
             }

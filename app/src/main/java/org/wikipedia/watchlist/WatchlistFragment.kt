@@ -341,7 +341,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
             return
         }
         startActivity(ArticleEditDetailsActivity.newIntent(requireContext(),
-                PageTitle(item.title, item.wiki!!), item.revid))
+                PageTitle(item.title, item.wiki!!), item.pageId, item.revid))
     }
 
     override fun onUserClick(item: MwQueryResult.WatchlistItem, view: View) {
