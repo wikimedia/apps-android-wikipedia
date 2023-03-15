@@ -102,7 +102,7 @@ class TabActivity : BaseActivity() {
             tab.setIcon(R.drawable.ic_image_black_24dp)
             tab.setIconTint(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
             tab.setTitleTextColor(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
-            tab.setCloseButtonIcon(R.drawable.ic_close_white_24dp)
+            tab.setCloseButtonIcon(R.drawable.ic_close_black_24dp)
             tab.setCloseButtonIconTint(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
             tab.isCloseable = true
             tab.parameters = Bundle()

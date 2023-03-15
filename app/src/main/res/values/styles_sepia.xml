@@ -8,7 +8,7 @@
         <item name="background_color">@color/beige300</item>
         <item name="border_color">@color/beige400</item>
         <item name="inactive_color">@color/taupe200</item>
-        <item name="placeholder_color">@color/taupe200</item>
+        <item name="placeholder_color">@color/taupe600</item>
         <item name="secondary_color">@color/gray600</item>
         <item name="primary_color">@color/gray700</item>
         <item name="progressive_color">@color/blue600</item>

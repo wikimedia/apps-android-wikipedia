@@ -29,7 +29,8 @@
                 android:contentDescription="@string/description_edit_cancel_hint"
                 android:focusable="true"
                 android:padding="12dp"
-                app:srcCompat="@drawable/ic_arrow_back_themed_24dp" />
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                app:tint="?attr/primary_color" />
 
             <TextView
                 android:id="@+id/view_description_edit_header"

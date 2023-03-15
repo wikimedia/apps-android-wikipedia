@@ -19,7 +19,6 @@
         <item name="snackbarTextViewStyle">@style/SnackbarTextViewStyle</item>
         <item name="snackbarButtonStyle">@style/SnackbarButtonStyle</item>
 
-        <item name="searchViewStyle">@style/SearchViewStyle</item>
         <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
         <item name="android:listViewStyle">@style/ListView</item>
         <item name="android:textViewStyle">@style/RtlAwareTextView</item>
@@ -134,7 +133,7 @@
     <style name="ActionModeCloseButtonStyle">
         <item name="android:visibility">gone</item>
         <item name="android:layout_marginStart">-48dp</item>
-        <item name="actionModeCloseDrawable">@drawable/ic_arrow_back_themed_24dp</item>
+        <item name="actionModeCloseDrawable">@drawable/ic_arrow_back_black_24dp</item>
     </style>
 
     <style name="AppTheme.FullScreen">
@@ -160,17 +159,17 @@
     </style>
 
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
-        <item name="colorControlNormal">?attr/placeholder_color</item>
+        <item name="colorControlNormal">?attr/primary_color</item>
     </style>
 
     <style name="PageToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
-        <item name="colorControlNormal">?attr/placeholder_color</item>
+        <item name="colorControlNormal">?attr/primary_color</item>
     </style>
 
     <style name="TabToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
-        <item name="colorControlNormal">?attr/placeholder_color</item>
-        <item name="colorControlActivated">?attr/placeholder_color</item>
-        <item name="colorControlHighlight">?attr/placeholder_color</item>
+        <item name="colorControlNormal">?attr/primary_color</item>
+        <item name="colorControlActivated">?attr/primary_color</item>
+        <item name="colorControlHighlight">?attr/primary_color</item>
         <item name="navigationIcon">@drawable/ic_add_gray_themed_24dp</item>
         <item name="navigationContentDescription">@string/menu_new_tab</item>
     </style>
@@ -253,12 +252,6 @@
 
     <style name="PageActionModeSubtitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle">
         <item name="android:textColor">?attr/placeholder_color</item>
-    </style>
-
-    <style name="SearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
-        <item name="closeIcon">@drawable/ic_close_themed_24dp</item>
-        <item name="searchIcon">@drawable/ic_search_themed_24dp</item>
-        <item name="searchHintIcon">@drawable/ic_search_themed_24dp</item>
     </style>
 
     <style name="SearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
@@ -389,7 +382,7 @@
     </style>
 
     <style name="FlatButton.Small.Tooltip">
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">?attr/progressive_color</item>
         <item name="android:backgroundTint">?attr/background_color</item>
         <item name="backgroundTint">?attr/background_color</item>
         <item name="android:foreground">?android:selectableItemBackground</item>

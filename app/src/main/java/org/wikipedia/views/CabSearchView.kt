@@ -46,7 +46,8 @@ class CabSearchView @JvmOverloads constructor(context: Context, attrs: Attribute
     fun setCloseButtonVisibility(searchString: String?) {
         val isEmpty = searchString.isNullOrEmpty()
         searchCloseBtn.isGone = isEmpty
-        searchCloseBtn.setImageResource(if (isEmpty) 0 else R.drawable.ic_close_themed_24dp)
+        searchCloseBtn.setImageResource(if (isEmpty) 0 else R.drawable.ic_close_black_24dp)
+        searchCloseBtn.imageTintList = ResourceUtil.getThemedColorStateList(context, R.attr.placeholder_color)
     }
 
     private class PlainTextInputFilter : InputFilter {

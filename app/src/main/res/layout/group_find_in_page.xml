@@ -64,5 +64,6 @@
         android:layout_height="48dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/dialog_close_description"
-        app:srcCompat="@drawable/ic_close_themed_24dp" />
+        android:src="@drawable/ic_close_black_24dp"
+        app:tint="?attr/placeholder_color"/>
 </LinearLayout>
