@@ -56,16 +56,6 @@ class WhiteBackgroundTransformation : BitmapTransformation() {
         }
     }
 
-    fun maybeDimImage(bitmap: Bitmap): Bitmap {
-        if (WikipediaApp.instance.currentTheme.isDark && Prefs.dimDarkModeImages) {
-            // "dim" images by drawing a translucent black rectangle over them.
-            bitmap.applyCanvas {
-                drawRect(0f, 0f, bitmap.width.toFloat(), bitmap.height.toFloat(), PAINT_DARK_OVERLAY)
-            }
-        }
-        return bitmap
-    }
-
     companion object {
         private const val ID = "org.wikipedia.util.WhiteBackgroundTransformation"
         private const val PAINT_FLAGS = Paint.DITHER_FLAG or Paint.FILTER_BITMAP_FLAG
@@ -73,5 +63,15 @@ class WhiteBackgroundTransformation : BitmapTransformation() {
         private val DEFAULT_PAINT = Paint(PAINT_FLAGS)
         private val PAINT_WHITE = Paint()
         private val PAINT_DARK_OVERLAY = Paint()
+
+        fun maybeDimImage(bitmap: Bitmap): Bitmap {
+            if (WikipediaApp.instance.currentTheme.isDark && Prefs.dimDarkModeImages) {
+                // "dim" images by drawing a translucent black rectangle over them.
+                bitmap.applyCanvas {
+                    drawRect(0f, 0f, bitmap.width.toFloat(), bitmap.height.toFloat(), PAINT_DARK_OVERLAY)
+                }
+            }
+            return bitmap
+        }
     }
 }
