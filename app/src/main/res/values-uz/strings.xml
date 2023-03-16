@@ -295,7 +295,7 @@
   <string name="page_similar_titles">O‘xshash sahifalar</string>
   <string name="search_did_you_mean">%s deb o‘ylayapsizmi?</string>
   <string name="search_recent_header">Oxirgi qidirishlar:</string>
-  <string name="search_results_count_zero">Natijalar yo‘q</string>
+  <string name="search_results_count_zero">Natijalar topilmadi</string>
   <plurals name="search_results_count">
     <item quantity="one">1 ta natija</item>
     <item quantity="other">%d ta natija</item>

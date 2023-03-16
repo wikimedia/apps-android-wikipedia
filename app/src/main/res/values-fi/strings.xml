@@ -559,6 +559,11 @@
   <string name="reading_list_articles_added_to_named">Lisättiin %1$d artikkelia listaan %2$s</string>
   <string name="reading_list_articles_moved_to_named">Siirrettiin %1$d artikkelia listaan %2$s</string>
   <string name="reading_list_delete_confirm">Haluatko varmasti poistaa %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Poista valitut listat?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Haluatko varmasti poistaa %d listan?</item>
+    <item quantity="other">Haluatko varmasti poistaa %d listaa?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Kirjaudu sisään ottaaksesi synkronoinnin käyttöön</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kirjaudu sisään salliaksesi lukulistojesi tallentamisen tunnuksellesi.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Peruuta</string>
@@ -582,6 +587,7 @@
   <string name="reading_list_article_limit_message">Ei voida lisätä tähän listaan. Olet saavuttanut %2$d artikkelin rajan per lista listalle \"%1$s\".</string>
   <string name="reading_lists_limit_message">Uuden listan luominen epäonnistui. Sinulla voi olla enintään 100 lukulistaa.</string>
   <string name="reading_lists_menu_create_list">Luo uusi lista</string>
+  <string name="reading_lists_menu_import_list">Tuo lista</string>
   <string name="reading_lists_menu_sort_by">Lajitteluperuste</string>
   <string name="reading_lists_refresh_sync_option">Päivitä synkronointi</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kirjaudu sisään / rekisteröidy</string>
@@ -604,9 +610,11 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Poista</string>
   <string name="reading_list_activity_title">Lukulista: %s</string>
+  <string name="reading_list_notification_title">Lukulista(t) tuotu</string>
   <string name="reading_lists_action_menu_export_lists">Vie</string>
   <string name="reading_lists_import_file_picker_title">Valitse tuotava tiedosto</string>
   <string name="reading_lists_import_failure_message">Lukulistojen tuonti epäonnistui</string>
+  <string name="reading_lists_preview_header_title">Jaettu lista</string>
   <string name="reading_lists_preview_save_button">Tallenna</string>
   <string name="reading_lists_preview_save_dialog_title">Tallenna lista</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Otsikko</string>
@@ -1263,6 +1271,7 @@
   <string name="watchlist_page_protected">Suojattu</string>
   <string name="watchlist_page_deleted">Poistettu</string>
   <string name="watchlist_filter_all_text">Kaikki</string>
+  <string name="watchlist_filter_user_status_newcomers">Tulokkaat</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata-muokkaukset</string>
   <string name="watchlist_filter_type_of_change_new_users">Uudet käyttäjät</string>
   <string name="watchlist_filter_reset_button">Nollaa</string>
