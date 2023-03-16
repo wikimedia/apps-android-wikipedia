@@ -59,7 +59,7 @@
                 android:contentDescription="@null"
                 android:layout_marginTop="9.5dp"
                 android:layout_gravity="center_horizontal"
-                app:tint="?attr/secondary_color"
+                app:tint="?attr/nav_tab_item_color_state"
                 app:srcCompat="@drawable/ic_menu_themed_24dp" />
 
             <TextView
@@ -69,7 +69,7 @@
                 android:layout_marginTop="35dp"
                 android:textAlignment="center"
                 android:text="@string/nav_item_more"
-                android:textColor="?attr/placeholder_color"
+                android:textColor="?attr/nav_tab_item_color_state"
                 android:textSize="10sp" />
 
         </FrameLayout>

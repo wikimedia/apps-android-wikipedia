@@ -2,7 +2,6 @@ package org.wikipedia.views
 
 import android.content.ClipData
 import android.content.Context
-import android.graphics.Color
 import android.os.Build
 import android.text.InputType
 import android.util.AttributeSet
