@@ -28,7 +28,9 @@
             android:visibility="gone"
             app:tabTextAppearance="@style/NotificationTabTextAppearance"
             app:tabTextColor="?attr/placeholder_color"
-            app:tabSelectedTextColor="?attr/colorAccent">
+            app:tabSelectedTextColor="?attr/progressive_color"
+            app:tabIndicatorColor="?attr/progressive_color"
+            app:tabRippleColor="?attr/progressive_color">
 
             <com.google.android.material.tabs.TabItem
                 android:text="@string/notifications_tab_filter_all"

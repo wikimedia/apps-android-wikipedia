@@ -82,7 +82,6 @@ class NotificationActivity : BaseActivity() {
         setSupportActionBar(binding.notificationsToolbar)
         supportActionBar?.title = getString(R.string.notifications_activity_title)
 
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
         binding.notificationsErrorView.retryClickListener = View.OnClickListener { beginUpdateList() }
         binding.notificationsErrorView.backClickListener = View.OnClickListener { onBackPressed() }
         binding.notificationsRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -354,6 +353,7 @@ class NotificationActivity : BaseActivity() {
             val notificationColor = AppCompatResources.getColorStateList(this@NotificationActivity,
                 ResourceUtil.getThemedAttributeId(this@NotificationActivity, notificationCategory.iconColor))
             val primaryColor = ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.primary_color)
+            val inactiveColor = ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.inactive_color)
 
             binding.notificationItemImage.setImageResource(notificationCategory.iconResId)
             ImageViewCompat.setImageTintList(binding.notificationItemImage, if (n.isUnread) notificationColor else
@@ -376,8 +376,9 @@ class NotificationActivity : BaseActivity() {
                 }
             }
 
-            // TODO: use better diff date method
             binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(n.date().time, System.currentTimeMillis(), 0L)
+            binding.notificationTime.setTextColor(if (n.isUnread) primaryColor else inactiveColor)
+            binding.notificationOverflowMenu.imageTintList = if (n.isUnread) primaryColor else inactiveColor
 
             binding.notificationTitle.typeface = if (n.isUnread) typefaceSansSerifBold else Typeface.DEFAULT
             binding.notificationTitle.setTextColor(if (n.isUnread) notificationColor else primaryColor)
