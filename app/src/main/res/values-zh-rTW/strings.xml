@@ -159,7 +159,7 @@
   <string name="search_reading_lists_no_results">在閱讀清單查無結果</string>
   <string name="search_history_no_results">在歷史查無結果</string>
   <string name="edit_section_captcha_message">為了防止自動化的垃圾訊息，請輸入下方顯示的文字</string>
-  <string name="edit_section_captcha_request_an_account_message">看不到圖片嗎？您可以&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:账号请求\"&gt;申請帳號&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">看不到圖片嗎？您可以&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:账号请求\"&gt;申請一個帳號&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">請重複輸入上面的文字</string>
   <string name="title_captcha">輸入驗證碼</string>
   <string name="edit_section_captcha_reload">輕觸驗證碼以重新載入</string>
@@ -342,7 +342,7 @@
   <string name="preference_summary_show_images">在頁面中開啟或停用圖片載入。如果您的網路連線很慢，或如果您的行動數據方案有限制，則取消選擇此設定。</string>
   <string name="preference_title_download_only_over_wifi">只以WiFi下載</string>
   <string name="dialog_title_download_only_over_wifi">確認使用行動數據下載？</string>
-  <string name="dialog_text_download_only_over_wifi">您已在設定裡啟用「只以WiFi下載」，要否允許本次下載使用流動數據？</string>
+  <string name="dialog_text_download_only_over_wifi">您已在設定裡啟用「只以WiFi下載」，要否允許本次下載使用行動數據？</string>
   <string name="dialog_title_download_only_over_wifi_allow">允許</string>
   <string name="read_more_section">延伸閱讀</string>
   <string name="about_article_section">關於此條目</string>
