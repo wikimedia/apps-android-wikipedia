@@ -509,7 +509,7 @@
     <style name="MaterialListSectionHeader">
         <item name="android:textSize">14sp</item>
         <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:textColor">?attr/secondary_color</item>
+        <item name="android:textColor">?attr/primary_color</item>
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 

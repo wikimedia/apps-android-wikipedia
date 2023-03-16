@@ -14,7 +14,7 @@
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:textAlignment="center"
-        android:textColor="?attr/colorPrimary"
+        android:textColor="?attr/placeholder_color"
         android:textSize="14sp"
         tools:text="1" />
 
@@ -38,7 +38,7 @@
         android:background="@drawable/lang_button_shape_border"
         android:fontFamily="sans-serif-medium"
         android:textAllCaps="true"
-        android:textColor="@color/gray500" />
+        android:textColor="?attr/placeholder_color" />
 
     <TextView
         android:id="@+id/wiki_language_title"
