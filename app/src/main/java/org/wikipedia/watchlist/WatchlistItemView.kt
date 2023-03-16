@@ -9,7 +9,6 @@ import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
