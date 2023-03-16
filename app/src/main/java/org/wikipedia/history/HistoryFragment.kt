@@ -245,7 +245,8 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     private class HeaderViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
         var headerText = itemView.findViewById<TextView>(R.id.section_header_text)!!
 
-        fun bindItem(date: String) {
+        fun bindItem(context: Context, date: String) {
+            headerText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.primary_color))
             headerText.text = date
         }
     }
@@ -372,7 +373,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             when (holder) {
                 is SearchCardViewHolder -> holder.bindItem()
                 is HistoryEntryItemHolder -> holder.bindItem(historyEntries[pos] as HistoryEntry)
-                else -> (holder as HeaderViewHolder).bindItem(historyEntries[pos] as String)
+                else -> (holder as HeaderViewHolder).bindItem(requireContext(), historyEntries[pos] as String)
             }
         }
 
