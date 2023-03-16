@@ -33,8 +33,8 @@ class UserContribItemView(context: Context) : FrameLayout(context) {
     fun setContents(contrib: UserContribution, currentQuery: String?) {
         binding.diffText.text = StringUtil.getDiffBytesText(context, contrib.sizediff)
         if (contrib.sizediff >= 0) {
-            binding.diffText.setTextColor(if (contrib.sizediff > 0) ContextCompat.getColor(context, R.color.green600)
-            else ResourceUtil.getThemedColor(context, R.attr.secondary_color))
+            val diffColor = if (contrib.sizediff > 0) R.attr.success_color else R.attr.secondary_color
+            binding.diffText.setTextColor(ResourceUtil.getThemedColor(context, diffColor))
         } else {
             binding.diffText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.destructive_color))
         }

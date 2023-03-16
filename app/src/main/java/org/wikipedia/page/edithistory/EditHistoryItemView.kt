@@ -51,8 +51,8 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         val diffSize = itemRevision.diffSize
         binding.diffText.text = StringUtil.getDiffBytesText(context, diffSize)
         if (diffSize >= 0) {
-            binding.diffText.setTextColor(if (diffSize > 0) ContextCompat.getColor(context, R.color.green600)
-            else ResourceUtil.getThemedColor(context, R.attr.secondary_color))
+            val diffColor = if (diffSize > 0) R.attr.success_color else R.attr.secondary_color
+            binding.diffText.setTextColor(ResourceUtil.getThemedColor(context, diffColor))
         } else {
             binding.diffText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.destructive_color))
         }

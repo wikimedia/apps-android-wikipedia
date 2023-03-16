@@ -10,7 +10,6 @@ import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
@@ -294,8 +293,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun updateDiffCharCountView(diffSize: Int) {
         binding.diffCharacterCountView.text = StringUtil.getDiffBytesText(requireContext(), diffSize)
         if (diffSize >= 0) {
-            binding.diffCharacterCountView.setTextColor(if (diffSize > 0) ContextCompat.getColor(requireContext(),
-                    R.color.green600) else ResourceUtil.getThemedColor(requireContext(), R.attr.secondary_color))
+            val diffColor = if (diffSize > 0) R.attr.success_color else R.attr.secondary_color
+            binding.diffCharacterCountView.setTextColor(ResourceUtil.getThemedColor(requireContext(), diffColor))
         } else {
             binding.diffCharacterCountView.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.destructive_color))
         }

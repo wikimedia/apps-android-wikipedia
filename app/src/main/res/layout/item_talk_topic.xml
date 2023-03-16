@@ -39,7 +39,7 @@
             android:paddingVertical="12dp"
             android:layout_marginEnd="-16dp"
             android:layout_marginTop="-4dp"
-            app:tint="?attr/placeholder_color"
+            app:tint="?attr/primary_color"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_more_vert_white_24dp" />
@@ -101,14 +101,14 @@
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:contentDescription="@string/talk_list_item_reply_icon_content_description"
-                app:tint="?attr/primary_color"
+                app:tint="?attr/placeholder_color"
                 app:srcCompat="@drawable/ic_reply_24" />
 
             <TextView
                 android:id="@+id/topicReplyNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="?attr/primary_color"
+                android:textColor="?attr/placeholder_color"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:lineSpacingExtra="8sp"
