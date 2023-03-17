@@ -16,10 +16,10 @@
     <attr name="focus_color" format="color" />
     <attr name="addition_color" format="color" />
     <attr name="overlay_color" format="color" />
+    <attr name="shadow_divider" format="reference"/>
 
     <!-- Color states -->
     <attr name="nav_tab_item_color_state" format="reference" />
-    <attr name="list_separator_drawable" format="reference"/>
 
     <!-- Drawables -->
     <attr name="image_tags_onboarding_drawables" format="reference"/>

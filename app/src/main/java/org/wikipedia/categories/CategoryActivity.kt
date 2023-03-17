@@ -62,7 +62,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         supportActionBar?.title = viewModel.pageTitle.displayText
 
         binding.categoryRecycler.layoutManager = LinearLayoutManager(this)
-        binding.categoryRecycler.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
+        binding.categoryRecycler.addItemDecoration(DrawableItemDecoration(this, R.attr.shadow_divider, drawStart = false, drawEnd = false))
         binding.categoryRecycler.adapter = categoryMembersConcatAdapter
 
         lifecycleScope.launch {

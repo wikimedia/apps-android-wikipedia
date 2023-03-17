@@ -263,7 +263,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         binding.readingListRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.readingListRecyclerView.adapter = adapter
         (binding.readingListRecyclerView.itemAnimator as SimpleItemAnimator?)!!.supportsChangeAnimations = false
-        binding.readingListRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, drawStart = true, drawEnd = false))
+        binding.readingListRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.shadow_divider, drawStart = true, drawEnd = false))
     }
 
     private fun setSwipeRefreshView() {

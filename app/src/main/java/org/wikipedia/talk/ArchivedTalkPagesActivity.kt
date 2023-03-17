@@ -52,7 +52,7 @@ class ArchivedTalkPagesActivity : BaseActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        binding.recyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
+        binding.recyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.shadow_divider, drawStart = false, drawEnd = false))
         binding.recyclerView.adapter = archivedTalkPagesConcatAdapter
 
         lifecycleScope.launch {

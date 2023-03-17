@@ -19,9 +19,9 @@
         <item name="focus_color">@color/orange500</item>
         <item name="addition_color">@color/blue300_15</item>
         <item name="overlay_color">@color/black_30</item>
+        <item name="shadow_divider">@drawable/divider_sepia</item>
         <!-- Component updates -->
 
-        <item name="list_separator_drawable">@drawable/divider_sepia</item>
     </style>
 
 </resources>

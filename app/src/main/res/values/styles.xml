@@ -54,7 +54,6 @@
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogLight</item>
 
         <!-- Overrides of our own custom style attributes -->
-        <item name="list_separator_drawable">@drawable/divider_light</item>
         <item name="talk_page_empty_state_drawable">@drawable/talk_page_empty_state_illustration_light</item>
 
         <!-- Component updates -->
@@ -73,6 +72,7 @@
         <item name="focus_color">@color/orange500</item>
         <item name="addition_color">@color/blue300_15</item>
         <item name="overlay_color">@color/black_30</item>
+        <item name="shadow_divider">@drawable/divider_light</item>
         <!-- Component updates -->
 
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_light</item>

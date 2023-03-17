@@ -90,7 +90,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         binding.searchEmptyView.setEmptyText(R.string.search_reading_lists_no_results)
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = adapter
-        binding.recyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable))
+        binding.recyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.shadow_divider))
         setUpScrollListener()
         disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
         binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))

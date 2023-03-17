@@ -70,7 +70,7 @@ class NewsFragment : Fragment() {
         binding.storyTextView.text = RichTextUtil.stripHtml(viewModel.item.story)
         binding.newsStoryItemsRecyclerview.layoutManager = LinearLayoutManager(requireContext())
         binding.newsStoryItemsRecyclerview.addItemDecoration(DrawableItemDecoration(requireContext(),
-            R.attr.list_separator_drawable))
+            R.attr.shadow_divider))
         binding.newsStoryItemsRecyclerview.isNestedScrollingEnabled = false
         binding.newsStoryItemsRecyclerview.adapter = RecyclerAdapter(viewModel.item.linkCards(viewModel.wiki), Callback())
         return binding.root
