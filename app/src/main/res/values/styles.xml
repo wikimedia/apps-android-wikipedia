@@ -42,7 +42,7 @@
         <item name="android:textColorTertiary">?placeholder_color</item>
         <item name="android:textColorHint">?placeholder_color</item>
 
-        <item name="colorPrimary">?inactive_color</item>
+        <item name="colorPrimary">?placeholder_color</item>
         <item name="colorAccent">?progressive_color</item>
         <item name="colorError">?destructive_color</item>
         <item name="colorSwitchThumbNormal">?placeholder_color</item>
