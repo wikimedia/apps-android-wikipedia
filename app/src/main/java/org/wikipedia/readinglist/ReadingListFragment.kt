@@ -139,7 +139,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val searchItem = menu.findItem(R.id.menu_search_lists)
         val sortOptionsItem = menu.findItem(R.id.menu_sort_options)
         val iconColor = if (toolbarExpanded) AppCompatResources.getColorStateList(requireContext(), android.R.color.white)
-        else ResourceUtil.getThemedColorStateList(requireContext(), R.attr.placeholder_color)
+        else ResourceUtil.getThemedColorStateList(requireContext(), R.attr.primary_color)
         menu.findItem(R.id.menu_reading_list_share)?.isVisible = ReadingListsShareHelper.shareEnabled()
         MenuItemCompat.setIconTintList(searchItem, iconColor)
         MenuItemCompat.setIconTintList(sortOptionsItem, iconColor)
@@ -217,7 +217,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private fun setToolbar() {
         binding.readingListAppBar.addOnOffsetChangedListener(appBarListener)
-        binding.readingListToolbarContainer.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
+        binding.readingListToolbarContainer.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_color))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             binding.readingListToolbarContainer.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         }
