@@ -6,5 +6,5 @@
     android:layout_height="24dp"
     android:layout_gravity="center"
     android:contentDescription="@null"
-    app:srcCompat="@drawable/ic_chevron_forward_gray"
+    app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
     app:tint="?attr/colorAccent" />

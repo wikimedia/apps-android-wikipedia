@@ -60,10 +60,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:scaleX="-1"
-                app:tint="?attr/placeholder_color"
                 android:contentDescription="@string/on_this_day_dialog_previous_month"
                 android:background="?android:selectableItemBackgroundBorderless"
-                app:srcCompat="@drawable/ic_chevron_forward_gray" />
+                app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
+                app:tint="?attr/placeholder_color" />
 
             <TextView
                 android:id="@+id/current_month"
@@ -85,10 +85,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                app:tint="?attr/placeholder_color"
                 android:contentDescription="@string/on_this_day_dialog_next_month"
                 android:background="?android:selectableItemBackgroundBorderless"
-                app:srcCompat="@drawable/ic_chevron_forward_gray" />
+                app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
+                app:tint="?attr/placeholder_color" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

@@ -60,7 +60,7 @@
                 android:layout_marginTop="9.5dp"
                 android:layout_gravity="center_horizontal"
                 app:tint="?attr/nav_tab_item_color_state"
-                app:srcCompat="@drawable/ic_menu_themed_24dp" />
+                app:srcCompat="@drawable/ic_menu_white_24dp" />
 
             <TextView
                 android:layout_width="match_parent"

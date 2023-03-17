@@ -64,7 +64,7 @@ class WatchlistFilterItemView constructor(context: Context, attrs: AttributeSet?
         binding.watchlistFilterLanguageCode.visibility = View.GONE
         binding.watchlistFilterWikiLogo.visibility = View.VISIBLE
         ImageViewCompat.setImageTintList(binding.watchlistFilterWikiLogo, accentColor)
-        binding.watchlistFilterWikiLogo.setImageResource(R.drawable.ic_mode_edit_themed_24dp)
+        binding.watchlistFilterWikiLogo.setImageResource(R.drawable.ic_mode_edit_white_24dp)
         binding.watchlistFilterCheck.visibility = View.GONE
         binding.watchlistFilterTitle.setTextColor(accentColor)
         binding.watchlistFilterTitle.text = text.uppercase()

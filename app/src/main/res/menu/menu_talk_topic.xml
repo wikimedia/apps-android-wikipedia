@@ -7,6 +7,7 @@
         android:id="@+id/menu_find_in_page"
         android:icon="@drawable/ic_find_in_page_24px"
         android:title="@string/menu_option_find_in_talk_page_topic"
+        app:iconTint="?attr/primary_color"
         app:showAsAction="ifRoom" />
 
     <item
@@ -20,21 +21,25 @@
                 android:id="@+id/menu_talk_topic_expand"
                 android:icon="@drawable/ic_expand_24"
                 android:title="@string/talk_menu_expand_threads"
+                app:iconTint="?attr/primary_color"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/menu_talk_topic_collapse"
                 android:icon="@drawable/ic_collapse_24"
                 android:title="@string/talk_menu_collapse_threads"
+                app:iconTint="?attr/primary_color"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/menu_talk_topic_share"
                 android:icon="@drawable/ic_share"
                 android:title="@string/talk_list_item_overflow_share"
+                app:iconTint="?attr/primary_color"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/menu_edit_source"
                 android:icon="@drawable/ic_mode_edit_white_24dp"
                 android:title="@string/menu_option_edit_source"
+                app:iconTint="?attr/primary_color"
                 app:showAsAction="never" />
         </menu>
     </item>

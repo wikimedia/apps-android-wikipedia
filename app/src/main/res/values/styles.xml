@@ -177,7 +177,8 @@
         <item name="colorControlNormal">?attr/primary_color</item>
         <item name="colorControlActivated">?attr/primary_color</item>
         <item name="colorControlHighlight">?attr/primary_color</item>
-        <item name="navigationIcon">@drawable/ic_add_gray_themed_24dp</item>
+        <item name="navigationIcon">@drawable/ic_add_gray_white_24dp</item>
+        <item name="navigationIconTint">?attr/placeholder_color</item>
         <item name="navigationContentDescription">@string/menu_new_tab</item>
     </style>
 

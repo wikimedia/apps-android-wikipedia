@@ -35,7 +35,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:padding="12dp"
-            app:srcCompat="@drawable/ic_chevron_forward_gray"
+            app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
             app:tint="?attr/colorAccent"
             android:contentDescription="@null"/>
 

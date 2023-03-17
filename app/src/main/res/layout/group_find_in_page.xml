@@ -46,7 +46,8 @@
         android:layout_height="48dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/find_previous"
-        app:srcCompat="@drawable/ic_expand_less_themed_24dp" />
+        app:srcCompat="@drawable/ic_expand_less_white_24dp"
+        app:tint="?attr/placeholder_color"/>
 
     <ImageView
         android:id="@+id/find_in_page_next"
@@ -55,7 +56,8 @@
         android:layout_height="48dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/find_next"
-        app:srcCompat="@drawable/ic_expand_more_themed_24dp" />
+        app:srcCompat="@drawable/ic_expand_more_white_24dp"
+        app:tint="?attr/placeholder_color" />
 
     <ImageView
         android:id="@+id/close_button"

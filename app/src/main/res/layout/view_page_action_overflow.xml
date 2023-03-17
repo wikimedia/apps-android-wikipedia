@@ -49,7 +49,7 @@
                 android:text="@string/customize_toolbar_title"
                 android:layoutDirection="locale"
                 android:textDirection="locale"
-                app:drawableStartCompat="@drawable/ic_settings_themed_24dp"
+                app:drawableStartCompat="@drawable/ic_settings_black_24dp"
                 app:drawableTint="?attr/primary_color" />
 
         </LinearLayout>

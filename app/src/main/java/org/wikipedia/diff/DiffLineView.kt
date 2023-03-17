@@ -57,7 +57,7 @@ class DiffLineView constructor(context: Context, attrs: AttributeSet? = null) : 
             binding.collapseExpandButton.setImageResource(R.drawable.ic_arrow_down_24)
         } else {
             binding.diffText.isVisible = false
-            binding.collapseExpandButton.setImageResource(R.drawable.ic_chevron_forward_gray)
+            binding.collapseExpandButton.setImageResource(R.drawable.ic_chevron_forward_white_24dp)
         }
     }
 }
