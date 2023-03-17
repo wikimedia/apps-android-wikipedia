@@ -21,6 +21,7 @@
         <item name="overlay_color">@color/black_30</item>
         <!-- Component updates -->
 
+        <item name="list_separator_drawable">@drawable/divider_sepia</item>
     </style>
 
 </resources>

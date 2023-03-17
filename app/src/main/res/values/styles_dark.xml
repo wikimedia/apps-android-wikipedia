@@ -11,7 +11,6 @@
 
         <!-- Overrides of our own custom style attributes -->
         <item name="list_separator_drawable">@drawable/divider_dark</item>
-        <item name="list_separator_drawable_light">@drawable/side_panel_divider_dark</item>
         <item name="talk_page_empty_state_drawable">@drawable/talk_page_empty_state_illustration_dark</item>
 
         <!-- Component updates -->

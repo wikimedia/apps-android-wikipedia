@@ -55,7 +55,6 @@
 
         <!-- Overrides of our own custom style attributes -->
         <item name="list_separator_drawable">@drawable/divider_light</item>
-        <item name="list_separator_drawable_light">@drawable/side_panel_divider_light</item>
         <item name="talk_page_empty_state_drawable">@drawable/talk_page_empty_state_illustration_light</item>
 
         <!-- Component updates -->

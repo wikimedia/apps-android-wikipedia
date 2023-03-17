@@ -65,7 +65,7 @@ class WatchlistFilterActivity : BaseActivity() {
     private fun setUpRecyclerView() {
         binding.watchlistFiltersRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.watchlistFiltersRecyclerView.adapter = WatchlistFilterAdapter(this, filterListWithHeaders())
-        binding.watchlistFiltersRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable_light, drawStart = false, drawEnd = true, skipSearchBar = true))
+        binding.watchlistFiltersRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = true, skipSearchBar = true))
         binding.watchlistFiltersRecyclerView.itemAnimator = null
     }
 
