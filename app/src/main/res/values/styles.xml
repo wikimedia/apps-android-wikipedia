@@ -81,6 +81,103 @@
 
     </style>
 
+    <!-- Component updates -->
+    <style name="H1">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="lineHeight">32sp</item>
+    </style>
+
+    <style name="H1.AppBar">
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="H1.Article">
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="H2">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">28sp</item>
+    </style>
+
+    <style name="H2.AppBar">
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="H3">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="H3.Button">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="H3.Article">
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">24sp</item>
+        <item name="lineHeight">32sp</item>
+    </style>
+
+    <style name="H4">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="H5">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">18sp</item>
+    </style>
+
+    <style name="P">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="P.Article">
+        <item name="lineHeight">28sp</item>
+    </style>
+
+    <style name="Chip">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="List">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="Small">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">18sp</item>
+    </style>
+
+    <style name="Toolbar">
+        <item name="android:fontFamily">sans-serif-condensed-medium</item>
+        <item name="android:textSize">10sp</item>
+        <item name="lineHeight">12sp</item>
+    </style>
+    <!-- Component updates -->
+
+    <!-- TODO: revisit and replace/inherit the existing styles -->
     <style name="AppTheme.Splash">
         <item name="android:windowBackground">@drawable/splash_bg</item>
         <item name="android:navigationBarColor">@color/gray700</item>
@@ -532,7 +629,6 @@
         <item name="android:ellipsize">marquee</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:textAlignment">inherit</item>
-        <item name="android:textAllCaps">true</item>
     </style>
 
 
