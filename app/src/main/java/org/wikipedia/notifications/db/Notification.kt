@@ -11,8 +11,8 @@ import org.wikipedia.Constants
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.UriUtil
+import java.time.Instant
 import java.util.*
 
 @Serializable
@@ -40,8 +40,8 @@ class Notification(var id: Long = 0,
         return id + wiki.hashCode()
     }
 
-    fun date(): Date {
-        return timestamp?.date() ?: Date()
+    fun instant(): Instant {
+        return timestamp?.instant ?: Instant.now()
     }
 
     override fun toString(): String {
@@ -69,12 +69,9 @@ class Notification(var id: Long = 0,
     }
 
     @Serializable
-    class Timestamp {
-
-        val utciso8601: String? = null
-
-        fun date(): Date {
-            return DateUtil.iso8601DateParse(utciso8601!!)
+    class Timestamp(val utciso8601: String) {
+        val instant: Instant by lazy {
+            Instant.parse(utciso8601)
         }
     }
 

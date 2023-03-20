@@ -4,6 +4,7 @@ import android.content.Context
 import android.icu.text.RelativeDateTimeFormatter
 import android.os.Build
 import android.text.format.DateFormat
+import android.text.format.DateUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.UtcDate
@@ -15,6 +16,7 @@ import java.time.ZoneId
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
+import java.time.temporal.ChronoUnit
 import java.time.temporal.TemporalAccessor
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
@@ -175,5 +177,12 @@ object DateUtil {
             return if (diffInYears == 0) L10nUtil.getStringForArticleLanguage(languageCode, R.string.this_year)
             else targetResource.getQuantityString(R.plurals.diff_years, diffInYears, diffInYears)
         }
+    }
+
+    fun formatRelativeTime(instant: Instant): CharSequence {
+        val localDate = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate()
+        val weeks = localDate.until(LocalDate.now(), ChronoUnit.WEEKS)
+        val flags = if (weeks in 1..10) DateUtils.WEEK_IN_MILLIS else 0L
+        return DateUtils.getRelativeTimeSpanString(instant.toEpochMilli(), System.currentTimeMillis(), flags)
     }
 }
