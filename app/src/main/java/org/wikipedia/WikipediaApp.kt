@@ -186,7 +186,7 @@ class WikipediaApp : Application() {
         WikipediaFirebaseMessagingService.updateSubscription()
 
         EventPlatformClient.setUpStreamConfigs()
-        machineGeneratedDescriptionsABTest = ABTest(org.wikipedia.analytics.eventplatform.ABTest.Companion.MACHINE_GEN_DESC, GROUP_SIZE_3)
+        machineGeneratedDescriptionsABTest = ABTest(MACHINE_GEN_DESC, GROUP_SIZE_3)
     }
 
     /**
