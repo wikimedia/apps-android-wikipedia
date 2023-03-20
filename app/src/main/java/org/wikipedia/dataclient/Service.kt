@@ -332,13 +332,13 @@ interface Service {
         @Query("uccontinue") uccontinue: String?
     ): Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags")
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     suspend fun getUserContrib(
             @Query("ucuser") username: String,
             @Query("uclimit") maxCount: Int,
-            @Query("ucnamespace") ns: String?,
-            @Query("ucshow") filter: String?,
-            @Query("uccontinue") uccontinue: String?
+            @Query("ucnamespace") ns: String? = null,
+            @Query("ucshow") filter: String? = null,
+            @Query("uccontinue") uccontinue: String? = null
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")

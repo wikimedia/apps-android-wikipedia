@@ -36,17 +36,15 @@ class ABTest(private val abTestName: String, private val abTestGroupCount: Int) 
         }) {
             withContext(Dispatchers.IO) {
                 val homeSiteResponse = async { ServiceFactory.get(WikipediaApp.instance.wikiSite)
-                    .getUserContributions(AccountUtil.userName!!, 10, null) }
+                    .getUserContrib(AccountUtil.userName!!, 10) }
                 val commonsResponse = async { ServiceFactory.get(Constants.commonsWikiSite)
-                    .getUserContributions(AccountUtil.userName!!, 10, null) }
+                    .getUserContrib(AccountUtil.userName!!, 10) }
                 val wikidataResponse = async { ServiceFactory.get(Constants.wikidataWikiSite)
-                    .getUserContributions(AccountUtil.userName!!, 10, null) }
-                homeSiteResponse.await()
-                    .blockingSubscribe { totalContributions += it.query?.userInfo!!.editCount }
-                commonsResponse.await()
-                    .blockingSubscribe { totalContributions += it.query?.userInfo!!.editCount }
-                wikidataResponse.await()
-                    .blockingSubscribe { totalContributions += it.query?.userInfo!!.editCount }
+                    .getUserContrib(AccountUtil.userName!!, 10) }
+
+                    totalContributions += homeSiteResponse.await().query?.userInfo!!.editCount
+                    totalContributions += commonsResponse.await().query?.userInfo!!.editCount
+                    totalContributions += wikidataResponse.await().query?.userInfo!!.editCount
 
                 if (totalContributions > EXP_CONTRIBUTOR_REQ) {
                     group = GROUP_3
