@@ -20,6 +20,7 @@
 
     <!-- Color states -->
     <attr name="nav_tab_item_color_state" format="reference" />
+    <attr name="input_stroke_color_state" format="reference" />
 
     <!-- Drawables -->
     <attr name="image_tags_onboarding_drawables" format="reference"/>

@@ -22,6 +22,7 @@
         <item name="shadow_divider">@drawable/divider_sepia</item>
         <!-- Component updates -->
 
+        <item name="input_stroke_color_state">@color/color_state_input_field_sepia</item>
     </style>
 
 </resources>
