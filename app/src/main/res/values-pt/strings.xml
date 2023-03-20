@@ -587,10 +587,10 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancelar</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_activity_title">Lista de leitura: %s</string>
-  <string name="reading_lists_preview_save_dialog_title">Salvar lista</string>
-  <string name="reading_lists_preview_save_dialog_text">Nomeie a lista e selecione os artigos para salvar</string>
+  <string name="reading_lists_preview_save_dialog_title">Gravar lista</string>
+  <string name="reading_lists_preview_save_dialog_text">Dê um nome à lista e selecione artigos para gravar.</string>
   <string name="reading_lists_preview_save_dialog_cancel">Cancelar</string>
-  <string name="reading_lists_preview_save_dialog_save">Salvar</string>
+  <string name="reading_lists_preview_save_dialog_save">Gravar</string>
   <string name="user_option_sync_label">Preferências</string>
   <string name="notification_reverted_title">Edição desfeita</string>
   <string name="notification_channel_title">A descarregar artigos</string>
