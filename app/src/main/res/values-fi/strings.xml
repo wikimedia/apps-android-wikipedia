@@ -527,6 +527,14 @@
     <item quantity="one">%d artikkeli poistettu lukulistalta %s</item>
     <item quantity="other">%d artikkelia poistettu lukulistalta %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d lista poistettu</item>
+    <item quantity="other">%d listaa poistettu</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Oletuslistaa ( %s ) ei voi poistaa</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s poistettu. Oletuslistaa ( %2$s ) ei voi poistaa.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Listat poistettu. Oletuslistaa ( %s ) ei voi poistaa.</string>
+  <string name="single_list_json_file_name">%s (Wikipedia-lukulista).json</string>
   <string name="reading_list_items_deleted">%d artikkelia poistettu listasta</string>
   <string name="reading_lists_item_deleted">%s poistettu listoista</string>
   <string name="reading_list_item_delete_undo">Kumoa</string>
@@ -614,12 +622,16 @@
   <string name="reading_lists_action_menu_export_lists">Vie</string>
   <string name="reading_lists_import_file_picker_title">Valitse tuotava tiedosto</string>
   <string name="reading_lists_import_failure_message">Lukulistojen tuonti epäonnistui</string>
+  <string name="reading_lists_export_select_lists_message">Valitse vietävä(t) lista(t).</string>
+  <string name="reading_lists_export_completed_message">Lukulista(t) viety</string>
   <string name="reading_lists_preview_header_title">Jaettu lista</string>
   <string name="reading_lists_preview_save_button">Tallenna</string>
   <string name="reading_lists_preview_save_dialog_title">Tallenna lista</string>
+  <string name="reading_lists_preview_save_dialog_text">Nimeä lista ja valitse tallennettavat artikkelit.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Otsikko</string>
   <string name="reading_lists_preview_save_dialog_cancel">Peruuta</string>
   <string name="reading_lists_preview_save_dialog_save">Tallenna</string>
+  <string name="reading_lists_preview_saved_snackbar">Lukulista tallennettu</string>
   <string name="reading_lists_preview_saved_snackbar_action">Näytä</string>
   <string name="user_option_sync_label">Asetukset</string>
   <string name="notification_reverted_title">Kumottu muokkaus</string>
@@ -1272,6 +1284,7 @@
   <string name="watchlist_page_deleted">Poistettu</string>
   <string name="watchlist_filter_all_text">Kaikki</string>
   <string name="watchlist_filter_user_status_newcomers">Tulokkaat</string>
+  <string name="watchlist_filter_significance_minor">Pienet muutokset</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata-muokkaukset</string>
   <string name="watchlist_filter_type_of_change_new_users">Uudet käyttäjät</string>
   <string name="watchlist_filter_reset_button">Nollaa</string>
