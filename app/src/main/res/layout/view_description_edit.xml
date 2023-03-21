@@ -170,7 +170,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="-20dp"
                                 android:text="@string/description_edit_suggested_description_button_text"
-                                android:visibility="visible"
+                                android:visibility="gone"
                                 app:chipStrokeColor="?attr/border_color"
                                 app:chipStrokeWidth="1dp"
                                 app:chipIcon="@drawable/ic_robot_24" />

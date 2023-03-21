@@ -16,6 +16,7 @@ import androidx.core.widget.addTextChangedListener
 import de.mrapp.android.view.drawable.CircularProgressDrawable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.databinding.ViewDescriptionEditBinding
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.mlkit.MlKitLanguageDetector
@@ -50,6 +51,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     private var isLanguageWrong = false
     private var isTextValid = false
     var callback: Callback? = null
+    var isSuggestionButtonEnabled: Boolean = false
 
     var description: String?
         get() = binding.viewDescriptionEditText.text.toString().trim()
@@ -406,13 +408,14 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     }
 
     private fun updateSuggestedDescriptionsButtonVisibility() {
-        binding.suggestedDescButton.isVisible = binding.viewDescriptionEditTextLayout.error.isNullOrEmpty()
+        binding.suggestedDescButton.isVisible = binding.viewDescriptionEditTextLayout.error.isNullOrEmpty() && isSuggestionButtonEnabled!!
     }
 
     fun showSuggestedDescriptionsButton(firstSuggestion: String, secondSuggestion: String) {
         binding.root.post {
             binding.suggestedDescButton.isEnabled = true
             binding.suggestedDescButton.chipIcon = AppCompatResources.getDrawable(context, R.drawable.ic_robot_24)
+            MachineGeneratedArticleDescriptionsAnalyticsHelper.suggestedDescriptionsButtonShown(context)
         }
         binding.suggestedDescButton.setOnClickListener {
             SuggestedArticleDescriptionsDialog(context, firstSuggestion, secondSuggestion) { suggestion ->

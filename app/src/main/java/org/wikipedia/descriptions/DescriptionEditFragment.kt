@@ -25,6 +25,7 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_1
 import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_3
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
+import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentDescriptionEditBinding
@@ -192,6 +193,9 @@ class DescriptionEditFragment : Fragment() {
     }
 
     private fun setUpEditView(savedInstanceState: Bundle?) {
+        if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
+            MachineGeneratedArticleDescriptionsAnalyticsHelper.articleDescriptionEditingStart(requireContext())
+        }
         binding.fragmentDescriptionEditView.setAction(action)
         binding.fragmentDescriptionEditView.setPageTitle(pageTitle)
         highlightText?.let { binding.fragmentDescriptionEditView.setHighlightText(it) }
@@ -204,10 +208,13 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.showProgressBar(false)
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
-        if (ReleaseUtil.isPreBetaRelease && SuggestedArticleDescriptionsDialog.availableLanguages().contains(pageTitle.wikiSite.languageCode) &&
-            action == DescriptionEditActivity.Action.ADD_DESCRIPTION &&
-            pageTitle.description.isNullOrEmpty() &&
-            WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup != GROUP_1) {
+        
+        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = ReleaseUtil.isPreBetaRelease &&
+                SuggestedArticleDescriptionsDialog.availableLanguages().contains(pageTitle.wikiSite.languageCode) &&
+                action == DescriptionEditActivity.Action.ADD_DESCRIPTION && pageTitle.description.isNullOrEmpty() &&
+            WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup != GROUP_1
+
+        if (binding.fragmentDescriptionEditView.isSuggestionButtonEnabled) {
             binding.fragmentDescriptionEditView.showSuggestedDescriptionsLoadingProgress()
             requestSuggestion()
         }
@@ -227,7 +234,8 @@ class DescriptionEditFragment : Fragment() {
                 val list = (if (pageTitle.wikiSite.languageCode == "en") {
                     response.prediction.map { StringUtil.capitalize(it)!! }
                 } else response.prediction).distinct()
-
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDetailsLogged(requireContext(),
+                    pageTitle.prefixedText, list, response.blp)
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
 
@@ -251,6 +259,9 @@ class DescriptionEditFragment : Fragment() {
     private inner class EditViewCallback : DescriptionEditView.Callback {
         override fun onSaveClick() {
             if (!binding.fragmentDescriptionEditView.showingReviewContent()) {
+                if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
+                    MachineGeneratedArticleDescriptionsAnalyticsHelper.articleDescriptionEditingEnd(requireContext())
+                }
                 binding.fragmentDescriptionEditView.loadReviewContent(true)
             } else {
                 binding.fragmentDescriptionEditView.setError(null)

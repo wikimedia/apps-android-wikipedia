@@ -48,6 +48,7 @@
 * WwLMvmT
 * Yusuke1109
 * そらたこ
+* もなー(偽物)
 * ネイ
 * バレロン
 * 春春眠眠
@@ -982,10 +983,10 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;%sさん&lt;/b&gt;、ウィキペディアをより良くするための素早く簡単な方法を以下にご紹介します。始めてすぐ、あなたは自分が編集した内容が反映されるのを見ることができます。良い編集を!</string>
   <string name="suggested_edits_image_captions_task_detail">読者が意味と文脈を理解できるように、画像について説明してください。</string>
   <string name="suggested_edits_add_descriptions_task_detail">読者が一目でその主題を理解できるように要約してください。</string>
-  <string name="suggested_edits_contributions_stat_tooltip">これまでの編集回数</string>
+  <string name="suggested_edits_contributions_stat_tooltip">これまでの総編集回数です。</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">投稿を何日間連続で行ったかです。しばらく投稿していない場合には最後の投稿日が表示されます。</string>
   <string name="suggested_edits_page_views_stat_tooltip">過去30日間の、投稿したアイテムへの総ページビュー数です。</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">あなたの投稿が巻き戻された（他の編集者に取り消された）回数を基づいています。巻き戻された編集数：%d。</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">あなたの投稿が差し戻された（他の編集者に取り消された）回数に基づいています。差し戻された編集数：%d。</string>
   <string name="suggested_edits_paused_message">編集提案は%1$sまで保留されました。あいにくですが、%2$sさんの最近の投稿は巻き戻しが数件続いています。</string>
   <string name="suggested_edits_disabled_message">編集提案は無効にされました。申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎました。</string>
   <string name="suggested_edits_ip_blocked_message">ご使用のIPアドレスまたはIPアドレスの範囲は現在ウィキペディアの編集からブロックされているようです。</string>
@@ -1068,6 +1069,7 @@
   <string name="file_page_activity_title">ファイルページ</string>
   <string name="file_page_add_image_caption_button">画像キャプションを追加</string>
   <string name="file_page_add_image_tags_button">画像タグを追加</string>
+  <string name="file_page_edit_button_content_description">%sを編集</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます!</string>
   <string name="description_edit_revert_intro">あなたがベストを尽くそうとしたのはよく分かりますが、レビュアーは懸念を持ったようです。あなたの編集が差し戻された理由としては、以下のような可能性があります。</string>
   <string name="description_edit_revert_reason1">あなたの投稿が&lt;a href=\"%1$s\"&gt;ガイドライン&lt;/a&gt;に沿っていなかった。</string>
@@ -1218,6 +1220,9 @@
   <string name="talk_last_modified">&lt;b&gt;最終編集 %1$s&lt;/b&gt; 編集者: %2$s</string>
   <string name="talk_snackbar_survey_text">トークページをご利用いただきありがとうございます。アンケートに参加して、アプリの改善にご協力いただけませんか？</string>
   <string name="talk_snackbar_survey_action_text">始める</string>
+  <string name="talk_share_discussion_subject">ウィキペディア - トークページのトピック「 %s 」に関する議論</string>
+  <string name="talk_share_talk_page">ウィキペディア - トークページでの議論</string>
+  <string name="talk_edit_disclaimer">トークページです。トークページのガイドラインを尊重し、ウィキテキストを使用して投稿する場合は文末に ~~~~と入力し必ず署名をしてください。&lt;br&gt;&lt;br&gt; &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:トークページのガイドライン&lt;/a&gt;</string>
   <string name="talk_search_hint">メッセージを検索する</string>
   <string name="talk_search_topics_hint">トピックを検索</string>
   <string name="talk_search_find_in_talk_topics_hint">トークページのトピックを探す</string>
@@ -1241,11 +1246,13 @@
   <string name="talk_list_item_overflow_mark_as_unread">未読にする</string>
   <string name="talk_list_item_overflow_share">共有</string>
   <string name="talk_list_item_last_comment_date">最新のコメント：%s</string>
+  <string name="talk_list_item_reply_icon_content_description">返信数</string>
   <string name="talk_list_item_user_icon_content_description">利用者アイコン</string>
   <string name="talk_list_item_swipe_mark_as_read">既読</string>
   <string name="talk_list_item_swipe_mark_as_unread">未読</string>
   <string name="talk_login_to_subscribe_dialog_title">ログインしてトピックを購読する</string>
   <string name="talk_login_to_subscribe_dialog_content">トピックを購読すると、このトピックでの新しいコメントについて通知を受け取ることができるようになります。トピックを購読するにはアカウントを作成するか、自分のウィキペディアアカウントにログインしてください。</string>
+  <string name="talk_archived_title">トーク アーカイブ: %s</string>
   <string name="menu_option_share_talk_discussion">議論を共有</string>
   <string name="menu_option_share_talk_page">トークページを共有</string>
   <string name="menu_option_share_edit">編集をシェア</string>
@@ -1305,6 +1312,7 @@
   <string name="watchlist_expiry_dialog_three_months">3ヵ月</string>
   <string name="watchlist_expiry_dialog_six_months">6ヵ月</string>
   <string name="watchlist_empty">ウォッチリストに記事がありません。</string>
+  <string name="watchlist_search">ウォッチリストを検索</string>
   <string name="watchlist_filter_all">すべて</string>
   <string name="watchlist_filter_talk">トーク</string>
   <string name="watchlist_filter_pages">ページ</string>
@@ -1312,6 +1320,54 @@
   <string name="watchlist_page_moved">移動</string>
   <string name="watchlist_page_protected">保護</string>
   <string name="watchlist_page_deleted">削除</string>
+  <string name="watchlist_filter_title">ウォッチリストを絞り込み</string>
+  <string name="watchlist_filter_wiki_filter_header">ウィキ</string>
+  <string name="watchlist_filter_all_text">すべて</string>
+  <string name="watchlist_filter_watchlist_activity_header">ウォッチリスト アクティビティ</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">未読の変更</string>
+  <string name="watchlist_filter_watchlist_activity_seen">閲覧済みの変更</string>
+  <string name="watchlist_filter_contribution_quality_header">編集の品質</string>
+  <string name="watchlist_filter_contribution_quality_good">良好である可能性が高い</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">問題があるかもしれません</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">問題がある可能性</string>
+  <string name="watchlist_filter_contribution_quality_bad">問題がある可能性が高い</string>
+  <string name="watchlist_filter_user_intent_header">利用者の意図</string>
+  <string name="watchlist_filter_user_intent_good">良い可能性が高い</string>
+  <string name="watchlist_filter_user_intent_may_problems">悪意のある可能性</string>
+  <string name="watchlist_filter_user_intent_likely_problems">悪意である可能性</string>
+  <string name="watchlist_filter_user_intent_bad">悪意である可能性が高い</string>
+  <string name="watchlist_filter_user_status_header">利用者の登録及び活動</string>
+  <string name="watchlist_filter_user_status_unregistered">未登録</string>
+  <string name="watchlist_filter_user_status_registered">登録済み</string>
+  <string name="watchlist_filter_user_status_newcomers">新規利用者</string>
+  <string name="watchlist_filter_user_status_learners">学習者</string>
+  <string name="watchlist_filter_user_status_experienced">経験者</string>
+  <string name="watchlist_filter_contribution_authorship_header">自分の編集か他者の編集か</string>
+  <string name="watchlist_filter_contribution_authorship_own">自分の編集</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">他者による変更</string>
+  <string name="watchlist_filter_automated_contributions_header">自動編集</string>
+  <string name="watchlist_filter_automated_contributions_bot">ボット</string>
+  <string name="watchlist_filter_automated_contributions_human">人間（ボットではない）</string>
+  <string name="watchlist_filter_significance_header">重要度</string>
+  <string name="watchlist_filter_significance_minor">細部の編集</string>
+  <string name="watchlist_filter_significance_edits">細部でない編集</string>
+  <string name="watchlist_filter_latest_revisions_header">最新版</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">最新版</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">最新版ではありません</string>
+  <string name="watchlist_filter_type_of_change_header">変更の種類</string>
+  <string name="watchlist_filter_type_of_change_page_edits">ページの編集</string>
+  <string name="watchlist_filter_type_of_change_page_creations">ページの作成</string>
+  <string name="watchlist_filter_type_of_change_category_changes">カテゴリーの変更</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">ウィキデータの編集</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">記録された活動</string>
+  <string name="watchlist_filter_type_of_change_new_users">新しい利用者</string>
+  <string name="watchlist_filter_reset_button">リセット</string>
+  <string name="watchlist_search_bar_hint">ウォッチリストを検索または絞り込みする</string>
+  <string name="watchlist_search_bar_filter_hint">ウォッチリストを絞り込み</string>
+  <string name="watchlist_empty_search_message">結果がありません。 %sを削除してみてください。</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="other">%d件のフィルター</item>
+  </plurals>
   <string name="preview_edit_title">編集のプレビュー</string>
   <string name="preview_edit_summarize_edit_title">編集の要約</string>
   <string name="preview_edit_summarize_edit_hint">どのようにこのページを改善しましたか？</string>
@@ -1343,7 +1399,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">あとで読むリストをインポートしました</string>
   <string name="reading_list_share_menu_label">共有…</string>
   <string name="reading_list_share_menu_tooltip">このあとで読むリストを他の人と共有する</string>
-  <string name="reading_list_share_title_tooltip">このリストに行った変更は他の人には見えません。</string>
   <string name="data_opt_in_accept">承認</string>
   <string name="data_opt_in_reject">却下</string>
 </resources>

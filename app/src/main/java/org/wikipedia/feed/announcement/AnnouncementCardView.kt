@@ -11,7 +11,6 @@ import org.wikipedia.R
 import org.wikipedia.databinding.ViewCardAnnouncementBinding
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.view.DefaultFeedCardView
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
 
@@ -67,7 +66,6 @@ class AnnouncementCardView(context: Context) : DefaultFeedCardView<AnnouncementC
                 }
                 if (it.hasFooterCaption()) {
                     binding.viewAnnouncementFooterText.text = StringUtil.fromHtml(it.footerCaption())
-                    RichTextUtil.removeUnderlinesFromLinks(binding.viewAnnouncementFooterText)
                 } else {
                     binding.viewAnnouncementFooterText.visibility = GONE
                     binding.viewAnnouncementFooterBorder.visibility = GONE

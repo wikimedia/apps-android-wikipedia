@@ -1324,7 +1324,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Leseliste importert</string>
   <string name="reading_list_share_menu_label">Del …</string>
   <string name="reading_list_share_menu_tooltip">Del denne leselista med andre</string>
-  <string name="reading_list_share_title_tooltip">Endringer du gjør i lista er ikke synlige for andre.</string>
   <string name="reading_list_share_message_v2">Hei! Jeg ønsker å dele leselista mi på Wikipedia med deg:</string>
   <string name="reading_list_share_survey_title">Kan du hjelpe oss å forbedre «Del leselister»?</string>
   <string name="reading_list_share_survey_body">«Del leselister» er en testfunksjon, og vi trenger tilbakemelding fra brukerne for å forbedre eller fjerne den.</string>

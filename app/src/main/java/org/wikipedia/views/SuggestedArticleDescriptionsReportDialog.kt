@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AlertDialog
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.databinding.DialogDescriptionSuggestionReportBinding
 import org.wikipedia.util.FeedbackUtil
 
@@ -15,25 +16,53 @@ class SuggestedArticleDescriptionsReportDialog(context: Context, suggestion: Str
         fun onReportClick()
     }
 
+    private var reported = false
     private val binding = DialogDescriptionSuggestionReportBinding.inflate(layoutInflater)
 
     init {
         setView(binding.root)
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         binding.reportButton.setOnClickListener {
-            collectReportData()
+            collectReportData(suggestion)
             FeedbackUtil.makeSnackbar(context as Activity,
                 context.getString(R.string.suggested_edits_suggestion_report_submitted)).show()
             callback.onReportClick()
+            reported = true
             dismiss()
         }
         binding.suggestionReportOther.setEndIconOnClickListener {
-            binding.suggestionReportOtherEditText.setText("")
+            binding.suggestionReportOther.editText?.text?.clear()
         }
         binding.cancelButton.setOnClickListener { dismiss() }
+        setOnDismissListener {
+            if (!reported) {
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.logReportDialogOptedOut(context,
+                    suggestion, getReportReasons())
+            }
+        }
     }
 
-    private fun collectReportData() {
-        // Todo: Implement during analytics wiring
+    private fun getReportReasons(): List<String> {
+        val responses = mutableListOf<String>()
+
+        if (binding.notEnoughInfoCheckbox.isChecked) {
+            responses.add(binding.notEnoughInfoCheckbox.text.toString())
+        }
+        if (binding.cannotSeeDescriptionCheckbox.isChecked) {
+            responses.add(binding.cannotSeeDescriptionCheckbox.text.toString())
+        }
+        if (binding.doNotUnderstandCheckbox.isChecked) {
+            responses.add(binding.doNotUnderstandCheckbox.text.toString())
+        }
+        if (binding.inappropriateSuggestionCheckbox.isChecked) {
+            responses.add(binding.inappropriateSuggestionCheckbox.text.toString())
+        }
+        responses.add(binding.suggestionReportOther.editText?.text.toString())
+        return responses
+    }
+
+    private fun collectReportData(suggestion: String) {
+        MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuggestionReported(context,
+            suggestion, getReportReasons())
     }
 }

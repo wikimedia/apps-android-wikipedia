@@ -237,9 +237,6 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=globaluserinfo&guiprop=editcount|groups|rights")
     suspend fun globalUserInfo(@Query("guiuser") userName: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=rights")
-    suspend fun userRights(): MwQueryResponse
-
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
     fun getUserList(@Query("ususers") userNames: String): Observable<MwQueryResponse>
 
@@ -444,6 +441,14 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched")
     suspend fun getWatchedStatus(@Query("titles") titles: String): MwQueryResponse
 
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched&meta=userinfo&uiprop=options")
+    suspend fun getWatchedStatusWithUserOptions(@Query("titles") titles: String): MwQueryResponse
+
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched&meta=userinfo&uiprop=rights")
+    suspend fun getWatchedStatusWithRights(@Query("titles") titles: String): MwQueryResponse
+
     @get:GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
     @get:Headers("Cache-Control: no-cache")
     val watchlist: Observable<MwQueryResponse>
@@ -461,7 +466,8 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvslots=main&rvprop=ids|timestamp|size|flags|comment|user&rvdir=newer")
     suspend fun getRevisionDetailsAscending(
-        @Query("titles") titles: String,
+        @Query("titles") titles: String?,
+        @Query("pageids") pageIds: String?,
         @Query("rvlimit") count: Int,
         @Query("rvstartid") revisionStartId: Long?
     ): MwQueryResponse
@@ -476,7 +482,7 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvslots=main&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user&rvdir=older")
     suspend fun getRevisionDetailsWithInfo(
-            @Query("titles") titles: String,
+            @Query("pageids") pageIds: String,
             @Query("rvlimit") count: Int,
             @Query("rvstartid") revisionStartId: Long
     ): MwQueryResponse
