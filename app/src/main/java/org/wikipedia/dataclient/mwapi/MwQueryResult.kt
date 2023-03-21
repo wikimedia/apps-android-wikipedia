@@ -167,7 +167,7 @@ class MwQueryResult {
         private val timestamp: String? = null
         private val comment: String? = null
         val type: String = ""
-        val pageId = 0
+        @SerialName("pageid") val pageId = 0
         val revid: Long = 0
         val ns = 0
         val title: String = ""

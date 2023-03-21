@@ -159,7 +159,7 @@
   <string name="search_reading_lists_no_results">在閱讀清單查無結果</string>
   <string name="search_history_no_results">在歷史查無結果</string>
   <string name="edit_section_captcha_message">為了防止自動化的垃圾訊息，請輸入下方顯示的文字</string>
-  <string name="edit_section_captcha_request_an_account_message">看不到圖片嗎？您可以&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:账号请求\"&gt;申請帳號&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">看不到圖片嗎？您可以&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:账号请求\"&gt;申請一個帳號&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">請重複輸入上面的文字</string>
   <string name="title_captcha">輸入驗證碼</string>
   <string name="edit_section_captcha_reload">輕觸驗證碼以重新載入</string>
@@ -342,7 +342,7 @@
   <string name="preference_summary_show_images">在頁面中開啟或停用圖片載入。如果您的網路連線很慢，或如果您的行動數據方案有限制，則取消選擇此設定。</string>
   <string name="preference_title_download_only_over_wifi">只以WiFi下載</string>
   <string name="dialog_title_download_only_over_wifi">確認使用行動數據下載？</string>
-  <string name="dialog_text_download_only_over_wifi">您已在設定裡啟用「只以WiFi下載」，要否允許本次下載使用流動數據？</string>
+  <string name="dialog_text_download_only_over_wifi">您已在設定裡啟用「只以WiFi下載」，要否允許本次下載使用行動數據？</string>
   <string name="dialog_title_download_only_over_wifi_allow">允許</string>
   <string name="read_more_section">延伸閱讀</string>
   <string name="about_article_section">關於此條目</string>
@@ -1052,8 +1052,8 @@
     <item quantity="other">%1$s字元</item>
   </plurals>
   <plurals name="suggested_edits_removed_contribution_label">
-    <item quantity="one">您已移除%d字元</item>
-    <item quantity="other">您已移除%d字元</item>
+    <item quantity="one">您已移除 %d 個字元</item>
+    <item quantity="other">您已移除 %d 個字元</item>
   </plurals>
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="one">您已添加%d字元</item>
@@ -1353,7 +1353,7 @@
   <string name="watchlist_filter_type_of_change_page_edits">頁面編輯次數</string>
   <string name="watchlist_filter_type_of_change_page_creations">頁面建立次數</string>
   <string name="watchlist_filter_type_of_change_category_changes">分類更改次數</string>
-  <string name="watchlist_filter_type_of_change_wikidata_edits">維基數據統計</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">維基數據編輯數</string>
   <string name="watchlist_filter_type_of_change_logged_actions">記錄的操作</string>
   <string name="watchlist_filter_type_of_change_new_users">新使用者</string>
   <string name="watchlist_filter_reset_button">重新設定</string>

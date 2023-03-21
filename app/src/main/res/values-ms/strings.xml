@@ -3,6 +3,7 @@
 * Anakmalaysia
 * Arifin.wijaya
 * Aviator
+* Bebudak
 * Cooltey
 * CyberTroopers
 * Dbrant
@@ -424,6 +425,8 @@
   <string name="theme_category_editing">Menyunting</string>
   <string name="reading_focus_mode">Mod tumpu membaca</string>
   <string name="editing_line_numbers_label">Tunjukkan nombor baris</string>
+  <string name="editing_monospace_font_label">Gunakan fon monospace</string>
+  <string name="editing_typing_suggestions">Tunjukkan cadangan penaipan</string>
   <string name="nav_item_saved">Disimpan</string>
   <string name="reading_list_save_to">Simpan ke senarai bacaan</string>
   <string name="reading_list_move_to">Pindah ke senarai pembacaan</string>
@@ -541,6 +544,9 @@
   <string name="reading_list_delete_lists_dialog_delete_button_text">Hapuskan</string>
   <string name="reading_list_activity_title">Senarai baca: %s</string>
   <string name="reading_lists_action_menu_export_lists">Eksport</string>
+  <string name="reading_lists_import_file_picker_title">Pilih fail untuk diimport</string>
+  <string name="reading_lists_import_failure_message">Gagal mengimport senarai bacaan</string>
+  <string name="reading_lists_export_select_lists_message">Pilih senarai untuk dieksport</string>
   <string name="reading_lists_preview_save_button">Simpan</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Tajuk</string>
   <string name="reading_lists_preview_save_dialog_cancel">Batalkan</string>
