@@ -72,7 +72,7 @@
         <item name="focus_color">@color/orange500</item>
         <item name="addition_color">@color/blue300_15</item>
         <item name="overlay_color">@color/black_30</item>
-        <item name="shadow_divider">@drawable/divider_light</item>
+        <item name="list_divider">@drawable/divider_light</item>
         <!-- Component updates -->
 
         <item name="input_stroke_color_state">@color/color_state_input_field_light</item>

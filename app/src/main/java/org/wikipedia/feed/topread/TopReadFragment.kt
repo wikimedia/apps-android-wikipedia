@@ -51,7 +51,7 @@ class TopReadFragment : Fragment() {
         L10nUtil.setConditionalLayoutDirection(binding.root, card.wikiSite().languageCode)
 
         binding.mostReadRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.mostReadRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.shadow_divider))
+        binding.mostReadRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider))
         binding.mostReadRecyclerView.isNestedScrollingEnabled = false
         binding.mostReadRecyclerView.adapter = RecyclerAdapter(card.items(), Callback())
 

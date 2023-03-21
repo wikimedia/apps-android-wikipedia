@@ -19,6 +19,7 @@
         <item name="focus_color">@color/orange500_50</item>
         <item name="addition_color">@color/blue600_30</item>
         <item name="overlay_color">@color/black_70</item>
+        <item name="list_divider">@drawable/divider_black</item>
         <!-- Component updates -->
 
     </style>
