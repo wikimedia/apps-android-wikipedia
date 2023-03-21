@@ -208,9 +208,11 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.showProgressBar(false)
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
+        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = ReleaseUtil.isPreBetaRelease &&
+                SuggestedArticleDescriptionsDialog.availableLanguages().contains(pageTitle.wikiSite.languageCode) &&
+                action == DescriptionEditActivity.Action.ADD_DESCRIPTION
 
-        if (ReleaseUtil.isPreBetaRelease && SuggestedArticleDescriptionsDialog.availableLanguages().contains(pageTitle.wikiSite.languageCode) &&
-            action == DescriptionEditActivity.Action.ADD_DESCRIPTION && pageTitle.description.isNullOrEmpty()) {
+        if (binding.fragmentDescriptionEditView.isSuggestionButtonEnabled) {
             binding.fragmentDescriptionEditView.showSuggestedDescriptionsLoadingProgress()
             requestSuggestion()
         }

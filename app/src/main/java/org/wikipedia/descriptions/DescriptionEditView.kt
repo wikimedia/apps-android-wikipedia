@@ -51,6 +51,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     private var isLanguageWrong = false
     private var isTextValid = false
     var callback: Callback? = null
+    var isSuggestionButtonEnabled: Boolean = false
 
     var description: String?
         get() = binding.viewDescriptionEditText.text.toString().trim()
@@ -407,7 +408,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     }
 
     private fun updateSuggestedDescriptionsButtonVisibility() {
-        binding.suggestedDescButton.isVisible = binding.viewDescriptionEditTextLayout.error.isNullOrEmpty()
+        binding.suggestedDescButton.isVisible = binding.viewDescriptionEditTextLayout.error.isNullOrEmpty() && isSuggestionButtonEnabled!!
     }
 
     fun showSuggestedDescriptionsButton(firstSuggestion: String, secondSuggestion: String) {
