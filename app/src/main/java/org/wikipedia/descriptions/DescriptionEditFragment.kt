@@ -45,6 +45,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 import java.io.IOException
 import java.lang.Runnable
 import java.util.*
@@ -207,8 +208,12 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.showProgressBar(false)
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
+        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = ReleaseUtil.isPreBetaRelease &&
+                SuggestedArticleDescriptionsDialog.availableLanguages().contains(pageTitle.wikiSite.languageCode) &&
+                action == DescriptionEditActivity.Action.ADD_DESCRIPTION
 
-        if (ReleaseUtil.isPreBetaRelease && pageTitle.description.isNullOrEmpty()) {
+        if (binding.fragmentDescriptionEditView.isSuggestionButtonEnabled) {
+            binding.fragmentDescriptionEditView.showSuggestedDescriptionsLoadingProgress()
             requestSuggestion()
         }
     }
@@ -227,12 +232,12 @@ class DescriptionEditFragment : Fragment() {
                 val list = (if (pageTitle.wikiSite.languageCode == "en") {
                     response.prediction.map { StringUtil.capitalize(it)!! }
                 } else response.prediction).distinct()
-
-                // TODO: do something with the list of suggestions.
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDetailsLogged(requireContext(),
+                    pageTitle.prefixedText, list, response.blp)
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
-                //
-                //
+                binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(list.first(),
+                    if (list.size == 2) list.last() else null)
             }
         }
     }
