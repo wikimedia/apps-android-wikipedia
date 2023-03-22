@@ -16,7 +16,7 @@
         <item name="popupTheme">@style/ToolbarPopupTheme</item>
         <item name="actionModeStyle">@style/ActionModeStyle</item>
         <item name="snackbarStyle">@style/SnackbarStyle</item>
-        <item name="snackbarTextViewStyle">@style/SnackbarTextViewStyle</item>
+        <item name="snackbarTextViewStyle">@style/H3.Button.SnackbarTextView</item>
         <item name="snackbarButtonStyle">@style/SnackbarButtonStyle</item>
 
         <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
@@ -110,6 +110,11 @@
         <item name="lineHeight">24sp</item>
     </style>
 
+    <style name="H2.DialogTitleStyle">
+        <item name="android:textColor">?attr/primary_color</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
     <style name="H3">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
@@ -120,6 +125,14 @@
     <style name="H3.Button">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="H3.Button.SnackbarTextView">
+        <item name="android:maxLines">10</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">12dp</item>
     </style>
 
     <style name="H3.Article">
@@ -161,6 +174,10 @@
         <item name="lineHeight">28sp</item>
     </style>
 
+    <style name="P.DialogText">
+        <item name="android:textColor">?attr/secondary_color</item>
+    </style>
+
     <style name="Chip">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">14sp</item>
@@ -169,6 +186,12 @@
 
     <style name="Chip.MaterialListSectionHeader">
         <item name="android:textColor">?attr/primary_color</item>
+    </style>
+
+    <style name="Chip.Accessible">
+        <item name="android:textColor">?attr/primary_color</item>
+        <item name="ensureMinTouchTargetSize">true</item>
+        <item name="chipMinTouchTargetSize">48dp</item>
     </style>
 
     <style name="List">
@@ -600,34 +623,11 @@
         <item name="android:dropDownVerticalOffset">@dimen/popup_menu_drop_down_vertical_offset</item>
     </style>
 
-    <style name="P.DialogText">
-        <item name="android:textColor">?attr/secondary_color</item>
-    </style>
-
-    <style name="DialogTitleAppearance" parent="@style/RtlOverlay.DialogWindowTitle.AppCompat">
-        <item name="android:textColor">?attr/primary_color</item>
-        <item name="android:layout_marginBottom">5dp</item>
-    </style>
-
-    <style name="DialogTitleTextAppearance" parent="TextAppearance.AppCompat.Title">
-        <item name="android:textSize">20sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-    </style>
-
-    <style name="CustomChipStyle">
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textColor">?attr/primary_color</item>
-        <item name="android:lineSpacingExtra">2sp</item>
-        <item name="ensureMinTouchTargetSize">true</item>
-        <item name="chipMinTouchTargetSize">48dp</item>
-    </style>
-
     <style name="AlertDialogStyle" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:textColorPrimary">?attr/secondary_color</item>
-        <item name="android:windowTitleStyle">@style/DialogTitleAppearance</item>
-        <item name="android:textAppearanceMedium">@style/DialogTitleTextAppearance</item>
+        <item name="android:windowTitleStyle">@style/H2.DialogTitleStyle</item>
+        <item name="android:textAppearanceMedium">@style/H2</item>
         <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
         <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
         <item name="textColorAlertDialogListItem">?attr/secondary_color</item>
@@ -639,25 +639,10 @@
         <item name="android:background">?attr/paper_color</item>
     </style>
 
-    <style name="DescriptionEditViewHintTextStyle">
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:textColor">?attr/colorAccent</item>
-    </style>
 
     <style name="SnackbarStyle" parent="Widget.MaterialComponents.Snackbar">
         <item name="android:paddingStart">16dp</item>
         <item name="android:paddingEnd">4dp</item>
-    </style>
-
-    <style name="SnackbarTextViewStyle" parent="Widget.MaterialComponents.Snackbar.TextView">
-        <item name="android:textSize">16sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:maxLines">10</item>
-        <item name="android:paddingTop">0dp</item>
-        <item name="android:paddingBottom">0dp</item>
-        <item name="android:paddingStart">0dp</item>
-        <item name="android:paddingEnd">12dp</item>
     </style>
 
     <style name="SnackbarButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Snackbar">
