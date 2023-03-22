@@ -35,17 +35,16 @@
 
         <item name="actionBarPopupTheme">@style/ToolbarPopupTheme</item>
 
-        <item name="android:windowBackground">?border_color</item>
-        <item name="android:colorBackground">?background_color</item>
-        <item name="android:textColorPrimary">?primary_color</item>
-        <item name="android:textColorSecondary">?secondary_color</item>
-        <item name="android:textColorTertiary">?placeholder_color</item>
-        <item name="android:textColorHint">?placeholder_color</item>
+        <item name="android:windowBackground">?attr/border_color</item>
+        <item name="android:colorBackground">?attr/background_color</item>
+        <item name="android:textColorPrimary">?attr/primary_color</item>
+        <item name="android:textColorSecondary">?attr/secondary_color</item>
+        <item name="android:textColorTertiary">?attr/placeholder_color</item>
+        <item name="android:textColorHint">?attr/placeholder_color</item>
 
-        <item name="colorPrimary">?placeholder_color</item>
-        <item name="colorAccent">?progressive_color</item>
-        <item name="colorError">?destructive_color</item>
-        <item name="colorSwitchThumbNormal">?placeholder_color</item>
+        <item name="colorPrimary">?attr/placeholder_color</item>
+        <item name="colorAccent">?attr/progressive_color</item>
+        <item name="colorError">?attr/destructive_color</item>
 
         <!-- Overrides of base Android styles with color sub-definitions -->
         <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.Light.PopupMenu.Overflow</item>
