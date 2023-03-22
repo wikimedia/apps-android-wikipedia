@@ -59,7 +59,6 @@ class ABTest(private val abTestName: String, private val abTestGroupCount: Int) 
         const val MACHINE_GEN_DESC = "mBART25"
         const val EXP_CONTRIBUTOR_REQ = 50
         const val GROUP_SIZE_2 = 2
-        const val GROUP_SIZE_3 = 3
         const val GROUP_1 = 0
         const val GROUP_2 = 1
         const val GROUP_3 = 2
