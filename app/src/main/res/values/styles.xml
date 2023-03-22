@@ -124,9 +124,9 @@
 
     <style name="BottomSheetDialogLight" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
-        <item name="colorAccent">@color/blue600</item>
-        <item name="colorPrimary">@color/blue600</item>
-        <item name="colorSwitchThumbNormal">@color/gray100</item>
+        <item name="colorAccent">?attr/progressive_color</item>
+        <item name="colorPrimary">?attr/progressive_color</item>
+        <item name="colorSwitchThumbNormal">?attr/background_color</item>
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:disabledAlpha">1.0</item>
     </style>
