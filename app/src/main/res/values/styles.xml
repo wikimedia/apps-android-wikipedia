@@ -129,11 +129,19 @@
         <item name="lineHeight">32sp</item>
     </style>
 
+    <style name="H3.MaterialListTitle">
+        <item name="android:textColor">?attr/primary_color</item>
+    </style>
+
     <style name="H4">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">14sp</item>
         <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="H4.MaterialListSubtitle">
+        <item name="android:textColor">?attr/secondary_color</item>
     </style>
 
     <style name="H5">
@@ -157,6 +165,10 @@
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">14sp</item>
         <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="Chip.MaterialListSectionHeader">
+        <item name="android:textColor">?attr/primary_color</item>
     </style>
 
     <style name="List">
@@ -564,25 +576,6 @@
     </style>
 
     <style name="TextInputLayoutErrorTextAppearance">
-        <item name="android:fontFamily">sans-serif-medium</item>
-    </style>
-
-    <style name="MaterialListTitle">
-        <item name="android:textSize">16sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:textColor">?attr/primary_color</item>
-    </style>
-
-    <style name="MaterialListSubtitle">
-        <item name="android:textSize">14sp</item>
-        <item name="android:lineSpacingExtra">6sp</item>
-        <item name="android:textColor">?attr/secondary_color</item>
-    </style>
-
-    <style name="MaterialListSectionHeader">
-        <item name="android:textSize">14sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:textColor">?attr/primary_color</item>
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 

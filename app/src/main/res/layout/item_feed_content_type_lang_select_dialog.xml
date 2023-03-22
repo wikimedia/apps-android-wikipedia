@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content" />
 
             <TextView
-                style="@style/MaterialListSubtitle"
+                style="@style/H4.MaterialListSubtitle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="24dp"
