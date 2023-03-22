@@ -17,4 +17,5 @@
         android:gravity="center_vertical"
         android:textSize="18sp"
         tools:text="Date" />
+
 </LinearLayout>
