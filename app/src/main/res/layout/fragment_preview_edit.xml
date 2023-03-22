@@ -34,7 +34,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="?attr/shadow_divider"/>
+        android:background="?attr/list_divider"/>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/licenseText"

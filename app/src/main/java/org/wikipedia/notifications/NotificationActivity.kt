@@ -86,7 +86,7 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsErrorView.backClickListener = View.OnClickListener { onBackPressed() }
         binding.notificationsRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
-        binding.notificationsRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.shadow_divider, skipSearchBar = true))
+        binding.notificationsRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_divider, skipSearchBar = true))
 
         externalLinkIcon = AppCompatResources.getDrawable(this, R.drawable.ic_open_in_new_black_24px)!!.apply {
             val px = DimenUtil.roundedDpToPx(16f)

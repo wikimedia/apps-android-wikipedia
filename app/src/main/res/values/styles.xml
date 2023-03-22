@@ -35,17 +35,16 @@
 
         <item name="actionBarPopupTheme">@style/ToolbarPopupTheme</item>
 
-        <item name="android:windowBackground">?border_color</item>
-        <item name="android:colorBackground">?background_color</item>
-        <item name="android:textColorPrimary">?primary_color</item>
-        <item name="android:textColorSecondary">?secondary_color</item>
-        <item name="android:textColorTertiary">?placeholder_color</item>
-        <item name="android:textColorHint">?placeholder_color</item>
+        <item name="android:windowBackground">?attr/border_color</item>
+        <item name="android:colorBackground">?attr/background_color</item>
+        <item name="android:textColorPrimary">?attr/primary_color</item>
+        <item name="android:textColorSecondary">?attr/secondary_color</item>
+        <item name="android:textColorTertiary">?attr/placeholder_color</item>
+        <item name="android:textColorHint">?attr/placeholder_color</item>
 
-        <item name="colorPrimary">?placeholder_color</item>
-        <item name="colorAccent">?progressive_color</item>
-        <item name="colorError">?destructive_color</item>
-        <item name="colorSwitchThumbNormal">?placeholder_color</item>
+        <item name="colorPrimary">?attr/placeholder_color</item>
+        <item name="colorAccent">?attr/progressive_color</item>
+        <item name="colorError">?attr/destructive_color</item>
 
         <!-- Overrides of base Android styles with color sub-definitions -->
         <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.Light.PopupMenu.Overflow</item>
@@ -72,9 +71,11 @@
         <item name="focus_color">@color/orange500</item>
         <item name="addition_color">@color/blue300_15</item>
         <item name="overlay_color">@color/black_30</item>
-        <item name="shadow_divider">@drawable/divider_light</item>
+        <item name="list_divider">@drawable/divider_light</item>
+        <item name="shadow_border">@drawable/shadow_light</item>
         <!-- Component updates -->
 
+        <item name="input_stroke_color_state">@color/color_state_input_field_light</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_light</item>
         <item name="image_tags_onboarding_drawables">@drawable/ic_image_tags_onboarding_light</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_light</item>
@@ -219,9 +220,9 @@
 
     <style name="BottomSheetDialogLight" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
-        <item name="colorAccent">@color/blue600</item>
-        <item name="colorPrimary">@color/blue600</item>
-        <item name="colorSwitchThumbNormal">@color/gray100</item>
+        <item name="colorAccent">?attr/progressive_color</item>
+        <item name="colorPrimary">?attr/progressive_color</item>
+        <item name="colorSwitchThumbNormal">?attr/background_color</item>
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:disabledAlpha">1.0</item>
     </style>
@@ -640,7 +641,7 @@
     <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="android:textColorHint">?attr/placeholder_color</item>
         <item name="boxBackgroundColor">?attr/background_color</item>
-        <item name="boxStrokeColor">?attr/placeholder_color</item>
+        <item name="boxStrokeColor">?attr/input_stroke_color_state</item>
         <item name="hintTextColor">?attr/colorAccent</item>
         <item name="helperTextTextColor">?attr/placeholder_color</item>
         <item name="counterTextColor">?attr/placeholder_color</item>

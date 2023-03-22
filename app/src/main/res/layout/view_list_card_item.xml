@@ -64,7 +64,7 @@
         android:textSize="14sp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="@color/green600"
+        android:textColor="?attr/success_color"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:visibility="gone"

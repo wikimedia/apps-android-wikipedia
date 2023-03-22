@@ -28,10 +28,12 @@
         <item name="focus_color">@color/orange500_50</item>
         <item name="addition_color">@color/blue600_30</item>
         <item name="overlay_color">@color/black_70</item>
-        <item name="shadow_divider">@drawable/divider_dark</item>
+        <item name="list_divider">@drawable/divider_dark</item>
+        <item name="shadow_border">@drawable/shadow_dark</item>
         <!-- Component updates -->
 
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_dark</item>
+        <item name="input_stroke_color_state">@color/color_state_input_field_dark</item>
         <item name="image_tags_onboarding_drawables">@drawable/ic_image_tags_onboarding_dark</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_dark</item>
 
@@ -50,7 +52,8 @@
 
     <style name="BottomSheetDialogDark" parent="Theme.MaterialComponents.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
-        <item name="colorPrimary">@color/blue300</item>
+        <item name="colorAccent">?attr/progressive_color</item>
+        <item name="colorPrimary">?attr/progressive_color</item>
         <item name="colorSwitchThumbNormal">@color/gray100</item>
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:disabledAlpha">1.0</item>

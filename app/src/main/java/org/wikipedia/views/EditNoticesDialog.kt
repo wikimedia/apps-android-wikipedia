@@ -39,7 +39,7 @@ class EditNoticesDialog constructor(
 
         binding.editNoticeRecycler.adapter = EditNoticesAdapter()
         binding.editNoticeRecycler.layoutManager = LinearLayoutManager(context)
-        binding.editNoticeRecycler.addItemDecoration(DrawableItemDecoration(context, R.attr.shadow_divider, drawStart = true, drawEnd = true))
+        binding.editNoticeRecycler.addItemDecoration(DrawableItemDecoration(context, R.attr.list_divider, drawStart = true, drawEnd = true))
 
         binding.editNoticeCheckbox.isChecked = Prefs.autoShowEditNotices
         binding.editNoticeCheckbox.setOnCheckedChangeListener { _, isChecked -> Prefs.autoShowEditNotices = isChecked }

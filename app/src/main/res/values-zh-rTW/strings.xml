@@ -1052,8 +1052,8 @@
     <item quantity="other">%1$s字元</item>
   </plurals>
   <plurals name="suggested_edits_removed_contribution_label">
-    <item quantity="one">您已移除%d字元</item>
-    <item quantity="other">您已移除%d字元</item>
+    <item quantity="one">您已移除 %d 個字元</item>
+    <item quantity="other">您已移除 %d 個字元</item>
   </plurals>
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="one">您已添加%d字元</item>
@@ -1353,7 +1353,7 @@
   <string name="watchlist_filter_type_of_change_page_edits">頁面編輯次數</string>
   <string name="watchlist_filter_type_of_change_page_creations">頁面建立次數</string>
   <string name="watchlist_filter_type_of_change_category_changes">分類更改次數</string>
-  <string name="watchlist_filter_type_of_change_wikidata_edits">維基數據統計</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">維基數據編輯數</string>
   <string name="watchlist_filter_type_of_change_logged_actions">記錄的操作</string>
   <string name="watchlist_filter_type_of_change_new_users">新使用者</string>
   <string name="watchlist_filter_reset_button">重新設定</string>

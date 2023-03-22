@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_marginTop="8dp"
-    android:divider="?attr/shadow_divider"
+    android:divider="?attr/list_divider"
     android:showDividers="beginning|end">
 
     <LinearLayout
