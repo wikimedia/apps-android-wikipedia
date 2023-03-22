@@ -2,6 +2,7 @@ package org.wikipedia.descriptions
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import androidx.annotation.ColorInt
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -13,6 +14,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
+import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DeviceUtil
@@ -25,6 +27,14 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         ADD_DESCRIPTION, TRANSLATE_DESCRIPTION, ADD_CAPTION, TRANSLATE_CAPTION, ADD_IMAGE_TAGS
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
+        if (action == Action.ADD_DESCRIPTION && Prefs.isDescriptionEditTutorialEnabled) {
+            Prefs.isDescriptionEditTutorialEnabled = false
+            startActivity(DescriptionEditTutorialActivity.newIntent(this, "", Constants.InvokeSource.SUGGESTED_EDITS))
+        }
+    }
     public override fun createFragment(): DescriptionEditFragment {
         val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
