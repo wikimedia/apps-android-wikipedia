@@ -236,7 +236,8 @@ class DescriptionEditFragment : Fragment() {
                     pageTitle.prefixedText, list, response.blp)
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
-                binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(list.first(), list.last())
+                binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(list.first(),
+                    if (list.size == 2) list.last() else null)
             }
         }
     }
