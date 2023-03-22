@@ -240,7 +240,7 @@ class DescriptionEditFragment : Fragment() {
                 L.d("And is it a BLP? " + response.blp)
 
                 if (!response.blp || WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup == GROUP_3) {
-                        binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(list.first(), list.last())
+                    binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(list.first(), list.last())
                 }
             }
         }

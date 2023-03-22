@@ -1,12 +1,14 @@
 package org.wikipedia.analytics.eventplatform
 
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.settings.PrefsIoUtil
-import org.wikipedia.util.log.L
 import kotlin.random.Random
 
 class ABTest(private val abTestName: String, private val abTestGroupCount: Int) {
@@ -17,42 +19,40 @@ class ABTest(private val abTestName: String, private val abTestGroupCount: Int) 
             group = PrefsIoUtil.getInt(AB_TEST_KEY_PREFIX + abTestName, -1)
             if (group == -1) {
                 // initialize the group if it hasn't been yet.
-                checkAndAssignExperienceUser()
-                if (group == -1) {
-                    group = Random(System.currentTimeMillis()).nextInt(Int.MAX_VALUE).mod(abTestGroupCount - 1)
-                    PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, group)
+                group = Random(System.currentTimeMillis()).nextInt(Int.MAX_VALUE).mod(abTestGroupCount)
+                if (group == GROUP_2) {
+                    runBlocking {
+                        isUserExperienced()
+                    }.also {
+                        if (it) {
+                            group = GROUP_3
+                        }
+                        PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, group)
+                        return group
+                    }
                 }
             }
+            PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, group)
             return group
         }
 
-    private val isEnrolled = PrefsIoUtil.contains(AB_TEST_KEY_PREFIX + abTestName)
+    private suspend fun isUserExperienced(): Boolean =
+        withContext(Dispatchers.Default) {
+            var totalContributions = 0
 
-    private fun checkAndAssignExperienceUser() {
-        var totalContributions = 0
+            val homeSiteResponse = async { ServiceFactory.get(WikipediaApp.instance.wikiSite)
+                .getUserContrib(AccountUtil.userName!!, 10) }
+            val commonsResponse = async { ServiceFactory.get(Constants.commonsWikiSite)
+                .getUserContrib(AccountUtil.userName!!, 10) }
+            val wikidataResponse = async { ServiceFactory.get(Constants.wikidataWikiSite)
+                .getUserContrib(AccountUtil.userName!!, 10) }
 
-        CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, throwable ->
-            L.e(throwable)
-        }) {
-            withContext(Dispatchers.IO) {
-                val homeSiteResponse = async { ServiceFactory.get(WikipediaApp.instance.wikiSite)
-                    .getUserContrib(AccountUtil.userName!!, 10) }
-                val commonsResponse = async { ServiceFactory.get(Constants.commonsWikiSite)
-                    .getUserContrib(AccountUtil.userName!!, 10) }
-                val wikidataResponse = async { ServiceFactory.get(Constants.wikidataWikiSite)
-                    .getUserContrib(AccountUtil.userName!!, 10) }
+            totalContributions += homeSiteResponse.await().query?.userInfo!!.editCount
+            totalContributions += commonsResponse.await().query?.userInfo!!.editCount
+            totalContributions += wikidataResponse.await().query?.userInfo!!.editCount
 
-                    totalContributions += homeSiteResponse.await().query?.userInfo!!.editCount
-                    totalContributions += commonsResponse.await().query?.userInfo!!.editCount
-                    totalContributions += wikidataResponse.await().query?.userInfo!!.editCount
-
-                if (totalContributions > EXP_CONTRIBUTOR_REQ) {
-                    group = GROUP_3
-                    PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, GROUP_3)
-                }
-            }
+            return@withContext (totalContributions > EXP_CONTRIBUTOR_REQ)
         }
-    }
 
     companion object {
         private const val AB_TEST_KEY_PREFIX = "ab_test_"

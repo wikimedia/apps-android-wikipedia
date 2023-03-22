@@ -18,7 +18,7 @@ import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.analytics.InstallReferrerListener
 import org.wikipedia.analytics.eventplatform.ABTest
-import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_SIZE_3
+import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_SIZE_2
 import org.wikipedia.analytics.eventplatform.ABTest.Companion.MACHINE_GEN_DESC
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
@@ -186,7 +186,7 @@ class WikipediaApp : Application() {
         WikipediaFirebaseMessagingService.updateSubscription()
 
         EventPlatformClient.setUpStreamConfigs()
-        machineGeneratedDescriptionsABTest = ABTest(MACHINE_GEN_DESC, GROUP_SIZE_3)
+        machineGeneratedDescriptionsABTest = ABTest(MACHINE_GEN_DESC, GROUP_SIZE_2)
     }
 
     /**
