@@ -26,7 +26,7 @@
             android:layout_gravity="center"
             android:background="@drawable/tab_layout_background_bottom_line"
             android:visibility="gone"
-            app:tabTextAppearance="@style/NotificationTabTextAppearance"
+            app:tabTextAppearance="@style/H3.Button"
             app:tabTextColor="?attr/placeholder_color"
             app:tabSelectedTextColor="?attr/progressive_color"
             app:tabIndicatorColor="?attr/progressive_color"
@@ -78,24 +78,25 @@
                     app:srcCompat="@drawable/ic_notifications_empty" />
 
                 <TextView
-                    style="@style/MaterialMediumSecondaryCaption"
+                    style="@style/P"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:text="@string/notifications_empty_message" />
+                    android:text="@string/notifications_empty_message"
+                    android:textAlignment="center" />
 
             </LinearLayout>
 
             <TextView
                 android:id="@+id/notifications_search_empty_text"
-                style="@style/MaterialMediumSecondaryCaption"
+                style="@style/H3.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginStart="24dp"
-                android:fontFamily="sans-serif-medium"
                 android:text="@string/search_results_count_zero"
+                android:textAlignment="center"
                 android:visibility="gone" />
 
             <LinearLayout
@@ -115,10 +116,11 @@
 
                 <TextView
                     android:id="@+id/notifications_empty_search_message"
-                    style="@style/MaterialMediumSecondaryCaption"
+                    style="@style/P"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp" />
+                    android:layout_marginTop="24dp"
+                    android:textAlignment="center" />
 
             </LinearLayout>
 

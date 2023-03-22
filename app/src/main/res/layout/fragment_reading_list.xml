@@ -58,12 +58,13 @@
 
             <TextView
                 android:id="@+id/reading_list_empty_text"
-                style="@style/MaterialMediumSecondaryCaption"
+                style="@style/P"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="16dp"
                 android:text="@string/reading_list_empty"
+                android:textAlignment="center"
                 android:visibility="gone"
                 tools:visibility="visible" />
 

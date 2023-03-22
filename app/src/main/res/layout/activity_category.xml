@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@drawable/tab_layout_background_bottom_line"
-        app:tabTextAppearance="@style/NotificationTabTextAppearance"
+        app:tabTextAppearance="@style/H3.Button"
         app:tabTextColor="?attr/placeholder_color"
         app:tabSelectedTextColor="?attr/progressive_color"
         app:tabIndicatorColor="?attr/progressive_color"

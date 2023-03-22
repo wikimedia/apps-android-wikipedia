@@ -283,13 +283,13 @@
     <style name="ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">0dp</item>
-        <item name="titleTextStyle">@style/ToolBarTitleText</item>
-        <item name="titleTextAppearance">@style/ToolBarTitleText</item>
+        <item name="titleTextStyle">@style/H1.AppBar</item>
+        <item name="titleTextAppearance">@style/H1.AppBar</item>
     </style>
 
     <style name="ToolbarStyleSmall" parent="ToolbarStyle">
-        <item name="titleTextStyle">@style/ToolBarTitleTextSmall</item>
-        <item name="titleTextAppearance">@style/ToolBarTitleTextSmall</item>
+        <item name="titleTextStyle">@style/H2.AppBar</item>
+        <item name="titleTextAppearance">@style/H2.AppBar</item>
     </style>
 
     <style name="ToolbarPopupTheme" parent="ThemeOverlay.MaterialComponents">
@@ -304,17 +304,6 @@
 
     <style name="BottomNavigationTextAppearanceActive">
         <item name="android:textSize">@dimen/bottom_nav_label_text_size</item>
-    </style>
-
-    <style name="ToolBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">?attr/primary_color</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textSize">24sp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="ToolBarTitleTextSmall" parent="ToolBarTitleText">
-        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
@@ -576,28 +565,6 @@
 
     <style name="TextInputLayoutErrorTextAppearance">
         <item name="android:fontFamily">sans-serif-medium</item>
-    </style>
-
-    <style name="NotificationTabTextAppearance" parent="TextAppearance.Design.Tab">
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:letterSpacing">0.04</item>
-    </style>
-
-    <style name="MaterialLargePrimaryTitle">
-        <item name="android:textAlignment">center</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">?attr/primary_color</item>
-    </style>
-
-    <style name="MaterialMediumSecondaryCaption">
-        <item name="android:textAlignment">center</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:textColor">?attr/secondary_color</item>
     </style>
 
     <style name="MaterialListTitle">

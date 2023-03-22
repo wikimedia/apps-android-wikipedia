@@ -11,10 +11,11 @@
 
     <TextView
         android:id="@+id/date_text"
-        style="@style/MaterialLargePrimaryTitle"
+        style="@style/H2"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:textSize="18sp"
+        android:textAlignment="center"
         tools:text="Date" />
 </LinearLayout>

@@ -15,12 +15,13 @@
 
     <TextView
         android:id="@+id/search_empty_text"
-        style="@style/MaterialMediumSecondaryCaption"
+        style="@style/P"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="24dp"
         android:gravity="center"
-        android:text="@string/search_no_results_found" />
+        android:text="@string/search_no_results_found"
+        android:textAlignment="center" />
 
 </merge>
