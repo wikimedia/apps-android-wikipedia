@@ -47,9 +47,9 @@ class ABTest(private val abTestName: String, private val abTestGroupCount: Int) 
             val wikidataResponse = async { ServiceFactory.get(Constants.wikidataWikiSite)
                 .getUserContrib(AccountUtil.userName!!, 10) }
 
-            totalContributions += homeSiteResponse.await().query?.userInfo?.editCount?:0
-            totalContributions += commonsResponse.await().query?.userInfo?.editCount?:0
-            totalContributions += wikidataResponse.await().query?.userInfo?.editCount?:0
+            totalContributions += homeSiteResponse.await().query?.userInfo?.editCount ?: 0
+            totalContributions += commonsResponse.await().query?.userInfo?.editCount ?: 0
+            totalContributions += wikidataResponse.await().query?.userInfo?.editCount ?: 0
 
             return@withContext (totalContributions > EXP_CONTRIBUTOR_REQ)
         }
