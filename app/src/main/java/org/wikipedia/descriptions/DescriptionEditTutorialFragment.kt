@@ -41,7 +41,7 @@ class DescriptionEditTutorialFragment : OnboardingFragment() {
 
     companion object {
         const val ARG_POSITION = "position"
-        val pages = arrayOf(R.layout.inflate_description_edit_tutorial_page_one, R.layout.inflate_description_edit_tutorial_page_two)
+        val pages = arrayOf(R.layout.inflate_description_edit_tutorial_page_one, R.layout.inflate_description_edit_tutorial_page_two, R.layout.inflate_description_edit_tutorial_page_three)
 
         fun newInstance(): DescriptionEditTutorialFragment {
             return DescriptionEditTutorialFragment()

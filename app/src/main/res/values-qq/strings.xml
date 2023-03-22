@@ -1402,4 +1402,6 @@
   <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
   <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
   <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Tilte of the description editing onboarding screen informing that machine generated suggestions are available.</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Informative description on the description editing onboarding screen explaining how the suggested suggestions are generated </string>
 </resources>
