@@ -20,7 +20,7 @@ class ABTest(private val abTestName: String, private val abTestGroupCount: Int) 
             if (group == -1) {
                 // initialize the group if it hasn't been yet.
                 group = Random(System.currentTimeMillis()).nextInt(Int.MAX_VALUE).mod(abTestGroupCount)
-                if (group == GROUP_2) {
+                if (group == GROUP_2 && AccountUtil.isLoggedIn) {
                     runBlocking {
                         isUserExperienced()
                     }.also {
@@ -47,9 +47,9 @@ class ABTest(private val abTestName: String, private val abTestGroupCount: Int) 
             val wikidataResponse = async { ServiceFactory.get(Constants.wikidataWikiSite)
                 .getUserContrib(AccountUtil.userName!!, 10) }
 
-            totalContributions += homeSiteResponse.await().query?.userInfo!!.editCount
-            totalContributions += commonsResponse.await().query?.userInfo!!.editCount
-            totalContributions += wikidataResponse.await().query?.userInfo!!.editCount
+            totalContributions += homeSiteResponse.await().query?.userInfo?.editCount?:0
+            totalContributions += commonsResponse.await().query?.userInfo?.editCount?:0
+            totalContributions += wikidataResponse.await().query?.userInfo?.editCount?:0
 
             return@withContext (totalContributions > EXP_CONTRIBUTOR_REQ)
         }
