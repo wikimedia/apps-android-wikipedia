@@ -53,6 +53,9 @@ class WikipediaApp : Application() {
     val mainThreadHandler by lazy { Handler(mainLooper) }
     val languageState by lazy { AppLanguageState(this) }
     val appSessionEvent by lazy { AppSessionEvent() }
+    val machineGeneratedDescriptionsABTest by lazy {
+        ABTest(MACHINE_GEN_DESC, GROUP_SIZE_2)
+    }
     val userAgent by lazy {
         var channel = ReleaseUtil.getChannel(this)
         channel = if (channel.isBlank()) "" else " $channel"
@@ -72,7 +75,6 @@ class WikipediaApp : Application() {
 
     val bus = RxBus()
     val tabList = mutableListOf<Tab>()
-    lateinit var machineGeneratedDescriptionsABTest: ABTest
 
     var currentTheme = Theme.fallback
         set(value) {
@@ -186,7 +188,6 @@ class WikipediaApp : Application() {
         WikipediaFirebaseMessagingService.updateSubscription()
 
         EventPlatformClient.setUpStreamConfigs()
-        machineGeneratedDescriptionsABTest = ABTest(MACHINE_GEN_DESC, GROUP_SIZE_2)
     }
 
     /**

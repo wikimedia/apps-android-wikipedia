@@ -31,8 +31,8 @@ class ABTest(private val abTestName: String, private val abTestGroupCount: Int) 
                         return group
                     }
                 }
+                PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, group)
             }
-            PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, group)
             return group
         }
 
@@ -51,7 +51,7 @@ class ABTest(private val abTestName: String, private val abTestGroupCount: Int) 
             totalContributions += commonsResponse.await().query?.userInfo?.editCount ?: 0
             totalContributions += wikidataResponse.await().query?.userInfo?.editCount ?: 0
 
-            return@withContext (totalContributions > EXP_CONTRIBUTOR_REQ)
+            return@withContext totalContributions > EXP_CONTRIBUTOR_REQ
         }
 
     companion object {

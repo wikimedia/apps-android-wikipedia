@@ -212,7 +212,7 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = ReleaseUtil.isPreBetaRelease &&
                 SuggestedArticleDescriptionsDialog.availableLanguages().contains(pageTitle.wikiSite.languageCode) &&
                 action == DescriptionEditActivity.Action.ADD_DESCRIPTION && pageTitle.description.isNullOrEmpty() &&
-            WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup != GROUP_1
+                WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup != GROUP_1
 
         if (binding.fragmentDescriptionEditView.isSuggestionButtonEnabled) {
             binding.fragmentDescriptionEditView.showSuggestedDescriptionsLoadingProgress()
