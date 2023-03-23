@@ -11,7 +11,7 @@ import org.wikipedia.R
 import org.wikipedia.onboarding.OnboardingFragment
 import org.wikipedia.onboarding.OnboardingPageView
 
-class DescriptionEditTutorialFragment : OnboardingFragment() {
+class DescriptionEditTutorialFragment(val showAIOnBoarding: Boolean) : OnboardingFragment() {
     override val doneButtonText = R.string.description_edit_tutorial_button_label_start_editing
     override val showDoneButton = true
 
@@ -21,19 +21,20 @@ class DescriptionEditTutorialFragment : OnboardingFragment() {
 
     internal inner class DescriptionEditTutorialPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         override fun getItemCount(): Int {
-            return pages.size
+            return if (showAIOnBoarding) AiIncludedPages.size else pages.size
         }
 
         override fun createFragment(position: Int): Fragment {
-            return ItemFragment().apply { arguments = bundleOf(ARG_POSITION to position) }
+            return ItemFragment(showAIOnBoarding).apply { arguments = bundleOf(ARG_POSITION to position) }
         }
     }
 
-    class ItemFragment : Fragment() {
+    class ItemFragment(private val showAIOnBoarding: Boolean) : Fragment() {
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
             super.onCreateView(inflater, container, savedInstanceState)
             val position = requireArguments().getInt(ARG_POSITION, 0)
-            val view = inflater.inflate(pages[position], container, false) as OnboardingPageView
+            val view = if (showAIOnBoarding) inflater.inflate(AiIncludedPages[position], container, false) as OnboardingPageView
+            else inflater.inflate(pages[position], container, false) as OnboardingPageView
             view.callback = OnboardingPageView.DefaultCallback()
             return view
         }
@@ -41,10 +42,11 @@ class DescriptionEditTutorialFragment : OnboardingFragment() {
 
     companion object {
         const val ARG_POSITION = "position"
-        val pages = arrayOf(R.layout.inflate_description_edit_tutorial_page_one, R.layout.inflate_description_edit_tutorial_page_two, R.layout.inflate_description_edit_tutorial_page_three)
+        val pages = arrayOf(R.layout.inflate_description_edit_tutorial_page_one, R.layout.inflate_description_edit_tutorial_page_two)
+        val AiIncludedPages = arrayOf(R.layout.inflate_description_edit_tutorial_page_one, R.layout.inflate_description_edit_tutorial_page_two, R.layout.inflate_description_edit_tutorial_page_three)
 
-        fun newInstance(): DescriptionEditTutorialFragment {
-            return DescriptionEditTutorialFragment()
+        fun newInstance(showAIOnBoarding: Boolean): DescriptionEditTutorialFragment {
+            return DescriptionEditTutorialFragment(showAIOnBoarding)
         }
     }
 }

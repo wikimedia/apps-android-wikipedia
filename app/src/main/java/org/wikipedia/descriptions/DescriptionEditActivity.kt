@@ -7,7 +7,9 @@ import androidx.annotation.ColorInt
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
+import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_1
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
@@ -16,11 +18,9 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
-import org.wikipedia.util.ClipboardUtil
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.*
 import org.wikipedia.views.ImagePreviewDialog
+import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 
 class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(), DescriptionEditFragment.Callback, LinkPreviewDialog.Callback {
     enum class Action {
@@ -32,7 +32,11 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
         if (action == Action.ADD_DESCRIPTION && Prefs.isDescriptionEditTutorialEnabled) {
             Prefs.isDescriptionEditTutorialEnabled = false
-            startActivity(DescriptionEditTutorialActivity.newIntent(this, "", Constants.InvokeSource.SUGGESTED_EDITS))
+            val pageTitle = intent.getParcelableExtra<PageTitle>(EXTRA_TITLE)!!
+            val shouldShowAIOnBoarding = ReleaseUtil.isPreBetaRelease && SuggestedArticleDescriptionsDialog.availableLanguages()
+                .contains(pageTitle.wikiSite.languageCode) && pageTitle.description.isNullOrEmpty() &&
+                    WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup != GROUP_1
+            startActivity(DescriptionEditTutorialActivity.newIntent(this, shouldShowAIOnBoarding))
         }
     }
     public override fun createFragment(): DescriptionEditFragment {
