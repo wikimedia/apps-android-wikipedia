@@ -23,6 +23,7 @@ object UserAliasData {
             "ami" to "Midemakay",
             "an" to "Usuario",
             "ang" to "Brūcend",
+            "anp" to "यूजर",
             "ar" to "مستخدم",
             "arc" to "ܡܦܠܚܢܐ",
             "ary" to "خدايمي",

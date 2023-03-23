@@ -23,6 +23,7 @@ object UserTalkAliasData {
             "ami" to "Kasasowal no midemakay",
             "an" to "Descusión usuario",
             "ang" to "Brūcendmōtung",
+            "anp" to "यूजर वार्ता",
             "ar" to "نقاش المستخدم",
             "arc" to "ܡܡܠܠܐ ܕܡܦܠܚܢܐ",
             "ary" to "لمداكرة د لخدايمي",
