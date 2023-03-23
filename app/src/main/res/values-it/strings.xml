@@ -526,6 +526,7 @@
   <string name="reading_list_menu_export">Esporta elenco</string>
   <string name="reading_list_menu_select">Seleziona</string>
   <string name="reading_list_menu_unselect">Deseleziona</string>
+  <string name="reading_list_export_write_permission_rationale">Il permesso di scrittura sul dispositivo è necessario per il salvataggio dell\'elenco di lettura.</string>
   <string name="reading_list_menu_rename">Modifica nome/descrizione</string>
   <string name="reading_list_action_menu_remove_from_offline">Rimuovi da offline</string>
   <string name="reading_list_action_menu_save_for_offline">Salva per offline</string>
@@ -553,6 +554,8 @@
   <string name="reading_lists_default_list_delete_message">L\'elenco predefinito (%s) non può essere cancellato.</string>
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s cancellato. L\'elenco predefinito (%2$s) non può essere cancellato.</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">Elenchi cancellati. L\'elenco predefinito (%s) non può essere cancellato.</string>
+  <string name="single_list_json_file_name">%s (Elenco di lettura Wikipedia).json</string>
+  <string name="multiple_lists_json_file_name">Elenchi di lettura Wikipedia (%s e più).json</string>
   <string name="reading_list_items_deleted">%d voci rimosse dagli elenchi</string>
   <string name="reading_lists_item_deleted">%s rimosso dagli elenchi</string>
   <string name="reading_list_item_delete_undo">Annulla</string>
@@ -586,6 +589,10 @@
   <string name="reading_list_articles_moved_to_named">Spostate %1$d voci in %2$s</string>
   <string name="reading_list_delete_confirm">Sei sicuro di voler cancellare %s?</string>
   <string name="reading_list_delete_lists_confirm_dialog_title">Cancellare gli elenchi selezionati?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Sei sicuro di voler eliminare l\'elenco di lettura %d?</item>
+    <item quantity="other">Sei sicuro di voler eliminare gli elenchi di lettura %d?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Accedi per abilitare la sincronizzazione</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Accedi per consentire il salvataggio degli elenchi di lettura sulla tua utenza.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annulla</string>
