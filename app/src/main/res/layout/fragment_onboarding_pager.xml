@@ -61,7 +61,7 @@
                     android:layout_margin="0dp"
                     android:layout_gravity="end"
                     android:text="@string/onboarding_continue"
-                    android:textColor="?attr/colorAccent" />
+                    android:textColor="?attr/progressive_color" />
 
                 <Button
                     android:id="@+id/fragment_onboarding_done_button"
@@ -71,7 +71,7 @@
                     android:layout_margin="0dp"
                     android:layout_gravity="end"
                     android:text="@string/onboarding_get_started"
-                    android:textColor="?attr/colorAccent" />
+                    android:textColor="?attr/progressive_color" />
 
             </FrameLayout>
 

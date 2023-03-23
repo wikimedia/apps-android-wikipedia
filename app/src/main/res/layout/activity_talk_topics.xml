@@ -142,7 +142,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:layout_gravity="bottom|end"
-                app:backgroundTint="?attr/colorAccent"
+                app:backgroundTint="?attr/progressive_color"
                 app:icon="@drawable/ic_add_gray_white_24dp"
                 app:iconTint="@android:color/white"
                 android:textColor="@android:color/white"

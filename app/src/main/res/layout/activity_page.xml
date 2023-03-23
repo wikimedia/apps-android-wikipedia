@@ -144,7 +144,7 @@
             android:scaleType="center"
             app:backgroundTint="?attr/background_color"
             app:srcCompat="@drawable/ic_unfold_more_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
 
     </FrameLayout>
 

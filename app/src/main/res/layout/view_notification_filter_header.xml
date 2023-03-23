@@ -11,7 +11,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:gravity="center_vertical"
-        android:textColor="?attr/colorAccent"
+        android:textColor="?attr/progressive_color"
         android:textSize="14sp"
         android:textStyle="bold" />
 

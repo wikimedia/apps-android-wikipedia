@@ -183,7 +183,7 @@ class SearchResultsFragment : Fragment() {
     }
 
     private inner class NoSearchResultItemViewHolder(val itemBinding: ItemSearchNoResultsBinding) : DefaultViewHolder<View>(itemBinding.root) {
-        private val accentColorStateList = getThemedColorStateList(requireContext(), R.attr.colorAccent)
+        private val accentColorStateList = getThemedColorStateList(requireContext(), R.attr.progressive_color)
         private val secondaryColorStateList = getThemedColorStateList(requireContext(), R.attr.secondary_color)
         fun bindItem(position: Int, resultsCount: Int) {
             val langCode = WikipediaApp.instance.languageState.appLanguageCodes[position]

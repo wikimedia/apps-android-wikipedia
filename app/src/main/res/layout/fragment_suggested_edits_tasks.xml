@@ -91,7 +91,7 @@
                                 app:layout_constraintEnd_toEndOf="parent"
                                 android:padding="2dp"
                                 app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
-                                app:tint="?attr/colorAccent"
+                                app:tint="?attr/progressive_color"
                                 android:background="@drawable/shape_circle"
                                 android:backgroundTint="?attr/background_color"
                                 android:contentDescription="@string/suggested_edits_my_contributions"/>
@@ -234,7 +234,7 @@
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:icon="@drawable/ic_open_in_new_black_24px"
                                 app:iconSize="20dp"
-                                app:iconTint="?attr/colorAccent"/>
+                                app:iconTint="?attr/progressive_color"/>
 
                         </LinearLayout>
 
@@ -252,7 +252,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:textAllCaps="true"
-                            android:textColor="?attr/colorAccent"
+                            android:textColor="?attr/progressive_color"
                             android:textSize="@dimen/bottom_nav_label_text_size"
                             android:text="IPBlocked" />
 
@@ -262,7 +262,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:textAllCaps="true"
-                            android:textColor="?attr/colorAccent"
+                            android:textColor="?attr/progressive_color"
                             android:textSize="@dimen/bottom_nav_label_text_size"
                             android:text="Onboarding" />
                     </LinearLayout>
@@ -279,7 +279,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:indeterminate="true"
-            android:indeterminateTint="?attr/colorAccent"
+            android:indeterminateTint="?attr/progressive_color"
             android:progressBackgroundTint="?attr/background_color"
             android:layout_marginTop="-6dp" />
 

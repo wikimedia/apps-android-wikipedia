@@ -55,7 +55,7 @@ class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = nu
         val view = tab.customView
         if (selected) {
             view?.let {
-                @ColorInt val color = ResourceUtil.getThemedColor(context, R.attr.colorAccent)
+                @ColorInt val color = ResourceUtil.getThemedColor(context, R.attr.progressive_color)
                 @ColorInt val paperColor = ResourceUtil.getThemedColor(context, R.attr.paper_color)
                 val drawable = AppCompatResources.getDrawable(context, R.drawable.lang_button_shape)
                 updateTabLanguageCode(it, null, paperColor, drawable, color)

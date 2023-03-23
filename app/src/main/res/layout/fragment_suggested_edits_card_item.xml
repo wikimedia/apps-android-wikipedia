@@ -128,12 +128,12 @@
                     android:letterSpacing="0.04"
                     android:lineSpacingExtra="2sp"
                     android:text="@string/suggested_edits_task_add_description_title"
-                    android:textColor="?attr/colorAccent"
+                    android:textColor="?attr/progressive_color"
                     android:textSize="14sp"
                     android:visibility="gone"
                     app:icon="@drawable/ic_add_gray_white_24dp"
                     app:iconSize="24dp"
-                    app:iconTint="?attr/colorAccent" />
+                    app:iconTint="?attr/progressive_color" />
             </LinearLayout>
         </LinearLayout>
     </org.wikipedia.views.WikiCardView>

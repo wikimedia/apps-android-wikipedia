@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:backgroundTint="?attr/colorAccent" />
+                android:backgroundTint="?attr/progressive_color" />
         </LinearLayout>
 
 
@@ -56,7 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:backgroundTint="?attr/colorAccent" />
+                android:backgroundTint="?attr/progressive_color" />
 
         </LinearLayout>
 
@@ -98,13 +98,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/addContributionButton"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:backgroundTint="?attr/colorAccent"
+            android:backgroundTint="?attr/progressive_color"
             android:text="@string/suggested_edits_add_description_button"
             android:textColor="@color/white"
             android:textSize="14sp"
@@ -140,7 +140,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

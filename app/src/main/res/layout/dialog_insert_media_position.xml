@@ -38,7 +38,7 @@
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -60,7 +60,7 @@
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -82,7 +82,7 @@
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
     </LinearLayout>
 
 </LinearLayout>

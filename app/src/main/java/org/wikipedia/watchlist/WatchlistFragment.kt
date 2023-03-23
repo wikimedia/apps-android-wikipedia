@@ -66,7 +66,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
-        binding.watchlistRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
+        binding.watchlistRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.watchlistRefreshView.setOnRefreshListener { viewModel.fetchWatchlist(actionMode == null) }
         binding.watchlistErrorView.retryClickListener = View.OnClickListener { viewModel.fetchWatchlist(actionMode == null) }
 
@@ -226,7 +226,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
             } else {
                 itemBinding.filterCount.visibility = View.VISIBLE
                 itemBinding.filterCount.text = filterCount.toString()
-                ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.colorAccent))
+                ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.progressive_color))
             }
         }
     }

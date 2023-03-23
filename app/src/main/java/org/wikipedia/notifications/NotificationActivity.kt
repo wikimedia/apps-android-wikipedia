@@ -94,7 +94,7 @@ class NotificationActivity : BaseActivity() {
         }
 
         val touchCallback = SwipeableItemTouchHelperCallback(this,
-                ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent),
+                ResourceUtil.getThemedAttributeId(this, R.attr.progressive_color),
                 R.drawable.ic_outline_drafts_24, android.R.color.white, true, binding.notificationsRefreshView)
 
         touchCallback.swipeableEnabled = true
@@ -534,7 +534,7 @@ class NotificationActivity : BaseActivity() {
             } else {
                 notificationFilterCountView.visibility = View.VISIBLE
                 notificationFilterCountView.text = excludedFilters.toString()
-                ImageViewCompat.setImageTintList(notificationFilterButton, ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.colorAccent))
+                ImageViewCompat.setImageTintList(notificationFilterButton, ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.progressive_color))
             }
         }
     }

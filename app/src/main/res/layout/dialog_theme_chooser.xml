@@ -162,7 +162,7 @@
                     android:backgroundTint="?attr/paper_color"
                     android:text="@string/font_family_sans_serif"
                     android:tag="@string/font_family_sans_serif"
-                    app:strokeColor="?attr/colorAccent" />
+                    app:strokeColor="?attr/progressive_color" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_font_family_serif"
@@ -176,7 +176,7 @@
                     android:backgroundTint="?attr/paper_color"
                     android:text="@string/font_family_serif"
                     android:tag="@string/font_family_serif"
-                    app:strokeColor="?attr/colorAccent" />
+                    app:strokeColor="?attr/progressive_color" />
 
             </LinearLayout>
 

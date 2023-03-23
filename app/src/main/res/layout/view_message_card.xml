@@ -54,7 +54,7 @@
                 style="@style/FlatButton.Small"
                 android:layout_marginEnd="8dp"
                 app:iconSize="20dp"
-                app:iconTint="?attr/colorAccent"/>
+                app:iconTint="?attr/progressive_color"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/negativeButton"

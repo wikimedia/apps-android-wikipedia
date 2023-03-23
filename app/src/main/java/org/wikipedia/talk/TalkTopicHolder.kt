@@ -80,7 +80,7 @@ class TalkTopicHolder internal constructor(
         // Username with involved user number exclude the author
         val usersInvolved = allReplies.map { it.author }.distinct().size - 1
         val usernameText = allReplies.maxByOrNull { it.date ?: Date() }?.author.orEmpty() + (if (usersInvolved > 1) " +$usersInvolved" else "")
-        val usernameColor = if (threadItem.seen) R.attr.inactive_color else R.attr.colorAccent
+        val usernameColor = if (threadItem.seen) R.attr.inactive_color else R.attr.progressive_color
         binding.topicUsername.text = usernameText
         binding.topicUserIcon.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
         binding.topicUsername.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK

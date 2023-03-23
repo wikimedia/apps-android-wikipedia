@@ -36,7 +36,7 @@
                 android:layout_margin="0dp"
                 android:layout_gravity="end"
                 android:text="@string/onboarding_get_started"
-                android:textColor="?attr/colorAccent" />
+                android:textColor="?attr/progressive_color" />
 
         </FrameLayout>
 

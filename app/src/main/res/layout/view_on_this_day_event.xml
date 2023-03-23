@@ -35,7 +35,7 @@
                 android:layout_gravity="center"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/otd_radio"
-                app:tint="?attr/colorAccent" />
+                app:tint="?attr/progressive_color" />
         </FrameLayout>
 
         <TextView
@@ -45,7 +45,7 @@
             android:layout_marginStart="6dp"
             android:gravity="center_vertical"
             android:lineSpacingExtra="8sp"
-            android:textColor="?attr/colorAccent"
+            android:textColor="?attr/progressive_color"
             android:textSize="20sp"
             android:textStyle="bold"
             tools:text="1894" />

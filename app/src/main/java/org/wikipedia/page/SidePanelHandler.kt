@@ -229,7 +229,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
                 topMargin = DimenUtil.roundedDpToPx(textSize / 2)
             }
             if (highlightedSection == position) {
-                sectionHeading.setTextColor(ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.colorAccent))
+                sectionHeading.setTextColor(ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.progressive_color))
             } else {
                 if (section.level > 1) {
                     sectionHeading.setTextColor(

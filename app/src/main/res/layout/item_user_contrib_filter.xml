@@ -48,6 +48,6 @@
         android:contentDescription="@null"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_check_borderless"
-        app:tint="?attr/colorAccent" />
+        app:tint="?attr/progressive_color" />
 
 </merge>

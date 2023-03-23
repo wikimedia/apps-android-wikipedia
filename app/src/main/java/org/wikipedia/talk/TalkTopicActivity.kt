@@ -92,7 +92,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         L10nUtil.setConditionalLayoutDirection(binding.talkRecyclerView, viewModel.pageTitle.wikiSite.languageCode)
         L10nUtil.setConditionalLayoutDirection(binding.talkErrorView, viewModel.pageTitle.wikiSite.languageCode)
-        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
+        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.progressive_color))
         binding.talkToolbarSubjectView.movementMethod = linkMovementMethod
 
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)

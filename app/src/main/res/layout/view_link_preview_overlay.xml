@@ -38,7 +38,7 @@
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:text="@string/menu_long_press_open_in_new_tab"
-            android:textColor="?attr/colorAccent" />
+            android:textColor="?attr/progressive_color" />
 
         <Button
             android:id="@+id/link_preview_primary_button"
@@ -51,7 +51,7 @@
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:text="@string/button_continue_to_article"
-            android:textColor="?attr/colorAccent" />
+            android:textColor="?attr/progressive_color" />
 
     </LinearLayout>
 </FrameLayout>

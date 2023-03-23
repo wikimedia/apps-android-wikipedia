@@ -67,7 +67,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
     }
 
     fun setSingleLabel(text: String) {
-        val accentColor = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
+        val accentColor = ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color)
         binding.notificationFilterLanguageCode.visibility = View.GONE
         binding.notificationFilterWikiLogo.visibility = View.VISIBLE
         ImageViewCompat.setImageTintList(binding.notificationFilterWikiLogo, accentColor)

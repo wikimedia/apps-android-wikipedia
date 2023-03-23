@@ -23,7 +23,7 @@
         android:layout_marginStart="16dp"
         android:padding="3dp"
         app:srcCompat="@drawable/ic_user_avatar"
-        app:tint="?attr/colorAccent"
+        app:tint="?attr/progressive_color"
         android:contentDescription="@null"/>
 
     <ImageView
@@ -62,7 +62,7 @@
         app:layout_constraintWidth_max="wrap"
         android:layout_marginStart="4dp"
         android:layout_marginTop="2dp"
-        android:textColor="?attr/colorAccent"
+        android:textColor="?attr/progressive_color"
         android:textStyle="bold"
         android:lineSpacingExtra="6sp"
         tools:text="Lorem ipsum Lorem ipsum" />
@@ -91,7 +91,7 @@
         android:layout_marginTop="6dp"
         android:layout_marginEnd="16dp"
         android:textColor="?attr/primary_color"
-        android:textColorLink="?attr/colorAccent"
+        android:textColorLink="?attr/progressive_color"
         android:lineSpacingExtra="6sp"
         android:textIsSelectable="true"
         tools:text="Lorem ipsum" />
@@ -110,7 +110,7 @@
         android:paddingHorizontal="12dp"
         app:icon="@drawable/ic_reply_24"
         app:iconTint="@android:color/white"
-        app:backgroundTint="?attr/colorAccent"
+        app:backgroundTint="?attr/progressive_color"
         app:rippleColor="?attr/progressive_color"
         app:cornerRadius="8dp" />
 
@@ -145,7 +145,7 @@
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp"
-            app:tint="?attr/colorAccent"
+            app:tint="?attr/progressive_color"
             android:contentDescription="@null"/>
 
         <TextView
@@ -154,10 +154,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:textColorLink="?attr/colorAccent"
+            android:textColorLink="?attr/progressive_color"
             android:maxLines="1"
             android:ellipsize="end"
-            android:textColor="?attr/colorAccent"
+            android:textColor="?attr/progressive_color"
             android:fontFamily="sans-serif-medium"
             tools:text="Lorem ipsum" />
 

@@ -36,7 +36,7 @@
             android:layout_height="48dp"
             android:padding="12dp"
             app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
-            app:tint="?attr/colorAccent"
+            app:tint="?attr/progressive_color"
             android:contentDescription="@null"/>
 
     </LinearLayout>

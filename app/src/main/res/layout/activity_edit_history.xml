@@ -50,7 +50,7 @@
                 android:focusable="true"
                 android:background="?android:selectableItemBackgroundBorderless"
                 android:gravity="center_vertical"
-                android:textColor="?attr/colorAccent"
+                android:textColor="?attr/progressive_color"
                 android:textAllCaps="true"
                 android:fontFamily="sans-serif-medium"
                 android:letterSpacing="0.05"
@@ -150,7 +150,7 @@
                 app:cardElevation="0dp"
                 app:cardCornerRadius="8dp"
                 app:strokeWidth="0.5dp"
-                app:strokeColor="?attr/colorAccent">
+                app:strokeColor="?attr/progressive_color">
 
                 <TextView
                     android:id="@+id/compareFromText"
@@ -159,7 +159,7 @@
                     android:paddingVertical="8dp"
                     android:paddingHorizontal="12dp"
                     android:textStyle="bold"
-                    android:textColor="?attr/colorAccent"
+                    android:textColor="?attr/progressive_color"
                     tools:text="12:00" />
 
             </com.google.android.material.card.MaterialCardView>
@@ -202,7 +202,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:textColor="?attr/colorAccent"
+                android:textColor="?attr/progressive_color"
                 android:textAllCaps="true"
                 android:fontFamily="sans-serif-medium"
                 android:letterSpacing="0.05"

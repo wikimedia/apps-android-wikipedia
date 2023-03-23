@@ -16,12 +16,12 @@ enum class SyntaxRuleStyle {
     },
     INTERNAL_LINK {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return ColorSpanEx(ResourceUtil.getThemedColor(ctx, R.attr.colorAccent), Color.TRANSPARENT, spanStart, syntaxItem)
+            return ColorSpanEx(ResourceUtil.getThemedColor(ctx, R.attr.progressive_color), Color.TRANSPARENT, spanStart, syntaxItem)
         }
     },
     EXTERNAL_LINK {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return ColorSpanEx(ResourceUtil.getThemedColor(ctx, R.attr.colorAccent), Color.TRANSPARENT, spanStart, syntaxItem)
+            return ColorSpanEx(ResourceUtil.getThemedColor(ctx, R.attr.progressive_color), Color.TRANSPARENT, spanStart, syntaxItem)
         }
     },
     REF {

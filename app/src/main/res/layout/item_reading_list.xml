@@ -151,7 +151,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:icon="@drawable/ic_bookmark_border_white_24dp"
         app:iconSize="20dp"
-        app:iconTint="?attr/colorAccent"/>
+        app:iconTint="?attr/progressive_color"/>
 
     <CheckBox
         android:id="@+id/item_select_checkbox"
