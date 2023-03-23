@@ -4,13 +4,14 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.databinding.DialogArticleDescriptionsBinding
 
 class SuggestedArticleDescriptionsDialog(
     context: Context,
     firstSuggestion: String,
-    secondSuggestion: String,
+    secondSuggestion: String?,
     callback: Callback
 ) : AlertDialog(context) {
 
@@ -24,7 +25,8 @@ class SuggestedArticleDescriptionsDialog(
     init {
         setView(binding.root)
         binding.firstSuggestion.text = firstSuggestion
-        binding.secondSuggestion.text = secondSuggestion
+        binding.secondSuggestionLayout.isVisible = secondSuggestion != null
+        secondSuggestion?.let { binding.secondSuggestion.text = it }
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         binding.closeButton.setOnClickListener { dismiss() }
@@ -36,7 +38,7 @@ class SuggestedArticleDescriptionsDialog(
         }
         binding.secondSuggestion.setOnClickListener {
             callback.onSuggestionClicked(binding.secondSuggestion.text.toString())
-            MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDialogSuggestionChosen(context, secondSuggestion)
+            MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDialogSuggestionChosen(context, secondSuggestion ?: "")
             suggestionChosen = true
             dismiss()
         }
@@ -46,7 +48,7 @@ class SuggestedArticleDescriptionsDialog(
         }
 
         binding.secondSuggestionFlag.setOnClickListener {
-            SuggestedArticleDescriptionsReportDialog(context, binding.firstSuggestion.text.toString()) { dismiss() }.show()
+            SuggestedArticleDescriptionsReportDialog(context, binding.secondSuggestion.text.toString()) { dismiss() }.show()
         }
 
         setOnDismissListener {

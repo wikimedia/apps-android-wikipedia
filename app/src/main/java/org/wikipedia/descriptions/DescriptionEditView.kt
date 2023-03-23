@@ -411,7 +411,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         binding.suggestedDescButton.isVisible = binding.viewDescriptionEditTextLayout.error.isNullOrEmpty() && isSuggestionButtonEnabled!!
     }
 
-    fun showSuggestedDescriptionsButton(firstSuggestion: String, secondSuggestion: String) {
+    fun showSuggestedDescriptionsButton(firstSuggestion: String, secondSuggestion: String?) {
         binding.root.post {
             binding.suggestedDescButton.isEnabled = true
             binding.suggestedDescButton.chipIcon = AppCompatResources.getDrawable(context, R.drawable.ic_robot_24)
