@@ -20,7 +20,10 @@ import kotlinx.coroutines.*
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_1
+import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_3
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
@@ -40,10 +43,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsSurvey
 import org.wikipedia.suggestededits.SuggestionsActivity
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ReleaseUtil
-import org.wikipedia.util.StringUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 import java.io.IOException
@@ -208,9 +208,11 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.showProgressBar(false)
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
+
         binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = ReleaseUtil.isPreBetaRelease &&
                 SuggestedArticleDescriptionsDialog.availableLanguages().contains(pageTitle.wikiSite.languageCode) &&
-                action == DescriptionEditActivity.Action.ADD_DESCRIPTION
+                action == DescriptionEditActivity.Action.ADD_DESCRIPTION && pageTitle.description.isNullOrEmpty() &&
+                WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup != GROUP_1
 
         if (binding.fragmentDescriptionEditView.isSuggestionButtonEnabled) {
             binding.fragmentDescriptionEditView.showSuggestedDescriptionsLoadingProgress()
@@ -236,8 +238,11 @@ class DescriptionEditFragment : Fragment() {
                     pageTitle.prefixedText, list, response.blp)
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
-                binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(list.first(),
+
+                if (!response.blp || WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup == GROUP_3) {
+                    binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(list.first(),
                     if (list.size == 2) list.last() else null)
+                }
             }
         }
     }
