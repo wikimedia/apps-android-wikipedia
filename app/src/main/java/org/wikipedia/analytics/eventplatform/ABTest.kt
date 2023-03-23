@@ -12,7 +12,9 @@ import org.wikipedia.settings.PrefsIoUtil
 import kotlin.random.Random
 
 class ABTest(private val abTestName: String, private val abTestGroupCount: Int) {
+
     val aBTestGroup get() = PrefsIoUtil.getInt(AB_TEST_KEY_PREFIX + abTestName, -1)
+    
     init {
         assignTestGroup()
     }
