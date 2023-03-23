@@ -12,29 +12,26 @@ import org.wikipedia.settings.PrefsIoUtil
 import kotlin.random.Random
 
 class ABTest(private val abTestName: String, private val abTestGroupCount: Int) {
+    val aBTestGroup get() = PrefsIoUtil.getInt(AB_TEST_KEY_PREFIX + abTestName, -1)
+    init {
+        assignTestGroup()
+    }
 
-    var group: Int = -1
-    val aBTestGroup: Int
-        get() {
-            group = PrefsIoUtil.getInt(AB_TEST_KEY_PREFIX + abTestName, -1)
-            if (group == -1) {
+    private fun assignTestGroup() {
+        var testGroup = PrefsIoUtil.getInt(AB_TEST_KEY_PREFIX + abTestName, -1)
+        if (testGroup == -1) {
+            runBlocking {
                 // initialize the group if it hasn't been yet.
-                group = Random(System.currentTimeMillis()).nextInt(Int.MAX_VALUE).mod(abTestGroupCount)
-                if (group == GROUP_2 && AccountUtil.isLoggedIn) {
-                    runBlocking {
-                        isUserExperienced()
-                    }.also {
-                        if (it) {
-                            group = GROUP_3
-                        }
-                        PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, group)
-                        return group
+                testGroup = Random(System.currentTimeMillis()).nextInt(Int.MAX_VALUE).mod(abTestGroupCount)
+                if (testGroup == GROUP_2 && AccountUtil.isLoggedIn) {
+                    if (isUserExperienced()) {
+                        testGroup = GROUP_3
                     }
                 }
-                PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, group)
+                PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, testGroup)
             }
-            return group
         }
+    }
 
     private suspend fun isUserExperienced(): Boolean =
         withContext(Dispatchers.Default) {
