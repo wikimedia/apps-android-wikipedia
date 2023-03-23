@@ -23,6 +23,7 @@ object ContributionsNameData {
             "ami" to "使用者貢獻",
             "an" to "Contrebucions",
             "ang" to "Contributions",
+            "anp" to "योगदान",
             "ar" to "مساهمات",
             "arc" to "ܫܘܬܦܘ̈ܬܐ",
             "ary" to "مساهمات",

@@ -1056,8 +1056,8 @@
     <item quantity="other">您已移除 %d 個字元</item>
   </plurals>
   <plurals name="suggested_edits_added_contribution_label">
-    <item quantity="one">您已添加%d字元</item>
-    <item quantity="other">您已添加%d字元</item>
+    <item quantity="one">您已添加 %d 個字元</item>
+    <item quantity="other">您已添加 %d 個字元</item>
   </plurals>
   <string name="file_page_activity_title">檔案頁面</string>
   <string name="file_page_add_image_caption_button">新增圖片說明</string>
