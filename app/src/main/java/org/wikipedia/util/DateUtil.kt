@@ -6,7 +6,6 @@ import android.os.Build
 import android.text.format.DateFormat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.feed.model.UtcDate
 import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDate
@@ -41,15 +40,11 @@ object DateUtil {
     }
 
     fun getFeedCardDayHeaderDate(age: Int): String {
-        return getDateStringWithSkeletonPattern(UtcDate(age).baseCalendar.time, "MMMM d")
+        return getDateStringWithSkeletonPattern(getRequestDateForAge(age), "MMMM d")
     }
 
     fun getFeedCardDateString(age: Int): String {
-        return getFeedCardDateString(UtcDate(age).baseCalendar)
-    }
-
-    private fun getFeedCardDateString(date: Calendar): String {
-        return getShortDateString(date.time)
+        return getShortDateString(getRequestDateForAge(age))
     }
 
     fun getFeedCardShortDateString(date: Calendar): String {
@@ -153,8 +148,12 @@ object DateUtil {
         return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(localDate)
     }
 
-    fun getUtcRequestDateFor(age: Int): UtcDate {
-        return UtcDate(age)
+    fun getRequestDateForAge(age: Int): LocalDate {
+        return LocalDate.now().minusDays(age.toLong())
+    }
+
+    fun getYearMonthAndDayForAge(age: Int): List<String> {
+        return getRequestDateForAge(age).toString().split("-")
     }
 
     fun getDefaultDateFor(age: Int): Calendar {
