@@ -238,7 +238,7 @@ class DescriptionEditFragment : Fragment() {
                     pageTitle.prefixedText, list, response.blp)
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
-                
+
                 if (!response.blp || WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup == GROUP_3) {
                     binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(list.first(),
                     if (list.size == 2) list.last() else null)
