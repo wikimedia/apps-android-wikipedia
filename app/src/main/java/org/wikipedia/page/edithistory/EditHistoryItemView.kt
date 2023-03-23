@@ -79,7 +79,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         val colorDefault = ResourceUtil.getThemedColor(context, R.attr.paper_color)
         val colorSecondary = ResourceUtil.getThemedColorStateList(context, R.attr.secondary_color)
         val colorUsername = ResourceUtil.getThemedColorStateList(context, R.attr.primary_color)
-        val colorFrom = ResourceUtil.getThemedColor(context, R.attr.colorAccent)
+        val colorFrom = ResourceUtil.getThemedColor(context, R.attr.progressive_color)
         val colorTo = ResourceUtil.getThemedColor(context, R.attr.warning_color)
         binding.selectButton.isVisible = selectedState != EditHistoryListViewModel.SELECT_INACTIVE
 

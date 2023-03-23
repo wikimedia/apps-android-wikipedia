@@ -108,7 +108,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/login_join_wikipedia"
-                        android:textColor="?attr/colorAccent" />
+                        android:textColor="?attr/progressive_color" />
 
                 </LinearLayout>
 
@@ -138,7 +138,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="-6dp"
         android:indeterminate="true"
-        android:indeterminateTint="?attr/colorAccent"
+        android:indeterminateTint="?attr/progressive_color"
         android:progressBackgroundTint="?attr/progressive_color"
         android:visibility="gone"
         tools:visibility="visible" />

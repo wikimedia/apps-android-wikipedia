@@ -55,7 +55,7 @@
                     android:layout_marginBottom="8dp"
                     android:lineSpacingMultiplier="1.22"
                     android:textColor="?attr/secondary_color"
-                    android:textColorLink="?attr/colorAccent"
+                    android:textColorLink="?attr/progressive_color"
                     android:textSize="16sp"
                     tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
 

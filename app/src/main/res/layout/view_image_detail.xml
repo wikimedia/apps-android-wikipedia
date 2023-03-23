@@ -69,7 +69,7 @@
             android:layout_marginTop="1dp"
             android:layout_gravity="center_vertical"
             android:contentDescription="@null"
-            app:tint="?attr/colorAccent"
+            app:tint="?attr/progressive_color"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_open_in_new_black_24px"
             tools:visibility="visible"/>
@@ -83,7 +83,7 @@
         android:textSize="14sp"
         android:fontFamily="sans-serif"
         android:textStyle="bold"
-        android:textColor="?attr/colorAccent"
+        android:textColor="?attr/progressive_color"
         android:letterSpacing="0.04"
         android:lineSpacingExtra="6sp"
         android:textAlignment="textStart"
@@ -91,7 +91,7 @@
         app:icon="@drawable/ic_add_gray_white_24dp"
         app:iconSize="24dp"
         app:iconPadding="8dp"
-        app:iconTint="?attr/colorAccent"/>
+        app:iconTint="?attr/progressive_color"/>
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"

@@ -323,7 +323,7 @@ class UserContribListActivity : BaseActivity() {
                 binding.filterCount.visibility = View.VISIBLE
                 binding.filterCount.text = excludedFilters.toString()
                 ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.colorAccent))
+                    ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.progressive_color))
             }
         }
     }

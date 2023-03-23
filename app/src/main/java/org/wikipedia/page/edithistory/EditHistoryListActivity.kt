@@ -75,7 +75,7 @@ class EditHistoryListActivity : BaseActivity() {
 
         val colorCompareBackground = ResourceUtil.getThemedColor(this, android.R.attr.colorBackground)
         binding.compareFromCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
-                ResourceUtil.getThemedColor(this, R.attr.colorAccent), 0.05f))
+                ResourceUtil.getThemedColor(this, R.attr.progressive_color), 0.05f))
         binding.compareToCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
                 ResourceUtil.getThemedColor(this, R.attr.warning_color), 0.05f))
         updateCompareState()
@@ -178,7 +178,7 @@ class EditHistoryListActivity : BaseActivity() {
     private fun enableCompareButton(button: TextView, enable: Boolean) {
         if (enable) {
             button.isEnabled = true
-            button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.colorAccent))
+            button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.progressive_color))
         } else {
             button.isEnabled = false
             button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
@@ -394,7 +394,7 @@ class EditHistoryListActivity : BaseActivity() {
                 binding.filterCount.visibility = View.VISIBLE
                 binding.filterCount.text = (if (Prefs.editHistoryFilterType.isNotEmpty()) 1 else 0).toString()
                 ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(this@EditHistoryListActivity, R.attr.colorAccent))
+                    ResourceUtil.getThemedColorStateList(this@EditHistoryListActivity, R.attr.progressive_color))
             }
         }
     }

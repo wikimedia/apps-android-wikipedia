@@ -7,4 +7,4 @@
     android:layout_gravity="center"
     android:contentDescription="@null"
     app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
-    app:tint="?attr/colorAccent" />
+    app:tint="?attr/progressive_color" />

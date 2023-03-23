@@ -68,7 +68,7 @@
                 android:layout_weight="1"
                 android:text="@string/preview_edit_minor_edit"
                 android:textColor="?attr/primary_color"
-                android:buttonTint="?attr/colorAccent"/>
+                android:buttonTint="?attr/progressive_color"/>
 
             <ImageView
                 android:id="@+id/minorEditHelpButton"
@@ -94,7 +94,7 @@
                 android:layout_weight="1"
                 android:text="@string/preview_edit_watch_this_page"
                 android:textColor="?attr/primary_color"
-                android:buttonTint="?attr/colorAccent"/>
+                android:buttonTint="?attr/progressive_color"/>
 
             <ImageView
                 android:id="@+id/watchPageHelpButton"
@@ -118,13 +118,13 @@
             android:text="@string/preview_edit_learn_more"
             android:textAlignment="viewStart"
             android:textAllCaps="false"
-            android:textColor="?attr/colorAccent"
+            android:textColor="?attr/progressive_color"
             android:textSize="16sp"
             app:icon="@drawable/ic_open_in_new_black_24px"
             app:iconGravity="end"
             app:iconPadding="12dp"
             app:iconSize="24dp"
-            app:iconTint="?attr/colorAccent" />
+            app:iconTint="?attr/progressive_color" />
 
     </LinearLayout>
 

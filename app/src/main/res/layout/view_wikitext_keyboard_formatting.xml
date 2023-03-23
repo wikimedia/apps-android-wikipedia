@@ -87,7 +87,7 @@
             android:padding="12dp"
             android:background="?attr/selectableItemBackground"
             app:srcCompat="@drawable/ic_close_black_24dp"
-            app:tint="?attr/colorAccent"
+            app:tint="?attr/progressive_color"
             android:contentDescription="@string/table_close" />
 
     </LinearLayout>

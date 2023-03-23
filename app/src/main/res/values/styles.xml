@@ -248,7 +248,7 @@
     </style>
 
     <style name="NotificationActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?attr/progressive_color</item>
     </style>
 
     <style name="ActionModeSubtitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle">
@@ -364,7 +364,7 @@
 
     <style name="FlatButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="backgroundTint">?attr/background_color</item>
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?attr/progressive_color</item>
         <item name="android:minWidth">0dp</item>
         <item name="android:paddingTop">5dp</item>
         <item name="android:paddingBottom">5dp</item>
@@ -418,7 +418,7 @@
     </style>
 
     <style name="OnboardingSwitch">
-        <item name="colorControlActivated">?attr/colorAccent</item>
+        <item name="colorControlActivated">?attr/progressive_color</item>
         <item name="colorSwitchThumbNormal">@color/gray400</item>
         <item name="android:colorForeground">@color/gray500</item>
     </style>
@@ -435,7 +435,7 @@
         <item name="android:listPreferredItemPaddingStart">@dimen/activity_horizontal_margin</item>
         <item name="android:listPreferredItemPaddingRight">@dimen/activity_horizontal_margin</item>
         <item name="android:listPreferredItemPaddingEnd">@dimen/activity_horizontal_margin</item>
-        <item name="colorControlActivated">?attr/colorAccent</item>
+        <item name="colorControlActivated">?attr/progressive_color</item>
         <item name="colorSwitchThumbNormal">?attr/border_color</item>
         <item name="android:colorForeground">?attr/primary_color</item>
         <item name="android:disabledAlpha">0.5</item>
@@ -525,7 +525,7 @@
     <style name="LanguageSpinnerItemTextAppearance">
         <item name="android:textSize">14sp</item>
         <item name="android:singleLine">true</item>
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?attr/progressive_color</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:paddingStart">16dp</item>
         <item name="android:paddingEnd">16dp</item>
@@ -546,7 +546,7 @@
         <item name="android:textColorHint">?attr/placeholder_color</item>
         <item name="boxBackgroundColor">?attr/background_color</item>
         <item name="boxStrokeColor">?attr/input_stroke_color_state</item>
-        <item name="hintTextColor">?attr/colorAccent</item>
+        <item name="hintTextColor">?attr/progressive_color</item>
         <item name="helperTextTextColor">?attr/placeholder_color</item>
         <item name="counterTextColor">?attr/placeholder_color</item>
         <item name="errorTextAppearance">@style/TextInputLayoutErrorTextAppearance</item>
@@ -607,7 +607,7 @@
     <style name="DescriptionEditViewHintTextStyle">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?attr/progressive_color</item>
     </style>
 
     <style name="SnackbarStyle" parent="Widget.MaterialComponents.Snackbar">

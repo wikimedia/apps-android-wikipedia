@@ -20,7 +20,7 @@
             android:layout_height="28dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:tint="?attr/colorAccent"
+            app:tint="?attr/progressive_color"
             tools:src="@drawable/ic_article_description"
             android:contentDescription="@null"/>
 
@@ -82,7 +82,7 @@
             android:text="@string/suggested_edits_task_action_text_add"
             app:icon="@drawable/ic_add_gray_white_24dp"
             app:iconSize="20dp"
-            app:iconTint="?attr/colorAccent"/>
+            app:iconTint="?attr/progressive_color"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/secondaryButton"
@@ -90,7 +90,7 @@
             android:text="@string/suggested_edits_task_action_text_translate"
             app:icon="@drawable/ic_translate_white_24dp"
             app:iconSize="20dp"
-            app:iconTint="?attr/colorAccent"/>
+            app:iconTint="?attr/progressive_color"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

@@ -50,7 +50,7 @@
             android:layout_height="match_parent"
             android:visibility="gone"
             app:progressBackgroundColor="?attr/border_color"
-            app:progressColor="?attr/colorAccent" />
+            app:progressColor="?attr/progressive_color" />
 
         <ImageView
             android:id="@+id/page_list_item_action"

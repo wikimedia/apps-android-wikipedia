@@ -21,7 +21,7 @@ class CircularProgressBar constructor(context: Context, attrs: AttributeSet? = n
     private var maxProgressValue = MAX_PROGRESS.toDouble()
 
     init {
-        var progressColor = ResourceUtil.getThemedColor(getContext(), R.attr.colorAccent)
+        var progressColor = ResourceUtil.getThemedColor(getContext(), R.attr.progressive_color)
         var progressBackgroundColor = ResourceUtil.getThemedColor(getContext(), R.attr.placeholder_color)
         var progressStrokeWidth = DimenUtil.dpToPx(DEFAULT_STROKE_WIDTH_DP.toFloat()).toInt()
         if (attrs != null) {

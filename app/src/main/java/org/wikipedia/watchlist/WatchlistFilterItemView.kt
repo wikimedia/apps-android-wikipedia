@@ -60,7 +60,7 @@ class WatchlistFilterItemView constructor(context: Context, attrs: AttributeSet?
     }
 
     fun setSingleLabel(text: String) {
-        val accentColor = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
+        val accentColor = ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color)
         binding.watchlistFilterLanguageCode.visibility = View.GONE
         binding.watchlistFilterWikiLogo.visibility = View.VISIBLE
         ImageViewCompat.setImageTintList(binding.watchlistFilterWikiLogo, accentColor)

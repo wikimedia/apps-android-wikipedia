@@ -42,7 +42,7 @@
             android:textAllCaps="true"
             android:fontFamily="sans-serif-medium"
             android:letterSpacing="0.1"
-            android:textColor="?attr/colorPrimary"
+            android:textColor="?attr/placeholder_color"
             android:text="@string/main_drawer_login" />
 
         <androidx.appcompat.widget.AppCompatImageView

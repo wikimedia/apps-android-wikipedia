@@ -21,7 +21,7 @@ enum class NotificationCategory constructor(val id: String,
                                             @StringRes val title: Int,
                                             @StringRes val description: Int,
                                             @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
-                                            @AttrRes val iconColor: Int = R.attr.colorAccent,
+                                            @AttrRes val iconColor: Int = R.attr.progressive_color,
                                             val importance: Int = NotificationManagerCompat.IMPORTANCE_DEFAULT,
                                             val group: String? = GROUP_WIKIPEDIA_NOTIFICATIONS) : EnumCode {
     SYSTEM("system", R.string.preference_title_notification_system, R.string.preference_summary_notification_system, R.drawable.ic_settings_black_24dp),

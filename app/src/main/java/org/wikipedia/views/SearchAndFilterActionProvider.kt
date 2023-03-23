@@ -78,7 +78,7 @@ class SearchAndFilterActionProvider(context: Context,
         } else {
             binding.filterCount.visibility = View.VISIBLE
             binding.filterCount.text = enabledFilters.toString()
-            ImageViewCompat.setImageTintList(binding.filterIcon, ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent))
+            ImageViewCompat.setImageTintList(binding.filterIcon, ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color))
         }
     }
 

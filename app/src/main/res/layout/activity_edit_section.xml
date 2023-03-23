@@ -129,7 +129,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:indeterminate="true"
-        android:indeterminateTint="?attr/colorAccent"
+        android:indeterminateTint="?attr/progressive_color"
         android:progressBackgroundTint="?attr/progressive_color"
         android:visibility="gone"
         android:layout_marginTop="-6dp"

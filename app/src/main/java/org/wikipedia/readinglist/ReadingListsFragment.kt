@@ -93,7 +93,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider))
         setUpScrollListener()
         disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
-        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
+        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.swipeRefreshLayout.setOnRefreshListener { refreshSync(this, binding.swipeRefreshLayout) }
         if (RemoteConfig.config.disableReadingListSync) {
             binding.swipeRefreshLayout.isEnabled = false
@@ -596,7 +596,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             val isEnabled = selectedListsCount != 0
             val deleteItem = menu.findItem(R.id.menu_delete_selected)
             val exportItem = menu.findItem(R.id.menu_export_selected)
-            val exportItemTitleColor = ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)
+            val exportItemTitleColor = ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color)
             val exportItemAlphaColor = ColorUtils.setAlphaComponent(exportItemTitleColor, alpha)
             val spanString = SpannableString(exportItem.title.toString())
             spanString.setSpan(ForegroundColorSpan(exportItemAlphaColor), 0, spanString.length, 0)
