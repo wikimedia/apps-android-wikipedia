@@ -45,7 +45,4 @@
     <color name="orange500">#FF9500</color>
     <color name="orange500_50">#80FF9500</color>
 
-    <!-- TODO: remove the old colors below -->
-    <color name="red90">#FFe7e6</color>
-
 </resources>
