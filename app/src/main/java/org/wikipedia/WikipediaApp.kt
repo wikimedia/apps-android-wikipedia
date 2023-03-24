@@ -54,7 +54,7 @@ class WikipediaApp : Application() {
     val languageState by lazy { AppLanguageState(this) }
     val appSessionEvent by lazy { AppSessionEvent() }
     val machineGeneratedDescriptionsABTest by lazy {
-        ABTest(MACHINE_GEN_DESC, GROUP_SIZE_2)
+        ABTest(this, MACHINE_GEN_DESC, GROUP_SIZE_2)
     }
     val userAgent by lazy {
         var channel = ReleaseUtil.getChannel(this)

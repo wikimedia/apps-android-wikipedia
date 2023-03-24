@@ -1,6 +1,7 @@
 package org.wikipedia.analytics.eventplatform
 
 import android.content.Context
+import org.wikipedia.WikipediaApp
 
 object MachineGeneratedArticleDescriptionsAnalyticsHelper {
 
@@ -10,7 +11,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "ArticleDescriptionEditing.start"
+                ".UserInGroup.${WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup}.ArticleDescriptionEditing.start"
             )
         )
     }
@@ -19,7 +20,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "ArticleDescriptionEditing.end"
+                ".UserInGroup.${WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup}.ArticleDescriptionEditing.end"
             )
         )
     }
@@ -28,7 +29,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.suggestedDescriptionsButton.shown"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup}.suggestedDescriptionsButton.shown"
             )
         )
     }
@@ -39,7 +40,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.ApiResponseDetails.articleName:$articleName.isBlp:$isBlp" +
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.$${WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup}.ApiResponseDetails.articleName:$articleName.isBlp:$isBlp" +
                         ".NumberOfSuggestionsOffered:${suggestionsList.size}.Suggestions:$suggestions.logged"
             )
         )
@@ -49,15 +50,16 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.suggestionsDialogs.chosenSuggestion:$suggestion"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup}.suggestionsDialogs.chosenSuggestion:$suggestion"
             )
         )
     }
+
     fun machineGeneratedSuggestionsDialogOptedOut(context: Context) {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.suggestionsDialogs.optedOut"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup}.suggestionsDialogs.optedOut"
             )
         )
     }
@@ -67,7 +69,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.$suggestion.reportReasons:$reportReasons.reported"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup}.ReportDialog.$suggestion.reportReasons:$reportReasons.reported"
             )
         )
     }
@@ -77,7 +79,26 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.$suggestion.reportReasons:$reportReasons.optedOut"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup}" +
+                        ".ReportDialog.$suggestion.reportReasons:$reportReasons.optedOut"
+            )
+        )
+    }
+
+    fun logAiOnBoardingCardShown(context: Context) {
+        EventPlatformClient.submit(
+            BreadCrumbLogEvent(
+                BreadCrumbViewUtil.getReadableScreenName(context),
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserAssignedTo.Group.${WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup}.AiOnBoardingCard.shown"
+            )
+        )
+    }
+
+    fun logUserGroupAssigned(context: Context, testGroup: Int) {
+        EventPlatformClient.submit(
+            BreadCrumbLogEvent(
+                BreadCrumbViewUtil.getReadableScreenName(context),
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserAssignedTo.Group.$testGroup"
             )
         )
     }

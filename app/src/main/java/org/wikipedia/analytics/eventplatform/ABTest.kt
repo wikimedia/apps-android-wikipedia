@@ -1,5 +1,6 @@
 package org.wikipedia.analytics.eventplatform
 
+import android.content.Context
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
@@ -11,29 +12,26 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.settings.PrefsIoUtil
 import kotlin.random.Random
 
-class ABTest(private val abTestName: String, private val abTestGroupCount: Int) {
+class ABTest(private val context: Context, private val abTestName: String, private val abTestGroupCount: Int) {
 
-    var group: Int = -1
+    private var testGroup: Int = -1
     val aBTestGroup: Int
         get() {
-            group = PrefsIoUtil.getInt(AB_TEST_KEY_PREFIX + abTestName, -1)
-            if (group == -1) {
-                // initialize the group if it hasn't been yet.
-                group = Random(System.currentTimeMillis()).nextInt(Int.MAX_VALUE).mod(abTestGroupCount)
-                if (group == GROUP_2 && AccountUtil.isLoggedIn) {
-                    runBlocking {
-                        isUserExperienced()
-                    }.also {
-                        if (it) {
-                            group = GROUP_3
+             testGroup = PrefsIoUtil.getInt(AB_TEST_KEY_PREFIX + abTestName, -1)
+            if (testGroup == -1) {
+                runBlocking {
+                    // initialize the group if it hasn't been yet.
+                    testGroup = Random(System.currentTimeMillis()).nextInt(Int.MAX_VALUE).mod(abTestGroupCount)
+                    if (testGroup == GROUP_2 && AccountUtil.isLoggedIn) {
+                        if (isUserExperienced()) {
+                            testGroup = GROUP_3
                         }
-                        PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, group)
-                        return group
                     }
+                    MachineGeneratedArticleDescriptionsAnalyticsHelper.logUserGroupAssigned(context, testGroup)
+                    PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, testGroup)
                 }
-                PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, group)
             }
-            return group
+            return testGroup
         }
 
     private suspend fun isUserExperienced(): Boolean =
