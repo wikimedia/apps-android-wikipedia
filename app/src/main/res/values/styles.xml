@@ -178,6 +178,10 @@
         <item name="android:textColor">?attr/secondary_color</item>
     </style>
 
+    <style name="P.MaterialListTitle">
+        <item name="android:textColor">?attr/primary_color</item>
+    </style>
+
     <style name="Chip">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">14sp</item>

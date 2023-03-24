@@ -14,7 +14,7 @@
 
     <TextView
         android:id="@+id/localized_language_name"
-        style="@style/H3.MaterialListTitle"
+        style="@style/P.MaterialListTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"

@@ -37,7 +37,7 @@
 
         <TextView
             android:id="@+id/view_card_header_large_title"
-            style="@style/H3.MaterialListTitle"
+            style="@style/P.MaterialListTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
