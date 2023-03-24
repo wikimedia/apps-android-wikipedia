@@ -11,7 +11,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                ".UserInGroup.${WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup}.ArticleDescriptionEditing.start"
+                "ArticleDescriptionEditing.start"
             )
         )
     }
@@ -20,7 +20,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                ".UserInGroup.${WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup}.ArticleDescriptionEditing.end"
+                "ArticleDescriptionEditing.end"
             )
         )
     }
