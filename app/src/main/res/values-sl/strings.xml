@@ -1148,7 +1148,7 @@
   <string name="this_year">To leto</string>
   <string name="on_this_day_dialog_next_month">Naslednji mesec</string>
   <string name="on_this_day_dialog_previous_month">Prejšnji mesec</string>
-  <string name="on_this_day_open_date_picker">Odpri izbiralnik datumov</string>
+  <string name="on_this_day_open_date_picker">Odpri izbirnik datumov</string>
   <plurals name="diff_years">
     <item quantity="one">Prejšnje leto</item>
     <item quantity="two">Pred dvema letoma</item>
