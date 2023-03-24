@@ -25,11 +25,11 @@ class DescriptionEditTutorialFragment(val showAIOnBoarding: Boolean) : Onboardin
         }
 
         override fun createFragment(position: Int): Fragment {
-            return ItemFragment(showAIOnBoarding).apply { arguments = bundleOf(ARG_POSITION to position) }
+            return ItemFragment().apply { arguments = bundleOf(ARG_POSITION to position) }
         }
     }
 
-    class ItemFragment(private val showAIOnBoarding: Boolean) : Fragment() {
+    class ItemFragment() : Fragment() {
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
             super.onCreateView(inflater, container, savedInstanceState)
             val position = requireArguments().getInt(ARG_POSITION, 0)
