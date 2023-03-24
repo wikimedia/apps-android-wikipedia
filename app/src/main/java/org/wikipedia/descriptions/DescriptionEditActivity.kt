@@ -39,6 +39,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
             startActivity(DescriptionEditTutorialActivity.newIntent(this, shouldShowAIOnBoarding))
         }
     }
+
     public override fun createFragment(): DescriptionEditFragment {
         val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action

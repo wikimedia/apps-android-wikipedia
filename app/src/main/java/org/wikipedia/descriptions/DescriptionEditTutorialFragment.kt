@@ -21,7 +21,7 @@ class DescriptionEditTutorialFragment(val showAIOnBoarding: Boolean) : Onboardin
 
     internal inner class DescriptionEditTutorialPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         override fun getItemCount(): Int {
-            return if (showAIOnBoarding) AiIncludedPages.size else pages.size
+            return if (showAIOnBoarding) pages.size else pages.size - 1
         }
 
         override fun createFragment(position: Int): Fragment {
@@ -33,8 +33,7 @@ class DescriptionEditTutorialFragment(val showAIOnBoarding: Boolean) : Onboardin
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
             super.onCreateView(inflater, container, savedInstanceState)
             val position = requireArguments().getInt(ARG_POSITION, 0)
-            val view = if (showAIOnBoarding) inflater.inflate(AiIncludedPages[position], container, false) as OnboardingPageView
-            else inflater.inflate(pages[position], container, false) as OnboardingPageView
+            val view = inflater.inflate(pages[position], container, false) as OnboardingPageView
             view.callback = OnboardingPageView.DefaultCallback()
             return view
         }
@@ -42,8 +41,7 @@ class DescriptionEditTutorialFragment(val showAIOnBoarding: Boolean) : Onboardin
 
     companion object {
         const val ARG_POSITION = "position"
-        val pages = arrayOf(R.layout.inflate_description_edit_tutorial_page_one, R.layout.inflate_description_edit_tutorial_page_two)
-        val AiIncludedPages = arrayOf(R.layout.inflate_description_edit_tutorial_page_one, R.layout.inflate_description_edit_tutorial_page_two, R.layout.inflate_description_edit_tutorial_page_three)
+        val pages = arrayOf(R.layout.inflate_description_edit_tutorial_page_one, R.layout.inflate_description_edit_tutorial_page_two, R.layout.inflate_description_edit_tutorial_page_three)
 
         fun newInstance(showAIOnBoarding: Boolean): DescriptionEditTutorialFragment {
             return DescriptionEditTutorialFragment(showAIOnBoarding)
