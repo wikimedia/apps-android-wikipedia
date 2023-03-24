@@ -16,7 +16,7 @@ class DescriptionEditTutorialActivity : SingleFragmentActivity<DescriptionEditTu
     }
 
     companion object {
-        private const val SHOULD_SHOW_AI_ON_BOARDING = "showAIOnBoarding"
+        const val SHOULD_SHOW_AI_ON_BOARDING = "showAIOnBoarding"
 
         fun newIntent(context: Context, showAIOnBoarding: Boolean): Intent {
             return Intent(context, DescriptionEditTutorialActivity::class.java)
