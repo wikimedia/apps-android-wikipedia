@@ -91,7 +91,7 @@
 
     <TextView
         android:id="@+id/item_reading_list_statistical_description"
-        style="@style/H4.MaterialListSubtitle"
+        style="@style/List.MaterialListSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"
@@ -103,7 +103,7 @@
 
     <TextView
         android:id="@+id/item_description"
-        style="@style/H4.MaterialListSubtitle"
+        style="@style/List.MaterialListSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"

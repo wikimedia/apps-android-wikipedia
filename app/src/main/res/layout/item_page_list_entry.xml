@@ -22,7 +22,7 @@
 
     <org.wikipedia.views.GoneIfEmptyTextView
         android:id="@+id/page_list_item_description"
-        style="@style/H4.MaterialListSubtitle"
+        style="@style/List.MaterialListSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"

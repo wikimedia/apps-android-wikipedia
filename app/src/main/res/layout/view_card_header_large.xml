@@ -55,7 +55,7 @@
 
         <TextView
             android:id="@+id/view_card_header_large_subtitle"
-            style="@style/H4.MaterialListSubtitle"
+            style="@style/List.MaterialListSubtitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

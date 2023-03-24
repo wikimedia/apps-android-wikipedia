@@ -34,7 +34,7 @@
 
     <TextView
         android:id="@+id/articleDescription"
-        style="@style/H4.MaterialListSubtitle"
+        style="@style/List.MaterialListSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"

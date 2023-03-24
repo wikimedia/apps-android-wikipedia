@@ -22,7 +22,7 @@
 
     <TextView
         android:id="@+id/request_account_text"
-        style="@style/H4.MaterialListSubtitle"
+        style="@style/List.MaterialListSubtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"

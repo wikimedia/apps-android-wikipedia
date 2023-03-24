@@ -153,8 +153,8 @@
         <item name="lineHeight">24sp</item>
     </style>
 
-    <style name="H4.MaterialListSubtitle">
-        <item name="android:textColor">?attr/secondary_color</item>
+    <style name="H4.MaterialListSectionHeader">
+        <item name="android:textColor">?attr/primary_color</item>
     </style>
 
     <style name="H5">
@@ -184,10 +184,6 @@
         <item name="lineHeight">24sp</item>
     </style>
 
-    <style name="Chip.MaterialListSectionHeader">
-        <item name="android:textColor">?attr/primary_color</item>
-    </style>
-
     <style name="Chip.Accessible">
         <item name="android:textColor">?attr/primary_color</item>
         <item name="ensureMinTouchTargetSize">true</item>
@@ -198,6 +194,10 @@
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">14sp</item>
         <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="List.MaterialListSubtitle">
+        <item name="android:textColor">?attr/secondary_color</item>
     </style>
 
     <style name="Small">
