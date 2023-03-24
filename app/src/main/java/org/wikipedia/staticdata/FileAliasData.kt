@@ -23,6 +23,7 @@ object FileAliasData {
             "ami" to "Faylo",
             "an" to "Imachen",
             "ang" to "Ymele",
+            "anp" to "फाईल",
             "ar" to "ملف",
             "arc" to "ܠܦܦܐ",
             "ary" to "فيشي",
