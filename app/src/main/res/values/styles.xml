@@ -339,10 +339,14 @@
 
     <style name="BottomNavigationTextAppearanceInactive">
         <item name="android:textSize">@dimen/bottom_nav_label_text_size</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
     </style>
 
     <style name="BottomNavigationTextAppearanceActive">
         <item name="android:textSize">@dimen/bottom_nav_label_text_size</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
     </style>
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">

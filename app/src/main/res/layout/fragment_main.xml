@@ -63,14 +63,14 @@
                 app:srcCompat="@drawable/ic_menu_white_24dp" />
 
             <TextView
+                style="@style/BottomNavigationTextAppearanceInactive"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="35dp"
                 android:textAlignment="center"
                 android:text="@string/nav_item_more"
-                android:textColor="?attr/nav_tab_item_color_state"
-                android:textSize="10sp" />
+                android:textColor="?attr/nav_tab_item_color_state"/>
 
         </FrameLayout>
     </LinearLayout>
