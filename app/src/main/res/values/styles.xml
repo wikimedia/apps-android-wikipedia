@@ -115,6 +115,10 @@
         <item name="android:layout_marginBottom">5dp</item>
     </style>
 
+    <style name="H2.MessageCard">
+        <item name="android:textColor">?attr/primary_color</item>
+    </style>
+
     <style name="H3">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>

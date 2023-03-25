@@ -26,12 +26,9 @@
 
         <TextView
             android:id="@+id/messageTitleView"
+            style="@style/H2.MessageCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="?attr/primary_color"
-            android:lineSpacingExtra="8sp"
             android:layout_marginBottom="12dp"/>
 
         <TextView
