@@ -321,6 +321,7 @@ class DescriptionEditFragment : Fragment() {
                                     AnonymousNotificationHelper.onEditSubmitted()
                                     waitForUpdatedRevision(newRevId)
                                     EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+                                    MachineGeneratedArticleDescriptionsAnalyticsHelper.logActualPublishedDescription(requireContext(), binding.fragmentDescriptionEditView.description.orEmpty())
                                 }
                                 hasEditErrorCode -> {
                                     editFailed(MwException(MwServiceError(code, spamblacklist)), false)
@@ -364,6 +365,7 @@ class DescriptionEditFragment : Fragment() {
                         AnonymousNotificationHelper.onEditSubmitted()
                         if (response.success > 0) {
                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
+                            MachineGeneratedArticleDescriptionsAnalyticsHelper.logActualPublishedDescription(requireContext(), binding.fragmentDescriptionEditView.description.orEmpty(), true)
                             EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                         } else {
                             editFailed(RuntimeException("Received unrecognized description edit response"), true)

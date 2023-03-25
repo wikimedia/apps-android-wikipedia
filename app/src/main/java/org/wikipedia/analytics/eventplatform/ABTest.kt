@@ -34,6 +34,8 @@ class ABTest(private val context: Context, private val abTestName: String, priva
             return testGroup
         }
 
+    val isEnrolled = PrefsIoUtil.contains(AB_TEST_KEY_PREFIX + abTestName)
+
     private suspend fun isUserExperienced(): Boolean =
         withContext(Dispatchers.Default) {
             var totalContributions = 0
