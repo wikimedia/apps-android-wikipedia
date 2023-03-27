@@ -1372,6 +1372,7 @@
   <string name="watchlist_page_moved">Перемещено</string>
   <string name="watchlist_page_protected">Защищено</string>
   <string name="watchlist_page_deleted">Удалено</string>
+  <string name="watchlist_filter_wiki_filter_header">Вики</string>
   <string name="watchlist_filter_user_status_unregistered">Незарегистрированные</string>
   <string name="watchlist_filter_user_status_registered">Зарегистрированные</string>
   <string name="watchlist_filter_user_status_newcomers">Новички</string>
