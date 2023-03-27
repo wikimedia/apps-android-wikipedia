@@ -146,10 +146,6 @@
         <item name="lineHeight">32sp</item>
     </style>
 
-    <style name="H3.MaterialListTitle">
-        <item name="android:textColor">?attr/primary_color</item>
-    </style>
-
     <style name="H4">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
