@@ -6,8 +6,6 @@ import org.wikipedia.WikipediaApp
 object MachineGeneratedArticleDescriptionsAnalyticsHelper {
 
     private const val MACHINE_GEN_DESC_SUGGESTIONS = "MachineGeneratedArticleSuggestions"
-    private val testGroup: Int
-        get() { return if (WikipediaApp.instance.machineGeneratedDescriptionsABTest.isEnrolled) WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup else -1 }
 
     fun articleDescriptionEditingStart(context: Context) {
         EventPlatformClient.submit(
@@ -40,7 +38,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.$testGroup.suggestedDescriptionsButton.shown"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}.suggestedDescriptionsButton.shown"
             )
         )
     }
@@ -51,7 +49,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.$$testGroup.ApiResponseDetails.articleName:$articleName.isBlp:$isBlp" +
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.$${getTestGroup()}.ApiResponseDetails.articleName:$articleName.isBlp:$isBlp" +
                         ".NumberOfSuggestionsOffered:${suggestionsList.size}.Suggestions:$suggestions.logged"
             )
         )
@@ -61,7 +59,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.$testGroup.suggestionsDialogs.chosenSuggestion:$suggestion"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}.suggestionsDialogs.chosenSuggestion:$suggestion"
             )
         )
     }
@@ -70,7 +68,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.$testGroup.suggestionsDialogs.optedOut"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}.suggestionsDialogs.optedOut"
             )
         )
     }
@@ -80,7 +78,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.$testGroup.ReportDialog.$suggestion.reportReasons:$reportReasons.reported"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}.ReportDialog.$suggestion.reportReasons:$reportReasons.reported"
             )
         )
     }
@@ -90,7 +88,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.$testGroup" +
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}" +
                         ".ReportDialog.$suggestion.reportReasons:$reportReasons.optedOut"
             )
         )
@@ -100,7 +98,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserAssignedTo.Group.$testGroup.AiOnBoardingCard.shown"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserAssignedTo.Group.${getTestGroup()}.AiOnBoardingCard.shown"
             )
         )
     }
@@ -112,5 +110,9 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
                 "$MACHINE_GEN_DESC_SUGGESTIONS.UserAssignedTo.Group.$testGroup"
             )
         )
+    }
+
+    private fun getTestGroup(): Int {
+        return if (WikipediaApp.instance.machineGeneratedDescriptionsABTest.isEnrolled) WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup else -1
     }
 }
