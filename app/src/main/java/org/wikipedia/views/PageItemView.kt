@@ -1,6 +1,7 @@
 package org.wikipedia.views
 
 import android.content.Context
+import android.graphics.Typeface
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -84,6 +85,10 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
 
     fun setTitle(text: String?) {
         binding.pageListItemTitle.text = StringUtil.fromHtml(text)
+    }
+
+    fun setTitleTypeface(typeface: Int) {
+        binding.pageListItemTitle.setTypeface(Typeface.SANS_SERIF, typeface)
     }
 
     fun setTitleMaxLines(linesCount: Int) {

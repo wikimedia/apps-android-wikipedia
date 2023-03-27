@@ -126,6 +126,10 @@
         <item name="lineHeight">24sp</item>
     </style>
 
+    <style name="H3.MaterialListTitle">
+        <item name="android:textColor">?attr/primary_color</item>
+    </style>
+
     <style name="H3.Button">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textStyle">normal</item>
@@ -339,14 +343,14 @@
 
     <style name="BottomNavigationTextAppearanceInactive">
         <item name="android:textSize">@dimen/bottom_nav_label_text_size</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif-condensed-medium</item>
+        <item name="lineHeight">12sp</item>
     </style>
 
     <style name="BottomNavigationTextAppearanceActive">
         <item name="android:textSize">@dimen/bottom_nav_label_text_size</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif-condensed-medium</item>
+        <item name="lineHeight">12sp</item>
     </style>
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">

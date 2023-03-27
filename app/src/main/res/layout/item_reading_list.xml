@@ -68,7 +68,7 @@
 
         <TextView
             android:id="@+id/item_title"
-            style="@style/P.MaterialListTitle"
+            style="@style/H3.MaterialListTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -77,7 +77,7 @@
 
         <TextView
             android:id="@+id/item_title_indicator"
-            style="@style/P.MaterialListTitle"
+            style="@style/H3.MaterialListTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
