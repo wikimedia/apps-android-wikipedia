@@ -201,6 +201,7 @@
     <style name="List">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?attr/primary_color</item>
         <item name="lineHeight">24sp</item>
     </style>
 
