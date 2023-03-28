@@ -289,7 +289,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
         }
     }
 
-    private val shareSubject get() = pageTitle?.displayText
+    private val shareSubject get() = StringUtil.removeHTMLTags(pageTitle?.displayText)
 
     private fun saveImage() {
         mediaInfo?.let { callback()?.onDownload(this) }
