@@ -13,11 +13,14 @@ import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource.TALK_TOPICS_ACTIVITY
 import org.wikipedia.R
@@ -158,15 +161,17 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         notificationButtonView = NotificationButtonView(this)
         Prefs.hasAnonymousNotification = false
 
-        lifecycleScope.launchWhenCreated {
-            viewModel.uiState.collect {
-                when (it) {
-                    is TalkTopicsViewModel.UiState.UpdateNamespace -> setToolbarTitle(it.pageTitle)
-                    is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.threadItems)
-                    is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.undoneSubject, it.undoneBody)
-                    is TalkTopicsViewModel.UiState.DoWatch -> updateOnWatch()
-                    is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
-                    is TalkTopicsViewModel.UiState.ActionError -> FeedbackUtil.showError(this@TalkTopicsActivity, it.throwable)
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.uiState.collect {
+                    when (it) {
+                        is TalkTopicsViewModel.UiState.UpdateNamespace -> setToolbarTitle(it.pageTitle)
+                        is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.threadItems)
+                        is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.undoneSubject, it.undoneBody)
+                        is TalkTopicsViewModel.UiState.DoWatch -> updateOnWatch()
+                        is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
+                        is TalkTopicsViewModel.UiState.ActionError -> FeedbackUtil.showError(this@TalkTopicsActivity, it.throwable)
+                    }
                 }
             }
         }
