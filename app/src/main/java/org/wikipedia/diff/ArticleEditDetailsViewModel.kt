@@ -52,25 +52,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     val diffSize get() = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size
 
     init {
-        getMetadata()
         getRevisionDetails(revisionToId, revisionFromId)
-    }
-
-    private fun getMetadata() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            watchedStatus.postValue(Resource.Error(throwable))
-        }) {
-            withContext(Dispatchers.IO) {
-                val query = ServiceFactory.get(pageTitle.wikiSite).getWatchedStatusWithRights(pageTitle.prefixedText).query!!
-                val page = query.firstPage()!!
-                if (pageId < 0) {
-                    pageId = page.pageId
-                }
-                watchedStatus.postValue(Resource.Success(page))
-                hasRollbackRights = query.userInfo?.rights?.contains("rollback") == true
-                rollbackRights.postValue(Resource.Success(hasRollbackRights))
-            }
-        }
     }
 
     fun getRevisionDetails(revisionIdTo: Long, revisionIdFrom: Long = -1) {
@@ -78,6 +60,16 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             revisionDetails.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
+                if (watchedStatus.value !is Resource.Success) {
+                    val query = ServiceFactory.get(pageTitle.wikiSite).getWatchedStatusWithRights(pageTitle.prefixedText).query!!
+                    val page = query.firstPage()!!
+                    if (pageId < 0) {
+                        pageId = page.pageId
+                    }
+                    watchedStatus.postValue(Resource.Success(page))
+                    hasRollbackRights = query.userInfo?.rights?.contains("rollback") == true
+                    rollbackRights.postValue(Resource.Success(hasRollbackRights))
+                }
                 if (revisionIdFrom >= 0) {
                     val responseFrom = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageId.toString(), 2, revisionIdFrom) }
                     val responseTo = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageId.toString(), 2, revisionIdTo) }
