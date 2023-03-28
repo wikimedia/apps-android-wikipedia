@@ -235,7 +235,7 @@ class DescriptionEditFragment : Fragment() {
                     response.prediction.map { StringUtil.capitalize(it)!! }
                 } else response.prediction).distinct()
                 MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDetailsLogged(requireContext(),
-                    pageTitle.prefixedText, list, response.blp)
+                     list, response.blp, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
 
@@ -321,7 +321,12 @@ class DescriptionEditFragment : Fragment() {
                                     AnonymousNotificationHelper.onEditSubmitted()
                                     waitForUpdatedRevision(newRevId)
                                     EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
-                                    MachineGeneratedArticleDescriptionsAnalyticsHelper.logActualPublishedDescription(requireContext(), binding.fragmentDescriptionEditView.description.orEmpty())
+                                    val abTest = WikipediaApp.instance.machineGeneratedDescriptionsABTest
+                                    if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION && abTest.isEnrolled && abTest.aBTestGroup != GROUP_1) {
+                                        MachineGeneratedArticleDescriptionsAnalyticsHelper.logActualPublishedDescription(requireContext(),
+                                            binding.fragmentDescriptionEditView.description.orEmpty(), pageTitle.wikiSite.languageCode, pageTitle.prefixedText
+                                        )
+                                    }
                                 }
                                 hasEditErrorCode -> {
                                     editFailed(MwException(MwServiceError(code, spamblacklist)), false)
@@ -365,7 +370,11 @@ class DescriptionEditFragment : Fragment() {
                         AnonymousNotificationHelper.onEditSubmitted()
                         if (response.success > 0) {
                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
-                            MachineGeneratedArticleDescriptionsAnalyticsHelper.logActualPublishedDescription(requireContext(), binding.fragmentDescriptionEditView.description.orEmpty(), true)
+                            val abTest = WikipediaApp.instance.machineGeneratedDescriptionsABTest
+                            if (abTest.isEnrolled && abTest.aBTestGroup != GROUP_1) {
+                                MachineGeneratedArticleDescriptionsAnalyticsHelper.logActualPublishedDescription(requireContext(),
+                                    binding.fragmentDescriptionEditView.description.orEmpty(), pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+                            }
                             EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                         } else {
                             editFailed(RuntimeException("Received unrecognized description edit response"), true)

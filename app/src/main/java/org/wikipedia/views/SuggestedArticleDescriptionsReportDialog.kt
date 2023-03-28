@@ -8,9 +8,10 @@ import androidx.appcompat.app.AlertDialog
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.databinding.DialogDescriptionSuggestionReportBinding
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.FeedbackUtil
 
-class SuggestedArticleDescriptionsReportDialog(context: Context, suggestion: String, callback: Callback) : AlertDialog(context) {
+class SuggestedArticleDescriptionsReportDialog(context: Context, suggestion: String, private val pageTitle: PageTitle, callback: Callback) : AlertDialog(context) {
 
     fun interface Callback {
         fun onReportClick()
@@ -63,6 +64,6 @@ class SuggestedArticleDescriptionsReportDialog(context: Context, suggestion: Str
 
     private fun collectReportData(suggestion: String) {
         MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuggestionReported(context,
-            suggestion, getReportReasons())
+            suggestion, getReportReasons(), pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
     }
 }

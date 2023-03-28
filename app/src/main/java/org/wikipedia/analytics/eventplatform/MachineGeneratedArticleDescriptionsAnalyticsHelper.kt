@@ -25,41 +25,41 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         )
     }
 
-    fun logActualPublishedDescription(context: Context, publishedDescription: String, wikidataEdit: Boolean = false) {
+    fun logActualPublishedDescription(context: Context, finalDescription: String, articleWiki: String, articleName: String) {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.publishedTo.${if (wikidataEdit) "wikidata" else "articleOnWiki"}publishedDescription.$publishedDescription.published"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.articleWiki.$articleWiki.articleName.$articleName.finalDescription.$finalDescription.published"
             )
         )
     }
 
-    fun suggestedDescriptionsButtonShown(context: Context) {
+    fun suggestedDescriptionsButtonShown(context: Context, articleWiki: String) {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}.suggestedDescriptionsButton.shown"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}.articleWiki.$articleWiki.suggestedDescriptionsButton.shown"
             )
         )
     }
 
-    fun machineGeneratedSuggestionsDetailsLogged(context: Context, articleName: String,
-                                                 suggestionsList: List<String>, isBlp: Boolean) {
+    fun machineGeneratedSuggestionsDetailsLogged(context: Context, suggestionsList: List<String>,
+                                                 isBlp: Boolean, articleWiki: String, articleName: String) {
         val suggestions = suggestionsList.joinToString(",")
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.$${getTestGroup()}.ApiResponseDetails.articleName:$articleName.isBlp:$isBlp" +
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}.ApiResponseDetails.articleWiki.$articleWiki.articleName:$articleName.isBlp:$isBlp" +
                         ".NumberOfSuggestionsOffered:${suggestionsList.size}.Suggestions:$suggestions.logged"
             )
         )
     }
 
-    fun machineGeneratedSuggestionsDialogSuggestionChosen(context: Context, suggestion: String) {
+    fun machineGeneratedSuggestionsDialogSuggestionChosen(context: Context, suggestion: String, articleWiki: String, articleName: String) {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}.suggestionsDialogs.chosenSuggestion:$suggestion"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}.suggestionsDialogs.chosenSuggestion:$suggestion.articleWiki.$articleWiki.articleName:$articleName"
             )
         )
     }
@@ -73,12 +73,12 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         )
     }
 
-    fun logSuggestionReported(context: Context, suggestion: String, reportReasonsList: List<String>) {
+    fun logSuggestionReported(context: Context, suggestion: String, reportReasonsList: List<String>, articleWiki: String, articleName: String) {
         val reportReasons = reportReasonsList.joinToString(",")
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}.ReportDialog.$suggestion.reportReasons:$reportReasons.reported"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}.ReportDialog.reportedSuggestion.$suggestion.articleWiki.$articleWiki.articleName:$articleName.reportReasons:$reportReasons.reported"
             )
         )
     }
