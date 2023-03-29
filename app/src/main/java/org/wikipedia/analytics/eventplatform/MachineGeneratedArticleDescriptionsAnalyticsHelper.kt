@@ -54,8 +54,8 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.ApiResponseDetails.articleWiki.$articleWiki.articleName:$articleName.isBlp:$isBlp" +
-                        ".NumberOfSuggestionsOffered:${suggestionsList.size}.Suggestions:$suggestions.logged"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.ApiResponseDetails.articleWiki.$articleWiki.title:$articleName.blp:$isBlp" +
+                        ".count:${suggestionsList.size}.Suggestions:$suggestions.logged"
             )
         )
     }
@@ -64,7 +64,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.suggestionsDialogs.chosenSuggestion:$suggestion.articleWiki.$articleWiki.articleName:$articleName"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.suggestionsDialogs.chosen:$suggestion.articleWiki.$articleWiki.title:$articleName"
             )
         )
     }
@@ -73,7 +73,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.suggestionsDialogs.optedOut"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.suggestionsDialogs.dismissed"
             )
         )
     }
@@ -83,7 +83,8 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.ReportDialog.reportedSuggestion.$suggestion.articleWiki.$articleWiki.articleName:$articleName.reportReasons:$reportReasons.reported"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.ReportDialog.reportedSuggestion.$suggestion.articleWiki" +
+                        ".$articleWiki.articleName:$articleName.reasons:$reportReasons.reported"
             )
         )
     }
@@ -94,7 +95,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
                 "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}" +
-                        ".ReportDialog.$suggestion.reportReasons:$reportReasons.optedOut"
+                        ".ReportDialog.$suggestion.reasons:$reportReasons.optedOut"
             )
         )
     }
