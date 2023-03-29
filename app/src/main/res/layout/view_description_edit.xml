@@ -23,9 +23,9 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_vertical"
-                android:layout_margin="4dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
+                android:layout_marginStart="4dp"
                 android:contentDescription="@string/description_edit_cancel_hint"
                 android:focusable="true"
                 android:padding="12dp"
@@ -34,29 +34,27 @@
             <TextView
                 android:id="@+id/view_description_edit_header"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:ellipsize="end"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
                 android:maxLines="1"
+                android:textStyle="bold"
                 android:text="@string/description_edit_edit_description"
-                android:textColor="?attr/material_theme_primary_color"
-                android:textSize="20sp"
-                android:padding="16dp" />
+                android:textColor="?attr/primary_text_color"
+                android:textSize="20sp" />
 
-            <ImageView
+            <TextView
                 android:id="@+id/view_description_edit_save_button"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                style="@style/TransparentButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="4dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:contentDescription="@string/description_edit_save"
-                android:focusable="true"
-                android:padding="12dp"
-                app:srcCompat="@drawable/ic_check_black_24dp" />
+                android:text="@string/description_edit_save" />
 
         </LinearLayout>
 
@@ -165,6 +163,19 @@
                             app:counterMaxLength="@integer/description_max_chars"
                             app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance">
 
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/suggestedDescButton"
+                                style="@style/CustomChipWithIconStyle"
+                                
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="-20dp"
+                                android:text="@string/description_edit_suggested_description_button_text"
+                                android:visibility="gone"
+                                app:chipStrokeColor="?attr/border_color"
+                                app:chipStrokeWidth="1dp"
+                                app:chipIcon="@drawable/ic_robot_24" />
+
                             <org.wikipedia.views.PlainPasteEditText
                                 android:id="@+id/view_description_edit_text"
                                 android:layout_width="match_parent"
@@ -177,6 +188,7 @@
 
                                 <requestFocus />
                             </org.wikipedia.views.PlainPasteEditText>
+
                         </com.google.android.material.textfield.TextInputLayout>
                     </FrameLayout>
 
@@ -187,6 +199,7 @@
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="12dp"
                         android:fontFamily="sans-serif"
+                        android:layout_marginTop="48dp"
                         android:letterSpacing="0"
                         android:text="@string/description_edit_learn_more"
                         android:textAlignment="viewStart"
