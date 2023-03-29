@@ -340,9 +340,9 @@ interface Service {
     suspend fun getUserContrib(
             @Query("ucuser") username: String,
             @Query("uclimit") maxCount: Int,
-            @Query("ucnamespace") ns: String? = null,
-            @Query("ucshow") filter: String? = null,
-            @Query("uccontinue") uccontinue: String? = null
+            @Query("ucnamespace") ns: String?,
+            @Query("ucshow") filter: String?,
+            @Query("uccontinue") uccontinue: String?
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
