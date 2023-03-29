@@ -58,7 +58,7 @@ class SuggestedArticleDescriptionsReportDialog(context: Context, suggestion: Str
         if (binding.inappropriateSuggestion.isChecked) {
             responses.add(context.resources.getResourceEntryName(binding.inappropriateSuggestion.id))
         }
-        val enteredText = binding.suggestionReportOther.editText?.text.toString()
+        val enteredText = binding.suggestionReportOther.editText?.text?.toString()
         if (!enteredText.isNullOrEmpty()) responses.add(enteredText)
         return responses
     }

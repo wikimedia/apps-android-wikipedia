@@ -408,7 +408,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     }
 
     private fun updateSuggestedDescriptionsButtonVisibility() {
-        binding.suggestedDescButton.isVisible = binding.viewDescriptionEditTextLayout.error.isNullOrEmpty() && isSuggestionButtonEnabled!!
+        binding.suggestedDescButton.isVisible = binding.viewDescriptionEditTextLayout.error.isNullOrEmpty() && isSuggestionButtonEnabled
     }
 
     fun showSuggestedDescriptionsButton(firstSuggestion: String, secondSuggestion: String?) {
@@ -425,6 +425,9 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         }
         if (!Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown) {
             binding.root.postDelayed({
+                if (!isAttachedToWindow) {
+                    return@postDelayed
+                }
                 DeviceUtil.hideSoftKeyboard(context as Activity)
                     FeedbackUtil.showTooltip(
                         context as Activity, binding.suggestedDescButton,
@@ -432,7 +435,11 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                         aboveOrBelow = false, autoDismiss = true, showDismissButton = true
                     ).apply {
                         setOnBalloonDismissListener {
-                            binding.root.postDelayed({ DeviceUtil.showSoftKeyboard(binding.viewDescriptionEditText) }, 500)
+                            binding.root.postDelayed({
+                                if (isAttachedToWindow) {
+                                    DeviceUtil.showSoftKeyboard(binding.viewDescriptionEditText)
+                                }
+                            }, 500)
                         }
                     }
                     Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown = true

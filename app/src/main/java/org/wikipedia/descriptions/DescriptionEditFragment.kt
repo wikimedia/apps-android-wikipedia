@@ -20,7 +20,6 @@ import kotlinx.coroutines.*
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_1
 import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_3
@@ -209,10 +208,10 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
 
-        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = ReleaseUtil.isPreBetaRelease &&
-                SuggestedArticleDescriptionsDialog.availableLanguages().contains(pageTitle.wikiSite.languageCode) &&
+        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled =
+                SuggestedArticleDescriptionsDialog.availableLanguages.contains(pageTitle.wikiSite.languageCode) &&
                 action == DescriptionEditActivity.Action.ADD_DESCRIPTION && pageTitle.description.isNullOrEmpty() &&
-                WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup != GROUP_1
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest.aBTestGroup != GROUP_1
 
         if (binding.fragmentDescriptionEditView.isSuggestionButtonEnabled) {
             binding.fragmentDescriptionEditView.showSuggestedDescriptionsLoadingProgress()
@@ -239,7 +238,7 @@ class DescriptionEditFragment : Fragment() {
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
 
-                if (!response.blp || WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup == GROUP_3) {
+                if (!response.blp || MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest.aBTestGroup == GROUP_3) {
                     binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(list.first(),
                     if (list.size == 2) list.last() else null)
                 }

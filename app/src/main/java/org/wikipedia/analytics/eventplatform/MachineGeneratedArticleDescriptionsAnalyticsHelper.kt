@@ -12,6 +12,7 @@ import org.wikipedia.dataclient.ServiceFactory
 object MachineGeneratedArticleDescriptionsAnalyticsHelper {
 
     private const val MACHINE_GEN_DESC_SUGGESTIONS = "MachineGeneratedArticleSuggestions"
+    val machineGeneratedDescriptionsABTest = MachineGeneratedArticleDescriptionABCTest()
 
     fun articleDescriptionEditingStart(context: Context) {
         EventPlatformClient.submit(
@@ -94,19 +95,19 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
             var totalContributions = 0
 
             val homeSiteResponse = async {
-                ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContribution(AccountUtil.userName!!, 10)
+                ServiceFactory.get(WikipediaApp.instance.wikiSite).userInfo(AccountUtil.userName!!)
             }
             val commonsResponse = async {
-                ServiceFactory.get(Constants.commonsWikiSite).getUserContribution(AccountUtil.userName!!, 10)
+                ServiceFactory.get(Constants.commonsWikiSite).userInfo(AccountUtil.userName!!)
             }
             val wikidataResponse = async {
-                ServiceFactory.get(Constants.wikidataWikiSite).getUserContribution(AccountUtil.userName!!, 10)
+                ServiceFactory.get(Constants.wikidataWikiSite).userInfo(AccountUtil.userName!!)
             }
 
             totalContributions += homeSiteResponse.await().query?.userInfo?.editCount ?: 0
             totalContributions += commonsResponse.await().query?.userInfo?.editCount ?: 0
             totalContributions += wikidataResponse.await().query?.userInfo?.editCount ?: 0
 
-            return@withContext totalContributions > ABTest.EXP_CONTRIBUTOR_REQ
+            return@withContext totalContributions > 50
         }
 }
