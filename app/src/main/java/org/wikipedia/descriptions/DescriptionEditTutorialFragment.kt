@@ -12,7 +12,7 @@ import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptions
 import org.wikipedia.onboarding.OnboardingFragment
 import org.wikipedia.onboarding.OnboardingPageView
 
-class DescriptionEditTutorialFragment(val showAIOnBoarding: Boolean) : OnboardingFragment() {
+class DescriptionEditTutorialFragment : OnboardingFragment() {
     override val doneButtonText = R.string.description_edit_tutorial_button_label_start_editing
     override val showDoneButton = true
     var showAIOnBoarding = false
@@ -36,7 +36,7 @@ class DescriptionEditTutorialFragment(val showAIOnBoarding: Boolean) : Onboardin
         }
     }
 
-    class ItemFragment() : Fragment() {
+    class ItemFragment : Fragment() {
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
             super.onCreateView(inflater, container, savedInstanceState)
             val position = requireArguments().getInt(ARG_POSITION, 0)
