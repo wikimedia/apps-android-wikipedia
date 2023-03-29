@@ -39,8 +39,8 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.ApiResponseDetails.articleName:$articleName.isBlp:$isBlp" +
-                        ".NumberOfSuggestionsOffered:${suggestionsList.size}.Suggestions:$suggestions.logged"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.ApiResponseDetails.title:$articleName.blp:$isBlp" +
+                        ".count:${suggestionsList.size}.Suggestions:$suggestions.logged"
             )
         )
     }
@@ -49,7 +49,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.suggestionsDialogs.chosenSuggestion:$suggestion"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.suggestionsDialogs.chosen:$suggestion"
             )
         )
     }
@@ -57,7 +57,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.suggestionsDialogs.optedOut"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.suggestionsDialogs.dismissed"
             )
         )
     }
@@ -67,7 +67,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.$suggestion.reportReasons:$reportReasons.reported"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.$suggestion.reasons:$reportReasons.reported"
             )
         )
     }
@@ -77,7 +77,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.$suggestion.reportReasons:$reportReasons.optedOut"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.$suggestion.reasons:$reportReasons.dismissed"
             )
         )
     }
