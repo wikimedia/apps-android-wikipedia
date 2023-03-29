@@ -329,6 +329,13 @@ interface Service {
         @Query("uccontinue") uccontinue: String?
     ): Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
+    suspend fun getUserContribution(
+        @Query("ucuser") username: String,
+        @Query("uclimit") maxCount: Int,
+        @Query("uccontinue") uccontinue: String? = null
+    ): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags")
     suspend fun getUserContrib(
             @Query("ucuser") username: String,
