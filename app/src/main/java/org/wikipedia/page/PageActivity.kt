@@ -31,7 +31,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView
 import org.wikipedia.descriptions.DescriptionEditSuccessActivity
-import org.wikipedia.descriptions.DescriptionEditTutorialActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
@@ -117,16 +116,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             animateTabsButton()
         } else if (it.resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
             pageFragment.reloadFromBackstack()
-        }
-    }
-
-    private val requestDescriptionEditTutorialLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == RESULT_OK) {
-            Prefs.isDescriptionEditTutorialEnabled = false
-            it.data?.let { intent ->
-                pageFragment.startDescriptionEditActivity(intent.getStringExtra(DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT),
-                    intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
-            }
         }
     }
 
@@ -443,10 +432,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         } else {
             requestHandleIntentLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision, source), options)
         }
-    }
-
-    override fun onPageRequestEditDescriptionTutorial(text: String?, invokeSource: InvokeSource) {
-        requestDescriptionEditTutorialLauncher.launch(DescriptionEditTutorialActivity.newIntent(this, text, invokeSource))
     }
 
     override fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,
