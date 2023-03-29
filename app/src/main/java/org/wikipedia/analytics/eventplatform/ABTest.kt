@@ -5,7 +5,6 @@ import kotlin.random.Random
 
 open class ABTest(private val abTestName: String, private val abTestGroupCount: Int) {
 
-    var testGroup: Int = -1
     val aBTestGroup: Int
         get() {
             testGroup = PrefsIoUtil.getInt(AB_TEST_KEY_PREFIX + abTestName, -1)
@@ -15,6 +14,8 @@ open class ABTest(private val abTestName: String, private val abTestGroupCount: 
             }
             return testGroup
         }
+
+    protected var testGroup: Int = -1
 
     protected open fun assignGroup() {
         testGroup = Random(System.currentTimeMillis()).nextInt(Int.MAX_VALUE).mod(abTestGroupCount)
