@@ -1402,4 +1402,14 @@
   <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
   <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
   <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
+  <string name="description_edit_suggested_description_button_text">Suggested edits article descriptions suggestions button label.</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Suggested edits article descriptions suggestions dialog title text.</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Title text for dialog shown to users when they click on flag to report a machine generated suggestion.</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Report label text suggesting that a suggested description does not provide enough information.</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Report label text suggesting that a suggested description cannot be seen.</string>
+  <string name="suggested_edits_inappropriate_suggestion">Report label text suggesting that a suggested description is an inappropriate suggestion</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Report label text suggesting that they do not understand the task.</string>
+  <string name="suggested_edits_report_suggestion">Button text indicating that the user can report an issue.</string>
+  <string name="suggested_edits_suggestion_report_submitted">Snackbar text shown to user as a confirmation after they have submitted a report.</string>
+  <string name="description_edit_suggested_description_button_tooltip">Tooltip text for machine generated description suggestion button.</string>
 </resources>
