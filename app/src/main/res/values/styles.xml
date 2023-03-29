@@ -619,10 +619,13 @@
     </style>
 
     <style name="CustomChipStyle">
-        <item name="android:textAppearance">@style/AppChipTextAppearance</item>
         <item name="android:lineSpacingExtra">2sp</item>
         <item name="ensureMinTouchTargetSize">true</item>
         <item name="chipMinTouchTargetSize">48dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">?attr/primary_color</item>
+        <item name="textAllCaps">false</item>
     </style>
 
     <style name="CustomChipWithIconStyle" parent="CustomChipStyle">
@@ -675,10 +678,4 @@
         <item name="android:paddingEnd">8dp</item>
     </style>
 
-    <style name="AppChipTextAppearance" >
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textColor">?attr/primary_color</item>
-        <item name="textAllCaps">false</item>
-    </style>
 </resources>
