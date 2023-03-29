@@ -51,7 +51,10 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     private var isLanguageWrong = false
     private var isTextValid = false
     var callback: Callback? = null
-    var isSuggestionButtonEnabled: Boolean = false
+
+    var isSuggestionButtonEnabled = false
+    var wasSuggestionAccepted = false
+    var wasSuggestionModified = false
 
     var description: String?
         get() = binding.viewDescriptionEditText.text.toString().trim()
@@ -80,6 +83,9 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         }
 
         binding.viewDescriptionEditText.addTextChangedListener {
+            if (wasSuggestionAccepted) {
+                wasSuggestionModified = true
+            }
             enqueueValidateText()
             isLanguageWrong = false
             removeCallbacks(languageDetectRunnable)
@@ -422,6 +428,8 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 binding.viewDescriptionEditText.setText(suggestion)
                 binding.viewDescriptionEditText.setSelection(binding.viewDescriptionEditText.text?.length ?: 0)
                 MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDialogSuggestionChosen(context, suggestion, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+                wasSuggestionAccepted = true
+                wasSuggestionModified = false
             }.show()
         }
         if (!Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown) {
