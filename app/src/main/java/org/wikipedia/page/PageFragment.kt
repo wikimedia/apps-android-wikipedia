@@ -1138,9 +1138,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun startDescriptionEditActivity(text: String?, invokeSource: InvokeSource) {
+    private fun startDescriptionEditActivity(text: String?, invokeSource: InvokeSource) {
         title?.run {
-            val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayText, description, thumbUrl)
+            val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this,
+                displayText, description, thumbUrl)
             callback()?.onPageRequestEditDescription(text, this, sourceSummary, null,
                 DescriptionEditActivity.Action.ADD_DESCRIPTION, invokeSource)
         }
