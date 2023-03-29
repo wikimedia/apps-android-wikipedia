@@ -43,7 +43,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.articleWiki.$articleWiki.suggestedDescriptionsButton.shown"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.articleWiki.$articleWiki.suggestedDescriptionsButton.shown"
             )
         )
     }
@@ -54,7 +54,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.ApiResponseDetails.articleWiki.$articleWiki.title:$articleName.blp:$isBlp" +
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.ApiResponseDetails.articleWiki.$articleWiki.title:$articleName.blp:$isBlp" +
                         ".count:${suggestionsList.size}.Suggestions:$suggestions.logged"
             )
         )
@@ -64,7 +64,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.suggestionsDialogs.chosen:$suggestion.articleWiki.$articleWiki.title:$articleName"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.suggestionsDialogs.chosen:$suggestion.articleWiki.$articleWiki.title:$articleName"
             )
         )
     }
@@ -73,7 +73,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.suggestionsDialogs.dismissed"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.suggestionsDialogs.dismissed"
             )
         )
     }
@@ -83,7 +83,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.ReportDialog.reportedSuggestion.$suggestion.articleWiki" +
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.ReportDialog.reportedSuggestion.$suggestion.articleWiki" +
                         ".$articleWiki.articleName:$articleName.reasons:$reportReasons.reported"
             )
         )
@@ -94,7 +94,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}" +
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}" +
                         ".ReportDialog.$suggestion.reasons:$reportReasons.optedOut"
             )
         )
@@ -104,7 +104,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserAssignedTo.Group.${machineGeneratedDescriptionsABTest.aBTestGroup}.AiOnBoardingCard.shown"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.AiOnBoardingCard.shown"
             )
         )
     }
