@@ -23,6 +23,7 @@ object TalkAliasData {
             "ami" to "Kasasowal",
             "an" to "Descusión",
             "ang" to "Mōtung",
+            "anp" to "वार्ता",
             "ar" to "نقاش",
             "arc" to "ܡܡܠܠܐ",
             "ary" to "مداكرة",

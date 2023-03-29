@@ -23,6 +23,7 @@ object SpecialAliasData {
             "ami" to "Kasi’iked",
             "an" to "Especial",
             "ang" to "Syndrig",
+            "anp" to "विशेष",
             "ar" to "خاص",
             "arc" to "ܕܝܠܢܝܐ",
             "ary" to "خاص",

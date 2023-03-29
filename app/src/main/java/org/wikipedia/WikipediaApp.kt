@@ -17,9 +17,6 @@ import io.reactivex.rxjava3.internal.functions.Functions
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.analytics.InstallReferrerListener
-import org.wikipedia.analytics.eventplatform.ABTest
-import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_SIZE_2
-import org.wikipedia.analytics.eventplatform.ABTest.Companion.MACHINE_GEN_DESC
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.appshortcuts.AppShortcuts
@@ -53,9 +50,6 @@ class WikipediaApp : Application() {
     val mainThreadHandler by lazy { Handler(mainLooper) }
     val languageState by lazy { AppLanguageState(this) }
     val appSessionEvent by lazy { AppSessionEvent() }
-    val machineGeneratedDescriptionsABTest by lazy {
-        ABTest(this, MACHINE_GEN_DESC, GROUP_SIZE_2)
-    }
     val userAgent by lazy {
         var channel = ReleaseUtil.getChannel(this)
         channel = if (channel.isBlank()) "" else " $channel"

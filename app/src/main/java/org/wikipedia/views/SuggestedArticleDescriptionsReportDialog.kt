@@ -24,12 +24,13 @@ class SuggestedArticleDescriptionsReportDialog(context: Context, suggestion: Str
         setView(binding.root)
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         binding.reportButton.setOnClickListener {
-            collectReportData(suggestion)
-            FeedbackUtil.makeSnackbar(context as Activity,
-                context.getString(R.string.suggested_edits_suggestion_report_submitted)).show()
-            callback.onReportClick()
-            reported = true
-            dismiss()
+            if (getReportReasons().isNotEmpty()) {
+                collectReportData(suggestion)
+                FeedbackUtil.makeSnackbar(context as Activity, context.getString(R.string.suggested_edits_suggestion_report_submitted)).show()
+                callback.onReportClick()
+                reported = true
+                dismiss()
+            }
         }
         binding.suggestionReportOther.setEndIconOnClickListener {
             binding.suggestionReportOther.editText?.text?.clear()
@@ -46,19 +47,20 @@ class SuggestedArticleDescriptionsReportDialog(context: Context, suggestion: Str
     private fun getReportReasons(): List<String> {
         val responses = mutableListOf<String>()
 
-        if (binding.notEnoughInfoCheckbox.isChecked) {
-            responses.add(binding.notEnoughInfoCheckbox.text.toString())
+        if (binding.notEnoughInfo.isChecked) {
+            responses.add(context.resources.getResourceEntryName(binding.notEnoughInfo.id))
         }
-        if (binding.cannotSeeDescriptionCheckbox.isChecked) {
-            responses.add(binding.cannotSeeDescriptionCheckbox.text.toString())
+        if (binding.cannotSeeDescription.isChecked) {
+            responses.add(context.resources.getResourceEntryName(binding.cannotSeeDescription.id))
         }
-        if (binding.doNotUnderstandCheckbox.isChecked) {
-            responses.add(binding.doNotUnderstandCheckbox.text.toString())
+        if (binding.doNotUnderstand.isChecked) {
+            responses.add(context.resources.getResourceEntryName(binding.doNotUnderstand.id))
         }
-        if (binding.inappropriateSuggestionCheckbox.isChecked) {
-            responses.add(binding.inappropriateSuggestionCheckbox.text.toString())
+        if (binding.inappropriateSuggestion.isChecked) {
+            responses.add(context.resources.getResourceEntryName(binding.inappropriateSuggestion.id))
         }
-        responses.add(binding.suggestionReportOther.editText?.text.toString())
+        val enteredText = binding.suggestionReportOther.editText?.text?.toString()
+        if (!enteredText.isNullOrEmpty()) responses.add(enteredText)
         return responses
     }
 

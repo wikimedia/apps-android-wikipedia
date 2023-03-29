@@ -430,6 +430,11 @@
             android:key="@string/preference_key_reading_lists_receive_survey_dialog_shown"
             android:title="readingListReceiveSurveyDialogShown" />
 
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_mBART25"
+            android:title="Test group for machine generated article descriptions \n(0=no suggestions, 1=suggestions, 2=suggestions+blp)" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -1018,7 +1018,7 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Eilen</string>
-  <string name="suggested_edits_encourage_account_creation_title">Tiesitkö että kaikki voivat muokata Wikipediaa?</string>
+  <string name="suggested_edits_encourage_account_creation_title">Tiesitkö että kuka tahansa voi muokata Wikipediaa?</string>
   <string name="suggested_edits_encourage_account_creation_message">Ehdotetut muokkaukset on uusi tapa muokata Wikipediaa Androidilla. Se auttaa tekemään pieniä, tärkeitä muutoksia Wikipediaan.\nTavoitteenamme on tehdä muokkaamisesta kaikille helpompaa ja helppopääsyisempää! Aloita kirjautumalla sisään tai liittymällä Wikipediaan.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kirjaudu sisään / liity Wikipediaan</string>
   <string name="suggested_edits_contribution_type_image_tag">Kuvamerkintä</string>
@@ -1126,6 +1126,7 @@
   <string name="wikitext_small">Pieni teksti</string>
   <string name="wikitext_code">Koodi</string>
   <string name="wikitext_link">Linkki</string>
+  <string name="wikitext_heading_n">Alaotsikko %d</string>
   <string name="wikitext_formatting">Muotoilu</string>
   <string name="wikitext_headings">Otsikot</string>
   <string name="wikitext_insert_media">Lisää media</string>
@@ -1140,6 +1141,7 @@
   <string name="insert_media_settings">Media-asetukset</string>
   <string name="insert_media_settings_uploaded_image">Tallennettu kuva</string>
   <string name="insert_media_settings_caption">Kuvateksti</string>
+  <string name="insert_media_settings_caption_description">Tunniste, joka näkyy kohteen vieressä kaikille lukijoille</string>
   <string name="insert_media_settings_alternative_text">Vaihtoehtoinen teksti</string>
   <string name="insert_media_settings_alternative_text_description">Tekstimuotoinen kuvaus lukijoille, jotka eivät voi nähdä kuvaa</string>
   <string name="insert_media_advanced_settings">Lisäasetukset</string>
@@ -1162,8 +1164,8 @@
   <string name="insert_media_insert_button">Lisää</string>
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
-  <string name="main_tooltip_text">Hei %s, tiesitkö että kaikki voivat muokata Wikipediaa?</string>
-  <string name="main_tooltip_text_v2">Tiesitkö että kaikki voivat muokata Wikipediaa?</string>
+  <string name="main_tooltip_text">Hei %s, tiesitkö että kuka tahansa voi muokata Wikipediaa?</string>
+  <string name="main_tooltip_text_v2">Tiesitkö että kuka tahansa voi muokata Wikipediaa?</string>
   <string name="main_tooltip_action_button">Aloittaminen</string>
   <string name="main_tooltip_watchlist_title">Tarkkailulista</string>
   <string name="main_tooltip_watchlist_text">Tutustu viimeksi tarkkailulistalle lisäämäsi artikkeleihin valitsemalla Lisää-valikko ja &lt;b&gt;Tarkkailulista&lt;/b&gt;.</string>
@@ -1217,6 +1219,7 @@
   <string name="talk_list_item_user_icon_content_description">Käyttäjäkuvake</string>
   <string name="talk_list_item_swipe_mark_as_read">Luettu</string>
   <string name="talk_list_item_swipe_mark_as_unread">Lukematon</string>
+  <string name="talk_login_to_subscribe_dialog_title">Kirjaudu sisään tilataksesi aiheita</string>
   <string name="talk_archived_title">Keskusteluarkisto: %s</string>
   <string name="menu_option_share_talk_discussion">Jaa keskustelu</string>
   <string name="menu_option_share_talk_page">Jaa keskustelusivu</string>
@@ -1282,8 +1285,13 @@
   <string name="watchlist_page_moved">Siirretty</string>
   <string name="watchlist_page_protected">Suojattu</string>
   <string name="watchlist_page_deleted">Poistettu</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
   <string name="watchlist_filter_all_text">Kaikki</string>
+  <string name="watchlist_filter_watchlist_activity_header">Tarkkailulistan aktiivisuus</string>
   <string name="watchlist_filter_user_status_newcomers">Tulokkaat</string>
+  <string name="watchlist_filter_automated_contributions_bot">Botti</string>
+  <string name="watchlist_filter_automated_contributions_human">Ihminen (ei botti)</string>
+  <string name="watchlist_filter_significance_header">Oleellisuus</string>
   <string name="watchlist_filter_significance_minor">Pienet muutokset</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata-muokkaukset</string>
   <string name="watchlist_filter_type_of_change_new_users">Uudet käyttäjät</string>

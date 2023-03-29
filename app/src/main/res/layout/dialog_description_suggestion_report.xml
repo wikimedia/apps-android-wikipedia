@@ -36,7 +36,7 @@
         android:background="?attr/material_theme_border_color" />
 
     <CheckBox
-        android:id="@+id/notEnoughInfoCheckbox"
+        android:id="@+id/notEnoughInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackgroundBorderless"
@@ -52,7 +52,7 @@
         android:background="?attr/material_theme_border_color" />
 
     <CheckBox
-        android:id="@+id/cannotSeeDescriptionCheckbox"
+        android:id="@+id/cannotSeeDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackgroundBorderless"
@@ -68,7 +68,7 @@
         android:background="?attr/material_theme_border_color" />
 
     <CheckBox
-        android:id="@+id/inappropriateSuggestionCheckbox"
+        android:id="@+id/inappropriateSuggestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackgroundBorderless"
@@ -84,7 +84,7 @@
         android:background="?attr/material_theme_border_color" />
 
     <CheckBox
-        android:id="@+id/doNotUnderstandCheckbox"
+        android:id="@+id/doNotUnderstand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackgroundBorderless"

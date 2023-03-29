@@ -1,11 +1,18 @@
 package org.wikipedia.analytics.eventplatform
 
 import android.content.Context
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.withContext
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
+import org.wikipedia.dataclient.ServiceFactory
 
 object MachineGeneratedArticleDescriptionsAnalyticsHelper {
 
     private const val MACHINE_GEN_DESC_SUGGESTIONS = "MachineGeneratedArticleSuggestions"
+    val machineGeneratedDescriptionsABTest = MachineGeneratedArticleDescriptionABCTest()
 
     fun articleDescriptionEditingStart(context: Context) {
         EventPlatformClient.submit(
@@ -38,7 +45,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}.articleWiki.$articleWiki.suggestedDescriptionsButton.shown"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.articleWiki.$articleWiki.suggestedDescriptionsButton.shown"
             )
         )
     }
@@ -49,7 +56,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}.ApiResponseDetails.articleWiki.$articleWiki.articleName:$articleName.isBlp:$isBlp" +
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.ApiResponseDetails.articleWiki.$articleWiki.articleName:$articleName.isBlp:$isBlp" +
                         ".NumberOfSuggestionsOffered:${suggestionsList.size}.Suggestions:$suggestions.logged"
             )
         )
@@ -59,7 +66,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}.suggestionsDialogs.chosenSuggestion:$suggestion.articleWiki.$articleWiki.articleName:$articleName"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.suggestionsDialogs.chosenSuggestion:$suggestion.articleWiki.$articleWiki.articleName:$articleName"
             )
         )
     }
@@ -68,7 +75,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}.suggestionsDialogs.optedOut"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.suggestionsDialogs.optedOut"
             )
         )
     }
@@ -78,7 +85,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}.ReportDialog.reportedSuggestion.$suggestion.articleWiki.$articleWiki.articleName:$articleName.reportReasons:$reportReasons.reported"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}.ReportDialog.reportedSuggestion.$suggestion.articleWiki.$articleWiki.articleName:$articleName.reportReasons:$reportReasons.reported"
             )
         )
     }
@@ -88,7 +95,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${getTestGroup()}" +
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserInGroup.${machineGeneratedDescriptionsABTest.aBTestGroup}" +
                         ".ReportDialog.$suggestion.reportReasons:$reportReasons.optedOut"
             )
         )
@@ -98,7 +105,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.UserAssignedTo.Group.${getTestGroup()}.AiOnBoardingCard.shown"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.UserAssignedTo.Group.${machineGeneratedDescriptionsABTest.aBTestGroup}.AiOnBoardingCard.shown"
             )
         )
     }
@@ -112,7 +119,24 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         )
     }
 
-    private fun getTestGroup(): Int {
-        return if (WikipediaApp.instance.machineGeneratedDescriptionsABTest.isEnrolled) WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup else -1
-    }
+    suspend fun isUserExperienced(): Boolean =
+        withContext(Dispatchers.Default) {
+            var totalContributions = 0
+
+            val homeSiteResponse = async {
+                ServiceFactory.get(WikipediaApp.instance.wikiSite).userInfo(AccountUtil.userName!!)
+            }
+            val commonsResponse = async {
+                ServiceFactory.get(Constants.commonsWikiSite).userInfo(AccountUtil.userName!!)
+            }
+            val wikidataResponse = async {
+                ServiceFactory.get(Constants.wikidataWikiSite).userInfo(AccountUtil.userName!!)
+            }
+
+            totalContributions += homeSiteResponse.await().query?.userInfo?.editCount ?: 0
+            totalContributions += commonsResponse.await().query?.userInfo?.editCount ?: 0
+            totalContributions += wikidataResponse.await().query?.userInfo?.editCount ?: 0
+
+            return@withContext totalContributions > 50
+        }
 }

@@ -70,6 +70,7 @@
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_dark</item>
         <item name="border_color">@color/base14</item>
         <item name="background_color">@color/base12</item>
+        <item name="primary_color">@color/base80</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base14</item>

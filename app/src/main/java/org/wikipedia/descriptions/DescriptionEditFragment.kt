@@ -209,10 +209,10 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
 
-        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = ReleaseUtil.isPreBetaRelease &&
-                SuggestedArticleDescriptionsDialog.availableLanguages().contains(pageTitle.wikiSite.languageCode) &&
+        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled =
+                SuggestedArticleDescriptionsDialog.availableLanguages.contains(pageTitle.wikiSite.languageCode) &&
                 action == DescriptionEditActivity.Action.ADD_DESCRIPTION && pageTitle.description.isNullOrEmpty() &&
-                WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup != GROUP_1
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest.aBTestGroup != GROUP_1
 
         if (binding.fragmentDescriptionEditView.isSuggestionButtonEnabled) {
             binding.fragmentDescriptionEditView.showSuggestedDescriptionsLoadingProgress()
@@ -239,7 +239,7 @@ class DescriptionEditFragment : Fragment() {
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
 
-                if (!response.blp || WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup == GROUP_3) {
+                if (!response.blp || MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest.aBTestGroup == GROUP_3) {
                     binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(list.first(),
                     if (list.size == 2) list.last() else null)
                 }
@@ -321,8 +321,8 @@ class DescriptionEditFragment : Fragment() {
                                     AnonymousNotificationHelper.onEditSubmitted()
                                     waitForUpdatedRevision(newRevId)
                                     EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
-                                    val abTest = WikipediaApp.instance.machineGeneratedDescriptionsABTest
-                                    if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION && abTest.isEnrolled && abTest.aBTestGroup != GROUP_1) {
+                                    val abTest = MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest
+                                    if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION && abTest.aBTestGroup != GROUP_1) {
                                         MachineGeneratedArticleDescriptionsAnalyticsHelper.logActualPublishedDescription(requireContext(),
                                             binding.fragmentDescriptionEditView.description.orEmpty(), pageTitle.wikiSite.languageCode, pageTitle.prefixedText
                                         )
@@ -370,8 +370,8 @@ class DescriptionEditFragment : Fragment() {
                         AnonymousNotificationHelper.onEditSubmitted()
                         if (response.success > 0) {
                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
-                            val abTest = WikipediaApp.instance.machineGeneratedDescriptionsABTest
-                            if (abTest.isEnrolled && abTest.aBTestGroup != GROUP_1) {
+                            val abTest = MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest
+                            if (abTest.aBTestGroup != GROUP_1) {
                                 MachineGeneratedArticleDescriptionsAnalyticsHelper.logActualPublishedDescription(requireContext(),
                                     binding.fragmentDescriptionEditView.description.orEmpty(), pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
                             }

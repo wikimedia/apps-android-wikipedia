@@ -23,6 +23,7 @@ object MainPageNameData {
             "ami" to "Sa’ayayaw pising no tyin-naw",
             "an" to "Portalada",
             "ang" to "Hēafodtramet",
+            "anp" to "मुख्य पृष्ठ",
             "ar" to "الصفحة الرئيسية",
             "arc" to "ܦܐܬܐ ܪܝܫܝܬܐ",
             "ary" to "الصفحة اللولا",
