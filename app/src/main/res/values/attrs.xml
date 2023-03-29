@@ -61,6 +61,7 @@
     <attr name="action_mode_green_background" format="color"/>
     <attr name="border_color" format="color"/>
     <attr name="background_color" format="color"/>
+    <attr name="primary_color" format="color"/>
 
     <declare-styleable name="AutoFitRecyclerView">
         <attr name="minColumnWidth" format="dimension" />
