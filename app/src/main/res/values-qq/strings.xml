@@ -1412,6 +1412,6 @@
   <string name="suggested_edits_report_suggestion">Button text indicating that the user can report an issue.</string>
   <string name="suggested_edits_suggestion_report_submitted">Snackbar text shown to user as a confirmation after they have submitted a report.</string>
   <string name="description_edit_suggested_description_button_tooltip">Tooltip text for machine generated description suggestion button.</string>
-  <string name="description_edit_tutorial_machine_suggestions_title">Tilte of the description editing onboarding screen informing that machine generated suggestions are available.</string>
-  <string name="description_edit_tutorial_machine_suggestions_description">Informative description on the description editing onboarding screen explaining how the suggested suggestions are generated </string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Title of the description editing onboarding screen informing that machine generated suggestions are available.</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Informative description on the description editing onboarding screen explaining how the suggested suggestions are generated.</string>
 </resources>
