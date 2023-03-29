@@ -20,7 +20,6 @@ import kotlinx.coroutines.*
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_1
 import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_3

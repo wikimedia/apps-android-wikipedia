@@ -10,6 +10,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_1
+import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
@@ -33,9 +34,9 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         if (action == Action.ADD_DESCRIPTION && Prefs.isDescriptionEditTutorialEnabled) {
             Prefs.isDescriptionEditTutorialEnabled = false
             val pageTitle = intent.getParcelableExtra<PageTitle>(EXTRA_TITLE)!!
-            val shouldShowAIOnBoarding = ReleaseUtil.isPreBetaRelease && SuggestedArticleDescriptionsDialog.availableLanguages()
+            val shouldShowAIOnBoarding = ReleaseUtil.isPreBetaRelease && SuggestedArticleDescriptionsDialog.availableLanguages
                 .contains(pageTitle.wikiSite.languageCode) && pageTitle.description.isNullOrEmpty() &&
-                    WikipediaApp.instance.machineGeneratedDescriptionsABTest.aBTestGroup != GROUP_1
+                    MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest.aBTestGroup != GROUP_1
             startActivity(DescriptionEditTutorialActivity.newIntent(this, shouldShowAIOnBoarding))
         }
     }
