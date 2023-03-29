@@ -1067,7 +1067,6 @@
     <string name="suggested_edits_contribution_current_revision_text">Your edit is currently live on Wikipedia</string>
     <string name="suggested_card_more_edits">More suggested edits</string>
     <string name="suggested_edits_article_descriptions_dialog_title">Suggested descriptions</string>
-    <string name="suggested_edits_article_descriptions_dialog_close">Close suggested article descriptions suggestions dialog</string>
     <string name="suggested_edits_descriptions_report_dialog_title">What would you like to report?</string>
     <string name="suggested_edits_descriptions_not_enough_info_suggestion">Not enough information</string>
     <string name="suggested_edits_descriptions_cannot_see_suggestion">Can\'t see description recommendations</string>

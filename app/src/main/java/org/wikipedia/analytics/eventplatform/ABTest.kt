@@ -3,31 +3,32 @@ package org.wikipedia.analytics.eventplatform
 import kotlinx.coroutines.runBlocking
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.PrefsIoUtil
+import org.wikipedia.util.log.L
 import kotlin.random.Random
 
 class ABTest(private val abTestName: String, private val abTestGroupCount: Int) {
 
-    var group: Int = -1
+    var testGroup: Int = -1
     val aBTestGroup: Int
         get() {
-            group = PrefsIoUtil.getInt(AB_TEST_KEY_PREFIX + abTestName, -1)
-            if (group == -1) {
-                // initialize the group if it hasn't been yet.
-                group = Random(System.currentTimeMillis()).nextInt(Int.MAX_VALUE).mod(abTestGroupCount)
-                if (group == GROUP_2 && AccountUtil.isLoggedIn) {
-                    runBlocking {
-                        MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserExperienced()
-                    }.also {
-                        if (it) {
-                            group = GROUP_3
+            testGroup = PrefsIoUtil.getInt(AB_TEST_KEY_PREFIX + abTestName, -1)
+            if (testGroup == -1) {
+                runBlocking {
+                    // initialize the group if it hasn't been yet.
+                    testGroup = Random(System.currentTimeMillis()).nextInt(Int.MAX_VALUE).mod(abTestGroupCount)
+                    if (testGroup == GROUP_2 && AccountUtil.isLoggedIn) {
+                        try {
+                            if (MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserExperienced()) {
+                                testGroup = GROUP_3
+                            }
+                        } catch (e: Exception) {
+                            L.e(e)
                         }
-                        PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, group)
-                        return group
                     }
+                    PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, testGroup)
                 }
-                PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, group)
             }
-            return group
+            return testGroup
         }
 
     companion object {

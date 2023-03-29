@@ -74,7 +74,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.$suggestion.reportReasons:$reportReasons.reported"
+                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.ReportedSuggestion.$suggestion.reportReasons:$reportReasons.reported"
             )
         )
     }
@@ -94,13 +94,13 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
             var totalContributions = 0
 
             val homeSiteResponse = async {
-                ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContrib(AccountUtil.userName!!, 10)
+                ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContribution(AccountUtil.userName!!, 10)
             }
             val commonsResponse = async {
-                ServiceFactory.get(Constants.commonsWikiSite).getUserContrib(AccountUtil.userName!!, 10)
+                ServiceFactory.get(Constants.commonsWikiSite).getUserContribution(AccountUtil.userName!!, 10)
             }
             val wikidataResponse = async {
-                ServiceFactory.get(Constants.wikidataWikiSite).getUserContrib(AccountUtil.userName!!, 10)
+                ServiceFactory.get(Constants.wikidataWikiSite).getUserContribution(AccountUtil.userName!!, 10)
             }
 
             totalContributions += homeSiteResponse.await().query?.userInfo?.editCount ?: 0

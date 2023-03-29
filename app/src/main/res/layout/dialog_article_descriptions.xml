@@ -37,7 +37,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/suggested_edits_article_descriptions_dialog_close"
+                android:contentDescription="@string/dialog_close_description"
                 android:padding="12dp"
                 app:srcCompat="@drawable/ic_close_themed_24dp"
                 app:tint="?attr/primary_text_color" />
