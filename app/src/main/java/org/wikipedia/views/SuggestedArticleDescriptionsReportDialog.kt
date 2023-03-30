@@ -25,7 +25,8 @@ class SuggestedArticleDescriptionsReportDialog(context: Context, suggestion: Str
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         binding.reportButton.setOnClickListener {
             if (getReportReasons().isNotEmpty()) {
-                collectReportData(suggestion)
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuggestionReported(context,
+                    suggestion, getReportReasons(), pageTitle)
                 FeedbackUtil.makeSnackbar(context as Activity, context.getString(R.string.suggested_edits_suggestion_report_submitted)).show()
                 callback.onReportClick()
                 reported = true
@@ -38,8 +39,7 @@ class SuggestedArticleDescriptionsReportDialog(context: Context, suggestion: Str
         binding.cancelButton.setOnClickListener { dismiss() }
         setOnDismissListener {
             if (!reported) {
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.logReportDialogDismissed(context,
-                    suggestion, getReportReasons())
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.logReportDialogDismissed(context)
             }
         }
     }
@@ -62,10 +62,5 @@ class SuggestedArticleDescriptionsReportDialog(context: Context, suggestion: Str
         val enteredText = binding.suggestionReportOther.editText?.text?.toString()
         if (!enteredText.isNullOrEmpty()) responses.add(enteredText)
         return responses
-    }
-
-    private fun collectReportData(suggestion: String) {
-        MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuggestionReported(context,
-            suggestion, getReportReasons(), pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
     }
 }

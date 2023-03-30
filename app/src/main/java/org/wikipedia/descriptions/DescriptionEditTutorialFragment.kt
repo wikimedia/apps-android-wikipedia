@@ -42,7 +42,7 @@ class DescriptionEditTutorialFragment : OnboardingFragment() {
             val position = requireArguments().getInt(ARG_POSITION, 0)
             val view = inflater.inflate(pages[position], container, false) as OnboardingPageView
             if (position == 2) {
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.logAiOnBoardingCardShown(requireContext())
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.logOnboardingShown(requireContext())
             }
             view.callback = OnboardingPageView.DefaultCallback()
             return view
