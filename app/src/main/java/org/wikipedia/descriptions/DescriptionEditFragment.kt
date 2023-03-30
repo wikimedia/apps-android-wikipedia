@@ -238,9 +238,12 @@ class DescriptionEditFragment : Fragment() {
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
 
+                // Randomize the display order
                 if (!response.blp || MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest.aBTestGroup == GROUP_3) {
-                    binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(list.first(),
-                    if (list.size == 2) list.last() else null)
+                    val randomizedListIndex = (0 until 2).random()
+                    val firstSuggestion = if (list.size == 2) list[randomizedListIndex] else list.first()
+                    val secondSuggestion = if (list.size == 2) { if (randomizedListIndex == 0) list.last() else list.first() } else null
+                    binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(firstSuggestion, secondSuggestion)
                 }
             }
         }
