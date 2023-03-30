@@ -8,6 +8,7 @@
 * Cooltey
 * Dbrant
 * Elias Ahmmad
+* FARMER
 * Greatder
 * Masumrezarock100
 * Md. Golam Mukit Khan
@@ -748,6 +749,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">এক লাইনে, দুই থেকে বারো পর্যন্ত শব্দ রাখা যাবে</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা শুরু করুন</string>
   <string name="description_edit_tutorial_promise">শুরু করার দ্বারা, আমি প্রতিজ্ঞা করছি এই বৈশিষ্ট্যের অপব্যবহার করব না।</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">যন্ত্র-প্রদত্ত পরামর্শ</string>
   <string name="customize_toolbar_category_toolbar">সরঞ্জামদণ্ড</string>
   <string name="customize_toolbar_category_menu">মেনু</string>
   <string name="customize_toolbar_reset_to_default_button">পূর্বনির্ধারিত অবস্থায় ফেরত যান</string>
