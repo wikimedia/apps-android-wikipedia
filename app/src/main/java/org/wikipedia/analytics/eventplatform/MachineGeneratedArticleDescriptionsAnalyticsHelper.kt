@@ -2,112 +2,90 @@ package org.wikipedia.analytics.eventplatform
 
 import android.content.Context
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
-import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.page.PageTitle
 
 object MachineGeneratedArticleDescriptionsAnalyticsHelper {
 
-    private const val MACHINE_GEN_DESC_SUGGESTIONS = "MachineGeneratedArticleSuggestions"
+    private const val MACHINE_GEN_DESC_SUGGESTIONS = "machineSuggestions"
     val machineGeneratedDescriptionsABTest = MachineGeneratedArticleDescriptionABCTest()
 
+    var isUserExperienced = false
+    var isUserInExperiment = false
+
     fun articleDescriptionEditingStart(context: Context) {
-        EventPlatformClient.submit(
-            BreadCrumbLogEvent(
-                BreadCrumbViewUtil.getReadableScreenName(context),
-                "ArticleDescriptionEditing.start"
-            )
-        )
+        log(context, "ArticleDescriptionEditing.start")
     }
 
     fun articleDescriptionEditingEnd(context: Context) {
-        EventPlatformClient.submit(
-            BreadCrumbLogEvent(
-                BreadCrumbViewUtil.getReadableScreenName(context),
-                "ArticleDescriptionEditing.end"
-            )
-        )
+        log(context, "ArticleDescriptionEditing.end")
     }
 
-    fun suggestedDescriptionsButtonShown(context: Context) {
-        EventPlatformClient.submit(
-            BreadCrumbLogEvent(
-                BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.suggestedDescriptionsButton.shown"
-            )
-        )
+    fun logAttempt(context: Context, finalDescription: String, wasSuggestionModified: Boolean, title: PageTitle) {
+        log(context, composeLogString(title) + ".attempt:$finalDescription.modified:$wasSuggestionModified")
     }
 
-    fun machineGeneratedSuggestionsDetailsLogged(context: Context, articleName: String,
-                                                 suggestionsList: List<String>, isBlp: Boolean) {
-        val suggestions = suggestionsList.joinToString(",")
-        EventPlatformClient.submit(
-            BreadCrumbLogEvent(
-                BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.ApiResponseDetails.articleName:$articleName.isBlp:$isBlp" +
-                        ".NumberOfSuggestionsOffered:${suggestionsList.size}.Suggestions:$suggestions.logged"
-            )
-        )
+    fun logSuccess(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle, revId: Long) {
+        log(context, composeLogString(title) + ".success:$finalDescription.suggestionChosen:$wasChosen.modified:$wasModified.revId:$revId")
     }
 
-    fun machineGeneratedSuggestionsDialogSuggestionChosen(context: Context, suggestion: String) {
-        EventPlatformClient.submit(
-            BreadCrumbLogEvent(
-                BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.suggestionsDialogs.chosenSuggestion:$suggestion"
-            )
-        )
-    }
-    fun machineGeneratedSuggestionsDialogOptedOut(context: Context) {
-        EventPlatformClient.submit(
-            BreadCrumbLogEvent(
-                BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.suggestionsDialogs.optedOut"
-            )
-        )
+    fun logSuggestionsReceived(context: Context, suggestionsList: List<String>, isBlp: Boolean, title: PageTitle) {
+        val suggestions = suggestionsList.joinToString("|")
+        log(context, composeLogString(title) + ".blp:$isBlp.count:${suggestionsList.size}.suggestions:$suggestions")
     }
 
-    fun logSuggestionReported(context: Context, suggestion: String, reportReasonsList: List<String>) {
-        val reportReasons = reportReasonsList.joinToString(",")
-        EventPlatformClient.submit(
-            BreadCrumbLogEvent(
-                BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.ReportedSuggestion.$suggestion.reportReasons:$reportReasons.reported"
-            )
-        )
+    fun logSuggestionsShown(context: Context, suggestionsList: List<String>, title: PageTitle) {
+        val suggestions = suggestionsList.joinToString("|")
+        log(context, composeLogString(title) + ".count:${suggestionsList.size}.displayOrder:$suggestions")
     }
 
-    fun logReportDialogOptedOut(context: Context, suggestion: String, reportReasonsList: List<String>) {
-        val reportReasons = reportReasonsList.joinToString(",")
-        EventPlatformClient.submit(
-            BreadCrumbLogEvent(
-                BreadCrumbViewUtil.getReadableScreenName(context),
-                "$MACHINE_GEN_DESC_SUGGESTIONS.ReportDialog.$suggestion.reportReasons:$reportReasons.optedOut"
-            )
-        )
+    fun logSuggestionSelected(context: Context, suggestion: String, title: PageTitle) {
+        log(context, composeLogString(title) + ".selected:$suggestion")
     }
 
-    suspend fun isUserExperienced(): Boolean =
+    fun logSuggestionsDismissed(context: Context, title: PageTitle) {
+        log(context, composeLogString(title) + ".suggestionsDialog.dismissed")
+    }
+
+    fun logSuggestionReported(context: Context, suggestion: String, reportReasonsList: List<String>, title: PageTitle) {
+        val reportReasons = reportReasonsList.joinToString("|")
+        log(context, composeLogString(title) + ".reportDialog.$suggestion.reasons:$reportReasons.reported")
+    }
+
+    fun logReportDialogDismissed(context: Context) {
+        log(context, composeGroupString() + ".reportDialog.dismissed")
+    }
+
+    fun logOnboardingShown(context: Context) {
+        log(context, "$MACHINE_GEN_DESC_SUGGESTIONS.onboardingShown")
+    }
+
+    fun logGroupAssigned(context: Context, testGroup: Int) {
+        log(context, "$MACHINE_GEN_DESC_SUGGESTIONS.groupAssigned:$testGroup")
+    }
+
+    private fun log(context: Context, logString: String) {
+        if (!isUserInExperiment) {
+            return
+        }
+        EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), logString))
+    }
+
+    private fun composeLogString(title: PageTitle): String {
+        return "${composeGroupString()}.lang:${title.wikiSite.languageCode}.title:${title.prefixedText}"
+    }
+
+    private fun composeGroupString(): String {
+        return "$MACHINE_GEN_DESC_SUGGESTIONS.group:${machineGeneratedDescriptionsABTest.aBTestGroup}.experienced:$isUserExperienced"
+    }
+
+    suspend fun setUserExperienced() =
         withContext(Dispatchers.Default) {
-            var totalContributions = 0
-
-            val homeSiteResponse = async {
-                ServiceFactory.get(WikipediaApp.instance.wikiSite).userInfo(AccountUtil.userName!!)
-            }
-            val commonsResponse = async {
-                ServiceFactory.get(Constants.commonsWikiSite).userInfo(AccountUtil.userName!!)
-            }
-            val wikidataResponse = async {
-                ServiceFactory.get(Constants.wikidataWikiSite).userInfo(AccountUtil.userName!!)
-            }
-
-            totalContributions += homeSiteResponse.await().query?.userInfo?.editCount ?: 0
-            totalContributions += commonsResponse.await().query?.userInfo?.editCount ?: 0
-            totalContributions += wikidataResponse.await().query?.userInfo?.editCount ?: 0
-
-            return@withContext totalContributions > 50
+            val totalContributions = ServiceFactory.get(WikipediaApp.instance.wikiSite)
+                .globalUserInfo(AccountUtil.userName!!).query?.globalUserInfo?.editCount ?: 0
+            isUserExperienced = totalContributions > 50
         }
 }

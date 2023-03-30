@@ -119,7 +119,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageRequestLangLinks(title: PageTitle)
         fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, source: Int, options: ActivityOptionsCompat?)
         fun onPageRequestAddImageTags(mwQueryPage: MwQueryPage, invokeSource: InvokeSource)
-        fun onPageRequestEditDescriptionTutorial(text: String?, invokeSource: InvokeSource)
         fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,
                                          targetSummary: PageSummaryForEdit?, action: DescriptionEditActivity.Action, invokeSource: InvokeSource)
     }
@@ -1139,15 +1138,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun startDescriptionEditActivity(text: String?, invokeSource: InvokeSource) {
-        if (Prefs.isDescriptionEditTutorialEnabled) {
-            callback()?.onPageRequestEditDescriptionTutorial(text, invokeSource)
-        } else {
-            title?.run {
-                val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayText, description, thumbUrl)
-                callback()?.onPageRequestEditDescription(text, this, sourceSummary, null,
-                    DescriptionEditActivity.Action.ADD_DESCRIPTION, invokeSource)
-            }
+    private fun startDescriptionEditActivity(text: String?, invokeSource: InvokeSource) {
+        title?.run {
+            val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this,
+                displayText, description, thumbUrl)
+            callback()?.onPageRequestEditDescription(text, this, sourceSummary, null,
+                DescriptionEditActivity.Action.ADD_DESCRIPTION, invokeSource)
         }
     }
 
