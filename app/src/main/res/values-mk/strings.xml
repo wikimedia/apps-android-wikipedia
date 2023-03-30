@@ -843,6 +843,8 @@
   <string name="description_starts_with_lowercase">Избегнувајте да почнувате со мала буква.</string>
   <string name="description_is_in_different_language">Се чини дека текстот е напишан на неочекуван јазик. Јазикот треба да биде %s.</string>
   <string name="description_verification_notice">Потврдете дека вашиот опис е на %1$s. Слободно занемарете ја напоменава ако напишаниот опис ви е на %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">Прикажи предложен опис</string>
+  <string name="description_edit_suggested_description_button_tooltip">Пробајте ги машински предложените описи на статии</string>
   <string name="description_edit_success_saved">Описот на статијата е објавен!</string>
   <string name="description_edit_success_saved_snackbar">Описот на статијата е објавен!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Описот на статијата е објавен! (%s)</string>
@@ -1018,6 +1020,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Ознака за слики</string>
   <string name="suggested_edits_contribution_current_revision_text">Вашето уредување сега е видливо на Википедија</string>
   <string name="suggested_card_more_edits">Повеќе предложени уредувања</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Предложени описи</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Што би сакале да пријавите?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Нема доволно информации</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Не можам да ги видам предложените описи</string>
+  <string name="suggested_edits_inappropriate_suggestion">Неприкладен предлог</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Не ја разбирам задачата</string>
+  <string name="suggested_edits_report_suggestion">Пријави</string>
+  <string name="suggested_edits_suggestion_report_submitted">Пријавата е поднесена</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s ознака</item>
     <item quantity="other">%1$s ознаки</item>
