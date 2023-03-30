@@ -421,12 +421,12 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         binding.root.post {
             binding.suggestedDescButton.isEnabled = true
             binding.suggestedDescButton.chipIcon = AppCompatResources.getDrawable(context, R.drawable.ic_robot_24)
-            MachineGeneratedArticleDescriptionsAnalyticsHelper.suggestedDescriptionsButtonShown(context)
         }
         binding.suggestedDescButton.setOnClickListener {
-            SuggestedArticleDescriptionsDialog(context, firstSuggestion, secondSuggestion) { suggestion ->
+            SuggestedArticleDescriptionsDialog(context, firstSuggestion, secondSuggestion, pageTitle) { suggestion ->
                 binding.viewDescriptionEditText.setText(suggestion)
                 binding.viewDescriptionEditText.setSelection(binding.viewDescriptionEditText.text?.length ?: 0)
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuggestionSelected(context, suggestion, pageTitle)
                 wasSuggestionAccepted = true
                 wasSuggestionModified = false
             }.show()
