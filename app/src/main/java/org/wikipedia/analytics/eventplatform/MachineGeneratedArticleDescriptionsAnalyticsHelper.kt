@@ -13,6 +13,9 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
     private const val MACHINE_GEN_DESC_SUGGESTIONS = "machineSuggestions"
     val machineGeneratedDescriptionsABTest = MachineGeneratedArticleDescriptionABCTest()
 
+    var isUserExperienced = false
+    var isUserInExperiment = false
+
     fun articleDescriptionEditingStart(context: Context) {
         log(context, "ArticleDescriptionEditing.start")
     }
@@ -65,6 +68,9 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     private fun log(context: Context, logString: String) {
+        if (!isUserInExperiment) {
+            return
+        }
         EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), logString))
     }
 
@@ -75,8 +81,6 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
     private fun composeGroupString(): String {
         return "$MACHINE_GEN_DESC_SUGGESTIONS.group:${machineGeneratedDescriptionsABTest.aBTestGroup}.experienced:$isUserExperienced"
     }
-
-    var isUserExperienced = false
 
     suspend fun setUserExperienced() =
         withContext(Dispatchers.Default) {

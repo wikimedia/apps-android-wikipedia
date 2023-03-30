@@ -330,14 +330,12 @@ class DescriptionEditFragment : Fragment() {
                                     AnonymousNotificationHelper.onEditSubmitted()
                                     waitForUpdatedRevision(newRevId)
                                     EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
-                                    if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
-                                        MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuccess(requireContext(),
-                                            binding.fragmentDescriptionEditView.description.orEmpty(),
-                                            binding.fragmentDescriptionEditView.wasSuggestionAccepted,
-                                            binding.fragmentDescriptionEditView.wasSuggestionModified,
-                                            pageTitle, newRevId
-                                        )
-                                    }
+                                    MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuccess(requireContext(),
+                                        binding.fragmentDescriptionEditView.description.orEmpty(),
+                                        binding.fragmentDescriptionEditView.wasSuggestionAccepted,
+                                        binding.fragmentDescriptionEditView.wasSuggestionModified,
+                                        pageTitle, newRevId
+                                    )
                                 }
                                 hasEditErrorCode -> {
                                     editFailed(MwException(MwServiceError(code, spamblacklist)), false)
@@ -381,14 +379,12 @@ class DescriptionEditFragment : Fragment() {
                         AnonymousNotificationHelper.onEditSubmitted()
                         if (response.success > 0) {
                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
-                            if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
-                                MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuccess(requireContext(),
-                                    binding.fragmentDescriptionEditView.description.orEmpty(),
-                                    binding.fragmentDescriptionEditView.wasSuggestionAccepted,
-                                    binding.fragmentDescriptionEditView.wasSuggestionModified,
-                                    pageTitle, response.entity?.lastRevId ?: 0
-                                )
-                            }
+                            MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuccess(requireContext(),
+                                binding.fragmentDescriptionEditView.description.orEmpty(),
+                                binding.fragmentDescriptionEditView.wasSuggestionAccepted,
+                                binding.fragmentDescriptionEditView.wasSuggestionModified,
+                                pageTitle, response.entity?.lastRevId ?: 0
+                            )
                             EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                         } else {
                             editFailed(RuntimeException("Received unrecognized description edit response"), true)
