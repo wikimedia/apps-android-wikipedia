@@ -38,7 +38,7 @@ class SuggestedArticleDescriptionsReportDialog(context: Context, suggestion: Str
         binding.cancelButton.setOnClickListener { dismiss() }
         setOnDismissListener {
             if (!reported) {
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.logReportDialogOptedOut(context,
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.logReportDialogDismissed(context,
                     suggestion, getReportReasons())
             }
         }

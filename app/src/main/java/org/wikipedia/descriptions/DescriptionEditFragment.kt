@@ -244,6 +244,8 @@ class DescriptionEditFragment : Fragment() {
                     val firstSuggestion = if (list.size == 2) list[randomizedListIndex] else list.first()
                     val secondSuggestion = if (list.size == 2) { if (randomizedListIndex == 0) list.last() else list.first() } else null
                     binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(firstSuggestion, secondSuggestion)
+                    MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDisplayOrderLogged(requireContext(),
+                        listOfNotNull(firstSuggestion, secondSuggestion), pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
                 }
             }
         }
@@ -326,7 +328,8 @@ class DescriptionEditFragment : Fragment() {
                                     val abTest = MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest
                                     if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION && abTest.aBTestGroup != GROUP_1) {
                                         MachineGeneratedArticleDescriptionsAnalyticsHelper.logActualPublishedDescription(requireContext(),
-                                            binding.fragmentDescriptionEditView.description.orEmpty(), pageTitle.wikiSite.languageCode, pageTitle.prefixedText
+                                            binding.fragmentDescriptionEditView.description.orEmpty(), binding.fragmentDescriptionEditView.wasSuggestionModified,
+                                            pageTitle.wikiSite.languageCode, pageTitle.prefixedText
                                         )
                                     }
                                 }
@@ -375,7 +378,8 @@ class DescriptionEditFragment : Fragment() {
                             val abTest = MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest
                             if (abTest.aBTestGroup != GROUP_1) {
                                 MachineGeneratedArticleDescriptionsAnalyticsHelper.logActualPublishedDescription(requireContext(),
-                                    binding.fragmentDescriptionEditView.description.orEmpty(), pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+                                    binding.fragmentDescriptionEditView.description.orEmpty(), binding.fragmentDescriptionEditView.wasSuggestionModified,
+                                    pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
                             }
                             EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                         } else {

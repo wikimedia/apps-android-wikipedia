@@ -53,7 +53,7 @@ class SuggestedArticleDescriptionsDialog(
 
         setOnDismissListener {
             if (!suggestionChosen) {
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDialogOptedOut(context)
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDialogDismissed(context)
             }
         }
     }
