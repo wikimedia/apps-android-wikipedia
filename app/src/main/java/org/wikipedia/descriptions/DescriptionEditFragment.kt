@@ -233,8 +233,7 @@ class DescriptionEditFragment : Fragment() {
                 val list = (if (pageTitle.wikiSite.languageCode == "en") {
                     response.prediction.map { StringUtil.capitalize(it)!! }
                 } else response.prediction).distinct()
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDetailsLogged(requireContext(),
-                     list, response.blp, pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuggestionsReceived(requireContext(), list, response.blp, pageTitle)
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
 
@@ -244,8 +243,8 @@ class DescriptionEditFragment : Fragment() {
                     val firstSuggestion = if (list.size == 2) list[randomizedListIndex] else list.first()
                     val secondSuggestion = if (list.size == 2) { if (randomizedListIndex == 0) list.last() else list.first() } else null
                     binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(firstSuggestion, secondSuggestion)
-                    MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDisplayOrderLogged(requireContext(),
-                        listOfNotNull(firstSuggestion, secondSuggestion), pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+                    MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuggestionsShown(requireContext(),
+                        listOfNotNull(firstSuggestion, secondSuggestion), pageTitle)
                 }
             }
         }
@@ -272,6 +271,12 @@ class DescriptionEditFragment : Fragment() {
                 binding.fragmentDescriptionEditView.setError(null)
                 binding.fragmentDescriptionEditView.setSaveState(true)
                 cancelCalls()
+                if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
+                    MachineGeneratedArticleDescriptionsAnalyticsHelper.logAttempt(requireContext(),
+                        binding.fragmentDescriptionEditView.description.orEmpty(), binding.fragmentDescriptionEditView.wasSuggestionModified,
+                        pageTitle
+                    )
+                }
                 getEditTokenThenSave()
                 EditAttemptStepEvent.logSaveAttempt(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
             }
@@ -325,13 +330,12 @@ class DescriptionEditFragment : Fragment() {
                                     AnonymousNotificationHelper.onEditSubmitted()
                                     waitForUpdatedRevision(newRevId)
                                     EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
-                                    val abTest = MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest
-                                    if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION && abTest.aBTestGroup != GROUP_1) {
-                                        MachineGeneratedArticleDescriptionsAnalyticsHelper.logActualPublishedDescription(requireContext(),
-                                            binding.fragmentDescriptionEditView.description.orEmpty(), binding.fragmentDescriptionEditView.wasSuggestionModified,
-                                            pageTitle.wikiSite.languageCode, pageTitle.prefixedText
-                                        )
-                                    }
+                                    MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuccess(requireContext(),
+                                        binding.fragmentDescriptionEditView.description.orEmpty(),
+                                        binding.fragmentDescriptionEditView.wasSuggestionAccepted,
+                                        binding.fragmentDescriptionEditView.wasSuggestionModified,
+                                        pageTitle, newRevId
+                                    )
                                 }
                                 hasEditErrorCode -> {
                                     editFailed(MwException(MwServiceError(code, spamblacklist)), false)
@@ -375,12 +379,12 @@ class DescriptionEditFragment : Fragment() {
                         AnonymousNotificationHelper.onEditSubmitted()
                         if (response.success > 0) {
                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
-                            val abTest = MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest
-                            if (abTest.aBTestGroup != GROUP_1) {
-                                MachineGeneratedArticleDescriptionsAnalyticsHelper.logActualPublishedDescription(requireContext(),
-                                    binding.fragmentDescriptionEditView.description.orEmpty(), binding.fragmentDescriptionEditView.wasSuggestionModified,
-                                    pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
-                            }
+                            MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuccess(requireContext(),
+                                binding.fragmentDescriptionEditView.description.orEmpty(),
+                                binding.fragmentDescriptionEditView.wasSuggestionAccepted,
+                                binding.fragmentDescriptionEditView.wasSuggestionModified,
+                                pageTitle, response.entity?.lastRevId ?: 0
+                            )
                             EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                         } else {
                             editFailed(RuntimeException("Received unrecognized description edit response"), true)
