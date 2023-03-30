@@ -12,7 +12,8 @@ class MachineGeneratedArticleDescriptionABCTest : ABTest("mBART25", GROUP_SIZE_2
         if (testGroup == GROUP_2 && AccountUtil.isLoggedIn) {
             runBlocking {
                 try {
-                    if (MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserExperienced()) {
+                    MachineGeneratedArticleDescriptionsAnalyticsHelper.setUserExperienced()
+                    if (MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserExperienced) {
                         testGroup = GROUP_3
                     }
                 } catch (e: Exception) {

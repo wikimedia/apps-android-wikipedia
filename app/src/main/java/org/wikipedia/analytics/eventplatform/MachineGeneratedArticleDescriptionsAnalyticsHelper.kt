@@ -21,14 +21,19 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         log(context, "ArticleDescriptionEditing.end")
     }
 
-    fun logPublished(context: Context, finalDescription: String, wasSuggestionModified: Boolean, title: PageTitle) {
-        log(context, composeLogString(title) + ".submitted:$finalDescription.modified:$wasSuggestionModified")
+    fun logAttempt(context: Context, finalDescription: String, wasSuggestionModified: Boolean, title: PageTitle) {
+        log(context, composeLogString(title) + ".attempt:$finalDescription.modified:$wasSuggestionModified")
+    }
+
+    fun logSuccess(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle, revId: Long) {
+        log(context, composeLogString(title) + ".success:$finalDescription.suggestionChosen:$wasChosen.modified:$wasModified.revId:$revId")
     }
 
     fun logSuggestionsReceived(context: Context, suggestionsList: List<String>, isBlp: Boolean, title: PageTitle) {
         val suggestions = suggestionsList.joinToString("|")
         log(context, composeLogString(title) + ".blp:$isBlp.count:${suggestionsList.size}.suggestions:$suggestions")
     }
+
     fun logSuggestionsShown(context: Context, suggestionsList: List<String>, title: PageTitle) {
         val suggestions = suggestionsList.joinToString("|")
         log(context, composeLogString(title) + ".count:${suggestionsList.size}.displayOrder:$suggestions")
@@ -68,13 +73,15 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     private fun composeGroupString(): String {
-        return "$MACHINE_GEN_DESC_SUGGESTIONS.group:${machineGeneratedDescriptionsABTest.aBTestGroup}"
+        return "$MACHINE_GEN_DESC_SUGGESTIONS.group:${machineGeneratedDescriptionsABTest.aBTestGroup}.experienced:$isUserExperienced"
     }
 
-    suspend fun isUserExperienced(): Boolean =
+    var isUserExperienced = false
+
+    suspend fun setUserExperienced() =
         withContext(Dispatchers.Default) {
             val totalContributions = ServiceFactory.get(WikipediaApp.instance.wikiSite)
                 .globalUserInfo(AccountUtil.userName!!).query?.globalUserInfo?.editCount ?: 0
-            return@withContext totalContributions > 50
+            isUserExperienced = totalContributions > 50
         }
 }

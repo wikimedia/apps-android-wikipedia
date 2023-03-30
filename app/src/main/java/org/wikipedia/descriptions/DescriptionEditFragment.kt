@@ -271,6 +271,12 @@ class DescriptionEditFragment : Fragment() {
                 binding.fragmentDescriptionEditView.setError(null)
                 binding.fragmentDescriptionEditView.setSaveState(true)
                 cancelCalls()
+                if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
+                    MachineGeneratedArticleDescriptionsAnalyticsHelper.logAttempt(requireContext(),
+                        binding.fragmentDescriptionEditView.description.orEmpty(), binding.fragmentDescriptionEditView.wasSuggestionModified,
+                        pageTitle
+                    )
+                }
                 getEditTokenThenSave()
                 EditAttemptStepEvent.logSaveAttempt(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
             }
@@ -324,11 +330,12 @@ class DescriptionEditFragment : Fragment() {
                                     AnonymousNotificationHelper.onEditSubmitted()
                                     waitForUpdatedRevision(newRevId)
                                     EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
-                                    val abTest = MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest
-                                    if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION && abTest.aBTestGroup != GROUP_1) {
-                                        MachineGeneratedArticleDescriptionsAnalyticsHelper.logPublished(requireContext(),
-                                            binding.fragmentDescriptionEditView.description.orEmpty(), binding.fragmentDescriptionEditView.wasSuggestionModified,
-                                            pageTitle
+                                    if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
+                                        MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuccess(requireContext(),
+                                            binding.fragmentDescriptionEditView.description.orEmpty(),
+                                            binding.fragmentDescriptionEditView.wasSuggestionAccepted,
+                                            binding.fragmentDescriptionEditView.wasSuggestionModified,
+                                            pageTitle, newRevId
                                         )
                                     }
                                 }
@@ -374,11 +381,13 @@ class DescriptionEditFragment : Fragment() {
                         AnonymousNotificationHelper.onEditSubmitted()
                         if (response.success > 0) {
                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
-                            val abTest = MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest
-                            if (abTest.aBTestGroup != GROUP_1) {
-                                MachineGeneratedArticleDescriptionsAnalyticsHelper.logPublished(requireContext(),
-                                    binding.fragmentDescriptionEditView.description.orEmpty(), binding.fragmentDescriptionEditView.wasSuggestionModified,
-                                    pageTitle)
+                            if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
+                                MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuccess(requireContext(),
+                                    binding.fragmentDescriptionEditView.description.orEmpty(),
+                                    binding.fragmentDescriptionEditView.wasSuggestionAccepted,
+                                    binding.fragmentDescriptionEditView.wasSuggestionModified,
+                                    pageTitle, response.entity?.lastRevId ?: 0
+                                )
                             }
                             EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                         } else {
