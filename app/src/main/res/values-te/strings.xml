@@ -1118,11 +1118,14 @@
   <string name="watchlist_page_deleted">తొలగించారు</string>
   <string name="watchlist_filter_wiki_filter_header">వికీ</string>
   <string name="watchlist_filter_all_text">అన్నీ</string>
+  <string name="watchlist_filter_user_status_newcomers">కొత్తవాళ్ళు</string>
   <string name="watchlist_filter_contribution_authorship_own">మీ దిద్దుబాట్లు</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">ఇతరుల దిద్దుబాట్లు</string>
   <string name="watchlist_filter_significance_header">ప్రాముఖ్యం</string>
   <string name="watchlist_filter_significance_minor">చిన్న మార్పులు</string>
   <string name="watchlist_filter_type_of_change_page_edits">పేజీ దిద్దుబాట్లు</string>
   <string name="watchlist_filter_type_of_change_page_creations">పేజీ సృష్టి</string>
+  <string name="watchlist_filter_type_of_change_category_changes">వర్గాల దిద్దుబాట్లు</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">వికీడేటా సవరణలు</string>
   <string name="watchlist_filter_type_of_change_new_users">కొత్త వాడుకరులు</string>
   <string name="watchlist_filter_reset_button">రీసెట్ చెయ్యి</string>
