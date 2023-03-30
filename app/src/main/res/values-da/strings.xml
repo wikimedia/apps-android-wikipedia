@@ -75,7 +75,7 @@
   <string name="page_edit_history_metrics_content_description">Målinger fra %1$s til %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d redigering siden %2$s</item>
-    <item quantity="other">% 1$d redigeringer siden %2$s </item>
+    <item quantity="other">%1$d redigeringer siden %2$s</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
     <item quantity="one">%1$d redigering siden %2$s (%3$s)</item>
