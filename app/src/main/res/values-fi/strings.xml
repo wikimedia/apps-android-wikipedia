@@ -868,6 +868,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ihanteellisesti yksi rivi, kahdesta kahteentoista sanaa</string>
   <string name="description_edit_tutorial_button_label_start_editing">Aloita muokkaaminen</string>
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Ohjelmiston ehdotukset</string>
   <string name="customize_toolbar_title">Kustomoi työkalupalkki</string>
   <string name="customize_toolbar_shortcut_description_text">Tuunaa alaosan työkalupalkkia niillä 5 linkillä, jotka koet hyödyllisimmiksi.</string>
   <string name="customize_toolbar_category_toolbar">Työkalupalkki</string>

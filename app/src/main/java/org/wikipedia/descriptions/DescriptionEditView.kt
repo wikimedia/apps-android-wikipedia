@@ -51,7 +51,10 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     private var isLanguageWrong = false
     private var isTextValid = false
     var callback: Callback? = null
-    var isSuggestionButtonEnabled: Boolean = false
+
+    var isSuggestionButtonEnabled = false
+    var wasSuggestionAccepted = false
+    var wasSuggestionModified = false
 
     var description: String?
         get() = binding.viewDescriptionEditText.text.toString().trim()
@@ -80,6 +83,9 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         }
 
         binding.viewDescriptionEditText.addTextChangedListener {
+            if (wasSuggestionAccepted) {
+                wasSuggestionModified = true
+            }
             enqueueValidateText()
             isLanguageWrong = false
             removeCallbacks(languageDetectRunnable)
@@ -415,12 +421,14 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         binding.root.post {
             binding.suggestedDescButton.isEnabled = true
             binding.suggestedDescButton.chipIcon = AppCompatResources.getDrawable(context, R.drawable.ic_robot_24)
-            MachineGeneratedArticleDescriptionsAnalyticsHelper.suggestedDescriptionsButtonShown(context)
         }
         binding.suggestedDescButton.setOnClickListener {
-            SuggestedArticleDescriptionsDialog(context, firstSuggestion, secondSuggestion) { suggestion ->
+            SuggestedArticleDescriptionsDialog(context, firstSuggestion, secondSuggestion, pageTitle) { suggestion ->
                 binding.viewDescriptionEditText.setText(suggestion)
                 binding.viewDescriptionEditText.setSelection(binding.viewDescriptionEditText.text?.length ?: 0)
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuggestionSelected(context, suggestion, pageTitle)
+                wasSuggestionAccepted = true
+                wasSuggestionModified = false
             }.show()
         }
         if (!Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown) {
