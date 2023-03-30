@@ -7,11 +7,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.databinding.DialogArticleDescriptionsBinding
+import org.wikipedia.page.PageTitle
 
 class SuggestedArticleDescriptionsDialog(
     context: Context,
     firstSuggestion: String,
     secondSuggestion: String?,
+    private val pageTitle: PageTitle,
     callback: Callback
 ) : AlertDialog(context) {
 
@@ -32,28 +34,26 @@ class SuggestedArticleDescriptionsDialog(
         binding.closeButton.setOnClickListener { dismiss() }
         binding.firstSuggestion.setOnClickListener {
             callback.onSuggestionClicked(binding.firstSuggestion.text.toString())
-            MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDialogSuggestionChosen(context, firstSuggestion)
             suggestionChosen = true
             dismiss()
         }
         binding.secondSuggestion.setOnClickListener {
             callback.onSuggestionClicked(binding.secondSuggestion.text.toString())
-            MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDialogSuggestionChosen(context, secondSuggestion ?: "")
             suggestionChosen = true
             dismiss()
         }
 
         binding.firstSuggestionFlag.setOnClickListener {
-            SuggestedArticleDescriptionsReportDialog(context, binding.firstSuggestion.text.toString()) { dismiss() }.show()
+            SuggestedArticleDescriptionsReportDialog(context, binding.firstSuggestion.text.toString(), pageTitle) { dismiss() }.show()
         }
 
         binding.secondSuggestionFlag.setOnClickListener {
-            SuggestedArticleDescriptionsReportDialog(context, binding.secondSuggestion.text.toString()) { dismiss() }.show()
+            SuggestedArticleDescriptionsReportDialog(context, binding.secondSuggestion.text.toString(), pageTitle) { dismiss() }.show()
         }
 
         setOnDismissListener {
             if (!suggestionChosen) {
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDialogOptedOut(context)
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedSuggestionsDialogDismissed(context)
             }
         }
     }

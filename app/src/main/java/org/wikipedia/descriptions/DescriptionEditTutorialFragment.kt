@@ -8,6 +8,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.onboarding.OnboardingFragment
 import org.wikipedia.onboarding.OnboardingPageView
 
@@ -40,6 +41,9 @@ class DescriptionEditTutorialFragment : OnboardingFragment() {
             super.onCreateView(inflater, container, savedInstanceState)
             val position = requireArguments().getInt(ARG_POSITION, 0)
             val view = inflater.inflate(pages[position], container, false) as OnboardingPageView
+            if (position == 2) {
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.logAiOnBoardingCardShown(requireContext())
+            }
             view.callback = OnboardingPageView.DefaultCallback()
             return view
         }
