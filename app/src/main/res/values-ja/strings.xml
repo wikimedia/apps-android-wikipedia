@@ -1050,6 +1050,7 @@
   <string name="suggested_edits_contribution_type_image_tag">画像タグ</string>
   <string name="suggested_edits_contribution_current_revision_text">あなたの編集をウィキペディアに公開しました</string>
   <string name="suggested_card_more_edits">編集提案をもっと見る</string>
+  <string name="suggested_edits_report_suggestion">報告</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$sつのタグ</item>
     <item quantity="other">%1$sつのタグ</item>

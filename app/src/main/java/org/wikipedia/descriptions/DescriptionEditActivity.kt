@@ -33,12 +33,17 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
+        val pageTitle = intent.getParcelableExtra<PageTitle>(EXTRA_TITLE)!!
+
+        MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment = (action == Action.ADD_DESCRIPTION &&
+                pageTitle.description.isNullOrEmpty() &&
+                SuggestedArticleDescriptionsDialog.availableLanguages.contains(pageTitle.wikiSite.languageCode))
+
+        val shouldShowAIOnBoarding = MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment &&
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest.aBTestGroup != GROUP_1
+
         if (action == Action.ADD_DESCRIPTION && Prefs.isDescriptionEditTutorialEnabled) {
             Prefs.isDescriptionEditTutorialEnabled = false
-            val pageTitle = intent.getParcelableExtra<PageTitle>(EXTRA_TITLE)!!
-            val shouldShowAIOnBoarding = SuggestedArticleDescriptionsDialog.availableLanguages
-                .contains(pageTitle.wikiSite.languageCode) && pageTitle.description.isNullOrEmpty() &&
-                    MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest.aBTestGroup != GROUP_1
             startActivity(DescriptionEditTutorialActivity.newIntent(this, shouldShowAIOnBoarding))
         }
     }

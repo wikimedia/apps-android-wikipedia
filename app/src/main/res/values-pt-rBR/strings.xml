@@ -872,6 +872,7 @@
   <string name="description_starts_with_lowercase">Evitar começar com uma letra minúscula.</string>
   <string name="description_is_in_different_language">O texto parece estar em um idioma inesperado. O idioma deve ser %s.</string>
   <string name="description_verification_notice">Por favor, verifique se sua descrição está em %1$s. Sinta-se à vontade para dispensar esta notificação se a descrição que você escreveu estiver em %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">Mostrar descrições sugeridas</string>
   <string name="description_edit_success_saved">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_snackbar">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrição do artigo publicada! (%s)</string>
@@ -1047,6 +1048,12 @@
   <string name="suggested_edits_contribution_type_image_tag">Marcação de imagem</string>
   <string name="suggested_edits_contribution_current_revision_text">Sua edição está atualmente ao vivo na Wikipédia</string>
   <string name="suggested_card_more_edits">Mais edições sugeridas</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Descrições sugeridas</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Não consigo ver recomendações de descrição</string>
+  <string name="suggested_edits_inappropriate_suggestion">Sugestão inapropriada</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Não entendi a tarefa</string>
+  <string name="suggested_edits_report_suggestion">Reportar</string>
+  <string name="suggested_edits_suggestion_report_submitted">Relatório submetido</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s marcação</item>
     <item quantity="other">%1$s marcações</item>
