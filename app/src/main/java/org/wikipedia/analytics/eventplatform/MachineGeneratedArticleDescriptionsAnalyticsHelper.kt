@@ -8,6 +8,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.ActiveTimer
 
 class MachineGeneratedArticleDescriptionsAnalyticsHelper {
 
@@ -15,32 +16,26 @@ class MachineGeneratedArticleDescriptionsAnalyticsHelper {
     var apiOrderList = emptyList<String>()
     var displayOrderList = emptyList<String>()
     private var chosenSuggestion = ""
-    private var startTime = 0L
-    private var timeSpentPerEdit = 0L
+    val timer = ActiveTimer()
+
     fun articleDescriptionEditingStart(context: Context) {
         log(context, composeGroupString() + ".start")
-        resetTimer()
-    }
-
-    private fun resetTimer() {
-        startTime = System.currentTimeMillis()
     }
 
     fun articleDescriptionEditingEnd(context: Context) {
         log(context, composeGroupString() + ".end")
-        timeSpentPerEdit = System.currentTimeMillis() - startTime
     }
 
     fun logAttempt(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle) {
         log(context, composeLogString(title) + ".attempt:$finalDescription" +
                 ".suggestion1:${encode(apiOrderList.first())}" + (if (apiOrderList.size > 1) ".suggestion2.${encode(apiOrderList.last())}" else "") +
-                getOrderString(wasChosen, chosenSuggestion) + ".modified:$wasModified")
+                getOrderString(wasChosen, chosenSuggestion) + ".modified:$wasModified.timeSpentMs.${timer.elapsedMillis}")
     }
 
     fun logSuccess(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle, revId: Long) {
         log(context, composeLogString(title) + ".success:$finalDescription" +
                 ".suggestion1:${encode(apiOrderList.first())}" + (if (apiOrderList.size > 1) ".suggestion2.${encode(apiOrderList.last())}" else "") +
-                getOrderString(wasChosen, chosenSuggestion) + ".modified:$wasModified.timeSpentMs.$timeSpentPerEdit.revId:$revId")
+                getOrderString(wasChosen, chosenSuggestion) + ".modified:$wasModified.timeSpentMs.${timer.elapsedMillis}.revId:$revId")
     }
 
     fun logSuggestionsReceived(context: Context, isBlp: Boolean, title: PageTitle) {

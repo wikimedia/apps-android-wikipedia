@@ -143,6 +143,16 @@ class DescriptionEditFragment : Fragment() {
         return binding.root
     }
 
+    override fun onPause() {
+        super.onPause()
+        analyticsHelper.timer.pause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        analyticsHelper.timer.resume()
+    }
+
     override fun onDestroyView() {
         binding.fragmentDescriptionEditView.callback = null
         _binding = null
@@ -272,16 +282,15 @@ class DescriptionEditFragment : Fragment() {
                     analyticsHelper.articleDescriptionEditingEnd(requireContext())
                 }
                 binding.fragmentDescriptionEditView.loadReviewContent(true)
+                analyticsHelper.timer.pause()
             } else {
                 binding.fragmentDescriptionEditView.setError(null)
                 binding.fragmentDescriptionEditView.setSaveState(true)
                 cancelCalls()
-                if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
-                    analyticsHelper.logAttempt(requireContext(),
-                        binding.fragmentDescriptionEditView.description.orEmpty(), binding.fragmentDescriptionEditView.wasSuggestionChosen,
-                        binding.fragmentDescriptionEditView.wasSuggestionModified, pageTitle
-                    )
-                }
+                analyticsHelper.logAttempt(requireContext(),
+                    binding.fragmentDescriptionEditView.description.orEmpty(), binding.fragmentDescriptionEditView.wasSuggestionChosen,
+                    binding.fragmentDescriptionEditView.wasSuggestionModified, pageTitle
+                )
                 getEditTokenThenSave()
                 EditAttemptStepEvent.logSaveAttempt(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
             }
@@ -469,6 +478,7 @@ class DescriptionEditFragment : Fragment() {
         override fun onCancelClick() {
             if (binding.fragmentDescriptionEditView.showingReviewContent()) {
                 binding.fragmentDescriptionEditView.loadReviewContent(false)
+                analyticsHelper.timer.resume()
             } else {
                 DeviceUtil.hideSoftKeyboard(requireActivity())
                 requireActivity().onBackPressed()
