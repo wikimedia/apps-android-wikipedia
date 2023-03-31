@@ -26,6 +26,10 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         startTime = System.currentTimeMillis()
     }
 
+    fun resetTimer() {
+        startTime = System.currentTimeMillis()
+    }
+
     fun articleDescriptionEditingEnd(context: Context) {
         log(context, "ArticleDescriptionEditing.end.timeSpentMs.${System.currentTimeMillis() - startTime}")
     }

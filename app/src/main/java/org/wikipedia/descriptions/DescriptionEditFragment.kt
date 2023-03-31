@@ -466,6 +466,7 @@ class DescriptionEditFragment : Fragment() {
         override fun onCancelClick() {
             if (binding.fragmentDescriptionEditView.showingReviewContent()) {
                 binding.fragmentDescriptionEditView.loadReviewContent(false)
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.resetTimer()
             } else {
                 DeviceUtil.hideSoftKeyboard(requireActivity())
                 requireActivity().onBackPressed()
