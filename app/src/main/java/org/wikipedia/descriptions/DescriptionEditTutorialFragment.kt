@@ -19,7 +19,7 @@ class DescriptionEditTutorialFragment : OnboardingFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        showAIOnBoarding = requireArguments().getBoolean(DescriptionEditTutorialActivity.SHOULD_SHOW_AI_ON_BOARDING)!!
+        showAIOnBoarding = requireArguments().getBoolean(DescriptionEditTutorialActivity.SHOULD_SHOW_AI_ON_BOARDING)
     }
 
     override fun getAdapter(): FragmentStateAdapter {
@@ -42,7 +42,7 @@ class DescriptionEditTutorialFragment : OnboardingFragment() {
             val position = requireArguments().getInt(ARG_POSITION, 0)
             val view = inflater.inflate(pages[position], container, false) as OnboardingPageView
             if (position == 2) {
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.logOnboardingShown(requireContext())
+                MachineGeneratedArticleDescriptionsAnalyticsHelper().logOnboardingShown(requireContext())
             }
             view.callback = OnboardingPageView.DefaultCallback()
             return view
