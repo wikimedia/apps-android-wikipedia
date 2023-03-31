@@ -6,24 +6,19 @@ import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 
-object MachineGeneratedArticleDescriptionsAnalyticsHelper {
+class MachineGeneratedArticleDescriptionsAnalyticsHelper {
 
-    private const val MACHINE_GEN_DESC_SUGGESTIONS = "machineSuggestions"
     private var apiFailed = false
-    val machineGeneratedDescriptionsABTest = MachineGeneratedArticleDescriptionABCTest()
     var apiOrderList = emptyList<String>()
     var displayOrderList = emptyList<String>()
-    var chosenSuggestion = ""
-    var isUserExperienced = false
-    var isUserInExperiment = false
+    private var chosenSuggestion = ""
     private var startTime = 0L
 
     fun articleDescriptionEditingStart(context: Context) {
-        log(context, "ArticleDescriptionEditing.start")
-        startTime = System.currentTimeMillis()
+        log(context, composeGroupString() + ".start")
     }
 
     fun resetTimer() {
@@ -31,35 +26,35 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     fun articleDescriptionEditingEnd(context: Context) {
-        log(context, "ArticleDescriptionEditing.end.timeSpentMs.${System.currentTimeMillis() - startTime}")
+        log(context, composeGroupString() + ".end.timeSpentMs.${System.currentTimeMillis() - startTime}")
     }
 
     fun logAttempt(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle) {
-        log(
-            context, composeLogString(title) + ".attempt:$finalDescription.suggestionChosen:${if (!wasChosen) -1 else displayOrderList.indexOf(chosenSuggestion) + 1}" +
-                    ".api.${apiOrderList.indexOf(chosenSuggestion) + 1}.modified:$wasModified"
-        )
+        log(context, composeLogString(title) + ".attempt:$finalDescription" +
+                ".suggestion1:${encode(apiOrderList.first())}" + (if (apiOrderList.size > 1) ".suggestion2.${encode(apiOrderList.last())}" else "") +
+                getOrderString(wasChosen, chosenSuggestion) + ".modified:$wasModified")
     }
 
     fun logSuccess(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle, revId: Long) {
-        log(context, composeLogString(title) + ".success:$finalDescription.suggestionChosen:${if (!wasChosen) -1 else displayOrderList.indexOf(
-            chosenSuggestion) + 1}.api.${apiOrderList.indexOf(chosenSuggestion) + 1}.modified:$wasModified.revId:$revId")
+        log(context, composeLogString(title) + ".success:$finalDescription" +
+                ".suggestion1:${encode(apiOrderList.first())}" + (if (apiOrderList.size > 1) ".suggestion2.${encode(apiOrderList.last())}" else "") +
+                getOrderString(wasChosen, chosenSuggestion) + ".modified:$wasModified.revId:$revId")
     }
 
     fun logSuggestionsReceived(context: Context, isBlp: Boolean, title: PageTitle) {
         apiFailed = false
-        log(context, composeLogString(title) + ".blp:$isBlp.count:${apiOrderList.size}.api1:${apiOrderList.first()}" +
-                 if (apiOrderList.size > 1) ".api2.${apiOrderList.last()}" else "")
+        log(context, composeLogString(title) + ".blp:$isBlp.count:${apiOrderList.size}.suggestion1:${encode(apiOrderList.first())}" +
+                if (apiOrderList.size > 1) ".suggestion2.${encode(apiOrderList.last())}" else "")
     }
 
     fun logSuggestionsShown(context: Context, title: PageTitle) {
-        log(context, composeLogString(title) + ".count:${displayOrderList.size}.display1:${displayOrderList.first()} " +
-                 if (displayOrderList.size > 1) ".display2.${displayOrderList.last()}" else "")
+        log(context, composeLogString(title) + ".count:${displayOrderList.size}.display1:${encode(displayOrderList.first())}" +
+                if (displayOrderList.size > 1) ".display2.${encode(displayOrderList.last())}" else "")
     }
 
     fun logSuggestionChosen(context: Context, suggestion: String, title: PageTitle) {
         chosenSuggestion = suggestion
-        log(context, composeLogString(title) + ".selected:$suggestion.${getOrderString()}")
+        log(context, composeLogString(title) + ".selected:${encode(suggestion)}${getOrderString(true, suggestion)}")
     }
 
     fun logSuggestionsDismissed(context: Context, title: PageTitle) {
@@ -68,7 +63,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
 
     fun logSuggestionReported(context: Context, suggestion: String, reportReasonsList: List<String>, title: PageTitle) {
         val reportReasons = reportReasonsList.joinToString("|")
-        log(context, composeLogString(title) + ".reportDialog.$suggestion.${getOrderString()}.reasons:$reportReasons.reported")
+        log(context, composeLogString(title) + ".reportDialog.${encode(suggestion)}${getOrderString(true, suggestion)}.reasons:$reportReasons.reported")
     }
 
     fun logReportDialogDismissed(context: Context) {
@@ -76,7 +71,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     fun logOnboardingShown(context: Context) {
-        log(context, "$MACHINE_GEN_DESC_SUGGESTIONS.onboardingShown")
+        log(context, composeGroupString() + ".onboardingShown")
     }
 
     fun logGroupAssigned(context: Context, testGroup: Int) {
@@ -84,9 +79,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     fun logApiFailed(context: Context, throwable: Throwable, title: PageTitle) {
-        if (throwable is HttpStatusException) {
-            log(context, "Api failed with response code ${throwable.code} for : ${composeLogString(title)} ")
-        }
+        log(context, composeLogString(title) + ".apiError.${throwable.message}")
         apiFailed = true
     }
 
@@ -97,22 +90,35 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), logString))
     }
 
-    private fun getOrderString(): String {
-        return "api.${apiOrderList.indexOf(chosenSuggestion) + 1}.display.${displayOrderList.indexOf(chosenSuggestion) + 1}"
+    private fun getOrderString(wasChosen: Boolean, suggestion: String): String {
+        return ".chosenApiIndex.${if (!wasChosen) -1 else apiOrderList.indexOf(suggestion) + 1}" +
+                ".chosenDisplayIndex:${if (!wasChosen) -1 else displayOrderList.indexOf(suggestion) + 1}"
     }
 
     private fun composeLogString(title: PageTitle): String {
-        return "${composeGroupString()}.lang:${title.wikiSite.languageCode}.title:${title.prefixedText}"
+        return "${composeGroupString()}.lang:${title.wikiSite.languageCode}.title:${encode(title.prefixedText)}"
     }
 
     private fun composeGroupString(): String {
-        return "$MACHINE_GEN_DESC_SUGGESTIONS.group:${machineGeneratedDescriptionsABTest.aBTestGroup}.experienced:$isUserExperienced"
+        return "$MACHINE_GEN_DESC_SUGGESTIONS.group:${abcTest.group}.experienced:${Prefs.suggestedEditsMachineGeneratedDescriptionsIsExperienced}"
     }
 
-    suspend fun setUserExperienced() =
-        withContext(Dispatchers.Default) {
-            val totalContributions = ServiceFactory.get(WikipediaApp.instance.wikiSite)
-                .globalUserInfo(AccountUtil.userName!!).query?.globalUserInfo?.editCount ?: 0
-            isUserExperienced = totalContributions > 50
+    companion object {
+        private const val MACHINE_GEN_DESC_SUGGESTIONS = "machineSuggestions"
+        val abcTest = MachineGeneratedArticleDescriptionABCTest()
+        var isUserInExperiment = false
+
+        // HACK: We're using periods and colons as delimiting characters in these events, so let's
+        // urlencode just those characters, if they appear in our strings.
+        private fun encode(str: String): String {
+            return str.replace(".", "%2E").replace(":", "%3A")
         }
+
+        suspend fun setUserExperienced() =
+            withContext(Dispatchers.Default) {
+                val totalContributions = ServiceFactory.get(WikipediaApp.instance.wikiSite)
+                    .globalUserInfo(AccountUtil.userName!!).query?.globalUserInfo?.editCount ?: 0
+                Prefs.suggestedEditsMachineGeneratedDescriptionsIsExperienced = totalContributions > 50
+            }
+    }
 }

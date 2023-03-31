@@ -11,7 +11,13 @@ import org.wikipedia.databinding.DialogDescriptionSuggestionReportBinding
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.FeedbackUtil
 
-class SuggestedArticleDescriptionsReportDialog(context: Context, suggestion: String, private val pageTitle: PageTitle, callback: Callback) : AlertDialog(context) {
+class SuggestedArticleDescriptionsReportDialog(
+    context: Context,
+    suggestion: String,
+    private val pageTitle: PageTitle,
+    private val analyticsHelper: MachineGeneratedArticleDescriptionsAnalyticsHelper,
+    callback: Callback
+) : AlertDialog(context) {
 
     fun interface Callback {
         fun onReportClick()
@@ -25,8 +31,7 @@ class SuggestedArticleDescriptionsReportDialog(context: Context, suggestion: Str
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         binding.reportButton.setOnClickListener {
             if (getReportReasons().isNotEmpty()) {
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuggestionReported(context,
-                    suggestion, getReportReasons(), pageTitle)
+                analyticsHelper.logSuggestionReported(context, suggestion, getReportReasons(), pageTitle)
                 FeedbackUtil.makeSnackbar(context as Activity, context.getString(R.string.suggested_edits_suggestion_report_submitted)).show()
                 callback.onReportClick()
                 reported = true
@@ -39,7 +44,7 @@ class SuggestedArticleDescriptionsReportDialog(context: Context, suggestion: Str
         binding.cancelButton.setOnClickListener { dismiss() }
         setOnDismissListener {
             if (!reported) {
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.logReportDialogDismissed(context)
+                analyticsHelper.logReportDialogDismissed(context)
             }
         }
     }

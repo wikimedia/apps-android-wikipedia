@@ -33,6 +33,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         fun onCancelClick()
         fun onBottomBarClick()
         fun onVoiceInputClick()
+        fun getAnalyticsHelper(): MachineGeneratedArticleDescriptionsAnalyticsHelper
     }
 
     constructor(context: Context) : super(context)
@@ -423,10 +424,10 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             binding.suggestedDescButton.chipIcon = AppCompatResources.getDrawable(context, R.drawable.ic_robot_24)
         }
         binding.suggestedDescButton.setOnClickListener {
-            SuggestedArticleDescriptionsDialog(context, firstSuggestion, secondSuggestion, pageTitle) { suggestion ->
+            SuggestedArticleDescriptionsDialog(context, firstSuggestion, secondSuggestion, pageTitle, callback!!.getAnalyticsHelper()) { suggestion ->
                 binding.viewDescriptionEditText.setText(suggestion)
                 binding.viewDescriptionEditText.setSelection(binding.viewDescriptionEditText.text?.length ?: 0)
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuggestionChosen(context, suggestion, pageTitle)
+                callback?.getAnalyticsHelper()?.logSuggestionChosen(context, suggestion, pageTitle)
                 wasSuggestionChosen = true
                 wasSuggestionModified = false
             }.show()

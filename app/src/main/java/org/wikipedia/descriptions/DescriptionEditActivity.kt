@@ -40,7 +40,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
                 SuggestedArticleDescriptionsDialog.availableLanguages.contains(pageTitle.wikiSite.languageCode))
 
         val shouldShowAIOnBoarding = MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment &&
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest.aBTestGroup != GROUP_1
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.abcTest.group != GROUP_1
 
         if (action == Action.ADD_DESCRIPTION && Prefs.isDescriptionEditTutorialEnabled) {
             Prefs.isDescriptionEditTutorialEnabled = false

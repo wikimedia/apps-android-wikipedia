@@ -66,6 +66,8 @@ class DescriptionEditFragment : Fragment() {
     private var highlightText: String? = null
     private var editingAllowed = true
 
+    private val analyticsHelper = MachineGeneratedArticleDescriptionsAnalyticsHelper()
+
     private val disposables = CompositeDisposable()
 
     private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -193,7 +195,8 @@ class DescriptionEditFragment : Fragment() {
 
     private fun setUpEditView(savedInstanceState: Bundle?) {
         if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
-            MachineGeneratedArticleDescriptionsAnalyticsHelper.articleDescriptionEditingStart(requireContext())
+            analyticsHelper.resetTimer()
+            analyticsHelper.articleDescriptionEditingStart(requireContext())
         }
         binding.fragmentDescriptionEditView.setAction(action)
         binding.fragmentDescriptionEditView.setPageTitle(pageTitle)
@@ -211,7 +214,7 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.isSuggestionButtonEnabled =
                 SuggestedArticleDescriptionsDialog.availableLanguages.contains(pageTitle.wikiSite.languageCode) &&
                 action == DescriptionEditActivity.Action.ADD_DESCRIPTION && pageTitle.description.isNullOrEmpty() &&
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest.aBTestGroup != GROUP_1
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.abcTest.group != GROUP_1
 
         if (binding.fragmentDescriptionEditView.isSuggestionButtonEnabled) {
             binding.fragmentDescriptionEditView.showSuggestedDescriptionsLoadingProgress()
@@ -223,7 +226,7 @@ class DescriptionEditFragment : Fragment() {
         lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
             binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = false
             L.e(throwable)
-            MachineGeneratedArticleDescriptionsAnalyticsHelper.logApiFailed(requireContext(), throwable, pageTitle)
+            analyticsHelper.logApiFailed(requireContext(), throwable, pageTitle)
         }) {
             withContext(Dispatchers.IO) {
                 val response = ServiceFactory[pageTitle.wikiSite, DescriptionSuggestionService.API_URL, DescriptionSuggestionService::class.java]
@@ -235,19 +238,19 @@ class DescriptionEditFragment : Fragment() {
                 val list = (if (pageTitle.wikiSite.languageCode == "en") {
                     response.prediction.map { StringUtil.capitalize(it)!! }
                 } else response.prediction).distinct()
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.apiOrderList = list
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuggestionsReceived(requireContext(), response.blp, pageTitle)
+                analyticsHelper.apiOrderList = list
+                analyticsHelper.logSuggestionsReceived(requireContext(), response.blp, pageTitle)
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
 
                 // Randomize the display order
-                if (!response.blp || MachineGeneratedArticleDescriptionsAnalyticsHelper.machineGeneratedDescriptionsABTest.aBTestGroup == GROUP_3) {
+                if (!response.blp || MachineGeneratedArticleDescriptionsAnalyticsHelper.abcTest.group == GROUP_3) {
                     val randomizedListIndex = (0 until 2).random()
                     val firstSuggestion = if (list.size == 2) list[randomizedListIndex] else list.first()
                     val secondSuggestion = if (list.size == 2) { if (randomizedListIndex == 0) list.last() else list.first() } else null
-                    MachineGeneratedArticleDescriptionsAnalyticsHelper.displayOrderList = listOfNotNull(firstSuggestion, secondSuggestion)
+                    analyticsHelper.displayOrderList = listOfNotNull(firstSuggestion, secondSuggestion)
                     binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(firstSuggestion, secondSuggestion)
-                    MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuggestionsShown(requireContext(), pageTitle)
+                    analyticsHelper.logSuggestionsShown(requireContext(), pageTitle)
                 }
             }
         }
@@ -267,7 +270,7 @@ class DescriptionEditFragment : Fragment() {
         override fun onSaveClick() {
             if (!binding.fragmentDescriptionEditView.showingReviewContent()) {
                 if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
-                    MachineGeneratedArticleDescriptionsAnalyticsHelper.articleDescriptionEditingEnd(requireContext())
+                    analyticsHelper.articleDescriptionEditingEnd(requireContext())
                 }
                 binding.fragmentDescriptionEditView.loadReviewContent(true)
             } else {
@@ -275,7 +278,7 @@ class DescriptionEditFragment : Fragment() {
                 binding.fragmentDescriptionEditView.setSaveState(true)
                 cancelCalls()
                 if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
-                    MachineGeneratedArticleDescriptionsAnalyticsHelper.logAttempt(requireContext(),
+                    analyticsHelper.logAttempt(requireContext(),
                         binding.fragmentDescriptionEditView.description.orEmpty(), binding.fragmentDescriptionEditView.wasSuggestionChosen,
                         binding.fragmentDescriptionEditView.wasSuggestionModified, pageTitle
                     )
@@ -333,7 +336,7 @@ class DescriptionEditFragment : Fragment() {
                                     AnonymousNotificationHelper.onEditSubmitted()
                                     waitForUpdatedRevision(newRevId)
                                     EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
-                                    MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuccess(requireContext(),
+                                    analyticsHelper.logSuccess(requireContext(),
                                         binding.fragmentDescriptionEditView.description.orEmpty(),
                                         binding.fragmentDescriptionEditView.wasSuggestionChosen,
                                         binding.fragmentDescriptionEditView.wasSuggestionModified,
@@ -382,7 +385,7 @@ class DescriptionEditFragment : Fragment() {
                         AnonymousNotificationHelper.onEditSubmitted()
                         if (response.success > 0) {
                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
-                            MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuccess(requireContext(),
+                            analyticsHelper.logSuccess(requireContext(),
                                 binding.fragmentDescriptionEditView.description.orEmpty(),
                                 binding.fragmentDescriptionEditView.wasSuggestionChosen,
                                 binding.fragmentDescriptionEditView.wasSuggestionModified,
@@ -467,7 +470,6 @@ class DescriptionEditFragment : Fragment() {
         override fun onCancelClick() {
             if (binding.fragmentDescriptionEditView.showingReviewContent()) {
                 binding.fragmentDescriptionEditView.loadReviewContent(false)
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.resetTimer()
             } else {
                 DeviceUtil.hideSoftKeyboard(requireActivity())
                 requireActivity().onBackPressed()
@@ -485,6 +487,10 @@ class DescriptionEditFragment : Fragment() {
             } catch (a: ActivityNotFoundException) {
                 FeedbackUtil.showMessage(requireActivity(), R.string.error_voice_search_not_available)
             }
+        }
+
+        override fun getAnalyticsHelper(): MachineGeneratedArticleDescriptionsAnalyticsHelper {
+            return analyticsHelper
         }
     }
 

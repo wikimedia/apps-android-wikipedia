@@ -14,10 +14,11 @@ class SuggestedArticleDescriptionsDialog(
     firstSuggestion: String,
     secondSuggestion: String?,
     private val pageTitle: PageTitle,
+    private val analyticsHelper: MachineGeneratedArticleDescriptionsAnalyticsHelper,
     callback: Callback
 ) : AlertDialog(context) {
 
-  fun interface Callback {
+    fun interface Callback {
         fun onSuggestionClicked(suggestion: String)
     }
 
@@ -44,16 +45,16 @@ class SuggestedArticleDescriptionsDialog(
         }
 
         binding.firstSuggestionFlag.setOnClickListener {
-            SuggestedArticleDescriptionsReportDialog(context, binding.firstSuggestion.text.toString(), pageTitle) { dismiss() }.show()
+            SuggestedArticleDescriptionsReportDialog(context, binding.firstSuggestion.text.toString(), pageTitle, analyticsHelper) { dismiss() }.show()
         }
 
         binding.secondSuggestionFlag.setOnClickListener {
-            SuggestedArticleDescriptionsReportDialog(context, binding.secondSuggestion.text.toString(), pageTitle) { dismiss() }.show()
+            SuggestedArticleDescriptionsReportDialog(context, binding.secondSuggestion.text.toString(), pageTitle, analyticsHelper) { dismiss() }.show()
         }
 
         setOnDismissListener {
             if (!suggestionChosen) {
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuggestionsDismissed(context, pageTitle)
+                analyticsHelper.logSuggestionsDismissed(context, pageTitle)
             }
         }
     }
