@@ -30,27 +30,30 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         log(context, "ArticleDescriptionEditing.end.timeSpentMs.${System.currentTimeMillis() - startTime}")
     }
 
-    fun logAttempt(context: Context, finalDescription: String, wasChosen: Boolean, wasSuggestionModified: Boolean, title: PageTitle) {
-        log(context, composeLogString(title) + ".attempt:$finalDescription.suggestionChosen:${if (!wasChosen) -1 else displayOrderList.indexOf(
-            chosenSuggestion)}.api.${apiOrderList.indexOf(chosenSuggestion)}.modified:$wasSuggestionModified")
+    fun logAttempt(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle) {
+        log(
+            context, composeLogString(title) + ".attempt:$finalDescription.suggestionChosen:${if (!wasChosen) -1 else displayOrderList.indexOf(chosenSuggestion) + 1}" +
+                    ".api.${apiOrderList.indexOf(chosenSuggestion) + 1}.modified:$wasModified"
+        )
     }
 
     fun logSuccess(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle, revId: Long) {
         log(context, composeLogString(title) + ".success:$finalDescription.suggestionChosen:${if (!wasChosen) -1 else displayOrderList.indexOf(
-            chosenSuggestion)}.api.${apiOrderList.indexOf(chosenSuggestion)}.modified:$wasModified.revId:$revId")
+            chosenSuggestion) + 1}.api.${apiOrderList.indexOf(chosenSuggestion) + 1}.modified:$wasModified.revId:$revId")
     }
 
     fun logSuggestionsReceived(context: Context, isBlp: Boolean, title: PageTitle) {
-        log(context, composeLogString(title) + ".blp:$isBlp.count:${apiOrderList.size}.api1:${apiOrderList[0]}" +
-                if (apiOrderList.size > 1) ".api2.$apiOrderList[1]" else "")
+        apiFailed = false
+        log(context, composeLogString(title) + ".blp:$isBlp.count:${apiOrderList.size}.api1:${apiOrderList.first()}" +
+                 if (apiOrderList.size > 1) ".api2.${apiOrderList.last()}" else "")
     }
 
     fun logSuggestionsShown(context: Context, title: PageTitle) {
-        log(context, composeLogString(title) + ".count:${displayOrderList.size}.display1:${displayOrderList[0]} " +
-                if (displayOrderList.size > 1) ".display2.$displayOrderList[1]" else "")
+        log(context, composeLogString(title) + ".count:${displayOrderList.size}.display1:${displayOrderList.first()} " +
+                 if (displayOrderList.size > 1) ".display2.${displayOrderList.last()}" else "")
     }
 
-    fun logSuggestionSelected(context: Context, suggestion: String, title: PageTitle) {
+    fun logSuggestionChosen(context: Context, suggestion: String, title: PageTitle) {
         chosenSuggestion = suggestion
         log(context, composeLogString(title) + ".selected:$suggestion.${getOrderString()}")
     }
@@ -76,12 +79,11 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
         log(context, "$MACHINE_GEN_DESC_SUGGESTIONS.groupAssigned:$testGroup")
     }
 
-    fun logApiFailed(context: Context, throwable: Throwable) {
-        apiFailed = true
+    fun logApiFailed(context: Context, throwable: Throwable, title: PageTitle) {
         if (throwable is HttpStatusException) {
-            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context),
-                "Api failed with response code ${throwable.code} for reason: ${throwable.message} "))
+            log(context, "Api failed with response code ${throwable.code} for : ${composeLogString(title)} ")
         }
+        apiFailed = true
     }
 
     private fun log(context: Context, logString: String) {
@@ -92,7 +94,7 @@ object MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     private fun getOrderString(): String {
-        return "api.${apiOrderList.indexOf(chosenSuggestion)}.display.${displayOrderList.indexOf(chosenSuggestion)}"
+        return "api.${apiOrderList.indexOf(chosenSuggestion) + 1}.display.${displayOrderList.indexOf(chosenSuggestion) + 1}"
     }
 
     private fun composeLogString(title: PageTitle): String {
