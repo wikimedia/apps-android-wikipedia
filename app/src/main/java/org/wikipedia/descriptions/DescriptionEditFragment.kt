@@ -221,6 +221,7 @@ class DescriptionEditFragment : Fragment() {
 
     private fun requestSuggestion() {
         lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = false
             L.e(throwable)
             MachineGeneratedArticleDescriptionsAnalyticsHelper.logApiFailed(requireContext(), throwable, pageTitle)
         }) {
