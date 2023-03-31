@@ -5,7 +5,7 @@ import kotlin.random.Random
 
 open class ABTest(private val abTestName: String, private val abTestGroupCount: Int) {
 
-    val aBTestGroup: Int
+    val group: Int
         get() {
             testGroup = PrefsIoUtil.getInt(AB_TEST_KEY_PREFIX + abTestName, -1)
             if (testGroup == -1) {
