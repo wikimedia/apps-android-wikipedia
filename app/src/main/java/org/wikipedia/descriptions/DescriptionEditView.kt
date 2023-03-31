@@ -53,7 +53,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     var callback: Callback? = null
 
     var isSuggestionButtonEnabled = false
-    var wasSuggestionAccepted = false
+    var wasSuggestionChosen = false
     var wasSuggestionModified = false
 
     var description: String?
@@ -83,7 +83,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         }
 
         binding.viewDescriptionEditText.addTextChangedListener {
-            if (wasSuggestionAccepted) {
+            if (wasSuggestionChosen) {
                 wasSuggestionModified = true
             }
             enqueueValidateText()
@@ -426,8 +426,8 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             SuggestedArticleDescriptionsDialog(context, firstSuggestion, secondSuggestion, pageTitle) { suggestion ->
                 binding.viewDescriptionEditText.setText(suggestion)
                 binding.viewDescriptionEditText.setSelection(binding.viewDescriptionEditText.text?.length ?: 0)
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuggestionSelected(context, suggestion, pageTitle)
-                wasSuggestionAccepted = true
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuggestionChosen(context, suggestion, pageTitle)
+                wasSuggestionChosen = true
                 wasSuggestionModified = false
             }.show()
         }
