@@ -25,6 +25,7 @@ import org.wikipedia.util.log.L
 object ReadingListsShareHelper {
 
     const val API_MAX_SIZE = 50
+    const val PROVENANCE_PARAM = "rlsa1"
 
     fun shareEnabled(): Boolean {
         return ReleaseUtil.isPreBetaRelease ||
@@ -57,7 +58,7 @@ object ReadingListsShareHelper {
             }
 
             val param = readingListToUrlParam(readingList, wikiPageIdsMap)
-            val url = WikipediaApp.instance.wikiSite.url() + "/wiki/Special:ReadingLists?limport=$param"
+            val url = WikipediaApp.instance.wikiSite.url() + "/wiki/Special:ReadingLists?limport=$param&wprov=$PROVENANCE_PARAM"
 
             val finalUrl = if (Prefs.useUrlShortenerForSharing) ServiceFactory.get(WikipediaApp.instance.wikiSite).shortenUrl(url).shortenUrl?.shortUrl.orEmpty() else url
 
