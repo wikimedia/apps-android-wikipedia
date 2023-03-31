@@ -195,7 +195,6 @@ class DescriptionEditFragment : Fragment() {
 
     private fun setUpEditView(savedInstanceState: Bundle?) {
         if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
-            analyticsHelper.resetTimer()
             analyticsHelper.articleDescriptionEditingStart(requireContext())
         }
         binding.fragmentDescriptionEditView.setAction(action)
