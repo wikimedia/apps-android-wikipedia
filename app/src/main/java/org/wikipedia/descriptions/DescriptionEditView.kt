@@ -33,6 +33,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         fun onCancelClick()
         fun onBottomBarClick()
         fun onVoiceInputClick()
+        fun getAnalyticsHelper(): MachineGeneratedArticleDescriptionsAnalyticsHelper
     }
 
     constructor(context: Context) : super(context)
@@ -53,7 +54,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     var callback: Callback? = null
 
     var isSuggestionButtonEnabled = false
-    var wasSuggestionAccepted = false
+    var wasSuggestionChosen = false
     var wasSuggestionModified = false
 
     var description: String?
@@ -83,7 +84,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         }
 
         binding.viewDescriptionEditText.addTextChangedListener {
-            if (wasSuggestionAccepted) {
+            if (wasSuggestionChosen) {
                 wasSuggestionModified = true
             }
             enqueueValidateText()
@@ -423,11 +424,11 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             binding.suggestedDescButton.chipIcon = AppCompatResources.getDrawable(context, R.drawable.ic_robot_24)
         }
         binding.suggestedDescButton.setOnClickListener {
-            SuggestedArticleDescriptionsDialog(context, firstSuggestion, secondSuggestion, pageTitle) { suggestion ->
+            SuggestedArticleDescriptionsDialog(context, firstSuggestion, secondSuggestion, pageTitle, callback!!.getAnalyticsHelper()) { suggestion ->
                 binding.viewDescriptionEditText.setText(suggestion)
                 binding.viewDescriptionEditText.setSelection(binding.viewDescriptionEditText.text?.length ?: 0)
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.logSuggestionSelected(context, suggestion, pageTitle)
-                wasSuggestionAccepted = true
+                callback?.getAnalyticsHelper()?.logSuggestionChosen(context, suggestion, pageTitle)
+                wasSuggestionChosen = true
                 wasSuggestionModified = false
             }.show()
         }
