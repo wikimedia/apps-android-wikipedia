@@ -11,7 +11,6 @@ import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.onboarding.OnboardingFragment
 import org.wikipedia.onboarding.OnboardingPageView
-import org.wikipedia.views.GoneIfEmptyTextView
 
 class DescriptionEditTutorialFragment : OnboardingFragment() {
     override val doneButtonText = R.string.description_edit_tutorial_button_label_start_editing
@@ -42,8 +41,8 @@ class DescriptionEditTutorialFragment : OnboardingFragment() {
             super.onCreateView(inflater, container, savedInstanceState)
             val position = requireArguments().getInt(ARG_POSITION, 0)
             val view = inflater.inflate(pages[position], container, false) as OnboardingPageView
-            if(showAIOnBoarding){
-                if(position ==1){
+            if (showAIOnBoarding) {
+                if (position == 1) {
                     view.hideTertiaryTextView(false)
                 }
             }
