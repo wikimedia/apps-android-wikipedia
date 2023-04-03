@@ -81,7 +81,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
         }
     }
 
-    fun hideTertiaryTextView(isVisible: Boolean) {
+    fun setTertiaryTextViewVisible(isVisible: Boolean) {
         binding.tertiaryTextView.isVisible = isVisible
     }
 
