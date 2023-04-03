@@ -46,7 +46,7 @@
   <string name="nav_item_back">Button label for navigating to the previous page.\n\n{{Identical|Back}}</string>
   <string name="page_tabs_back">Back button description when exiting tabs of an article.\n{{Identical|Back}}</string>
   <string name="nav_item_forward">Button label for navigating to the next page.</string>
-  <string name="search_hint">Hint text for the search box</string>
+  <string name="search_hint">Hint text for the search box. Should be as short as possible.</string>
   <string name="search_hint_voice_search">Hint text for the voice input search button</string>
   <string name="search_hint_search_languages">Hint text for the search box.</string>
   <string name="filter_hint_filter_my_lists_and_articles">Hint text for filtering the set of reading lists or pages in a single reading list</string>
