@@ -1071,7 +1071,7 @@
     <string name="suggested_edits_article_descriptions_dialog_title">Suggested descriptions</string>
     <string name="suggested_edits_descriptions_report_dialog_title">What would you like to report?</string>
     <string name="suggested_edits_descriptions_not_enough_info_suggestion">Not enough information</string>
-    <string name="suggested_edits_descriptions_cannot_see_suggestion">Can\'t see description recommendations</string>
+    <string name="suggested_edits_descriptions_cannot_see_suggestion">Can\'t see suggested descriptions</string>
     <string name="suggested_edits_inappropriate_suggestion">Inappropriate suggestion</string>
     <string name="suggested_edits_do_not_understand_suggestion">Don\'t understand the task</string>
     <string name="suggested_edits_report_suggestion">Report</string>
