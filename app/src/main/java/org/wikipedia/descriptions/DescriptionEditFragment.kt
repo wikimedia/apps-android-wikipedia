@@ -221,7 +221,7 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.updateInfoText()
 
         binding.fragmentDescriptionEditView.isSuggestionButtonEnabled =
-                SuggestedArticleDescriptionsDialog.availableLanguages.contains(pageTitle.wikiSite.languageCode) &&
+                AccountUtil.isLoggedIn && SuggestedArticleDescriptionsDialog.availableLanguages.contains(pageTitle.wikiSite.languageCode) &&
                 action == DescriptionEditActivity.Action.ADD_DESCRIPTION && pageTitle.description.isNullOrEmpty() &&
                 MachineGeneratedArticleDescriptionsAnalyticsHelper.abcTest.group != GROUP_1
 
