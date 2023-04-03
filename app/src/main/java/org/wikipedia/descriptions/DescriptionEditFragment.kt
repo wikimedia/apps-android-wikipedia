@@ -44,7 +44,6 @@ import org.wikipedia.suggestededits.SuggestedEditsSurvey
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
-import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 import java.io.IOException
 import java.lang.Runnable
 import java.util.*
@@ -221,8 +220,7 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.updateInfoText()
 
         binding.fragmentDescriptionEditView.isSuggestionButtonEnabled =
-                AccountUtil.isLoggedIn && SuggestedArticleDescriptionsDialog.availableLanguages.contains(pageTitle.wikiSite.languageCode) &&
-                action == DescriptionEditActivity.Action.ADD_DESCRIPTION && pageTitle.description.isNullOrEmpty() &&
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment &&
                 MachineGeneratedArticleDescriptionsAnalyticsHelper.abcTest.group != GROUP_1
 
         if (binding.fragmentDescriptionEditView.isSuggestionButtonEnabled) {
