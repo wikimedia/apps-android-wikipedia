@@ -915,6 +915,8 @@
   <string name="description_starts_with_lowercase">נא להימנע מלהתחיל את התיאור מאות קטנה.</string>
   <string name="description_is_in_different_language">הטקסט מופיע בשפה בלתי־צפויה. השפה אמורה להיות %s.</string>
   <string name="description_verification_notice">נא לוודא שהשפה של התיאור שלך היא %1$s. אין בעיה לסגור את ההודעה הזאת אם השפה שכתבת בה היא %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">הצגת תיאורים מומלצים</string>
+  <string name="description_edit_suggested_description_button_tooltip">לנסות תיאורי ערכים מוצעים על־ידי מכונה</string>
   <string name="description_edit_success_saved">תיאור הערך פורסם!</string>
   <string name="description_edit_success_saved_snackbar">תיאור הערך פורסם!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">תיאור הערך פורסם! (%s)</string>
@@ -932,6 +934,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">יהיה מושלם אם זאת תהיה שורה אחת, בין שתיים לשתים־עשרה מילים</string>
   <string name="description_edit_tutorial_button_label_start_editing">להתחיל לערוך</string>
   <string name="description_edit_tutorial_promise">תחילת העריכה היא התחייבות שלי לא להשתמש באפשרות הזאת לרעה.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">הצעות ממכונה</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">ההצעות מחוללו על־ידי מכונה, לא על־ידי מתנדבים או על־ידי קרן ויקימדיה</string>
   <string name="customize_toolbar_title">התאמת סרגל כלים</string>
   <string name="customize_toolbar_shortcut_description_text">באפשרותך לעשות התאמה אישית של סרגל הכלית התחתון עם חמישה קיצורי דרך שהכי שימושיים לך.</string>
   <string name="customize_toolbar_category_toolbar">סרגל כלים</string>
@@ -1100,6 +1104,14 @@
   <string name="suggested_edits_contribution_type_image_tag">תג תמונה</string>
   <string name="suggested_edits_contribution_current_revision_text">העריכה שלך פורסמה כעת בוויקיפדיה</string>
   <string name="suggested_card_more_edits">עריכות מוצעות נוספות</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">תיאורים מומלצים</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">מה ברצונך לדווח?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">לא מספיק מידע</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">איני רואה הצעות תיאור</string>
+  <string name="suggested_edits_inappropriate_suggestion">הצעה בלתי־הולמת</string>
+  <string name="suggested_edits_do_not_understand_suggestion">לא הבנתי את המשימה</string>
+  <string name="suggested_edits_report_suggestion">דיווח</string>
+  <string name="suggested_edits_suggestion_report_submitted">הדיווח נשלח</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">תג אחד</item>
     <item quantity="two">שני תגים</item>
