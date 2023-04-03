@@ -11,6 +11,7 @@ import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.onboarding.OnboardingFragment
 import org.wikipedia.onboarding.OnboardingPageView
+import org.wikipedia.views.GoneIfEmptyTextView
 
 class DescriptionEditTutorialFragment : OnboardingFragment() {
     override val doneButtonText = R.string.description_edit_tutorial_button_label_start_editing
@@ -32,15 +33,20 @@ class DescriptionEditTutorialFragment : OnboardingFragment() {
         }
 
         override fun createFragment(position: Int): Fragment {
-            return ItemFragment().apply { arguments = bundleOf(ARG_POSITION to position) }
+            return ItemFragment(showAIOnBoarding).apply { arguments = bundleOf(ARG_POSITION to position) }
         }
     }
 
-    class ItemFragment : Fragment() {
+    class ItemFragment(private val showAIOnBoarding: Boolean) : Fragment() {
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
             super.onCreateView(inflater, container, savedInstanceState)
             val position = requireArguments().getInt(ARG_POSITION, 0)
             val view = inflater.inflate(pages[position], container, false) as OnboardingPageView
+            if(showAIOnBoarding){
+                if(position ==1){
+                    view.hideTertiaryTextView(false)
+                }
+            }
             if (position == 2) {
                 MachineGeneratedArticleDescriptionsAnalyticsHelper().logOnboardingShown(requireContext())
             }

@@ -81,6 +81,10 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
         }
     }
 
+    fun hideTertiaryTextView(isVisible: Boolean) {
+        binding.tertiaryTextView.isVisible = isVisible
+    }
+
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
         if (!viewHeightDetected) {
