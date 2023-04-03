@@ -23,30 +23,30 @@ class MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     fun articleDescriptionEditingEnd(context: Context) {
-        log(context, composeGroupString() + ".end")
+        log(context, composeGroupString() + ".end.timeSpentMs:${timer.elapsedMillis}")
     }
 
     fun logAttempt(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle) {
         log(context, composeLogString(title) + ".attempt:$finalDescription" +
-                ".suggestion1:${encode(apiOrderList.first())}" + (if (apiOrderList.size > 1) ".suggestion2.${encode(apiOrderList.last())}" else "") +
-                getOrderString(wasChosen, chosenSuggestion) + ".modified:$wasModified.timeSpentMs.${timer.elapsedMillis}")
+                ".suggestion1:${encode(apiOrderList.first())}" + (if (apiOrderList.size > 1) ".suggestion2:${encode(apiOrderList.last())}" else "") +
+                getOrderString(wasChosen, chosenSuggestion) + ".modified:$wasModified.timeSpentMs:${timer.elapsedMillis}")
     }
 
     fun logSuccess(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle, revId: Long) {
         log(context, composeLogString(title) + ".success:$finalDescription" +
-                ".suggestion1:${encode(apiOrderList.first())}" + (if (apiOrderList.size > 1) ".suggestion2.${encode(apiOrderList.last())}" else "") +
-                getOrderString(wasChosen, chosenSuggestion) + ".modified:$wasModified.timeSpentMs.${timer.elapsedMillis}.revId:$revId")
+                ".suggestion1:${encode(apiOrderList.first())}" + (if (apiOrderList.size > 1) ".suggestion2:${encode(apiOrderList.last())}" else "") +
+                getOrderString(wasChosen, chosenSuggestion) + ".modified:$wasModified.timeSpentMs:${timer.elapsedMillis}.revId:$revId")
     }
 
     fun logSuggestionsReceived(context: Context, isBlp: Boolean, title: PageTitle) {
         apiFailed = false
         log(context, composeLogString(title) + ".blp:$isBlp.count:${apiOrderList.size}.suggestion1:${encode(apiOrderList.first())}" +
-                if (apiOrderList.size > 1) ".suggestion2.${encode(apiOrderList.last())}" else "")
+                if (apiOrderList.size > 1) ".suggestion2:${encode(apiOrderList.last())}" else "")
     }
 
     fun logSuggestionsShown(context: Context, title: PageTitle) {
         log(context, composeLogString(title) + ".count:${displayOrderList.size}.display1:${encode(displayOrderList.first())}" +
-                if (displayOrderList.size > 1) ".display2.${encode(displayOrderList.last())}" else "")
+                if (displayOrderList.size > 1) ".display2:${encode(displayOrderList.last())}" else "")
     }
 
     fun logSuggestionChosen(context: Context, suggestion: String, title: PageTitle) {
@@ -60,7 +60,7 @@ class MachineGeneratedArticleDescriptionsAnalyticsHelper {
 
     fun logSuggestionReported(context: Context, suggestion: String, reportReasonsList: List<String>, title: PageTitle) {
         val reportReasons = reportReasonsList.joinToString("|")
-        log(context, composeLogString(title) + ".reportDialog.${encode(suggestion)}${getOrderString(true, suggestion)}.reasons:$reportReasons.reported")
+        log(context, composeLogString(title) + ".reportDialog.suggestion:${encode(suggestion)}${getOrderString(true, suggestion)}.reasons:$reportReasons.reported")
     }
 
     fun logReportDialogDismissed(context: Context) {
@@ -76,7 +76,7 @@ class MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     fun logApiFailed(context: Context, throwable: Throwable, title: PageTitle) {
-        log(context, composeLogString(title) + ".apiError.${throwable.message}")
+        log(context, composeLogString(title) + ".apiError:${throwable.message}")
         apiFailed = true
     }
 
@@ -88,7 +88,7 @@ class MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     private fun getOrderString(wasChosen: Boolean, suggestion: String): String {
-        return ".chosenApiIndex.${if (!wasChosen) -1 else apiOrderList.indexOf(suggestion) + 1}" +
+        return ".chosenApiIndex:${if (!wasChosen) -1 else apiOrderList.indexOf(suggestion) + 1}" +
                 ".chosenDisplayIndex:${if (!wasChosen) -1 else displayOrderList.indexOf(suggestion) + 1}"
     }
 

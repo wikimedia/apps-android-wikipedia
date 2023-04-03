@@ -10,6 +10,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_1
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
@@ -35,8 +36,8 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
         val pageTitle = intent.getParcelableExtra<PageTitle>(EXTRA_TITLE)!!
 
-        MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment = (action == Action.ADD_DESCRIPTION &&
-                pageTitle.description.isNullOrEmpty() &&
+        MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment = (AccountUtil.isLoggedIn &&
+                action == Action.ADD_DESCRIPTION && pageTitle.description.isNullOrEmpty() &&
                 SuggestedArticleDescriptionsDialog.availableLanguages.contains(pageTitle.wikiSite.languageCode))
 
         val shouldShowAIOnBoarding = MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment &&
