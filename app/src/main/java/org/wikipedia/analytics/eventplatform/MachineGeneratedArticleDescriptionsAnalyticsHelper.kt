@@ -23,7 +23,7 @@ class MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     fun articleDescriptionEditingEnd(context: Context) {
-        log(context, composeGroupString() + ".end")
+        log(context, composeGroupString() + ".timeSpentMs:${timer.elapsedMillis}.end")
     }
 
     fun logAttempt(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle) {
