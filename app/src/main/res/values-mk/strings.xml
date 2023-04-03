@@ -862,6 +862,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По можност еден ред, од два до дванаесет збора</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почнете со уредување</string>
   <string name="description_edit_tutorial_promise">Почнувајќи, ветувам дека нема да ја злоупотребувам функцијава.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Машински предлози</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Предлозите ги дава машина, а не доброволци или Фондацијата Викимедија</string>
   <string name="customize_toolbar_title">Прилагодување на алатникот</string>
   <string name="customize_toolbar_shortcut_description_text">Прилагодете го алатникот на дното со 5 кратенки кои ви се најкорисни.</string>
   <string name="customize_toolbar_category_toolbar">Алатник</string>
