@@ -4,7 +4,6 @@ import android.content.Context
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_1
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.page.PageTitle
@@ -38,7 +37,7 @@ class MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     private fun getSuggestionOrderString(wasChosen: Boolean, wasModified: Boolean): String {
-       return if (abcTest.group == GROUP_1) {
+       return if (apiOrderList.isEmpty() || displayOrderList.isEmpty()) {
            ""
        } else {
            ".suggestion1:${encode(apiOrderList.first())}" + (if (apiOrderList.size > 1) ".suggestion2:${encode(apiOrderList.last())}" else "") +
