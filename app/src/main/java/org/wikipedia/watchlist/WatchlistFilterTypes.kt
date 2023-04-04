@@ -16,7 +16,7 @@ enum class WatchlistFilterTypes constructor(val id: String,
         R.string.watchlist_filter_type_of_change_page_creations, "new"),
     CATEGORY_CHANGES("categoryChanges",
         R.string.watchlist_filter_type_of_change_category_changes, "categorize"),
-    WIKIDATA_EDITS("wikidataEdits",
+    WIKIDATA_EDITS("wikiDataEdits",
         R.string.watchlist_filter_type_of_change_wikidata_edits, "external"),
     LOGGED_ACTIONS("loggedActions",
         R.string.watchlist_filter_type_of_change_logged_actions, "log"),
@@ -94,7 +94,7 @@ enum class WatchlistFilterTypes constructor(val id: String,
         val UNSEEN_CHANGES_GROUP = listOf(ALL_CHANGES, UNSEEN_CHANGES, SEEN_CHANGES)
         val LATEST_REVISIONS_GROUP = listOf(ALL_REVISIONS, LATEST_REVISION, NOT_LATEST_REVISION)
         val USER_STATUS_GROUP = listOf(ALL_USERS, UNREGISTERED, REGISTERED)
-        val DEFAULT_FILTER_TYPE_SET = setOf(PAGE_EDITS, PAGE_CREATIONS, CATEGORY_CHANGES, WIKIDATA_EDITS, LOGGED_ACTIONS, ALL_EDITS, ALL_CHANGES, ALL_REVISIONS, ALL_EDITORS, ALL_USERS)
+        val DEFAULT_FILTER_TYPE_SET = setOf(PAGE_EDITS, PAGE_CREATIONS, LOGGED_ACTIONS, ALL_EDITS, ALL_CHANGES, ALL_REVISIONS, ALL_EDITORS, ALL_USERS)
 
         private val MAP = EnumCodeMap(WatchlistFilterTypes::class.java)
 
