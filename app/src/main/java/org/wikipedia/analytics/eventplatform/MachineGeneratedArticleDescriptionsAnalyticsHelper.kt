@@ -4,6 +4,7 @@ import android.content.Context
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_1
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.page.PageTitle
@@ -27,15 +28,22 @@ class MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     fun logAttempt(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle) {
-        log(context, composeLogString(title) + ".attempt:$finalDescription" +
-                ".suggestion1:${encode(apiOrderList.first())}" + (if (apiOrderList.size > 1) ".suggestion2:${encode(apiOrderList.last())}" else "") +
-                getOrderString(wasChosen, chosenSuggestion) + ".modified:$wasModified.timeSpentMs:${timer.elapsedMillis}")
+        log(context, composeLogString(title) + ".attempt:$finalDescription ${getSuggestionOrderString(wasChosen, wasModified)}" +
+                ".timeSpentMs:${timer.elapsedMillis}")
     }
 
     fun logSuccess(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle, revId: Long) {
-        log(context, composeLogString(title) + ".success:$finalDescription" +
-                ".suggestion1:${encode(apiOrderList.first())}" + (if (apiOrderList.size > 1) ".suggestion2:${encode(apiOrderList.last())}" else "") +
-                getOrderString(wasChosen, chosenSuggestion) + ".modified:$wasModified.timeSpentMs:${timer.elapsedMillis}.revId:$revId")
+        log(context, composeLogString(title) + ".success:$finalDescription ${getSuggestionOrderString(wasChosen, wasModified)}" +
+                    ".timeSpentMs:${timer.elapsedMillis}.revId:$revId")
+    }
+
+    private fun getSuggestionOrderString(wasChosen: Boolean, wasModified: Boolean): String {
+       return if (abcTest.group == GROUP_1) {
+           ""
+       } else {
+           ".suggestion1:${encode(apiOrderList.first())}" + (if (apiOrderList.size > 1) ".suggestion2:${encode(apiOrderList.last())}" else "") +
+                   getOrderString(wasChosen, chosenSuggestion) + ".modified:$wasModified"
+       }
     }
 
     fun logSuggestionsReceived(context: Context, isBlp: Boolean, title: PageTitle) {
