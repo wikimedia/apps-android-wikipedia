@@ -6,4 +6,5 @@
     app:centeredImage="@drawable/illustration_ai_article_descriptions"
     app:imageSize="260dp"
     app:primaryText="@string/description_edit_tutorial_machine_suggestions_title"
-    app:secondaryText="@string/description_edit_tutorial_machine_suggestions_description" />
+    app:secondaryText="@string/description_edit_tutorial_machine_suggestions_description"
+    app:tertiaryText="@string/description_edit_tutorial_promise"/>
