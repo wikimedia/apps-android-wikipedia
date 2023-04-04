@@ -41,6 +41,9 @@ jobs:
         tag_name: latest
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Sleep for 30 seconds, to allow the tag to be deleted
+      run: sleep 30s
+      shell: bash
     - uses: ncipollo/release-action@v1.12.0
       name: Create new tag and release and upload artifacts
       with:
