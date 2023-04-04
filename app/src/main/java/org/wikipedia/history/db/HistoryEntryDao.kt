@@ -20,6 +20,9 @@ interface HistoryEntryDao {
     @Query("DELETE FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND namespace = :namespace AND apiTitle = :apiTitle")
     suspend fun deleteBy(authority: String, lang: String, namespace: String?, apiTitle: String)
 
+    @Upsert
+    suspend fun upsert(entry: HistoryEntry)
+
     @Transaction
     suspend fun insert(entries: List<HistoryEntry>) {
         entries.forEach {
@@ -29,19 +32,5 @@ interface HistoryEntryDao {
 
     suspend fun delete(entry: HistoryEntry) {
         deleteBy(entry.authority, entry.lang, entry.namespace, entry.apiTitle)
-    }
-
-    @Transaction
-    suspend fun upsertWithTimeSpent(entry: HistoryEntry, timeSpent: Int) {
-        val curEntry = findEntryBy(entry.authority, entry.lang, entry.apiTitle)
-        if (curEntry != null) {
-            curEntry.timeSpentSec += timeSpent
-            curEntry.source = entry.source
-            curEntry.timestamp = entry.timestamp
-            insertEntry(curEntry)
-        } else {
-            entry.timeSpentSec += timeSpent
-            insertEntry(entry)
-        }
     }
 }
