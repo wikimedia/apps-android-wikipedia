@@ -18,8 +18,6 @@ import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.graphics.Insets
-import androidx.core.view.ActionProvider
-import androidx.core.view.MenuItemCompat
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -41,9 +39,9 @@ import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.*
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.FragmentUtil.getCallback
-import org.wikipedia.analytics.*
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
+import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
@@ -121,7 +119,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageRequestLangLinks(title: PageTitle)
         fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, source: Int, options: ActivityOptionsCompat?)
         fun onPageRequestAddImageTags(mwQueryPage: MwQueryPage, invokeSource: InvokeSource)
-        fun onPageRequestEditDescriptionTutorial(text: String?, invokeSource: InvokeSource)
         fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,
                                          targetSummary: PageSummaryForEdit?, action: DescriptionEditActivity.Action, invokeSource: InvokeSource)
     }
@@ -140,7 +137,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private lateinit var pageFragmentLoadState: PageFragmentLoadState
     private lateinit var bottomBarHideHandler: ViewHideHandler
     internal var articleInteractionEvent: ArticleInteractionEvent? = null
-    private var pageScrollFunnel: PageScrollFunnel? = null
     private var pageRefreshed = false
     private var errorState = false
     private var watchlistExpiryChanged = false
@@ -265,7 +261,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         addTimeSpentReading(activeTimer.elapsedSec)
         pageFragmentLoadState.updateCurrentBackStackItem()
         app.commitTabState()
-        closePageScrollFunnel()
         val time = if (app.tabList.size >= 1 && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
         Prefs.pageLastShown = time
         articleInteractionEvent?.pause()
@@ -273,7 +268,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     override fun onResume() {
         super.onResume()
-        initPageScrollFunnel()
         activeTimer.resume()
         val params = CoordinatorLayout.LayoutParams(1, 1)
         binding.pageImageTransitionHolder.layoutParams = params
@@ -359,10 +353,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         webView.addOnUpOrCancelMotionEventListener {
             // update our session, since it's possible for the user to remain on the page for
             // a long time, and we wouldn't want the session to time out.
-            app.sessionFunnel.touchSession()
-        }
-        webView.addOnScrollChangeListener { oldScrollY, scrollY, isHumanScroll ->
-            pageScrollFunnel?.onPageScrolled(oldScrollY, scrollY, isHumanScroll)
+            app.appSessionEvent.touchSession()
         }
         webView.addOnContentHeightChangedListener(scrollTriggerListener)
         webView.webViewClient = object : OkHttpWebViewClient() {
@@ -526,15 +517,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    private fun closePageScrollFunnel() {
-        if (webView.contentHeight > 0) {
-            pageScrollFunnel?.setViewportHeight(webView.height)
-            pageScrollFunnel?.setPageHeight(webView.contentHeight)
-            pageScrollFunnel?.logDone()
-        }
-        pageScrollFunnel = null
-    }
-
     private fun dismissBottomSheet() {
         ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
         callback()?.onPageDismissBottomSheet()
@@ -684,7 +666,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             startSupportActionMode(object : ActionMode.Callback {
                 override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
                     val menuItem = menu.add(R.string.menu_page_find_in_page)
-                    MenuItemCompat.setActionProvider(menuItem, FindReferenceInPageActionProvider(requireContext(), referenceAnchor, referenceText, backLinksList))
+                    menuItem.actionProvider = FindReferenceInPageActionProvider(requireContext(), referenceAnchor, referenceText, backLinksList)
                     menuItem.expandActionView()
                     return true
                 }
@@ -698,14 +680,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     return false
                 }
 
-                override fun onDestroyActionMode(mode: ActionMode) {}
+                override fun onDestroyActionMode(mode: ActionMode) {
+                    bridge.execute(JavaScriptActionHandler.removeHighlights())
+                }
             })
-        }
-    }
-
-    private fun initPageScrollFunnel() {
-        model.page?.run {
-            pageScrollFunnel = PageScrollFunnel(app, pageProperties.pageId)
         }
     }
 
@@ -883,7 +861,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageRefreshContainer.isEnabled = true
         binding.pageRefreshContainer.isRefreshing = false
         requireActivity().invalidateOptionsMenu()
-        initPageScrollFunnel()
         model.readingListPage?.let { page ->
             model.title?.let { title ->
                 disposables.add(Completable.fromAction {
@@ -963,6 +940,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             PollNotificationWorker.schedulePollNotificationJob(requireContext())
         }
 
+        EventPlatformClient.AssociationController.beginNewPageView()
+
         // update the time spent reading of the current page, before loading the new one
         addTimeSpentReading(activeTimer.elapsedSec)
         activeTimer.reset()
@@ -983,7 +962,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         pageRefreshed = isRefresh
         references = null
         revision = 0
-        closePageScrollFunnel()
         pageFragmentLoadState.load(pushBackStack)
         scrollTriggerListener.stagedScrollY = stagedScrollY
     }
@@ -1150,7 +1128,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 AlertDialog.Builder(requireActivity())
                     .setMessage(R.string.description_edit_anon_limit)
                     .setPositiveButton(R.string.page_editing_login) { _, _ ->
-                        startActivity(LoginActivity.newIntent(requireContext(), LoginFunnel.SOURCE_EDIT))
+                        startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_EDIT))
                     }
                     .setNegativeButton(R.string.description_edit_login_cancel_button_text, null)
                     .show()
@@ -1160,15 +1138,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun startDescriptionEditActivity(text: String?, invokeSource: InvokeSource) {
-        if (Prefs.isDescriptionEditTutorialEnabled) {
-            callback()?.onPageRequestEditDescriptionTutorial(text, invokeSource)
-        } else {
-            title?.run {
-                val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayText, description, thumbUrl)
-                callback()?.onPageRequestEditDescription(text, this, sourceSummary, null,
-                    DescriptionEditActivity.Action.ADD_DESCRIPTION, invokeSource)
-            }
+    private fun startDescriptionEditActivity(text: String?, invokeSource: InvokeSource) {
+        title?.run {
+            val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this,
+                displayText, description, thumbUrl)
+            callback()?.onPageRequestEditDescription(text, this, sourceSummary, null,
+                DescriptionEditActivity.Action.ADD_DESCRIPTION, invokeSource)
         }
     }
 

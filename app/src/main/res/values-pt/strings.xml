@@ -482,10 +482,6 @@
     <item quantity="one">%1$d de 1 artigo disponível \'\'offline\'\', %3$.2f MB</item>
     <item quantity="other">%1$d de %2$d artigos disponíveis \'\'offline\'\', %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artigo, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artigos, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d de 1 artigos disponíveis offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d de %2$d artigos disponíveis offline, %3$.2f MB</string>
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_ellipsis">Ordenar por...</string>
   <string name="reading_list_sort_by_name">Ordenar por nome</string>
@@ -591,6 +587,10 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancelar</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_activity_title">Lista de leitura: %s</string>
+  <string name="reading_lists_preview_save_dialog_title">Gravar lista</string>
+  <string name="reading_lists_preview_save_dialog_text">Dê um nome à lista e selecione artigos para gravar.</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Cancelar</string>
+  <string name="reading_lists_preview_save_dialog_save">Gravar</string>
   <string name="user_option_sync_label">Preferências</string>
   <string name="notification_reverted_title">Edição desfeita</string>
   <string name="notification_channel_title">A descarregar artigos</string>
@@ -1289,7 +1289,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Lista de leitura importada</string>
   <string name="reading_list_share_menu_label">Partilhar...</string>
   <string name="reading_list_share_menu_tooltip">Partilhar esta lista de leitura com outras pessoas</string>
-  <string name="reading_list_share_title_tooltip">As alterações que fizer nesta lista não podem ser vistas por outras pessoas.</string>
   <string name="reading_list_share_message_v2">Olá! Gostaria de partilhar a minha lista de leitura da Wikipédia consigo:</string>
   <string name="reading_list_share_survey_title">Podia ajudar-nos a melhorar \"Partilhar listas de leitura\"?</string>
   <string name="reading_list_share_survey_body">Partilhar listas de leitura é uma funcionalidade em testes e precisamos dos seus comentários para melhorá-la ou removê-la.</string>

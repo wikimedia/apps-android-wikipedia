@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -21,7 +22,6 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.IntentFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.history.HistoryEntry
@@ -91,7 +91,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
                     position = app.languageState.appLanguageCodes.indexOf(searchLanguageCode)
                 }
             }
-            searchResultsFragment.clearSearchResultsCountCache()
             Prefs.selectedLanguagePositionInSearch = position
         }
     }
@@ -114,6 +113,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         recentSearchesFragment.callback = this
         searchResultsFragment = childFragmentManager.findFragmentById(
                 R.id.fragment_search_results) as SearchResultsFragment
+        (activity as? AppCompatActivity)?.setSupportActionBar(binding.searchToolbar)
         binding.searchToolbar.setNavigationOnClickListener { requireActivity().supportFinishAfterTransition() }
         initialLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty()
         binding.searchContainer.setOnClickListener { onSearchContainerClick() }
@@ -138,14 +138,11 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     private fun handleIntent(intent: Intent) {
-        val intentFunnel = IntentFunnel(WikipediaApp.instance)
         if (Intent.ACTION_SEND == intent.action && Constants.PLAIN_TEXT_MIME_TYPE == intent.type) {
-            intentFunnel.logShareIntent()
             requireArguments().putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_TEXT))
             requireArguments().putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, InvokeSource.INTENT_SHARE)
         } else if (Intent.ACTION_PROCESS_TEXT == intent.action && Constants.PLAIN_TEXT_MIME_TYPE ==
                 intent.type && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            intentFunnel.logProcessTextIntent()
             requireArguments().putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT))
             requireArguments().putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, InvokeSource.INTENT_PROCESS_TEXT)
         }
@@ -265,7 +262,12 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         if (term.isNullOrBlank() && !force) {
             return
         }
-        searchResultsFragment.startSearch(term, force)
+        binding.searchContainer.postDelayed({
+            if (!isAdded) {
+                return@postDelayed
+            }
+            searchResultsFragment.startSearch(term, force)
+        }, if (invokeSource == InvokeSource.VOICE) VOICE_SEARCH_DELAY_MILLIS else 0)
     }
 
     private fun openSearch() {
@@ -350,7 +352,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         searchLanguageCode = selectedLanguageCode
         searchResultsFragment.setLayoutDirection(searchLanguageCode)
         recentSearchesFragment.onLangCodeChanged()
-        startSearch(query, true)
+        startSearch(query, false)
     }
 
     override fun onLanguageButtonClicked() {
@@ -361,6 +363,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         private const val ARG_QUERY = "lastQuery"
         private const val PANEL_RECENT_SEARCHES = 0
         private const val PANEL_SEARCH_RESULTS = 1
+        private const val VOICE_SEARCH_DELAY_MILLIS = 500L
         const val RESULT_LANG_CHANGED = 1
         const val LANG_BUTTON_TEXT_SIZE_LARGER = 12
         const val LANG_BUTTON_TEXT_SIZE_MEDIUM = 10

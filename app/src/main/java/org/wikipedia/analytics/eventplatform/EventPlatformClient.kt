@@ -1,5 +1,6 @@
 package org.wikipedia.analytics.eventplatform
 
+import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.core.os.postDelayed
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -71,7 +72,8 @@ object EventPlatformClient {
         OutputBuffer.sendAllScheduled()
     }
 
-    private fun refreshStreamConfigs() {
+    @SuppressLint("CheckResult")
+    fun refreshStreamConfigs() {
         ServiceFactory.getObservable(WikiSite(BuildConfig.META_WIKI_BASE_URI)).flatMap { it.streamConfigs }
                 .subscribeOn(Schedulers.io())
                 .subscribe({ updateStreamConfigs(it.streamConfigs) }) { L.e(it) }
@@ -84,6 +86,7 @@ object EventPlatformClient {
         Prefs.streamConfigs = STREAM_CONFIGS
     }
 
+    @Synchronized
     fun setUpStreamConfigs() {
         STREAM_CONFIGS.clear()
         STREAM_CONFIGS.putAll(Prefs.streamConfigs)
@@ -156,6 +159,7 @@ object EventPlatformClient {
             }
         }
 
+        @SuppressLint("CheckResult")
         fun sendEventsForStream(streamConfig: StreamConfig, events: List<Event>) {
             (if (ReleaseUtil.isDevRelease)
                 ServiceFactory.getAnalyticsRest(streamConfig).postEvents(events)
@@ -252,6 +256,10 @@ object EventPlatformClient {
             Prefs.eventPlatformSessionId = null
 
             // A session refresh implies a pageview refresh, so clear runtime value of PAGEVIEW_ID.
+            beginNewPageView()
+        }
+
+        fun beginNewPageView() {
             PAGEVIEW_ID = null
         }
 
@@ -314,7 +322,7 @@ object EventPlatformClient {
                 return AssociationController.pageViewId
             }
             if (unit == SamplingConfig.UNIT_DEVICE) {
-                return Prefs.appInstallId.orEmpty()
+                return WikipediaApp.instance.appInstallID
             }
             L.e("Bad identifier type")
             return UUID.randomUUID().toString()

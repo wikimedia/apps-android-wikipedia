@@ -4,7 +4,6 @@ import android.app.Activity
 import androidx.appcompat.app.AlertDialog
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.databinding.DialogWithCheckboxBinding
 import org.wikipedia.events.ReadingListsEnableSyncStatusEvent
 import org.wikipedia.login.LoginActivity
@@ -60,7 +59,7 @@ object ReadingListSyncBehaviorDialogs {
                 .setTitle(R.string.reading_list_login_reminder_title)
                 .setView(binding.root)
                 .setPositiveButton(R.string.reading_list_preference_login_or_signup_to_enable_sync_dialog_login) { _, _ ->
-                    val loginIntent = LoginActivity.newIntent(activity, LoginFunnel.SOURCE_READING_MANUAL_SYNC)
+                    val loginIntent = LoginActivity.newIntent(activity, LoginActivity.SOURCE_READING_MANUAL_SYNC)
                     activity.startActivity(loginIntent)
                 }
                 .setNegativeButton(R.string.reading_list_prompt_turned_sync_on_dialog_no_thanks, null)

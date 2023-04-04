@@ -41,7 +41,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.talk.UserTalkPopupHelper
@@ -90,7 +89,7 @@ class EditHistoryListActivity : BaseActivity() {
         binding.compareConfirmButton.setOnClickListener {
             if (viewModel.selectedRevisionFrom != null && viewModel.selectedRevisionTo != null) {
                 startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
-                        viewModel.pageTitle, viewModel.selectedRevisionFrom!!.revId,
+                        viewModel.pageTitle, viewModel.pageId, viewModel.selectedRevisionFrom!!.revId,
                         viewModel.selectedRevisionTo!!.revId))
             }
             editHistoryInteractionEvent?.logCompare2()
@@ -409,7 +408,6 @@ class EditHistoryListActivity : BaseActivity() {
 
         fun bindItem() {
             binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.page_edit_history_empty_search_message))
-            RichTextUtil.removeUnderlinesFromLinks(binding.emptySearchMessage)
             binding.searchEmptyText.isVisible = actionMode != null
             binding.searchEmptyContainer.isVisible = Prefs.editHistoryFilterType.isNotEmpty()
         }
@@ -430,7 +428,7 @@ class EditHistoryListActivity : BaseActivity() {
                 toggleSelectState()
             } else {
                 startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
-                        viewModel.pageTitle, revision.revId))
+                        viewModel.pageTitle, viewModel.pageId, revision.revId))
             }
         }
 

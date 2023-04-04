@@ -6,9 +6,11 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewCardHeaderBinding
@@ -66,16 +68,25 @@ class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) 
     }
 
     fun setLangCode(langCode: String?): CardHeaderView {
+        binding.viewListCardHeaderSecondaryIcon.isVisible = false
         if (langCode.isNullOrEmpty() || WikipediaApp.instance.languageState.appLanguageCodes.size < 2) {
-            binding.viewListCardHeaderLangBackground.visibility = View.GONE
-            binding.viewListCardHeaderLangCode.visibility = View.GONE
+            binding.viewListCardHeaderLangBackground.isVisible = false
+            binding.viewListCardHeaderLangCode.isVisible = false
             L10nUtil.setConditionalLayoutDirection(this, WikipediaApp.instance.languageState.systemLanguageCode)
         } else {
-            binding.viewListCardHeaderLangBackground.visibility = VISIBLE
-            binding.viewListCardHeaderLangCode.visibility = VISIBLE
+            binding.viewListCardHeaderLangBackground.isVisible = true
+            binding.viewListCardHeaderLangCode.isVisible = true
             binding.viewListCardHeaderLangCode.text = langCode
             L10nUtil.setConditionalLayoutDirection(this, langCode)
         }
+        return this
+    }
+
+    fun setSecondaryIcon(@DrawableRes id: Int): CardHeaderView {
+        binding.viewListCardHeaderSecondaryIcon.setImageResource(id)
+        binding.viewListCardHeaderSecondaryIcon.isVisible = true
+        binding.viewListCardHeaderLangBackground.isVisible = false
+        binding.viewListCardHeaderLangCode.isVisible = false
         return this
     }
 

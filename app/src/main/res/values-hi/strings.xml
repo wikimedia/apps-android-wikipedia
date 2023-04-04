@@ -478,10 +478,6 @@
     <item quantity="one">%1$d में से 1 लेख ऑफ़लाइन उपलब्ध, %3$.2f एमबी</item>
     <item quantity="other"> %2$d लेखों में से %1$d लेख ऑफ़लाइन उपलब्ध , %3$.2f एमबी</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 लेख, %1$.2f मेगाबाइट</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d लेख, %2$.2f मेगाबाइट</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d में से 1 लेख ऑफलाइन उपलब्ध हैं, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d में से %1$d लेख ऑफलाइन उपलब्ध हैं, %3$.2f MiB</string>
   <string name="reading_list_sort">छांटें</string>
   <string name="reading_list_sort_ellipsis">के अनुसार क्रमबद्ध करें</string>
   <string name="reading_list_sort_by_name">नाम से छांटें</string>
@@ -587,6 +583,13 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द करें</string>
   <string name="reading_list_split_dialog_ok_button_text">ठीक है</string>
   <string name="reading_list_activity_title">पठन सूची: %s</string>
+  <string name="reading_lists_preview_save_button">सहेजें</string>
+  <string name="reading_lists_preview_save_dialog_title">लिस्ट सेव करें</string>
+  <string name="reading_lists_preview_save_dialog_text">सेव करने के लिए नाम की लिस्ट और आर्टिकल्स चुनें</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">शीर्षक</string>
+  <string name="reading_lists_preview_save_dialog_cancel">रद्द करें</string>
+  <string name="reading_lists_preview_save_dialog_save">सहेजें</string>
+  <string name="reading_lists_preview_saved_snackbar_action">देखें</string>
   <string name="user_option_sync_label">वरीयता</string>
   <string name="notification_reverted_title">संपादन वापस लिया गया</string>
   <string name="notification_channel_title">लेख डाउनलोड हो रहे हैं</string>
@@ -1182,6 +1185,9 @@
   <string name="watchlist_page_moved">स्थानांतरित किया गया</string>
   <string name="watchlist_page_protected">सुरक्षित किया गया</string>
   <string name="watchlist_page_deleted">हटाया</string>
+  <string name="watchlist_filter_all_text">सभी</string>
+  <string name="watchlist_filter_automated_contributions_bot">बॉट</string>
+  <string name="watchlist_filter_reset_button">रीसेट करें</string>
   <string name="preview_edit_title">संपादन पूर्वावलोकन</string>
   <string name="preview_edit_summarize_edit_title">संपादन सारांश</string>
   <string name="preview_edit_summarize_edit_hint">आपने .इस पृष्ठ में सुधार कैसे किया?</string>
@@ -1206,7 +1212,6 @@
   <string name="user_contrib_menu_label">योगदान</string>
   <string name="reading_list_share_menu_label">साझा करें…</string>
   <string name="reading_list_share_menu_tooltip">यह रीडिंग लिस्ट अन्य लोगों के साथ साझा करें</string>
-  <string name="reading_list_share_title_tooltip">आप इस लिस्ट में जो भी बदलाव करते हैं, उन्हें दूसरे लोग नहीं देख सकते हैं।</string>
   <string name="reading_list_share_message_v2">हैलो! मैं अपना Wikipedia रीडिंग लिस्ट आपके साथ साझा करना चाहता/चाहती हूं :</string>
   <string name="reading_list_share_survey_title">क्या आप \"रीडिंग लिस्ट साझा करें\" में सुधार लाने में हमारी सहायता करेंगे?</string>
   <string name="reading_list_share_survey_body">\"रीडिंग लिस्ट साझा करें\" इस टेस्ट फीचर है और उसे सुधरने या हटाने में आपकी फीडबैक की जरूरत है।</string>

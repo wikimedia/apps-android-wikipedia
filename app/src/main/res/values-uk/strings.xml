@@ -483,11 +483,23 @@
   <string name="reading_list_articles_already_exist_message">Усе добре! %s уже містить всі статті.</string>
   <string name="reading_list_added_view_button">Перегляд списку</string>
   <string name="reading_list_add_to_list_button">Додати до списку</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 стаття</item>
+    <item quantity="few">%d статі</item>
+    <item quantity="many">%d статей</item>
+    <item quantity="other">%d статей</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 стаття, %2$.2f MB</item>
     <item quantity="few">%1$d статті, %2$.2f MB</item>
     <item quantity="many">%1$d статей, %2$.2f MB</item>
     <item quantity="other">%1$d статей, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d з 1 статті доступна офлайн</item>
+    <item quantity="few">%1$d з %2$d статей доступні офлайн</item>
+    <item quantity="many">%1$d з %2$d статей доступні офлайн</item>
+    <item quantity="other">%1$d з %2$d статей доступні офлайн</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d 1 статті доступно офлайн, %3$.2f MB</item>
@@ -495,10 +507,6 @@
     <item quantity="many">%1$d %2$d статей доступно офлайн, %3$.2f MB</item>
     <item quantity="other">%1$d %2$d статей доступно офлайн, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 стаття, %1$.2f Mб</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d статті, %2$.2f Mб</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d з 1 статтей доступні автономно, %2$.2f Mб</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d із %2$d статей доступні автономно, %3$.2f Mб</string>
   <string name="reading_list_sort">Сортувати</string>
   <string name="reading_list_sort_ellipsis">Сортувати за…</string>
   <string name="reading_list_sort_by_name">Сортувати за назвою</string>
@@ -508,6 +516,10 @@
   <string name="reading_list_sort_by_created">Сортувати за датою створення (нові зверху)</string>
   <string name="reading_list_sort_by_created_desc">Сортувати за датою створення (старші зверху)</string>
   <string name="reading_list_menu_delete">Видалити список</string>
+  <string name="reading_list_menu_export">Експортувати список</string>
+  <string name="reading_list_menu_select">Вибрати</string>
+  <string name="reading_list_menu_unselect">Скасувати вибір</string>
+  <string name="reading_list_export_write_permission_rationale">Для експортування вашого списку читання потрібен дозвіл на запис у сховищі вашого пристрою.</string>
   <string name="reading_list_menu_rename">Редагувати назву/опис</string>
   <string name="reading_list_action_menu_remove_from_offline">Видалити з автономного</string>
   <string name="reading_list_action_menu_save_for_offline">Зберегти до автономного</string>
@@ -532,6 +544,17 @@
     <item quantity="many">%d статей вилучено з %s</item>
     <item quantity="other">%d статей вилучено з %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d список вилучено</item>
+    <item quantity="few">%d списки вилучено</item>
+    <item quantity="many">%d списків вилучено</item>
+    <item quantity="other">%d списків вилучено</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Стандартний список (%s) не можна вилучити</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s вилучено. Список за замовчуванням (%2$s) не можна вилучити.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Списки вилучено. Список за замовчуванням (%s) не можна вилучити.</string>
+  <string name="single_list_json_file_name">%s (список читання Вікіпедії).json</string>
+  <string name="multiple_lists_json_file_name">Списки читання Вікіпедії (%s і більше).json</string>
   <string name="reading_list_items_deleted">%d статей вилучено зі списку</string>
   <string name="reading_lists_item_deleted">%s видалено зі списків</string>
   <string name="reading_list_item_delete_undo">Скасувати</string>
@@ -564,6 +587,13 @@
   <string name="reading_list_articles_added_to_named">Додано статті (%1$d) до %2$s</string>
   <string name="reading_list_articles_moved_to_named">Перенесено статті (%1$d) до %2$s</string>
   <string name="reading_list_delete_confirm">Ви дійсно хочете вилучити %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Вилучити вибрані списки?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Ви впевнені, що бажаєте вилучити %d список?</item>
+    <item quantity="few">…Ви впевнені, що бажаєте вилучити %d списки?</item>
+    <item quantity="many">Ви впевнені, що бажаєте вилучити %d списків?</item>
+    <item quantity="other">Ви впевнені, що бажаєте вилучити %d списків?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Увійдіть, щоб увімкнути синхронізацію</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Увійдіть, щоб дозволити зберігати Ваші списки для читання у Вашому обліковому записі.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Скасувати</string>
@@ -587,6 +617,7 @@
   <string name="reading_list_article_limit_message">Неможливо додати до цього списку. Список «%1$s» досяг ліміту статей, а саме %2$d.</string>
   <string name="reading_lists_limit_message">Неможливо створити інший список. Ви досягли ліміту — 100 списків читання в одному обліковому записі.</string>
   <string name="reading_lists_menu_create_list">Створити новий список</string>
+  <string name="reading_lists_menu_import_list">Імпортувати список</string>
   <string name="reading_lists_menu_sort_by">Сортувати за</string>
   <string name="reading_lists_refresh_sync_option">Оновити синхронізацію</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Увійти / зареєструватися</string>
@@ -611,7 +642,37 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Скасувати</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Скасувати</string>
   <string name="reading_list_split_dialog_ok_button_text">Гаразд</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Вилучити</string>
   <string name="reading_list_activity_title">Список читання: %s</string>
+  <string name="reading_list_notification_title">Списки для читання експортовано</string>
+  <string name="reading_list_notification_text">%d списків для читання експортовано як reading_lists export.json у вашу папку завантажень</string>
+  <string name="reading_list_notification_detailed_text">Списки для читання експортовано до reading_lists_export.json</string>
+  <string name="reading_lists_action_menu_export_lists">Експорт</string>
+  <string name="reading_lists_import_file_picker_title">Виберіть файл для імпорту</string>
+  <string name="reading_lists_import_failure_message">Не вдалося імпортувати списки читання</string>
+  <string name="reading_lists_export_select_lists_message">Виберіть список(и) для експорту</string>
+  <string name="reading_lists_export_completed_message">Списки для читання експортовано</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Не вдалося експортувати список для читання</item>
+    <item quantity="few">Не вдалося експортувати списки для читання</item>
+    <item quantity="many">Не вдалося експортувати списки для читання</item>
+    <item quantity="other">Не вдалося експортувати списки для читання</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Список для читання імпортовано</item>
+    <item quantity="few">Списки для читання імпортовано</item>
+    <item quantity="many">Списки для читання імпортовано</item>
+    <item quantity="other">Списки для читання імпортовано</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Спільний список</string>
+  <string name="reading_lists_preview_save_button">Зберегти</string>
+  <string name="reading_lists_preview_save_dialog_title">Зберегти список</string>
+  <string name="reading_lists_preview_save_dialog_text">Назвіть список і виберіть статті для збереження.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Назва</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Скасувати</string>
+  <string name="reading_lists_preview_save_dialog_save">Зберегти</string>
+  <string name="reading_lists_preview_saved_snackbar">Список для читання збережено</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Переглянути</string>
   <string name="user_option_sync_label">Налаштування</string>
   <string name="notification_reverted_title">Скасоване редагування</string>
   <string name="notification_channel_title">Завантаження сторінок</string>
@@ -1319,6 +1380,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 місяці</string>
   <string name="watchlist_expiry_dialog_six_months">6 місяців</string>
   <string name="watchlist_empty">У вашому списку спостереження немає статей.</string>
+  <string name="watchlist_search">Пошук у списку спостереження</string>
   <string name="watchlist_filter_all">Усі</string>
   <string name="watchlist_filter_talk">Обговорення</string>
   <string name="watchlist_filter_pages">Сторінки</string>
@@ -1326,6 +1388,57 @@
   <string name="watchlist_page_moved">Перейменовані</string>
   <string name="watchlist_page_protected">Захищені</string>
   <string name="watchlist_page_deleted">Вилучені</string>
+  <string name="watchlist_filter_title">Фільтр списку спостереження</string>
+  <string name="watchlist_filter_wiki_filter_header">Вікі</string>
+  <string name="watchlist_filter_all_text">Усі</string>
+  <string name="watchlist_filter_watchlist_activity_header">Активність у списку спостереження</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Непереглянуті зміни</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Переглянуті зміни</string>
+  <string name="watchlist_filter_contribution_quality_header">Передбачення якості внеску</string>
+  <string name="watchlist_filter_contribution_quality_good">Найімовірніше добрі</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Можуть бути проблематичними</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Схоже, мають проблеми</string>
+  <string name="watchlist_filter_contribution_quality_bad">Найімовірніше, мають проблеми</string>
+  <string name="watchlist_filter_user_intent_header">Передбачення намірів користувачів</string>
+  <string name="watchlist_filter_user_intent_good">Найімовірніше, добрі наміри</string>
+  <string name="watchlist_filter_user_intent_may_problems">Можливо, погані наміри</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Схоже, погані наміри</string>
+  <string name="watchlist_filter_user_intent_bad">Найімовірніше, погані наміри</string>
+  <string name="watchlist_filter_user_status_header">Реєстрація користувача і його досвід</string>
+  <string name="watchlist_filter_user_status_unregistered">Незареєстровані</string>
+  <string name="watchlist_filter_user_status_registered">Зареєстровані</string>
+  <string name="watchlist_filter_user_status_newcomers">Новачки</string>
+  <string name="watchlist_filter_user_status_learners">Учні</string>
+  <string name="watchlist_filter_user_status_experienced">Досвідчені користувачі</string>
+  <string name="watchlist_filter_contribution_authorship_header">Авторство внеску</string>
+  <string name="watchlist_filter_contribution_authorship_own">Зміни, здійснені Вами</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Зміни, здійснені іншими</string>
+  <string name="watchlist_filter_automated_contributions_header">Автоматизовані редагування</string>
+  <string name="watchlist_filter_automated_contributions_bot">Бот</string>
+  <string name="watchlist_filter_automated_contributions_human">Людина (не бот)</string>
+  <string name="watchlist_filter_significance_header">Значення</string>
+  <string name="watchlist_filter_significance_minor">Незначні редагування</string>
+  <string name="watchlist_filter_significance_edits">Звичайні редагування</string>
+  <string name="watchlist_filter_latest_revisions_header">Останні версії</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Поточна версія</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Не остання версія</string>
+  <string name="watchlist_filter_type_of_change_header">Тип зміни</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Редагування сторінок</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Створення сторінок</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Зміна категорій</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Редагування Вікіданих</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Журнальні дії</string>
+  <string name="watchlist_filter_type_of_change_new_users">Нові користувачі</string>
+  <string name="watchlist_filter_reset_button">Скинути</string>
+  <string name="watchlist_search_bar_hint">Пошук або фільтрування списку спостереження</string>
+  <string name="watchlist_search_bar_filter_hint">Фільтр списку спостереження</string>
+  <string name="watchlist_empty_search_message">Немає результатів, спробуйте прибрати %s, щоб побачити більше.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d фільтр</item>
+    <item quantity="few">%d фільтри</item>
+    <item quantity="many">%d фільтрів</item>
+    <item quantity="other">%d фільтрів</item>
+  </plurals>
   <string name="preview_edit_title">Попередній перегляд редагування</string>
   <string name="preview_edit_summarize_edit_title">Резюмуйте правку</string>
   <string name="preview_edit_summarize_edit_hint">Як Ви поліпшили цю сторінку?</string>
@@ -1359,8 +1472,9 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Список для читання імпортовано</string>
   <string name="reading_list_share_menu_label">Поширити…</string>
   <string name="reading_list_share_menu_tooltip">Поділитися цим списком для читання з іншими</string>
-  <string name="reading_list_share_title_tooltip">Інші не бачать змін, які ви вносите в цей список.</string>
   <string name="reading_list_share_message_v2">Привіт! Хочу поділитися з вами своїм списком для читання у Вікіпедії:</string>
   <string name="reading_list_share_survey_title">Чи могли б ви допомогти нам покращити функцію спільних списків для читання?</string>
   <string name="reading_list_share_survey_body">Спільні списки читання є тестовою функцією і нам потрібні ваші відгуки, щоб ми могли її покращити або прибрати.</string>
+  <string name="data_opt_in_accept">Прийняти</string>
+  <string name="data_opt_in_reject">Відхилити</string>
 </resources>

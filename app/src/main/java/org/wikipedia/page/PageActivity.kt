@@ -21,8 +21,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.IntentFunnel
-import org.wikipedia.analytics.LinkPreviewFunnel
+import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -32,7 +31,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView
 import org.wikipedia.descriptions.DescriptionEditSuccessActivity
-import org.wikipedia.descriptions.DescriptionEditTutorialActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
@@ -40,11 +38,11 @@ import org.wikipedia.events.ChangeTextSizeEvent
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
-import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient
@@ -118,16 +116,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             animateTabsButton()
         } else if (it.resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
             pageFragment.reloadFromBackstack()
-        }
-    }
-
-    private val requestDescriptionEditTutorialLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == RESULT_OK) {
-            Prefs.isDescriptionEditTutorialEnabled = false
-            it.data?.let { intent ->
-                pageFragment.startDescriptionEditActivity(intent.getStringExtra(DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT),
-                    intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
-            }
         }
     }
 
@@ -324,7 +312,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             onPageCloseActionMode()
             return
         }
-        app.sessionFunnel.backPressed()
+        app.appSessionEvent.backPressed()
         if (pageFragment.onBackPressed()) {
             return
         }
@@ -446,10 +434,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         }
     }
 
-    override fun onPageRequestEditDescriptionTutorial(text: String?, invokeSource: InvokeSource) {
-        requestDescriptionEditTutorialLauncher.launch(DescriptionEditTutorialActivity.newIntent(this, text, invokeSource))
-    }
-
     override fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,
                                               targetSummary: PageSummaryForEdit?, action: DescriptionEditActivity.Action, invokeSource: InvokeSource) {
         requestSuggestedEditsLauncher.launch(DescriptionEditActivity.newIntent(this, title, text, sourceSummary, targetSummary, action, invokeSource))
@@ -496,9 +480,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     L.d("Received shareable reading lists")
                     val encodedListFromParameter = uri.getQueryParameter("limport")
                     Prefs.importReadingListsDialogShown = false
-                    Prefs.importReadingListsData = encodedListFromParameter
-                    startActivity(MainActivity.newIntent(this).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                        .putExtra(Constants.INTENT_EXTRA_IMPORT_READING_LISTS, true))
+                    Prefs.receiveReadingListsData = encodedListFromParameter
+                    startActivity(ReadingListActivity.newIntent(this, true).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                     finish()
                     return
                 }
@@ -539,7 +522,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_SEARCH)
             loadPage(title, historyEntry, TabPosition.EXISTING_TAB)
         } else if (intent.hasExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET)) {
-            IntentFunnel(app).logFeaturedArticleWidgetTap()
             val title = intent.getParcelableExtra<PageTitle>(EXTRA_PAGETITLE)
             title?.let {
                 val historyEntry = HistoryEntry(it, HistoryEntry.SOURCE_WIDGET)
@@ -570,7 +552,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             wasTransitionShown = true
         }
         if (entry.source != HistoryEntry.SOURCE_INTERNAL_LINK || !Prefs.isLinkPreviewEnabled) {
-            LinkPreviewFunnel(app, entry.source).logNavigate()
+            val articleLinkPreviewInteractionEvent = ArticleLinkPreviewInteractionEvent(pageTitle.wikiSite.dbName(),
+                pageFragment.page?.pageProperties?.pageId ?: 0, entry.source)
+            articleLinkPreviewInteractionEvent.logNavigate()
         }
         app.putCrashReportProperty("api", pageTitle.wikiSite.authority())
         app.putCrashReportProperty("title", pageTitle.toString())
@@ -596,7 +580,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 TabPosition.NEW_TAB_FOREGROUND -> pageFragment.openInNewForegroundTab(pageTitle, entry)
                 else -> pageFragment.openFromExistingTab(pageTitle, entry)
             }
-            app.sessionFunnel.pageViewed(entry)
+            app.appSessionEvent.pageViewed(entry)
         }
     }
 
@@ -800,7 +784,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any?) {
+        override fun accept(event: Any) {
             when (event) {
                 is ChangeTextSizeEvent -> {
                     pageFragment.updateFontSize()

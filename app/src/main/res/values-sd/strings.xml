@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Aursani
+* Charan
 * Indus Asia
 * KaleemBhatti
 * Mehtab ahmed
@@ -12,8 +13,8 @@
   <string name="app_name_beta">وڪيپيڊيا بيٽا</string>
   <string name="app_name_alpha">وڪيپيڊيا الفا</string>
   <string name="wikimedia">وڪيميڊيا</string>
-  <string name="nav_item_back">واپس</string>
-  <string name="page_tabs_back">واپس</string>
+  <string name="nav_item_back">پوئتي</string>
+  <string name="page_tabs_back">پوئتي</string>
   <string name="nav_item_forward">اڳتي</string>
   <string name="search_hint">وڪيپيڊيا ۾ ڳوليو</string>
   <string name="search_hint_voice_search">زباني ٻڌايل ڳولا</string>
@@ -22,29 +23,29 @@
   <string name="nav_item_suggested_edits">سنوارون</string>
   <string name="nav_item_more">وڌيڪ</string>
   <string name="nav_item_search">ڳولا</string>
-  <string name="error_network_error">انٽرنيٽ سان ڳنڍي نٿو سگهي.</string>
+  <string name="error_network_error">انٽرنيٽ ميسر ناھي</string>
   <string name="page_error_retry">ٻيهر ڪوشش ڪريو</string>
   <string name="card_offline_error_retry">ٻيهر ڪوشش ڪريو</string>
   <string name="storage_access_error_retry">ٻيهر ڪوشش ڪريو</string>
   <string name="article_load_error_retry">ٻيهر ڪوشش ڪريو</string>
   <string name="offline_load_error_retry">ٻيهر ڪوشش ڪريو</string>
-  <string name="page_error_back_to_main">واپس وڃو</string>
-  <string name="error_back">واپس وڃو</string>
+  <string name="page_error_back_to_main">پوئتي وڃو</string>
+  <string name="error_back">پوئتي وڃو</string>
   <string name="error_next">اڳيون</string>
   <string name="menu_clear_all_history">سوانح ڊاهيو</string>
-  <string name="history_item_deleted">%s سوانح مان ڪڍيل</string>
-  <string name="history_items_deleted">سوانح مان %d مضمون ڪڍيل</string>
-  <string name="history_item_delete_undo">اڻڪريو</string>
-  <string name="notification_archive_undo">اڻڪريو</string>
-  <string name="app_settings">ايپ جون ترتيبون</string>
+  <string name="history_item_deleted">%s کي سوانح مان ڪڍيو ويو</string>
+  <string name="history_items_deleted">سوانح مان %d مضمون ڪڍيا ويا</string>
+  <string name="history_item_delete_undo">واپس ڪريو</string>
+  <string name="notification_archive_undo">واپس ڪيو</string>
+  <string name="app_settings">ايپ سيٽنگ</string>
   <string name="search_tab_tooltip">سڌوسنئون ڳولا واري اصطلاح کي ٽائپ ڪرڻ لاءِ آئڪن کي ٻيھر ٽيپ ڪريو.</string>
   <string name="history_list_title">سوانح</string>
   <string name="image_content_description">عڪس: %s</string>
   <string name="page_content_description">صفحو: %s</string>
   <string name="wikimedia_commons">وڪيميڊيا العام</string>
   <string name="wikidata">وڪيڊيٽا</string>
-  <string name="dialog_title_clear_history">ڳولا جي سوانح مٽايو</string>
-  <string name="dialog_message_clear_history">ھن سان توھان جي سموري ڳولا سوانح ختم ٿي ويندي، ۽ ھاڻوڪي کليل ٽيب بند ٿي ويندي. ڇا توهان مطمئن آهيو؟</string>
+  <string name="dialog_title_clear_history">برائوزر سوانح مٽايو</string>
+  <string name="dialog_message_clear_history">ھن سان توھان جي ڳوليل ھر شئي ختم ٿي ويندي، ۽ ھاڻوڪي کليل ٽيب بند ٿي ويندي. ڇا توهان مطمئن آهيو؟</string>
   <string name="dialog_message_clear_history_yes">ھا</string>
   <string name="dialog_message_clear_history_no">نہ</string>
   <string name="share_via">ونڊيو بذريعہ</string>
@@ -52,7 +53,7 @@
   <string name="search_redirect_from">%s کان چوريل</string>
   <string name="page_edit_history_activity_title">ورجاءَ سوانح: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;م&lt;/b&gt; %s</string>
-  <string name="page_edit_history_comment_placeholder">سنوار تَتُ خالي</string>
+  <string name="page_edit_history_comment_placeholder">سنوار تَتُ خالي آھي</string>
   <string name="page_edit_history_search_or_filter_edits_hint">سنوارون ڳوليو يا ڇاڻيو</string>
   <string name="page_edit_history_filter_by">جي لحاظ سان ڇاڻيو</string>
   <string name="page_edit_history_filter_by_all">سڀ سنوارون (%s)</string>
@@ -81,7 +82,7 @@
   <string name="menu_page_edit_history">سنوار سوانح</string>
   <string name="menu_page_remove_from_watchlist">نظر۾فھرست مان ڪڍو</string>
   <string name="menu_page_watched">هن نظر۾رکيل</string>
-  <string name="edit_section_find_in_page">صفحي ۾ لھو</string>
+  <string name="edit_section_find_in_page">صفحي ۾ ڳوليو</string>
   <string name="menu_page_font_and_theme">اکر ۽ نظارو</string>
   <string name="menu_page_add_to_list">پڙھڻ جي فھرست ۾ شامل ڪريو</string>
   <string name="menu_page_add_to_default_list">سانڍيو</string>
@@ -125,23 +126,24 @@
   <string name="dialog_message_edit_failed_retry">ٻيهر ڪوشش ڪريو</string>
   <string name="dialog_message_edit_failed_cancel">رد</string>
   <string name="dialog_message_leaving_edit">توهان جون ڪيل سنوارون اڃا ڇپيون ناھن ويون. توهان کي پڪ آهي تہ توهان هيءُ صفحو ڇڏي وڃڻ گھرو ٿا؟</string>
-  <string name="dialog_message_leaving_edit_leave">موڪلايو</string>
+  <string name="dialog_message_leaving_edit_leave">نڪرو</string>
   <string name="dialog_message_leaving_edit_stay">ترسو</string>
   <string name="menu_show_toc">عنوانن جي فھرست</string>
-  <string name="search_no_results_found">ڪي بہ نتيجا نہ لڌي</string>
+  <string name="search_no_results_found">ڪي بہ نتيجا نہ لڌا</string>
   <string name="search_reading_list_no_results">\"%s\" ۾ ڪي بہ نتيجا نہ لڌا</string>
   <string name="search_reading_lists_no_results">پڙھڻ جي فھرستن ۾ ڪي بہ نتيجا نہ لڌا</string>
   <string name="search_history_no_results">سوانح ۾ ڪي بہ نتيجا نہ لڌا</string>
   <string name="edit_section_captcha_message">پاڻمرادو اسپام کان بچڻ ۾ مدد لاءِ، مھرباني ڪري ھيٺ ظاھر ٿيندڙ لفظ داخل ڪريو</string>
   <string name="edit_section_captcha_request_an_account_message">تصوير نظر نہ پئي اچي؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;کاتي جي درخواست ڏيو&lt;/a&gt;</string>
-  <string name="edit_section_captcha_hint">مٿي ڏنل لفظ ورجايو</string>
-  <string name="title_captcha">ڪيپچا ڄاڻايو</string>
-  <string name="edit_section_captcha_reload">ٻيھر اتارڻ لاءِ CAPTCHA تي ٽيپ ڪريو</string>
+  <string name="edit_section_captcha_hint">مٿي ڏنل لفظ داخل ڪيو</string>
+  <string name="title_captcha">ڪيپچا داخل ڪريو</string>
+  <string name="edit_section_captcha_reload">ٻيھر ڏسڻ لاءِ CAPTCHA تي ٽيپ ڪريو</string>
   <string name="nav_item_login">وڪيپيڊيا ۾ داخل ٿيو</string>
   <string name="login_username_hint">واپرائيندڙنانءُ</string>
   <string name="login_password_hint">ڳجهولفظ</string>
   <string name="account_creation_password_hint">ڳجهولفظ</string>
   <string name="login_2fa_hint">ٻہ-مرحلا تصديق ڪوڊ</string>
+  <string name="login_2fa_other_workflow_error_msg">ٻہ مرحلا تصديق گھربل آھي!\nمھرباني ڪري مک سرگرمي ڏاڻھن وڃو، ۽ پنھنجي ٻہ مرحلا تصديق واري ٽوڪن سان داخل ٿي، ٻيھر ڪوشش ڪيو.</string>
   <string name="onboarding_card_login">داخل ٿيو</string>
   <string name="page_editing_login">داخل ٿيو</string>
   <string name="reading_lists_sync_login">داخل ٿيو</string>
@@ -153,7 +155,7 @@
   <string name="reset_password_title">پنھنجو ڳجهولفظ مرتب ڪريو</string>
   <string name="reset_password_description">توھان ھڪ عارضي ڳجهي‌لفظ سان داخل ٿيا. داخل ٿيڻ کي مڪمل ڪرڻ لاءِ پنھنجو ھڪ نئون ڳجهولفظ مرتب ڪريو.</string>
   <string name="reset_password_hint">نئون ڳجهولفظ</string>
-  <string name="reset_password_button">محفوظ ڪريو ۽ داخل ٿيو</string>
+  <string name="reset_password_button">محفوظ ڪري، داخل ٿيو</string>
   <string name="preference_title_logout">ٻاھر نڪرو</string>
   <string name="toast_logout_complete">نڪري چڪا</string>
   <string name="logout_prompt">ھي توھان کي سڀني اوزان تان ٻاھر ڪري ڇڏيندو جتي توھان داخل ٿيل آھيو. ڇا توھان جاري رکڻ گهرو ٿا؟</string>
@@ -186,6 +188,7 @@
   <string name="create_account_generic_error">کاتو کولي نہ سگھيو</string>
   <string name="create_account_next">اڳيون</string>
   <string name="email_recommendation_dialog_title">بغير ايميل پتي جي کاتو کوليون؟</string>
+  <string name="email_recommendation_dialog_message">جيتوڻيڪ برق ٽپال پتو (اي ميل) اختياري آھي، پر اھا &lt;b&gt;بيحد ضروري آھي&lt;/b&gt;، ڇو تہ اوھان جيڪڏھن ڳجھو لفظ وساري ويھو تہ برق ٽپال جي ضرورت پوندي.</string>
   <string name="email_recommendation_message">سفارش ڪيل آھي ڇو جو کاتو واپس ھٿ ڪرڻ ۾ ايميل گهربل ھجي ٿي.</string>
   <string name="email_recommendation_dialog_create_without_email_action">ايميل سواءِ جاري رکو</string>
   <string name="email_recommendation_dialog_create_with_email_action">ڪو ايميل پتو ڏيو</string>
@@ -197,7 +200,7 @@
   <string name="preferences_general_heading">عام</string>
   <string name="preferences_account_heading">کاتو</string>
   <string name="wikipedia_app_faq">وڪيپيڊيا ايپ ڪپس</string>
-  <string name="send_feedback">ايپ تي موٽ موڪليو</string>
+  <string name="send_feedback">ايپ جي باري ۾ رايو ڏيو</string>
   <string name="create_account_account_created_toast">کاتو کلي چڪو!</string>
   <string name="preferences_heading_data_usage">ڊيٽا کپت</string>
   <string name="preferences_heading_experimental">تجرباتي</string>
@@ -250,7 +253,7 @@
   <string name="edit_next">اڳيون</string>
   <string name="edit_done">ڇاپڻ</string>
   <string name="edit_preview">پيش-نگاھ</string>
-  <string name="edit_undo">اڻڪريو</string>
+  <string name="edit_undo">واپس ڪريو</string>
   <string name="edit_redo">وري-ڪريو</string>
   <string name="edit_rollback">واپس ورايو</string>
   <plurals name="edit_diff_bytes">
@@ -442,10 +445,6 @@
     <item quantity="one">%1$d of 1 مضمون آفلائين موجود آھي، %3$.2f ايم بي</item>
     <item quantity="other">%1$d of %2$d مضمونَ آفلائين موجود آھن، %3$.2f ايم بي</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 مضمون، %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d مضمونَ %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d جا 1 مضمونَ آفلائين موجود آھن، %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d جا %2$d مضمونَ موجود آھن، %3$.2f MB</string>
   <string name="reading_list_sort">مرتب ڪريو</string>
   <string name="reading_list_sort_ellipsis">مرتب ڪريو...</string>
   <string name="reading_list_sort_by_name">نالي سان مرتب ڪريو</string>
@@ -647,7 +646,7 @@
   <string name="view_random_article_card_title">بلاترتيب مضمون</string>
   <string name="view_random_article_card_action">وڌيڪ بلاترتيب مضمون</string>
   <string name="view_top_read_card_title">گهڻو پڙھيل</string>
-  <string name="view_top_read_card_action">وڌيڪ گهڻو پڙھيو ويندڙن مان</string>
+  <string name="view_top_read_card_action">گھڻو پڙھيلن مان</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d ھزار</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d ملين</string>
   <string name="view_next_random_article">ھڪ ٻيو بلاترتيب مضمون لاھيو</string>
@@ -1139,4 +1138,5 @@
   <string name="media_playback_error">ميڊيا کي هلائڻ ۾ چُڪَ.</string>
   <string name="user_contrib_menu_label">ڀاڱيداريون</string>
   <string name="user_contrib_filter_activity_title" fuzzy="true">۾ ڀاڱيداريون:</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">سمجهي ويس</string>
 </resources>

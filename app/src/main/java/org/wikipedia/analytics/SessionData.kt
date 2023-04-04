@@ -1,26 +1,34 @@
 package org.wikipedia.analytics
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.util.MathUtil
+import java.util.concurrent.TimeUnit
 
+@Suppress("suspiciousVarProperty")
 @Serializable
 class SessionData {
 
     @Transient private val pageLatency = MathUtil.Averaged<Long>()
-    var startTime: Long
-    var lastTouchTime: Long
-    var pagesFromSearch = 0
-    var pagesFromRandom = 0
-    var pagesFromLangLink = 0
-    var pagesFromInternal = 0
-    var pagesFromExternal = 0
-    var pagesFromHistory = 0
-    var pagesFromReadingList = 0
-    var pagesFromBack = 0
-    var pagesWithNoDescription = 0
-    var pagesFromSuggestedEdits = 0
+    @SerialName("total_pages") var totalPages: Int = 0
+        get() = pagesFromSearch + pagesFromRandom + pagesFromLangLink + pagesFromInternal +
+                pagesFromExternal + pagesFromHistory + pagesFromReadingList + pagesFromSuggestedEdits
+    @Transient var startTime: Long = 0
+    @Transient var lastTouchTime: Long = 0
+    @SerialName("page_load_latency_ms") private var averagedPageLatency = 0
+        get() = pageLatency.average.toInt()
+    @SerialName("from_search") var pagesFromSearch = 0
+    @SerialName("from_random") var pagesFromRandom = 0
+    @SerialName("from_lang_link") var pagesFromLangLink = 0
+    @SerialName("from_internal") var pagesFromInternal = 0
+    @SerialName("from_external") var pagesFromExternal = 0
+    @SerialName("from_history") var pagesFromHistory = 0
+    @SerialName("from_reading_list") var pagesFromReadingList = 0
+    @SerialName("from_back") var pagesFromBack = 0
+    @SerialName("no_description") var pagesWithNoDescription = 0
+    @SerialName("from_suggested_edits") var pagesFromSuggestedEdits = 0
 
     init {
         val now = System.currentTimeMillis()
@@ -41,12 +49,8 @@ class SessionData {
         }
     }
 
-    fun getPageLatency(): Long {
-        return pageLatency.average.toLong()
-    }
-
     fun addPageLatency(pageLatency: Long) {
-        this.pageLatency.addSample(pageLatency)
+        this.pageLatency.addSample(TimeUnit.NANOSECONDS.toMillis(pageLatency))
     }
 
     fun addPageFromBack() {
@@ -56,9 +60,4 @@ class SessionData {
     fun addPageWithNoDescription() {
         pagesWithNoDescription++
     }
-
-    val totalPages: Int
-        get() = pagesFromSearch + pagesFromRandom + pagesFromLangLink + pagesFromInternal +
-                pagesFromExternal + pagesFromHistory + pagesFromReadingList +
-                pagesFromSuggestedEdits
 }

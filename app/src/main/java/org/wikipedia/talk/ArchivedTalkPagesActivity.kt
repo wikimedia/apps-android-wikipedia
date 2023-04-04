@@ -27,7 +27,6 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.*
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.PageItemView
@@ -81,7 +80,6 @@ class ArchivedTalkPagesActivity : BaseActivity() {
             val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(viewModel.pageTitle), HistoryEntry.SOURCE_ARCHIVED_TALK)
             startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
         }
-        RichTextUtil.removeUnderlinesFromLinks(binding.toolbarTitle)
         FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
     }
 

@@ -481,10 +481,6 @@
     <item quantity="many">%1$d z %2$d článkov je dostupných offline, %3$.2f MB</item>
     <item quantity="other">%1$d z %2$d článkov je dostupných offline, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 článok, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d článkov, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d z 1 článkov je dostupný offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d z %2$d článkov je dostupných offline, %3$.2f MB</string>
   <string name="reading_list_sort">Zoradiť</string>
   <string name="reading_list_sort_ellipsis">Zoradiť podľa…</string>
   <string name="reading_list_sort_by_name">Zoradiť podľa názvu</string>

@@ -12,9 +12,14 @@
         "revisions": [
           {
             "timestamp": "2018-03-18T18:10:54Z",
-            "contentformat": "text/x-wiki",
-            "contentmodel": "wikitext",
-            "content": "\\o/\n\ntest12\n\n3"
+            "slots": {
+                "main": {
+                  "contentformat": "text/x-wiki",
+                  "contentmodel": "wikitext",
+                  "content": "\\o/\n\ntest12\n\n3"
+                }
+            },
+            "contentmodel": "wikitext"
           }
         ]
       }

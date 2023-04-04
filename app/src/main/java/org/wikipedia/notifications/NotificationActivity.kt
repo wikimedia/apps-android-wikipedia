@@ -66,7 +66,7 @@ class NotificationActivity : BaseActivity() {
     private var linkHandler = NotificationLinkHandler(this)
     private var notificationActionOverflowView: NotificationActionsOverflowView? = null
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
-    // TODO: maybe making the result observable and put into ViewModel class?
+
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == NotificationFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
             beginUpdateList()
@@ -271,7 +271,6 @@ class NotificationActivity : BaseActivity() {
     private fun setUpEmptySearchMessage() {
         val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, viewModel.excludedFiltersCount(), viewModel.excludedFiltersCount())
         binding.notificationsEmptySearchMessage.text = StringUtil.fromHtml(getString(R.string.notifications_empty_search_message, "<a href=\"#\">$filtersStr</a>"))
-        RichTextUtil.removeUnderlinesFromLinks(binding.notificationsEmptySearchMessage)
         binding.notificationsEmptySearchMessage.movementMethod = LinkMovementMethodExt { _ ->
             resultLauncher.launch(NotificationFilterActivity.newIntent(this))
         }

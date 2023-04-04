@@ -3,14 +3,12 @@ package org.wikipedia.views
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.databinding.ViewReadingListsOverflowBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -20,6 +18,8 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
     interface Callback {
         fun sortByClick()
         fun createNewListClick()
+        fun importNewList()
+        fun selectListClick()
         fun refreshClick()
     }
 
@@ -29,14 +29,27 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
 
     init {
         binding.readingListsOverflowSortBy.setOnClickListener {
+            BreadCrumbLogEvent.logClick(context, it)
             dismissPopupWindowHost()
             callback?.sortByClick()
         }
         binding.readingListsOverflowCreateNewList.setOnClickListener {
+            BreadCrumbLogEvent.logClick(context, it)
             dismissPopupWindowHost()
             callback?.createNewListClick()
         }
+        binding.readingListsOverflowImportList.setOnClickListener {
+            BreadCrumbLogEvent.logClick(context, it)
+            dismissPopupWindowHost()
+            callback?.importNewList()
+        }
+        binding.readingListsOverflowSelect.setOnClickListener {
+            BreadCrumbLogEvent.logClick(context, it)
+            dismissPopupWindowHost()
+            callback?.selectListClick()
+        }
         binding.readingListsOverflowRefresh.setOnClickListener {
+            BreadCrumbLogEvent.logClick(context, it)
             dismissPopupWindowHost()
             callback?.refreshClick()
         }

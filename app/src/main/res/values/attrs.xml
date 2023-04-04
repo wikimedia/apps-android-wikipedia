@@ -2,11 +2,9 @@
 <resources>
     <attr name="toolbar_icon_color" format="reference"/>
     <attr name="themed_icon_color" format="reference"/>
-    <attr name="edit_improve_tag_selected_drawable" format="reference" />
-    <attr name="edit_improve_tag_unselected_drawable" format="reference" />
     <attr name="list_separator_drawable" format="reference"/>
     <attr name="list_separator_drawable_bottom_content" format="reference"/>
-    <attr name="side_panel_list_separator_drawable" format="reference"/>
+    <attr name="list_separator_drawable_light" format="reference"/>
     <attr name="nav_tab_background_color" format="reference" />
     <attr name="nav_tab_item_color_state" format="reference" />
     <attr name="button_highlight_border_shape" format="reference" />
@@ -38,7 +36,6 @@
     <attr name="button_background_color" format="color" />
     <attr name="tab_placeholder_text_color" format="color" />
     <attr name="chip_background_color" format="color"/>
-    <attr name="suggestions_background_color" format="color"/>
     <attr name="color_group_9" format="color"/>
     <attr name="color_group_22" format="reference"/>
     <attr name="color_group_43" format="color"/>
@@ -62,6 +59,9 @@
     <attr name="color_group_69" format="color"/>
     <attr name="color_group_70" format="color" />
     <attr name="action_mode_green_background" format="color"/>
+    <attr name="border_color" format="color"/>
+    <attr name="background_color" format="color"/>
+    <attr name="primary_color" format="color"/>
 
     <declare-styleable name="AutoFitRecyclerView">
         <attr name="minColumnWidth" format="dimension" />
@@ -87,7 +87,7 @@
         <attr name="primaryText" format="string" />
         <attr name="secondaryText" format="string" />
         <attr name="tertiaryText" format="string" />
-        <attr name="switchText" format="string" />
+        <attr name="acceptRejectButtons" format="boolean" />
         <attr name="imageSize" format="dimension" />
         <attr name="background" format="reference" />
         <attr name="showListView" format="boolean" />
