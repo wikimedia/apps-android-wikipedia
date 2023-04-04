@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.ConcatAdapter
@@ -60,21 +62,24 @@ class SearchResultsFragment : Fragment() {
             startSearch(viewModel.searchTerm, true)
         }
 
-        lifecycleScope.launch {
-            viewModel.searchResultsFlow.collectLatest {
-                binding.searchResultsList.visibility = View.VISIBLE
-                searchResultsAdapter.submitData(it)
-            }
-        }
-
-        lifecycleScope.launchWhenCreated {
-            searchResultsAdapter.loadStateFlow.collectLatest {
-                callback()?.onSearchProgressBar(it.append is LoadState.Loading || it.refresh is LoadState.Loading)
-                val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && searchResultsAdapter.itemCount == 0)
-                if (showEmpty) {
-                    searchResultsConcatAdapter.addAdapter(noSearchResultAdapter)
-                } else {
-                    searchResultsConcatAdapter.removeAdapter(noSearchResultAdapter)
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    viewModel.searchResultsFlow.collectLatest {
+                        binding.searchResultsList.visibility = View.VISIBLE
+                        searchResultsAdapter.submitData(it)
+                    }
+                }
+                launch {
+                    searchResultsAdapter.loadStateFlow.collectLatest {
+                        callback()?.onSearchProgressBar(it.append is LoadState.Loading || it.refresh is LoadState.Loading)
+                        val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && searchResultsAdapter.itemCount == 0)
+                        if (showEmpty) {
+                            searchResultsConcatAdapter.addAdapter(noSearchResultAdapter)
+                        } else {
+                            searchResultsConcatAdapter.removeAdapter(noSearchResultAdapter)
+                        }
+                    }
                 }
             }
         }

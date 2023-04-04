@@ -14,7 +14,9 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
 import androidx.palette.graphics.Palette
@@ -73,16 +75,19 @@ class InsertMediaActivity : BaseActivity() {
         binding.recyclerView.adapter = insertMediaAdapter
 
         lifecycleScope.launch {
-            viewModel.insertMediaFlow.collectLatest {
-                insertMediaAdapter.submitData(it)
-            }
-        }
-
-        lifecycleScope.launchWhenCreated {
-            insertMediaAdapter.loadStateFlow.collectLatest {
-                binding.progressBar.isVisible = it.append is LoadState.Loading || it.refresh is LoadState.Loading
-                val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && insertMediaAdapter.itemCount == 0)
-                binding.emptyMessage.isVisible = showEmpty
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    viewModel.insertMediaFlow.collectLatest {
+                        insertMediaAdapter.submitData(it)
+                    }
+                }
+                launch {
+                    insertMediaAdapter.loadStateFlow.collectLatest {
+                        binding.progressBar.isVisible = it.append is LoadState.Loading || it.refresh is LoadState.Loading
+                        val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && insertMediaAdapter.itemCount == 0)
+                        binding.emptyMessage.isVisible = showEmpty
+                    }
+                }
             }
         }
 
