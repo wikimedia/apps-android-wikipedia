@@ -88,7 +88,7 @@ class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePosition
         }
         binding.imagePositionButton.isEnabled = viewModel.imagePosition != InsertMediaViewModel.IMAGE_POSITION_NONE
         binding.imagePositionButton.setTextColor(ResourceUtil.getThemedColor(requireContext(),
-            if (binding.imagePositionButton.isEnabled) R.attr.colorAccent else R.attr.color_group_59))
+            if (binding.imagePositionButton.isEnabled) R.attr.progressive_color else R.attr.placeholder_color))
         binding.imagePositionButton.text = getString(newButtonText)
     }
 

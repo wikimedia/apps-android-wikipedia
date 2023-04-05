@@ -14,9 +14,9 @@ class LanguageItemHolder internal constructor(private val context: Context, item
     fun bindItem(langCode: String, enabled: Boolean) {
         langCodeView.text = langCode
 
-        val color = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_63)
+        val color = ResourceUtil.getThemedColorStateList(context, R.attr.secondary_color)
         langCodeView.setTextColor(if (enabled) AppCompatResources.getColorStateList(context, android.R.color.white) else color)
         langCodeView.setBackgroundResource(if (enabled) R.drawable.lang_button_shape else R.drawable.lang_button_shape_border)
-        ViewCompat.setBackgroundTintList(langCodeView, if (enabled) AppCompatResources.getColorStateList(context, R.color.base30) else color)
+        ViewCompat.setBackgroundTintList(langCodeView, if (enabled) AppCompatResources.getColorStateList(context, R.color.gray500) else color)
     }
 }

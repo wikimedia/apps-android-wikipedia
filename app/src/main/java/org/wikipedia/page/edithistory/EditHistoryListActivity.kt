@@ -77,9 +77,9 @@ class EditHistoryListActivity : BaseActivity() {
 
         val colorCompareBackground = ResourceUtil.getThemedColor(this, android.R.attr.colorBackground)
         binding.compareFromCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
-                ResourceUtil.getThemedColor(this, R.attr.colorAccent), 0.05f))
+                ResourceUtil.getThemedColor(this, R.attr.progressive_color), 0.05f))
         binding.compareToCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
-                ResourceUtil.getThemedColor(this, R.attr.color_group_68), 0.05f))
+                ResourceUtil.getThemedColor(this, R.attr.warning_color), 0.05f))
         updateCompareState()
 
         binding.compareButton.setOnClickListener {
@@ -182,10 +182,10 @@ class EditHistoryListActivity : BaseActivity() {
     private fun enableCompareButton(button: TextView, enable: Boolean) {
         if (enable) {
             button.isEnabled = true
-            button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.colorAccent))
+            button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.progressive_color))
         } else {
             button.isEnabled = false
-            button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
+            button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
         }
     }
 
@@ -374,7 +374,7 @@ class EditHistoryListActivity : BaseActivity() {
             binding.filterByButton.isVisible = viewModel.editHistoryStatsData.value is Resource.Success
 
             binding.root.setCardBackgroundColor(
-                ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.color_group_22)
+                ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.background_color)
             )
 
             itemView.setOnClickListener {
@@ -393,12 +393,12 @@ class EditHistoryListActivity : BaseActivity() {
             if (Prefs.editHistoryFilterType.isEmpty()) {
                 binding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(this@EditHistoryListActivity, R.attr.color_group_9))
+                    ResourceUtil.getThemedColorStateList(this@EditHistoryListActivity, R.attr.primary_color))
             } else {
                 binding.filterCount.visibility = View.VISIBLE
                 binding.filterCount.text = (if (Prefs.editHistoryFilterType.isNotEmpty()) 1 else 0).toString()
                 ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(this@EditHistoryListActivity, R.attr.colorAccent))
+                    ResourceUtil.getThemedColorStateList(this@EditHistoryListActivity, R.attr.progressive_color))
             }
         }
     }

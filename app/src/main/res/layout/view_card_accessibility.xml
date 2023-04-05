@@ -7,10 +7,11 @@
     android:orientation="vertical">
 
     <TextView
-        style="@style/MaterialMediumSecondaryCaption"
+        style="@style/P"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:textAlignment="center"
         android:text="@string/feed_accessibility_card_text" />
 
     <Button

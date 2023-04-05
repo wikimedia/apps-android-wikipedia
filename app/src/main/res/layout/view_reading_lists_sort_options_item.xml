@@ -15,7 +15,7 @@
         android:layout_weight="1"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:textColor="?attr/primary_text_color"
+        android:textColor="?attr/primary_color"
         android:textSize="16sp" />
 
     <ImageView
@@ -25,7 +25,7 @@
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:contentDescription="@string/reading_lists_menu_sort_by"
-        app:tint="?attr/colorAccent"
+        app:tint="?attr/progressive_color"
         android:visibility="gone"
         app:srcCompat="@drawable/ic_check_black_24dp" />
 </LinearLayout>

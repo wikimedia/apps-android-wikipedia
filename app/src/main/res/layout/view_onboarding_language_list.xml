@@ -11,7 +11,7 @@
     <View
         android:layout_width="wrap_content"
         android:layout_height="0.5dp"
-        android:background="?attr/chart_shade5" />
+        android:background="?attr/border_color" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/languagesList"
@@ -26,7 +26,7 @@
     <View
         android:layout_width="wrap_content"
         android:layout_height="0.5dp"
-        android:background="?attr/chart_shade5" />
+        android:background="?attr/border_color" />
 
     <LinearLayout
         android:id="@+id/addLangContainer"
@@ -42,7 +42,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
-            app:tint="?attr/colorAccent"
+            app:tint="?attr/progressive_color"
             app:srcCompat="@drawable/ic_add_gray_white_24dp" />
 
         <TextView
@@ -53,7 +53,7 @@
             android:gravity="center_horizontal"
             android:text="@string/onboarding_multilingual_add_language_text"
             android:textAllCaps="true"
-            android:textColor="?attr/colorAccent"
+            android:textColor="?attr/progressive_color"
             android:textSize="14sp"
             tools:text="Add or edit languages" />
     </LinearLayout>

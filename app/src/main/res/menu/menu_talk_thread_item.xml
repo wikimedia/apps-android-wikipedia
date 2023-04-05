@@ -6,12 +6,12 @@
         android:id="@+id/menu_talk_topic_share"
         android:icon="@drawable/ic_share_material_secondary_themed"
         android:title="@string/talk_list_item_overflow_share"
-        app:iconTint="?attr/secondary_text_color"
+        app:iconTint="?attr/placeholder_color"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_copy_text"
         android:icon="@drawable/ic_content_copy_24"
         android:title="@string/talk_menu_copy_text"
-        app:iconTint="?attr/secondary_text_color"
+        app:iconTint="?attr/placeholder_color"
         app:showAsAction="never" />
 </menu>

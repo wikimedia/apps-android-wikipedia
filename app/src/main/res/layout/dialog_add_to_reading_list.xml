@@ -19,13 +19,13 @@
             android:paddingEnd="@dimen/list_item_horizontal_padding"
             android:paddingBottom="8dp"
             android:text="@string/reading_list_save_to"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="16sp" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="?attr/material_theme_border_color" />
+            android:background="?attr/border_color" />
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -60,14 +60,14 @@
                     android:contentDescription="@null"
                     android:padding="10dp"
                     app:srcCompat="@drawable/ic_add_gray_white_24dp"
-                    app:tint="@color/base30" />
+                    app:tint="@color/gray500" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:text="@string/reading_list_create_new"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/primary_color"
                     android:textSize="16sp" />
             </LinearLayout>
 

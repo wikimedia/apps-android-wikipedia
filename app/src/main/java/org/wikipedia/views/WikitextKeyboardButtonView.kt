@@ -26,7 +26,7 @@ class WikitextKeyboardButtonView constructor(context: Context, attrs: AttributeS
                 val buttonText = getString(R.styleable.WikitextKeyboardButtonView_buttonText)
                 val buttonHint = getString(R.styleable.WikitextKeyboardButtonView_buttonHint)
                 val buttonTextColor = getColor(R.styleable.WikitextKeyboardButtonView_buttonTextColor,
-                        ResourceUtil.getThemedColor(context, R.attr.material_theme_primary_color))
+                        ResourceUtil.getThemedColor(context, R.attr.primary_color))
                 if (drawableId != 0) {
                     binding.wikitextButtonText.visibility = GONE
                     binding.wikitextButtonImage.visibility = VISIBLE
@@ -55,7 +55,7 @@ class WikitextKeyboardButtonView constructor(context: Context, attrs: AttributeS
     }
 
     fun setExpanded(expanded: Boolean) {
-        val color = ResourceUtil.getThemedColor(context, if (expanded) R.attr.colorAccent else R.attr.material_theme_primary_color)
+        val color = ResourceUtil.getThemedColor(context, if (expanded) R.attr.progressive_color else R.attr.primary_color)
         binding.wikitextButtonImage.imageTintList = ColorStateList.valueOf(color)
         binding.expandNotch.setImageResource(if (expanded) R.drawable.ic_arrow_drop_up_24 else R.drawable.ic_arrow_drop_down_black_24dp)
         binding.expandNotch.imageTintList = ColorStateList.valueOf(color)

@@ -93,7 +93,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
         feedAdapter = FeedAdapter(coordinator, feedCallback)
         binding.feedView.adapter = feedAdapter
         binding.feedView.addOnScrollListener(feedScrollListener)
-        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
+        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.swipeRefreshLayout.setOnRefreshListener { refresh() }
         binding.customizeButton.setOnClickListener { showConfigureActivity(-1) }
         coordinator.setFeedUpdateListener(object : FeedUpdateListener {

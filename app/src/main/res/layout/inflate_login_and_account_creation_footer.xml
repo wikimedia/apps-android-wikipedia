@@ -10,7 +10,7 @@
         android:layout_height="0.5dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:background="?attr/material_theme_border_color" />
+        android:background="?attr/border_color" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             android:text="@string/login_forgot_password"
             android:background="?android:attr/selectableItemBackground"
             android:padding="5dp"
-            android:textColor="?attr/colorAccent" />
+            android:textColor="?attr/progressive_color" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
             android:text="@string/privacy_policy_description"
             android:background="?android:attr/selectableItemBackground"
             android:padding="5dp"
-            android:textColor="?attr/colorAccent" />
+            android:textColor="?attr/progressive_color" />
 
     </LinearLayout>
 

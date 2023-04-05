@@ -49,7 +49,7 @@
                 android:layout_marginStart="8dp"
                 android:fontFamily="sans-serif-medium"
                 android:textAllCaps="true"
-                android:textColor="@color/base100"
+                android:textColor="@color/white"
                 android:letterSpacing="0.1" />
         </LinearLayout>
 

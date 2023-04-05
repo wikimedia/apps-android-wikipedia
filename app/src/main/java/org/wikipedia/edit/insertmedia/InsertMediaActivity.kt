@@ -70,7 +70,7 @@ class InsertMediaActivity : BaseActivity() {
             insertMediaAdapter.refresh()
         }
 
-        binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(this@InsertMediaActivity, R.attr.color_group_22))
+        binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(this@InsertMediaActivity, R.attr.background_color))
         binding.recyclerView.layoutManager = GridLayoutManager(this, 3)
         binding.recyclerView.adapter = insertMediaAdapter
 
@@ -196,7 +196,7 @@ class InsertMediaActivity : BaseActivity() {
         actionBarButtonBinding.editActionbarButtonText.text = menuItem.title
         actionBarButtonBinding.editActionbarButtonText.setTextColor(
             ResourceUtil.getThemedColor(this,
-                if (emphasize) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
+                if (emphasize) R.attr.progressive_color else R.attr.placeholder_color))
         actionBarButtonBinding.root.tag = menuItem
         actionBarButtonBinding.root.isEnabled = menuItem.isEnabled
         actionBarButtonBinding.root.setOnClickListener { onOptionsItemSelected(it.tag as MenuItem) }

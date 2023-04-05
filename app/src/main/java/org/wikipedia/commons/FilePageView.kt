@@ -164,7 +164,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
             view.binding.titleText.text = titleString
             view.binding.contentText.text = StringUtil.strip(StringUtil.fromHtml(detail))
             if (!externalLink.isNullOrEmpty()) {
-                view.binding.contentText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+                view.binding.contentText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.progressive_color))
                 view.binding.contentText.setTextIsSelectable(false)
                 view.binding.externalLink.visibility = View.VISIBLE
                 view.binding.contentContainer.setOnClickListener {

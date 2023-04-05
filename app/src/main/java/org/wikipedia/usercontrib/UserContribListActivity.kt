@@ -301,7 +301,7 @@ class UserContribListActivity : BaseActivity() {
             val statsFlowValue = viewModel.userContribStatsData.value
             if (statsFlowValue is Resource.Success) {
                 binding.root.setCardBackgroundColor(
-                    ResourceUtil.getThemedColor(this@UserContribListActivity, R.attr.color_group_22)
+                    ResourceUtil.getThemedColor(this@UserContribListActivity, R.attr.background_color)
                 )
 
                 itemView.setOnClickListener {
@@ -322,12 +322,12 @@ class UserContribListActivity : BaseActivity() {
             if (excludedFilters == 0) {
                 binding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.color_group_9))
+                    ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.primary_color))
             } else {
                 binding.filterCount.visibility = View.VISIBLE
                 binding.filterCount.text = excludedFilters.toString()
                 ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.colorAccent))
+                    ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.progressive_color))
             }
         }
     }

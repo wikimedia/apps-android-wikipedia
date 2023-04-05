@@ -12,7 +12,7 @@
         android:layout_height="46dp"
         android:layout_marginStart="24dp"
         android:gravity="center_vertical"
-        android:textColor="?attr/primary_text_color"
+        android:textColor="?attr/primary_color"
         android:textSize="16sp"
         android:textStyle="bold" />
 

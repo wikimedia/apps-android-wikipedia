@@ -26,14 +26,14 @@
         android:fontFamily="sans-serif"
         android:gravity="center"
         android:text="@string/suggested_edits_descriptions_report_dialog_title"
-        android:textColor="?attr/primary_text_color"
+        android:textColor="?attr/primary_color"
         android:textSize="20sp"
         android:textStyle="bold" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/material_theme_border_color" />
+        android:background="?attr/border_color" />
 
     <CheckBox
         android:id="@+id/notEnoughInfo"
@@ -43,13 +43,13 @@
         android:buttonTint="?attr/colorAccent"
         android:padding="16dp"
         android:text="@string/suggested_edits_descriptions_not_enough_info_suggestion"
-        android:textColor="?attr/primary_text_color"
+        android:textColor="?attr/primary_color"
         android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/material_theme_border_color" />
+        android:background="?attr/border_color" />
 
     <CheckBox
         android:id="@+id/cannotSeeDescription"
@@ -59,13 +59,13 @@
         android:buttonTint="?attr/colorAccent"
         android:padding="16dp"
         android:text="@string/suggested_edits_descriptions_cannot_see_suggestion"
-        android:textColor="?attr/primary_text_color"
+        android:textColor="?attr/primary_color"
         android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/material_theme_border_color" />
+        android:background="?attr/border_color" />
 
     <CheckBox
         android:id="@+id/inappropriateSuggestion"
@@ -75,13 +75,13 @@
         android:buttonTint="?attr/colorAccent"
         android:padding="16dp"
         android:text="@string/suggested_edits_inappropriate_suggestion"
-        android:textColor="?attr/primary_text_color"
+        android:textColor="?attr/primary_color"
         android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/material_theme_border_color" />
+        android:background="?attr/border_color" />
 
     <CheckBox
         android:id="@+id/doNotUnderstand"
@@ -91,13 +91,13 @@
         android:buttonTint="?attr/colorAccent"
         android:padding="16dp"
         android:text="@string/suggested_edits_do_not_understand_suggestion"
-        android:textColor="?attr/primary_text_color"
+        android:textColor="?attr/primary_color"
         android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/material_theme_border_color" />
+        android:background="?attr/border_color" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -115,7 +115,7 @@
             android:textAlignment="viewStart"
             app:endIconDrawable="@drawable/chip_close_button_dark"
             app:endIconMode="custom"
-            app:endIconTint="?attr/material_theme_de_emphasised_color"
+            app:endIconTint="?attr/placeholder_color"
             app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
 
             <org.wikipedia.views.PlainPasteEditText

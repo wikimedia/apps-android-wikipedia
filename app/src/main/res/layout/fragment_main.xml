@@ -22,7 +22,7 @@
     <LinearLayout
         android:id="@+id/main_nav_tab_container"
         android:elevation="6dp"
-        android:background="?attr/nav_tab_background_color"
+        android:background="?attr/paper_color"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:baselineAligned="false"
@@ -37,8 +37,8 @@
             android:background="@android:color/transparent"
             app:elevation="0dp"
             app:itemIconTint="?attr/nav_tab_item_color_state"
-            app:itemTextAppearanceActive="@style/BottomNavigationTextAppearanceActive"
-            app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearanceInactive"
+            app:itemTextAppearanceActive="@style/BottomNavigationTextAppearance.Active"
+            app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearance"
             app:itemTextColor="?attr/nav_tab_item_color_state"
             app:labelVisibilityMode="labeled"
             app:tabGravity="fill"
@@ -59,18 +59,18 @@
                 android:contentDescription="@null"
                 android:layout_marginTop="9.5dp"
                 android:layout_gravity="center_horizontal"
-                app:tint="?attr/material_theme_secondary_color"
-                app:srcCompat="@drawable/ic_menu_themed_24dp" />
+                app:tint="?attr/nav_tab_item_color_state"
+                app:srcCompat="@drawable/ic_menu_white_24dp" />
 
             <TextView
+                style="@style/BottomNavigationTextAppearance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="35dp"
                 android:textAlignment="center"
                 android:text="@string/nav_item_more"
-                android:textColor="?attr/material_theme_de_emphasised_color"
-                android:textSize="10sp" />
+                android:textColor="?attr/nav_tab_item_color_state"/>
 
         </FrameLayout>
     </LinearLayout>

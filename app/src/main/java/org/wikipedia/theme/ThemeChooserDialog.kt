@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
-import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -270,10 +269,10 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateDimImagesSwitch() {
+        val attrColor = if (binding.themeChooserDarkModeDimImagesSwitch.isEnabled) R.attr.secondary_color else R.attr.overlay_color
         binding.themeChooserDarkModeDimImagesSwitch.isChecked = Prefs.dimDarkModeImages
         binding.themeChooserDarkModeDimImagesSwitch.isEnabled = app.currentTheme.isDark
-        binding.themeChooserDarkModeDimImagesSwitch.setTextColor(if (binding.themeChooserDarkModeDimImagesSwitch.isEnabled)
-            ResourceUtil.getThemedColor(requireContext(), R.attr.section_title_color) else ContextCompat.getColor(requireContext(), R.color.black26))
+        binding.themeChooserDarkModeDimImagesSwitch.setTextColor(ResourceUtil.getThemedColor(requireContext(), attrColor))
     }
 
     private inner class ThemeButtonListener(private val theme: Theme) : View.OnClickListener {

@@ -5,17 +5,17 @@
     <item android:id="@+id/menu_edit_notices"
         android:icon="@drawable/ic_warning_24"
         android:title="@string/edit_notices"
-        app:iconTint="?attr/toolbar_icon_color"
+        app:iconTint="?attr/placeholder_color"
         app:showAsAction="always" />
     <item android:id="@+id/menu_find_in_editor"
         android:icon="@drawable/ic_find_in_page_24px"
         android:title="@string/menu_page_find_in_page"
-        app:iconTint="?attr/toolbar_icon_color"
+        app:iconTint="?attr/placeholder_color"
         app:showAsAction="always" />
     <item android:id="@+id/menu_edit_theme"
         android:icon="@drawable/ic_icon_format_size"
         android:title="@string/menu_page_font_and_theme"
-        app:iconTint="?attr/toolbar_icon_color"
+        app:iconTint="?attr/placeholder_color"
         app:showAsAction="always" />
     <item
         android:id="@+id/menu_save_section"
