@@ -36,8 +36,8 @@ class AboutActivity : BaseActivity() {
 
         binding.sendFeedbackText.setOnClickListener {
             val intent = Intent()
-                .setAction(Intent.ACTION_SENDTO)
-                .setData(Uri.parse("mailto:android-support@wikimedia.org?subject=Android App ${BuildConfig.VERSION_NAME} Feedback"))
+                    .setAction(Intent.ACTION_SENDTO)
+                    .setData(Uri.parse("mailto:android-support@wikimedia.org?subject=Android App ${BuildConfig.VERSION_NAME} Feedback"))
             try {
                 startActivity(intent)
             } catch (e: Exception) {
