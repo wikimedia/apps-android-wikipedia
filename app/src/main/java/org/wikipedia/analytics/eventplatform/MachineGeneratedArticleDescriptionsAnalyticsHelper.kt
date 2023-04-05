@@ -27,12 +27,12 @@ class MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     fun logAttempt(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle) {
-        log(context, composeLogString(title) + ".attempt:$finalDescription ${getSuggestionOrderString(wasChosen, wasModified)}" +
+        log(context, composeLogString(title) + ".attempt:$finalDescription${getSuggestionOrderString(wasChosen, wasModified)}" +
                 ".timeSpentMs:${timer.elapsedMillis}")
     }
 
     fun logSuccess(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle, revId: Long) {
-        log(context, composeLogString(title) + ".success:$finalDescription ${getSuggestionOrderString(wasChosen, wasModified)}" +
+        log(context, composeLogString(title) + ".success:$finalDescription${getSuggestionOrderString(wasChosen, wasModified)}" +
                     ".timeSpentMs:${timer.elapsedMillis}.revId:$revId")
     }
 
