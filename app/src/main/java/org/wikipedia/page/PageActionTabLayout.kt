@@ -1,6 +1,7 @@
 package org.wikipedia.page
 
 import android.content.Context
+import android.graphics.Typeface
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.TypedValue
@@ -25,6 +26,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
 
     fun update() {
         removeAllViews()
+        val typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
         Prefs.customizeToolbarOrder.forEach {
             val view = MaterialTextView(context)
             view.gravity = Gravity.CENTER
@@ -32,6 +34,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
             view.setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackgroundBorderless))
             view.setTextColor(ResourceUtil.getThemedColor(context, R.attr.placeholder_color))
             view.textAlignment = TEXT_ALIGNMENT_CENTER
+            view.setTypeface(typeface, Typeface.NORMAL)
             view.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f)
             view.maxLines = 2
             view.ellipsize = TextUtils.TruncateAt.END
