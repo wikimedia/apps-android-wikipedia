@@ -78,6 +78,10 @@ object JavaScriptActionHandler {
         return "pcs.c1.Page.prepareForScrollToAnchor(\"${anchorLink.replace("\"", "\\\"")}\", { highlight: $highlight } )"
     }
 
+    fun removeHighlights(): String {
+        return "pcs.c1.Page.removeHighlightsFromHighlightedElements()"
+    }
+
     fun setUp(context: Context, title: PageTitle, isPreview: Boolean, toolbarMargin: Int): String {
         val app = WikipediaApp.instance
         val topActionBarHeight = if (isPreview) 0 else DimenUtil.roundedPxToDp(toolbarMargin.toFloat())
@@ -101,7 +105,7 @@ object JavaScriptActionHandler {
                 "       \"tableOther\": \"${res[R.string.table_other]}\"," +
                 "       \"tableClose\": \"${res[R.string.table_close]}\"" +
                 "   }," +
-                "   \"theme\": \"${app.currentTheme.funnelName}\"," +
+                "   \"theme\": \"${app.currentTheme.tag}\"," +
                 "   \"bodyFont\": \"$fontFamily\"," +
                 "   \"dimImages\": ${(app.currentTheme.isDark && Prefs.dimDarkModeImages)}," +
                 "   \"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +

@@ -19,6 +19,7 @@
 * DannyS712
 * DarkGames26
 * David.novella
+* Dbrant
 * Destinid10 2
 * Dgstranz
 * DiegoAmbrocio
@@ -59,6 +60,7 @@
 * Mynor Archila
 * Pantareje
 * Papouten
+* Pedro Zimmer
 * Pginer
 * Remux
 * Reverse88
@@ -525,10 +527,6 @@
     <item quantity="one">%1$d de 1 artículo disponible sin conexión, %3$.2f MB</item>
     <item quantity="other">%1$d de %2$d artículos disponibles sin conexión, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artículo, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artículos, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d de 1 artículos disponibles sin conexión, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d de %2$d artículos disponibles sin conexión, %3$.2f MB</string>
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_ellipsis">Ordenar por…</string>
   <string name="reading_list_sort_by_name">Ordenar por nombre</string>
@@ -633,7 +631,13 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Cancelar</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancelar</string>
   <string name="reading_list_split_dialog_ok_button_text">Aceptar</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Eliminar</string>
   <string name="reading_list_activity_title">Lista de lectura: %s</string>
+  <string name="reading_lists_preview_save_button">Guardar</string>
+  <string name="reading_lists_preview_save_dialog_title">Guardar lista</string>
+  <string name="reading_lists_preview_save_dialog_text">Asigne un nombre a la lista y seleccione los artículos a guardar</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Cancelar</string>
+  <string name="reading_lists_preview_save_dialog_save">Guardar</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_reverted_title">Edición revertida</string>
   <string name="notification_channel_title">Descargando archivos</string>
@@ -1227,6 +1231,31 @@
   <string name="watchlist_page_moved">Trasladado</string>
   <string name="watchlist_page_protected">Protegido</string>
   <string name="watchlist_page_deleted">Borrado</string>
+  <string name="watchlist_filter_title">Filtro de la lista de seguimiento</string>
+  <string name="watchlist_filter_all_text">Todo</string>
+  <string name="watchlist_filter_watchlist_activity_header">Actividad de la lista de seguimiento</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Puede haber problemas</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Probablemente tienen problemas</string>
+  <string name="watchlist_filter_user_intent_header">Intento de predicción del usuario</string>
+  <string name="watchlist_filter_user_intent_may_problems">Pueden ser de mala fe</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Posible mala fe</string>
+  <string name="watchlist_filter_user_status_newcomers">Novatos</string>
+  <string name="watchlist_filter_user_status_learners">Aprendices</string>
+  <string name="watchlist_filter_user_status_experienced">Usuarios experimentados</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Cambios realizados por terceros</string>
+  <string name="watchlist_filter_automated_contributions_header">Contribuciones automatizadas</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">Humano (no robot)</string>
+  <string name="watchlist_filter_significance_header">Significatividad</string>
+  <string name="watchlist_filter_type_of_change_header">Tipo de cambio</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Cambios de categoría</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Ediciones de Wikidata</string>
+  <string name="watchlist_filter_type_of_change_new_users">Cuentas de usuario nuevas</string>
+  <string name="watchlist_filter_reset_button">Restablecer</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d filtro</item>
+    <item quantity="other">%d filtros</item>
+  </plurals>
   <string name="action_item_categories">Categorías</string>
   <string name="category_tab_articles">Artículos</string>
   <string name="category_tab_subcategories">Subcategorías</string>
@@ -1242,8 +1271,9 @@
   <string name="user_contrib_menu_label">Contribuciones</string>
   <string name="reading_list_share_menu_label">Compartir…</string>
   <string name="reading_list_share_menu_tooltip">Compartir esta lista de lectura con otros</string>
-  <string name="reading_list_share_title_tooltip">Los cambios que haga en esta lista no serán visibles para los demás.</string>
   <string name="reading_list_share_message_v2">¡Hola! Me gustaría compartir mi lista de lectura de Wikipedia contigo:</string>
   <string name="reading_list_share_survey_title">¿Podrías ayudarnos a mejorar \"Compartir listas de lectura\"?</string>
   <string name="reading_list_share_survey_body">\"Compartir listas de lectura\" es una función de prueba y necesitamos tus comentarios para mejorarla o eliminarla.</string>
+  <string name="data_opt_in_accept">Aceptar</string>
+  <string name="data_opt_in_reject">Rechazar</string>
 </resources>

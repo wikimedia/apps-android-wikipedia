@@ -7,6 +7,8 @@
 * Kiranmayee
 * MuratTheTurkish
 * Praveen Illa
+* Thirumalgoud
+* V Bhavya
 * Veeven
 * రహ్మానుద్దీన్
 -->
@@ -448,10 +450,6 @@
     <item quantity="one">ఉన్న 1 వ్యాసంలో %1$d ఆఫ్‌లైనులో అందుబాటులో ఉంది, %3$.2f MB</item>
     <item quantity="other">%2$d వ్యాసాల్లో %1$d ఆఫ్‌లైనులో అందుబాటులో ఉన్నాయి, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 వ్యాసం, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d వ్యాసాలు, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">1 వ్యాసంలో %1$d ఆఫ్‌లైనులో అందుబాటులో ఉంది, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d వ్యాసాల్లో %1$d ఆఫ్‌లైనులో అందుబాటులో ఉన్నాయి, %3$.2f MB</string>
   <string name="reading_list_sort">పేర్చు</string>
   <string name="reading_list_sort_ellipsis">ఈ విధంగా పేర్చు...</string>
   <string name="reading_list_sort_by_name">పేరు ప్రకారం పేర్చు</string>
@@ -555,6 +553,12 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">రద్దుచేయి</string>
   <string name="reading_list_split_dialog_ok_button_text">సరే</string>
   <string name="reading_list_activity_title">చదివే జాబితా: %s</string>
+  <string name="reading_lists_preview_header_title">భాగస్వామ్య జాబితా</string>
+  <string name="reading_lists_preview_save_button">భద్రపరచు</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">శీర్షిక</string>
+  <string name="reading_lists_preview_save_dialog_cancel">రద్దుచేయి</string>
+  <string name="reading_lists_preview_save_dialog_save">భద్రపరచు</string>
+  <string name="reading_lists_preview_saved_snackbar_action">చూడండి</string>
   <string name="user_option_sync_label">అభిరుచులు</string>
   <string name="notification_reverted_title">దిద్దుబాటును తిప్పికొట్టారు</string>
   <string name="notification_channel_title">వ్యాసాలను దిగుమతి చేస్తున్నాం</string>
@@ -1112,6 +1116,19 @@
   <string name="watchlist_page_moved">తరలించారు</string>
   <string name="watchlist_page_protected">సంరక్షించారు</string>
   <string name="watchlist_page_deleted">తొలగించారు</string>
+  <string name="watchlist_filter_wiki_filter_header">వికీ</string>
+  <string name="watchlist_filter_all_text">అన్నీ</string>
+  <string name="watchlist_filter_user_status_newcomers">కొత్తవాళ్ళు</string>
+  <string name="watchlist_filter_contribution_authorship_own">మీ దిద్దుబాట్లు</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">ఇతరుల దిద్దుబాట్లు</string>
+  <string name="watchlist_filter_significance_header">ప్రాముఖ్యం</string>
+  <string name="watchlist_filter_significance_minor">చిన్న మార్పులు</string>
+  <string name="watchlist_filter_type_of_change_page_edits">పేజీ దిద్దుబాట్లు</string>
+  <string name="watchlist_filter_type_of_change_page_creations">పేజీ సృష్టి</string>
+  <string name="watchlist_filter_type_of_change_category_changes">వర్గాల దిద్దుబాట్లు</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">వికీడేటా సవరణలు</string>
+  <string name="watchlist_filter_type_of_change_new_users">కొత్త వాడుకరులు</string>
+  <string name="watchlist_filter_reset_button">రీసెట్ చెయ్యి</string>
   <string name="action_item_categories">వర్గాలు</string>
   <string name="page_no_categories">ఈ పేజీ వార్గాలకు చెందినది కాదు.</string>
   <string name="category_tab_articles">వ్యాసాలు</string>

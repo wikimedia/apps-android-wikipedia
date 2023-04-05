@@ -27,7 +27,10 @@
   <string name="search_hint">Procurar na Wikipedia</string>
   <string name="search_hint_voice_search">Procura con entrada por voz</string>
   <string name="search_hint_search_languages">Procurar unha lingua</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Edicións suxeridas</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtra as miñas listas</string>
+  <string name="nav_item_suggested_edits">Edicións</string>
+  <string name="nav_item_more">Máis</string>
+  <string name="nav_item_search">Procurar</string>
   <string name="error_network_error">Non se puido conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="card_offline_error_retry">Reintentar</string>
@@ -36,12 +39,19 @@
   <string name="offline_load_error_retry">Reintentar</string>
   <string name="page_error_back_to_main">Volver</string>
   <string name="error_back">Volver</string>
+  <string name="error_next">Seguinte</string>
   <string name="menu_clear_all_history">Limpar o historial</string>
   <string name="history_item_deleted">%s eliminado do historial</string>
   <string name="history_items_deleted">%d artigos eliminados do historial</string>
   <string name="history_item_delete_undo">Desfacer</string>
   <string name="notification_archive_undo">Desfacer</string>
   <string name="app_settings">Configuración da aplicación</string>
+  <string name="search_tab_tooltip">Toca a icona de novo para comezar a escribir directamente un termo de busca.</string>
+  <string name="history_list_title">Historial</string>
+  <string name="image_content_description">Imaxe: %s</string>
+  <string name="page_content_description">Páxina: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Limpar historial de navegación</string>
   <string name="dialog_message_clear_history">Isto borrará todo o seu historial de navegación, e pechará calquera lapela aberta. Está seguro?</string>
   <string name="dialog_message_clear_history_yes">Si</string>
@@ -49,6 +59,9 @@
   <string name="share_via">Compartir mediante…</string>
   <string name="image_share_via">Compartir mediante</string>
   <string name="search_redirect_from">Redirixido desde %s</string>
+  <string name="page_edit_history_activity_title">Historial de revisións: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Resumo de edición baleiro</string>
   <string name="menu_page_show_tabs">Amosar as lapelas</string>
   <string name="menu_page_other_languages">Cambiar a lingua</string>
   <string name="menu_page_find_in_page" fuzzy="true">Atopar na páxina</string>
@@ -377,10 +390,6 @@
   <string name="reading_list_title_exists">A lista de lectura \"%s\" xa existe.</string>
   <string name="reading_list_added_view_button">Ver lista</string>
   <string name="reading_list_add_to_list_button">Engadir á lista</string>
-  <string name="format_reading_list_statistical_summary_singular">1 artigo, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artigos, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d artigo de 1 artigo dispoñible sen conexión, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d artigo(s) de %2$d artigos dispoñible(s) sen conexión, %3$.2f MB</string>
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_ellipsis">Ordenar por…</string>
   <string name="reading_list_sort_by_name">Ordenar por nome</string>
@@ -403,7 +412,7 @@
   <string name="reading_list_item_deleted">%s eliminado da lista</string>
   <string name="reading_list_items_deleted">%d artigos eliminados da lista</string>
   <string name="reading_lists_item_deleted">%s eliminado das listas</string>
-  <string name="reading_list_item_delete_undo">Desfazer</string>
+  <string name="reading_list_item_delete_undo">Desfacer</string>
   <string name="reading_list_deleted">%s eliminada</string>
   <string name="saved_list_empty_title">Aínda non hai listas de lectura</string>
   <string name="reading_lists_empty_message">Engade os artigos a unha lista para poder velos despois, incluso cando non estea conectado.</string>
@@ -803,4 +812,23 @@
   <string name="text_input_dialog_cancel_button_text">Cancelar</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Cancelar</string>
   <string name="thank_dialog_title_text">Envía un agradecemento público</string>
+  <string name="watchlist_expiry_dialog_one_week">1 semana</string>
+  <string name="watchlist_expiry_dialog_one_month">1 mes</string>
+  <string name="watchlist_expiry_dialog_three_months">3 meses</string>
+  <string name="watchlist_expiry_dialog_six_months">6 meses</string>
+  <string name="watchlist_filter_all">Todos</string>
+  <string name="watchlist_filter_talk">Conversa</string>
+  <string name="watchlist_filter_pages">Páxinas</string>
+  <string name="watchlist_filter_other">Outras</string>
+  <string name="action_item_categories">Categorías</string>
+  <string name="category_tab_articles">Artigos</string>
+  <string name="category_tab_subcategories">Subcategorías</string>
+  <string name="search_namespaces">Espazos de nomes</string>
+  <string name="namespace_article">Artigo</string>
+  <string name="user_contrib_current">actual</string>
+  <string name="user_contrib_menu_label">Contribucións</string>
+  <string name="shareable_reading_lists_new_indicator">*novo*</string>
+  <string name="reading_list_share_menu_label">Compartir…</string>
+  <string name="data_opt_in_accept">Aceptar</string>
+  <string name="data_opt_in_reject">Rexeitar</string>
 </resources>

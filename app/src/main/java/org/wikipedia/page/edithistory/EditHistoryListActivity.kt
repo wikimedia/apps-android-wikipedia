@@ -14,7 +14,9 @@ import androidx.core.graphics.ColorUtils
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.paging.PagingData
@@ -41,7 +43,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.talk.UserTalkPopupHelper
@@ -90,7 +91,7 @@ class EditHistoryListActivity : BaseActivity() {
         binding.compareConfirmButton.setOnClickListener {
             if (viewModel.selectedRevisionFrom != null && viewModel.selectedRevisionTo != null) {
                 startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
-                        viewModel.pageTitle, viewModel.selectedRevisionFrom!!.revId,
+                        viewModel.pageTitle, viewModel.pageId, viewModel.selectedRevisionFrom!!.revId,
                         viewModel.selectedRevisionTo!!.revId))
             }
             editHistoryInteractionEvent?.logCompare2()
@@ -110,26 +111,34 @@ class EditHistoryListActivity : BaseActivity() {
             }
         })
 
-        lifecycleScope.launchWhenCreated {
-            editHistoryListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
-                    .filter { it.refresh is LoadState.NotLoading }
-                    .collectLatest {
-                        if (binding.editHistoryRefreshContainer.isRefreshing) {
-                            binding.editHistoryRefreshContainer.isRefreshing = false
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    editHistoryListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
+                        .filter { it.refresh is LoadState.NotLoading }
+                        .collectLatest {
+                            if (binding.editHistoryRefreshContainer.isRefreshing) {
+                                binding.editHistoryRefreshContainer.isRefreshing = false
+                            }
+                        }
+                }
+                launch {
+                    editHistoryListAdapter.loadStateFlow.collectLatest {
+                        loadHeader.loadState = it.refresh
+                        loadFooter.loadState = it.append
+                        enableCompareButton(binding.compareButton, editHistoryListAdapter.itemCount > 2)
+                        val showEmpty = (it.append is LoadState.NotLoading && it.source.refresh is LoadState.NotLoading && editHistoryListAdapter.itemCount == 0)
+                        if (showEmpty) {
+                            (binding.editHistoryRecycler.adapter as ConcatAdapter).addAdapter(editHistoryEmptyMessagesAdapter)
+                        } else {
+                            (binding.editHistoryRecycler.adapter as ConcatAdapter).removeAdapter(editHistoryEmptyMessagesAdapter)
                         }
                     }
-        }
-
-        lifecycleScope.launchWhenCreated {
-            editHistoryListAdapter.loadStateFlow.collectLatest {
-                loadHeader.loadState = it.refresh
-                loadFooter.loadState = it.append
-                enableCompareButton(binding.compareButton, editHistoryListAdapter.itemCount > 2)
-                val showEmpty = (it.append is LoadState.NotLoading && it.source.refresh is LoadState.NotLoading && editHistoryListAdapter.itemCount == 0)
-                if (showEmpty) {
-                    (binding.editHistoryRecycler.adapter as ConcatAdapter).addAdapter(editHistoryEmptyMessagesAdapter)
-                } else {
-                    (binding.editHistoryRecycler.adapter as ConcatAdapter).removeAdapter(editHistoryEmptyMessagesAdapter)
+                }
+                launch {
+                    viewModel.editHistoryFlow.collectLatest {
+                        editHistoryListAdapter.submitData(it)
+                    }
                 }
             }
         }
@@ -143,12 +152,6 @@ class EditHistoryListActivity : BaseActivity() {
             }
             editHistoryStatsAdapter.notifyItemChanged(0)
             editHistorySearchBarAdapter.notifyItemChanged(0)
-        }
-
-        lifecycleScope.launch {
-            viewModel.editHistoryFlow.collectLatest {
-                editHistoryListAdapter.submitData(it)
-            }
         }
 
         if (viewModel.actionModeActive) {
@@ -409,7 +412,6 @@ class EditHistoryListActivity : BaseActivity() {
 
         fun bindItem() {
             binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.page_edit_history_empty_search_message))
-            RichTextUtil.removeUnderlinesFromLinks(binding.emptySearchMessage)
             binding.searchEmptyText.isVisible = actionMode != null
             binding.searchEmptyContainer.isVisible = Prefs.editHistoryFilterType.isNotEmpty()
         }
@@ -430,7 +432,7 @@ class EditHistoryListActivity : BaseActivity() {
                 toggleSelectState()
             } else {
                 startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
-                        viewModel.pageTitle, revision.revId))
+                        viewModel.pageTitle, viewModel.pageId, revision.revId))
             }
         }
 

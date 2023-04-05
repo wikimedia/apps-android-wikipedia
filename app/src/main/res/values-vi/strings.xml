@@ -463,10 +463,6 @@
     <item quantity="one">%1$d trong tổng số 1 bài viết có sẵn ngoại tuyến, %3$.2f MB</item>
     <item quantity="other">%1$d trong số %2$d bài viết có sẵn ngoại tuyến, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 bài, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d bài, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d trên 1 bài có sẵn ngoại tuyến, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d trên %2$d bài có sẵn ngoại tuyến, %3$.2f MB</string>
   <string name="reading_list_sort">Sắp xếp</string>
   <string name="reading_list_sort_ellipsis">Sắp xếp theo…</string>
   <string name="reading_list_sort_by_name">Sắp xếp theo tên</string>

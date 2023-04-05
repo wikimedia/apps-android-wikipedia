@@ -22,6 +22,7 @@
 * Hocinend1
 * Kassem789
 * Kassem7899
+* MRidhaAJ
 * Maroen1990
 * Meno25
 * Michel Bakni
@@ -97,7 +98,8 @@
   <string name="page_edit_history_filter_by_user">تعديلات المستخدمين (%s)</string>
   <string name="page_edit_history_filter_by_anon">تعديلات المجهولين (%s)</string>
   <string name="page_edit_history_filter_by_bot">تعديلات البوتات (%s)</string>
-  <string name="page_edit_history_metrics_content_description" fuzzy="true">مصفوفات%1$s - %2$s</string>
+  <string name="page_edit_history_metrics_content_description">المصفوفات من %1$s إلى %2$s</string>
+  <string name="page_edit_history_empty_search_message">حاول تغيير &lt;a href=\"#\"&gt;عوامل التصفية&lt;/a&gt; لرؤية المزيد من التعديلات</string>
   <string name="menu_page_show_tabs">أظهر التبويبات</string>
   <string name="menu_page_other_languages">غير اللغة</string>
   <string name="menu_page_find_in_page">ابحث في المقالة</string>
@@ -141,6 +143,7 @@
   <string name="content_license_cc_by_sa">المشاع الإبداعي النسبة-الترخيص بالمثل 3.0</string>
   <string name="edit_save_action_license_logged_in">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;وعلى نشر مساهماتك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0&lt;/a&gt;. التعديلات سوف تنسب إلى عنوان بروتوكول الإنترنت الخاص بجهازك. في حال كنت &lt;a href=\"https://#login\"&gt;مسجلا للدخول&lt;/a&gt;، فإنك ستحظى بالمزيد من الخصوصية.</string>
+  <string name="edit_anon_warning">ستُنسب التعديلات إلى عنوان IP الخاص بجهازك. إذا قمت &lt;a href=\"https://#login\"&gt;بتسجيل الدخول&lt;/a&gt; ، سيكون لديك المزيد من الخصوصية.</string>
   <string name="preference_title_language">لغات ويكيبيديا</string>
   <string name="langlinks_filter_hint">بحث</string>
   <string name="langlinks_empty">هذه الصفحة غير متوفرة بلغات أخرى</string>
@@ -290,6 +293,7 @@
   <string name="edit_preview">معاينة</string>
   <string name="edit_undo">تراجع</string>
   <string name="edit_redo">أعد</string>
+  <string name="edit_rollback">استرجاع</string>
   <string name="edit_zoom_in">تكبير</string>
   <string name="edit_zoom_out">تصغير</string>
   <string name="edit_summary_tag_typo">تم تصحيح خطأ مطبعي</string>
@@ -435,6 +439,7 @@
   <string name="menu_save_all_tabs">حفظ كل الألسنة</string>
   <string name="error_blocked_title">عنوان الآي بي أو اسم المستخدم الخاص بك تم منعه.</string>
   <string name="error_blocked_reason">السبب المُعطى هو: %s</string>
+  <string name="error_blocked_start">بداية المنع: %s</string>
   <string name="crash_report_activity_title">عطل في التطبيق</string>
   <string name="crash_report_relaunch_or_quit">نحن آسفون، وقع خطأ في تطبيق ويكيبيديا أدى إلى توقفه.\n\nتريد أن تبدأ من جديد أو إنهاء؟</string>
   <string name="crash_report_relaunch">ابدأ من جديد</string>
@@ -492,10 +497,6 @@
     <item quantity="many">...</item>
     <item quantity="other">%1$d من %2$d مقالات متاحة بلا اتصال، %3$.2f ميغابايت</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">مقالة واحدة، %1$.2f ميجا بايت</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d مقالة/مقالات، %2$.2f ميجا بايت</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d من أصل المقالة متاحة بدون اتصال، %2$.2f ميجا بايت</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d من أصل %2$d مقالات متاحة دون اتصال، %3$.2f ميغابايت</string>
   <string name="reading_list_sort">رتب</string>
   <string name="reading_list_sort_ellipsis">الترتيب حسب…</string>
   <string name="reading_list_sort_by_name">فرز حسب الاسم</string>
@@ -602,6 +603,10 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">إلغاء</string>
   <string name="reading_list_split_dialog_ok_button_text">حسنا</string>
   <string name="reading_list_activity_title">قائمة القراءة\" %s</string>
+  <string name="reading_lists_preview_save_dialog_title">حفظ القائمة</string>
+  <string name="reading_lists_preview_save_dialog_text">سمّ القائمة واختر مقالات لتحفظها</string>
+  <string name="reading_lists_preview_save_dialog_cancel">إلغاء</string>
+  <string name="reading_lists_preview_save_dialog_save">حفظ</string>
   <string name="user_option_sync_label">تفضيلات</string>
   <string name="notification_reverted_title">تعديل ملغى</string>
   <string name="notification_channel_description">تقدم التنزيل</string>
@@ -1090,7 +1095,14 @@
   <string name="wikitext_preview_link">معاينة الرابط</string>
   <string name="insert_media_settings_caption">تعليق</string>
   <string name="insert_media_settings_alternative_text">نص بديل</string>
+  <string name="insert_media_advanced_settings">إعدادات متقدمة</string>
+  <string name="insert_media_advanced_settings_image_position">موضع الصورة</string>
+  <string name="insert_media_advanced_settings_image_type">نوع الصورة</string>
   <string name="insert_media_advanced_settings_image_size">حجم الصورة</string>
+  <string name="insert_media_advanced_settings_image_size_default">افتراضي</string>
+  <string name="insert_media_advanced_settings_image_size_custom">مخصص</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">عرض</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">طول</string>
   <string name="main_drawer_help">مساعدة</string>
   <string name="main_drawer_login">سجل الدخول / انضم لويكيبيديا</string>
   <string name="main_tooltip_text">مرحبا %s، هل تعلم أنه بإمكان الجميع تحرير ويكيبيديا؟</string>
@@ -1197,6 +1209,8 @@
   <string name="watchlist_page_moved">نُقلت</string>
   <string name="watchlist_page_protected">محمية</string>
   <string name="watchlist_page_deleted">حُذفت</string>
+  <string name="watchlist_filter_user_status_unregistered">غير مسجل</string>
+  <string name="watchlist_filter_type_of_change_page_edits">تعديلات الصفحة</string>
   <string name="preview_edit_title">معاينة التعديل</string>
   <string name="preview_edit_summarize_edit_title">تلخيص التحرير</string>
   <string name="preview_edit_summarize_edit_hint">كيف حسّنت الصفحة؟</string>
@@ -1216,7 +1230,6 @@
   <string name="user_contrib_menu_label">مساهمات</string>
   <string name="reading_list_share_menu_label">المشاركة…</string>
   <string name="reading_list_share_menu_tooltip">شارك قائمة القراءة هذه مع الآخرين</string>
-  <string name="reading_list_share_title_tooltip">التغييرات التي تجريها على هذه القائمة غير مرئية للآخرين.</string>
   <string name="reading_list_share_message_v2">مرحبًا! أرغب في مشاركة قائمة قراءة ويكيبيديا الخاصة بي معك:</string>
   <string name="reading_list_share_survey_title">هل يمكنك مساعدتنا في تحسين \"مشاركة قوائم القراءة\"؟</string>
   <string name="reading_list_share_survey_body">\"مشاركة قوائم القراءة\" هي ميزة اختبار ونحن بحاجة إلى ملاحظاتك لتحسينها أو إزالتها.</string>

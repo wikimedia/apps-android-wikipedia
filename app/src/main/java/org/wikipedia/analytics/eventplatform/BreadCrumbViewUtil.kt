@@ -66,8 +66,8 @@ object BreadCrumbViewUtil {
         }
     }
 
-    fun getReadableScreenName(context: Context): String {
-        val fragName = getCurrentFragmentName(context)
+    fun getReadableScreenName(context: Context, fragment: Fragment? = null): String {
+        val fragName = if (fragment == null) getCurrentFragmentName(context) else fragment.javaClass.simpleName
         return context.javaClass.simpleName + (if (fragName.isNotEmpty()) ".$fragName" else "")
     }
 

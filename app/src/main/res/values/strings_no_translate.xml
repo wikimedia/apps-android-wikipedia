@@ -65,4 +65,5 @@
     <!-- Tag ids for SwipeableItemTouchHelper -->
     <string name="tag_icon_key">tagIconKey</string>
     <string name="tag_text_key">tagTextKey</string>
+
 </resources>

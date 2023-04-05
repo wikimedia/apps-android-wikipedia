@@ -408,10 +408,6 @@
     <item quantity="one">এটা প্ৰবন্ধ, %2$.2f MB</item>
     <item quantity="other">%1$dটা প্ৰবন্ধ, %2$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">১টা প্ৰবন্ধ, %1$.2f মেগাবাইট</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$dটা প্ৰবন্ধ, %2$.2f মেগাবাইট</string>
-  <string name="format_reading_list_statistical_detail_singular">1টাৰ %1$dটা প্ৰবন্ধ অফলাইন উপলব্ধ, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$dটাৰ ভিতৰৰ %1$dটা প্ৰবন্ধ অফলাইনত উপলব্ধ, %3$.2f MB</string>
   <string name="reading_list_sort">সজাওক</string>
   <string name="reading_list_sort_ellipsis">ক্ৰমে সজাওক…</string>
   <string name="reading_list_sort_by_name">নাম অনুযায়ী সজাওক</string>

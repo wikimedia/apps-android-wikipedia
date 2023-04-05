@@ -18,7 +18,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.CreateAccountFunnel
+import org.wikipedia.analytics.eventplatform.CreateAccountEvent
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.databinding.ActivityCreateAccountBinding
@@ -31,7 +31,6 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NonEmptyValidator
-import java.util.*
 import java.util.concurrent.TimeUnit
 import java.util.regex.Pattern
 
@@ -42,7 +41,7 @@ class CreateAccountActivity : BaseActivity() {
 
     private lateinit var binding: ActivityCreateAccountBinding
     private lateinit var captchaHandler: CaptchaHandler
-    private lateinit var funnel: CreateAccountFunnel
+    private lateinit var createAccountEvent: CreateAccountEvent
     private val disposables = CompositeDisposable()
     private var wiki = WikipediaApp.instance.wikiSite
     private var userNameTextWatcher: TextWatcher? = null
@@ -58,10 +57,10 @@ class CreateAccountActivity : BaseActivity() {
         // Don't allow user to continue when they're shown a captcha until they fill it in
         NonEmptyValidator(binding.captchaContainer.captchaSubmitButton, binding.captchaContainer.captchaText)
         setClickListeners()
-        funnel = CreateAccountFunnel(WikipediaApp.instance, intent.getStringExtra(LOGIN_REQUEST_SOURCE)!!)
+        createAccountEvent = CreateAccountEvent(intent.getStringExtra(LOGIN_REQUEST_SOURCE).orEmpty())
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
-            funnel.logStart(UUID.randomUUID().toString())
+            createAccountEvent.logStart()
         }
         // Set default result to failed, so we can override if it did not
         setResult(RESULT_ACCOUNT_NOT_CREATED)
@@ -161,10 +160,12 @@ class CreateAccountActivity : BaseActivity() {
                     if ("PASS" == response.status) {
                         finishWithUserResult(response.user)
                     } else {
+                        createAccountEvent.logError(StringUtil.removeStyleTags(response.message))
                         throw CreateAccountException(StringUtil.removeStyleTags(response.message))
                     }
                 }) { caught ->
                     L.e(caught.toString())
+                    createAccountEvent.logError(caught.toString())
                     showProgressBar(false)
                     showError(caught)
                 })
@@ -264,7 +265,7 @@ class CreateAccountActivity : BaseActivity() {
         setResult(RESULT_ACCOUNT_CREATED, resultIntent)
         showProgressBar(false)
         captchaHandler.cancelCaptcha()
-        funnel.logSuccess()
+        createAccountEvent.logSuccess()
         DeviceUtil.hideSoftKeyboard(this@CreateAccountActivity)
         finish()
     }
@@ -315,7 +316,6 @@ class CreateAccountActivity : BaseActivity() {
 
         val USERNAME_PATTERN: Pattern = Pattern.compile("[^#<>\\[\\]|{}/@]*")
 
-        @JvmStatic
         fun validateInput(username: CharSequence,
                           password: CharSequence,
                           passwordRepeat: CharSequence,

@@ -44,6 +44,7 @@
 * Stefano
 * SuperVirtual
 * The Polish
+* UnGiglio
 * Vivbod
 * Yacine Boussoufa
 -->
@@ -497,18 +498,22 @@
   <string name="reading_list_articles_already_exist_message">Tutto bene! %s contiene già tutte le voci.</string>
   <string name="reading_list_added_view_button">Visualizza elenco</string>
   <string name="reading_list_add_to_list_button">Aggiungi all\'elenco</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 voce</item>
+    <item quantity="other">%d voci</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 voce, %2$.2f MB</item>
     <item quantity="other">%1$d voci, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d di 1 voce disponile in assenza di connessione Internet</item>
+    <item quantity="other">%1$d di %2$d voci disponili in assenza di connessione Internet</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d di 1 voce disponile in assenza di connessione Internet, %3$.2f MB</item>
     <item quantity="other">%1$d di %2$d voci disponili in assenza di connessione Internet, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 voce, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d voci, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d di 1 voce disponibile offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d di %2$d voci disponibili offline, %3$.2f MB</string>
   <string name="reading_list_sort">Ordina</string>
   <string name="reading_list_sort_ellipsis">Ordina per…</string>
   <string name="reading_list_sort_by_name">Ordina per nome</string>
@@ -518,6 +523,10 @@
   <string name="reading_list_sort_by_created">Ordina per data creazione (più recente)</string>
   <string name="reading_list_sort_by_created_desc">Ordina per data di creazione (meno recente)</string>
   <string name="reading_list_menu_delete">Cancella elenco</string>
+  <string name="reading_list_menu_export">Esporta elenco</string>
+  <string name="reading_list_menu_select">Seleziona</string>
+  <string name="reading_list_menu_unselect">Deseleziona</string>
+  <string name="reading_list_export_write_permission_rationale">Il permesso di scrittura sul dispositivo è necessario per il salvataggio dell\'elenco di lettura.</string>
   <string name="reading_list_menu_rename">Modifica nome/descrizione</string>
   <string name="reading_list_action_menu_remove_from_offline">Rimuovi da offline</string>
   <string name="reading_list_action_menu_save_for_offline">Salva per offline</string>
@@ -538,6 +547,15 @@
     <item quantity="one">%d voce rimossa da %s</item>
     <item quantity="other">%d voci rimosse da %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d elenco cancellato</item>
+    <item quantity="other">%d elenchi cancellati</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">L\'elenco predefinito (%s) non può essere cancellato.</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s cancellato. L\'elenco predefinito (%2$s) non può essere cancellato.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Elenchi cancellati. L\'elenco predefinito (%s) non può essere cancellato.</string>
+  <string name="single_list_json_file_name">%s (Elenco di lettura Wikipedia).json</string>
+  <string name="multiple_lists_json_file_name">Elenchi di lettura Wikipedia (%s e più).json</string>
   <string name="reading_list_items_deleted">%d voci rimosse dagli elenchi</string>
   <string name="reading_lists_item_deleted">%s rimosso dagli elenchi</string>
   <string name="reading_list_item_delete_undo">Annulla</string>
@@ -570,6 +588,11 @@
   <string name="reading_list_articles_added_to_named">Aggiunte %1$d voci a %2$s</string>
   <string name="reading_list_articles_moved_to_named">Spostate %1$d voci in %2$s</string>
   <string name="reading_list_delete_confirm">Sei sicuro di voler cancellare %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Cancellare gli elenchi selezionati?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Sei sicuro di voler eliminare l\'elenco di lettura %d?</item>
+    <item quantity="other">Sei sicuro di voler eliminare gli elenchi di lettura %d?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Accedi per abilitare la sincronizzazione</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Accedi per consentire il salvataggio degli elenchi di lettura sulla tua utenza.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annulla</string>
@@ -593,6 +616,7 @@
   <string name="reading_list_article_limit_message">Impossibile aggiungere a questo elenco. Hai raggiunto il limite di %2$d voci per elenco per \"%1$s\".</string>
   <string name="reading_lists_limit_message">Impossibile creare un altro elenco. Hai raggiunto il limite di 100 elenchi di lettura per utenza.</string>
   <string name="reading_lists_menu_create_list">Crea nuovo elenco</string>
+  <string name="reading_lists_menu_import_list">Importa elenco</string>
   <string name="reading_lists_menu_sort_by">Ordina per</string>
   <string name="reading_lists_refresh_sync_option">Aggiorna la sincronizzazione</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Entra / registrati</string>
@@ -613,7 +637,21 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Annulla</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Annulla</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Cancella</string>
   <string name="reading_list_activity_title">Elenco di lettura: %s</string>
+  <string name="reading_list_notification_title">Elenco di lettura esportato</string>
+  <string name="reading_lists_action_menu_export_lists">Esporta</string>
+  <string name="reading_lists_import_file_picker_title">Scegli il file da importare</string>
+  <string name="reading_lists_export_select_lists_message">Seleziona l\'elenco o gli elenchi da esportare</string>
+  <string name="reading_lists_preview_header_title">Elenco condiviso</string>
+  <string name="reading_lists_preview_save_button">Salva</string>
+  <string name="reading_lists_preview_save_dialog_title">Salva elenco</string>
+  <string name="reading_lists_preview_save_dialog_text">Assegna un nome all\'elenco e seleziona le voci da salvare.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Titolo</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Annulla</string>
+  <string name="reading_lists_preview_save_dialog_save">Salva</string>
+  <string name="reading_lists_preview_saved_snackbar">Elenco di lettura salvato</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Visualizza</string>
   <string name="user_option_sync_label">Preferenze</string>
   <string name="notification_reverted_title">Modifica annullata</string>
   <string name="notification_channel_title">Download delle voci</string>
@@ -834,6 +872,7 @@
   <string name="description_starts_with_lowercase">Evita di iniziare con una lettera minuscola.</string>
   <string name="description_is_in_different_language">Il testo sembra appartenere a una lingua non accettata. La lingua dovrebbe essere %s.</string>
   <string name="description_verification_notice">Verifica che la tua descrizione sia in %1$s. Non esitare a ignorare questa notifica se la descrizione che hai scritto è in %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">Mostra le descrizioni suggerite</string>
   <string name="description_edit_success_saved">Descrizione della voce pubblicata!</string>
   <string name="description_edit_success_saved_snackbar">Descrizione della voce pubblicata!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrizione della voce pubblicata! (%s)</string>
@@ -851,6 +890,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una riga, da due a dodici parole</string>
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
   <string name="description_edit_tutorial_promise">Per iniziare, prometto di non abusare di questa funzione.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Suggerimenti automatici</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">I suggerimenti sono generati da una macchina, non da volontari o dalla Wikimedia Foundation</string>
   <string name="customize_toolbar_title">Personalizza barra degli strumenti</string>
   <string name="customize_toolbar_shortcut_description_text">Personalizza la barra degli strumenti in basso con 5 scorciatoie che ritieni più utili.</string>
   <string name="customize_toolbar_category_toolbar">Barra degli strumenti</string>
@@ -1009,6 +1050,12 @@
   <string name="suggested_edits_contribution_type_image_tag">Etichetta dell\'immagine</string>
   <string name="suggested_edits_contribution_current_revision_text">La tua modifica è attualmente online su Wikipedia</string>
   <string name="suggested_card_more_edits">Altre modifiche suggerite</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Descrizioni suggerite</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Cosa vorresti segnalare?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Informazioni insufficienti</string>
+  <string name="suggested_edits_inappropriate_suggestion">Suggerimento inappropriato</string>
+  <string name="suggested_edits_report_suggestion">Segnala</string>
+  <string name="suggested_edits_suggestion_report_submitted">Segnalazione inviata</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etichetta</item>
     <item quantity="other">%1$s etichette</item>
@@ -1280,6 +1327,50 @@
   <string name="watchlist_page_moved">Spostato</string>
   <string name="watchlist_page_protected">Protetto</string>
   <string name="watchlist_page_deleted">Cancellato</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">Tutto</string>
+  <string name="watchlist_filter_watchlist_activity_header">Attività negli osservati speciali</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Modifiche non ancora viste</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Modifiche già viste</string>
+  <string name="watchlist_filter_contribution_quality_header">Previsioni sulla qualità del contributo</string>
+  <string name="watchlist_filter_contribution_quality_good">Molto probabilmente buona</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Potrebbe avere problemi</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Probabilmente ha problemi</string>
+  <string name="watchlist_filter_contribution_quality_bad">Molto probabilmente ha problemi</string>
+  <string name="watchlist_filter_user_intent_header">Previsioni delle intenzioni dell\'utente</string>
+  <string name="watchlist_filter_user_intent_good">Molto probabilmente in buona fede</string>
+  <string name="watchlist_filter_user_intent_may_problems">Potrebbe essere in malafede</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Probabile in malafede</string>
+  <string name="watchlist_filter_user_intent_bad">Molto probabilmente in mala fede</string>
+  <string name="watchlist_filter_user_status_header">Registrazione utente ed esperienza</string>
+  <string name="watchlist_filter_user_status_unregistered">Non registrato</string>
+  <string name="watchlist_filter_user_status_registered">Registrato</string>
+  <string name="watchlist_filter_user_status_newcomers">Nuovi utenti</string>
+  <string name="watchlist_filter_user_status_learners">Principianti</string>
+  <string name="watchlist_filter_user_status_experienced">Utenti con esperienza</string>
+  <string name="watchlist_filter_contribution_authorship_header">Autore del contributo</string>
+  <string name="watchlist_filter_contribution_authorship_own">Mie modifiche</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Modifiche di altri</string>
+  <string name="watchlist_filter_automated_contributions_header">Contributi automatici</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">Umani (non bot)</string>
+  <string name="watchlist_filter_significance_header">Significato</string>
+  <string name="watchlist_filter_significance_minor">Modifiche minori</string>
+  <string name="watchlist_filter_significance_edits">Modifiche non minori</string>
+  <string name="watchlist_filter_latest_revisions_header">Ultime versioni</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Versione attuale</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Non l\'ultima versione</string>
+  <string name="watchlist_filter_type_of_change_header">Tipo di modifica</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Modifiche alle pagine</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Creazioni di pagine</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Modifiche alle categorie</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Modifiche di Wikidata</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Azioni di registro</string>
+  <string name="watchlist_filter_type_of_change_new_users">Nuovi utenti</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d filtro</item>
+    <item quantity="other">%d filtri</item>
+  </plurals>
   <string name="preview_edit_title">Anteprima modifica</string>
   <string name="preview_edit_summarize_edit_title">Riassumi modifica</string>
   <string name="preview_edit_summarize_edit_hint">Come hai migliorato questa pagina?</string>
@@ -1313,8 +1404,9 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Elenco di lettura importato</string>
   <string name="reading_list_share_menu_label">Condividi…</string>
   <string name="reading_list_share_menu_tooltip">Condividi questo elenco di lettura con altri</string>
-  <string name="reading_list_share_title_tooltip">Le modifiche apportate a questo elenco non sono visibili agli altri.</string>
   <string name="reading_list_share_message_v2">Ciao! Vorrei condividere il mio elenco di lettura di Wikipedia con te:</string>
   <string name="reading_list_share_survey_title">Puoi aiutarci a migliorare \"Condividi elenchi di lettura\"?</string>
   <string name="reading_list_share_survey_body">\"Condividi elenchi di lettura\" è una funzione di prova e abbiamo bisogno del tuo commento per migliorarla o rimuoverla.</string>
+  <string name="data_opt_in_accept">Accetta</string>
+  <string name="data_opt_in_reject">Rifiuta</string>
 </resources>

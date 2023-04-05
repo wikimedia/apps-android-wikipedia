@@ -475,18 +475,22 @@
     <string name="reading_list_articles_already_exist_message">All good! %s already contains all articles.</string>
     <string name="reading_list_added_view_button">View list</string>
     <string name="reading_list_add_to_list_button">Add to list</string>
+    <plurals name="format_reading_list_statistical_summary_without_size">
+        <item quantity="one">1 article</item>
+        <item quantity="other">%d articles</item>
+    </plurals>
     <plurals name="format_reading_list_statistical_summary">
         <item quantity="one">1 article, %2$.2f MB</item>
         <item quantity="other">%1$d articles, %2$.2f MB</item>
+    </plurals>
+    <plurals name="format_reading_list_statistical_detail_without_size">
+        <item quantity="one">%1$d of 1 article available offline</item>
+        <item quantity="other">%1$d of %2$d articles available offline</item>
     </plurals>
     <plurals name="format_reading_list_statistical_detail">
         <item quantity="one">%1$d of 1 article available offline, %3$.2f MB</item>
         <item quantity="other">%1$d of %2$d articles available offline, %3$.2f MB</item>
     </plurals>
-    <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
-    <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>
-    <string name="format_reading_list_statistical_detail_singular">%1$d of 1 articles available offline, %2$.2f MB</string>
-    <string name="format_reading_list_statistical_detail_plural">%1$d of %2$d articles available offline, %3$.2f MB</string>
     <string name="reading_list_sort">Sort</string>
     <string name="reading_list_sort_ellipsis">Sort by…</string>
     <string name="reading_list_sort_by_name">Sort by name</string>
@@ -496,6 +500,10 @@
     <string name="reading_list_sort_by_created">Sort by date created (newest)</string>
     <string name="reading_list_sort_by_created_desc">Sort by date created (oldest)</string>
     <string name="reading_list_menu_delete">Delete list</string>
+    <string name="reading_list_menu_export">Export list</string>
+    <string name="reading_list_menu_select">Select</string>
+    <string name="reading_list_menu_unselect">Unselect</string>
+    <string name="reading_list_export_write_permission_rationale">Permission to write to storage on your device is required for exporting your reading list.</string>
     <string name="reading_list_menu_rename">Edit name/description</string>
     <string name="reading_list_action_menu_remove_from_offline">Remove from offline</string>
     <string name="reading_list_action_menu_save_for_offline">Save for offline</string>
@@ -516,6 +524,15 @@
         <item quantity="one">%d article removed from %s</item>
         <item quantity="other">%d articles removed from %s</item>
     </plurals>
+    <plurals name="reading_lists_deleted_message">
+        <item quantity="one">%d list deleted</item>
+        <item quantity="other">%d lists deleted</item>
+    </plurals>
+    <string name="reading_lists_default_list_delete_message">The default list (%s) can\'t be deleted</string>
+    <string name="reading_lists_default_plus_one_list_delete_message">%1$s deleted. The default list (%2$s) can\'t be deleted.</string>
+    <string name="reading_lists_default_plus_many_lists_delete_message">Lists deleted. The default list (%s) can\'t be deleted.</string>
+    <string name="single_list_json_file_name">%s (Wikipedia reading list).json</string>
+    <string name="multiple_lists_json_file_name">Wikipedia reading lists (%s and more).json</string>
     <string name="reading_list_items_deleted">%d articles removed from list</string>
     <string name="reading_lists_item_deleted">%s removed from lists</string>
     <string name="reading_list_item_delete_undo">Undo</string>
@@ -548,6 +565,11 @@
     <string name="reading_list_articles_added_to_named">Added %1$d articles to %2$s</string>
     <string name="reading_list_articles_moved_to_named">Moved %1$d articles to %2$s</string>
     <string name="reading_list_delete_confirm">Are you sure you want to delete %s?</string>
+    <string name="reading_list_delete_lists_confirm_dialog_title">Delete selected list(s)?</string>
+    <plurals name="reading_list_delete_lists_confirm_dialog_message">
+        <item quantity="one">Are you sure you want to delete %d list?</item>
+        <item quantity="other">Are you sure you want to delete %d lists?</item>
+    </plurals>
     <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log in to enable sync</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log in to allow your reading lists to be saved to your account.</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancel</string>
@@ -571,6 +593,7 @@
     <string name="reading_list_article_limit_message">Can\'t add to this list. You\'ve reached the limit of %2$d articles per list for \"%1$s\".</string>
     <string name="reading_lists_limit_message">Can\'t create another list. You\'ve reached the limit of 100 reading lists per account.</string>
     <string name="reading_lists_menu_create_list">Create new list</string>
+    <string name="reading_lists_menu_import_list">Import list</string>
     <string name="reading_lists_menu_sort_by">Sort by</string>
     <string name="reading_lists_refresh_sync_option">Refresh sync</string>
     <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Log in / sign up</string>
@@ -591,7 +614,33 @@
     <string name="reading_list_remove_from_offline_cancel_button_text">Cancel</string>
     <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancel</string>
     <string name="reading_list_split_dialog_ok_button_text">OK</string>
+    <string name="reading_list_delete_lists_dialog_delete_button_text">Delete</string>
     <string name="reading_list_activity_title">Reading list: %s</string>
+    <string name="reading_list_notification_title">Reading list(s) exported</string>
+    <string name="reading_list_notification_text">%d Reading list(s) have been exported as \'reading_lists export.json\' to your downloads folder</string>
+    <string name="reading_list_notification_detailed_text">Reading lists have been exported to \'reading_lists_export.json\'</string>
+    <string name="reading_lists_action_menu_export_lists">Export</string>
+    <string name="reading_lists_import_file_picker_title">Choose the file to import</string>
+    <string name="reading_lists_import_failure_message">Reading lists import failed</string>
+    <string name="reading_lists_export_select_lists_message">Select list(s) to export</string>
+    <string name="reading_lists_export_completed_message">Reading list(s) exported</string>
+    <plurals name="reading_list_export_failed_message">
+        <item quantity="one">Reading list export failed</item>
+        <item quantity="other">Reading lists export failed</item>
+    </plurals>
+    <plurals name="reading_list_import_success_message">
+        <item quantity="one">Reading list imported</item>
+        <item quantity="other">Reading lists imported</item>
+    </plurals>
+    <string name="reading_lists_preview_header_title">Shared list</string>
+    <string name="reading_lists_preview_save_button">Save</string>
+    <string name="reading_lists_preview_save_dialog_title">Save list</string>
+    <string name="reading_lists_preview_save_dialog_text">Name list and select articles to save.</string>
+    <string name="reading_lists_preview_save_dialog_title_hint">Title</string>
+    <string name="reading_lists_preview_save_dialog_cancel">Cancel</string>
+    <string name="reading_lists_preview_save_dialog_save">Save</string>
+    <string name="reading_lists_preview_saved_snackbar">Reading list saved</string>
+    <string name="reading_lists_preview_saved_snackbar_action">View</string>
     <!-- /Reading lists -->
 
     <!-- User options -->
@@ -828,6 +877,8 @@
     <string name="description_starts_with_lowercase">Avoid starting with a lowercase letter.</string>
     <string name="description_is_in_different_language">The text appears to be in an unexpected language. The language should be %s.</string>
     <string name="description_verification_notice">Please verify your description is in %1$s. Feel free to dismiss this notification if the description you\'ve written is in %2$s.</string>
+    <string name="description_edit_suggested_description_button_text">Show suggested descriptions</string>
+    <string name="description_edit_suggested_description_button_tooltip">Try machine-suggested article descriptions</string>
     <!-- /Description editing -->
 
     <!-- Description editing success -->
@@ -851,6 +902,8 @@
     <string name="description_edit_tutorial_keep_it_short_instructions">Ideally one line, between two to twelve words</string>
     <string name="description_edit_tutorial_button_label_start_editing">Start editing</string>
     <string name="description_edit_tutorial_promise">By starting, I promise not to misuse this feature.</string>
+    <string name="description_edit_tutorial_machine_suggestions_title">Machine suggestions</string>
+    <string name="description_edit_tutorial_machine_suggestions_description">The suggestions are generated by a machine, not volunteers or the Wikimedia Foundation</string>
     <!-- /Description editing tutorial -->
 
     <!-- Customize toolbar -->
@@ -1015,6 +1068,14 @@
     <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
     <string name="suggested_edits_contribution_current_revision_text">Your edit is currently live on Wikipedia</string>
     <string name="suggested_card_more_edits">More suggested edits</string>
+    <string name="suggested_edits_article_descriptions_dialog_title">Suggested descriptions</string>
+    <string name="suggested_edits_descriptions_report_dialog_title">What would you like to report?</string>
+    <string name="suggested_edits_descriptions_not_enough_info_suggestion">Not enough information</string>
+    <string name="suggested_edits_descriptions_cannot_see_suggestion">Can\'t see suggested descriptions</string>
+    <string name="suggested_edits_inappropriate_suggestion">Inappropriate suggestion</string>
+    <string name="suggested_edits_do_not_understand_suggestion">Don\'t understand the task</string>
+    <string name="suggested_edits_report_suggestion">Report</string>
+    <string name="suggested_edits_suggestion_report_submitted">Report submitted</string>
     <plurals name="suggested_edits_tags_diff_count_text">
         <item quantity="one">%1$s tag</item>
         <item quantity="other">%1$s tags</item>
@@ -1315,6 +1376,7 @@
     <string name="watchlist_expiry_dialog_three_months">3 months</string>
     <string name="watchlist_expiry_dialog_six_months">6 months</string>
     <string name="watchlist_empty">You do not have any articles in your watchlist.</string>
+    <string name="watchlist_search">Search watchlist</string>
     <string name="watchlist_filter_all">All</string>
     <string name="watchlist_filter_talk">Talk</string>
     <string name="watchlist_filter_pages">Pages</string>
@@ -1322,6 +1384,55 @@
     <string name="watchlist_page_moved">Moved</string>
     <string name="watchlist_page_protected">Protected</string>
     <string name="watchlist_page_deleted">Deleted</string>
+    <string name="watchlist_filter_title">Watchlist filter</string>
+    <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+    <string name="watchlist_filter_all_text">All</string>
+    <string name="watchlist_filter_watchlist_activity_header">Watchlist activity</string>
+    <string name="watchlist_filter_watchlist_activity_unseen">Unseen changes</string>
+    <string name="watchlist_filter_watchlist_activity_seen">Seen changes</string>
+    <string name="watchlist_filter_contribution_quality_header">Contribution quality predictions</string>
+    <string name="watchlist_filter_contribution_quality_good">Very likely good</string>
+    <string name="watchlist_filter_contribution_quality_may_problems">May have problems</string>
+    <string name="watchlist_filter_contribution_quality_likely_problems">Likely have problems</string>
+    <string name="watchlist_filter_contribution_quality_bad">Very likely have problems</string>
+    <string name="watchlist_filter_user_intent_header">User intent predictions</string>
+    <string name="watchlist_filter_user_intent_good">Very likely good faith</string>
+    <string name="watchlist_filter_user_intent_may_problems">May be bad faith</string>
+    <string name="watchlist_filter_user_intent_likely_problems">Likely bad faith</string>
+    <string name="watchlist_filter_user_intent_bad">Very likely bad faith</string>
+    <string name="watchlist_filter_user_status_header">User registration and experience</string>
+    <string name="watchlist_filter_user_status_unregistered">Unregistered</string>
+    <string name="watchlist_filter_user_status_registered">Registered</string>
+    <string name="watchlist_filter_user_status_newcomers">Newcomers</string>
+    <string name="watchlist_filter_user_status_learners">Learners</string>
+    <string name="watchlist_filter_user_status_experienced">Experienced users</string>
+    <string name="watchlist_filter_contribution_authorship_header">Contribution authorship</string>
+    <string name="watchlist_filter_contribution_authorship_own">Changes by you</string>
+    <string name="watchlist_filter_contribution_authorship_except_own">Changes by others</string>
+    <string name="watchlist_filter_automated_contributions_header">Automated contributions</string>
+    <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+    <string name="watchlist_filter_automated_contributions_human">Human (not bot)</string>
+    <string name="watchlist_filter_significance_header">Significance</string>
+    <string name="watchlist_filter_significance_minor">Minor edits</string>
+    <string name="watchlist_filter_significance_edits">Non-minor edits</string>
+    <string name="watchlist_filter_latest_revisions_header">Latest revisions</string>
+    <string name="watchlist_filter_latest_revisions_latest_revision">Latest revision</string>
+    <string name="watchlist_filter_latest_revisions_not_latest_revision">Not the latest revision</string>
+    <string name="watchlist_filter_type_of_change_header">Type of change</string>
+    <string name="watchlist_filter_type_of_change_page_edits">Page edits</string>
+    <string name="watchlist_filter_type_of_change_page_creations">Page creations</string>
+    <string name="watchlist_filter_type_of_change_category_changes">Category changes</string>
+    <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata edits</string>
+    <string name="watchlist_filter_type_of_change_logged_actions">Logged actions</string>
+    <string name="watchlist_filter_type_of_change_new_users">New users</string>
+    <string name="watchlist_filter_reset_button">Reset</string>
+    <string name="watchlist_search_bar_hint">Search or filter watchlist</string>
+    <string name="watchlist_search_bar_filter_hint">Watchlist filter</string>
+    <string name="watchlist_empty_search_message">No results, try removing %s to see more.</string>
+    <plurals name="watchlist_number_of_filters">
+        <item quantity="one">%d filter</item>
+        <item quantity="other">%d filters</item>
+    </plurals>
     <!-- /Watchlist -->
 
     <!-- Preview edit -->
@@ -1362,11 +1473,13 @@
     <string name="shareable_reading_lists_new_imported_snackbar">Reading list imported</string>
     <string name="reading_list_share_menu_label">Share…</string>
     <string name="reading_list_share_menu_tooltip">Share this reading list with others</string>
-    <string name="reading_list_share_title_tooltip">Changes you make to this list are not visible to others.</string>
     <string name="reading_list_share_message_v2">Hi! I\'d like to share my Wikipedia reading list with you:</string>
     <string name="reading_list_share_survey_title">Could you help us improve \"Share reading lists\"?</string>
     <string name="reading_list_share_survey_body">\"Share reading lists\" is a test feature and we need your feedback to improve or remove it.</string>
     <!-- /Shareable reading lists -->
+
+    <string name="data_opt_in_accept">Accept</string>
+    <string name="data_opt_in_reject">Reject</string>
 
     <string name="nearby_title">Nearby</string>
 

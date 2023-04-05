@@ -445,10 +445,6 @@
     <item quantity="one">%1$d of 1 مضمون آفلائين موجود آھي، %3$.2f ايم بي</item>
     <item quantity="other">%1$d of %2$d مضمونَ آفلائين موجود آھن، %3$.2f ايم بي</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 مضمون، %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d مضمونَ %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d جا 1 مضمونَ آفلائين موجود آھن، %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d جا %2$d مضمونَ موجود آھن، %3$.2f MB</string>
   <string name="reading_list_sort">مرتب ڪريو</string>
   <string name="reading_list_sort_ellipsis">مرتب ڪريو...</string>
   <string name="reading_list_sort_by_name">نالي سان مرتب ڪريو</string>
@@ -1142,4 +1138,5 @@
   <string name="media_playback_error">ميڊيا کي هلائڻ ۾ چُڪَ.</string>
   <string name="user_contrib_menu_label">ڀاڱيداريون</string>
   <string name="user_contrib_filter_activity_title" fuzzy="true">۾ ڀاڱيداريون:</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">سمجهي ويس</string>
 </resources>

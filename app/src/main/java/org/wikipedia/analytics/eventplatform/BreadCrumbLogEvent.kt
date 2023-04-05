@@ -1,10 +1,12 @@
 package org.wikipedia.analytics.eventplatform
 
 import android.content.Context
+import android.view.MenuItem
 import android.view.View
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
+import androidx.fragment.app.Fragment
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
@@ -43,13 +45,18 @@ class BreadCrumbLogEvent(
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), str))
         }
 
+        fun logClick(context: Context, item: MenuItem) {
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context),
+                context.resources.getResourceEntryName(item.itemId) + ".click"))
+        }
+
         fun logLongClick(context: Context, view: View) {
             val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), "$viewReadableName.longclick"))
         }
 
-        fun logScreenShown(context: Context) {
-            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), "show"))
+        fun logScreenShown(context: Context, fragment: Fragment? = null) {
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context, fragment), "show"))
         }
 
         fun logBackPress(context: Context) {

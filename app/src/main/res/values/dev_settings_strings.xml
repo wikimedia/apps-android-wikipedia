@@ -19,6 +19,7 @@
 
     <string name="preferences_developer_restbase_heading">RESTBase access</string>
     <string name="preferences_developer_logging_heading">Logging</string>
+    <string name="preferences_developer_event_platform_queue_size_title">Event platform batch size</string>
     <string name="preferences_developer_retrofit_log_level">Retrofit Log Level (restart required)</string>
     <string name="preferences_developer_crash_key">crash</string>
     <string name="preferences_developer_crash_title">Crash</string>

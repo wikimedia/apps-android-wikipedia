@@ -239,6 +239,8 @@
   <string name="reading_list_sort_ellipsis">ترتیب بمطابق۔۔۔</string>
   <string name="reading_list_sort_by_name">ناں نال ترتیب ݙیوو</string>
   <string name="reading_list_menu_delete">تندیر مٹاؤ</string>
+  <string name="reading_list_menu_export">تندیر برآمد کرو</string>
+  <string name="reading_list_menu_select">چݨو</string>
   <string name="reading_list_menu_rename">ناں یا وضاحت وچ تبدیلی لکھو</string>
   <string name="reading_list_action_menu_save_for_offline">آف لائن کیتے محفوظ کرو</string>
   <string name="reading_list_name_hint">ایں فہرست دا ناں</string>
@@ -255,6 +257,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">کو، شکریہ</string>
   <string name="default_reading_list_name">محفوظ تھی ڳیا</string>
   <string name="reading_lists_menu_create_list">نویں لسٹ بݨاؤ</string>
+  <string name="reading_lists_menu_import_list">تندیر درآمد کرو</string>
   <string name="reading_lists_menu_sort_by">ترتیب بمطابق</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">لاگ ان/ کھاتہ بݨاو</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ٹھیک ہے</string>
@@ -264,6 +267,16 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">منسوخ</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">منسوخ</string>
   <string name="reading_list_split_dialog_ok_button_text">ٹھیک ہے</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">مٹاؤ</string>
+  <string name="reading_lists_action_menu_export_lists">ٻاہر بھیڄو</string>
+  <string name="reading_lists_import_file_picker_title">درآمد کرݨ کیتے فائل چݨو</string>
+  <string name="reading_lists_preview_header_title">شیئر تھئی تندیر</string>
+  <string name="reading_lists_preview_save_button">بچاؤ</string>
+  <string name="reading_lists_preview_save_dialog_title">تندیر محفوظ کرو</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">عنوان</string>
+  <string name="reading_lists_preview_save_dialog_cancel">منسوخ</string>
+  <string name="reading_lists_preview_save_dialog_save">محفوظ کرو</string>
+  <string name="reading_lists_preview_saved_snackbar_action">ݙیکھو</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_syncing_pause_button">اجھکو</string>
   <string name="notification_syncing_resume_button">ولدا شروع کرو</string>
@@ -323,6 +336,7 @@
   <string name="suggested_edits_contribution_date_time_label">تریخ/ویلا</string>
   <string name="suggested_edits_contribution_image_label" fuzzy="true">فائل</string>
   <string name="suggested_edits_contribution_article_label">مضمون</string>
+  <string name="suggested_edits_report_suggestion">رپورٹ</string>
   <string name="description_edit_login_cancel_button_text">منسوخ</string>
   <string name="size_gb">%.2f جی بی</string>
   <string name="size_mb">%.2f ایم بی</string>
@@ -379,7 +393,27 @@
   <string name="text_input_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="text_input_dialog_cancel_button_text">منسوخ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">منسوخ</string>
+  <string name="talk_page_empty_content">ڳالھ مہاڑ ورقے تے تے بھُوم ڳوجھی تے مواد کوں ممکن حد تائیں بہتر بݨاوݨ کیتے لوک بحث کریندے ہن۔ وکی پیڈیا برادری نال رل تے کم کرݨ تے رابطے کیتے  نواں بحث دا موضوع شامل کرݨ نال شروع کرو۔</string>
+  <string name="watchlist_filter_wiki_filter_header">وکی</string>
+  <string name="watchlist_filter_all_text">یکے</string>
+  <string name="watchlist_filter_watchlist_activity_seen">ݙٹھیاں تبدیلیاں</string>
+  <string name="watchlist_filter_user_status_unregistered">اݨ رجسٹرڈ</string>
+  <string name="watchlist_filter_user_status_registered">رجسٹرڈ</string>
+  <string name="watchlist_filter_user_status_newcomers">نویں آوݨ آلے</string>
+  <string name="watchlist_filter_user_status_learners">سکھݨ آلے</string>
+  <string name="watchlist_filter_contribution_authorship_header">ون٘ڳار لکھݨ</string>
+  <string name="watchlist_filter_contribution_authorship_own">تہاݙیاں تبدیلیاں</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">ٻنھاں ولوں تبدیلیاں</string>
+  <string name="watchlist_filter_automated_contributions_bot">ٻوٹ</string>
+  <string name="watchlist_filter_significance_header">اہمیت</string>
+  <string name="watchlist_filter_significance_minor">معمولی تبدیلیاں</string>
+  <string name="watchlist_filter_type_of_change_header">تبدیلی دی قسم</string>
+  <string name="watchlist_filter_type_of_change_page_edits">ورقہ تبدیلیاں</string>
+  <string name="watchlist_filter_type_of_change_category_changes">ونکی تبدیلیاں</string>
+  <string name="watchlist_filter_type_of_change_new_users">نویں ورتݨ آلے</string>
   <string name="shareable_reading_lists_new_indicator">*نواں*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">سمجھ آڳئی</string>
   <string name="reading_list_share_menu_label">شیئر۔۔۔</string>
+  <string name="data_opt_in_accept">قبول کرو</string>
+  <string name="data_opt_in_reject">مسترد کرو</string>
 </resources>

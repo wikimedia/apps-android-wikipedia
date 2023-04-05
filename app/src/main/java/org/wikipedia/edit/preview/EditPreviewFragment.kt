@@ -11,8 +11,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener
 import org.wikipedia.bridge.JavaScriptActionHandler
@@ -38,7 +36,6 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
 
     private lateinit var bridge: CommunicationBridge
     private lateinit var references: PageReferences
-    private lateinit var funnel: EditFunnel
     val isActive get() = binding.editPreviewContainer.visibility == View.VISIBLE
 
     override lateinit var linkHandler: LinkHandler
@@ -55,7 +52,6 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         val pageTitle = (requireActivity() as EditSectionActivity).pageTitle
         model.title = pageTitle
         model.curEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK)
-        funnel = WikipediaApp.instance.funnelManager.getEditFunnel(pageTitle)
         linkHandler = EditLinkHandler(requireContext())
         initWebView()
 
