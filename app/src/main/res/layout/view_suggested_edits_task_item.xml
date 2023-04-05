@@ -26,41 +26,35 @@
 
         <TextView
             android:id="@+id/taskTitle"
+            style="@style/H3.MaterialListTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             app:layout_constraintStart_toEndOf="@+id/taskIcon"
             app:layout_constraintTop_toTopOf="@+id/taskIcon"
-            android:layout_marginStart="20dp"
-            android:textSize="16sp"
-            android:textColor="?attr/primary_color"
-            android:textStyle="bold"
-            android:lineSpacingExtra="6sp"
             tools:text="Lorem ipsum"/>
 
         <TextView
             android:id="@+id/taskTitleNewLabel"
+            style="@style/Chip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="?attr/success_color"
+            android:textAllCaps="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/taskTitle"
-            android:layout_marginStart="4dp"
-            android:textSize="14sp"
-            android:textColor="@color/green600"
-            android:textStyle="bold"
-            android:textAllCaps="true"
             android:text="@string/suggested_edits_task_new"/>
 
         <TextView
             android:id="@+id/taskDescription"
+            style="@style/List.MaterialListSubtitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             app:layout_constraintStart_toStartOf="@+id/taskTitle"
             app:layout_constraintTop_toBottomOf="@+id/taskTitle"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textSize="14sp"
-            android:lineSpacingExtra="6sp"
-            android:textColor="?attr/secondary_color"
             tools:text="Lorem ipsum"/>
 
         <androidx.constraintlayout.helper.widget.Flow

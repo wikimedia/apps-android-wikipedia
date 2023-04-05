@@ -16,7 +16,7 @@
         <item name="popupTheme">@style/ToolbarPopupTheme</item>
         <item name="actionModeStyle">@style/ActionModeStyle</item>
         <item name="snackbarStyle">@style/SnackbarStyle</item>
-        <item name="snackbarTextViewStyle">@style/SnackbarTextViewStyle</item>
+        <item name="snackbarTextViewStyle">@style/H3.Button.SnackbarTextView</item>
         <item name="snackbarButtonStyle">@style/SnackbarButtonStyle</item>
 
         <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
@@ -82,6 +82,155 @@
 
     </style>
 
+    <!-- Component updates -->
+    <style name="H1">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="lineHeight">32sp</item>
+    </style>
+
+    <style name="H1.AppBar">
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="H1.Article">
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="H2">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">28sp</item>
+    </style>
+
+    <style name="H2.AppBar">
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="H2.DialogTitleStyle">
+        <item name="android:textColor">?attr/primary_color</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="H2.MessageCard">
+        <item name="android:textColor">?attr/primary_color</item>
+    </style>
+
+    <style name="H3">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="H3.MaterialListTitle">
+        <item name="android:textColor">?attr/primary_color</item>
+    </style>
+
+    <style name="H3.Button">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="H3.Button.SnackbarTextView">
+        <item name="android:maxLines">10</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">12dp</item>
+    </style>
+
+    <style name="H3.Article">
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">24sp</item>
+        <item name="lineHeight">32sp</item>
+    </style>
+
+    <style name="H4">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="H4.MaterialListSectionHeader">
+        <item name="android:textColor">?attr/primary_color</item>
+    </style>
+
+    <style name="H5">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">18sp</item>
+    </style>
+
+    <style name="P">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="P.Article">
+        <item name="lineHeight">28sp</item>
+    </style>
+
+    <style name="P.DialogText">
+        <item name="android:textColor">?attr/secondary_color</item>
+    </style>
+
+    <style name="P.MaterialListTitle">
+        <item name="android:textColor">?attr/primary_color</item>
+    </style>
+
+    <style name="Chip">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="Chip.Accessible">
+        <item name="android:textColor">?attr/primary_color</item>
+        <item name="ensureMinTouchTargetSize">true</item>
+        <item name="chipMinTouchTargetSize">48dp</item>
+    </style>
+
+    <style name="Chip.Accessible.Icon">
+        <item name="chipIconSize">14dp</item>
+        <item name="chipIconTint">?attr/primary_color</item>
+        <item name="chipIconVisible">true</item>
+        <item name="iconStartPadding">12dp</item>
+        <item name="iconGravity">start</item>
+    </style>
+
+    <style name="List">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?attr/primary_color</item>
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="List.MaterialListSubtitle">
+        <item name="android:textColor">?attr/secondary_color</item>
+    </style>
+
+    <style name="Small">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">18sp</item>
+    </style>
+
+    <style name="Toolbar">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">10sp</item>
+        <item name="lineHeight">12sp</item>
+    </style>
+    <!-- Component updates -->
+
+    <!-- TODO: revisit and replace/inherit the existing styles -->
     <style name="AppTheme.Splash">
         <item name="android:windowBackground">@drawable/splash_bg</item>
         <item name="android:navigationBarColor">@color/gray700</item>
@@ -186,13 +335,13 @@
     <style name="ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">0dp</item>
-        <item name="titleTextStyle">@style/ToolBarTitleText</item>
-        <item name="titleTextAppearance">@style/ToolBarTitleText</item>
+        <item name="titleTextStyle">@style/H1.AppBar</item>
+        <item name="titleTextAppearance">@style/H1.AppBar</item>
     </style>
 
     <style name="ToolbarStyleSmall" parent="ToolbarStyle">
-        <item name="titleTextStyle">@style/ToolBarTitleTextSmall</item>
-        <item name="titleTextAppearance">@style/ToolBarTitleTextSmall</item>
+        <item name="titleTextStyle">@style/H2.AppBar</item>
+        <item name="titleTextAppearance">@style/H2.AppBar</item>
     </style>
 
     <style name="ToolbarPopupTheme" parent="ThemeOverlay.MaterialComponents">
@@ -201,23 +350,14 @@
         <item name="android:tint">?attr/primary_color</item>
     </style>
 
-    <style name="BottomNavigationTextAppearanceInactive">
+    <style name="BottomNavigationTextAppearance"  parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/bottom_nav_label_text_size</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="lineHeight">12sp</item>
     </style>
 
-    <style name="BottomNavigationTextAppearanceActive">
-        <item name="android:textSize">@dimen/bottom_nav_label_text_size</item>
-    </style>
-
-    <style name="ToolBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">?attr/primary_color</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textSize">24sp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="ToolBarTitleTextSmall" parent="ToolBarTitleText">
-        <item name="android:textSize">20sp</item>
+    <style name="BottomNavigationTextAppearance.Active">
+        <item name="android:textStyle">normal</item>
     </style>
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
@@ -480,68 +620,6 @@
     <style name="TextInputLayoutErrorTextAppearance">
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
-
-    <style name="NotificationTabTextAppearance" parent="TextAppearance.Design.Tab">
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:letterSpacing">0.04</item>
-    </style>
-
-    <style name="MaterialLargePrimaryTitle">
-        <item name="android:textAlignment">center</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">?attr/primary_color</item>
-    </style>
-
-    <style name="MaterialMediumSecondaryCaption">
-        <item name="android:textAlignment">center</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:textColor">?attr/secondary_color</item>
-    </style>
-
-    <style name="MaterialListTitle">
-        <item name="android:textSize">16sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:textColor">?attr/primary_color</item>
-    </style>
-
-    <style name="MaterialListSubtitle">
-        <item name="android:textSize">14sp</item>
-        <item name="android:lineSpacingExtra">6sp</item>
-        <item name="android:textColor">?attr/secondary_color</item>
-    </style>
-
-    <style name="MaterialListSectionHeader">
-        <item name="android:textSize">14sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:textColor">?attr/primary_color</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-    </style>
-
-    <style name="LanguageSpinnerItemTextAppearance">
-        <item name="android:textSize">14sp</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:textColor">?attr/progressive_color</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:paddingStart">16dp</item>
-        <item name="android:paddingEnd">16dp</item>
-        <item name="android:minHeight">48dp</item>
-        <item name="android:ellipsize">marquee</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:textAlignment">inherit</item>
-        <item name="android:textAllCaps">true</item>
-    </style>
-
-
-    <style name="ReadingListTitleTextAppearance">
-        <item name="android:textSize">20sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-    </style>
-
     <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="android:textColorHint">?attr/placeholder_color</item>
         <item name="boxBackgroundColor">?attr/background_color</item>
@@ -563,47 +641,11 @@
         <item name="android:dropDownVerticalOffset">@dimen/popup_menu_drop_down_vertical_offset</item>
     </style>
 
-    <style name="DialogTextAppearance">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">?attr/secondary_color</item>
-        <item name="android:lineSpacingExtra">@dimen/dialog_line_spacing_extra</item>
-    </style>
-
-    <style name="DialogTitleAppearance" parent="@style/RtlOverlay.DialogWindowTitle.AppCompat">
-        <item name="android:textColor">?attr/primary_color</item>
-        <item name="android:layout_marginBottom">5dp</item>
-    </style>
-
-    <style name="DialogTitleTextAppearance" parent="TextAppearance.AppCompat.Title">
-        <item name="android:textSize">20sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-    </style>
-
-    <style name="CustomChipStyle">
-        <item name="android:lineSpacingExtra">2sp</item>
-        <item name="ensureMinTouchTargetSize">true</item>
-        <item name="chipMinTouchTargetSize">48dp</item>
-        <item name="chipBackgroundColor">?attr/background_color</item>
-        <item name="chipCornerRadius">8dp</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textColor">?attr/primary_color</item>
-        <item name="textAllCaps">false</item>
-    </style>
-
-    <style name="CustomChipWithIconStyle" parent="CustomChipStyle">
-        <item name="chipIconSize">14dp</item>
-        <item name="chipIconTint">?attr/primary_color</item>
-        <item name="chipIconVisible">true</item>
-        <item name="iconStartPadding">12dp</item>
-        <item name="iconGravity">start</item>
-    </style>
-
     <style name="AlertDialogStyle" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:textColorPrimary">?attr/secondary_color</item>
-        <item name="android:windowTitleStyle">@style/DialogTitleAppearance</item>
-        <item name="android:textAppearanceMedium">@style/DialogTitleTextAppearance</item>
+        <item name="android:windowTitleStyle">@style/H2.DialogTitleStyle</item>
+        <item name="android:textAppearanceMedium">@style/H2</item>
         <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
         <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
         <item name="textColorAlertDialogListItem">?attr/secondary_color</item>
@@ -615,25 +657,9 @@
         <item name="android:background">?attr/paper_color</item>
     </style>
 
-    <style name="DescriptionEditViewHintTextStyle">
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:textColor">?attr/progressive_color</item>
-    </style>
-
     <style name="SnackbarStyle" parent="Widget.MaterialComponents.Snackbar">
         <item name="android:paddingStart">16dp</item>
         <item name="android:paddingEnd">4dp</item>
-    </style>
-
-    <style name="SnackbarTextViewStyle" parent="Widget.MaterialComponents.Snackbar.TextView">
-        <item name="android:textSize">16sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:maxLines">10</item>
-        <item name="android:paddingTop">0dp</item>
-        <item name="android:paddingBottom">0dp</item>
-        <item name="android:paddingStart">0dp</item>
-        <item name="android:paddingEnd">12dp</item>
     </style>
 
     <style name="SnackbarButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Snackbar">

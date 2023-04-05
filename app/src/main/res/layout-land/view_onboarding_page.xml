@@ -50,10 +50,11 @@
 
                     <org.wikipedia.views.AppTextView
                         android:id="@+id/primaryTextView"
-                        style="@style/MaterialLargePrimaryTitle"
+                        style="@style/H2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
+                        android:textAlignment="center"
                         tools:text="Lorem ipsum" />
 
                     <org.wikipedia.views.AppTextView

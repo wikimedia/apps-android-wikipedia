@@ -34,11 +34,11 @@
 
     <TextView
         android:id="@+id/notificationTitle"
+        style="@style/H3.MaterialListTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginEnd="8dp"
-        android:textSize="16sp"
         android:textColor="?attr/progressive_color"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/notificationItemImage"
@@ -72,13 +72,12 @@
 
     <TextView
         android:id="@+id/notificationSubtitle"
+        style="@style/List"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:maxLines="2"
-        android:textColor="?android:attr/textColorPrimary"
-        android:lineSpacingExtra="8sp"
         app:layout_constraintTop_toBottomOf="@id/notificationTitle"
         app:layout_constraintStart_toStartOf="@id/notificationTitle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,13 +85,12 @@
 
     <TextView
         android:id="@+id/notificationDescription"
+        style="@style/List"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:maxLines="2"
-        android:textColor="?attr/primary_color"
-        android:lineSpacingExtra="8sp"
         app:layout_constraintTop_toBottomOf="@id/notificationSubtitle"
         app:layout_constraintStart_toStartOf="@id/notificationTitle"
         app:layout_constraintEnd_toEndOf="parent"

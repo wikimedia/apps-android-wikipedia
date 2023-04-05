@@ -37,8 +37,8 @@
             android:background="@android:color/transparent"
             app:elevation="0dp"
             app:itemIconTint="?attr/nav_tab_item_color_state"
-            app:itemTextAppearanceActive="@style/BottomNavigationTextAppearanceActive"
-            app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearanceInactive"
+            app:itemTextAppearanceActive="@style/BottomNavigationTextAppearance.Active"
+            app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearance"
             app:itemTextColor="?attr/nav_tab_item_color_state"
             app:labelVisibilityMode="labeled"
             app:tabGravity="fill"
@@ -63,14 +63,14 @@
                 app:srcCompat="@drawable/ic_menu_white_24dp" />
 
             <TextView
+                style="@style/BottomNavigationTextAppearance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="35dp"
                 android:textAlignment="center"
                 android:text="@string/nav_item_more"
-                android:textColor="?attr/nav_tab_item_color_state"
-                android:textSize="10sp" />
+                android:textColor="?attr/nav_tab_item_color_state"/>
 
         </FrameLayout>
     </LinearLayout>

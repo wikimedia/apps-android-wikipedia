@@ -12,16 +12,17 @@
     tools:visibility="visible">
 
     <TextView
-        style="@style/MaterialMediumSecondaryCaption"
+        style="@style/P"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="0dp"
         android:text="@string/edit_section_captcha_message"
+        android:textAlignment="center"
         android:textColor="?attr/primary_color" />
 
     <TextView
         android:id="@+id/request_account_text"
-        style="@style/MaterialListSubtitle"
+        style="@style/List.MaterialListSubtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"

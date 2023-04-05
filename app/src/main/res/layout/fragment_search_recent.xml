@@ -25,13 +25,14 @@
 
         <TextView
             android:id="@+id/search_empty_message"
-            style="@style/MaterialMediumSecondaryCaption"
+            style="@style/P"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="30dp"
-            android:text="@string/search_empty_message" />
+            android:text="@string/search_empty_message"
+            android:textAlignment="center" />
 
         <Button
             android:id="@+id/add_languages_button"

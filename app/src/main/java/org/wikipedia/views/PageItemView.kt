@@ -1,6 +1,7 @@
 package org.wikipedia.views
 
 import android.content.Context
+import android.graphics.Typeface
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -86,6 +87,10 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
         binding.pageListItemTitle.text = StringUtil.fromHtml(text)
     }
 
+    fun setTitleTypeface(typeface: Int) {
+        binding.pageListItemTitle.setTypeface(Typeface.SANS_SERIF, typeface)
+    }
+
     fun setTitleMaxLines(linesCount: Int) {
         binding.pageListItemTitle.maxLines = linesCount
     }
@@ -145,7 +150,7 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
         binding.readingListsChipGroup.removeAllViews()
         readingLists.forEach { readingList ->
             val chip = Chip(binding.readingListsChipGroup.context)
-            TextViewCompat.setTextAppearance(chip, R.style.CustomChipStyle)
+            TextViewCompat.setTextAppearance(chip, R.style.Chip_Accessible)
             chip.text = readingList.title
             chip.isClickable = true
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.border_color))

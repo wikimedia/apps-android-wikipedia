@@ -13,7 +13,7 @@
 
     <TextView
         android:id="@+id/page_list_item_title"
-        style="@style/MaterialListTitle"
+        style="@style/P.MaterialListTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -36,7 +36,7 @@
 
     <TextView
         android:id="@+id/page_list_item_redirect"
-        style="@style/MaterialListSubtitle"
+        style="@style/List.MaterialListSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -51,7 +51,7 @@
 
     <org.wikipedia.views.GoneIfEmptyTextView
         android:id="@+id/page_list_item_description"
-        style="@style/MaterialListSubtitle"
+        style="@style/List.MaterialListSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"

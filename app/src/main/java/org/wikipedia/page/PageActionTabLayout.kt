@@ -1,6 +1,7 @@
 package org.wikipedia.page
 
 import android.content.Context
+import android.graphics.Typeface
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.TypedValue
@@ -25,13 +26,15 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
 
     fun update() {
         removeAllViews()
+        val typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
         Prefs.customizeToolbarOrder.forEach {
             val view = MaterialTextView(context)
             view.gravity = Gravity.CENTER
             view.setPadding(DimenUtil.roundedDpToPx(2f), DimenUtil.roundedDpToPx(8f), DimenUtil.roundedDpToPx(2f), 0)
             view.setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackgroundBorderless))
-            view.setTextColor(ResourceUtil.getThemedColor(context, R.attr.primary_color))
+            view.setTextColor(ResourceUtil.getThemedColor(context, R.attr.placeholder_color))
             view.textAlignment = TEXT_ALIGNMENT_CENTER
+            view.setTypeface(typeface, Typeface.NORMAL)
             view.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f)
             view.maxLines = 2
             view.ellipsize = TextUtils.TruncateAt.END
@@ -41,7 +44,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
             view.text = context.getString(item.titleResId)
             view.contentDescription = view.text
             FeedbackUtil.setButtonLongPressToast(view)
-            TextViewCompat.setCompoundDrawableTintList(view, ResourceUtil.getThemedColorStateList(context, R.attr.primary_color))
+            TextViewCompat.setCompoundDrawableTintList(view, ResourceUtil.getThemedColorStateList(context, R.attr.placeholder_color))
             view.setCompoundDrawablesWithIntrinsicBounds(0, item.iconResId, 0, 0)
             view.compoundDrawablePadding = -DimenUtil.roundedDpToPx(4f)
             view.setOnClickListener { v ->

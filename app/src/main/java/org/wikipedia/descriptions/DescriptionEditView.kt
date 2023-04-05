@@ -137,7 +137,8 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     }
 
     private fun setHintText() {
-        binding.viewDescriptionEditTextLayout.setHintTextAppearance(R.style.DescriptionEditViewHintTextStyle)
+        binding.viewDescriptionEditTextLayout.setHintTextAppearance(R.style.Small)
+        binding.viewDescriptionEditTextLayout.hintTextColor = ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color)
         binding.viewDescriptionEditTextLayout.hint = getHintText(pageTitle.wikiSite.languageCode)
     }
 

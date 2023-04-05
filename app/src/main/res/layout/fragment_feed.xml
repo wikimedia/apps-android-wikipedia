@@ -35,12 +35,13 @@
                 app:srcCompat="@drawable/ic_illustration_empty_feed" />
 
             <TextView
-                style="@style/MaterialMediumSecondaryCaption"
+                style="@style/P"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="@string/feed_empty_message" />
+                android:text="@string/feed_empty_message"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/customize_button"
