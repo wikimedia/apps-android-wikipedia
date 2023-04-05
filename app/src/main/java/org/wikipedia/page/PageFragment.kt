@@ -542,8 +542,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         model.curEntry?.let {
             lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
                 withContext(Dispatchers.IO) {
-                    it.timeSpentSec += timeSpentSec
-                    AppDatabase.instance.historyEntryDao().upsert(it)
+                    AppDatabase.instance.historyEntryDao().upsertWithTimeSpent(it, timeSpentSec)
                 }
             }
         }
