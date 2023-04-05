@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
         <item name="preferenceTheme">@style/AppPreferenceTheme</item>
         <item name="editTextAutoSummarizePreferenceStyle">@style/EditTextAutoSummarizePreference</item>
         <item name="longPreferenceStyle">@style/LongPreference</item>
@@ -258,7 +258,7 @@
         <item name="actionModeStyle">@style/ActionModeStyle.Notification</item>
     </style>
 
-    <style name="DialogLight" parent="Theme.MaterialComponents.Light.Dialog">
+    <style name="DialogLight" parent="Theme.Material3.Light.Dialog">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorAccent">@color/blue600</item>
@@ -266,11 +266,11 @@
         <item name="android:lineSpacingExtra">@dimen/dialog_line_spacing_extra</item>
     </style>
 
-    <style name="PopupMenuLight" parent="Widget.AppCompat.Light.PopupMenu">
+    <style name="PopupMenuLight" parent="Widget.Material3.PopupMenu">
         <item name="overlapAnchor">true</item>
     </style>
 
-    <style name="BottomSheetDialogLight" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+    <style name="BottomSheetDialogLight" parent="Theme.Material3.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
         <item name="colorAccent">?attr/progressive_color</item>
         <item name="colorPrimary">?attr/progressive_color</item>
@@ -296,7 +296,7 @@
     </style>
 
 
-    <style name="AlertDialogButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+    <style name="AlertDialogButtonStyle" parent="Widget.Material3.Button.TextButton.Dialog">
         <item name="android:textAlignment">textEnd</item>
         <item name="android:minWidth">0dp</item>
         <item name="android:paddingStart">16dp</item>
@@ -311,19 +311,19 @@
         <item name="android:textColor">?attr/progressive_color</item>
     </style>
 
-    <style name="WatchlistToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
+    <style name="WatchlistToolbarTheme" parent="@style/ThemeOverlay.Material3.ActionBar">
         <item name="android:background">?android:attr/colorBackground</item>
     </style>
 
-    <style name="ToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.Material3.ActionBar">
         <item name="colorControlNormal">?attr/primary_color</item>
     </style>
 
-    <style name="PageToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
+    <style name="PageToolbarTheme" parent="@style/ThemeOverlay.Material3.ActionBar">
         <item name="colorControlNormal">?attr/primary_color</item>
     </style>
 
-    <style name="TabToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
+    <style name="TabToolbarTheme" parent="@style/ThemeOverlay.Material3.ActionBar">
         <item name="colorControlNormal">?attr/primary_color</item>
         <item name="colorControlActivated">?attr/primary_color</item>
         <item name="colorControlHighlight">?attr/primary_color</item>
@@ -332,7 +332,7 @@
         <item name="navigationContentDescription">@string/menu_new_tab</item>
     </style>
 
-    <style name="ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
+    <style name="ToolbarStyle" parent="@style/Widget.Material3.Toolbar">
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">0dp</item>
         <item name="titleTextStyle">@style/H1.AppBar</item>
@@ -344,7 +344,7 @@
         <item name="titleTextAppearance">@style/H2.AppBar</item>
     </style>
 
-    <style name="ToolbarPopupTheme" parent="ThemeOverlay.MaterialComponents">
+    <style name="ToolbarPopupTheme" parent="ThemeOverlay.Material3">
         <item name="android:backgroundTint">?android:colorBackground</item>
         <item name="android:textColor">?attr/primary_color</item>
         <item name="android:tint">?attr/primary_color</item>
@@ -364,7 +364,7 @@
         <item name="color">@android:color/white</item>
     </style>
 
-    <style name="ActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
+    <style name="ActionModeStyle" parent="@style/Widget.Material3.ActionMode">
         <item name="background">?attr/paper_color</item>
         <item name="backgroundSplit">?attr/paper_color</item>
         <item name="titleTextStyle">@style/ActionModeTitleStyle</item>
@@ -375,7 +375,7 @@
         <item name="titleTextStyle">@style/NotificationActionModeTitleStyle</item>
     </style>
 
-    <style name="PageActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
+    <style name="PageActionModeStyle" parent="@style/Widget.Material3.ActionMode">
         <item name="background">?attr/paper_color</item>
         <item name="backgroundSplit">?attr/paper_color</item>
         <item name="titleTextStyle">@style/PageActionModeTitleStyle</item>
@@ -423,7 +423,7 @@
         <item name="android:textAlignment">center</item>
     </style>
 
-    <style name="ActionButtonOverflow" parent="Widget.AppCompat.ActionButton.Overflow">
+    <style name="ActionButtonOverflow" parent="Widget.Material3.Search.ActionButton.Overflow">
         <item name="srcCompat">@drawable/ic_more_vert_white_24dp</item>
         <item name="tint">?attr/primary_color</item>
     </style>
@@ -451,7 +451,7 @@
         <item name="android:clickable">true</item>
     </style>
 
-    <style name="App.Button" parent="@style/Widget.MaterialComponents.Button">
+    <style name="App.Button" parent="@style/Widget.Material3.Button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">4dp</item>
@@ -485,7 +485,7 @@
         <item name="android:textColor">@color/gray500</item>
     </style>
 
-    <style name="ThemeColorCircularButton" parent="@style/Widget.MaterialComponents.Button.Icon">
+    <style name="ThemeColorCircularButton" parent="@style/Widget.Material3.Button.Icon">
         <item name="android:layout_width">40dp</item>
         <item name="android:layout_height">40dp</item>
         <item name="android:insetTop">0dp</item>
@@ -502,7 +502,7 @@
         <item name="strokeColor">@color/blue600</item>
     </style>
 
-    <style name="FlatButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
+    <style name="FlatButton" parent="@style/Widget.Material3.Button.UnelevatedButton">
         <item name="backgroundTint">?attr/background_color</item>
         <item name="android:textColor">?attr/progressive_color</item>
         <item name="android:minWidth">0dp</item>
@@ -539,7 +539,7 @@
         <item name="android:layout_marginBottom">-3dp</item>
     </style>
 
-    <style name="TransparentButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
+    <style name="TransparentButton" parent="@style/Widget.Material3.Button.UnelevatedButton">
         <item name="android:textAlignment">center</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
         <item name="backgroundTint">@android:color/transparent</item>
@@ -620,7 +620,7 @@
     <style name="TextInputLayoutErrorTextAppearance">
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
-    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+    <style name="TextInputLayoutStyle" parent="Widget.Material3.TextInputLayout.FilledBox">
         <item name="android:textColorHint">?attr/placeholder_color</item>
         <item name="boxBackgroundColor">?attr/background_color</item>
         <item name="boxStrokeColor">?attr/input_stroke_color_state</item>
@@ -636,12 +636,12 @@
         <item name="strokeColor">@android:color/transparent</item>
     </style>
 
-    <style name="PagePopupMenu" parent="@style/Widget.AppCompat.PopupMenu.Overflow">
+    <style name="PagePopupMenu" parent="@style/Widget.Material3.PopupMenu.Overflow">
         <item name="android:dropDownHorizontalOffset">@dimen/popup_menu_drop_down_horizontal_offset</item>
         <item name="android:dropDownVerticalOffset">@dimen/popup_menu_drop_down_vertical_offset</item>
     </style>
 
-    <style name="AlertDialogStyle" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+    <style name="AlertDialogStyle" parent="ThemeOverlay.Material3.Dialog.Alert">
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:textColorPrimary">?attr/secondary_color</item>
         <item name="android:windowTitleStyle">@style/H2.DialogTitleStyle</item>
@@ -657,12 +657,12 @@
         <item name="android:background">?attr/paper_color</item>
     </style>
 
-    <style name="SnackbarStyle" parent="Widget.MaterialComponents.Snackbar">
+    <style name="SnackbarStyle" parent="Widget.Material3.Snackbar">
         <item name="android:paddingStart">16dp</item>
         <item name="android:paddingEnd">4dp</item>
     </style>
 
-    <style name="SnackbarButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Snackbar">
+    <style name="SnackbarButtonStyle" parent="Widget.Material3.Button.TextButton.Snackbar">
         <item name="android:paddingEnd">8dp</item>
     </style>
 
