@@ -9,7 +9,9 @@ import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.paging.PagingDataAdapter
@@ -56,18 +58,21 @@ class ArchivedTalkPagesActivity : BaseActivity() {
         binding.recyclerView.adapter = archivedTalkPagesConcatAdapter
 
         lifecycleScope.launch {
-            viewModel.archivedTalkPagesFlow.collectLatest {
-                archivedTalkPagesAdapter.submitData(it)
-            }
-        }
-
-        lifecycleScope.launchWhenCreated {
-            archivedTalkPagesAdapter.loadStateFlow.collectLatest {
-                archivedTalkPagesLoadHeader.loadState = it.refresh
-                archivedTalkPagesLoadFooter.loadState = it.append
-                val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && archivedTalkPagesAdapter.itemCount == 0)
-                if (showEmpty) {
-                    archivedTalkPagesConcatAdapter.addAdapter(EmptyItemAdapter(R.string.archive_empty))
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    viewModel.archivedTalkPagesFlow.collectLatest {
+                        archivedTalkPagesAdapter.submitData(it)
+                    }
+                }
+                launch {
+                    archivedTalkPagesAdapter.loadStateFlow.collectLatest {
+                        archivedTalkPagesLoadHeader.loadState = it.refresh
+                        archivedTalkPagesLoadFooter.loadState = it.append
+                        val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && archivedTalkPagesAdapter.itemCount == 0)
+                        if (showEmpty) {
+                            archivedTalkPagesConcatAdapter.addAdapter(EmptyItemAdapter(R.string.archive_empty))
+                        }
+                    }
                 }
             }
         }

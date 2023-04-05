@@ -336,6 +336,7 @@
   <string name="suggested_edits_contribution_date_time_label">تریخ/ویلا</string>
   <string name="suggested_edits_contribution_image_label" fuzzy="true">فائل</string>
   <string name="suggested_edits_contribution_article_label">مضمون</string>
+  <string name="suggested_edits_report_suggestion">رپورٹ</string>
   <string name="description_edit_login_cancel_button_text">منسوخ</string>
   <string name="size_gb">%.2f جی بی</string>
   <string name="size_mb">%.2f ایم بی</string>

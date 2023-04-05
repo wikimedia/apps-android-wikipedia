@@ -82,6 +82,11 @@
             android:title="@string/preference_developer_send_event_platform_test_event_title"
             android:summary="@string/preference_developer_send_event_platform_test_event_summary" />
 
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_event_platform_queue_size"
+            android:title="@string/preferences_developer_event_platform_queue_size_title" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_misc_heading">
@@ -392,6 +397,10 @@
             android:key="@string/preference_key_show_sequential_user_stats_tooltip"
             android:title="@string/preference_key_show_sequential_user_stats_tooltip" />
 
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_se_machine_generated_descriptions_tooltip_shown"
+            android:title="seMachineGeneratedDescriptionsTooltipShown" />
+
         <Preference
             android:key="@string/preferences_developer_suggested_edits_reactivation_notification_stage_one"
             android:title="@string/preferences_developer_suggested_edits_reactivation_notification_stage_one"/>
@@ -425,6 +434,11 @@
         <SwitchPreferenceCompat
             android:key="@string/preference_key_reading_lists_receive_survey_dialog_shown"
             android:title="readingListReceiveSurveyDialogShown" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_mBART25"
+            android:title="Test group for machine generated article descriptions \n(0=no suggestions, 1=suggestions, 2=suggestions+blp)" />
 
     </PreferenceCategory>
 
