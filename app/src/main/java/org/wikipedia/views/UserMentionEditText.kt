@@ -1,7 +1,9 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.text.*
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.TextWatcher
 import android.text.style.ForegroundColorSpan
 import android.util.AttributeSet
 import androidx.annotation.ColorInt
@@ -163,7 +165,7 @@ class UserMentionEditText : PlainPasteEditText {
     }
 
     private fun createUserNameSpan(spannable: Spannable, start: Int, end: Int) {
-        val span = UserColorSpan(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+        val span = UserColorSpan(ResourceUtil.getThemedColor(context, R.attr.progressive_color))
         spannable.setSpan(span, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
     }
 

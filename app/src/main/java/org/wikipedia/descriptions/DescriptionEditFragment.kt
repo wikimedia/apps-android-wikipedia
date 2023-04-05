@@ -21,7 +21,10 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_1
+import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_3
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
+import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentDescriptionEditBinding
@@ -39,10 +42,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsSurvey
 import org.wikipedia.suggestededits.SuggestionsActivity
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ReleaseUtil
-import org.wikipedia.util.StringUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import java.io.IOException
 import java.lang.Runnable
@@ -64,6 +64,8 @@ class DescriptionEditFragment : Fragment() {
     private var targetSummary: PageSummaryForEdit? = null
     private var highlightText: String? = null
     private var editingAllowed = true
+
+    private val analyticsHelper = MachineGeneratedArticleDescriptionsAnalyticsHelper()
 
     private val disposables = CompositeDisposable()
 
@@ -140,6 +142,16 @@ class DescriptionEditFragment : Fragment() {
         return binding.root
     }
 
+    override fun onPause() {
+        super.onPause()
+        analyticsHelper.timer.pause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        analyticsHelper.timer.resume()
+    }
+
     override fun onDestroyView() {
         binding.fragmentDescriptionEditView.callback = null
         _binding = null
@@ -191,6 +203,9 @@ class DescriptionEditFragment : Fragment() {
     }
 
     private fun setUpEditView(savedInstanceState: Bundle?) {
+        if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
+            analyticsHelper.articleDescriptionEditingStart(requireContext())
+        }
         binding.fragmentDescriptionEditView.setAction(action)
         binding.fragmentDescriptionEditView.setPageTitle(pageTitle)
         highlightText?.let { binding.fragmentDescriptionEditView.setHighlightText(it) }
@@ -204,14 +219,21 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
 
-        if (ReleaseUtil.isPreBetaRelease && pageTitle.description.isNullOrEmpty()) {
+        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled =
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment &&
+                MachineGeneratedArticleDescriptionsAnalyticsHelper.abcTest.group != GROUP_1
+
+        if (binding.fragmentDescriptionEditView.isSuggestionButtonEnabled) {
+            binding.fragmentDescriptionEditView.showSuggestedDescriptionsLoadingProgress()
             requestSuggestion()
         }
     }
 
     private fun requestSuggestion() {
         lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = false
             L.e(throwable)
+            analyticsHelper.logApiFailed(requireContext(), throwable, pageTitle)
         }) {
             withContext(Dispatchers.IO) {
                 val response = ServiceFactory[pageTitle.wikiSite, DescriptionSuggestionService.API_URL, DescriptionSuggestionService::class.java]
@@ -223,12 +245,20 @@ class DescriptionEditFragment : Fragment() {
                 val list = (if (pageTitle.wikiSite.languageCode == "en") {
                     response.prediction.map { StringUtil.capitalize(it)!! }
                 } else response.prediction).distinct()
-
-                // TODO: do something with the list of suggestions.
+                analyticsHelper.apiOrderList = list
+                analyticsHelper.logSuggestionsReceived(requireContext(), response.blp, pageTitle)
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
-                //
-                //
+
+                // Randomize the display order
+                if (!response.blp || MachineGeneratedArticleDescriptionsAnalyticsHelper.abcTest.group == GROUP_3) {
+                    val randomizedListIndex = (0 until 2).random()
+                    val firstSuggestion = if (list.size == 2) list[randomizedListIndex] else list.first()
+                    val secondSuggestion = if (list.size == 2) { if (randomizedListIndex == 0) list.last() else list.first() } else null
+                    analyticsHelper.displayOrderList = listOfNotNull(firstSuggestion, secondSuggestion)
+                    binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(firstSuggestion, secondSuggestion)
+                    analyticsHelper.logSuggestionsShown(requireContext(), pageTitle)
+                }
             }
         }
     }
@@ -246,11 +276,19 @@ class DescriptionEditFragment : Fragment() {
     private inner class EditViewCallback : DescriptionEditView.Callback {
         override fun onSaveClick() {
             if (!binding.fragmentDescriptionEditView.showingReviewContent()) {
+                if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION) {
+                    analyticsHelper.articleDescriptionEditingEnd(requireContext())
+                }
                 binding.fragmentDescriptionEditView.loadReviewContent(true)
+                analyticsHelper.timer.pause()
             } else {
                 binding.fragmentDescriptionEditView.setError(null)
                 binding.fragmentDescriptionEditView.setSaveState(true)
                 cancelCalls()
+                analyticsHelper.logAttempt(requireContext(),
+                    binding.fragmentDescriptionEditView.description.orEmpty(), binding.fragmentDescriptionEditView.wasSuggestionChosen,
+                    binding.fragmentDescriptionEditView.wasSuggestionModified, pageTitle
+                )
                 getEditTokenThenSave()
                 EditAttemptStepEvent.logSaveAttempt(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
             }
@@ -304,6 +342,12 @@ class DescriptionEditFragment : Fragment() {
                                     AnonymousNotificationHelper.onEditSubmitted()
                                     waitForUpdatedRevision(newRevId)
                                     EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+                                    analyticsHelper.logSuccess(requireContext(),
+                                        binding.fragmentDescriptionEditView.description.orEmpty(),
+                                        binding.fragmentDescriptionEditView.wasSuggestionChosen,
+                                        binding.fragmentDescriptionEditView.wasSuggestionModified,
+                                        pageTitle, newRevId
+                                    )
                                 }
                                 hasEditErrorCode -> {
                                     editFailed(MwException(MwServiceError(code, spamblacklist)), false)
@@ -347,6 +391,12 @@ class DescriptionEditFragment : Fragment() {
                         AnonymousNotificationHelper.onEditSubmitted()
                         if (response.success > 0) {
                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
+                            analyticsHelper.logSuccess(requireContext(),
+                                binding.fragmentDescriptionEditView.description.orEmpty(),
+                                binding.fragmentDescriptionEditView.wasSuggestionChosen,
+                                binding.fragmentDescriptionEditView.wasSuggestionModified,
+                                pageTitle, response.entity?.lastRevId ?: 0
+                            )
                             EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                         } else {
                             editFailed(RuntimeException("Received unrecognized description edit response"), true)
@@ -400,7 +450,9 @@ class DescriptionEditFragment : Fragment() {
         }
 
         private fun getEditComment(): String? {
-            if (invokeSource == InvokeSource.SUGGESTED_EDITS || invokeSource == InvokeSource.FEED) {
+            if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION && binding.fragmentDescriptionEditView.wasSuggestionChosen) {
+                return if (binding.fragmentDescriptionEditView.wasSuggestionModified) MACHINE_SUGGESTION_MODIFIED else MACHINE_SUGGESTION
+            } else if (invokeSource == InvokeSource.SUGGESTED_EDITS || invokeSource == InvokeSource.FEED) {
                 return when (action) {
                     DescriptionEditActivity.Action.ADD_DESCRIPTION -> SUGGESTED_EDITS_ADD_COMMENT
                     DescriptionEditActivity.Action.ADD_CAPTION -> SUGGESTED_EDITS_ADD_COMMENT
@@ -424,6 +476,7 @@ class DescriptionEditFragment : Fragment() {
         override fun onCancelClick() {
             if (binding.fragmentDescriptionEditView.showingReviewContent()) {
                 binding.fragmentDescriptionEditView.loadReviewContent(false)
+                analyticsHelper.timer.resume()
             } else {
                 DeviceUtil.hideSoftKeyboard(requireActivity())
                 requireActivity().onBackPressed()
@@ -441,6 +494,10 @@ class DescriptionEditFragment : Fragment() {
             } catch (a: ActivityNotFoundException) {
                 FeedbackUtil.showMessage(requireActivity(), R.string.error_voice_search_not_available)
             }
+        }
+
+        override fun getAnalyticsHelper(): MachineGeneratedArticleDescriptionsAnalyticsHelper {
+            return analyticsHelper
         }
     }
 
@@ -463,6 +520,8 @@ class DescriptionEditFragment : Fragment() {
         private const val ARG_SOURCE_SUMMARY = "sourceSummary"
         private const val ARG_TARGET_SUMMARY = "targetSummary"
         private const val SUGGESTED_EDITS_UI_VERSION = "1.0"
+        const val MACHINE_SUGGESTION = "#machine-suggestion"
+        const val MACHINE_SUGGESTION_MODIFIED = "#machine-suggestion-modified"
         const val SUGGESTED_EDITS_ADD_COMMENT = "#suggestededit-add $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_TRANSLATE_COMMENT = "#suggestededit-translate $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT = "#suggestededit-imgtag-auto $SUGGESTED_EDITS_UI_VERSION"

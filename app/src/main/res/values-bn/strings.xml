@@ -8,6 +8,7 @@
 * Cooltey
 * Dbrant
 * Elias Ahmmad
+* FARMER
 * Greatder
 * Masumrezarock100
 * Md. Golam Mukit Khan
@@ -548,7 +549,10 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">বাতিল</string>
   <string name="reading_list_split_dialog_ok_button_text">ঠিক আছে</string>
   <string name="reading_lists_preview_save_button">সংরক্ষণ</string>
+  <string name="reading_lists_preview_save_dialog_title">তালিকা সংরক্ষণ করুন</string>
+  <string name="reading_lists_preview_save_dialog_text">তালিকার নাম দিন ও সংরক্ষণ করতে নিবন্ধ নির্বাচন করুন।</string>
   <string name="reading_lists_preview_save_dialog_cancel">বাতিল</string>
+  <string name="reading_lists_preview_save_dialog_save">সংরক্ষণ</string>
   <string name="reading_lists_preview_saved_snackbar_action">দেখুন</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
   <string name="notification_reverted_title">সম্পাদনা বাতিল হয়েছে</string>
@@ -745,6 +749,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">এক লাইনে, দুই থেকে বারো পর্যন্ত শব্দ রাখা যাবে</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা শুরু করুন</string>
   <string name="description_edit_tutorial_promise">শুরু করার দ্বারা, আমি প্রতিজ্ঞা করছি এই বৈশিষ্ট্যের অপব্যবহার করব না।</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">যন্ত্র-প্রদত্ত পরামর্শ</string>
   <string name="customize_toolbar_category_toolbar">সরঞ্জামদণ্ড</string>
   <string name="customize_toolbar_category_menu">মেনু</string>
   <string name="customize_toolbar_reset_to_default_button">পূর্বনির্ধারিত অবস্থায় ফেরত যান</string>
@@ -1107,7 +1112,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">পড়ার তালিকা আমদানি করা হয়েছে</string>
   <string name="reading_list_share_menu_label">শেয়ার করুন…</string>
   <string name="reading_list_share_menu_tooltip">এই পঠন তালিকাটি অন্যদের সাথে শেয়ার করুন</string>
-  <string name="reading_list_share_title_tooltip">এই তালিকায় আপনার করা পরিবর্তনগুলি অন্যদের কাছে দৃশ্যমান নয়।</string>
   <string name="reading_list_share_message_v2">শুভেচ্ছা নিন! আমি আপনার সাথে আমার উইকিপিডিয়া পঠন তালিকা শেয়ার করতে চাই:</string>
   <string name="reading_list_share_survey_title">আপনি কি আমাদের \"পড়ার তালিকা শেয়ার\" উন্নত করতে সহায়তা করতে পারবেন?</string>
   <string name="reading_list_share_survey_body">\"পড়ার তালিকা শেয়ার\" একটি পরীক্ষামূলক ফিচার এবং এটি উন্নত বা অপসারণ করতে আমাদের আপনার প্রতিক্রিয়া প্রয়োজন।</string>

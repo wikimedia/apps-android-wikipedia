@@ -30,6 +30,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.ReadingListsSharingAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListsBinding
@@ -89,10 +90,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         binding.searchEmptyView.setEmptyText(R.string.search_reading_lists_no_results)
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = adapter
-        binding.recyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable))
+        binding.recyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider))
         setUpScrollListener()
         disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
-        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
+        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.swipeRefreshLayout.setOnRefreshListener { refreshSync(this, binding.swipeRefreshLayout) }
         if (RemoteConfig.config.disableReadingListSync) {
             binding.swipeRefreshLayout.isEnabled = false
@@ -595,7 +596,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             val isEnabled = selectedListsCount != 0
             val deleteItem = menu.findItem(R.id.menu_delete_selected)
             val exportItem = menu.findItem(R.id.menu_export_selected)
-            val exportItemTitleColor = ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)
+            val exportItemTitleColor = ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color)
             val exportItemAlphaColor = ColorUtils.setAlphaComponent(exportItemTitleColor, alpha)
             val spanString = SpannableString(exportItem.title.toString())
             spanString.setSpan(ForegroundColorSpan(exportItemAlphaColor), 0, spanString.length, 0)
@@ -750,6 +751,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private fun maybeShowPreviewSavedReadingListsSnackbar() {
         if (shouldShowImportedSnackbar) {
+            ReadingListsSharingAnalyticsHelper.logReceiveFinish(requireContext(), recentPreviewSavedReadingList)
             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.reading_lists_preview_saved_snackbar))
                 .addCallback(object : Snackbar.Callback() {
                     override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {

@@ -6,11 +6,13 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.ReadingListsSharingAnalyticsHelper
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.StringUtil
-import java.util.*
+import java.time.LocalDate
+import java.time.Month
 
 object ReadingListsShareSurveyHelper {
     private const val MODE_INACTIVE = 0
@@ -50,6 +52,7 @@ object ReadingListsShareSurveyHelper {
         dialog.findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethodExt { url ->
             CustomTabsUtil.openInCustomTab(activity, url)
         }
+        ReadingListsSharingAnalyticsHelper.logSurveyShown(activity)
     }
 
     private fun isActive(): Boolean {
@@ -57,8 +60,7 @@ object ReadingListsShareSurveyHelper {
     }
 
     private fun fallsWithinDateRange(): Boolean {
-        val endTime = GregorianCalendar(2022, Calendar.DECEMBER, 30)
-        return Calendar.getInstance().timeInMillis < endTime.timeInMillis
+        return LocalDate.now() < LocalDate.of(2023, Month.APRIL, 17)
     }
 
     private fun takeUserToSurvey(context: Context) {

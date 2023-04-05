@@ -80,7 +80,7 @@ object UserTalkPopupHelper {
                 .create()
         dialog.layoutInflater.inflate(R.layout.view_thank_dialog, parent)
         dialog.setOnShowListener {
-            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(ResourceUtil.getThemedColor(activity, R.attr.secondary_text_color))
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(ResourceUtil.getThemedColor(activity, R.attr.placeholder_color))
         }
         dialog.show()
     }

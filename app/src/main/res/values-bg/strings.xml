@@ -900,6 +900,8 @@
   <string name="watchlist_expiry_dialog_three_months">3 месеца</string>
   <string name="watchlist_filter_talk">Беседа</string>
   <string name="watchlist_filter_pages">Страници</string>
+  <string name="watchlist_filter_wiki_filter_header">Уики</string>
+  <string name="watchlist_filter_automated_contributions_bot">Бот</string>
   <string name="action_item_categories">Категории</string>
   <string name="category_tab_articles">Статии</string>
 </resources>

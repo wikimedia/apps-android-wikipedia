@@ -16,10 +16,13 @@ import org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewFilePageBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.LinkMovementMethodExt
-import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.page.PageActivity
+import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
@@ -160,9 +163,8 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
             val view = ImageDetailView(context)
             view.binding.titleText.text = titleString
             view.binding.contentText.text = StringUtil.strip(StringUtil.fromHtml(detail))
-            RichTextUtil.removeUnderlinesFromLinks(view.binding.contentText)
             if (!externalLink.isNullOrEmpty()) {
-                view.binding.contentText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+                view.binding.contentText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.progressive_color))
                 view.binding.contentText.setTextIsSelectable(false)
                 view.binding.externalLink.visibility = View.VISIBLE
                 view.binding.contentContainer.setOnClickListener {
@@ -193,7 +195,13 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         binding.detailsContainer.addView(view)
     }
 
-    private val movementMethod = LinkMovementMethodExt { url: String ->
-        UriUtil.handleExternalLink(context, Uri.parse(UriUtil.resolveProtocolRelativeUrl(url)))
+    private val movementMethod = LinkMovementMethodExt { url ->
+        val uri = Uri.parse(UriUtil.resolveProtocolRelativeUrl(url))
+        if (UriUtil.isValidPageLink(uri)) {
+            val entry = HistoryEntry(PageTitle.titleForUri(uri, WikiSite(uri)), HistoryEntry.SOURCE_FILE_PAGE)
+            context.startActivity(PageActivity.newIntentForNewTab(context, entry, entry.title))
+        } else {
+            UriUtil.handleExternalLink(context, Uri.parse(UriUtil.resolveProtocolRelativeUrl(url)))
+        }
     }
 }

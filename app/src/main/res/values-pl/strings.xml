@@ -16,6 +16,7 @@
 * Kareyac
 * Lantuszka
 * Luku123
+* MarMi wiki
 * Masti
 * Matik7
 * Matma Rex
@@ -1195,4 +1196,6 @@
   <string name="archive_empty">Nie znaleziono zarchiwizowanych stron.</string>
   <string name="user_contrib_filter_all">Wszystkie przestrzenie nazw</string>
   <string name="namespace_article">Artykuł</string>
+  <string name="data_opt_in_accept">Akceptuj</string>
+  <string name="data_opt_in_reject">Odrzuć</string>
 </resources>

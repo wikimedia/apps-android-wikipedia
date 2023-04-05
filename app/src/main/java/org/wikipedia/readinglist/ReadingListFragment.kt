@@ -34,6 +34,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.ReadingListsSharingAnalyticsHelper
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.PageDownloadEvent
@@ -65,7 +66,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private var previewSaveDialog: AlertDialog? = null
     private val disposables = CompositeDisposable()
     private var isPreview: Boolean = false
-    private var readingList: ReadingList? = null
     private var readingListId: Long = 0
     private val adapter = ReadingListPageItemAdapter()
     private var actionMode: ActionMode? = null
@@ -80,6 +80,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private var currentSearchQuery: String? = null
     private var articleLimitMessageShown = false
     private var exclusiveTooltipRunnable: Runnable? = null
+    var readingList: ReadingList? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -138,7 +139,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val searchItem = menu.findItem(R.id.menu_search_lists)
         val sortOptionsItem = menu.findItem(R.id.menu_sort_options)
         val iconColor = if (toolbarExpanded) AppCompatResources.getColorStateList(requireContext(), android.R.color.white)
-        else ResourceUtil.getThemedColorStateList(requireContext(), R.attr.toolbar_icon_color)
+        else ResourceUtil.getThemedColorStateList(requireContext(), R.attr.primary_color)
         menu.findItem(R.id.menu_reading_list_share)?.isVisible = ReadingListsShareHelper.shareEnabled()
         MenuItemCompat.setIconTintList(searchItem, iconColor)
         MenuItemCompat.setIconTintList(sortOptionsItem, iconColor)
@@ -216,7 +217,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private fun setToolbar() {
         binding.readingListAppBar.addOnOffsetChangedListener(appBarListener)
-        binding.readingListToolbarContainer.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.toolbar_icon_color))
+        binding.readingListToolbarContainer.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_color))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             binding.readingListToolbarContainer.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         }
@@ -227,7 +228,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.callback = HeaderCallback()
         headerView.isClickable = false
         headerView.setThumbnailVisible(false)
-        headerView.setTitleTextAppearance(R.style.ReadingListTitleTextAppearance)
+        headerView.setTitleTextAppearance(R.style.H2)
         headerView.setOverflowViewVisibility(View.VISIBLE)
         headerView.setPreviewMode(isPreview)
 
@@ -262,11 +263,11 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         binding.readingListRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.readingListRecyclerView.adapter = adapter
         (binding.readingListRecyclerView.itemAnimator as SimpleItemAnimator?)!!.supportsChangeAnimations = false
-        binding.readingListRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, drawStart = true, drawEnd = false))
+        binding.readingListRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, drawEnd = false))
     }
 
     private fun setSwipeRefreshView() {
-        binding.readingListSwipeRefresh.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
+        binding.readingListSwipeRefresh.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.readingListSwipeRefresh.setOnRefreshListener { ReadingListsFragment.refreshSync(this, binding.readingListSwipeRefresh) }
         if (RemoteConfig.config.disableReadingListSync) {
             binding.readingListSwipeRefresh.isEnabled = false
@@ -306,6 +307,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                         withContext(Dispatchers.Main) {
                             readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
                             readingList?.let {
+                                ReadingListsSharingAnalyticsHelper.logReceivePreview(requireContext(), it)
                                 binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
                             }
                             update()

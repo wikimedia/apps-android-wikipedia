@@ -35,6 +35,7 @@
 * MSClaudiu
 * Macofe
 * MuratTheTurkish
+* Naheulf
 * NemesisIII
 * Niridya
 * Noé
@@ -886,6 +887,8 @@
   <string name="description_starts_with_lowercase">Éviter de commencer par une lettre minuscule.</string>
   <string name="description_is_in_different_language">Le texte semble être dans une langue inattendue. La langue devrait être %s.</string>
   <string name="description_verification_notice">Veuillez vérifier que votre description est en %1$s. Vous pouvez librement ignorer cette notification si votre description est écrite en %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">Afficher les descriptions suggérées</string>
+  <string name="description_edit_suggested_description_button_tooltip">Essayer les descriptions d’article suggérées par la machine</string>
   <string name="description_edit_success_saved">Description de l’article publiée !</string>
   <string name="description_edit_success_saved_snackbar">Description d’article publiée !</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Description de l’article publiée ! (%s)</string>
@@ -903,6 +906,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idéalement une ligne, entre deux et douze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Commencez à modifier</string>
   <string name="description_edit_tutorial_promise">En commençant, je promets de ne pas abuser de cette fonctionnalité.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Suggestions de la machine</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Les suggestions sont générées par une machine, non par des bénévoles ou la Fondation Wikimédia</string>
   <string name="customize_toolbar_title">Personnaliser la barre d’outils</string>
   <string name="customize_toolbar_shortcut_description_text">Personnalisez la barre d’outils avec 5 raccourcis que vous trouvez les plus utiles.</string>
   <string name="customize_toolbar_category_toolbar">Barre d’outils</string>
@@ -1061,6 +1066,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Balise d’image</string>
   <string name="suggested_edits_contribution_current_revision_text">Votre modification est maintenant visible sur Wikipédia</string>
   <string name="suggested_card_more_edits">Davantage de modifications suggérées</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Descriptions suggérées</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Qu’aimeriez-vous signaler ?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Pas assez d’informations</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Impossible de voir les recommandations de description</string>
+  <string name="suggested_edits_inappropriate_suggestion">Suggestion inappropriée</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Tâche incompréhensible</string>
+  <string name="suggested_edits_report_suggestion">Signalement</string>
+  <string name="suggested_edits_suggestion_report_submitted">Signalement transmis</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s balise</item>
     <item quantity="other">%1$s balises</item>
@@ -1325,6 +1338,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 mois</string>
   <string name="watchlist_expiry_dialog_six_months">6 mois</string>
   <string name="watchlist_empty">Vous n’avez aucun article dans votre liste de suivi.</string>
+  <string name="watchlist_search">Rechercher dans la liste de suivi</string>
   <string name="watchlist_filter_all">Tous</string>
   <string name="watchlist_filter_talk">Discussion</string>
   <string name="watchlist_filter_pages">Pages</string>
@@ -1332,6 +1346,55 @@
   <string name="watchlist_page_moved">Déplacé</string>
   <string name="watchlist_page_protected">Protégé</string>
   <string name="watchlist_page_deleted">Supprimé</string>
+  <string name="watchlist_filter_title">Filtre de la liste de suivi</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">Tous</string>
+  <string name="watchlist_filter_watchlist_activity_header">Activité sur la liste de suivi</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Modifications non vues</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Modifications déjà vues</string>
+  <string name="watchlist_filter_contribution_quality_header">Prédictions de qualité de la contribution</string>
+  <string name="watchlist_filter_contribution_quality_good">Très vraisemblablement bonnes</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Peuvent avoir des problèmes</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Ont probablement des problèmes</string>
+  <string name="watchlist_filter_contribution_quality_bad">Fortement susceptibles d’avoir des problèmes</string>
+  <string name="watchlist_filter_user_intent_header">Prédictions des intentions de l’utilisateur</string>
+  <string name="watchlist_filter_user_intent_good">Très vraisemblablement de bonne foi</string>
+  <string name="watchlist_filter_user_intent_may_problems">Peut-être de mauvaise foi</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Probablement de mauvaise foi</string>
+  <string name="watchlist_filter_user_intent_bad">Très probablement de mauvaise foi</string>
+  <string name="watchlist_filter_user_status_header">Inscription et expérience des utilisateurs</string>
+  <string name="watchlist_filter_user_status_unregistered">Non inscrit</string>
+  <string name="watchlist_filter_user_status_registered">Inscrit</string>
+  <string name="watchlist_filter_user_status_newcomers">Nouveaux arrivants</string>
+  <string name="watchlist_filter_user_status_learners">Apprentis</string>
+  <string name="watchlist_filter_user_status_experienced">Utilisateurs expérimentés</string>
+  <string name="watchlist_filter_contribution_authorship_header">Paternité des contributions</string>
+  <string name="watchlist_filter_contribution_authorship_own">Modifications effectuées par vous</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Modifications effectuées par d’autres</string>
+  <string name="watchlist_filter_automated_contributions_header">Contributions automatisées</string>
+  <string name="watchlist_filter_automated_contributions_bot">Robot</string>
+  <string name="watchlist_filter_automated_contributions_human">Humain (non robot)</string>
+  <string name="watchlist_filter_significance_header">Importance</string>
+  <string name="watchlist_filter_significance_minor">Modifications mineures</string>
+  <string name="watchlist_filter_significance_edits">Modifications non mineures</string>
+  <string name="watchlist_filter_latest_revisions_header">Dernières versions</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Dernière version</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Pas la dernière version</string>
+  <string name="watchlist_filter_type_of_change_header">Type de modification</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Modifications de page</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Créations de page</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Modifications de catégorie</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Modifications dans Wikidata</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Actions journalisées</string>
+  <string name="watchlist_filter_type_of_change_new_users">Nouveaux utilisateurs</string>
+  <string name="watchlist_filter_reset_button">Réinitialiser</string>
+  <string name="watchlist_search_bar_hint">Rechercher ou filtrer la liste de suivi</string>
+  <string name="watchlist_search_bar_filter_hint">Filtre de la liste de suivi</string>
+  <string name="watchlist_empty_search_message">Aucun résultat, essayez de supprimer %s pour en voir plus.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d filtre</item>
+    <item quantity="other">%d filtres</item>
+  </plurals>
   <string name="preview_edit_title">Aperçu de la modification</string>
   <string name="preview_edit_summarize_edit_title">Résumer la modification</string>
   <string name="preview_edit_summarize_edit_hint">Comment avez-vous amélioré cette page ?</string>
@@ -1365,7 +1428,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Liste de lecture importée</string>
   <string name="reading_list_share_menu_label">Partager...</string>
   <string name="reading_list_share_menu_tooltip">Partager cette liste de lecture avec d’autres personnes</string>
-  <string name="reading_list_share_title_tooltip">Les modifications que vous apportez à cette liste ne sont pas visibles pour les autres.</string>
   <string name="reading_list_share_message_v2">Bonjour ! J’aimerais partager ma liste de lecture Wikipédia avec vous :</string>
   <string name="reading_list_share_survey_title">Pourriez-vous nous aider à améliorer la fonctionnalité « Partager des listes de lecture » ?</string>
   <string name="reading_list_share_survey_body">Le « Partage de listes de lecture » est une fonctionnalité en test et nous avons besoin de vos commentaires pour l’améliorer ou la supprimer.</string>
