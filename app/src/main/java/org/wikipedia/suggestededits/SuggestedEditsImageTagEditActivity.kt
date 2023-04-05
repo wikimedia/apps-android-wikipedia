@@ -52,7 +52,7 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
 
     override fun updateActionButton() {
         if (suggestedEditsImageTagsFragment != null) {
-            binding.addContributionLandscapeImage.setBackgroundColor(ResourceUtil.getThemedColor(this, R.attr.colorAccent))
+            binding.addContributionLandscapeImage.setBackgroundColor(ResourceUtil.getThemedColor(this, R.attr.progressive_color))
             binding.addContributionButton.isEnabled = suggestedEditsImageTagsFragment!!.publishEnabled()
             binding.addContributionLandscapeImage.isEnabled = suggestedEditsImageTagsFragment!!.publishEnabled()
             binding.addContributionButton.alpha = if (suggestedEditsImageTagsFragment!!.publishEnabled()) 1f else 0.5f

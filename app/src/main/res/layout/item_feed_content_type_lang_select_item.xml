@@ -18,7 +18,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textColor="?attr/material_theme_primary_color"
+        android:textColor="?attr/primary_color"
         android:textSize="16sp"
         tools:text="English" />
 

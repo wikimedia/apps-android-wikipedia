@@ -38,7 +38,7 @@
                     android:layout_gravity="center_vertical"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/primary_color"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 

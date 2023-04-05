@@ -13,10 +13,11 @@
         android:visibility="gone" />
 
     <TextView
-        style="@style/MaterialMediumSecondaryCaption"
+        style="@style/P"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:textAlignment="center"
         android:text="@string/view_offline_card_text" />
 
     <Button

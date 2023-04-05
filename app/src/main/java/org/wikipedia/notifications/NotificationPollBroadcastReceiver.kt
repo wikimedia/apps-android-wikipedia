@@ -215,7 +215,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context, 0, TYPE_LOCAL), 0,
                     context.getString(R.string.suggested_edits_reactivation_notification_title),
                     context.getString(description), context.getString(description), null,
-                    R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent)
+                    R.drawable.ic_mode_edit_white_24dp, R.color.blue600, intent)
         }
     }
 }

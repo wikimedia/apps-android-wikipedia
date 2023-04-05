@@ -99,7 +99,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     private fun updateState() {
         if (AccountUtil.isLoggedIn) {
             binding.mainDrawerAccountAvatar.setImageResource(R.drawable.ic_baseline_person_24)
-            ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.material_theme_secondary_color))
+            ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.secondary_color))
             binding.mainDrawerAccountName.text = AccountUtil.userName
             binding.mainDrawerAccountName.visibility = View.VISIBLE
             binding.mainDrawerLoginButton.visibility = View.GONE
@@ -109,11 +109,11 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             binding.mainDrawerContribsContainer.visibility = View.VISIBLE
         } else {
             binding.mainDrawerAccountAvatar.setImageResource(R.drawable.ic_login_24px)
-            ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.colorAccent))
+            ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.progressive_color))
             binding.mainDrawerAccountName.visibility = View.GONE
             binding.mainDrawerLoginButton.textAlignment = View.TEXT_ALIGNMENT_TEXT_START
             binding.mainDrawerLoginButton.text = getString(R.string.main_drawer_login)
-            binding.mainDrawerLoginButton.setTextColor(getThemedColorStateList(requireContext(), R.attr.colorAccent))
+            binding.mainDrawerLoginButton.setTextColor(getThemedColorStateList(requireContext(), R.attr.progressive_color))
             binding.mainDrawerLoginOpenExternalIcon.visibility = View.GONE
             binding.mainDrawerTalkContainer.visibility = View.GONE
             binding.mainDrawerWatchlistContainer.visibility = View.GONE

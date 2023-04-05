@@ -5,6 +5,7 @@
 * A Retired User
 * AYZ04
 * Bo77le
+* Cookai1205
 * Cwek
 * Davidzdh
 * Dbrant
@@ -1257,8 +1258,8 @@
   <string name="menu_option_view_user_contributions">查看用户贡献</string>
   <string name="revision_diff_compare">比较不同修订版本</string>
   <string name="revision_diff_compare_title">比较不同修订版本：%s</string>
-  <string name="revision_diff_from">发件人：</string>
-  <string name="revision_diff_to">收件人：</string>
+  <string name="revision_diff_from">从：</string>
+  <string name="revision_diff_to">至：</string>
   <string name="revision_diff_line_num">第%d行</string>
   <string name="revision_diff_line_nums">第%d到第%d行</string>
   <string name="revision_diff_lines_from_to">第%1$d–%2$d行</string>
@@ -1329,7 +1330,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">已导入阅读清单</string>
   <string name="reading_list_share_menu_label">分享…</string>
   <string name="reading_list_share_menu_tooltip">与他人分享这份阅读清单</string>
-  <string name="reading_list_share_title_tooltip">您对此清单所做的更改对其他人不可见。</string>
   <string name="reading_list_share_message_v2">你好！我想给你分享我的维基百科阅读清单：</string>
   <string name="reading_list_share_survey_title">您能帮助我们改进“分享阅读清单”吗？</string>
   <string name="reading_list_share_survey_body">“分享阅读清单”是一项测试功能，我们需要您的反馈来改进或删除它。</string>

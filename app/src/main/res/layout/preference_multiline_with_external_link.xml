@@ -7,4 +7,4 @@
     android:layout_gravity="center"
     android:contentDescription="@null"
     app:srcCompat="@drawable/ic_open_in_new_black_24px"
-    app:tint="?attr/material_theme_secondary_color" />
+    app:tint="?attr/secondary_color" />

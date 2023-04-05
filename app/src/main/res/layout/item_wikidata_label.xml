@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
-        android:textColor="?attr/material_theme_primary_color"
+        android:textColor="?attr/primary_color"
         android:lineSpacingExtra="2dp"
         tools:text="Item label" />
 
@@ -26,6 +26,6 @@
         android:layout_marginTop="2dp"
         android:textSize="12sp"
         android:lineSpacingExtra="4dp"
-        android:textColor="?attr/material_theme_secondary_color"
+        android:textColor="?attr/secondary_color"
         tools:text="Item description" />
 </LinearLayout>

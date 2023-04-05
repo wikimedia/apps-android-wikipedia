@@ -36,10 +36,10 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
 
     var watchlistExpiryChanged = false
     var lastWatchExpiry = WatchlistExpiry.NEVER
-    var pageId = -1
-        private set
 
     val pageTitle = bundle.getParcelable<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
+    var pageId = bundle.getInt(ArticleEditDetailsActivity.EXTRA_PAGE_ID, -1)
+        private set
     var revisionToId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO, -1)
     var revisionTo: MwQueryPage.Revision? = null
     var revisionFromId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM, -1)
@@ -52,33 +52,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     val diffSize get() = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size
 
     init {
-        getWatchedStatusAndPageId()
-        checkRollbackRights()
         getRevisionDetails(revisionToId, revisionFromId)
-    }
-
-    private fun getWatchedStatusAndPageId() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            watchedStatus.postValue(Resource.Error(throwable))
-        }) {
-            withContext(Dispatchers.IO) {
-                val page = ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!!
-                pageId = page.pageId
-                watchedStatus.postValue(Resource.Success(page))
-            }
-        }
-    }
-
-    private fun checkRollbackRights() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            rollbackRights.postValue(Resource.Error(throwable))
-        }) {
-            withContext(Dispatchers.IO) {
-                val userRights = ServiceFactory.get(pageTitle.wikiSite).userRights().query?.userInfo?.rights
-                hasRollbackRights = userRights?.contains("rollback") == true
-                rollbackRights.postValue(Resource.Success(hasRollbackRights))
-            }
-        }
     }
 
     fun getRevisionDetails(revisionIdTo: Long, revisionIdFrom: Long = -1) {
@@ -86,15 +60,25 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             revisionDetails.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
+                if (watchedStatus.value !is Resource.Success) {
+                    val query = ServiceFactory.get(pageTitle.wikiSite).getWatchedStatusWithRights(pageTitle.prefixedText).query!!
+                    val page = query.firstPage()!!
+                    if (pageId < 0) {
+                        pageId = page.pageId
+                    }
+                    watchedStatus.postValue(Resource.Success(page))
+                    hasRollbackRights = query.userInfo?.rights?.contains("rollback") == true
+                    rollbackRights.postValue(Resource.Success(hasRollbackRights))
+                }
                 if (revisionIdFrom >= 0) {
-                    val responseFrom = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageTitle.prefixedText, 2, revisionIdFrom) }
-                    val responseTo = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageTitle.prefixedText, 2, revisionIdTo) }
+                    val responseFrom = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageId.toString(), 2, revisionIdFrom) }
+                    val responseTo = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageId.toString(), 2, revisionIdTo) }
                     val pageTo = responseTo.await().query?.firstPage()!!
                     revisionFrom = responseFrom.await().query?.firstPage()!!.revisions[0]
                     revisionTo = pageTo.revisions[0]
                     canGoForward = revisionTo!!.revId < pageTo.lastrevid
                 } else {
-                    val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageTitle.prefixedText, 2, revisionIdTo)
+                    val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageId.toString(), 2, revisionIdTo)
                     val page = response.query?.firstPage()!!
                     val revisions = page.revisions
                     revisionTo = revisions[0]
@@ -122,7 +106,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             revisionDetails.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsAscending(pageTitle.prefixedText, 2, revisionIdFrom)
+                val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsAscending(null, pageId.toString(), 2, revisionIdFrom)
                 val page = response.query?.firstPage()!!
                 val revisions = page.revisions
 

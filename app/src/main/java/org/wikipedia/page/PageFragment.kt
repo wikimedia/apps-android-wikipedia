@@ -18,8 +18,6 @@ import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.graphics.Insets
-import androidx.core.view.ActionProvider
-import androidx.core.view.MenuItemCompat
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -121,7 +119,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageRequestLangLinks(title: PageTitle)
         fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, source: Int, options: ActivityOptionsCompat?)
         fun onPageRequestAddImageTags(mwQueryPage: MwQueryPage, invokeSource: InvokeSource)
-        fun onPageRequestEditDescriptionTutorial(text: String?, invokeSource: InvokeSource)
         fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,
                                          targetSummary: PageSummaryForEdit?, action: DescriptionEditActivity.Action, invokeSource: InvokeSource)
     }
@@ -180,7 +177,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         _binding = FragmentPageBinding.inflate(inflater, container, false)
         webView = binding.pageWebView
         initWebViewListeners()
-        binding.pageRefreshContainer.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
+        binding.pageRefreshContainer.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.pageRefreshContainer.scrollableChild = webView
         binding.pageRefreshContainer.setOnRefreshListener(pageRefreshListener)
         val swipeOffset = DimenUtil.getContentTopOffsetPx(requireActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET
@@ -669,7 +666,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             startSupportActionMode(object : ActionMode.Callback {
                 override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
                     val menuItem = menu.add(R.string.menu_page_find_in_page)
-                    MenuItemCompat.setActionProvider(menuItem, FindReferenceInPageActionProvider(requireContext(), referenceAnchor, referenceText, backLinksList))
+                    menuItem.actionProvider = FindReferenceInPageActionProvider(requireContext(), referenceAnchor, referenceText, backLinksList)
                     menuItem.expandActionView()
                     return true
                 }
@@ -683,7 +680,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     return false
                 }
 
-                override fun onDestroyActionMode(mode: ActionMode) {}
+                override fun onDestroyActionMode(mode: ActionMode) {
+                    bridge.execute(JavaScriptActionHandler.removeHighlights())
+                }
             })
         }
     }
@@ -1139,15 +1138,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun startDescriptionEditActivity(text: String?, invokeSource: InvokeSource) {
-        if (Prefs.isDescriptionEditTutorialEnabled) {
-            callback()?.onPageRequestEditDescriptionTutorial(text, invokeSource)
-        } else {
-            title?.run {
-                val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayText, description, thumbUrl)
-                callback()?.onPageRequestEditDescription(text, this, sourceSummary, null,
-                    DescriptionEditActivity.Action.ADD_DESCRIPTION, invokeSource)
-            }
+    private fun startDescriptionEditActivity(text: String?, invokeSource: InvokeSource) {
+        title?.run {
+            val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this,
+                displayText, description, thumbUrl)
+            callback()?.onPageRequestEditDescription(text, this, sourceSummary, null,
+                DescriptionEditActivity.Action.ADD_DESCRIPTION, invokeSource)
         }
     }
 

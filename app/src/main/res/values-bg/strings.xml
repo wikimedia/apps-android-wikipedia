@@ -40,6 +40,9 @@
   <string name="notification_archive_undo">Отмяна</string>
   <string name="app_settings">Настройки на приложението</string>
   <string name="history_list_title">История</string>
+  <string name="image_content_description">Изображение: %s</string>
+  <string name="page_content_description">Страница: %s</string>
+  <string name="wikimedia_commons">Общомедия</string>
   <string name="wikidata">Уикиданни</string>
   <string name="dialog_title_clear_history">Изчистване на историята</string>
   <string name="dialog_message_clear_history">Това ще изтрие цялата история на сърфиране и ще затвори всички отворени раздели. Сигурни ли сте?</string>
@@ -48,6 +51,15 @@
   <string name="share_via">Споделяне чрез</string>
   <string name="image_share_via">Споделяне чрез</string>
   <string name="search_redirect_from">Пренасочено от %s</string>
+  <string name="page_edit_history_activity_title">История на версиите: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Празно резюме на редакцията</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Търсене или филтриране на редакции</string>
+  <string name="page_edit_history_filter_by">Филтриране по</string>
+  <string name="page_edit_history_filter_by_all">Всички редакции (%s)</string>
+  <string name="page_edit_history_filter_by_user">Редакции от потребители (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Редакции от анонимни (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Редакции на бот (%s)</string>
   <string name="menu_page_show_tabs">Показване на раздели</string>
   <string name="menu_page_other_languages">Промяна на езика</string>
   <string name="menu_page_find_in_page">Търсене в статията</string>
@@ -200,6 +212,7 @@
   <string name="page_protected_can_not_edit">За съжаление, вашата сметка няма нужните права, за да редактира тази страница.</string>
   <string name="page_protected_can_not_edit_anon">За съжаление, към момента тази страница не може да бъде редактирана анонимно.</string>
   <string name="page_protected_can_not_edit_title">Тази страница е защитена</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Добавяне към списъка за наблюдение</string>
   <string name="settings_item_preferences">Настройки</string>
   <string name="settings_activity_title">Настройки</string>
   <string name="about_description">Относно приложението Уикипедия.</string>
@@ -494,6 +507,12 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Отказ</string>
   <string name="reading_list_split_dialog_ok_button_text">Добре</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Изтриване</string>
+  <string name="reading_lists_preview_save_button">Съхраняване</string>
+  <string name="reading_lists_preview_save_dialog_title">Запазване на списъка</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Заглавие</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Отказ</string>
+  <string name="reading_lists_preview_save_dialog_save">Съхраняване</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Преглед</string>
   <string name="user_option_sync_label">Предпочитания</string>
   <string name="notification_reverted_title">Отменена редакция</string>
   <string name="notification_channel_description">Напредък на изтеглянето</string>
@@ -667,6 +686,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По възможност един ред, от две до дванадесет думи</string>
   <string name="description_edit_tutorial_button_label_start_editing">Започнете да редактирате</string>
   <string name="description_edit_tutorial_promise">Започвайки, обещавам да не злоупотребявам с тази функция.</string>
+  <string name="customize_toolbar_category_toolbar">Лента с инструменти</string>
   <string name="customize_toolbar_category_menu">Меню</string>
   <string name="suggested_edits_review_description">Преглед на описание на статия</string>
   <string name="suggested_edits_add_description_button">Добавяне на описание</string>
@@ -860,6 +880,17 @@
   <string name="watchlist_details_watch_label">Наблюдение</string>
   <string name="thank_label">Благодарност</string>
   <string name="thank_dialog_negative_button_text">Отказ</string>
+  <string name="revision_diff_from">От:</string>
+  <string name="revision_diff_to">До:</string>
+  <string name="revision_diff_line_num">Ред %d</string>
+  <string name="revision_diff_line_nums">Редове %d–%d</string>
+  <string name="revision_diff_lines_from_to">Редове %1$d–%2$d</string>
+  <string name="revision_diff_line_added">Добавен е ред</string>
+  <string name="revision_diff_line_removed">Премахнат е ред</string>
+  <string name="revision_diff_paragraph_added">Добавен е абзац</string>
+  <string name="revision_diff_paragraph_removed">Премахнат е абзац</string>
+  <string name="revision_undo_title">Отмяна на редакцията</string>
+  <string name="revision_compare_button">Сравняване</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">за 1 седмица</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">за 1 месец</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">за 3 месеца</string>
@@ -869,6 +900,8 @@
   <string name="watchlist_expiry_dialog_three_months">3 месеца</string>
   <string name="watchlist_filter_talk">Беседа</string>
   <string name="watchlist_filter_pages">Страници</string>
+  <string name="watchlist_filter_wiki_filter_header">Уики</string>
+  <string name="watchlist_filter_automated_contributions_bot">Бот</string>
   <string name="action_item_categories">Категории</string>
   <string name="category_tab_articles">Статии</string>
 </resources>

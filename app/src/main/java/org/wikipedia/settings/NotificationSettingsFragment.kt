@@ -13,7 +13,7 @@ class NotificationSettingsFragment : PreferenceLoaderFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setDivider(AppCompatResources.getDrawable(requireContext(), ResourceUtil.getThemedAttributeId(requireContext(), R.attr.list_separator_drawable)))
+        setDivider(AppCompatResources.getDrawable(requireContext(), ResourceUtil.getThemedAttributeId(requireContext(), R.attr.list_divider)))
     }
 
     companion object {

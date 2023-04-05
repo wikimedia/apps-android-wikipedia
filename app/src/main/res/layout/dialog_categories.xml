@@ -34,7 +34,7 @@
                     android:contentDescription="@null"
                     android:scaleType="fitCenter"
                     app:srcCompat="@drawable/ic_category_black_24dp"
-                    app:tint="?attr/material_theme_secondary_color"/>
+                    app:tint="?attr/secondary_color"/>
 
                 <TextView
                     android:id="@+id/categories_dialog_title"
@@ -45,7 +45,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="20dp"
                     android:gravity="center_vertical"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/primary_color"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:maxLines="1"
@@ -62,7 +62,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="4dp"
                     android:gravity="center_vertical"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/primary_color"
                     android:textSize="16sp"
                     android:maxLines="1"
                     android:ellipsize="end"
@@ -73,7 +73,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="?attr/material_theme_border_color"/>
+                android:background="?attr/border_color"/>
 
             <TextView
                 android:id="@+id/categories_none_found"
@@ -82,7 +82,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:text="@string/page_no_categories"
                 android:visibility="gone"
                 tools:visibility="visible"/>

@@ -124,9 +124,10 @@ class EditSummaryFragment : Fragment() {
                 L.e(throwable)
             }) {
                 withContext(Dispatchers.IO) {
-                    val page = ServiceFactory.get(title.wikiSite)
-                        .getWatchedStatus(title.prefixedText).query?.firstPage()!!
-                    binding.watchPageCheckBox.isChecked = page.watched
+                    val query = ServiceFactory.get(title.wikiSite)
+                        .getWatchedStatusWithUserOptions(title.prefixedText).query!!
+                    binding.watchPageCheckBox.isChecked = query.firstPage()!!.watched ||
+                            query.userInfo?.options?.watchDefault == 1
                 }
             }
         } else {
@@ -145,8 +146,8 @@ class EditSummaryFragment : Fragment() {
     private fun addChip(editSummary: String): Chip {
         val chip = Chip(requireContext())
         chip.text = editSummary
-        TextViewCompat.setTextAppearance(chip, R.style.CustomChipStyle)
-        chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+        TextViewCompat.setTextAppearance(chip, R.style.Chip_Accessible)
+        chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
         chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
         chip.setOnClickListener {
             // Clear the text field and insert the text

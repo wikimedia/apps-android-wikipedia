@@ -346,6 +346,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">معلومات كتر</string>
   <string name="suggested_edits_task_action_text_add">زيد</string>
   <string name="suggested_edits_contributions_stat_tooltip">لمجموع د تبديلات ديالك حتال دابا.</string>
+  <string name="suggested_edits_disabled_message">التبديلات لمقتارحة مامفعلاش. سمح لينا %s، راه ترجّعو بزاف د لمساهمات اللخرة ديالك.</string>
   <string name="suggested_edits_quality_okay_text">واخا</string>
   <string name="suggested_edits_task_new">جديد</string>
   <string name="suggested_edits_contribution_language_label">لوغة</string>

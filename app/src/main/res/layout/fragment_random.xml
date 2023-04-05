@@ -35,7 +35,7 @@
                 android:contentDescription="@null"
                 android:focusable="true"
                 android:padding="4dp"
-                app:tint="?attr/themed_icon_color"
+                app:tint="?attr/progressive_color"
                 app:srcCompat="@drawable/ic_replay_black_24dp" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -47,8 +47,8 @@
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="8dp"
                 android:contentDescription="@string/view_next_random_article"
-                app:tint="?attr/randomizer_dice_icon_color"
-                app:backgroundTint="?attr/themed_icon_color"
+                app:tint="?attr/background_color"
+                app:backgroundTint="?attr/progressive_color"
                 app:borderWidth="0dp"
                 app:elevation="4dp"
                 app:srcCompat="@drawable/animated_dice" />
@@ -62,7 +62,7 @@
                 android:contentDescription="@string/button_add_to_reading_list"
                 android:focusable="true"
                 android:padding="4dp"
-                app:tint="?attr/themed_icon_color"
+                app:tint="?attr/progressive_color"
                 app:srcCompat="@drawable/ic_bookmark_border_white_24dp" />
 
         </LinearLayout>

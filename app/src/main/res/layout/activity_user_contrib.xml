@@ -28,7 +28,7 @@
                 android:lineSpacingExtra="4sp"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
 
@@ -64,13 +64,13 @@
 
                     <TextView
                         android:id="@+id/search_empty_text"
-                        style="@style/MaterialMediumSecondaryCaption"
+                        style="@style/H3.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
                         android:layout_marginStart="24dp"
-                        android:fontFamily="sans-serif-medium"
                         android:text="@string/search_results_count_zero"
+                        android:textAlignment="center"
                         android:visibility="gone" />
 
                     <LinearLayout
@@ -90,10 +90,11 @@
 
                         <TextView
                             android:id="@+id/empty_search_message"
-                            style="@style/MaterialMediumSecondaryCaption"
+                            style="@style/P"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="24dp" />
+                            android:layout_marginTop="24dp"
+                            android:textAlignment="center" />
 
                     </LinearLayout>
 

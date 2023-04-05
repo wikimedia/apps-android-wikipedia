@@ -55,7 +55,7 @@ object ViewUtil {
     }
 
     fun getPlaceholderDrawable(context: Context): Drawable {
-        return ColorDrawable(getThemedColor(context, R.attr.material_theme_border_color))
+        return ColorDrawable(getThemedColor(context, R.attr.border_color))
     }
 
     fun setCloseButtonInActionMode(context: Context, actionMode: ActionMode) {

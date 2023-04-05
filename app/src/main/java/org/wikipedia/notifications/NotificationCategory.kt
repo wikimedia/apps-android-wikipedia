@@ -21,7 +21,7 @@ enum class NotificationCategory constructor(val id: String,
                                             @StringRes val title: Int,
                                             @StringRes val description: Int,
                                             @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
-                                            @AttrRes val iconColor: Int = R.attr.colorAccent,
+                                            @AttrRes val iconColor: Int = R.attr.progressive_color,
                                             val importance: Int = NotificationManagerCompat.IMPORTANCE_DEFAULT,
                                             val group: String? = GROUP_WIKIPEDIA_NOTIFICATIONS) : EnumCode {
     SYSTEM("system", R.string.preference_title_notification_system, R.string.preference_summary_notification_system, R.drawable.ic_settings_black_24dp),
@@ -49,7 +49,7 @@ enum class NotificationCategory constructor(val id: String,
         private val MENTIONS_GROUP = listOf(MENTION, EDIT_USER_TALK, EMAIL_USER, USER_RIGHTS, REVERTED)
         val FILTERS_GROUP = listOf(EDIT_USER_TALK, MENTION, EMAIL_USER, REVERTED, USER_RIGHTS, EDIT_THANK, MILESTONE_EDIT, LOGIN_FAIL, SYSTEM, ARTICLE_LINKED)
 
-        val MAP = EnumCodeMap(NotificationCategory::class.java)
+        private val MAP = EnumCodeMap(NotificationCategory::class.java)
 
         private fun findOrNull(id: String): NotificationCategory? {
             return MAP.valueIterator().asSequence().firstOrNull { id == it.id || id.startsWith(it.id) }
@@ -104,7 +104,7 @@ enum class NotificationCategory constructor(val id: String,
                         .setName(context.getString(it.title))
                         .setDescription(context.getString(it.description))
                         .setGroup(it.group)
-                        .setLightColor(ContextCompat.getColor(context, R.color.accent50))
+                        .setLightColor(ContextCompat.getColor(context, R.color.blue600))
                         .setVibrationEnabled(true)
                         .build()
                 } else {

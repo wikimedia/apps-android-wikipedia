@@ -5,29 +5,28 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat
 import org.wikipedia.R
-import org.wikipedia.util.ResourceUtil.getThemedColor
+import org.wikipedia.util.ResourceUtil
 
 enum class SyntaxRuleStyle {
     TEMPLATE {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return ColorSpanEx(getThemedColor(ctx, R.attr.secondary_text_color), Color.TRANSPARENT, spanStart, syntaxItem)
+            return ColorSpanEx(ResourceUtil.getThemedColor(ctx, R.attr.placeholder_color), Color.TRANSPARENT, spanStart, syntaxItem)
         }
     },
     INTERNAL_LINK {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return ColorSpanEx(getThemedColor(ctx, R.attr.colorAccent), Color.TRANSPARENT, spanStart, syntaxItem)
+            return ColorSpanEx(ResourceUtil.getThemedColor(ctx, R.attr.progressive_color), Color.TRANSPARENT, spanStart, syntaxItem)
         }
     },
     EXTERNAL_LINK {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return ColorSpanEx(getThemedColor(ctx, R.attr.colorAccent), Color.TRANSPARENT, spanStart, syntaxItem)
+            return ColorSpanEx(ResourceUtil.getThemedColor(ctx, R.attr.progressive_color), Color.TRANSPARENT, spanStart, syntaxItem)
         }
     },
     REF {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return ColorSpanEx(getThemedColor(ctx, R.attr.green_highlight_color), Color.TRANSPARENT, spanStart, syntaxItem)
+            return ColorSpanEx(ResourceUtil.getThemedColor(ctx, R.attr.success_color), Color.TRANSPARENT, spanStart, syntaxItem)
         }
     },
     BOLD {
@@ -93,12 +92,12 @@ enum class SyntaxRuleStyle {
     },
     SEARCH_MATCHES {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return ColorSpanEx(Color.BLACK, ContextCompat.getColor(ctx, R.color.find_in_page), spanStart, syntaxItem)
+            return ColorSpanEx(Color.BLACK, ResourceUtil.getThemedColor(ctx, R.attr.highlight_color), spanStart, syntaxItem)
         }
     },
     SEARCH_MATCH_SELECTED {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
-            return ColorSpanEx(Color.BLACK, ContextCompat.getColor(ctx, R.color.find_in_page_active), spanStart, syntaxItem)
+            return ColorSpanEx(Color.BLACK, ResourceUtil.getThemedColor(ctx, R.attr.focus_color), spanStart, syntaxItem)
         }
     };
 

@@ -37,7 +37,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="24dp"
                     android:contentDescription="@null"
-                    app:tint="@color/base30"
+                    app:tint="@color/gray500"
                     app:srcCompat="@drawable/ic_error_black_24dp" />
 
                 <TextView
@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:lineSpacingMultiplier="1.2"
                     android:text="@string/error_message_generic"
-                    android:textColor="@color/base30"
+                    android:textColor="@color/gray500"
                     android:textSize="16sp" />
 
                 <Button
@@ -74,7 +74,7 @@
                     android:lineSpacingMultiplier="1.2"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:textColor="@color/base30"
+                    android:textColor="@color/gray500"
                     android:textSize="14sp"
                     tools:text="Footer text, if any, appears here." />
 

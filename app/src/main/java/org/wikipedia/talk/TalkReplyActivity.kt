@@ -17,6 +17,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityTalkReplyBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
@@ -26,11 +27,9 @@ import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.util.*
 import org.wikipedia.views.UserMentionInputView
-import java.util.*
 
 class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentionInputView.Listener {
     private lateinit var binding: ActivityTalkReplyBinding
@@ -161,7 +160,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
             startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
         }
-        RichTextUtil.removeUnderlinesFromLinks(binding.toolbarTitle)
         FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
     }
 
@@ -176,7 +174,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
 
         override fun onMediaLinkClicked(title: PageTitle) {
-            // TODO
+            startActivity(FilePageActivity.newIntent(this@TalkReplyActivity, title))
         }
 
         override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
@@ -198,7 +196,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private fun setSaveButtonEnabled(enabled: Boolean) {
         binding.replySaveButton.isEnabled = enabled
         binding.replySaveButton.setTextColor(ResourceUtil
-            .getThemedColor(this, if (enabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
+            .getThemedColor(this, if (enabled) R.attr.progressive_color else R.attr.placeholder_color))
     }
 
     private fun onSaveClicked() {
