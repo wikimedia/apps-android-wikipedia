@@ -14,7 +14,7 @@
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:textAlignment="center"
-        android:textColor="?attr/colorPrimary"
+        android:textColor="?attr/placeholder_color"
         android:textSize="14sp"
         tools:text="1" />
 
@@ -38,11 +38,11 @@
         android:background="@drawable/lang_button_shape_border"
         android:fontFamily="sans-serif-medium"
         android:textAllCaps="true"
-        android:textColor="@color/base30" />
+        android:textColor="?attr/placeholder_color" />
 
     <TextView
         android:id="@+id/wiki_language_title"
-        style="@style/MaterialListTitle"
+        style="@style/H3.MaterialListTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
@@ -58,6 +58,6 @@
         android:contentDescription="@null"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_draggable"
-        app:tint="?attr/material_theme_de_emphasised_color" />
+        app:tint="?attr/placeholder_color" />
 
 </merge>

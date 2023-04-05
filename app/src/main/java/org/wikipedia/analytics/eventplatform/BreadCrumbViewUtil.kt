@@ -3,6 +3,7 @@ package org.wikipedia.analytics.eventplatform
 import android.content.Context
 import android.view.ContextThemeWrapper
 import android.view.View
+import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -44,7 +45,7 @@ object BreadCrumbViewUtil {
             return getReadableNameForView(view.parent as RecyclerView) + "." + position
         }
         return if (view.id == View.NO_ID) {
-            if (view is TextView) {
+            if (view is TextView && view !is EditText) {
                 view.text.toString()
             } else {
                 VIEW_UNNAMED
@@ -65,8 +66,8 @@ object BreadCrumbViewUtil {
         }
     }
 
-    fun getReadableScreenName(context: Context): String {
-        val fragName = getCurrentFragmentName(context)
+    fun getReadableScreenName(context: Context, fragment: Fragment? = null): String {
+        val fragName = if (fragment == null) getCurrentFragmentName(context) else fragment.javaClass.simpleName
         return context.javaClass.simpleName + (if (fragName.isNotEmpty()) ".$fragName" else "")
     }
 

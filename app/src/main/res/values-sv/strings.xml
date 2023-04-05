@@ -471,18 +471,22 @@
   <string name="reading_list_articles_already_exist_message">%s innehåller redan alla artiklar.</string>
   <string name="reading_list_added_view_button">Visa lista</string>
   <string name="reading_list_add_to_list_button">Lägg till i lista</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 artikel</item>
+    <item quantity="other">%d artiklar</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 artikel, %2$.2f MB</item>
     <item quantity="other">%1$d artiklar, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d av 1 artikel tillgänglig offline</item>
+    <item quantity="other">%1$d av %2$d artiklar tillgängliga offline</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d av 1 artikel är tillgänglig offline, %3$.2f MB</item>
     <item quantity="other">%1$d av %2$d artiklar är tillgängliga offline, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artiklar, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikel är tillgänglig offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artiklar är tillgängliga offline, %3$.2f MB</string>
   <string name="reading_list_sort">Sortera</string>
   <string name="reading_list_sort_ellipsis">Sortera efter...</string>
   <string name="reading_list_sort_by_name">Sortera efter namn</string>
@@ -492,6 +496,10 @@
   <string name="reading_list_sort_by_created">Sortera efter skapandedatum (nyaste)</string>
   <string name="reading_list_sort_by_created_desc">Sortera efter skapandedatum (äldsta)</string>
   <string name="reading_list_menu_delete">Radera lista</string>
+  <string name="reading_list_menu_export">Exportera lista</string>
+  <string name="reading_list_menu_select">Markera</string>
+  <string name="reading_list_menu_unselect">Avmarkera</string>
+  <string name="reading_list_export_write_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att exportera din läslista.</string>
   <string name="reading_list_menu_rename">Redigera namn/beskrivning</string>
   <string name="reading_list_action_menu_remove_from_offline">Ta bort från offline</string>
   <string name="reading_list_action_menu_save_for_offline">Spara för offline</string>
@@ -512,6 +520,15 @@
     <item quantity="one">%d artikel togs bort från %s</item>
     <item quantity="other">%d artiklar togs bort från %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d lista raderades</item>
+    <item quantity="other">%d listor raderades</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Standardlistan (%s) kan inte raderas.</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s raderades. Standardlistan (%2$s) kan inte raderas.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Listor raderades. Standardlistan (%s) kan inte raderas.</string>
+  <string name="single_list_json_file_name">%s (Wikipedia-läslista).json</string>
+  <string name="multiple_lists_json_file_name">Wikipedia-läslistor (%s och fler).json</string>
   <string name="reading_list_items_deleted">%d artiklar togs bort från listan</string>
   <string name="reading_lists_item_deleted">%s togs bort från listan</string>
   <string name="reading_list_item_delete_undo">Ångra</string>
@@ -544,6 +561,11 @@
   <string name="reading_list_articles_added_to_named">Lade till %1$d artiklar i %2$s</string>
   <string name="reading_list_articles_moved_to_named">Flyttade %1$d artiklar till %2$s</string>
   <string name="reading_list_delete_confirm">Är du säker på att du vill radera %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Radera markerade listor?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Är du säker på att du vill radera %d lista?</item>
+    <item quantity="other">Är du säker på att du vill radera %d listor?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Logga in för att aktivera synkronisering</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Logga in för att tillåta att dina läslistor sparas till ditt konto.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Avbryt</string>
@@ -567,6 +589,7 @@
   <string name="reading_list_article_limit_message">Kan inte lägga till i denna lista. Du har nått gränsen på %2$d artiklar per lista för \"%1$s\".</string>
   <string name="reading_lists_limit_message">Kan inte skapa en till lista. Du har nått gränsen på 100 läslistor per konto.</string>
   <string name="reading_lists_menu_create_list">Skapa ny lista</string>
+  <string name="reading_lists_menu_import_list">Importera lista</string>
   <string name="reading_lists_menu_sort_by">Sortera efter</string>
   <string name="reading_lists_refresh_sync_option">Uppdatera synkronisering</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Logga in / registrera</string>
@@ -587,7 +610,33 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Avbryt</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Avbryt</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Radera</string>
   <string name="reading_list_activity_title">Läslista: %s</string>
+  <string name="reading_list_notification_title">Läslistor importerades</string>
+  <string name="reading_list_notification_text">%d läslista/-or har exporterats som \'reading_lists export.json\' till din nedladdningsmapp</string>
+  <string name="reading_list_notification_detailed_text">Läslistor har exporterats till \'reading_lists_export.json\'</string>
+  <string name="reading_lists_action_menu_export_lists">Exportera</string>
+  <string name="reading_lists_import_file_picker_title">Välj filen att importera</string>
+  <string name="reading_lists_import_failure_message">Läslistor har importerats</string>
+  <string name="reading_lists_export_select_lists_message">Välj listor att exportera</string>
+  <string name="reading_lists_export_completed_message">Läslistor importerades</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Misslyckades att exportera läslista</item>
+    <item quantity="other">Misslyckades att exportera läslistor</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Misslyckades att importera läslista</item>
+    <item quantity="other">Misslyckades att importera läslistor</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Dela lista</string>
+  <string name="reading_lists_preview_save_button">Spara</string>
+  <string name="reading_lists_preview_save_dialog_title">Spara lista</string>
+  <string name="reading_lists_preview_save_dialog_text">Namnge lista och välj artiklar att spara.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Titel</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Avbryt</string>
+  <string name="reading_lists_preview_save_dialog_save">Spara</string>
+  <string name="reading_lists_preview_saved_snackbar">Läslista sparades</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Visa</string>
   <string name="user_option_sync_label">Inställningar</string>
   <string name="notification_reverted_title">Ogjord redigering</string>
   <string name="notification_channel_title">Laddar ned artiklar</string>
@@ -1246,6 +1295,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 månader</string>
   <string name="watchlist_expiry_dialog_six_months">6 månader</string>
   <string name="watchlist_empty">Du har inga artiklar i din bevakningslista.</string>
+  <string name="watchlist_search">Sök i bevakningslistan</string>
   <string name="watchlist_filter_all">Alla</string>
   <string name="watchlist_filter_talk">Diskussion</string>
   <string name="watchlist_filter_pages">Sidor</string>
@@ -1253,6 +1303,55 @@
   <string name="watchlist_page_moved">Flyttades</string>
   <string name="watchlist_page_protected">Skyddades</string>
   <string name="watchlist_page_deleted">Raderades</string>
+  <string name="watchlist_filter_title">Filter för bevakningslista</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">Alla</string>
+  <string name="watchlist_filter_watchlist_activity_header">Aktivitet för bevakningslista</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Osedda ändringar</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Sedda ändringar</string>
+  <string name="watchlist_filter_contribution_quality_header">Förutsägelser av bidragskvalitet</string>
+  <string name="watchlist_filter_contribution_quality_good">Mycket troligt bra</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Kan ha problem</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Har troligtvis problem</string>
+  <string name="watchlist_filter_contribution_quality_bad">Har mycket troligt problem</string>
+  <string name="watchlist_filter_user_intent_header">Förutsägelser av användares avsikter</string>
+  <string name="watchlist_filter_user_intent_good">Har mycket troligt goda avsikter</string>
+  <string name="watchlist_filter_user_intent_may_problems">Kan ha onda avsikter</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Har troligtvis onda avsikter</string>
+  <string name="watchlist_filter_user_intent_bad">Har mycket troligt onda avsikter</string>
+  <string name="watchlist_filter_user_status_header">Användarregistrering och -erfarenhet</string>
+  <string name="watchlist_filter_user_status_unregistered">Oregistrerade</string>
+  <string name="watchlist_filter_user_status_registered">Registrerade</string>
+  <string name="watchlist_filter_user_status_newcomers">Nykomlingar</string>
+  <string name="watchlist_filter_user_status_learners">Nybörjare</string>
+  <string name="watchlist_filter_user_status_experienced">Erfarna användare</string>
+  <string name="watchlist_filter_contribution_authorship_header">Författarskap av bidrag</string>
+  <string name="watchlist_filter_contribution_authorship_own">Ändringar av dig</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Ändringar av andra</string>
+  <string name="watchlist_filter_automated_contributions_header">Automatiserade bidrag</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">Mänskliga (inte bot)</string>
+  <string name="watchlist_filter_significance_header">Betydelse</string>
+  <string name="watchlist_filter_significance_minor">Mindre redigeringar</string>
+  <string name="watchlist_filter_significance_edits">Icke-mindre redigeringar</string>
+  <string name="watchlist_filter_latest_revisions_header">Senaste versioner</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Nuvarande version</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Inte den senaste versionen</string>
+  <string name="watchlist_filter_type_of_change_header">Typ av ändring</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Sidredigeringar</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Sidskapande</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Kategoriändringar</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidataredigeringar</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Loggade åtgärder</string>
+  <string name="watchlist_filter_type_of_change_new_users">Nya användare</string>
+  <string name="watchlist_filter_reset_button">Återställ</string>
+  <string name="watchlist_search_bar_hint">Sök eller filtrera bevakningslista</string>
+  <string name="watchlist_search_bar_filter_hint">Filter för bevakningslista</string>
+  <string name="watchlist_empty_search_message">Inga resultat, testa att ta bort %s för att se mer.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d filter</item>
+    <item quantity="other">%d filter</item>
+  </plurals>
   <string name="preview_edit_title">Förhandsgranska redigering</string>
   <string name="preview_edit_summarize_edit_title">Sammanfatta redigering</string>
   <string name="preview_edit_summarize_edit_hint">Hur förbättrade du denna sida?</string>
@@ -1278,7 +1377,7 @@
   <string name="user_contrib_menu_label">Bidrag</string>
   <string name="user_contrib_filter_activity_title">Filterbidrag</string>
   <string name="shareable_reading_lists_import_dialog_title">Importera delad läslista</string>
-  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Hur vill du namnge listan som har delats med dig?</string>
+  <string name="shareable_reading_lists_import_dialog_content">Hur vill du namnge listan som har delats med dig?</string>
   <string name="shareable_reading_lists_new_indicator">*ny*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">En läslista har delats med dig</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Vi har märkt att en läslista har delats med dig. För att se denna lista i appen går du tillbaka till originalmeddelandet och trycker på länken igen.</string>
@@ -1286,8 +1385,9 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Läslistan importerad</string>
   <string name="reading_list_share_menu_label">Dela…</string>
   <string name="reading_list_share_menu_tooltip">Dela denna läslista med andra</string>
-  <string name="reading_list_share_title_tooltip">Ändringar du gör i denna lista är inte synliga för andra.</string>
   <string name="reading_list_share_message_v2">Hej! Jag skulle vilja dela min Wikipedia-läslista med dig:</string>
   <string name="reading_list_share_survey_title">Kan du hjälpa oss att förbättra \"Dela läslistor\"?</string>
   <string name="reading_list_share_survey_body">\"Dela läslistor\" är en testfunktion och vi behöver din återkoppling för att förbättra eller ta bort den.</string>
+  <string name="data_opt_in_accept">Acceptera</string>
+  <string name="data_opt_in_reject">Avvisa</string>
 </resources>

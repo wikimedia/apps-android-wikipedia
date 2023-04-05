@@ -19,12 +19,13 @@ import androidx.drawerlayout.widget.DrawerLayout
 import org.json.JSONException
 import org.json.JSONObject
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.ToCInteractionFunnel
 import org.wikipedia.analytics.eventplatform.ArticleTocInteractionEvent
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
-import org.wikipedia.util.*
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ObservableWebView.OnContentHeightChangedListener
 import org.wikipedia.views.PageScrollerView
@@ -40,7 +41,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     private val tocAdapter = ToCAdapter()
     private var rtl = false
     private var currentItemSelected = 0
-    private var funnel = ToCInteractionFunnel(WikipediaApp.instance, WikipediaApp.instance.wikiSite, 0, 0)
     private var articleTocInteractionEvent: ArticleTocInteractionEvent? = null
 
     private val sectionOffsetsCallback: ValueCallback<String> = ValueCallback { value ->
@@ -67,7 +67,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         binding.tocList.onItemClickListener = OnItemClickListener { _, _, position, _ ->
             val section = tocAdapter.getItem(position)
             scrollToSection(section)
-            funnel.logClick()
             hide()
         }
         binding.tocList.listener = OnSwipeOutListener { hide() }
@@ -101,7 +100,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
             gravity = if (rtl) Gravity.LEFT else Gravity.RIGHT
         }
         log()
-        funnel = ToCInteractionFunnel(WikipediaApp.instance, page.title.wikiSite, page.pageProperties.pageId, tocAdapter.count)
         articleTocInteractionEvent = ArticleTocInteractionEvent(page.pageProperties.pageId, page.title.wikiSite.dbName(), tocAdapter.count)
         articleTocInteractionEvent?.logClick()
     }
@@ -119,7 +117,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     private fun onStartShow() {
         currentItemSelected = -1
         onScrollerMoved(0f, false)
-        funnel.scrollStart()
         articleTocInteractionEvent?.scrollStart()
     }
 
@@ -130,12 +127,10 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
     fun hide() {
         binding.navigationDrawer.closeDrawers()
-        funnel.scrollStop()
         articleTocInteractionEvent?.scrollStop()
     }
 
     fun log() {
-        funnel.log()
         articleTocInteractionEvent?.logEvent()
     }
 
@@ -234,14 +229,14 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
                 topMargin = DimenUtil.roundedDpToPx(textSize / 2)
             }
             if (highlightedSection == position) {
-                sectionHeading.setTextColor(ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.colorAccent))
+                sectionHeading.setTextColor(ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.progressive_color))
             } else {
                 if (section.level > 1) {
                     sectionHeading.setTextColor(
-                            ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.primary_text_color))
+                            ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.primary_color))
                 } else {
                     sectionHeading.setTextColor(
-                            ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.toc_h1_h2_color))
+                            ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.primary_color))
                 }
             }
             return newConvertView

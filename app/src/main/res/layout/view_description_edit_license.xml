@@ -16,9 +16,9 @@
         android:lineSpacingMultiplier="1.2"
         android:linksClickable="true"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/base30"
+        android:textColor="@color/gray500"
         android:drawableStart="@drawable/ic_license_cc"
-        app:drawableTint="@color/base30"
+        app:drawableTint="@color/gray500"
         android:drawablePadding="8dp"
         tools:text="Lorem ipsum" />
 
@@ -32,7 +32,7 @@
         android:lineSpacingMultiplier="1.2"
         android:linksClickable="true"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/base30"
+        android:textColor="@color/gray500"
         tools:text="Lorem ipsum" />
 
 </merge>

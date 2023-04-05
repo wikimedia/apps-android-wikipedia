@@ -295,7 +295,7 @@
   <string name="page_similar_titles">O‘xshash sahifalar</string>
   <string name="search_did_you_mean">%s deb o‘ylayapsizmi?</string>
   <string name="search_recent_header">Oxirgi qidirishlar:</string>
-  <string name="search_results_count_zero">Natijalar yo‘q</string>
+  <string name="search_results_count_zero">Natijalar topilmadi</string>
   <plurals name="search_results_count">
     <item quantity="one">1 ta natija</item>
     <item quantity="other">%d ta natija</item>
@@ -460,18 +460,22 @@
   <string name="reading_list_articles_already_exist_message">Juda soz! %sda barcha maqolalar bor.</string>
   <string name="reading_list_added_view_button">Koʻrmoq</string>
   <string name="reading_list_add_to_list_button">Roʻyxatga qoʻshmoq</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 ta maqola</item>
+    <item quantity="other">%d ta maqola</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 ta maqola, %2$.2f MB</item>
     <item quantity="other">%1$d ta maqola, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d tadan 1 ta maqola oflaynda mavjud</item>
+    <item quantity="other">%1$d tadan %2$d ta maqola oflaynda mavjud</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d tadan 1 ta maqola oflayn, %3$.2f MB</item>
     <item quantity="other">%1$d \ntadan %2$d ta maqola oflayndir, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 ta maqola, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d ta maqola, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d tadan 1 ta maqola oflayn, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d ta maqoladan %2$d tasi oflayn, %3$.2f MB</string>
   <string name="reading_list_sort">Saralamoq</string>
   <string name="reading_list_sort_ellipsis">Saralash turi</string>
   <string name="reading_list_sort_by_name">Nomi boʻyicha</string>
@@ -481,6 +485,10 @@
   <string name="reading_list_sort_by_created">Tuzilgan sanasi boʻyicha (yangilari)</string>
   <string name="reading_list_sort_by_created_desc">Tuzilgan sanasi boʻyicha (eskilari)</string>
   <string name="reading_list_menu_delete">Roʻyxatni oʻchirmoq</string>
+  <string name="reading_list_menu_export">Eksport roʻyxati</string>
+  <string name="reading_list_menu_select">Tanlash</string>
+  <string name="reading_list_menu_unselect">Tanlamaslik</string>
+  <string name="reading_list_export_write_permission_rationale">Roʻyxatini eksport qilish uchun qurilmangiz xotirasiga yozish uchun ruxsat talab qilinadi.</string>
   <string name="reading_list_menu_rename">Nom/taʼrifni tahrirlamoq</string>
   <string name="reading_list_action_menu_remove_from_offline">Oflayndan olib tashlamoq</string>
   <string name="reading_list_action_menu_save_for_offline">Oflayn tarzida saqlamoq</string>
@@ -501,6 +509,15 @@
     <item quantity="one">%d ta maqola %s dan oʻchirildi</item>
     <item quantity="other">%d ta maqola %s dan oʻchirildi</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d ta roʻyxat oʻchirildi</item>
+    <item quantity="other">%d tasi oʻchirildi</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Joriy (%s) roʻyxatini oʻchirib boʻlmaydi</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s oʻchirilgan. Joriy (%2$s) roʻyxatni oʻchirib boʻlmaydi.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Roʻyxatlar oʻchirildi. Joriy (%s) roʻyxatni oʻchirib boʻlmaydi.</string>
+  <string name="single_list_json_file_name">%s (Vikipediya oʻqish roʻyxati).json</string>
+  <string name="multiple_lists_json_file_name">Vikipediya oʻqish roʻyxatlari (%s va boshqalar).json</string>
   <string name="reading_list_items_deleted">%d ta maqola roʻyxatdan oʻchirildi</string>
   <string name="reading_lists_item_deleted">%s roʻyxatdan oʻchirildi</string>
   <string name="reading_list_item_delete_undo">Bekor qilish</string>
@@ -533,6 +550,11 @@
   <string name="reading_list_articles_added_to_named">%2$sga %1$d ta maqola qoʻshildi</string>
   <string name="reading_list_articles_moved_to_named">%1$d ta maqola %2$sga koʻchirildi</string>
   <string name="reading_list_delete_confirm">%sni oʻchirib tashlamoqchimisiz?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Tanlangan roʻyxat(lar) oʻchirilsinmi?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">%d ta roʻyxat oʻchirib tashlansinmi?</item>
+    <item quantity="other">%d ta roʻyxat oʻchirilsinmi?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Tizimga kirmoq</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Roʻyxatlaringizni hisobingizga saqlashga ruxsat berish uchun tizimga kiring.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Bekor qilish</string>
@@ -556,6 +578,7 @@
   <string name="reading_list_article_limit_message">Ushbu roʻyxatga qoʻshib boʻlmadi. Siz \"%1$s\" roʻyxatiga %2$d tagacha maqola qoʻsha olasiz.</string>
   <string name="reading_lists_limit_message">Boshqa roʻyxat tuzib boʻlmaydi. Har bir hisob uchun 100 ta roʻyxat tuzish chegarasi belgilangan.</string>
   <string name="reading_lists_menu_create_list">Roʻyxat tuzmoq</string>
+  <string name="reading_lists_menu_import_list">Import roʻyxati</string>
   <string name="reading_lists_menu_sort_by">Saralash turi</string>
   <string name="reading_lists_refresh_sync_option">Qayta sinxronlamoq</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kirmoq / Aʼzo boʻlmoq</string>
@@ -576,7 +599,33 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Bekor qilish</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Bekor qilish</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Oʻchirish</string>
   <string name="reading_list_activity_title">%s oʻqilganlar roʻyxati</string>
+  <string name="reading_list_notification_title">Oʻqish roʻyxat(lar)i eksport qilindi</string>
+  <string name="reading_list_notification_text">%d ta oʻqish roʻyxat(lar)i \'reading_lists export.json\' nomli faylda Yuklamalar jildiga saqlandi</string>
+  <string name="reading_list_notification_detailed_text">Oʻqish roʻyxatlari \'reading_lists_export.json\' faylida saqlandi</string>
+  <string name="reading_lists_action_menu_export_lists">Eksport</string>
+  <string name="reading_lists_import_file_picker_title">Import qilinadigan faylni tanlang</string>
+  <string name="reading_lists_import_failure_message">Oʻqish roʻyxatlarini import qilib boʻlmadi</string>
+  <string name="reading_lists_export_select_lists_message">Eksport qilish uchun roʻyxat(lar)ni tanlang</string>
+  <string name="reading_lists_export_completed_message">Oʻqish roʻyxat(lar)i eksport qilindi</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">1 ta oʻqish roʻyxatini eksport qilib boʻlmadi</item>
+    <item quantity="other">Oʻqish roʻyxatlarini eksport qilib boʻlmadi</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Oʻqish roʻyxati import qilindi</item>
+    <item quantity="other">Oʻqish roʻyxatlari import qilindi</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Ulashilgan roʻyxat</string>
+  <string name="reading_lists_preview_save_button">Saqlamoq</string>
+  <string name="reading_lists_preview_save_dialog_title">Roʻyxatni saqlash</string>
+  <string name="reading_lists_preview_save_dialog_text">Roʻyxatni nomlang va saqlash uchun maqolalarni tanlang.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Sarlavha</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Bekor qilish</string>
+  <string name="reading_lists_preview_save_dialog_save">Saqlash</string>
+  <string name="reading_lists_preview_saved_snackbar">Oʻqish roʻyxati saqlandi</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Koʻrish</string>
   <string name="user_option_sync_label">Tanlovlar</string>
   <string name="notification_reverted_title">Qayta tahrir</string>
   <string name="notification_channel_title">Fayl yuklanmoqda...</string>
@@ -1183,7 +1232,7 @@
   <string name="menu_option_user_page">%s foydalanuvchi sahifasi</string>
   <string name="menu_option_find_in_talk_page_topic">Muhokama sahifasida mavzuni izlamoq</string>
   <string name="menu_option_copy_link_to_clipboard">Nusxa olmoq</string>
-  <string name="talk_menu_copy_text">Matnni nusxalash</string>
+  <string name="talk_menu_copy_text">Matndan nusxa olish</string>
   <string name="talk_menu_expand_threads">Oqimlarni yoymoq</string>
   <string name="talk_menu_collapse_threads">Oqimni yigʻishtirmoq</string>
   <string name="watchlist_details_watching_label">Kuzatilmoqda</string>
@@ -1234,6 +1283,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 oy</string>
   <string name="watchlist_expiry_dialog_six_months">6 oy</string>
   <string name="watchlist_empty">Kuzatuvlar roʻyxatida hali hech qanaqa maqola yoʻq.</string>
+  <string name="watchlist_search">Kuzatuv roʻyxatini qidirish</string>
   <string name="watchlist_filter_all">Barchasi</string>
   <string name="watchlist_filter_talk">Munozara</string>
   <string name="watchlist_filter_pages">Sahifalar</string>
@@ -1241,6 +1291,52 @@
   <string name="watchlist_page_moved">Koʻchirilgan</string>
   <string name="watchlist_page_protected">Himoyalangan</string>
   <string name="watchlist_page_deleted">O‘chirilgan</string>
+  <string name="watchlist_filter_title">Kuzatuv roʻyxati filtri</string>
+  <string name="watchlist_filter_wiki_filter_header">Viki</string>
+  <string name="watchlist_filter_all_text">Barchasi</string>
+  <string name="watchlist_filter_watchlist_activity_header">Kuzatuv roʻyxati faoliyati</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Koʻrib chiqilmagan oʻzgarishlar</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Koʻrib chiqilgan oʻzgarishlar</string>
+  <string name="watchlist_filter_contribution_quality_header">Hissa sifatini tahlil qilish</string>
+  <string name="watchlist_filter_contribution_quality_good">Katta ehtimol bilan yaxshi</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Muammolar boʻlishi mumkin</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Ehtimol, muammolar bordir</string>
+  <string name="watchlist_filter_contribution_quality_bad">Katta ehtimol bilan muammolar bor</string>
+  <string name="watchlist_filter_user_intent_header">Foydalanuvchi niyatlarini tahlil qilish</string>
+  <string name="watchlist_filter_user_intent_good">Ehtimol, yaxshi niyat</string>
+  <string name="watchlist_filter_user_intent_may_problems">Yomon niyat bo\'lishi mumkin</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Ehtimol, yomon niyatdrir</string>
+  <string name="watchlist_filter_user_status_header">Foydalanuvchini ro\'yxatdan o\'tkazish va tajriba</string>
+  <string name="watchlist_filter_user_status_unregistered">Roʻyxatdan oʻtmagan</string>
+  <string name="watchlist_filter_user_status_registered">Roʻyxatdan oʻtgan</string>
+  <string name="watchlist_filter_user_status_newcomers">Yangi kelganlar</string>
+  <string name="watchlist_filter_user_status_learners">Oʻrganuvchilar</string>
+  <string name="watchlist_filter_user_status_experienced">Tajribali foydalanuvchilar</string>
+  <string name="watchlist_filter_contribution_authorship_header">Hissa muallifligi</string>
+  <string name="watchlist_filter_contribution_authorship_own">Siz amalga oshirgan oʻzgarishlar</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Boshqalar tomonidan oʻzgarishlar</string>
+  <string name="watchlist_filter_automated_contributions_header">Avtomatik hissalar</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">Odam (bot emas)</string>
+  <string name="watchlist_filter_significance_header">Ahamiyati</string>
+  <string name="watchlist_filter_significance_minor">Kichik tahrirlar</string>
+  <string name="watchlist_filter_significance_edits">Kichik boʻlmagan tahrirlar</string>
+  <string name="watchlist_filter_latest_revisions_header">Eng so\'nggi tahrirlar</string>
+  <string name="watchlist_filter_type_of_change_header">Oʻzgartirish turi</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Sahifa tahrirlari</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Yaratilgan sahifalar</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Turkumlardagi oʻzgarishlar</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Vikimaʼlumotlarni tahrirlar</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Kirish amaliyoti</string>
+  <string name="watchlist_filter_type_of_change_new_users">Yangi foydalanuvchilar</string>
+  <string name="watchlist_filter_reset_button">Asliga</string>
+  <string name="watchlist_search_bar_hint">Kuzatuv roʻyxatini izlash yoki filtrlash</string>
+  <string name="watchlist_search_bar_filter_hint">Kuzatuv roʻyxati filtri</string>
+  <string name="watchlist_empty_search_message">Natija yoʻq, koʻproq koʻrish uchun %sʼni oʻchirib koʻring.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d ta filtr</item>
+    <item quantity="other">%d ta filtr</item>
+  </plurals>
   <string name="preview_edit_title">Tahrirni oldindan koʻrish</string>
   <string name="preview_edit_summarize_edit_title">Tahrirni umumiylashtirmoq</string>
   <string name="preview_edit_summarize_edit_hint">Sahifani yaxshilashga qanday yordam koʻrsatdingiz?</string>
@@ -1274,8 +1370,9 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Oʻqish roʻyxati import qilindi</string>
   <string name="reading_list_share_menu_label">Ulashish…</string>
   <string name="reading_list_share_menu_tooltip">Ushbu oʻqish roʻyxatini boshqalar bilan baham koʻring</string>
-  <string name="reading_list_share_title_tooltip">Bu roʻyxatga kiritilgan oʻzgarishlar boshqalarga koʻrinmaydi.</string>
   <string name="reading_list_share_message_v2">Salom! Men Siz bilan Vikipediya oʻqish roʻyxatini baham koʻrmoqchiman:</string>
   <string name="reading_list_share_survey_title">“Oʻqish roʻyxatini baham koʻrish”ni yaxshilashga yordam bera olasizmi?</string>
   <string name="reading_list_share_survey_body">“Oʻqish roʻyxatlarini ulashish” sinov koʻrinishida boʻlib, uni yaxshilash yoki olib tashlash uchun fikr-mulohazalaringiz kerak.</string>
+  <string name="data_opt_in_accept">Qabul qilish</string>
+  <string name="data_opt_in_reject">Rad etish</string>
 </resources>

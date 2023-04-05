@@ -101,6 +101,16 @@
   <string name="page_edit_history_filter_by_user">Kullanıcı değişiklikleri (%s)</string>
   <string name="page_edit_history_filter_by_anon">Anon düzenlemeleri (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot düzenlemeleri (%s)</string>
+  <string name="page_edit_history_metrics_content_description">%1$s ile %2$s arası ölçümler</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%2$s yılından beri %1$d değişiklik</item>
+    <item quantity="other">%2$s yılından beri %1$d değişiklik</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%2$s yılından beri %1$d değişiklik (%3$s)</item>
+    <item quantity="other">%2$s yılından beri %1$d değişiklik (%3$s)</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Daha fazla değişiklik görmek için &lt;a href=\"#\"&gt;süzgeci&lt;/a&gt; değiştirmeyi deneyin</string>
   <string name="menu_page_show_tabs">Sekmeleri göster</string>
   <string name="menu_page_other_languages">Dili değiştir</string>
   <string name="menu_page_find_in_page">Maddede bul</string>
@@ -492,10 +502,6 @@
     <item quantity="one">%1$d - 1 madde çevrimdışı mevcut, %3$.2f MB</item>
     <item quantity="other">%1$d - %2$d madde çevrimdışı mevcut, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 madde, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d madde, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">1 maddenin %1$d tanesine çevrimdışı erişilebilir, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d maddenin %1$d tanesine çevrimdışı erişilebilir, %3$.2f MB</string>
   <string name="reading_list_sort">Sırala</string>
   <string name="reading_list_sort_ellipsis">Sıralama ölçütü:</string>
   <string name="reading_list_sort_by_name">Ada göre sırala</string>

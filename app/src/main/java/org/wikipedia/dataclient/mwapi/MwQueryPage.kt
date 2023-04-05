@@ -5,6 +5,9 @@ import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.page.Namespace
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
 
 @Serializable
 class MwQueryPage {
@@ -78,23 +81,24 @@ class MwQueryPage {
 
     @Serializable
     class Revision {
-
-        @SerialName("contentformat") private val contentFormat: String? = null
-        @SerialName("contentmodel") private val contentModel: String? = null
-        @SerialName("timestamp") val timeStamp: String = ""
-
         private val slots: Map<String, RevisionSlot>? = null
         val minor = false
         @SerialName("revid") val revId: Long = 0
         @SerialName("parentid") val parentRevId: Long = 0
         @SerialName("anon") val isAnon = false
+        @SerialName("timestamp") val timeStamp: String = ""
         val size = 0
         val user: String = ""
-        val content: String = ""
         val comment: String = ""
         val parsedcomment: String = ""
 
+        val contentMain get() = getContentFromSlot("main")
+
         var diffSize = 0
+
+        val localDateTime: LocalDateTime by lazy {
+            LocalDateTime.ofInstant(Instant.parse(timeStamp), ZoneId.systemDefault())
+        }
 
         fun getContentFromSlot(slot: String): String {
             return slots?.get(slot)?.content.orEmpty()

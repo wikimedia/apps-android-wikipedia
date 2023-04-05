@@ -19,14 +19,14 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.talk.TalkTopicsActivity
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
+import org.wikipedia.theme.Theme
+import org.wikipedia.util.*
+import org.wikipedia.util.log.L
 import java.util.*
 
 object NotificationPresenter {
@@ -59,7 +59,7 @@ object NotificationPresenter {
             }
         }
 
-        val themedContext = ContextThemeWrapper(context, WikipediaApp.instance.currentTheme.resourceId)
+        val themedContext = ContextThemeWrapper(context, if (WikipediaApp.instance.currentTheme == Theme.LIGHT) R.style.AppTheme else WikipediaApp.instance.currentTheme.resourceId)
 
         showNotification(context, builder, id, n.agent?.name ?: wikiSiteName, title, title, lang,
                 notificationCategory.iconResId, ResourceUtil.getThemedAttributeId(themedContext, notificationCategory.iconColor), activityIntent)
@@ -72,7 +72,7 @@ object NotificationPresenter {
         val builder = getDefaultBuilder(context, unreadCount.toLong(), NotificationPollBroadcastReceiver.TYPE_MULTIPLE)
         showNotification(context, builder, 0, context.getString(R.string.app_name),
                 context.getString(R.string.notification_many_unread, unreadCount), context.getString(R.string.notification_many_unread, unreadCount),
-                null, R.drawable.ic_notifications_black_24dp, R.color.accent50,
+                null, R.drawable.ic_notifications_black_24dp, R.color.blue600,
                 addIntentExtras(NotificationActivity.newIntent(context), unreadCount.toLong(), NotificationPollBroadcastReceiver.TYPE_MULTIPLE))
     }
 
@@ -103,6 +103,13 @@ object NotificationPresenter {
     }
 
     private fun addAction(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {
+        if (UriUtil.isDiffUrl(link.url)) {
+            try {
+                addActionForDiffLink(context, builder, link, n)
+            } catch (e: Exception) {
+                L.e(e)
+            }
+        }
         val pendingIntent = PendingIntent.getActivity(context, 0,
                 addIntentExtras(Intent(Intent.ACTION_VIEW, Uri.parse(link.url)), n.id, n.type), PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
         val labelStr: String = if (link.tooltip.isNotEmpty()) {
@@ -111,6 +118,18 @@ object NotificationPresenter {
             StringUtil.fromHtml(link.label).toString()
         }
         builder.addAction(0, labelStr, pendingIntent)
+    }
+
+    private fun addActionForDiffLink(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {
+        val uri = Uri.parse(link.url)
+        val title = uri.getQueryParameter("title")
+        val oldRev = uri.getQueryParameter("prev").orEmpty().toLongOrNull() ?: -1
+        val newRev = uri.getQueryParameter("diff").orEmpty().toLongOrNull() ?: -1
+
+        val pendingIntent = PendingIntent.getActivity(context, 0,
+            addIntentExtras(ArticleEditDetailsActivity.newIntent(context, PageTitle(title, WikiSite(link.url)), -1, oldRev, newRev), n.id, n.type),
+            PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
+        builder.addAction(0, StringUtil.fromHtml(link.label).toString(), pendingIntent)
     }
 
     private fun addActionForTalkPage(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {
@@ -139,7 +158,7 @@ object NotificationPresenter {
         builder.addAction(action)
     }
 
-    private fun drawNotificationBitmap(context: Context, @ColorRes color: Int, @DrawableRes icon: Int, lang: String): Bitmap {
+    fun drawNotificationBitmap(context: Context, @ColorRes color: Int, @DrawableRes icon: Int, lang: String): Bitmap {
         val bitmapHalfSize = DimenUtil.roundedDpToPx(24f)
         val iconHalfSize = DimenUtil.roundedDpToPx(14f)
         return createBitmap(bitmapHalfSize * 2, bitmapHalfSize * 2).applyCanvas {

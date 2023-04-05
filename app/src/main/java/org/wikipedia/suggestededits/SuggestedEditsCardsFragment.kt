@@ -20,8 +20,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.SuggestedEditsFeedFunnel
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.databinding.FragmentSuggestedEditsCardsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -47,7 +45,6 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     private var languageList: MutableList<String> = mutableListOf()
     private var swappingLanguageSpinners: Boolean = false
     private var resettingViewPager: Boolean = false
-    private var funnel: SuggestedEditsFeedFunnel? = null
 
     var langFromCode: String = app.languageState.appLanguageCode
     var langToCode: String = app.languageState.appLanguageCodes.getOrElse(1) { "" }
@@ -76,12 +73,8 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
-        action = arguments?.getSerializable(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
-
-        funnel = SuggestedEditsFeedFunnel(action, requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
-
-        // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
-        SuggestedEditsFunnel.get().impression(action)
+        action =
+            arguments?.getSerializable(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -97,8 +90,6 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         binding.cardsViewPager.offscreenPageLimit = 2
         binding.cardsViewPager.registerOnPageChangeCallback(viewPagerListener) // addOnPageChangeListener(viewPagerListener)
         resetViewPagerItemAdapter()
-
-        funnel?.start()
 
         if (binding.wikiLanguageDropdownContainer.visibility == VISIBLE) {
             if (languageList.isEmpty()) {
@@ -128,7 +119,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menuInflater.inflate(R.menu.menu_suggested_edits, menu)
-        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
+        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.progressive_color)
     }
 
     override fun onMenuItemSelected(item: MenuItem): Boolean {
@@ -203,22 +194,11 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     }
 
     override fun onDestroyView() {
-        funnel?.stop()
         disposables.clear()
         binding.cardsViewPager.unregisterOnPageChangeCallback(viewPagerListener)
         binding.cardsViewPager.adapter = null
         _binding = null
         super.onDestroyView()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        SuggestedEditsFunnel.get().pause()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        SuggestedEditsFunnel.get().resume()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -255,7 +235,6 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     }
 
     override fun logSuccess() {
-        funnel?.editSuccess()
     }
 
     fun onSelectPage() {
@@ -390,7 +369,6 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         override fun onPageSelected(position: Int) {
             updateBackButton(position)
             updateActionButton()
-            SuggestedEditsFunnel.get().impression(action)
 
             nextPageSelectedAutomatic = false
             prevPosition = position

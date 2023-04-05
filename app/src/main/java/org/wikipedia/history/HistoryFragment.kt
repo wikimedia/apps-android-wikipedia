@@ -2,6 +2,7 @@ package org.wikipedia.history
 
 import android.app.AlertDialog
 import android.content.Context
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -13,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
+import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updateMarginsRelative
 import androidx.fragment.app.Fragment
@@ -273,7 +275,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                         top = DimenUtil.roundedDpToPx(3f))
                 }
             }
-            searchCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22))
+            searchCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.background_color))
         }
 
         init {
@@ -282,6 +284,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             historyFilterButton = itemView.findViewById(R.id.history_filter)
             clearHistoryButton = itemView.findViewById(R.id.history_delete)
             searchCardView.setOnClickListener { (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, it) }
+            voiceSearchButton.isVisible = WikipediaApp.instance.voiceRecognitionAvailable
             voiceSearchButton.setOnClickListener { (requireParentFragment() as MainFragment).onFeedVoiceSearchRequested() }
             historyFilterButton.setOnClickListener {
                 if (actionMode == null) {
@@ -312,6 +315,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             this.entry = entry
             view.item = entry
             view.setTitle(entry.title.displayText)
+            view.setTitleTypeface(Typeface.NORMAL)
             view.setDescription(entry.title.description)
             view.setImageUrl(entry.title.thumbUrl)
             view.isSelected = selectedEntries.contains(entry)

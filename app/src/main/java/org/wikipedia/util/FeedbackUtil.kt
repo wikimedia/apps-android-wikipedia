@@ -17,7 +17,6 @@ import com.skydoves.balloon.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.databinding.ViewPlainTextTooltipBinding
 import org.wikipedia.dataclient.WikiSite
@@ -27,7 +26,6 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.talk.TalkTopicsActivity
 
@@ -104,7 +102,6 @@ object FeedbackUtil {
 
     fun showAndroidAppEditingFAQ(context: Context,
                                  @StringRes urlStr: Int = R.string.android_app_edit_help_url) {
-        SuggestedEditsFunnel.get().helpOpened()
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)))
     }
 
@@ -120,11 +117,10 @@ object FeedbackUtil {
         val view = findBestView(activity)
         val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration)
         val textView = snackbar.view.findViewById<TextView>(R.id.snackbar_text)
-        textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
+        textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod(wikiSite)
-        RichTextUtil.removeUnderlinesFromLinks(textView)
         val actionView = snackbar.view.findViewById<TextView>(R.id.snackbar_action)
-        actionView.setTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
+        actionView.setTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         return snackbar
     }
 
@@ -182,7 +178,7 @@ object FeedbackUtil {
             setMarginRight(8)
             setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)
             setMarginBottom(if (aboveOrBelow) topOrBottomMargin else 0)
-            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
+            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.progressive_color))
             setDismissWhenTouchOutside(autoDismiss)
             setLayout(binding.root)
             setWidth(BalloonSizeSpec.WRAP)
@@ -208,7 +204,7 @@ object FeedbackUtil {
             setMarginRight(8)
             setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)
             setMarginBottom(if (aboveOrBelow) topOrBottomMargin else 0)
-            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
+            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.progressive_color))
             setDismissWhenTouchOutside(autoDismiss)
             setLayout(layoutRes)
             setWidth(BalloonSizeSpec.WRAP)

@@ -30,7 +30,7 @@ object Constants {
     const val INTENT_EXTRA_GO_TO_SE_TAB = "goToSETab"
     const val INTENT_EXTRA_HAS_TRANSITION_ANIM = "hasTransitionAnim"
     const val INTENT_EXTRA_INVOKE_SOURCE = "invokeSource"
-    const val INTENT_EXTRA_IMPORT_READING_LISTS = "importReadingLists"
+    const val INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS = "previewSavedReadingList"
     const val INTENT_EXTRA_NOTIFICATION_ID = "notificationId"
     const val INTENT_EXTRA_NOTIFICATION_SYNC_CANCEL = "syncCancel"
     const val INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume"
@@ -104,6 +104,7 @@ object Constants {
         TOOLBAR("toolbar"),
         VOICE("voice"),
         WATCHLIST_ACTIVITY("watchlist"),
+        WATCHLIST_FILTER_ACTIVITY("watchlistFilter"),
         WIDGET("widget"),
         USER_CONTRIB_ACTIVITY("userContribActivity"),
     }

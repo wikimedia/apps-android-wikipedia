@@ -5,19 +5,22 @@
 
     <item
         android:id="@+id/menu_notifications_group"
-        android:icon="@drawable/ic_more_vert_themed_24dp"
+        android:icon="@drawable/ic_more_vert_white_24dp"
         android:title="@string/nav_item_more"
+        app:iconTint="?attr/primary_color"
         app:showAsAction="always">
         <menu>
 
             <item android:id="@+id/menu_notifications_mark_all_as_read"
-                android:icon="@drawable/ic_mark_all_as_read_themed_24dp"
+                android:icon="@drawable/ic_mark_all_as_read_white_24dp"
                 android:title="@string/notifications_mark_all_as_read"
+                app:iconTint="?attr/primary_color"
                 app:showAsAction="ifRoom" />
 
             <item android:id="@+id/menu_notifications_prefs"
-                android:icon="@drawable/ic_settings_themed_24dp"
+                android:icon="@drawable/ic_settings_black_24dp"
                 android:title="@string/notifications_prefs"
+                app:iconTint="?attr/primary_color"
                 app:showAsAction="never" />
 
         </menu>

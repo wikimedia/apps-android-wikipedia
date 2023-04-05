@@ -499,10 +499,6 @@
     <item quantity="one">%1$d von 1 Artikel offline verfügbar, %3$.2f MB</item>
     <item quantity="other">%1$d von %2$d Artikel offline verfügbar, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">Ein Artikel, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d Artikel, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d Seiten von einem Artikel offline verfügbar, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d Seiten von %2$d Artikeln offline verfügbar, %3$.2f MB</string>
   <string name="reading_list_sort">Sortieren</string>
   <string name="reading_list_sort_ellipsis">Sortieren nach …</string>
   <string name="reading_list_sort_by_name">Nach Name sortieren</string>
@@ -608,6 +604,10 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Abbrechen</string>
   <string name="reading_list_split_dialog_ok_button_text">Okay</string>
   <string name="reading_list_activity_title">Leseliste: %s</string>
+  <string name="reading_lists_preview_save_dialog_title">Liste speichern</string>
+  <string name="reading_lists_preview_save_dialog_text">Liste benennen und Artikel zum Speichern auswählen</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Abbrechen</string>
+  <string name="reading_lists_preview_save_dialog_save">Speichern</string>
   <string name="user_option_sync_label">Einstellungen</string>
   <string name="notification_reverted_title">Zurückgesetzte Bearbeitung</string>
   <string name="notification_channel_title">Artikel herunterladen</string>
@@ -1307,7 +1307,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Leseliste importiert</string>
   <string name="reading_list_share_menu_label">Teilen…</string>
   <string name="reading_list_share_menu_tooltip">Diese Leseliste mit anderen teilen</string>
-  <string name="reading_list_share_title_tooltip">Ihre Änderungen an dieser Liste sind nicht für andere sichtbar.</string>
   <string name="reading_list_share_message_v2">Hallo! Ich möchte meine Wikipedia-Leseliste mit Ihnen teilen:</string>
   <string name="reading_list_share_survey_title">Kannst du uns helfen, \"Leselisten teilen\" zu verbessern?</string>
   <string name="reading_list_share_survey_body">\"Leselisten teilen\" ist eine Testfunktion und wir brauchen dein Feedback, um sie zu verbessern oder zu entfernen.</string>

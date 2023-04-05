@@ -20,7 +20,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
@@ -96,7 +95,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
         }
 
-        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
+        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
         binding.errorView.retryClickListener = View.OnClickListener { refreshContents() }
@@ -117,16 +116,10 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.userStatsClickTarget.setOnClickListener(listener)
     }
 
-    override fun onPause() {
-        super.onPause()
-        SuggestedEditsFunnel.get().pause()
-    }
-
     override fun onResume() {
         super.onResume()
         setUpTasks()
         refreshContents()
-        SuggestedEditsFunnel.get().resume()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -145,8 +138,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.tasksRecyclerView.adapter = null
         disposables.clear()
         binding.suggestedEditsScrollView.removeCallbacks(sequentialTooltipRunnable)
-        SuggestedEditsFunnel.get().log()
-        SuggestedEditsFunnel.reset()
         _binding = null
         super.onDestroyView()
     }

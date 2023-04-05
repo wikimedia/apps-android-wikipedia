@@ -12,6 +12,7 @@ import org.wikipedia.databinding.ViewPageHeaderBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.GradientUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.LinearLayoutOverWebView
 import org.wikipedia.views.ObservableWebView
 
@@ -36,7 +37,7 @@ class PageHeaderView : LinearLayoutOverWebView, ObservableWebView.OnScrollChange
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     init {
-        binding.viewPageHeaderImageGradientBottom.background = GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM)
+        binding.viewPageHeaderImageGradientBottom.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(context, R.attr.overlay_color), Gravity.BOTTOM)
         binding.viewPageHeaderImage.setOnClickListener {
             callback?.onImageClicked()
         }

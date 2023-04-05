@@ -14,12 +14,10 @@ import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.EditFunnel
-import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityTalkReplyBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
@@ -29,14 +27,12 @@ import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.util.*
 import org.wikipedia.views.UserMentionInputView
 
 class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentionInputView.Listener {
     private lateinit var binding: ActivityTalkReplyBinding
-    private lateinit var editFunnel: EditFunnel
     private lateinit var linkHandler: TalkLinkHandler
     private lateinit var textWatcher: TextWatcher
 
@@ -51,10 +47,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             updateEditLicenseText()
-            editFunnel.logLoginSuccess()
             FeedbackUtil.showMessage(this, R.string.login_success_toast)
-        } else {
-            editFunnel.logLoginFailure()
         }
     }
 
@@ -82,10 +75,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         binding.replyInputView.wikiSite = viewModel.pageTitle.wikiSite
         binding.replyInputView.listener = this
-
-        editFunnel = EditFunnel(WikipediaApp.instance, viewModel.pageTitle)
-        editFunnel.logStart()
-        EditAttemptStepEvent.logInit(viewModel.pageTitle)
 
         if (viewModel.topic != null) {
             binding.threadItemView.bindItem(viewModel.topic!!, linkMovementMethod, true)
@@ -137,7 +126,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             binding.replyInputView.editText.setText(intent.getCharSequenceExtra(EXTRA_BODY))
             binding.replyInputView.editText.setSelection(binding.replyInputView.editText.text.toString().length)
         }
-        editFunnel.logStart()
         EditAttemptStepEvent.logInit(viewModel.pageTitle)
 
         if (viewModel.isNewTopic) {
@@ -172,7 +160,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
             startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
         }
-        RichTextUtil.removeUnderlinesFromLinks(binding.toolbarTitle)
         FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
     }
 
@@ -187,7 +174,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
 
         override fun onMediaLinkClicked(title: PageTitle) {
-            // TODO
+            startActivity(FilePageActivity.newIntent(this@TalkReplyActivity, title))
         }
 
         override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
@@ -209,7 +196,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private fun setSaveButtonEnabled(enabled: Boolean) {
         binding.replySaveButton.isEnabled = enabled
         binding.replySaveButton.setTextColor(ResourceUtil
-            .getThemedColor(this, if (enabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
+            .getThemedColor(this, if (enabled) R.attr.progressive_color else R.attr.placeholder_color))
     }
 
     private fun onSaveClicked() {
@@ -220,7 +207,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             it.putExtra(EXTRA_BODY, body)
         }
 
-        editFunnel.logSaveAttempt()
         EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
 
         if (viewModel.isNewTopic && subject.isEmpty()) {
@@ -244,7 +230,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         binding.progressBar.visibility = View.GONE
         setSaveButtonEnabled(true)
-        editFunnel.logSaved(newRevision)
         EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle)
 
         Intent().let {
@@ -264,7 +249,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     private fun onSaveError(t: Throwable) {
-        editFunnel.logError(t.message)
         EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle)
         binding.progressBar.visibility = View.GONE
         setSaveButtonEnabled(true)
@@ -277,8 +261,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                 getString(R.string.cc_by_sa_3_url)))
         binding.licenseText.movementMethod = LinkMovementMethodExt { url: String ->
             if (url == "https://#login") {
-                val loginIntent = LoginActivity.newIntent(this,
-                        LoginFunnel.SOURCE_EDIT, editFunnel.sessionToken)
+                val loginIntent = LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT)
                 requestLogin.launch(loginIntent)
             } else {
                 UriUtil.handleExternalLink(this, Uri.parse(url))

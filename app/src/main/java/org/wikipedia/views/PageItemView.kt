@@ -1,6 +1,7 @@
 package org.wikipedia.views
 
 import android.content.Context
+import android.graphics.Typeface
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -68,7 +69,7 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
         if (selected) {
             binding.pageListItemSelectedImage.visibility = VISIBLE
             binding.pageListItemImage.visibility = GONE
-            setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.multi_select_background_color))
+            setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.background_color))
         } else {
             if (imageUrl.isNullOrEmpty()) {
                 binding.pageListItemImage.visibility = GONE
@@ -84,6 +85,10 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
 
     fun setTitle(text: String?) {
         binding.pageListItemTitle.text = StringUtil.fromHtml(text)
+    }
+
+    fun setTitleTypeface(typeface: Int) {
+        binding.pageListItemTitle.setTypeface(Typeface.SANS_SERIF, typeface)
     }
 
     fun setTitleMaxLines(linesCount: Int) {
@@ -145,10 +150,10 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
         binding.readingListsChipGroup.removeAllViews()
         readingLists.forEach { readingList ->
             val chip = Chip(binding.readingListsChipGroup.context)
-            TextViewCompat.setTextAppearance(chip, R.style.CustomChipStyle)
+            TextViewCompat.setTextAppearance(chip, R.style.Chip_Accessible)
             chip.text = readingList.title
             chip.isClickable = true
-            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.chip_background_color))
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.border_color))
             chip.setOnClickListener {
                 callback?.onListChipClick(readingList)
             }

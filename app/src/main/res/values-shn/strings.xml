@@ -199,7 +199,7 @@
   <string name="edit_how_page_improved">ၸဝ်ႈၵဝ်ႇ ႁဵတ်းႁိုဝ်ၸုင်ၸၼ် ၼႃႈလိၵ်ႈမႃး?</string>
   <string name="edit_next">ထႅင်ႈ</string>
   <string name="edit_done">ပိုၼ်ဢွၵ်ႇ</string>
-  <string name="edit_preview">တူၺ်းလူင်ႈၼႃႈ</string>
+  <string name="edit_preview">တူၺ်းတူဝ်ယၢင်ႇ</string>
   <string name="edit_undo">ၶိုၼ်ၶိုၼ်း</string>
   <string name="edit_redo">ႁဵတ်းၶိုၼ်း</string>
   <string name="edit_zoom_in">တုပ်ႇတူၺ်း</string>
@@ -332,10 +332,6 @@
   <string name="reading_list_create_new">ၵေႃႇသၢင်ႈ ဢၼ်မႂ်ႇ</string>
   <string name="reading_list_title_exists">သဵၼ်ႈမၢႆလူ \"%s\" ၼႆႉ မီးဝႆႉယဝ်ႉ။</string>
   <string name="reading_list_added_view_button">တူၺ်းသဵၼ်ႈမၢႆ</string>
-  <string name="format_reading_list_statistical_summary_singular">ပွင်ႈၵႂၢမ်း 1 ႁူဝ်, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">ပွင်ႈၵႂၢမ်း %1$d , %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">ၼႂ်းၵႃႈ %1$d ၼၼ်ႉ ပွင်ႈၵႂၢမ်း တႃႇ 1 ႁူဝ် ၸႂ်ႉလႆႈဢွပ်ႉၾ်လၢႆး, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d ႁင်း %2$d ပွင်ႈၵႂၢမ်း ၸႂ်ႉလႆႈ ဢွပ်ႉၾ်လၢႆး, %3$.2f MB</string>
   <string name="reading_list_sort">ၶပ်ႉ</string>
   <string name="reading_list_sort_ellipsis">ၶပ်ႉၼင်ႇ...</string>
   <string name="reading_list_sort_by_name">ၶပ်ႉၼင်ႇ ၸိုဝ်ႈ</string>

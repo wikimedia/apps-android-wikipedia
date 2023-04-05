@@ -11,7 +11,7 @@
         android:layout_height="24dp"
         android:layout_gravity="center"
         app:srcCompat="@drawable/ic_notifications_black_24dp"
-        app:tint="?attr/toolbar_icon_color"
+        app:tint="?attr/primary_color"
         android:contentDescription="@null"/>
 
     <org.wikipedia.views.NotificationDotView

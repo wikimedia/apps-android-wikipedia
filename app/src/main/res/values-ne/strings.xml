@@ -90,7 +90,7 @@
   <string name="menu_page_new_tab">नयाँ ट्याब</string>
   <string name="menu_page_reading_lists">अध्ययन सूचीहरू</string>
   <string name="menu_page_recently_viewed">भर्खरै हेरिएको</string>
-  <string name="menu_page_archive">संग्रह</string>
+  <string name="menu_page_archive">अभिलेख</string>
   <string name="menu_long_press_open_page">खोल्नुहोस्</string>
   <string name="menu_long_press_open_in_new_tab">नयाँ ट्याबमा खोल्नुहोस्</string>
   <string name="menu_long_press_copy_page">सूत्रकाे ठेगाना प्रतिलिपि गर्नुहोस्</string>
@@ -383,8 +383,6 @@
   <string name="reading_list_article_added_to_named">%1$s लाई %2$s मा थपियो।</string>
   <string name="reading_list_added_view_button">सूची हेर्नुहोस्</string>
   <string name="reading_list_add_to_list_button">सूचीमा थप्नुहाेस्</string>
-  <string name="format_reading_list_statistical_summary_singular">१ लेख, %1$.2f एमबी</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d लेखहरू, %2$.2f एमबी</string>
   <string name="reading_list_sort">श्रेणीबद्ध गर्नुहोस्</string>
   <string name="reading_list_sort_ellipsis">अनुसार क्रमबद्ध...</string>
   <string name="reading_list_sort_by_name">नाम अनुसार श्रेणीबद्ध गर्नुहोस्</string>
