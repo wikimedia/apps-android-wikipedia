@@ -37,7 +37,7 @@ class PageHeaderView : LinearLayoutOverWebView, ObservableWebView.OnScrollChange
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     init {
-        binding.viewPageHeaderImageGradientBottom.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(context, R.attr.placeholder_color), Gravity.BOTTOM)
+        binding.viewPageHeaderImageGradientBottom.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(context, R.attr.overlay_color), Gravity.BOTTOM)
         binding.viewPageHeaderImage.setOnClickListener {
             callback?.onImageClicked()
         }

@@ -659,4 +659,5 @@
     <style name="SnackbarButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Snackbar">
         <item name="android:paddingEnd">8dp</item>
     </style>
+
 </resources>

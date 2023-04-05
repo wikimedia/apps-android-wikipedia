@@ -15,8 +15,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -75,12 +77,14 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         notificationButtonView = NotificationButtonView(requireActivity())
         updateDisplayLanguages()
 
-        lifecycleScope.launchWhenStarted {
-            viewModel.uiState.collect {
-                when (it) {
-                    is WatchlistViewModel.UiState.Loading -> onLoading()
-                    is WatchlistViewModel.UiState.Success -> onSuccess()
-                    is WatchlistViewModel.UiState.Error -> onError(it.throwable)
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.uiState.collect {
+                    when (it) {
+                        is WatchlistViewModel.UiState.Loading -> onLoading()
+                        is WatchlistViewModel.UiState.Success -> onSuccess()
+                        is WatchlistViewModel.UiState.Error -> onError(it.throwable)
+                    }
                 }
             }
         }

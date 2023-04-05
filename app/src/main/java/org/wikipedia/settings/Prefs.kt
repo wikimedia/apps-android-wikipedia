@@ -663,6 +663,14 @@ object Prefs {
         get() = PrefsIoUtil.getLong(R.string.preference_key_reading_lists_recent_receive_id, -1)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_reading_lists_recent_receive_id, value)
 
+    var suggestedEditsMachineGeneratedDescriptionTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_se_machine_generated_descriptions_tooltip_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_se_machine_generated_descriptions_tooltip_shown, value)
+
+    var suggestedEditsMachineGeneratedDescriptionsIsExperienced
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_se_machine_generated_descriptions_is_experienced, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_se_machine_generated_descriptions_is_experienced, value)
+
     var watchlistExcludedWikiCodes
         get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_excluded_wiki_codes_watchlist, null))
             ?: emptySet()
@@ -672,4 +680,8 @@ object Prefs {
         get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_included_type_codes_watchlist, null))
             ?: WatchlistFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }
         set(types) = PrefsIoUtil.setString(R.string.preference_key_included_type_codes_watchlist, JsonUtil.encodeToString(types))
+
+    var analyticsQueueSize
+        get() = PrefsIoUtil.getInt(R.string.preference_key_event_platform_queue_size, 128)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_event_platform_queue_size, value)
 }

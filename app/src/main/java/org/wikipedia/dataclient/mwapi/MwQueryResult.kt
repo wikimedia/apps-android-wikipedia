@@ -22,6 +22,7 @@ class MwQueryResult {
     @SerialName("wikimediaeditortaskscounts") val editorTaskCounts: EditorTaskCounts? = null
     @SerialName("usercontribs") val userContributions: List<UserContribution> = emptyList()
     @SerialName("allusers") val allUsers: List<UserInfo>? = null
+    @SerialName("globaluserinfo") val globalUserInfo: UserInfo? = null
 
     private val redirects: MutableList<Redirect>? = null
     private val converted: MutableList<ConvertedTitle>? = null
