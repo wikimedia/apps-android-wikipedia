@@ -57,7 +57,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/firstSuggestion"
-                style="@style/CustomChipStyle"
+                style="@style/Chip.Accessible"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -87,7 +87,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/secondSuggestion"
-                style="@style/CustomChipStyle"
+                style="@style/Chip.Accessible"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

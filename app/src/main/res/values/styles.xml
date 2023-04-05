@@ -198,6 +198,14 @@
         <item name="chipMinTouchTargetSize">48dp</item>
     </style>
 
+    <style name="Chip.Accessible.Icon">
+        <item name="chipIconSize">14dp</item>
+        <item name="chipIconTint">?attr/primary_color</item>
+        <item name="chipIconVisible">true</item>
+        <item name="iconStartPadding">12dp</item>
+        <item name="iconGravity">start</item>
+    </style>
+
     <style name="List">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">14sp</item>
@@ -216,7 +224,7 @@
     </style>
 
     <style name="Toolbar">
-        <item name="android:fontFamily">sans-serif-condensed-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">10sp</item>
         <item name="lineHeight">12sp</item>
     </style>
@@ -342,16 +350,14 @@
         <item name="android:tint">?attr/primary_color</item>
     </style>
 
-    <style name="BottomNavigationTextAppearanceInactive">
+    <style name="BottomNavigationTextAppearance"  parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/bottom_nav_label_text_size</item>
-        <item name="android:fontFamily">sans-serif-condensed-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="lineHeight">12sp</item>
     </style>
 
-    <style name="BottomNavigationTextAppearanceActive">
-        <item name="android:textSize">@dimen/bottom_nav_label_text_size</item>
-        <item name="android:fontFamily">sans-serif-condensed-medium</item>
-        <item name="lineHeight">12sp</item>
+    <style name="BottomNavigationTextAppearance.Active">
+        <item name="android:textStyle">normal</item>
     </style>
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
