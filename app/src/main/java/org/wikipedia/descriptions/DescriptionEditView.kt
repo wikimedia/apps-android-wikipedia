@@ -137,7 +137,8 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     }
 
     private fun setHintText() {
-        binding.viewDescriptionEditTextLayout.setHintTextAppearance(R.style.DescriptionEditViewHintTextStyle)
+        binding.viewDescriptionEditTextLayout.setHintTextAppearance(R.style.Small)
+        binding.viewDescriptionEditTextLayout.hintTextColor = ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color)
         binding.viewDescriptionEditTextLayout.hint = getHintText(pageTitle.wikiSite.languageCode)
     }
 
@@ -169,11 +170,11 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         return when (action) {
             DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
                 context.getString(R.string.description_edit_translate_article_description_label_per_language,
-                        WikipediaApp.instance.languageState.getAppLanguageLocalizedName(lang))
+                    WikipediaApp.instance.languageState.getAppLanguageLocalizedName(lang))
             }
             DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
                 context.getString(R.string.description_edit_translate_caption_label_per_language,
-                        WikipediaApp.instance.languageState.getAppLanguageLocalizedName(lang))
+                    WikipediaApp.instance.languageState.getAppLanguageLocalizedName(lang))
             }
             DescriptionEditActivity.Action.ADD_CAPTION -> context.getString(R.string.description_edit_add_caption_label)
             else -> context.getString(R.string.description_edit_article_description_label)
@@ -206,10 +207,10 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
         if (context is DescriptionEditActivity && action in actions) {
             binding.viewDescriptionEditToolbarContainer.setBackgroundResource(if (enabled) android.R.color.black else ResourceUtil.getThemedAttributeId(context, R.attr.paper_color))
-            binding.viewDescriptionEditSaveButton.setTextColor(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.themed_icon_color))
+            binding.viewDescriptionEditSaveButton.setTextColor(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.progressive_color))
             ImageViewCompat.setImageTintList(binding.viewDescriptionEditCancelButton,
-                ColorStateList.valueOf(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.toolbar_icon_color)))
-            binding.viewDescriptionEditHeader.setTextColor(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.material_theme_primary_color))
+                ColorStateList.valueOf(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.placeholder_color)))
+            binding.viewDescriptionEditHeader.setTextColor(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.primary_color))
 
             val barColor = if (enabled) Color.BLACK else ResourceUtil.getThemedColor(context, R.attr.paper_color)
             context.updateStatusBarColor(barColor)
@@ -225,7 +226,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         binding.viewDescriptionEditPageSummaryLabel.text = getLabelText(sourceSummary.lang)
         binding.viewDescriptionEditPageSummary.text = StringUtil.strip(StringUtil.removeHTMLTags(if (isTranslationEdit || action == DescriptionEditActivity.Action.ADD_CAPTION) sourceSummary.description else sourceSummary.extractHtml))
         if (binding.viewDescriptionEditPageSummary.text.toString().isEmpty() || action == DescriptionEditActivity.Action.ADD_CAPTION &&
-                !sourceSummary.pageTitle.description.isNullOrEmpty()) {
+            !sourceSummary.pageTitle.description.isNullOrEmpty()) {
             binding.viewDescriptionEditPageSummaryContainer.visibility = GONE
         }
         L10nUtil.setConditionalLayoutDirection(this, if (isTranslationEdit) sourceSummary.lang else pageTitle.wikiSite.languageCode)
@@ -283,7 +284,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     private fun setWarning(text: CharSequence?) {
         binding.viewDescriptionEditTextLayout.setErrorIconDrawable(R.drawable.ic_warning_24)
-        val colorStateList = AppCompatResources.getColorStateList(context, R.color.yellow30)
+        val colorStateList = AppCompatResources.getColorStateList(context, R.color.yellow700)
         binding.viewDescriptionEditTextLayout.setErrorIconTintList(colorStateList)
         binding.viewDescriptionEditTextLayout.setErrorTextColor(colorStateList)
         binding.viewDescriptionEditTextLayout.boxStrokeErrorColor = colorStateList
@@ -324,14 +325,14 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             isTextValid = false
             setError(context.getString(R.string.description_too_short))
         } else if ((action == DescriptionEditActivity.Action.ADD_DESCRIPTION || action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) &&
-                (listOf(".", ",", "!", "?").filter { text.endsWith(it) }).isNotEmpty()) {
+            (listOf(".", ",", "!", "?").filter { text.endsWith(it) }).isNotEmpty()) {
             isTextValid = false
             setError(context.getString(R.string.description_ends_with_punctuation))
         } else if ((action == DescriptionEditActivity.Action.ADD_DESCRIPTION || action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) &&
-                LanguageUtil.startsWithArticle(text, pageTitle.wikiSite.languageCode)) {
+            LanguageUtil.startsWithArticle(text, pageTitle.wikiSite.languageCode)) {
             setWarning(context.getString(R.string.description_starts_with_article))
         } else if ((action == DescriptionEditActivity.Action.ADD_DESCRIPTION || action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) &&
-                pageTitle.wikiSite.languageCode == "en" && Character.isLowerCase(binding.viewDescriptionEditText.text.toString()[0])) {
+            pageTitle.wikiSite.languageCode == "en" && Character.isLowerCase(binding.viewDescriptionEditText.text.toString()[0])) {
             setWarning(context.getString(R.string.description_starts_with_lowercase))
         } else if (isLanguageWrong) {
             val localizedName = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(pageSummaryForEdit.lang)
@@ -355,8 +356,8 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     private fun updateSaveButtonEnabled() {
         if (!binding.viewDescriptionEditText.text.isNullOrEmpty() &&
-                originalDescription.orEmpty() != binding.viewDescriptionEditText.text.toString() &&
-                isTextValid) {
+            originalDescription.orEmpty() != binding.viewDescriptionEditText.text.toString() &&
+            isTextValid) {
             enableSaveButton(enabled = true, saveInProgress = false)
         } else {
             enableSaveButton(enabled = false, saveInProgress = false)
@@ -365,16 +366,16 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     private fun enableSaveButton(enabled: Boolean, saveInProgress: Boolean) {
         if (saveInProgress) {
-            binding.viewDescriptionEditSaveButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color))
+            binding.viewDescriptionEditSaveButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.progressive_color))
             binding.viewDescriptionEditSaveButton.isEnabled = false
             binding.viewDescriptionEditSaveButton.alpha = 1 / 2f
         } else {
             binding.viewDescriptionEditSaveButton.alpha = 1f
             if (enabled) {
-                binding.viewDescriptionEditSaveButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color))
+                binding.viewDescriptionEditSaveButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.progressive_color))
                 binding.viewDescriptionEditSaveButton.isEnabled = true
             } else {
-                binding.viewDescriptionEditSaveButton.setTextColor(ResourceUtil.getThemedColorStateList(context, R.attr.material_theme_de_emphasised_color))
+                binding.viewDescriptionEditSaveButton.setTextColor(ResourceUtil.getThemedColorStateList(context, R.attr.placeholder_color))
                 binding.viewDescriptionEditSaveButton.isEnabled = false
             }
         }
@@ -395,7 +396,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     override fun onLanguageDetectionSuccess(languageCodes: List<String>) {
         if (!languageCodes.contains(pageSummaryForEdit.lang) &&
-                !languageCodes.contains(WikipediaApp.instance.languageState.getDefaultLanguageCode(pageSummaryForEdit.lang))) {
+            !languageCodes.contains(WikipediaApp.instance.languageState.getDefaultLanguageCode(pageSummaryForEdit.lang))) {
             isLanguageWrong = true
             enqueueValidateText()
         }
@@ -411,7 +412,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     fun showSuggestedDescriptionsLoadingProgress() {
         binding.suggestedDescButton.isVisible = true
         binding.suggestedDescButton.isEnabled = false
-        binding.suggestedDescButton.chipIcon = CircularProgressDrawable(ResourceUtil.getThemedColor(context, R.attr.material_theme_primary_color), 1).also { it.start() }
+        binding.suggestedDescButton.chipIcon = CircularProgressDrawable(ResourceUtil.getThemedColor(context, R.attr.primary_color), 1).also { it.start() }
     }
 
     private fun updateSuggestedDescriptionsButtonVisibility() {
@@ -438,20 +439,20 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                     return@postDelayed
                 }
                 DeviceUtil.hideSoftKeyboard(context as Activity)
-                    FeedbackUtil.showTooltip(
-                        context as Activity, binding.suggestedDescButton,
-                        context.getString(R.string.description_edit_suggested_description_button_tooltip),
-                        aboveOrBelow = false, autoDismiss = true, showDismissButton = true
-                    ).apply {
-                        setOnBalloonDismissListener {
-                            binding.root.postDelayed({
-                                if (isAttachedToWindow) {
-                                    DeviceUtil.showSoftKeyboard(binding.viewDescriptionEditText)
-                                }
-                            }, 500)
-                        }
+                FeedbackUtil.showTooltip(
+                    context as Activity, binding.suggestedDescButton,
+                    context.getString(R.string.description_edit_suggested_description_button_tooltip),
+                    aboveOrBelow = false, autoDismiss = true, showDismissButton = true
+                ).apply {
+                    setOnBalloonDismissListener {
+                        binding.root.postDelayed({
+                            if (isAttachedToWindow) {
+                                DeviceUtil.showSoftKeyboard(binding.viewDescriptionEditText)
+                            }
+                        }, 500)
                     }
-                    Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown = true
+                }
+                Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown = true
             }, 500)
         }
     }

@@ -26,12 +26,9 @@
 
         <TextView
             android:id="@+id/messageTitleView"
+            style="@style/H2.MessageCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="?attr/material_theme_primary_color"
-            android:lineSpacingExtra="8sp"
             android:layout_marginBottom="12dp"/>
 
         <TextView
@@ -39,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:textColor="?attr/material_theme_secondary_color"
+            android:textColor="?attr/secondary_color"
             android:lineSpacingExtra="8sp"
             android:layout_marginBottom="6dp"/>
 
@@ -54,7 +51,7 @@
                 style="@style/FlatButton.Small"
                 android:layout_marginEnd="8dp"
                 app:iconSize="20dp"
-                app:iconTint="?attr/colorAccent"/>
+                app:iconTint="?attr/progressive_color"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/negativeButton"

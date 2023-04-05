@@ -5,7 +5,7 @@
             <solid android:color="?attr/paper_color" />
             <stroke
                 android:width="2dp"
-                android:color="?attr/chart_shade5" />
+                android:color="?attr/border_color" />
         </shape>
     </item>
 </layer-list>

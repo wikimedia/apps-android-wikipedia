@@ -130,7 +130,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         appCompatActivity.supportActionBar?.title = ""
         binding.collapsingToolbarLayout.setCollapsedTitleTextColor(
-            ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color)
+            ResourceUtil.getThemedColor(requireContext(), R.attr.primary_color)
         )
         binding.day.text = DateUtil.getMonthOnlyDateString(date.time)
         maybeHideDateIndicator()

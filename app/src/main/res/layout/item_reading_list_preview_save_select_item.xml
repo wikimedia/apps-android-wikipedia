@@ -23,7 +23,7 @@
         android:id="@+id/articleName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textColor="?attr/material_theme_primary_color"
+        android:textColor="?attr/primary_color"
         android:textSize="16sp"
         android:layout_marginHorizontal="8dp"
         app:layout_constraintStart_toEndOf="@id/checkbox"
@@ -34,7 +34,7 @@
 
     <TextView
         android:id="@+id/articleDescription"
-        style="@style/MaterialListSubtitle"
+        style="@style/List.MaterialListSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"

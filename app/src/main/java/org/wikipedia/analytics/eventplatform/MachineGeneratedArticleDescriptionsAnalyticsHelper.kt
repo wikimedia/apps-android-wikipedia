@@ -27,15 +27,22 @@ class MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     fun logAttempt(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle) {
-        log(context, composeLogString(title) + ".attempt:$finalDescription" +
-                ".suggestion1:${encode(apiOrderList.first())}" + (if (apiOrderList.size > 1) ".suggestion2:${encode(apiOrderList.last())}" else "") +
-                getOrderString(wasChosen, chosenSuggestion) + ".modified:$wasModified.timeSpentMs:${timer.elapsedMillis}")
+        log(context, composeLogString(title) + ".attempt:$finalDescription${getSuggestionOrderString(wasChosen, wasModified)}" +
+                ".timeSpentMs:${timer.elapsedMillis}")
     }
 
     fun logSuccess(context: Context, finalDescription: String, wasChosen: Boolean, wasModified: Boolean, title: PageTitle, revId: Long) {
-        log(context, composeLogString(title) + ".success:$finalDescription" +
-                ".suggestion1:${encode(apiOrderList.first())}" + (if (apiOrderList.size > 1) ".suggestion2:${encode(apiOrderList.last())}" else "") +
-                getOrderString(wasChosen, chosenSuggestion) + ".modified:$wasModified.timeSpentMs:${timer.elapsedMillis}.revId:$revId")
+        log(context, composeLogString(title) + ".success:$finalDescription${getSuggestionOrderString(wasChosen, wasModified)}" +
+                    ".timeSpentMs:${timer.elapsedMillis}.revId:$revId")
+    }
+
+    private fun getSuggestionOrderString(wasChosen: Boolean, wasModified: Boolean): String {
+       return if (apiOrderList.isEmpty() || displayOrderList.isEmpty()) {
+           ""
+       } else {
+           ".suggestion1:${encode(apiOrderList.first())}" + (if (apiOrderList.size > 1) ".suggestion2:${encode(apiOrderList.last())}" else "") +
+                   getOrderString(wasChosen, chosenSuggestion) + ".modified:$wasModified"
+       }
     }
 
     fun logSuggestionsReceived(context: Context, isBlp: Boolean, title: PageTitle) {
@@ -97,6 +104,9 @@ class MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     private fun composeGroupString(): String {
+        if (!isUserInExperiment) {
+            return ""
+        }
         return "$MACHINE_GEN_DESC_SUGGESTIONS.group:${abcTest.group}.experienced:${Prefs.suggestedEditsMachineGeneratedDescriptionsIsExperienced}"
     }
 

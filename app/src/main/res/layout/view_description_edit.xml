@@ -11,12 +11,12 @@
     <FrameLayout
         android:id="@+id/view_description_edit_toolbar_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:background="?attr/paper_color">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="?attr/actionBarSize">
 
             <ImageView
                 android:id="@+id/view_description_edit_cancel_button"
@@ -29,7 +29,8 @@
                 android:contentDescription="@string/description_edit_cancel_hint"
                 android:focusable="true"
                 android:padding="12dp"
-                app:srcCompat="@drawable/ic_arrow_back_themed_24dp" />
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                app:tint="?attr/primary_color" />
 
             <TextView
                 android:id="@+id/view_description_edit_header"
@@ -44,7 +45,7 @@
                 android:maxLines="1"
                 android:textStyle="bold"
                 android:text="@string/description_edit_edit_description"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:textSize="20sp" />
 
             <TextView
@@ -118,7 +119,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-medium"
-                            android:textColor="?attr/material_theme_de_emphasised_color"
+                            android:textColor="?attr/placeholder_color"
                             android:textSize="12sp"
                             tools:text="Article" />
 
@@ -132,7 +133,7 @@
                             android:gravity="start"
                             android:lineSpacingExtra="6sp"
                             android:maxLines="4"
-                            android:textColor="?attr/material_theme_primary_color"
+                            android:textColor="?attr/primary_color"
                             android:textSize="16sp"
                             tools:text="Lorem ipsum" />
 
@@ -142,7 +143,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingTop="7dp"
-                        android:paddingBottom="7dp">
+                        android:paddingBottom="7dp"
+                        android:clipChildren="false"
+                        android:clipToPadding="false">
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/view_description_edit_text_layout"
@@ -156,7 +159,7 @@
                             android:hint="@string/description_edit_text_hint"
                             app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance"
                             app:endIconDrawable="@drawable/ic_mic_black_24dp"
-                            app:endIconTint="?attr/material_theme_de_emphasised_color"
+                            app:endIconTint="?attr/placeholder_color"
                             app:endIconContentDescription="@string/description_edit_voice_input_description"
                             app:endIconMode="custom"
                             app:counterEnabled="true"
@@ -165,15 +168,14 @@
 
                             <com.google.android.material.chip.Chip
                                 android:id="@+id/suggestedDescButton"
-                                style="@style/CustomChipWithIconStyle"
+                                style="@style/Chip.Accessible.Icon"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="-20dp"
                                 android:text="@string/description_edit_suggested_description_button_text"
                                 android:visibility="gone"
-                                app:chipStrokeColor="?attr/border_color"
-                                app:chipStrokeWidth="1dp"
-                                app:chipIcon="@drawable/ic_robot_24" />
+                                app:chipIcon="@drawable/ic_robot_24"
+                                tools:visibility="visible"/>
 
                             <org.wikipedia.views.PlainPasteEditText
                                 android:id="@+id/view_description_edit_text"
@@ -203,13 +205,13 @@
                         android:text="@string/description_edit_learn_more"
                         android:textAlignment="viewStart"
                         android:textAllCaps="false"
-                        android:textColor="?attr/colorAccent"
+                        android:textColor="?attr/progressive_color"
                         android:textSize="16sp"
                         app:icon="@drawable/ic_open_in_new_black_24px"
                         app:iconGravity="end"
                         app:iconPadding="12dp"
                         app:iconSize="24dp"
-                        app:iconTint="?attr/colorAccent" />
+                        app:iconTint="?attr/progressive_color" />
                 </LinearLayout>
             </ScrollView>
 

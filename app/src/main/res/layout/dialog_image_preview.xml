@@ -37,7 +37,7 @@
                     android:contentDescription="@null"
                     android:padding="12dp"
                     android:scaleY="-1"
-                    app:tint="?attr/toolbar_icon_color"
+                    app:tint="?attr/placeholder_color"
                     app:srcCompat="@drawable/ic_keyboard_arrow_up_black_24dp" />
 
                 <TextView
@@ -51,7 +51,7 @@
                     android:fontFamily="serif"
                     android:lineSpacingExtra="6sp"
                     android:maxLines="3"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/primary_color"
                     android:textSize="14sp"
                     tools:text="Lorem ipsum" />
             </LinearLayout>

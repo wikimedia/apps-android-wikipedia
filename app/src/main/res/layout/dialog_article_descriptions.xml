@@ -8,12 +8,16 @@
     android:paddingStart="20dp"
     android:paddingEnd="4dp"
     android:paddingTop="12dp"
-    android:paddingBottom="12dp">
+    android:paddingBottom="12dp"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
     <LinearLayout
         android:id="@+id/descriptionsContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:orientation="vertical">
 
         <LinearLayout
@@ -28,7 +32,7 @@
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:text="@string/suggested_edits_article_descriptions_dialog_title"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -39,24 +43,25 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/dialog_close_description"
                 android:padding="12dp"
-                app:srcCompat="@drawable/ic_close_themed_24dp"
-                app:tint="?attr/primary_text_color" />
+                app:srcCompat="@drawable/ic_close_black_24dp"
+                app:tint="?attr/primary_color" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             android:gravity="center_vertical">
 
-            <TextView
+            <com.google.android.material.chip.Chip
                 android:id="@+id/firstSuggestion"
-                style="@style/CustomChipStyle"
+                style="@style/Chip.Accessible"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/background_8dp_radius"
-                android:foreground="?attr/selectableItemBackground"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:padding="8dp" />
 
@@ -68,7 +73,7 @@
                 android:contentDescription="@string/article_header_edit_description"
                 android:padding="16dp"
                 app:srcCompat="@drawable/ic_report_flag"
-                app:tint="?attr/color_group_9" />
+                app:tint="?attr/primary_color" />
         </LinearLayout>
 
         <LinearLayout
@@ -80,14 +85,13 @@
             android:clipToPadding="false"
             android:gravity="center_vertical">
 
-            <TextView
+            <com.google.android.material.chip.Chip
                 android:id="@+id/secondSuggestion"
-                style="@style/CustomChipStyle"
+                style="@style/Chip.Accessible"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/background_8dp_radius"
-                android:foreground="?attr/selectableItemBackground"
+                android:background="?attr/selectableItemBackground"
                 android:padding="8dp" />
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -97,7 +101,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:padding="16dp"
                 app:srcCompat="@drawable/ic_report_flag"
-                app:tint="?attr/color_group_9" />
+                app:tint="?attr/primary_color" />
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

@@ -187,7 +187,7 @@ class RecentSearchesFragment : Fragment() {
             itemView.setOnClickListener(this)
             (itemView as TextView).text = if (isHeader) getString(R.string.search_namespaces) else namespaceMap[callback?.getLangCode()]?.get(ns).orEmpty() + ":"
             itemView.isEnabled = !isHeader
-            itemView.setTextColor(ResourceUtil.getThemedColor(requireContext(), if (isHeader) R.attr.material_theme_primary_color else R.attr.colorAccent))
+            itemView.setTextColor(ResourceUtil.getThemedColor(requireContext(), if (isHeader) R.attr.primary_color else R.attr.progressive_color))
         }
 
         override fun onClick(v: View) {

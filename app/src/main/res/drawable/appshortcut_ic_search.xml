@@ -3,7 +3,7 @@
         <shape android:shape="oval">
             <size android:width="@dimen/app_shortcut_icon_size"
                 android:height="@dimen/app_shortcut_icon_size"/>
-            <solid android:color="@color/base80"/>
+            <solid android:color="@color/gray200"/>
         </shape>
     </item>
 

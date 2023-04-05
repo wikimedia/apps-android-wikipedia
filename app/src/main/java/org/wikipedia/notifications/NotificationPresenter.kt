@@ -72,7 +72,7 @@ object NotificationPresenter {
         val builder = getDefaultBuilder(context, unreadCount.toLong(), NotificationPollBroadcastReceiver.TYPE_MULTIPLE)
         showNotification(context, builder, 0, context.getString(R.string.app_name),
                 context.getString(R.string.notification_many_unread, unreadCount), context.getString(R.string.notification_many_unread, unreadCount),
-                null, R.drawable.ic_notifications_black_24dp, R.color.accent50,
+                null, R.drawable.ic_notifications_black_24dp, R.color.blue600,
                 addIntentExtras(NotificationActivity.newIntent(context), unreadCount.toLong(), NotificationPollBroadcastReceiver.TYPE_MULTIPLE))
     }
 
