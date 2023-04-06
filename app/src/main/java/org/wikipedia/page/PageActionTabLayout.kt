@@ -30,7 +30,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
         Prefs.customizeToolbarOrder.forEach {
             val view = MaterialTextView(context)
             view.gravity = Gravity.CENTER
-            view.setPadding(DimenUtil.roundedDpToPx(2f), DimenUtil.roundedDpToPx(8f), DimenUtil.roundedDpToPx(2f), 0)
+            view.setPadding(DimenUtil.roundedDpToPx(2f), DimenUtil.roundedDpToPx(12f), DimenUtil.roundedDpToPx(2f), 0)
             view.setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackgroundBorderless))
             view.setTextColor(ResourceUtil.getThemedColor(context, R.attr.placeholder_color))
             view.textAlignment = TEXT_ALIGNMENT_CENTER
