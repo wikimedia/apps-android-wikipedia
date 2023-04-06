@@ -626,6 +626,15 @@
     <item quantity="one">Leseliste importert</item>
     <item quantity="other">Leselister importert</item>
   </plurals>
+  <string name="reading_lists_preview_header_title">Delt liste</string>
+  <string name="reading_lists_preview_save_button">Lagre</string>
+  <string name="reading_lists_preview_save_dialog_title">Lagre liste</string>
+  <string name="reading_lists_preview_save_dialog_text">Navngi lista og velg artikler som skal lagres.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Tittel</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Avbryt</string>
+  <string name="reading_lists_preview_save_dialog_save">Lagre</string>
+  <string name="reading_lists_preview_saved_snackbar">Leseliste lagret</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Vis</string>
   <string name="user_option_sync_label">Innstillinger</string>
   <string name="notification_reverted_title">Tilbakestilt redigering</string>
   <string name="notification_channel_title">Laster ned artikler</string>
@@ -1284,6 +1293,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 måneder</string>
   <string name="watchlist_expiry_dialog_six_months">6 måneder</string>
   <string name="watchlist_empty">Du har ingen artikler i overvåkningslisten din.</string>
+  <string name="watchlist_search">Søk i overvåkningslista</string>
   <string name="watchlist_filter_all">Alle</string>
   <string name="watchlist_filter_talk">Diskusjon</string>
   <string name="watchlist_filter_pages">Sider</string>
@@ -1291,6 +1301,17 @@
   <string name="watchlist_page_moved">Flyttet</string>
   <string name="watchlist_page_protected">Beskyttet</string>
   <string name="watchlist_page_deleted">Slettet</string>
+  <string name="watchlist_filter_title">Filter for overvåkningsliste</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">Alle</string>
+  <string name="watchlist_filter_watchlist_activity_header">Aktivitet på overvåkningslista</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Usette endringer</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Sette endringer</string>
+  <string name="watchlist_filter_contribution_quality_header">Estimert bidragskvalitet</string>
+  <string name="watchlist_filter_contribution_quality_good">Med all sannsynlighet bra</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Kan ha problemer</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Har trolig problemer</string>
+  <string name="watchlist_filter_contribution_quality_bad">Har sannsynligvis problemer</string>
   <string name="preview_edit_title">Forhåndsvis endring</string>
   <string name="preview_edit_summarize_edit_title">Forklar redigering</string>
   <string name="preview_edit_summarize_edit_hint">Hvordan forbedret du denne siden?</string>

@@ -14,7 +14,9 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
 import androidx.palette.graphics.Palette
@@ -68,21 +70,24 @@ class InsertMediaActivity : BaseActivity() {
             insertMediaAdapter.refresh()
         }
 
-        binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(this@InsertMediaActivity, R.attr.color_group_22))
+        binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(this@InsertMediaActivity, R.attr.background_color))
         binding.recyclerView.layoutManager = GridLayoutManager(this, 3)
         binding.recyclerView.adapter = insertMediaAdapter
 
         lifecycleScope.launch {
-            viewModel.insertMediaFlow.collectLatest {
-                insertMediaAdapter.submitData(it)
-            }
-        }
-
-        lifecycleScope.launchWhenCreated {
-            insertMediaAdapter.loadStateFlow.collectLatest {
-                binding.progressBar.isVisible = it.append is LoadState.Loading || it.refresh is LoadState.Loading
-                val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && insertMediaAdapter.itemCount == 0)
-                binding.emptyMessage.isVisible = showEmpty
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    viewModel.insertMediaFlow.collectLatest {
+                        insertMediaAdapter.submitData(it)
+                    }
+                }
+                launch {
+                    insertMediaAdapter.loadStateFlow.collectLatest {
+                        binding.progressBar.isVisible = it.append is LoadState.Loading || it.refresh is LoadState.Loading
+                        val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && insertMediaAdapter.itemCount == 0)
+                        binding.emptyMessage.isVisible = showEmpty
+                    }
+                }
             }
         }
 
@@ -191,7 +196,7 @@ class InsertMediaActivity : BaseActivity() {
         actionBarButtonBinding.editActionbarButtonText.text = menuItem.title
         actionBarButtonBinding.editActionbarButtonText.setTextColor(
             ResourceUtil.getThemedColor(this,
-                if (emphasize) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
+                if (emphasize) R.attr.progressive_color else R.attr.placeholder_color))
         actionBarButtonBinding.root.tag = menuItem
         actionBarButtonBinding.root.isEnabled = menuItem.isEnabled
         actionBarButtonBinding.root.setOnClickListener { onOptionsItemSelected(it.tag as MenuItem) }

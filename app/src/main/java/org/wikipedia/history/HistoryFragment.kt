@@ -2,6 +2,7 @@ package org.wikipedia.history
 
 import android.app.AlertDialog
 import android.content.Context
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -274,7 +275,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                         top = DimenUtil.roundedDpToPx(3f))
                 }
             }
-            searchCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22))
+            searchCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.background_color))
         }
 
         init {
@@ -314,6 +315,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             this.entry = entry
             view.item = entry
             view.setTitle(entry.title.displayText)
+            view.setTitleTypeface(Typeface.NORMAL)
             view.setDescription(entry.title.description)
             view.setImageUrl(entry.title.thumbUrl)
             view.isSelected = selectedEntries.contains(entry)

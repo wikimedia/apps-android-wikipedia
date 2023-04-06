@@ -19,7 +19,7 @@
             android:imeOptions="flagNoExtractUi"
             android:hint="@string/suggested_edits_image_tags_search"
             android:textSize="14sp"
-            android:textColor="?attr/material_theme_primary_color"
+            android:textColor="?attr/primary_color"
             android:background="@null"
             android:maxLines="1">
             <requestFocus />
@@ -30,7 +30,7 @@
             android:layout_height="24dp"
             android:layout_gravity="end|center_vertical"
             app:srcCompat="@drawable/ic_search_white_24dp"
-            app:tint="?attr/material_theme_de_emphasised_color"
+            app:tint="?attr/placeholder_color"
             android:contentDescription="@null"/>
 
     </FrameLayout>
@@ -39,7 +39,7 @@
         android:id="@+id/imageTagsDivider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/material_theme_border_color" />
+        android:background="?attr/border_color" />
 
     <TextView
         android:id="@+id/noResultsText"
@@ -49,7 +49,7 @@
         android:layout_marginEnd="16dp"
         android:gravity="center"
         android:textStyle="italic"
-        android:textColor="?attr/material_theme_de_emphasised_color"
+        android:textColor="?attr/placeholder_color"
         android:text="@string/search_no_results_found"
         android:visibility="gone"/>
 

@@ -19,7 +19,7 @@
             android:layout_marginTop="8dp"
             android:layout_gravity="center_horizontal"
             app:srcCompat="@drawable/ic_warning_24"
-            app:tint="@color/yellow30"
+            app:tint="@color/yellow700"
             android:contentDescription="@null"/>
 
         <TextView
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="@string/edit_notices"
-            android:textColor="?attr/material_theme_primary_color"
+            android:textColor="?attr/primary_color"
             android:textSize="24sp"
             android:textStyle="bold"/>
 
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="@string/edit_notices_please_read"
-            android:textColor="?attr/material_theme_primary_color"
+            android:textColor="?attr/primary_color"
             android:textSize="16sp"
             android:textStyle="bold"/>
 
@@ -60,7 +60,7 @@
             android:id="@+id/editNoticeCheckbox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="?attr/material_theme_primary_color"
+            android:textColor="?attr/primary_color"
             android:text="@string/edit_notices_show_auto"/>
 
     </LinearLayout>
@@ -72,7 +72,7 @@
         android:padding="12dp"
         android:layout_gravity="end"
         app:srcCompat="@drawable/ic_close_black_24dp"
-        app:tint="?attr/material_theme_secondary_color"
+        app:tint="?attr/secondary_color"
         android:clickable="true"
         android:focusable="true"
         android:background="?attr/selectableItemBackgroundBorderless"

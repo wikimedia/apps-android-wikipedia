@@ -20,12 +20,12 @@ enum class NavTab constructor(private val text: Int, private val id: Int, privat
             return ReadingListsFragment.newInstance()
         }
     },
-    SEARCH(R.string.nav_item_search, R.id.nav_tab_search, R.drawable.ic_search_themed_24dp) {
+    SEARCH(R.string.nav_item_search, R.id.nav_tab_search, R.drawable.ic_search_white_24dp) {
         override fun newInstance(): Fragment {
             return HistoryFragment.newInstance()
         }
     },
-    EDITS(R.string.nav_item_suggested_edits, R.id.nav_tab_edits, R.drawable.ic_mode_edit_themed_24dp) {
+    EDITS(R.string.nav_item_suggested_edits, R.id.nav_tab_edits, R.drawable.ic_mode_edit_white_24dp) {
         override fun newInstance(): Fragment {
             return SuggestedEditsTasksFragment.newInstance()
         }

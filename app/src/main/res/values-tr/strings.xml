@@ -101,6 +101,16 @@
   <string name="page_edit_history_filter_by_user">Kullanıcı değişiklikleri (%s)</string>
   <string name="page_edit_history_filter_by_anon">Anon düzenlemeleri (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot düzenlemeleri (%s)</string>
+  <string name="page_edit_history_metrics_content_description">%1$s ile %2$s arası ölçümler</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%2$s yılından beri %1$d değişiklik</item>
+    <item quantity="other">%2$s yılından beri %1$d değişiklik</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%2$s yılından beri %1$d değişiklik (%3$s)</item>
+    <item quantity="other">%2$s yılından beri %1$d değişiklik (%3$s)</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Daha fazla değişiklik görmek için &lt;a href=\"#\"&gt;süzgeci&lt;/a&gt; değiştirmeyi deneyin</string>
   <string name="menu_page_show_tabs">Sekmeleri göster</string>
   <string name="menu_page_other_languages">Dili değiştir</string>
   <string name="menu_page_find_in_page">Maddede bul</string>

@@ -10,17 +10,18 @@
         android:background="@drawable/shape_circle"
         android:contentDescription="@null"
         android:padding="20dp"
-        app:tint="@color/base30"
+        app:tint="@color/gray500"
         app:srcCompat="@drawable/ic_search_white_24dp" />
 
     <TextView
         android:id="@+id/search_empty_text"
-        style="@style/MaterialMediumSecondaryCaption"
+        style="@style/P"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="24dp"
         android:gravity="center"
-        android:text="@string/search_no_results_found" />
+        android:text="@string/search_no_results_found"
+        android:textAlignment="center" />
 
 </merge>

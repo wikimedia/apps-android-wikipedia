@@ -14,7 +14,9 @@ import androidx.core.graphics.ColorUtils
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.paging.PagingData
@@ -75,9 +77,9 @@ class EditHistoryListActivity : BaseActivity() {
 
         val colorCompareBackground = ResourceUtil.getThemedColor(this, android.R.attr.colorBackground)
         binding.compareFromCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
-                ResourceUtil.getThemedColor(this, R.attr.colorAccent), 0.05f))
+                ResourceUtil.getThemedColor(this, R.attr.progressive_color), 0.05f))
         binding.compareToCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
-                ResourceUtil.getThemedColor(this, R.attr.color_group_68), 0.05f))
+                ResourceUtil.getThemedColor(this, R.attr.warning_color), 0.05f))
         updateCompareState()
 
         binding.compareButton.setOnClickListener {
@@ -109,26 +111,34 @@ class EditHistoryListActivity : BaseActivity() {
             }
         })
 
-        lifecycleScope.launchWhenCreated {
-            editHistoryListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
-                    .filter { it.refresh is LoadState.NotLoading }
-                    .collectLatest {
-                        if (binding.editHistoryRefreshContainer.isRefreshing) {
-                            binding.editHistoryRefreshContainer.isRefreshing = false
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    editHistoryListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
+                        .filter { it.refresh is LoadState.NotLoading }
+                        .collectLatest {
+                            if (binding.editHistoryRefreshContainer.isRefreshing) {
+                                binding.editHistoryRefreshContainer.isRefreshing = false
+                            }
+                        }
+                }
+                launch {
+                    editHistoryListAdapter.loadStateFlow.collectLatest {
+                        loadHeader.loadState = it.refresh
+                        loadFooter.loadState = it.append
+                        enableCompareButton(binding.compareButton, editHistoryListAdapter.itemCount > 2)
+                        val showEmpty = (it.append is LoadState.NotLoading && it.source.refresh is LoadState.NotLoading && editHistoryListAdapter.itemCount == 0)
+                        if (showEmpty) {
+                            (binding.editHistoryRecycler.adapter as ConcatAdapter).addAdapter(editHistoryEmptyMessagesAdapter)
+                        } else {
+                            (binding.editHistoryRecycler.adapter as ConcatAdapter).removeAdapter(editHistoryEmptyMessagesAdapter)
                         }
                     }
-        }
-
-        lifecycleScope.launchWhenCreated {
-            editHistoryListAdapter.loadStateFlow.collectLatest {
-                loadHeader.loadState = it.refresh
-                loadFooter.loadState = it.append
-                enableCompareButton(binding.compareButton, editHistoryListAdapter.itemCount > 2)
-                val showEmpty = (it.append is LoadState.NotLoading && it.source.refresh is LoadState.NotLoading && editHistoryListAdapter.itemCount == 0)
-                if (showEmpty) {
-                    (binding.editHistoryRecycler.adapter as ConcatAdapter).addAdapter(editHistoryEmptyMessagesAdapter)
-                } else {
-                    (binding.editHistoryRecycler.adapter as ConcatAdapter).removeAdapter(editHistoryEmptyMessagesAdapter)
+                }
+                launch {
+                    viewModel.editHistoryFlow.collectLatest {
+                        editHistoryListAdapter.submitData(it)
+                    }
                 }
             }
         }
@@ -142,12 +152,6 @@ class EditHistoryListActivity : BaseActivity() {
             }
             editHistoryStatsAdapter.notifyItemChanged(0)
             editHistorySearchBarAdapter.notifyItemChanged(0)
-        }
-
-        lifecycleScope.launch {
-            viewModel.editHistoryFlow.collectLatest {
-                editHistoryListAdapter.submitData(it)
-            }
         }
 
         if (viewModel.actionModeActive) {
@@ -178,10 +182,10 @@ class EditHistoryListActivity : BaseActivity() {
     private fun enableCompareButton(button: TextView, enable: Boolean) {
         if (enable) {
             button.isEnabled = true
-            button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.colorAccent))
+            button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.progressive_color))
         } else {
             button.isEnabled = false
-            button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
+            button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
         }
     }
 
@@ -370,7 +374,7 @@ class EditHistoryListActivity : BaseActivity() {
             binding.filterByButton.isVisible = viewModel.editHistoryStatsData.value is Resource.Success
 
             binding.root.setCardBackgroundColor(
-                ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.color_group_22)
+                ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.background_color)
             )
 
             itemView.setOnClickListener {
@@ -389,12 +393,12 @@ class EditHistoryListActivity : BaseActivity() {
             if (Prefs.editHistoryFilterType.isEmpty()) {
                 binding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(this@EditHistoryListActivity, R.attr.color_group_9))
+                    ResourceUtil.getThemedColorStateList(this@EditHistoryListActivity, R.attr.primary_color))
             } else {
                 binding.filterCount.visibility = View.VISIBLE
                 binding.filterCount.text = (if (Prefs.editHistoryFilterType.isNotEmpty()) 1 else 0).toString()
                 ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(this@EditHistoryListActivity, R.attr.colorAccent))
+                    ResourceUtil.getThemedColorStateList(this@EditHistoryListActivity, R.attr.progressive_color))
             }
         }
     }

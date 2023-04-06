@@ -32,7 +32,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="@string/widget_title_featured_page"
-            android:textColor="@color/base30" />
+            android:textColor="@color/gray500" />
 
         <TextView
             android:id="@+id/widget_content_text"
@@ -41,7 +41,7 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/base10"
+            android:textColor="@color/gray700"
             tools:text="Sample content" />
     </LinearLayout>
 </LinearLayout>

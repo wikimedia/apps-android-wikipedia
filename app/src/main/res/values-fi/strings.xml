@@ -527,6 +527,14 @@
     <item quantity="one">%d artikkeli poistettu lukulistalta %s</item>
     <item quantity="other">%d artikkelia poistettu lukulistalta %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d lista poistettu</item>
+    <item quantity="other">%d listaa poistettu</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Oletuslistaa ( %s ) ei voi poistaa</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s poistettu. Oletuslistaa ( %2$s ) ei voi poistaa.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Listat poistettu. Oletuslistaa ( %s ) ei voi poistaa.</string>
+  <string name="single_list_json_file_name">%s (Wikipedia-lukulista).json</string>
   <string name="reading_list_items_deleted">%d artikkelia poistettu listasta</string>
   <string name="reading_lists_item_deleted">%s poistettu listoista</string>
   <string name="reading_list_item_delete_undo">Kumoa</string>
@@ -614,12 +622,16 @@
   <string name="reading_lists_action_menu_export_lists">Vie</string>
   <string name="reading_lists_import_file_picker_title">Valitse tuotava tiedosto</string>
   <string name="reading_lists_import_failure_message">Lukulistojen tuonti epäonnistui</string>
+  <string name="reading_lists_export_select_lists_message">Valitse vietävä(t) lista(t).</string>
+  <string name="reading_lists_export_completed_message">Lukulista(t) viety</string>
   <string name="reading_lists_preview_header_title">Jaettu lista</string>
   <string name="reading_lists_preview_save_button">Tallenna</string>
   <string name="reading_lists_preview_save_dialog_title">Tallenna lista</string>
+  <string name="reading_lists_preview_save_dialog_text">Nimeä lista ja valitse tallennettavat artikkelit.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Otsikko</string>
   <string name="reading_lists_preview_save_dialog_cancel">Peruuta</string>
   <string name="reading_lists_preview_save_dialog_save">Tallenna</string>
+  <string name="reading_lists_preview_saved_snackbar">Lukulista tallennettu</string>
   <string name="reading_lists_preview_saved_snackbar_action">Näytä</string>
   <string name="user_option_sync_label">Asetukset</string>
   <string name="notification_reverted_title">Kumottu muokkaus</string>
@@ -856,6 +868,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ihanteellisesti yksi rivi, kahdesta kahteentoista sanaa</string>
   <string name="description_edit_tutorial_button_label_start_editing">Aloita muokkaaminen</string>
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Ohjelmiston ehdotukset</string>
   <string name="customize_toolbar_title">Kustomoi työkalupalkki</string>
   <string name="customize_toolbar_shortcut_description_text">Tuunaa alaosan työkalupalkkia niillä 5 linkillä, jotka koet hyödyllisimmiksi.</string>
   <string name="customize_toolbar_category_toolbar">Työkalupalkki</string>
@@ -1006,7 +1019,7 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Eilen</string>
-  <string name="suggested_edits_encourage_account_creation_title">Tiesitkö että kaikki voivat muokata Wikipediaa?</string>
+  <string name="suggested_edits_encourage_account_creation_title">Tiesitkö että kuka tahansa voi muokata Wikipediaa?</string>
   <string name="suggested_edits_encourage_account_creation_message">Ehdotetut muokkaukset on uusi tapa muokata Wikipediaa Androidilla. Se auttaa tekemään pieniä, tärkeitä muutoksia Wikipediaan.\nTavoitteenamme on tehdä muokkaamisesta kaikille helpompaa ja helppopääsyisempää! Aloita kirjautumalla sisään tai liittymällä Wikipediaan.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kirjaudu sisään / liity Wikipediaan</string>
   <string name="suggested_edits_contribution_type_image_tag">Kuvamerkintä</string>
@@ -1114,6 +1127,7 @@
   <string name="wikitext_small">Pieni teksti</string>
   <string name="wikitext_code">Koodi</string>
   <string name="wikitext_link">Linkki</string>
+  <string name="wikitext_heading_n">Alaotsikko %d</string>
   <string name="wikitext_formatting">Muotoilu</string>
   <string name="wikitext_headings">Otsikot</string>
   <string name="wikitext_insert_media">Lisää media</string>
@@ -1128,6 +1142,7 @@
   <string name="insert_media_settings">Media-asetukset</string>
   <string name="insert_media_settings_uploaded_image">Tallennettu kuva</string>
   <string name="insert_media_settings_caption">Kuvateksti</string>
+  <string name="insert_media_settings_caption_description">Tunniste, joka näkyy kohteen vieressä kaikille lukijoille</string>
   <string name="insert_media_settings_alternative_text">Vaihtoehtoinen teksti</string>
   <string name="insert_media_settings_alternative_text_description">Tekstimuotoinen kuvaus lukijoille, jotka eivät voi nähdä kuvaa</string>
   <string name="insert_media_advanced_settings">Lisäasetukset</string>
@@ -1150,8 +1165,8 @@
   <string name="insert_media_insert_button">Lisää</string>
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
-  <string name="main_tooltip_text">Hei %s, tiesitkö että kaikki voivat muokata Wikipediaa?</string>
-  <string name="main_tooltip_text_v2">Tiesitkö että kaikki voivat muokata Wikipediaa?</string>
+  <string name="main_tooltip_text">Hei %s, tiesitkö että kuka tahansa voi muokata Wikipediaa?</string>
+  <string name="main_tooltip_text_v2">Tiesitkö että kuka tahansa voi muokata Wikipediaa?</string>
   <string name="main_tooltip_action_button">Aloittaminen</string>
   <string name="main_tooltip_watchlist_title">Tarkkailulista</string>
   <string name="main_tooltip_watchlist_text">Tutustu viimeksi tarkkailulistalle lisäämäsi artikkeleihin valitsemalla Lisää-valikko ja &lt;b&gt;Tarkkailulista&lt;/b&gt;.</string>
@@ -1205,6 +1220,7 @@
   <string name="talk_list_item_user_icon_content_description">Käyttäjäkuvake</string>
   <string name="talk_list_item_swipe_mark_as_read">Luettu</string>
   <string name="talk_list_item_swipe_mark_as_unread">Lukematon</string>
+  <string name="talk_login_to_subscribe_dialog_title">Kirjaudu sisään tilataksesi aiheita</string>
   <string name="talk_archived_title">Keskusteluarkisto: %s</string>
   <string name="menu_option_share_talk_discussion">Jaa keskustelu</string>
   <string name="menu_option_share_talk_page">Jaa keskustelusivu</string>
@@ -1270,11 +1286,49 @@
   <string name="watchlist_page_moved">Siirretty</string>
   <string name="watchlist_page_protected">Suojattu</string>
   <string name="watchlist_page_deleted">Poistettu</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
   <string name="watchlist_filter_all_text">Kaikki</string>
+  <string name="watchlist_filter_watchlist_activity_header">Tarkkailulistan aktiivisuus</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Näkemättömät muutokset</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Nähdyt muutokset</string>
+  <string name="watchlist_filter_contribution_quality_header">Muokkauksen laadun ennustaminen</string>
+  <string name="watchlist_filter_contribution_quality_good">Hyvin todennäköisesti hyvä muokkaus</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Saattaa sisältää ongelmia</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Sisältää todennäköisesti ongelmia</string>
+  <string name="watchlist_filter_contribution_quality_bad">Sisältää hyvin todennäköisesti ongelmia</string>
+  <string name="watchlist_filter_user_intent_header">Käyttäjän aikomuksen ennustaminen</string>
+  <string name="watchlist_filter_user_intent_good">Hyvin todennäköisesti hyväntahtoinen</string>
+  <string name="watchlist_filter_user_intent_may_problems">Saattaa olla pahantahtoinen</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Todennäköisesti pahantahtoinen</string>
+  <string name="watchlist_filter_user_intent_bad">Hyvin todennäköisesti pahantahtoinen</string>
+  <string name="watchlist_filter_user_status_header">Käyttäjän rekisteröinti ja kokemus</string>
+  <string name="watchlist_filter_user_status_unregistered">Rekisteröimätön</string>
+  <string name="watchlist_filter_user_status_registered">Rekisteröitynyt</string>
   <string name="watchlist_filter_user_status_newcomers">Tulokkaat</string>
+  <string name="watchlist_filter_user_status_learners">Oppijat</string>
+  <string name="watchlist_filter_user_status_experienced">Kokeneet käyttäjät</string>
+  <string name="watchlist_filter_contribution_authorship_header">Muutoksen tekijä</string>
+  <string name="watchlist_filter_contribution_authorship_own">Omat muutokset</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Muiden muutokset</string>
+  <string name="watchlist_filter_automated_contributions_header">Automatisoidut muutokset</string>
+  <string name="watchlist_filter_automated_contributions_bot">Botti</string>
+  <string name="watchlist_filter_automated_contributions_human">Ihminen (ei botti)</string>
+  <string name="watchlist_filter_significance_header">Oleellisuus</string>
+  <string name="watchlist_filter_significance_minor">Pienet muutokset</string>
+  <string name="watchlist_filter_significance_edits">Muut kuin pienet muutokset</string>
+  <string name="watchlist_filter_latest_revisions_header">Viimeisimmät versiot</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Viimeisin versio</string>
+  <string name="watchlist_filter_type_of_change_header">Muutoksen tyyppi</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Sivujen luonnit</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Luokkamuutokset</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata-muokkaukset</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Lokitoiminnot</string>
   <string name="watchlist_filter_type_of_change_new_users">Uudet käyttäjät</string>
   <string name="watchlist_filter_reset_button">Nollaa</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d suodatin</item>
+    <item quantity="other">%d suodatinta</item>
+  </plurals>
   <string name="preview_edit_title">Esikatsele muokkausta</string>
   <string name="preview_edit_summarize_edit_title">Muokkauksen yhteenveto</string>
   <string name="preview_edit_summarize_edit_hint">Kuinka paransit tätä sivua?</string>

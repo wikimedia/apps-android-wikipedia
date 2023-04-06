@@ -36,7 +36,7 @@
                 android:clickable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 app:srcCompat="@drawable/ic_replay_black_24dp"
-                app:tint="?attr/themed_icon_color"
+                app:tint="?attr/progressive_color"
                 android:contentDescription="@null"/>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -46,11 +46,11 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="32dp"
                 android:contentDescription="@string/view_next_random_article"
-                app:backgroundTint="?attr/themed_icon_color"
+                app:backgroundTint="?attr/progressive_color"
                 app:borderWidth="0dp"
                 app:elevation="4dp"
                 app:srcCompat="@drawable/animated_dice"
-                app:tint="?attr/randomizer_dice_icon_color"/>
+                app:tint="?attr/background_color"/>
 
             <ImageView
                 android:id="@+id/random_save_button"
@@ -61,7 +61,7 @@
                 android:clickable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 app:srcCompat="@drawable/ic_bookmark_border_white_24dp"
-                app:tint="?attr/themed_icon_color"
+                app:tint="?attr/progressive_color"
                 android:contentDescription="@string/button_add_to_reading_list"/>
 
         </LinearLayout>

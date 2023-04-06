@@ -117,10 +117,10 @@ object FeedbackUtil {
         val view = findBestView(activity)
         val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration)
         val textView = snackbar.view.findViewById<TextView>(R.id.snackbar_text)
-        textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
+        textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod(wikiSite)
         val actionView = snackbar.view.findViewById<TextView>(R.id.snackbar_action)
-        actionView.setTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
+        actionView.setTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         return snackbar
     }
 
@@ -178,7 +178,7 @@ object FeedbackUtil {
             setMarginRight(8)
             setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)
             setMarginBottom(if (aboveOrBelow) topOrBottomMargin else 0)
-            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
+            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.progressive_color))
             setDismissWhenTouchOutside(autoDismiss)
             setLayout(binding.root)
             setWidth(BalloonSizeSpec.WRAP)
@@ -204,7 +204,7 @@ object FeedbackUtil {
             setMarginRight(8)
             setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)
             setMarginBottom(if (aboveOrBelow) topOrBottomMargin else 0)
-            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
+            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.progressive_color))
             setDismissWhenTouchOutside(autoDismiss)
             setLayout(layoutRes)
             setWidth(BalloonSizeSpec.WRAP)

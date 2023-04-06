@@ -26,6 +26,6 @@
         android:layout_height="8dp"
         android:contentDescription="@null"
         app:srcCompat="@drawable/shape_circle"
-        app:tint="@color/base50" />
+        app:tint="@color/gray400" />
 
 </LinearLayout>

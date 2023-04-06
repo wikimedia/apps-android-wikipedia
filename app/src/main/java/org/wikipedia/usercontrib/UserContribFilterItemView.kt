@@ -68,13 +68,13 @@ class UserContribFilterItemView constructor(context: Context, attrs: AttributeSe
     fun setSingleLabel(text: String) {
         binding.languageCode.visibility = View.GONE
         binding.itemLogo.visibility = View.VISIBLE
-        binding.itemLogo.setImageResource(R.drawable.ic_mode_edit_themed_24dp)
+        binding.itemLogo.setImageResource(R.drawable.ic_mode_edit_white_24dp)
         binding.itemCheck.visibility = View.GONE
-        binding.itemTitle.setTextColor(ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent))
+        binding.itemTitle.setTextColor(ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color))
         binding.itemTitle.text = text.uppercase()
         binding.itemTitle.typeface = labelTypeface
         binding.itemTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
-        ImageViewCompat.setImageTintList(binding.itemLogo, ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent))
+        ImageViewCompat.setImageTintList(binding.itemLogo, ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color))
     }
 
     private fun getTitleCodeFor(itemCode: String): String? {
