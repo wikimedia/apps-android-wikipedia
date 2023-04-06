@@ -14,11 +14,11 @@ import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -237,7 +237,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         }
         val isProtected = v.tag != null && v.tag as Boolean
         if (isProtected) {
-            AlertDialog.Builder(this)
+            MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
                 .setTitle(R.string.page_protected_can_not_edit_title)
                 .setMessage(R.string.page_protected_can_not_edit)

@@ -9,11 +9,11 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.*
 import androidx.preference.PreferenceManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import org.wikipedia.Constants
@@ -666,11 +666,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     private fun showDescriptionEditRevertDialog(qNumber: String) {
-        AlertDialog.Builder(this)
+        MaterialAlertDialogBuilder(this)
             .setTitle(R.string.notification_reverted_title)
             .setView(DescriptionEditRevertHelpView(this, qNumber))
             .setPositiveButton(R.string.reverted_edit_dialog_ok_button_text, null)
-            .create()
             .show()
     }
 

@@ -425,7 +425,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             binding.suggestedDescButton.chipIcon = AppCompatResources.getDrawable(context, R.drawable.ic_robot_24)
         }
         binding.suggestedDescButton.setOnClickListener {
-            SuggestedArticleDescriptionsDialog(context, firstSuggestion, secondSuggestion, pageTitle, callback!!.getAnalyticsHelper()) { suggestion ->
+            SuggestedArticleDescriptionsDialog(context as Activity, firstSuggestion, secondSuggestion, pageTitle, callback!!.getAnalyticsHelper()) { suggestion ->
                 binding.viewDescriptionEditText.setText(suggestion)
                 binding.viewDescriptionEditText.setSelection(binding.viewDescriptionEditText.text?.length ?: 0)
                 callback?.getAnalyticsHelper()?.logSuggestionChosen(context, suggestion, pageTitle)

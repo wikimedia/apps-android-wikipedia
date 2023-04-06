@@ -1,6 +1,5 @@
 package org.wikipedia.history
 
-import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Typeface
 import android.os.Bundle
@@ -22,6 +21,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -294,11 +294,11 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             }
             clearHistoryButton.setOnClickListener {
                 if (selectedEntries.size == 0) {
-                    AlertDialog.Builder(requireContext())
+                    MaterialAlertDialogBuilder(requireContext())
                             .setTitle(R.string.dialog_title_clear_history)
                             .setMessage(R.string.dialog_message_clear_history)
                             .setPositiveButton(R.string.dialog_message_clear_history_yes) { _, _ -> onClearHistoryClick() }
-                            .setNegativeButton(R.string.dialog_message_clear_history_no, null).create().show()
+                            .setNegativeButton(R.string.dialog_message_clear_history_no, null).show()
                 } else {
                     deleteSelectedPages()
                 }
