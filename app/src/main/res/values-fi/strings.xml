@@ -1322,8 +1322,13 @@
   <string name="watchlist_filter_type_of_change_page_creations">Sivujen luonnit</string>
   <string name="watchlist_filter_type_of_change_category_changes">Luokkamuutokset</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata-muokkaukset</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Lokitoiminnot</string>
   <string name="watchlist_filter_type_of_change_new_users">Uudet käyttäjät</string>
   <string name="watchlist_filter_reset_button">Nollaa</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d suodatin</item>
+    <item quantity="other">%d suodatinta</item>
+  </plurals>
   <string name="preview_edit_title">Esikatsele muokkausta</string>
   <string name="preview_edit_summarize_edit_title">Muokkauksen yhteenveto</string>
   <string name="preview_edit_summarize_edit_hint">Kuinka paransit tätä sivua?</string>
