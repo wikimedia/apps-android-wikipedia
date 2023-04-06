@@ -115,7 +115,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             callback()?.onEditingPrefsChanged()
         }
 
-        disableBackgroundDim()
         requireDialog().window?.let {
             DeviceUtil.setNavigationBarColor(it, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         }

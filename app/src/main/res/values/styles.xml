@@ -10,8 +10,10 @@
         <item name="android:windowActivityTransitions">true</item>
         <item name="android:windowContentTransitions">true</item>
         <item name="windowActionModeOverlay">true</item>
+
         <item name="toolbarStyle">@style/ToolbarStyle</item>
         <item name="actionBarStyle">@style/ActionBarStyle</item>
+
         <item name="snackbarStyle">@style/SnackbarStyle</item>
         <item name="snackbarTextViewStyle">@style/H3.Button.SnackbarTextView</item>
         <item name="snackbarButtonStyle">@style/SnackbarButtonStyle</item>
@@ -21,8 +23,10 @@
         <item name="android:textViewStyle">@style/RtlAwareTextView</item>
 
         <item name="alertDialogTheme">@style/AlertDialogStyle</item>
+
         <!-- Theme for dialog after long pressing on internal links -->
         <item name="android:alertDialogTheme">@style/LongPressAlertDialogStyle</item>
+
         <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
         <item name="maxActionInlineWidth">@dimen/snackbar_action_inline_max_dimen</item>
         <item name="textInputStyle">@style/TextInputLayoutStyle</item>
@@ -37,22 +41,27 @@
         <item name="android:textColorTertiary">?attr/placeholder_color</item>
         <item name="android:textColorHint">?attr/placeholder_color</item>
 
-        <item name="colorPrimary">?attr/placeholder_color</item>
-        <item name="colorAccent">?attr/progressive_color</item>
-        <item name="colorError">?attr/destructive_color</item>
-
-        <item name="colorSecondaryContainer">?attr/addition_color</item>
-
         <!-- Overrides of base Android styles with color sub-definitions -->
         <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.Light.PopupMenu.Overflow</item>
-        <item name="popupMenuStyle">@style/PopupMenuLight</item>
-        <item name="dialogTheme">@style/DialogLight</item>
-        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogLight</item>
+
+        <item name="popupMenuStyle">@style/PopupMenuStyle</item>
+
+        <item name="collapsingToolbarLayoutStyle">@style/CollapsingToolbarStyle</item>
 
         <!-- Overrides of our own custom style attributes -->
         <item name="talk_page_empty_state_drawable">@drawable/talk_page_empty_state_illustration_light</item>
 
-        <!-- Component updates -->
+        <item name="colorPrimary">?attr/progressive_color</item>
+        <item name="colorAccent">?attr/progressive_color</item>
+        <item name="colorError">?attr/destructive_color</item>
+
+        <item name="colorSurface">?attr/paper_color</item>
+        <item name="colorTertiaryContainer">?attr/paper_color</item>
+        <item name="colorSecondaryContainer">?attr/addition_color</item>
+        <item name="colorSurfaceVariant">?attr/addition_color</item>
+
+        <item name="elevationOverlayEnabled">false</item>
+
         <item name="paper_color">@color/white</item>
         <item name="background_color">@color/gray100</item>
         <item name="border_color">@color/gray200</item>
@@ -70,7 +79,6 @@
         <item name="overlay_color">@color/black_30</item>
         <item name="list_divider">@drawable/divider_light</item>
         <item name="shadow_border">@drawable/shadow_light</item>
-        <!-- Component updates -->
 
         <item name="input_stroke_color_state">@color/color_state_input_field_light</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_light</item>
@@ -79,7 +87,35 @@
 
     </style>
 
-    <!-- Component updates -->
+    <style name="AppTheme.Splash">
+        <item name="android:windowBackground">@drawable/splash_bg</item>
+        <item name="android:navigationBarColor">@color/gray700</item>
+    </style>
+
+    <style name="AppTheme.Page">
+        <item name="actionModeStyle">@style/PageActionModeStyle</item>
+        <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
+        <item name="actionOverflowButtonStyle">@style/ActionButtonOverflow</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionModeCloseButtonStyle</item>
+    </style>
+
+    <style name="AppTheme.ActionBar">
+        <item name="windowNoTitle">false</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowActionBarOverlay">false</item>
+        <item name="windowActionModeOverlay">false</item>
+    </style>
+
+    <style name="AppTheme.FullScreen">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="AppTheme.FullScreen.Translucent">
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
     <style name="H1">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
@@ -220,65 +256,16 @@
         <item name="lineHeight">18sp</item>
     </style>
 
-    <!-- Component updates -->
-
-    <!-- TODO: revisit and replace/inherit the existing styles -->
-    <style name="AppTheme.Splash">
-        <item name="android:windowBackground">@drawable/splash_bg</item>
-        <item name="android:navigationBarColor">@color/gray700</item>
-    </style>
-
-    <style name="AppTheme.Page">
-        <item name="actionModeStyle">@style/PageActionModeStyle</item>
-        <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
-        <item name="actionOverflowButtonStyle">@style/ActionButtonOverflow</item>
-        <item name="actionModeCloseButtonStyle">@style/ActionModeCloseButtonStyle</item>
-    </style>
-
-    <style name="AppTheme.ActionBar">
-        <item name="windowNoTitle">false</item>
-        <item name="windowActionBar">true</item>
-        <item name="windowActionBarOverlay">false</item>
-        <item name="windowActionModeOverlay">false</item>
-    </style>
-
-    <style name="AppTheme.FullScreen">
-        <item name="android:windowFullscreen">true</item>
-    </style>
-
-    <style name="AppTheme.FullScreen.Translucent">
-        <item name="android:colorBackgroundCacheHint">@null</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-
-    <style name="DialogLight" parent="Theme.Material3.Light.Dialog">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="colorAccent">@color/blue600</item>
-        <item name="android:colorBackground">?attr/paper_color</item>
-        <item name="android:lineSpacingExtra">@dimen/dialog_line_spacing_extra</item>
-    </style>
-
-    <style name="PopupMenuLight" parent="Widget.Material3.PopupMenu">
+    <style name="PopupMenuStyle" parent="Widget.Material3.PopupMenu">
         <item name="overlapAnchor">true</item>
     </style>
 
-    <style name="BottomSheetDialogLight" parent="Theme.Material3.Light.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
-        <item name="colorAccent">?attr/progressive_color</item>
-        <item name="colorPrimary">?attr/progressive_color</item>
-        <item name="colorSwitchThumbNormal">?attr/background_color</item>
-        <item name="android:colorBackground">?attr/paper_color</item>
-        <item name="android:disabledAlpha">1.0</item>
-    </style>
-
-    <style name="ActionBarStyle" parent="@style/Widget.Material3.ActionBar.Solid">
+    <style name="ActionBarStyle" parent="@style/Widget.Material3.Light.ActionBar.Solid">
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">0dp</item>
-        <item name="android:background">?attr/paper_color</item>
-        <item name="titleTextColor">?attr/primary_color</item>
-        <item name="titleTextAppearance">@style/H1.AppBar</item>
+        <item name="android:background">?attr/colorError</item>
+        <item name="android:titleTextColor">?attr/progressive_color</item>
+        <item name="android:titleTextAppearance">@style/H1.AppBar</item>
     </style>
 
     <style name="ToolbarStyle" parent="@style/Widget.Material3.Toolbar">
@@ -597,6 +584,10 @@
     <style name="PagePopupMenu" parent="@style/Widget.Material3.PopupMenu.Overflow">
         <item name="android:dropDownHorizontalOffset">@dimen/popup_menu_drop_down_horizontal_offset</item>
         <item name="android:dropDownVerticalOffset">@dimen/popup_menu_drop_down_vertical_offset</item>
+    </style>
+
+    <style name="CollapsingToolbarStyle" parent="Widget.Material3.CollapsingToolbar">
+        <item name="forceApplySystemWindowInsetTop">false</item>
     </style>
 
     <style name="AlertDialogStyle" parent="ThemeOverlay.Material3.Dialog.Alert">
