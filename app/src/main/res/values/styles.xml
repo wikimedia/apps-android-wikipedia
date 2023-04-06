@@ -20,7 +20,7 @@
         <item name="android:listViewStyle">@style/ListView</item>
         <item name="android:textViewStyle">@style/RtlAwareTextView</item>
 
-        <item name="alertDialogTheme">@style/AlertDialogStyle</item>
+        <item name="materialAlertDialogTheme">@style/AlertDialogTheme</item>
         <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
         <item name="maxActionInlineWidth">@dimen/snackbar_action_inline_max_dimen</item>
         <item name="textInputStyle">@style/TextInputLayoutStyle</item>
@@ -105,7 +105,11 @@
         <item name="lineHeight">24sp</item>
     </style>
 
-    <style name="H2.DialogTitleStyle">
+    <style name="H2.DialogTitle" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">28sp</item>
         <item name="android:textColor">?attr/primary_color</item>
         <item name="android:layout_marginBottom">5dp</item>
     </style>
@@ -173,7 +177,10 @@
         <item name="lineHeight">28sp</item>
     </style>
 
-    <style name="P.DialogText">
+    <style name="P.DialogBody" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24sp</item>
         <item name="android:textColor">?attr/secondary_color</item>
     </style>
 
@@ -582,13 +589,11 @@
         <item name="android:dropDownVerticalOffset">@dimen/popup_menu_drop_down_vertical_offset</item>
     </style>
 
-    <style name="AlertDialogStyle" parent="ThemeOverlay.Material3.MaterialAlertDialog">
-        <item name="backgroundTint">?attr/paper_color</item>
-        <item name="android:textColorPrimary">?attr/secondary_color</item>
-        <item name="android:windowTitleStyle">@style/H2.DialogTitleStyle</item>
-        <item name="android:textAppearanceMedium">@style/H2</item>
-        <item name="textColorAlertDialogListItem">?attr/secondary_color</item>
-        <item name="android:lineSpacingExtra">@dimen/dialog_line_spacing_extra</item>
+    <style name="AlertDialogTheme" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorSurface">?attr/paper_color</item>
+        <item name="elevationOverlayEnabled">false</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/H2.DialogTitle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/P.DialogBody</item>
     </style>
 
     <style name="SnackbarStyle" parent="Widget.Material3.Snackbar">
