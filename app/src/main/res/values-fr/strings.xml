@@ -1069,7 +1069,7 @@
   <string name="suggested_edits_article_descriptions_dialog_title">Descriptions suggérées</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Qu’aimeriez-vous signaler ?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Pas assez d’informations</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion">Impossible de voir les recommandations de description</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Impossible de voir les descriptions suggérées</string>
   <string name="suggested_edits_inappropriate_suggestion">Suggestion inappropriée</string>
   <string name="suggested_edits_do_not_understand_suggestion">Tâche incompréhensible</string>
   <string name="suggested_edits_report_suggestion">Signalement</string>
