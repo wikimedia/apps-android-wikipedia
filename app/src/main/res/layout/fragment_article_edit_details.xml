@@ -8,8 +8,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        style="@style/ToolbarStyle">
+        android:layout_height="?attr/actionBarSize">
 
         <TextView
             android:id="@+id/toolbarTitleView"

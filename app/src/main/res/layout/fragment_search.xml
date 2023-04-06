@@ -18,7 +18,6 @@
             android:id="@+id/search_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:theme="@style/ToolbarTheme"
             android:transitionName="@string/transition_search_bar"
             app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
             app:navigationIconTint="?attr/primary_color">

@@ -14,7 +14,6 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/notifications_toolbar"
-            style="@style/ToolbarStyle"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways" />

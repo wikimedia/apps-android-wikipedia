@@ -10,11 +10,9 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/main_toolbar"
-        style="@style/ToolbarStyle"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginStart="-12dp"
-        android:background="?attr/paper_color"
         android:elevation="4dp"
         app:titleMarginStart="28dp">
 

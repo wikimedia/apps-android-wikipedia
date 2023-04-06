@@ -10,11 +10,8 @@
         <item name="android:windowActivityTransitions">true</item>
         <item name="android:windowContentTransitions">true</item>
         <item name="windowActionModeOverlay">true</item>
-        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
-        <item name="actionBarTheme">@style/ToolbarTheme</item>
-        <item name="actionBarStyle">@style/ToolbarStyle</item>
-        <item name="popupTheme">@style/ToolbarPopupTheme</item>
-        <item name="actionModeStyle">@style/ActionModeStyle</item>
+        <item name="toolbarStyle">@style/ToolbarStyle</item>
+        <item name="actionBarStyle">@style/ActionBarStyle</item>
         <item name="snackbarStyle">@style/SnackbarStyle</item>
         <item name="snackbarTextViewStyle">@style/H3.Button.SnackbarTextView</item>
         <item name="snackbarButtonStyle">@style/SnackbarButtonStyle</item>
@@ -33,8 +30,6 @@
         <item name="android:selectableItemBackground">@drawable/ripple_background</item>
         <item name="android:selectableItemBackgroundBorderless">@drawable/ripple_background_borderless</item>
 
-        <item name="actionBarPopupTheme">@style/ToolbarPopupTheme</item>
-
         <item name="android:windowBackground">?attr/border_color</item>
         <item name="android:colorBackground">?attr/background_color</item>
         <item name="android:textColorPrimary">?attr/primary_color</item>
@@ -45,6 +40,8 @@
         <item name="colorPrimary">?attr/placeholder_color</item>
         <item name="colorAccent">?attr/progressive_color</item>
         <item name="colorError">?attr/destructive_color</item>
+
+        <item name="colorSecondaryContainer">?attr/addition_color</item>
 
         <!-- Overrides of base Android styles with color sub-definitions -->
         <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.Light.PopupMenu.Overflow</item>
@@ -223,11 +220,6 @@
         <item name="lineHeight">18sp</item>
     </style>
 
-    <style name="Toolbar">
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textSize">10sp</item>
-        <item name="lineHeight">12sp</item>
-    </style>
     <!-- Component updates -->
 
     <!-- TODO: revisit and replace/inherit the existing styles -->
@@ -250,12 +242,14 @@
         <item name="windowActionModeOverlay">false</item>
     </style>
 
-    <style name="AppTheme.ActionBar.Watchlist">
-        <item name="actionBarTheme">@style/WatchlistToolbarTheme</item>
+    <style name="AppTheme.FullScreen">
+        <item name="android:windowFullscreen">true</item>
     </style>
 
-    <style name="AppTheme.Notification">
-        <item name="actionModeStyle">@style/ActionModeStyle.Notification</item>
+    <style name="AppTheme.FullScreen.Translucent">
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
     <style name="DialogLight" parent="Theme.Material3.Light.Dialog">
@@ -279,22 +273,31 @@
         <item name="android:disabledAlpha">1.0</item>
     </style>
 
+    <style name="ActionBarStyle" parent="@style/Widget.Material3.ActionBar.Solid">
+        <item name="navigationIcon">?attr/homeAsUpIndicator</item>
+        <item name="elevation">0dp</item>
+        <item name="android:background">?attr/paper_color</item>
+        <item name="titleTextColor">?attr/primary_color</item>
+        <item name="titleTextAppearance">@style/H1.AppBar</item>
+    </style>
+
+    <style name="ToolbarStyle" parent="@style/Widget.Material3.Toolbar">
+        <item name="navigationIcon">?attr/homeAsUpIndicator</item>
+        <item name="elevation">0dp</item>
+        <item name="android:background">?attr/paper_color</item>
+        <item name="titleTextColor">?attr/primary_color</item>
+        <item name="titleTextAppearance">@style/H1.AppBar</item>
+    </style>
+
+    <style name="ToolbarStyle.Small">
+        <item name="titleTextAppearance">@style/H2.AppBar</item>
+    </style>
+
     <style name="ActionModeCloseButtonStyle">
         <item name="android:visibility">gone</item>
         <item name="android:layout_marginStart">-48dp</item>
         <item name="actionModeCloseDrawable">@drawable/ic_arrow_back_black_24dp</item>
     </style>
-
-    <style name="AppTheme.FullScreen">
-        <item name="android:windowFullscreen">true</item>
-    </style>
-
-    <style name="AppTheme.FullScreen.Translucent">
-        <item name="android:colorBackgroundCacheHint">@null</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-
 
     <style name="AlertDialogButtonStyle" parent="Widget.Material3.Button.TextButton.Dialog">
         <item name="android:textAlignment">textEnd</item>
@@ -311,18 +314,6 @@
         <item name="android:textColor">?attr/progressive_color</item>
     </style>
 
-    <style name="WatchlistToolbarTheme" parent="@style/ThemeOverlay.Material3.ActionBar">
-        <item name="android:background">?android:attr/colorBackground</item>
-    </style>
-
-    <style name="ToolbarTheme" parent="@style/ThemeOverlay.Material3.ActionBar">
-        <item name="colorControlNormal">?attr/primary_color</item>
-    </style>
-
-    <style name="PageToolbarTheme" parent="@style/ThemeOverlay.Material3.ActionBar">
-        <item name="colorControlNormal">?attr/primary_color</item>
-    </style>
-
     <style name="TabToolbarTheme" parent="@style/ThemeOverlay.Material3.ActionBar">
         <item name="colorControlNormal">?attr/primary_color</item>
         <item name="colorControlActivated">?attr/primary_color</item>
@@ -330,24 +321,6 @@
         <item name="navigationIcon">@drawable/ic_add_gray_white_24dp</item>
         <item name="navigationIconTint">?attr/placeholder_color</item>
         <item name="navigationContentDescription">@string/menu_new_tab</item>
-    </style>
-
-    <style name="ToolbarStyle" parent="@style/Widget.Material3.Toolbar">
-        <item name="navigationIcon">?attr/homeAsUpIndicator</item>
-        <item name="elevation">0dp</item>
-        <item name="titleTextStyle">@style/H1.AppBar</item>
-        <item name="titleTextAppearance">@style/H1.AppBar</item>
-    </style>
-
-    <style name="ToolbarStyleSmall" parent="ToolbarStyle">
-        <item name="titleTextStyle">@style/H2.AppBar</item>
-        <item name="titleTextAppearance">@style/H2.AppBar</item>
-    </style>
-
-    <style name="ToolbarPopupTheme" parent="ThemeOverlay.Material3">
-        <item name="android:backgroundTint">?android:colorBackground</item>
-        <item name="android:textColor">?attr/primary_color</item>
-        <item name="android:tint">?attr/primary_color</item>
     </style>
 
     <style name="BottomNavigationTextAppearance"  parent="TextAppearance.AppCompat">
@@ -358,21 +331,6 @@
 
     <style name="BottomNavigationTextAppearance.Active">
         <item name="android:textStyle">normal</item>
-    </style>
-
-    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
-        <item name="color">@android:color/white</item>
-    </style>
-
-    <style name="ActionModeStyle" parent="@style/Widget.Material3.ActionMode">
-        <item name="background">?attr/paper_color</item>
-        <item name="backgroundSplit">?attr/paper_color</item>
-        <item name="titleTextStyle">@style/ActionModeTitleStyle</item>
-        <item name="subtitleTextStyle">@style/ActionModeSubtitleStyle</item>
-    </style>
-
-    <style name="ActionModeStyle.Notification">
-        <item name="titleTextStyle">@style/NotificationActionModeTitleStyle</item>
     </style>
 
     <style name="PageActionModeStyle" parent="@style/Widget.Material3.ActionMode">
