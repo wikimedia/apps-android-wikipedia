@@ -14,17 +14,14 @@
         <item name="toolbarStyle">@style/ToolbarStyle</item>
 
         <item name="snackbarStyle">@style/SnackbarStyle</item>
-        <item name="snackbarTextViewStyle">@style/H3.Button.SnackbarTextView</item>
+        <item name="snackbarTextViewStyle">@style/SnackbarTextView</item>
         <item name="snackbarButtonStyle">@style/SnackbarButtonStyle</item>
 
         <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
         <item name="android:listViewStyle">@style/ListView</item>
         <item name="android:textViewStyle">@style/RtlAwareTextView</item>
 
-        <item name="alertDialogTheme">@style/AlertDialogStyle</item>
-
-        <!-- Theme for dialog after long pressing on internal links -->
-        <item name="android:alertDialogTheme">@style/LongPressAlertDialogStyle</item>
+        <item name="alertDialogTheme">@style/AlertDialogThemeOverlay</item>
 
         <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
         <item name="maxActionInlineWidth">@dimen/snackbar_action_inline_max_dimen</item>
@@ -54,7 +51,9 @@
         <item name="colorSurface">?attr/paper_color</item>
         <item name="colorTertiaryContainer">?attr/paper_color</item>
         <item name="colorSecondaryContainer">?attr/addition_color</item>
-        <item name="colorSurfaceVariant">?attr/addition_color</item>
+
+        <item name="colorPrimaryContainer">?attr/paper_color</item>
+        <item name="colorSurfaceVariant">?attr/paper_color</item>
 
         <item name="elevationOverlayEnabled">false</item>
 
@@ -166,7 +165,8 @@
         <item name="android:textStyle">normal</item>
     </style>
 
-    <style name="H3.Button.SnackbarTextView">
+    <style name="SnackbarTextView">
+        <item name="android:textColor">?attr/paper_color</item>
         <item name="android:maxLines">10</item>
         <item name="android:paddingTop">0dp</item>
         <item name="android:paddingBottom">0dp</item>
@@ -350,7 +350,7 @@
 
     <style name="SearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
         <item name="android:textCursorDrawable">@drawable/custom_cursor</item>
-        <item name="android:textColor">?attr/primary_color</item>
+        <item name="android:textColor">?attr/progressive_color</item>
         <item name="android:textColorHint">?attr/placeholder_color</item>
     </style>
 
@@ -578,7 +578,7 @@
         <item name="forceApplySystemWindowInsetTop">false</item>
     </style>
 
-    <style name="AlertDialogStyle" parent="ThemeOverlay.Material3.Dialog.Alert">
+    <style name="AlertDialogThemeOverlay" parent="ThemeOverlay.Material3.Dialog.Alert">
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:textColorPrimary">?attr/secondary_color</item>
         <item name="android:windowTitleStyle">@style/H2.DialogTitleStyle</item>
@@ -587,11 +587,6 @@
         <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
         <item name="textColorAlertDialogListItem">?attr/secondary_color</item>
         <item name="android:lineSpacingExtra">@dimen/dialog_line_spacing_extra</item>
-    </style>
-
-    <style name="LongPressAlertDialogStyle" parent="AlertDialogStyle">
-        <item name="android:backgroundTint">?attr/paper_color</item>
-        <item name="android:background">?attr/paper_color</item>
     </style>
 
     <style name="SnackbarStyle" parent="Widget.Material3.Snackbar">
