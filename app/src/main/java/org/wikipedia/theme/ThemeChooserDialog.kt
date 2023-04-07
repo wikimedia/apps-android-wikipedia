@@ -1,6 +1,7 @@
 package org.wikipedia.theme
 
 import android.content.DialogInterface
+import android.content.res.ColorStateList
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
@@ -251,8 +252,8 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateFontFamily() {
-        binding.buttonFontFamilySansSerif.strokeWidth = if (Prefs.fontFamily == binding.buttonFontFamilySansSerif.tag) BUTTON_STROKE_WIDTH else 0
-        binding.buttonFontFamilySerif.strokeWidth = if (Prefs.fontFamily == binding.buttonFontFamilySerif.tag) BUTTON_STROKE_WIDTH else 0
+        binding.buttonFontFamilySansSerif.strokeColor = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), if (Prefs.fontFamily == binding.buttonFontFamilySansSerif.tag) R.attr.progressive_color else R.attr.border_color))
+        binding.buttonFontFamilySerif.strokeColor = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), if (Prefs.fontFamily == binding.buttonFontFamilySerif.tag) R.attr.progressive_color else R.attr.border_color))
     }
 
     private fun updateThemeButtons() {

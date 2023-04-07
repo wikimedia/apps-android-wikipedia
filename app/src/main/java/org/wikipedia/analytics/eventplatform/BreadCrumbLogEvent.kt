@@ -3,9 +3,7 @@ package org.wikipedia.analytics.eventplatform
 import android.content.Context
 import android.view.MenuItem
 import android.view.View
-import android.widget.CheckBox
 import android.widget.Checkable
-import android.widget.Switch
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import kotlinx.serialization.SerialName
