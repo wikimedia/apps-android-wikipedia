@@ -40,9 +40,6 @@
         <item name="android:textColorTertiary">?attr/placeholder_color</item>
         <item name="android:textColorHint">?attr/placeholder_color</item>
 
-        <!-- Overrides of base Android styles with color sub-definitions -->
-        <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.Light.PopupMenu.Overflow</item>
-
         <item name="popupMenuStyle">@style/PopupMenuStyle</item>
 
         <item name="collapsingToolbarLayoutStyle">@style/CollapsingToolbarStyle</item>
@@ -504,18 +501,6 @@
         <item name="android:letterSpacing">0</item>
         <item name="android:textColor">?attr/primary_color</item>
     </style>
-
-    <style name="OnboardingSwitch">
-        <item name="colorControlActivated">?attr/progressive_color</item>
-        <item name="colorSwitchThumbNormal">@color/gray400</item>
-        <item name="android:colorForeground">@color/gray500</item>
-    </style>
-
-    <style name="AppBottomSheetModalStyle" parent="Widget.Design.BottomSheet.Modal">
-        <item name="behavior_peekHeight">@dimen/bottomSheetPeekHeight</item>
-    </style>
-
-    <!-- Preferences -->
 
     <style name="AppPreferenceTheme" parent="PreferenceThemeOverlay" >
         <item name="preferenceFragmentCompatStyle">@style/AppPreferenceFragment</item>
