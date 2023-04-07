@@ -15,7 +15,7 @@
         app:tabBackgroundColor="?attr/paper_color"
         app:tabContentBackgroundColor="?attr/paper_color" />
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/tab_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -39,6 +39,6 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@string/notifications_activity_title"/>
         </LinearLayout>
-    </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.MaterialToolbar>
 
 </FrameLayout>

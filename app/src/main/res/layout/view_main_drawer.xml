@@ -45,7 +45,7 @@
             android:textColor="?attr/placeholder_color"
             android:text="@string/main_drawer_login" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/main_drawer_login_open_external_icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -61,7 +61,7 @@
         android:id="@+id/main_drawer_contribs_container"
         style="@style/SideDrawerMenuItem">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -81,7 +81,7 @@
         android:id="@+id/main_drawer_talk_container"
         style="@style/SideDrawerMenuItem">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -101,7 +101,7 @@
         android:id="@+id/main_drawer_watchlist_container"
         style="@style/SideDrawerMenuItem">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -121,7 +121,7 @@
         android:id="@+id/main_drawer_settings_container"
         style="@style/SideDrawerMenuItem">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -141,7 +141,7 @@
         android:id="@+id/main_drawer_donate_container"
         style="@style/SideDrawerMenuItem">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -156,7 +156,7 @@
             android:layout_weight="1"
             android:text="@string/nav_item_donate" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
