@@ -161,8 +161,9 @@
     </style>
 
     <style name="SnackbarTextView">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/gray300</item>
         <item name="android:maxLines">10</item>
+        <item name="lineHeight">26sp</item>
         <item name="android:paddingTop">0dp</item>
         <item name="android:paddingBottom">0dp</item>
         <item name="android:paddingStart">0dp</item>
