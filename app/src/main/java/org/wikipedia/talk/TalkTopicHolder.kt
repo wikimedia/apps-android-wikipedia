@@ -3,7 +3,9 @@ package org.wikipedia.talk
 import android.app.Activity
 import android.content.Context
 import android.graphics.Color
+import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.widget.PopupMenu
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +21,6 @@ import org.wikipedia.page.Namespace
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.*
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
-import org.wikipedia.views.TalkTopicsActionsOverflowView
 import java.util.*
 
 class TalkTopicHolder internal constructor(
@@ -129,22 +130,45 @@ class TalkTopicHolder internal constructor(
                 viewModel.isSubscribed(threadItem.name)
             }
             threadItem.subscribed = subscribed
-            TalkTopicsActionsOverflowView(context).show(anchorView, threadItem, object : TalkTopicsActionsOverflowView.Callback {
-                override fun markAsReadClick() {
-                    markAsSeen()
-                }
 
-                override fun subscribeClick() {
-                    viewModel.subscribeTopic(threadItem.name, subscribed)
-                    FeedbackUtil.showMessage(context as Activity, context.getString(if (!subscribed) R.string.talk_thread_subscribed_to else R.string.talk_thread_unsubscribed_from,
-                        StringUtil.fromHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }))
-                }
+            val menu = PopupMenu(anchorView.context, anchorView)
+            menu.setForceShowIcon(true)
+            menu.menuInflater.inflate(R.menu.menu_talk_topic_overflow, menu.menu)
 
-                override fun shareClick() {
-                    ShareUtil.shareText(context, context.getString(R.string.talk_share_discussion_subject,
-                        threadItem.html.ifEmpty { context.getString(R.string.talk_no_subject) }), viewModel.pageTitle.uri + "#" + StringUtil.addUnderscores(threadItem.html))
+            val subscribeItem = menu.menu.findItem(R.id.menu_subscribe)
+            subscribeItem.isVisible = TalkTopicActivity.isSubscribable(threadItem)
+            if (TalkTopicActivity.isSubscribable(threadItem)) {
+                subscribeItem.setIcon(if (subscribed) R.drawable.ic_notifications_active else R.drawable.ic_notifications_black_24dp)
+                subscribeItem.setTitle(if (subscribed) R.string.talk_list_item_overflow_subscribed else R.string.talk_list_item_overflow_subscribe)
+            }
+
+            val readText = menu.menu.findItem(R.id.menu_mark_as_read)
+            readText.setIcon(if (threadItem.seen) R.drawable.ic_outline_markunread_24 else R.drawable.ic_outline_drafts_24)
+            readText.setTitle(if (threadItem.seen) R.string.talk_list_item_overflow_mark_as_unread else R.string.notifications_menu_mark_as_read)
+
+            menu.setOnMenuItemClickListener(object : PopupMenu.OnMenuItemClickListener {
+                override fun onMenuItemClick(item: MenuItem?): Boolean {
+                    when (item?.itemId) {
+                        R.id.menu_mark_as_read -> {
+                            markAsSeen()
+                            return true
+                        }
+                        R.id.menu_subscribe -> {
+                            viewModel.subscribeTopic(threadItem.name, subscribed)
+                            FeedbackUtil.showMessage(context as Activity, context.getString(if (!subscribed) R.string.talk_thread_subscribed_to else R.string.talk_thread_unsubscribed_from,
+                                StringUtil.fromHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }))
+                            return true
+                        }
+                        R.id.menu_share -> {
+                            ShareUtil.shareText(context, context.getString(R.string.talk_share_discussion_subject,
+                                threadItem.html.ifEmpty { context.getString(R.string.talk_no_subject) }), viewModel.pageTitle.uri + "#" + StringUtil.addUnderscores(threadItem.html))
+                            return true
+                        }
+                    }
+                    return false
                 }
             })
+            menu.show()
         }
     }
 }
