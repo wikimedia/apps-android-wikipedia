@@ -13,6 +13,10 @@ open class SwitchPreferenceMultiLine : SwitchPreferenceCompat {
     constructor(ctx: Context, attrs: AttributeSet?) : super(ctx, attrs)
     constructor(ctx: Context) : super(ctx)
 
+    init {
+        widgetLayoutResource = R.layout.preference_material_switch
+    }
+
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
         holder.itemView.findViewById<TextView>(R.id.title)?.isSingleLine = false
