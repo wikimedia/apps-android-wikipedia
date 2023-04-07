@@ -276,19 +276,16 @@
         <item name="titleTextAppearance">@style/H2.AppBar</item>
     </style>
 
+    <style name="ToolbarStyle.Tabs" parent="@style/Widget.Material3.Toolbar">
+        <item name="navigationIcon">@drawable/ic_add_gray_white_24dp</item>
+        <item name="navigationIconTint">?attr/primary_color</item>
+        <item name="navigationContentDescription">@string/menu_new_tab</item>
+    </style>
+
     <style name="ActionModeStyle" parent="@style/Widget.Material3.ActionMode">
         <item name="background">?attr/paper_color</item>
         <item name="backgroundSplit">?attr/paper_color</item>
         <item name="android:elevation">4dp</item>
-    </style>
-
-    <style name="TabToolbarTheme" parent="@style/ThemeOverlay.Material3.ActionBar">
-        <item name="colorControlNormal">?attr/primary_color</item>
-        <item name="colorControlActivated">?attr/primary_color</item>
-        <item name="colorControlHighlight">?attr/primary_color</item>
-        <item name="navigationIcon">@drawable/ic_add_gray_white_24dp</item>
-        <item name="navigationIconTint">?attr/placeholder_color</item>
-        <item name="navigationContentDescription">@string/menu_new_tab</item>
     </style>
 
     <style name="BottomNavigationTextAppearance">

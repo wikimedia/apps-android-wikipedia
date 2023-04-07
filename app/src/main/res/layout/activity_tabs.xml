@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?android:attr/colorBackground"
-        android:theme="@style/TabToolbarTheme">
+        style="@style/ToolbarStyle.Tabs">
 
         <LinearLayout
             android:layout_width="match_parent"

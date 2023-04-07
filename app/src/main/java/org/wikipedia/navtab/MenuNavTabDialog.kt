@@ -15,8 +15,10 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil.getDimension
 import org.wikipedia.util.DimenUtil.roundedDpToPx
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
 
@@ -78,17 +80,13 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             dismiss()
         }
 
+        updateState()
         return binding.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    override fun onResume() {
-        super.onResume()
-        updateState()
     }
 
     override fun onStart() {

@@ -116,10 +116,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             callback()?.onEditingPrefsChanged()
         }
 
-        requireDialog().window?.let {
-            DeviceUtil.setNavigationBarColor(it, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
-        }
-
         disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
 
         return binding.root
