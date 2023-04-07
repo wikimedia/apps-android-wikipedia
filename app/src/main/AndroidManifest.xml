@@ -96,7 +96,7 @@
             android:name=".page.PageActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme.Page"
+            android:theme="@style/AppTheme"
             android:launchMode="singleTask"
             android:parentActivityName=".main.MainActivity"
             android:exported="true">

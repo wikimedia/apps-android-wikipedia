@@ -59,13 +59,4 @@
         app:srcCompat="@drawable/ic_expand_more_white_24dp"
         app:tint="?attr/placeholder_color" />
 
-    <ImageView
-        android:id="@+id/close_button"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:padding="12dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/dialog_close_description"
-        app:srcCompat="@drawable/ic_close_black_24dp"
-        app:tint="?attr/placeholder_color"/>
 </LinearLayout>

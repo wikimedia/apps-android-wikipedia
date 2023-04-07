@@ -169,7 +169,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val page get() = model.page
     val historyEntry get() = model.curEntry
     val containerView get() = binding.pageContentsContainer
-    val headerView get() = binding.pageHeaderView
     val isLoading get() = bridge.isLoading
     val leadImageEditLang get() = leadImagesHandler.callToActionEditLang
 
@@ -1269,7 +1268,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             binding.findInPagePrev.setOnClickListener(this)
             binding.findInPageNext.setOnClickListener(this)
             binding.referenceLabel.setOnClickListener(this)
-            binding.closeButton.setOnClickListener(this)
             binding.referenceLabel.text = getString(R.string.reference_list_title).plus(" $referenceText")
             if (backLinksList.isNotEmpty()) {
                 scrollTo(0)
@@ -1299,7 +1297,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     bridge.execute(JavaScriptActionHandler.scrollToAnchor(referenceAnchor))
                     callback()?.onPageCloseActionMode()
                 }
-                binding.closeButton -> callback()?.onPageCloseActionMode()
             }
         }
 

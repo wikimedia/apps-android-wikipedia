@@ -32,12 +32,12 @@
                     android:id="@+id/search_cab_view"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="-16dp"
                     android:layout_marginEnd="2dp"
                     android:layout_weight="1"
-                    android:focusable="true"
                     android:imeOptions="actionGo|flagNoExtractUi"
                     android:inputType="text"
+                    app:searchIcon="@null"
+                    app:searchHintIcon="@null"
                     app:defaultQueryHint="@string/search_hint" />
 
                 <FrameLayout

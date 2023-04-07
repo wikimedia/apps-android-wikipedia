@@ -7,12 +7,12 @@
         <item name="windowActionModeOverlay">true</item>
 
         <item name="toolbarStyle">@style/ToolbarStyle</item>
+        <item name="actionModeStyle">@style/ActionModeStyle</item>
 
         <item name="snackbarStyle">@style/SnackbarStyle</item>
         <item name="snackbarTextViewStyle">@style/SnackbarTextView</item>
         <item name="snackbarButtonStyle">@style/SnackbarButtonStyle</item>
 
-        <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
         <item name="android:listViewStyle">@style/ListView</item>
         <item name="android:textViewStyle">@style/RtlAwareTextView</item>
 
@@ -81,13 +81,6 @@
     <style name="AppTheme.Splash">
         <item name="android:windowBackground">@drawable/splash_bg</item>
         <item name="android:navigationBarColor">@color/gray700</item>
-    </style>
-
-    <style name="AppTheme.Page">
-        <item name="actionModeStyle">@style/PageActionModeStyle</item>
-        <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
-        <item name="actionOverflowButtonStyle">@style/ActionButtonOverflow</item>
-        <item name="actionModeCloseButtonStyle">@style/ActionModeCloseButtonStyle</item>
     </style>
 
     <style name="AppTheme.ActionBar">
@@ -259,6 +252,7 @@
 
     <style name="PopupMenuStyle" parent="Widget.Material3.PopupMenu">
         <item name="overlapAnchor">true</item>
+        <item name="iconTint">?attr/primary_color</item>
     </style>
 
     <style name="ActionBarStyle" parent="@style/Widget.Material3.Light.ActionBar.Solid">
@@ -282,10 +276,10 @@
         <item name="titleTextAppearance">@style/H2.AppBar</item>
     </style>
 
-    <style name="ActionModeCloseButtonStyle">
-        <item name="android:visibility">gone</item>
-        <item name="android:layout_marginStart">-48dp</item>
-        <item name="actionModeCloseDrawable">@drawable/ic_arrow_back_black_24dp</item>
+    <style name="ActionModeStyle" parent="@style/Widget.Material3.ActionMode">
+        <item name="background">?attr/paper_color</item>
+        <item name="backgroundSplit">?attr/paper_color</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
     <style name="TabToolbarTheme" parent="@style/ThemeOverlay.Material3.ActionBar">
@@ -297,48 +291,15 @@
         <item name="navigationContentDescription">@string/menu_new_tab</item>
     </style>
 
-    <style name="BottomNavigationTextAppearance"  parent="TextAppearance.AppCompat">
+    <style name="BottomNavigationTextAppearance">
         <item name="android:textSize">@dimen/bottom_nav_label_text_size</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="lineHeight">12sp</item>
     </style>
 
     <style name="BottomNavigationTextAppearance.Active">
+        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
-    </style>
-
-    <style name="PageActionModeStyle" parent="@style/Widget.Material3.ActionMode">
-        <item name="background">?attr/paper_color</item>
-        <item name="backgroundSplit">?attr/paper_color</item>
-        <item name="titleTextStyle">@style/PageActionModeTitleStyle</item>
-        <item name="subtitleTextStyle">@style/PageActionModeSubtitleStyle</item>
-        <item name="android:elevation">4dp</item>
-    </style>
-
-    <style name="ActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
-        <item name="android:textColor">?attr/primary_color</item>
-    </style>
-
-    <style name="NotificationActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
-        <item name="android:textColor">?attr/progressive_color</item>
-    </style>
-
-    <style name="ActionModeSubtitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle">
-        <item name="android:textColor">?attr/primary_color</item>
-    </style>
-
-    <style name="PageActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
-        <item name="android:textColor">?attr/placeholder_color</item>
-    </style>
-
-    <style name="PageActionModeSubtitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle">
-        <item name="android:textColor">?attr/placeholder_color</item>
-    </style>
-
-    <style name="SearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
-        <item name="android:textCursorDrawable">@drawable/custom_cursor</item>
-        <item name="android:textColor">?attr/progressive_color</item>
-        <item name="android:textColorHint">?attr/placeholder_color</item>
     </style>
 
     <style name="ListView" parent="@style/Widget.AppCompat.ListView">
@@ -353,11 +314,6 @@
     <style name="TextViewCentered" parent="@android:style/Widget.TextView">
         <item name="android:gravity">center</item>
         <item name="android:textAlignment">center</item>
-    </style>
-
-    <style name="ActionButtonOverflow" parent="Widget.Material3.Search.ActionButton.Overflow">
-        <item name="srcCompat">@drawable/ic_more_vert_white_24dp</item>
-        <item name="tint">?attr/primary_color</item>
     </style>
 
     <style name="SideDrawerMenuItem">

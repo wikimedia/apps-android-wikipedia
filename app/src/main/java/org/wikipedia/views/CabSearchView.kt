@@ -26,8 +26,6 @@ class CabSearchView @JvmOverloads constructor(context: Context, attrs: Attribute
         searchSrcTextView.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.primary_color))
         searchSrcTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, SEARCH_TEXT_SIZE.toFloat())
         searchSrcTextView.setHintTextColor(themedIconColor)
-        val searchMagIcon = findViewById<ImageView>(R.id.search_mag_icon)
-        searchMagIcon.setColorFilter(themedIconColor)
         searchCloseBtn = findViewById(R.id.search_close_btn)
         searchCloseBtn.visibility = GONE
         searchCloseBtn.setColorFilter(themedIconColor)
