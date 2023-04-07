@@ -35,6 +35,7 @@
         <item name="android:textColorHint">?attr/placeholder_color</item>
 
         <item name="popupMenuStyle">@style/PopupMenuStyle</item>
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
 
         <item name="collapsingToolbarLayoutStyle">@style/CollapsingToolbarStyle</item>
 
@@ -90,6 +91,7 @@
         <item name="windowActionModeOverlay">false</item>
 
         <item name="actionBarStyle">@style/ActionBarStyle</item>
+        <item name="actionBarTheme">@style/ActionBarTheme</item>
     </style>
 
     <style name="AppTheme.FullScreen">
@@ -252,16 +254,24 @@
 
     <style name="PopupMenuStyle" parent="Widget.Material3.PopupMenu">
         <item name="overlapAnchor">true</item>
-        <item name="iconTint">?attr/primary_color</item>
+        <item name="itemIconTint">?attr/primary_color</item>
+    </style>
+
+    <style name="OverflowMenuStyle" parent="Widget.Material3.PopupMenu.Overflow">
+        <item name="background">?attr/paper_color</item>
     </style>
 
     <style name="ActionBarStyle" parent="@style/Widget.Material3.Light.ActionBar.Solid">
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">0dp</item>
-        <item name="colorPrimary">@color/beige400</item>
         <item name="background">?attr/paper_color</item>
-        <item name="android:titleTextAppearance">@style/H1.AppBar</item>
-        <item name="titleTextAppearance">@style/H1.AppBar</item>
+
+        <item name="titleTextStyle">@style/H1.AppBar</item>
+        <item name="android:titleTextStyle">@style/H1.AppBar</item>
+    </style>
+
+    <style name="ActionBarTheme" parent="@style/ThemeOverlay.Material3.ActionBar">
+        <item name="colorControlNormal">?attr/primary_color</item>
     </style>
 
     <style name="ToolbarStyle" parent="@style/Widget.Material3.Toolbar">
