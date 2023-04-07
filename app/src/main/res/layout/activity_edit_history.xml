@@ -16,6 +16,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
             android:gravity="center_vertical">
 
             <TextView
@@ -50,7 +51,6 @@
                 android:background="?android:selectableItemBackgroundBorderless"
                 android:gravity="center_vertical"
                 android:textColor="?attr/progressive_color"
-                android:textAllCaps="true"
                 android:fontFamily="sans-serif-medium"
                 android:letterSpacing="0.05"
                 android:text="@string/revision_compare_button"/>
