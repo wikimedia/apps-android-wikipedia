@@ -36,7 +36,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/closeButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -65,7 +65,7 @@
                 android:gravity="center"
                 android:padding="8dp" />
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/firstSuggestionFlag"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -94,7 +94,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:padding="8dp" />
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/secondSuggestionFlag"
                 android:layout_width="48dp"
                 android:layout_height="48dp"

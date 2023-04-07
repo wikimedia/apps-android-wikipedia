@@ -43,9 +43,9 @@
 
     <ImageView
         android:id="@+id/find_in_page_prev"
-        style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:padding="12dp"
         android:layout_gravity="center_vertical"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/find_previous"
@@ -54,9 +54,9 @@
 
     <ImageView
         android:id="@+id/find_in_page_next"
-        style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:padding="12dp"
         android:layout_gravity="center_vertical"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/find_next"
@@ -65,12 +65,12 @@
 
     <ImageView
         android:id="@+id/close_button"
-        style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:padding="12dp"
         android:layout_gravity="center_vertical"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/dialog_close_description"
-        android:src="@drawable/ic_close_black_24dp"
+        app:srcCompat="@drawable/ic_close_black_24dp"
         app:tint="?attr/placeholder_color" />
 </LinearLayout>

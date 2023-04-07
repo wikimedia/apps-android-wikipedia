@@ -12,7 +12,7 @@
         android:background="?attr/paper_color"
         app:elevation="0dp">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/notifications_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"

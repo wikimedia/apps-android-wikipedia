@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
@@ -29,7 +29,7 @@
             android:textSize="20sp"
             android:textStyle="bold"/>
 
-    </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollContainer"
@@ -51,15 +51,11 @@
                 android:paddingBottom="12dp"
                 android:background="?attr/paper_color">
 
-                <ProgressBar
+                <com.google.android.material.progressindicator.LinearProgressIndicator
                     android:id="@+id/progressBar"
-                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="-6.5dp"
                     android:indeterminate="true"
-                    android:indeterminateTint="?attr/progressive_color"
-                    android:progressBackgroundTint="?attr/progressive_color"
                     android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

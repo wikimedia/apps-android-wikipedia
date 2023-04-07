@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
                 android:singleLine="true"
                 android:ellipsize="end"/>
 
-        </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.MaterialToolbar>
 
         <FrameLayout
             android:id="@+id/talkContentsView"
@@ -119,7 +119,6 @@
 
                 <ProgressBar
                     android:id="@+id/talkProgressBar"
-                    style="@style/Widget.AppCompat.ProgressBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

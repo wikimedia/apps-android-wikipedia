@@ -12,7 +12,6 @@
         <item name="windowActionModeOverlay">true</item>
 
         <item name="toolbarStyle">@style/ToolbarStyle</item>
-        <item name="actionBarStyle">@style/ActionBarStyle</item>
 
         <item name="snackbarStyle">@style/SnackbarStyle</item>
         <item name="snackbarTextViewStyle">@style/H3.Button.SnackbarTextView</item>
@@ -104,6 +103,8 @@
         <item name="windowActionBar">true</item>
         <item name="windowActionBarOverlay">false</item>
         <item name="windowActionModeOverlay">false</item>
+
+        <item name="actionBarStyle">@style/ActionBarStyle</item>
     </style>
 
     <style name="AppTheme.FullScreen">
@@ -263,9 +264,11 @@
     <style name="ActionBarStyle" parent="@style/Widget.Material3.Light.ActionBar.Solid">
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">0dp</item>
+        <item name="background">?attr/colorError</item>
         <item name="android:background">?attr/colorError</item>
         <item name="android:titleTextColor">?attr/progressive_color</item>
         <item name="android:titleTextAppearance">@style/H1.AppBar</item>
+        <item name="titleTextAppearance">@style/H1.AppBar</item>
     </style>
 
     <style name="ToolbarStyle" parent="@style/Widget.Material3.Toolbar">

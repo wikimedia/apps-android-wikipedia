@@ -17,7 +17,7 @@
             android:layout_marginTop="?attr/actionBarSize"
             android:scrollbars="vertical" />
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/replyToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -43,7 +43,7 @@
 
             </LinearLayout>
 
-        </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.MaterialToolbar>
 
         <org.wikipedia.views.WikiErrorView
             android:id="@+id/talkErrorView"
@@ -52,13 +52,11 @@
             android:layout_gravity="center"
             android:orientation="vertical" />
 
-        <ProgressBar
+        <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/talkProgressBar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:layout_marginTop="-7dp"
             android:indeterminate="true" />
 
     </FrameLayout>

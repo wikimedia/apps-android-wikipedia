@@ -42,7 +42,7 @@
             app:tint="?attr/placeholder_color"
             app:srcCompat="@drawable/ic_offline_pin_black_24dp" />
 
-        <androidx.appcompat.widget.SwitchCompat
+        <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/reading_list_item_offline_switch"
             android:layout_width="0dp"
             android:layout_height="54dp"

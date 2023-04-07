@@ -51,7 +51,7 @@
         android:paddingEnd="8dp"
         tools:text="Lorem ipsum" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/wiki_language_drag_handle"
         android:layout_width="56dp"
         android:layout_height="match_parent"
