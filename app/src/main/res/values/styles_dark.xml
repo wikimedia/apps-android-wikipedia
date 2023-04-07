@@ -3,10 +3,8 @@
 
     <style name="ThemeDark">
 
-        <!-- Overrides of our own custom style attributes -->
         <item name="talk_page_empty_state_drawable">@drawable/talk_page_empty_state_illustration_dark</item>
 
-        <!-- Component updates -->
         <item name="paper_color">@color/gray700</item>
         <item name="background_color">@color/gray675</item>
         <item name="border_color">@color/gray650</item>
@@ -24,7 +22,6 @@
         <item name="overlay_color">@color/black_70</item>
         <item name="list_divider">@drawable/divider_dark</item>
         <item name="shadow_border">@drawable/shadow_dark</item>
-        <!-- Component updates -->
 
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_dark</item>
         <item name="input_stroke_color_state">@color/color_state_input_field_dark</item>

@@ -3,7 +3,6 @@
 
     <style name="ThemeBlack" parent="ThemeDark">
 
-        <!-- Component updates -->
         <item name="paper_color">@color/black</item>
         <item name="background_color">@color/gray700</item>
         <item name="border_color">@color/gray675</item>
@@ -20,8 +19,13 @@
         <item name="addition_color">@color/blue600_30</item>
         <item name="overlay_color">@color/black_70</item>
         <item name="list_divider">@drawable/divider_black</item>
-        <!-- Component updates -->
 
+        <item name="materialAlertDialogTheme">@style/AlertDialogTheme.Black</item>
+
+    </style>
+
+    <style name="AlertDialogTheme.Black">
+        <item name="colorSurface">?attr/background_color</item>
     </style>
 
 </resources>
