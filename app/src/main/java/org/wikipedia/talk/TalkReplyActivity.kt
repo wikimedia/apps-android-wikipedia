@@ -8,10 +8,10 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.appcompat.app.AlertDialog
 import androidx.core.util.lruCache
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -292,7 +292,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         setResult(RESULT_BACK_FROM_TOPIC)
         if (viewModel.isNewTopic && (!binding.replySubjectText.text.isNullOrEmpty() ||
                     !binding.replyInputView.editText.text.isNullOrEmpty())) {
-            AlertDialog.Builder(this)
+            MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
                 .setTitle(R.string.talk_new_topic_exit_dialog_title)
                 .setMessage(R.string.talk_new_topic_exit_dialog_message)

@@ -12,7 +12,6 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.LinearLayout
-import androidx.appcompat.app.AlertDialog
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
@@ -23,6 +22,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textview.MaterialTextView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
@@ -1125,7 +1125,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     fun verifyBeforeEditingDescription(text: String?, invokeSource: InvokeSource) {
         page?.let {
             if (!AccountUtil.isLoggedIn && Prefs.totalAnonDescriptionsEdited >= resources.getInteger(R.integer.description_max_anon_edits)) {
-                AlertDialog.Builder(requireActivity())
+                MaterialAlertDialogBuilder(requireActivity())
                     .setMessage(R.string.description_edit_anon_limit)
                     .setPositiveButton(R.string.page_editing_login) { _, _ ->
                         startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_EDIT))

@@ -55,7 +55,8 @@
                 style="@style/FlatButton.Small"
                 android:layout_marginEnd="8dp"
                 app:iconSize="20dp"
-                app:iconTint="?attr/progressive_color"/>
+                app:iconTint="?attr/progressive_color"
+                tools:text="Lorem ipsum"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/view_announcement_action_negative"

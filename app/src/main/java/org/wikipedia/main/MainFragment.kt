@@ -16,12 +16,12 @@ import android.speech.RecognizerIntent
 import android.util.Pair
 import android.view.*
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import org.wikipedia.BackPressedHandler
@@ -554,7 +554,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     private fun maybeShowImportReadingListsNewInstallDialog() {
         if (!Prefs.importReadingListsNewInstallDialogShown) {
             ReadingListsSharingAnalyticsHelper.logReceiveStart(requireContext())
-            AlertDialog.Builder(requireContext())
+            MaterialAlertDialogBuilder(requireContext())
                 .setTitle(R.string.shareable_reading_lists_new_install_dialog_title)
                 .setMessage(R.string.shareable_reading_lists_new_install_dialog_content)
                 .setNegativeButton(R.string.shareable_reading_lists_new_install_dialog_got_it, null)
