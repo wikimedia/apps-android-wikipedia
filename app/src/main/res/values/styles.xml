@@ -455,13 +455,6 @@
 
     <style name="AppPreferenceTheme" parent="PreferenceThemeOverlay" >
         <item name="preferenceFragmentCompatStyle">@style/AppPreferenceFragment</item>
-        <item name="android:listPreferredItemPaddingLeft">@dimen/activity_horizontal_margin</item>
-        <item name="android:listPreferredItemPaddingStart">@dimen/activity_horizontal_margin</item>
-        <item name="android:listPreferredItemPaddingRight">@dimen/activity_horizontal_margin</item>
-        <item name="android:listPreferredItemPaddingEnd">@dimen/activity_horizontal_margin</item>
-        <item name="colorControlActivated">?attr/progressive_color</item>
-        <item name="colorSwitchThumbNormal">?attr/border_color</item>
-        <item name="android:colorForeground">?attr/primary_color</item>
         <item name="android:disabledAlpha">0.5</item>
     </style>
 
@@ -504,7 +497,9 @@
     <style name="TextInputLayoutErrorTextAppearance">
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
+
     <style name="TextInputLayoutStyle" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="android:textColor">?attr/primary_color</item>
         <item name="android:textColorHint">?attr/placeholder_color</item>
         <item name="boxBackgroundColor">?attr/background_color</item>
         <item name="boxStrokeColor">?attr/input_stroke_color_state</item>
@@ -514,9 +509,8 @@
         <item name="errorTextAppearance">@style/TextInputLayoutErrorTextAppearance</item>
     </style>
 
-    <style name="EditSectionTextInputLayoutStyle" parent="TextInputLayoutStyle">
+    <style name="TextInputLayoutStyle.EditSection">
         <item name="android:textColorHighlight">?attr/focus_color</item>
-        <item name="android:textColor">?attr/primary_color</item>
         <item name="strokeColor">@android:color/transparent</item>
     </style>
 
