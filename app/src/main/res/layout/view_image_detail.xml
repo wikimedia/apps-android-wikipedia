@@ -77,21 +77,18 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/actionButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:textSize="14sp"
-        android:fontFamily="sans-serif"
-        android:textStyle="bold"
+        style="@style/TransparentButton"
         android:textColor="?attr/progressive_color"
-        android:letterSpacing="0.04"
-        android:lineSpacingExtra="6sp"
-        android:textAlignment="textStart"
+        android:visibility="gone"
         android:layout_marginStart="-12dp"
         app:icon="@drawable/ic_add_gray_white_24dp"
         app:iconSize="24dp"
         app:iconPadding="8dp"
-        app:iconTint="?attr/progressive_color"/>
+        app:iconTint="?attr/progressive_color"
+        tools:visibility="visible"
+        tools:text="Lorem ipsum"/>
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
