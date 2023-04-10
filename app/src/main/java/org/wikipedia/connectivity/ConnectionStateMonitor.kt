@@ -8,23 +8,33 @@ import android.net.NetworkRequest
 import android.os.Build
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
-import org.wikipedia.events.NetworkConnectEvent
+import org.wikipedia.savedpages.SavedPageSyncService
 import java.util.concurrent.TimeUnit
-
 
 class ConnectionStateMonitor : ConnectivityManager.NetworkCallback() {
 
-    private lateinit var connectivityManager: ConnectivityManager
+    interface Callback {
+        fun onGoOnline()
+        fun onGoOffline()
+    }
+
     private var online = true
-    private var lastCheckedMillis: Long = 0
-    private var networkRequest = NetworkRequest.Builder()
-        .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
-        .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
-        .build()
+    private var prevOnline = true
+    private var lastCheckedMillis = 0L
+    private val callbacks = mutableListOf<Callback>()
 
     fun enable(context: Context) {
-        connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        connectivityManager.registerNetworkCallback(networkRequest, this)
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            connectivityManager.registerDefaultNetworkCallback(this)
+        } else {
+            connectivityManager.registerNetworkCallback(NetworkRequest.Builder()
+                .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
+                .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
+                .build(), this)
+        }
+        updateOnlineState()
     }
 
     fun isOnline(): Boolean {
@@ -35,32 +45,46 @@ class ConnectionStateMonitor : ConnectivityManager.NetworkCallback() {
         return online
     }
 
+    fun registerCallback(callback: Callback) {
+        callbacks.add(callback)
+    }
+
+    fun unregisterCallback(callback: Callback) {
+        callbacks.remove(callback)
+    }
+
     override fun onAvailable(network: Network) {
         super.onAvailable(network)
         updateOnlineState()
     }
 
+    override fun onLost(network: Network) {
+        super.onLost(network)
+        updateOnlineState()
+    }
+
     private fun updateOnlineState() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            val capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
-            capabilities?.let {
-                online = if (it.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
-                    true
-                } else if (it.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
-                    true
-                } else it.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
-            } ?: run {
-                online = false
-            }
+        val connectivityManager = WikipediaApp.instance.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        online = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
         } else {
-            val networkInfo = connectivityManager.activeNetworkInfo
-            online = networkInfo != null && networkInfo.isConnected
+            connectivityManager.activeNetworkInfo?.isConnected == true
         }
 
         EventPlatformClient.setEnabled(online)
 
-        if (online) {
-            WikipediaApp.instance.bus.post(NetworkConnectEvent())
+        if (online != prevOnline) {
+            if (online) {
+                WikipediaApp.instance.mainThreadHandler.post {
+                    callbacks.forEach { it.onGoOnline() }
+                }
+                SavedPageSyncService.enqueue()
+            } else {
+                WikipediaApp.instance.mainThreadHandler.post {
+                    callbacks.forEach { it.onGoOffline() }
+                }
+            }
+            prevOnline = online
         }
     }
 
