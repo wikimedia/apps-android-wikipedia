@@ -415,8 +415,10 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         binding.suggestedDescButton.chipIcon = CircularProgressDrawable(ResourceUtil.getThemedColor(context, R.attr.primary_color), 1).also { it.start() }
     }
 
-    private fun updateSuggestedDescriptionsButtonVisibility() {
-        binding.suggestedDescButton.isVisible = binding.viewDescriptionEditTextLayout.error.isNullOrEmpty() && isSuggestionButtonEnabled
+     fun updateSuggestedDescriptionsButtonVisibility() {
+        binding.root.post {
+            binding.suggestedDescButton.isVisible = binding.viewDescriptionEditTextLayout.error.isNullOrEmpty() && isSuggestionButtonEnabled
+        }
     }
 
     fun showSuggestedDescriptionsButton(firstSuggestion: String, secondSuggestion: String?) {

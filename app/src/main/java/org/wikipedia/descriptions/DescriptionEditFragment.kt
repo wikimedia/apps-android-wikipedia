@@ -258,6 +258,9 @@ class DescriptionEditFragment : Fragment() {
                     analyticsHelper.displayOrderList = listOfNotNull(firstSuggestion, secondSuggestion)
                     binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(firstSuggestion, secondSuggestion)
                     analyticsHelper.logSuggestionsShown(requireContext(), pageTitle)
+                } else {
+                    binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = false
+                    binding.fragmentDescriptionEditView.updateSuggestedDescriptionsButtonVisibility()
                 }
             }
         }
