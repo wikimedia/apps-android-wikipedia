@@ -235,6 +235,9 @@ class DescriptionEditFragment : Fragment() {
             L.e(throwable)
             analyticsHelper.logApiFailed(requireContext(), throwable, pageTitle)
         }) {
+            val list: List<String>
+            val isBlp: Boolean
+
             withContext(Dispatchers.IO) {
                 val response = ServiceFactory[pageTitle.wikiSite, DescriptionSuggestionService.API_URL, DescriptionSuggestionService::class.java]
                     .getSuggestion(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2)
@@ -242,26 +245,26 @@ class DescriptionEditFragment : Fragment() {
                 // Perform some post-processing on the predictions.
                 // 1) Capitalize them, if we're dealing with enwiki.
                 // 2) Remove duplicates.
-                val list = (if (pageTitle.wikiSite.languageCode == "en") {
+                list = (if (pageTitle.wikiSite.languageCode == "en") {
                     response.prediction.map { StringUtil.capitalize(it)!! }
                 } else response.prediction).distinct()
+                isBlp = response.blp
                 analyticsHelper.apiOrderList = list
                 analyticsHelper.logSuggestionsReceived(requireContext(), response.blp, pageTitle)
                 L.d("Received suggestion: " + list.first())
                 L.d("And is it a BLP? " + response.blp)
-
-                // Randomize the display order
-                if (!response.blp || MachineGeneratedArticleDescriptionsAnalyticsHelper.abcTest.group == GROUP_3) {
-                    val randomizedListIndex = (0 until 2).random()
-                    val firstSuggestion = if (list.size == 2) list[randomizedListIndex] else list.first()
-                    val secondSuggestion = if (list.size == 2) { if (randomizedListIndex == 0) list.last() else list.first() } else null
-                    analyticsHelper.displayOrderList = listOfNotNull(firstSuggestion, secondSuggestion)
-                    binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(firstSuggestion, secondSuggestion)
-                    analyticsHelper.logSuggestionsShown(requireContext(), pageTitle)
-                } else {
-                    binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = false
-                    binding.fragmentDescriptionEditView.updateSuggestedDescriptionsButtonVisibility()
-                }
+            }
+            // Randomize the display order
+            if (!isBlp || MachineGeneratedArticleDescriptionsAnalyticsHelper.abcTest.group == GROUP_3) {
+                val randomizedListIndex = (0 until 2).random()
+                val firstSuggestion = if (list.size == 2) list[randomizedListIndex] else list.first()
+                val secondSuggestion = if (list.size == 2) { if (randomizedListIndex == 0) list.last() else list.first() } else null
+                analyticsHelper.displayOrderList = listOfNotNull(firstSuggestion, secondSuggestion)
+                binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(firstSuggestion, secondSuggestion)
+                analyticsHelper.logSuggestionsShown(requireContext(), pageTitle)
+            } else {
+                binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = false
+                binding.fragmentDescriptionEditView.updateSuggestedDescriptionsButtonVisibility()
             }
         }
     }

@@ -55,14 +55,14 @@
             android:clipToPadding="false"
             android:gravity="center_vertical">
 
-            <com.google.android.material.chip.Chip
+            <TextView
                 android:id="@+id/firstSuggestion"
                 style="@style/Chip.Accessible"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
+                android:background="@drawable/background_8dp_radius"
+                android:foreground="?attr/selectableItemBackground"
                 android:padding="8dp" />
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -85,13 +85,14 @@
             android:clipToPadding="false"
             android:gravity="center_vertical">
 
-            <com.google.android.material.chip.Chip
+            <TextView
                 android:id="@+id/secondSuggestion"
                 style="@style/Chip.Accessible"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
+                android:background="@drawable/background_8dp_radius"
+                android:foreground="?attr/selectableItemBackground"
                 android:padding="8dp" />
 
             <androidx.appcompat.widget.AppCompatImageView
