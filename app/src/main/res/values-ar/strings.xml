@@ -688,6 +688,7 @@
   <string name="notifications_mark_unread">علم كغير مقروءة</string>
   <string name="notifications_mark_all_as_read">اعتبرها كلها مقروءة</string>
   <string name="notifications_direct_reply_action">رد</string>
+  <string name="notifications_direct_reply_success">نُشر الرد.</string>
   <string name="watchlist_title">قائمة المراقبة</string>
   <string name="preference_title_notification_poll">إشعارات الاستقصاء</string>
   <string name="preference_summary_notification_poll">السماح للتطبيق باستخدام البيانات للتحقق من الإشعارات الجديدة في الخلفية.</string>
@@ -1097,6 +1098,7 @@
   <string name="insert_media_settings_alternative_text">نص بديل</string>
   <string name="insert_media_advanced_settings">إعدادات متقدمة</string>
   <string name="insert_media_advanced_settings_image_position">موضع الصورة</string>
+  <string name="insert_media_advanced_settings_image_position_right">يمين</string>
   <string name="insert_media_advanced_settings_image_type">نوع الصورة</string>
   <string name="insert_media_advanced_settings_image_size">حجم الصورة</string>
   <string name="insert_media_advanced_settings_image_size_default">افتراضي</string>
