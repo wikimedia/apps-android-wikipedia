@@ -949,6 +949,7 @@
   <string name="suggested_edits_contribution_type_image_tag">Znacznik obrazu</string>
   <string name="suggested_edits_contribution_current_revision_text">Twoja zmiana jest obecnie opublikowana w Wikipedii</string>
   <string name="suggested_card_more_edits">Więcej sugerowanych zmian</string>
+  <string name="suggested_edits_report_suggestion">Raport</string>
   <string name="suggested_edits_added_contribution_label" fuzzy="true">Dodałeś/aś %d znaków</string>
   <string name="file_page_activity_title">Strona pliku</string>
   <string name="file_page_add_image_caption_button">Dodaj podpis obrazu</string>
