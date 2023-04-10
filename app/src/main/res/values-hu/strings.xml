@@ -1040,7 +1040,7 @@
   <string name="suggested_edits_article_descriptions_dialog_title">Javasolt leírások</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Mit szeretnél jelenteni?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Nem tartalmaz elég információt</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion" fuzzy="true">Nem látok leírásjavaslatokat</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Nem látok javasolt leírásokat</string>
   <string name="suggested_edits_inappropriate_suggestion">Nem megfelelő javaslat</string>
   <string name="suggested_edits_do_not_understand_suggestion">Nem értem a feladatot</string>
   <string name="suggested_edits_report_suggestion">Jelentés</string>
