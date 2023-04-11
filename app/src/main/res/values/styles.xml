@@ -223,6 +223,9 @@
     </style>
 
     <style name="Chip.Accessible">
+        <item name="chipBackgroundColor">?attr/background_color</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStrokeColor">?attr/border_color</item>
         <item name="android:textColor">?attr/primary_color</item>
         <item name="ensureMinTouchTargetSize">true</item>
         <item name="chipMinTouchTargetSize">48dp</item>

@@ -1024,7 +1024,7 @@
   <string name="suggested_edits_article_descriptions_dialog_title">Saranan deskripsi</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Apa yang ingin Anda laporkan?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Tidak cukup informasi</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion">Tidak dapat melihat rekomendasi deskripsi</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion" fuzzy="true">Tidak dapat melihat rekomendasi deskripsi</string>
   <string name="suggested_edits_inappropriate_suggestion">Saran yang tidak tepat</string>
   <string name="suggested_edits_do_not_understand_suggestion">Tidak memahami tugasnya</string>
   <string name="suggested_edits_report_suggestion">Laporkan</string>

@@ -415,15 +415,13 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         binding.suggestedDescButton.chipIcon = CircularProgressDrawable(ResourceUtil.getThemedColor(context, R.attr.primary_color), 1).also { it.start() }
     }
 
-    private fun updateSuggestedDescriptionsButtonVisibility() {
+     fun updateSuggestedDescriptionsButtonVisibility() {
         binding.suggestedDescButton.isVisible = binding.viewDescriptionEditTextLayout.error.isNullOrEmpty() && isSuggestionButtonEnabled
     }
 
     fun showSuggestedDescriptionsButton(firstSuggestion: String, secondSuggestion: String?) {
-        binding.root.post {
-            binding.suggestedDescButton.isEnabled = true
-            binding.suggestedDescButton.chipIcon = AppCompatResources.getDrawable(context, R.drawable.ic_robot_24)
-        }
+        binding.suggestedDescButton.isEnabled = true
+        binding.suggestedDescButton.chipIcon = AppCompatResources.getDrawable(context, R.drawable.ic_robot_24)
         binding.suggestedDescButton.setOnClickListener {
             SuggestedArticleDescriptionsDialog(context as Activity, firstSuggestion, secondSuggestion, pageTitle, callback!!.getAnalyticsHelper()) { suggestion ->
                 binding.viewDescriptionEditText.setText(suggestion)

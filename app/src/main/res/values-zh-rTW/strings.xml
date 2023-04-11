@@ -1050,7 +1050,7 @@
   <string name="suggested_edits_article_descriptions_dialog_title">建議的描述</string>
   <string name="suggested_edits_descriptions_report_dialog_title">您要報告什麼？</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">沒有足夠資訊</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion">沒有描述推薦</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">沒有推薦描述</string>
   <string name="suggested_edits_inappropriate_suggestion">不恰當的建議</string>
   <string name="suggested_edits_do_not_understand_suggestion">無法理解任務</string>
   <string name="suggested_edits_report_suggestion">報告</string>
