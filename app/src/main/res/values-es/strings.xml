@@ -1276,4 +1276,16 @@
   <string name="reading_list_share_survey_body">\"Compartir listas de lectura\" es una función de prueba y necesitamos tus comentarios para mejorarla o eliminarla.</string>
   <string name="data_opt_in_accept">Aceptar</string>
   <string name="data_opt_in_reject">Rechazar</string>
+  <string name="description_edit_suggested_description_button_tooltip">Pruebe descripciones de artículos sugeridas automáticamente</string>
+  <string name="description_edit_suggested_description_button_text">Mostrar descripciones sugeridas</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Descripciones sugeridas</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">¿Sobre qué desea informar?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">No hay suficiente información</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">No puedo ver las descripciones sugeridas</string>
+  <string name="suggested_edits_inappropriate_suggestion">Sugerencia inadecuada</string>
+  <string name="suggested_edits_do_not_understand_suggestion">No entiendo la tarea</string>
+  <string name="suggested_edits_report_suggestion">Informar a</string>
+  <string name="suggested_edits_suggestion_report_submitted">Se ha enviado el informe</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Sugerencias automáticas</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Las sugerencias son generadas automáticamente, no por voluntarios ni por la Fundación Wikimedia.</string>
 </resources>

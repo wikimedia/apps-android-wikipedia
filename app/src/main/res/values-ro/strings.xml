@@ -1275,4 +1275,16 @@
   <string name="reading_list_share_menu_label">Distribuiți...</string>
   <string name="data_opt_in_accept">Accept</string>
   <string name="data_opt_in_reject">Refuz</string>
+  <string name="description_edit_suggested_description_button_tooltip">Încercați descrieri de articole sugerate automat</string>
+  <string name="description_edit_suggested_description_button_text">Arată descrieri sugerate</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Descrieri sugerate</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Ce doriți să raportați?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Informații insuficiente</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Nu văd descrierile sugerate</string>
+  <string name="suggested_edits_inappropriate_suggestion">Sugestie neadecvată</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Nu înțeleg sarcina</string>
+  <string name="suggested_edits_report_suggestion">Raportare</string>
+  <string name="suggested_edits_suggestion_report_submitted">Raportare trimisă</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Sugestii automate</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Sugestiile sunt generate de o mașină, nu de voluntari sau de Fundația Wikimedia</string>
 </resources>

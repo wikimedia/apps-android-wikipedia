@@ -1402,4 +1402,15 @@
   <string name="reading_list_share_menu_tooltip">このあとで読むリストを他の人と共有する</string>
   <string name="data_opt_in_accept">承認</string>
   <string name="data_opt_in_reject">却下</string>
+  <string name="description_edit_suggested_description_button_tooltip">機械によって提案された記事の要約を試し読みする</string>
+  <string name="description_edit_suggested_description_button_text">提案された要約を表示する</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">提案された要約</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">何を報告したいですか？</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">情報が不足しています</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">提案された要約が表示されません</string>
+  <string name="suggested_edits_inappropriate_suggestion">不適切な提案</string>
+  <string name="suggested_edits_do_not_understand_suggestion">タスクが理解できません</string>
+  <string name="suggested_edits_suggestion_report_submitted">報告が提出されました</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">機械による提案</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">提案はボランティアまたはウィキメディア財団ではなく、機械によって生成されます</string>
 </resources>

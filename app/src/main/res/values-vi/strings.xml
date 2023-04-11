@@ -1115,4 +1115,16 @@
   <string name="shareable_reading_lists_import_dialog_content">Bạn muốn đặt tên cho danh sách đã được chia sẻ với bạn như thế nào?</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Một danh sách đọc đã được chia sẻ với bạn</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Chúng tôi nhận thấy rằng một danh sách đọc đã được chia sẻ với bạn. Để xem danh sách này trong ứng dụng, hãy quay lại tin nhắn gốc và nhấn lại vào liên kết.</string>
+  <string name="description_edit_suggested_description_button_tooltip">Dùng thử mô tả bài viết do máy đề xuất</string>
+  <string name="description_edit_suggested_description_button_text">Hiển thị mô tả được đề xuất</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Mô tả được đề xuất</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Bạn muốn báo cáo điều gì?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Không đủ thông tin</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Tôi không thể xem mô tả được đề xuất</string>
+  <string name="suggested_edits_inappropriate_suggestion">Đề xuất không phù hợp</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Tôi không hiểu nhiệm vụ</string>
+  <string name="suggested_edits_report_suggestion">Báo cáo</string>
+  <string name="suggested_edits_suggestion_report_submitted">Đã gửi báo cáo</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Đề xuất của máy</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Các đề xuất do máy tạo ra chứ không phải tình nguyện viên hoặc Wikimedia Foundation</string>
 </resources>

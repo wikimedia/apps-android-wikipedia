@@ -1215,4 +1215,16 @@
   <string name="reading_list_share_message_v2">हैलो! मैं अपना Wikipedia रीडिंग लिस्ट आपके साथ साझा करना चाहता/चाहती हूं :</string>
   <string name="reading_list_share_survey_title">क्या आप \"रीडिंग लिस्ट साझा करें\" में सुधार लाने में हमारी सहायता करेंगे?</string>
   <string name="reading_list_share_survey_body">\"रीडिंग लिस्ट साझा करें\" इस टेस्ट फीचर है और उसे सुधरने या हटाने में आपकी फीडबैक की जरूरत है।</string>
+  <string name="description_edit_suggested_description_button_tooltip">मशीन द्वारा सुझाए गए लेख विवरण आज़माएं</string>
+  <string name="description_edit_suggested_description_button_text">सुझाए गए लेख विवरण दिखाएं</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">सुझाए गए विवरण</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">आप क्या रिपोर्ट करना चाहेंगे?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">ज्यादा जानकारी नहीं है</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">सुझाए गए विवरण देख नहीं सकते</string>
+  <string name="suggested_edits_inappropriate_suggestion">अनुचित सुझाव</string>
+  <string name="suggested_edits_do_not_understand_suggestion">काम समझ में नहीं आया</string>
+  <string name="suggested_edits_report_suggestion">रिपोर्ट</string>
+  <string name="suggested_edits_suggestion_report_submitted">प्रतिवेदन प्रस्तुत किया</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">मशीन जनित सुझाव</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">सुझाव एक मशीन द्वारा उत्पन्न किए गए हैं न कि स्वयंसेवकों या विकिमीडिया फाउंडेशन द्वारा</string>
 </resources>

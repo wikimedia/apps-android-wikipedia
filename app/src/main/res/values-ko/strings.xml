@@ -1282,4 +1282,16 @@
   <string name="reading_list_share_survey_body">\"읽기 목록 공유\"는 시험 기능이며, 이를 개선하거나 제거하려면 여러분의 의견이 필요합니다.</string>
   <string name="data_opt_in_accept">수락</string>
   <string name="data_opt_in_reject">거부</string>
+  <string name="description_edit_suggested_description_button_tooltip">기계 추천 글 설명 사용해 보기</string>
+  <string name="description_edit_suggested_description_button_text">추천 설명 표시</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">추천 설명</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">무엇을 신고하시겠습니까?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">정보가 충분하지 않음</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">추천 설명이 표시되지 않습니다.</string>
+  <string name="suggested_edits_inappropriate_suggestion">부적절한 추천</string>
+  <string name="suggested_edits_do_not_understand_suggestion">과업을 이해하지 못하겠습니다.</string>
+  <string name="suggested_edits_report_suggestion">신고</string>
+  <string name="suggested_edits_suggestion_report_submitted">신고 제출</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">기계 추천</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">추천은 자원봉사자나 위키미디어 재단이 아닌 기계에 의해 생성됩니다.</string>
 </resources>
