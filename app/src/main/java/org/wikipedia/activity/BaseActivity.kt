@@ -231,7 +231,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     private inner class ExclusiveBusConsumer : Consumer<Any> {
         override fun accept(event: Any) {
             if (event is SplitLargeListsEvent) {
-                MaterialAlertDialogBuilder.Builder(this@BaseActivity)
+                MaterialAlertDialogBuilder(this@BaseActivity)
                         .setMessage(getString(R.string.split_reading_list_message, SiteInfoClient.maxPagesPerReadingList))
                         .setPositiveButton(R.string.reading_list_split_dialog_ok_button_text, null)
                         .show()
