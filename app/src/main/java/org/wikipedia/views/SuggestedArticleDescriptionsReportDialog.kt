@@ -31,7 +31,7 @@ class SuggestedArticleDescriptionsReportDialog(
         setPositiveButton(context.getString(R.string.suggested_edits_report_suggestion)) { _, _ ->
             if (getReportReasons().isNotEmpty()) {
                 analyticsHelper.logSuggestionReported(context, suggestion, getReportReasons(), pageTitle)
-                FeedbackUtil.makeSnackbar(context as Activity, context.getString(R.string.suggested_edits_suggestion_report_submitted)).show()
+                FeedbackUtil.makeSnackbar(activity, context.getString(R.string.suggested_edits_suggestion_report_submitted)).show()
                 callback.onReportClick()
                 reported = true
                 dialog?.dismiss()
