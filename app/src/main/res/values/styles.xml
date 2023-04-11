@@ -14,6 +14,7 @@
         <item name="android:listViewStyle">@style/ListView</item>
         <item name="android:textViewStyle">@style/RtlAwareTextView</item>
 
+        <item name="alertDialogTheme">@style/PreferenceDialogTheme</item>
         <item name="materialAlertDialogTheme">@style/AlertDialogTheme</item>
 
         <item name="textInputStyle">@style/TextInputLayoutStyle</item>
@@ -524,6 +525,10 @@
         <item name="elevationOverlayEnabled">false</item>
         <item name="materialAlertDialogTitleTextStyle">@style/H2.DialogTitle</item>
         <item name="materialAlertDialogBodyTextStyle">@style/P.DialogBody</item>
+    </style>
+
+    <style name="PreferenceDialogTheme" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="android:colorBackground">?attr/paper_color</item>
     </style>
 
     <style name="CollapsingToolbarStyle" parent="Widget.Material3.CollapsingToolbar">
