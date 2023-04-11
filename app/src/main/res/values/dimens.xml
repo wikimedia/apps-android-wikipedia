@@ -89,9 +89,6 @@
     <!-- Divider width -->
     <dimen name="divider_width_for_article">60dp</dimen>
 
-    <!-- Snackbar -->
-    <dimen name="snackbar_action_inline_max_dimen">128dp</dimen>
-
     <!-- Suggested Edits -->
     <dimen name="suggested_edits_icon_size">28dp</dimen>
     <dimen name="suggested_edits_icon_background_size">23dp</dimen>
@@ -103,7 +100,4 @@
     <!-- WikiCard -->
     <dimen name="wiki_card_radius">12dp</dimen>
 
-    <!-- This override system snackbar vertical padding -->
-    <dimen name="design_snackbar_padding_vertical">12dp</dimen>
-    <dimen name="design_snackbar_padding_vertical_2lines">12dp</dimen>
 </resources>
