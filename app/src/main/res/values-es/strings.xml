@@ -1287,5 +1287,5 @@
   <string name="suggested_edits_report_suggestion">Informar a</string>
   <string name="suggested_edits_suggestion_report_submitted">Se ha enviado el informe</string>
   <string name="description_edit_tutorial_machine_suggestions_title">Sugerencias automáticas</string>
-  <string name="description_edit_tutorial_machine_suggestions_description">Las sugerencias son generadas automáticamente, no por voluntarios ni por la Fundación Wikimedia.</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Las sugerencias son generadas automáticamente, no por voluntarios ni por la Fundación Wikimedia</string>
 </resources>
