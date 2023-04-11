@@ -44,6 +44,8 @@
         <item name="colorError">?attr/destructive_color</item>
 
         <item name="colorSurface">?attr/paper_color</item>
+        <item name="colorOnSurface">?attr/primary_color</item>
+
         <item name="colorTertiaryContainer">?attr/paper_color</item>
         <item name="colorSecondaryContainer">?attr/addition_color</item>
 
