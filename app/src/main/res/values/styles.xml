@@ -9,9 +9,7 @@
         <item name="toolbarStyle">@style/ToolbarStyle</item>
         <item name="actionModeStyle">@style/ActionModeStyle</item>
 
-        <item name="snackbarStyle">@style/SnackbarStyle</item>
         <item name="snackbarTextViewStyle">@style/SnackbarTextView</item>
-        <item name="snackbarButtonStyle">@style/SnackbarButtonStyle</item>
 
         <item name="android:listViewStyle">@style/ListView</item>
         <item name="android:textViewStyle">@style/RtlAwareTextView</item>
@@ -160,16 +158,6 @@
         <item name="android:textStyle">normal</item>
     </style>
 
-    <style name="SnackbarTextView">
-        <item name="android:textColor">@color/gray300</item>
-        <item name="android:maxLines">10</item>
-        <item name="lineHeight">26sp</item>
-        <item name="android:paddingTop">0dp</item>
-        <item name="android:paddingBottom">0dp</item>
-        <item name="android:paddingStart">0dp</item>
-        <item name="android:paddingEnd">12dp</item>
-    </style>
-
     <style name="H3.Article">
         <item name="android:fontFamily">serif</item>
         <item name="android:textStyle">normal</item>
@@ -214,6 +202,16 @@
 
     <style name="P.MaterialListTitle">
         <item name="android:textColor">?attr/primary_color</item>
+    </style>
+
+    <style name="SnackbarTextView">
+        <item name="android:textColor">@color/gray200</item>
+        <item name="android:maxLines">10</item>
+        <item name="lineHeight">26sp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">8dp</item>
     </style>
 
     <style name="Chip">
@@ -531,15 +529,6 @@
 
     <style name="CollapsingToolbarStyle" parent="Widget.Material3.CollapsingToolbar">
         <item name="forceApplySystemWindowInsetTop">false</item>
-    </style>
-
-    <style name="SnackbarStyle" parent="Widget.Material3.Snackbar">
-        <item name="android:paddingStart">16dp</item>
-        <item name="android:paddingEnd">4dp</item>
-    </style>
-
-    <style name="SnackbarButtonStyle" parent="Widget.Material3.Button.TextButton.Snackbar">
-        <item name="android:paddingEnd">8dp</item>
     </style>
 
 </resources>
