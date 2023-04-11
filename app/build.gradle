@@ -252,7 +252,6 @@ dependencies {
     testImplementation 'org.robolectric:robolectric:4.5.1'
     testImplementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
     testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
-    testImplementation "commons-io:commons-io:2.6"
     testImplementation 'org.hamcrest:hamcrest:2.2'
     testImplementation "androidx.room:room-testing:$roomVersion"
 

@@ -325,7 +325,7 @@
   <string name="edit_next">Далее</string>
   <string name="edit_done">Сохранить</string>
   <string name="edit_preview">Предпросмотр</string>
-  <string name="edit_undo">Отмена</string>
+  <string name="edit_undo">Да, отменить</string>
   <string name="edit_redo">Повтор действия</string>
   <string name="edit_rollback">Откатить</string>
   <plurals name="edit_diff_bytes">
