@@ -1235,4 +1235,16 @@
   <string name="reading_list_share_message_v2">مرحبًا! أرغب في مشاركة قائمة قراءة ويكيبيديا الخاصة بي معك:</string>
   <string name="reading_list_share_survey_title">هل يمكنك مساعدتنا في تحسين \"مشاركة قوائم القراءة\"؟</string>
   <string name="reading_list_share_survey_body">\"مشاركة قوائم القراءة\" هي ميزة اختبار ونحن بحاجة إلى ملاحظاتك لتحسينها أو إزالتها.</string>
+  <string name="description_edit_suggested_description_button_tooltip">جرب  وصف المقالات المُقترحة آليًا</string>
+  <string name="description_edit_suggested_description_button_text">أظهِر الأوصاف المقترحة</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">الأوصاف المقترحة</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">عمّاذا تريد الإبلاغ؟</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">لا يوجد معلومات كافية</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">لا يمكن رؤية الأوصاف المقترحة</string>
+  <string name="suggested_edits_inappropriate_suggestion">إقتراح غير لائق</string>
+  <string name="suggested_edits_do_not_understand_suggestion">لا أفهم المُهمة</string>
+  <string name="suggested_edits_report_suggestion">الإبلاغ عن</string>
+  <string name="suggested_edits_suggestion_report_submitted">تم إرسال التقرير</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">إقتراحات الآلة</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">يتم إنشاء الاقتراحات من قِبل آلة وليس من قبل المتطوعين أو مؤسسة ويكيميديا</string>
 </resources>

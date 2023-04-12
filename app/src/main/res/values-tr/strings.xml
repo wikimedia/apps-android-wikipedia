@@ -1256,4 +1256,16 @@
   <string name="search_namespaces">Ad alanları</string>
   <string name="revision_initial_none">Yok (bu ilk sürümdür)</string>
   <string name="archive_empty">Arşivlenmiş sayfa bulunamadı.</string>
+  <string name="description_edit_suggested_description_button_tooltip">Makine tarafından önerilen makale açıklamalarını deneyin</string>
+  <string name="description_edit_suggested_description_button_text">Önerilen açıklamaları göster</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Önerilen açıklamalar</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Neyi bildirmek istersiniz?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Yeterli bilgi yok</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Önerilen açıklamaları göremiyorum</string>
+  <string name="suggested_edits_inappropriate_suggestion">Uygunsuz öneri</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Görevi anlamadım</string>
+  <string name="suggested_edits_report_suggestion">Bildiri</string>
+  <string name="suggested_edits_suggestion_report_submitted">Bildiri gönderildi</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Makine önerileri</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Öneriler, gönüllüler veya Wikimedia Vakfı tarafından değil, bir makine tarafından üretilir.</string>
 </resources>

@@ -1310,4 +1310,16 @@
   <string name="reading_list_share_message_v2">Hallo! Ich möchte meine Wikipedia-Leseliste mit Ihnen teilen:</string>
   <string name="reading_list_share_survey_title">Kannst du uns helfen, \"Leselisten teilen\" zu verbessern?</string>
   <string name="reading_list_share_survey_body">\"Leselisten teilen\" ist eine Testfunktion und wir brauchen dein Feedback, um sie zu verbessern oder zu entfernen.</string>
+  <string name="description_edit_suggested_description_button_tooltip">Probieren Sie computergenerierte Artikelbeschreibungen aus</string>
+  <string name="description_edit_suggested_description_button_text">Vorgeschlagene Beschreibungen anzeigen</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Vorgeschlagene Beschreibungen</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Was möchtest du melden?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Nicht genügend Informationen</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Sehe keine vorgeschlagenen Beschreibungen</string>
+  <string name="suggested_edits_inappropriate_suggestion">Unangemessener Vorschlag</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Verstehe die Aufgabe nicht</string>
+  <string name="suggested_edits_report_suggestion">Melden</string>
+  <string name="suggested_edits_suggestion_report_submitted">Meldung übermittelt</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Computergenerierte Vorschläge</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Die Vorschläge werden von einem Computer generiert, nicht von Freiwilligen oder der Wikimedia Foundation</string>
 </resources>
