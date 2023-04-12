@@ -364,15 +364,18 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
-        binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
-        binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
-        binding.toolbarTitle.isVisible = !goToTopic
-        if (invokeSource != Constants.InvokeSource.ARCHIVED_TALK_ACTIVITY) {
-            binding.toolbarTitle.movementMethod = LinkMovementMethodExt { _ ->
-                goToPage()
+        val title = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
+        ViewUtil.getTitleViewFromToolbar(binding.toolbar)?.let {
+            it.contentDescription = title
+            it.isVisible = !goToTopic
+            if (invokeSource != Constants.InvokeSource.ARCHIVED_TALK_ACTIVITY) {
+                it.movementMethod = LinkMovementMethodExt { _ ->
+                    goToPage()
+                }
             }
+            FeedbackUtil.setButtonLongPressToast(it)
         }
-        FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
+        supportActionBar?.title = title
     }
 
     private fun updateNotificationDot(animate: Boolean) {

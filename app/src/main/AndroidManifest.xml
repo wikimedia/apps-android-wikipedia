@@ -234,7 +234,8 @@
             android:name=".onboarding.InitialOnboardingActivity"/>
 
         <activity
-            android:name=".feed.topread.TopReadArticlesActivity"/>
+            android:name=".feed.topread.TopReadArticlesActivity"
+            android:theme="@style/AppTheme.ActionBar"/>
 
         <activity android:name=".feed.onthisday.OnThisDayActivity"
             android:configChanges="orientation|screenSize"/>

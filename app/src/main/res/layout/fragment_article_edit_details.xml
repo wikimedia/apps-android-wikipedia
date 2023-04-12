@@ -8,28 +8,8 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
-
-        <TextView
-            android:id="@+id/toolbarTitleView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/compareButton"
-            android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:lineSpacingExtra="4sp"
-            android:fontFamily="sans-serif"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:textColor="?attr/primary_color"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
-
-    </com.google.android.material.appbar.MaterialToolbar>
+        android:layout_height="?attr/actionBarSize"
+        style="@style/ToolbarStyle.Small" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollContainer"

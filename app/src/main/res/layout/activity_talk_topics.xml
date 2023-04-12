@@ -16,20 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
-            app:layout_scrollFlags="scroll|enterAlways" >
-
-            <TextView
-                android:id="@+id/toolbarTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="8sp"
-                android:textColor="?android:attr/textColorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:singleLine="true"
-                android:ellipsize="end"/>
-
-        </com.google.android.material.appbar.MaterialToolbar>
+            style="@style/ToolbarStyle.Small"
+            app:layout_scrollFlags="scroll|enterAlways" />
 
         <FrameLayout
             android:id="@+id/talkContentsView"

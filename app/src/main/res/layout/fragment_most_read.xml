@@ -6,24 +6,6 @@
     android:orientation="vertical"
     android:fitsSystemWindows="true">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize">
-
-        <TextView
-            android:id="@+id/toolbarTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:lineSpacingExtra="8sp"
-            android:textColor="?android:attr/textColorPrimary"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:maxLines="2" />
-
-    </com.google.android.material.appbar.MaterialToolbar>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/most_read_recycler_view"
         android:layout_width="match_parent"

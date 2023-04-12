@@ -72,8 +72,8 @@ class EditHistoryListActivity : BaseActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
-        binding.articleTitleView.isVisible = false
-        binding.articleTitleView.text = getString(R.string.page_edit_history_activity_title, StringUtil.fromHtml(viewModel.pageTitle.displayText))
+        supportActionBar?.title = getString(R.string.page_edit_history_activity_title, StringUtil.fromHtml(viewModel.pageTitle.displayText))
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         val colorCompareBackground = ResourceUtil.getThemedColor(this, android.R.attr.colorBackground)
         binding.compareFromCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
@@ -107,7 +107,7 @@ class EditHistoryListActivity : BaseActivity() {
         binding.editHistoryRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                binding.articleTitleView.isVisible = binding.editHistoryRecycler.computeVerticalScrollOffset() > recyclerView.getChildAt(0).height
+                supportActionBar?.setDisplayShowTitleEnabled(binding.editHistoryRecycler.computeVerticalScrollOffset() > recyclerView.getChildAt(0).height)
             }
         })
 
