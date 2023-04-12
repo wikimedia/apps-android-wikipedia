@@ -1333,4 +1333,16 @@
   <string name="reading_list_share_message_v2">你好！我想给你分享我的维基百科阅读清单：</string>
   <string name="reading_list_share_survey_title">您能帮助我们改进“分享阅读清单”吗？</string>
   <string name="reading_list_share_survey_body">“分享阅读清单”是一项测试功能，我们需要您的反馈来改进或删除它。</string>
+  <string name="description_edit_suggested_description_button_tooltip">尝试机器建议的条目描述</string>
+  <string name="description_edit_suggested_description_button_text">显示建议的描述</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">建议的描述</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">您想报告什么内容?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">信息量不够</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">我看不到建议的描述</string>
+  <string name="suggested_edits_inappropriate_suggestion">不恰当的建议</string>
+  <string name="suggested_edits_do_not_understand_suggestion">我不明白该任务</string>
+  <string name="suggested_edits_report_suggestion">报告</string>
+  <string name="suggested_edits_suggestion_report_submitted">已提交的报告</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">机器建议</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">这些建议不是由志愿者或维基媒体基金会编写的，而是由机器生成的。</string>
 </resources>

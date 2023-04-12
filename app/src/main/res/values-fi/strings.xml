@@ -1367,4 +1367,15 @@
   <string name="reading_list_share_survey_body">Lukulistojen jakaminen on testiominaisuus, jonka kehittämiseen tarvitsemme palautettasi.</string>
   <string name="data_opt_in_accept">Hyväksy</string>
   <string name="data_opt_in_reject">Hylkää</string>
+  <string name="description_edit_suggested_description_button_tooltip">Kokeile koneen ehdottamia artikkelikuvauksia</string>
+  <string name="description_edit_suggested_description_button_text">Näytä ehdotetut kuvaukset</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Ehdotetut kuvaukset</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Mistä tahtoisit tehdä ilmoituksen?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Ei tarpeeksi tietoja</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">En näe ehdotettuja kuvauksia</string>
+  <string name="suggested_edits_inappropriate_suggestion">Sopimaton ehdotus</string>
+  <string name="suggested_edits_do_not_understand_suggestion">En ymmärrä tehtävää</string>
+  <string name="suggested_edits_report_suggestion">Ilmoita</string>
+  <string name="suggested_edits_suggestion_report_submitted">Ilmoitus lähetetty</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Ehdotukset ovat koneen luomia vapaaehtoisten tai Wikimedia Foundationin luomien sijaan</string>
 </resources>

@@ -1409,4 +1409,7 @@
   <string name="reading_list_share_survey_body">\"Condividi elenchi di lettura\" è una funzione di prova e abbiamo bisogno del tuo commento per migliorarla o rimuoverla.</string>
   <string name="data_opt_in_accept">Accetta</string>
   <string name="data_opt_in_reject">Rifiuta</string>
+  <string name="description_edit_suggested_description_button_tooltip">Prova le descrizioni degli articoli suggerite dalla macchina</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Non riesco a visualizzare le descrizioni suggerite</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Non capisco questa attività</string>
 </resources>

@@ -1115,4 +1115,16 @@
   <string name="watchlist_page_moved">Přesunuto</string>
   <string name="watchlist_page_protected">Zamčeno</string>
   <string name="watchlist_page_deleted">Smazáno</string>
+  <string name="description_edit_suggested_description_button_tooltip">Vyzkoušejte strojově navrhované popisy článků</string>
+  <string name="description_edit_suggested_description_button_text">Zobrazit navrhované popisy</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Navrhované popisy</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Co byste chtěli nahlásit?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Nedostatek informací</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Nevidím doporučené popisy</string>
+  <string name="suggested_edits_inappropriate_suggestion">Nevhodný návrh</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Nerozumím úkolu</string>
+  <string name="suggested_edits_report_suggestion">Nahlásit</string>
+  <string name="suggested_edits_suggestion_report_submitted">Hlášení odesláno</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Strojové návrhy</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Návrhy jsou generovány strojem, nikoliv dobrovolníky nebo nadací Wikimedia Foundation</string>
 </resources>
