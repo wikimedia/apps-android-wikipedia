@@ -1431,4 +1431,16 @@
   <string name="reading_list_share_survey_body">«Поделиться списком для чтения» — тестовый функционал, и нам была бы полезная ваша обратная связь, чтобы в дальнейшем улучшить или удалить этот функционал.</string>
   <string name="data_opt_in_accept">Принять</string>
   <string name="data_opt_in_reject">Отклонить</string>
+  <string name="description_edit_suggested_description_button_tooltip">Попробуйте описания статей, предложенные компьютером</string>
+  <string name="description_edit_suggested_description_button_text">Показать предлагаемые описания</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Предлагаемые описания</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Что бы вы хотели сообщить?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Мало информации</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Не вижу предлагаемых описаний</string>
+  <string name="suggested_edits_inappropriate_suggestion">Неуместное предложение</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Не понимаю задачу</string>
+  <string name="suggested_edits_report_suggestion">Сообщить</string>
+  <string name="suggested_edits_suggestion_report_submitted">Отправлено</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Автоматические предложения</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Предложения генерируются компьютером, а не редакторами или Фондом Викимедиа.</string>
 </resources>
