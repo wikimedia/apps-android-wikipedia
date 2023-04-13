@@ -254,11 +254,11 @@
   <string name="edit_redo">Adober</string>
   <string name="edit_rollback">Disteuler</string>
   <plurals name="edit_diff_bytes" fuzzy="true">
-    <item quantity="one">%d eizhbit</item>
-    <item quantity="two">%d eizhbit</item>
-    <item quantity="few">%d eizhbit</item>
-    <item quantity="many">%d eizhbit</item>
-    <item quantity="other"/>
+    <item quantity="one">%s eizhbit</item>
+    <item quantity="two">%s eizhbit</item>
+    <item quantity="few">%s eizhbit</item>
+    <item quantity="many">%s eizhbit</item>
+    <item quantity="other">%s eizhbit</item>
   </plurals>
   <string name="edit_zoom_in">Zoumañ</string>
   <string name="edit_zoom_out">Dizoumañ</string>
@@ -287,7 +287,7 @@
     <item quantity="two">%d zisoc\'h</item>
     <item quantity="few">%d disoc\'h</item>
     <item quantity="many">disoc\'h</item>
-    <item quantity="other"/>
+    <item quantity="other">%d disoc\'h</item>
   </plurals>
   <string name="button_clear_all_recent_searches">diverkañ an enklaskoù nevez</string>
   <string name="clear_recent_searches_confirm">Ha sur eo ho peus c\'hoant da ziverkañ roll-istor  hoc\'h enklaskoù ?</string>
@@ -375,7 +375,7 @@
     <item quantity="two">%d ziuzet</item>
     <item quantity="few">%d diuzet</item>
     <item quantity="many">diuzet</item>
-    <item quantity="other"/>
+    <item quantity="other">%d diuzet</item>
   </plurals>
   <string name="multi_select_items_selected">%d diuzet</string>
   <string name="error_message_generic">Ur fazi zo c\'hoarvezet</string>
@@ -435,7 +435,7 @@
     <item quantity="two">%d bennad</item>
     <item quantity="few">%d pennad</item>
     <item quantity="many">%d pennad</item>
-    <item quantity="other"/>
+    <item quantity="other">%d pennad</item>
   </plurals>
   <string name="reading_list_sort">Rummañ</string>
   <string name="reading_list_sort_ellipsis">Rummañ dre</string>
@@ -619,14 +619,14 @@
     <item quantity="two">%d verket evel lennet</item>
     <item quantity="few">%d merket evel lennet</item>
     <item quantity="many">%d merket evel lennet</item>
-    <item quantity="other"/>
+    <item quantity="other">%d merket evel lennet</item>
   </plurals>
   <plurals name="notifications_mark_as_unread_plural">
     <item quantity="one">%d merket evel anlennet</item>
     <item quantity="two">%d verket evel anlennet</item>
     <item quantity="few">%d merket evel anlennet</item>
     <item quantity="many">%d merket evel anlennet</item>
-    <item quantity="other"/>
+    <item quantity="other">%d merket evel anlennet</item>
   </plurals>
   <string name="watchlist_title">Roll evezhiañ</string>
   <string name="preference_title_notification_poll">Gweredekaat ar c\'hemennoù</string>
@@ -658,7 +658,7 @@
     <item quantity="two">%d sil</item>
     <item quantity="few">%d sil</item>
     <item quantity="many">%d sil</item>
-    <item quantity="other"/>
+    <item quantity="other">%d sil</item>
   </plurals>
   <string name="notifications_select_all_filters">Diuzañ an holl siloù</string>
   <string name="notifications_tab_filter_all">An holl</string>
@@ -790,7 +790,7 @@
     <item quantity="two">%d zegasadenn</item>
     <item quantity="few">%d degasadenn</item>
     <item quantity="many">%d degasadenn</item>
-    <item quantity="other"/>
+    <item quantity="other">%d degasadenn</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Kemmoù kinniget</string>
   <string name="suggested_edits_feed_card_add_description_button">Ouzhpennañ deskrivadur ar pennad</string>
@@ -844,7 +844,7 @@
     <item quantity="two">%d zeiz</item>
     <item quantity="few">%d deiz</item>
     <item quantity="many">%d deiz</item>
-    <item quantity="other"/>
+    <item quantity="other">%d deiz</item>
   </plurals>
   <string name="suggested_edits_learn_more">Gouzout hiroc\'h</string>
   <string name="suggested_edits_paused_title">Ehanet</string>
@@ -868,7 +868,7 @@
     <item quantity="two">Ouzhpennet ho peus %d dikedenn</item>
     <item quantity="few">Ouzhpennet ho peus %d tikedenn</item>
     <item quantity="many">Ouzhpennet ho peus %d tikedenn</item>
-    <item quantity="other"/>
+    <item quantity="other">Ouzhpennet ho peus %d tikedenn</item>
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Dec\'h</string>
