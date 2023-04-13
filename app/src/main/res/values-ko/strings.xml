@@ -810,6 +810,8 @@
   <string name="description_starts_with_lowercase">소문자로 시작하지 마세요.</string>
   <string name="description_is_in_different_language">문구가 예측할 수 없는 언어로 되어있는 것 같습니다. 언어는 %s여야 합니다.</string>
   <string name="description_verification_notice">%1$s 언어로 설명을 확인해 주십시오. 작성한 설명이 %2$s 언어인 경우 이 알림을 숨기기 처리해도 됩니다.</string>
+  <string name="description_edit_suggested_description_button_text">추천 설명 표시</string>
+  <string name="description_edit_suggested_description_button_tooltip">기계 추천 글 설명 사용해 보기</string>
   <string name="description_edit_success_saved">문서 설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_snackbar">문서 설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">문서 설명을 게시했습니다! (%s)</string>
@@ -827,6 +829,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">2개부터 12개 사이의 단어에 한 줄이 적당합니다</string>
   <string name="description_edit_tutorial_button_label_start_editing">편집 시작</string>
   <string name="description_edit_tutorial_promise">시작함으로써 나는 이 기능을 악용하지 않을 것을 약속합니다.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">기계 추천</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">추천은 자원봉사자나 위키미디어 재단이 아닌 기계에 의해 생성됩니다</string>
   <string name="customize_toolbar_title">도구 모음 사용자 지정</string>
   <string name="customize_toolbar_shortcut_description_text">가장 자주 사용하는 5개의 항목을 하단의 도구 모음에 지정하십시오.</string>
   <string name="customize_toolbar_category_toolbar">도구 모음</string>
@@ -982,6 +986,14 @@
   <string name="suggested_edits_contribution_type_image_tag">이미지 태그</string>
   <string name="suggested_edits_contribution_current_revision_text">당신의 편집이 실시간으로 위키백과에서 이뤄지고 있습니다</string>
   <string name="suggested_card_more_edits">편집 제안 더 보기</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">추천 설명</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">무엇을 신고하시겠습니까?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">정보가 충분하지 않음</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">추천 설명이 표시되지 않습니다.</string>
+  <string name="suggested_edits_inappropriate_suggestion">부적절한 추천</string>
+  <string name="suggested_edits_do_not_understand_suggestion">과업을 이해하지 못하겠습니다</string>
+  <string name="suggested_edits_report_suggestion">신고</string>
+  <string name="suggested_edits_suggestion_report_submitted">신고 제출</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">태그 %1$s개</item>
     <item quantity="other">태그 %1$s개</item>
@@ -1282,16 +1294,4 @@
   <string name="reading_list_share_survey_body">\"읽기 목록 공유\"는 시험 기능이며, 이를 개선하거나 제거하려면 여러분의 의견이 필요합니다.</string>
   <string name="data_opt_in_accept">수락</string>
   <string name="data_opt_in_reject">거부</string>
-  <string name="description_edit_suggested_description_button_tooltip">기계 추천 글 설명 사용해 보기</string>
-  <string name="description_edit_suggested_description_button_text">추천 설명 표시</string>
-  <string name="suggested_edits_article_descriptions_dialog_title">추천 설명</string>
-  <string name="suggested_edits_descriptions_report_dialog_title">무엇을 신고하시겠습니까?</string>
-  <string name="suggested_edits_descriptions_not_enough_info_suggestion">정보가 충분하지 않음</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion">추천 설명이 표시되지 않습니다.</string>
-  <string name="suggested_edits_inappropriate_suggestion">부적절한 추천</string>
-  <string name="suggested_edits_do_not_understand_suggestion">과업을 이해하지 못하겠습니다</string>
-  <string name="suggested_edits_report_suggestion">신고</string>
-  <string name="suggested_edits_suggestion_report_submitted">신고 제출</string>
-  <string name="description_edit_tutorial_machine_suggestions_title">기계 추천</string>
-  <string name="description_edit_tutorial_machine_suggestions_description">추천은 자원봉사자나 위키미디어 재단이 아닌 기계에 의해 생성됩니다</string>
 </resources>
