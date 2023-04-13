@@ -32,6 +32,7 @@
 * Robin van der Linde
 * Robin van der Vliet
 * Romaine
+* SHaran (WMF)
 * SPQRobin
 * Siebrand
 * Sjoerddebruin
@@ -875,6 +876,8 @@
   <string name="description_starts_with_lowercase">Begin niet met een kleine letter.</string>
   <string name="description_is_in_different_language">De tekst lijkt in een onverwachte taal te zijn. De taal moet %s zijn.</string>
   <string name="description_verification_notice">Controleer of uw beschrijving in %1$s staat. Voelt u zich vrij om deze melding te negeren als de beschrijving die u heeft geschreven in %2$s staat.</string>
+  <string name="description_edit_suggested_description_button_text">Suggesties tonen</string>
+  <string name="description_edit_suggested_description_button_tooltip">Probeer suggesties van de computer uit</string>
   <string name="description_edit_success_saved">Artikelbeschrijving gepubliceerd!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeschrijving gepubliceerd!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikelbeschrijving gepubliceerd! (%s)</string>
@@ -892,6 +895,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealiter één regel, tussen twee en twaalf woorden</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begin met bewerken</string>
   <string name="description_edit_tutorial_promise">Door te beginnen, beloof ik geen misbruik te maken van deze functie.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Suggesties van de computer</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">De suggesties worden gemaakt door een computer, niet door vrijwilligers of door de Wikimedia Foundation</string>
   <string name="customize_toolbar_title">Pas de werkbalk aan</string>
   <string name="customize_toolbar_shortcut_description_text">Voeg uw vijf favoriete snelkoppelingen toe aan de onderste werkbalk.</string>
   <string name="customize_toolbar_category_toolbar">Werkbalk</string>
@@ -1050,6 +1055,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Afbeeldingslabel</string>
   <string name="suggested_edits_contribution_current_revision_text">Uw bewerking is momenteel live op Wikpedia</string>
   <string name="suggested_card_more_edits">Meer voorgestelde bewerkingen</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Gesuggereerde beschrijvingen</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Wat wilt u melden?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Niet genoeg informatie</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Ik zie geen suggesties</string>
+  <string name="suggested_edits_inappropriate_suggestion">Ongepaste suggestie</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Ik begrijp de taak niet</string>
+  <string name="suggested_edits_report_suggestion">Melden</string>
+  <string name="suggested_edits_suggestion_report_submitted">Melding verstuurd</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s label</item>
     <item quantity="other">%1$s labels</item>
@@ -1409,16 +1422,4 @@
   <string name="reading_list_share_survey_body">\"Leeslijsten delen\" is een testfunctie en we hebben uw feedback nodig om deze te verbeteren of te verwijderen.</string>
   <string name="data_opt_in_accept">Aanvaarden</string>
   <string name="data_opt_in_reject">Afwijzen</string>
-  <string name="description_edit_suggested_description_button_tooltip">Probeer suggesties van de computer uit</string>
-  <string name="description_edit_suggested_description_button_text">Suggesties tonen</string>
-  <string name="suggested_edits_article_descriptions_dialog_title">Gesuggereerde beschrijvingen</string>
-  <string name="suggested_edits_descriptions_report_dialog_title">Wat wilt u melden?</string>
-  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Niet genoeg informatie</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion">Ik zie geen suggesties</string>
-  <string name="suggested_edits_inappropriate_suggestion">Ongepaste suggestie</string>
-  <string name="suggested_edits_do_not_understand_suggestion">Ik begrijp de taak niet</string>
-  <string name="suggested_edits_report_suggestion">Melden</string>
-  <string name="suggested_edits_suggestion_report_submitted">Melding verstuurd</string>
-  <string name="description_edit_tutorial_machine_suggestions_title">Suggesties van de computer</string>
-  <string name="description_edit_tutorial_machine_suggestions_description">De suggesties worden gemaakt door een computer, niet door vrijwilligers of door de Wikimedia Foundation</string>
 </resources>

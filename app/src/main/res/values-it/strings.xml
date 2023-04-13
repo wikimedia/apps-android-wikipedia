@@ -873,6 +873,7 @@
   <string name="description_is_in_different_language">Il testo sembra appartenere a una lingua non accettata. La lingua dovrebbe essere %s.</string>
   <string name="description_verification_notice">Verifica che la tua descrizione sia in %1$s. Non esitare a ignorare questa notifica se la descrizione che hai scritto è in %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Mostra le descrizioni suggerite</string>
+  <string name="description_edit_suggested_description_button_tooltip">Prova le descrizioni degli articoli suggerite dalla macchina</string>
   <string name="description_edit_success_saved">Descrizione della voce pubblicata!</string>
   <string name="description_edit_success_saved_snackbar">Descrizione della voce pubblicata!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrizione della voce pubblicata! (%s)</string>
@@ -1053,7 +1054,9 @@
   <string name="suggested_edits_article_descriptions_dialog_title">Descrizioni suggerite</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Cosa vorresti segnalare?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Informazioni insufficienti</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Non riesco a visualizzare le descrizioni suggerite</string>
   <string name="suggested_edits_inappropriate_suggestion">Suggerimento inappropriato</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Non capisco questa attività</string>
   <string name="suggested_edits_report_suggestion">Segnala</string>
   <string name="suggested_edits_suggestion_report_submitted">Segnalazione inviata</string>
   <plurals name="suggested_edits_tags_diff_count_text">
@@ -1409,7 +1412,4 @@
   <string name="reading_list_share_survey_body">\"Condividi elenchi di lettura\" è una funzione di prova e abbiamo bisogno del tuo commento per migliorarla o rimuoverla.</string>
   <string name="data_opt_in_accept">Accetta</string>
   <string name="data_opt_in_reject">Rifiuta</string>
-  <string name="description_edit_suggested_description_button_tooltip">Prova le descrizioni degli articoli suggerite dalla macchina</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion">Non riesco a visualizzare le descrizioni suggerite</string>
-  <string name="suggested_edits_do_not_understand_suggestion">Non capisco questa attività</string>
 </resources>

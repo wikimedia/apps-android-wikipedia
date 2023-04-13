@@ -46,6 +46,7 @@
 * Redredsonia
 * Rivka Silinsky
 * Rubin16
+* SHaran (WMF)
 * SimondR
 * Smigles
 * Soul Train
@@ -528,6 +529,12 @@
   <string name="reading_list_articles_already_exist_message">Всё хорошо! %s уже содержит все статьи.</string>
   <string name="reading_list_added_view_button">Посмотреть список</string>
   <string name="reading_list_add_to_list_button">Добавить в список</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 статья</item>
+    <item quantity="few">%d статьи</item>
+    <item quantity="many">%d статей</item>
+    <item quantity="other">%d статей</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">%1$d статья, %2$.2f MБ</item>
     <item quantity="few">%1$d статьи, %2$.2f MБ</item>
@@ -903,6 +910,8 @@
   <string name="description_starts_with_lowercase">Избегайте начинать с маленькой буквы.</string>
   <string name="description_is_in_different_language">Текст на неожиданном языке. Язык должен быть %s.</string>
   <string name="description_verification_notice">Убедитесь, что язык вашего описания — %1$s. Вы можете отклонить это уведомление, если язык вашего описания — %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">Показать предлагаемые описания</string>
+  <string name="description_edit_suggested_description_button_tooltip">Попробуйте описания статей, предложенные компьютером</string>
   <string name="description_edit_success_saved">Описание статьи сохранено!</string>
   <string name="description_edit_success_saved_snackbar">Описание статьи сохранено!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Описание статьи сохранено! (%s)</string>
@@ -920,6 +929,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">В идеале одна строка, от двух до двенадцати слов</string>
   <string name="description_edit_tutorial_button_label_start_editing">Начать редактирование</string>
   <string name="description_edit_tutorial_promise">Начав, я обещаю не злоупотреблять этой функцией.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Автоматические предложения</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Предложения генерируются компьютером, а не редакторами или Фондом Викимедиа.</string>
   <string name="customize_toolbar_title">Настроить панель инструментов</string>
   <string name="customize_toolbar_shortcut_description_text">Настройте нижнюю панель инструментов, выбрав 5 ярлыков, которые вы считаете наиболее полезными.</string>
   <string name="customize_toolbar_category_toolbar">Панель инструментов</string>
@@ -1088,6 +1099,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Тег изображения</string>
   <string name="suggested_edits_contribution_current_revision_text">В настоящий момент ваша правка в Википедии — самая последняя</string>
   <string name="suggested_card_more_edits">Другие предлагаемые правки</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Предлагаемые описания</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Что бы вы хотели сообщить?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Мало информации</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Не вижу предлагаемых описаний</string>
+  <string name="suggested_edits_inappropriate_suggestion">Неуместное предложение</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Не понимаю задачу</string>
+  <string name="suggested_edits_report_suggestion">Сообщить</string>
+  <string name="suggested_edits_suggestion_report_submitted">Отправлено</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">Тегов: %1$s</item>
     <item quantity="few">Тегов: %1$s</item>
@@ -1431,16 +1450,4 @@
   <string name="reading_list_share_survey_body">«Поделиться списком для чтения» — тестовый функционал, и нам была бы полезная ваша обратная связь, чтобы в дальнейшем улучшить или удалить этот функционал.</string>
   <string name="data_opt_in_accept">Принять</string>
   <string name="data_opt_in_reject">Отклонить</string>
-  <string name="description_edit_suggested_description_button_tooltip">Попробуйте описания статей, предложенные компьютером</string>
-  <string name="description_edit_suggested_description_button_text">Показать предлагаемые описания</string>
-  <string name="suggested_edits_article_descriptions_dialog_title">Предлагаемые описания</string>
-  <string name="suggested_edits_descriptions_report_dialog_title">Что бы вы хотели сообщить?</string>
-  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Мало информации</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion">Не вижу предлагаемых описаний</string>
-  <string name="suggested_edits_inappropriate_suggestion">Неуместное предложение</string>
-  <string name="suggested_edits_do_not_understand_suggestion">Не понимаю задачу</string>
-  <string name="suggested_edits_report_suggestion">Сообщить</string>
-  <string name="suggested_edits_suggestion_report_submitted">Отправлено</string>
-  <string name="description_edit_tutorial_machine_suggestions_title">Автоматические предложения</string>
-  <string name="description_edit_tutorial_machine_suggestions_description">Предложения генерируются компьютером, а не редакторами или Фондом Викимедиа.</string>
 </resources>
