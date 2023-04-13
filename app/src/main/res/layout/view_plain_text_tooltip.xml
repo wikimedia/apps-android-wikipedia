@@ -22,7 +22,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonView"
-            style="@style/FlatButton.Small.Tooltip"
+            style="@style/FlatButton.Small"
             android:text="@string/onboarding_got_it"
             android:visibility="gone"/>
 

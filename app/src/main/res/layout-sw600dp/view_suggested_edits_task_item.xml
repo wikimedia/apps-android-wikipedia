@@ -72,8 +72,7 @@
             app:layout_constraintStart_toStartOf="@id/taskDescription"
             app:layout_constraintBottom_toBottomOf="parent"
             app:icon="@drawable/ic_add_gray_white_24dp"
-            app:iconSize="20dp"
-            app:iconTint="?attr/progressive_color"/>
+            app:iconSize="20dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/secondaryButton"
@@ -83,8 +82,7 @@
             app:layout_constraintTop_toTopOf="@id/primaryButton"
             app:layout_constraintStart_toEndOf="@id/primaryButton"
             app:icon="@drawable/ic_translate_white_24dp"
-            app:iconSize="20dp"
-            app:iconTint="?attr/progressive_color"/>
+            app:iconSize="20dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

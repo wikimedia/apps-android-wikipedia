@@ -24,7 +24,6 @@
             android:focusable="true"
             android:background="?android:selectableItemBackgroundBorderless"
             android:textColor="?attr/progressive_color"
-            android:textAllCaps="true"
             android:fontFamily="sans-serif-medium"
             android:letterSpacing="0.05"
             android:text="@string/revision_compare_button"/>
@@ -174,7 +173,6 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:textColor="?attr/progressive_color"
-                android:textAllCaps="true"
                 android:fontFamily="sans-serif-medium"
                 android:letterSpacing="0.05"
                 android:text="@string/revision_compare_button"/>

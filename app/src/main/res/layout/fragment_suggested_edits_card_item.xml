@@ -124,16 +124,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
                     android:layout_marginBottom="11dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:letterSpacing="0.04"
-                    android:lineSpacingExtra="2sp"
                     android:text="@string/suggested_edits_task_add_description_title"
-                    android:textColor="?attr/progressive_color"
-                    android:textSize="14sp"
                     android:visibility="gone"
                     app:icon="@drawable/ic_add_gray_white_24dp"
                     app:iconSize="24dp"
-                    app:iconTint="?attr/progressive_color" />
+                    tools:visibility="visible"/>
             </LinearLayout>
         </LinearLayout>
     </org.wikipedia.views.WikiCardView>

@@ -11,7 +11,6 @@
         android:minHeight="24dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/page_watchlist_overflow_menu_onboarding_tooltip_title"
-        android:textAllCaps="true"
         android:textSize="14sp"
         android:textColor="@android:color/white"
         android:letterSpacing="0.04"

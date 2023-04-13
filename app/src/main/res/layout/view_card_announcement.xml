@@ -74,21 +74,24 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:clipToPadding="false"
-            android:visibility="gone">
+            android:visibility="gone"
+            tools:visibility="visible">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/view_announcement_dialog_action_negative"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TransparentButton"
-                android:layout_margin="4dp"
                 android:text="@string/view_announcement_card_negative_action"
                 android:textColor="?attr/placeholder_color"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/view_announcement_dialog_action_positive"
-                style="@style/App.Button.Blue"
-                android:textColor="@android:color/white"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:textColor="@android:color/white"
+                tools:text="Lorem ipsum"/>
 
         </LinearLayout>
 

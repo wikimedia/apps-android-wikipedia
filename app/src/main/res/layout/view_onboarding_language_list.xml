@@ -52,7 +52,6 @@
             android:fontFamily="sans-serif-medium"
             android:gravity="center_horizontal"
             android:text="@string/onboarding_multilingual_add_language_text"
-            android:textAllCaps="true"
             android:textColor="?attr/progressive_color"
             android:textSize="14sp"
             tools:text="Add or edit languages" />

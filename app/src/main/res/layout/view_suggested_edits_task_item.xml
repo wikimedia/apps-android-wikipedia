@@ -41,7 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:textColor="?attr/success_color"
-            android:textAllCaps="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/taskTitle"
             android:text="@string/suggested_edits_task_new"/>
@@ -75,16 +74,14 @@
             style="@style/FlatButton.Small"
             android:text="@string/suggested_edits_task_action_text_add"
             app:icon="@drawable/ic_add_gray_white_24dp"
-            app:iconSize="20dp"
-            app:iconTint="?attr/progressive_color"/>
+            app:iconSize="20dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/secondaryButton"
             style="@style/FlatButton.Small"
             android:text="@string/suggested_edits_task_action_text_translate"
             app:icon="@drawable/ic_translate_white_24dp"
-            app:iconSize="20dp"
-            app:iconTint="?attr/progressive_color"/>
+            app:iconSize="20dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

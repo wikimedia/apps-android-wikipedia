@@ -66,8 +66,7 @@
                     android:layout_marginEnd="16dp"
                     android:text="@string/view_featured_image_card_download"
                     app:icon="@drawable/ic_baseline_get_app_24"
-                    app:iconPadding="10dp"
-                    app:iconTint="?attr/progressive_color"/>
+                    app:iconPadding="10dp"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/view_featured_image_card_share_button"
@@ -75,8 +74,7 @@
                     android:text="@string/view_featured_image_card_share"
                     app:icon="@drawable/ic_share"
                     app:iconSize="20dp"
-                    app:iconPadding="10dp"
-                    app:iconTint="?attr/progressive_color"/>
+                    app:iconPadding="10dp"/>
 
             </com.google.android.flexbox.FlexboxLayout>
 

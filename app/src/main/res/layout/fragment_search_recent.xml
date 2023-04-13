@@ -14,7 +14,8 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="gone"
+        tools:visibility="visible">
 
         <ImageView
             android:id="@+id/search_empty_image"
@@ -36,13 +37,11 @@
 
         <Button
             android:id="@+id/add_languages_button"
-            style="@style/App.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/FlatButton.Secondary"
             android:layout_marginTop="16dp"
             android:text="@string/add_wikipedia_languages_text"
-            android:textColor="?attr/secondary_color"
-            app:backgroundTint="?attr/border_color"
             tools:text="Add Wikipedia languages" />
     </LinearLayout>
 

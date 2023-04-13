@@ -350,38 +350,43 @@
         <item name="android:clickable">true</item>
     </style>
 
-    <style name="App.Button" parent="@style/Widget.Material3.Button">
+    <style name="FlatButton" parent="@style/Widget.Material3.Button.UnelevatedButton">
+        <item name="backgroundTint">?attr/background_color</item>
+        <item name="iconTint">?attr/progressive_color</item>
+        <item name="android:textColor">?attr/progressive_color</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="rippleColor">?attr/placeholder_color</item>
+    </style>
+
+    <style name="FlatButton.Secondary">
+        <item name="backgroundTint">?attr/border_color</item>
+        <item name="iconTint">?attr/placeholder_color</item>
+        <item name="android:textColor">?attr/placeholder_color</item>
+    </style>
+
+    <style name="FlatButton.Small">
         <item name="android:layout_width">wrap_content</item>
+        <item name="android:minHeight">48dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">4dp</item>
-        <item name="android:layout_marginBottom">4dp</item>
-        <item name="android:layout_marginStart">4dp</item>
-        <item name="android:layout_marginEnd">4dp</item>
-        <item name="backgroundTint">@color/color_state_green</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textAlignment">center</item>
+        <item name="android:insetBottom">8dp</item>
+        <item name="android:insetTop">8dp</item>
+        <item name="iconPadding">4dp</item>
+    </style>
+
+    <style name="FlatButton.Small.Transparent">
+        <item name="android:textColor">?attr/placeholder_color</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:foreground">?android:selectableItemBackground</item>
+    </style>
+
+    <style name="TransparentButton" parent="@style/Widget.Material3.Button.UnelevatedButton">
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:foreground">?android:selectableItemBackground</item>
         <item name="android:focusable">true</item>
-    </style>
-
-    <style name="App.Button.Blue">
-        <item name="backgroundTint">@color/color_state_blue</item>
-    </style>
-
-    <style name="App.Button.Blue.NonDisabled">
-        <item name="backgroundTint">@color/color_state_blue_non_disable</item>
-    </style>
-
-    <style name="App.Button.Gray">
-        <item name="backgroundTint">@color/color_state_gray</item>
-    </style>
-
-    <style name="App.Button.Black">
-        <item name="backgroundTint">@color/color_state_black</item>
-    </style>
-
-    <style name="App.Button.White">
-        <item name="backgroundTint">@color/color_state_white</item>
-        <item name="android:textColor">@color/gray500</item>
     </style>
 
     <style name="ThemeColorCircularButton" parent="@style/Widget.Material3.Button.Icon">
@@ -396,58 +401,11 @@
         <item name="android:letterSpacing">0</item>
         <item name="android:textSize">16sp</item>
         <item name="android:text">Aa</item>
-        <item name="android:textAllCaps">false</item>
         <item name="cornerRadius">30dp</item>
         <item name="strokeColor">@color/blue600</item>
     </style>
 
-    <style name="FlatButton" parent="@style/Widget.Material3.Button.UnelevatedButton">
-        <item name="backgroundTint">?attr/background_color</item>
-        <item name="android:textColor">?attr/progressive_color</item>
-        <item name="android:minWidth">0dp</item>
-        <item name="android:paddingTop">5dp</item>
-        <item name="android:paddingBottom">5dp</item>
-        <item name="android:paddingStart">8dp</item>
-        <item name="android:paddingEnd">12dp</item>
-        <item name="rippleColor">?attr/placeholder_color</item>
-        <item name="cornerRadius">8dp</item>
-    </style>
-
-    <style name="FlatButton.Small" parent="FlatButton">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:minHeight">48dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:insetBottom">8dp</item>
-        <item name="android:insetTop">8dp</item>
-        <item name="android:letterSpacing">0.05</item>
-        <item name="iconPadding">4dp</item>
-    </style>
-
-    <style name="FlatButton.Small.Transparent">
-        <item name="android:textColor">?attr/placeholder_color</item>
-        <item name="android:backgroundTint">@android:color/transparent</item>
-        <item name="backgroundTint">@android:color/transparent</item>
-        <item name="android:foreground">?android:selectableItemBackground</item>
-    </style>
-
-    <style name="FlatButton.Small.Tooltip">
-        <item name="android:textColor">?attr/progressive_color</item>
-        <item name="android:backgroundTint">?attr/background_color</item>
-        <item name="backgroundTint">?attr/background_color</item>
-        <item name="android:foreground">?android:selectableItemBackground</item>
-        <item name="android:layout_marginBottom">-3dp</item>
-    </style>
-
-    <style name="TransparentButton" parent="@style/Widget.Material3.Button.UnelevatedButton">
-        <item name="android:textAlignment">center</item>
-        <item name="android:backgroundTint">@android:color/transparent</item>
-        <item name="backgroundTint">@android:color/transparent</item>
-        <item name="android:foreground">?android:selectableItemBackground</item>
-        <item name="android:focusable">true</item>
-    </style>
-
     <style name="ThemeChooserButton" parent="TransparentButton">
-        <item name="android:textAllCaps">false</item>
         <item name="android:textAlignment">viewStart</item>
         <item name="android:padding">0dp</item>
         <item name="android:textSize">14sp</item>

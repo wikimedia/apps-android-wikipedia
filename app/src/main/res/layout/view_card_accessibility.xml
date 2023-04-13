@@ -16,7 +16,7 @@
 
     <Button
         android:id="@+id/load_more"
-        style="@style/App.Button.White"
+        style="@style/FlatButton"
         android:layout_margin="8dp"
         android:text="@string/feed_accessibility_card_load_more_button" />
 </LinearLayout>

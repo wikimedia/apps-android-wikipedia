@@ -97,8 +97,6 @@
             android:paddingBottom="8dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:fontFamily="sans-serif-medium"
-            android:textAllCaps="false"
             android:textAlignment="viewStart"
             android:textColor="?attr/primary_color"
             android:maxLines="1"
@@ -112,7 +110,6 @@
             app:iconTint="?attr/primary_color"
             tools:text="Username"/>
 
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/diffText"
             android:layout_width="wrap_content"
@@ -122,7 +119,6 @@
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:paddingStart="0dp"
-            android:fontFamily="sans-serif-medium"
             android:textColor="@color/green600"
             android:backgroundTint="@android:color/transparent"
             app:layout_constraintTop_toTopOf="@id/userNameText"

@@ -11,14 +11,11 @@
         style="@style/TransparentButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAllCaps="false"
         android:textColor="?attr/progressive_color"
         android:textSize="20sp"
         android:textAlignment="textStart"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif"
         android:lineSpacingExtra="8sp"
-        android:letterSpacing="0"
-        android:paddingHorizontal="8dp"/>
+        android:paddingHorizontal="8dp"
+        tools:text="Lorem ipsum"/>
 
 </merge>

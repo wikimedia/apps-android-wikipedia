@@ -19,7 +19,6 @@
                 android:id="@+id/main_drawer_account_container"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:backgroundTint="?attr/border_color"
                 android:background="?attr/selectableItemBackground"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -48,7 +47,6 @@
                     android:layout_marginStart="24dp"
                     android:gravity="center"
                     android:fontFamily="sans-serif-medium"
-                    android:letterSpacing="0.1"
                     android:textColor="?attr/placeholder_color"
                     android:text="@string/main_drawer_login" />
 
