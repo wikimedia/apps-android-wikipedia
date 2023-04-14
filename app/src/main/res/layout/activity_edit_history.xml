@@ -35,7 +35,7 @@
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:text="@string/page_edit_history_activity_title"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
 
@@ -50,7 +50,7 @@
                 android:focusable="true"
                 android:background="?android:selectableItemBackgroundBorderless"
                 android:gravity="center_vertical"
-                android:textColor="?attr/colorAccent"
+                android:textColor="?attr/progressive_color"
                 android:textAllCaps="true"
                 android:fontFamily="sans-serif-medium"
                 android:letterSpacing="0.05"
@@ -88,13 +88,13 @@
 
                     <TextView
                         android:id="@+id/edit_history_search_empty_text"
-                        style="@style/MaterialMediumSecondaryCaption"
+                        style="@style/H3.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
                         android:layout_marginStart="24dp"
-                        android:fontFamily="sans-serif-medium"
                         android:text="@string/search_results_count_zero"
+                        android:textAlignment="center"
                         android:visibility="gone" />
 
                     <LinearLayout
@@ -114,10 +114,11 @@
 
                         <TextView
                             android:id="@+id/edit_history_empty_search_message"
-                            style="@style/MaterialMediumSecondaryCaption"
+                            style="@style/P"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="24dp" />
+                            android:layout_marginTop="24dp"
+                            android:textAlignment="center" />
 
                     </LinearLayout>
 
@@ -149,7 +150,7 @@
                 app:cardElevation="0dp"
                 app:cardCornerRadius="8dp"
                 app:strokeWidth="0.5dp"
-                app:strokeColor="?attr/colorAccent">
+                app:strokeColor="?attr/progressive_color">
 
                 <TextView
                     android:id="@+id/compareFromText"
@@ -158,7 +159,7 @@
                     android:paddingVertical="8dp"
                     android:paddingHorizontal="12dp"
                     android:textStyle="bold"
-                    android:textColor="?attr/colorAccent"
+                    android:textColor="?attr/progressive_color"
                     tools:text="12:00" />
 
             </com.google.android.material.card.MaterialCardView>
@@ -175,7 +176,7 @@
                 app:cardElevation="0dp"
                 app:cardCornerRadius="8dp"
                 app:strokeWidth="0.5dp"
-                app:strokeColor="?attr/color_group_68">
+                app:strokeColor="?attr/warning_color">
 
                 <TextView
                     android:id="@+id/compareToText"
@@ -184,7 +185,7 @@
                     android:paddingVertical="8dp"
                     android:paddingHorizontal="12dp"
                     android:textStyle="bold"
-                    android:textColor="?attr/color_group_68"
+                    android:textColor="?attr/warning_color"
                     tools:text="12:00" />
 
             </com.google.android.material.card.MaterialCardView>
@@ -201,7 +202,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:textColor="?attr/colorAccent"
+                android:textColor="?attr/progressive_color"
                 android:textAllCaps="true"
                 android:fontFamily="sans-serif-medium"
                 android:letterSpacing="0.05"

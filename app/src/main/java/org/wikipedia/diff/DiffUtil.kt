@@ -83,7 +83,7 @@ object DiffUtil {
         val spannableString = SpannableStringBuilder(diff.text.ifEmpty { "\n" })
         if (diff.text.isEmpty()) {
             spannableString.setSpan(EmptyLineSpan(ResourceUtil.getThemedColor(context, android.R.attr.colorBackground),
-                    ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color)), 0, spannableString.length, 0)
+                    ResourceUtil.getThemedColor(context, R.attr.placeholder_color)), 0, spannableString.length, 0)
             return spannableString
         }
         when (diff.type) {
@@ -118,10 +118,10 @@ object DiffUtil {
 
     private fun updateDiffTextDecor(context: Context, spannableText: SpannableStringBuilder, isAddition: Boolean, start: Int, end: Int) {
         val boldStyle = StyleSpan(Typeface.BOLD)
-        val foregroundAddedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(context, R.attr.color_group_64))
-        val foregroundRemovedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(context, R.attr.color_group_66))
+        val foregroundAddedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(context, R.attr.primary_color))
+        val foregroundRemovedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(context, R.attr.primary_color))
         spannableText.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(context,
-                if (isAddition) R.attr.color_group_65 else R.attr.color_group_67)), start, end, 0)
+                if (isAddition) R.attr.background_color else R.attr.highlight_color)), start, end, 0)
         spannableText.setSpan(boldStyle, start, end, 0)
         if (isAddition) {
             spannableText.setSpan(foregroundAddedColor, start, end, 0)

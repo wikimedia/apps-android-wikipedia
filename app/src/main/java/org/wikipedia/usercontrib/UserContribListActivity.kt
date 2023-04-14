@@ -15,7 +15,9 @@ import androidx.core.view.MenuItemCompat
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.paging.PagingData
@@ -103,25 +105,33 @@ class UserContribListActivity : BaseActivity() {
             }
         })
 
-        lifecycleScope.launchWhenCreated {
-            userContribListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
-                    .filter { it.refresh is LoadState.NotLoading }
-                    .collectLatest {
-                        if (binding.refreshContainer.isRefreshing) {
-                            binding.refreshContainer.isRefreshing = false
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    userContribListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
+                        .filter { it.refresh is LoadState.NotLoading }
+                        .collectLatest {
+                            if (binding.refreshContainer.isRefreshing) {
+                                binding.refreshContainer.isRefreshing = false
+                            }
+                        }
+                }
+                launch {
+                    userContribListAdapter.loadStateFlow.collectLatest {
+                        loadHeader.loadState = it.refresh
+                        loadFooter.loadState = it.append
+                        val showEmpty = (it.append is LoadState.NotLoading && it.source.refresh is LoadState.NotLoading && userContribListAdapter.itemCount == 0)
+                        if (showEmpty) {
+                            (binding.userContribRecycler.adapter as ConcatAdapter).addAdapter(userContribEmptyMessagesAdapter)
+                        } else {
+                            (binding.userContribRecycler.adapter as ConcatAdapter).removeAdapter(userContribEmptyMessagesAdapter)
                         }
                     }
-        }
-
-        lifecycleScope.launchWhenCreated {
-            userContribListAdapter.loadStateFlow.collectLatest {
-                loadHeader.loadState = it.refresh
-                loadFooter.loadState = it.append
-                val showEmpty = (it.append is LoadState.NotLoading && it.source.refresh is LoadState.NotLoading && userContribListAdapter.itemCount == 0)
-                if (showEmpty) {
-                    (binding.userContribRecycler.adapter as ConcatAdapter).addAdapter(userContribEmptyMessagesAdapter)
-                } else {
-                    (binding.userContribRecycler.adapter as ConcatAdapter).removeAdapter(userContribEmptyMessagesAdapter)
+                }
+                launch {
+                    viewModel.userContribFlow.collectLatest {
+                        userContribListAdapter.submitData(it)
+                    }
                 }
             }
         }
@@ -130,12 +140,6 @@ class UserContribListActivity : BaseActivity() {
             if (it is Resource.Success) {
                 userContribStatsAdapter.notifyItemChanged(0)
                 userContribSearchBarAdapter.notifyItemChanged(0)
-            }
-        }
-
-        lifecycleScope.launch {
-            viewModel.userContribFlow.collectLatest {
-                userContribListAdapter.submitData(it)
             }
         }
 
@@ -297,7 +301,7 @@ class UserContribListActivity : BaseActivity() {
             val statsFlowValue = viewModel.userContribStatsData.value
             if (statsFlowValue is Resource.Success) {
                 binding.root.setCardBackgroundColor(
-                    ResourceUtil.getThemedColor(this@UserContribListActivity, R.attr.color_group_22)
+                    ResourceUtil.getThemedColor(this@UserContribListActivity, R.attr.background_color)
                 )
 
                 itemView.setOnClickListener {
@@ -318,12 +322,12 @@ class UserContribListActivity : BaseActivity() {
             if (excludedFilters == 0) {
                 binding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.color_group_9))
+                    ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.primary_color))
             } else {
                 binding.filterCount.visibility = View.VISIBLE
                 binding.filterCount.text = excludedFilters.toString()
                 ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.colorAccent))
+                    ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.progressive_color))
             }
         }
     }
@@ -351,7 +355,7 @@ class UserContribListActivity : BaseActivity() {
 
         override fun onClick() {
             startActivity(ArticleEditDetailsActivity.newIntent(this@UserContribListActivity,
-                    PageTitle(contrib.title, viewModel.wikiSite), contrib.revid))
+                    PageTitle(contrib.title, viewModel.wikiSite), contrib.pageid, contrib.revid))
         }
     }
 

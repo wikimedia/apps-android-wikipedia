@@ -40,11 +40,12 @@
 
                 <org.wikipedia.views.AppTextView
                     android:id="@+id/primaryTextView"
-                    style="@style/MaterialLargePrimaryTitle"
+                    style="@style/H2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
                     android:focusableInTouchMode="true"
+                    android:textAlignment="center"
                     tools:text="Lorem ipsum" />
 
                 <org.wikipedia.views.AppTextView
@@ -54,8 +55,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:lineSpacingMultiplier="1.22"
-                    android:textColor="?attr/material_theme_secondary_color"
-                    android:textColorLink="?attr/colorAccent"
+                    android:textColor="?attr/secondary_color"
+                    android:textColorLink="?attr/progressive_color"
                     android:textSize="16sp"
                     tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
 
@@ -112,7 +113,7 @@
                     android:layout_marginTop="40dp"
                     android:layout_marginBottom="16dp"
                     android:text="@string/description_edit_tutorial_promise"
-                    android:textColor="?attr/material_theme_secondary_color"
+                    android:textColor="?attr/secondary_color"
                     android:textSize="12sp" />
 
             </LinearLayout>

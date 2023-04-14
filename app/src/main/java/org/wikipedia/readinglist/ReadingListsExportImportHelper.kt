@@ -69,9 +69,9 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
             .setContentTitle(context.getString(R.string.reading_list_notification_title))
             .setContentText(context.getString(R.string.reading_list_notification_detailed_text))
             .setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags))
-            .setLargeIcon(NotificationPresenter.drawNotificationBitmap(context, R.color.accent50, R.drawable.ic_download_in_progress, ""))
+            .setLargeIcon(NotificationPresenter.drawNotificationBitmap(context, R.color.blue600, R.drawable.ic_download_in_progress, ""))
             .setSmallIcon(R.drawable.ic_wikipedia_w)
-            .setColor(ContextCompat.getColor(context, R.color.accent50))
+            .setColor(ContextCompat.getColor(context, R.color.blue600))
             .setStyle(NotificationCompat.BigTextStyle().bigText(context.getString(R.string.reading_list_notification_text, numOfLists)))
     }
 

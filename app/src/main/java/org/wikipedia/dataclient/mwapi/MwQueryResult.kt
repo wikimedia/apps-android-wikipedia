@@ -22,6 +22,7 @@ class MwQueryResult {
     @SerialName("wikimediaeditortaskscounts") val editorTaskCounts: EditorTaskCounts? = null
     @SerialName("usercontribs") val userContributions: List<UserContribution> = emptyList()
     @SerialName("allusers") val allUsers: List<UserInfo>? = null
+    @SerialName("globaluserinfo") val globalUserInfo: UserInfo? = null
 
     private val redirects: MutableList<Redirect>? = null
     private val converted: MutableList<ConvertedTitle>? = null
@@ -167,7 +168,7 @@ class MwQueryResult {
         private val timestamp: String? = null
         private val comment: String? = null
         val type: String = ""
-        val pageId = 0
+        @SerialName("pageid") val pageId = 0
         val revid: Long = 0
         val ns = 0
         val title: String = ""

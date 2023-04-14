@@ -983,10 +983,10 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;%sさん&lt;/b&gt;、ウィキペディアをより良くするための素早く簡単な方法を以下にご紹介します。始めてすぐ、あなたは自分が編集した内容が反映されるのを見ることができます。良い編集を!</string>
   <string name="suggested_edits_image_captions_task_detail">読者が意味と文脈を理解できるように、画像について説明してください。</string>
   <string name="suggested_edits_add_descriptions_task_detail">読者が一目でその主題を理解できるように要約してください。</string>
-  <string name="suggested_edits_contributions_stat_tooltip">これまでの編集回数</string>
+  <string name="suggested_edits_contributions_stat_tooltip">これまでの総編集回数です。</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">投稿を何日間連続で行ったかです。しばらく投稿していない場合には最後の投稿日が表示されます。</string>
   <string name="suggested_edits_page_views_stat_tooltip">過去30日間の、投稿したアイテムへの総ページビュー数です。</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">あなたの投稿が巻き戻された（他の編集者に取り消された）回数を基づいています。巻き戻された編集数：%d。</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">あなたの投稿が差し戻された（他の編集者に取り消された）回数に基づいています。差し戻された編集数：%d。</string>
   <string name="suggested_edits_paused_message">編集提案は%1$sまで保留されました。あいにくですが、%2$sさんの最近の投稿は巻き戻しが数件続いています。</string>
   <string name="suggested_edits_disabled_message">編集提案は無効にされました。申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎました。</string>
   <string name="suggested_edits_ip_blocked_message">ご使用のIPアドレスまたはIPアドレスの範囲は現在ウィキペディアの編集からブロックされているようです。</string>
@@ -1050,6 +1050,7 @@
   <string name="suggested_edits_contribution_type_image_tag">画像タグ</string>
   <string name="suggested_edits_contribution_current_revision_text">あなたの編集をウィキペディアに公開しました</string>
   <string name="suggested_card_more_edits">編集提案をもっと見る</string>
+  <string name="suggested_edits_report_suggestion">報告</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$sつのタグ</item>
     <item quantity="other">%1$sつのタグ</item>
@@ -1353,7 +1354,7 @@
   <string name="watchlist_filter_significance_edits">細部でない編集</string>
   <string name="watchlist_filter_latest_revisions_header">最新版</string>
   <string name="watchlist_filter_latest_revisions_latest_revision">最新版</string>
-  <string name="watchlist_filter_latest_revisions_not_latest_revision">最新版ではありません</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">最新版以外</string>
   <string name="watchlist_filter_type_of_change_header">変更の種類</string>
   <string name="watchlist_filter_type_of_change_page_edits">ページの編集</string>
   <string name="watchlist_filter_type_of_change_page_creations">ページの作成</string>
@@ -1365,6 +1366,9 @@
   <string name="watchlist_search_bar_hint">ウォッチリストを検索または絞り込みする</string>
   <string name="watchlist_search_bar_filter_hint">ウォッチリストを絞り込み</string>
   <string name="watchlist_empty_search_message">結果がありません。 %sを削除してみてください。</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="other">%d件のフィルター</item>
+  </plurals>
   <string name="preview_edit_title">編集のプレビュー</string>
   <string name="preview_edit_summarize_edit_title">編集の要約</string>
   <string name="preview_edit_summarize_edit_hint">どのようにこのページを改善しましたか？</string>

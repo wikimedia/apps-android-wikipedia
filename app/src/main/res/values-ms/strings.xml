@@ -3,10 +3,12 @@
 * Anakmalaysia
 * Arifin.wijaya
 * Aviator
+* Bebudak
 * Cooltey
 * CyberTroopers
 * Dbrant
 * Envlh
+* Hakimi97
 * Izing
 * Jeluang Terluang
 * Kurniasan
@@ -424,6 +426,8 @@
   <string name="theme_category_editing">Menyunting</string>
   <string name="reading_focus_mode">Mod tumpu membaca</string>
   <string name="editing_line_numbers_label">Tunjukkan nombor baris</string>
+  <string name="editing_monospace_font_label">Gunakan fon monospace</string>
+  <string name="editing_typing_suggestions">Tunjukkan cadangan penaipan</string>
   <string name="nav_item_saved">Disimpan</string>
   <string name="reading_list_save_to">Simpan ke senarai bacaan</string>
   <string name="reading_list_move_to">Pindah ke senarai pembacaan</string>
@@ -541,6 +545,9 @@
   <string name="reading_list_delete_lists_dialog_delete_button_text">Hapuskan</string>
   <string name="reading_list_activity_title">Senarai baca: %s</string>
   <string name="reading_lists_action_menu_export_lists">Eksport</string>
+  <string name="reading_lists_import_file_picker_title">Pilih fail untuk diimport</string>
+  <string name="reading_lists_import_failure_message">Gagal mengimport senarai bacaan</string>
+  <string name="reading_lists_export_select_lists_message">Pilih senarai untuk dieksport</string>
   <string name="reading_lists_preview_save_button">Simpan</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Tajuk</string>
   <string name="reading_lists_preview_save_dialog_cancel">Batalkan</string>
@@ -715,6 +722,8 @@
   <string name="description_too_short">Teks terlalu pendek.</string>
   <string name="description_ends_with_punctuation">Teks mesti tidak diakhiri dengan tanda baca.</string>
   <string name="description_starts_with_lowercase">Elak mula dengan huruf kecil.</string>
+  <string name="description_edit_suggested_description_button_text">Tampilkan penerangan yang disarankan</string>
+  <string name="description_edit_suggested_description_button_tooltip">Cuba penerangan rencana yang disarankan mesin</string>
   <string name="description_edit_success_saved">Huraian rencana diterbitkan!</string>
   <string name="description_edit_success_saved_snackbar">Keterangan rencana diterbitkan!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Kapsyen imej diterbitkan!</string>
@@ -728,6 +737,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Sebaik-baiknya satu baris, antara dua hingga dua belas perkataan</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mula menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan bermula, saya berjanji tidak akan menyalahgunakan ciri ini.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Cadangan dari mesin</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Cadangan yang dihasilkan oleh mesin, bukan dari sukarelawan mahupun Yayasan Wikimedia</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="suggested_edits_describe_articles">Huraikan rencana</string>
   <string name="suggested_edits_review_description" fuzzy="true">Kaji penerangan tajuk</string>
@@ -801,6 +812,14 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Kelmarin</string>
   <string name="suggested_edits_encourage_account_creation_title">Tahukah anda bahawa semua orang boleh menyunting Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Log masuk / sertai Wikipedia</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Saranan penerangan</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Apa yang ingin anda laporkan?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Tidak cukup maklumat</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion" fuzzy="true">Tidak dapat melihat cadangan penerangan</string>
+  <string name="suggested_edits_inappropriate_suggestion">Cadangan yang tidak tepat</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Tidak memahami tugasnya</string>
+  <string name="suggested_edits_report_suggestion">Laporkan</string>
+  <string name="suggested_edits_suggestion_report_submitted">Laporan dikirim</string>
   <string name="file_page_activity_title">Laman fail</string>
   <string name="file_page_edit_button_content_description">Sunting %s</string>
   <string name="description_edit_revert_subtitle">Terima kasih kerana menyunting di Wikipedia!</string>

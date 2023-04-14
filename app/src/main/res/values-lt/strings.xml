@@ -7,6 +7,7 @@
 * Manvydasz
 * MuratTheTurkish
 * Nersip
+* Nokeoo
 * Nuodas
 * Pavel1513
 * Pofka
@@ -24,7 +25,9 @@
   <string name="search_hint">Paieška Vikipedijoje</string>
   <string name="search_hint_voice_search">Paieškos įvestis balsu</string>
   <string name="search_hint_search_languages">Ieškoti kalbos</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Siūlomi keitimai</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtruoti mano sąrašus</string>
+  <string name="nav_item_suggested_edits">Keitimai</string>
+  <string name="nav_item_more">Daugiau</string>
   <string name="nav_item_search">Paieška</string>
   <string name="error_network_error">Negalite prisijungti prie Interneto.</string>
   <string name="page_error_retry">Bandykite dar kartą</string>
@@ -34,13 +37,19 @@
   <string name="offline_load_error_retry">Bandyti dar kartą</string>
   <string name="page_error_back_to_main">Grįžti atgal</string>
   <string name="error_back">Grįžti atgal</string>
+  <string name="error_next">Kitas</string>
   <string name="menu_clear_all_history">Valyti istoriją</string>
   <string name="history_item_deleted">%s pašalintas iš istorijos</string>
   <string name="history_items_deleted">%d straipsniai pašalinti iš sąrašo</string>
   <string name="history_item_delete_undo">Anuliuoti</string>
   <string name="notification_archive_undo">Anuliuoti</string>
   <string name="app_settings">Programėlės nustatymai</string>
+  <string name="search_tab_tooltip">Paspauskite ikoną, kad tiesiogiai galėtumėte įvesti paieškos terminą.</string>
   <string name="history_list_title">Istorija</string>
+  <string name="image_content_description">Paveikslėlis: %s</string>
+  <string name="page_content_description">Puslapis: %s</string>
+  <string name="wikimedia_commons">Vikiteka</string>
+  <string name="wikidata">Vikiduomenys</string>
   <string name="dialog_title_clear_history">Išvalyti naršymo istoriją</string>
   <string name="dialog_message_clear_history">Esate tikri? Tai ištrins visą jūsų naršymo istoriją ir uždarys visus skirtukus.</string>
   <string name="dialog_message_clear_history_yes">Taip</string>
@@ -48,17 +57,43 @@
   <string name="share_via">Dalintis per</string>
   <string name="image_share_via">Dalintis per</string>
   <string name="search_redirect_from">Nukreipta iš %s</string>
+  <string name="page_edit_history_activity_title">Keitimų istorija: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Redagavimo suvestinė tuščia</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Ieškokite ar filtruokite pakeitimus</string>
+  <string name="page_edit_history_filter_by">Filtruoti pagal</string>
+  <string name="page_edit_history_filter_by_all">Visi pakeitimai (%s)</string>
+  <string name="page_edit_history_filter_by_user">Naudotojo pakeitimai (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anoniniai pakeitimai (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Robotų pakeitimai (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Metrika nuo %1$s iki %2$s</string>
+  <string name="page_edit_history_empty_search_message">Pabandykite pakeisti &lt;a href=\"#\"&gt;filtrus&lt;/a&gt;, kad matytumėte daugiau keitimų</string>
   <string name="menu_page_show_tabs">Rodyti skirtukus</string>
   <string name="menu_page_other_languages">Keisti kalbą</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Rasti puslapyje</string>
+  <string name="menu_page_find_in_page">Rasti straipsnyje</string>
+  <string name="menu_page_add_to_watchlist">Pridėti į stebimų sąrašą</string>
+  <string name="menu_page_watch">Stebėti</string>
+  <string name="menu_page_unwatch">Nebestebėti</string>
+  <string name="menu_page_view_talk">Žiūrėti aptarimo puslapį</string>
+  <string name="menu_page_talk_page">Aptarimo puslapis</string>
+  <string name="menu_page_view_edit_history">Peržiūrėti keitimų istoriją</string>
+  <string name="menu_page_edit_history">Redagavimo istorija</string>
+  <string name="menu_page_remove_from_watchlist">Pašalinti iš stebimų sąrašo</string>
+  <string name="menu_page_watched">Stebimas</string>
   <string name="edit_section_find_in_page">Rasti puslapyje</string>
   <string name="menu_page_font_and_theme">Šriftas ir temos</string>
   <string name="menu_page_add_to_list">Įtraukti į skaitymo sąrašą</string>
+  <string name="menu_page_add_to_default_list">Išsaugoti</string>
   <string name="feed_card_add_to_list">Įtraukti į skaitymo sąrašą</string>
+  <string name="feed_card_add_to_default_list">Išsaugoti</string>
   <string name="menu_page_share">Pasidalinkite nuoroda</string>
+  <string name="menu_article_share">Pasidalinti straipsniu</string>
+  <string name="menu_page_article_share">Dalintis</string>
   <string name="menu_page_open_a_new_tab">Atverti naują skirtuką</string>
+  <string name="menu_page_new_tab">Naujas skirtukas</string>
   <string name="menu_page_reading_lists">Skaitymo sąrašai</string>
   <string name="menu_page_recently_viewed">Neseniai žiūrėta</string>
+  <string name="menu_page_archive">Archyvas</string>
   <string name="menu_long_press_open_page">Atidaryti</string>
   <string name="menu_long_press_open_in_new_tab">Atidaryti naujame skirtuke</string>
   <string name="menu_long_press_copy_page">Kopijuoti nuorodos adresą</string>
@@ -66,6 +101,7 @@
   <string name="on_this_day_page_share">Dalintis</string>
   <string name="reading_list_page_share">Dalintis</string>
   <string name="menu_text_select_edit_here">Keisti čia</string>
+  <string name="menu_edit_article">Redaguoti straipsnį</string>
   <string name="last_updated_text">Paskutinį kartą atnaujinta %s</string>
   <string name="talk_page_link_text">Žiūrėti aptarimo puslapį</string>
   <string name="edit_history_link_text">Peržiūrėti keitimų istoriją</string>
@@ -74,6 +110,8 @@
   <string name="language_count_link_text">Prieinama %d kitų kalbų</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Paskelbdami jūs sutinkate su &lt;a href=\"%1$s\"&gt;naudojimosi sąlygomis&lt;/a&gt; ir neatšaukiamu savo indėlio paskelbimu pagal&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciją.</string>
+  <string name="edit_save_action_license_anon">Skelbdami sutinkate su &lt;a href=\"%1$s\"&gt;Naudojimo sąlygomis&lt;/a&gt; ir negrįžtamai paskelbiate savo indelį pagal &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciją. Keitimai bus priskirti jūsų įrenginio IP adresui. Jeigu &lt;a href=\"https://#login\"&gt;prisijungsite&lt;/a&gt;, turėsite daugiau privatumo.</string>
+  <string name="edit_anon_warning">Keitimai bus priskirti jūsų įrenginio IP adresui. Jeigu &lt;a href=\"https://#login\"&gt;prisijungsite&lt;/a&gt;, turėsite daugiau privatumo.</string>
   <string name="preference_title_language">Vikipedijos kalbos</string>
   <string name="langlinks_filter_hint">Ieškoti</string>
   <string name="langlinks_empty">Šis puslapis nėra išverstas į kitas kalbas.</string>
@@ -93,6 +131,8 @@
   <string name="search_reading_list_no_results">Nerasta rezultatų „%s“</string>
   <string name="search_reading_lists_no_results">Nerasta rezultatų skaitymo sąrašuose</string>
   <string name="search_history_no_results">Istorijoje rezultatų nerasta</string>
+  <string name="edit_section_captcha_message">Siekiant apsisaugoti nuo automatinio šlamšto, prašome įvesti žodžius, esančius žemiau</string>
+  <string name="edit_section_captcha_request_an_account_message">Nematote paveikslėlio? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Prašykite paskyros&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Pakartoti žodžius iš viršaus</string>
   <string name="title_captcha">Įveskite saugos kodą</string>
   <string name="edit_section_captcha_reload">Bakstelėkite CAPTCHA, kad atnaujinti</string>
@@ -100,14 +140,16 @@
   <string name="login_username_hint">Naudotojo vardas</string>
   <string name="login_password_hint">Slaptažodis</string>
   <string name="account_creation_password_hint">Slaptažodis</string>
+  <string name="login_2fa_hint">Dviejų veiksnių autentifikavimo kodas</string>
+  <string name="login_2fa_other_workflow_error_msg">Reikalingas dviejų veiksnių autentifikavimas! Grįžkite į pagrindinę veiklą ir prisijunkite naudodami 2FA prieigos raktą, tada bandykite dar kartą.</string>
   <string name="onboarding_card_login">Prisijungti</string>
   <string name="page_editing_login">Prisijungti</string>
   <string name="reading_lists_sync_login">Prisijungti</string>
   <string name="create_account_login">Prisijungti</string>
   <string name="menu_login">Prisijungti</string>
-  <string name="login_activity_title" fuzzy="true">Prisijungti prie Vikipedijos</string>
+  <string name="login_activity_title">Prisijungti</string>
   <string name="login_in_progress_dialog_message">Jūs jungiatės…</string>
-  <string name="login_success_toast" fuzzy="true">Sėkmingai prisijungėte!</string>
+  <string name="login_success_toast">Prisijungta!</string>
   <string name="reset_password_title">Nustatykite slaptažodį</string>
   <string name="reset_password_description">Jūs prisijungėte su laikinu slaptažodžiu. Kad baigtumėte prisijungimą, prašome nustatyti savo naują slaptažodį čia.</string>
   <string name="reset_password_hint">Naujas slaptažodis</string>
@@ -123,6 +165,8 @@
   <string name="history_empty_title">Nėra neseniai peržiūrėtų straipsnių</string>
   <string name="history_empty_message">Sekite tai, ką skaitote.</string>
   <string name="history_offline_articles_toast">Kai kurie straipsniai istorijoje gali būti neprieinami neprisijungus.</string>
+  <string name="search_empty_message">Naršykite ir skaitykite nemokamą enciklopediją savo kalba</string>
+  <string name="search_empty_message_multilingual_upgrade">Ieškokite Vikipedijoje daugiau kalbų</string>
   <string name="delete_selected_items">Ištrinti pasirinktus elementus</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPEDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Naudotojo vardas</string>
@@ -134,41 +178,60 @@
   <string name="dialog_create_account_checking_progress">Tikrinama</string>
   <string name="create_account_email_hint">El. paštas (neprivaloma)</string>
   <string name="create_account_password_repeat_hint">Pakartokite slaptažodį</string>
+  <string name="create_account_password_is_username">Slaptažodis negali būti toks pat kaip naudotojo vardas</string>
   <string name="create_account_passwords_mismatch_error">Slaptažodžiai nesutampa</string>
   <string name="create_account_email_error">Neteisingas el. pašto adresas</string>
   <string name="create_account_username_error">Negalimi simboliai naudotojo varde</string>
-  <string name="create_account_password_error" fuzzy="true">Neteisingas slaptažodis</string>
+  <string name="create_account_password_error">Slaptažodį turi sudaryti bent 8 simboliai</string>
   <string name="create_account_generic_error">Nepavyko sukurti paskyros</string>
   <string name="create_account_next">Kitas</string>
   <string name="email_recommendation_dialog_title">Sukurti paskyrą be el. pašto adreso?</string>
+  <string name="email_recommendation_dialog_message">Nors el. pašto adresas yra neprivalomas, jis yra &lt;b&gt;labai rekomenduojamas&lt;/b&gt;, nes el. pašto adresas reikalingas norint atkurti paskyrą, jei kada nors prarastumėte slaptažodį.</string>
+  <string name="email_recommendation_message">Rekomenduojama, nes norint atkurti paskyrą reikalingas el. paštas.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Tęsti be el. pašto</string>
   <string name="email_recommendation_dialog_create_with_email_action">Pridėti el. pašto adresą</string>
   <string name="create_account_button">Kurti paskyrą</string>
   <string name="create_account_name_unavailable">Naudotojo vardas „%s“ negalimas. Prašome pasirinkti kitą vardą.</string>
   <string name="create_account_ip_block_message">Atsiprašome, jūsų IP adresas yra užblokuotas nuo naujų paskyrų kūrimo.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Informacija</string>
   <string name="preferences_general_heading">Bendras</string>
+  <string name="preferences_account_heading">Paskyra</string>
   <string name="wikipedia_app_faq">Vikipedijos programėlės DUK</string>
   <string name="send_feedback">Siųsti atsiliepimą apie programėlę</string>
   <string name="create_account_account_created_toast">Paskyra sukurta!</string>
+  <string name="preferences_heading_syncing">Sinchronizuojama</string>
   <string name="preferences_heading_data_usage">Duomenų naudojimas</string>
   <string name="preferences_heading_experimental">Eksperimentiniai</string>
+  <string name="preference_title_sync_reading_lists_from_account">Skaitymo sąrašo sinchronizavimas</string>
+  <string name="preference_title_download_reading_list_articles">Atsisiųsti skaitymo sąrašo straipsnius</string>
+  <string name="preference_summary_sync_reading_lists">Sinchronizuokite skaitymo sąrašus skirtinguose įrenginiuose išsaugodami juos savo Vikipedijos paskyroje</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Sinchronizuokite skaitymo sąrašus skirtinguose įrenginiuose išsaugodami juos savo Vikipedijos paskyroje „%s“</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Pašalinti sinchronizuotus skaitymo sąrašus iš „%s“?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tai visiškai ištrins ankščiau sinchronizuotus skaitymo sąrašus iš nuotolinės saugyklos. Pašalinti visus sinchronizuotus sąrašus iš jūsų paskyros „%s“?</string>
   <string name="preferences_privacy_settings_heading">Privatumas</string>
   <string name="preference_title_eventlogging_opt_in">Siųsti naudojimo ataskaitas</string>
   <string name="preference_summary_eventlogging_opt_in">Leisti Vikimedijai rinkti informaciją apie programėlės naudojimą, taip ją tobulinant</string>
   <string name="preference_title_auto_upload_crash_reports">Siųsti strigčių ataskaitas</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Leisti programėlei siųsti trikčių ataskaitas į „HockeyApp“ arba trečiosios šalies paslaugų teikėjams automatiškai, tam kad mes galėtume peržiūrėti klaidas ir ištaisyti jas greičiau bei lengviau.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Leisti programėlei siųsti trikčių ataskaitas trečiosios šalies paslaugų teikėjams automatiškai, tam kad mes galėtume peržiūrėti klaidas ir ištaisyti jas greičiau bei lengviau.</string>
+  <string name="editing_error_spamblacklist">Aptiktos nuorodos į užblokuotus domenus (%s). Pašalinkite juos ir bandykite dar kartą.</string>
+  <string name="history_filter_list_hint">Filtruoti istoriją</string>
   <string name="error_can_not_process_link">Neįmanoma parodyti šios nuorodos</string>
   <string name="page_protected_autoconfirmed">Šis puslapis buvo pusiau saugomas.</string>
   <string name="page_protected_sysop">Šis puslapis buvo visiškai apsaugotas.</string>
+  <string name="page_protected_other">Šis puslapis buvo apsaugotas iki šių lygių: %s</string>
   <string name="page_protected_can_not_edit">Atsiprašome, šiuo metu jūsų paskyra neturi teisių redaguoti šį puslapį.</string>
+  <string name="page_protected_can_not_edit_anon">Atsiprašome, šiuo metu šio puslapio anonimiškai redaguoti negalima.</string>
   <string name="page_protected_can_not_edit_title">Šis puslapis apsaugotas</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Pridėti į stebimų sąrašą</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Sekite kas vyksta su jus dominančiais straipsniais. Bakstelėkite perpildymo meniu ir pasirinkite &lt;b&gt;Pridėti į stebimų sąrašą&lt;/b&gt;, kad sektumėte straipsnio keitimus.</string>
   <string name="settings_item_preferences">Nustatymai</string>
   <string name="settings_activity_title">Nustatymai</string>
   <string name="about_description">Apie Vikipedijos programėlę</string>
   <string name="privacy_policy_description">Privatumo politika</string>
   <string name="terms_of_use_description">Naudojimosi sąlygos</string>
   <string name="about_wikipedia_url">https://lt.wikipedia.org/wiki/Vikipedija:Projekto_aprašymas</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.lt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.lt</string>
   <string name="about_libraries_heading">Panaudotos bibliotekos</string>
@@ -176,6 +239,7 @@
   <string name="about_translators_heading">Vertėjai</string>
   <string name="about_translators_translatewiki">Ši programėlė buvo išversta savanorių vertėjų &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencija</string>
+  <string name="about_app_license">Šaltinio kodas prieinamas &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ir &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pagal &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 licenciją&lt;/a&gt;. Jeigu nenurodyta kitaip, turinys pateikiamas pagal &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike licenciją&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimedijos fondo&lt;/a&gt; produktas</string>
   <string name="about_activity_title">Apie</string>
   <string name="edit_abandon_confirm">Puslapis buvo pakeistas. Ar tikrai norite išeiti neįrašydami pakeitimų?</string>
@@ -190,6 +254,7 @@
   <string name="edit_preview">Peržiūra</string>
   <string name="edit_undo">Anuliuoti</string>
   <string name="edit_redo">Atkurti</string>
+  <string name="edit_rollback">Atmesti</string>
   <string name="edit_zoom_in">Priartinti</string>
   <string name="edit_zoom_out">Atitolinti</string>
   <string name="edit_summary_tag_typo">Pataisyta klaida</string>
@@ -197,13 +262,23 @@
   <string name="edit_summary_tag_links">Pridėtos nuorodos</string>
   <string name="edit_summary_tag_other">Kita</string>
   <string name="edit_summary_tag_other_hint">Kiti būdai, kaip galite pagerinti puslapį</string>
+  <string name="edit_conflict_title">Redagavimo konfliktas</string>
+  <string name="edit_conflict_message">Puslapį jau pakeitė kitas naudotojas ir jis nesuderinamas su jūsų keitimu. Nukopijuokite savo pakeitimus, grįžkite ir atnaujinkite puslapį, tada bandykite redaguoti dar kartą.</string>
+  <string name="edit_notices">Redagavimo pranešimai</string>
+  <string name="edit_notices_please_read">Prašome perskaityti prieš redaguodami</string>
+  <string name="edit_notices_show_auto">Rodyti redagavimo pranešimus automatiškai</string>
+  <string name="edit_notices_tooltip">Bakstelėkite šį mygtuką norėdami peržiūrėti šio straipsnio redagavimo pranešimus.</string>
   <string name="find_next">Rasti kitą</string>
   <string name="find_previous">Rasti ankstesnį</string>
+  <string name="article_opened_in_background_tab">Straipsnis atidarytas foniniame skirtuke.</string>
   <string name="abusefilter_title_warn">Panašu, kad šie pakeitimai nekonstruktyvūs. Ar tikrai norite juos paskelbti?</string>
   <string name="abusefilter_title_disallow">Jūs negalite išsaugoti šio keitimo. Prašome grįžti atgal ir pakeisti jį.</string>
+  <string name="abusefilter_text_warn">Automatinis filtras nustatė, kad šis redagavimas gali būti nekonstruktyvus. Jame gali būti vienas ar daugiau iš šių dalykų:&lt;br /&gt;&lt;br /&gt;· Rašoma tik didžiosiomis raidėmis&lt;br /&gt;· Straipsnių turinio trynimas ar šlamštas&lt;br /&gt;· Nesvarbios išorinės nuorodos ar paveikslėliai&lt;br /&gt;· Pasikartojantys simboliai</string>
+  <string name="abusefilter_text_disallow">Automatinis filtras nustatė, kad šis keitimas gali būti nekonstruktyvus ar galimas vandalizmas.&lt;br /&gt;&lt;br /&gt;Vikipedija yra enciklopedija ir čia laukiamas tik neutralus, naudingas turinys.</string>
   <string name="page_similar_titles">Panašūs puslapiai</string>
   <string name="search_did_you_mean">Ar turėjote omenyje „%s“?</string>
   <string name="search_recent_header">Naujausios paieškos:</string>
+  <string name="search_results_count_zero">Nėra rezultatų</string>
   <string name="button_clear_all_recent_searches">Išvalyti naujausias paieškas</string>
   <string name="clear_recent_searches_confirm">Ar tikrai norite išvalyti paieškos istoriją?</string>
   <string name="clear_recent_searches_confirm_yes">Taip</string>
@@ -220,6 +295,11 @@
   <string name="alpha_update_notification_text">Spustelėkite norėdami parsisiųsti</string>
   <string name="dialog_close_description">Uždaryti</string>
   <string name="preference_title_show_images">Rodyti paveikslėlius</string>
+  <string name="preference_summary_show_images">Įjungti arba išjungti paveikslėlių įkėlimą puslapiuose. Atžymėkite šį nustatymą, jei interneto ryšys lėtas ar jūsų duomenų planas ribotas.</string>
+  <string name="preference_title_download_only_over_wifi">Atsisiųskite tik per „Wi-Fi“.</string>
+  <string name="dialog_title_download_only_over_wifi">Patvirtinti atsisiuntimą naudojant mobiliuosius duomenis?</string>
+  <string name="dialog_text_download_only_over_wifi">Nustatymuose esate įjungę „Atsisiųsti tik per „Wi-Fi“. Ar norite leisti naudoti mobiliojo ryšio duomenis tik šiam atsisiuntimui?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Leisti</string>
   <string name="read_more_section">Skaityti daugiau</string>
   <string name="about_article_section">Apie šį straipsnį</string>
   <string name="menu_gallery_visit_image_page">Eikite į failo puslapį</string>
@@ -228,45 +308,73 @@
   <string name="gallery_menu_share">Dalintis</string>
   <string name="gallery_share_error">Negalima pasidalinti vaizdu: %s</string>
   <string name="gallery_save_progress">Siunčiamas failas…</string>
-  <string name="gallery_save_success" fuzzy="true">Failas išsaugotas sėkmingai.</string>
+  <string name="gallery_save_success">Failas išsaugotas.</string>
   <string name="gallery_error_video_failed">Negalima paleisti vaizdo įrašo.</string>
+  <string name="gallery_save_image_write_permission_rationale">Norint išsaugoti paveikslėlius, reikia leidimo rašyti į įrenginio saugyklą.</string>
+  <string name="gallery_edit_button_content_description">Redaguoti paveikslėlio antraštę</string>
+  <string name="gallery_add_image_caption_button">Pridėti paveikslėlio antraštę</string>
+  <string name="gallery_add_image_caption_in_language_button">Pridėti paveikslėlio antraštę (%s)</string>
   <string name="err_cannot_save_file">Negalima įrašyti failų</string>
   <string name="expand_refs">Bakstelėkite norėdami išplėsti</string>
   <string name="cc_logo">Creative Commons licencija</string>
   <string name="captcha_image">Captcha nuotrauka</string>
   <string name="gallery_fair_use_license">Sąžiningas naudojimasis</string>
   <string name="gallery_uploader_unknown">Talpintojas nežinomas</string>
+  <string name="gallery_not_available_offline_snackbar">Galerijos rodinys nepasiekiamas neprisijungus.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Paslėpti</string>
   <string name="menu_new_tab">Naujas skirtukas</string>
   <string name="menu_close_all_tabs">Uždaryti visus skirtukus</string>
+  <string name="close_all_tabs_confirm">Ar tikrai norite uždaryti visus skirtukus?</string>
   <string name="close_all_tabs_confirm_yes">Taip</string>
   <string name="close_all_tabs_confirm_no">Ne</string>
   <string name="button_close_tab">Uždaryti skirtuką</string>
+  <string name="unnamed_tab_closed">Skirtukas uždarytas.</string>
+  <string name="tab_item_closed">%s uždarytas.</string>
+  <string name="all_tab_items_closed">Visi skirtukai uždaryti.</string>
+  <string name="tool_tip_bookmark_icon_title">Įtraukti į skaitymo sąrašą</string>
+  <string name="tool_tip_bookmark_icon_text">Bakstelėkite žymės piktogramą, kad išsaugotumėte straipsnį skaitymo sąraše.</string>
   <string name="page_view_in_browser">Peržiūra naršyklėje</string>
+  <string name="tool_tip_toc_title">Greita prieiga prie turinio</string>
+  <string name="tool_tip_toc_text">Dabar galite braukti kairėn, kad atidarytumėte turinį, taip pat bakstelėkite ir vilkite šį slinkties mygtuką, kad greitai pereitumėte į skirtingas straipsnio dalis.</string>
+  <string name="tool_tip_lang_button">Dabar programėlėje galite ieškoti ir skaityti keliomis Vikipedijos kalbomis.\n\n\nBakstelėkite piktogramą, kad pridėtumėte daugiau kalbų.</string>
   <string name="error_response_malformed">Atsakas iš serverio nebuvo suformatuotas teisingai.</string>
   <string name="error_unknown">Įvyko nežinoma klaida.</string>
   <string name="format_error_server_message">Pranešimas: \"%s\"</string>
   <string name="address_copied">Adresas nukopijuotas į iškarpinę.</string>
   <string name="text_copied">Tekstas nukopijuotas į iškarpinę.</string>
   <string name="button_continue_to_article">Skaityti straipsnį</string>
+  <string name="button_continue_to_talk_page">Atidaryti aptarimo puslapį</string>
+  <string name="button_continue_to_disambiguation">Žiūrėti panašius puslapius</string>
+  <string name="link_preview_disambiguation_description">Šis pavadinimas susijęs su daugiau nei vienu puslapiu:</string>
   <string name="button_add_to_reading_list">Įtraukti į skaitymo sąrašą</string>
   <string name="page_offline_notice_cannot_load_while_offline">Neprisijungus, įrašas negali būti įkeltas.</string>
   <string name="page_offline_notice_add_to_reading_list">Patarimas: Pridėkite straipsnį prie skaitomų sąrašo ir jis bus pakrautas kai vėl prisijungsite.</string>
+  <string name="page_offline_notice_last_date">Skaitote neprisijungus pasiekiamą šio straipsnio versiją, išsaugotą %s.</string>
   <string name="button_get_directions">Gauti kryptis</string>
   <string name="error_no_maps_app">Nepavyko rasti jokių programėlių, kurios suteikia kryptis.</string>
+  <string name="preference_title_customize_explore_feed">Naršyti srautą</string>
   <string name="preference_title_show_link_previews">Rodyti nuorodos peržiūras</string>
+  <string name="preference_summary_customize_explore_feed">Tinkinkti naršymo srautą</string>
   <string name="preference_summary_show_link_previews">Palietus ant nuorodos rodyti greitos peržiūros straipsnius.</string>
-  <string name="nav_item_donate" fuzzy="true">Paremti Vikipediją</string>
+  <string name="preference_title_collapse_tables">Suskleisti lenteles</string>
+  <string name="preference_summary_collapse_tables">Automatiškai suskleisti lenteles straipsniuose, pvz., informacinius langus, nuorodas ir pastabas.</string>
+  <string name="nav_item_donate">Aukoti</string>
   <string name="error_voice_search_not_available">Atsiprašome, balso atpažinimas negalimas.</string>
   <string name="location_service_disabled">Vietos paslaugos yra išjungtos.</string>
   <string name="enable_location_service">Įjungti</string>
   <string name="location_permissions_enable_prompt">Įjunkite vietovės teises, kad matytumėte vietas šalia savęs.</string>
   <string name="location_permissions_enable_action">Įjungti</string>
+  <string name="error_webview_updating">„Android System WebView“ šiuo metu atnaujinamas. Po akimirkos prašome pabandyti dar kartą.</string>
   <string name="multi_select_items_selected">%d pasirinkta</string>
   <string name="error_message_generic">Įvyko klaida</string>
   <string name="view_link_preview_error_button_dismiss">Atšaukti</string>
   <string name="error_page_does_not_exist">Šis puslapis neegzistuoja</string>
   <string name="view_wiki_error_message_offline">Nepavyko prisijungti prie interneto</string>
   <string name="view_wiki_error_message_timeout">Nepavyko prisijungti prie Vikipedijos. Patikrinkite savo interneto ryšį arba bandykite dar kartą.</string>
+  <string name="reference_title">Išnaša %s</string>
+  <string name="reference_list_title">Išnašos</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Vaizdo pritemdymas (tamsioje temoje)</string>
+  <string name="preference_title_prefer_offline_content">Pirmenybę teikti turiniui neprisijungus</string>
   <string name="page_footer_license_text">Turinys prieinamas pagal $1, jei nenurodyta kitaip</string>
   <string name="crash_report_activity_title">Aplikacijos klaida</string>
   <string name="crash_report_relaunch_or_quit">Atsiprašome, Vikipedijos programėlę patyrė klaidą ir buvo nutraukta.\n\nNorėtumėte pradėti iš naujo ar baigti?</string>

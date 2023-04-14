@@ -20,6 +20,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityTalkTopicBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
@@ -91,7 +92,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         L10nUtil.setConditionalLayoutDirection(binding.talkRecyclerView, viewModel.pageTitle.wikiSite.languageCode)
         L10nUtil.setConditionalLayoutDirection(binding.talkErrorView, viewModel.pageTitle.wikiSite.languageCode)
-        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
+        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.progressive_color))
         binding.talkToolbarSubjectView.movementMethod = linkMovementMethod
 
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -391,7 +392,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onMediaLinkClicked(title: PageTitle) {
-            // TODO
+            startActivity(FilePageActivity.newIntent(this@TalkTopicActivity, title))
         }
 
         override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {

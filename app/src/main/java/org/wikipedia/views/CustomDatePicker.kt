@@ -100,9 +100,9 @@ class CustomDatePicker : DialogFragment() {
 
             fun setFields(position: Int) {
                 if (position == today[Calendar.DATE] && today[Calendar.MONTH] == selectedDay[Calendar.MONTH]) {
-                    binding.dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+                    binding.dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color))
                 } else {
-                    binding.dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color))
+                    binding.dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_color))
                 }
                 if (position == callbackDay[Calendar.DATE] && selectedDay[Calendar.MONTH] == callbackDay[Calendar.MONTH]) {
                     binding.dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))

@@ -11,52 +11,51 @@
     <FrameLayout
         android:id="@+id/view_description_edit_toolbar_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:background="?attr/paper_color">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="?attr/actionBarSize">
 
             <ImageView
                 android:id="@+id/view_description_edit_cancel_button"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_vertical"
-                android:layout_margin="4dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
+                android:layout_marginStart="4dp"
                 android:contentDescription="@string/description_edit_cancel_hint"
                 android:focusable="true"
                 android:padding="12dp"
-                app:srcCompat="@drawable/ic_arrow_back_themed_24dp" />
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                app:tint="?attr/primary_color" />
 
             <TextView
                 android:id="@+id/view_description_edit_header"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:ellipsize="end"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
                 android:maxLines="1"
+                android:textStyle="bold"
                 android:text="@string/description_edit_edit_description"
-                android:textColor="?attr/material_theme_primary_color"
-                android:textSize="20sp"
-                android:padding="16dp" />
+                android:textColor="?attr/primary_color"
+                android:textSize="20sp" />
 
-            <ImageView
+            <TextView
                 android:id="@+id/view_description_edit_save_button"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                style="@style/TransparentButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="4dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:contentDescription="@string/description_edit_save"
-                android:focusable="true"
-                android:padding="12dp"
-                app:srcCompat="@drawable/ic_check_black_24dp" />
+                android:text="@string/description_edit_save" />
 
         </LinearLayout>
 
@@ -120,7 +119,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-medium"
-                            android:textColor="?attr/material_theme_de_emphasised_color"
+                            android:textColor="?attr/placeholder_color"
                             android:textSize="12sp"
                             tools:text="Article" />
 
@@ -134,7 +133,7 @@
                             android:gravity="start"
                             android:lineSpacingExtra="6sp"
                             android:maxLines="4"
-                            android:textColor="?attr/material_theme_primary_color"
+                            android:textColor="?attr/primary_color"
                             android:textSize="16sp"
                             tools:text="Lorem ipsum" />
 
@@ -144,7 +143,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingTop="7dp"
-                        android:paddingBottom="7dp">
+                        android:paddingBottom="7dp"
+                        android:clipChildren="false"
+                        android:clipToPadding="false">
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/view_description_edit_text_layout"
@@ -158,12 +159,23 @@
                             android:hint="@string/description_edit_text_hint"
                             app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance"
                             app:endIconDrawable="@drawable/ic_mic_black_24dp"
-                            app:endIconTint="?attr/material_theme_de_emphasised_color"
+                            app:endIconTint="?attr/placeholder_color"
                             app:endIconContentDescription="@string/description_edit_voice_input_description"
                             app:endIconMode="custom"
                             app:counterEnabled="true"
                             app:counterMaxLength="@integer/description_max_chars"
                             app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance">
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/suggestedDescButton"
+                                style="@style/Chip.Accessible.Icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="-20dp"
+                                android:text="@string/description_edit_suggested_description_button_text"
+                                android:visibility="gone"
+                                app:chipIcon="@drawable/ic_robot_24"
+                                tools:visibility="visible"/>
 
                             <org.wikipedia.views.PlainPasteEditText
                                 android:id="@+id/view_description_edit_text"
@@ -177,6 +189,7 @@
 
                                 <requestFocus />
                             </org.wikipedia.views.PlainPasteEditText>
+
                         </com.google.android.material.textfield.TextInputLayout>
                     </FrameLayout>
 
@@ -187,17 +200,18 @@
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="12dp"
                         android:fontFamily="sans-serif"
+                        android:layout_marginTop="48dp"
                         android:letterSpacing="0"
                         android:text="@string/description_edit_learn_more"
                         android:textAlignment="viewStart"
                         android:textAllCaps="false"
-                        android:textColor="?attr/colorAccent"
+                        android:textColor="?attr/progressive_color"
                         android:textSize="16sp"
                         app:icon="@drawable/ic_open_in_new_black_24px"
                         app:iconGravity="end"
                         app:iconPadding="12dp"
                         app:iconSize="24dp"
-                        app:iconTint="?attr/colorAccent" />
+                        app:iconTint="?attr/progressive_color" />
                 </LinearLayout>
             </ScrollView>
 

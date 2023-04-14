@@ -31,7 +31,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView
 import org.wikipedia.descriptions.DescriptionEditSuccessActivity
-import org.wikipedia.descriptions.DescriptionEditTutorialActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
@@ -120,16 +119,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         }
     }
 
-    private val requestDescriptionEditTutorialLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == RESULT_OK) {
-            Prefs.isDescriptionEditTutorialEnabled = false
-            it.data?.let { intent ->
-                pageFragment.startDescriptionEditActivity(intent.getStringExtra(DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT),
-                    intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
-            }
-        }
-    }
-
     private val requestSuggestedEditsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK || it.resultCode == DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS) {
             pageFragment.refreshPage()
@@ -190,7 +179,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             pageFragment.articleInteractionEvent?.logSearchWikipediaClick()
             startActivity(SearchActivity.newIntent(this@PageActivity, InvokeSource.TOOLBAR, null))
         }
-        binding.pageToolbarButtonTabs.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
         binding.pageToolbarButtonTabs.updateTabCount(false)
         binding.pageToolbarButtonTabs.setOnClickListener {
             pageFragment.articleInteractionEvent?.logTabsClick()
@@ -205,7 +193,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             Prefs.showOneTimeCustomizeToolbarTooltip = false
         }
 
-        binding.pageToolbarButtonNotifications.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
         binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
         binding.pageToolbarButtonNotifications.setOnClickListener {
             pageFragment.articleInteractionEvent?.logNotificationClick()
@@ -443,10 +430,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         } else {
             requestHandleIntentLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision, source), options)
         }
-    }
-
-    override fun onPageRequestEditDescriptionTutorial(text: String?, invokeSource: InvokeSource) {
-        requestDescriptionEditTutorialLauncher.launch(DescriptionEditTutorialActivity.newIntent(this, text, invokeSource))
     }
 
     override fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,

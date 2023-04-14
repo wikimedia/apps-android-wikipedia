@@ -17,6 +17,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityTalkReplyBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
@@ -173,7 +174,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
 
         override fun onMediaLinkClicked(title: PageTitle) {
-            // TODO
+            startActivity(FilePageActivity.newIntent(this@TalkReplyActivity, title))
         }
 
         override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
@@ -195,7 +196,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private fun setSaveButtonEnabled(enabled: Boolean) {
         binding.replySaveButton.isEnabled = enabled
         binding.replySaveButton.setTextColor(ResourceUtil
-            .getThemedColor(this, if (enabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
+            .getThemedColor(this, if (enabled) R.attr.progressive_color else R.attr.placeholder_color))
     }
 
     private fun onSaveClicked() {

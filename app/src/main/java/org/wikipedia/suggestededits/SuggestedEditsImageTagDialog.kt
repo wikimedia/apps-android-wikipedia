@@ -69,7 +69,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         val dialog = super.onCreateDialog(savedInstanceState)
         val model = ShapeAppearanceModel.builder().setAllCornerSizes(DimenUtil.dpToPx(6f)).build()
         val materialShapeDrawable = MaterialShapeDrawable(model)
-        materialShapeDrawable.fillColor = ResourceUtil.getThemedColorStateList(requireActivity(), R.attr.searchItemBackground)
+        materialShapeDrawable.fillColor = ResourceUtil.getThemedColorStateList(requireActivity(), R.attr.background_color)
         materialShapeDrawable.elevation = dialog.window!!.decorView.elevation
 
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {

@@ -384,6 +384,7 @@
   <string name="reading_list_sort_by_name">ناوٕ مُطٲبق چھانٛٹ دِنی</string>
   <string name="reading_list_sort_by_name_desc">ناوٕ مُطٲبق چھانٛٹ دِنی (اُلٹہٕ)</string>
   <string name="reading_list_menu_delete">فہرست کٕریٚو ڈِلیٖٹ</string>
+  <string name="reading_list_menu_select">مُنتَخٕب کٔرِو</string>
   <string name="reading_list_menu_rename">ناو/وضاحت کٕریٚو ایڑِٹ</string>
   <string name="reading_list_action_menu_remove_from_offline">آفلاین پؠٹھہٕ ہَٹٲوِو</string>
   <string name="reading_list_action_menu_save_for_offline">آفلاینَس کھٲترٕ تھٲوِو مَحفوٗظ</string>
@@ -402,6 +403,7 @@
   <string name="reading_list_deleted">%s آو ہَٹاونہٕ</string>
   <string name="saved_list_empty_title">وۄنی روٗد نہٕ کانٛہہ تہِ مَحفوٗظ صَفہٕ</string>
   <string name="reading_list_article_offline">آفلاین چُھ مَیَسر</string>
+  <string name="reading_list_select_item">مُنتَخٕب کٔرِو</string>
   <string name="reading_lists_login_button">وِکیٖپیٖڈیاہَس منٛز دٲخل گژھُن / شٲمل گژھُن</string>
   <string name="reading_lists_ignore_button">وُنہِ نہٕ</string>
   <string name="reading_lists_confirm_remote_delete_yes">آ</string>
@@ -420,6 +422,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">مَنسوٗخ</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">مَنسوٗخ</string>
   <string name="reading_list_split_dialog_ok_button_text">ٹھیٖک چھُ</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">مِٹٲیو</string>
   <string name="reading_lists_preview_save_button">مَحفوٗظ</string>
   <string name="reading_lists_preview_save_dialog_cancel">مَنسوٗخ</string>
   <string name="reading_lists_preview_save_dialog_save">مَحفوٗظ</string>
