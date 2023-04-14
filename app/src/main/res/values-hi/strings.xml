@@ -17,6 +17,7 @@
 * Pulkitsingh01
 * Rajatkatiyar10
 * Rishi.Singh
+* SHaran (WMF)
 * Sachinkatiyar
 * Sagsag
 * Sahilrathod
@@ -806,6 +807,8 @@
   <string name="description_starts_with_lowercase">लोअरकेस अक्षर से शुरू करने से बचें।</string>
   <string name="description_is_in_different_language">पाठ किसी अनपेक्षित भाषा में प्रतीत होता है। भाषा %s होनी चाहिए।</string>
   <string name="description_verification_notice">कृपया सत्यापित करें कि आपका विवरण %1$s में है। यदि आपके द्वारा लिखा गया विवरण %2$s में है, तो बेझिझक इस अधिसूचना को खारिज कर दें।</string>
+  <string name="description_edit_suggested_description_button_text">सुझाए गए लेख विवरण दिखाएं</string>
+  <string name="description_edit_suggested_description_button_tooltip">मशीन द्वारा सुझाए गए लेख विवरण आज़माएं</string>
   <string name="description_edit_success_saved">लेख विवरण प्रकाशित किया!</string>
   <string name="description_edit_success_saved_snackbar">लेख विवरण प्रकाशित!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">लेख विवरण प्रकाशित! ( %s )</string>
@@ -823,6 +826,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">एक लाइन, दो से बारह शब्दों की उपयुक्त है</string>
   <string name="description_edit_tutorial_button_label_start_editing">संपादन शुरू करें</string>
   <string name="description_edit_tutorial_promise">शुरू करने से, मैं यह वादा करता हूँ कि इस सुविधा का दुरुपयोग नहीं करूँगा(गी)।</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">मशीन जनित सुझाव</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">सुझाव एक मशीन द्वारा उत्पन्न किए गए हैं न कि स्वयंसेवकों या विकिमीडिया फाउंडेशन द्वारा</string>
   <string name="customize_toolbar_title">टूलबार अनुकूलित करें</string>
   <string name="customize_toolbar_shortcut_description_text">नीचे के टूलबार को 5 शॉर्टकट्स के साथ अनुकूलित करें जो आपको सबसे अधिक उपयोगी लगते हैं।</string>
   <string name="customize_toolbar_category_toolbar">टूलबार</string>
@@ -960,6 +965,14 @@
   <string name="suggested_edits_contribution_type_image_tag">चित्र टैग</string>
   <string name="suggested_edits_contribution_current_revision_text">आपका संपादन वर्तमान में विकिपीडिया पर लाइव है</string>
   <string name="suggested_card_more_edits">अधिक सुझाए गए संपादन</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">सुझाए गए विवरण</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">आप क्या रिपोर्ट करना चाहेंगे?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">ज्यादा जानकारी नहीं है</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">सुझाए गए विवरण देख नहीं सकते</string>
+  <string name="suggested_edits_inappropriate_suggestion">अनुचित सुझाव</string>
+  <string name="suggested_edits_do_not_understand_suggestion">काम समझ में नहीं आया</string>
+  <string name="suggested_edits_report_suggestion">रिपोर्ट</string>
+  <string name="suggested_edits_suggestion_report_submitted">प्रतिवेदन प्रस्तुत किया</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s टैग</item>
     <item quantity="other"> %1$s टैग्स</item>

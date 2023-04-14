@@ -15,9 +15,7 @@
         <item name="actionBarStyle">@style/ToolbarStyle</item>
         <item name="popupTheme">@style/ToolbarPopupTheme</item>
         <item name="actionModeStyle">@style/ActionModeStyle</item>
-        <item name="snackbarStyle">@style/SnackbarStyle</item>
-        <item name="snackbarTextViewStyle">@style/H3.Button.SnackbarTextView</item>
-        <item name="snackbarButtonStyle">@style/SnackbarButtonStyle</item>
+        <item name="snackbarTextViewStyle">@style/SnackbarTextView</item>
 
         <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
         <item name="android:listViewStyle">@style/ListView</item>
@@ -135,14 +133,6 @@
         <item name="android:textStyle">normal</item>
     </style>
 
-    <style name="H3.Button.SnackbarTextView">
-        <item name="android:maxLines">10</item>
-        <item name="android:paddingTop">0dp</item>
-        <item name="android:paddingBottom">0dp</item>
-        <item name="android:paddingStart">0dp</item>
-        <item name="android:paddingEnd">12dp</item>
-    </style>
-
     <style name="H3.Article">
         <item name="android:fontFamily">serif</item>
         <item name="android:textStyle">normal</item>
@@ -186,6 +176,16 @@
         <item name="android:textColor">?attr/primary_color</item>
     </style>
 
+    <style name="SnackbarTextView">
+        <item name="android:textColor">@color/gray200</item>
+        <item name="android:maxLines">10</item>
+        <item name="lineHeight">26sp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">8dp</item>
+    </style>
+
     <style name="Chip">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">14sp</item>
@@ -193,6 +193,9 @@
     </style>
 
     <style name="Chip.Accessible">
+        <item name="chipBackgroundColor">?attr/background_color</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStrokeColor">?attr/border_color</item>
         <item name="android:textColor">?attr/primary_color</item>
         <item name="ensureMinTouchTargetSize">true</item>
         <item name="chipMinTouchTargetSize">48dp</item>
@@ -655,15 +658,6 @@
     <style name="LongPressAlertDialogStyle" parent="AlertDialogStyle">
         <item name="android:backgroundTint">?attr/paper_color</item>
         <item name="android:background">?attr/paper_color</item>
-    </style>
-
-    <style name="SnackbarStyle" parent="Widget.MaterialComponents.Snackbar">
-        <item name="android:paddingStart">16dp</item>
-        <item name="android:paddingEnd">4dp</item>
-    </style>
-
-    <style name="SnackbarButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Snackbar">
-        <item name="android:paddingEnd">8dp</item>
     </style>
 
 </resources>
