@@ -43,10 +43,8 @@ class TopReadFragment : Fragment() {
 
         val card = viewModel.card
 
-        appCompatActivity.setSupportActionBar(binding.toolbar)
         appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        appCompatActivity.supportActionBar?.title = ""
-        binding.toolbarTitle.text = getString(R.string.top_read_activity_title, card.subtitle())
+        appCompatActivity.supportActionBar?.title = getString(R.string.top_read_activity_title, card.subtitle())
 
         L10nUtil.setConditionalLayoutDirection(binding.root, card.wikiSite().languageCode)
 
