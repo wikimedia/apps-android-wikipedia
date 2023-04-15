@@ -491,6 +491,7 @@
     <item quantity="one">1 artikkeli • %2$.2f MB</item>
     <item quantity="other">%1$d artikkelia • %2$.2f MB</item>
   </plurals>
+  <string name="format_reading_list_statistical_detail_without_size">{{PLURAL|one=%1$d / 1 artikkeli saatavilla offline-tilassa|%1$d / %2$d artikkelia saatavilla offline-tilassa}</string>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d / 1 artikkeli saatavilla offline-tilassa, %3$.2f Mt</item>
     <item quantity="other">%1$d / %2$d artikkelia saatavilla offline-tilassa, %3$.2f Mt</item>
@@ -851,6 +852,8 @@
   <string name="description_starts_with_uppercase">Aloita pienellä kirjaimella, ellei ensimmäinen sana ole erisnimi.</string>
   <string name="description_starts_with_lowercase">Vältä aloittamasta pienellä alkukirjaimella.</string>
   <string name="description_is_in_different_language">Teksti näyttää olevan odottamattomalla kielellä.  Kielen tulee olla %s.</string>
+  <string name="description_edit_suggested_description_button_text">Näytä ehdotetut kuvaukset</string>
+  <string name="description_edit_suggested_description_button_tooltip">Kokeile koneen ehdottamia artikkelikuvauksia</string>
   <string name="description_edit_success_saved">Artikkelin kuvaus julkaistu!</string>
   <string name="description_edit_success_saved_snackbar">Artikkelin kuvaus julkaistu!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikkelin kuvaus julkaistu! (%s)</string>
@@ -869,7 +872,8 @@
   <string name="description_edit_tutorial_button_label_start_editing">Aloita muokkaaminen</string>
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
   <string name="description_edit_tutorial_machine_suggestions_title">Ohjelmiston ehdotukset</string>
-  <string name="customize_toolbar_title">Kustomoi työkalupalkki</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Ehdotukset ovat koneen luomia vapaaehtoisten tai Wikimedia Foundationin luomien sijaan</string>
+  <string name="customize_toolbar_title">Mukauta työkalupalkkia</string>
   <string name="customize_toolbar_shortcut_description_text">Tuunaa alaosan työkalupalkkia niillä 5 linkillä, jotka koet hyödyllisimmiksi.</string>
   <string name="customize_toolbar_category_toolbar">Työkalupalkki</string>
   <string name="customize_toolbar_category_menu">Valikko</string>
@@ -1025,6 +1029,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Kuvamerkintä</string>
   <string name="suggested_edits_contribution_current_revision_text">Muokkauksesi on nyt saatavana Wikipediassa</string>
   <string name="suggested_card_more_edits">Lisää ehdotettuja muokkauksia</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Ehdotetut kuvaukset</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Mistä tahtoisit tehdä ilmoituksen?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Ei tarpeeksi tietoja</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">En näe ehdotettuja kuvauksia</string>
+  <string name="suggested_edits_inappropriate_suggestion">Sopimaton ehdotus</string>
+  <string name="suggested_edits_do_not_understand_suggestion">En ymmärrä tehtävää</string>
+  <string name="suggested_edits_report_suggestion">Ilmoita</string>
+  <string name="suggested_edits_suggestion_report_submitted">Ilmoitus lähetetty</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s merkintä</item>
     <item quantity="other">%1$s merkintää</item>
