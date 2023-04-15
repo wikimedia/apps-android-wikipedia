@@ -767,6 +767,8 @@
   <string name="description_starts_with_uppercase">Bắt đầu bằng một chữ cái thường trừ khi từ đầu tiên là danh từ riêng.</string>
   <string name="description_starts_with_lowercase">Tránh chữ hoa ở đầu lời tóm lược.</string>
   <string name="description_is_in_different_language">Văn bản có vẻ bằng một ngôn ngữ sai. Ngôn ngữ phải là %s.</string>
+  <string name="description_edit_suggested_description_button_text">Hiển thị mô tả được đề xuất</string>
+  <string name="description_edit_suggested_description_button_tooltip">Dùng thử mô tả bài viết do máy đề xuất</string>
   <string name="description_edit_success_saved">Đã đăng miêu tả bài viết!</string>
   <string name="description_edit_success_saved_snackbar">Đã đăng lời miêu tả bài viết!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Đã đăng mô tả bài viết! (%s)</string>
@@ -784,6 +786,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Cố gắng viết một dòng có 2–12 từ mà thôi</string>
   <string name="description_edit_tutorial_button_label_start_editing">Bắt đầu sửa đổi</string>
   <string name="description_edit_tutorial_promise">Với việc bắt đầu sửa đổi, tôi hứa không lạm dụng tính năng này.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Đề xuất của máy</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Các đề xuất do máy tạo ra chứ không phải tình nguyện viên hoặc Wikimedia Foundation</string>
   <string name="suggested_edits_describe_articles">Mô tả các bài viết</string>
   <string name="suggested_edits_caption_images">Chú thích hình ảnh</string>
   <string name="suggested_edits_tag_images">Thể loại hình ảnh.</string>
@@ -933,6 +937,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Thẻ cho hình ảnh</string>
   <string name="suggested_edits_contribution_current_revision_text">Sửa đổi của bạn đang hiện tại ở Wikipedia</string>
   <string name="suggested_card_more_edits">Thêm các sửa đổi gợi ý</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Mô tả được đề xuất</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Bạn muốn báo cáo điều gì?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Không đủ thông tin</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Tôi không thể xem mô tả được đề xuất</string>
+  <string name="suggested_edits_inappropriate_suggestion">Đề xuất không phù hợp</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Tôi không hiểu nhiệm vụ</string>
+  <string name="suggested_edits_report_suggestion">Báo cáo</string>
+  <string name="suggested_edits_suggestion_report_submitted">Đã gửi báo cáo</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s thẻ</item>
     <item quantity="other">%1$s thẻ</item>

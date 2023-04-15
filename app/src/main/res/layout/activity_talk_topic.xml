@@ -18,33 +18,12 @@
             android:scrollbars="vertical" />
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/replyToolbar"
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:contentInsetStart="0dp"
             app:contentInsetEnd="0dp"
-            style="@style/ToolbarStyle">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/talkToolbarSubjectView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:textColor="?attr/primary_color"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </androidx.appcompat.widget.Toolbar>
+            style="@style/ToolbarStyle.Small" />
 
         <org.wikipedia.views.WikiErrorView
             android:id="@+id/talkErrorView"

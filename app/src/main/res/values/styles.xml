@@ -342,7 +342,7 @@
         <item name="titleTextAppearance">@style/H1.AppBar</item>
     </style>
 
-    <style name="ToolbarStyleSmall" parent="ToolbarStyle">
+    <style name="ToolbarStyle.Small">
         <item name="titleTextStyle">@style/H2.AppBar</item>
         <item name="titleTextAppearance">@style/H2.AppBar</item>
     </style>
