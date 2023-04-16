@@ -25,13 +25,13 @@ interface OfflineObjectDao {
     fun searchForOfflineObject(urlFragment: String): OfflineObject?
 
     @Query("SELECT * FROM OfflineObject WHERE url LIKE '%' || :urlFragment || '%'")
-    fun searchForOfflineObjects(urlFragment: String): List<OfflineObject>
+    suspend fun searchForOfflineObjects(urlFragment: String): List<OfflineObject>
 
     @Query("SELECT * FROM OfflineObject WHERE usedByStr LIKE '%|' || :id || '|%'")
     fun getFromUsedById(id: Long): List<OfflineObject>
 
     @Delete
-    fun deleteOfflineObject(obj: OfflineObject)
+    suspend fun deleteOfflineObject(obj: OfflineObject)
 
     @Query("DELETE FROM OfflineObject")
     fun deleteAll()
@@ -83,7 +83,7 @@ interface OfflineObjectDao {
         }
     }
 
-    fun deleteObjectsForPageId(id: Long) {
+    suspend fun deleteObjectsForPageId(id: Long) {
         val objects = mutableListOf<OfflineObject>()
         val objUsedBy = getFromUsedById(id)
 

@@ -3,9 +3,11 @@ package org.wikipedia.savedpages
 import android.content.Intent
 import androidx.core.app.JobIntentService
 import androidx.core.os.postDelayed
-import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import okhttp3.Request
 import okio.Buffer
 import okio.Sink
@@ -91,8 +93,13 @@ class SavedPageSyncService : JobIntentService() {
     }
 
     private fun deletePageContents(page: ReadingListPage) {
-        Completable.fromAction { AppDatabase.instance.offlineObjectDao().deleteObjectsForPageId(page.id) }.subscribeOn(Schedulers.io())
-                .subscribe({}) { obj -> L.e(obj) }
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                AppDatabase.instance.offlineObjectDao().deleteObjectsForPageId(page.id)
+            } catch (e: Exception) {
+                L.e(e)
+            }
+        }
     }
 
     private fun savePages(queue: MutableList<ReadingListPage>): Int {

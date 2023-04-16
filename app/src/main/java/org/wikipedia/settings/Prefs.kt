@@ -170,18 +170,6 @@ object Prefs {
     val eventPlatformIntakeUriOverride
         get() = PrefsIoUtil.getString(R.string.preference_key_event_platform_intake_base_uri, "")!!
 
-    fun getLastRunTime(task: String): Long {
-        return PrefsIoUtil.getLong(getLastRunTimeKey(task), 0)
-    }
-
-    fun setLastRunTime(task: String, time: Long) {
-        PrefsIoUtil.setLong(getLastRunTimeKey(task), time)
-    }
-
-    private fun getLastRunTimeKey(task: String): String {
-        return PrefsIoUtil.getKey(R.string.preference_key_last_run_time_format, task)
-    }
-
     var pageLastShown
         get() = PrefsIoUtil.getLong(R.string.preference_key_page_last_shown, 0)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_page_last_shown, value)

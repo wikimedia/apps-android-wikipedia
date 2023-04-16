@@ -76,8 +76,8 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
             NotificationInteractionEvent.processIntent(intent)
         }
 
-        // Conditionally execute all recurring tasks
-        RecurringTasksExecutor(WikipediaApp.instance).run()
+        // Schedule all recurring tasks
+        RecurringTasksExecutor.scheduleTasks(this)
         if (Prefs.isReadingListsFirstTimeSync && AccountUtil.isLoggedIn) {
             Prefs.isReadingListsFirstTimeSync = false
             Prefs.isReadingListSyncEnabled = true

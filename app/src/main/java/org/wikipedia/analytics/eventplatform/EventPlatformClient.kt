@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.core.os.postDelayed
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -75,8 +77,15 @@ object EventPlatformClient {
     @SuppressLint("CheckResult")
     fun refreshStreamConfigs() {
         ServiceFactory.get(WikiSite(BuildConfig.META_WIKI_BASE_URI)).streamConfigs
-                .subscribeOn(Schedulers.io())
-                .subscribe({ updateStreamConfigs(it.streamConfigs) }) { L.e(it) }
+            .subscribeOn(Schedulers.io())
+            .subscribe({ updateStreamConfigs(it.streamConfigs) }) { L.e(it) }
+    }
+
+    suspend fun refreshStreamConfigsSuspend() {
+        val response = withContext(Dispatchers.IO) {
+            ServiceFactory.get(WikiSite(BuildConfig.META_WIKI_BASE_URI)).getStreamConfigs()
+        }
+        updateStreamConfigs(response.streamConfigs)
     }
 
     @Synchronized

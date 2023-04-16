@@ -1,26 +1,55 @@
 package org.wikipedia.recurring
 
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.schedulers.Schedulers
-import org.wikipedia.WikipediaApp
-import org.wikipedia.alphaupdater.AlphaUpdateChecker
-import org.wikipedia.settings.RemoteConfigRefreshTask
+import android.content.Context
+import androidx.work.Constraints
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.NetworkType
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
+import org.wikipedia.R
+import org.wikipedia.alphaupdater.AlphaUpdateWorker
+import org.wikipedia.settings.PrefsIoUtil
+import org.wikipedia.settings.RemoteConfigRefreshWorker
 import org.wikipedia.util.ReleaseUtil
+import java.util.concurrent.TimeUnit
 
-class RecurringTasksExecutor(private val app: WikipediaApp) {
-    fun run() {
-        Completable.fromAction {
-            val allTasks = arrayOf( // Has list of all rotating tasks that need to be run
-                    RemoteConfigRefreshTask(),
-                    DailyEventTask(app),
-                    TalkOfflineCleanupTask(app)
-            )
-            for (task in allTasks) {
-                task.runIfNecessary()
-            }
-            if (ReleaseUtil.isAlphaRelease) {
-                AlphaUpdateChecker(app).runIfNecessary()
-            }
-        }.subscribeOn(Schedulers.io()).subscribe()
+object RecurringTasksExecutor {
+    fun scheduleTasks(context: Context) {
+        // Clean up now-unused task time values, as WorkManager handles scheduling
+        PrefsIoUtil.remove("alpha-update-checker")
+        PrefsIoUtil.remove("remote-config-refresher")
+        PrefsIoUtil.remove(R.string.preference_key_talk_offline_cleanup_task_name)
+        PrefsIoUtil.remove(R.string.preference_key_daily_event_time_task_name)
+
+        val networkConstraints = Constraints(NetworkType.CONNECTED)
+
+        val remoteConfigRefreshRequest = PeriodicWorkRequestBuilder<RemoteConfigRefreshWorker>(1, TimeUnit.DAYS)
+            .setConstraints(networkConstraints)
+            .build()
+
+        val dailyEventRequest = PeriodicWorkRequestBuilder<DailyEventWorker>(1, TimeUnit.DAYS)
+            .setConstraints(networkConstraints)
+            .build()
+
+        val offlineCleanupRequest = PeriodicWorkRequestBuilder<TalkOfflineCleanupWorker>(7, TimeUnit.DAYS)
+            .build()
+
+        val taskNames = mutableListOf("REMOTE_CONFIG", "DAILY_EVENT", "OFFLINE_CLEANUP")
+        val tasks = mutableListOf(remoteConfigRefreshRequest, dailyEventRequest, offlineCleanupRequest)
+
+        if (ReleaseUtil.isAlphaRelease) {
+            taskNames.add("ALPHA_UPDATE")
+
+            val alphaUpdateRequest = PeriodicWorkRequestBuilder<AlphaUpdateWorker>(1, TimeUnit.DAYS)
+                .setConstraints(networkConstraints)
+                .build()
+
+            tasks.add(alphaUpdateRequest)
+        }
+
+        (taskNames zip tasks).forEach { (taskName, task) ->
+            WorkManager.getInstance(context)
+                .enqueueUniquePeriodicWork(taskName, ExistingPeriodicWorkPolicy.KEEP, task)
+        }
     }
 }
