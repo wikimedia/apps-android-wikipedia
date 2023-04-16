@@ -95,8 +95,12 @@ class OfflineCacheInterceptor : Interceptor {
     private fun getCacheWritingResponse(request: Request, response: Response, lang: String, title: String): Response {
         val contentType = response.header("Content-Type", "*/*")!!
         val contentLength = response.header("Content-Length", "-1")!!.toLong()
-        val cachePath = WikipediaApp.instance.filesDir.toPath().resolve(OFFLINE_PATH)
-            .createDirectories()
+        val cachePath = try {
+            WikipediaApp.instance.filesDir.toPath().resolve(OFFLINE_PATH).createDirectories()
+        } catch (e: IOException) {
+            L.e(e)
+            return response
+        }
 
         val filePath = cachePath.resolve(getObjectFileName(request.url.toString(), lang, contentType))
         val metadataPath = filePath.resolveSibling("${filePath.fileName}.0")
