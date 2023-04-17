@@ -1008,7 +1008,7 @@
   <string name="suggested_edits_help_page_link_text">Önerilen düzenlemeler yardım sayfası</string>
   <string name="suggested_edits_edit_streak_label_text">Değişiklik serisi</string>
   <string name="suggested_edits_views_label_text">Görüntülenme</string>
-  <string name="suggested_edits_quality_label_text">Kaliteyi düzenle</string>
+  <string name="suggested_edits_quality_label_text">Değişiklik niteliği</string>
   <string name="suggested_edits_quality_perfect_text">Mükemmel</string>
   <string name="suggested_edits_quality_excellent_text">Mükemmel</string>
   <string name="suggested_edits_quality_very_good_text">Çok iyi</string>
@@ -1271,6 +1271,7 @@
   <string name="talk_list_item_swipe_mark_as_read">Okundu</string>
   <string name="talk_list_item_swipe_mark_as_unread">Okunmamış</string>
   <string name="talk_login_to_subscribe_dialog_title">Konulara abone olmak için giriş yapın</string>
+  <string name="talk_login_to_subscribe_dialog_content">Konu abonelikleri, bu konudaki yeni yorumlar hakkında bildirim almanıza izin verir. Bir konuya abone olmak için lütfen bir hesap oluşturun ya da Vikipedi hesabınıza giriş yapın.</string>
   <string name="talk_archived_title">Tartışma arşivi: %s</string>
   <string name="menu_option_share_talk_discussion">Tartışmayı paylaş</string>
   <string name="menu_option_share_talk_page">Tartışma sayfasını paylaş</string>
@@ -1416,6 +1417,7 @@
   <string name="shareable_reading_lists_import_dialog_content">Sizinle paylaşılan listeyi nasıl adlandırmak istersiniz?</string>
   <string name="shareable_reading_lists_new_indicator">*yeni*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Sizinle bir okuma listesi paylaşıldı</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Bir okuma listesinin sizinle paylaşıldığını görüyoruz. Bu listeyi uygulamada görmek için özgün iletiye gidip bağlantıya tekrar dokunun.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Anladım</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Okuma listesi içe aktarıldı</string>
   <string name="reading_list_share_menu_label">Paylaş…</string>
