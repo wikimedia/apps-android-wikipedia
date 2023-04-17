@@ -89,7 +89,7 @@ class SmokeTests {
         TestUtil.delay(1)
 
         // Type in our search term
-        onView(allOf(withId(R.id.search_src_text), isDisplayed()))
+        onView(allOf(withId(androidx.appcompat.R.id.search_src_text), isDisplayed()))
                 .perform(replaceText(SEARCH_TERM), closeSoftKeyboard())
 
         // Give the API plenty of time to return results

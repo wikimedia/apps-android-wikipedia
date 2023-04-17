@@ -34,7 +34,7 @@ class WatchlistFilterItemView constructor(context: Context, attrs: AttributeSet?
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.roundedDpToPx(48f))
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
+            foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
         }
         setOnClickListener {
             callback?.onCheckedChanged(filter)
