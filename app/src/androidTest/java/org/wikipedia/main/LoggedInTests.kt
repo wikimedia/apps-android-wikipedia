@@ -64,7 +64,7 @@ class LoggedInTests {
         TestUtil.delay(5)
 
         // Verify that a snackbar appears (because the login failed.)
-        onView(withId(R.id.snackbar_text))
+        onView(withId(com.google.android.material.R.id.snackbar_text))
                 .check(matches(isDisplayed()))
     }
 }
