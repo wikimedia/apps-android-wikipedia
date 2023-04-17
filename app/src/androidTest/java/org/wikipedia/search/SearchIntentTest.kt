@@ -51,6 +51,8 @@ class SearchIntentTest {
                 .check(matches(withText("Barack Obama")))
 
         device.setOrientationNatural()
+        TestUtil.delay(2)
+
         device.unfreezeRotation()
 
         TestUtil.delay(2)
