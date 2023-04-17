@@ -582,7 +582,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             mode.menuInflater.inflate(R.menu.menu_action_mode_reading_lists, menu)
             actionMode = mode
             val deleteItem = menu.findItem(R.id.menu_delete_selected)
-            val deleteIconColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.colorError)
+            val deleteIconColor = ResourceUtil.getThemedColorStateList(requireContext(), androidx.appcompat.R.attr.colorError)
             deleteItem.isEnabled = false
             MenuItemCompat.setIconTintList(deleteItem, deleteIconColor)
             return true
