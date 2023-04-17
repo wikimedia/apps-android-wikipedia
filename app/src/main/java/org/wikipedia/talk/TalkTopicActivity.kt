@@ -84,7 +84,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         super.onCreate(savedInstanceState)
         binding = ActivityTalkTopicBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.replyToolbar)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
         linkHandler = TalkLinkHandler(this)
@@ -92,8 +92,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         L10nUtil.setConditionalLayoutDirection(binding.talkRecyclerView, viewModel.pageTitle.wikiSite.languageCode)
         L10nUtil.setConditionalLayoutDirection(binding.talkErrorView, viewModel.pageTitle.wikiSite.languageCode)
-        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
-        binding.talkToolbarSubjectView.movementMethod = linkMovementMethod
+        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.progressive_color))
+
+        ViewUtil.getTitleViewFromToolbar(binding.toolbar)?.let {
+            it.movementMethod = linkMovementMethod
+        }
 
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -111,7 +114,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.talkRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                binding.talkToolbarSubjectView.isVisible = binding.talkRecyclerView.computeVerticalScrollOffset() > (recyclerView.getChildAt(0).height / 2)
+                supportActionBar?.setDisplayShowTitleEnabled(binding.talkRecyclerView.computeVerticalScrollOffset() > (recyclerView.getChildAt(0).height / 2))
             }
         })
 
@@ -288,7 +291,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 }
             }
         }
-        binding.talkToolbarSubjectView.text = StringUtil.fromHtml(viewModel.topic?.html)
+        supportActionBar?.title = StringUtil.fromHtml(viewModel.topic?.html)
         invalidateOptionsMenu()
     }
 

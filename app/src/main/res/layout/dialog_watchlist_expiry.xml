@@ -18,7 +18,7 @@
         android:lineSpacingExtra="7sp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_vertical"
-        android:background="?attr/color_group_60"/>
+        android:background="?attr/border_color"/>
 
     <LinearLayout
         android:id="@+id/watchlistExpiryPermanent"
@@ -29,7 +29,7 @@
             android:layout_height="24dp"
             android:contentDescription="@null"
             app:srcCompat="@drawable/ic_star_24"
-            app:tint="@color/yellow50" />
+            app:tint="@color/yellow500" />
 
         <TextView
             style="@android:style/TextAppearance"
@@ -47,7 +47,7 @@
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -59,7 +59,7 @@
             android:layout_height="24dp"
             android:contentDescription="@null"
             app:srcCompat="@drawable/ic_baseline_star_half_24"
-            app:tint="@color/yellow50" />
+            app:tint="@color/yellow500" />
 
         <TextView
             style="@android:style/TextAppearance"
@@ -77,7 +77,7 @@
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -101,7 +101,7 @@
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -125,7 +125,7 @@
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
 
     </LinearLayout>
 
@@ -150,7 +150,7 @@
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
 
     </LinearLayout>
 

@@ -25,10 +25,10 @@
             android:textAlignment="viewStart"
             android:hint="@string/preview_edit_summarize_edit_hint"
             app:endIconDrawable="@drawable/ic_mic_black_24dp"
-            app:endIconTint="?attr/material_theme_de_emphasised_color"
+            app:endIconTint="?attr/placeholder_color"
             app:endIconContentDescription="@string/preview_edit_summarize_edit_hint"
             app:endIconMode="custom"
-            app:boxBackgroundColor="?attr/color_group_22">
+            app:boxBackgroundColor="?attr/background_color">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/editSummaryText"
@@ -37,7 +37,7 @@
                 android:imeOptions="actionDone|flagNoExtractUi"
                 android:maxLength="255"
                 android:maxLines="3"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 tools:ignore="LabelFor" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -67,8 +67,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/preview_edit_minor_edit"
-                android:textColor="?attr/primary_text_color"
-                android:buttonTint="?attr/colorAccent"/>
+                android:textColor="?attr/primary_color"
+                android:buttonTint="?attr/progressive_color"/>
 
             <ImageView
                 android:id="@+id/minorEditHelpButton"
@@ -78,7 +78,7 @@
                 android:src="@drawable/ic_info_outline_black_24dp"
                 android:contentDescription="@string/preview_edit_minor_edit"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
-                app:tint="?attr/color_group_59"/>
+                app:tint="?attr/placeholder_color"/>
 
         </LinearLayout>
 
@@ -93,8 +93,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/preview_edit_watch_this_page"
-                android:textColor="?attr/primary_text_color"
-                android:buttonTint="?attr/colorAccent"/>
+                android:textColor="?attr/primary_color"
+                android:buttonTint="?attr/progressive_color"/>
 
             <ImageView
                 android:id="@+id/watchPageHelpButton"
@@ -104,7 +104,7 @@
                 android:src="@drawable/ic_info_outline_black_24dp"
                 android:contentDescription="@string/preview_edit_watch_this_page"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
-                app:tint="?attr/color_group_59" />
+                app:tint="?attr/placeholder_color" />
 
         </LinearLayout>
 
@@ -118,13 +118,13 @@
             android:text="@string/preview_edit_learn_more"
             android:textAlignment="viewStart"
             android:textAllCaps="false"
-            android:textColor="?attr/colorAccent"
+            android:textColor="?attr/progressive_color"
             android:textSize="16sp"
             app:icon="@drawable/ic_open_in_new_black_24px"
             app:iconGravity="end"
             app:iconPadding="12dp"
             app:iconSize="24dp"
-            app:iconTint="?attr/colorAccent" />
+            app:iconTint="?attr/progressive_color" />
 
     </LinearLayout>
 

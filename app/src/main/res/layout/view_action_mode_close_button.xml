@@ -14,5 +14,6 @@
         android:layout_marginStart="2.6dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/dialog_close_description"
-        app:srcCompat="@drawable/ic_arrow_back_themed_24dp" />
+        android:src="@drawable/ic_arrow_back_black_24dp"
+        app:tint="?attr/primary_color"/>
 </LinearLayout>

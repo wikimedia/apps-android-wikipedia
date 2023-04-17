@@ -14,7 +14,7 @@
         android:ellipsize="end"
         android:lineSpacingExtra="8sp"
         android:maxLines="1"
-        android:textColor="?android:attr/textColorPrimary"
+        android:textColor="?attr/primary_color"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="@+id/view_list_card_header_lang_code"
         app:layout_constraintTop_toTopOf="@+id/view_list_card_header_lang_code"
         app:srcCompat="@drawable/lang_button_shape_border"
-        app:tint="?attr/material_theme_de_emphasised_color" />
+        app:tint="?attr/primary_color" />
 
     <TextView
         android:id="@+id/view_list_card_header_lang_code"
@@ -43,7 +43,7 @@
         android:lineSpacingExtra="2sp"
         android:padding="3dp"
         android:textAllCaps="true"
-        android:textColor="?android:attr/textColorTertiary"
+        android:textColor="?attr/primary_color"
         android:textSize="10sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_menu"
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone"
-        app:tint="?attr/secondary_text_color" />
+        app:tint="?attr/primary_color" />
 
     <ImageView
         android:id="@+id/view_list_card_header_menu"
@@ -72,7 +72,7 @@
         android:focusable="true"
         android:contentDescription="@string/abc_action_menu_overflow_description"
         android:padding="12dp"
-        app:tint="?attr/secondary_text_color"
+        app:tint="?attr/primary_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

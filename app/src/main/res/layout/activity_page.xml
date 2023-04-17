@@ -46,13 +46,13 @@
                         android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:text="@string/search_hint"
-                        android:textColor="?attr/material_theme_secondary_color"
+                        android:textColor="?attr/secondary_color"
                         android:background="@drawable/shape_search_box"
                         android:drawablePadding="8dp"
                         android:paddingStart="12dp"
                         android:layout_marginEnd="4dp"
-                        app:drawableTint="?attr/toolbar_icon_color"
-                        app:drawableStartCompat="@drawable/ic_search_themed_24dp"/>
+                        app:drawableTint="?attr/placeholder_color"
+                        app:drawableStartCompat="@drawable/ic_search_white_24dp"/>
 
                     <org.wikipedia.views.TabCountsView
                         android:id="@+id/page_toolbar_button_tabs"
@@ -76,8 +76,8 @@
                         android:paddingEnd="12dp"
                         android:clickable="true"
                         android:focusable="true"
-                        app:srcCompat="@drawable/ic_more_vert_themed_24dp"
-                        app:tint="?attr/toolbar_icon_color" />
+                        app:srcCompat="@drawable/ic_more_vert_white_24dp"
+                        app:tint="?attr/primary_color" />
 
                 </LinearLayout>
             </androidx.appcompat.widget.Toolbar>
@@ -142,9 +142,9 @@
             android:elevation="8dp"
             android:focusable="true"
             android:scaleType="center"
-            app:backgroundTint="?attr/toc_scroller_button_color"
+            app:backgroundTint="?attr/background_color"
             app:srcCompat="@drawable/ic_unfold_more_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
 
     </FrameLayout>
 

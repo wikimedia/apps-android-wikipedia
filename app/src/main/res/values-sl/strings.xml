@@ -1093,7 +1093,7 @@
   <string name="suggested_edits_article_descriptions_dialog_title">Predlagani opisi</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Kaj želite sporočiti?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Ni dovolj informacij</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion">Ne morem videti priporočil za opis</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Ne morem videti predlaganih opisov</string>
   <string name="suggested_edits_inappropriate_suggestion">Neprimeren predlog</string>
   <string name="suggested_edits_do_not_understand_suggestion">Ne razumem naloge</string>
   <string name="suggested_edits_report_suggestion">Sporoči</string>

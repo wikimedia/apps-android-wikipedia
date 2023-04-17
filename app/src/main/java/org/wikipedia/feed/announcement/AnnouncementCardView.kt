@@ -71,7 +71,7 @@ class AnnouncementCardView(context: Context) : DefaultFeedCardView<AnnouncementC
                     binding.viewAnnouncementFooterBorder.visibility = GONE
                 }
                 if (it.hasBorder()) {
-                    binding.viewAnnouncementContainer.strokeColor = ContextCompat.getColor(context, R.color.red30)
+                    binding.viewAnnouncementContainer.strokeColor = ContextCompat.getColor(context, R.color.red700)
                     binding.viewAnnouncementContainer.strokeWidth = 10
                 } else {
                     binding.viewAnnouncementContainer.setDefaultBorder()

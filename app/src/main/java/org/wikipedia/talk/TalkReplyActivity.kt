@@ -30,6 +30,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.util.*
 import org.wikipedia.views.UserMentionInputView
+import org.wikipedia.views.ViewUtil
 
 class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentionInputView.Listener {
     private lateinit var binding: ActivityTalkReplyBinding
@@ -151,16 +152,19 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
-        binding.toolbarTitle.text = StringUtil.fromHtml(
+        val title = StringUtil.fromHtml(
             if (viewModel.isNewTopic) pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>"
             else intent.getStringExtra(EXTRA_PARENT_SUBJECT).orEmpty()
         ).trim().ifEmpty { getString(R.string.talk_no_subject) }
-        binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
-        binding.toolbarTitle.movementMethod = LinkMovementMethodExt { _ ->
-            val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
-            startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
+        ViewUtil.getTitleViewFromToolbar(binding.replyToolbar)?.let {
+            it.contentDescription = title
+            it.movementMethod = LinkMovementMethodExt { _ ->
+                val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
+                startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
+            }
+            FeedbackUtil.setButtonLongPressToast(it)
         }
-        FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
+        supportActionBar?.title = title
     }
 
     internal inner class TalkLinkHandler internal constructor(context: Context) : LinkHandler(context) {
@@ -196,7 +200,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private fun setSaveButtonEnabled(enabled: Boolean) {
         binding.replySaveButton.isEnabled = enabled
         binding.replySaveButton.setTextColor(ResourceUtil
-            .getThemedColor(this, if (enabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
+            .getThemedColor(this, if (enabled) R.attr.progressive_color else R.attr.placeholder_color))
     }
 
     private fun onSaveClicked() {

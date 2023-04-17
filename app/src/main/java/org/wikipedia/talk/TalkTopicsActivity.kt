@@ -124,11 +124,11 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
         goToTopic = intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false, skipSearchBar = true))
+        binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_divider, drawStart = false, drawEnd = false, skipSearchBar = true))
         binding.talkRecyclerView.itemAnimator = null
 
         val touchCallback = SwipeableItemTouchHelperCallback(this,
-            ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent),
+            ResourceUtil.getThemedAttributeId(this, R.attr.progressive_color),
             R.drawable.ic_outline_drafts_24, android.R.color.white, true, binding.talkRefreshView)
 
         touchCallback.swipeableEnabled = true
@@ -152,7 +152,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             resetViews()
             viewModel.loadTopics()
         }
-        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
+        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.progressive_color))
 
         invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
 
@@ -364,15 +364,18 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
-        binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
-        binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
-        binding.toolbarTitle.isVisible = !goToTopic
-        if (invokeSource != Constants.InvokeSource.ARCHIVED_TALK_ACTIVITY) {
-            binding.toolbarTitle.movementMethod = LinkMovementMethodExt { _ ->
-                goToPage()
+        val title = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
+        ViewUtil.getTitleViewFromToolbar(binding.toolbar)?.let {
+            it.contentDescription = title
+            it.isVisible = !goToTopic
+            if (invokeSource != Constants.InvokeSource.ARCHIVED_TALK_ACTIVITY) {
+                it.movementMethod = LinkMovementMethodExt { _ ->
+                    goToPage()
+                }
             }
+            FeedbackUtil.setButtonLongPressToast(it)
         }
-        FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
+        supportActionBar?.title = title
     }
 
     private fun updateNotificationDot(animate: Boolean) {
@@ -435,7 +438,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
     private inner class HeaderViewHolder constructor(private val binding: ViewTalkTopicsHeaderBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
-            binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(this@TalkTopicsActivity, R.attr.color_group_22))
+            binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(this@TalkTopicsActivity, R.attr.background_color))
 
             binding.searchContainer.setOnClickListener {
                 if (actionMode == null) {

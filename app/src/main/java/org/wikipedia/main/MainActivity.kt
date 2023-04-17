@@ -47,7 +47,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             // Use startActivityForResult to avoid preload the Feed contents before finishing the initial onboarding.
             onboardingLauncher.launch(InitialOnboardingActivity.newIntent(this))
         }
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.nav_tab_background_color))
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         setSupportActionBar(binding.mainToolbar)
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(false)

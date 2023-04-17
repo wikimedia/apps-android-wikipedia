@@ -14,7 +14,7 @@
         android:drawablePadding="16dp"
         android:text="@string/menu_page_share"
         app:drawableStartCompat="@drawable/ic_icon_revision_history_apps"
-        app:drawableTint="?attr/color_group_9" />
+        app:drawableTint="?attr/primary_color" />
 
     <ImageView
         android:id="@+id/dragHandle"

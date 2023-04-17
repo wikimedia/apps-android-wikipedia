@@ -32,6 +32,7 @@ import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.*
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.PageItemView
+import org.wikipedia.views.ViewUtil
 import org.wikipedia.views.WikiErrorView
 
 class ArchivedTalkPagesActivity : BaseActivity() {
@@ -54,7 +55,7 @@ class ArchivedTalkPagesActivity : BaseActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        binding.recyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
+        binding.recyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_divider, drawStart = false, drawEnd = false))
         binding.recyclerView.adapter = archivedTalkPagesConcatAdapter
 
         lifecycleScope.launch {
@@ -79,13 +80,16 @@ class ArchivedTalkPagesActivity : BaseActivity() {
     }
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
-        binding.toolbarTitle.text = StringUtil.fromHtml(getString(R.string.talk_archived_title, "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>"))
-        binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
-        binding.toolbarTitle.movementMethod = LinkMovementMethodExt { _ ->
-            val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(viewModel.pageTitle), HistoryEntry.SOURCE_ARCHIVED_TALK)
-            startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
+        val title = StringUtil.fromHtml(getString(R.string.talk_archived_title, "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>"))
+        ViewUtil.getTitleViewFromToolbar(binding.toolbar)?.let {
+            it.contentDescription = title
+            it.movementMethod = LinkMovementMethodExt { _ ->
+                val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(viewModel.pageTitle), HistoryEntry.SOURCE_ARCHIVED_TALK)
+                startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
+            }
+            FeedbackUtil.setButtonLongPressToast(it)
         }
-        FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
+        supportActionBar?.title = title
     }
 
     private inner class LoadingItemAdapter(private val retry: () -> Unit) : LoadStateAdapter<LoadingViewHolder>() {

@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.SystemClock
 import androidx.annotation.StringRes
+import androidx.core.app.PendingIntentCompat
 import androidx.core.app.RemoteInput
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -24,7 +25,6 @@ import org.wikipedia.notifications.db.Notification
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
-import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.util.concurrent.TimeUnit
@@ -112,7 +112,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private fun getAlarmPendingIntent(context: Context): PendingIntent {
             val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
             intent.action = ACTION_POLL
-            return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
+            return PendingIntentCompat.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT, false)
         }
 
         fun getCancelNotificationPendingIntent(context: Context, id: Long, type: String?): PendingIntent {
@@ -120,7 +120,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     .setAction(ACTION_CANCEL)
                     .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, id)
                     .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE, type)
-            return PendingIntent.getBroadcast(context, id.toInt(), intent, DeviceUtil.pendingIntentFlags)
+            return PendingIntentCompat.getBroadcast(context, id.toInt(), intent, 0, false)
         }
 
          fun onNotificationsComplete(context: Context,
@@ -215,7 +215,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context, 0, TYPE_LOCAL), 0,
                     context.getString(R.string.suggested_edits_reactivation_notification_title),
                     context.getString(description), context.getString(description), null,
-                    R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent)
+                    R.drawable.ic_mode_edit_white_24dp, R.color.blue600, intent)
         }
     }
 }

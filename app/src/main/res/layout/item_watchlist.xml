@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:textStyle="bold"
             android:textSize="16sp"
-            android:textColor="?attr/material_theme_primary_color"
+            android:textColor="?attr/primary_color"
             tools:text="Lorem ipsum"/>
 
         <TextView
@@ -39,7 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:textSize="16sp"
-            android:textColor="?attr/material_theme_secondary_color"
+            android:textColor="?attr/secondary_color"
             tools:text="12:00"/>
 
         <ImageView
@@ -52,7 +52,7 @@
             app:layout_constraintStart_toStartOf="@+id/langCodeText"
             app:layout_constraintTop_toTopOf="@+id/langCodeText"
             app:srcCompat="@drawable/lang_button_shape_border"
-            app:tint="?attr/material_theme_secondary_color" />
+            app:tint="?attr/secondary_color" />
 
         <TextView
             android:id="@+id/langCodeText"
@@ -67,26 +67,25 @@
             android:padding="3dp"
             android:paddingEnd="4dp"
             android:textAllCaps="true"
-            android:textColor="?attr/material_theme_secondary_color"
+            android:textColor="?attr/secondary_color"
             android:textSize="10sp"
             android:textStyle="bold"
             tools:text="zh-hant" />
 
         <org.wikipedia.views.GoneIfEmptyTextView
             android:id="@+id/summaryText"
+            style="@style/P"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:maxLines="4"
+            android:ellipsize="end"
+            android:textColor="?attr/secondary_color"
+            android:textColorLink="?attr/secondary_color"
             app:layout_constraintTop_toBottomOf="@id/titleText"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="6dp"
-            android:textSize="16sp"
-            android:lineSpacingExtra="4sp"
-            android:maxLines="4"
-            android:ellipsize="end"
-            android:textColor="?attr/material_theme_secondary_color"
-            android:textColorLink="?attr/material_theme_secondary_color"
-            tools:text="Lorem ipsum"/>
+            tools:text="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/userNameText"
@@ -101,7 +100,7 @@
             android:fontFamily="sans-serif-medium"
             android:textAllCaps="false"
             android:textAlignment="viewStart"
-            android:textColor="?attr/color_group_9"
+            android:textColor="?attr/primary_color"
             android:maxLines="1"
             android:ellipsize="end"
             app:layout_constraintTop_toBottomOf="@id/summaryText"
@@ -110,7 +109,7 @@
             app:icon="@drawable/ic_user_talk"
             app:iconPadding="8dp"
             app:iconSize="16dp"
-            app:iconTint="?attr/color_group_9"
+            app:iconTint="?attr/primary_color"
             tools:text="Username"/>
 
 
@@ -124,7 +123,7 @@
             android:paddingBottom="8dp"
             android:paddingStart="0dp"
             android:fontFamily="sans-serif-medium"
-            android:textColor="@color/green50"
+            android:textColor="@color/green600"
             android:backgroundTint="@android:color/transparent"
             app:layout_constraintTop_toTopOf="@id/userNameText"
             app:layout_constraintStart_toEndOf="@id/userNameText"

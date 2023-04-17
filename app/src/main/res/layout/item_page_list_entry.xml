@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:layout_height="wrap_content"
-    tools:layout_width="match_parent"
-    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+    android:id="@+id/page_list_item_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:background="?attr/selectableItemBackground">
 
     <TextView
         android:id="@+id/page_list_item_title"
-        style="@style/MaterialListTitle"
+        style="@style/H3.MaterialListTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -22,10 +25,10 @@
 
     <org.wikipedia.views.GoneIfEmptyTextView
         android:id="@+id/page_list_item_description"
-        style="@style/MaterialListSubtitle"
+        style="@style/List.MaterialListSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="6dp"
         android:paddingEnd="8dp"
         app:layout_constraintEnd_toEndOf="@id/page_list_item_title"
         app:layout_constraintStart_toStartOf="@id/page_list_item_title"
@@ -49,8 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"
-            app:progressBackgroundColor="?attr/chart_shade5"
-            app:progressColor="?attr/colorAccent" />
+            app:progressBackgroundColor="?attr/border_color"
+            app:progressColor="?attr/progressive_color" />
 
         <ImageView
             android:id="@+id/page_list_item_action"
@@ -92,7 +95,7 @@
             android:padding="8dp"
             app:tint="@android:color/white"
             android:visibility="gone"
-            app:backgroundTint="@color/accent50"
+            app:backgroundTint="@color/blue600"
             app:srcCompat="@drawable/ic_check_black_24dp"
             tools:visibility="visible" />
 
@@ -123,4 +126,4 @@
             app:singleLine="true"
             app:singleSelection="true" />
     </HorizontalScrollView>
-</merge>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,7 +28,7 @@
                 android:textSize="16sp"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="13dp"
-                android:textColor="?attr/material_theme_primary_color"/>
+                android:textColor="?attr/primary_color"/>
 
             <LinearLayout
                 android:id="@+id/filterByAllButton"
@@ -46,7 +46,7 @@
                     android:contentDescription="@null"
                     android:visibility="invisible"
                     android:layout_marginEnd="16dp"
-                    app:tint="?attr/colorPrimary"/>
+                    app:tint="?attr/placeholder_color"/>
 
                 <TextView
                     android:id="@+id/filterByAll"
@@ -55,7 +55,7 @@
                     android:layout_weight="1"
                     android:textSize="16sp"
                     android:text="@string/page_edit_history_filter_by_all"
-                    android:textColor="?attr/primary_text_color" />
+                    android:textColor="?attr/primary_color" />
 
             </LinearLayout>
 
@@ -76,7 +76,7 @@
                     android:contentDescription="@null"
                     android:visibility="invisible"
                     android:layout_marginEnd="16dp"
-                    app:tint="?attr/colorPrimary"/>
+                    app:tint="?attr/placeholder_color"/>
 
                 <TextView
                     android:id="@+id/filterByUser"
@@ -85,7 +85,7 @@
                     android:layout_weight="1"
                     android:textSize="16sp"
                     android:text="@string/page_edit_history_filter_by_user"
-                    android:textColor="?attr/primary_text_color" />
+                    android:textColor="?attr/primary_color" />
 
                 <ImageView
                     android:layout_width="20dp"
@@ -113,7 +113,7 @@
                     android:contentDescription="@null"
                     android:visibility="invisible"
                     android:layout_marginEnd="16dp"
-                    app:tint="?attr/colorPrimary"/>
+                    app:tint="?attr/placeholder_color"/>
 
                 <TextView
                     android:id="@+id/filterByAnon"
@@ -122,7 +122,7 @@
                     android:layout_weight="1"
                     android:textSize="16sp"
                     android:text="@string/page_edit_history_filter_by_anon"
-                    android:textColor="?attr/primary_text_color" />
+                    android:textColor="?attr/primary_color" />
 
                 <ImageView
                     android:layout_width="20dp"

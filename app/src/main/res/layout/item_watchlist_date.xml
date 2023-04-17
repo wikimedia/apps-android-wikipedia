@@ -10,5 +10,5 @@
     android:layout_marginStart="16dp"
     android:gravity="center_vertical"
     android:textStyle="bold"
-    android:textColor="?attr/material_theme_primary_color"
+    android:textColor="?attr/primary_color"
     android:textSize="20sp" />

@@ -7,6 +7,7 @@
         android:icon="@drawable/ic_filter_list_24"
         android:title="@string/filter_hint_filter_my_lists_and_articles"
         android:visible="false"
+        app:iconTint="?attr/primary_color"
         app:showAsAction="always" />
     <item android:id="@+id/menu_tabs"
         android:title="@string/menu_page_show_tabs"
@@ -16,8 +17,9 @@
         app:showAsAction="always"/>
     <item
         android:id="@+id/menu_overflow_button"
-        android:icon="@drawable/ic_more_vert_themed_24dp"
+        android:icon="@drawable/ic_more_vert_white_24dp"
         android:title="@string/menu_feed_overflow_label"
         android:visible="false"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        app:iconTint="?attr/primary_color" />
 </menu>

@@ -9,7 +9,7 @@
     android:padding="16dp"
     android:text="@string/customize_toolbar_reset_to_default_button"
     android:textAllCaps="true"
-    android:textColor="?colorAccent"
+    android:textColor="?attr/progressive_color"
     android:textSize="14sp"
     android:clickable="true"
     android:focusable="true"
