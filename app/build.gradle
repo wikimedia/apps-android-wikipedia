@@ -17,7 +17,7 @@ static def computeVersionName(versionCode, label) {
     return "2.7.${versionCode}-${label}-${(new Date()).format('yyyy-MM-dd')}"
 }
 
-final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
+final JavaVersion JAVA_VERSION = JavaVersion.VERSION_17
 
 android {
     compileSdkVersion 33
