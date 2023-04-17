@@ -169,7 +169,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                         val start = output.getSpanStart(span)
                         val end = output.getSpanEnd(span)
                         output.removeSpan(span)
-                        val color = if (lastAClass == "new" && view != null) ResourceUtil.getThemedColor(view.context, R.attr.colorError) else -1
+                        val color = if (lastAClass == "new" && view != null) ResourceUtil.getThemedColor(view.context, androidx.appcompat.R.attr.colorError) else -1
                         output.setSpan(URLSpanNoUnderline(span.url, color), start, end, 0)
                     }
                 }
