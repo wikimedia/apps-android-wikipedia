@@ -173,7 +173,7 @@ dependencies {
     String okHttpVersion = '4.10.0'
     String retrofitVersion = '2.9.0'
     String glideVersion = '4.13.2'
-    String mockitoVersion = '3.4.0'
+    String mockitoVersion = '5.2.0'
     String leakCanaryVersion = '2.10'
     String kotlinCoroutinesVersion = '1.3.9'
     String firebaseMessagingVersion = '23.1.2'
@@ -249,7 +249,7 @@ dependencies {
 
     testImplementation 'junit:junit:4.13.2'
     testImplementation "org.mockito:mockito-inline:$mockitoVersion"
-    testImplementation 'org.robolectric:robolectric:4.5.1'
+    testImplementation 'org.robolectric:robolectric:4.9.2'
     testImplementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
     testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
     testImplementation 'org.hamcrest:hamcrest:2.2'
