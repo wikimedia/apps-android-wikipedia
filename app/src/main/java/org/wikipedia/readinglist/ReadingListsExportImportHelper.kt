@@ -10,6 +10,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
+import androidx.core.app.PendingIntentCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
 import kotlinx.serialization.Serializable
@@ -23,7 +24,6 @@ import org.wikipedia.notifications.NotificationPresenter
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.FileUtil
 
@@ -68,7 +68,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
             .setAutoCancel(true)
             .setContentTitle(context.getString(R.string.reading_list_notification_title))
             .setContentText(context.getString(R.string.reading_list_notification_detailed_text))
-            .setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags))
+            .setContentIntent(PendingIntentCompat.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT, false))
             .setLargeIcon(NotificationPresenter.drawNotificationBitmap(context, R.color.blue600, R.drawable.ic_download_in_progress, ""))
             .setSmallIcon(R.drawable.ic_wikipedia_w)
             .setColor(ContextCompat.getColor(context, R.color.blue600))
