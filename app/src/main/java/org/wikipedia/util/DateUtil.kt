@@ -28,10 +28,6 @@ object DateUtil {
         return Date.from(Instant.parse(date))
     }
 
-    fun iso8601ShortDateParse(date: String): Date {
-        return getCachedDateFormat("yyyy-MM-dd'Z'", Locale.ROOT, true).parse(date)!!
-    }
-
     fun iso8601LocalDateTimeParse(timestamp: String): LocalDateTime {
         return LocalDateTime.ofInstant(Instant.parse(timestamp), ZoneId.systemDefault())
     }
@@ -54,10 +50,6 @@ object DateUtil {
 
     private fun getFeedCardDateString(date: Calendar): String {
         return getShortDateString(date.time)
-    }
-
-    fun getFeedCardDateString(date: Date): String {
-        return getShortDateString(date)
     }
 
     fun getFeedCardShortDateString(date: Calendar): String {
