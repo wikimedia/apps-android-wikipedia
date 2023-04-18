@@ -38,7 +38,7 @@ class WikipediaLanguagesItemView : LinearLayout {
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             foreground = AppCompatResources.getDrawable(context,
-                ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
+                ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
         }
         binding.wikiLanguageCheckbox.setOnCheckedChangeListener { _, _ ->
             callback?.onCheckedChanged(position)
