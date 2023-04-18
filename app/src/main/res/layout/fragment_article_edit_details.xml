@@ -168,7 +168,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/usernameFromButton"
-                    style="@style/FlatButton"
+                    style="@style/App.Button.Secondary"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="-2dp"
@@ -225,7 +225,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/usernameToButton"
-                    style="@style/FlatButton"
+                    style="@style/App.Button.Secondary"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="-2dp"
@@ -289,7 +289,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/thankButton"
-                    style="@style/FlatButton"
+                    style="@style/App.Button.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -301,13 +301,14 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/undoButton"
-                    style="@style/FlatButton"
+                    style="@style/App.Button.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/edit_undo"
                     android:textColor="?attr/primary_color"
                     android:visibility="gone"
                     android:layout_marginStart="16dp"
+                    tools:visibility="visible"
                     app:icon="@drawable/ic_undo_themed_24dp"
                     app:iconGravity="textStart"
                     app:iconSize="20dp"
@@ -315,14 +316,13 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/rollbackButton"
-                    style="@style/FlatButton"
+                    style="@style/App.Button.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp"
                     android:text="@string/edit_rollback"
                     android:textColor="?attr/colorError"
                     android:visibility="gone"
+                    tools:visibility="visible"
                     android:layout_marginStart="16dp"/>
 
                 <TextView

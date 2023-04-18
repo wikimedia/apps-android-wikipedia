@@ -140,7 +140,7 @@
 
                         <Button
                             android:id="@+id/create_account_login_button"
-                            style="@style/FlatButton"
+                            style="@style/App.Button.Secondary"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/create_account_login"

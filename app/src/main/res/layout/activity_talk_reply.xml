@@ -74,15 +74,11 @@
 
         <TextView
             android:id="@+id/replySaveButton"
-            style="@style/TransparentButton"
+            style="@style/App.Button.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center_vertical"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="4dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/description_edit_save"
-            android:textColor="?attr/progressive_color"/>
+            android:text="@string/description_edit_save"/>
 
     </com.google.android.material.appbar.MaterialToolbar>
 

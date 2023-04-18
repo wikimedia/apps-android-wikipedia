@@ -3,6 +3,7 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -35,9 +36,10 @@
                     android:id="@+id/errorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_margin="32dp"
                     android:layout_gravity="center"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    tools:visibility="visible"/>
 
                 <LinearLayout
                     android:id="@+id/tasksContainer"
@@ -226,15 +228,16 @@
 
                             <com.google.android.material.button.MaterialButton
                                 android:id="@+id/learnMoreButton"
-                                style="@style/FlatButton.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/App.Button.Secondary"
                                 android:text="@string/suggested_edits_learn_more"
                                 android:layout_marginTop="6dp"
                                 app:layout_constraintTop_toBottomOf="@id/taskDescription"
                                 app:layout_constraintStart_toStartOf="@id/taskDescription"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:icon="@drawable/ic_open_in_new_black_24px"
-                                app:iconSize="20dp"
-                                app:iconTint="?attr/progressive_color"/>
+                                app:iconSize="20dp"/>
 
                         </LinearLayout>
 

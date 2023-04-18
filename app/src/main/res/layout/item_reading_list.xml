@@ -144,7 +144,9 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/item_preview_save_button"
-        style="@style/FlatButton.Small"
+        style="@style/App.Button.Secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/list_item_horizontal_padding"
         android:text="@string/reading_lists_preview_save_button"
         android:visibility="gone"
@@ -152,7 +154,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:icon="@drawable/ic_bookmark_border_white_24dp"
         app:iconSize="20dp"
-        app:iconTint="?attr/progressive_color"/>
+        tools:visibility="visible"/>
 
     <CheckBox
         android:id="@+id/item_select_checkbox"

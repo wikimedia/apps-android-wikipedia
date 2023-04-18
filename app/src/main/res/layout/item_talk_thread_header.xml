@@ -40,7 +40,7 @@
         android:id="@+id/subscribeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/FlatButton"
+        style="@style/App.Button.Secondary"
         app:layout_constraintTop_toBottomOf="@id/threadTitleText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/otherContentText"

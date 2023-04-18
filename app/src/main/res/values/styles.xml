@@ -9,6 +9,8 @@
         <item name="toolbarStyle">@style/ToolbarStyle</item>
         <item name="actionModeStyle">@style/ActionModeStyle</item>
 
+        <item name="materialButtonStyle">@style/App.Button</item>
+
         <item name="snackbarTextViewStyle">@style/SnackbarTextView</item>
 
         <item name="android:listViewStyle">@style/ListView</item>
@@ -350,43 +352,40 @@
         <item name="android:clickable">true</item>
     </style>
 
-    <style name="FlatButton" parent="@style/Widget.Material3.Button.UnelevatedButton">
-        <item name="backgroundTint">?attr/background_color</item>
-        <item name="iconTint">?attr/progressive_color</item>
-        <item name="android:textColor">?attr/progressive_color</item>
+    <style name="App.Button" parent="@style/Widget.Material3.Button">
+        <item name="iconTint">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:minHeight">48dp</item>
         <item name="android:minWidth">0dp</item>
-        <item name="android:paddingStart">12dp</item>
-        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
         <item name="rippleColor">?attr/placeholder_color</item>
     </style>
 
-    <style name="FlatButton.Secondary">
-        <item name="backgroundTint">?attr/border_color</item>
+    <style name="App.Button.Secondary">
+        <item name="backgroundTint">?attr/background_color</item>
+        <item name="iconTint">?attr/progressive_color</item>
+        <item name="android:textColor">?attr/progressive_color</item>
+    </style>
+
+    <style name="App.Button.Tertiary">
+        <item name="backgroundTint">?attr/background_color</item>
         <item name="iconTint">?attr/placeholder_color</item>
         <item name="android:textColor">?attr/placeholder_color</item>
     </style>
 
-    <style name="FlatButton.Small">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:minHeight">48dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:insetBottom">8dp</item>
-        <item name="android:insetTop">8dp</item>
-        <item name="iconPadding">4dp</item>
+    <style name="App.Button.Text">
+        <item name="elevation">0dp</item>
+        <item name="android:textColor">?attr/progressive_color</item>
+        <item name="iconTint">?attr/progressive_color</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:foreground">?android:selectableItemBackground</item>
     </style>
 
-    <style name="FlatButton.Small.Transparent">
+    <style name="App.Button.Text.Secondary">
         <item name="android:textColor">?attr/placeholder_color</item>
-        <item name="android:backgroundTint">@android:color/transparent</item>
-        <item name="backgroundTint">@android:color/transparent</item>
-        <item name="android:foreground">?android:selectableItemBackground</item>
-    </style>
-
-    <style name="TransparentButton" parent="@style/Widget.Material3.Button.UnelevatedButton">
-        <item name="android:backgroundTint">@android:color/transparent</item>
-        <item name="backgroundTint">@android:color/transparent</item>
-        <item name="android:foreground">?android:selectableItemBackground</item>
-        <item name="android:focusable">true</item>
+        <item name="iconTint">?attr/placeholder_color</item>
     </style>
 
     <style name="ThemeColorCircularButton" parent="@style/Widget.Material3.Button.Icon">
@@ -403,15 +402,6 @@
         <item name="android:text">Aa</item>
         <item name="cornerRadius">30dp</item>
         <item name="strokeColor">@color/blue600</item>
-    </style>
-
-    <style name="ThemeChooserButton" parent="TransparentButton">
-        <item name="android:textAlignment">viewStart</item>
-        <item name="android:padding">0dp</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:letterSpacing">0</item>
-        <item name="android:textColor">?attr/primary_color</item>
     </style>
 
     <style name="AppPreferenceTheme" parent="PreferenceThemeOverlay" >

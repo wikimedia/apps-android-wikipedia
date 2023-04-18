@@ -22,7 +22,9 @@
 
     <Button
         android:id="@+id/view_card_offline_button_retry"
-        style="@style/FlatButton.Secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/App.Button.Tertiary"
         android:layout_margin="8dp"
         android:text="@string/card_offline_error_retry" />
 </LinearLayout>

@@ -79,14 +79,12 @@
         android:id="@+id/actionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TransparentButton"
-        android:textColor="?attr/progressive_color"
+        style="@style/App.Button.Text"
         android:visibility="gone"
         android:layout_marginStart="-12dp"
         app:icon="@drawable/ic_add_gray_white_24dp"
         app:iconSize="24dp"
         app:iconPadding="8dp"
-        app:iconTint="?attr/progressive_color"
         tools:visibility="visible"
         tools:text="Lorem ipsum"/>
     <View

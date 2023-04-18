@@ -62,7 +62,9 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/view_featured_image_card_download_button"
-                    style="@style/FlatButton.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/App.Button.Secondary"
                     android:layout_marginEnd="16dp"
                     android:text="@string/view_featured_image_card_download"
                     app:icon="@drawable/ic_baseline_get_app_24"
@@ -70,7 +72,9 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/view_featured_image_card_share_button"
-                    style="@style/FlatButton.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/App.Button.Secondary"
                     android:text="@string/view_featured_image_card_share"
                     app:icon="@drawable/ic_share"
                     app:iconSize="20dp"

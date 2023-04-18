@@ -49,14 +49,18 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/positiveButton"
-                style="@style/FlatButton.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/App.Button.Secondary"
                 android:layout_marginEnd="8dp"
                 app:iconSize="20dp"
                 tools:text="Lorem ipsum"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/negativeButton"
-                style="@style/FlatButton.Small.Transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/App.Button.Text.Secondary"
                 android:visibility="gone"
                 tools:text="Lorem ipsum"
                 tools:visibility="visible"/>
