@@ -282,6 +282,7 @@
 
     <style name="ToolbarStyle" parent="@style/Widget.Material3.Toolbar">
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
+        <item name="navigationIconTint">?attr/primary_color</item>
         <item name="elevation">0dp</item>
         <item name="android:background">?attr/paper_color</item>
         <item name="titleTextColor">?attr/primary_color</item>
