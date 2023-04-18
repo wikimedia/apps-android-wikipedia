@@ -78,7 +78,7 @@ class PageItemView<T>(context: Context) : FrameLayout(context) {
                 ViewUtil.loadImageWithRoundedCorners(binding.pageListItemImage, imageUrl)
             }
             binding.pageListItemSelectedImage.visibility = GONE
-            binding.pageListItemContainer.setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
+            binding.pageListItemContainer.setBackgroundResource(ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
         }
     }
 

@@ -22,11 +22,11 @@ class CabSearchView @JvmOverloads constructor(context: Context, attrs: Attribute
 
     init {
         val themedIconColor = ResourceUtil.getThemedColor(getContext(), R.attr.placeholder_color)
-        searchSrcTextView = findViewById(R.id.search_src_text)
+        searchSrcTextView = findViewById(androidx.appcompat.R.id.search_src_text)
         searchSrcTextView.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.primary_color))
         searchSrcTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, SEARCH_TEXT_SIZE.toFloat())
         searchSrcTextView.setHintTextColor(themedIconColor)
-        searchCloseBtn = findViewById(R.id.search_close_btn)
+        searchCloseBtn = findViewById(androidx.appcompat.R.id.search_close_btn)
         searchCloseBtn.visibility = GONE
         searchCloseBtn.setColorFilter(themedIconColor)
         FeedbackUtil.setButtonLongPressToast(searchCloseBtn)
