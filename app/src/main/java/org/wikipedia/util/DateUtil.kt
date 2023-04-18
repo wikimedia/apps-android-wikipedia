@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.ZoneId
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -31,8 +32,8 @@ object DateUtil {
         return getCachedDateFormat("yyyy-MM-dd'Z'", Locale.ROOT, true).parse(date)!!
     }
 
-    fun iso8601LocalDateFormat(date: Date): String {
-        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT, false).format(date)
+    fun iso8601LocalDateTimeParse(timestamp: String): LocalDateTime {
+        return LocalDateTime.ofInstant(Instant.parse(timestamp), ZoneId.systemDefault())
     }
 
     fun dbDateFormat(date: Date): String {

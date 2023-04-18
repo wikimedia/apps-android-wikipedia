@@ -38,8 +38,8 @@ import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
+import java.time.temporal.ChronoUnit
 import java.util.*
-import java.util.concurrent.TimeUnit
 
 class SuggestedEditsTasksFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsTasksBinding? = null
@@ -187,10 +187,11 @@ class SuggestedEditsTasksFragment : Fragment() {
                         latestEditDate = homeSiteResponse.query?.userInfo!!.latestContribDate
                     }
 
-                    val contributions = (wikidataResponse.query!!.userContributions +
-                            commonsResponse.query!!.userContributions +
-                            homeSiteResponse.query!!.userContributions).sortedByDescending { it.parsedInstant }
-                    latestEditStreak = getEditStreak(contributions)
+                    latestEditStreak = getEditStreak(
+                        wikidataResponse.query!!.userContributions +
+                                commonsResponse.query!!.userContributions +
+                                homeSiteResponse.query!!.userContributions
+                    )
                     revertSeverity = UserContribStats.getRevertSeverity()
                     wikidataResponse
                 }
@@ -351,26 +352,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (contributions.isEmpty()) {
             return 0
         }
-        // TODO: This is a bit naive, and should be updated once we switch to java.time.*
-        val calendar = GregorianCalendar()
-        calendar.time = Date()
-        // Start with a calendar that is fixed at the beginning of today's date
-        val baseCal = GregorianCalendar(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
-        val dayMillis = TimeUnit.DAYS.toMillis(1)
-        var streak = 0
-        for (c in contributions) {
-            val epochMilli = c.parsedInstant.toEpochMilli()
-            if (epochMilli >= baseCal.timeInMillis) {
-                // this contribution was on the same day.
-                continue
-            } else if (epochMilli < (baseCal.timeInMillis - dayMillis)) {
-                // this contribution is more than one day apart, so the streak is broken.
-                break
-            }
-            streak++
-            baseCal.timeInMillis = baseCal.timeInMillis - dayMillis
-        }
-        return streak
+        val dates = contributions.map { it.parsedDateTime.toLocalDate() }
+            .toSortedSet(Comparator.reverseOrder())
+        return dates.asSequence()
+            .zipWithNext { date1, date2 -> date2.until(date1, ChronoUnit.DAYS) }
+            .takeWhile { it == 1L }
+            .count()
     }
 
     private fun setupTestingButtons() {
