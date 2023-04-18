@@ -12,7 +12,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.core.view.MenuItemCompat
-import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import androidx.lifecycle.Lifecycle
@@ -84,10 +83,10 @@ class UserContribListActivity : BaseActivity() {
         binding = ActivityUserContribBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.title = ""
 
-        binding.titleView.isInvisible = true
-        binding.titleView.text = getString(R.string.user_contrib_activity_title, StringUtil.fromHtml(viewModel.userName))
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        supportActionBar?.title = getString(R.string.user_contrib_activity_title, StringUtil.fromHtml(viewModel.userName))
+
         linkHandler = UserContribLinkHandler(this)
         linkHandler.wikiSite = viewModel.wikiSite
 
@@ -101,7 +100,7 @@ class UserContribListActivity : BaseActivity() {
         binding.userContribRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                binding.titleView.isInvisible = binding.userContribRecycler.computeVerticalScrollOffset() <= recyclerView.getChildAt(0).height
+                supportActionBar?.setDisplayShowTitleEnabled(binding.userContribRecycler.computeVerticalScrollOffset() > recyclerView.getChildAt(0).height)
             }
         })
 

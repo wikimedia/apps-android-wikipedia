@@ -33,6 +33,7 @@
 * NEHAOUA
 * NancyMilad
 * PhiberOptik
+* SHaran (WMF)
 * Sandra Hanbo
 * Shbib Al-Subaie
 * Sonic N800
@@ -688,6 +689,7 @@
   <string name="notifications_mark_unread">علم كغير مقروءة</string>
   <string name="notifications_mark_all_as_read">اعتبرها كلها مقروءة</string>
   <string name="notifications_direct_reply_action">رد</string>
+  <string name="notifications_direct_reply_success">نُشر الرد.</string>
   <string name="watchlist_title">قائمة المراقبة</string>
   <string name="preference_title_notification_poll">إشعارات الاستقصاء</string>
   <string name="preference_summary_notification_poll">السماح للتطبيق باستخدام البيانات للتحقق من الإشعارات الجديدة في الخلفية.</string>
@@ -820,6 +822,8 @@
   <string name="description_starts_with_uppercase">ابدأ بحرف صغير إلا إذا كانت الكلمة الأولى هي اسم علم.</string>
   <string name="description_starts_with_lowercase">تجنّب البدء بأحرف صغيرة.</string>
   <string name="description_is_in_different_language">يظهر أن النص بلغة غير متوقّعة. اللغة يجب أن تكون %s.</string>
+  <string name="description_edit_suggested_description_button_text">أظهِر الأوصاف المقترحة</string>
+  <string name="description_edit_suggested_description_button_tooltip">جرب  وصف المقالات المُقترحة آليًا</string>
   <string name="description_edit_success_saved">تم نشر وصف المقالة!</string>
   <string name="description_edit_success_saved_snackbar">تم نشر وصف المقالة!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">تم نشر وصف المقالة! (%s)</string>
@@ -837,6 +841,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">بشكلٍ مثالي سطر واحد يكفي، ما بين كلمتين إلى اثنتا عشرة كلمة</string>
   <string name="description_edit_tutorial_button_label_start_editing">ابدأ التعديل</string>
   <string name="description_edit_tutorial_promise">ببدئي، أنا أعد بعدم إساءة استخدام هذه الميزة.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">إقتراحات الآلة</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">يتم إنشاء الاقتراحات من قِبل آلة وليس من قبل المتطوعين أو مؤسسة ويكيميديا</string>
   <string name="customize_toolbar_title">تخصيص شريط الأدوات</string>
   <string name="customize_toolbar_shortcut_description_text">خصّص شريط الأدوات السفلي بخمسة اختصارات تجدها الأكثر فائدةً.</string>
   <string name="customize_toolbar_category_toolbar">شريط الأدوات</string>
@@ -999,6 +1005,14 @@
   <string name="suggested_edits_contribution_type_image_tag">وسم صورة</string>
   <string name="suggested_edits_contribution_current_revision_text">أضيف تعديلك إلى ويكيبيديا</string>
   <string name="suggested_card_more_edits">تعديلات مقترحة أكثر</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">الأوصاف المقترحة</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">عمّاذا تريد الإبلاغ؟</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">لا يوجد معلومات كافية</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">لا يمكن رؤية الأوصاف المقترحة</string>
+  <string name="suggested_edits_inappropriate_suggestion">إقتراح غير لائق</string>
+  <string name="suggested_edits_do_not_understand_suggestion">لا أفهم المُهمة</string>
+  <string name="suggested_edits_report_suggestion">الإبلاغ عن</string>
+  <string name="suggested_edits_suggestion_report_submitted">تم إرسال التقرير</string>
   <string name="file_page_activity_title">صفحة ملف</string>
   <string name="file_page_add_image_caption_button">إضافة تعليق الصورة</string>
   <string name="file_page_add_image_tags_button">أضف وسوم الصور</string>
@@ -1097,6 +1111,7 @@
   <string name="insert_media_settings_alternative_text">نص بديل</string>
   <string name="insert_media_advanced_settings">إعدادات متقدمة</string>
   <string name="insert_media_advanced_settings_image_position">موضع الصورة</string>
+  <string name="insert_media_advanced_settings_image_position_right">يمين</string>
   <string name="insert_media_advanced_settings_image_type">نوع الصورة</string>
   <string name="insert_media_advanced_settings_image_size">حجم الصورة</string>
   <string name="insert_media_advanced_settings_image_size_default">افتراضي</string>

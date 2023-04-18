@@ -1055,7 +1055,7 @@
   <string name="suggested_edits_article_descriptions_dialog_title">Descrições sugeridas</string>
   <string name="suggested_edits_descriptions_report_dialog_title">O que gostaria de reportar?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Informações insuficientes</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion">Não consigo ver recomendações de descrição</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion" fuzzy="true">Não consigo ver recomendações de descrição</string>
   <string name="suggested_edits_inappropriate_suggestion">Sugestão inapropriada</string>
   <string name="suggested_edits_do_not_understand_suggestion">Não entendi a tarefa</string>
   <string name="suggested_edits_report_suggestion">Reportar</string>
