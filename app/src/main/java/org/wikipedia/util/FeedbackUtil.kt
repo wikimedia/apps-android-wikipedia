@@ -116,18 +116,18 @@ object FeedbackUtil {
     fun makeSnackbar(activity: Activity, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
         val view = findBestView(activity)
         val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration)
-        val textView = snackbar.view.findViewById<TextView>(R.id.snackbar_text)
+        val textView = snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
         textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod(wikiSite)
-        val actionView = snackbar.view.findViewById<TextView>(R.id.snackbar_action)
+        val actionView = snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_action)
         actionView.setTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         return snackbar
     }
 
     fun showToastOverView(view: View, text: CharSequence?, duration: Int): Toast {
         val toast = Toast.makeText(view.context, text, duration)
-        val v = LayoutInflater.from(view.context).inflate(R.layout.abc_tooltip, null)
-        val message = v.findViewById<TextView>(R.id.message)
+        val v = LayoutInflater.from(view.context).inflate(androidx.appcompat.R.layout.abc_tooltip, null)
+        val message = v.findViewById<TextView>(androidx.appcompat.R.id.message)
         message.text = StringUtil.removeHTMLTags(text.toString())
         message.maxLines = Int.MAX_VALUE
         toast.view = v

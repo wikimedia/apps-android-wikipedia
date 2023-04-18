@@ -269,7 +269,7 @@
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">0dp</item>
         <item name="background">?attr/paper_color</item>
-
+        <item name="android:minHeight">?attr/actionBarSize</item>
         <item name="titleTextStyle">@style/H1.AppBar</item>
         <item name="android:titleTextStyle">@style/H1.AppBar</item>
     </style>

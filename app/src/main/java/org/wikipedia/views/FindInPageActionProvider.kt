@@ -114,7 +114,7 @@ open class FindInPageActionProvider(private val context: Context) : ActionProvid
             isLastOccurrence = activeMatchOrdinal + 1 == numberOfMatches
         } else {
             binding.findInPageMatch.text = "0/0"
-            binding.findInPageMatch.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorError))
+            binding.findInPageMatch.setTextColor(ResourceUtil.getThemedColor(context, androidx.appcompat.R.attr.colorError))
             setFindInPageChevronsEnabled(false)
             isFirstOccurrence = false
             isLastOccurrence = false

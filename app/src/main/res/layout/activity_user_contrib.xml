@@ -11,8 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/ToolbarStyle.Small"
-        android:minHeight="?attr/actionBarSize" />
+        style="@style/ToolbarStyle.Small"/>
 
     <LinearLayout
         android:layout_width="match_parent"

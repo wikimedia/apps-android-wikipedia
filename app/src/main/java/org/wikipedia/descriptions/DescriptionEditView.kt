@@ -275,7 +275,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     fun setError(text: CharSequence?) {
         binding.viewDescriptionEditTextLayout.setErrorIconDrawable(R.drawable.ic_error_black_24dp)
-        val colorStateList = ResourceUtil.getThemedColorStateList(context, R.attr.colorError)
+        val colorStateList = ResourceUtil.getThemedColorStateList(context, androidx.appcompat.R.attr.colorError)
         binding.viewDescriptionEditTextLayout.setErrorIconTintList(colorStateList)
         binding.viewDescriptionEditTextLayout.setErrorTextColor(colorStateList)
         binding.viewDescriptionEditTextLayout.boxStrokeErrorColor = colorStateList
