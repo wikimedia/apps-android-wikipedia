@@ -7,11 +7,11 @@ import android.text.format.DateFormat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.UtcDate
-import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.ZoneId
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -26,6 +26,10 @@ object DateUtil {
     // TODO: Switch to DateTimeFormatter when minSdk = 26.
     fun iso8601DateParse(date: String): Date {
         return Date.from(Instant.parse(date))
+    }
+
+    fun iso8601LocalDateTimeParse(timestamp: String): LocalDateTime {
+        return LocalDateTime.ofInstant(Instant.parse(timestamp), ZoneId.systemDefault())
     }
 
     fun dbDateFormat(date: Date): String {
@@ -157,11 +161,6 @@ object DateUtil {
         val calendar = Calendar.getInstance(TimeZone.getDefault())
         calendar.add(Calendar.DATE, -age)
         return calendar
-    }
-
-    @Throws(ParseException::class)
-    fun getHttpLastModifiedDate(dateStr: String): Date {
-        return getCachedDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH, true).parse(dateStr)!!
     }
 
     fun yearToStringWithEra(year: Int): String {
