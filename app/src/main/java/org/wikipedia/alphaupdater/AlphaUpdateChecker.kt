@@ -1,18 +1,17 @@
 package org.wikipedia.alphaupdater
 
-import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.app.PendingIntentCompat
 import okhttp3.Request
 import okhttp3.Response
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.client
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.recurring.RecurringTask
 import org.wikipedia.settings.PrefsIoUtil
-import org.wikipedia.util.DeviceUtil
 import java.io.IOException
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -46,7 +45,7 @@ class AlphaUpdateChecker(private val context: Context) : RecurringTask() {
 
     private fun showNotification() {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(ALPHA_BUILD_APK_URL))
-        val pintent = PendingIntent.getActivity(context, 0, intent, DeviceUtil.pendingIntentFlags)
+        val pendingIntent = PendingIntentCompat.getActivity(context, 0, intent, 0, false)
 
         val notificationManagerCompat = NotificationManagerCompat.from(context)
         val notificationCategory = NotificationCategory.ALPHA_BUILD_CHECKER
@@ -54,7 +53,7 @@ class AlphaUpdateChecker(private val context: Context) : RecurringTask() {
         val notificationBuilder = NotificationCompat.Builder(context, notificationCategory.id)
                 .setContentTitle(context.getString(notificationCategory.title))
                 .setContentText(context.getString(notificationCategory.description))
-                .setContentIntent(pintent)
+                .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
         notificationBuilder.setSmallIcon(notificationCategory.iconResId)
         notificationManagerCompat.notify(1, notificationBuilder.build())

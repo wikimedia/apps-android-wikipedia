@@ -56,6 +56,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentArticleEditDetailsBinding.inflate(inflater, container, false)
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
+        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayShowTitleEnabled(false)
 
         binding.diffRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         FeedbackUtil.setButtonLongPressToast(binding.newerIdButton, binding.olderIdButton)
@@ -183,12 +184,15 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             binding.contentContainer.offsetDescendantRectToMyCoords(binding.articleTitleDivider, bounds)
             if (scrollY > bounds.top) {
                 binding.overlayRevisionDetailsView.visibility = View.VISIBLE
-                if (binding.toolbarTitleView.text.isNullOrEmpty()) {
-                    binding.toolbarTitleView.text = getString(R.string.revision_diff_compare_title, StringUtil.fromHtml(viewModel.pageTitle.displayText))
+                (requireActivity() as AppCompatActivity).supportActionBar?.let {
+                    if (it.title.isNullOrEmpty()) {
+                        it.title = getString(R.string.revision_diff_compare_title, StringUtil.fromHtml(viewModel.pageTitle.displayText))
+                    }
+                    it.setDisplayShowTitleEnabled(true)
                 }
             } else {
                 binding.overlayRevisionDetailsView.visibility = View.INVISIBLE
-                binding.toolbarTitleView.text = ""
+                (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayShowTitleEnabled(false)
             }
         })
     }

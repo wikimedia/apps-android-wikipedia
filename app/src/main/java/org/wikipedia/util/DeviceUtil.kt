@@ -1,7 +1,6 @@
 package org.wikipedia.util
 
 import android.app.Activity
-import android.app.PendingIntent
 import android.content.Context
 import android.graphics.Color
 import android.net.ConnectivityManager
@@ -84,7 +83,4 @@ object DeviceUtil {
             // TODO: add more logic if other accessibility tools have different settings.
             return am.isEnabled && am.isTouchExplorationEnabled
         }
-
-    val pendingIntentFlags: Int
-        get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) PendingIntent.FLAG_IMMUTABLE else 0
 }

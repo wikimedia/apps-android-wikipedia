@@ -275,7 +275,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     fun setError(text: CharSequence?) {
         binding.viewDescriptionEditTextLayout.setErrorIconDrawable(R.drawable.ic_error_black_24dp)
-        val colorStateList = ResourceUtil.getThemedColorStateList(context, R.attr.colorError)
+        val colorStateList = ResourceUtil.getThemedColorStateList(context, androidx.appcompat.R.attr.colorError)
         binding.viewDescriptionEditTextLayout.setErrorIconTintList(colorStateList)
         binding.viewDescriptionEditTextLayout.setErrorTextColor(colorStateList)
         binding.viewDescriptionEditTextLayout.boxStrokeErrorColor = colorStateList
@@ -415,15 +415,13 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         binding.suggestedDescButton.chipIcon = CircularProgressDrawable(ResourceUtil.getThemedColor(context, R.attr.primary_color), 1).also { it.start() }
     }
 
-    private fun updateSuggestedDescriptionsButtonVisibility() {
+     fun updateSuggestedDescriptionsButtonVisibility() {
         binding.suggestedDescButton.isVisible = binding.viewDescriptionEditTextLayout.error.isNullOrEmpty() && isSuggestionButtonEnabled
     }
 
     fun showSuggestedDescriptionsButton(firstSuggestion: String, secondSuggestion: String?) {
-        binding.root.post {
-            binding.suggestedDescButton.isEnabled = true
-            binding.suggestedDescButton.chipIcon = AppCompatResources.getDrawable(context, R.drawable.ic_robot_24)
-        }
+        binding.suggestedDescButton.isEnabled = true
+        binding.suggestedDescButton.chipIcon = AppCompatResources.getDrawable(context, R.drawable.ic_robot_24)
         binding.suggestedDescButton.setOnClickListener {
             SuggestedArticleDescriptionsDialog(context, firstSuggestion, secondSuggestion, pageTitle, callback!!.getAnalyticsHelper()) { suggestion ->
                 binding.viewDescriptionEditText.setText(suggestion)

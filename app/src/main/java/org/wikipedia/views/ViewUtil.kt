@@ -10,6 +10,7 @@ import android.net.Uri
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -106,5 +107,14 @@ object ViewUtil {
                 recyclerView.viewTreeObserver.removeOnGlobalLayoutListener(this)
             }
         })
+    }
+
+    fun getTitleViewFromToolbar(toolbar: ViewGroup): TextView? {
+        toolbar.children.forEach {
+            if (it is TextView) {
+                return it
+            }
+        }
+        return null
     }
 }

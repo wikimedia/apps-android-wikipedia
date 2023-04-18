@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Blackisnewyellow
 * MuratTheTurkish
 * Run Li
 * Ерней
@@ -238,7 +239,9 @@
   </plurals>
   <string name="suggested_edits_article_cta_image_caption">Сурәт язмасын өстәү</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Сурәт язмасын өстәү (%s)</string>
+  <string name="suggested_edits_label">Тәкъдим ителгән үзгәртүләр</string>
   <string name="suggested_edits_last_edited_never">Һичкайчан</string>
+  <string name="suggested_edits_reactivation_notification_title">Тәкъдим ителгән үзгәртүләр</string>
   <string name="app_shortcuts_search">Эзләү</string>
   <string name="wikipedia_languages_your_languages_text">Телләрегез</string>
   <string name="wikipedia_languages_add_language_text">Тел өстәү</string>
