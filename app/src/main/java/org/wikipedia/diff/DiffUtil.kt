@@ -8,6 +8,7 @@ import android.text.style.ForegroundColorSpan
 import android.text.style.StrikethroughSpan
 import android.text.style.StyleSpan
 import android.view.ViewGroup
+import androidx.core.graphics.ColorUtils
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.dataclient.restbase.DiffResponse
@@ -56,7 +57,7 @@ object DiffUtil {
         var expanded = diff.type != DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT
     }
 
-    class DiffLinesAdapter(val diffLines: List<DiffLine>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    class DiffLinesAdapter(private val diffLines: List<DiffLine>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         override fun getItemCount(): Int {
             return diffLines.size
         }
@@ -120,8 +121,8 @@ object DiffUtil {
         val boldStyle = StyleSpan(Typeface.BOLD)
         val foregroundAddedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(context, R.attr.primary_color))
         val foregroundRemovedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(context, R.attr.primary_color))
-        spannableText.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(context,
-                if (isAddition) R.attr.background_color else R.attr.highlight_color)), start, end, 0)
+        spannableText.setSpan(BackgroundColorSpan(ColorUtils.setAlphaComponent(ResourceUtil.getThemedColor(context,
+                if (isAddition) R.attr.success_color else R.attr.destructive_color), 48)), start, end, 0)
         spannableText.setSpan(boldStyle, start, end, 0)
         if (isAddition) {
             spannableText.setSpan(foregroundAddedColor, start, end, 0)
