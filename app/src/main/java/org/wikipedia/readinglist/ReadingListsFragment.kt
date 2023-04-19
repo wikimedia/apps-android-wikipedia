@@ -122,7 +122,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onResume() {
         super.onResume()
-        updateLists(true)
+        updateLists()
+        ReadingListsAnalyticsHelper.logListsShown(requireContext(), displayedLists.size)
         ReadingListsShareSurveyHelper.maybeShowSurvey(requireActivity())
         requireActivity().invalidateOptionsMenu()
     }
@@ -224,8 +225,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    fun updateLists(onLoad: Boolean = false) {
-        updateLists(currentSearchQuery, !currentSearchQuery.isNullOrEmpty(), onLoad)
+    fun updateLists() {
+        updateLists(currentSearchQuery, !currentSearchQuery.isNullOrEmpty())
     }
 
     fun startSearchActionMode() {
@@ -236,7 +237,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         ReadingListsOverflowView(requireContext()).show((requireActivity() as MainActivity).getToolbar().findViewById(R.id.menu_overflow_button), overflowCallback)
     }
 
-    private fun updateLists(searchQuery: String?, forcedRefresh: Boolean, onLoad: Boolean = false) {
+    private fun updateLists(searchQuery: String?, forcedRefresh: Boolean) {
         maybeShowOnboarding(searchQuery)
         ReadingListBehaviorsUtil.searchListsAndPages(searchQuery) { lists ->
             val result = DiffUtil.calculateDiff(object : DiffUtil.Callback() {
@@ -297,9 +298,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             maybeShowPreviewSavedReadingListsSnackbar()
             currentSearchQuery = searchQuery
             maybeTurnOffImportMode(lists.filterIsInstance<ReadingList>().toMutableList())
-            if (onLoad) {
-                ReadingListsAnalyticsHelper.logListsShown(requireContext(), displayedLists.size)
-            }
         }
     }
 

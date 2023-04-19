@@ -104,7 +104,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     override fun onResume() {
         super.onResume()
-        updateReadingListData(true)
+        updateReadingListData()
+        ReadingListsAnalyticsHelper.logListShown(requireContext(), readingList?.pages?.size ?: 0)
         ReadingListsShareSurveyHelper.maybeShowSurvey(requireActivity())
     }
 
@@ -294,7 +295,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
     }
 
-    private fun updateReadingListData(onLoad: Boolean = false) {
+    private fun updateReadingListData() {
         if (isPreview) {
             if (readingList == null) {
                 val encodedJson = Prefs.receiveReadingListsData
@@ -331,9 +332,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 readingList = list
                 readingList?.let {
                     binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
-                }
-                if (onLoad) {
-                    ReadingListsAnalyticsHelper.logListShown(requireContext(), readingList?.pages?.size ?: 0)
                 }
                 update()
             }
