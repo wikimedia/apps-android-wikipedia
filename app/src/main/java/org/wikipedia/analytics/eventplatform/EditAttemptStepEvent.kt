@@ -9,7 +9,7 @@ import org.wikipedia.page.PageTitle
 
 @Suppress("unused")
 @Serializable
-@SerialName("/analytics/legacy/editattemptstep/1.2.0")
+@SerialName("/analytics/legacy/editattemptstep/1.4.0")
 class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) : Event(STREAM_NAME) {
 
     companion object {
