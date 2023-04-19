@@ -138,7 +138,7 @@ object DateUtil {
     private fun getCachedDateTimeFormatter(pattern: String, locale: Locale, utc: Boolean): DateTimeFormatter {
         return DATE_TIME_FORMATTERS.getOrPut(pattern) {
             val dtf = DateTimeFormatter.ofPattern(pattern, locale)
-            return if (utc) dtf.withZone(ZoneOffset.UTC) else dtf
+            if (utc) dtf.withZone(ZoneOffset.UTC) else dtf
         }
     }
 
