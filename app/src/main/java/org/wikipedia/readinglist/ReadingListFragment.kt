@@ -34,7 +34,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.eventplatform.ReadingListsSharingAnalyticsHelper
+import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.PageDownloadEvent
@@ -104,7 +104,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     override fun onResume() {
         super.onResume()
-        updateReadingListData()
+        updateReadingListData(true)
         ReadingListsShareSurveyHelper.maybeShowSurvey(requireActivity())
     }
 
@@ -294,7 +294,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
     }
 
-    private fun updateReadingListData() {
+    private fun updateReadingListData(onLoad: Boolean = false) {
         if (isPreview) {
             if (readingList == null) {
                 val encodedJson = Prefs.receiveReadingListsData
@@ -307,7 +307,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                         withContext(Dispatchers.Main) {
                             readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
                             readingList?.let {
-                                ReadingListsSharingAnalyticsHelper.logReceivePreview(requireContext(), it)
+                                ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
                                 binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
                             }
                             update()
@@ -331,6 +331,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 readingList = list
                 readingList?.let {
                     binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
+                }
+                if (onLoad) {
+                    ReadingListsAnalyticsHelper.logListShown(requireContext(), readingList?.pages?.size ?: 0)
                 }
                 update()
             }

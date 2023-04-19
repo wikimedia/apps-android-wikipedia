@@ -30,7 +30,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.eventplatform.ReadingListsSharingAnalyticsHelper
+import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListsBinding
@@ -122,7 +122,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onResume() {
         super.onResume()
-        updateLists()
+        updateLists(true)
         ReadingListsShareSurveyHelper.maybeShowSurvey(requireActivity())
         requireActivity().invalidateOptionsMenu()
     }
@@ -224,8 +224,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    fun updateLists() {
-        updateLists(currentSearchQuery, !currentSearchQuery.isNullOrEmpty())
+    fun updateLists(onLoad: Boolean = false) {
+        updateLists(currentSearchQuery, !currentSearchQuery.isNullOrEmpty(), onLoad)
     }
 
     fun startSearchActionMode() {
@@ -236,7 +236,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         ReadingListsOverflowView(requireContext()).show((requireActivity() as MainActivity).getToolbar().findViewById(R.id.menu_overflow_button), overflowCallback)
     }
 
-    private fun updateLists(searchQuery: String?, forcedRefresh: Boolean) {
+    private fun updateLists(searchQuery: String?, forcedRefresh: Boolean, onLoad: Boolean = false) {
         maybeShowOnboarding(searchQuery)
         ReadingListBehaviorsUtil.searchListsAndPages(searchQuery) { lists ->
             val result = DiffUtil.calculateDiff(object : DiffUtil.Callback() {
@@ -297,6 +297,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             maybeShowPreviewSavedReadingListsSnackbar()
             currentSearchQuery = searchQuery
             maybeTurnOffImportMode(lists.filterIsInstance<ReadingList>().toMutableList())
+            if (onLoad) {
+                ReadingListsAnalyticsHelper.logListsShown(requireContext(), displayedLists.size)
+            }
         }
     }
 
@@ -751,7 +754,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private fun maybeShowPreviewSavedReadingListsSnackbar() {
         if (shouldShowImportedSnackbar) {
-            ReadingListsSharingAnalyticsHelper.logReceiveFinish(requireContext(), recentPreviewSavedReadingList)
+            ReadingListsAnalyticsHelper.logReceiveFinish(requireContext(), recentPreviewSavedReadingList)
             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.reading_lists_preview_saved_snackbar))
                 .addCallback(object : Snackbar.Callback() {
                     override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
