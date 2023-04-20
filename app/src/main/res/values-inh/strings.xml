@@ -469,6 +469,10 @@
     <item quantity="one">1 статья, %2$.2f MB</item>
     <item quantity="other">%1$d статья, %2$.2f MB</item>
   </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">1 статьяй %1$d офлайне тӀакхоачача да</item>
+    <item quantity="other">%2$d статьяй %1$d офлайне тӀакхоачача да</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">1 статьяй %1$d оагӀув офлайне я, %3$.2f MB</item>
     <item quantity="other">%2$d статьяй %1$d оагӀув офлайне я, %3$.2f MB</item>
@@ -482,6 +486,9 @@
   <string name="reading_list_sort_by_created">Хьакхелла таьрахьах дӀанийсдар (кердаяраш лакхе)</string>
   <string name="reading_list_sort_by_created_desc">Хьакхелла таьрахьах дӀанийсдар (къаьнаяраш лакхе)</string>
   <string name="reading_list_menu_delete">МугӀам дӀабаккха</string>
+  <string name="reading_list_menu_export">МугӀама экспорт</string>
+  <string name="reading_list_menu_select">Харжа</string>
+  <string name="reading_list_menu_unselect">Хержар юхадаккха</string>
   <string name="reading_list_menu_rename">ЦӀи/мугӀамах лаьцар хувца</string>
   <string name="reading_list_action_menu_remove_from_offline">Офлайн-режима чура дӀаяккха</string>
   <string name="reading_list_action_menu_save_for_offline">Автономни режима чу дӀаязде</string>
@@ -534,6 +541,7 @@
   <string name="reading_list_articles_added_to_named">«%2$s» яхача мугӀама чу статьяш чуяьхай (%1$d)</string>
   <string name="reading_list_articles_moved_to_named">%1$d статья чуяьккхай %2$s яхача мугӀама чу</string>
   <string name="reading_list_delete_confirm">Боккъонца безам бий хьа %s яха мугӀам дӀабаккха?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Хержа мугӀамаш дӀадаха дезий?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Чувала(яла), синхронизаци хьалсогаргйолаш</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Система чу вала(-яла), хьа дешара мугӀамаш хьа аккаунта чу дӀаяздергдолаш.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Эшац</string>
@@ -557,6 +565,7 @@
   <string name="reading_list_article_limit_message">Укх мугӀамá кхы статья тӀатоха йиш яц. \"%1$s\" яхача мугӀама чу лимит я %2$d статья, из хьалбизаб Ӏа.</string>
   <string name="reading_lists_limit_message">Керда мугӀам хьакхолла йиш яц. Цхьан аккаунтага 100 мугӀам мара хила бокъо яц.</string>
   <string name="reading_lists_menu_create_list">Керда мугӀам хьабе</string>
+  <string name="reading_lists_menu_import_list">МугӀама импорт</string>
   <string name="reading_lists_menu_sort_by">Къоастадеш дӀанийсде укх тайпара...</string>
   <string name="reading_lists_refresh_sync_option">Юха хеца синхронизаци</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Чувала / Регистраци е</string>
@@ -581,7 +590,9 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Эшац</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Эшац</string>
   <string name="reading_list_split_dialog_ok_button_text">ХӀАЪА</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">ДӀадаккха</string>
   <string name="reading_list_activity_title">Дешар-мугӀам: %s</string>
+  <string name="reading_list_notification_title">Дешара мугӀама(-ий) экспорт</string>
   <string name="user_option_sync_label">Оттамаш</string>
   <string name="notification_reverted_title">Юхадаьккха тоадар</string>
   <string name="notification_channel_title">Статьяш хьачуяхар</string>
