@@ -11,13 +11,7 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import java.io.*
 import java.io.IOException
-import java.nio.file.Path
-import java.nio.file.Paths
 import java.util.*
-import kotlin.io.path.createDirectories
-import kotlin.io.path.exists
-import kotlin.io.path.readLines
-import kotlin.io.path.writeLines
 
 class OfflineCacheInterceptor : Interceptor {
 
@@ -60,23 +54,33 @@ class OfflineCacheInterceptor : Interceptor {
             L.w("Offline object not present in database.")
             throw networkException
         }
-        val metadataPath = Paths.get("${obj.path}.0")
-        val contentsPath = Paths.get("${obj.path}.1")
-        if (!metadataPath.exists() || !contentsPath.exists()) {
+        val metadataFile = File(obj.path + ".0")
+        val contentsFile = File(obj.path + ".1")
+        if (!metadataFile.exists() || !contentsFile.exists()) {
             throw IOException("Offline object not present in filesystem.")
         }
         val builder = Response.Builder().request(request).protocol(Protocol.HTTP_2)
         var contentType = "*/*"
         try {
-            val lines = metadataPath.readLines()
-            // Items 0-2 are the URL, method and protocol
-            builder.code(lines[3].toInt()) // Code
-            builder.message(lines[4].ifEmpty { "OK" }) // Message
-            for (i in 5 until lines.size) {
-                val (name, value) = lines[i].split(":", limit = 2).map { it.trim() }
-                builder.header(name, value)
-                if (name.equals("content-type", ignoreCase = true)) {
-                    contentType = value
+            BufferedReader(InputStreamReader(FileInputStream(metadataFile))).use { reader ->
+                reader.readLine() // url
+                reader.readLine() // method
+                reader.readLine() // protocol
+                builder.code(reader.readLine().toInt())
+                val message = reader.readLine()
+                builder.message(if (message.isNullOrEmpty()) "OK" else message)
+                while (true) {
+                    val line = reader.readLine() ?: break
+                    val pos = line.indexOf(":")
+                    if (pos < 0) {
+                        break
+                    }
+                    val name = line.substring(0, pos).trim()
+                    val value = line.substring(pos + 1).trim()
+                    builder.header(name, value)
+                    if (name.lowercase(Locale.getDefault()) == "content-type") {
+                        contentType = value
+                    }
                 }
             }
         } catch (e: IOException) {
@@ -87,7 +91,7 @@ class OfflineCacheInterceptor : Interceptor {
         builder.header("Cache-Control", "no-cache")
         // and tack on the Save header, so that the recipient knows that this response came from offline cache.
         builder.header(SAVE_HEADER, SAVE_HEADER_SAVE)
-        builder.body(CachedResponseBody(contentsPath, contentType))
+        builder.body(CachedResponseBody(contentsFile, contentType))
         response = builder.build()
         return response
     }
@@ -95,36 +99,39 @@ class OfflineCacheInterceptor : Interceptor {
     private fun getCacheWritingResponse(request: Request, response: Response, lang: String, title: String): Response {
         val contentType = response.header("Content-Type", "*/*")!!
         val contentLength = response.header("Content-Length", "-1")!!.toLong()
-        val cachePath = try {
-            WikipediaApp.instance.filesDir.toPath().resolve(OFFLINE_PATH).createDirectories()
-        } catch (e: IOException) {
-            L.e(e)
-            return response
-        }
+        val cachePath = WikipediaApp.instance.filesDir.absolutePath + File.separator + OFFLINE_PATH
 
-        val filePath = cachePath.resolve(getObjectFileName(request.url.toString(), lang, contentType))
-        val metadataPath = filePath.resolveSibling("${filePath.fileName}.0")
-        val contentsPath = filePath.resolveSibling("${filePath.fileName}.1")
+        File(cachePath).mkdirs()
+
+        val filePath = cachePath + File.separator + getObjectFileName(request.url.toString(), lang, contentType)
+        val metadataFile = File("$filePath.0")
+        val contentsFile = File("$filePath.1")
         try {
-            val lines = listOf(request.url.toString(), request.method, response.protocol.toString(),
-                response.code.toString(), response.message)
-            val headers = response.headers.map { (name, value) -> "$name: $value" }
-            metadataPath.writeLines(lines + headers)
+            OutputStreamWriter(FileOutputStream(metadataFile)).use { writer ->
+                writer.write(request.url.toString() + "\n")
+                writer.write(request.method + "\n")
+                writer.write(response.protocol.toString() + "\n")
+                writer.write(response.code.toString() + "\n")
+                writer.write(response.message + "\n")
+                response.headers.names().forEach { header ->
+                    writer.write(header + ": " + response.header(header) + "\n")
+                }
+                writer.flush()
+            }
         } catch (e: IOException) {
             L.e(e)
             return response
         }
 
         val sink = try {
-            contentsPath.sink().buffer()
+            contentsFile.sink().buffer()
         } catch (e: IOException) {
             L.e(e)
             return response
         }
 
         return response.body?.let {
-            val obj = OfflineObject(url = request.url.toString(), lang = lang,
-                path = filePath.toString(), status = 0)
+            val obj = OfflineObject(url = request.url.toString(), lang = lang, path = filePath, status = 0)
             val cacheWritingSource = CacheWritingSource(it.source(), sink, obj, title)
             response.newBuilder()
                 .body(CacheWritingResponseBody(cacheWritingSource, contentType, contentLength))
@@ -201,7 +208,7 @@ class OfflineCacheInterceptor : Interceptor {
         }
     }
 
-    private inner class CachedResponseBody constructor(private val path: Path,
+    private inner class CachedResponseBody constructor(private val file: File,
                                                        private val contentType: String?) : ResponseBody() {
         override fun contentType(): MediaType? {
             return contentType?.toMediaTypeOrNull()
@@ -212,7 +219,7 @@ class OfflineCacheInterceptor : Interceptor {
         }
 
         override fun source(): BufferedSource {
-            return path.source().buffer()
+            return file.source().buffer()
         }
     }
 
