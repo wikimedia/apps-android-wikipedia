@@ -4,7 +4,7 @@ import androidx.room.TypeConverter
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.notifications.db.Notification
 
-class NotificationTypeConverters {
+object NotificationTypeConverters {
     @TypeConverter
     fun stringToContents(value: String?): Notification.Contents? {
         return JsonUtil.decodeFromString<Notification.Contents>(value)
