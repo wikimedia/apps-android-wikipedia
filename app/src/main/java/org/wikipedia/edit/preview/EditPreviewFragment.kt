@@ -26,6 +26,7 @@ import org.wikipedia.page.*
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.ViewAnimations
 
@@ -78,6 +79,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     }
 
     private fun initWebView() {
+        webView.setBackgroundColor(ResourceUtil.getThemedColor(requireActivity(), R.attr.paper_color))
         binding.editPreviewWebview.webViewClient = object : OkHttpWebViewClient() {
 
             override val model get() = this@EditPreviewFragment.model
@@ -96,7 +98,11 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         }
 
         bridge.addListener("setup") { _, _ -> }
-        bridge.addListener("final_setup") { _, _ -> }
+        bridge.addListener("final_setup") { _, _ ->
+            if (isAdded) {
+                bridge.onPcsReady()
+            }
+        }
         bridge.addListener("link", linkHandler)
         bridge.addListener("image") { _, _ -> }
         bridge.addListener("media") { _, _ -> }

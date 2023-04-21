@@ -57,7 +57,7 @@ object DiffUtil {
         var expanded = diff.type != DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT
     }
 
-    class DiffLinesAdapter(val diffLines: List<DiffLine>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    class DiffLinesAdapter(private val diffLines: List<DiffLine>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         override fun getItemCount(): Int {
             return diffLines.size
         }
@@ -122,7 +122,7 @@ object DiffUtil {
         val foregroundAddedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(context, R.attr.primary_color))
         val foregroundRemovedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(context, R.attr.primary_color))
         spannableText.setSpan(BackgroundColorSpan(ColorUtils.setAlphaComponent(ResourceUtil.getThemedColor(context,
-                if (isAddition) R.attr.success_color else R.attr.destructive_color), 64)), start, end, 0)
+                if (isAddition) R.attr.success_color else R.attr.destructive_color), 48)), start, end, 0)
         spannableText.setSpan(boldStyle, start, end, 0)
         if (isAddition) {
             spannableText.setSpan(foregroundAddedColor, start, end, 0)

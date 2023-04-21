@@ -32,6 +32,9 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
 import retrofit2.Response
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
 
 class PageFragmentLoadState(private var model: PageViewModel,
                             private var fragment: PageFragment,
@@ -176,7 +179,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         }
                         createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
                         if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
-                            showPageOfflineMessage(pageSummaryResponse.raw().header("date", ""))
+                            showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
                         }
                         if (delayLoadHtml) {
                             bridge.resetHtml(title)
@@ -205,18 +208,16 @@ class PageFragmentLoadState(private var model: PageViewModel,
         }
     }
 
-    private fun showPageOfflineMessage(dateHeader: String?) {
-        if (!fragment.isAdded || dateHeader.isNullOrEmpty()) {
+    private fun showPageOfflineMessage(dateHeader: Instant?) {
+        if (!fragment.isAdded || dateHeader == null) {
             return
         }
-        try {
-            val dateStr = DateUtil.getShortDateString(DateUtil.getHttpLastModifiedDate(dateHeader))
-            Toast.makeText(fragment.requireContext().applicationContext,
-                    fragment.getString(R.string.page_offline_notice_last_date, dateStr),
-                    Toast.LENGTH_LONG).show()
-        } catch (e: Exception) {
-            // ignore
-        }
+        // TODO: Use LocalDate.ofInstant() instead once it is available in SDK 34.
+        val localDate = LocalDateTime.ofInstant(dateHeader, ZoneId.systemDefault()).toLocalDate()
+        val dateStr = DateUtil.getShortDateString(localDate)
+        Toast.makeText(fragment.requireContext().applicationContext,
+            fragment.getString(R.string.page_offline_notice_last_date, dateStr),
+            Toast.LENGTH_LONG).show()
     }
 
     private fun createPageModel(response: Response<PageSummary>,
