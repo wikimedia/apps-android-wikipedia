@@ -3,6 +3,7 @@ package org.wikipedia.dataclient.mwapi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
+import org.wikipedia.json.LocalDateAsTimestamp
 import org.wikipedia.util.DateUtil
 import java.util.*
 
@@ -10,9 +11,9 @@ import java.util.*
 class UserInfo : BlockInfo() {
     val id = 0
     private val groups: List<String>? = null
-    @SerialName("latestcontrib") private val latestContrib: String? = null
-    @SerialName("registrationdate") private val regDate: String? = null
-    @SerialName("registration") private val registration: String? = null
+    @SerialName("latestcontrib") val latestContrib: LocalDateAsTimestamp = DateUtil.EPOCH_DATE
+    @SerialName("registrationdate") private val regDate: LocalDateAsTimestamp? = null
+    @SerialName("registration") private val registration: LocalDateAsTimestamp? = null
     @SerialName("editcount") val editCount = -1
     val name: String = ""
     val anon: Boolean = false
@@ -29,25 +30,8 @@ class UserInfo : BlockInfo() {
         return groups?.toSet() ?: emptySet()
     }
 
-    val latestContribDate: Date
-        get() {
-            var date = Date(0)
-            if (!latestContrib.isNullOrEmpty()) {
-                date = DateUtil.iso8601DateParse(latestContrib)
-            }
-            return date
-        }
-
-    val registrationDate: Date
-        get() {
-            var date = Date(0)
-            if (!regDate.isNullOrEmpty()) {
-                date = DateUtil.iso8601DateParse(regDate)
-            } else if (!registration.isNullOrEmpty()) {
-                date = DateUtil.iso8601DateParse(registration)
-            }
-            return date
-        }
+    val registrationDate
+        get() = regDate ?: registration ?: DateUtil.EPOCH_DATE
 
     @Serializable
     class Options {

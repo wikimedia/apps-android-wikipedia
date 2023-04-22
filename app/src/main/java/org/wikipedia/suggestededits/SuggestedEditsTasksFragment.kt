@@ -191,7 +191,11 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.pageViewStatsView.setTitle(viewModel.totalPageviews.toString())
 
         if (viewModel.latestEditStreak < 2) {
-            binding.editStreakStatsView.setTitle(if (viewModel.latestEditDate.time > 0) DateUtil.getMDYDateString(viewModel.latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
+            binding.editStreakStatsView.setTitle(if (viewModel.latestEditDate > DateUtil.EPOCH_DATE) {
+                DateUtil.getMDYDateString(viewModel.latestEditDate)
+            } else {
+                resources.getString(R.string.suggested_edits_last_edited_never)
+            })
             binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_last_edited))
         } else {
             binding.editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,

@@ -16,7 +16,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
-import java.util.*
+import java.time.LocalDate
 
 class AnnouncementClient : FeedClient {
 
@@ -47,7 +47,7 @@ class AnnouncementClient : FeedClient {
         private fun buildCards(announcements: List<Announcement>): List<Card> {
             val cards = mutableListOf<Card>()
             val country = GeoUtil.geoIPCountry
-            val now = Date()
+            val now = LocalDate.now()
             for (announcement in announcements) {
                 if (shouldShow(announcement, country, now)) {
                     when (announcement.type) {
@@ -62,24 +62,25 @@ class AnnouncementClient : FeedClient {
             return cards
         }
 
-        fun shouldShow(announcement: Announcement?, country: String?, date: Date): Boolean {
-            return (announcement != null && !announcement.platforms.isNullOrEmpty() && (announcement.platforms.contains(PLATFORM_CODE) ||
+        fun shouldShow(announcement: Announcement?, country: String?, date: LocalDate): Boolean {
+            return (announcement != null && announcement.platforms.isNotEmpty() && (announcement.platforms.contains(PLATFORM_CODE) ||
                     announcement.platforms.contains(PLATFORM_CODE_NEW)) &&
                     matchesCountryCode(announcement, country) && matchesDate(announcement, date) &&
                     matchesVersionCodes(announcement.minVersion(), announcement.maxVersion()) && matchesConditions(announcement))
         }
 
         private fun matchesCountryCode(announcement: Announcement, country: String?): Boolean {
-            return if (country.isNullOrEmpty() || announcement.countries.isNullOrEmpty()) {
+            return if (country.isNullOrEmpty() || announcement.countries.isEmpty()) {
                 false
             } else announcement.countries.contains(country)
         }
 
-        private fun matchesDate(announcement: Announcement, date: Date): Boolean {
+        private fun matchesDate(announcement: Announcement, date: LocalDate): Boolean {
             if (Prefs.ignoreDateForAnnouncements) {
                 return true
             }
-            return announcement.startTime()?.before(date) == true && announcement.endTime()?.after(date) == true
+            val (startDate, endDate) = announcement.startDate to announcement.endDate
+            return startDate != null && endDate != null && date in startDate..endDate
         }
 
         private fun matchesConditions(announcement: Announcement): Boolean {

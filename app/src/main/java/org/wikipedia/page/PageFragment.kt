@@ -95,6 +95,7 @@ import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import org.wikipedia.wiktionary.WiktionaryDialog
+import java.time.LocalDate
 import java.util.*
 
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
@@ -652,7 +653,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ list ->
                         val country = GeoUtil.geoIPCountry
-                        val now = Date()
+                        val now = LocalDate.now()
                         for (announcement in list.items) {
                             if (AnnouncementClient.shouldShow(announcement, country, now) &&
                                 announcement.placement == Announcement.PLACEMENT_ARTICLE &&

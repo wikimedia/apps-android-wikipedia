@@ -20,6 +20,10 @@ import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 
 object DateUtil {
+    // TODO: Use LocalDate.EPOCH instead.
+    @JvmField
+    val EPOCH_DATE: LocalDate = LocalDate.of(1970, 1, 1)
+
     private val DATE_FORMATS = ConcurrentHashMap<String, SimpleDateFormat>()
     private val DATE_TIME_FORMATTERS = ConcurrentHashMap<String, DateTimeFormatter>()
 
@@ -48,8 +52,8 @@ object DateUtil {
         return getExtraShortDateString(date.time)
     }
 
-    fun getMDYDateString(date: Date): String {
-        return getDateStringWithSkeletonPattern(date, "MM/dd/yyyy")
+    fun getMDYDateString(localDate: LocalDate): String {
+        return getDateStringWithSkeletonPattern(localDate, "MM/dd/yyyy")
     }
 
     fun getMonthOnlyDateString(date: Date): String {
@@ -58,10 +62,6 @@ object DateUtil {
 
     fun getMonthOnlyWithoutDayDateString(date: Date): String {
         return getDateStringWithSkeletonPattern(date, "MMMM")
-    }
-
-    fun getYearOnlyDateString(date: Date): String {
-        return getDateStringWithSkeletonPattern(date, "yyyy")
     }
 
     fun getYMDDateString(date: Date): String {

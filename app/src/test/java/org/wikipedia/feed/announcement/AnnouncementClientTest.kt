@@ -7,15 +7,12 @@ import org.junit.Test
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.test.MockRetrofitTest
 import org.wikipedia.test.TestFileUtil
-import java.text.SimpleDateFormat
-import java.util.*
+import java.time.LocalDate
 
 class AnnouncementClientTest : MockRetrofitTest() {
     private lateinit var announcementList: AnnouncementList
-    private val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.ROOT)
 
     @Before
-    @Throws(Throwable::class)
     override fun setUp() {
         super.setUp()
         val json = TestFileUtil.readRawFile(ANNOUNCEMENT_JSON_FILE)
@@ -23,7 +20,6 @@ class AnnouncementClientTest : MockRetrofitTest() {
     }
 
     @Test
-    @Throws(Throwable::class)
     fun testRequestSuccess() {
         enqueueFromFile(ANNOUNCEMENT_JSON_FILE)
         restService.announcements.test().await()
@@ -33,7 +29,6 @@ class AnnouncementClientTest : MockRetrofitTest() {
     }
 
     @Test
-    @Throws(Throwable::class)
     fun testRequestMalformed() {
         enqueueMalformed()
         restService.announcements.test().await()
@@ -41,7 +36,6 @@ class AnnouncementClientTest : MockRetrofitTest() {
     }
 
     @Test
-    @Throws(Throwable::class)
     fun testRequestNotFound() {
         enqueue404()
         restService.announcements.test().await()
@@ -57,30 +51,27 @@ class AnnouncementClientTest : MockRetrofitTest() {
     }
 
     @Test
-    @Throws(Throwable::class)
     fun testShouldShowByCountry() {
         val announcement = announcementList.items[ANNOUNCEMENT_SURVEY_ANDROID]
-        val dateDuring = dateFormat.parse("2016-11-20")!!
+        val dateDuring = LocalDate.of(2016, 11, 20)
         MatcherAssert.assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), Matchers.`is`(true))
         MatcherAssert.assertThat(AnnouncementClient.shouldShow(announcement, "FI", dateDuring), Matchers.`is`(false))
         MatcherAssert.assertThat(AnnouncementClient.shouldShow(announcement, null, dateDuring), Matchers.`is`(false))
     }
 
     @Test
-    @Throws(Throwable::class)
     fun testShouldShowByDate() {
         val announcement = announcementList.items[ANNOUNCEMENT_SURVEY_ANDROID]
-        val dateBefore = dateFormat.parse("2016-08-01")!!
-        val dateAfter = dateFormat.parse("2017-01-05")!!
+        val dateBefore = LocalDate.of(2016, 8, 1)
+        val dateAfter = LocalDate.of(2017, 1, 5)
         MatcherAssert.assertThat(AnnouncementClient.shouldShow(announcement, "US", dateBefore), Matchers.`is`(false))
         MatcherAssert.assertThat(AnnouncementClient.shouldShow(announcement, "US", dateAfter), Matchers.`is`(false))
     }
 
     @Test
-    @Throws(Throwable::class)
     fun testShouldShowByPlatform() {
         val announcementIOS = announcementList.items[ANNOUNCEMENT_IOS]
-        val dateDuring = dateFormat.parse("2016-11-20")!!
+        val dateDuring = LocalDate.of(2016, 11, 20)
         MatcherAssert.assertThat(
             AnnouncementClient.shouldShow(announcementIOS, "US", dateDuring),
             Matchers.`is`(false)
@@ -94,30 +85,27 @@ class AnnouncementClientTest : MockRetrofitTest() {
     }
 
     @Test
-    @Throws(Throwable::class)
     fun testShouldShowForInvalidCountries() {
         val announcement = announcementList.items[ANNOUNCEMENT_NO_COUNTRIES]
-        val dateDuring = dateFormat.parse("2016-11-20")!!
+        val dateDuring = LocalDate.of(2016, 11, 20)
         MatcherAssert.assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), Matchers.`is`(false))
         MatcherAssert.assertThat(AnnouncementClient.shouldShow(announcement, "FI", dateDuring), Matchers.`is`(false))
         MatcherAssert.assertThat(AnnouncementClient.shouldShow(announcement, "", dateDuring), Matchers.`is`(false))
     }
 
     @Test
-    @Throws(Throwable::class)
     fun testBetaWithVersion() {
         val announcement = announcementList.items[ANNOUNCEMENT_BETA_WITH_VERSION]
-        val dateDuring = dateFormat.parse("2016-11-20")!!
+        val dateDuring = LocalDate.of(2016, 11, 20)
         MatcherAssert.assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), Matchers.`is`(true))
         MatcherAssert.assertThat(announcement.minVersion(), Matchers.`is`(200))
         MatcherAssert.assertThat(announcement.maxVersion(), Matchers.`is`(10000))
     }
 
     @Test
-    @Throws(Throwable::class)
     fun testForOldVersion() {
         val announcement = announcementList.items[ANNOUNCEMENT_FOR_OLD_VERSION]
-        val dateDuring = dateFormat.parse("2016-11-20")!!
+        val dateDuring = LocalDate.of(2016, 11, 20)
         MatcherAssert.assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), Matchers.`is`(false))
     }
 

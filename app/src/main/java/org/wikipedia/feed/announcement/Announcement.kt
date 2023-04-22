@@ -5,40 +5,32 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.intOrNull
 import kotlinx.serialization.json.jsonPrimitive
-import org.wikipedia.util.DateUtil
-import java.util.*
+import org.wikipedia.json.LocalDateAsTimestamp
 
 @Serializable
-class Announcement(val id: String = "",
-                   val text: String = "",
-                   val type: String = "",
-                   val platforms: List<String> = emptyList(),
-                   val countries: List<String> = emptyList(),
-                   @SerialName("start_time") private val startTime: String? = null,
-                   @SerialName("end_time") private val endTime: String? = null,
-                   @SerialName("image_url") val imageUrl: String? = "",
-                   @SerialName("negative_text") val negativeText: String? = "",
-                   @SerialName("caption_HTML") val footerCaption: String? = "",
-                   @SerialName("image_height") val imageHeight: String? = "",
-                   @SerialName("logged_in") val loggedIn: Boolean? = null,
-                   @SerialName("reading_list_sync_enabled") val readingListSyncEnabled: Boolean? = null,
-                   // The Min and Max version could be an integer for Android versions, or a string
-                   // for iOS versions, so these need to be serialized manually.
-                   @SerialName("min_version") private val minVersion: JsonElement? = null,
-                   @SerialName("max_version") private val maxVersion: JsonElement? = null,
-                   val border: Boolean? = null,
-                   val beta: Boolean? = null,
-                   val placement: String = PLACEMENT_FEED,
-                   val action: Action?) {
-
-    fun startTime(): Date? {
-        return startTime?.let { DateUtil.iso8601DateParse(it) }
-    }
-
-    fun endTime(): Date? {
-        return endTime?.let { DateUtil.iso8601DateParse(it) }
-    }
-
+class Announcement(
+    val id: String = "",
+    val text: String = "",
+    val type: String = "",
+    val platforms: List<String> = emptyList(),
+    val countries: List<String> = emptyList(),
+    @SerialName("start_time") val startDate: LocalDateAsTimestamp? = null,
+    @SerialName("end_time") val endDate: LocalDateAsTimestamp? = null,
+    @SerialName("image_url") val imageUrl: String? = "",
+    @SerialName("negative_text") val negativeText: String? = "",
+    @SerialName("caption_HTML") val footerCaption: String? = "",
+    @SerialName("image_height") val imageHeight: String? = "",
+    @SerialName("logged_in") val loggedIn: Boolean? = null,
+    @SerialName("reading_list_sync_enabled") val readingListSyncEnabled: Boolean? = null,
+    // The Min and Max version could be an integer for Android versions, or a string
+    // for iOS versions, so these need to be serialized manually.
+    @SerialName("min_version") private val minVersion: JsonElement? = null,
+    @SerialName("max_version") private val maxVersion: JsonElement? = null,
+    val border: Boolean? = null,
+    val beta: Boolean? = null,
+    val placement: String = PLACEMENT_FEED,
+    val action: Action?
+) {
     fun hasAction(): Boolean {
         return action != null
     }
