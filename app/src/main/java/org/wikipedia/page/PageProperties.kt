@@ -4,24 +4,20 @@ import android.location.Location
 import android.os.Parcelable
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
-import kotlinx.parcelize.TypeParceler
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.Protection
-import org.wikipedia.parcel.DateParceler
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.UriUtil
-import java.util.*
+import java.time.LocalDateTime
 
 @Parcelize
-@TypeParceler<Date, DateParceler>()
 data class PageProperties constructor(
     val pageId: Int = 0,
     val namespace: Namespace,
     val revisionId: Long = 0,
-    val lastModified: Date = Date(),
+    val lastModified: LocalDateTime = LocalDateTime.now(),
     val displayTitle: String = "",
     private var editProtectionStatus: String = "",
     val isMainPage: Boolean = false,
@@ -53,7 +49,7 @@ data class PageProperties constructor(
         pageSummary.pageId,
         pageSummary.ns,
         pageSummary.revision,
-        if (pageSummary.timestamp.isEmpty()) Date() else DateUtil.iso8601DateParse(pageSummary.timestamp),
+        pageSummary.localDateTime ?: LocalDateTime.now(),
         pageSummary.displayTitle,
         isMainPage = pageSummary.type == PageSummary.TYPE_MAIN_PAGE,
         leadImageUrl = pageSummary.thumbnailUrl?.let { ImageUrlUtil.getUrlForPreferredSize(it, DimenUtil.calculateLeadImageWidth()) },

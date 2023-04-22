@@ -16,8 +16,9 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.DimenUtil.densityScalar
 import org.wikipedia.util.DimenUtil.leadImageHeightForDevice
 import org.wikipedia.util.L10nUtil
-import java.util.*
-import java.util.concurrent.TimeUnit
+import java.time.LocalDateTime
+import java.time.temporal.ChronoUnit
+import java.util.Locale
 import kotlin.math.roundToInt
 
 object JavaScriptActionHandler {
@@ -127,12 +128,10 @@ object JavaScriptActionHandler {
     }
 
     fun setFooter(model: PageViewModel): String {
-        if (model.page == null) {
-            return ""
-        }
-        val showTalkLink = !(model.page!!.title.namespace() === Namespace.TALK)
-        val showMapLink = model.page!!.pageProperties.geo != null
-        val editedDaysAgo = TimeUnit.MILLISECONDS.toDays(Date().time - model.page!!.pageProperties.lastModified.time)
+        val page = model.page ?: return ""
+        val showTalkLink = page.title.namespace() !== Namespace.TALK
+        val showMapLink = page.pageProperties.geo != null
+        val editedDaysAgo = page.pageProperties.lastModified.until(LocalDateTime.now(), ChronoUnit.DAYS)
 
         // TODO: page-library also supports showing disambiguation ("similar pages") links and
         // "page issues". We should be mindful that they exist, even if we don't want them for now.

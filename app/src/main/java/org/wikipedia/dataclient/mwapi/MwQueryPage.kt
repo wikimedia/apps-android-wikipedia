@@ -9,8 +9,8 @@ import org.wikipedia.dataclient.growthtasks.GrowthImageSuggestion
 import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.json.LocalDateTimeAsTimestamp
 import org.wikipedia.page.Namespace
-import org.wikipedia.util.DateUtil
 
 @Serializable
 class MwQueryPage {
@@ -92,7 +92,7 @@ class MwQueryPage {
         @SerialName("revid") val revId: Long = 0
         @SerialName("parentid") val parentRevId: Long = 0
         @SerialName("anon") val isAnon = false
-        @SerialName("timestamp") val timeStamp: String = ""
+        @SerialName("timestamp") val localDateTime: LocalDateTimeAsTimestamp? = null
         val size = 0
         val user: String = ""
         val comment: String = ""
@@ -101,8 +101,6 @@ class MwQueryPage {
         val contentMain get() = getContentFromSlot("main")
 
         var diffSize = 0
-
-        val localDateTime by lazy { DateUtil.iso8601LocalDateTimeParse(timeStamp) }
 
         fun getContentFromSlot(slot: String): String {
             return slots?.get(slot)?.content.orEmpty()

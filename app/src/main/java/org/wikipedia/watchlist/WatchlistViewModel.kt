@@ -13,7 +13,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.settings.Prefs
-import java.util.Calendar
 
 class WatchlistViewModel : ViewModel() {
 
@@ -42,7 +41,6 @@ class WatchlistViewModel : ViewModel() {
             finalList.add("") // placeholder for search bar
         }
 
-        val calendar = Calendar.getInstance()
         var curDay = -1
 
         val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
@@ -61,10 +59,11 @@ class WatchlistViewModel : ViewModel() {
                 return@forEach
             }
 
-            calendar.time = item.date
-            if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
-                curDay = calendar.get(Calendar.DAY_OF_YEAR)
-                finalList.add(item.date)
+            val date = item.localDateTime.toLocalDate()
+            val dayOfYear = date.dayOfYear
+            if (dayOfYear != curDay) {
+                curDay = dayOfYear
+                finalList.add(date)
             }
 
             finalList.add(item)
@@ -86,7 +85,7 @@ class WatchlistViewModel : ViewModel() {
                         }
                 }
             }.awaitAll()
-            watchlistItems.sortByDescending { it.date }
+            watchlistItems.sortByDescending { it.localDateTime }
             updateList(searchBarPlaceholder)
         }
     }

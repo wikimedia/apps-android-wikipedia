@@ -331,7 +331,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun updateAfterRevisionFetchSuccess() {
         if (viewModel.revisionFrom != null) {
             binding.usernameFromButton.text = viewModel.revisionFrom!!.user
-            binding.revisionFromTimestamp.text = DateUtil.getTimeAndDateString(requireContext(), viewModel.revisionFrom!!.timeStamp)
+            binding.revisionFromTimestamp.text = DateUtil.getTimeAndDateString(requireContext(), viewModel.revisionFrom!!.localDateTime!!)
             binding.revisionFromEditComment.text = StringUtil.fromHtml(viewModel.revisionFrom!!.parsedcomment.trim())
             binding.revisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color))
             binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color))
@@ -348,7 +348,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         viewModel.revisionTo?.let {
             binding.usernameToButton.text = it.user
-            binding.revisionToTimestamp.text = DateUtil.getTimeAndDateString(requireContext(), it.timeStamp)
+            binding.revisionToTimestamp.text = DateUtil.getTimeAndDateString(requireContext(), it.localDateTime!!)
             binding.overlayRevisionToTimestamp.text = binding.revisionToTimestamp.text
             binding.revisionToEditComment.text = StringUtil.fromHtml(it.parsedcomment.trim())
         }

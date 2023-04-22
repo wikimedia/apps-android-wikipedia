@@ -6,6 +6,7 @@ import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.json.LocalDateTimeAsTimestamp
 import org.wikipedia.json.LocationSerializer
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.Page
@@ -30,7 +31,7 @@ open class PageSummary(
     val type: String = TYPE_STANDARD,
     @SerialName("pageid") val pageId: Int = 0,
     val revision: Long = 0L,
-    val timestamp: String = "",
+    @SerialName("timestamp") val localDateTime: LocalDateTimeAsTimestamp? = null,
     val views: Long = 0,
     private val rank: Long = 0,
     @SerialName("view_history") val viewHistory: List<ViewHistory>? = null

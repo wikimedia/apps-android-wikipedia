@@ -168,15 +168,18 @@ class EditHistoryListActivity : BaseActivity() {
     }
 
     private fun updateCompareStateItems() {
-        binding.compareFromCard.isVisible = viewModel.selectedRevisionFrom != null
-        if (viewModel.selectedRevisionFrom != null) {
-            binding.compareFromText.text = DateUtil.getShortDayWithTimeString(viewModel.selectedRevisionFrom!!.timeStamp)
+        val selectedRevisionFrom = viewModel.selectedRevisionFrom
+        val selectedRevisionTo = viewModel.selectedRevisionTo
+
+        binding.compareFromCard.isVisible = selectedRevisionFrom != null
+        selectedRevisionFrom?.localDateTime?.let {
+            binding.compareFromText.text = DateUtil.getShortDayWithTimeString(it)
         }
-        binding.compareToCard.isVisible = viewModel.selectedRevisionTo != null
-        if (viewModel.selectedRevisionTo != null) {
-            binding.compareToText.text = DateUtil.getShortDayWithTimeString(viewModel.selectedRevisionTo!!.timeStamp)
+        binding.compareToCard.isVisible = selectedRevisionTo != null
+        selectedRevisionTo?.localDateTime?.let {
+            binding.compareToText.text = DateUtil.getShortDayWithTimeString(it)
         }
-        enableCompareButton(binding.compareConfirmButton, viewModel.selectedRevisionFrom != null && viewModel.selectedRevisionTo != null)
+        enableCompareButton(binding.compareConfirmButton, selectedRevisionFrom != null && selectedRevisionTo != null)
     }
 
     private fun enableCompareButton(button: TextView, enable: Boolean) {

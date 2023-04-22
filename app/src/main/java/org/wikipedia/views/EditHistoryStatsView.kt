@@ -16,7 +16,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
-import java.util.*
+import java.time.LocalDate
 
 class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
 
@@ -32,13 +32,11 @@ class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = 
         binding.articleTitleView.text = StringUtil.fromHtml(context.getString(R.string.page_edit_history_activity_title,
                 "<a href=\"#\">${pageTitle.displayText}</a>"))
         editHistoryStats?.let { stats ->
-            val timestamp = stats.revision.timeStamp
-            if (timestamp.isNotBlank()) {
-                val createdYear = DateUtil.getYearOnlyDateString(DateUtil.iso8601DateParse(timestamp))
-                val calendar = Calendar.getInstance()
-                val today = DateUtil.getShortDateString(calendar.time)
-                calendar.add(Calendar.YEAR, -1)
-                val lastYear = DateUtil.getShortDateString(calendar.time)
+            stats.revision.localDateTime?.let { localDateTime ->
+                val createdYear = localDateTime.year.toString()
+                val now = LocalDate.now()
+                val today = DateUtil.getShortDateString(now)
+                val lastYear = DateUtil.getShortDateString(now.minusYears(1))
                 binding.editCountsView.text = context.resources.getQuantityString(R.plurals.page_edit_history_article_edits_since_year,
                     stats.allEdits.count, stats.allEdits.count, createdYear)
                 binding.statsGraphView.setData(stats.metrics.map { it.edits.toFloat() })
