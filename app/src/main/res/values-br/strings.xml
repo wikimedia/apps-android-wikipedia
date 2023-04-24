@@ -22,6 +22,7 @@
   <string name="nav_item_forward">Da-heul</string>
   <string name="search_hint">Klask e Wikipedia</string>
   <string name="search_hint_search_languages">Klask ur yezh</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Silañ ma rolloù</string>
   <string name="nav_item_suggested_edits">Kemmoù</string>
   <string name="nav_item_more">Muioc\'h</string>
   <string name="nav_item_search">Klask</string>
@@ -253,7 +254,7 @@
   <string name="edit_undo">Dizober</string>
   <string name="edit_redo">Adober</string>
   <string name="edit_rollback">Disteuler</string>
-  <plurals name="edit_diff_bytes" fuzzy="true">
+  <plurals name="edit_diff_bytes">
     <item quantity="one">%s eizhbit</item>
     <item quantity="two">%s eizhbit</item>
     <item quantity="few">%s eizhbit</item>

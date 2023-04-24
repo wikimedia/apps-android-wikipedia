@@ -914,7 +914,7 @@
   <string name="description_starts_with_uppercase">Починайте з малої літери, якщо тільки перше слово не є власною назвою.</string>
   <string name="description_starts_with_lowercase">Уникайте малої літери на початку.</string>
   <string name="description_is_in_different_language">Схоже, текст неочікуваною мовою. Повинна бути така мова: %s.</string>
-  <string name="description_verification_notice">Будь ласка, переконайтеся, що ваш опис міститься в %1$s. Не соромтеся відхилити це сповіщення, якщо опис, який ви написали, містить %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Будь ласка, переконайтеся, що ваш опис міститься в %1$s. Не соромтеся відхилити це сповіщення, якщо опис, який ви написали, містить %2$s.</string>
   <string name="description_edit_success_saved">Опис статті опубліковано!</string>
   <string name="description_edit_success_saved_snackbar">Опис статті опубліковано!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Опис статті збережено! (%s)</string>
