@@ -857,7 +857,7 @@
   <string name="description_starts_with_uppercase">Kis kezdőbetűvel kezdd a szócikkleírást, hacsak nem tulajdonnév az első szó.</string>
   <string name="description_starts_with_lowercase">Kerüld a kisbetűvel történő mondatkezdést</string>
   <string name="description_is_in_different_language">Úgy tűnik, a szöveg nem várt nyelven látható, miközben %s nyelven kéne megjelennie.</string>
-  <string name="description_verification_notice">Bizonyosodj meg róla, hogy a leírás ezen a nyelven van: %1$s. Hagyd figyelmen kívül ezt a megjegyzést, ha a nyelv %2$s.</string>
+  <string name="description_verification_notice">Bizonyosodj meg róla, hogy a leírás ezen a nyelven van: %1$s. Nyugodtan hagyd figyelmen kívül ezt a figyelmeztetést, ha a leírást %2$s nyelven írtad.</string>
   <string name="description_edit_suggested_description_button_text">Javasolt leírások megjelenítése</string>
   <string name="description_edit_suggested_description_button_tooltip">Próbáld ki a gép által javasolt szócikkleírásokat</string>
   <string name="description_edit_success_saved">Szócikkleírás közzétéve!</string>
