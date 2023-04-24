@@ -182,7 +182,7 @@ object DateUtil {
     fun formatRelativeTime(instant: Instant): CharSequence {
         val localDate = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate()
         val weeks = localDate.until(LocalDate.now(), ChronoUnit.WEEKS)
-        val flags = if (weeks in 1..10) DateUtils.WEEK_IN_MILLIS else 0L
-        return DateUtils.getRelativeTimeSpanString(instant.toEpochMilli(), System.currentTimeMillis(), flags)
+        val minResolution = if (weeks in 1..10) DateUtils.WEEK_IN_MILLIS else 0L
+        return DateUtils.getRelativeTimeSpanString(instant.toEpochMilli(), System.currentTimeMillis(), minResolution)
     }
 }
