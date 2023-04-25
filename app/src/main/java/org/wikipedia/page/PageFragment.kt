@@ -42,6 +42,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
+import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
@@ -1383,8 +1384,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onAddToWatchlistSelected() {
             if (model.isWatched) {
+                WatchlistAnalyticsHelper.logRemovedFromWatchlist(requireContext(), model.title?.wikiSite?.languageCode ?: "")
                 articleInteractionEvent?.logUnWatchClick()
             } else {
+                WatchlistAnalyticsHelper.logAddedToWatchlist(requireContext(), model.title?.wikiSite?.languageCode ?: "")
                 articleInteractionEvent?.logWatchClick()
             }
             updateWatchlist(WatchlistExpiry.NEVER, model.isWatched)
