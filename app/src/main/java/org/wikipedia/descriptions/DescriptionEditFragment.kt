@@ -26,6 +26,8 @@ import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_3
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.captcha.CaptchaHandler
+import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentDescriptionEditBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -59,6 +61,7 @@ class DescriptionEditFragment : Fragment() {
     val binding get() = _binding!!
     private lateinit var invokeSource: InvokeSource
     private lateinit var pageTitle: PageTitle
+    internal lateinit var captchaHandler: CaptchaHandler
     lateinit var action: DescriptionEditActivity.Action
     private var sourceSummary: PageSummaryForEdit? = null
     private var targetSummary: PageSummaryForEdit? = null
@@ -121,6 +124,8 @@ class DescriptionEditFragment : Fragment() {
         highlightText = requireArguments().getString(ARG_HIGHLIGHT_TEXT)
         action = requireArguments().getSerializable(ARG_ACTION) as DescriptionEditActivity.Action
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
+        captchaHandler = CaptchaHandler(requireActivity(), pageTitle.wikiSite, binding.captchaContainer.root,
+            binding.fragmentDescriptionEditView.getDescriptionEditTextView(), "", null)
         requireArguments().getParcelable<PageSummaryForEdit>(ARG_SOURCE_SUMMARY)?.let {
             sourceSummary = it
         }
@@ -153,6 +158,7 @@ class DescriptionEditFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        captchaHandler.dispose()
         binding.fragmentDescriptionEditView.callback = null
         _binding = null
         super.onDestroyView()
@@ -335,10 +341,11 @@ class DescriptionEditFragment : Fragment() {
                         text = updateDescriptionInArticle(text, binding.fragmentDescriptionEditView.description.orEmpty())
 
                         ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.prefixedText, "0", null,
-                                getEditComment().orEmpty(),
-                                if (AccountUtil.isLoggedIn) "user"
-                                else null, text, null, baseRevId, editToken, null, null)
-                                .subscribeOn(Schedulers.io())
+                                getEditComment().orEmpty(), if (AccountUtil.isLoggedIn) "user" else null,
+                            text, null, baseRevId, editToken,
+                            if (captchaHandler.isActive) captchaHandler.captchaId() else "null",
+                            if (captchaHandler.isActive) captchaHandler.captchaWord() else "null")
+                            .subscribeOn(Schedulers.io())
                     }
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ result ->
@@ -359,8 +366,8 @@ class DescriptionEditFragment : Fragment() {
                                     editFailed(MwException(MwServiceError(code, spamblacklist)), false)
                                 }
                                 hasCaptchaResponse -> {
-                                    // TODO: handle captcha
-                                    // new CaptchaResult(result.edit().captchaId());
+                                    binding.editSectionCaptchaContainer.visibility = View.VISIBLE
+                                    captchaHandler.handleCaptcha(null, CaptchaResult(result.edit.captchaId))
                                 }
                                 hasSpamBlacklistResponse -> {
                                     editFailed(MwException(MwServiceError(code, info)), false)

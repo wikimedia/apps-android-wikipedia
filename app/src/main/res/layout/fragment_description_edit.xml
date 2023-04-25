@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.descriptions.DescriptionEditView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fragment_description_edit_view"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent">
+
+    <org.wikipedia.descriptions.DescriptionEditView
+        android:id="@+id/fragment_description_edit_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ScrollView
+        android:id="@+id/edit_section_captcha_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:windowBackground"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <include
+            android:id="@+id/captcha_container"
+            layout="@layout/group_captcha" />
+
+    </ScrollView>
+</FrameLayout>

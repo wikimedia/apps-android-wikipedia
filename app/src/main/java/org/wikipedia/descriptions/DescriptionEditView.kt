@@ -8,6 +8,7 @@ import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
+import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.isVisible
@@ -453,6 +454,10 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown = true
             }, 500)
         }
+    }
+
+    fun getDescriptionEditTextView(): EditText {
+        return binding.viewDescriptionEditText
     }
 
     companion object {

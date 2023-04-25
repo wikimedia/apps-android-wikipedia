@@ -3,6 +3,7 @@ package org.wikipedia.descriptions
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.annotation.ColorInt
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -62,6 +63,10 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     }
 
     override fun onBackPressed() {
+        if (fragment.captchaHandler.isActive) {
+            fragment.captchaHandler.cancelCaptcha()
+            fragment.binding.editSectionCaptchaContainer.visibility = View.GONE
+        }
         if (fragment.binding.fragmentDescriptionEditView.showingReviewContent()) {
             fragment.binding.fragmentDescriptionEditView.loadReviewContent(false)
         } else {
