@@ -21,7 +21,6 @@ import androidx.core.text.toSpanned
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import org.wikipedia.R
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.util.DimenUtil
@@ -32,6 +31,7 @@ import org.xml.sax.Attributes
 import org.xml.sax.ContentHandler
 import org.xml.sax.Locator
 import org.xml.sax.XMLReader
+import java.util.regex.Pattern
 
 class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler, ContentHandler {
     interface TagHandler {
@@ -214,6 +214,10 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                 // processing that fromHtml() performs.
                 return sourceStr.toSpanned()
             }
+
+            // Remove <style> tags
+            val styleTagPattern = Pattern.compile("<style(.*?)</style>")
+            sourceStr = styleTagPattern.matcher(sourceStr).replaceAll("")
 
             // Replace a few HTML entities that are not handled automatically by the parser.
             sourceStr = sourceStr.replace("&#8206;", "\u200E")
