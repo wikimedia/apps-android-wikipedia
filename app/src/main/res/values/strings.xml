@@ -1363,6 +1363,7 @@
     <string name="talk_page_empty_title">The conversation starts here</string>
     <string name="talk_page_empty_content">Talk pages are where people discuss how to make Wikipedia content the best it can be. Start by adding a new discussion topic to connect and collaborate with a community of Wikipedians.</string>
     <string name="talk_add_reply">Reply</string>
+    <string name="talk_reply_save">Reply</string>
     <string name="talk_no_subject">(No subject)</string>
     <string name="talk_reply_subject">Subject</string>
     <string name="talk_reply_hint">Compose response</string>

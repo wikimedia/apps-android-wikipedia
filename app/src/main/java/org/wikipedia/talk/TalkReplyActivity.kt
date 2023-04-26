@@ -444,7 +444,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         updateEditLicenseText()
         setSaveButtonEnabled(true)
         supportActionBar?.title = getString(R.string.edit_preview)
-        binding.replyNextButton.text = getString(R.string.description_edit_save)
+        binding.replyNextButton.text = getString(R.string.talk_reply_save)
         messagePreviewFragment.showPreview(viewModel.pageTitle, getWikitextForPreview())
         EditAttemptStepEvent.logSaveIntent(viewModel.pageTitle)
     }
