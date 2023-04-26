@@ -10,6 +10,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
+import java.time.Instant
 
 class PollNotificationWorker(
     private val appContext: Context,
@@ -18,7 +19,8 @@ class PollNotificationWorker(
     override suspend fun doWork(): Result {
         return try {
             val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).lastUnreadNotification()
-            val lastNotificationTime = response.query?.notifications?.list?.maxOfOrNull { it.utcIso8601 }.orEmpty()
+            val lastNotificationTime = response.query?.notifications?.list
+                ?.maxOfOrNull { it.instant ?: Instant.EPOCH } ?: Instant.EPOCH
             if (lastNotificationTime > Prefs.remoteNotificationsSeenTime) {
                 Prefs.remoteNotificationsSeenTime = lastNotificationTime
                 retrieveNotifications()

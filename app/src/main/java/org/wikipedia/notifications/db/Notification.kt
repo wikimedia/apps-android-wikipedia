@@ -9,9 +9,9 @@ import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.json.InstantAsString
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.UriUtil
 import java.util.*
 
@@ -27,10 +27,6 @@ class Notification(var id: Long = 0,
                    var agent: Agent? = null,
                    var timestamp: Timestamp? = null,
                    @SerialName("*") var contents: Contents? = null) {
-
-    val utcIso8601: String
-        get() = timestamp?.utciso8601.orEmpty()
-
     val isFromWikidata: Boolean
         get() = wiki == Constants.WIKIDATA_DB_NAME
 
@@ -40,9 +36,7 @@ class Notification(var id: Long = 0,
         return id + wiki.hashCode()
     }
 
-    fun date(): Date {
-        return timestamp?.date() ?: Date()
-    }
+    val instant get() = timestamp?.instant
 
     override fun toString(): String {
         return id.toString()
@@ -69,14 +63,7 @@ class Notification(var id: Long = 0,
     }
 
     @Serializable
-    class Timestamp {
-
-        val utciso8601: String? = null
-
-        fun date(): Date {
-            return DateUtil.iso8601DateParse(utciso8601!!)
-        }
-    }
+    class Timestamp(@SerialName("utciso8601") val instant: InstantAsString)
 
     @Serializable
     class Link {

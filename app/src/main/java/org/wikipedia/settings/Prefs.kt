@@ -19,7 +19,8 @@ import org.wikipedia.util.DateUtil.dbDateParse
 import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
-import java.util.*
+import java.time.Instant
+import java.util.Date
 
 /** Shared preferences utility for convenient POJO access.  */
 object Prefs {
@@ -367,9 +368,15 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, true)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, enabled)
 
-    var remoteNotificationsSeenTime
-        get() = PrefsIoUtil.getString(R.string.preference_key_remote_notifications_seen_time, "").orEmpty()
-        set(seenTime) = PrefsIoUtil.setString(R.string.preference_key_remote_notifications_seen_time, seenTime)
+    var remoteNotificationsSeenTime: Instant
+        get() {
+            val timestamp = PrefsIoUtil.getString(R.string.preference_key_remote_notifications_seen_time, "").orEmpty()
+            return if (timestamp.isEmpty()) Instant.EPOCH else Instant.parse(timestamp)
+        }
+        set(seenTime) {
+            val timestamp = if (seenTime == Instant.EPOCH) "" else seenTime.toString()
+            PrefsIoUtil.setString(R.string.preference_key_remote_notifications_seen_time, timestamp)
+        }
 
     var showHistoryOfflineArticlesToast
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_history_offline_articles_toast, true)

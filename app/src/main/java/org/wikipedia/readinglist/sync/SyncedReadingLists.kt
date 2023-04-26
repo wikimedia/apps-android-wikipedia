@@ -3,6 +3,7 @@ package org.wikipedia.readinglist.sync
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.json.InstantAsString
 import java.text.Normalizer
 import java.time.Instant
 import java.util.*
@@ -13,13 +14,13 @@ data class SyncedReadingLists(val lists: List<RemoteReadingList>? = null,
                               @SerialName("next") val continueStr: String? = null) {
 
     @Serializable
-    data class RemoteReadingList(
+    data class RemoteReadingList constructor(
         val id: Long = 0,
         @SerialName("default") val isDefault: Boolean = false,
         private val name: String,
         private val description: String? = null,
-        val created: String = Instant.now().toString(),
-        val updated: String = Instant.now().toString(),
+        val created: InstantAsString = Instant.now(),
+        val updated: InstantAsString = Instant.now(),
         @SerialName("deleted") val isDeleted: Boolean = false
     ) {
         fun name(): String = Normalizer.normalize(name, Normalizer.Form.NFC)
@@ -32,8 +33,8 @@ data class SyncedReadingLists(val lists: List<RemoteReadingList>? = null,
         val listId: Long = -1,
         private val project: String,
         private val title: String,
-        val created: String = Instant.now().toString(),
-        val updated: String = Instant.now().toString(),
+        val created: InstantAsString = Instant.now(),
+        val updated: InstantAsString = Instant.now(),
         val summary: PageSummary? = null,
         @SerialName("deleted") val isDeleted: Boolean = false
     ) {
@@ -42,9 +43,7 @@ data class SyncedReadingLists(val lists: List<RemoteReadingList>? = null,
     }
 
     @Serializable
-    data class RemoteReadingListEntryBatch(val entries: List<RemoteReadingListEntry>) {
-        val batch: Array<RemoteReadingListEntry> = entries.toTypedArray()
-    }
+    data class RemoteReadingListEntryBatch(val entries: List<RemoteReadingListEntry>)
 
     @Serializable
     class RemoteIdResponse {

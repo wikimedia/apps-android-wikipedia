@@ -12,7 +12,6 @@ import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
-import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.time.temporal.TemporalAccessor
@@ -85,6 +84,12 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(localDateTime, "MM/dd/yyyy HH:mm")
     }
 
+    fun formatAsLegacyDateString(instant: Instant?): String {
+        return instant?.atZone(ZoneId.systemDefault())
+            ?.format(getCachedDateTimeFormatter("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ROOT))
+            .orEmpty()
+    }
+
     fun getTimeAndDateString(context: Context, localDateTime: LocalDateTime): String {
         val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm, MMM d, yyyy" else "hh:mm a, MMM d, yyyy"
         return getDateStringWithSkeletonPattern(localDateTime, datePattern)
@@ -112,8 +117,8 @@ object DateUtil {
     }
 
     private fun getDateStringWithSkeletonPattern(temporalAccessor: TemporalAccessor, pattern: String): String {
-        return getCachedDateTimeFormatter(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false)
-            .format(temporalAccessor)
+        val bestPattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern)
+        return getCachedDateTimeFormatter(bestPattern, Locale.getDefault()).format(temporalAccessor)
     }
 
     private fun getCachedDateFormat(pattern: String, locale: Locale, utc: Boolean): SimpleDateFormat {
@@ -126,10 +131,9 @@ object DateUtil {
         }
     }
 
-    private fun getCachedDateTimeFormatter(pattern: String, locale: Locale, utc: Boolean): DateTimeFormatter {
+    private fun getCachedDateTimeFormatter(pattern: String, locale: Locale): DateTimeFormatter {
         return DATE_TIME_FORMATTERS.getOrPut(pattern) {
-            val dtf = DateTimeFormatter.ofPattern(pattern, locale)
-            if (utc) dtf.withZone(ZoneOffset.UTC) else dtf
+            DateTimeFormatter.ofPattern(pattern, locale)
         }
     }
 

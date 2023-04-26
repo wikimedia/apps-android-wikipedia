@@ -55,6 +55,7 @@ import org.wikipedia.util.*
 import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
 import org.wikipedia.util.log.L
 import org.wikipedia.views.*
+import java.time.Instant
 
 class NotificationActivity : BaseActivity() {
     private lateinit var binding: ActivityNotificationsBinding
@@ -379,7 +380,8 @@ class NotificationActivity : BaseActivity() {
                 }
             }
 
-            binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(n.date().time, System.currentTimeMillis(), 0L)
+            val instant = n.instant ?: Instant.now()
+            binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(instant.toEpochMilli(), System.currentTimeMillis(), 0L)
             binding.notificationTime.setTextColor(if (n.isUnread) primaryColor else inactiveColor)
             binding.notificationOverflowMenu.imageTintList = if (n.isUnread) primaryColor else inactiveColor
 
