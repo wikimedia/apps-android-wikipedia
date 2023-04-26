@@ -872,7 +872,7 @@
   <string name="description_starts_with_uppercase">Comece com uma letra minúscula, a menos que a primeira palavra seja um nome próprio.</string>
   <string name="description_starts_with_lowercase">Evitar começar com uma letra minúscula.</string>
   <string name="description_is_in_different_language">O texto parece estar em um idioma inesperado. O idioma deve ser %s.</string>
-  <string name="description_verification_notice">Por favor, verifique se sua descrição está em %1$s. Sinta-se à vontade para dispensar esta notificação se a descrição que você escreveu estiver em %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Por favor, verifique se sua descrição está em %1$s. Sinta-se à vontade para dispensar esta notificação se a descrição que você escreveu estiver em %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Mostrar descrições sugeridas</string>
   <string name="description_edit_suggested_description_button_tooltip">Experimente descrições de artigos sugeridas por máquinas</string>
   <string name="description_edit_success_saved">Descrição do artigo publicada!</string>

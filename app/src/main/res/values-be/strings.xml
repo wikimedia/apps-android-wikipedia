@@ -907,7 +907,7 @@
   <string name="description_starts_with_uppercase">Пачынайце з маленькай літары, калі толькі першае слова не з’яўляецца імем уласным.</string>
   <string name="description_starts_with_lowercase">Пазбягайце маленькай літары ў пачатку.</string>
   <string name="description_is_in_different_language">Здаецца, тэкст напісаны на нечаканай мове. Мова павінна быць %s .</string>
-  <string name="description_verification_notice">Калі ласка, пераканайцеся, што ваша апісанне знаходзіцца ў %1$s. Не саромейцеся адхіляць гэтае апавяшчэнне, калі апісанне, якое вы напісалі, змяшчае %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Калі ласка, пераканайцеся, што ваша апісанне знаходзіцца ў %1$s. Не саромейцеся адхіляць гэтае апавяшчэнне, калі апісанне, якое вы напісалі, змяшчае %2$s.</string>
   <string name="description_edit_success_saved">Апісаннне артыкула апублікавана!</string>
   <string name="description_edit_success_saved_snackbar">Апісаннне артыкула апублікавана!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Апісанне артыкула апублікавана! ( %s )</string>

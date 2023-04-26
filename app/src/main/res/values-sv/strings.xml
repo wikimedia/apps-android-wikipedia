@@ -855,7 +855,7 @@
   <string name="description_starts_with_uppercase">Börja med liten bokstav om det första ordet inte är ett egennamn.</string>
   <string name="description_starts_with_lowercase">Undvik att börja med en liten bokstav.</string>
   <string name="description_is_in_different_language">Texten verkar vara på ett oväntat språk. Språket bör vara %s.</string>
-  <string name="description_verification_notice">Var god verifiera att din beskrivning är på %1$s. Stäng gärna denna avisering om beskrivningen du skrev är på %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Var god verifiera att din beskrivning är på %1$s. Stäng gärna denna avisering om beskrivningen du skrev är på %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Visa föreslagna beskrivningar</string>
   <string name="description_edit_suggested_description_button_tooltip">Prova maskinföreslagna artikelbeskrivningar</string>
   <string name="description_edit_success_saved">Artikelbeskrivningen har publicerats!</string>

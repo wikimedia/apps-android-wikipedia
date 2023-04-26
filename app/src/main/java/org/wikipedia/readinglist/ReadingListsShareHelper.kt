@@ -10,7 +10,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonPrimitive
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.ReadingListsSharingAnalyticsHelper
+import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
@@ -62,7 +62,7 @@ object ReadingListsShareHelper {
 
             val finalUrl = if (Prefs.useUrlShortenerForSharing) ServiceFactory.get(WikipediaApp.instance.wikiSite).shortenUrl(url).shortenUrl?.shortUrl.orEmpty() else url
 
-            ReadingListsSharingAnalyticsHelper.logShareList(activity, readingList)
+            ReadingListsAnalyticsHelper.logShareList(activity, readingList)
 
             val intent = Intent(Intent.ACTION_SEND)
                     .putExtra(Intent.EXTRA_SUBJECT, readingList.title)

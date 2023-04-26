@@ -469,6 +469,10 @@
     <item quantity="one">1 статья, %2$.2f MB</item>
     <item quantity="other">%1$d статья, %2$.2f MB</item>
   </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">1 статьяй %1$d офлайне тӀакхоачача да</item>
+    <item quantity="other">%2$d статьяй %1$d офлайне тӀакхоачача да</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">1 статьяй %1$d оагӀув офлайне я, %3$.2f MB</item>
     <item quantity="other">%2$d статьяй %1$d оагӀув офлайне я, %3$.2f MB</item>
@@ -482,6 +486,10 @@
   <string name="reading_list_sort_by_created">Хьакхелла таьрахьах дӀанийсдар (кердаяраш лакхе)</string>
   <string name="reading_list_sort_by_created_desc">Хьакхелла таьрахьах дӀанийсдар (къаьнаяраш лакхе)</string>
   <string name="reading_list_menu_delete">МугӀам дӀабаккха</string>
+  <string name="reading_list_menu_export">МугӀама экспорт</string>
+  <string name="reading_list_menu_select">Харжа</string>
+  <string name="reading_list_menu_unselect">Хержар юхадаккха</string>
+  <string name="reading_list_export_write_permission_rationale">Еша дӀаяхкача оагӀоний мугӀама экспорт ергйолаш хьа устройства чу файлаш дадача моттига тӀакхача пурам эша.</string>
   <string name="reading_list_menu_rename">ЦӀи/мугӀамах лаьцар хувца</string>
   <string name="reading_list_action_menu_remove_from_offline">Офлайн-режима чура дӀаяккха</string>
   <string name="reading_list_action_menu_save_for_offline">Автономни режима чу дӀаязде</string>
@@ -502,6 +510,14 @@
     <item quantity="one">%d статья дӀаяьккхай %s яха чура</item>
     <item quantity="other">%d статья дӀаяьккхай %s яха чура</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d мугӀам дӀабаьккхаб</item>
+    <item quantity="other">%d мугӀам дӀадаьхад</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Юххьанцара бола мугӀам (%s) дӀабаккха вӀаштехьа дац</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s яхар дӀабаьккхаб. ХӀаьта юххьанцара бола мугӀам (%2$s) дӀабаккха йиш яц.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">МугӀамаш дӀадаьхад. Амма юххьанца хинна бола мугӀам (%s) дӀабаккха йиш яц.</string>
+  <string name="single_list_json_file_name">%s (Википеде чу ешаш йола статьяш).json</string>
   <string name="reading_list_items_deleted">%d статья дӀаяьккхай мугӀама чура</string>
   <string name="reading_lists_item_deleted">%s дӀаяьккхай мугӀамаш чура</string>
   <string name="reading_list_item_delete_undo">Юхадаккха</string>
@@ -534,6 +550,7 @@
   <string name="reading_list_articles_added_to_named">«%2$s» яхача мугӀама чу статьяш чуяьхай (%1$d)</string>
   <string name="reading_list_articles_moved_to_named">%1$d статья чуяьккхай %2$s яхача мугӀама чу</string>
   <string name="reading_list_delete_confirm">Боккъонца безам бий хьа %s яха мугӀам дӀабаккха?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Хержа мугӀамаш дӀадаха дезий?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Чувала(яла), синхронизаци хьалсогаргйолаш</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Система чу вала(-яла), хьа дешара мугӀамаш хьа аккаунта чу дӀаяздергдолаш.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Эшац</string>
@@ -557,6 +574,7 @@
   <string name="reading_list_article_limit_message">Укх мугӀамá кхы статья тӀатоха йиш яц. \"%1$s\" яхача мугӀама чу лимит я %2$d статья, из хьалбизаб Ӏа.</string>
   <string name="reading_lists_limit_message">Керда мугӀам хьакхолла йиш яц. Цхьан аккаунтага 100 мугӀам мара хила бокъо яц.</string>
   <string name="reading_lists_menu_create_list">Керда мугӀам хьабе</string>
+  <string name="reading_lists_menu_import_list">МугӀама импорт</string>
   <string name="reading_lists_menu_sort_by">Къоастадеш дӀанийсде укх тайпара...</string>
   <string name="reading_lists_refresh_sync_option">Юха хеца синхронизаци</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Чувала / Регистраци е</string>
@@ -581,7 +599,9 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Эшац</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Эшац</string>
   <string name="reading_list_split_dialog_ok_button_text">ХӀАЪА</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">ДӀадаккха</string>
   <string name="reading_list_activity_title">Дешар-мугӀам: %s</string>
+  <string name="reading_list_notification_title">Дешара мугӀама(-ий) экспорт</string>
   <string name="user_option_sync_label">Оттамаш</string>
   <string name="notification_reverted_title">Юхадаьккха тоадар</string>
   <string name="notification_channel_title">Статьяш хьачуяхар</string>
@@ -810,7 +830,9 @@
   <string name="description_starts_with_uppercase">ЗӀамигача алапаца дӀайолае текст, нагахьа санна хьалхара дош цхьан хӀаман е сага цӀи еце.</string>
   <string name="description_starts_with_lowercase">ЗӀамигача алапаца текст йола ца ялийта хьажа.</string>
   <string name="description_is_in_different_language">Цхьа кхыча меттала я хьа текст. Хила безаш бола мотт — %s.</string>
-  <string name="description_verification_notice">Ӏайха яздаьр укх меттала дий хьажа → %1$s. Ер хоам теркал ца беш бита йиш я хьа, нагахьа санна Ӏайха яздаьр укх меттала дале → %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Ӏайха яздаьр укх меттала дий хьажа → %1$s. Ер хоам теркал ца беш бита йиш я хьа, нагахьа санна Ӏайха яздаьр укх меттала дале → %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">Харжа мегаргдар хьагойта</string>
+  <string name="description_edit_suggested_description_button_tooltip">Компьютеро могадаь дола статьяех лаьцар мишта хургда хьажа</string>
   <string name="description_edit_success_saved">Статьях лаьцар дӀаяздир!</string>
   <string name="description_edit_success_saved_snackbar">Статьях лаьцар дӀаяздир!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Статьях лаьцар дӀаяздир! (%s)</string>
@@ -828,6 +850,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Эггара дикагӀа да шин-кхаь дешаца яздар (максимум шийтта дешаца)</string>
   <string name="description_edit_tutorial_button_label_start_editing">Тоадар доладе</string>
   <string name="description_edit_tutorial_promise">ДӀадоладича аз чӀоагӀо ю ер функци харцахьа ца лелае.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Ши-шегӀа могадаьр</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Статьях лаьца язде мегаргда аьнна белгалдоаккхар компьютер я, редактораш бац е Викимедиа Фонд яц.</string>
   <string name="customize_toolbar_title">Кечалий панель нийсъе</string>
   <string name="customize_toolbar_shortcut_description_text">Нийсъе лохера кечалий панель, хьайна пайданегӀа я аьнна хетача 5 ярлыкаца</string>
   <string name="customize_toolbar_category_toolbar">Кечалий панель</string>
@@ -992,6 +1016,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Сурта фосташ</string>
   <string name="suggested_edits_contribution_current_revision_text">Ӏа тоадаьр кепатехар Википеде чу</string>
   <string name="suggested_card_more_edits">Кхыдола дича бакъахьа дола тоадар</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Статьях лаьца яздара хьокхамаш</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Фу хайта безам бар хьа?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Хоам кӀезига ба</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Статьях лаьца яздара хьокхамаш бӀаргагац</string>
+  <string name="suggested_edits_inappropriate_suggestion">Хьокхам укхаза боагӀаш бац</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Декхар кхетадиц аз</string>
+  <string name="suggested_edits_report_suggestion">ДӀахайта</string>
+  <string name="suggested_edits_suggestion_report_submitted">ДӀадахийтад</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s фост</item>
     <item quantity="other">%1$s фост</item>
@@ -1090,12 +1122,52 @@
   <string name="content_description_for_page_indicator">%1$d-на юкъера %2$d-гIа гIа ба</string>
   <string name="wikitext_bold">Сома йоазув</string>
   <string name="wikitext_italic">Сиха йоазув</string>
+  <string name="wikitext_underline">КӀалгӀолла така хьакхá</string>
+  <string name="wikitext_strikethrough">ТӀагӀолла така хьакхá</string>
+  <string name="wikitext_sup">МугӀарá лакхе</string>
+  <string name="wikitext_sub">МугӀарá лохе</string>
+  <string name="wikitext_large">Йоккха текст</string>
+  <string name="wikitext_small">ЗӀамига текст</string>
+  <string name="wikitext_code">Код</string>
   <string name="wikitext_link">Тӏатовжам</string>
+  <string name="wikitext_heading_n">КӀалкепакорта %d</string>
+  <string name="wikitext_formatting">Форматировани</string>
+  <string name="wikitext_headings">Кепакортош</string>
+  <string name="wikitext_insert_media">Медиа-файл чуяккха</string>
   <string name="wikitext_bulleted_list">Маркерашцара мугӀам</string>
   <string name="wikitext_numbered_list">Номерашцара мугӀам</string>
   <string name="wikitext_template">Ло</string>
   <string name="wikitext_reference">Белгалдаккхар</string>
   <string name="wikitext_preview_link">ТӀатовжамага хьалххе хьажар</string>
+  <string name="insert_media_title">Медиа-файл чуяккха</string>
+  <string name="insert_media_search_description">Викиларам чура файл харжа</string>
+  <string name="insert_media_search_hint">Медиафайлаш лахар</string>
+  <string name="insert_media_settings">Медиафайла параметраш</string>
+  <string name="insert_media_settings_uploaded_image">Чудаьккха дола сурт</string>
+  <string name="insert_media_settings_caption">Суртах лаьцар</string>
+  <string name="insert_media_settings_caption_description">Массанена гуш а дола, файла юхе латта йоазув</string>
+  <string name="insert_media_settings_alternative_text">Кхыдола йоазув</string>
+  <string name="insert_media_settings_alternative_text_description">Сурт бӀаргаго ца могача дешачарна хетадаь дола суртах лаьцар</string>
+  <string name="insert_media_advanced_settings">Шердаь оттамаш</string>
+  <string name="insert_media_advanced_settings_wrap_image">Сурта гонахьа оттаде йоазув</string>
+  <string name="insert_media_advanced_settings_image_position">Сурта моттиг</string>
+  <string name="insert_media_advanced_settings_image_position_right">Аьттехьа</string>
+  <string name="insert_media_advanced_settings_image_position_left">Аьрдехьа</string>
+  <string name="insert_media_advanced_settings_image_position_center">Юккъе</string>
+  <string name="insert_media_advanced_settings_image_position_none">Ши-шегӀа</string>
+  <string name="insert_media_advanced_settings_image_type">Сурта тайпа</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">ЗӀамига сурт</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Гом боацаш</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Гом</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Юххьанцара</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Медиафайл оагӀона тӀа мишта бӀаргагуш хургья дӀаоттаде йиш я хьа. Тайп-тайпарча оагӀонашца турлуш хургйолаш, миниатюра формат йолаш хила еза из.</string>
+  <string name="insert_media_advanced_settings_image_size">Сурта боарам</string>
+  <string name="insert_media_advanced_settings_image_size_default">Юххьанцара</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Оттабе йиш йола</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Шорал</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Лакхал</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">пкс</string>
+  <string name="insert_media_insert_button">ДӀачудаккха</string>
   <string name="main_drawer_help">Новкъoстал</string>
   <string name="main_drawer_login">Чувала Википеде чу</string>
   <string name="main_tooltip_text">Моаршал да хьога, %s, хой хьона, моллагIа саг Википеди тоае йиш йолаш волга?</string>
@@ -1112,6 +1184,7 @@
   <string name="talk_new_topic">Керда тема</string>
   <string name="talk_new_topic_submitted">Тема кепатехай.</string>
   <string name="talk_page_empty">Ер къамаьл-оагӀув яьсса я.</string>
+  <string name="talk_page_empty_title">Къамаьл укхазара долалу</string>
   <string name="talk_add_reply">Жоп ле</string>
   <string name="talk_no_subject">(Тема йоацаш)</string>
   <string name="talk_reply_subject">Тема</string>

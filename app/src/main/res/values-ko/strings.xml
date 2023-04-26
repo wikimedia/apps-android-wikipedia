@@ -809,7 +809,7 @@
   <string name="description_starts_with_uppercase">처음 오는 단어가 고유 명사가 아니면 소문자로 시작하십시오.</string>
   <string name="description_starts_with_lowercase">소문자로 시작하지 마세요.</string>
   <string name="description_is_in_different_language">문구가 예측할 수 없는 언어로 되어있는 것 같습니다. 언어는 %s여야 합니다.</string>
-  <string name="description_verification_notice">%1$s 언어로 설명을 확인해 주십시오. 작성한 설명이 %2$s 언어인 경우 이 알림을 숨기기 처리해도 됩니다.</string>
+  <string name="description_verification_notice" fuzzy="true">%1$s 언어로 설명을 확인해 주십시오. 작성한 설명이 %2$s 언어인 경우 이 알림을 숨기기 처리해도 됩니다.</string>
   <string name="description_edit_suggested_description_button_text">추천 설명 표시</string>
   <string name="description_edit_suggested_description_button_tooltip">기계 추천 글 설명 사용해 보기</string>
   <string name="description_edit_success_saved">문서 설명을 게시했습니다!</string>
