@@ -307,6 +307,8 @@ class DescriptionEditFragment : Fragment() {
         }
 
         private fun getEditTokenThenSave() {
+            binding.editSectionCaptchaContainer.visibility = View.GONE
+            captchaHandler.hideCaptcha()
             val csrfSite = if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                 Constants.commonsWikiSite
