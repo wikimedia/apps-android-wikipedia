@@ -9,10 +9,7 @@ import org.wikipedia.util.ReleaseUtil
 import java.time.Instant
 
 
-class ClientMetadata : ClientMetadata {
-
-    private lateinit var pageFragmentLoadState: PageFragmentLoadState
-
+object AndroidClientMetadata : ClientMetadata {
     override fun getAgentAppInstallId(): String {
         return WikipediaApp.instance.appInstallID
     }
