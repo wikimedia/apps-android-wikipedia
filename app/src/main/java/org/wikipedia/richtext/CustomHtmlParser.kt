@@ -215,10 +215,6 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                 return sourceStr.toSpanned()
             }
 
-            // Remove <style> tags
-            val styleTagPattern = Pattern.compile("<style(.*?)</style>")
-            sourceStr = styleTagPattern.matcher(sourceStr).replaceAll("")
-
             // Replace a few HTML entities that are not handled automatically by the parser.
             sourceStr = sourceStr.replace("&#8206;", "\u200E")
                 .replace("&#8207;", "\u200F")
