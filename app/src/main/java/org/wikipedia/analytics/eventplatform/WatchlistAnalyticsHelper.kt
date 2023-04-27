@@ -40,24 +40,6 @@ object WatchlistAnalyticsHelper {
         )
     }
 
-    fun logAddedToWatchlistFailure(context: Context, itemWiki: String) {
-        EventPlatformClient.submit(
-            BreadCrumbLogEvent(
-                BreadCrumbViewUtil.getReadableScreenName(context),
-                "Watchlist.itemWiki:$itemWiki.added"
-            )
-        )
-    }
-
-    fun logRemovedToWatchlistFailure(context: Context, itemWiki: String) {
-        EventPlatformClient.submit(
-            BreadCrumbLogEvent(
-                BreadCrumbViewUtil.getReadableScreenName(context),
-                "Watchlist.itemWiki:$itemWiki.removed"
-            )
-        )
-    }
-
     fun logFilterSelection(context: Context, excludedWikiCodes: MutableSet<String>, includedTypeCodes: MutableSet<String>) {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
