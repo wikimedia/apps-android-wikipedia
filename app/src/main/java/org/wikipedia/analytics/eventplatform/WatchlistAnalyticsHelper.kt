@@ -1,7 +1,7 @@
 package org.wikipedia.analytics.eventplatform
 
 import android.content.Context
-import android.view.MenuItem
+import org.wikipedia.WikipediaApp
 
 object WatchlistAnalyticsHelper {
     fun logAddedToWatchlist(context: Context, itemWiki: String) {
@@ -58,7 +58,12 @@ object WatchlistAnalyticsHelper {
         )
     }
 
-    fun logMenuItemClicked(context: Context, item: MenuItem) {
-        BreadCrumbLogEvent.logClick(context, item)
+    fun logFilterSelection(context: Context, excludedWikiCodes: MutableSet<String>, includedTypeCodes: MutableSet<String>) {
+        EventPlatformClient.submit(
+            BreadCrumbLogEvent(
+                BreadCrumbViewUtil.getReadableScreenName(context),
+                "WatchlistFilterSelection.appWikis:${WikipediaApp.instance.languageState.appLanguageCodes}.excludedWikiCodes:$excludedWikiCodes.includedTypeCodes:$includedTypeCodes"
+            )
+        )
     }
 }
