@@ -850,7 +850,7 @@
   <string name="description_starts_with_uppercase">Mulailah dengan huruf kecil, kecuali jika kata pertamanya adalah kata benda.</string>
   <string name="description_starts_with_lowercase">Jangan memulai dengan huruf kecil.</string>
   <string name="description_is_in_different_language">Teks tersebut tampaknya menggunakan bahasa yang tidak terduga. Bahasa harus %s.</string>
-  <string name="description_verification_notice">Tolong pastikan deskripsi Anda ditulis dalam bahasa %1$s. Silakan abaikan pemberitahuan ini jika deskripsi yang Anda tulis berbahasa %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Tolong pastikan deskripsi Anda ditulis dalam bahasa %1$s. Silakan abaikan pemberitahuan ini jika deskripsi yang Anda tulis berbahasa %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Tampilkan deskripsi yang disarankan</string>
   <string name="description_edit_suggested_description_button_tooltip">Coba deskripsi artikel yang disarankan mesin</string>
   <string name="description_edit_success_saved">Deskripsi artikel diterbitkan!</string>

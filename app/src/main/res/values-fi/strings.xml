@@ -864,7 +864,7 @@
   <string name="description_starts_with_uppercase">Aloita pienellä kirjaimella, ellei ensimmäinen sana ole erisnimi.</string>
   <string name="description_starts_with_lowercase">Vältä aloittamasta pienellä alkukirjaimella.</string>
   <string name="description_is_in_different_language">Teksti näyttää olevan odottamattomalla kielellä.  Kielen tulee olla %s.</string>
-  <string name="description_verification_notice">Varmista, että kuvauksesi on kirjoitettu kielellä %1$s. Voit sivuuttaa tämän ilmoituksen, jos kirjoittamasi kuvaus on kirjoitettu kielellä %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Varmista, että kuvauksesi on kirjoitettu kielellä %1$s. Voit sivuuttaa tämän ilmoituksen, jos kirjoittamasi kuvaus on kirjoitettu kielellä %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Näytä ehdotetut kuvaukset</string>
   <string name="description_edit_suggested_description_button_tooltip">Kokeile koneen ehdottamia artikkelikuvauksia</string>
   <string name="description_edit_success_saved">Artikkelin kuvaus julkaistu!</string>

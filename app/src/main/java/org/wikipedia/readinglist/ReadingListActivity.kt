@@ -6,7 +6,7 @@ import android.graphics.Color
 import android.os.Bundle
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
-import org.wikipedia.analytics.eventplatform.ReadingListsSharingAnalyticsHelper
+import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.ResourceUtil.getThemedColor
 
@@ -34,7 +34,7 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
     override fun onBackPressed() {
         super.onBackPressed()
         if (intent.getBooleanExtra(EXTRA_READING_LIST_PREVIEW, false)) {
-            ReadingListsSharingAnalyticsHelper.logReceiveCancel(this, fragment.readingList)
+            ReadingListsAnalyticsHelper.logReceiveCancel(this, fragment.readingList)
         }
     }
 

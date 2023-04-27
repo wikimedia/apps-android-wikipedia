@@ -486,12 +486,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 title == it.backStackPositionTitle }?.let { app.tabList.indexOf(it) } ?: -1
     }
 
-    private fun openInNewTab(title: PageTitle, entry: HistoryEntry, position: Int, openFromExistingTab: Boolean = false) {
+    private fun openInNewTab(title: PageTitle, entry: HistoryEntry, position: Int) {
         val selectedTabPosition = selectedTabPosition(title)
         if (selectedTabPosition >= 0) {
-            if (openFromExistingTab) {
-                setCurrentTabAndReset(selectedTabPosition)
-            }
+            setCurrentTabAndReset(selectedTabPosition)
             return
         }
         if (shouldCreateNewTab) {
@@ -883,18 +881,18 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bridge.execute(JavaScriptActionHandler.setFooter(model))
     }
 
-    fun openInNewBackgroundTab(title: PageTitle, entry: HistoryEntry, openFromExistingTab: Boolean = false) {
+    fun openInNewBackgroundTab(title: PageTitle, entry: HistoryEntry) {
         if (app.tabCount == 0) {
             openInNewTab(title, entry, foregroundTabPosition)
             pageFragmentLoadState.loadFromBackStack()
         } else {
-            openInNewTab(title, entry, backgroundTabPosition, openFromExistingTab)
+            openInNewTab(title, entry, backgroundTabPosition)
             (requireActivity() as PageActivity).animateTabsButton()
         }
     }
 
     fun openInNewForegroundTab(title: PageTitle, entry: HistoryEntry) {
-        openInNewTab(title, entry, foregroundTabPosition, openFromExistingTab = title.isMainPage)
+        openInNewTab(title, entry, foregroundTabPosition)
         pageFragmentLoadState.loadFromBackStack()
     }
 

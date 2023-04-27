@@ -853,7 +853,7 @@
   <string name="description_starts_with_uppercase">除非第一个单词是专有名词，否则请以小写字母开头。</string>
   <string name="description_starts_with_lowercase">避免以小写字母开头。</string>
   <string name="description_is_in_different_language">文本似乎不是用预期的语言写的，语言应该是%s。</string>
-  <string name="description_verification_notice">请确认您的描述在%1$s中。如果您编写的描述在%2$s中，请忽略此通知。</string>
+  <string name="description_verification_notice" fuzzy="true">请确认您的描述在%1$s中。如果您编写的描述在%2$s中，请忽略此通知。</string>
   <string name="description_edit_suggested_description_button_text">显示建议的描述</string>
   <string name="description_edit_suggested_description_button_tooltip">尝试机器建议的条目描述</string>
   <string name="description_edit_success_saved">条目描述已发布！</string>

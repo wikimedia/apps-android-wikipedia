@@ -833,7 +833,7 @@
   <string name="description_starts_with_uppercase">Byrjaðu með lágstaf nema fyrsta orðið sé sérnafn.</string>
   <string name="description_starts_with_lowercase">Forðastu að byrja með lágstaf.</string>
   <string name="description_is_in_different_language">Textinn lítur út fyrir að vera á óvæntu tungumáli. Tungumálið ætti að vera %s.</string>
-  <string name="description_verification_notice">Athugaðu hvort lýsingin þín sé á tungumálinu %1$s. Þú getur hunsað þessa tilkynningu ef lýsingin sem þú skrifaðir sé sannanlega á tungumálinu %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Athugaðu hvort lýsingin þín sé á tungumálinu %1$s. Þú getur hunsað þessa tilkynningu ef lýsingin sem þú skrifaðir sé sannanlega á tungumálinu %2$s.</string>
   <string name="description_edit_success_saved">Lýsing greinar birt!</string>
   <string name="description_edit_success_saved_snackbar">Lýsing geinar birt!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Lýsing geinar birt! (%s)</string>

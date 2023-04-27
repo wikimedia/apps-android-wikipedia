@@ -776,7 +776,7 @@
   <string name="description_starts_with_uppercase">Magsimula sa maliit na titik maliban lang kung pangngalang pantangi ang unang salita.</string>
   <string name="description_starts_with_lowercase">Iwasang magsimula sa isang maliit na titik.</string>
   <string name="description_is_in_different_language">Mukhang iba yata ang wika ng teksto. Dapat nasa wikang %s ito.</string>
-  <string name="description_verification_notice">Paki-verify po kung paglalarawan niyo ay nasa wikang %1$s. Malaya po kayong alisin ang abisong ito kung nakasulat naman sa wikang %2$s ang paglalarawan niyo.</string>
+  <string name="description_verification_notice" fuzzy="true">Paki-verify po kung paglalarawan niyo ay nasa wikang %1$s. Malaya po kayong alisin ang abisong ito kung nakasulat naman sa wikang %2$s ang paglalarawan niyo.</string>
   <string name="description_edit_success_saved">Nalathala na ang paglalarawan!</string>
   <string name="description_edit_success_saved_snackbar">Nalathala na ang paglalarawan!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Nalathala na ang paglalarawan! (%s)</string>

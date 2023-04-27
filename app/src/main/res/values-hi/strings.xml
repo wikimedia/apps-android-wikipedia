@@ -806,7 +806,7 @@
   <string name="description_starts_with_uppercase">लोअरकेस से शुरू करें जब तक कि पहला शब्द एक प्रॉपर नाउन न हो।</string>
   <string name="description_starts_with_lowercase">लोअरकेस अक्षर से शुरू करने से बचें।</string>
   <string name="description_is_in_different_language">पाठ किसी अनपेक्षित भाषा में प्रतीत होता है। भाषा %s होनी चाहिए।</string>
-  <string name="description_verification_notice">कृपया सत्यापित करें कि आपका विवरण %1$s में है। यदि आपके द्वारा लिखा गया विवरण %2$s में है, तो बेझिझक इस अधिसूचना को खारिज कर दें।</string>
+  <string name="description_verification_notice" fuzzy="true">कृपया सत्यापित करें कि आपका विवरण %1$s में है। यदि आपके द्वारा लिखा गया विवरण %2$s में है, तो बेझिझक इस अधिसूचना को खारिज कर दें।</string>
   <string name="description_edit_suggested_description_button_text">सुझाए गए लेख विवरण दिखाएं</string>
   <string name="description_edit_suggested_description_button_tooltip">मशीन द्वारा सुझाए गए लेख विवरण आज़माएं</string>
   <string name="description_edit_success_saved">लेख विवरण प्रकाशित किया!</string>
