@@ -164,7 +164,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             watchResponse.postValue(Resource.Error(throwable))
         }) {
             if (isWatched) {
-                WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(WikipediaApp.instance, pageTitle.wikiSite.languageCode)
+                WatchlistAnalyticsHelper.logRemovedFromWatchlist(WikipediaApp.instance, pageTitle.wikiSite.languageCode)
             } else {
                 WatchlistAnalyticsHelper.logAddedToWatchlist(WikipediaApp.instance, pageTitle.wikiSite.languageCode)
             }
@@ -177,7 +177,11 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
                 if (watchlistExpiryChanged && unwatch) {
                     watchlistExpiryChanged = false
                 }
-
+                if (unwatch) {
+                    WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(WikipediaApp.instance, pageTitle.wikiSite.languageCode)
+                } else {
+                    WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(WikipediaApp.instance, pageTitle.wikiSite.languageCode)
+                }
                 watchResponse.postValue(Resource.Success(response))
             }
         }

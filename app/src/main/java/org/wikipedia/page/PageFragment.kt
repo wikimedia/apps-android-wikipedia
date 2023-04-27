@@ -1210,6 +1210,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         if (watchlistExpiryChanged && unwatch) {
                             watchlistExpiryChanged = false
                         }
+                        if (unwatch) {
+                            WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(WikipediaApp.instance, it.wikiSite.languageCode)
+                        } else {
+                            WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(WikipediaApp.instance, it.wikiSite.languageCode)
+                        }
                         showWatchlistSnackbar(expiry, watch)
                     }
                 }) { caught -> L.d(caught) })
