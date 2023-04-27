@@ -181,6 +181,7 @@ dependencies {
     String roomVersion = "2.5.1"
     String espressoVersion = '3.5.1'
     String serialization_version = '1.4.0'
+    String metricsVersion = '1.1'
 
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
 
@@ -204,6 +205,7 @@ dependencies {
     implementation 'com.android.installreferrer:installreferrer:2.2'
     implementation 'androidx.drawerlayout:drawerlayout:1.2.0'
     implementation 'androidx.work:work-runtime-ktx:2.8.1'
+    implementation "org.wikimedia.metrics:metrics-platform:$metricsVersion"
 
     implementation ('com.github.michael-rapp:chrome-like-tab-switcher:0.4.6') {
         exclude group: 'org.jetbrains'
