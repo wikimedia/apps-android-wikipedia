@@ -2,6 +2,8 @@ package org.wikipedia.analytics.eventplatform
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.wikipedia.analytics.metricsplatform.MetricsPlatformClient
+import java.util.Collections.singletonMap
 
 class ArticleInteractionEvent(private val wikiDb: String, private val pageId: Int) : TimedEvent() {
 
@@ -103,6 +105,9 @@ class ArticleInteractionEvent(private val wikiDb: String, private val pageId: In
 
     private fun submitEvent(action: String) {
         EventPlatformClient.submit(ArticleInteractionEventImpl(duration, wikiDb, pageId, action))
+        MetricsPlatformClient.client.submitMetricsEvent("article_interaction_event",
+            singletonMap("action", action) as Map<String, Any>?
+        )
     }
 
     @Suppress("unused")
