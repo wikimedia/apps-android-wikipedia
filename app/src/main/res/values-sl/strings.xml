@@ -225,7 +225,7 @@
   <string name="history_filter_list_hint">Filtriraj zgodovino</string>
   <string name="error_can_not_process_link">Te povezave ni mogoče prikazati</string>
   <string name="page_protected_autoconfirmed">Ta stran je delno zaščitena.</string>
-  <string name="page_protected_sysop">Ta stran je zaščitena v celoti.</string>
+  <string name="page_protected_sysop">Ta stran je popolnoma zaščitena.</string>
   <string name="page_protected_other">Ta stran je zaščitena na naslednjih ravneh: %s</string>
   <string name="page_protected_can_not_edit">Vaš račun trenutno žal nima zadostnih pravic za urejanje te strani.</string>
   <string name="page_protected_can_not_edit_anon">Žal te strani trenutno ni mogoče urejati anonimno.</string>
