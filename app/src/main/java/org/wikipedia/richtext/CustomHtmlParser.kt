@@ -31,7 +31,6 @@ import org.xml.sax.Attributes
 import org.xml.sax.ContentHandler
 import org.xml.sax.Locator
 import org.xml.sax.XMLReader
-import java.util.regex.Pattern
 
 class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler, ContentHandler {
     interface TagHandler {
