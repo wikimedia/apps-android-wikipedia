@@ -1,7 +1,5 @@
 package org.wikipedia.analytics.metricsplatform
 
-import org.wikipedia.analytics.eventplatform.ArticleTocInteractionEvent
-import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.page.PageFragment
 import java.util.concurrent.TimeUnit
 
