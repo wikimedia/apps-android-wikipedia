@@ -4,10 +4,8 @@ import org.wikimedia.metrics_platform.ClientMetadata
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.WikipediaApp
-import org.wikipedia.page.PageFragment
 import org.wikipedia.util.ReleaseUtil
 import java.time.Instant
-
 
 open class AndroidClientMetadata : ClientMetadata {
     override fun getAgentAppInstallId(): String {
@@ -43,11 +41,11 @@ open class AndroidClientMetadata : ClientMetadata {
     }
 
     override fun getMediawikiSiteContentLanguage(): String {
-        return ""//WikipediaApp.instance.languageState.appLanguageCode
+        return "" // WikipediaApp.instance.languageState.appLanguageCode
     }
 
     override fun getMediawikiSiteContentLanguageVariant(): String {
-        return ""//WikipediaApp.instance.languageState.appLanguageCodes.component2()
+        return "" // WikipediaApp.instance.languageState.appLanguageCodes.component2()
     }
 
     override fun getPageId(): Int {
