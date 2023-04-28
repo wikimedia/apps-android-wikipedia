@@ -26,75 +26,75 @@ class MetricsPlatformEvent {
     inner class ArticleToolbarInteraction(private val wikiDb: String, private val pageId: Int) {
 
         fun logLoaded() {
-            submitEvent("load" )
+            submitEvent("load")
         }
 
         fun logSaveClick() {
-            submitEvent("save" )
+            submitEvent("save")
         }
 
         fun logLanguageClick() {
-            submitEvent("language" )
+            submitEvent("language")
         }
 
         fun logFindInArticleClick() {
-            submitEvent("find_in_article" )
+            submitEvent("find_in_article")
         }
 
         fun logThemeClick() {
-            submitEvent("theme" )
+            submitEvent("theme")
         }
 
         fun logContentsClick() {
-            submitEvent("contents" )
+            submitEvent("contents")
         }
 
         fun logMoreClick() {
-            submitEvent("more" )
+            submitEvent("more")
         }
 
         fun logShareClick() {
-            submitEvent("share" )
+            submitEvent("share")
         }
 
         fun logTalkPageClick() {
-            submitEvent("talk_page" )
+            submitEvent("talk_page")
         }
 
         fun logEditHistoryClick() {
-            submitEvent("edit_history" )
+            submitEvent("edit_history")
         }
 
         fun logNewTabClick() {
-            submitEvent("new_tab" )
+            submitEvent("new_tab")
         }
 
         fun logExploreClick() {
-            submitEvent("explore" )
+            submitEvent("explore")
         }
 
         fun logForwardClick() {
-            submitEvent("forward" )
+            submitEvent("forward")
         }
 
         fun logNotificationClick() {
-            submitEvent("notification" )
+            submitEvent("notification")
         }
 
         fun logTabsClick() {
-            submitEvent("tabs" )
+            submitEvent("tabs")
         }
 
         fun logSearchWikipediaClick() {
-            submitEvent("search_wikipedia" )
+            submitEvent("search_wikipedia")
         }
 
         fun logBackClick() {
-            submitEvent("back" )
+            submitEvent("back")
         }
 
         fun logEditHistoryArticleClick() {
-            submitEvent("edit_history_from_article" )
+            submitEvent("edit_history_from_article")
         }
 
         fun logTalkPageArticleClick() {

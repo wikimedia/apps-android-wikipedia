@@ -1,9 +1,9 @@
 package org.wikipedia.analytics.metricsplatform
 
 import org.wikimedia.metrics_platform.ClientMetadata
+import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.WikipediaApp
 import org.wikipedia.util.ReleaseUtil
 import java.time.Instant
 
