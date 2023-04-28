@@ -17,6 +17,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.RbDefinition
 import org.wikipedia.dataclient.restbase.RbDefinition.Usage
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
@@ -41,7 +42,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageTitle = requireArguments().getParcelable(TITLE)!!
+        pageTitle = requireArguments().parcelable(TITLE)!!
         selectedText = requireArguments().getString(SELECTED_TEXT)!!
     }
 

@@ -10,12 +10,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 
 class CategoryDialogViewModel(bundle: Bundle) : ViewModel() {
-
-    val pageTitle = bundle.getParcelable<PageTitle>(CategoryDialog.ARG_TITLE)!!
+    val pageTitle = bundle.parcelable<PageTitle>(CategoryDialog.ARG_TITLE)!!
     val categoriesData = MutableLiveData<Resource<List<PageTitle>>>()
 
     init {

@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog.Companion.ARG_LOCATION
@@ -20,9 +21,9 @@ import org.wikipedia.util.log.L
 class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
     private val _uiState = MutableStateFlow<LinkPreviewViewState>(LinkPreviewViewState.Loading)
     val uiState = _uiState.asStateFlow()
-    val historyEntry = bundle.getParcelable<HistoryEntry>(LinkPreviewDialog.ARG_ENTRY)!!
-    var pageTitle: PageTitle = historyEntry.title
-    val location = bundle.getParcelable<Location>(ARG_LOCATION)
+    val historyEntry = bundle.parcelable<HistoryEntry>(LinkPreviewDialog.ARG_ENTRY)!!
+    var pageTitle = historyEntry.title
+    val location = bundle.parcelable<Location>(ARG_LOCATION)
 
     init {
         loadContent()
