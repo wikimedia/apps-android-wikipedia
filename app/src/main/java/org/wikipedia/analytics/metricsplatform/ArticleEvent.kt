@@ -1,6 +1,7 @@
 package org.wikipedia.analytics.metricsplatform
 
 import org.wikipedia.page.PageFragment
+import org.wikipedia.settings.Prefs
 import java.util.concurrent.TimeUnit
 
 class ArticleEvent : Event() {
@@ -186,6 +187,38 @@ class ArticleEvent : Event() {
             )
             submitEvent(
                 "android.metrics_platform.article_toc_interaction",
+                fragment,
+                customData
+            )
+        }
+    }
+
+    inner class ArticleLinkPreviewInteraction(
+        private val fragment: PageFragment,
+        private val source: Int
+    ) {
+        val PROD_LINK_PREVIEW_VERSION = 3
+        fun logLinkClick() {
+            submitEvent("linkclick")
+        }
+
+        fun logNavigate() {
+            submitEvent(if (Prefs.isLinkPreviewEnabled) "navigate" else "disabled")
+        }
+
+        fun logCancel() {
+            submitEvent("cancel")
+        }
+
+        private fun submitEvent(action: String) {
+            val customData = mapOf(
+                "action" to action,
+                "source" to source,
+                "time_spent_ms" to duration,
+                "version" to PROD_LINK_PREVIEW_VERSION
+            )
+            submitEvent(
+                "android.metrics_platform.article_link_preview_interaction",
                 fragment,
                 customData
             )
