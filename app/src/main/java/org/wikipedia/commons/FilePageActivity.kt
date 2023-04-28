@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ResourceUtil
 
@@ -18,7 +19,7 @@ class FilePageActivity : SingleFragmentActivity<FilePageFragment>() {
     }
 
     override fun createFragment(): FilePageFragment {
-        return FilePageFragment.newInstance(intent.getParcelableExtra(INTENT_EXTRA_PAGE_TITLE)!!,
+        return FilePageFragment.newInstance(intent.parcelableExtra(INTENT_EXTRA_PAGE_TITLE)!!,
                 intent.getBooleanExtra(INTENT_EXTRA_ALLOW_EDIT, true))
     }
 

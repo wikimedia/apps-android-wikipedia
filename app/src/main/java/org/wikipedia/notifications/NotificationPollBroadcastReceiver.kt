@@ -20,8 +20,10 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.UnreadNotificationsEvent
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
+import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
@@ -60,11 +62,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 val remoteInput = RemoteInput.getResultsFromIntent(intent)
                 val text = remoteInput?.getCharSequence(RESULT_KEY_DIRECT_REPLY)
 
-                if (intent.hasExtra(RESULT_EXTRA_WIKI) && intent.hasExtra(RESULT_EXTRA_TITLE) && !text.isNullOrEmpty()) {
-                    NotificationDirectReplyHelper.handleReply(context,
-                        intent.getParcelableExtra(RESULT_EXTRA_WIKI)!!,
-                        intent.getParcelableExtra(RESULT_EXTRA_TITLE)!!,
-                        text.toString(),
+                val wiki = intent.parcelableExtra<WikiSite>(RESULT_EXTRA_WIKI)
+                val title = intent.parcelableExtra<PageTitle>(RESULT_EXTRA_TITLE)
+                if (wiki != null && title != null && !text.isNullOrEmpty()) {
+                    NotificationDirectReplyHelper.handleReply(context, wiki, title, text.toString(),
                         intent.getStringExtra(RESULT_EXTRA_REPLY_TO).orEmpty(),
                         intent.getIntExtra(RESULT_EXTRA_ID, 0))
                 }

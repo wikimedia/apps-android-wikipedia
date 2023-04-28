@@ -7,6 +7,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.parcelableExtra
 
 class RandomActivity : SingleFragmentActivity<RandomFragment>() {
 
@@ -28,7 +29,7 @@ class RandomActivity : SingleFragmentActivity<RandomFragment>() {
     }
 
     public override fun createFragment(): RandomFragment {
-        return RandomFragment.newInstance(intent.getParcelableExtra(INTENT_EXTRA_WIKISITE)!!,
+        return RandomFragment.newInstance(intent.parcelableExtra(INTENT_EXTRA_WIKISITE)!!,
                 intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
     }
 }

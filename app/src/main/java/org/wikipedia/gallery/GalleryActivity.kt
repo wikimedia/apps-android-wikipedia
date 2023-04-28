@@ -39,6 +39,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
@@ -127,11 +128,11 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             loadGalleryContent()
         }
         if (intent.hasExtra(EXTRA_PAGETITLE)) {
-            pageTitle = intent.getParcelableExtra(EXTRA_PAGETITLE)
+            pageTitle = intent.parcelableExtra(EXTRA_PAGETITLE)
         }
         initialFilename = intent.getStringExtra(EXTRA_FILENAME)
         revision = intent.getLongExtra(EXTRA_REVISION, 0)
-        sourceWiki = intent.getParcelableExtra(EXTRA_WIKI)!!
+        sourceWiki = intent.parcelableExtra(EXTRA_WIKI)!!
         galleryAdapter = GalleryItemAdapter(this@GalleryActivity)
         binding.pager.adapter = galleryAdapter
         binding.pager.registerOnPageChangeCallback(pageChangeListener)

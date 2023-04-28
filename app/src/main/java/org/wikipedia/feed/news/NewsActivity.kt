@@ -7,6 +7,7 @@ import android.os.Bundle
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.feed.news.NewsFragment.Companion.newInstance
 import org.wikipedia.util.ResourceUtil
 
@@ -18,8 +19,7 @@ class NewsActivity : SingleFragmentActivity<NewsFragment>() {
     }
 
     public override fun createFragment(): NewsFragment {
-        return newInstance(intent.getParcelableExtra(EXTRA_NEWS_ITEM)!!,
-            intent.getParcelableExtra(EXTRA_WIKI)!!)
+        return newInstance(intent.parcelableExtra(EXTRA_NEWS_ITEM)!!, intent.parcelableExtra(EXTRA_WIKI)!!)
     }
 
     fun updateNavigationBarColor() {

@@ -16,6 +16,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.auth.AccountUtil.updateAccount
 import org.wikipedia.createaccount.CreateAccountActivity
 import org.wikipedia.databinding.ActivityLoginBinding
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.page.PageTitle
@@ -179,7 +180,7 @@ class LoginActivity : BaseActivity() {
         override fun success(result: LoginResult) {
             showProgressBar(false)
             if (result.pass()) {
-                val response = intent.extras?.getParcelable<AccountAuthenticatorResponse>(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE)
+                val response = intent.parcelableExtra<AccountAuthenticatorResponse>(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE)
                 updateAccount(response, result)
                 onLoginSuccess()
             } else if (result.fail()) {
