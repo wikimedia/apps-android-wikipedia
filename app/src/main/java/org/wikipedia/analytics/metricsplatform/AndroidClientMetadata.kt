@@ -3,13 +3,13 @@ package org.wikipedia.analytics.metricsplatform
 import org.wikimedia.metrics_platform.ClientMetadata
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.page.PageFragmentLoadState
 import org.wikipedia.WikipediaApp
+import org.wikipedia.page.PageFragment
 import org.wikipedia.util.ReleaseUtil
 import java.time.Instant
 
 
-object AndroidClientMetadata : ClientMetadata {
+open class AndroidClientMetadata : ClientMetadata {
     override fun getAgentAppInstallId(): String {
         return WikipediaApp.instance.appInstallID
     }
@@ -39,7 +39,7 @@ object AndroidClientMetadata : ClientMetadata {
     }
 
     override fun getMediawikiDatabase(): String {
-        return ""// we need to get from page fragment WikipediaApp.instance.wikiSite.dbName()
+        return ""
     }
 
     override fun getMediawikiSiteContentLanguage(): String {
