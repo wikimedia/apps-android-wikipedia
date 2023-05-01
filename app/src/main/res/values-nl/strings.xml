@@ -875,7 +875,7 @@
   <string name="description_starts_with_uppercase">Start met een kleine letter tenzij het eerste woord een eigennaam is.</string>
   <string name="description_starts_with_lowercase">Begin niet met een kleine letter.</string>
   <string name="description_is_in_different_language">De tekst lijkt in een onverwachte taal te zijn. De taal moet %s zijn.</string>
-  <string name="description_verification_notice" fuzzy="true">Controleer of uw beschrijving in %1$s staat. Voelt u zich vrij om deze melding te negeren als de beschrijving die u heeft geschreven in %2$s staat.</string>
+  <string name="description_verification_notice">Controleer of uw beschrijving in %1$s staat. Voelt u zich vrij om deze melding te negeren als de beschrijving die u heeft geschreven in %2$s staat.</string>
   <string name="description_edit_suggested_description_button_text">Suggesties tonen</string>
   <string name="description_edit_suggested_description_button_tooltip">Probeer suggesties van de computer uit</string>
   <string name="description_edit_success_saved">Artikelbeschrijving gepubliceerd!</string>
