@@ -2,9 +2,11 @@ package org.wikipedia.page.references
 
 import android.app.Dialog
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -19,7 +21,7 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
-import java.util.*
+import java.util.Locale
 
 class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
@@ -91,10 +93,25 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
             binding.referenceText.movementMethod = LinkMovementMethodExt(callback()?.linkHandler)
         }
 
-        fun bindItem(idText: CharSequence?, contents: CharSequence?) {
+        fun bindItem(idText: CharSequence?, reference: PageReferences.Reference) {
             binding.referenceId.text = idText
             binding.root.post {
                 if (isAdded) {
+                    val contents = StringUtil.fromHtml(StringUtil.removeCiteMarkup(StringUtil.removeStyleTags(reference.html)))
+                    if (contents.isNullOrEmpty()) {
+                        // Inspect html for external links
+                        val links = StringUtil.extractHrefLinks(reference.html)
+                        links.add(links[0])
+                        var tags = ""
+                        for (i in 0 until links.size) {
+                            tags = tags.plus("<a href='https:${links[i]}'>[${i + 1}]</a>")
+                        }
+                        binding.referenceText.text = StringUtil.fromHtml(tags)
+                        binding.referenceText.movementMethod = LinkMovementMethod()
+                        binding.referenceExtLink.isVisible = !tags.isNullOrEmpty()
+                        return@post
+                    }
+                    binding.referenceExtLink.isVisible = false
                     binding.referenceText.text = contents
                 }
             }
@@ -111,8 +128,7 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.bindItem(processLinkTextWithAlphaReferences(references[position].text),
-                    StringUtil.fromHtml(StringUtil.removeCiteMarkup(StringUtil.removeStyleTags(references[position].html))))
+            holder.bindItem(processLinkTextWithAlphaReferences(references[position].text), references[position])
         }
     }
 

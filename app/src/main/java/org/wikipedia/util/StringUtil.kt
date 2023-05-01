@@ -23,6 +23,7 @@ import java.nio.charset.StandardCharsets
 import java.text.Collator
 import java.text.Normalizer
 import java.util.*
+import java.util.regex.Pattern
 import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
 
@@ -103,6 +104,16 @@ object StringUtil {
             str1 == null && str2 == null
         } else (Normalizer.normalize(str1, Normalizer.Form.NFC)
                 == Normalizer.normalize(str2, Normalizer.Form.NFC))
+    }
+
+    fun extractHrefLinks(source: String?): MutableList<String> {
+        val links = mutableListOf<String>()
+        val pattern = Pattern.compile("href=\"(.*?)\"", Pattern.DOTALL)
+        val matcher = pattern.matcher(source)
+        while (matcher.find()) {
+            links.add(matcher.group(1))
+        }
+        return links
     }
 
     fun fromHtml(source: String?): Spanned {
