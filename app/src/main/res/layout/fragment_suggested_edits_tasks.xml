@@ -132,7 +132,7 @@
                                 android:minHeight="48dp"
                                 app:layout_constraintStart_toStartOf="@id/contributionsStatsView"
                                 app:layout_constraintEnd_toEndOf="@id/guideLineMiddle"
-                                app:layout_constraintTop_toBottomOf="@id/contributionsStatsView" />
+                                app:layout_constraintTop_toBottomOf="@id/editStreakStatsView" />
 
                             <org.wikipedia.views.ImageTitleDescriptionView
                                 android:id="@+id/editQualityStatsView"
@@ -236,8 +236,7 @@
                                 app:layout_constraintTop_toBottomOf="@id/taskDescription"
                                 app:layout_constraintStart_toStartOf="@id/taskDescription"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:icon="@drawable/ic_open_in_new_black_24px"
-                                app:iconSize="20dp"/>
+                                app:icon="@drawable/ic_open_in_new_black_24px"/>
 
                         </LinearLayout>
 

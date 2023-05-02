@@ -202,11 +202,8 @@
                         android:layout_marginTop="48dp"
                         android:text="@string/description_edit_learn_more"
                         android:textAlignment="viewStart"
-                        android:textSize="16sp"
                         app:icon="@drawable/ic_open_in_new_black_24px"
-                        app:iconGravity="end"
-                        app:iconPadding="12dp"
-                        app:iconSize="24dp" />
+                        app:iconGravity="end" />
                 </LinearLayout>
             </ScrollView>
 

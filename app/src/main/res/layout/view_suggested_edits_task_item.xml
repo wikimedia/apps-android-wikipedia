@@ -76,8 +76,7 @@
             android:layout_height="wrap_content"
             style="@style/App.Button.Secondary"
             android:text="@string/suggested_edits_task_action_text_add"
-            app:icon="@drawable/ic_add_gray_white_24dp"
-            app:iconSize="20dp"/>
+            app:icon="@drawable/ic_add_gray_white_24dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/secondaryButton"
@@ -85,8 +84,7 @@
             android:layout_height="wrap_content"
             style="@style/App.Button.Secondary"
             android:text="@string/suggested_edits_task_action_text_translate"
-            app:icon="@drawable/ic_translate_white_24dp"
-            app:iconSize="20dp"/>
+            app:icon="@drawable/ic_translate_white_24dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

@@ -3,7 +3,6 @@ package org.wikipedia.usercontrib
 import android.content.Context
 import android.graphics.Typeface
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +26,6 @@ class UserContribFilterItemView constructor(context: Context, attrs: AttributeSe
 
     private var item: UserContribFilterActivity.Item? = null
     private var binding = ItemUserContribFilterBinding.inflate(LayoutInflater.from(context), this)
-    private val labelTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     var callback: Callback? = null
 
     init {
@@ -71,9 +69,8 @@ class UserContribFilterItemView constructor(context: Context, attrs: AttributeSe
         binding.itemLogo.setImageResource(R.drawable.ic_mode_edit_white_24dp)
         binding.itemCheck.visibility = View.GONE
         binding.itemTitle.setTextColor(ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color))
-        binding.itemTitle.text = text.uppercase()
-        binding.itemTitle.typeface = labelTypeface
-        binding.itemTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
+        binding.itemTitle.text = text
+        binding.itemTitle.typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
         ImageViewCompat.setImageTintList(binding.itemLogo, ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color))
     }
 

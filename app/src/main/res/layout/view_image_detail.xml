@@ -83,8 +83,6 @@
         android:visibility="gone"
         android:layout_marginStart="-12dp"
         app:icon="@drawable/ic_add_gray_white_24dp"
-        app:iconSize="24dp"
-        app:iconPadding="8dp"
         tools:visibility="visible"
         tools:text="Lorem ipsum"/>
     <View

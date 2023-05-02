@@ -12,11 +12,11 @@ import android.view.Window
 import android.view.accessibility.AccessibilityManager
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.ColorInt
-import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.appbar.MaterialToolbar
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 
@@ -52,10 +52,10 @@ object DeviceUtil {
         }
     }
 
-    fun updateStatusBarTheme(activity: Activity, toolbar: Toolbar?, reset: Boolean) {
+    fun updateStatusBarTheme(activity: Activity, toolbar: MaterialToolbar?, reset: Boolean) {
         activity.window.insetsControllerCompat.isAppearanceLightStatusBars = !reset ||
                 !WikipediaApp.instance.currentTheme.isDark
-        toolbar?.navigationIcon?.setTint(if (reset) Color.WHITE else ResourceUtil.getThemedColor(activity, R.attr.placeholder_color))
+        toolbar?.setNavigationIconTint(if (reset) Color.WHITE else ResourceUtil.getThemedColor(activity, R.attr.primary_color))
     }
 
     fun setContextClickAsLongClick(vararg views: View) {

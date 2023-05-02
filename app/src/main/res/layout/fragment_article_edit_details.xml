@@ -176,7 +176,6 @@
                     android:maxLines="1"
                     app:icon="@drawable/ic_user_avatar"
                     app:iconGravity="textStart"
-                    app:iconSize="20dp"
                     app:layout_constraintEnd_toEndOf="@id/revisionFromTitleText"
                     app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintHorizontal_chainStyle="packed"
@@ -234,7 +233,6 @@
                     android:textColor="?attr/warning_color"
                     app:icon="@drawable/ic_user_avatar"
                     app:iconGravity="textStart"
-                    app:iconSize="20dp"
                     app:iconTint="?attr/warning_color"
                     app:layout_constraintEnd_toEndOf="@id/revisionToTitleText"
                     app:layout_constraintHorizontal_bias="0"
@@ -296,8 +294,7 @@
                     android:layout_marginStart="14dp"
                     android:text="@string/thank_label"
                     app:icon="@drawable/ic_heart_24"
-                    app:iconGravity="textStart"
-                    app:iconSize="20dp" />
+                    app:iconGravity="textStart" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/undoButton"
@@ -311,7 +308,6 @@
                     tools:visibility="visible"
                     app:icon="@drawable/ic_undo_themed_24dp"
                     app:iconGravity="textStart"
-                    app:iconSize="20dp"
                     app:iconTint="?attr/primary_color"/>
 
                 <com.google.android.material.button.MaterialButton

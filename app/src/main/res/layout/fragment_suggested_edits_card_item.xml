@@ -127,7 +127,6 @@
                     android:text="@string/suggested_edits_task_add_description_title"
                     android:visibility="gone"
                     app:icon="@drawable/ic_add_gray_white_24dp"
-                    app:iconSize="24dp"
                     tools:visibility="visible"/>
             </LinearLayout>
         </LinearLayout>

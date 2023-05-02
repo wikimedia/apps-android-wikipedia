@@ -153,7 +153,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:icon="@drawable/ic_bookmark_border_white_24dp"
-        app:iconSize="20dp"
         tools:visibility="visible"/>
 
     <CheckBox

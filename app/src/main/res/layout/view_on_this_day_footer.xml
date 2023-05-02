@@ -26,8 +26,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/on_this_day_back_to_future"
-        android:textSize="20sp"
         app:icon="@drawable/ic_baseline_arrow_up_alt_24"
-        app:iconGravity="end"
-        app:iconSize="20dp" />
+        app:iconGravity="end" />
 </LinearLayout>
