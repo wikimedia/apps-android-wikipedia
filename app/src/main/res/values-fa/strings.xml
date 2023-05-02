@@ -820,7 +820,7 @@
   <string name="description_starts_with_uppercase">با حروف کوچک شروع کنید؛ مگر آن که واژهٔ اول یک نام خاص باشد.</string>
   <string name="description_starts_with_lowercase">اجتناب از شروع با یک حرف کوچک.</string>
   <string name="description_is_in_different_language">به‌نظر می‌رسد که متن به یک زبان دور از انتظار است. زبان متن باید %s باشد.</string>
-  <string name="description_verification_notice">لطفاً تأیید کنید که توصیف شما به زبان %1$s است. اگر توصیفی که نوشته‌اید به زبان %2$s است، این اعلان را رد کنید.</string>
+  <string name="description_verification_notice" fuzzy="true">لطفاً تأیید کنید که توصیف شما به زبان %1$s است. اگر توصیفی که نوشته‌اید به زبان %2$s است، این اعلان را رد کنید.</string>
   <string name="description_edit_suggested_description_button_text">نمایش توضیحات پیشنهادی</string>
   <string name="description_edit_success_saved">توضیحات مقاله منتشر شد!</string>
   <string name="description_edit_success_saved_snackbar">توضیحات مقاله منتشر شد!</string>

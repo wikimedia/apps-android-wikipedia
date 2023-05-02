@@ -22,6 +22,7 @@
   <string name="nav_item_forward">Da-heul</string>
   <string name="search_hint">Klask e Wikipedia</string>
   <string name="search_hint_search_languages">Klask ur yezh</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Silañ ma rolloù</string>
   <string name="nav_item_suggested_edits">Kemmoù</string>
   <string name="nav_item_more">Muioc\'h</string>
   <string name="nav_item_search">Klask</string>
@@ -253,7 +254,7 @@
   <string name="edit_undo">Dizober</string>
   <string name="edit_redo">Adober</string>
   <string name="edit_rollback">Disteuler</string>
-  <plurals name="edit_diff_bytes" fuzzy="true">
+  <plurals name="edit_diff_bytes">
     <item quantity="one">%s eizhbit</item>
     <item quantity="two">%s eizhbit</item>
     <item quantity="few">%s eizhbit</item>
@@ -670,6 +671,7 @@
   <string name="notifications_swipe_action_read">Lenn</string>
   <string name="notifications_swipe_action_unread">N\'eo ket bet lennet</string>
   <string name="notifications_wiki_filter_header">Sil wiki</string>
+  <string name="notifications_menu_user_talk_page">Pajenn gaozeal %s</string>
   <string name="view_because_you_read_card_title">Peogwir ho peus lennet</string>
   <string name="view_random_card_title">Dre zegouezh</string>
   <string name="view_random_article_card_title">Pennad dre zegouezh</string>
@@ -821,6 +823,7 @@
   <string name="suggested_edits_image_tags">Tikedennoù skeudenn</string>
   <string name="suggested_edits_image_tags_publishing">Oc\'h embann...</string>
   <string name="suggested_edits_image_tags_published">Embannet</string>
+  <string name="suggested_edits_image_tags_search">Klask tikedennoù</string>
   <string name="suggested_edits_image_tags_add_tag">Ouzhpennañ un dikedenn</string>
   <string name="suggested_edits_views_label_text">Gweladennoù</string>
   <string name="suggested_edits_quality_perfect_text">Peurvat</string>
@@ -874,6 +877,7 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Dec\'h</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kevreañ ouzh / mont gant Wikipedia</string>
   <string name="suggested_edits_report_suggestion">Danevelliñ</string>
+  <string name="file_page_activity_title">Pajenn ar restr</string>
   <string name="file_page_add_image_caption_button">Ouzhpennañ alc\'hwez ar skeudenn</string>
   <string name="file_page_edit_button_content_description">Kemm %s</string>
   <string name="description_edit_revert_subtitle">Trugarez evit kemer perzh e Wikipedia !</string>
@@ -913,6 +917,7 @@
     <item quantity="many">%d devezh zo</item>
     <item quantity="other">%d devezh zo</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Beajet ho peus en amzer 🚀</string>
   <string name="on_this_day_back_to_future">Distro war-zu an dazont</string>
   <string name="languages_list_activity_title">Ouzhpennañ ur yezh</string>
   <string name="languages_list_suggested_text">Kinniget</string>
@@ -957,6 +962,7 @@
   <string name="wikitext_formatting">Furmaozañ</string>
   <string name="wikitext_headings">Titloù</string>
   <string name="wikitext_template">Patrom</string>
+  <string name="wikitext_reference">Dave</string>
   <string name="insert_media_search_hint">Klask ur media</string>
   <string name="insert_media_settings">Arventennoù ar media</string>
   <string name="insert_media_settings_uploaded_image">Skeudenn enporzhiet</string>
@@ -969,6 +975,7 @@
   <string name="insert_media_advanced_settings_image_position_center">Kreiz</string>
   <string name="insert_media_advanced_settings_image_position_none">Hini ebet</string>
   <string name="insert_media_advanced_settings_image_type">Seurt skeudenn</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Skeudennig</string>
   <string name="insert_media_advanced_settings_image_type_frameless">Hep framm</string>
   <string name="insert_media_advanced_settings_image_type_frame">Framm</string>
   <string name="insert_media_advanced_settings_image_type_basic">Diazez</string>

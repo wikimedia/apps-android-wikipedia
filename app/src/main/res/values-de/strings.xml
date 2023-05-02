@@ -828,7 +828,7 @@
   <string name="description_starts_with_uppercase">Beginne mit einem Kleinbuchstaben, es sei denn, das erste Wort ist ein Eigenname.</string>
   <string name="description_starts_with_lowercase">Vermeide es, mit einem Kleinbuchstaben zu beginnen.</string>
   <string name="description_is_in_different_language">Der Text scheint in einer unerwarteten Sprache zu sein. Die Sprache sollte %s sein.</string>
-  <string name="description_verification_notice">Bitte überprüfe, dass deine Beschreibung in %1$s ist. Du kannst diese Benachrichtigung ablehnen, wenn die Beschreibung, die du geschrieben haben, in %2$s ist.</string>
+  <string name="description_verification_notice" fuzzy="true">Bitte überprüfe, dass deine Beschreibung in %1$s ist. Du kannst diese Benachrichtigung ablehnen, wenn die Beschreibung, die du geschrieben haben, in %2$s ist.</string>
   <string name="description_edit_suggested_description_button_text">Vorgeschlagene Beschreibungen anzeigen</string>
   <string name="description_edit_suggested_description_button_tooltip">Probieren Sie computergenerierte Artikelbeschreibungen aus</string>
   <string name="description_edit_success_saved">Artikelbeschreibung veröffentlicht!</string>

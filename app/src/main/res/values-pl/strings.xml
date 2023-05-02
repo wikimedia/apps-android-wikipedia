@@ -787,7 +787,7 @@
   <string name="description_starts_with_uppercase">Zaczynaj tekst używając małej litery, chyba że pierwszy wyraz to nazwa własna.</string>
   <string name="description_starts_with_lowercase">Unikaj zaczynania od małej litery.</string>
   <string name="description_is_in_different_language">Tekst wydaje się być w nieoczekiwanym języku. Językiem powinien być %s.</string>
-  <string name="description_verification_notice">Sprawdź, czy Twój opis jest w języku %1$s. Możesz odrzucić to powiadomienie, jeśli napisany przez Ciebie opis jest po %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Sprawdź, czy Twój opis jest w języku %1$s. Możesz odrzucić to powiadomienie, jeśli napisany przez Ciebie opis jest po %2$s.</string>
   <string name="description_edit_success_saved">Opis artykułu opublikowany!</string>
   <string name="description_edit_success_saved_snackbar">Opis artykułu opublikowany!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Opis artykułu opublikowany! (%s)</string>

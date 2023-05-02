@@ -757,7 +757,7 @@
   <string name="description_ends_with_punctuation">పాఠ్యం చివర వ్యాకరణ చిహ్నాలు ఉండకూడదు.</string>
   <string name="description_starts_with_uppercase">ఇంగ్లీషులోనైతే సంజ్ఞా నామవాచకమైతే తప్ప చిన్నబడి అక్షరంతొనే మొదలు పెట్టాలి.</string>
   <string name="description_is_in_different_language">ఈ పాఠ్యం అనుకోని భాషలో ఉంది. భాష %s అయి తీరాలి.</string>
-  <string name="description_verification_notice">మీ వివరణ %1$s లో ఉందని నిర్థారించుకోండి. మీర్రాసిన వివరణ %2$s లో ఉంటే ఈ గమనింపును సంకోచించకుండా తీసెయ్యండి..</string>
+  <string name="description_verification_notice" fuzzy="true">మీ వివరణ %1$s లో ఉందని నిర్థారించుకోండి. మీర్రాసిన వివరణ %2$s లో ఉంటే ఈ గమనింపును సంకోచించకుండా తీసెయ్యండి..</string>
   <string name="description_edit_success_saved">వ్యాస వివరణ ప్రచురితమయ్యింది!</string>
   <string name="description_edit_success_saved_snackbar">వ్యాస వివరణను ప్రచురించాం!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">వ్యాస వివరణను ప్రచురించాం! (%s)</string>

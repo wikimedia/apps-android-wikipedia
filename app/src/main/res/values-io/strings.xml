@@ -785,7 +785,7 @@
   <string name="description_starts_with_uppercase">Komencez skribanta minuskula litero, ecepte se l\'unesma vorto esas propra nomo.</string>
   <string name="description_starts_with_lowercase">Kande posibla, ne komencez skribanta minuskula litero.</string>
   <string name="description_is_in_different_language">La texto semblas esar en neexpektita idiomo. L\'idiomo mustas esar %s.</string>
-  <string name="description_verification_notice">Voluntez verifikar se vua deskripto esas en %1$s. Vu povas eliminar ca avizo se la deskripto quan vu skribis esas en %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Voluntez verifikar se vua deskripto esas en %1$s. Vu povas eliminar ca avizo se la deskripto quan vu skribis esas en %2$s.</string>
   <string name="description_edit_success_saved">Deskripto dil artiklo publikigita!</string>
   <string name="description_edit_success_saved_snackbar">Deskripto dil artiklo publikigita!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Deskripto dil artiklo publikigita! (%s)</string>

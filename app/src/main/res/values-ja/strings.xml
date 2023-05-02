@@ -874,7 +874,7 @@
   <string name="description_starts_with_uppercase">文章は、最初の語が固有名詞の場合を除いて、小文字で始めます。</string>
   <string name="description_starts_with_lowercase">小文字で始めるものは避けてください。</string>
   <string name="description_is_in_different_language">テキストが予期しない言語で表示されています。言語は %s である必要があります。</string>
-  <string name="description_verification_notice">説明が%1$sであることを確かめてください。もし説明を%2$sで書いていたならば、この通知は無視してください。</string>
+  <string name="description_verification_notice">説明が%1$sであることを確かめてください。もし説明を%2$sで書いていたならば、この警告は無視して構いません。</string>
   <string name="description_edit_suggested_description_button_text">提案された要約を表示する</string>
   <string name="description_edit_suggested_description_button_tooltip">機械によって提案された記事の要約を試し読みする</string>
   <string name="description_edit_success_saved">記事の説明が公開されました!</string>

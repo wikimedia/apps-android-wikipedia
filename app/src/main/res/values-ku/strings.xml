@@ -799,7 +799,7 @@
   <string name="description_starts_with_uppercase">Ger peyva pêşî ne navdêreke xisûsî be, bi herfeke hûrdek dest pê bike.</string>
   <string name="description_starts_with_lowercase">Xwe ji destpêkirina bi herfeke hûrdek dûr bike.</string>
   <string name="description_is_in_different_language">Nivîs bi zimanekî nehêvîkirî tê xuyan. Divê ziman bibe %s.</string>
-  <string name="description_verification_notice">Ji kerema xwe tesdîq bike ku danasîna te bi zimanê %1$s ye. Ger danasîna te nivîsiye bi zimanê %2$s be, serbest î ku vê hişyariyê biveşêrî.</string>
+  <string name="description_verification_notice" fuzzy="true">Ji kerema xwe tesdîq bike ku danasîna te bi zimanê %1$s ye. Ger danasîna te nivîsiye bi zimanê %2$s be, serbest î ku vê hişyariyê biveşêrî.</string>
   <string name="description_edit_success_saved">Danasîna gotarê hate weşandin!</string>
   <string name="description_edit_success_saved_snackbar">Danasîna gotarê hate weşandin!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Danasîna gotarê hate weşandin! (%s)</string>

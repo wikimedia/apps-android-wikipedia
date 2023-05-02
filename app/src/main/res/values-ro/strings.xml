@@ -810,7 +810,7 @@
   <string name="description_starts_with_uppercase">Începeți cu o literă mică exceptând cazul în care primul cuvânt este un substantiv propriu.</string>
   <string name="description_starts_with_lowercase">Evitați începerea cu o literă mică.</string>
   <string name="description_is_in_different_language">Textul pare a fi într-o limbă neașteptată. Limba ar trebui să fie %s.</string>
-  <string name="description_verification_notice">Verificați că descrierea dvs. este în %1$s. Simțiți-vă liber să respingeți această notificare dacă descrierea pe care ați scris-o este în %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Verificați că descrierea dvs. este în %1$s. Simțiți-vă liber să respingeți această notificare dacă descrierea pe care ați scris-o este în %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Arată descrieri sugerate</string>
   <string name="description_edit_suggested_description_button_tooltip">Încercați descrieri de articole sugerate automat</string>
   <string name="description_edit_success_saved">Descrierea articolului publicată!</string>
