@@ -7,7 +7,7 @@
 
     <dimen name="toolbar_default_elevation">4dp</dimen>
 
-    <dimen name="bottom_nav_label_text_size">10sp</dimen>
+    <dimen name="bottom_nav_label_text_size">11sp</dimen>
 
     <dimen name="popup_menu_drop_down_horizontal_offset">8dp</dimen>
     <dimen name="popup_menu_drop_down_vertical_offset">-8dp</dimen>

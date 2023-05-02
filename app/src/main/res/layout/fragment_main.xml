@@ -67,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="44dp"
                 android:textAlignment="center"
                 android:text="@string/nav_item_more"
                 android:textColor="?attr/nav_tab_item_color_state"/>

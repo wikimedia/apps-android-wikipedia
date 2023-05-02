@@ -311,10 +311,10 @@
         <item name="android:textSize">@dimen/bottom_nav_label_text_size</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="lineHeight">12sp</item>
+        <item name="maxLines">2</item>
     </style>
 
     <style name="BottomNavigationTextAppearance.Active">
-        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
     </style>
 
