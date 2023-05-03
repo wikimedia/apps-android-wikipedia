@@ -75,13 +75,12 @@ class WatchlistViewModel : ViewModel() {
             watchlistItems = mutableListOf()
             displayLanguages.map { language ->
                 async {
-                    withContext(Dispatchers.IO) {
-                        ServiceFactory.get(WikiSite.forLanguageCode(language))
-                            .getWatchlist(latestRevisions(), showCriteriaString(), showTypesString())
-                    }.query?.watchlist?.map {
-                        it.wiki = WikiSite.forLanguageCode(language)
-                        watchlistItems.add(it)
-                    }
+                    ServiceFactory.get(WikiSite.forLanguageCode(language))
+                        .getWatchlist(latestRevisions(), showCriteriaString(), showTypesString())
+                        .query?.watchlist?.map {
+                            it.wiki = WikiSite.forLanguageCode(language)
+                            watchlistItems.add(it)
+                        }
                 }
             }.awaitAll()
             watchlistItems.sortByDescending { it.date }
