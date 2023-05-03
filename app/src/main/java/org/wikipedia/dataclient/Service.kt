@@ -568,6 +568,19 @@ interface Service {
             @Field("captchaword") captchaWord: String? = null
     ): DiscussionToolsEditResponse
 
+    @GET(MW_API_PREFIX + "action=query&generator=growthtasks")
+    suspend fun getGrowthTasks(
+        @Query("ggttasktypes") taskTypes: String,
+        @Query("ggttopics") topics: String,
+        @Query("ggtlimit") count: Int
+    ): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&prop=growthimagesuggestiondata")
+    suspend fun getImageRecommendationForPage(
+        @Query("titles") titles: String?,
+        @Query("pageids") pageIds: String? = null
+    ): MwQueryResponse
+
     companion object {
         const val WIKIPEDIA_URL = "https://wikipedia.org/"
         const val WIKIDATA_URL = "https://www.wikidata.org/"
