@@ -15,6 +15,7 @@ class GrowthImageSuggestion(
         val image: String = "",
         val displayFilename: String = "",
         val source: String = "",
+        val projects: List<String> = emptyList(),
         val metadata: ImageMetadata? = null,
     )
 
@@ -31,6 +32,7 @@ class GrowthImageSuggestion(
         val license: String = "",
         val date: String = "",
         val caption: String = "",
+        val categories: List<String> = emptyList(),
         val reason: String = "",
         val contentLanguageName: String = "",
     )

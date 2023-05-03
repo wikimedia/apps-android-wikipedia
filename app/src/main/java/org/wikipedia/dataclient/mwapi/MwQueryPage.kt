@@ -42,7 +42,8 @@ class MwQueryPage {
 
     val tasktype: String? = null
     val difficulty: String? = null
-    val imageSuggestions: List<GrowthImageSuggestion>? = null
+    val qualityGateIds: List<String>? = null
+    val growthimagesuggestiondata: List<GrowthImageSuggestion>? = null
 
     fun namespace(): Namespace {
         return Namespace.of(ns)

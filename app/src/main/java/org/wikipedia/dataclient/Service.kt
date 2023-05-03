@@ -570,8 +570,8 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=query&generator=growthtasks")
     suspend fun getGrowthTasks(
-        @Query("ggttasktypes") taskTypes: String,
-        @Query("ggttopics") topics: String,
+        @Query("ggttasktypes") taskTypes: String?,
+        @Query("ggttopics") topics: String?,
         @Query("ggtlimit") count: Int
     ): MwQueryResponse
 
