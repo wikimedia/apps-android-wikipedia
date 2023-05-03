@@ -1211,9 +1211,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             watchlistExpiryChanged = false
                         }
                         if (unwatch) {
-                            WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(WikipediaApp.instance, it.wikiSite.languageCode)
+                            WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(requireContext(), it)
                         } else {
-                            WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(WikipediaApp.instance, it.wikiSite.languageCode)
+                            WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(requireContext(), it)
                         }
                         showWatchlistSnackbar(expiry, watch)
                     }
@@ -1389,10 +1389,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onAddToWatchlistSelected() {
             if (model.isWatched) {
-                WatchlistAnalyticsHelper.logRemovedFromWatchlist(requireContext(), model.title?.wikiSite?.languageCode ?: "")
+                WatchlistAnalyticsHelper.logRemovedFromWatchlist(requireContext(), model.title)
                 articleInteractionEvent?.logUnWatchClick()
             } else {
-                WatchlistAnalyticsHelper.logAddedToWatchlist(requireContext(), model.title?.wikiSite?.languageCode ?: "")
+                WatchlistAnalyticsHelper.logAddedToWatchlist(requireContext(), model.title)
                 articleInteractionEvent?.logWatchClick()
             }
             updateWatchlist(WatchlistExpiry.NEVER, model.isWatched)

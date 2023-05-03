@@ -163,10 +163,11 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             watchResponse.postValue(Resource.Error(throwable))
         }) {
+            val context = WikipediaApp.instance
             if (isWatched) {
-                WatchlistAnalyticsHelper.logRemovedFromWatchlist(WikipediaApp.instance, pageTitle.wikiSite.languageCode)
+                WatchlistAnalyticsHelper.logRemovedFromWatchlist(context, pageTitle)
             } else {
-                WatchlistAnalyticsHelper.logAddedToWatchlist(WikipediaApp.instance, pageTitle.wikiSite.languageCode)
+                WatchlistAnalyticsHelper.logAddedToWatchlist(context, pageTitle)
             }
             withContext(Dispatchers.IO) {
                 val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
@@ -178,9 +179,9 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
                     watchlistExpiryChanged = false
                 }
                 if (unwatch) {
-                    WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(WikipediaApp.instance, pageTitle.wikiSite.languageCode)
+                    WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(context, pageTitle)
                 } else {
-                    WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(WikipediaApp.instance, pageTitle.wikiSite.languageCode)
+                    WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(context, pageTitle)
                 }
                 watchResponse.postValue(Resource.Success(response))
             }

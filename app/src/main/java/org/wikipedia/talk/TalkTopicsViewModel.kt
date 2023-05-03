@@ -210,9 +210,9 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     fun watchOrUnwatch(expiry: WatchlistExpiry, unwatch: Boolean) {
         val context = WikipediaApp.instance
         if (isWatched) {
-            WatchlistAnalyticsHelper.logRemovedFromWatchlist(context, pageTitle.wikiSite.languageCode)
+            WatchlistAnalyticsHelper.logRemovedFromWatchlist(context, pageTitle)
         } else {
-            WatchlistAnalyticsHelper.logAddedToWatchlist(context, pageTitle.wikiSite.languageCode)
+            WatchlistAnalyticsHelper.logAddedToWatchlist(context, pageTitle)
         }
         viewModelScope.launch(actionHandler) {
             withContext(Dispatchers.IO) {
@@ -225,9 +225,9 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
                     watchlistExpiryChanged = false
                 }
                 if (unwatch) {
-                    WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(context, pageTitle.wikiSite.languageCode)
+                    WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(context, pageTitle)
                 } else {
-                    WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(context, pageTitle.wikiSite.languageCode)
+                    WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(context, pageTitle)
                 }
                 response.getFirst()?.let {
                     isWatched = it.watched
