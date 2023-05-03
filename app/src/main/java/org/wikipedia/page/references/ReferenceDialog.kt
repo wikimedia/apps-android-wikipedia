@@ -2,7 +2,6 @@ package org.wikipedia.page.references
 
 import android.app.Dialog
 import android.os.Bundle
-import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayoutMediator
+import org.jsoup.Jsoup
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.databinding.FragmentReferencesPagerBinding
@@ -98,17 +98,15 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
             binding.root.post {
                 if (isAdded) {
                     val contents = StringUtil.fromHtml(StringUtil.removeCiteMarkup(StringUtil.removeStyleTags(reference.html)))
-                    if (contents.isNullOrEmpty()) {
-                        // Inspect html for external links
-                        val links = StringUtil.extractHrefLinks(reference.html)
-                        links.add(links[0])
+                    if (contents.isEmpty()) {
+                        // Inspect html for links without anchor text
+                        val links = Jsoup.parse(reference.html).select("a[href]").map { it.attr("href") }
                         var tags = ""
-                        for (i in 0 until links.size) {
-                            tags = tags.plus("<a href='https:${links[i]}'>[${i + 1}]</a>")
+                        for (i in links.indices) {
+                            tags = tags.plus("<a href='${links[i]}'>[${i + 1}]</a>")
                         }
                         binding.referenceText.text = StringUtil.fromHtml(tags)
-                        binding.referenceText.movementMethod = LinkMovementMethod()
-                        binding.referenceExtLink.isVisible = !tags.isNullOrEmpty()
+                        binding.referenceExtLink.isVisible = tags.isNotEmpty()
                         return@post
                     }
                     binding.referenceExtLink.isVisible = false
