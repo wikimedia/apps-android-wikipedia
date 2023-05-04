@@ -1207,9 +1207,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             watchlistExpiryChanged = false
                         }
                         if (unwatch) {
-                            WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(requireContext(), it)
+                            WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(it, requireContext())
                         } else {
-                            WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(requireContext(), it)
+                            WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(it, requireContext())
                         }
                         showWatchlistSnackbar(expiry, watch)
                     }
@@ -1385,10 +1385,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onAddToWatchlistSelected() {
             if (model.isWatched) {
-                WatchlistAnalyticsHelper.logRemovedFromWatchlist(requireContext(), model.title)
+                WatchlistAnalyticsHelper.logRemovedFromWatchlist(model.title, requireContext())
                 articleInteractionEvent?.logUnWatchClick()
             } else {
-                WatchlistAnalyticsHelper.logAddedToWatchlist(requireContext(), model.title)
+                WatchlistAnalyticsHelper.logAddedToWatchlist(model.title, requireContext())
                 articleInteractionEvent?.logWatchClick()
             }
             updateWatchlist(WatchlistExpiry.NEVER, model.isWatched)
