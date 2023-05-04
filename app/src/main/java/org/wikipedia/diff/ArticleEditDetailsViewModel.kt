@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
-import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -163,11 +162,10 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             watchResponse.postValue(Resource.Error(throwable))
         }) {
-            val context = WikipediaApp.instance
             if (isWatched) {
-                WatchlistAnalyticsHelper.logRemovedFromWatchlist(context, pageTitle)
+                WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
             } else {
-                WatchlistAnalyticsHelper.logAddedToWatchlist(context, pageTitle)
+                WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
             }
             withContext(Dispatchers.IO) {
                 val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
@@ -179,9 +177,9 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
                     watchlistExpiryChanged = false
                 }
                 if (unwatch) {
-                    WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(context, pageTitle)
+                    WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(pageTitle)
                 } else {
-                    WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(context, pageTitle)
+                    WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(pageTitle)
                 }
                 watchResponse.postValue(Resource.Success(response))
             }

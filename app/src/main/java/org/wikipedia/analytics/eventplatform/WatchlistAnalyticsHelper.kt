@@ -5,38 +5,38 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.page.PageTitle
 
 object WatchlistAnalyticsHelper {
-    fun logAddedToWatchlist(context: Context, title: PageTitle?) {
+    fun logAddedToWatchlist(title: PageTitle?, context: Context = WikipediaApp.instance) {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "Watchlist.itemWiki:${title?.wikiSite?.languageCode ?: ""}.added"
+                "Watchlist.itemWiki:${title?.wikiSite?.languageCode.orEmpty()}.added"
             )
         )
     }
 
-    fun logRemovedFromWatchlist(context: Context, title: PageTitle?) {
+    fun logRemovedFromWatchlist(title: PageTitle?, context: Context = WikipediaApp.instance) {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "Watchlist.itemWiki:${title?.wikiSite?.languageCode ?: ""}.removed"
+                "Watchlist.itemWiki:${title?.wikiSite?.languageCode.orEmpty()}.removed"
             )
         )
     }
 
-    fun logAddedToWatchlistSuccess(context: Context, title: PageTitle?) {
+    fun logAddedToWatchlistSuccess(title: PageTitle?, context: Context = WikipediaApp.instance) {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "Watchlist.itemWiki:${title?.wikiSite?.languageCode ?: ""}.addSuccess"
+                "Watchlist.itemWiki:${title?.wikiSite?.languageCode.orEmpty()}.addSuccess"
             )
         )
     }
 
-    fun logRemovedFromWatchlistSuccess(context: Context, title: PageTitle?) {
+    fun logRemovedFromWatchlistSuccess(title: PageTitle?, context: Context = WikipediaApp.instance) {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(
                 BreadCrumbViewUtil.getReadableScreenName(context),
-                "Watchlist.itemWiki:${title?.wikiSite?.languageCode ?: ""}.removeSuccess"
+                "Watchlist.itemWiki:${title?.wikiSite?.languageCode.orEmpty()}.removeSuccess"
             )
         )
     }
