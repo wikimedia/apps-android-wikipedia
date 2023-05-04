@@ -47,6 +47,7 @@
                     android:layout_marginStart="24dp"
                     android:gravity="center"
                     android:fontFamily="sans-serif-medium"
+                    android:textSize="16sp"
                     android:textColor="?attr/placeholder_color"
                     android:text="@string/main_drawer_login" />
 
