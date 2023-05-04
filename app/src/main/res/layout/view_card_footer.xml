@@ -6,15 +6,18 @@
     tools:layout_width="match_parent"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <com.google.android.material.button.MaterialButton
+    <TextView
         android:id="@+id/footerActionButton"
-        style="@style/App.Button.Text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textAlignment="textStart"
-        android:lineSpacingExtra="8sp"
+        android:minHeight="48dp"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
+        style="@style/H2"
         android:paddingHorizontal="8dp"
+        android:textColor="?attr/progressive_color"
         tools:text="Lorem ipsum"/>
 
 </merge>
