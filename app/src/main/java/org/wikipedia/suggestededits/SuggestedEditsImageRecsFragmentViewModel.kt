@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthImageSuggestion
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import java.util.*
@@ -34,12 +35,18 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
     fun fetchRecommendation() {
         _uiState.value = UiState.Loading()
         viewModelScope.launch(handler) {
-            val title = EditingSuggestionsProvider.getNextArticleWithImageRecommendation(langCode)
+            var title: String
+            var page: MwQueryPage?
+            var tries = 0
+            do {
+                title = EditingSuggestionsProvider.getNextArticleWithImageRecommendation(langCode)
 
-            recommendation = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                .getImageRecommendationForPage(title)
-                .query?.firstPage()?.growthimagesuggestiondata?.first()!!
+                page = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
+                    .getImageRecommendationForPage(title)
+                    .query?.firstPage()
+            } while (tries++ < 10 && page?.growthimagesuggestiondata.isNullOrEmpty())
 
+            recommendation = page?.growthimagesuggestiondata?.first()!!
             summary = ServiceFactory.getRest(WikiSite.forLanguageCode(langCode)).getPageSummary(null, title)
 
             _uiState.value = UiState.Success()

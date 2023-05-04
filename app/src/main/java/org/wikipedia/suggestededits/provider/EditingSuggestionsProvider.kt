@@ -263,8 +263,9 @@ object EditingSuggestionsProvider {
                 var tries = 0
                 do {
                     if (articlesWithImageRecommendationsCache.empty()) {
+                        // TODO: make use of continuation parameter.
                         val response = ServiceFactory.get(WikiSite.forLanguageCode(articlesWithImageRecommendationsCacheLang))
-                            .getGrowthTasks("image-recommendation", null, 10)
+                            .getGrowthTasks("image-recommendation", null, 50)
 
                         response.query?.pages?.forEach {
                             articlesWithImageRecommendationsCache.push(it.title)
