@@ -2,13 +2,15 @@ package org.wikipedia.suggestededits.provider
 
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
-import java.util.*
+import java.util.Stack
 import java.util.concurrent.Semaphore
 
 object EditingSuggestionsProvider {
@@ -27,6 +29,9 @@ object EditingSuggestionsProvider {
     private var imagesWithTranslatableCaptionCacheToLang: String = ""
 
     private val imagesWithMissingTagsCache: Stack<MwQueryPage> = Stack()
+
+    private val articlesWithImageRecommendationsCache: Stack<String> = Stack()
+    private var articlesWithImageRecommendationsCacheLang: String = ""
 
     private const val MAX_RETRY_LIMIT: Long = 50
 
@@ -242,6 +247,37 @@ object EditingSuggestionsProvider {
                         .retry(retryLimit) { it is ListEmptyException }
             }
         }.doFinally { mutex.release() }
+    }
+
+    suspend fun getNextArticleWithImageRecommendation(lang: String, retryLimit: Long = MAX_RETRY_LIMIT): String {
+        var title = ""
+        withContext(Dispatchers.IO) {
+            mutex.acquire()
+            try {
+                if (articlesWithImageRecommendationsCacheLang != lang) {
+                    // evict the cache if the language has changed.
+                    articlesWithImageRecommendationsCache.clear()
+                }
+                articlesWithImageRecommendationsCacheLang = lang
+
+                var tries = 0
+                do {
+                    if (articlesWithImageRecommendationsCache.empty()) {
+                        val response = ServiceFactory.get(WikiSite.forLanguageCode(articlesWithImageRecommendationsCacheLang))
+                            .getGrowthTasks("image-recommendation", null, 10)
+
+                        response.query?.pages?.forEach {
+                            articlesWithImageRecommendationsCache.push(it.title)
+                        }
+                    }
+                } while (tries++ < retryLimit && articlesWithImageRecommendationsCache.empty())
+
+                title = articlesWithImageRecommendationsCache.pop()
+            } finally {
+                mutex.release()
+            }
+        }
+        return title
     }
 
     class ListEmptyException : RuntimeException()

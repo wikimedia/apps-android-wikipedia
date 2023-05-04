@@ -23,6 +23,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.palette.graphics.Palette
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
@@ -34,7 +35,6 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.FaceAndColorDetectImageView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewAnimations
-import java.util.*
 
 class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedEditsImageRecsDialog.Callback {
     private var _binding: FragmentSuggestedEditsImageRecsItemBinding? = null
@@ -127,7 +127,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedE
             state = BottomSheetBehavior.STATE_EXPANDED
         }
 
-        lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
@@ -179,7 +179,12 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedE
         binding.articleDescription.text = viewModel.summary.description
         binding.articleExtract.text = StringUtil.fromHtml(viewModel.summary.extractHtml).trim()
 
-        binding.imageView.loadImage(Uri.parse(viewModel.recommendation.images[0].metadata!!.thumbUrl),
+        var thumbUrl = ImageUrlUtil.getUrlForPreferredSize(viewModel.recommendation.images[0].metadata!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)
+        if (thumbUrl.startsWith("//")) {
+            thumbUrl = "https:$thumbUrl"
+        }
+
+        binding.imageView.loadImage(Uri.parse(thumbUrl),
             roundedCorners = false, cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
                 override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
                     if (isAdded) {

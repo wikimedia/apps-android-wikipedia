@@ -11,6 +11,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthImageSuggestion
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import java.util.*
 
 class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
@@ -33,17 +34,13 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
     private fun fetchRecommendation() {
         _uiState.value = UiState.Loading()
         viewModelScope.launch(handler) {
-            val response = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                .getGrowthTasks("image-recommendation", null, 10)
-
-            val pageId = response.query?.firstPage()!!.pageId
-            val pageTitle = response.query?.firstPage()!!.title
+            val title = EditingSuggestionsProvider.getNextArticleWithImageRecommendation(langCode)
 
             recommendation = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                .getImageRecommendationForPage(null, pageId.toString())
+                .getImageRecommendationForPage(title)
                 .query?.firstPage()?.growthimagesuggestiondata?.first()!!
 
-            summary = ServiceFactory.getRest(WikiSite.forLanguageCode(langCode)).getPageSummary(null, pageTitle)
+            summary = ServiceFactory.getRest(WikiSite.forLanguageCode(langCode)).getPageSummary(null, title)
 
             _uiState.value = UiState.Success()
         }
