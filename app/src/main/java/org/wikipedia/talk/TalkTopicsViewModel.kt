@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -207,6 +208,12 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     }
 
     fun watchOrUnwatch(expiry: WatchlistExpiry, unwatch: Boolean) {
+        val context = WikipediaApp.instance
+        if (isWatched) {
+            WatchlistAnalyticsHelper.logRemovedFromWatchlist(context, pageTitle)
+        } else {
+            WatchlistAnalyticsHelper.logAddedToWatchlist(context, pageTitle)
+        }
         viewModelScope.launch(actionHandler) {
             withContext(Dispatchers.IO) {
                 val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
@@ -217,7 +224,11 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
                 if (watchlistExpiryChanged && unwatch) {
                     watchlistExpiryChanged = false
                 }
-
+                if (unwatch) {
+                    WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(context, pageTitle)
+                } else {
+                    WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(context, pageTitle)
+                }
                 response.getFirst()?.let {
                     isWatched = it.watched
                     hasWatchlistExpiry = lastWatchExpiry != WatchlistExpiry.NEVER
