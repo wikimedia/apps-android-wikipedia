@@ -9,11 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="24dp"
-        android:fontFamily="sans-serif-medium"
+        style="@style/H3.Button"
         android:text="@string/main_tooltip_watchlist_title"
-        android:textSize="14sp"
         android:textColor="@android:color/white"
-        android:letterSpacing="0.04"
         android:layout_marginBottom="4dp"
         android:gravity="center_vertical"
         android:drawablePadding="8dp"
@@ -23,7 +21,6 @@
     <org.wikipedia.views.AppTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
         android:textColor="@android:color/white"
         android:lineSpacingExtra="7sp"
         app:html="@string/main_tooltip_watchlist_text"/>
