@@ -325,9 +325,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 // In this case, there's nothing for us to do, so just bail from the activity.
                 requireActivity().finish()
             }) {
-                val list = withContext(Dispatchers.IO) {
-                    AppDatabase.instance.readingListDao().getListById(readingListId, true)
-                }
+                val list = AppDatabase.instance.readingListDao().getListById(readingListId, true)
                 binding.readingListSwipeRefresh.isRefreshing = false
                 readingList = list
                 readingList?.let {
