@@ -28,15 +28,20 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsImageRecsItemBinding
-import org.wikipedia.dataclient.mwapi.SiteMatrix
+import org.wikipedia.dataclient.Service
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.PageActivity
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.FaceAndColorDetectImageView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewAnimations
 
-class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedEditsImageRecsDialog.Callback {
+class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment() {
     private var _binding: FragmentSuggestedEditsImageRecsItemBinding? = null
     private val binding get() = _binding!!
 
@@ -47,7 +52,6 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedE
     private var publishSuccess = false
 
     private var infoClicked = false
-    private var detailsClicked = false
     private var scrolled = false
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<CoordinatorLayout>
@@ -64,9 +68,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedE
 
         binding.cardItemErrorView.backClickListener = OnClickListener { requireActivity().finish() }
         binding.cardItemErrorView.retryClickListener = OnClickListener {
-            binding.cardItemProgressBar.visibility = VISIBLE
-            binding.cardItemErrorView.visibility = GONE
-            getNextItem()
+            viewModel.fetchRecommendation()
         }
         binding.cardItemErrorView.nextClickListener = OnClickListener { callback().nextPage(this) }
 
@@ -84,20 +86,16 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedE
         }
 
         binding.rejectButton.setOnClickListener {
-            //ImageRecsDialog.newInstance(ImageRecommendationsFunnel.RESPONSE_REJECT).show(childFragmentManager, null)
+            // TODO: something special for rejecting images?
+            publish()
         }
 
         binding.notSureButton.setOnClickListener {
-            //ImageRecsDialog.newInstance(ImageRecommendationsFunnel.RESPONSE_NOT_SURE).show(childFragmentManager, null)
+            publish()
         }
 
         binding.imageCard.setOnClickListener {
-            /*
-            recommendation?.let {
-                startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + it.image, WikiSite(Service.COMMONS_URL)), false))
-                detailsClicked = true
-            }
-             */
+            startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + viewModel.recommendation.images[0].displayFilename, WikiSite.forLanguageCode(viewModel.langCode)), false))
         }
 
         binding.imageCard.setOnLongClickListener {
@@ -113,12 +111,8 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedE
         })
 
         binding.readMoreButton.setOnClickListener {
-            /*
-            recommendation?.let {
-                val title = PageTitle(it.pageTitle, WikipediaApp.instance.wikiSite)
-                startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(title, HistoryEntry.SOURCE_SUGGESTED_EDITS), title))
-            }
-             */
+            val title = PageTitle(viewModel.recommendation.titleText, WikiSite.forLanguageCode(viewModel.langCode))
+            startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(title, HistoryEntry.SOURCE_SUGGESTED_EDITS), title))
         }
 
         ImageZoomHelper.setViewZoomable(binding.imageView)
@@ -214,7 +208,9 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedE
 
                 override fun onImageFailed() {}
             })
-        binding.imageCaptionText.text = viewModel.recommendation.images.first().metadata?.caption
+
+        binding.imageCaptionText.text = viewModel.recommendation.images.first().metadata?.caption.orEmpty().trim()
+        binding.imageCaptionText.isVisible = binding.imageCaptionText.text.isNotEmpty()
 
         binding.articleScrollSpacer.post {
             if (isAdded) {
@@ -256,39 +252,9 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedE
         }
     }
 
-    private fun getNextItem() {
-        /*
-        if (recommendation != null) {
-            return
-        }
-        disposables.add(EditingSuggestionsProvider.getNextArticleWithMissingImage(WikipediaApp.instance.appOrSystemLanguageCode)
-            .subscribeOn(Schedulers.io())
-            .flatMap {
-                recommendation = it
-                ServiceFactory.get(WikipediaApp.instance.wikiSite).getInfoByPageId(recommendation!!.pageId.toString())
-            }
-            .flatMap {
-                recommendation!!.pageTitle = it.query()!!.firstPage()!!.displayTitle(WikipediaApp.instance.appOrSystemLanguageCode)
-                if (recommendation!!.pageTitle.isEmpty()) {
-                    throw ThrowableUtil.EmptyException()
-                }
-                ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getSummary(null, recommendation!!.pageTitle).subscribeOn(Schedulers.io())
-            }
-            .observeOn(AndroidSchedulers.mainThread())
-            .retry(10)
-            .subscribe({ summary ->
-                updateContents(summary)
-            }, { this.setErrorState(it) }))
-         */
-    }
-
     override fun publish() {
         // the "Publish" button in our case is actually the "skip" button.
         callback().nextPage(this)
-    }
-
-    override fun onDialogSubmit(response: Int, selectedItems: List<Int>) {
-        doPublish(response, selectedItems)
     }
 
     private fun doPublish(response: Int, reasons: List<Int>) {
@@ -351,54 +317,6 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedE
         return false
     }
 
-    private fun getSuggestionReason(): String {
-        /*
-        val hasWikidata = recommendation!!.foundOnWikis.contains("wd")
-        val langWikis = recommendation!!.foundOnWikis
-            .sortedBy { WikipediaApp.instance.languageState.getLanguageCodeIndex(it) }
-            .take(3)
-            .mapNotNull { getCanonicalName(it) }
-
-        if (langWikis.isNotEmpty()) {
-            return getString(R.string.image_recommendations_task_suggestion_reason_wikilist,
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    ListFormatter.getInstance().format(langWikis)
-                } else {
-                    langWikis.joinToString(separator = ", ")
-                })
-        } else if (hasWikidata) {
-            return getString(R.string.image_recommendations_task_suggestion_reason_wikidata)
-        }
-        return getString(R.string.image_recommendations_task_suggestion_reason_commons)
-         */
-        return ""
-    }
-
-    private fun getFunnelReason(): String {
-        /*
-        val hasWikidata = recommendation!!.foundOnWikis.contains("wd")
-        val langWikis = recommendation!!.foundOnWikis.filter { it != "wd" && it != "com" && it != "species" }
-        return when {
-            langWikis.isNotEmpty() -> {
-                "wikipedia"
-            }
-            hasWikidata -> {
-                "wikidata"
-            }
-            else -> "commons"
-        }
-         */
-        return ""
-    }
-
-    private fun getCanonicalName(code: String): String? {
-        var canonicalName = siteInfoList?.find { it.code == code }?.localname
-        if (canonicalName.isNullOrEmpty()) {
-            canonicalName = WikipediaApp.instance.languageState.getAppLanguageCanonicalName(code)
-        }
-        return canonicalName
-    }
-
     private fun callback(): Callback {
         return FragmentUtil.getCallback(this, Callback::class.java)!!
     }
@@ -409,7 +327,6 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedE
 
     companion object {
         private val SUPPORTED_LANGUAGES = arrayOf("ar", "arz", "bn", "cs", "de", "en", "es", "eu", "fa", "fr", "he", "hu", "hy", "it", "ko", "pl", "pt", "ru", "sr", "sv", "tr", "uk", "vi")
-        private var siteInfoList: List<SiteMatrix.SiteInfo>? = null
         const val ARG_LANG = "lang"
 
         fun isFeatureEnabled(): Boolean {

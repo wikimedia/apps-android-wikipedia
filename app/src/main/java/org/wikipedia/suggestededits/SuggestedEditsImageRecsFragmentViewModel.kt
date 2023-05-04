@@ -23,7 +23,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
     lateinit var recommendation: GrowthImageSuggestion
     lateinit var summary: PageSummary
 
-    private val langCode = bundle.getString(SuggestedEditsImageRecsFragment.ARG_LANG)!!
+    val langCode = bundle.getString(SuggestedEditsImageRecsFragment.ARG_LANG)!!
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState.asStateFlow()
 
@@ -31,7 +31,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
         fetchRecommendation()
     }
 
-    private fun fetchRecommendation() {
+    fun fetchRecommendation() {
         _uiState.value = UiState.Loading()
         viewModelScope.launch(handler) {
             val title = EditingSuggestionsProvider.getNextArticleWithImageRecommendation(langCode)
