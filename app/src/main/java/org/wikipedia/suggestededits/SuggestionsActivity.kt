@@ -30,6 +30,7 @@ class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>(
         return when (action) {
             ADD_IMAGE_TAGS -> getString(R.string.suggested_edits_tag_images)
             ADD_CAPTION, TRANSLATE_CAPTION -> getString(R.string.suggested_edits_caption_images)
+            IMAGE_RECOMMENDATIONS -> ""
             else -> getString(R.string.suggested_edits_describe_articles)
         }
     }

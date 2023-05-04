@@ -11,6 +11,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2
@@ -91,6 +92,10 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         binding.cardsViewPager.registerOnPageChangeCallback(viewPagerListener) // addOnPageChangeListener(viewPagerListener)
         resetViewPagerItemAdapter()
 
+        if (action == IMAGE_RECOMMENDATIONS) {
+            binding.cardsViewPager.isUserInputEnabled = false
+        }
+
         if (binding.wikiLanguageDropdownContainer.visibility == VISIBLE) {
             if (languageList.isEmpty()) {
                 // Fragment is created for the first time.
@@ -130,9 +135,18 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
                         FeedbackUtil.showAndroidAppEditingFAQ(requireContext(),
                             R.string.suggested_edits_image_tags_help_url)
                     }
+                    IMAGE_RECOMMENDATIONS -> {
+                        // TODO: add help link for image recommendations
+                        FeedbackUtil.showAndroidAppEditingFAQ(requireContext(),
+                            R.string.suggested_edits_image_tags_help_url)
+                    }
                     else -> {
                         FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
                     }
+                }
+                val child = topBaseChild()
+                if (child != null && child is SuggestedEditsImageRecsFragment) {
+                    child.onInfoClicked()
                 }
                 true
             }
@@ -172,6 +186,8 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
             binding.addContributionButton.isEnabled = child.publishEnabled()
             binding.addContributionButton.alpha = if (child.publishEnabled()) 1f else 0.5f
         }
+
+        binding.bottomButtonContainer.isVisible = action != IMAGE_RECOMMENDATIONS
 
         if (action == ADD_IMAGE_TAGS) {
             if (binding.addContributionButton.tag == "landscape") {
@@ -239,6 +255,8 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
 
     fun onSelectPage() {
         if (action == ADD_IMAGE_TAGS && topBaseChild() != null) {
+            topBaseChild()!!.publish()
+        } else if (action == IMAGE_RECOMMENDATIONS && topBaseChild() != null) {
             topBaseChild()!!.publish()
         } else if (topTitle != null) {
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummaryForEdit, topChild()!!.targetSummaryForEdit,
@@ -350,6 +368,9 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
             return when (action) {
                 ADD_IMAGE_TAGS -> {
                     SuggestedEditsImageTagsFragment.newInstance()
+                }
+                IMAGE_RECOMMENDATIONS -> {
+                    SuggestedEditsImageRecsFragment.newInstance()
                 }
                 else -> {
                     SuggestedEditsCardsItemFragment.newInstance()

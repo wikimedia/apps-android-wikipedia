@@ -48,6 +48,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
     private lateinit var addImageCaptionsTask: SuggestedEditsTask
     private lateinit var addImageTagsTask: SuggestedEditsTask
+    private lateinit var imageRecommendationsTask: SuggestedEditsTask
 
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
@@ -392,6 +393,18 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addDescriptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)
 
+        imageRecommendationsTask = SuggestedEditsTask()
+        imageRecommendationsTask.title = "Image recommendations"//getString(R.string.suggested_edits_image_recommendations_task_title)
+        imageRecommendationsTask.description = "Lorem ipsum"//getString(R.string.suggested_edits_image_recommendations_task_detail)
+        imageRecommendationsTask.imageDrawable = R.drawable.ic_image_black_24dp
+        imageRecommendationsTask.primaryAction = "Lorem ipsum"//getString(R.string.suggested_edits_image_recommendations_task_get_started)
+        imageRecommendationsTask.primaryActionIcon = R.drawable.ic_robot_24
+        imageRecommendationsTask.new = true //Prefs.shouldShowImageRecsOnboarding()
+
+        if (SuggestedEditsImageRecsFragment.isFeatureEnabled()) {
+            displayedTasks.add(imageRecommendationsTask)
+        }
+
         displayedTasks.add(addDescriptionsTask)
         displayedTasks.add(addImageCaptionsTask)
         displayedTasks.add(addImageTagsTask)
@@ -413,6 +426,12 @@ class SuggestedEditsTasksFragment : Fragment() {
                 } else {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, Constants.InvokeSource.SUGGESTED_EDITS))
                 }
+            } else if (task == imageRecommendationsTask) {
+                //if (Prefs.shouldShowImageRecsOnboarding()) {
+                //    startActivityForResult(ImageRecsOnboardingActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_IMAGE_RECS_ONBOARDING)
+                //} else {
+                    startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATIONS, Constants.InvokeSource.SUGGESTED_EDITS))
+                //}
             }
         }
     }

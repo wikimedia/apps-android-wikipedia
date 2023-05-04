@@ -1,91 +1,58 @@
 package org.wikipedia.suggestededits
 
+import android.os.Bundle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import org.wikipedia.dataclient.mwapi.MwQueryResult
-import org.wikipedia.settings.Prefs
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.growthtasks.GrowthImageSuggestion
+import org.wikipedia.dataclient.page.PageSummary
 import java.util.*
 
-class SuggestedEditsImageRecsFragmentViewModel : ViewModel() {
+class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = UiState.Error(throwable)
     }
 
-    private var watchlistItems = mutableListOf<MwQueryResult.WatchlistItem>()
-    var currentSearchQuery: String? = null
-        private set
-    var finalList = mutableListOf<Any>()
+    lateinit var recommendation: GrowthImageSuggestion
+    lateinit var summary: PageSummary
 
+    private val langCode = bundle.getString(SuggestedEditsImageRecsFragment.ARG_LANG)!!
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState.asStateFlow()
 
     init {
-        fetchWatchlist()
+        fetchRecommendation()
     }
 
-    fun updateList(searchBarPlaceholder: Boolean = true) {
-
-        finalList = mutableListOf()
-
-        if (searchBarPlaceholder) {
-            finalList.add("") // placeholder for search bar
-        }
-
-        val calendar = Calendar.getInstance()
-        var curDay = -1
-
-        val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
-
-        watchlistItems.forEach { item ->
-
-            if (excludedWikiCodes.contains(item.wiki?.languageCode)) {
-                return@forEach
-            }
-
-            val searchQuery = currentSearchQuery
-            if (!searchQuery.isNullOrEmpty() &&
-                !(item.title.contains(searchQuery, true) ||
-                        item.user.contains(searchQuery, true) ||
-                        item.parsedComment.contains(searchQuery, true))) {
-                return@forEach
-            }
-
-            calendar.time = item.date
-            if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
-                curDay = calendar.get(Calendar.DAY_OF_YEAR)
-                finalList.add(item.date)
-            }
-
-            finalList.add(item)
-        }
-        _uiState.value = UiState.Success()
-    }
-
-    fun fetchWatchlist(searchBarPlaceholder: Boolean = true) {
+    private fun fetchRecommendation() {
         _uiState.value = UiState.Loading()
         viewModelScope.launch(handler) {
-            watchlistItems = mutableListOf()
+            val response = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
+                .getGrowthTasks("image-recommendation", null, 10)
 
-            /*
-            displayLanguages.map { language ->
-                async {
-                    withContext(Dispatchers.IO) {
-                        ServiceFactory.get(WikiSite.forLanguageCode(language))
-                            .getWatchlist(latestRevisions(), showCriteriaString(), showTypesString())
-                    }.query?.watchlist?.map {
-                        it.wiki = WikiSite.forLanguageCode(language)
-                        watchlistItems.add(it)
-                    }
-                }
-            }.awaitAll()
-            */
+            val pageId = response.query?.firstPage()!!.pageId
+            val pageTitle = response.query?.firstPage()!!.title
 
-            watchlistItems.sortByDescending { it.date }
-            updateList(searchBarPlaceholder)
+            recommendation = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
+                .getImageRecommendationForPage(null, pageId.toString())
+                .query?.firstPage()?.growthimagesuggestiondata?.first()!!
+
+            summary = ServiceFactory.getRest(WikiSite.forLanguageCode(langCode)).getPageSummary(null, pageTitle)
+
+            _uiState.value = UiState.Success()
+        }
+    }
+
+    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
+        @Suppress("unchecked_cast")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return SuggestedEditsImageRecsFragmentViewModel(bundle) as T
         }
     }
 

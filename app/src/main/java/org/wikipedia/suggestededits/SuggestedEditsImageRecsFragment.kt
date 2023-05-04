@@ -1,14 +1,9 @@
 package org.wikipedia.suggestededits
 
 import android.content.pm.ActivityInfo
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
-import android.icu.text.ListFormatter
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -16,10 +11,10 @@ import android.view.View.*
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -27,44 +22,29 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.palette.graphics.Palette
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.launch
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsImageRecsItemBinding
-import org.wikipedia.dataclient.Service
-import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
-import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.PageActivity
-import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.FaceAndColorDetectImageView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewAnimations
-import org.wikipedia.watchlist.WatchlistViewModel
 import java.util.*
 
 class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedEditsImageRecsDialog.Callback {
     private var _binding: FragmentSuggestedEditsImageRecsItemBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: SuggestedEditsImageRecsFragmentViewModel by viewModels()
+    private val viewModel: SuggestedEditsImageRecsFragmentViewModel by viewModels { SuggestedEditsImageRecsFragmentViewModel.Factory(
+        bundleOf(ARG_LANG to WikipediaApp.instance.appOrSystemLanguageCode)) }
 
     private var publishing = false
     private var publishSuccess = false
-    // private var recommendation: ImageRecommendationResponse? = null
 
     private var infoClicked = false
     private var detailsClicked = false
@@ -158,9 +138,6 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedE
                 }
             }
         }
-
-        getNextItem()
-        updateContents(null)
     }
 
     override fun onStart() {
@@ -174,15 +151,87 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedE
     }
 
     private fun onLoading() {
-
-    }
-
-    private fun onLoadSuccess() {
-
+        binding.cardItemProgressBar.isVisible = true
+        binding.cardItemErrorView.isVisible = false
+        binding.bottomSheetCoordinatorLayout.isVisible = false
+        binding.articleContentContainer.isVisible = false
+        binding.publishOverlayContainer.isVisible = false
     }
 
     private fun onError(throwable: Throwable) {
+        L.e(throwable)
+        binding.cardItemProgressBar.isVisible = false
+        binding.bottomSheetCoordinatorLayout.isVisible = false
+        binding.articleContentContainer.isVisible = false
+        binding.publishOverlayContainer.isVisible = false
+        binding.cardItemErrorView.isVisible = true
+        binding.cardItemErrorView.setError(throwable)
+    }
 
+    private fun onLoadSuccess() {
+        binding.cardItemProgressBar.isVisible = false
+        binding.cardItemErrorView.isVisible = false
+        binding.bottomSheetCoordinatorLayout.isVisible = true
+        binding.articleContentContainer.isVisible = true
+        binding.publishOverlayContainer.isVisible = false
+
+        binding.articleTitle.text = StringUtil.fromHtml(viewModel.summary.displayTitle)
+        binding.articleDescription.text = viewModel.summary.description
+        binding.articleExtract.text = StringUtil.fromHtml(viewModel.summary.extractHtml).trim()
+
+        binding.imageView.loadImage(Uri.parse(viewModel.recommendation.images[0].metadata!!.thumbUrl),
+            roundedCorners = false, cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
+                override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
+                    if (isAdded) {
+                        var color1 = palette.getLightVibrantColor(ContextCompat.getColor(requireContext(), R.color.gray600))
+                        var color2 = palette.getLightMutedColor(ContextCompat.getColor(requireContext(), R.color.gray300))
+                        if (WikipediaApp.instance.currentTheme.isDark) {
+                            color1 = ResourceUtil.darkenColor(color1)
+                            color2 = ResourceUtil.darkenColor(color2)
+                        }
+
+                        val gradientDrawable = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, arrayOf(color1, color2).toIntArray())
+                        binding.imageViewContainer.background = gradientDrawable
+
+                        val params = binding.imageInfoButton.layoutParams as FrameLayout.LayoutParams
+                        val containerAspect = binding.imageViewContainer.width.toFloat() / binding.imageViewContainer.height.toFloat()
+                        val bmpAspect = bmpWidth.toFloat() / bmpHeight.toFloat()
+
+                        if (bmpAspect > containerAspect) {
+                            params.marginEnd = DimenUtil.roundedDpToPx(8f)
+                        } else {
+                            val width = binding.imageViewContainer.height.toFloat() * bmpAspect
+                            params.marginEnd = DimenUtil.roundedDpToPx(8f) + (binding.imageViewContainer.width / 2 - width.toInt() / 2)
+                        }
+                        binding.imageInfoButton.layoutParams = params
+                    }
+                }
+
+                override fun onImageFailed() {}
+            })
+        binding.imageCaptionText.text = viewModel.recommendation.images.first().metadata?.caption
+
+        binding.articleScrollSpacer.post {
+            if (isAdded) {
+                binding.articleScrollSpacer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, bottomSheetBehavior.peekHeight)
+                // Collapse bottom sheet if the article title is not visible when loaded
+                binding.suggestedEditsItemRootView.doViewsOverlap(binding.articleTitle, binding.bottomSheetCoordinatorLayout).run {
+                    if (this) {
+                        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+                    }
+                }
+            }
+        }
+
+        binding.imageFileNameText.text = viewModel.recommendation.images.first().displayFilename
+
+        binding.imageSuggestionReason.text = viewModel.recommendation.images.first().metadata?.reason
+
+        ViewAnimations.fadeIn(binding.imageSuggestionContainer)
+
+        maybeShowTooltipSequence()
+
+        callback().updateActionButton()
     }
 
     private fun maybeShowTooltipSequence() {
@@ -228,106 +277,6 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedE
          */
     }
 
-    private fun setErrorState(t: Throwable) {
-        L.e(t)
-        recommendation = null
-        binding.cardItemErrorView.setError(t)
-        binding.cardItemErrorView.visibility = VISIBLE
-        binding.cardItemProgressBar.visibility = GONE
-        binding.articleContentContainer.visibility = GONE
-        binding.imageSuggestionContainer.visibility = GONE
-    }
-
-    private fun updateContents(summary: PageSummary?) {
-        binding.cardItemErrorView.visibility = GONE
-        binding.articleContentContainer.visibility = if (recommendation != null) VISIBLE else GONE
-        binding.imageSuggestionContainer.visibility = GONE
-        binding.readMoreButton.visibility = GONE
-        binding.cardItemProgressBar.visibility = VISIBLE
-        if (recommendation == null || summary == null) {
-            return
-        }
-
-        disposables.add((if (siteInfoList == null)
-            ServiceFactory.get(WikiSite(Service.COMMONS_URL)).siteMatrix
-                .subscribeOn(Schedulers.io())
-                .map {
-                    siteInfoList = SiteMatrix.getSites(it)
-                    siteInfoList!!
-                }
-        else Observable.just(siteInfoList!!))
-            .flatMap {
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo("File:" + recommendation!!.image, WikipediaApp.instance.appOrSystemLanguageCode)
-                    .subscribeOn(Schedulers.io())
-            }
-            .observeOn(AndroidSchedulers.mainThread())
-            .retry(5)
-            .subscribe({ response ->
-                binding.cardItemProgressBar.visibility = GONE
-
-                val imageInfo = response.query()!!.firstPage()!!.imageInfo()!!
-
-                binding.articleTitle.text = StringUtil.fromHtml(summary.displayTitle)
-                binding.articleDescription.text = summary.description
-                binding.articleExtract.text = StringUtil.fromHtml(summary.extractHtml).trim()
-                binding.readMoreButton.visibility = VISIBLE
-
-                binding.imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)),
-                    roundedCorners = false, cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
-                        override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
-                            if (isAdded) {
-                                var color1 = palette.getLightVibrantColor(ContextCompat.getColor(requireContext(), R.color.base70))
-                                var color2 = palette.getLightMutedColor(ContextCompat.getColor(requireContext(), R.color.base30))
-                                if (WikipediaApp.instance.currentTheme.isDark) {
-                                    color1 = ResourceUtil.darkenColor(color1)
-                                    color2 = ResourceUtil.darkenColor(color2)
-                                }
-
-                                val gradientDrawable = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, arrayOf(color1, color2).toIntArray())
-                                binding.imageViewContainer.background = gradientDrawable
-
-                                val params = binding.imageInfoButton.layoutParams as FrameLayout.LayoutParams
-                                val containerAspect = binding.imageViewContainer.width.toFloat() / binding.imageViewContainer.height.toFloat()
-                                val bmpAspect = bmpWidth.toFloat() / bmpHeight.toFloat()
-
-                                if (bmpAspect > containerAspect) {
-                                    params.marginEnd = DimenUtil.roundedDpToPx(8f)
-                                } else {
-                                    val width = binding.imageViewContainer.height.toFloat() * bmpAspect
-                                    params.marginEnd = DimenUtil.roundedDpToPx(8f) + (binding.imageViewContainer.width / 2 - width.toInt() / 2)
-                                }
-                                binding.imageInfoButton.layoutParams = params
-                            }
-                        }
-
-                        override fun onImageFailed() {}
-                    })
-                binding.imageCaptionText.text = if (imageInfo.metadata == null) null else StringUtil.removeHTMLTags(imageInfo.metadata!!.imageDescription())
-
-                binding.articleScrollSpacer.post {
-                    if (isAdded) {
-                        binding.articleScrollSpacer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, bottomSheetBehavior.peekHeight)
-                        // Collapse bottom sheet if the article title is not visible when loaded
-                        binding.suggestedEditsItemRootView.doViewsOverlap(binding.articleTitle, binding.bottomSheetCoordinatorLayout).run {
-                            if (this) {
-                                bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-                            }
-                        }
-                    }
-                }
-
-                val arr = imageInfo.commonsUrl.split('/')
-                binding.imageFileNameText.text = StringUtil.removeUnderscores(UriUtil.decodeURL(arr[arr.size - 1]))
-                binding.imageSuggestionReason.text = StringUtil.fromHtml(getString(R.string.image_recommendations_task_suggestion_reason, getSuggestionReason()))
-
-                ViewAnimations.fadeIn(binding.imageSuggestionContainer)
-
-                maybeShowTooltipSequence()
-            }, { setErrorState(it) }))
-
-        callback().updateActionButton()
-    }
-
     override fun publish() {
         // the "Publish" button in our case is actually the "skip" button.
         callback().nextPage(this)
@@ -338,7 +287,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedE
     }
 
     private fun doPublish(response: Int, reasons: List<Int>) {
-        if (publishing || publishSuccess || recommendation == null) {
+        if (publishing || publishSuccess) {
             return
         }
 
@@ -456,6 +405,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedE
     companion object {
         private val SUPPORTED_LANGUAGES = arrayOf("ar", "arz", "bn", "cs", "de", "en", "es", "eu", "fa", "fr", "he", "hu", "hy", "it", "ko", "pl", "pt", "ru", "sr", "sv", "tr", "uk", "vi")
         private var siteInfoList: List<SiteMatrix.SiteInfo>? = null
+        const val ARG_LANG = "lang"
 
         fun isFeatureEnabled(): Boolean {
             return AccountUtil.isLoggedIn &&
