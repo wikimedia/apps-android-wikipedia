@@ -174,7 +174,8 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&generator=geosearch&prop=coordinates|description|pageimages|info&inprop=varianttitles|displaytitle")
     suspend fun getGeoSearch(
         @Query("ggscoord", encoded = true) coordinates: String,
-        @Query("ggslimit") count: Int,
+        @Query("ggslimit") ggsLimit: Int,
+        @Query("colimit") coLimit: Int,
     ): MwQueryResponse
 
     // ------- CSRF, Login, and Create Account -------
