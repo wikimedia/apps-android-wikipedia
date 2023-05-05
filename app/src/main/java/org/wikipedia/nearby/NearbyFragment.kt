@@ -7,18 +7,27 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.WellKnownTileServer
+import com.mapbox.mapboxsdk.maps.MapboxMap
 import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
 import org.wikipedia.databinding.FragmentNearbyBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.Resource
+import org.wikipedia.util.log.L
 
 class NearbyFragment : Fragment() {
 
     private var _binding: FragmentNearbyBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: NearbyFragmentViewModel by viewModels { NearbyFragmentViewModel.Factory(requireArguments()) }
+
+    private var mapboxMap: MapboxMap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +57,20 @@ class NearbyFragment : Fragment() {
 
         binding.mapView.getMapAsync { map ->
             map.setStyle(Style.Builder().fromUri("asset://mapstyle.json")) { style ->
-                // TODO
+                mapboxMap = map
+
+                map.addOnCameraIdleListener {
+                    L.d(">>>> camera idle: " + map.cameraPosition.target.latitude + ", " + map.cameraPosition.target.longitude + ", " + map.cameraPosition.zoom)
+                    viewModel.fetchNearbyPages(map.cameraPosition.target.latitude, map.cameraPosition.target.longitude)
+                }
+            }
+        }
+
+        viewModel.nearbyPages.observe(viewLifecycleOwner) {
+            if (it is Resource.Success) {
+                updateMapMarkers(it.data)
+            } else if (it is Resource.Error) {
+                FeedbackUtil.showError(requireActivity(), it.throwable)
             }
         }
     }
@@ -87,6 +109,12 @@ class NearbyFragment : Fragment() {
         binding.mapView.onDestroy()
         _binding = null
         super.onDestroyView()
+    }
+
+    private fun updateMapMarkers(pages: List<NearbyFragmentViewModel.NearbyPage>) {
+        pages.forEach {
+            L.d(">>>> " + it.pageTitle.displayText + " " + it.latitude + " " + it.longitude)
+        }
     }
 
     companion object {
