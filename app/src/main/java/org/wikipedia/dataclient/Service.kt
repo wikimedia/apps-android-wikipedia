@@ -581,6 +581,11 @@ interface Service {
         @Query("pageids") pageIds: String? = null
     ): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=paraminfo")
+    suspend fun getParamInfo(
+        @Query("modules") modules: String
+    ): ParamInfoResponse
+
     companion object {
         const val WIKIPEDIA_URL = "https://wikipedia.org/"
         const val WIKIDATA_URL = "https://www.wikidata.org/"
