@@ -71,7 +71,7 @@ class NearbyFragment : Fragment() {
             map.setStyle(Style.Builder().fromUri("asset://mapstyle.json")) { style ->
                 mapboxMap = map
 
-                style.addImage(MARKER_DRAWABLE, AppCompatResources.getDrawable(requireActivity(), R.drawable.ic_image_black_24dp)!!)
+                style.addImage(MARKER_DRAWABLE, AppCompatResources.getDrawable(requireActivity(), R.drawable.location_marker_24)!!)
 
                 // TODO: Currently the style seems to break when zooming beyond 16.0. See if we can fix this.
                 map.setMaxZoomPreference(15.999)
@@ -153,10 +153,10 @@ class NearbyFragment : Fragment() {
             }.forEach {
                 it.annotation = manager.create(SymbolOptions()
                     .withLatLng(LatLng(it.latitude, it.longitude))
+                    //.withTextField(it.pageTitle.displayText)
                     .withIconImage(MARKER_DRAWABLE)
-                    .withIconSize(1.0f)
-                    .withIconOffset(arrayOf(0f, -16f))
-                    .withTextField(it.pageTitle.displayText))
+                    .withIconSize(2.0f)
+                    .withIconOffset(arrayOf(0f, -16f)))
 
                 annotationCache.addFirst(it)
                 manager.update(it.annotation)
@@ -167,10 +167,6 @@ class NearbyFragment : Fragment() {
                 }
             }
         }
-    }
-
-    private fun hashCodeForLatLon(lat: Double, lon: Double): String {
-        return lat.toString() + lon.toString()
     }
 
     companion object {
