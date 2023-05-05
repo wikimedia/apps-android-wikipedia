@@ -68,6 +68,9 @@ class NearbyFragment : Fragment() {
 
                 style.addImage(MARKER_DRAWABLE, AppCompatResources.getDrawable(requireActivity(), R.drawable.ic_image_black_24dp)!!)
 
+                // TODO: Currently the style seems to break when zooming beyond 16.0. See if we can fix this.
+                map.setMaxZoomPreference(15.999)
+
                 map.uiSettings.isLogoEnabled = false
                 val attribMargin = DimenUtil.roundedDpToPx(16f)
                 map.uiSettings.setAttributionMargins(attribMargin, 0, attribMargin, attribMargin)
