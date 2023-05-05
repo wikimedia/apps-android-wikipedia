@@ -3,6 +3,9 @@ package org.wikipedia.nearby
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +17,15 @@ import androidx.core.app.ActivityCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.palette.graphics.Palette
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.target.Target
+import com.bumptech.glide.request.transition.Transition
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.WellKnownTileServer
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
@@ -36,7 +48,10 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
+import org.wikipedia.util.WhiteBackgroundTransformation
 import org.wikipedia.util.log.L
+import org.wikipedia.views.FaceAndColorDetectImageView
+import org.wikipedia.views.ViewUtil
 import kotlin.math.abs
 
 class NearbyFragment : Fragment() {
@@ -222,6 +237,8 @@ class NearbyFragment : Fragment() {
                 annotationCache.addFirst(it)
                 manager.update(it.annotation)
 
+                queueImageForAnnotation(it)
+
                 if (annotationCache.size > MAX_ANNOTATIONS) {
                     val removed = annotationCache.removeLast()
                     manager.delete(removed.annotation)
@@ -259,9 +276,39 @@ class NearbyFragment : Fragment() {
         }, delayMillis)
     }
 
+    private fun queueImageForAnnotation(page: NearbyFragmentViewModel.NearbyPage) {
+        val url = page.pageTitle.thumbUrl
+        if (url.isNullOrEmpty()) {
+            return
+        }
+
+        Glide.with(requireContext())
+            .asBitmap()
+            .load(url)
+            .into(object : CustomTarget<Bitmap>() {
+                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    if (!isAdded) {
+                        return
+                    }
+                    val drawable = BitmapDrawable(resources, resource)
+
+                    mapboxMap?.style?.addImage(url, drawable)
+
+                    annotationCache.find { it.pageId == page.pageId }?.let {
+                        it.annotation?.let { annotation ->
+                            annotation.iconImage = url
+                            symbolManager?.update(annotation)
+                        }
+                    }
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {}
+            })
+    }
+
     companion object {
         const val MARKER_DRAWABLE = "markerDrawable"
-        const val MAX_ANNOTATIONS = 256
+        const val MAX_ANNOTATIONS = 64
 
         fun newInstance(wiki: WikiSite): NearbyFragment {
             return NearbyFragment().apply {
