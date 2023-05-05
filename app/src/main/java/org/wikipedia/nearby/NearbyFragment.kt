@@ -16,6 +16,7 @@ import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
 import org.wikipedia.databinding.FragmentNearbyBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
@@ -58,6 +59,10 @@ class NearbyFragment : Fragment() {
         binding.mapView.getMapAsync { map ->
             map.setStyle(Style.Builder().fromUri("asset://mapstyle.json")) { style ->
                 mapboxMap = map
+
+                map.uiSettings.isLogoEnabled = false
+                val attribMargin = DimenUtil.roundedDpToPx(16f)
+                map.uiSettings.setAttributionMargins(attribMargin, 0, attribMargin, attribMargin)
 
                 map.addOnCameraIdleListener {
                     L.d(">>>> camera idle: " + map.cameraPosition.target.latitude + ", " + map.cameraPosition.target.longitude + ", " + map.cameraPosition.zoom)
