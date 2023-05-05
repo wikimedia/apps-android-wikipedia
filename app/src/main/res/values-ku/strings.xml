@@ -458,8 +458,15 @@
   <string name="reading_list_articles_already_exist_message">Tev baş in! %s jixwe temamê gotaran dihewîne.</string>
   <string name="reading_list_added_view_button">Lîsteyê bibîne</string>
   <string name="reading_list_add_to_list_button">Têxe lîsteyê</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="other">%d gotar</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="other">%1$d gotar, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d ji 1 gotarê wek offline berdest e</item>
+    <item quantity="other">%1$d ji %2$d gotaran wek offline berdest in</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d ji 1ê gotarê wek derhêl berdest e, %3$.2f MB</item>
@@ -474,6 +481,10 @@
   <string name="reading_list_sort_by_created">Li gorî wextê çêkirinê rêz bike (yê nûtirîn)</string>
   <string name="reading_list_sort_by_created_desc">Li gorî wextê çêkirinê rêz bike (yê kevintirîn)</string>
   <string name="reading_list_menu_delete">Lîsteyê jê bibe</string>
+  <string name="reading_list_menu_export">Lîstê eksport bike</string>
+  <string name="reading_list_menu_select">Bibijêre</string>
+  <string name="reading_list_menu_unselect">Bijartinan rake</string>
+  <string name="reading_list_export_write_permission_rationale">Îzna nivîsîna li depoya cîhaza te lazim e ji bo eksportkirina lîsta te ya xwendinê.</string>
   <string name="reading_list_menu_rename">Nav/danasînê biguhêre</string>
   <string name="reading_list_action_menu_remove_from_offline">Ji derhêlê rake</string>
   <string name="reading_list_action_menu_save_for_offline">Qeyd bike ji bo derhêl</string>
@@ -491,6 +502,10 @@
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="other">%d gotar ji %s hate rakirin</item>
+  </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d lîst hate jêbirin</item>
+    <item quantity="other">%d hatin jêbirin</item>
   </plurals>
   <string name="reading_list_items_deleted">%d gotar ji lîstê hate rakirin</string>
   <string name="reading_lists_item_deleted">%s ji lîstan hate rakirin</string>
@@ -784,7 +799,7 @@
   <string name="description_starts_with_uppercase">Ger peyva pêşî ne navdêreke xisûsî be, bi herfeke hûrdek dest pê bike.</string>
   <string name="description_starts_with_lowercase">Xwe ji destpêkirina bi herfeke hûrdek dûr bike.</string>
   <string name="description_is_in_different_language">Nivîs bi zimanekî nehêvîkirî tê xuyan. Divê ziman bibe %s.</string>
-  <string name="description_verification_notice">Ji kerema xwe tesdîq bike ku danasîna te bi zimanê %1$s ye. Ger danasîna te nivîsiye bi zimanê %2$s be, serbest î ku vê hişyariyê biveşêrî.</string>
+  <string name="description_verification_notice" fuzzy="true">Ji kerema xwe tesdîq bike ku danasîna te bi zimanê %1$s ye. Ger danasîna te nivîsiye bi zimanê %2$s be, serbest î ku vê hişyariyê biveşêrî.</string>
   <string name="description_edit_success_saved">Danasîna gotarê hate weşandin!</string>
   <string name="description_edit_success_saved_snackbar">Danasîna gotarê hate weşandin!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Danasîna gotarê hate weşandin! (%s)</string>

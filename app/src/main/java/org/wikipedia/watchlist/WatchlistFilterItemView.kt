@@ -34,7 +34,7 @@ class WatchlistFilterItemView constructor(context: Context, attrs: AttributeSet?
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.roundedDpToPx(48f))
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
+            foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
         }
         setOnClickListener {
             callback?.onCheckedChanged(filter)
@@ -60,11 +60,11 @@ class WatchlistFilterItemView constructor(context: Context, attrs: AttributeSet?
     }
 
     fun setSingleLabel(text: String) {
-        val accentColor = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
+        val accentColor = ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color)
         binding.watchlistFilterLanguageCode.visibility = View.GONE
         binding.watchlistFilterWikiLogo.visibility = View.VISIBLE
         ImageViewCompat.setImageTintList(binding.watchlistFilterWikiLogo, accentColor)
-        binding.watchlistFilterWikiLogo.setImageResource(R.drawable.ic_mode_edit_themed_24dp)
+        binding.watchlistFilterWikiLogo.setImageResource(R.drawable.ic_mode_edit_white_24dp)
         binding.watchlistFilterCheck.visibility = View.GONE
         binding.watchlistFilterTitle.setTextColor(accentColor)
         binding.watchlistFilterTitle.text = text.uppercase()

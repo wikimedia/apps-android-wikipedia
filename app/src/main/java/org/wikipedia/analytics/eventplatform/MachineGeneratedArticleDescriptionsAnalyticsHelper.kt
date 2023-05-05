@@ -104,6 +104,9 @@ class MachineGeneratedArticleDescriptionsAnalyticsHelper {
     }
 
     private fun composeGroupString(): String {
+        if (!isUserInExperiment) {
+            return ""
+        }
         return "$MACHINE_GEN_DESC_SUGGESTIONS.group:${abcTest.group}.experienced:${Prefs.suggestedEditsMachineGeneratedDescriptionsIsExperienced}"
     }
 

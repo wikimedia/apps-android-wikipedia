@@ -711,7 +711,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заключено, докато не редактирате %d описания на статии (проверени)</string>
   <string name="suggested_edits_task_multilingual_negative">Не е за мен</string>
   <string name="suggested_edits_task_multilingual_positive">Добавяне на езици</string>
-  <string name="suggested_edits_image_caption_summary_title_image">Файл</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Картинка</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Създател</string>
   <string name="suggested_edits_image_caption_summary_title_author">Автор</string>
   <string name="suggested_edits_image_caption_summary_title_source">Източник</string>
@@ -725,7 +725,7 @@
   <string name="suggested_edits_feed_card_add_description_button">Добавяне на описание на статията</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Добавяне на описание на статията (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Започване</string>
-  <string name="suggested_edits_image_preview_dialog_image">Файл</string>
+  <string name="suggested_edits_image_preview_dialog_image">Картинка</string>
   <string name="suggested_edits_image_preview_dialog_artist">Създател</string>
   <string name="suggested_edits_image_preview_dialog_tags">Етикети</string>
   <string name="suggested_edits_image_preview_dialog_date">Дата</string>
@@ -747,7 +747,7 @@
   <string name="suggested_edits_encouragement_message">%s, благодарим Ви за вашите редакции. По-долу може да намерите още начини как да допринасяте за Уикипедия.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здравейте, %s&lt;/b&gt;, по-долу можете да видите бърз и лесен начин за подобряване на Уикипедия. Ще видите подобренията, която правите, веднага щом започнете. Приятно редактиране!</string>
   <string name="suggested_edits_image_captions_task_detail">Опишете изображение, за да помогнете на читателите да разберат смисъла и контекста му.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Обобщава статията, за да помогне на читателите да добият представа за темата.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Добавете кратко описание на статията, за да помогнете на читателите да добият представа за темата.</string>
   <string name="suggested_edits_editing_tips_link_text">Съвети и трикове за редактирането</string>
   <string name="suggested_edits_views_label_text">Преглеждания</string>
   <string name="suggested_edits_quality_label_text">Качество на редакциите</string>
@@ -770,7 +770,7 @@
   <string name="suggested_edits_learn_more">Научете повече</string>
   <string name="suggested_edits_last_edited">Последна редакция</string>
   <string name="suggested_edits_last_edited_never">Никога</string>
-  <string name="suggested_edits_task_new">ново</string>
+  <string name="suggested_edits_task_new">нова</string>
   <string name="suggested_edits_cc0_notice">Публикувайки, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC0 лиценз&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Предложения за редактиране</string>
   <string name="suggested_edits_contributions_screen_title">Приносите на %s</string>
@@ -779,7 +779,7 @@
   <string name="suggested_edits_contribution_type_label">Вид принос</string>
   <string name="suggested_edits_contribution_image_label">Изображение</string>
   <string name="suggested_edits_contribution_article_label">Статия</string>
-  <string name="suggested_edits_contribution_views">%s прочита</string>
+  <string name="suggested_edits_contribution_views">%s преглеждания</string>
   <string name="suggested_edits_contribution_seen_text">Видяно %s пъти през последните 30 дни.</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>

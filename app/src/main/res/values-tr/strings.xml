@@ -480,8 +480,13 @@
   <string name="text_size_percent_default">%s (Varsayılan)</string>
   <string name="text_style_title">Yazı tipi</string>
   <string name="theme_category_reading">Okuma</string>
+  <string name="theme_category_editing">Düzenleme</string>
   <string name="reading_focus_mode">Odaklanma modunda okunuyor</string>
   <string name="reading_focus_mode_detail">Kaydırma esnasındayken düzenleme özelliklerini ve alt araç çubuğunu gizler</string>
+  <string name="editing_syntax_highlight_label">Sözdizim vurgulama</string>
+  <string name="editing_line_numbers_label">Satır numaralarını göster</string>
+  <string name="editing_monospace_font_label">Sabit aralıklı yazı tipi kullan</string>
+  <string name="editing_typing_suggestions">Yazım önerileri göster</string>
   <string name="nav_item_saved">Kaydedildi</string>
   <string name="reading_list_save_to">Okuma listesine kaydet</string>
   <string name="reading_list_move_to">Okuma listesine taşı</string>
@@ -494,9 +499,17 @@
   <string name="reading_list_articles_already_exist_message">%s zaten tüm maddeleri içeriyor.</string>
   <string name="reading_list_added_view_button">Listeyi görüntüle</string>
   <string name="reading_list_add_to_list_button">Listeye ekle</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 madde</item>
+    <item quantity="other">%d madde</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 madde, %2$.2f MB</item>
     <item quantity="other">%1$d madde, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">1 maddeden %1$d tanesi çevrimdışı erişilebilir</item>
+    <item quantity="other">%2$d maddeden %1$d tanesi çevrimdışı erişilebilir</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d - 1 madde çevrimdışı mevcut, %3$.2f MB</item>
@@ -511,6 +524,10 @@
   <string name="reading_list_sort_by_created">Oluşturulma tarihine göre sırala (en yeni)</string>
   <string name="reading_list_sort_by_created_desc">Oluşturulma tarihine göre sırala (en eski)</string>
   <string name="reading_list_menu_delete">Listeyi sil</string>
+  <string name="reading_list_menu_export">Listeyi dışa aktar</string>
+  <string name="reading_list_menu_select">Seç</string>
+  <string name="reading_list_menu_unselect">Seçimi kaldır</string>
+  <string name="reading_list_export_write_permission_rationale">Okuma listenizi dışa aktarmak için cihazınızda depolamaya yazma izni gereklidir.</string>
   <string name="reading_list_menu_rename">İsmi/açıklamayı düzenle</string>
   <string name="reading_list_action_menu_remove_from_offline">Çevrimdışından kaldır</string>
   <string name="reading_list_action_menu_save_for_offline">Çevrimdışı olarak kaydet</string>
@@ -531,6 +548,15 @@
     <item quantity="one">%d sayfa %s listesinden çıkarıldı</item>
     <item quantity="other">%d sayfa %s listesinden çıkarıldı</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d liste silindi</item>
+    <item quantity="other">%d liste silindi</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Varsayılan liste (%s) silinemez</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s silindi. Varsayılan liste (%2$s) silinemez.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Listeler silindi. Varsayılan liste (%s) silinemez.</string>
+  <string name="single_list_json_file_name">%s (Vikipedi okuma listesi).json</string>
+  <string name="multiple_lists_json_file_name">Vikipedi okuma listeleri (%s ve dahası).json</string>
   <string name="reading_list_items_deleted">%d maddesi listeden silindi</string>
   <string name="reading_lists_item_deleted">%s, listelerden çıkarıldı</string>
   <string name="reading_list_item_delete_undo">Geri al</string>
@@ -563,6 +589,11 @@
   <string name="reading_list_articles_added_to_named">%2$s içeriğine %1$d madde eklendi</string>
   <string name="reading_list_articles_moved_to_named">%1$d maddeyi %2$s ile taşındı</string>
   <string name="reading_list_delete_confirm">Bu %s okuma listesini silmek istediğinizden emin misiniz?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Seçilen liste(ler) silinsin mi?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">%d listeyi silmek istediğinizden emin misiniz?</item>
+    <item quantity="other">%d listeyi silmek istediğinizden emin misiniz?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Senkronizasyonu etkinleştirmek için giriş yapın</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Okuma listelerinizin hesabınıza kaydedilmesini sağlamak için giriş yapın.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">İptal</string>
@@ -586,6 +617,7 @@
   <string name="reading_list_article_limit_message">Bu listeye eklenemedi. \"%1$s\" için liste başına %2$d madde sınırına ulaştınız.</string>
   <string name="reading_lists_limit_message">Başka bir liste oluşturamazsınız. Hesap başına 100 okuma listesi sınırına ulaştınız.</string>
   <string name="reading_lists_menu_create_list">Yeni bir liste oluştur</string>
+  <string name="reading_lists_menu_import_list">Listeyi içe aktar</string>
   <string name="reading_lists_menu_sort_by">Sıralama ölçütü:</string>
   <string name="reading_lists_refresh_sync_option">Senkronizasyonu yenile</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Oturum aç / kaydol</string>
@@ -606,7 +638,33 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">İptal</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">İptal</string>
   <string name="reading_list_split_dialog_ok_button_text">Tamam</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Sil</string>
   <string name="reading_list_activity_title">Okuma listesi: %s</string>
+  <string name="reading_list_notification_title">Okuma listesi/listeleri dışa aktarıldı</string>
+  <string name="reading_list_notification_text">%d Okuma listesi/listeleri \'okuma_listesi aktarım.json\' olarak indirilenler klasörünüze aktarıldı</string>
+  <string name="reading_list_notification_detailed_text">Okuma listeleri \'okuma_listeleri_aktarım.json\' olarak aktarıldı</string>
+  <string name="reading_lists_action_menu_export_lists">Dışa aktar</string>
+  <string name="reading_lists_import_file_picker_title">İçe aktarılacak dosyayı seçin</string>
+  <string name="reading_lists_import_failure_message">Okuma listeleri içe aktarılamadı</string>
+  <string name="reading_lists_export_select_lists_message">Dışa aktarılacak listeyi/listeleri seçin</string>
+  <string name="reading_lists_export_completed_message">Okuma listesi/listeleri dışa aktarıldı</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Okuma listesi dışa aktarımı başarısız oldu</item>
+    <item quantity="other">Okuma listeleri dışa aktarımı başarısız oldu</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Okuma listesi içe aktarıldı</item>
+    <item quantity="other">Okuma listeleri içe aktarıldı</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Paylaşılan liste</string>
+  <string name="reading_lists_preview_save_button">Kaydet</string>
+  <string name="reading_lists_preview_save_dialog_title">Listeyi kaydet</string>
+  <string name="reading_lists_preview_save_dialog_text">Listeyi adlandırın ve kaydedilecek maddeleri seçin.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Başlık</string>
+  <string name="reading_lists_preview_save_dialog_cancel">İptal</string>
+  <string name="reading_lists_preview_save_dialog_save">Kaydet</string>
+  <string name="reading_lists_preview_saved_snackbar">Okuma listesi kaydedildi</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Görüntüle</string>
   <string name="user_option_sync_label">Tercihler</string>
   <string name="notification_reverted_title">Geri alınan düzenleme</string>
   <string name="notification_channel_title">Makaleler indiriliyor</string>
@@ -815,13 +873,19 @@
   <string name="description_edit_license_notice">Madde tanımını değiştirerek &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
   <string name="description_edit_helper_text_lowercase_warning">genellikle küçük harfle başlar</string>
   <string name="description_edit_voice_input_description">Ses girişi</string>
+  <string name="description_edit_learn_more">Madde açıklamaları hakkında daha fazla bilgi edinin</string>
+  <string name="description_edit_image_caption_learn_more">Görsel alt yazıları hakkında daha fazla bilgi edinin</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Makale_A%C3%A7%C4%B1klamalar%C4%B1</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Resim_Ba%C5%9Fl%C4%B1klar%C4%B1</string>
   <string name="description_too_short">Metin çok kısa.</string>
   <string name="description_ends_with_punctuation">Metin noktalama işaretleri ile bitmemelidir.</string>
   <string name="description_starts_with_article">\"A\" veya \"the\" gibi maddelerle başlamaktan kaçının.</string>
   <string name="description_starts_with_uppercase">İlk kelime uygun bir isim değilse, küçük harfle başlayın.</string>
   <string name="description_starts_with_lowercase">Küçük harfle başlamaktan kaçının.</string>
   <string name="description_is_in_different_language">Metin beklenmedik bir dilde görünüyor. Dil %s olmalıdır.</string>
-  <string name="description_verification_notice">Lütfen, açıklamanızın %1$s olduğunu doğrulayın. Yazdığınız açıklama %2$s ise bu bildirimi kapamaktan çekinmeyin.</string>
+  <string name="description_verification_notice" fuzzy="true">Lütfen, açıklamanızın %1$s olduğunu doğrulayın. Yazdığınız açıklama %2$s ise bu bildirimi kapamaktan çekinmeyin.</string>
+  <string name="description_edit_suggested_description_button_text">Önerilen açıklamaları göster</string>
+  <string name="description_edit_suggested_description_button_tooltip">Makine-önerisi madde açıklamalarını deneyin</string>
   <string name="description_edit_success_saved">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_snackbar">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Madde açıklaması yayımlandı! (%s)</string>
@@ -839,6 +903,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">İdeal olarak iki ila on iki kelimelik bir cümle</string>
   <string name="description_edit_tutorial_button_label_start_editing">Düzenlemeye başla</string>
   <string name="description_edit_tutorial_promise">Başlarken bu özelliği kötüye kullanmayacağıma söz veriyorum.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Makine önerileri</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Öneriler, gönüllüler ya da Wikimedia Vakfı tarafından değil, bir makine tarafından üretilir.</string>
   <string name="customize_toolbar_title">Araç çubuğunu özelleştir</string>
   <string name="customize_toolbar_shortcut_description_text">Alt araç çubuğunu en yararlı bulduğunuz 5 kısayolla özelleştirin.</string>
   <string name="customize_toolbar_category_toolbar">Araç çubuğu</string>
@@ -940,9 +1006,9 @@
   <string name="suggested_edits_gate_message">Üzgünüz %s, bu özelliği kullanmak için doğrudan bir maddede en az üç düzenleme yapmalısınız.</string>
   <string name="suggested_edits_editing_tips_link_text">İpuçlarını ve püf noktalarını düzenleme</string>
   <string name="suggested_edits_help_page_link_text">Önerilen düzenlemeler yardım sayfası</string>
-  <string name="suggested_edits_edit_streak_label_text">Çizgiyi düzenle</string>
+  <string name="suggested_edits_edit_streak_label_text">Değişiklik serisi</string>
   <string name="suggested_edits_views_label_text">Görüntülenme</string>
-  <string name="suggested_edits_quality_label_text">Kaliteyi düzenle</string>
+  <string name="suggested_edits_quality_label_text">Değişiklik niteliği</string>
   <string name="suggested_edits_quality_perfect_text">Mükemmel</string>
   <string name="suggested_edits_quality_excellent_text">Mükemmel</string>
   <string name="suggested_edits_quality_very_good_text">Çok iyi</string>
@@ -994,6 +1060,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Resim etiketi</string>
   <string name="suggested_edits_contribution_current_revision_text">Düzenlemeniz şu anda Vikipedi\'de yayında</string>
   <string name="suggested_card_more_edits">Daha fazla önerilen düzenleme</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Önerilen açıklamalar</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Neyi bildirmek istiyorsunuz?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Yeterli bilgi yok</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Önerilen açıklamaları göremiyorum</string>
+  <string name="suggested_edits_inappropriate_suggestion">Uygun olmayan öneri</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Görev anlaşılmamış</string>
+  <string name="suggested_edits_report_suggestion">Bildir</string>
+  <string name="suggested_edits_suggestion_report_submitted">Bildirim gönderildi</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etiket</item>
     <item quantity="other">%1$s etiket</item>
@@ -1088,7 +1162,17 @@
   <string name="content_description_for_page_indicator">Sayfa %1$d %2$d</string>
   <string name="wikitext_bold">Kalın</string>
   <string name="wikitext_italic">Eğik</string>
+  <string name="wikitext_underline">Altını çiz</string>
+  <string name="wikitext_strikethrough">Üstünü çiz</string>
+  <string name="wikitext_sup">Üst simge</string>
+  <string name="wikitext_sub">Alt simge</string>
+  <string name="wikitext_large">Büyük metin</string>
+  <string name="wikitext_small">Küçük metin</string>
+  <string name="wikitext_code">Kod</string>
   <string name="wikitext_link">Bağlantı</string>
+  <string name="wikitext_heading_n">Alt başlık %d</string>
+  <string name="wikitext_formatting">Biçimlendirme</string>
+  <string name="wikitext_headings">Başlıklar</string>
   <string name="wikitext_insert_media">Medyayı ekle</string>
   <string name="wikitext_bulleted_list">Madde işaretli liste</string>
   <string name="wikitext_numbered_list">Numaralı liste</string>
@@ -1140,6 +1224,8 @@
   <string name="talk_new_topic">Yeni konu</string>
   <string name="talk_new_topic_submitted">Konu gönderildi.</string>
   <string name="talk_page_empty">Bu tartışma sayfası boş.</string>
+  <string name="talk_page_empty_title">Konuşma burada başlıyor</string>
+  <string name="talk_page_empty_content">Tartışma sayfaları, insanların Vikipedi içeriğini olabildiğince iyi hale getirmeyi tartıştığı yerdir. Vikipedist topluluğuyla bağlantı kurmak ve işbirliği yapmak için yeni bir tartışma konusu ekleyerek başlayın.</string>
   <string name="talk_add_reply">Yanıtla</string>
   <string name="talk_no_subject">(Konu yok)</string>
   <string name="talk_reply_subject">Konu</string>
@@ -1162,6 +1248,8 @@
   <string name="talk_overflow_sort_date_published">Yayımlanma tarihi</string>
   <string name="talk_overflow_sort_date_updated">Güncellenme tarihi</string>
   <string name="talk_overflow_sort_topic_name">Konu adı</string>
+  <string name="talk_new_topic_exit_dialog_title">Çıkmak istediğinize emin misiniz?</string>
+  <string name="talk_new_topic_exit_dialog_message">Konu ve içerik metni kaydedilmeyecek.</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Cevabı göster</item>
     <item quantity="other">(%d) cevabı göster</item>
@@ -1182,6 +1270,8 @@
   <string name="talk_list_item_user_icon_content_description">Kullanıcı simgesi</string>
   <string name="talk_list_item_swipe_mark_as_read">Okundu</string>
   <string name="talk_list_item_swipe_mark_as_unread">Okunmamış</string>
+  <string name="talk_login_to_subscribe_dialog_title">Konulara abone olmak için giriş yapın</string>
+  <string name="talk_login_to_subscribe_dialog_content">Konu abonelikleri, bu konudaki yeni yorumlar hakkında bildirim almanıza izin verir. Bir konuya abone olmak için lütfen bir hesap oluşturun ya da Vikipedi hesabınıza giriş yapın.</string>
   <string name="talk_archived_title">Tartışma arşivi: %s</string>
   <string name="menu_option_share_talk_discussion">Tartışmayı paylaş</string>
   <string name="menu_option_share_talk_page">Tartışma sayfasını paylaş</string>
@@ -1190,6 +1280,7 @@
   <string name="menu_option_edit_source">Kaynağı düzenle</string>
   <string name="menu_option_user_page">%s kullanıcı sayfası</string>
   <string name="menu_option_find_in_talk_page_topic">Tartışma sayfasında konu bul</string>
+  <string name="menu_option_copy_link_to_clipboard">Bağlantıyı panoya kopyala</string>
   <string name="talk_menu_copy_text">Metni kopyala</string>
   <string name="talk_menu_expand_threads">Konuları genişlet</string>
   <string name="talk_menu_collapse_threads">Konuları daralt</string>
@@ -1204,7 +1295,7 @@
   <string name="thank_dialog_positive_button_text">Teşekkür gönder</string>
   <string name="thank_dialog_negative_button_text">İptal</string>
   <string name="thank_success_message">\'Teşekkür\'ün %s kullanıcısına gönderildi</string>
-  <string name="menu_option_view_user_profile" fuzzy="true">Kullanıcı profili sayfasını görüntüle</string>
+  <string name="menu_option_view_user_profile">Kullanıcı sayfasını görüntüle</string>
   <string name="menu_option_view_user_talk">Tartışma sayfasını görüntüle</string>
   <string name="menu_option_view_user_contributions">Kullanıcı katkılarını görüntüle</string>
   <string name="revision_diff_compare">Düzeltmeleri karşılaştır</string>
@@ -1213,6 +1304,7 @@
   <string name="revision_diff_to">Alıcı:</string>
   <string name="revision_diff_line_num">Satır %d</string>
   <string name="revision_diff_line_nums">Satırlar %d-%d</string>
+  <string name="revision_diff_lines_from_to">%1$d–%2$d satırları</string>
   <string name="revision_diff_line_added">Satır eklendi</string>
   <string name="revision_diff_line_removed">Satır kaldırıldı</string>
   <string name="revision_diff_paragraph_added">Paragraf eklendi</string>
@@ -1240,6 +1332,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 ay</string>
   <string name="watchlist_expiry_dialog_six_months">6 ay</string>
   <string name="watchlist_empty">İzleme listenizde madde yok.</string>
+  <string name="watchlist_search">İzleme listesinde ara</string>
   <string name="watchlist_filter_all">Hepsi</string>
   <string name="watchlist_filter_talk">Tartışma</string>
   <string name="watchlist_filter_pages">Sayfalar</string>
@@ -1247,6 +1340,61 @@
   <string name="watchlist_page_moved">Taşındı</string>
   <string name="watchlist_page_protected">Korumalı</string>
   <string name="watchlist_page_deleted">Silindi</string>
+  <string name="watchlist_filter_title">İzleme listesi süzgeci</string>
+  <string name="watchlist_filter_wiki_filter_header">Viki</string>
+  <string name="watchlist_filter_all_text">Hepsi</string>
+  <string name="watchlist_filter_watchlist_activity_header">İzleme listesi etkinliği</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Görülmemiş değişiklikler</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Görülmüş değişiklikler</string>
+  <string name="watchlist_filter_contribution_quality_header">Katkı niteliği öngörüleri</string>
+  <string name="watchlist_filter_contribution_quality_good">Büyük olasılıkla iyi</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Sorunlu olabilir</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Sorunlu olabilir</string>
+  <string name="watchlist_filter_contribution_quality_bad">Büyük olasılıkla sorunlu olabilir</string>
+  <string name="watchlist_filter_user_intent_header">Kullanıcı niyeti öngörüleri</string>
+  <string name="watchlist_filter_user_intent_good">Büyük olasılıkla iyi niyetli</string>
+  <string name="watchlist_filter_user_intent_may_problems">Kötü niyetli olabilir</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Kötü niyetli beklenir</string>
+  <string name="watchlist_filter_user_intent_bad">Büyük olasılıkla kötü niyetli</string>
+  <string name="watchlist_filter_user_status_header">Kullanıcı kaydı ve deneyimi</string>
+  <string name="watchlist_filter_user_status_unregistered">Kayıtsız</string>
+  <string name="watchlist_filter_user_status_registered">Kayıtlı</string>
+  <string name="watchlist_filter_user_status_newcomers">Yeni gelenler</string>
+  <string name="watchlist_filter_user_status_learners">Öğreniciler</string>
+  <string name="watchlist_filter_user_status_experienced">Deneyimli kullanıcılar</string>
+  <string name="watchlist_filter_contribution_authorship_header">Katkı iyeliği</string>
+  <string name="watchlist_filter_contribution_authorship_own">Sizin değişiklikleriniz</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Başkalarının değişiklileri</string>
+  <string name="watchlist_filter_automated_contributions_header">Otomatik katkılar</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">İnsan (bot değil)</string>
+  <string name="watchlist_filter_significance_header">Önem</string>
+  <string name="watchlist_filter_significance_minor">Küçük değişiklikler</string>
+  <string name="watchlist_filter_significance_edits">Küçük olmayan değişiklikler</string>
+  <string name="watchlist_filter_latest_revisions_header">Güncel sürümler</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Güncel sürüm</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Güncel olmayan sürüm</string>
+  <string name="watchlist_filter_type_of_change_header">Değişiklik türü</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Sayfa düzenlemeleri</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Sayfa oluşturmaları</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Kategori değişiklikleri</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Vikiveri değişiklikleri</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Günlüğü tutulan eylemler</string>
+  <string name="watchlist_filter_type_of_change_new_users">Yeni kullanıcılar</string>
+  <string name="watchlist_filter_reset_button">Sıfırla</string>
+  <string name="watchlist_search_bar_hint">İzleme listesini arayın veya filtreleyin</string>
+  <string name="watchlist_search_bar_filter_hint">İzleme listesi süzgeci</string>
+  <string name="watchlist_empty_search_message">Sonuç yok, daha fazlasını görmek için %s kaldırmayı deneyin.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d süzgeç</item>
+    <item quantity="other">%d süzgeç</item>
+  </plurals>
+  <string name="preview_edit_title">Değişikliği ön izle</string>
+  <string name="preview_edit_summarize_edit_title">Değişikliği özetle</string>
+  <string name="preview_edit_summarize_edit_hint">Bu sayfayı nasıl geliştirdiniz?</string>
+  <string name="preview_edit_minor_edit">Bu bir küçük değişiklik</string>
+  <string name="preview_edit_watch_this_page">Bu sayfayı izle</string>
+  <string name="preview_edit_learn_more">Değişiklik özetleri hakkında daha fazla bilgi edinin</string>
   <string name="action_item_categories">kategoriler</string>
   <string name="page_no_categories">Bulunduğunuz sayfa herhangi bir kategoriye ait değildir.</string>
   <string name="category_tab_articles">Makaleler</string>
@@ -1255,5 +1403,28 @@
   <string name="subcategory_empty">Bu kategoride alt kategori bulunamadı.</string>
   <string name="search_namespaces">Ad alanları</string>
   <string name="revision_initial_none">Yok (bu ilk sürümdür)</string>
+  <string name="user_contrib_activity_title">%s katkıları</string>
   <string name="archive_empty">Arşivlenmiş sayfa bulunamadı.</string>
+  <string name="user_contrib_filter_ns">Ad alanına göre filtrele</string>
+  <string name="user_contrib_filter_all">Tüm ad alanları</string>
+  <string name="user_contrib_filter_ns_header">Ad alanı süzgeci</string>
+  <string name="namespace_article">Madde</string>
+  <string name="user_contrib_current">güncel</string>
+  <string name="media_playback_error">Ortam oynatılırken hata oluştu.</string>
+  <string name="user_contrib_menu_label">Katkılar</string>
+  <string name="user_contrib_filter_activity_title">Katkıları filtrele</string>
+  <string name="shareable_reading_lists_import_dialog_title">Paylaşılan okuma listesini içe aktar</string>
+  <string name="shareable_reading_lists_import_dialog_content">Sizinle paylaşılan listeyi nasıl adlandırmak istersiniz?</string>
+  <string name="shareable_reading_lists_new_indicator">*yeni*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Sizinle bir okuma listesi paylaşıldı</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Bir okuma listesinin sizinle paylaşıldığını görüyoruz. Bu listeyi uygulamada görmek için özgün iletiye gidip bağlantıya tekrar dokunun.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Anladım</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Okuma listesi içe aktarıldı</string>
+  <string name="reading_list_share_menu_label">Paylaş…</string>
+  <string name="reading_list_share_menu_tooltip">Bu okuma listesini başkalarıyla paylaşın</string>
+  <string name="reading_list_share_message_v2">Merhaba! Vikipedi okuma listemi seninle paylaşmak istiyorum:</string>
+  <string name="reading_list_share_survey_title">\"Okuma listelerini paylaş\" özelliğini iyileştirmemize yardımcı olabilir misiniz?</string>
+  <string name="reading_list_share_survey_body">\"Okuma listelerini paylaş\" bir deneme özelliğidir ve iyileştirmek ya da kaldırmak için geri bildiriminize ihtiyacımız var.</string>
+  <string name="data_opt_in_accept">Kabul et</string>
+  <string name="data_opt_in_reject">Reddet</string>
 </resources>

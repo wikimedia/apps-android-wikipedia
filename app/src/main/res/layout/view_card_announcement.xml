@@ -34,7 +34,7 @@
             android:fontFamily="sans-serif"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="16sp"
             tools:text="Lorem ipsum" />
 
@@ -55,7 +55,7 @@
                 style="@style/FlatButton.Small"
                 android:layout_marginEnd="8dp"
                 app:iconSize="20dp"
-                app:iconTint="?attr/colorAccent"/>
+                app:iconTint="?attr/progressive_color"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/view_announcement_action_negative"
@@ -82,7 +82,7 @@
                 style="@style/TransparentButton"
                 android:layout_margin="4dp"
                 android:text="@string/view_announcement_card_negative_action"
-                android:textColor="?attr/secondary_text_color"/>
+                android:textColor="?attr/placeholder_color"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/view_announcement_dialog_action_positive"
@@ -95,7 +95,7 @@
             android:id="@+id/view_announcement_footer_border"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="?attr/chip_background_color"
+            android:background="?attr/border_color"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp" />
 
@@ -104,7 +104,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:textColor="?attr/secondary_text_color"
+            android:textColor="?attr/placeholder_color"
             android:textSize="12sp"
             tools:text="Lorem ipsum" />
 

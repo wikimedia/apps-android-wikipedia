@@ -10,6 +10,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.app.NotificationCompat
+import androidx.core.app.PendingIntentCompat
 import androidx.core.app.RemoteInput
 import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
@@ -72,7 +73,7 @@ object NotificationPresenter {
         val builder = getDefaultBuilder(context, unreadCount.toLong(), NotificationPollBroadcastReceiver.TYPE_MULTIPLE)
         showNotification(context, builder, 0, context.getString(R.string.app_name),
                 context.getString(R.string.notification_many_unread, unreadCount), context.getString(R.string.notification_many_unread, unreadCount),
-                null, R.drawable.ic_notifications_black_24dp, R.color.accent50,
+                null, R.drawable.ic_notifications_black_24dp, R.color.blue600,
                 addIntentExtras(NotificationActivity.newIntent(context), unreadCount.toLong(), NotificationPollBroadcastReceiver.TYPE_MULTIPLE))
     }
 
@@ -92,7 +93,7 @@ object NotificationPresenter {
     fun showNotification(context: Context, builder: NotificationCompat.Builder, id: Int,
                          title: String, text: String, longText: CharSequence, lang: String?,
                          @DrawableRes icon: Int, @ColorRes color: Int, bodyIntent: Intent) {
-        builder.setContentIntent(PendingIntent.getActivity(context, 0, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags))
+        builder.setContentIntent(PendingIntentCompat.getActivity(context, 0, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT, false))
                 .setLargeIcon(drawNotificationBitmap(context, color, icon, lang.orEmpty().uppercase(Locale.getDefault())))
                 .setSmallIcon(R.drawable.ic_wikipedia_w)
                 .setColor(ContextCompat.getColor(context, color))
@@ -110,8 +111,9 @@ object NotificationPresenter {
                 L.e(e)
             }
         }
-        val pendingIntent = PendingIntent.getActivity(context, 0,
-                addIntentExtras(Intent(Intent.ACTION_VIEW, Uri.parse(link.url)), n.id, n.type), PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
+        val pendingIntent = PendingIntentCompat.getActivity(context, 0,
+            addIntentExtras(Intent(Intent.ACTION_VIEW, Uri.parse(link.url)), n.id, n.type),
+            PendingIntent.FLAG_UPDATE_CURRENT, false)
         val labelStr: String = if (link.tooltip.isNotEmpty()) {
             StringUtil.fromHtml(link.tooltip).toString()
         } else {
@@ -126,17 +128,18 @@ object NotificationPresenter {
         val oldRev = uri.getQueryParameter("prev").orEmpty().toLongOrNull() ?: -1
         val newRev = uri.getQueryParameter("diff").orEmpty().toLongOrNull() ?: -1
 
-        val pendingIntent = PendingIntent.getActivity(context, 0,
+        val pendingIntent = PendingIntentCompat.getActivity(context, 0,
             addIntentExtras(ArticleEditDetailsActivity.newIntent(context, PageTitle(title, WikiSite(link.url)), -1, oldRev, newRev), n.id, n.type),
-            PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
+            PendingIntent.FLAG_UPDATE_CURRENT, false)
         builder.addAction(0, StringUtil.fromHtml(link.label).toString(), pendingIntent)
     }
 
     private fun addActionForTalkPage(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {
         val wiki = WikiSite(link.url)
         val title = PageTitle.titleForUri(Uri.parse(link.url), wiki)
-        val pendingIntent = PendingIntent.getActivity(context, 0,
-                addIntentExtras(TalkTopicsActivity.newIntent(context, title, Constants.InvokeSource.NOTIFICATION), n.id, n.type), PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
+        val pendingIntent = PendingIntentCompat.getActivity(context, 0,
+            addIntentExtras(TalkTopicsActivity.newIntent(context, title, Constants.InvokeSource.NOTIFICATION), n.id, n.type),
+            PendingIntent.FLAG_UPDATE_CURRENT, false)
         builder.addAction(0, StringUtil.fromHtml(link.label).toString(), pendingIntent)
     }
 
@@ -150,7 +153,7 @@ object NotificationPresenter {
             .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_TITLE, title)
             .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_REPLY_TO, replyTo)
             .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_ID, id)
-        val resultPendingIntent = PendingIntent.getBroadcast(context, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
+        val resultPendingIntent = PendingIntentCompat.getBroadcast(context, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT, false)
 
         val action = NotificationCompat.Action.Builder(R.drawable.ic_reply_24, context.getString(R.string.notifications_direct_reply_action), resultPendingIntent)
             .addRemoteInput(remoteInput)

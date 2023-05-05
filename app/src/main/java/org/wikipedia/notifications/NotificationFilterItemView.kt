@@ -35,7 +35,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.roundedDpToPx(48f))
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
+            foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
         }
         setOnClickListener {
             callback?.onCheckedChanged(filter)
@@ -58,7 +58,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         }
         filter.imageRes?.let {
             ImageViewCompat.setImageTintList(binding.notificationFilterWikiLogo,
-                ResourceUtil.getThemedColorStateList(context, R.attr.secondary_text_color))
+                ResourceUtil.getThemedColorStateList(context, R.attr.placeholder_color))
             binding.notificationFilterWikiLogo.setImageResource(it)
             binding.notificationFilterWikiLogo.visibility = View.VISIBLE
         } ?: run {
@@ -67,11 +67,11 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
     }
 
     fun setSingleLabel(text: String) {
-        val accentColor = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
+        val accentColor = ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color)
         binding.notificationFilterLanguageCode.visibility = View.GONE
         binding.notificationFilterWikiLogo.visibility = View.VISIBLE
         ImageViewCompat.setImageTintList(binding.notificationFilterWikiLogo, accentColor)
-        binding.notificationFilterWikiLogo.setImageResource(R.drawable.ic_mode_edit_themed_24dp)
+        binding.notificationFilterWikiLogo.setImageResource(R.drawable.ic_mode_edit_white_24dp)
         binding.notificationFilterCheck.visibility = View.GONE
         binding.notificationFilterTitle.setTextColor(accentColor)
         binding.notificationFilterTitle.text = text.uppercase()

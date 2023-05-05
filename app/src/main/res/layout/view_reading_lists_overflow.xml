@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:divider="?attr/list_separator_drawable"
+        android:divider="?attr/list_divider"
         android:minWidth="160dp"
         android:orientation="vertical"
         android:showDividers="middle">

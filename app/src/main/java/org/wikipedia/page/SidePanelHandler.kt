@@ -211,7 +211,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
             val section = getItem(position)
             val sectionHeading = newConvertView!!.findViewById<TextView>(R.id.page_toc_item_text)
             val sectionBullet = newConvertView.findViewById<View>(R.id.page_toc_item_bullet)
-            sectionHeading.text = StringUtil.fromHtml(section.title)
+            sectionHeading.text = StringUtil.fromHtml(StringUtil.removeStyleTags(section.title))
             var textSize = TOC_SUBSECTION_TEXT_SIZE
             when {
                 section.isLead -> {
@@ -229,14 +229,14 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
                 topMargin = DimenUtil.roundedDpToPx(textSize / 2)
             }
             if (highlightedSection == position) {
-                sectionHeading.setTextColor(ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.colorAccent))
+                sectionHeading.setTextColor(ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.progressive_color))
             } else {
                 if (section.level > 1) {
                     sectionHeading.setTextColor(
-                            ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.primary_text_color))
+                            ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.primary_color))
                 } else {
                     sectionHeading.setTextColor(
-                            ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.toc_h1_h2_color))
+                            ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.primary_color))
                 }
             }
             return newConvertView

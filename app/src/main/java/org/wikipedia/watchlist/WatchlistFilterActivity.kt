@@ -15,6 +15,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.databinding.ActivityWatchlistFiltersBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
@@ -65,7 +66,7 @@ class WatchlistFilterActivity : BaseActivity() {
     private fun setUpRecyclerView() {
         binding.watchlistFiltersRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.watchlistFiltersRecyclerView.adapter = WatchlistFilterAdapter(this, filterListWithHeaders())
-        binding.watchlistFiltersRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable_light, drawStart = false, drawEnd = true, skipSearchBar = true))
+        binding.watchlistFiltersRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_divider, drawStart = false, drawEnd = true, skipSearchBar = true))
         binding.watchlistFiltersRecyclerView.itemAnimator = null
     }
 
@@ -208,6 +209,7 @@ class WatchlistFilterActivity : BaseActivity() {
             }
             Prefs.watchlistExcludedWikiCodes = excludedWikiCodes
             Prefs.watchlistIncludedTypeCodes = includedTypeCodes
+            WatchlistAnalyticsHelper.logFilterSelection(this@WatchlistFilterActivity, excludedWikiCodes, includedTypeCodes)
             notifyItemRangeChanged(0, itemCount)
             invalidateOptionsMenu()
         }

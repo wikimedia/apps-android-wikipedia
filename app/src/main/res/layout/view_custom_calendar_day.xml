@@ -9,7 +9,7 @@
         android:id="@+id/day_circle_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:tint="?attr/colorAccent"
+        app:tint="?attr/progressive_color"
         android:visibility="gone"
         android:contentDescription="@null"
         app:srcCompat="@drawable/shape_circle" />
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fontFamily="sans-serif"
-        android:textColor="?attr/primary_text_color"
+        android:textColor="?attr/primary_color"
         android:textSize="12sp"
         android:textStyle="normal"
         android:background="?android:selectableItemBackgroundBorderless" />

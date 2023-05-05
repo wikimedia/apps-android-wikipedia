@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
@@ -12,6 +11,7 @@ import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewDescriptionEditLicenseBinding
 import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
@@ -41,7 +41,7 @@ class DescriptionEditLicenseView constructor(context: Context, attrs: AttributeS
 
     fun buildLicenseNotice(arg: String, lang: String? = null) {
         if ((arg == ARG_NOTICE_ARTICLE_DESCRIPTION || arg == ARG_NOTICE_DEFAULT) &&
-                DescriptionEditFragment.wikiUsesLocalDescriptions(lang.orEmpty())) {
+                DescriptionEditUtil.wikiUsesLocalDescriptions(lang.orEmpty())) {
             binding.licenseText.text = StringUtil.fromHtml(context.getString(R.string.edit_save_action_license_logged_in,
                     context.getString(R.string.terms_of_use_url),
                     context.getString(R.string.cc_by_sa_3_url)))
@@ -57,13 +57,13 @@ class DescriptionEditLicenseView constructor(context: Context, attrs: AttributeS
     }
 
     fun darkLicenseView() {
-        val white70 = AppCompatResources.getColorStateList(context, R.color.white70)
+        val licenseColor = ResourceUtil.getThemedColorStateList(context, R.attr.placeholder_color)
         setBackgroundResource(android.R.color.black)
-        binding.licenseText.setTextColor(white70)
-        binding.licenseText.setLinkTextColor(white70)
-        TextViewCompat.setCompoundDrawableTintList(binding.licenseText, white70)
-        binding.anonWarningText.setTextColor(white70)
-        binding.anonWarningText.setLinkTextColor(white70)
+        binding.licenseText.setTextColor(licenseColor)
+        binding.licenseText.setLinkTextColor(licenseColor)
+        TextViewCompat.setCompoundDrawableTintList(binding.licenseText, licenseColor)
+        binding.anonWarningText.setTextColor(licenseColor)
+        binding.anonWarningText.setLinkTextColor(licenseColor)
     }
 
     companion object {

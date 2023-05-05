@@ -41,6 +41,7 @@
 * Noé
 * Oupsa
 * Seb35
+* SleaY
 * The RedBurn
 * Thibaut120094
 * Trial
@@ -886,7 +887,7 @@
   <string name="description_starts_with_uppercase">Commencer avec une lettre minuscule, sauf si le premier mot est un nom propre.</string>
   <string name="description_starts_with_lowercase">Éviter de commencer par une lettre minuscule.</string>
   <string name="description_is_in_different_language">Le texte semble être dans une langue inattendue. La langue devrait être %s.</string>
-  <string name="description_verification_notice">Veuillez vérifier que votre description est en %1$s. Vous pouvez librement ignorer cette notification si votre description est écrite en %2$s.</string>
+  <string name="description_verification_notice">Veuillez vérifier que votre description est en %1$s. Vous pouvez librement ignorer cet avertissement si votre description est écrite en %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Afficher les descriptions suggérées</string>
   <string name="description_edit_suggested_description_button_tooltip">Essayer les descriptions d’article suggérées par la machine</string>
   <string name="description_edit_success_saved">Description de l’article publiée !</string>
@@ -1069,7 +1070,7 @@
   <string name="suggested_edits_article_descriptions_dialog_title">Descriptions suggérées</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Qu’aimeriez-vous signaler ?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Pas assez d’informations</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion">Impossible de voir les recommandations de description</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Impossible de voir les descriptions suggérées</string>
   <string name="suggested_edits_inappropriate_suggestion">Suggestion inappropriée</string>
   <string name="suggested_edits_do_not_understand_suggestion">Tâche incompréhensible</string>
   <string name="suggested_edits_report_suggestion">Signalement</string>

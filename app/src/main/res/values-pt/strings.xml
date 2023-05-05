@@ -809,7 +809,7 @@
   <string name="description_starts_with_uppercase">Comece por letra minúscula, a menos que a primeira palavra seja um substantivo próprio.</string>
   <string name="description_starts_with_lowercase">Evitar começar com letra minúscula.</string>
   <string name="description_is_in_different_language">O texto parece estar numa língua inesperada. A língua devia ser %s.</string>
-  <string name="description_verification_notice">Verifique, por favor, que a sua descrição está em %1$s. Pode ignorar esta notificação se escreveu a descrição em %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Verifique, por favor, que a sua descrição está em %1$s. Pode ignorar esta notificação se escreveu a descrição em %2$s.</string>
   <string name="description_edit_success_saved">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_snackbar">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrição do artigo publicada! (%s)</string>

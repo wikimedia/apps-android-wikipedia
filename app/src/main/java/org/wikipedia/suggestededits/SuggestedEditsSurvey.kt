@@ -17,7 +17,7 @@ object SuggestedEditsSurvey {
         if (Prefs.showSuggestedEditsSurvey) {
             val snackbar = FeedbackUtil.makeSnackbar(activity,
                 activity.getString(R.string.suggested_edits_snackbar_survey_text), FeedbackUtil.LENGTH_MEDIUM)
-            val actionView = snackbar.view.findViewById<TextView>(R.id.snackbar_action)
+            val actionView = snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_action)
             actionView.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_open_in_new_accent_24, 0)
             actionView.compoundDrawablePadding = activity.resources.getDimensionPixelOffset(R.dimen.margin)
             snackbar.setAction(activity.getString(R.string.suggested_edits_snackbar_survey_action_text)) { openSurveyInBrowser() }

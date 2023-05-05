@@ -225,7 +225,7 @@
   <string name="history_filter_list_hint">Filtriraj zgodovino</string>
   <string name="error_can_not_process_link">Te povezave ni mogoče prikazati</string>
   <string name="page_protected_autoconfirmed">Ta stran je delno zaščitena.</string>
-  <string name="page_protected_sysop">Ta stran je zaščitena v celoti.</string>
+  <string name="page_protected_sysop">Ta stran je popolnoma zaščitena.</string>
   <string name="page_protected_other">Ta stran je zaščitena na naslednjih ravneh: %s</string>
   <string name="page_protected_can_not_edit">Vaš račun trenutno žal nima zadostnih pravic za urejanje te strani.</string>
   <string name="page_protected_can_not_edit_anon">Žal te strani trenutno ni mogoče urejati anonimno.</string>
@@ -900,7 +900,7 @@
   <string name="description_starts_with_uppercase">Začnite z malo črko, razen če je prva beseda lastno ime.</string>
   <string name="description_starts_with_lowercase">Izogibajte se začetku z malo začetnico.</string>
   <string name="description_is_in_different_language">Besedilo je v nepričakovanem jeziku. Jezik mora biti %s.</string>
-  <string name="description_verification_notice">Preverite, ali je vaš opis v %1$s. Če je opis, ki ste ga napisali, v %2$s, lahko to obvestilo opustite.</string>
+  <string name="description_verification_notice">Preverite, ali je vaš opis v %1$s. Če je opis, ki ste ga napisali, v %2$s, lahko to opozorilo prezrete.</string>
   <string name="description_edit_suggested_description_button_text">Pokaži predlagane opise</string>
   <string name="description_edit_suggested_description_button_tooltip">Preizkusite strojno predlagane opise člankov</string>
   <string name="description_edit_success_saved">Opis članka objavljen!</string>
@@ -1093,7 +1093,7 @@
   <string name="suggested_edits_article_descriptions_dialog_title">Predlagani opisi</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Kaj želite sporočiti?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Ni dovolj informacij</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion">Ne morem videti priporočil za opis</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Ne morem videti predlaganih opisov</string>
   <string name="suggested_edits_inappropriate_suggestion">Neprimeren predlog</string>
   <string name="suggested_edits_do_not_understand_suggestion">Ne razumem naloge</string>
   <string name="suggested_edits_report_suggestion">Sporoči</string>

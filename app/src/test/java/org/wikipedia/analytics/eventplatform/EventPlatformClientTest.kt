@@ -7,7 +7,6 @@ import org.junit.Before
 import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito
 import org.robolectric.RobolectricTestRunner
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventPlatformClient.SamplingController
@@ -51,24 +50,6 @@ class EventPlatformClientTest {
         MatcherAssert.assertThat(serialized.contains("dt"), CoreMatchers.`is`(true))
         MatcherAssert.assertThat(serialized.contains("app_session_id"), CoreMatchers.`is`(true))
         MatcherAssert.assertThat(serialized.contains("app_install_id"), CoreMatchers.`is`(true))
-    }
-
-    @Ignore("Disabled for testing: https://phabricator.wikimedia.org/T281001")
-    @Test
-    fun testOutputBufferEnqueuesEventOnSubmit() {
-        val event = TestEvent("test")
-        Mockito.mockStatic(EventPlatformClient.OutputBuffer::class.java).use { outputBuffer ->
-            Mockito.mockStatic(
-                SamplingController::class.java
-            ).use { samplingController ->
-                samplingController.`when`<Any> { SamplingController.isInSample(event) }
-                    .thenReturn(true)
-                EventPlatformClient.submit(event)
-                outputBuffer.verify(
-                    Mockito.times(1)
-                ) { EventPlatformClient.OutputBuffer.schedule(event) }
-            }
-        }
     }
 
     @Test

@@ -19,7 +19,7 @@ class SearchCardView(context: Context) : DefaultFeedCardView<SearchCard>(context
 
     init {
         val binding = ViewSearchBarBinding.inflate(LayoutInflater.from(context), this, true)
-        binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.color_group_22))
+        binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.background_color))
         FeedbackUtil.setButtonLongPressToast(binding.voiceSearchButton)
 
         binding.searchContainer.setOnClickListener { callback?.onSearchRequested(it) }

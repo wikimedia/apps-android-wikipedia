@@ -14,7 +14,7 @@
 
     <TextView
         android:id="@+id/localized_language_name"
-        style="@style/MaterialListTitle"
+        style="@style/H3.MaterialListTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -22,7 +22,7 @@
 
     <TextView
         android:id="@+id/language_subtitle"
-        style="@style/MaterialListSubtitle"
+        style="@style/List.MaterialListSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"

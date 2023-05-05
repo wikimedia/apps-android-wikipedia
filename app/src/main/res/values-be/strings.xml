@@ -184,7 +184,7 @@
   <string name="history_empty_title">Няма нядаўна прагледжаных артыкулаў</string>
   <string name="history_empty_message">Сачыць за тым, што вы ўжо прачыталі.</string>
   <string name="history_offline_articles_toast">Некаторыя артыкулы ў гісторыі могуць быць недаступныя па-за сеткай.</string>
-  <string name="search_empty_message">Шукайце і чытайце вольную энцыклапедыю на сваёй мове</string>
+  <string name="search_empty_message">Шукайце і чытайце свабодную энцыклапедыю на сваёй мове</string>
   <string name="search_empty_message_multilingual_upgrade">Знайсці Вікіпедыю на іншай мове</string>
   <string name="delete_selected_items">Выдаліць выбраныя элементы</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЕДЫ&lt;big&gt;Я&lt;/big&gt;</string>
@@ -907,7 +907,7 @@
   <string name="description_starts_with_uppercase">Пачынайце з маленькай літары, калі толькі першае слова не з’яўляецца імем уласным.</string>
   <string name="description_starts_with_lowercase">Пазбягайце маленькай літары ў пачатку.</string>
   <string name="description_is_in_different_language">Здаецца, тэкст напісаны на нечаканай мове. Мова павінна быць %s .</string>
-  <string name="description_verification_notice">Калі ласка, пераканайцеся, што ваша апісанне знаходзіцца ў %1$s. Не саромейцеся адхіляць гэтае апавяшчэнне, калі апісанне, якое вы напісалі, змяшчае %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Калі ласка, пераканайцеся, што ваша апісанне знаходзіцца ў %1$s. Не саромейцеся адхіляць гэтае апавяшчэнне, калі апісанне, якое вы напісалі, змяшчае %2$s.</string>
   <string name="description_edit_success_saved">Апісаннне артыкула апублікавана!</string>
   <string name="description_edit_success_saved_snackbar">Апісаннне артыкула апублікавана!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Апісанне артыкула апублікавана! ( %s )</string>

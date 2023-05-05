@@ -48,7 +48,7 @@ class NewsFragment : Fragment() {
 
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.wiki.languageCode)
 
-        binding.gradientView.background = GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP)
+        binding.gradientView.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(requireContext(), R.attr.overlay_color), Gravity.TOP)
         val imageUri = viewModel.item.thumb()
         if (imageUri == null) {
             binding.appBarLayout.setExpanded(false, false)
@@ -70,7 +70,7 @@ class NewsFragment : Fragment() {
         binding.storyTextView.text = RichTextUtil.stripHtml(viewModel.item.story)
         binding.newsStoryItemsRecyclerview.layoutManager = LinearLayoutManager(requireContext())
         binding.newsStoryItemsRecyclerview.addItemDecoration(DrawableItemDecoration(requireContext(),
-            R.attr.list_separator_drawable))
+            R.attr.list_divider))
         binding.newsStoryItemsRecyclerview.isNestedScrollingEnabled = false
         binding.newsStoryItemsRecyclerview.adapter = RecyclerAdapter(viewModel.item.linkCards(viewModel.wiki), Callback())
         return binding.root

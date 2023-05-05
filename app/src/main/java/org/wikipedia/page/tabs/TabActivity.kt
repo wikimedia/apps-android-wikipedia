@@ -100,10 +100,10 @@ class TabActivity : BaseActivity() {
             }
             val tab = de.mrapp.android.tabswitcher.Tab(StringUtil.fromHtml(app.tabList[tabIndex].backStackPositionTitle?.displayText))
             tab.setIcon(R.drawable.ic_image_black_24dp)
-            tab.setIconTint(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
-            tab.setTitleTextColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
-            tab.setCloseButtonIcon(R.drawable.ic_close_white_24dp)
-            tab.setCloseButtonIconTint(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
+            tab.setIconTint(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
+            tab.setTitleTextColor(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
+            tab.setCloseButtonIcon(R.drawable.ic_close_black_24dp)
+            tab.setCloseButtonIconTint(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
             tab.isCloseable = true
             tab.parameters = Bundle()
             binding.tabSwitcher.addTab(tab)

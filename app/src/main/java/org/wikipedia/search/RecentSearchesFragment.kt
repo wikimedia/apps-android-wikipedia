@@ -51,9 +51,7 @@ class RecentSearchesFragment : Fragment() {
                     .setMessage(getString(R.string.clear_recent_searches_confirm))
                     .setPositiveButton(getString(R.string.clear_recent_searches_confirm_yes)) { _, _ ->
                         lifecycleScope.launch(coroutineExceptionHandler) {
-                            withContext(Dispatchers.IO) {
-                                AppDatabase.instance.recentSearchDao().deleteAll()
-                            }
+                            AppDatabase.instance.recentSearchDao().deleteAll()
                             updateList()
                         }
                     }
@@ -118,17 +116,13 @@ class RecentSearchesFragment : Fragment() {
         if (!namespaceMap.containsKey(langCode)) {
             val map = mutableMapOf<Namespace, String>()
             namespaceMap[langCode] = map
-            withContext(Dispatchers.IO) {
-                nsMap = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getPageNamespaceWithSiteInfo(null).query?.namespaces.orEmpty()
-                namespaceHints.forEach {
-                    map[it] = nsMap[it.code().toString()]?.name.orEmpty()
-                }
+            nsMap = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getPageNamespaceWithSiteInfo(null).query?.namespaces.orEmpty()
+            namespaceHints.forEach {
+                map[it] = nsMap[it.code().toString()]?.name.orEmpty()
             }
         }
 
-        withContext(Dispatchers.IO) {
-            searches = AppDatabase.instance.recentSearchDao().getRecentSearches()
-        }
+        searches = AppDatabase.instance.recentSearchDao().getRecentSearches()
 
         recentSearchList.clear()
         recentSearchList.addAll(searches)
@@ -157,9 +151,7 @@ class RecentSearchesFragment : Fragment() {
 
         override fun onSwipe() {
             lifecycleScope.launch(coroutineExceptionHandler) {
-                withContext(Dispatchers.IO) {
-                    AppDatabase.instance.recentSearchDao().delete(recentSearch)
-                }
+                AppDatabase.instance.recentSearchDao().delete(recentSearch)
                 updateList()
             }
         }
@@ -187,7 +179,7 @@ class RecentSearchesFragment : Fragment() {
             itemView.setOnClickListener(this)
             (itemView as TextView).text = if (isHeader) getString(R.string.search_namespaces) else namespaceMap[callback?.getLangCode()]?.get(ns).orEmpty() + ":"
             itemView.isEnabled = !isHeader
-            itemView.setTextColor(ResourceUtil.getThemedColor(requireContext(), if (isHeader) R.attr.material_theme_primary_color else R.attr.colorAccent))
+            itemView.setTextColor(ResourceUtil.getThemedColor(requireContext(), if (isHeader) R.attr.primary_color else R.attr.progressive_color))
         }
 
         override fun onClick(v: View) {

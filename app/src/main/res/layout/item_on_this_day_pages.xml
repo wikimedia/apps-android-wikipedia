@@ -43,7 +43,7 @@
                 android:ellipsize="end"
                 android:lineSpacingExtra="5sp"
                 android:maxLines="1"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:transitionName="@string/transition_article_title" />
@@ -56,7 +56,7 @@
                 android:ellipsize="end"
                 android:lineSpacingExtra="5sp"
                 android:maxLines="3"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:textSize="16sp"
                 android:transitionName="@string/transition_article_description" />
         </LinearLayout>

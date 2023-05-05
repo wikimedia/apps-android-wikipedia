@@ -22,7 +22,7 @@ import org.wikipedia.staticdata.UserAliasData
 import java.nio.charset.StandardCharsets
 import java.text.Collator
 import java.text.Normalizer
-import java.util.*
+import java.util.Locale
 import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
 
