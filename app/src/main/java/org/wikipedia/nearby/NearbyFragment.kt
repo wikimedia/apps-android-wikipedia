@@ -37,6 +37,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
+import kotlin.math.abs
 
 class NearbyFragment : Fragment() {
 
@@ -49,6 +50,7 @@ class NearbyFragment : Fragment() {
     private var symbolManager: SymbolManager? = null
 
     private val annotationCache = ArrayDeque<NearbyFragmentViewModel.NearbyPage>()
+    private var lastLocationUpdated: LatLng? = null
 
     private val locationPermissionRequest = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
         when {
@@ -112,8 +114,7 @@ class NearbyFragment : Fragment() {
                 map.uiSettings.setAttributionMargins(attribMargin, 0, attribMargin, attribMargin)
 
                 map.addOnCameraIdleListener {
-                    L.d(">>>> camera idle: " + map.cameraPosition.target.latitude + ", " + map.cameraPosition.target.longitude + ", " + map.cameraPosition.zoom)
-                    viewModel.fetchNearbyPages(map.cameraPosition.target.latitude, map.cameraPosition.target.longitude)
+                    onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)
                 }
 
                 symbolManager = SymbolManager(binding.mapView, map, style)
@@ -131,7 +132,9 @@ class NearbyFragment : Fragment() {
 
                 if (haveLocationPermissions()) {
                     startLocationTracking()
-                    goToLastKnownLocation(1000)
+                    if (savedInstanceState == null) {
+                        goToLastKnownLocation(1000)
+                    }
                 }
             }
         }
@@ -181,9 +184,25 @@ class NearbyFragment : Fragment() {
         super.onDestroyView()
     }
 
-    private fun haveLocationPermissions(): Boolean {
-        return ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+    private fun onUpdateCameraPosition(latLng: LatLng?) {
+        if (latLng == null) {
+            return
+        }
+        // Fetch new pages within the current viewport, but only if the map has moved a significant distance.
+
+        val latEpsilon = (mapboxMap?.projection?.visibleRegion?.latLngBounds?.latitudeSpan ?: 0.0) * 0.1
+        val lngEpsilon = (mapboxMap?.projection?.visibleRegion?.latLngBounds?.longitudeSpan ?: 0.0) * 0.1
+
+        if (lastLocationUpdated != null &&
+            abs(latLng.latitude - (lastLocationUpdated?.latitude ?: 0.0)) < latEpsilon &&
+            abs(latLng.longitude - (lastLocationUpdated?.longitude ?: 0.0)) < lngEpsilon) {
+            return
+        }
+
+        lastLocationUpdated = LatLng(latLng.latitude, latLng.longitude)
+
+        L.d(">>> requesting update: " + latLng.latitude + ", " + latLng.longitude + ", " + mapboxMap?.cameraPosition?.zoom)
+        viewModel.fetchNearbyPages(latLng.latitude, latLng.longitude)
     }
 
     private fun updateMapMarkers(pages: List<NearbyFragmentViewModel.NearbyPage>) {
@@ -211,13 +230,18 @@ class NearbyFragment : Fragment() {
         }
     }
 
+    private fun haveLocationPermissions(): Boolean {
+        return ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+    }
+
     @SuppressLint("MissingPermission")
     private fun startLocationTracking() {
         mapboxMap?.let {
             it.locationComponent.activateLocationComponent(LocationComponentActivationOptions.builder(requireContext(), it.style!!).build())
             it.locationComponent.isLocationComponentEnabled = true
             it.locationComponent.cameraMode = CameraMode.NONE
-            it.locationComponent.renderMode = RenderMode.NORMAL
+            it.locationComponent.renderMode = RenderMode.COMPASS
         }
     }
 
