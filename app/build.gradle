@@ -225,6 +225,7 @@ dependencies {
     implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
 
     implementation 'org.maplibre.gl:android-sdk:9.6.0'
+    implementation 'org.maplibre.gl:android-plugin-annotation-v9:1.0.0'
 
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor "androidx.room:room-compiler:$roomVersion"

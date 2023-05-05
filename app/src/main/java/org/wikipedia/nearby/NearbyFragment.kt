@@ -5,14 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.WellKnownTileServer
+import com.mapbox.mapboxsdk.geometry.LatLng
 import com.mapbox.mapboxsdk.maps.MapboxMap
 import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
+import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
+import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions
+import org.wikipedia.R
 import org.wikipedia.databinding.FragmentNearbyBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
@@ -29,6 +34,7 @@ class NearbyFragment : Fragment() {
     private val viewModel: NearbyFragmentViewModel by viewModels { NearbyFragmentViewModel.Factory(requireArguments()) }
 
     private var mapboxMap: MapboxMap? = null
+    private var symbolManager: SymbolManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,6 +66,8 @@ class NearbyFragment : Fragment() {
             map.setStyle(Style.Builder().fromUri("asset://mapstyle.json")) { style ->
                 mapboxMap = map
 
+                style.addImage(MARKER_DRAWABLE, AppCompatResources.getDrawable(requireActivity(), R.drawable.ic_image_black_24dp)!!)
+
                 map.uiSettings.isLogoEnabled = false
                 val attribMargin = DimenUtil.roundedDpToPx(16f)
                 map.uiSettings.setAttributionMargins(attribMargin, 0, attribMargin, attribMargin)
@@ -67,6 +75,15 @@ class NearbyFragment : Fragment() {
                 map.addOnCameraIdleListener {
                     L.d(">>>> camera idle: " + map.cameraPosition.target.latitude + ", " + map.cameraPosition.target.longitude + ", " + map.cameraPosition.zoom)
                     viewModel.fetchNearbyPages(map.cameraPosition.target.latitude, map.cameraPosition.target.longitude)
+                }
+
+                symbolManager = SymbolManager(binding.mapView, map, style)
+
+                symbolManager?.iconAllowOverlap = true
+                symbolManager?.textAllowOverlap = true
+                symbolManager?.addClickListener { symbol ->
+                    L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
+                    true
                 }
             }
         }
@@ -117,12 +134,24 @@ class NearbyFragment : Fragment() {
     }
 
     private fun updateMapMarkers(pages: List<NearbyFragmentViewModel.NearbyPage>) {
-        pages.forEach {
+        val symbols = pages.map {
             L.d(">>>> " + it.pageTitle.displayText + " " + it.latitude + " " + it.longitude)
+
+            symbolManager?.create(SymbolOptions()
+                .withLatLng(LatLng(it.latitude, it.longitude))
+                .withIconImage(MARKER_DRAWABLE)
+                .withIconSize(1.0f)
+                .withIconOffset(arrayOf(0f, -16f))
+                .withTextField(it.pageTitle.displayText)
+            )
         }
+        symbolManager?.deleteAll()
+        symbolManager?.update(symbols)
     }
 
     companion object {
+        const val MARKER_DRAWABLE = "markerDrawable"
+
         fun newInstance(wiki: WikiSite): NearbyFragment {
             return NearbyFragment().apply {
                 arguments = bundleOf(NearbyActivity.EXTRA_WIKI to wiki)

@@ -22,7 +22,7 @@ class NearbyFragmentViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             nearbyPages.postValue(Resource.Error(throwable))
         }) {
-            val response = ServiceFactory.get(wikiSite).getGeoSearch("$latitude|$longitude")
+            val response = ServiceFactory.get(wikiSite).getGeoSearch("$latitude|$longitude", 50)
             val pages = response.query?.pages.orEmpty()
                 .filter { it.coordinates != null }
                 .map {
