@@ -2,11 +2,7 @@ package org.wikipedia.nearby
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.pm.PackageManager
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -42,7 +38,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 
-class NearbyFragment : Fragment(), LocationListener {
+class NearbyFragment : Fragment() {
 
     private var _binding: FragmentNearbyBinding? = null
     private val binding get() = _binding!!
@@ -53,18 +49,18 @@ class NearbyFragment : Fragment(), LocationListener {
     private var symbolManager: SymbolManager? = null
 
     private val annotationCache = ArrayDeque<NearbyFragmentViewModel.NearbyPage>()
-    private var pendingLocationPinpointRequest = false
 
     private val locationPermissionRequest = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
         when {
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
                 startLocationTracking()
+                goToLastKnownLocation(1000)
             }
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 // Only approximate location access granted.
             }
             else -> {
-                // No location access granted.
+                FeedbackUtil.showMessage(requireActivity(), R.string.nearby_permissions_denied)
             }
         }
     }
@@ -84,7 +80,7 @@ class NearbyFragment : Fragment(), LocationListener {
 
         binding.myLocationButton.setOnClickListener {
             if (haveLocationPermissions()) {
-                startLocationTracking()
+                goToLastKnownLocation(0)
             } else {
                 locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
             }
@@ -111,12 +107,6 @@ class NearbyFragment : Fragment(), LocationListener {
                 // TODO: Currently the style seems to break when zooming beyond 16.0. See if we can fix this.
                 map.setMaxZoomPreference(15.999)
 
-                map.locationComponent.activateLocationComponent(LocationComponentActivationOptions
-                    .builder(requireContext(), style).build())
-                map.locationComponent.isLocationComponentEnabled = true
-                map.locationComponent.cameraMode = CameraMode.NONE
-                map.locationComponent.renderMode = RenderMode.NORMAL
-
                 map.uiSettings.isLogoEnabled = false
                 val attribMargin = DimenUtil.roundedDpToPx(16f)
                 map.uiSettings.setAttributionMargins(attribMargin, 0, attribMargin, attribMargin)
@@ -137,6 +127,11 @@ class NearbyFragment : Fragment(), LocationListener {
                         ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null))
                     }
                     true
+                }
+
+                if (haveLocationPermissions()) {
+                    startLocationTracking()
+                    goToLastKnownLocation(1000)
                 }
             }
         }
@@ -191,44 +186,6 @@ class NearbyFragment : Fragment(), LocationListener {
                 ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
     }
 
-    @SuppressLint("MissingPermission")
-    private fun startLocationTracking() {
-        if (!haveLocationPermissions()) {
-            return
-        }
-        val locationManager = requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager
-
-        locationManager.allProviders.forEach {
-            locationManager.requestLocationUpdates(
-                it,
-                3000,
-                0f,
-                this
-            )
-        }
-        pendingLocationPinpointRequest = true
-
-        //locationManager.requestLocationUpdates(
-        //    LocationManager.GPS_PROVIDER,
-        //    3000,
-        //    0f,
-        //    this
-        //)
-    }
-
-    override fun onLocationChanged(location: Location) {
-        if (!pendingLocationPinpointRequest) {
-            val locationManager = requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager
-            locationManager.removeUpdates(this)
-            return
-        }
-        pendingLocationPinpointRequest = false
-        mapboxMap?.let {
-            val latLng = LatLng(location.latitude, location.longitude)
-            it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15.0))
-        }
-    }
-
     private fun updateMapMarkers(pages: List<NearbyFragmentViewModel.NearbyPage>) {
         symbolManager?.let { manager ->
 
@@ -237,7 +194,8 @@ class NearbyFragment : Fragment(), LocationListener {
             }.forEach {
                 it.annotation = manager.create(SymbolOptions()
                     .withLatLng(LatLng(it.latitude, it.longitude))
-                    //.withTextField(it.pageTitle.displayText)
+                    .withTextField(it.pageTitle.displayText)
+                    .withTextSize(10f)
                     .withIconImage(MARKER_DRAWABLE)
                     .withIconSize(2.0f)
                     .withIconOffset(arrayOf(0f, -16f)))
@@ -251,6 +209,30 @@ class NearbyFragment : Fragment(), LocationListener {
                 }
             }
         }
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun startLocationTracking() {
+        mapboxMap?.let {
+            it.locationComponent.activateLocationComponent(LocationComponentActivationOptions.builder(requireContext(), it.style!!).build())
+            it.locationComponent.isLocationComponentEnabled = true
+            it.locationComponent.cameraMode = CameraMode.NONE
+            it.locationComponent.renderMode = RenderMode.NORMAL
+        }
+    }
+
+    private fun goToLastKnownLocation(delayMillis: Long) {
+        binding.mapView.postDelayed({
+            if (isAdded) {
+                mapboxMap?.let {
+                    val location = it.locationComponent.lastKnownLocation
+                    if (location != null) {
+                        val latLng = LatLng(location.latitude, location.longitude)
+                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15.0))
+                    }
+                }
+            }
+        }, delayMillis)
     }
 
     companion object {
