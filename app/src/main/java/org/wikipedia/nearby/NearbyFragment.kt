@@ -1,17 +1,30 @@
 package org.wikipedia.nearby
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.app.ActivityCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.WellKnownTileServer
+import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
 import com.mapbox.mapboxsdk.geometry.LatLng
+import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions
+import com.mapbox.mapboxsdk.location.modes.CameraMode
+import com.mapbox.mapboxsdk.location.modes.RenderMode
 import com.mapbox.mapboxsdk.maps.MapboxMap
 import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
@@ -29,7 +42,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 
-class NearbyFragment : Fragment() {
+class NearbyFragment : Fragment(), LocationListener {
 
     private var _binding: FragmentNearbyBinding? = null
     private val binding get() = _binding!!
@@ -40,6 +53,21 @@ class NearbyFragment : Fragment() {
     private var symbolManager: SymbolManager? = null
 
     private val annotationCache = ArrayDeque<NearbyFragmentViewModel.NearbyPage>()
+    private var pendingLocationPinpointRequest = false
+
+    private val locationPermissionRequest = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+        when {
+            permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
+                startLocationTracking()
+            }
+            permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
+                // Only approximate location access granted.
+            }
+            else -> {
+                // No location access granted.
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,8 +80,15 @@ class NearbyFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentNearbyBinding.inflate(inflater, container, false)
-
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
+
+        binding.myLocationButton.setOnClickListener {
+            if (haveLocationPermissions()) {
+                startLocationTracking()
+            } else {
+                locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
+            }
+        }
 
         return binding.root
     }
@@ -75,6 +110,12 @@ class NearbyFragment : Fragment() {
 
                 // TODO: Currently the style seems to break when zooming beyond 16.0. See if we can fix this.
                 map.setMaxZoomPreference(15.999)
+
+                map.locationComponent.activateLocationComponent(LocationComponentActivationOptions
+                    .builder(requireContext(), style).build())
+                map.locationComponent.isLocationComponentEnabled = true
+                map.locationComponent.cameraMode = CameraMode.NONE
+                map.locationComponent.renderMode = RenderMode.NORMAL
 
                 map.uiSettings.isLogoEnabled = false
                 val attribMargin = DimenUtil.roundedDpToPx(16f)
@@ -143,6 +184,49 @@ class NearbyFragment : Fragment() {
         binding.mapView.onDestroy()
         _binding = null
         super.onDestroyView()
+    }
+
+    private fun haveLocationPermissions(): Boolean {
+        return ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun startLocationTracking() {
+        if (!haveLocationPermissions()) {
+            return
+        }
+        val locationManager = requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+        locationManager.allProviders.forEach {
+            locationManager.requestLocationUpdates(
+                it,
+                3000,
+                0f,
+                this
+            )
+        }
+        pendingLocationPinpointRequest = true
+
+        //locationManager.requestLocationUpdates(
+        //    LocationManager.GPS_PROVIDER,
+        //    3000,
+        //    0f,
+        //    this
+        //)
+    }
+
+    override fun onLocationChanged(location: Location) {
+        if (!pendingLocationPinpointRequest) {
+            val locationManager = requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            locationManager.removeUpdates(this)
+            return
+        }
+        pendingLocationPinpointRequest = false
+        mapboxMap?.let {
+            val latLng = LatLng(location.latitude, location.longitude)
+            it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15.0))
+        }
     }
 
     private fun updateMapMarkers(pages: List<NearbyFragmentViewModel.NearbyPage>) {

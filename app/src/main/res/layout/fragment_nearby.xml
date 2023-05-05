@@ -18,4 +18,15 @@
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"/>
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/myLocationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:icon="@drawable/my_location_24"
+        app:iconTint="@color/white"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@null" />
+
 </FrameLayout>
