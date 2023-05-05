@@ -21,6 +21,9 @@ import org.wikipedia.R
 import org.wikipedia.databinding.FragmentNearbyBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
@@ -35,6 +38,8 @@ class NearbyFragment : Fragment() {
 
     private var mapboxMap: MapboxMap? = null
     private var symbolManager: SymbolManager? = null
+
+    private val annotationCache = ArrayDeque<NearbyFragmentViewModel.NearbyPage>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,6 +91,10 @@ class NearbyFragment : Fragment() {
                 symbolManager?.textAllowOverlap = true
                 symbolManager?.addClickListener { symbol ->
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
+                    annotationCache.find { it.annotation == symbol }?.let {
+                        val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_NEARBY)
+                        ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null))
+                    }
                     true
                 }
             }
@@ -137,23 +146,36 @@ class NearbyFragment : Fragment() {
     }
 
     private fun updateMapMarkers(pages: List<NearbyFragmentViewModel.NearbyPage>) {
-        val symbols = pages.map {
-            L.d(">>>> " + it.pageTitle.displayText + " " + it.latitude + " " + it.longitude)
+        symbolManager?.let { manager ->
 
-            symbolManager?.create(SymbolOptions()
-                .withLatLng(LatLng(it.latitude, it.longitude))
-                .withIconImage(MARKER_DRAWABLE)
-                .withIconSize(1.0f)
-                .withIconOffset(arrayOf(0f, -16f))
-                .withTextField(it.pageTitle.displayText)
-            )
+            pages.filter {
+                annotationCache.find { item -> item.pageId == it.pageId } == null
+            }.forEach {
+                it.annotation = manager.create(SymbolOptions()
+                    .withLatLng(LatLng(it.latitude, it.longitude))
+                    .withIconImage(MARKER_DRAWABLE)
+                    .withIconSize(1.0f)
+                    .withIconOffset(arrayOf(0f, -16f))
+                    .withTextField(it.pageTitle.displayText))
+
+                annotationCache.addFirst(it)
+                manager.update(it.annotation)
+
+                if (annotationCache.size > MAX_ANNOTATIONS) {
+                    val removed = annotationCache.removeLast()
+                    manager.delete(removed.annotation)
+                }
+            }
         }
-        symbolManager?.deleteAll()
-        symbolManager?.update(symbols)
+    }
+
+    private fun hashCodeForLatLon(lat: Double, lon: Double): String {
+        return lat.toString() + lon.toString()
     }
 
     companion object {
         const val MARKER_DRAWABLE = "markerDrawable"
+        const val MAX_ANNOTATIONS = 256
 
         fun newInstance(wiki: WikiSite): NearbyFragment {
             return NearbyFragment().apply {

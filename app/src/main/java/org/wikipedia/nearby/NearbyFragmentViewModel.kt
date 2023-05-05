@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.mapbox.mapboxsdk.plugins.annotation.Symbol
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.wikipedia.dataclient.ServiceFactory
@@ -26,7 +27,7 @@ class NearbyFragmentViewModel(bundle: Bundle) : ViewModel() {
             val pages = response.query?.pages.orEmpty()
                 .filter { it.coordinates != null }
                 .map {
-                    NearbyPage(PageTitle(it.title, wikiSite, it.thumbUrl(), it.description, it.displayTitle(wikiSite.languageCode)),
+                    NearbyPage(it.pageId, PageTitle(it.title, wikiSite, it.thumbUrl(), it.description, it.displayTitle(wikiSite.languageCode)),
                         it.coordinates!![0].lat, it.coordinates[0].lon)
                 }
 
@@ -35,9 +36,11 @@ class NearbyFragmentViewModel(bundle: Bundle) : ViewModel() {
     }
 
     class NearbyPage(
+        val pageId: Int,
         val pageTitle: PageTitle,
         val latitude: Double,
-        val longitude: Double
+        val longitude: Double,
+        var annotation: Symbol? = null
     )
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
