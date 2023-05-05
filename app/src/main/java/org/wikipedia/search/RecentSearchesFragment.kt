@@ -51,9 +51,7 @@ class RecentSearchesFragment : Fragment() {
                     .setMessage(getString(R.string.clear_recent_searches_confirm))
                     .setPositiveButton(getString(R.string.clear_recent_searches_confirm_yes)) { _, _ ->
                         lifecycleScope.launch(coroutineExceptionHandler) {
-                            withContext(Dispatchers.IO) {
-                                AppDatabase.instance.recentSearchDao().deleteAll()
-                            }
+                            AppDatabase.instance.recentSearchDao().deleteAll()
                             updateList()
                         }
                     }
@@ -118,17 +116,13 @@ class RecentSearchesFragment : Fragment() {
         if (!namespaceMap.containsKey(langCode)) {
             val map = mutableMapOf<Namespace, String>()
             namespaceMap[langCode] = map
-            withContext(Dispatchers.IO) {
-                nsMap = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getPageNamespaceWithSiteInfo(null).query?.namespaces.orEmpty()
-                namespaceHints.forEach {
-                    map[it] = nsMap[it.code().toString()]?.name.orEmpty()
-                }
+            nsMap = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getPageNamespaceWithSiteInfo(null).query?.namespaces.orEmpty()
+            namespaceHints.forEach {
+                map[it] = nsMap[it.code().toString()]?.name.orEmpty()
             }
         }
 
-        withContext(Dispatchers.IO) {
-            searches = AppDatabase.instance.recentSearchDao().getRecentSearches()
-        }
+        searches = AppDatabase.instance.recentSearchDao().getRecentSearches()
 
         recentSearchList.clear()
         recentSearchList.addAll(searches)
@@ -157,9 +151,7 @@ class RecentSearchesFragment : Fragment() {
 
         override fun onSwipe() {
             lifecycleScope.launch(coroutineExceptionHandler) {
-                withContext(Dispatchers.IO) {
-                    AppDatabase.instance.recentSearchDao().delete(recentSearch)
-                }
+                AppDatabase.instance.recentSearchDao().delete(recentSearch)
                 updateList()
             }
         }

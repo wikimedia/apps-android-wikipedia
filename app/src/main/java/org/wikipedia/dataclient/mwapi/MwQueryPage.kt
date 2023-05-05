@@ -2,6 +2,7 @@ package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.wikipedia.dataclient.growthtasks.GrowthImageSuggestion
 import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.page.Namespace
@@ -38,6 +39,11 @@ class MwQueryPage {
     var convertedTo: String? = null
     val watched = false
     val lastrevid: Long = 0
+
+    val tasktype: String? = null
+    val difficulty: String? = null
+    val qualityGateIds: List<String>? = null
+    val growthimagesuggestiondata: List<GrowthImageSuggestion>? = null
 
     fun namespace(): Namespace {
         return Namespace.of(ns)

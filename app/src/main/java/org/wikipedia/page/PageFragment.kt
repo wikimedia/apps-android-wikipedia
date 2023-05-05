@@ -29,9 +29,7 @@ import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
@@ -42,6 +40,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
+import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
@@ -539,9 +538,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private fun addTimeSpentReading(timeSpentSec: Int) {
         model.curEntry?.let {
             lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
-                withContext(Dispatchers.IO) {
-                    AppDatabase.instance.historyEntryDao().upsertWithTimeSpent(it, timeSpentSec)
-                }
+                AppDatabase.instance.historyEntryDao().upsertWithTimeSpent(it, timeSpentSec)
             }
         }
     }
@@ -1209,6 +1206,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         if (watchlistExpiryChanged && unwatch) {
                             watchlistExpiryChanged = false
                         }
+                        if (unwatch) {
+                            WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(it, requireContext())
+                        } else {
+                            WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(it, requireContext())
+                        }
                         showWatchlistSnackbar(expiry, watch)
                     }
                 }) { caught -> L.d(caught) })
@@ -1383,8 +1385,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onAddToWatchlistSelected() {
             if (model.isWatched) {
+                WatchlistAnalyticsHelper.logRemovedFromWatchlist(model.title, requireContext())
                 articleInteractionEvent?.logUnWatchClick()
             } else {
+                WatchlistAnalyticsHelper.logAddedToWatchlist(model.title, requireContext())
                 articleInteractionEvent?.logWatchClick()
             }
             updateWatchlist(WatchlistExpiry.NEVER, model.isWatched)

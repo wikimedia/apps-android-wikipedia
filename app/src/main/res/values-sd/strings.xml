@@ -188,7 +188,7 @@
   <string name="create_account_generic_error">کاتو کولي نہ سگھيو</string>
   <string name="create_account_next">اڳيون</string>
   <string name="email_recommendation_dialog_title">بغير ايميل پتي جي کاتو کوليون؟</string>
-  <string name="email_recommendation_dialog_message">جيتوڻيڪ برق ٽپال پتو (اي ميل) اختياري آھي، پر اھا &lt;b&gt;بيحد ضروري آھي&lt;/b&gt;، ڇو تہ اوھان جيڪڏھن ڳجھو لفظ وساري ويھو تہ برق ٽپال جي ضرورت پوندي.</string>
+  <string name="email_recommendation_dialog_message">جيتوڻيڪ ايميل اختياري آھي، پر اھا &lt;b&gt;بيحد ضروري آھي&lt;/b&gt;، ڇو تہ اوھان جيڪڏھن ڳجهولفظ وساري ويھو تہ ايميل جي ضرورت پوندي.</string>
   <string name="email_recommendation_message">سفارش ڪيل آھي ڇو جو کاتو واپس ھٿ ڪرڻ ۾ ايميل گهربل ھجي ٿي.</string>
   <string name="email_recommendation_dialog_create_without_email_action">ايميل سواءِ جاري رکو</string>
   <string name="email_recommendation_dialog_create_with_email_action">ڪو ايميل پتو ڏيو</string>
