@@ -4,6 +4,11 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.PorterDuff.Mode
+import android.graphics.PorterDuffXfermode
+import android.graphics.Rect
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -14,17 +19,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
+import androidx.core.graphics.applyCanvas
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.palette.graphics.Palette
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
-import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.CustomTarget
-import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.WellKnownTileServer
@@ -48,10 +48,8 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
-import org.wikipedia.util.WhiteBackgroundTransformation
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.FaceAndColorDetectImageView
-import org.wikipedia.views.ViewUtil
 import kotlin.math.abs
 
 class NearbyFragment : Fragment() {
@@ -66,6 +64,8 @@ class NearbyFragment : Fragment() {
 
     private val annotationCache = ArrayDeque<NearbyFragmentViewModel.NearbyPage>()
     private var lastLocationUpdated: LatLng? = null
+
+    private lateinit var markerBitmapBase: Bitmap
 
     private val locationPermissionRequest = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
         when {
@@ -84,6 +84,8 @@ class NearbyFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        markerBitmapBase = ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.map_marker_outline,
+            null /* ResourceUtil.getThemedAttributeId(requireContext(), R.attr.secondary_color) */)
 
         Mapbox.getInstance(requireActivity().applicationContext, "", WellKnownTileServer.MapLibre)
 
@@ -119,7 +121,7 @@ class NearbyFragment : Fragment() {
             map.setStyle(Style.Builder().fromUri("asset://mapstyle.json")) { style ->
                 mapboxMap = map
 
-                style.addImage(MARKER_DRAWABLE, AppCompatResources.getDrawable(requireActivity(), R.drawable.location_marker_24)!!)
+                style.addImage(MARKER_DRAWABLE, AppCompatResources.getDrawable(requireActivity(), R.drawable.map_marker)!!)
 
                 // TODO: Currently the style seems to break when zooming beyond 16.0. See if we can fix this.
                 map.setMaxZoomPreference(15.999)
@@ -196,6 +198,7 @@ class NearbyFragment : Fragment() {
     override fun onDestroyView() {
         binding.mapView.onDestroy()
         _binding = null
+        markerBitmapBase.recycle()
         super.onDestroyView()
     }
 
@@ -231,7 +234,6 @@ class NearbyFragment : Fragment() {
                     .withTextField(it.pageTitle.displayText)
                     .withTextSize(10f)
                     .withIconImage(MARKER_DRAWABLE)
-                    .withIconSize(2.0f)
                     .withIconOffset(arrayOf(0f, -16f)))
 
                 annotationCache.addFirst(it)
@@ -242,6 +244,12 @@ class NearbyFragment : Fragment() {
                 if (annotationCache.size > MAX_ANNOTATIONS) {
                     val removed = annotationCache.removeLast()
                     manager.delete(removed.annotation)
+                    if (!removed.pageTitle.thumbUrl.isNullOrEmpty()) {
+                        mapboxMap?.style?.removeImage(removed.pageTitle.thumbUrl!!)
+                    }
+                    if (removed.bitmap != null) {
+                        Glide.get(requireContext()).bitmapPool.put(removed.bitmap!!)
+                    }
                 }
             }
         }
@@ -290,7 +298,9 @@ class NearbyFragment : Fragment() {
                     if (!isAdded) {
                         return
                     }
-                    val drawable = BitmapDrawable(resources, resource)
+
+                    val bmp = getMarkerBitmap(resource)
+                    val drawable = BitmapDrawable(resources, bmp)
 
                     mapboxMap?.style?.addImage(url, drawable)
 
@@ -299,6 +309,7 @@ class NearbyFragment : Fragment() {
                             annotation.iconImage = url
                             symbolManager?.update(annotation)
                         }
+                        it.bitmap = bmp
                     }
                 }
 
@@ -306,9 +317,38 @@ class NearbyFragment : Fragment() {
             })
     }
 
+    private fun getMarkerBitmap(thumbnailBitmap: Bitmap): Bitmap {
+        val bitmapPool = Glide.get(requireContext()).bitmapPool
+
+        val result = bitmapPool.getDirty(MARKER_WIDTH, MARKER_HEIGHT, Bitmap.Config.ARGB_8888)
+        result.eraseColor(Color.TRANSPARENT)
+        result.applyCanvas {
+
+            val markerRect = Rect(0, 0, MARKER_WIDTH, MARKER_HEIGHT)
+            val srcRect = Rect(0, 0, thumbnailBitmap.width, thumbnailBitmap.height)
+
+            val paint = Paint()
+            paint.isAntiAlias = true
+
+            drawCircle((MARKER_WIDTH / 2).toFloat(), (MARKER_WIDTH / 2).toFloat(),
+                ((MARKER_WIDTH / 2) - (MARKER_WIDTH / 16)).toFloat(), paint)
+
+            paint.xfermode = PorterDuffXfermode(Mode.SRC_IN)
+            drawBitmap(thumbnailBitmap, srcRect, markerRect, paint)
+
+            val baseRect = Rect(0, 0, markerBitmapBase.width, markerBitmapBase.height)
+            drawBitmap(markerBitmapBase, baseRect, markerRect, null)
+
+        }
+        return result
+    }
+
     companion object {
         const val MARKER_DRAWABLE = "markerDrawable"
         const val MAX_ANNOTATIONS = 64
+        const val THUMB_SIZE = 120
+        val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
+        val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
 
         fun newInstance(wiki: WikiSite): NearbyFragment {
             return NearbyFragment().apply {
