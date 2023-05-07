@@ -131,6 +131,7 @@ class NearbyFragment : Fragment() {
                 map.uiSettings.setAttributionMargins(attribMargin, 0, attribMargin, attribMargin)
 
                 map.addOnCameraIdleListener {
+
                     onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)
                 }
 
@@ -206,8 +207,13 @@ class NearbyFragment : Fragment() {
         if (latLng == null) {
             return
         }
-        // Fetch new pages within the current viewport, but only if the map has moved a significant distance.
 
+        if ((mapboxMap?.cameraPosition?.zoom ?: 0.0) < 3.0) {
+            // Don't fetch pages if the map is zoomed out too far.
+            return
+        }
+
+        // Fetch new pages within the current viewport, but only if the map has moved a significant distance.
         val latEpsilon = (mapboxMap?.projection?.visibleRegion?.latLngBounds?.latitudeSpan ?: 0.0) * 0.1
         val lngEpsilon = (mapboxMap?.projection?.visibleRegion?.latLngBounds?.longitudeSpan ?: 0.0) * 0.1
 
