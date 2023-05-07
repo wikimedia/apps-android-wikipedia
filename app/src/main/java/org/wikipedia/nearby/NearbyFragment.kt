@@ -239,8 +239,9 @@ class NearbyFragment : Fragment() {
                     .withLatLng(LatLng(it.latitude, it.longitude))
                     .withTextField(it.pageTitle.displayText)
                     .withTextSize(10f)
+                    .withTextOffset(arrayOf(0f, 1f))
                     .withIconImage(MARKER_DRAWABLE)
-                    .withIconOffset(arrayOf(0f, -16f)))
+                    .withIconOffset(arrayOf(0f, -32f)))
 
                 annotationCache.addFirst(it)
                 manager.update(it.annotation)
