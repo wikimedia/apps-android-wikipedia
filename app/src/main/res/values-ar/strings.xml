@@ -1211,7 +1211,7 @@
   <string name="talk_new_topic_submitted">أُضيف الموضوع</string>
   <string name="talk_page_empty">صفحة النقاش هذه فارغة.</string>
   <string name="talk_page_empty_title">تبدأ المحادثة هنا</string>
-  <string name="talk_page_empty_content">صفحات النقاش هي حيث يناقش الناس كيفية جعل المحتوى على ويكيبيديا أفضل ما يمكن أن يكون. ** ابدأ بإضافة موضوع مناقشة جديد ** للتواصل والتعاون مع مجتمع Wikipedians.</string>
+  <string name="talk_page_empty_content">صفحات النقاش هي حيث يناقش الناس كيفية جعل المحتوى على ويكيبيديا أفضل ما يمكن أن يكون. ابدأ بإضافة موضوع مناقشة جديد للتواصل والتعاون مع مجتمع Wikipedians.</string>
   <string name="talk_add_reply">رد</string>
   <string name="talk_no_subject">(بدون موضوع)</string>
   <string name="talk_reply_subject">الموضوع</string>
