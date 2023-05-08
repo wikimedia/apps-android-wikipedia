@@ -1083,6 +1083,8 @@
   <string name="menu_option_view_user_profile">Žiūrėti naudotojo puslapį</string>
   <string name="menu_option_view_user_talk">Žiūrėti aptarimo puslapį</string>
   <string name="menu_option_view_user_contributions">Žiūrėti naudotojo indėlį</string>
+  <string name="revision_diff_compare">Lyginti versijas</string>
+  <string name="revision_diff_compare_title">Lyginti versijas: %s</string>
   <string name="revision_diff_from">Nuo:</string>
   <string name="revision_diff_to">Kam:</string>
   <string name="revision_diff_line_num">%d eilutė</string>
