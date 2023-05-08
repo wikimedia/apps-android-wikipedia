@@ -330,11 +330,11 @@ interface Service {
     ): Observable<Edit>
 
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
-    fun getUserContributions(
+    suspend fun getUserContributions(
         @Query("ucuser") username: String,
         @Query("uclimit") maxCount: Int,
         @Query("uccontinue") uccontinue: String?
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags")
     suspend fun getUserContrib(
@@ -587,6 +587,11 @@ interface Service {
         @Query("titles") titles: String?,
         @Query("pageids") pageIds: String? = null
     ): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=paraminfo")
+    suspend fun getParamInfo(
+        @Query("modules") modules: String
+    ): ParamInfoResponse
 
     companion object {
         const val WIKIPEDIA_URL = "https://wikipedia.org/"
