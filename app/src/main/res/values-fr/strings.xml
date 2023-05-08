@@ -725,7 +725,7 @@
   <string name="notifications_direct_reply_action">Répondre</string>
   <string name="notifications_direct_reply_progress">Validation de la réponse à %s...</string>
   <string name="notifications_direct_reply_success">Réponse postée.</string>
-  <string name="notifications_direct_reply_error">Impossible de poster automatiquement la réponse.</string>
+  <string name="notifications_direct_reply_error">Impossible de publier automatiquement la réponse.</string>
   <string name="notifications_mark_all_as_read_message">%d marqué(s) comme lu(s)</string>
   <string name="notifications_mark_all_as_unread_message">%d marqué(s) comme non lu(s)</string>
   <plurals name="notifications_mark_as_read_plural">

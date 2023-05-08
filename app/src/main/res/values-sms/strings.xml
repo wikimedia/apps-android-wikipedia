@@ -189,6 +189,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Jõõsk</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Jõõsk</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Jaukkâd</string>
+  <string name="reading_lists_preview_save_button">Ruõkk</string>
   <string name="reading_lists_preview_save_dialog_title">Ruõkk liist</string>
   <string name="reading_lists_preview_save_dialog_cancel">Jõõsk</string>
   <string name="reading_lists_preview_save_dialog_save">Ruõkk</string>

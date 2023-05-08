@@ -500,6 +500,10 @@
     <item quantity="one">1 artigo, %2$.2f MB</item>
     <item quantity="other">%1$d artigos, %2$.2f MB</item>
   </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d de 1 artigo disponível offline</item>
+    <item quantity="other">%1$d de %2$d artigos disponíveis offline</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d de 1 artigo disponível offline, %3$.2f MB</item>
     <item quantity="other">%1$d de %2$d artigos disponíveis offline, %3$.2f MB</item>

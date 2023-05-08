@@ -843,7 +843,7 @@
   <string name="description_starts_with_uppercase">Birinchi soʻz atoqli ot boʻlmasa, kichik harf bilan boshlang.</string>
   <string name="description_starts_with_lowercase">Kichik harflarda yozishni taqiqlash.</string>
   <string name="description_is_in_different_language">Matn kutilmagan tilda koʻrinadi. %s tilda boʻlishi kerak.</string>
-  <string name="description_verification_notice" fuzzy="true">Tavsifingiz %1$s ichida ekanligini tekshiring. Agar Siz yozgan tavsif %2$s tilida boʻlsa, bu bildirishnomani oʻchirib qoʻyishingiz mumkin.</string>
+  <string name="description_verification_notice">Tavsifingiz %1$sʼni ichida ekanligini tekshiring. Agar Siz yozgan tavsif %2$sʼda boʻlsa, bunga eʼtibor bermang.</string>
   <string name="description_edit_suggested_description_button_text">Tavsiya etilgan tavsiflarni koʻrsatish</string>
   <string name="description_edit_suggested_description_button_tooltip">Mashina tomonidan tavsiya etilgan maqola tavsiflarini sinab koʻring</string>
   <string name="description_edit_success_saved">Maqola tavsifi saqlandi!</string>
