@@ -427,14 +427,8 @@ object Prefs {
 
     var suggestedEditsPauseDate: Date
         get() {
-            var date = Date(0)
-            if (PrefsIoUtil.contains(R.string.preference_key_suggested_edits_pause_date)) {
-                date = dbDateParse(PrefsIoUtil.getString(
-                        R.string.preference_key_suggested_edits_pause_date,
-                        ""
-                    )!!)
-            }
-            return date
+            val pref = PrefsIoUtil.getString(R.string.preference_key_suggested_edits_pause_date, "")
+            return if (!pref.isNullOrEmpty()) { dbDateParse(pref) } else Date(0)
         }
         set(date) = PrefsIoUtil.setString(R.string.preference_key_suggested_edits_pause_date, dbDateFormat(date))
 

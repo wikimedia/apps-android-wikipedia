@@ -47,7 +47,7 @@ class SuggestedEditsFeedClient : FeedClient {
         if (age == 0) {
             // In the background, fetch the user's latest contribution stats, so that we can update whether the
             // Suggested Edits feature is paused or disabled, the next time the feed is refreshed.
-            UserContribStats.updateStatsInBackground()
+            UserContribStats.getEditCountsObservable().subscribe()
         }
 
         if (UserContribStats.isDisabled() || UserContribStats.maybePauseAndGetEndDate() != null) {
