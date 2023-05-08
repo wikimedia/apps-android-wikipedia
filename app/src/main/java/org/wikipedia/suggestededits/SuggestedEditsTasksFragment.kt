@@ -323,7 +323,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         imageRecommendationsTask.primaryActionIcon = R.drawable.ic_robot_24
         imageRecommendationsTask.new = true //Prefs.shouldShowImageRecsOnboarding()
 
-        if (SuggestedEditsImageRecsFragment.isFeatureEnabled()) {
+        if (SuggestedEditsImageRecsFragment.isFeatureEnabled() && viewModel.imageRecommendationsEnabled) {
             displayedTasks.add(imageRecommendationsTask)
         }
 

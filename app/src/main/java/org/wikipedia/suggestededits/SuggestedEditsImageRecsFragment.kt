@@ -30,7 +30,6 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsImageRecsItemBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
@@ -326,12 +325,11 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment() {
     }
 
     companion object {
-        private val SUPPORTED_LANGUAGES = arrayOf("ar", "arz", "bn", "cs", "de", "en", "es", "eu", "fa", "fr", "he", "hu", "hy", "it", "ko", "pl", "pt", "ru", "sr", "sv", "tr", "uk", "vi")
         const val ARG_LANG = "lang"
 
         fun isFeatureEnabled(): Boolean {
             return AccountUtil.isLoggedIn &&
-                    SUPPORTED_LANGUAGES.any { it == WikipediaApp.instance.appOrSystemLanguageCode }
+                    ReleaseUtil.isPreBetaRelease
         }
 
         fun newInstance(): SuggestedEditsItemFragment {

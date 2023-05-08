@@ -36,8 +36,11 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
     var latestEditStreak = 0
     var revertSeverity = 0
 
+    var imageRecommendationsEnabled = false
+
     fun fetchData() {
         _uiState.value = UiState.Loading()
+        imageRecommendationsEnabled = false
 
         if (!AccountUtil.isLoggedIn) {
             _uiState.value = UiState.RequireLogin()
@@ -51,6 +54,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             revertSeverity = 0
 
             val homeSiteCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName!!, 10, null) }
+            val homeSiteParamCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getParamInfo("query+growthtasks") }
             val commonsCall = async { ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName!!, 10, null) }
             val wikidataCall = async { ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName!!, 10, null) }
             val editCountsCall = withContext(Dispatchers.IO) { UserContribStats.getEditCountsObservable().blockingSingle() }
@@ -58,6 +62,12 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             val homeSiteResponse = homeSiteCall.await()
             val commonsResponse = commonsCall.await()
             val wikidataResponse = wikidataCall.await()
+
+            homeSiteParamCall.await().paraminfo?.modules?.let {
+                if (it.isNotEmpty() && it[0].parameters.isNotEmpty()) {
+                    imageRecommendationsEnabled = it[0].parameters[0].typeAsEnum.contains("image-recommendation")
+                }
+            }
 
             var blockInfo: MwServiceError.BlockInfo? = null
             when {
