@@ -70,6 +70,10 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
     private var lastLocationUpdated: LatLng? = null
 
     private lateinit var markerBitmapBase: Bitmap
+    private lateinit var markerBitmapBaseRect: Rect
+    private val markerRect = Rect(0, 0, MARKER_WIDTH, MARKER_HEIGHT)
+    private val markerPaintSrc = Paint().apply { isAntiAlias = true; xfermode = PorterDuffXfermode(Mode.SRC) }
+    private val markerPaintSrcIn = Paint().apply { isAntiAlias = true; xfermode = PorterDuffXfermode(Mode.SRC_IN) }
 
     private val locationPermissionRequest = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
         when {
@@ -90,6 +94,7 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
         super.onCreate(savedInstanceState)
         markerBitmapBase = ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.map_marker_outline,
             null /* ResourceUtil.getThemedAttributeId(requireContext(), R.attr.secondary_color) */)
+        markerBitmapBaseRect = Rect(0, 0, markerBitmapBase.width, markerBitmapBase.height)
 
         Mapbox.getInstance(requireActivity().applicationContext)
 
@@ -335,25 +340,26 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
     }
 
     private fun getMarkerBitmap(thumbnailBitmap: Bitmap): Bitmap {
-        val bitmapPool = Glide.get(requireContext()).bitmapPool
 
-        val result = bitmapPool.getDirty(MARKER_WIDTH, MARKER_HEIGHT, Bitmap.Config.ARGB_8888)
+        // Retrieve an unused bitmap from the pool
+        val result = Glide.get(requireContext()).bitmapPool
+            .getDirty(MARKER_WIDTH, MARKER_HEIGHT, Bitmap.Config.ARGB_8888)
+
+        // Make the background fully transparent.
         result.eraseColor(Color.TRANSPARENT)
+
         result.applyCanvas {
-            val markerRect = Rect(0, 0, MARKER_WIDTH, MARKER_HEIGHT)
             val srcRect = Rect(0, 0, thumbnailBitmap.width, thumbnailBitmap.height)
 
-            val paint = Paint()
-            paint.isAntiAlias = true
-
+            // Draw a filled circle that will serve as a mask for the thumbnail image.
             drawCircle((MARKER_WIDTH / 2).toFloat(), (MARKER_WIDTH / 2).toFloat(),
-                ((MARKER_WIDTH / 2) - (MARKER_WIDTH / 16)).toFloat(), paint)
+                ((MARKER_WIDTH / 2) - (MARKER_WIDTH / 16)).toFloat(), markerPaintSrc)
 
-            paint.xfermode = PorterDuffXfermode(Mode.SRC_IN)
-            drawBitmap(thumbnailBitmap, srcRect, markerRect, paint)
+            // Draw the thumbnail, which will be clipped by the circle mask above.
+            drawBitmap(thumbnailBitmap, srcRect, markerRect, markerPaintSrcIn)
 
-            val baseRect = Rect(0, 0, markerBitmapBase.width, markerBitmapBase.height)
-            drawBitmap(markerBitmapBase, baseRect, markerRect, null)
+            // Draw the marker frame on top of the clipped thumbnail.
+            drawBitmap(markerBitmapBase, markerBitmapBaseRect, markerRect, null)
         }
         return result
     }
@@ -389,6 +395,9 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
             }
         }
 
+        /**
+         * Rough conversion of latitude degrees to meters, bounded by the limits accepted by the API.
+         */
         fun latitudeDiffToMeters(latitudeDiff: Double): Int {
             return (111132 * latitudeDiff).toInt().coerceIn(10, 10000)
         }
