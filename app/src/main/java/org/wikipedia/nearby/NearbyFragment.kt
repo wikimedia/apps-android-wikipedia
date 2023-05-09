@@ -130,7 +130,6 @@ class NearbyFragment : Fragment() {
                 map.uiSettings.setAttributionMargins(attribMargin, 0, attribMargin, attribMargin)
 
                 map.addOnCameraIdleListener {
-
                     onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)
                 }
 
@@ -231,8 +230,10 @@ class NearbyFragment : Fragment() {
 
         lastLocationUpdated = LatLng(latLng.latitude, latLng.longitude)
 
+        val searchRadius = latitudeDiffToMeters(mapboxMap?.projection?.visibleRegion?.latLngBounds?.latitudeSpan ?: 0.0) / 2
+
         L.d(">>> requesting update: " + latLng.latitude + ", " + latLng.longitude + ", " + mapboxMap?.cameraPosition?.zoom)
-        viewModel.fetchNearbyPages(latLng.latitude, latLng.longitude)
+        viewModel.fetchNearbyPages(latLng.latitude, latLng.longitude, searchRadius, ITEMS_PER_REQUEST)
     }
 
     private fun updateMapMarkers(pages: List<NearbyFragmentViewModel.NearbyPage>) {
@@ -334,7 +335,6 @@ class NearbyFragment : Fragment() {
         val result = bitmapPool.getDirty(MARKER_WIDTH, MARKER_HEIGHT, Bitmap.Config.ARGB_8888)
         result.eraseColor(Color.TRANSPARENT)
         result.applyCanvas {
-
             val markerRect = Rect(0, 0, MARKER_WIDTH, MARKER_HEIGHT)
             val srcRect = Rect(0, 0, thumbnailBitmap.width, thumbnailBitmap.height)
 
@@ -349,7 +349,6 @@ class NearbyFragment : Fragment() {
 
             val baseRect = Rect(0, 0, markerBitmapBase.width, markerBitmapBase.height)
             drawBitmap(markerBitmapBase, baseRect, markerRect, null)
-
         }
         return result
     }
@@ -358,6 +357,7 @@ class NearbyFragment : Fragment() {
         const val MARKER_DRAWABLE = "markerDrawable"
         const val MAX_ANNOTATIONS = 64
         const val THUMB_SIZE = 160
+        const val ITEMS_PER_REQUEST = 50
         val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
         val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
 
@@ -365,6 +365,10 @@ class NearbyFragment : Fragment() {
             return NearbyFragment().apply {
                 arguments = bundleOf(NearbyActivity.EXTRA_WIKI to wiki)
             }
+        }
+
+        fun latitudeDiffToMeters(latitudeDiff: Double): Int {
+            return (111132 * latitudeDiff).toInt().coerceIn(10, 10000)
         }
     }
 }

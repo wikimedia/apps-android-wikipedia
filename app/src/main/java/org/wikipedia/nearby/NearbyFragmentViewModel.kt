@@ -21,11 +21,11 @@ class NearbyFragmentViewModel(bundle: Bundle) : ViewModel() {
 
     val nearbyPages = MutableLiveData<Resource<List<NearbyPage>>>()
 
-    fun fetchNearbyPages(latitude: Double, longitude: Double) {
+    fun fetchNearbyPages(latitude: Double, longitude: Double, radius: Int, maxResults: Int) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             nearbyPages.postValue(Resource.Error(throwable))
         }) {
-            val response = ServiceFactory.get(wikiSite).getGeoSearch("$latitude|$longitude", 50, 50)
+            val response = ServiceFactory.get(wikiSite).getGeoSearch("$latitude|$longitude", radius, maxResults, maxResults)
             val pages = response.query?.pages.orEmpty()
                 .filter { it.coordinates != null }
                 .map {
