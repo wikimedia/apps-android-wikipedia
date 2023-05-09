@@ -199,7 +199,14 @@ class NearbyFragment : Fragment() {
     override fun onDestroyView() {
         binding.mapView.onDestroy()
         _binding = null
+
+        annotationCache.forEach {
+            if (it.bitmap != null) {
+                Glide.get(requireContext()).bitmapPool.put(it.bitmap!!)
+            }
+        }
         markerBitmapBase.recycle()
+
         super.onDestroyView()
     }
 
@@ -305,18 +312,16 @@ class NearbyFragment : Fragment() {
                     if (!isAdded) {
                         return
                     }
-
-                    val bmp = getMarkerBitmap(resource)
-                    val drawable = BitmapDrawable(resources, bmp)
-
-                    mapboxMap?.style?.addImage(url, drawable)
-
                     annotationCache.find { it.pageId == page.pageId }?.let {
+                        val bmp = getMarkerBitmap(resource)
+                        it.bitmap = bmp
+
+                        mapboxMap?.style?.addImage(url, BitmapDrawable(resources, bmp))
+
                         it.annotation?.let { annotation ->
                             annotation.iconImage = url
                             symbolManager?.update(annotation)
                         }
-                        it.bitmap = bmp
                     }
                 }
 
