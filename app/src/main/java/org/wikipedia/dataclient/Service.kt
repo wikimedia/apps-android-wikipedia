@@ -171,6 +171,14 @@ interface Service {
             @Field("url") url: String,
     ): ShortenUrlResponse
 
+    @GET(MW_API_PREFIX + "action=query&generator=geosearch&prop=coordinates|description|pageimages|info&inprop=varianttitles|displaytitle")
+    suspend fun getGeoSearch(
+        @Query("ggscoord", encoded = true) coordinates: String,
+        @Query("ggsradius") radius: Int,
+        @Query("ggslimit") ggsLimit: Int,
+        @Query("colimit") coLimit: Int,
+    ): MwQueryResponse
+
     // ------- CSRF, Login, and Create Account -------
 
     @Headers("Cache-Control: no-cache")
