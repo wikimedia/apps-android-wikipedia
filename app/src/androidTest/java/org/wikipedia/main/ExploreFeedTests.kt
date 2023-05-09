@@ -10,6 +10,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
+import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
 import org.junit.Before
 import org.junit.Rule
@@ -17,6 +18,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.R
 import org.wikipedia.TestUtil
+import org.wikipedia.TestUtil.childAtPosition
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -45,7 +47,6 @@ class ExploreFeedTests {
         TestUtil.delay(2)
 
 /*
-
         cardNames.forEach{
             onView(withId(R.id.feed_view))
                 .perform(
@@ -132,6 +133,30 @@ class ExploreFeedTests {
 
         // Main page card
         onView(withId(R.id.feed_view)).perform(actionOnItem<RecyclerView.ViewHolder>(hasDescendant(withText("Today on Wikipedia")), scrollTo()), click())
+
+        TestUtil.delay(2)
+
+        pressBack()
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.nav_tab_reading_lists), withContentDescription("Saved"),
+            childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 1), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.nav_tab_search), withContentDescription("Search"),
+             childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 2), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.nav_tab_edits), withContentDescription("Edits"),
+          childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 3), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.nav_more_container), withContentDescription("More"),
+            childAtPosition(allOf(withId(R.id.main_nav_tab_container), childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1)), 1), isDisplayed())).perform(click())
 
         TestUtil.delay(2)
     }
