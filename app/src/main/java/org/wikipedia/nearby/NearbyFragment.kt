@@ -27,7 +27,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.mapbox.mapboxsdk.Mapbox
-import com.mapbox.mapboxsdk.WellKnownTileServer
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
 import com.mapbox.mapboxsdk.geometry.LatLng
 import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions
@@ -87,7 +86,7 @@ class NearbyFragment : Fragment() {
         markerBitmapBase = ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.map_marker_outline,
             null /* ResourceUtil.getThemedAttributeId(requireContext(), R.attr.secondary_color) */)
 
-        Mapbox.getInstance(requireActivity().applicationContext, "", WellKnownTileServer.MapLibre)
+        Mapbox.getInstance(requireActivity().applicationContext)
 
         HttpRequestImpl.setOkHttpClient(OkHttpConnectionFactory.client)
     }
@@ -358,7 +357,7 @@ class NearbyFragment : Fragment() {
     companion object {
         const val MARKER_DRAWABLE = "markerDrawable"
         const val MAX_ANNOTATIONS = 64
-        const val THUMB_SIZE = 120
+        const val THUMB_SIZE = 160
         val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
         val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
 

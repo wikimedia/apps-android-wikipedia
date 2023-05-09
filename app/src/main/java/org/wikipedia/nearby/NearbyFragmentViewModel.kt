@@ -30,7 +30,7 @@ class NearbyFragmentViewModel(bundle: Bundle) : ViewModel() {
                 .filter { it.coordinates != null }
                 .map {
                     NearbyPage(it.pageId, PageTitle(it.title, wikiSite,
-                        if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, 160),
+                        if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, NearbyFragment.THUMB_SIZE),
                         it.description,
                         it.displayTitle(wikiSite.languageCode)),
                         it.coordinates!![0].lat, it.coordinates[0].lon)
