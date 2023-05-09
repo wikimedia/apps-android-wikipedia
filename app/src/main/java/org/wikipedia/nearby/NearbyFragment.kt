@@ -37,21 +37,26 @@ import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentNearbyBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.page.PageActivity
+import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
+import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
 import kotlin.math.abs
 
-class NearbyFragment : Fragment() {
+class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
 
     private var _binding: FragmentNearbyBinding? = null
     private val binding get() = _binding!!
@@ -351,6 +356,23 @@ class NearbyFragment : Fragment() {
             drawBitmap(markerBitmapBase, baseRect, markerRect, null)
         }
         return result
+    }
+
+    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
+        startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title) else PageActivity.newIntentForCurrentTab(requireActivity(), entry, entry.title, false))
+    }
+
+    override fun onLinkPreviewCopyLink(title: PageTitle) {
+        ClipboardUtil.setPlainText(requireContext(), text = title.uri)
+        FeedbackUtil.showMessage(this, R.string.address_copied)
+    }
+
+    override fun onLinkPreviewAddToList(title: PageTitle) {
+        ExclusiveBottomSheetPresenter.showAddToListDialog(childFragmentManager, title, Constants.InvokeSource.LINK_PREVIEW_MENU)
+    }
+
+    override fun onLinkPreviewShareLink(title: PageTitle) {
+        ShareUtil.shareText(requireContext(), title)
     }
 
     companion object {
