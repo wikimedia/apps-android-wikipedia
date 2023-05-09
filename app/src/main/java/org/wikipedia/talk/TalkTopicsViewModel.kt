@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -75,10 +76,8 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
 
         viewModelScope.launch(handler) {
             if (resolveTitleRequired) {
-                val siteInfoResponse = withContext(Dispatchers.IO) {
-                    ServiceFactory.get(pageTitle.wikiSite).getPageNamespaceWithSiteInfo(pageTitle.prefixedText,
+                val siteInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getPageNamespaceWithSiteInfo(pageTitle.prefixedText,
                         OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, UriUtil.encodeURL(pageTitle.prefixedText))
-                }
                 resolveTitleRequired = false
                 siteInfoResponse.query?.namespaces?.let { namespaces ->
                     siteInfoResponse.query?.firstPage()?.let { page ->
@@ -95,20 +94,16 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
                 }
             }
 
-            val discussionToolsInfoResponse = async {
-                ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
+            val discussionToolsInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
                     OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, UriUtil.encodeURL(pageTitle.prefixedText))
-            }
 
             threadItems.clear()
-            threadItems.addAll(discussionToolsInfoResponse.await().pageInfo?.threads ?: emptyList())
+            threadItems.addAll(discussionToolsInfoResponse.pageInfo?.threads ?: emptyList())
             sortAndFilterThreadItems()
 
             if (WikipediaApp.instance.isOnline) {
-                val watchStatus = withContext(Dispatchers.Default) {
-                    if (!sidePanel) ServiceFactory.get(pageTitle.wikiSite)
+                val watchStatus = if (!sidePanel) ServiceFactory.get(pageTitle.wikiSite)
                         .getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!! else MwQueryPage()
-                }
                 isWatched = watchStatus.watched
                 hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
             }
@@ -207,24 +202,31 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     }
 
     fun watchOrUnwatch(expiry: WatchlistExpiry, unwatch: Boolean) {
+        if (isWatched) {
+            WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
+        } else {
+            WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
+        }
         viewModelScope.launch(actionHandler) {
-            withContext(Dispatchers.IO) {
-                val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
-                val response = ServiceFactory.get(pageTitle.wikiSite)
-                    .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
+            val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
+            val response = ServiceFactory.get(pageTitle.wikiSite)
+                .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
 
-                lastWatchExpiry = expiry
-                if (watchlistExpiryChanged && unwatch) {
-                    watchlistExpiryChanged = false
-                }
-
-                response.getFirst()?.let {
-                    isWatched = it.watched
-                    hasWatchlistExpiry = lastWatchExpiry != WatchlistExpiry.NEVER
-                    // We have to send values to the object, even if we use the variables from ViewModel.
-                    // Otherwise the status will not be updated in the activity since the values in the object remains the same.
-                    uiState.value = UiState.DoWatch(isWatched, hasWatchlistExpiry)
-                }
+            lastWatchExpiry = expiry
+            if (watchlistExpiryChanged && unwatch) {
+                watchlistExpiryChanged = false
+            }
+            if (unwatch) {
+                WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(pageTitle)
+            } else {
+                WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(pageTitle)
+            }
+            response.getFirst()?.let {
+                isWatched = it.watched
+                hasWatchlistExpiry = lastWatchExpiry != WatchlistExpiry.NEVER
+                // We have to send values to the object, even if we use the variables from ViewModel.
+                // Otherwise the status will not be updated in the activity since the values in the object remains the same.
+                uiState.value = UiState.DoWatch(isWatched, hasWatchlistExpiry)
             }
         }
     }

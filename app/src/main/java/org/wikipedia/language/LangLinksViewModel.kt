@@ -34,13 +34,11 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             languageEntries.postValue(Resource.Error(throwable))
         }) {
-            withContext(Dispatchers.IO) {
-                val response = ServiceFactory.get(pageTitle.wikiSite).getLangLinks(pageTitle.prefixedText)
-                val langLinks = response.query!!.langLinks()
-                updateLanguageEntriesSupported(langLinks)
-                sortLanguageEntriesByMru(langLinks)
-                languageEntries.postValue(Resource.Success(langLinks))
-            }
+            val response = ServiceFactory.get(pageTitle.wikiSite).getLangLinks(pageTitle.prefixedText)
+            val langLinks = response.query!!.langLinks()
+            updateLanguageEntriesSupported(langLinks)
+            sortLanguageEntriesByMru(langLinks)
+            languageEntries.postValue(Resource.Success(langLinks))
         }
     }
 
@@ -48,11 +46,9 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             languageEntries.postValue(Resource.Error(throwable))
         }) {
-            withContext(Dispatchers.IO) {
-                val summary = ServiceFactory.getRest(title.wikiSite).getPageSummary(null, title.prefixedText)
-                title.displayText = summary.displayTitle
-                languageEntryVariantUpdate.postValue(Resource.Success(Unit))
-            }
+            val summary = ServiceFactory.getRest(title.wikiSite).getPageSummary(null, title.prefixedText)
+            title.displayText = summary.displayTitle
+            languageEntryVariantUpdate.postValue(Resource.Success(Unit))
         }
     }
 
@@ -60,11 +56,9 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
-            withContext(Dispatchers.IO) {
-                val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
-                val sites = SiteMatrix.getSites(siteMatrix)
-                siteListData.postValue(Resource.Success(sites))
-            }
+            val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
+            val sites = SiteMatrix.getSites(siteMatrix)
+            siteListData.postValue(Resource.Success(sites))
         }
     }
 

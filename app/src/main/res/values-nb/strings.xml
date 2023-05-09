@@ -853,7 +853,7 @@
   <string name="description_starts_with_uppercase">Begynn med liten bokstav med mindre det første ordet er et egennavn.</string>
   <string name="description_starts_with_lowercase">Unngå å starte med liten forbokstav.</string>
   <string name="description_is_in_different_language">Teksten ser ut til å være på et uventet språk. Språket bør være %s.</string>
-  <string name="description_verification_notice" fuzzy="true">Sjekk at beskrivelsen din er på %1$s. Lukk dette varselet hvis den faktisk er på %2$s.</string>
+  <string name="description_verification_notice">Sjekk at beskrivelsen din er på %1$s. Ignorer gjerne denne advarselen hvis den faktisk er på %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Vis foreslåtte beskrivelser</string>
   <string name="description_edit_suggested_description_button_tooltip">Prøv maskinforeslåtte artikkelbeskrivelser</string>
   <string name="description_edit_success_saved">Artikkelbeskrivelsen ble publisert!</string>
@@ -1324,6 +1324,11 @@
   <string name="watchlist_filter_contribution_quality_may_problems">Kan ha problemer</string>
   <string name="watchlist_filter_contribution_quality_likely_problems">Har trolig problemer</string>
   <string name="watchlist_filter_contribution_quality_bad">Har sannsynligvis problemer</string>
+  <string name="watchlist_filter_contribution_authorship_own">Endringer av deg</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Endringer av andre</string>
+  <string name="watchlist_filter_automated_contributions_header">Automatiske bidrag</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">Menneske (ikke bot)</string>
   <string name="watchlist_filter_significance_minor">Mindre endringer</string>
   <string name="watchlist_filter_significance_edits">Ikke-mindre endringer</string>
   <string name="watchlist_filter_latest_revisions_header">Siste versjoner</string>

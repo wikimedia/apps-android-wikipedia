@@ -15,9 +15,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -331,9 +329,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private fun addRecentSearch(title: String?) {
         if (!title.isNullOrBlank()) {
             lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> throwable.printStackTrace() }) {
-                withContext(Dispatchers.IO) {
-                    AppDatabase.instance.recentSearchDao().insertRecentSearch(RecentSearch(text = title))
-                }
+                AppDatabase.instance.recentSearchDao().insertRecentSearch(RecentSearch(text = title))
                 recentSearchesFragment.updateList()
             }
         }

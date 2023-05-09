@@ -12,7 +12,6 @@ import androidx.appcompat.widget.PopupMenu
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.database.AppDatabase
@@ -41,11 +40,9 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
     fun show(entry: HistoryEntry?) {
         entry?.let {
             CoroutineScope(Dispatchers.Main).launch {
-                listsContainingPage = withContext(Dispatchers.IO) {
-                    AppDatabase.instance.readingListDao().getListsFromPageOccurrences(
+                listsContainingPage = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(
                         AppDatabase.instance.readingListPageDao().getAllPageOccurrences(it.title)
                     )
-                }
                 if (!anchorView.isAttachedToWindow) {
                     return@launch
                 }
