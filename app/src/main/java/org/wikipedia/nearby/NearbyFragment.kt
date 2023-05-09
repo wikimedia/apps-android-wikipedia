@@ -77,12 +77,10 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
 
     private val locationPermissionRequest = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
         when {
-            permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
+            permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) ||
+            permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 startLocationTracking()
                 goToLastKnownLocation(1000)
-            }
-            permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
-                // Only approximate location access granted.
             }
             else -> {
                 FeedbackUtil.showMessage(requireActivity(), R.string.nearby_permissions_denied)
