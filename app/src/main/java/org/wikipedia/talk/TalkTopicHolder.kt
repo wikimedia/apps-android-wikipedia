@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkTopicBinding
@@ -125,9 +124,7 @@ class TalkTopicHolder internal constructor(
 
     private fun showOverflowMenu(anchorView: View) {
         CoroutineScope(Dispatchers.Main).launch {
-            val subscribed = withContext(Dispatchers.IO) {
-                viewModel.isSubscribed(threadItem.name)
-            }
+            val subscribed = viewModel.isSubscribed(threadItem.name)
             threadItem.subscribed = subscribed
             TalkTopicsActionsOverflowView(context).show(anchorView, threadItem, object : TalkTopicsActionsOverflowView.Callback {
                 override fun markAsReadClick() {
