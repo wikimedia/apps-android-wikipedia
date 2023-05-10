@@ -410,7 +410,7 @@
         <item name="strokeColor">@color/blue600</item>
     </style>
 
-    <style name="AppPreferenceTheme" parent="PreferenceThemeOverlay" >
+    <style name="AppPreferenceTheme" parent="PreferenceThemeOverlay">
         <item name="preferenceFragmentCompatStyle">@style/AppPreferenceFragment</item>
         <item name="android:disabledAlpha">0.5</item>
     </style>
