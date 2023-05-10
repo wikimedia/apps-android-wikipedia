@@ -4,8 +4,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.*
+import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.contrib.RecyclerViewActions
-import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItem
+import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,12 +20,12 @@ import org.junit.runner.RunWith
 import org.wikipedia.R
 import org.wikipedia.TestUtil
 import org.wikipedia.TestUtil.childAtPosition
+import org.wikipedia.TestUtil.isNotVisible
+import org.wikipedia.auth.AccountUtil
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class ExploreFeedTests {
-
-    private val cardNames = listOf("Top read", "Picture of the day", "In the news", "On this day", "Random article", "Today on Wikipedia")
 
     @Rule
     @JvmField
@@ -46,93 +47,142 @@ class ExploreFeedTests {
 
         TestUtil.delay(2)
 
-/*
-        cardNames.forEach{
-            onView(withId(R.id.feed_view))
-                .perform(
-                    actionOnItem<RecyclerView.ViewHolder>(
-                        hasDescendant(withText(it)),
-                        scrollTo()
-                    ), click()
-                )
-            TestUtil.delay(4)
-            pressBack()
-            TestUtil.delay(4)
+        // Dismiss the Feed customization onboarding card in the feed
+        onView(allOf(withId(R.id.view_announcement_action_negative), withText("Got it"), isDisplayed()))
+            .perform(click())
 
-        }
-*/
+        TestUtil.delay(1)
 
-        // Featured article card
-        onView(allOf(withId(R.id.view_featured_article_card_content_container), isDisplayed()))
-            .perform(scrollTo(), click())
+        onView(allOf(withId(R.id.view_featured_article_card_content_container),
+            childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.feed.featured.FeaturedArticleCardView")), 0), 1), isDisplayed()))
+        .perform(longClick())
+
+        onView(allOf(withId(R.id.title), withText("Save"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
+        .perform(click())
 
         TestUtil.delay(2)
 
-        pressBack()
+        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(3))
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.view_list_card_list), childAtPosition(withId(R.id.view_list_card_list_container), 0)))
+        .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, longClick()))
+
+        onView(allOf(withId(R.id.title), withText("Save"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
+        .perform(click())
 
         TestUtil.delay(2)
 
-        // Top read card
         onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(4))
 
-        TestUtil.delay(1)
+        TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.view_list_card_list_container), isDisplayed())).perform(scrollTo(), click())
+        onView(allOf(withId(R.id.view_featured_image_card_content_container),
+            childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.feed.image.FeaturedImageCardView")), 0), 1), isDisplayed()))
+        .perform(click())
 
         TestUtil.delay(2)
 
         pressBack()
 
-        TestUtil.delay(1)
+        TestUtil.delay(2)
 
-        // Picture of the day card
-        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(5))
+        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(5), click())
 
-        TestUtil.delay(1)
+        TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.view_featured_image_card_image), isDisplayed())).perform(scrollTo(), click())
+        onView(allOf(withId(R.id.news_story_items_recyclerview),
+            childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1)))
+        .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, longClick()))
 
-        pressBack()
-
-        TestUtil.delay(1)
-
-        // On this day card
-        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(7))
-
-        TestUtil.delay(1)
-
-        onView(allOf(withId(R.id.event_layout), isDisplayed())).perform(scrollTo(), click())
+        onView(allOf(withId(R.id.title), withText("Save"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
+        .perform(click())
 
         TestUtil.delay(2)
 
         pressBack()
 
-        TestUtil.delay(1)
+        TestUtil.delay(2)
 
-        // Random article card
-        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(7))
-
-        TestUtil.delay(1)
-
-        onView(allOf(withId(R.id.view_featured_article_card_content_container), isDisplayed())).perform(scrollTo(), click())
+        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(6))
 
         TestUtil.delay(2)
 
-        pressBack()
+        onView(allOf(withId(R.id.on_this_day_page),
+            childAtPosition(allOf(withId(R.id.event_layout), childAtPosition(withId(R.id.on_this_day_card_view_click_container), 0)), 3), isDisplayed()))
+        .perform(longClick())
 
-        TestUtil.delay(1)
-
-        // In the news card
-        onView(withId(R.id.feed_view)).perform(actionOnItem<RecyclerView.ViewHolder>(hasDescendant(withText("In the news")), scrollTo()), click())
+        onView(allOf(withId(R.id.title), withText("Save"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
+        .perform(click())
 
         TestUtil.delay(2)
 
-        pressBack()
+        goToTop()
 
-        TestUtil.delay(1)
+        TestUtil.delay(2)
 
-        // Main page card
-        onView(withId(R.id.feed_view)).perform(actionOnItem<RecyclerView.ViewHolder>(hasDescendant(withText("Today on Wikipedia")), scrollTo()), click())
+        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(7))
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.view_featured_article_card_content_container),
+            childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.feed.random.RandomCardView")), 0), 1), isDisplayed()))
+        .perform(scrollTo(), longClick())
+
+        onView(allOf(withId(R.id.title), withText("Save"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
+        .perform(click())
+
+        TestUtil.delay(2)
+
+        if (AccountUtil.isLoggedIn) {
+
+            onView(
+                allOf(
+                    withId(R.id.feed_view),
+                    isDisplayed()
+                )
+            ).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(9))
+
+            TestUtil.delay(2)
+
+            onView(
+                allOf(
+                    withId(R.id.callToActionButton),
+                    withText("Add article description"),
+                    childAtPosition(
+                        allOf(
+                            withId(R.id.viewArticleContainer),
+                            childAtPosition(withId(R.id.cardItemContainer), 1)
+                        ), 6
+                    ),
+                    isDisplayed()
+                )
+            )
+                .perform(click())
+
+            TestUtil.delay(2)
+
+            pressBack()
+
+            TestUtil.delay(2)
+
+            pressBack()
+
+            TestUtil.delay(2)
+        }
+
+        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(8))
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.footerActionButton), withText("View main page  "),
+            childAtPosition(allOf(withId(R.id.card_footer), childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1)), 0), isDisplayed()))
+        .perform(click())
 
         TestUtil.delay(2)
 
@@ -155,17 +205,124 @@ class ExploreFeedTests {
 
         TestUtil.delay(2)
 
+        if (AccountUtil.isLoggedIn) {
+
+            onView(allOf(withId(R.id.buttonView), withText("Got it"),
+                childAtPosition(childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1), 0), isDisplayed()))
+                .perform(click())
+
+            TestUtil.delay(2)
+
+            onView(allOf(withId(R.id.buttonView), withText("Got it"),
+                childAtPosition(childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1), 0), isDisplayed()))
+                .perform(click())
+
+            TestUtil.delay(2)
+
+            onView(allOf(withId(R.id.buttonView), withText("Got it"),
+                childAtPosition(childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1), 0), isDisplayed()))
+            .perform(click())
+
+            TestUtil.delay(2)
+
+            onView(allOf(withId(R.id.buttonView), withText("Got it"),
+                childAtPosition(childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1), 0), isDisplayed()))
+            .perform(click())
+
+            TestUtil.delay(2)
+        }
+
         onView(allOf(withId(R.id.nav_more_container), withContentDescription("More"),
-            childAtPosition(allOf(withId(R.id.main_nav_tab_container), childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1)), 1), isDisplayed())).perform(click())
+            childAtPosition(allOf(withId(R.id.main_nav_tab_container), childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1)), 1), isDisplayed())
+        )
+        .perform(click())
 
         TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.main_drawer_settings_container), childAtPosition(childAtPosition(withId(com.google.android.material.R.id.design_bottom_sheet), 0), 4), isDisplayed()))
+        .perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.recycler_view),
+            childAtPosition(withId(android.R.id.list_container), 0)))
+        .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
+
+        TestUtil.delay(2)
+
+        onView(allOf(withContentDescription("More options"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.action_bar), 2), 0), isDisplayed()))
+        .perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.title), withText("Hide all"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
+        .perform(click())
+
+        TestUtil.delay(2)
+
+        pressBack()
+
+        TestUtil.delay(2)
+
+        pressBack()
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.nav_tab_explore), withContentDescription("Explore"),
+            childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 0), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.empty_container), withParent(withParent(withId(R.id.swipe_refresh_layout))), isDisplayed()))
+        .check(ViewAssertions.matches(isDisplayed()))
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.nav_more_container), withContentDescription("More"),
+            childAtPosition(allOf(withId(R.id.main_nav_tab_container), childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1)), 1), isDisplayed()))
+        .perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.main_drawer_settings_container),
+            childAtPosition(childAtPosition(withId(com.google.android.material.R.id.design_bottom_sheet), 0), 4), isDisplayed()))
+        .perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.recycler_view),
+            childAtPosition(withId(android.R.id.list_container), 0)))
+        .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
+        TestUtil.delay(2)
+
+        onView(allOf(withContentDescription("More options"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.action_bar), 2), 0), isDisplayed()))
+        .perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.title), withText("Show all"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
+        .perform(click())
+
+        TestUtil.delay(2)
+
+        pressBack()
+
+        TestUtil.delay(2)
+
+        pressBack()
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.empty_container), withParent(withParent(withId(R.id.swipe_refresh_layout))), isNotVisible()))
+        .check(ViewAssertions.matches(isNotVisible()))
     }
 
     private fun goToTop() {
         onView(allOf(withId(R.id.feed_view))).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(0))
         TestUtil.delay(2)
-    }
-
-    companion object {
     }
 }
