@@ -124,6 +124,7 @@
                 android:id="@+id/talkNewTopicButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minHeight="56dp"
                 android:layout_margin="16dp"
                 android:layout_gravity="bottom|end"
                 style="@style/App.Button"
