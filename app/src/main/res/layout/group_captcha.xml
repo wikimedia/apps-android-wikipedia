@@ -90,8 +90,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        android:enabled="false"
-        android:alpha="0.5"
         android:text="@string/create_account_button"
         android:visibility="gone"
         tools:visibility="visible" />

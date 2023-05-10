@@ -356,6 +356,7 @@
     </style>
 
     <style name="App.Button" parent="@style/Widget.Material3.Button">
+        <item name="backgroundTint">?attr/progressive_color</item>
         <item name="iconTint">@color/white</item>
         <item name="iconSize">24dp</item>
         <item name="android:textSize">16sp</item>
