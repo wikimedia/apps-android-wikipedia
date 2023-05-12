@@ -217,7 +217,7 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.updateInfoText()
 
         binding.fragmentDescriptionEditView.isSuggestionButtonEnabled =
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment &&
+                ReleaseUtil.isPreBetaRelease && MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment &&
                 MachineGeneratedArticleDescriptionsAnalyticsHelper.abcTest.group != GROUP_1
 
         if (binding.fragmentDescriptionEditView.isSuggestionButtonEnabled) {

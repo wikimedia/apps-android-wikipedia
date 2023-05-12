@@ -171,6 +171,14 @@ interface Service {
             @Field("url") url: String,
     ): ShortenUrlResponse
 
+    @GET(MW_API_PREFIX + "action=query&generator=geosearch&prop=coordinates|description|pageimages|info&inprop=varianttitles|displaytitle")
+    suspend fun getGeoSearch(
+        @Query("ggscoord", encoded = true) coordinates: String,
+        @Query("ggsradius") radius: Int,
+        @Query("ggslimit") ggsLimit: Int,
+        @Query("colimit") coLimit: Int,
+    ): MwQueryResponse
+
     // ------- CSRF, Login, and Create Account -------
 
     @Headers("Cache-Control: no-cache")
@@ -323,11 +331,11 @@ interface Service {
     ): Observable<Edit>
 
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
-    fun getUserContributions(
+    suspend fun getUserContributions(
         @Query("ucuser") username: String,
         @Query("uclimit") maxCount: Int,
         @Query("uccontinue") uccontinue: String?
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags")
     suspend fun getUserContrib(
@@ -580,6 +588,11 @@ interface Service {
         @Query("titles") titles: String?,
         @Query("pageids") pageIds: String? = null
     ): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=paraminfo")
+    suspend fun getParamInfo(
+        @Query("modules") modules: String
+    ): ParamInfoResponse
 
     companion object {
         const val WIKIPEDIA_URL = "https://wikipedia.org/"

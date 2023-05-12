@@ -27,6 +27,7 @@
 * Mailman
 * MaxBioHazard
 * Megakott
+* Merrahtar
 * Mikhail94
 * Monirec
 * Mouse21
@@ -665,6 +666,9 @@
   <string name="reading_list_delete_lists_dialog_delete_button_text">Удалить</string>
   <string name="reading_list_activity_title">Список чтения: %s</string>
   <string name="reading_lists_action_menu_export_lists">Экспортировать</string>
+  <string name="reading_lists_import_file_picker_title">Выберите файл для импорта</string>
+  <string name="reading_lists_import_failure_message">Не удалось импортировать списки чтения</string>
+  <string name="reading_lists_export_select_lists_message">Выберите списки для экспорта</string>
   <string name="reading_lists_preview_save_button">Сохранить</string>
   <string name="reading_lists_preview_save_dialog_title">Сохранить список</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Заголовок</string>
@@ -1275,6 +1279,7 @@
   <string name="talk_new_topic">Новая тема</string>
   <string name="talk_new_topic_submitted">Тема опубликована.</string>
   <string name="talk_page_empty">Эта страница обсуждения пустая.</string>
+  <string name="talk_page_empty_title">Обсуждение начинается здесь</string>
   <string name="talk_add_reply">Ответить</string>
   <string name="talk_no_subject">(Без темы)</string>
   <string name="talk_reply_subject">Тема</string>
@@ -1391,12 +1396,29 @@
   <string name="watchlist_page_moved">Перемещено</string>
   <string name="watchlist_page_protected">Защищено</string>
   <string name="watchlist_page_deleted">Удалено</string>
+  <string name="watchlist_filter_title">Фильтр списка наблюдения</string>
   <string name="watchlist_filter_wiki_filter_header">Вики</string>
+  <string name="watchlist_filter_all_text">Все</string>
+  <string name="watchlist_filter_watchlist_activity_header">Активность в списке наблюдения</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Непросмотренные изменения</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Просмотренные правки</string>
+  <string name="watchlist_filter_contribution_quality_header">Предсказание качества вклада</string>
+  <string name="watchlist_filter_contribution_quality_good">Скорее всего хорошие</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Возможно проблемные</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Вероятно проблемные</string>
+  <string name="watchlist_filter_contribution_quality_bad">Скорее всего проблемные</string>
+  <string name="watchlist_filter_user_intent_header">Предсказания намерений пользователя</string>
+  <string name="watchlist_filter_user_intent_good">Скорее всего добросовестные</string>
+  <string name="watchlist_filter_user_intent_may_problems">Возможно недобросовестные</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Вероятно недобросовестные</string>
+  <string name="watchlist_filter_user_intent_bad">Скорее всего недобросовестные</string>
+  <string name="watchlist_filter_user_status_header">Регистрация участника и его опыт</string>
   <string name="watchlist_filter_user_status_unregistered">Незарегистрированные</string>
   <string name="watchlist_filter_user_status_registered">Зарегистрированные</string>
   <string name="watchlist_filter_user_status_newcomers">Новички</string>
   <string name="watchlist_filter_user_status_learners">Учащиеся</string>
   <string name="watchlist_filter_user_status_experienced">Опытные участники</string>
+  <string name="watchlist_filter_contribution_authorship_header">Авторство правок</string>
   <string name="watchlist_filter_contribution_authorship_own">Внесённые вами изменения</string>
   <string name="watchlist_filter_contribution_authorship_except_own">Изменения от других участников</string>
   <string name="watchlist_filter_automated_contributions_header">Автоматизированные вклады</string>
@@ -1413,6 +1435,7 @@
   <string name="watchlist_filter_type_of_change_page_creations">Создания страниц</string>
   <string name="watchlist_filter_type_of_change_category_changes">Изменения категорий</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">Правки Викиданных</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Протоколируемые действия</string>
   <string name="watchlist_filter_type_of_change_new_users">Новые участники</string>
   <string name="watchlist_filter_reset_button">Сбросить</string>
   <string name="preview_edit_title">Предпросмотр правки</string>
