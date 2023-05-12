@@ -1,10 +1,15 @@
 package org.wikipedia.analytics.metricsplatform
 
+import org.wikimedia.metrics_platform.context.PageData
+import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageFragment
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.ActiveTimer
 import java.util.concurrent.TimeUnit
 
-class ArticleEvent : Event() {
+class ArticleEvent {
+    val timer = ActiveTimer()
+
     inner class ArticleFindInPageInteraction(private val fragment: PageFragment) {
         private var numFindNext = 0
         private var numFindPrev = 0
@@ -25,12 +30,12 @@ class ArticleEvent : Event() {
                 "find_next_clicks_count" to numFindNext,
                 "find_prev_clicks_count" to numFindPrev,
                 "page_height" to pageHeight,
-                "time_spent_ms" to duration,
+                "time_spent_ms" to timer.elapsedMillis,
             )
 
             submitEvent(
                 "android.metrics_platform.find_in_page_interaction",
-                fragment,
+                getPageData(fragment),
                 customData
             )
         }
@@ -134,14 +139,18 @@ class ArticleEvent : Event() {
             submitEvent("edit_article")
         }
 
+        fun pause() {timer.pause()}
+        fun resume() {timer.resume()}
+        fun reset() {timer.reset()}
+
         private fun submitEvent(action: String) {
             val customData = mapOf(
                 "action" to action,
-                "time_spent_ms" to duration
+                "time_spent_ms" to timer.elapsedMillis
             )
             submitEvent(
                 "android.metrics_platform.article_toolbar_interaction",
-                fragment,
+                getPageData(fragment),
                 customData
             )
         }
@@ -187,7 +196,7 @@ class ArticleEvent : Event() {
             )
             submitEvent(
                 "android.metrics_platform.article_toc_interaction",
-                fragment,
+                getPageData(fragment),
                 customData
             )
         }
@@ -197,7 +206,7 @@ class ArticleEvent : Event() {
         private val fragment: PageFragment,
         private val source: Int
     ) {
-        val PROD_LINK_PREVIEW_VERSION = 3
+        private val PROD_LINK_PREVIEW_VERSION = 3
         fun logLinkClick() {
             submitEvent("linkclick")
         }
@@ -214,12 +223,48 @@ class ArticleEvent : Event() {
             val customData = mapOf(
                 "action" to action,
                 "source" to source,
-                "time_spent_ms" to duration,
+                "time_spent_ms" to timer.elapsedMillis,
+                "wiki_db" to (fragment.title?.wikiSite?.dbName() ?: ""),
                 "version" to PROD_LINK_PREVIEW_VERSION
             )
             submitEvent(
                 "android.metrics_platform.article_link_preview_interaction",
-                fragment,
+                getPageData(fragment),
+                customData
+            )
+        }
+    }
+
+    inner class ArticleLinkPreviewDialogInteraction(
+        private val wikiDb: String,
+        private val pageId: Int,
+        private val source: Int
+    ) {
+        private val PROD_LINK_PREVIEW_VERSION = 3
+        fun logLinkClick() {
+            submitEvent("linkclick")
+        }
+
+        fun logNavigate() {
+            submitEvent(if (Prefs.isLinkPreviewEnabled) "navigate" else "disabled")
+        }
+
+        fun logCancel() {
+            submitEvent("cancel")
+        }
+
+        private fun submitEvent(action: String) {
+            val customData = mapOf(
+                "action" to action,
+                "source" to source,
+                "time_spent_ms" to timer.elapsedMillis,
+                "wiki_db" to wikiDb,
+                "page_id" to pageId,
+                "version" to PROD_LINK_PREVIEW_VERSION
+            )
+            submitEvent(
+                "android.metrics_platform.article_link_preview_interaction",
+                null,
                 customData
             )
         }
@@ -227,12 +272,39 @@ class ArticleEvent : Event() {
 
     private fun submitEvent(
         eventName: String,
-        fragment: PageFragment,
+        pageData: PageData?,
         customData: Map<String, Any>
     ) {
-        val clientMetadata = AndroidPageClientMetadata(fragment)
-        val metricsPlatformClient = MetricsPlatformClientPage(clientMetadata)
-
-        metricsPlatformClient.client.submitMetricsEvent(eventName, customData)
+        MetricsPlatform.client.submitMetricsEvent(eventName, pageData, mergeData(customData))
     }
+
+    private fun getPageData(fragment: PageFragment): PageData {
+        val pageProperties = fragment.page?.pageProperties
+        return PageData(
+            pageProperties?.pageId ?: 0,
+            pageProperties?.displayTitle ?: "",
+            pageProperties?.namespace?.code() ?: 0,
+            Namespace.of(pageProperties?.namespace?.code()!!).toString() ?: "",
+            pageProperties.revisionId.toInt() ?: 0,
+            pageProperties.wikiBaseItem ?: "",
+            fragment.model.title?.wikiSite?.languageCode ?: "",
+            null,
+            null,
+            null
+        )
+    }
+
+    private fun mergeData(data: Map<String, Any>): Map<String, Any> {
+        return data + ApplicationData.getApplicationData()
+    }
+
+    /**
+     * Creates a new read-only map by replacing or adding entries to this map from another [map].
+     *
+     * The returned map preserves the entry iteration order of the original map.
+     * Those entries of another [map] that are missing in this map are iterated
+     * in the end in the order of that [map].
+     */
+    public operator fun <K, V> Map<out K, V>.plus(map: Map<out K, V>): Map<K, V> =
+        LinkedHashMap(this).apply { putAll(map) }
 }
