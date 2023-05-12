@@ -270,6 +270,9 @@ class ArticleEvent {
         }
     }
 
+    /**
+     * Submits events to the Metrics Platform.
+     */
     private fun submitEvent(
         eventName: String,
         pageData: PageData?,
@@ -294,16 +297,19 @@ class ArticleEvent {
         )
     }
 
+    /**
+     * Merges custom data with additional client metadata.
+     */
     private fun mergeData(data: Map<String, Any>): Map<String, Any> {
         return data + ApplicationData.getApplicationData()
     }
 
     /**
-     * Creates a new read-only map by replacing or adding entries to this map from another [map].
+     * Creates a new read-only map by replacing or adding entries to this map from another map.
      *
      * The returned map preserves the entry iteration order of the original map.
-     * Those entries of another [map] that are missing in this map are iterated
-     * in the end in the order of that [map].
+     * Those entries of another map that are missing in this map are iterated
+     * in the end in the order of that map.
      */
     public operator fun <K, V> Map<out K, V>.plus(map: Map<out K, V>): Map<K, V> =
         LinkedHashMap(this).apply { putAll(map) }
