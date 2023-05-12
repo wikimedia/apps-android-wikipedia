@@ -105,7 +105,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         articleTocInteractionEvent = ArticleTocInteractionEvent(page.pageProperties.pageId, page.title.wikiSite.dbName(), tocAdapter.count)
         articleTocInteractionEvent?.logClick()
 
-        metricsPlatformArticleEventTocInteraction = ArticleEvent().ArticleTocInteraction(fragment,tocAdapter.count)
+        metricsPlatformArticleEventTocInteraction = ArticleEvent().ArticleTocInteraction(fragment, tocAdapter.count)
         metricsPlatformArticleEventTocInteraction?.logClick()
     }
 

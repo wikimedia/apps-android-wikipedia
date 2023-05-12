@@ -139,9 +139,9 @@ class ArticleEvent {
             submitEvent("edit_article")
         }
 
-        fun pause() {timer.pause()}
-        fun resume() {timer.resume()}
-        fun reset() {timer.reset()}
+        fun pause() { timer.pause() }
+        fun resume() { timer.resume() }
+        fun reset() { timer.reset() }
 
         private fun submitEvent(action: String) {
             val customData = mapOf(
