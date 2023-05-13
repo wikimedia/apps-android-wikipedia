@@ -34,20 +34,21 @@ object RecurringTasksExecutor {
         val offlineCleanupRequest = PeriodicWorkRequestBuilder<TalkOfflineCleanupWorker>(7, TimeUnit.DAYS)
             .build()
 
-        val taskNames = mutableListOf("REMOTE_CONFIG", "DAILY_EVENT", "OFFLINE_CLEANUP")
-        val tasks = mutableListOf(remoteConfigRefreshRequest, dailyEventRequest, offlineCleanupRequest)
+        val tasks = mutableListOf(
+            "REMOTE_CONFIG" to remoteConfigRefreshRequest,
+            "DAILY_EVENT" to dailyEventRequest,
+            "OFFLINE_CLEANUP" to offlineCleanupRequest
+        )
 
         if (ReleaseUtil.isAlphaRelease) {
-            taskNames.add("ALPHA_UPDATE")
-
             val alphaUpdateRequest = PeriodicWorkRequestBuilder<AlphaUpdateWorker>(1, TimeUnit.DAYS)
                 .setConstraints(networkConstraints)
                 .build()
 
-            tasks.add(alphaUpdateRequest)
+            tasks.add("ALPHA_UPDATE" to alphaUpdateRequest)
         }
 
-        (taskNames zip tasks).forEach { (taskName, task) ->
+        tasks.forEach { (taskName, task) ->
             WorkManager.getInstance(context)
                 .enqueueUniquePeriodicWork(taskName, ExistingPeriodicWorkPolicy.KEEP, task)
         }
