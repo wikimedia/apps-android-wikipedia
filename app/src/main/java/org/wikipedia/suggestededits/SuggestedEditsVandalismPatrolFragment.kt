@@ -22,7 +22,6 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.staticdata.UserTalkAliasData
-import org.wikipedia.talk.TalkTopicActivity
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.*
@@ -58,13 +57,11 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
         binding.publishOverlayContainer.visibility = GONE
 
         val colorStateList = ColorStateList(arrayOf(intArrayOf()),
-                intArrayOf(if (WikipediaApp.instance.currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)))
+                intArrayOf(if (WikipediaApp.instance.currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color)))
         binding.publishProgressBar.progressTintList = colorStateList
         binding.publishProgressBarComplete.progressTintList = colorStateList
         binding.publishProgressCheck.imageTintList = colorStateList
         binding.publishProgressText.setTextColor(colorStateList)
-
-        binding.oresGradient.background = GradientUtil.getPowerGradient(R.color.black26, Gravity.BOTTOM)
 
         binding.voteGoodButton.setOnClickListener {
             parent().nextPage(this)
