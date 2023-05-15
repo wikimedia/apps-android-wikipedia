@@ -393,10 +393,6 @@
   <string name="reading_list_create_new">Krei novan</string>
   <string name="reading_list_title_exists">Legolisto \"%s\" jam ekzistas.</string>
   <string name="reading_list_added_view_button">Montri liston</string>
-  <string name="format_reading_list_statistical_summary_singular">1 artikolo, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikoloj, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d el 1 artikoloj disponebla eksterrete, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d el %2$d artikoloj disponeblaj eksterrete, %3$.2f MB</string>
   <string name="reading_list_sort">Ordigi</string>
   <string name="reading_list_sort_ellipsis">Ordigi laŭ</string>
   <string name="reading_list_sort_by_name">Ordigi laŭ nomo</string>

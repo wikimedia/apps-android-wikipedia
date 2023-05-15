@@ -473,6 +473,10 @@
   <string name="reading_list_articles_already_exist_message">%s inneholder allerede alle artiklene.</string>
   <string name="reading_list_added_view_button">Vis liste</string>
   <string name="reading_list_add_to_list_button">Legg til i liste</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 artikkel</item>
+    <item quantity="other">%d artikler</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 artikkel, %2$.2f MB</item>
     <item quantity="other">%1$d artikler, %2$.2f MB</item>
@@ -481,10 +485,6 @@
     <item quantity="one">%1$d av 1 artikkel tilgjengelig offline, %3$.2f MB</item>
     <item quantity="other">%1$d av %2$d artikler tilgjengelig offline, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artikkel, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikler, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikler tilgjengelig offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artikler tilgjengelig offline, %3$.2f MB</string>
   <string name="reading_list_sort">Sorter</string>
   <string name="reading_list_sort_ellipsis">Sorter etter…</string>
   <string name="reading_list_sort_by_name">Sorter etter navn</string>
@@ -494,6 +494,10 @@
   <string name="reading_list_sort_by_created">Sorter etter opprettelsestidspunkt (nyeste)</string>
   <string name="reading_list_sort_by_created_desc">Sorter etter opprettelsestidspunkt (eldste)</string>
   <string name="reading_list_menu_delete">Slett listen</string>
+  <string name="reading_list_menu_export">Eksporter liste</string>
+  <string name="reading_list_menu_select">Velg</string>
+  <string name="reading_list_menu_unselect">Fjern valg</string>
+  <string name="reading_list_export_write_permission_rationale">Tilgang til lagring på enheten din behøves for å eksportere leselista di.</string>
   <string name="reading_list_menu_rename">Endre navn/beskrivelse</string>
   <string name="reading_list_action_menu_remove_from_offline">Fjern lokal kopi</string>
   <string name="reading_list_action_menu_save_for_offline">Lagre for lesing offline</string>
@@ -514,6 +518,15 @@
     <item quantity="one">%d artikkel fjernet fra %s</item>
     <item quantity="other">%d artikler fjernet fra %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d liste slettet</item>
+    <item quantity="other">%d lister slettet</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Standardlista (%s) kan ikke slettes</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s slettet. Standardlista (%2$s) kan ikke slettes.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Lister slettet. Standardlista (%s) kan ikke slettes.</string>
+  <string name="single_list_json_file_name">%s (Wikipedia-leselist).json</string>
+  <string name="multiple_lists_json_file_name">Wikipedia-leselister (%s og mer).json</string>
   <string name="reading_list_items_deleted">%d artikler ble fjernet fra lista</string>
   <string name="reading_lists_item_deleted">%s fjernet fra lister</string>
   <string name="reading_list_item_delete_undo">Angre</string>
@@ -546,6 +559,11 @@
   <string name="reading_list_articles_added_to_named">La til %1$d artikler i %2$s</string>
   <string name="reading_list_articles_moved_to_named">Flyttet %1$d artikler til %2$s</string>
   <string name="reading_list_delete_confirm">Er du sikker på at du vil slette %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Slette valgte liste(r)?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Er du sikker på at du vil slette %d liste?</item>
+    <item quantity="other">Er du sikker på at du vil slette %d lister?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Logg inn for å aktivere synkronisering</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Logg inn om du ønsker at leselistene skal lagres i brukerkontoen din.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Avbryt</string>
@@ -569,6 +587,7 @@
   <string name="reading_list_article_limit_message">Kan ikke legge til denne lista. Du har nådd grensa på %2$d artikler per liste for «%1$s».</string>
   <string name="reading_lists_limit_message">Kan ikke opprette ny liste. Du har nådd grensa på 100 leselister per konto.</string>
   <string name="reading_lists_menu_create_list">Opprett liste</string>
+  <string name="reading_lists_menu_import_list">Importer liste</string>
   <string name="reading_lists_menu_sort_by">Sorter etter</string>
   <string name="reading_lists_refresh_sync_option">Synkroniser nå</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Logg inn / registrer deg</string>
@@ -589,7 +608,33 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Avbryt</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Avbryt</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Slett</string>
   <string name="reading_list_activity_title">Leseliste: %s</string>
+  <string name="reading_list_notification_title">Leseliste(r) eksportert</string>
+  <string name="reading_list_notification_text">%d leseliste(r) har blitt eksportert som «reading_lists export.json» til nedlastingsmappa di</string>
+  <string name="reading_list_notification_detailed_text">Leselister har blitt eksportert til «reading_lists_export.json»</string>
+  <string name="reading_lists_action_menu_export_lists">Eksporter</string>
+  <string name="reading_lists_import_file_picker_title">Velg fila som skal importeres</string>
+  <string name="reading_lists_import_failure_message">Importering av leselister feilet</string>
+  <string name="reading_lists_export_select_lists_message">Velg liste(r) som skal eksporteres</string>
+  <string name="reading_lists_export_completed_message">Leseliste(r) eksportert</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Eksportering av leseliste feilet</item>
+    <item quantity="other">Eksportering av leselister feilet</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Leseliste importert</item>
+    <item quantity="other">Leselister importert</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Delt liste</string>
+  <string name="reading_lists_preview_save_button">Lagre</string>
+  <string name="reading_lists_preview_save_dialog_title">Lagre liste</string>
+  <string name="reading_lists_preview_save_dialog_text">Navngi lista og velg artikler som skal lagres.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Tittel</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Avbryt</string>
+  <string name="reading_lists_preview_save_dialog_save">Lagre</string>
+  <string name="reading_lists_preview_saved_snackbar">Leseliste lagret</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Vis</string>
   <string name="user_option_sync_label">Innstillinger</string>
   <string name="notification_reverted_title">Tilbakestilt redigering</string>
   <string name="notification_channel_title">Laster ned artikler</string>
@@ -808,7 +853,9 @@
   <string name="description_starts_with_uppercase">Begynn med liten bokstav med mindre det første ordet er et egennavn.</string>
   <string name="description_starts_with_lowercase">Unngå å starte med liten forbokstav.</string>
   <string name="description_is_in_different_language">Teksten ser ut til å være på et uventet språk. Språket bør være %s.</string>
-  <string name="description_verification_notice">Sjekk at beskrivelsen din er på %1$s. Lukk dette varselet hvis den faktisk er på %2$s.</string>
+  <string name="description_verification_notice">Sjekk at beskrivelsen din er på %1$s. Ignorer gjerne denne advarselen hvis den faktisk er på %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">Vis foreslåtte beskrivelser</string>
+  <string name="description_edit_suggested_description_button_tooltip">Prøv maskinforeslåtte artikkelbeskrivelser</string>
   <string name="description_edit_success_saved">Artikkelbeskrivelsen ble publisert!</string>
   <string name="description_edit_success_saved_snackbar">Artikkelbeskrivelse publisert!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikkelbeskrivelse publisert! (%s)</string>
@@ -826,6 +873,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideelt éi linje, mellom to og tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begynn å redigere</string>
   <string name="description_edit_tutorial_promise">Ved å begynne lover jeg å ikke misbruke denne funksjonen.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Maskinforslag</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Forslagene genereres av en maskin, ikke av frivillige eller Wikimedia Foundation</string>
   <string name="customize_toolbar_title">Tilpass verktøylinje</string>
   <string name="customize_toolbar_shortcut_description_text">Tilpass verktøylinja nederst med 5 snarveier du syns er nyttige.</string>
   <string name="customize_toolbar_category_toolbar">Verktøylinje</string>
@@ -984,6 +1033,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Bildeknagg</string>
   <string name="suggested_edits_contribution_current_revision_text">Endringen din er nå publisert på Wikipedia</string>
   <string name="suggested_card_more_edits">Flere redigeringsforslag</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Foreslåtte beskrivelser</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Hva ønsker du å rapportere?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Ikke nok informasjon</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Kan ikke se foreslåtte beskrivelser</string>
+  <string name="suggested_edits_inappropriate_suggestion">Upassende forslag</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Forstår ikke oppgaven</string>
+  <string name="suggested_edits_report_suggestion">Rapporter</string>
+  <string name="suggested_edits_suggestion_report_submitted">Rapport sendt</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s knagg</item>
     <item quantity="other">%1$s knagger</item>
@@ -1248,6 +1305,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 måneder</string>
   <string name="watchlist_expiry_dialog_six_months">6 måneder</string>
   <string name="watchlist_empty">Du har ingen artikler i overvåkningslisten din.</string>
+  <string name="watchlist_search">Søk i overvåkningslista</string>
   <string name="watchlist_filter_all">Alle</string>
   <string name="watchlist_filter_talk">Diskusjon</string>
   <string name="watchlist_filter_pages">Sider</string>
@@ -1255,6 +1313,42 @@
   <string name="watchlist_page_moved">Flyttet</string>
   <string name="watchlist_page_protected">Beskyttet</string>
   <string name="watchlist_page_deleted">Slettet</string>
+  <string name="watchlist_filter_title">Filter for overvåkningsliste</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">Alle</string>
+  <string name="watchlist_filter_watchlist_activity_header">Aktivitet på overvåkningslista</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Usette endringer</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Sette endringer</string>
+  <string name="watchlist_filter_contribution_quality_header">Estimert bidragskvalitet</string>
+  <string name="watchlist_filter_contribution_quality_good">Med all sannsynlighet bra</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Kan ha problemer</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Har trolig problemer</string>
+  <string name="watchlist_filter_contribution_quality_bad">Har sannsynligvis problemer</string>
+  <string name="watchlist_filter_contribution_authorship_own">Endringer av deg</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Endringer av andre</string>
+  <string name="watchlist_filter_automated_contributions_header">Automatiske bidrag</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">Menneske (ikke bot)</string>
+  <string name="watchlist_filter_significance_minor">Mindre endringer</string>
+  <string name="watchlist_filter_significance_edits">Ikke-mindre endringer</string>
+  <string name="watchlist_filter_latest_revisions_header">Siste versjoner</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Siste versjon</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Ikke siste versjon</string>
+  <string name="watchlist_filter_type_of_change_header">Type endring</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Sideredigeringer</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Sideopprettelser</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Kategoriendringer</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata-redigeringer</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Loggførte handlinger</string>
+  <string name="watchlist_filter_type_of_change_new_users">Nye brukere</string>
+  <string name="watchlist_filter_reset_button">Nullstill</string>
+  <string name="watchlist_search_bar_hint">Søk i eller filtrer overvåkningslisten</string>
+  <string name="watchlist_search_bar_filter_hint">Overvåkningslistefilter</string>
+  <string name="watchlist_empty_search_message">Ingen resultater. Prøv å fjerne %s for å se mer.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d filter</item>
+    <item quantity="other">%d filtre</item>
+  </plurals>
   <string name="preview_edit_title">Forhåndsvis endring</string>
   <string name="preview_edit_summarize_edit_title">Forklar redigering</string>
   <string name="preview_edit_summarize_edit_hint">Hvordan forbedret du denne siden?</string>
@@ -1288,8 +1382,9 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Leseliste importert</string>
   <string name="reading_list_share_menu_label">Del …</string>
   <string name="reading_list_share_menu_tooltip">Del denne leselista med andre</string>
-  <string name="reading_list_share_title_tooltip">Endringer du gjør i lista er ikke synlige for andre.</string>
   <string name="reading_list_share_message_v2">Hei! Jeg ønsker å dele leselista mi på Wikipedia med deg:</string>
   <string name="reading_list_share_survey_title">Kan du hjelpe oss å forbedre «Del leselister»?</string>
   <string name="reading_list_share_survey_body">«Del leselister» er en testfunksjon, og vi trenger tilbakemelding fra brukerne for å forbedre eller fjerne den.</string>
+  <string name="data_opt_in_accept">Godta</string>
+  <string name="data_opt_in_reject">Avvis</string>
 </resources>

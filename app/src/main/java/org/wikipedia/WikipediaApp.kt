@@ -3,9 +3,7 @@ package org.wikipedia
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Intent
-import android.content.IntentFilter
 import android.content.pm.PackageManager
-import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Handler
 import android.speech.RecognizerIntent
@@ -16,14 +14,13 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.internal.functions.Functions
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.wikipedia.analytics.FunnelManager
 import org.wikipedia.analytics.InstallReferrerListener
-import org.wikipedia.analytics.SessionFunnel
+import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.RxBus
-import org.wikipedia.connectivity.NetworkConnectivityReceiver
+import org.wikipedia.connectivity.ConnectionStateMonitor
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.dataclient.WikiSite
@@ -44,10 +41,14 @@ import org.wikipedia.util.log.L
 import java.util.*
 
 class WikipediaApp : Application() {
+    init {
+        instance = this
+    }
+
     val mainThreadHandler by lazy { Handler(mainLooper) }
     val languageState by lazy { AppLanguageState(this) }
-    val funnelManager by lazy { FunnelManager(this) }
-    val sessionFunnel by lazy { SessionFunnel(this) }
+    val appSessionEvent by lazy { AppSessionEvent() }
+
     val userAgent by lazy {
         var channel = ReleaseUtil.getChannel(this)
         channel = if (channel.isBlank()) "" else " $channel"
@@ -61,10 +62,10 @@ class WikipediaApp : Application() {
         )
     }
 
-    private val connectivityReceiver = NetworkConnectivityReceiver()
     private val activityLifecycleHandler = ActivityLifecycleHandler()
     private var defaultWikiSite: WikiSite? = null
 
+    val connectionStateMonitor = ConnectionStateMonitor()
     val bus = RxBus()
     val tabList = mutableListOf<Tab>()
 
@@ -126,7 +127,7 @@ class WikipediaApp : Application() {
         get() = if (tabList.size > 1) tabList.size else if (tabList.isEmpty()) 0 else if (tabList[0].backStack.isEmpty()) 0 else tabList.size
 
     val isOnline
-        get() = connectivityReceiver.isOnline()
+        get() = connectionStateMonitor.isOnline()
 
     val haveMainActivity
         get() = activityLifecycleHandler.haveMainActivity()
@@ -144,18 +145,13 @@ class WikipediaApp : Application() {
         }
     }
 
-    init {
-        instance = this
-    }
-
     override fun onCreate() {
         super.onCreate()
 
         WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
 
-        // Register here rather than in AndroidManifest.xml so that we can target Android N.
-        // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action
-        registerReceiver(connectivityReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
+        connectionStateMonitor.enable(this)
+
         setupLeakCanary()
 
         // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0

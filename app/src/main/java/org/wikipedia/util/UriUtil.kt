@@ -164,4 +164,8 @@ object UriUtil {
             else -> { PageTitle(UserAliasData.valueFor(languageCode) + ":" + username, WikiSite.forLanguageCode(languageCode)) }
         }
     }
+
+    fun isDiffUrl(url: String): Boolean {
+        return url.contains("/index.php?") && url.contains("diff=") && url.contains("title=")
+    }
 }

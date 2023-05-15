@@ -9,7 +9,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
-import org.wikipedia.page.Namespace
 import org.wikipedia.settings.Prefs
 import java.util.*
 
@@ -20,9 +19,10 @@ class WatchlistViewModel : ViewModel() {
     }
 
     private var watchlistItems = mutableListOf<MwQueryResult.WatchlistItem>()
+    var currentSearchQuery: String? = null
+        private set
     var finalList = mutableListOf<Any>()
-    var displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
-    var filterMode = WatchlistFragment.FILTER_MODE_ALL
+    var displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistExcludedWikiCodes.contains(it) }
 
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState.asStateFlow()
@@ -31,47 +31,129 @@ class WatchlistViewModel : ViewModel() {
         fetchWatchlist()
     }
 
-    fun updateList() {
+    fun updateList(searchBarPlaceholder: Boolean = true) {
+
         finalList = mutableListOf()
-        finalList.add("") // placeholder for header
+
+        if (searchBarPlaceholder) {
+            finalList.add("") // placeholder for search bar
+        }
 
         val calendar = Calendar.getInstance()
         var curDay = -1
 
-        for (item in watchlistItems) {
-            if (filterMode == WatchlistFragment.FILTER_MODE_ALL ||
-                (filterMode == WatchlistFragment.FILTER_MODE_PAGES && Namespace.of(item.ns).main()) ||
-                (filterMode == WatchlistFragment.FILTER_MODE_TALK && Namespace.of(item.ns).talk()) ||
-                (filterMode == WatchlistFragment.FILTER_MODE_OTHER && !Namespace.of(item.ns).main() && !Namespace.of(item.ns).talk())) {
+        val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
 
-                calendar.time = item.date
-                if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
-                    curDay = calendar.get(Calendar.DAY_OF_YEAR)
-                    finalList.add(item.date)
-                }
+        watchlistItems.forEach { item ->
 
-                finalList.add(item)
+            if (excludedWikiCodes.contains(item.wiki?.languageCode)) {
+                return@forEach
             }
+
+            val searchQuery = currentSearchQuery
+            if (!searchQuery.isNullOrEmpty() &&
+                !(item.title.contains(searchQuery, true) ||
+                        item.user.contains(searchQuery, true) ||
+                        item.parsedComment.contains(searchQuery, true))) {
+                return@forEach
+            }
+
+            calendar.time = item.date
+            if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
+                curDay = calendar.get(Calendar.DAY_OF_YEAR)
+                finalList.add(item.date)
+            }
+
+            finalList.add(item)
         }
+        _uiState.value = UiState.Success()
     }
 
-    fun fetchWatchlist() {
+    fun fetchWatchlist(searchBarPlaceholder: Boolean = true) {
         _uiState.value = UiState.Loading()
         viewModelScope.launch(handler) {
             watchlistItems = mutableListOf()
             displayLanguages.map { language ->
                 async {
-                    withContext(Dispatchers.IO) {
-                        ServiceFactory.get(WikiSite.forLanguageCode(language)).getWatchlist()
-                    }.query?.watchlist?.map {
-                        it.wiki = WikiSite.forLanguageCode(language)
-                        watchlistItems.add(it)
-                    }
+                    ServiceFactory.get(WikiSite.forLanguageCode(language))
+                        .getWatchlist(latestRevisions(), showCriteriaString(), showTypesString())
+                        .query?.watchlist?.map {
+                            it.wiki = WikiSite.forLanguageCode(language)
+                            watchlistItems.add(it)
+                        }
                 }
             }.awaitAll()
             watchlistItems.sortByDescending { it.date }
-            _uiState.value = UiState.Success()
+            updateList(searchBarPlaceholder)
         }
+    }
+
+    fun updateSearchQuery(query: String?) {
+        currentSearchQuery = query
+    }
+
+    fun filtersCount(): Int {
+        val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
+        val defaultTypeSet = WatchlistFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }.toSet()
+        val nonDefaultChangeTypes = Prefs.watchlistIncludedTypeCodes.subtract(defaultTypeSet)
+            .union(defaultTypeSet.subtract(Prefs.watchlistIncludedTypeCodes.toSet()))
+        return WikipediaApp.instance.languageState.appLanguageCodes.count { excludedWikiCodes.contains(it) } + nonDefaultChangeTypes.size
+    }
+
+    private fun latestRevisions(): String? {
+        val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
+        if (!includedTypesCodes.containsAll(WatchlistFilterTypes.LATEST_REVISIONS_GROUP.map { it.id }) &&
+            !includedTypesCodes.contains(WatchlistFilterTypes.LATEST_REVISION.id)) {
+            return WatchlistFilterTypes.NOT_LATEST_REVISION.value
+        }
+        return null
+    }
+
+    private fun showCriteriaString(): String {
+        val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
+        val list = mutableListOf<String>()
+        if (!includedTypesCodes.containsAll(WatchlistFilterTypes.UNSEEN_CHANGES_GROUP.map { it.id })) {
+            if (includedTypesCodes.contains(WatchlistFilterTypes.UNSEEN_CHANGES.id)) {
+                list.add(WatchlistFilterTypes.UNSEEN_CHANGES.value)
+            }
+            if (includedTypesCodes.contains(WatchlistFilterTypes.SEEN_CHANGES.id)) {
+                list.add(WatchlistFilterTypes.SEEN_CHANGES.value)
+            }
+        }
+
+        if (!includedTypesCodes.containsAll(WatchlistFilterTypes.BOT_EDITS_GROUP.map { it.id })) {
+            if (includedTypesCodes.contains(WatchlistFilterTypes.BOT.id)) {
+                list.add(WatchlistFilterTypes.BOT.value)
+            }
+            if (includedTypesCodes.contains(WatchlistFilterTypes.HUMAN.id)) {
+                list.add(WatchlistFilterTypes.HUMAN.value)
+            }
+        }
+
+        if (!includedTypesCodes.containsAll(WatchlistFilterTypes.MINOR_EDITS_GROUP.map { it.id })) {
+            if (includedTypesCodes.contains(WatchlistFilterTypes.MINOR_EDITS.id)) {
+                list.add(WatchlistFilterTypes.MINOR_EDITS.value)
+            }
+            if (includedTypesCodes.contains(WatchlistFilterTypes.NON_MINOR_EDITS.id)) {
+                list.add(WatchlistFilterTypes.NON_MINOR_EDITS.value)
+            }
+        }
+
+        if (!includedTypesCodes.containsAll(WatchlistFilterTypes.USER_STATUS_GROUP.map { it.id })) {
+            if (includedTypesCodes.contains(WatchlistFilterTypes.REGISTERED.id)) {
+                list.add(WatchlistFilterTypes.REGISTERED.value)
+            }
+            if (includedTypesCodes.contains(WatchlistFilterTypes.UNREGISTERED.id)) {
+                list.add(WatchlistFilterTypes.UNREGISTERED.value)
+            }
+        }
+        return list.joinToString(separator = "|")
+    }
+
+    private fun showTypesString(): String {
+        val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
+        val types = WatchlistFilterTypes.TYPE_OF_CHANGES_GROUP.filter { includedTypesCodes.contains(it.id) }.map { it.value }
+        return types.joinToString(separator = "|")
     }
 
     open class UiState {

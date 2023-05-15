@@ -11,8 +11,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener
 import org.wikipedia.bridge.JavaScriptActionHandler
@@ -28,6 +26,7 @@ import org.wikipedia.page.*
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.ViewAnimations
 
@@ -38,7 +37,6 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
 
     private lateinit var bridge: CommunicationBridge
     private lateinit var references: PageReferences
-    private lateinit var funnel: EditFunnel
     val isActive get() = binding.editPreviewContainer.visibility == View.VISIBLE
 
     override lateinit var linkHandler: LinkHandler
@@ -55,7 +53,6 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         val pageTitle = (requireActivity() as EditSectionActivity).pageTitle
         model.title = pageTitle
         model.curEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK)
-        funnel = WikipediaApp.instance.funnelManager.getEditFunnel(pageTitle)
         linkHandler = EditLinkHandler(requireContext())
         initWebView()
 
@@ -82,6 +79,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     }
 
     private fun initWebView() {
+        webView.setBackgroundColor(ResourceUtil.getThemedColor(requireActivity(), R.attr.paper_color))
         binding.editPreviewWebview.webViewClient = object : OkHttpWebViewClient() {
 
             override val model get() = this@EditPreviewFragment.model
@@ -100,7 +98,11 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         }
 
         bridge.addListener("setup") { _, _ -> }
-        bridge.addListener("final_setup") { _, _ -> }
+        bridge.addListener("final_setup") { _, _ ->
+            if (isAdded) {
+                bridge.onPcsReady()
+            }
+        }
         bridge.addListener("link", linkHandler)
         bridge.addListener("image") { _, _ -> }
         bridge.addListener("media") { _, _ -> }

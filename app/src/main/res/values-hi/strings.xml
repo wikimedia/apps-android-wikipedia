@@ -17,6 +17,7 @@
 * Pulkitsingh01
 * Rajatkatiyar10
 * Rishi.Singh
+* SHaran (WMF)
 * Sachinkatiyar
 * Sagsag
 * Sahilrathod
@@ -31,6 +32,7 @@
 * आलोक
 * गोपाल
 * चक्रपाणी
+* मुरही
 * संजीव कुमार
 -->
 <resources>
@@ -458,6 +460,7 @@
   <string name="theme_category_editing">संपादन</string>
   <string name="reading_focus_mode">पढ़ने हेतु फोकस मोड</string>
   <string name="reading_focus_mode_detail">स्क्रॉल पर संपादन सुविधाएँ और निचला टूलबार छुपाता है</string>
+  <string name="editing_line_numbers_label">लाइन नंबर दिखाएं</string>
   <string name="nav_item_saved">सहेजा गया</string>
   <string name="reading_list_save_to">पढ़ने वाली सूची में जोड़ें</string>
   <string name="reading_list_move_to">पठन सूची में जोड़ें</string>
@@ -478,10 +481,6 @@
     <item quantity="one">%1$d में से 1 लेख ऑफ़लाइन उपलब्ध, %3$.2f एमबी</item>
     <item quantity="other"> %2$d लेखों में से %1$d लेख ऑफ़लाइन उपलब्ध , %3$.2f एमबी</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 लेख, %1$.2f मेगाबाइट</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d लेख, %2$.2f मेगाबाइट</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d में से 1 लेख ऑफलाइन उपलब्ध हैं, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d में से %1$d लेख ऑफलाइन उपलब्ध हैं, %3$.2f MiB</string>
   <string name="reading_list_sort">छांटें</string>
   <string name="reading_list_sort_ellipsis">के अनुसार क्रमबद्ध करें</string>
   <string name="reading_list_sort_by_name">नाम से छांटें</string>
@@ -491,6 +490,9 @@
   <string name="reading_list_sort_by_created">निर्माण तिथि के अनुसार क्रमित करें (नवीनतम)</string>
   <string name="reading_list_sort_by_created_desc">निर्माण तिथि के अनुसार क्रमित करें (सबसे पुराना)</string>
   <string name="reading_list_menu_delete">सूची को मिटायें</string>
+  <string name="reading_list_menu_export">निर्यात लिस्ट</string>
+  <string name="reading_list_menu_select">चुनें</string>
+  <string name="reading_list_menu_unselect">चुनें से हटाएं</string>
   <string name="reading_list_menu_rename">नाम या विवरण बदलें</string>
   <string name="reading_list_action_menu_remove_from_offline">ऑफलाइन से हटाएं</string>
   <string name="reading_list_action_menu_save_for_offline">ऑफलाइन के लिए सुरक्षित करें</string>
@@ -586,7 +588,15 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">रद्द करें</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द करें</string>
   <string name="reading_list_split_dialog_ok_button_text">ठीक है</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">मिटाएं</string>
   <string name="reading_list_activity_title">पठन सूची: %s</string>
+  <string name="reading_lists_preview_save_button">सहेजें</string>
+  <string name="reading_lists_preview_save_dialog_title">लिस्ट सेव करें</string>
+  <string name="reading_lists_preview_save_dialog_text">सेव करने के लिए नाम की लिस्ट और आर्टिकल्स चुनें</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">शीर्षक</string>
+  <string name="reading_lists_preview_save_dialog_cancel">रद्द करें</string>
+  <string name="reading_lists_preview_save_dialog_save">सहेजें</string>
+  <string name="reading_lists_preview_saved_snackbar_action">देखें</string>
   <string name="user_option_sync_label">वरीयता</string>
   <string name="notification_reverted_title">संपादन वापस लिया गया</string>
   <string name="notification_channel_title">लेख डाउनलोड हो रहे हैं</string>
@@ -802,7 +812,9 @@
   <string name="description_starts_with_uppercase">लोअरकेस से शुरू करें जब तक कि पहला शब्द एक प्रॉपर नाउन न हो।</string>
   <string name="description_starts_with_lowercase">लोअरकेस अक्षर से शुरू करने से बचें।</string>
   <string name="description_is_in_different_language">पाठ किसी अनपेक्षित भाषा में प्रतीत होता है। भाषा %s होनी चाहिए।</string>
-  <string name="description_verification_notice">कृपया सत्यापित करें कि आपका विवरण %1$s में है। यदि आपके द्वारा लिखा गया विवरण %2$s में है, तो बेझिझक इस अधिसूचना को खारिज कर दें।</string>
+  <string name="description_verification_notice" fuzzy="true">कृपया सत्यापित करें कि आपका विवरण %1$s में है। यदि आपके द्वारा लिखा गया विवरण %2$s में है, तो बेझिझक इस अधिसूचना को खारिज कर दें।</string>
+  <string name="description_edit_suggested_description_button_text">सुझाए गए लेख विवरण दिखाएं</string>
+  <string name="description_edit_suggested_description_button_tooltip">मशीन द्वारा सुझाए गए लेख विवरण आज़माएं</string>
   <string name="description_edit_success_saved">लेख विवरण प्रकाशित किया!</string>
   <string name="description_edit_success_saved_snackbar">लेख विवरण प्रकाशित!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">लेख विवरण प्रकाशित! ( %s )</string>
@@ -820,6 +832,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">एक लाइन, दो से बारह शब्दों की उपयुक्त है</string>
   <string name="description_edit_tutorial_button_label_start_editing">संपादन शुरू करें</string>
   <string name="description_edit_tutorial_promise">शुरू करने से, मैं यह वादा करता हूँ कि इस सुविधा का दुरुपयोग नहीं करूँगा(गी)।</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">मशीन जनित सुझाव</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">सुझाव एक मशीन द्वारा उत्पन्न किए गए हैं न कि स्वयंसेवकों या विकिमीडिया फाउंडेशन द्वारा</string>
   <string name="customize_toolbar_title">टूलबार अनुकूलित करें</string>
   <string name="customize_toolbar_shortcut_description_text">नीचे के टूलबार को 5 शॉर्टकट्स के साथ अनुकूलित करें जो आपको सबसे अधिक उपयोगी लगते हैं।</string>
   <string name="customize_toolbar_category_toolbar">टूलबार</string>
@@ -957,6 +971,14 @@
   <string name="suggested_edits_contribution_type_image_tag">चित्र टैग</string>
   <string name="suggested_edits_contribution_current_revision_text">आपका संपादन वर्तमान में विकिपीडिया पर लाइव है</string>
   <string name="suggested_card_more_edits">अधिक सुझाए गए संपादन</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">सुझाए गए विवरण</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">आप क्या रिपोर्ट करना चाहेंगे?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">ज्यादा जानकारी नहीं है</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">सुझाए गए विवरण देख नहीं सकते</string>
+  <string name="suggested_edits_inappropriate_suggestion">अनुचित सुझाव</string>
+  <string name="suggested_edits_do_not_understand_suggestion">काम समझ में नहीं आया</string>
+  <string name="suggested_edits_report_suggestion">रिपोर्ट</string>
+  <string name="suggested_edits_suggestion_report_submitted">प्रतिवेदन प्रस्तुत किया</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s टैग</item>
     <item quantity="other"> %1$s टैग्स</item>
@@ -1182,6 +1204,9 @@
   <string name="watchlist_page_moved">स्थानांतरित किया गया</string>
   <string name="watchlist_page_protected">सुरक्षित किया गया</string>
   <string name="watchlist_page_deleted">हटाया</string>
+  <string name="watchlist_filter_all_text">सभी</string>
+  <string name="watchlist_filter_automated_contributions_bot">बॉट</string>
+  <string name="watchlist_filter_reset_button">रीसेट करें</string>
   <string name="preview_edit_title">संपादन पूर्वावलोकन</string>
   <string name="preview_edit_summarize_edit_title">संपादन सारांश</string>
   <string name="preview_edit_summarize_edit_hint">आपने .इस पृष्ठ में सुधार कैसे किया?</string>
@@ -1206,7 +1231,6 @@
   <string name="user_contrib_menu_label">योगदान</string>
   <string name="reading_list_share_menu_label">साझा करें…</string>
   <string name="reading_list_share_menu_tooltip">यह रीडिंग लिस्ट अन्य लोगों के साथ साझा करें</string>
-  <string name="reading_list_share_title_tooltip">आप इस लिस्ट में जो भी बदलाव करते हैं, उन्हें दूसरे लोग नहीं देख सकते हैं।</string>
   <string name="reading_list_share_message_v2">हैलो! मैं अपना Wikipedia रीडिंग लिस्ट आपके साथ साझा करना चाहता/चाहती हूं :</string>
   <string name="reading_list_share_survey_title">क्या आप \"रीडिंग लिस्ट साझा करें\" में सुधार लाने में हमारी सहायता करेंगे?</string>
   <string name="reading_list_share_survey_body">\"रीडिंग लिस्ट साझा करें\" इस टेस्ट फीचर है और उसे सुधरने या हटाने में आपकी फीडबैक की जरूरत है।</string>

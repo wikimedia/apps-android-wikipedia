@@ -197,7 +197,7 @@
   <string name="create_account_ip_block_message">Pardonez, vua IP-adreso esas nun blokusita, e ne povas krear nova konti.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detali</string>
-  <string name="preferences_general_heading">generale</string>
+  <string name="preferences_general_heading">Ordinara preferaji</string>
   <string name="preferences_account_heading">Konto</string>
   <string name="wikipedia_app_faq">FAQ pri la Wikipedio</string>
   <string name="send_feedback">Retrosendar informi pri l\' app</string>
@@ -464,10 +464,6 @@
     <item quantity="one">%1$d de 1 artiklo disponebla \'\'offline\'\', %3$.2f MB</item>
     <item quantity="other">%1$d de %2$d artikli disponebla \'\'offline\'\', %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artiklo, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikli, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d ek 1 artikli disponebla \'offline\'; %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d ek %2$d artikli disponebla \'offline\', %3$.2f MB</string>
   <string name="reading_list_sort">Klasifikez</string>
   <string name="reading_list_sort_ellipsis">Ordenar segun...</string>
   <string name="reading_list_sort_by_name">Ordenar segun nomo</string>
@@ -789,7 +785,7 @@
   <string name="description_starts_with_uppercase">Komencez skribanta minuskula litero, ecepte se l\'unesma vorto esas propra nomo.</string>
   <string name="description_starts_with_lowercase">Kande posibla, ne komencez skribanta minuskula litero.</string>
   <string name="description_is_in_different_language">La texto semblas esar en neexpektita idiomo. L\'idiomo mustas esar %s.</string>
-  <string name="description_verification_notice">Voluntez verifikar se vua deskripto esas en %1$s. Vu povas eliminar ca avizo se la deskripto quan vu skribis esas en %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Voluntez verifikar se vua deskripto esas en %1$s. Vu povas eliminar ca avizo se la deskripto quan vu skribis esas en %2$s.</string>
   <string name="description_edit_success_saved">Deskripto dil artiklo publikigita!</string>
   <string name="description_edit_success_saved_snackbar">Deskripto dil artiklo publikigita!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Deskripto dil artiklo publikigita! (%s)</string>
@@ -1193,6 +1189,5 @@
   <string name="user_contrib_current">nuna</string>
   <string name="reading_list_share_menu_label">Partigez...</string>
   <string name="reading_list_share_menu_tooltip">Partigez ca texto kun altri</string>
-  <string name="reading_list_share_title_tooltip">Modifikuri quin vu facos en ca listo ne esos videbla por altri.</string>
   <string name="reading_list_share_survey_title" fuzzy="true">Ka vu povos helpar ni plubonigar ca temo?</string>
 </resources>

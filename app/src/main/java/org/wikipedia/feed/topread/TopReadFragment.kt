@@ -43,15 +43,13 @@ class TopReadFragment : Fragment() {
 
         val card = viewModel.card
 
-        appCompatActivity.setSupportActionBar(binding.toolbar)
         appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        appCompatActivity.supportActionBar?.title = ""
-        binding.toolbarTitle.text = getString(R.string.top_read_activity_title, card.subtitle())
+        appCompatActivity.supportActionBar?.title = getString(R.string.top_read_activity_title, card.subtitle())
 
         L10nUtil.setConditionalLayoutDirection(binding.root, card.wikiSite().languageCode)
 
         binding.mostReadRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.mostReadRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable))
+        binding.mostReadRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider))
         binding.mostReadRecyclerView.isNestedScrollingEnabled = false
         binding.mostReadRecyclerView.adapter = RecyclerAdapter(card.items(), Callback())
 

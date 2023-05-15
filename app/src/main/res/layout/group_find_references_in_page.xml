@@ -15,7 +15,7 @@
         android:gravity="center_vertical"
         android:maxLines="1"
         android:padding="16dp"
-        android:textColor="?attr/colorAccent"
+        android:textColor="?attr/progressive_color"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -39,7 +39,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:background="?attr/material_theme_border_color" />
+        android:background="?attr/border_color" />
 
     <ImageView
         android:id="@+id/find_in_page_prev"
@@ -49,7 +49,8 @@
         android:layout_gravity="center_vertical"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/find_previous"
-        app:srcCompat="@drawable/ic_expand_less_themed_24dp" />
+        app:srcCompat="@drawable/ic_expand_less_white_24dp"
+        app:tint="?attr/placeholder_color" />
 
     <ImageView
         android:id="@+id/find_in_page_next"
@@ -59,7 +60,8 @@
         android:layout_gravity="center_vertical"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/find_next"
-        app:srcCompat="@drawable/ic_expand_more_themed_24dp" />
+        app:srcCompat="@drawable/ic_expand_more_white_24dp"
+        app:tint="?attr/placeholder_color" />
 
     <ImageView
         android:id="@+id/close_button"
@@ -69,5 +71,6 @@
         android:layout_gravity="center_vertical"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/dialog_close_description"
-        app:srcCompat="@drawable/ic_close_themed_24dp" />
+        android:src="@drawable/ic_close_black_24dp"
+        app:tint="?attr/placeholder_color" />
 </LinearLayout>

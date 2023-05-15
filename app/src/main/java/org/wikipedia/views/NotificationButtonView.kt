@@ -1,16 +1,13 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
-import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.core.view.isVisible
-import androidx.core.widget.ImageViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewNotificationButtonBinding
 import org.wikipedia.util.DimenUtil
@@ -21,7 +18,7 @@ class NotificationButtonView constructor(context: Context, attrs: AttributeSet? 
 
     init {
         layoutParams = ViewGroup.LayoutParams(DimenUtil.roundedDpToPx(48.0f), ViewGroup.LayoutParams.MATCH_PARENT)
-        setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackgroundBorderless))
+        setBackgroundResource(ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackgroundBorderless))
         isFocusable = true
     }
 
@@ -36,9 +33,5 @@ class NotificationButtonView constructor(context: Context, attrs: AttributeSet? 
 
     fun setIcon(@DrawableRes icon: Int) {
         binding.iconImage.setImageResource(icon)
-    }
-
-    fun setColor(@ColorInt color: Int) {
-        ImageViewCompat.setImageTintList(binding.iconImage, ColorStateList.valueOf(color))
     }
 }

@@ -13,7 +13,7 @@ class RemoteConfigRefreshTask : RecurringTask() {
     override val name = "remote-config-refresher"
 
     override fun shouldRun(lastRun: Date): Boolean {
-        return System.currentTimeMillis() - lastRun.time >= RUN_INTERVAL_MILLIS
+        return millisSinceLastRun(lastRun) >= TimeUnit.DAYS.toMillis(RUN_INTERVAL_DAYS)
     }
 
     override fun run(lastRun: Date) {
@@ -33,6 +33,6 @@ class RemoteConfigRefreshTask : RecurringTask() {
 
     companion object {
         private const val REMOTE_CONFIG_URL = "https://meta.wikimedia.org/w/extensions/MobileApp/config/android.json"
-        private val RUN_INTERVAL_MILLIS = TimeUnit.DAYS.toMillis(1)
+        private const val RUN_INTERVAL_DAYS = 1L
     }
 }

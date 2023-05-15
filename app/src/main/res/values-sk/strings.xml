@@ -481,10 +481,6 @@
     <item quantity="many">%1$d z %2$d článkov je dostupných offline, %3$.2f MB</item>
     <item quantity="other">%1$d z %2$d článkov je dostupných offline, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 článok, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d článkov, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d z 1 článkov je dostupný offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d z %2$d článkov je dostupných offline, %3$.2f MB</string>
   <string name="reading_list_sort">Zoradiť</string>
   <string name="reading_list_sort_ellipsis">Zoradiť podľa…</string>
   <string name="reading_list_sort_by_name">Zoradiť podľa názvu</string>
@@ -834,7 +830,7 @@
   <string name="description_starts_with_uppercase">Začnite malým písmenom pokiaľ slovo nie je meno.</string>
   <string name="description_starts_with_lowercase">Vyhnite sa začatiu malým písmenom.</string>
   <string name="description_is_in_different_language">Zdá sa, že text je v neočakávanom jazyku. Jazyk by mal byť %s.</string>
-  <string name="description_verification_notice">Prosím skontrolujte či je váš popis v %1$s. Zamietnite toto upozornenie ak je váš popis napísaný v %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Prosím skontrolujte či je váš popis v %1$s. Zamietnite toto upozornenie ak je váš popis napísaný v %2$s.</string>
   <string name="description_edit_success_saved">Popis článku bol uverejnený!</string>
   <string name="description_edit_success_saved_snackbar">Popis článku bol uverejnený!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku v jazyku %s bol uverejnený!</string>

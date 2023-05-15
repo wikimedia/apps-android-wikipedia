@@ -339,8 +339,6 @@
   <string name="reading_list_create_new">ახლის შექმნა</string>
   <string name="reading_list_title_exists">საკითხავი სია „%s“ უკვე არსებობს.</string>
   <string name="reading_list_added_view_button">სიის ხილვა</string>
-  <string name="format_reading_list_statistical_summary_singular">1 სტატია, %1$.2f მბ</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d სტატია, %2$.2f მბ</string>
   <string name="reading_list_sort">სორტირება</string>
   <string name="reading_list_sort_ellipsis">დალაგება...</string>
   <string name="reading_list_sort_by_name">დალაგება სახელის მიხედვით</string>

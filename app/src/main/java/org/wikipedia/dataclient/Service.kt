@@ -7,6 +7,7 @@ import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscribeResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscriptionList
 import org.wikipedia.dataclient.mwapi.*
+import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.rollback.RollbackPostResponse
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.Claims
@@ -15,7 +16,6 @@ import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.dataclient.wikidata.Search
 import org.wikipedia.edit.Edit
 import org.wikipedia.login.LoginClient.LoginResponse
-import org.wikipedia.search.PrefixSearchResponse
 import retrofit2.http.*
 
 /**
@@ -32,17 +32,12 @@ interface Service {
     fun getPageImages(@Query("titles") titles: String): Observable<MwQueryResponse>
 
     @GET(
-        MW_API_PREFIX + "action=query&redirects=" +
-                "&converttitles=&prop=description|pageimages|info&piprop=thumbnail" +
-                "&pilicense=any&generator=prefixsearch&gpsnamespace=0&list=search&srnamespace=0" +
-                "&inprop=varianttitles|displaytitle" +
-                "&srwhat=text&srinfo=suggestion&srprop=&sroffset=0&srlimit=1&pithumbsize=" + PREFERRED_THUMB_SIZE
+        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=description|pageimages|info&piprop=thumbnail" +
+                "&pilicense=any&generator=prefixsearch&gpsnamespace=0&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE
     )
-    fun prefixSearch(
-        @Query("gpssearch") title: String?,
-        @Query("gpslimit") maxResults: Int,
-        @Query("srsearch") repeat: String?
-    ): Observable<PrefixSearchResponse>
+    suspend fun prefixSearch(@Query("gpssearch") searchTerm: String?,
+                             @Query("gpslimit") maxResults: Int,
+                             @Query("gpsoffset") gpsOffset: Int?): MwQueryResponse
 
     @GET(
         MW_API_PREFIX + "action=query&converttitles=" +
@@ -52,30 +47,7 @@ interface Service {
                 "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
                 PREFERRED_THUMB_SIZE
     )
-    fun fullTextSearchMedia(
-        @Query("gsrsearch") searchTerm: String?,
-        @Query("gsrlimit") gsrLimit: Int,
-        @Query("continue") cont: String?,
-        @Query("gsroffset") gsrOffset: String?
-    ): Observable<MwQueryResponse>
-
-    @GET(
-        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=info" +
-                "&generator=prefixsearch&inprop=varianttitles|displaytitle"
-    )
-    suspend fun prefixSearch(@Query("gpssearch") searchTerm: String?,
-                             @Query("gpslimit") maxResults: Int,
-                             @Query("gpsoffset") gpsOffset: Int?): MwQueryResponse
-
-    @GET(
-        MW_API_PREFIX + "action=query&converttitles=" +
-                "&prop=imageinfo" +
-                "&generator=search&gsrnamespace=0&gsrwhat=text" +
-                "&iiprop=timestamp|user|url|mime|extmetadata" +
-                "&gsrinfo=&gsrprop=redirecttitle&iiurlwidth=" +
-                PREFERRED_THUMB_SIZE
-    )
-    suspend fun fullTextSearchMedia(
+    suspend fun fullTextSearch(
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsroffset") gsrOffset: String?,
         @Query("gsrlimit") gsrLimit: Int,
@@ -102,8 +74,8 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info|description&inprop=varianttitles|displaytitle&redirects=1")
     fun getInfoByPageId(@Query("pageids") pageIds: String): Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&prop=description|pageimages&redirects=1")
-    suspend fun getPageTitlesByPageId(@Query("pageids") pageIds: String): MwQueryResponse
+    @GET(MW_API_PREFIX + "action=query&prop=info|description|pageimages&inprop=varianttitles|displaytitle&redirects=1")
+    suspend fun getPageTitlesByPageIdsOrTitles(@Query("pageids") pageIds: String? = null, @Query("titles") titles: String? = null): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query")
     suspend fun getPageIds(@Query("titles") titles: String): MwQueryResponse
@@ -143,7 +115,12 @@ interface Service {
     suspend fun getSiteMatrix(): SiteMatrix
 
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=namespaces")
-    suspend fun getPageNamespaceWithSiteInfo(@Query("titles") title: String?): MwQueryResponse
+    suspend fun getPageNamespaceWithSiteInfo(
+        @Query("titles") title: String?,
+        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String? = null,
+        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String? = null,
+        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null
+    ): MwQueryResponse
 
     @get:GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     val siteInfo: Observable<MwQueryResponse>
@@ -197,6 +174,14 @@ interface Service {
     suspend fun shortenUrl(
             @Field("url") url: String,
     ): ShortenUrlResponse
+
+    @GET(MW_API_PREFIX + "action=query&generator=geosearch&prop=coordinates|description|pageimages|info&inprop=varianttitles|displaytitle")
+    suspend fun getGeoSearch(
+        @Query("ggscoord", encoded = true) coordinates: String,
+        @Query("ggsradius") radius: Int,
+        @Query("ggslimit") ggsLimit: Int,
+        @Query("colimit") coLimit: Int,
+    ): MwQueryResponse
 
     // ------- CSRF, Login, and Create Account -------
 
@@ -264,9 +249,6 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=globaluserinfo&guiprop=editcount|groups|rights")
     suspend fun globalUserInfo(@Query("guiuser") userName: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=rights")
-    suspend fun userRights(): MwQueryResponse
-
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
     fun getUserList(@Query("ususers") userNames: String): Observable<MwQueryResponse>
 
@@ -317,7 +299,7 @@ interface Service {
 
     // ------- Editing -------
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full")
+    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full")
     fun getWikiTextForSectionWithInfo(
         @Query("titles") title: String,
         @Query("rvsection") section: Int?
@@ -353,11 +335,11 @@ interface Service {
     ): Observable<Edit>
 
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
-    fun getUserContributions(
+    suspend fun getUserContributions(
         @Query("ucuser") username: String,
         @Query("uclimit") maxCount: Int,
         @Query("uccontinue") uccontinue: String?
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags")
     suspend fun getUserContrib(
@@ -471,25 +453,38 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched")
     suspend fun getWatchedStatus(@Query("titles") titles: String): MwQueryResponse
 
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched&meta=userinfo&uiprop=options")
+    suspend fun getWatchedStatusWithUserOptions(@Query("titles") titles: String): MwQueryResponse
+
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched&meta=userinfo&uiprop=rights")
+    suspend fun getWatchedStatusWithRights(@Query("titles") titles: String): MwQueryResponse
+
     @get:GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
     @get:Headers("Cache-Control: no-cache")
     val watchlist: Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
+    @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
     @Headers("Cache-Control: no-cache")
-    suspend fun getWatchlist(): MwQueryResponse
+    suspend fun getWatchlist(
+        @Query("wlallrev") latestRevisions: String?,
+        @Query("wlshow") showCriteria: String?,
+        @Query("wltype") typeOfChanges: String?
+    ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=timestamp|user|ids|comment|tags")
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvslots=main&rvprop=timestamp|user|ids|comment|tags")
     suspend fun getLastModified(@Query("titles") titles: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=newer")
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvslots=main&rvprop=ids|timestamp|size|flags|comment|user&rvdir=newer")
     suspend fun getRevisionDetailsAscending(
-        @Query("titles") titles: String,
+        @Query("titles") titles: String?,
+        @Query("pageids") pageIds: String?,
         @Query("rvlimit") count: Int,
         @Query("rvstartid") revisionStartId: Long?
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=older")
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvslots=main&rvprop=ids|timestamp|size|flags|comment|user&rvdir=older")
     suspend fun getRevisionDetailsDescending(
         @Query("titles") titles: String,
         @Query("rvlimit") count: Int,
@@ -497,9 +492,9 @@ interface Service {
         @Query("rvcontinue") continueStr: String?,
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user&rvdir=older")
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvslots=main&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user&rvdir=older")
     suspend fun getRevisionDetailsWithInfo(
-            @Query("titles") titles: String,
+            @Query("pageids") pageIds: String,
             @Query("rvlimit") count: Int,
             @Query("rvstartid") revisionStartId: Long
     ): MwQueryResponse
@@ -543,7 +538,10 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=discussiontoolspageinfo&prop=threaditemshtml")
     suspend fun getTalkPageTopics(
-            @Query("page") page: String
+            @Query("page") page: String,
+            @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String,
+            @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String,
+            @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String
     ): DiscussionToolsInfoResponse
 
     @POST(MW_API_PREFIX + "action=discussiontoolssubscribe")
@@ -556,9 +554,7 @@ interface Service {
     ): DiscussionToolsSubscribeResponse
 
     @GET(MW_API_PREFIX + "action=discussiontoolsgetsubscriptions")
-    suspend fun getTalkPageTopicSubscriptions(
-            @Query("commentname") topicNames: String
-    ): DiscussionToolsSubscriptionList
+    suspend fun getTalkPageTopicSubscriptions(@Query("commentname") topicNames: String): DiscussionToolsSubscriptionList
 
     @POST(MW_API_PREFIX + "action=discussiontoolsedit&paction=addtopic")
     @FormUrlEncoded
@@ -583,6 +579,24 @@ interface Service {
             @Field("captchaid") captchaId: Long? = null,
             @Field("captchaword") captchaWord: String? = null
     ): DiscussionToolsEditResponse
+
+    @GET(MW_API_PREFIX + "action=query&generator=growthtasks")
+    suspend fun getGrowthTasks(
+        @Query("ggttasktypes") taskTypes: String?,
+        @Query("ggttopics") topics: String?,
+        @Query("ggtlimit") count: Int
+    ): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&prop=growthimagesuggestiondata")
+    suspend fun getImageRecommendationForPage(
+        @Query("titles") titles: String?,
+        @Query("pageids") pageIds: String? = null
+    ): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=paraminfo")
+    suspend fun getParamInfo(
+        @Query("modules") modules: String
+    ): ParamInfoResponse
 
     companion object {
         const val WIKIPEDIA_URL = "https://wikipedia.org/"

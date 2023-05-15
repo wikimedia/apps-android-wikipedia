@@ -30,7 +30,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         android:layout_marginEnd="6dp"
-        android:textColor="?attr/colorAccent" />
+        android:textColor="?attr/progressive_color" />
 
     <ImageView
         android:id="@+id/filter_icon"
@@ -43,5 +43,5 @@
         android:focusable="true"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_baseline_tune_24"
-        app:tint="?attr/color_group_9" />
+        app:tint="?attr/primary_color" />
 </LinearLayout>

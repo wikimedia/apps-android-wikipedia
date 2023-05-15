@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="@string/customize_toolbar_drag_and_drop_placeholder"
-    android:textColor="?secondary_text_color"
+    android:textColor="?attr/placeholder_color"
     android:layout_gravity="center"
     android:background="@drawable/toc_dotted_line"
     android:padding="16dp"

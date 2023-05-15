@@ -26,7 +26,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil.isLoggedIn
@@ -61,11 +60,11 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.EditNoticesDialog
 import org.wikipedia.views.ViewUtil
 import java.io.IOException
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     private lateinit var binding: ActivityEditSectionBinding
-    private lateinit var funnel: EditFunnel
     private lateinit var textWatcher: TextWatcher
     private lateinit var captchaHandler: CaptchaHandler
     private lateinit var editPreviewFragment: EditPreviewFragment
@@ -100,10 +99,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             updateEditLicenseText()
-            funnel.logLoginSuccess()
             FeedbackUtil.showMessage(this, R.string.login_success_toast)
-        } else {
-            funnel.logLoginFailure()
         }
     }
 
@@ -197,11 +193,9 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         editPreviewFragment = supportFragmentManager.findFragmentById(R.id.edit_section_preview_fragment) as EditPreviewFragment
         editSummaryFragment = supportFragmentManager.findFragmentById(R.id.edit_section_summary_fragment) as EditSummaryFragment
         editSummaryFragment.title = pageTitle
-        funnel = WikipediaApp.instance.funnelManager.getEditFunnel(pageTitle)
 
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
-            funnel.logStart()
             EditAttemptStepEvent.logInit(pageTitle)
         }
         if (savedInstanceState != null) {
@@ -289,9 +283,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 getString(R.string.cc_by_sa_3_url)))
         editLicenseText.movementMethod = LinkMovementMethodExt { url: String ->
             if (url == "https://#login") {
-                funnel.logLoginAttempt()
-                val loginIntent = LoginActivity.newIntent(this@EditSectionActivity,
-                        LoginActivity.SOURCE_EDIT, funnel.sessionToken)
+                val loginIntent = LoginActivity.newIntent(this@EditSectionActivity, LoginActivity.SOURCE_EDIT)
                 requestLogin.launch(loginIntent)
             } else {
                 UriUtil.handleExternalLink(this@EditSectionActivity, url.toUri())
@@ -366,7 +358,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
     private fun onEditSuccess(result: EditResult) {
         if (result is EditSuccessResult) {
-            funnel.logSaved(result.revID)
             EditAttemptStepEvent.logSaveSuccess(pageTitle)
             // TODO: remove the artificial delay and use the new revision
             // ID returned to request the updated version of the page once
@@ -386,15 +377,9 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
         showProgressBar(false)
         if (result is CaptchaResult) {
-            if (captchaHandler.isActive) {
-                // Captcha entry failed!
-                funnel.logCaptchaFailure()
-            }
             binding.editSectionCaptchaContainer.visibility = View.VISIBLE
             captchaHandler.handleCaptcha(null, result)
-            funnel.logCaptchaShown()
         } else {
-            funnel.logError(result.result)
             EditAttemptStepEvent.logSaveFailure(pageTitle)
             // Expand to do everything.
             onEditFailure(Throwable())
@@ -457,7 +442,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         when {
             editSummaryFragment.isActive -> {
                 editTokenThenSave
-                funnel.logSaveAttempt()
                 EditAttemptStepEvent.logSaveAttempt(pageTitle)
                 supportActionBar?.title = getString(R.string.preview_edit_summarize_edit_title)
             }
@@ -469,7 +453,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 // we must be showing the editing window, so show the Preview.
                 DeviceUtil.hideSoftKeyboard(this)
                 editPreviewFragment.showPreview(pageTitle, binding.editSectionText.text.toString())
-                funnel.logPreview()
                 EditAttemptStepEvent.logSaveIntent(pageTitle)
                 supportActionBar?.title = getString(R.string.preview_edit_title)
                 setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
@@ -533,7 +516,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         actionBarButtonBinding.editActionbarButtonText.text = menuItem.title
         actionBarButtonBinding.editActionbarButtonText.setTextColor(
             ResourceUtil.getThemedColor(this,
-                if (emphasize) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
+                if (emphasize) R.attr.progressive_color else R.attr.placeholder_color))
         actionBarButtonBinding.root.tag = menuItem
         actionBarButtonBinding.root.isEnabled = menuItem.isEnabled
         actionBarButtonBinding.root.setOnClickListener { onOptionsItemSelected(it.tag as MenuItem) }
@@ -617,7 +600,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                         pageTitle = PageTitle(firstPage.title, pageTitle.wikiSite).apply {
                             this.displayText = pageTitle.displayText
                         }
-                        sectionWikitext = rev.content
+                        sectionWikitext = rev.contentMain
                         currentRevision = rev.revId
 
                         val editError = response.query?.firstPage()!!.getErrorForAction("edit")

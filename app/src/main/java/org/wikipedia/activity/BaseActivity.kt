@@ -1,14 +1,11 @@
 package org.wikipedia.activity
 
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
-import android.net.ConnectivityManager
+import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.MotionEvent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +23,7 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.connectivity.ConnectionStateMonitor
 import org.wikipedia.events.*
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
@@ -35,21 +33,28 @@ import org.wikipedia.readinglist.ReadingListsShareSurveyHelper
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.recurring.RecurringTasksExecutor
-import org.wikipedia.savedpages.SavedPageSyncService
+import org.wikipedia.richtext.CustomHtmlParser
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient
+import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callback {
+    interface Callback {
+        fun onPermissionResult(activity: BaseActivity, isGranted: Boolean)
+    }
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
-    private val networkStateReceiver = NetworkStateReceiver()
-    private var previousNetworkState = WikipediaApp.instance.isOnline
     private val disposables = CompositeDisposable()
     private var currentTooltip: Balloon? = null
     private var imageZoomHelper: ImageZoomHelper? = null
+    var callback: Callback? = null
+
+    val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            callback?.onPermissionResult(this, isGranted)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,8 +84,7 @@ abstract class BaseActivity : AppCompatActivity() {
             ReadingListSyncAdapter.manualSyncWithForce()
         }
 
-        val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
-        registerReceiver(networkStateReceiver, filter)
+        WikipediaApp.instance.connectionStateMonitor.registerCallback(this)
 
         DeviceUtil.setLightSystemUiVisibility(this)
         setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
@@ -96,28 +100,25 @@ abstract class BaseActivity : AppCompatActivity() {
         Prefs.localClassName = localClassName
     }
 
-    override fun onResumeFragments() {
-        super.onResumeFragments()
-        BreadCrumbLogEvent.logScreenShown(this)
-    }
-
     override fun onDestroy() {
-        unregisterReceiver(networkStateReceiver)
+        WikipediaApp.instance.connectionStateMonitor.unregisterCallback(this)
         disposables.dispose()
         if (EXCLUSIVE_BUS_METHODS === exclusiveBusMethods) {
             unregisterExclusiveBusMethods()
         }
+        CustomHtmlParser.pruneBitmaps(this)
         super.onDestroy()
     }
 
     override fun onStop() {
-        WikipediaApp.instance.sessionFunnel.persistSession()
+        WikipediaApp.instance.appSessionEvent.persistSession()
         super.onStop()
     }
 
     override fun onResume() {
         super.onResume()
-        WikipediaApp.instance.sessionFunnel.touchSession()
+        WikipediaApp.instance.appSessionEvent.touchSession()
+        BreadCrumbLogEvent.logScreenShown(this)
 
         // allow this activity's exclusive bus methods to override any existing ones.
         unregisterExclusiveBusMethods()
@@ -165,29 +166,17 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected open fun setTheme() {
-        setTheme(WikipediaApp.instance.currentTheme.resourceId)
-    }
-
-    protected open fun onGoOffline() {}
-    protected open fun onGoOnline() {}
-
-    private inner class NetworkStateReceiver : BroadcastReceiver() {
-        override fun onReceive(context: Context, intent: Intent) {
-            val isDeviceOnline = WikipediaApp.instance.isOnline
-            if (isDeviceOnline) {
-                if (!previousNetworkState) {
-                    onGoOnline()
-                }
-                SavedPageSyncService.enqueue()
-            } else {
-                onGoOffline()
-            }
-            previousNetworkState = isDeviceOnline
+        if (WikipediaApp.instance.currentTheme != Theme.LIGHT) {
+            setTheme(WikipediaApp.instance.currentTheme.resourceId)
         }
     }
 
+    override fun onGoOffline() {}
+
+    override fun onGoOnline() {}
+
     private fun removeSplashBackground() {
-        window.setBackgroundDrawable(null)
+        window.setBackgroundDrawable(ColorDrawable(ResourceUtil.getThemedColor(this, R.attr.paper_color)))
     }
 
     private fun unregisterExclusiveBusMethods() {
@@ -241,9 +230,7 @@ abstract class BaseActivity : AppCompatActivity() {
      */
     private inner class ExclusiveBusConsumer : Consumer<Any> {
         override fun accept(event: Any) {
-            if (event is NetworkConnectEvent) {
-                SavedPageSyncService.enqueue()
-            } else if (event is SplitLargeListsEvent) {
+            if (event is SplitLargeListsEvent) {
                 AlertDialog.Builder(this@BaseActivity)
                         .setMessage(getString(R.string.split_reading_list_message, SiteInfoClient.maxPagesPerReadingList))
                         .setPositiveButton(R.string.reading_list_split_dialog_ok_button_text, null)

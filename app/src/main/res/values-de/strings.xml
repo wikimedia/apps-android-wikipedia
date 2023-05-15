@@ -27,6 +27,7 @@
 * MuratTheTurkish
 * Pittigrilli
 * Rummskartoffel
+* SHaran (WMF)
 * Scblr
 * Schmackes
 * Sebastian Wallroth
@@ -499,10 +500,6 @@
     <item quantity="one">%1$d von 1 Artikel offline verfügbar, %3$.2f MB</item>
     <item quantity="other">%1$d von %2$d Artikel offline verfügbar, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">Ein Artikel, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d Artikel, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d Seiten von einem Artikel offline verfügbar, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d Seiten von %2$d Artikeln offline verfügbar, %3$.2f MB</string>
   <string name="reading_list_sort">Sortieren</string>
   <string name="reading_list_sort_ellipsis">Sortieren nach …</string>
   <string name="reading_list_sort_by_name">Nach Name sortieren</string>
@@ -608,6 +605,10 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Abbrechen</string>
   <string name="reading_list_split_dialog_ok_button_text">Okay</string>
   <string name="reading_list_activity_title">Leseliste: %s</string>
+  <string name="reading_lists_preview_save_dialog_title">Liste speichern</string>
+  <string name="reading_lists_preview_save_dialog_text">Liste benennen und Artikel zum Speichern auswählen</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Abbrechen</string>
+  <string name="reading_lists_preview_save_dialog_save">Speichern</string>
   <string name="user_option_sync_label">Einstellungen</string>
   <string name="notification_reverted_title">Zurückgesetzte Bearbeitung</string>
   <string name="notification_channel_title">Artikel herunterladen</string>
@@ -827,7 +828,9 @@
   <string name="description_starts_with_uppercase">Beginne mit einem Kleinbuchstaben, es sei denn, das erste Wort ist ein Eigenname.</string>
   <string name="description_starts_with_lowercase">Vermeide es, mit einem Kleinbuchstaben zu beginnen.</string>
   <string name="description_is_in_different_language">Der Text scheint in einer unerwarteten Sprache zu sein. Die Sprache sollte %s sein.</string>
-  <string name="description_verification_notice">Bitte überprüfe, dass deine Beschreibung in %1$s ist. Du kannst diese Benachrichtigung ablehnen, wenn die Beschreibung, die du geschrieben haben, in %2$s ist.</string>
+  <string name="description_verification_notice">Bitte überprüfe, ob deine Beschreibung in %1$s ist. Du kannst diese Warnung ignorieren, wenn die Beschreibung, die du geschrieben hast, in %2$s ist.</string>
+  <string name="description_edit_suggested_description_button_text">Vorgeschlagene Beschreibungen anzeigen</string>
+  <string name="description_edit_suggested_description_button_tooltip">Probieren Sie computergenerierte Artikelbeschreibungen aus</string>
   <string name="description_edit_success_saved">Artikelbeschreibung veröffentlicht!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeschreibung veröffentlicht!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikelbeschreibung veröffentlicht! (%s)</string>
@@ -845,6 +848,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealerweise eine Zeile, zwischen zwei und zwölf Wörtern</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mit dem Bearbeiten anfangen</string>
   <string name="description_edit_tutorial_promise">Ich verspreche, dass ich diese Funktion nicht missbrauchen werde.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Computergenerierte Vorschläge</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Die Vorschläge werden von einem Computer generiert, nicht von Freiwilligen oder der Wikimedia Foundation</string>
   <string name="customize_toolbar_title">Werkzeugleiste anpassen</string>
   <string name="customize_toolbar_shortcut_description_text">Passe die untere Symbolleiste mit 5 Tastaturkürzeln an, die du am hilfreichsten findest.</string>
   <string name="customize_toolbar_category_toolbar">Werkzeugleiste</string>
@@ -937,9 +942,9 @@
   <string name="suggested_edits_image_captions_task_detail">Beschreibe ein Bild, um den Lesern zu helfen, seine Bedeutung und seinen Kontext zu verstehen.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Fasse einen Artikel zusammen, um Lesern beim Verstehen eines Themas zu helfen.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Gesamtzahl deiner bisherigen Beiträge.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Anzahl der Tage in Folge, an denen Sie Beiträge geleistet haben. Wenn Sie eine Weile nicht beigetragen haben, wird Ihr letztes Beitragsdatum angezeigt.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Totale Seitenaufrufe aller Bearbeitungen, zu denen Sie in den letzten 30 Tagen beigetragen haben.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Basiert darauf, wie oft einer Ihrer Beiträge zurückgesetzt wurde (von einem anderen Editor rückgängig gemacht). Zurückgesetzte Änderungen: %d.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Anzahl der Tage in Folge, an denen du Beiträge geleistet hast. Wenn du eine Weile nicht beigetragen hast, wird dein letztes Beitragsdatum angezeigt.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Totale Seitenaufrufe aller Bearbeitungen, zu denen du in den letzten 30 Tagen beigetragen hast.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Basiert darauf, wie oft einer deiner Beiträge zurückgesetzt wurde (von einem anderen Editor rückgängig gemacht). Zurückgesetzte Änderungen: %d.</string>
   <string name="suggested_edits_paused_message">Vorgeschlagene Bearbeitungen ist pausiert bis %1$s. Entschuldigung, %2$s, manche deiner letzten Beiträge wurden rückgängig gemacht.</string>
   <string name="suggested_edits_disabled_message">Vorgeschlagene Bearbeitungen ist deaktiviert. Entschuldigung, %s, zu viele deiner letzten Beiträge wurden rückgängig gemacht.</string>
   <string name="suggested_edits_ip_blocked_message">Es sieht so aus, als ob Ihre IP-Adresse (oder Ihr IP-Adressbereich) derzeit für die Bearbeitung von Wikipedia gesperrt ist.</string>
@@ -1003,6 +1008,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Bild-Tags</string>
   <string name="suggested_edits_contribution_current_revision_text">Ihre Bearbeitung ist die aktuellste in der Wikipedia.</string>
   <string name="suggested_card_more_edits">Mehr Vorgeschlagene Bearbeitungen</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Vorgeschlagene Beschreibungen</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Was möchtest du melden?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Nicht genügend Informationen</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Sehe keine vorgeschlagenen Beschreibungen</string>
+  <string name="suggested_edits_inappropriate_suggestion">Unangemessener Vorschlag</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Verstehe die Aufgabe nicht</string>
+  <string name="suggested_edits_report_suggestion">Melden</string>
+  <string name="suggested_edits_suggestion_report_submitted">Meldung übermittelt</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s Tag</item>
     <item quantity="other">%1$s Tags</item>
@@ -1307,7 +1320,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Leseliste importiert</string>
   <string name="reading_list_share_menu_label">Teilen…</string>
   <string name="reading_list_share_menu_tooltip">Diese Leseliste mit anderen teilen</string>
-  <string name="reading_list_share_title_tooltip">Ihre Änderungen an dieser Liste sind nicht für andere sichtbar.</string>
   <string name="reading_list_share_message_v2">Hallo! Ich möchte meine Wikipedia-Leseliste mit Ihnen teilen:</string>
   <string name="reading_list_share_survey_title">Kannst du uns helfen, \"Leselisten teilen\" zu verbessern?</string>
   <string name="reading_list_share_survey_body">\"Leselisten teilen\" ist eine Testfunktion und wir brauchen dein Feedback, um sie zu verbessern oder zu entfernen.</string>

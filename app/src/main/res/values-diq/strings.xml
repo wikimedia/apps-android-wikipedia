@@ -338,8 +338,6 @@
     <item quantity="one">1 meqale, %2$.2f MB</item>
     <item quantity="other">%1$d meqaleyi, %2$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 meqale, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d meqaley , %2$.2f MB</string>
   <string name="reading_list_sort">Weçine</string>
   <string name="reading_list_sort_ellipsis">Sencışê rêzi...</string>
   <string name="reading_list_sort_by_name">Gorey nami ratın</string>
@@ -653,6 +651,7 @@
   <string name="text_input_dialog_cancel_button_text">Bıtexelne</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Bıtexelne</string>
   <string name="watchlist_filter_all">Pêro</string>
+  <string name="watchlist_page_deleted">Esteriya</string>
   <string name="shareable_reading_lists_new_indicator">*newe*</string>
   <string name="reading_list_share_menu_label">Vıla ke...</string>
 </resources>

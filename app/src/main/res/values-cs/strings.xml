@@ -465,10 +465,6 @@
   <string name="reading_list_articles_already_exist_message">Vše je v pořádku! Seznam %s obsahuje všechny články.</string>
   <string name="reading_list_added_view_button">Zobrazit seznam</string>
   <string name="reading_list_add_to_list_button">Přidejte do seznamu</string>
-  <string name="format_reading_list_statistical_summary_singular">1 článek, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d článků, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d z 1 článků je dostupný offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d z %2$d článků je dostupných offline, %3$.2f MB</string>
   <string name="reading_list_sort">Seřadit</string>
   <string name="reading_list_sort_ellipsis">Seřadit podle...</string>
   <string name="reading_list_sort_by_name">Seřadit podle abecedy (A-Ž)</string>
@@ -780,6 +776,8 @@
   <string name="description_starts_with_uppercase">Začněte s malým písmem, jestliže první slovo není vlastní jméno.</string>
   <string name="description_starts_with_lowercase">Vyhněte se tomu začít malým písmenem.</string>
   <string name="description_is_in_different_language">Text se zdá být v neočekávaném jazyce. Jazyk by měl být %s.</string>
+  <string name="description_edit_suggested_description_button_text">Zobrazit navrhované popisy</string>
+  <string name="description_edit_suggested_description_button_tooltip">Vyzkoušejte strojově navrhované popisy článků</string>
   <string name="description_edit_success_saved">Popis článku byl zveřejněn!</string>
   <string name="description_edit_success_saved_snackbar">Popis článku byl zveřejněn!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku (v jazyce %s) byl zveřejněn!</string>
@@ -797,6 +795,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálním případě jeden řádek o dvou až dvanácti slovech</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začít editovat</string>
   <string name="description_edit_tutorial_promise">Tímto slibuji, že této funkce nezneužiji.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Strojové návrhy</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Návrhy jsou generovány strojem, nikoliv dobrovolníky nebo nadací Wikimedia Foundation</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Přetáhněte své oblíbené položky sem 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Obnovit do základu</string>
@@ -946,6 +946,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Značka obrázku</string>
   <string name="suggested_edits_contribution_current_revision_text">Vaše úprava je aktuálně viditelná na Wikipedii</string>
   <string name="suggested_card_more_edits">Více navrhovaných editací</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Navrhované popisy</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Co byste chtěli nahlásit?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Nedostatek informací</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Nevidím doporučené popisy</string>
+  <string name="suggested_edits_inappropriate_suggestion">Nevhodný návrh</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Nerozumím úkolu</string>
+  <string name="suggested_edits_report_suggestion">Nahlásit</string>
+  <string name="suggested_edits_suggestion_report_submitted">Hlášení odesláno</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$s znak</item>
     <item quantity="few">%1$s znaky</item>

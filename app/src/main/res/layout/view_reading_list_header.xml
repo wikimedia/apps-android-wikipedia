@@ -80,7 +80,7 @@
         android:layout_height="96dp"
         android:layout_gravity="center"
         android:contentDescription="@null"
-        app:tint="@color/base30"
+        app:tint="@color/gray500"
         app:srcCompat="@drawable/ic_bookmark_white_24dp" />
 
     <View

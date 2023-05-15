@@ -386,10 +386,6 @@
   <string name="reading_list_article_added_to_default_list">Sábháladh %s. Ar mhaith leat é a chur ar liosta?</string>
   <string name="reading_list_added_view_button">Féach ar liosta</string>
   <string name="reading_list_add_to_list_button">Cuir ar liosta</string>
-  <string name="format_reading_list_statistical_summary_singular">1 alt amháin, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d alt, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d de 1 alt ar fáil as líne, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d de %2$d alt ar fáil as líne, %3$.2f MB</string>
   <string name="reading_list_sort">Sórtáil</string>
   <string name="reading_list_sort_ellipsis">Sórtáil de réir...</string>
   <string name="reading_list_sort_by_name">Sórtáil de réir ainm</string>

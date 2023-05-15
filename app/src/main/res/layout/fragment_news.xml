@@ -70,7 +70,7 @@
                 android:fontFamily="serif"
                 android:lineSpacingMultiplier="1.2"
                 android:padding="16dp"
-                android:textColor="?attr/section_title_color"
+                android:textColor="?attr/secondary_color"
                 android:textIsSelectable="true"
                 android:textSize="16sp" />
 

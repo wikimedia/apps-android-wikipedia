@@ -10,7 +10,6 @@ import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewUserContribStatsBinding
 import org.wikipedia.page.PageTitle
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
@@ -29,7 +28,6 @@ class UserContribStatsView constructor(context: Context, attrs: AttributeSet? = 
         binding.userNameView.text = StringUtil.fromHtml(context.getString(R.string.user_contrib_activity_title,
                 "<a href='" + userPageTitle.uri + "'>$userName</a>"))
         binding.userNameView.movementMethod = movementMethod
-        RichTextUtil.removeUnderlinesFromLinks(binding.userNameView)
 
         if (stats.totalEdits >= 0) {
             val regYear = DateUtil.getYearOnlyDateString(stats.registrationDate)

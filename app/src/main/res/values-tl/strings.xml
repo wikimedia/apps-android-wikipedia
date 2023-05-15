@@ -459,10 +459,6 @@
     <item quantity="one">%1$d sa 1 artikulo ang offline, %3$.2f (na) MB</item>
     <item quantity="other">%1$d sa %2$d (na) artikulo ang offline, %3$.2f (na) MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artikulo, %1$.2f (na) MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d (na) artikulo, %2$.2f (na) MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d sa 1 artikulo ang offline, %2$.2f (na) MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d sa %2$d (na) artikulo ang offline, %3$.2f (na) MB</string>
   <string name="reading_list_sort">Ayusin</string>
   <string name="reading_list_sort_ellipsis">Ayusin...</string>
   <string name="reading_list_sort_by_name">Ayusin base sa pangalan</string>
@@ -780,7 +776,7 @@
   <string name="description_starts_with_uppercase">Magsimula sa maliit na titik maliban lang kung pangngalang pantangi ang unang salita.</string>
   <string name="description_starts_with_lowercase">Iwasang magsimula sa isang maliit na titik.</string>
   <string name="description_is_in_different_language">Mukhang iba yata ang wika ng teksto. Dapat nasa wikang %s ito.</string>
-  <string name="description_verification_notice">Paki-verify po kung paglalarawan niyo ay nasa wikang %1$s. Malaya po kayong alisin ang abisong ito kung nakasulat naman sa wikang %2$s ang paglalarawan niyo.</string>
+  <string name="description_verification_notice" fuzzy="true">Paki-verify po kung paglalarawan niyo ay nasa wikang %1$s. Malaya po kayong alisin ang abisong ito kung nakasulat naman sa wikang %2$s ang paglalarawan niyo.</string>
   <string name="description_edit_success_saved">Nalathala na ang paglalarawan!</string>
   <string name="description_edit_success_saved_snackbar">Nalathala na ang paglalarawan!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Nalathala na ang paglalarawan! (%s)</string>

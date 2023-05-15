@@ -5,6 +5,7 @@
 * A Retired User
 * AYZ04
 * Bo77le
+* Cookai1205
 * Cwek
 * Davidzdh
 * Dbrant
@@ -14,6 +15,7 @@
 * GoForceX
 * Grace03
 * GuoPC
+* Hehua
 * Huanqiu
 * Hudafu
 * Hydra
@@ -22,6 +24,7 @@
 * Interestinghe
 * Irati
 * Josephine W.
+* Justiyaya
 * LNDDYL
 * Lakejason0
 * Lantianjialiang
@@ -523,10 +526,6 @@
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="other">%1$d 篇（共 %2$d 篇）文章可供离线使用，%3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1篇条目，%1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d篇条目，%2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">1篇条目中的%1$d篇条目离线可用，%2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d篇条目的%1$d篇条目离线可用，%3$.2f MB</string>
   <string name="reading_list_sort">排序</string>
   <string name="reading_list_sort_ellipsis">排序方式…</string>
   <string name="reading_list_sort_by_name">按名称排序</string>
@@ -632,6 +631,13 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">取消</string>
   <string name="reading_list_split_dialog_ok_button_text">确定</string>
   <string name="reading_list_activity_title">阅读列表：%s</string>
+  <string name="reading_lists_preview_header_title">分享清单</string>
+  <string name="reading_lists_preview_save_button">储存</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">标题</string>
+  <string name="reading_lists_preview_save_dialog_cancel">取消</string>
+  <string name="reading_lists_preview_save_dialog_save">储存</string>
+  <string name="reading_lists_preview_saved_snackbar">已储存阅读清单</string>
+  <string name="reading_lists_preview_saved_snackbar_action">查看</string>
   <string name="user_option_sync_label">参数设置</string>
   <string name="notification_reverted_title">已回退的编辑</string>
   <string name="notification_channel_title">正在下载条目</string>
@@ -847,7 +853,9 @@
   <string name="description_starts_with_uppercase">除非第一个单词是专有名词，否则请以小写字母开头。</string>
   <string name="description_starts_with_lowercase">避免以小写字母开头。</string>
   <string name="description_is_in_different_language">文本似乎不是用预期的语言写的，语言应该是%s。</string>
-  <string name="description_verification_notice">请确认您的描述在%1$s中。如果您编写的描述在%2$s中，请忽略此通知。</string>
+  <string name="description_verification_notice" fuzzy="true">请确认您的描述在%1$s中。如果您编写的描述在%2$s中，请忽略此通知。</string>
+  <string name="description_edit_suggested_description_button_text">显示建议的描述</string>
+  <string name="description_edit_suggested_description_button_tooltip">尝试机器建议的条目描述</string>
   <string name="description_edit_success_saved">条目描述已发布！</string>
   <string name="description_edit_success_saved_snackbar">条目描述已发布！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">条目描述已发布！（%s）</string>
@@ -865,6 +873,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">一般应为一行，2~12个字之间</string>
   <string name="description_edit_tutorial_button_label_start_editing">开始编辑</string>
   <string name="description_edit_tutorial_promise">我保证在编辑时不滥用此功能</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">机器建议</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">这些建议不是由志愿者或维基媒体基金会编写的，而是由机器生成的。</string>
   <string name="customize_toolbar_title">自定义工具栏</string>
   <string name="customize_toolbar_shortcut_description_text">选择您认为最有用的5个快捷方式来自定义底部工具栏。</string>
   <string name="customize_toolbar_category_toolbar">工具栏</string>
@@ -1021,6 +1031,14 @@
   <string name="suggested_edits_contribution_type_image_tag">图像标签</string>
   <string name="suggested_edits_contribution_current_revision_text">你的编辑现已在维基百科</string>
   <string name="suggested_card_more_edits">更多编辑建议</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">建议的描述</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">您想报告什么内容？</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">信息量不够</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">我看不到建议的描述</string>
+  <string name="suggested_edits_inappropriate_suggestion">不恰当的建议</string>
+  <string name="suggested_edits_do_not_understand_suggestion">我不明白该任务</string>
+  <string name="suggested_edits_report_suggestion">报告</string>
+  <string name="suggested_edits_suggestion_report_submitted">报告已提交</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s个标签</item>
     <item quantity="other">%1$s个标签</item>
@@ -1253,8 +1271,8 @@
   <string name="menu_option_view_user_contributions">查看用户贡献</string>
   <string name="revision_diff_compare">比较不同修订版本</string>
   <string name="revision_diff_compare_title">比较不同修订版本：%s</string>
-  <string name="revision_diff_from">发件人：</string>
-  <string name="revision_diff_to">收件人：</string>
+  <string name="revision_diff_from">从：</string>
+  <string name="revision_diff_to">至：</string>
   <string name="revision_diff_line_num">第%d行</string>
   <string name="revision_diff_line_nums">第%d到第%d行</string>
   <string name="revision_diff_lines_from_to">第%1$d–%2$d行</string>
@@ -1325,7 +1343,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">已导入阅读清单</string>
   <string name="reading_list_share_menu_label">分享…</string>
   <string name="reading_list_share_menu_tooltip">与他人分享这份阅读清单</string>
-  <string name="reading_list_share_title_tooltip">您对此清单所做的更改对其他人不可见。</string>
   <string name="reading_list_share_message_v2">你好！我想给你分享我的维基百科阅读清单：</string>
   <string name="reading_list_share_survey_title">您能帮助我们改进“分享阅读清单”吗？</string>
   <string name="reading_list_share_survey_body">“分享阅读清单”是一项测试功能，我们需要您的反馈来改进或删除它。</string>

@@ -5,11 +5,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
+import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.mwapi.MwQueryPage
+import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.edit.Edit
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
@@ -18,7 +21,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.talk.db.TalkPageSeen
-import org.wikipedia.util.log.L
+import org.wikipedia.util.UriUtil
 import org.wikipedia.views.TalkTopicsSortOverflowView
 import org.wikipedia.watchlist.WatchlistExpiry
 
@@ -28,13 +31,12 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     private val handler = CoroutineExceptionHandler { _, throwable ->
         uiState.value = UiState.LoadError(throwable)
     }
-    private val editHandler = CoroutineExceptionHandler { _, throwable ->
-        uiState.value = UiState.EditError(throwable)
+    private val actionHandler = CoroutineExceptionHandler { _, throwable ->
+        uiState.value = UiState.ActionError(throwable)
     }
 
-    val threadItems = mutableListOf<ThreadItem>()
+    private val threadItems = mutableListOf<ThreadItem>()
     var sortedThreadItems = listOf<ThreadItem>()
-    var lastRevision: MwQueryPage.Revision? = null
     var watchlistExpiryChanged = false
     var isWatched = false
     var hasWatchlistExpiry = false
@@ -74,9 +76,8 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
 
         viewModelScope.launch(handler) {
             if (resolveTitleRequired) {
-                val siteInfoResponse = withContext(Dispatchers.IO) {
-                    ServiceFactory.get(pageTitle.wikiSite).getPageNamespaceWithSiteInfo(pageTitle.prefixedText)
-                }
+                val siteInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getPageNamespaceWithSiteInfo(pageTitle.prefixedText,
+                        OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, UriUtil.encodeURL(pageTitle.prefixedText))
                 resolveTitleRequired = false
                 siteInfoResponse.query?.namespaces?.let { namespaces ->
                     siteInfoResponse.query?.firstPage()?.let { page ->
@@ -93,20 +94,19 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
                 }
             }
 
-            val discussionToolsInfoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText) }
-            val lastModifiedResponse = async { ServiceFactory.get(pageTitle.wikiSite).getLastModified(pageTitle.prefixedText) }
-            val watchStatus = withContext(Dispatchers.Default) {
-                    if (!sidePanel) ServiceFactory.get(pageTitle.wikiSite)
-                        .getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!! else MwQueryPage()
-            }
+            val discussionToolsInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
+                    OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, UriUtil.encodeURL(pageTitle.prefixedText))
 
             threadItems.clear()
-            threadItems.addAll(discussionToolsInfoResponse.await().pageInfo?.threads ?: emptyList())
-            lastRevision = lastModifiedResponse.await().query?.firstPage()?.revisions?.firstOrNull()
+            threadItems.addAll(discussionToolsInfoResponse.pageInfo?.threads ?: emptyList())
             sortAndFilterThreadItems()
 
-            isWatched = watchStatus.watched
-            hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
+            if (WikipediaApp.instance.isOnline) {
+                val watchStatus = if (!sidePanel) ServiceFactory.get(pageTitle.wikiSite)
+                        .getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!! else MwQueryPage()
+                isWatched = watchStatus.watched
+                hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
+            }
 
             uiState.value = UiState.LoadTopic(pageTitle, threadItems)
         }
@@ -118,7 +118,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     }
 
     fun undoSave(newRevisionId: Long, undoneSubject: CharSequence, undoneBody: CharSequence) {
-        viewModelScope.launch(editHandler) {
+        viewModelScope.launch(actionHandler) {
             val token = withContext(Dispatchers.IO) {
                 CsrfTokenClient.getToken(pageTitle.wikiSite).blockingFirst()
             }
@@ -129,7 +129,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
 
     fun markAsSeen(threadItem: ThreadItem?, force: Boolean = false) {
         threadSha(threadItem)?.let {
-            viewModelScope.launch(editHandler) {
+            viewModelScope.launch(actionHandler) {
                 withContext(Dispatchers.Main) {
                     if (topicSeen(threadItem) && !force) {
                         talkPageDao.deleteTalkPageSeen(it)
@@ -146,11 +146,11 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     }
 
     private fun threadSha(threadItem: ThreadItem?): String? {
-        return threadItem?.let { it.id + "|" + it.allReplies.map { reply -> reply.timestamp }.maxOrNull() }
+        return threadItem?.let { it.id + "|" + it.allReplies.maxOfOrNull { reply -> reply.timestamp } }
     }
 
     fun subscribeTopic(commentName: String, subscribed: Boolean) {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
+        viewModelScope.launch(actionHandler) {
             val token = withContext(Dispatchers.IO) {
                 CsrfTokenClient.getToken(pageTitle.wikiSite).blockingFirst()
             }
@@ -194,29 +194,39 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     }
 
     suspend fun isSubscribed(commentName: String): Boolean {
+        if (!WikipediaApp.instance.isOnline) {
+            return false
+        }
         val response = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(commentName)
         return response.subscriptions[commentName] == 1
     }
 
     fun watchOrUnwatch(expiry: WatchlistExpiry, unwatch: Boolean) {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
-            withContext(Dispatchers.IO) {
-                val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
-                val response = ServiceFactory.get(pageTitle.wikiSite)
-                    .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
+        if (isWatched) {
+            WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
+        } else {
+            WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
+        }
+        viewModelScope.launch(actionHandler) {
+            val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
+            val response = ServiceFactory.get(pageTitle.wikiSite)
+                .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
 
-                lastWatchExpiry = expiry
-                if (watchlistExpiryChanged && unwatch) {
-                    watchlistExpiryChanged = false
-                }
-
-                response.getFirst()?.let {
-                    isWatched = it.watched
-                    hasWatchlistExpiry = lastWatchExpiry != WatchlistExpiry.NEVER
-                    // We have to send values to the object, even if we use the variables from ViewModel.
-                    // Otherwise the status will not be updated in the activity since the values in the object remains the same.
-                    uiState.value = UiState.DoWatch(isWatched, hasWatchlistExpiry)
-                }
+            lastWatchExpiry = expiry
+            if (watchlistExpiryChanged && unwatch) {
+                watchlistExpiryChanged = false
+            }
+            if (unwatch) {
+                WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(pageTitle)
+            } else {
+                WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(pageTitle)
+            }
+            response.getFirst()?.let {
+                isWatched = it.watched
+                hasWatchlistExpiry = lastWatchExpiry != WatchlistExpiry.NEVER
+                // We have to send values to the object, even if we use the variables from ViewModel.
+                // Otherwise the status will not be updated in the activity since the values in the object remains the same.
+                uiState.value = UiState.DoWatch(isWatched, hasWatchlistExpiry)
             }
         }
     }
@@ -235,6 +245,6 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
         data class LoadError(val throwable: Throwable) : UiState()
         data class UndoEdit(val edit: Edit, val undoneSubject: CharSequence, val undoneBody: CharSequence) : UiState()
         data class DoWatch(val isWatched: Boolean, val hasWatchlistExpiry: Boolean) : UiState()
-        data class EditError(val throwable: Throwable) : UiState()
+        data class ActionError(val throwable: Throwable) : UiState()
     }
 }

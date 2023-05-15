@@ -32,14 +32,14 @@
                     android:layoutDirection="locale"
                     android:textDirection="locale"
                     app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
-                    app:drawableTint="?attr/color_group_9" />
+                    app:drawableTint="?attr/primary_color" />
 
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="?attr/material_theme_border_color" />
+                android:background="?attr/border_color" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/customize_toolbar"
@@ -49,8 +49,8 @@
                 android:text="@string/customize_toolbar_title"
                 android:layoutDirection="locale"
                 android:textDirection="locale"
-                app:drawableStartCompat="@drawable/ic_settings_themed_24dp"
-                app:drawableTint="?attr/color_group_9" />
+                app:drawableStartCompat="@drawable/ic_settings_black_24dp"
+                app:drawableTint="?attr/primary_color" />
 
         </LinearLayout>
     </ScrollView>

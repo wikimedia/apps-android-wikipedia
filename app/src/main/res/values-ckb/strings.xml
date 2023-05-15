@@ -450,10 +450,6 @@
     <item quantity="one">%1$d of ١ وتار بەردەستە بەبێ ئینتەرنێت، %3$.2f MB</item>
     <item quantity="other">%1$d of %2$d وتار بەردەستە بەبێ ئینتەرنێت، %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 وتار، %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d وتارەکان، %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d لە ١ وتار بەردەستە بۆ خوێندنەوەی دەرھێڵ. %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d لە %2$d وتاری دەرھێڵ بەردەستە، %3$.2f MB</string>
   <string name="reading_list_sort">ڕیزکردن</string>
   <string name="reading_list_sort_ellipsis">ڕیزکردن بە...</string>
   <string name="reading_list_sort_by_name">ڕیزکردن بەپێی ناو</string>
@@ -742,7 +738,7 @@
   <string name="description_starts_with_uppercase">بە پیتێکی بچووک دەست پێ بکە مەگەر وشەی یەکەم ناوێکی شیاو بێت.</string>
   <string name="description_starts_with_lowercase">پیتی سەرەتا دەبێت کەپیتەڵ بێت.</string>
   <string name="description_is_in_different_language">دەقەکە وا دیارە کە بە زمانێکی نەخوازراو بێت. زمانەکە دەبێت %s بێت.</string>
-  <string name="description_verification_notice">تکایە دڵنیای بکەرەوە کە وەسفکەت بە %1$s نووسراوە. ئەگەر وەسفەکە بە %2$s نووسراوە، ئەوا ئەم ئاگادارییە پێشێل بکە.</string>
+  <string name="description_verification_notice" fuzzy="true">تکایە دڵنیای بکەرەوە کە وەسفکەت بە %1$s نووسراوە. ئەگەر وەسفەکە بە %2$s نووسراوە، ئەوا ئەم ئاگادارییە پێشێل بکە.</string>
   <string name="description_edit_success_saved">وەسفی وتارەکە پاشەکەوتکرا!</string>
   <string name="description_edit_success_saved_snackbar">وەسفی وتارەکە پاشەکەوتکرا!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">وەسفی وتارەکە پاشەکەوتکرا!(%s)</string>
