@@ -147,7 +147,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_font_family_sans_serif"
-                    style="@style/Widget.Material3.Button.ElevatedButton"
+                    style="@style/Widget.Material3.Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -157,12 +157,13 @@
                     android:backgroundTint="?attr/paper_color"
                     android:text="@string/font_family_sans_serif"
                     android:tag="@string/font_family_sans_serif"
-                    app:strokeWidth="2dp"
+                    app:rippleColor="?attr/border_color"
+                    app:strokeWidth="1dp"
                     app:strokeColor="?attr/progressive_color" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_font_family_serif"
-                    style="@style/Widget.Material3.Button.ElevatedButton"
+                    style="@style/Widget.Material3.Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -173,7 +174,8 @@
                     android:backgroundTint="?attr/paper_color"
                     android:text="@string/font_family_serif"
                     android:tag="@string/font_family_serif"
-                    app:strokeWidth="2dp"
+                    app:rippleColor="?attr/border_color"
+                    app:strokeWidth="1dp"
                     app:strokeColor="?attr/progressive_color" />
 
             </LinearLayout>
