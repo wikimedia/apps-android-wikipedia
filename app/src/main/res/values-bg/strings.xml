@@ -61,6 +61,7 @@
   <string name="page_edit_history_filter_by_user">Редакции от потребители (%s)</string>
   <string name="page_edit_history_filter_by_anon">Редакции от анонимни (%s)</string>
   <string name="page_edit_history_filter_by_bot">Редакции на бот (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Показатели от %1$s до %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d редакция от %2$s до днес</item>
     <item quantity="other">%1$d редакции от %2$s до днес</item>
@@ -386,6 +387,7 @@
   <string name="page_footer_license_text">Съдържанието е достъпно под $1, освен ако не е посочено друго</string>
   <string name="empty_tab_title">Нов раздел</string>
   <string name="menu_save_all_tabs">Запазване на всички раздели</string>
+  <string name="error_blocked_reason">Посочената причина е: %s</string>
   <string name="error_blocked_start">Начало на блокирането: %s</string>
   <string name="error_blocked_expiry">Изтичане на блокирането: %s</string>
   <string name="error_blocked_id">ID на блокирането: %s</string>
@@ -506,6 +508,7 @@
   <string name="no_user_lists_msg">Създавайте списъци с места за пътуване, любими теми и много други</string>
   <string name="reading_list_saved_list_rename">%1$s (направен от потребител)</string>
   <string name="split_reading_list_message">Има ограничение от %d статии на списък за четене. Съществуващите списъци с повече от това ограничение бяха разделени на няколко списъка.</string>
+  <string name="reading_list_move_article_limit_message">Не може да бъде преместено към този списък. Достигнали сте ограничението от %2$d статии на списък за „%1$s“.</string>
   <string name="reading_list_article_limit_message">Не може да бъде добавено към този списък. Достигнали сте ограничението от %2$d статии на списък за „%1$s“.</string>
   <string name="reading_lists_limit_message">Не може да бъде създаден друг списък. Достигнали сте ограничението от 100 списъка за четене на сметка.</string>
   <string name="reading_lists_menu_create_list">Създаване на нов списък</string>
@@ -532,7 +535,9 @@
   <string name="reading_list_split_dialog_ok_button_text">Добре</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Изтриване</string>
   <string name="reading_list_activity_title">Списък за четене: %s</string>
+  <string name="reading_list_notification_title">Списъците за четене са изнесени</string>
   <string name="reading_lists_action_menu_export_lists">Изнасяне</string>
+  <string name="reading_lists_export_completed_message">Списъците за четене са изнесени</string>
   <string name="reading_lists_preview_save_button">Съхраняване</string>
   <string name="reading_lists_preview_save_dialog_title">Запазване на списъка</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Заглавие</string>
