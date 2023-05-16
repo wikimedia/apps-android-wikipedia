@@ -12,7 +12,7 @@
     app:elevation="0dp"
     app:radius="22dp">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:contentDescription="@string/search_hint"
@@ -29,7 +29,7 @@
         android:text="@string/search_hint"
         android:textColor="?attr/secondary_color"/>
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/voice_search_button"
         android:layout_width="48dp"
         android:layout_height="48dp"

@@ -50,7 +50,7 @@
 
             <TextView
                 android:id="@+id/view_description_edit_save_button"
-                style="@style/TransparentButton"
+                style="@style/App.Button.Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -59,13 +59,11 @@
 
         </LinearLayout>
 
-        <ProgressBar
+        <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/view_description_edit_progress_bar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="-7dp"
             android:indeterminate="true"
             android:visibility="gone"
             tools:visibility="visible" />
@@ -195,23 +193,17 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/learnMoreButton"
-                        style="@style/FlatButton.Small.Transparent"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/App.Button.Text"
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="12dp"
                         android:fontFamily="sans-serif"
                         android:layout_marginTop="48dp"
-                        android:letterSpacing="0"
                         android:text="@string/description_edit_learn_more"
                         android:textAlignment="viewStart"
-                        android:textAllCaps="false"
-                        android:textColor="?attr/progressive_color"
-                        android:textSize="16sp"
                         app:icon="@drawable/ic_open_in_new_black_24px"
-                        app:iconGravity="end"
-                        app:iconPadding="12dp"
-                        app:iconSize="24dp"
-                        app:iconTint="?attr/progressive_color" />
+                        app:iconGravity="end" />
                 </LinearLayout>
             </ScrollView>
 

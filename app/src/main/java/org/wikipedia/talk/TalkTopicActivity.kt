@@ -1,6 +1,5 @@
 package org.wikipedia.talk
 
-import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -16,6 +15,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -324,7 +324,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             if (AccountUtil.isLoggedIn) {
                 viewModel.toggleSubscription()
             } else {
-                AlertDialog.Builder(this@TalkTopicActivity)
+                MaterialAlertDialogBuilder(this@TalkTopicActivity)
                     .setTitle(R.string.talk_login_to_subscribe_dialog_title)
                     .setMessage(R.string.talk_login_to_subscribe_dialog_content)
                     .setPositiveButton(R.string.login_join_wikipedia) { _, _ ->

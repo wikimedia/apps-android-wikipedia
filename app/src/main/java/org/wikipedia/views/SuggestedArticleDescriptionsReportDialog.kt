@@ -1,10 +1,8 @@
 package org.wikipedia.views
 
 import android.app.Activity
-import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.databinding.DialogDescriptionSuggestionReportBinding
@@ -12,41 +10,51 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.FeedbackUtil
 
 class SuggestedArticleDescriptionsReportDialog(
-    context: Context,
+    activity: Activity,
     suggestion: String,
     private val pageTitle: PageTitle,
     private val analyticsHelper: MachineGeneratedArticleDescriptionsAnalyticsHelper,
     callback: Callback
-) : AlertDialog(context) {
+) : MaterialAlertDialogBuilder(activity) {
 
     fun interface Callback {
         fun onReportClick()
     }
 
     private var reported = false
-    private val binding = DialogDescriptionSuggestionReportBinding.inflate(layoutInflater)
+    private val binding = DialogDescriptionSuggestionReportBinding.inflate(activity.layoutInflater)
+    private var dialog: AlertDialog? = null
 
     init {
         setView(binding.root)
-        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        binding.reportButton.setOnClickListener {
+
+        setPositiveButton(context.getString(R.string.suggested_edits_report_suggestion)) { _, _ ->
             if (getReportReasons().isNotEmpty()) {
                 analyticsHelper.logSuggestionReported(context, suggestion, getReportReasons(), pageTitle)
-                FeedbackUtil.makeSnackbar(context as Activity, context.getString(R.string.suggested_edits_suggestion_report_submitted)).show()
+                FeedbackUtil.makeSnackbar(activity, context.getString(R.string.suggested_edits_suggestion_report_submitted)).show()
                 callback.onReportClick()
                 reported = true
-                dismiss()
+                dialog?.dismiss()
             }
         }
+
+        setNegativeButton(context.getString(R.string.text_input_dialog_cancel_button_text)) { _, _ ->
+            dialog?.dismiss()
+        }
+
         binding.suggestionReportOther.setEndIconOnClickListener {
             binding.suggestionReportOther.editText?.text?.clear()
         }
-        binding.cancelButton.setOnClickListener { dismiss() }
         setOnDismissListener {
             if (!reported) {
                 analyticsHelper.logReportDialogDismissed(context)
             }
         }
+    }
+
+    override fun show(): AlertDialog {
+        dialog = super.show()
+        return dialog!!
     }
 
     private fun getReportReasons(): List<String> {

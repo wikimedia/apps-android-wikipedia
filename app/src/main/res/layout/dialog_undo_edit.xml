@@ -51,8 +51,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapSentences"
-                android:textColor="?attr/primary_color"
-                android:textColorHint="?attr/secondary_color"
                 android:textSize="16sp" />
 
         </com.google.android.material.textfield.TextInputLayout>

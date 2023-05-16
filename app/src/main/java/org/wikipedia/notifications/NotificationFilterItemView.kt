@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Typeface
 import android.os.Build
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -74,9 +73,8 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         binding.notificationFilterWikiLogo.setImageResource(R.drawable.ic_mode_edit_white_24dp)
         binding.notificationFilterCheck.visibility = View.GONE
         binding.notificationFilterTitle.setTextColor(accentColor)
-        binding.notificationFilterTitle.text = text.uppercase()
+        binding.notificationFilterTitle.text = text
         binding.notificationFilterTitle.typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
-        binding.notificationFilterTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
     }
 
     private fun getTitleCodeFor(filterCode: String): String? {

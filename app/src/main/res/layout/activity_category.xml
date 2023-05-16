@@ -13,6 +13,7 @@
         android:background="@drawable/tab_layout_background_bottom_line"
         app:tabTextAppearance="@style/H3.Button"
         app:tabTextColor="?attr/placeholder_color"
+        app:tabIndicatorFullWidth="true"
         app:tabSelectedTextColor="?attr/progressive_color"
         app:tabIndicatorColor="?attr/progressive_color"
         app:tabRippleColor="?attr/progressive_color">

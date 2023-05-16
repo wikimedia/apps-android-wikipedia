@@ -3,7 +3,7 @@ package org.wikipedia.readinglist
 import android.app.Activity
 import android.content.Context
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
@@ -39,7 +39,7 @@ object ReadingListsShareSurveyHelper {
     private fun showSurveyDialog(activity: Activity) {
         Prefs.readingListShareSurveyDialogShown = true
 
-        val dialog = AlertDialog.Builder(activity)
+        val dialog = MaterialAlertDialogBuilder(activity)
                 .setTitle(activity.getString(R.string.reading_list_share_survey_title))
                 .setMessage(StringUtil.fromHtml(activity.getString(R.string.reading_list_share_survey_body) +
                         "<br/><br/><small><a href=\"${getLanguageSpecificPrivacyPolicyUrl()}\">" +

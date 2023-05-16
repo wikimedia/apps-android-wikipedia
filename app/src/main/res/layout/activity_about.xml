@@ -132,16 +132,13 @@
 
             <Button
                 android:id="@+id/send_feedback_text"
-                style="@style/TransparentButton"
+                style="@style/App.Button.Secondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="12dp"
-                android:paddingStart="0dp"
-                android:paddingEnd="0dp"
-                android:text="@string/send_feedback"
-                android:textColor="?attr/progressive_color" />
+                android:text="@string/send_feedback" />
 
         </LinearLayout>
 

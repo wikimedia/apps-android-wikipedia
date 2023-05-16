@@ -7,10 +7,10 @@ import android.view.MenuItem
 import android.view.MotionEvent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.ColorInt
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.pm.ShortcutManagerCompat
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.skydoves.balloon.Balloon
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
@@ -188,7 +188,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     private fun maybeShowLoggedOutInBackgroundDialog() {
         if (Prefs.loggedOutInBackground) {
             Prefs.loggedOutInBackground = false
-            AlertDialog.Builder(this)
+            MaterialAlertDialogBuilder(this)
                     .setCancelable(false)
                     .setTitle(R.string.logged_out_in_background_title)
                     .setMessage(R.string.logged_out_in_background_dialog)
@@ -231,7 +231,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     private inner class ExclusiveBusConsumer : Consumer<Any> {
         override fun accept(event: Any) {
             if (event is SplitLargeListsEvent) {
-                AlertDialog.Builder(this@BaseActivity)
+                MaterialAlertDialogBuilder(this@BaseActivity)
                         .setMessage(getString(R.string.split_reading_list_message, SiteInfoClient.maxPagesPerReadingList))
                         .setPositiveButton(R.string.reading_list_split_dialog_ok_button_text, null)
                         .show()

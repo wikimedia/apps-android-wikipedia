@@ -67,9 +67,9 @@ class WatchlistFilterItemView constructor(context: Context, attrs: AttributeSet?
         binding.watchlistFilterWikiLogo.setImageResource(R.drawable.ic_mode_edit_white_24dp)
         binding.watchlistFilterCheck.visibility = View.GONE
         binding.watchlistFilterTitle.setTextColor(accentColor)
-        binding.watchlistFilterTitle.text = text.uppercase()
+        binding.watchlistFilterTitle.text = text
         binding.watchlistFilterTitle.typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
-        binding.watchlistFilterTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
+        binding.watchlistFilterTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
     }
 
     private fun getTitleCodeFor(filter: WatchlistFilterActivity.Filter): String? {

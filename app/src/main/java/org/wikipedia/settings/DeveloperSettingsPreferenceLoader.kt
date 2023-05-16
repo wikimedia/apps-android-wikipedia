@@ -1,9 +1,9 @@
 package org.wikipedia.settings
 
 import android.content.DialogInterface
-import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
@@ -80,7 +80,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ summary: PageSummary ->
-                        AlertDialog.Builder(activity)
+                        MaterialAlertDialogBuilder(activity)
                                 .setTitle(fromHtml(summary.displayTitle))
                                 .setMessage(fromHtml(summary.extract))
                                 .setPositiveButton("Go") { _: DialogInterface, _: Int ->
@@ -91,7 +91,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                                 .show()
                     }
                     ) { throwable: Throwable ->
-                        AlertDialog.Builder(activity)
+                        MaterialAlertDialogBuilder(activity)
                                 .setMessage(throwable.message)
                                 .setPositiveButton(android.R.string.ok, null)
                                 .show()
@@ -104,7 +104,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ (_, second) ->
-                        AlertDialog.Builder(activity)
+                        MaterialAlertDialogBuilder(activity)
                                 .setTitle(fromHtml(second.displayTitle))
                                 .setMessage(fromHtml(second.description))
                                 .setPositiveButton("Go") { _: DialogInterface, _: Int ->
@@ -115,7 +115,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                                 .show()
                     }
                     ) { throwable: Throwable ->
-                        AlertDialog.Builder(activity)
+                        MaterialAlertDialogBuilder(activity)
                                 .setMessage(throwable.message)
                                 .setPositiveButton(android.R.string.ok, null)
                                 .show()

@@ -26,7 +26,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <androidx.appcompat.widget.AppCompatSpinner
+                <Spinner
                     android:id="@+id/wikiFromLanguageSpinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
                 android:layout_weight="1"
                 android:gravity="end">
 
-                <androidx.appcompat.widget.AppCompatSpinner
+                <Spinner
                     android:id="@+id/wikiToLanguageSpinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
             app:layout_constraintTop_toBottomOf="@id/wikiLanguageDropdownContainer"
             app:layout_constraintBottom_toBottomOf="parent">
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/backButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -119,23 +119,19 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:backgroundTint="?attr/progressive_color"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@null"
                 android:tag="landscape"
-                app:cornerRadius="2dp"
-                app:rippleColor="?attr/progressive_color"
                 app:iconPadding="0dp"
                 app:iconGravity="textStart"
-                app:iconTint="@color/white"
                 app:icon="@drawable/ic_add_gray_white_24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/nextButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"

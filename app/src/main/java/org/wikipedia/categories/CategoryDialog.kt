@@ -1,5 +1,6 @@
 package org.wikipedia.categories
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -83,6 +84,7 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
         override fun onCreateViewHolder(parent: ViewGroup, pos: Int): CategoryItemHolder {
             val view = PageItemView<PageTitle>(requireContext())
             view.setImageVisible(false)
+            view.setTitleTypeface(Typeface.NORMAL)
             return CategoryItemHolder(view)
         }
 
