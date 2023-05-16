@@ -3,7 +3,6 @@
 
     <style name="ThemeSepia">
 
-        <!-- Component updates -->
         <item name="paper_color">@color/beige100</item>
         <item name="background_color">@color/beige300</item>
         <item name="border_color">@color/beige400</item>
@@ -21,7 +20,6 @@
         <item name="overlay_color">@color/black_30</item>
         <item name="list_divider">@drawable/divider_sepia</item>
         <item name="shadow_border">@drawable/shadow_sepia</item>
-        <!-- Component updates -->
 
         <item name="input_stroke_color_state">@color/color_state_input_field_sepia</item>
     </style>

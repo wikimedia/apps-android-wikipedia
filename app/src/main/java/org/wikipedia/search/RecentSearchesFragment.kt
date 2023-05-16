@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -47,7 +47,7 @@ class RecentSearchesFragment : Fragment() {
         _binding = FragmentSearchRecentBinding.inflate(inflater, container, false)
 
         binding.recentSearchesDeleteButton.setOnClickListener {
-            AlertDialog.Builder(requireContext())
+            MaterialAlertDialogBuilder(requireContext())
                     .setMessage(getString(R.string.clear_recent_searches_confirm))
                     .setPositiveButton(getString(R.string.clear_recent_searches_confirm_yes)) { _, _ ->
                         lifecycleScope.launch(coroutineExceptionHandler) {
@@ -56,7 +56,7 @@ class RecentSearchesFragment : Fragment() {
                         }
                     }
                     .setNegativeButton(getString(R.string.clear_recent_searches_confirm_no), null)
-                    .create().show()
+                    .show()
         }
         binding.addLanguagesButton.setOnClickListener { onAddLangButtonClick() }
         binding.recentSearchesRecycler.layoutManager = LinearLayoutManager(requireActivity())
