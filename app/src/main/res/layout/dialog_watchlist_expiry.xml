@@ -24,7 +24,7 @@
         android:id="@+id/watchlistExpiryPermanent"
         style="@style/SideDrawerMenuItem">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -40,7 +40,7 @@
             android:tag="text"
             android:text="@string/watchlist_expiry_dialog_permanent" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -54,7 +54,7 @@
         android:id="@+id/watchlistExpiryOneWeek"
         style="@style/SideDrawerMenuItem">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -70,7 +70,7 @@
             android:tag="text"
             android:text="@string/watchlist_expiry_dialog_one_week" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -94,7 +94,7 @@
             android:tag="text"
             android:text="@string/watchlist_expiry_dialog_one_month" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -118,7 +118,7 @@
             android:tag="text"
             android:text="@string/watchlist_expiry_dialog_three_months" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -143,7 +143,7 @@
             android:tag="text"
             android:text="@string/watchlist_expiry_dialog_six_months" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"

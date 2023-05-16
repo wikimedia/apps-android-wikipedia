@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="12dp"
-        android:paddingBottom="4dp"
+        android:paddingBottom="8dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         tools:ignore="MissingConstraints">
@@ -41,7 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:textColor="?attr/success_color"
-            android:textAllCaps="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/taskTitle"
             android:text="@string/suggested_edits_task_new"/>
@@ -64,6 +63,7 @@
             app:layout_constraintStart_toStartOf="@id/taskDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="4dp"
             app:flow_horizontalGap="16dp"
             app:flow_horizontalStyle="packed"
             app:flow_horizontalBias="0"
@@ -72,19 +72,19 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/primaryButton"
-            style="@style/FlatButton.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/App.Button.Secondary"
             android:text="@string/suggested_edits_task_action_text_add"
-            app:icon="@drawable/ic_add_gray_white_24dp"
-            app:iconSize="20dp"
-            app:iconTint="?attr/progressive_color"/>
+            app:icon="@drawable/ic_add_gray_white_24dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/secondaryButton"
-            style="@style/FlatButton.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/App.Button.Secondary"
             android:text="@string/suggested_edits_task_action_text_translate"
-            app:icon="@drawable/ic_translate_white_24dp"
-            app:iconSize="20dp"
-            app:iconTint="?attr/progressive_color"/>
+            app:icon="@drawable/ic_translate_white_24dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>
