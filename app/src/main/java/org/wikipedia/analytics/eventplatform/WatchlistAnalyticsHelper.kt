@@ -5,6 +5,16 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.page.PageTitle
 
 object WatchlistAnalyticsHelper {
+
+    fun logWatchlistItemCountOnLoad(context: Context = WikipediaApp.instance, itemsCount: Int) {
+        EventPlatformClient.submit(
+            BreadCrumbLogEvent(
+                BreadCrumbViewUtil.getReadableScreenName(context),
+                "Watchlist.itemCount:$itemsCount.displayed"
+            )
+        )
+    }
+
     fun logAddedToWatchlist(title: PageTitle?, context: Context = WikipediaApp.instance) {
         EventPlatformClient.submit(
             BreadCrumbLogEvent(

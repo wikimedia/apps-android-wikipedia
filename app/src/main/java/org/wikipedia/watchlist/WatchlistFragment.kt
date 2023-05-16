@@ -22,6 +22,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentWatchlistBinding
 import org.wikipedia.databinding.ViewWatchlistSearchBarBinding
@@ -159,6 +160,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         binding.watchlistRefreshView.isRefreshing = false
         binding.watchlistProgressBar.visibility = View.GONE
         binding.watchlistRecyclerView.adapter = RecyclerAdapter(viewModel.finalList)
+        WatchlistAnalyticsHelper.logWatchlistItemCountOnLoad(requireContext(), viewModel.finalList.size)
         binding.watchlistRecyclerView.visibility = View.VISIBLE
 
         if (viewModel.finalList.filterNot { it == "" }.isEmpty()) {
