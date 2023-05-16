@@ -85,7 +85,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
             binding.containerView.isClickable = false
         } else {
             val diffByteCount = item.newlen - item.oldlen
-            setButtonTextAndIconColor(StringUtil.getDiffBytesText(context, diffByteCount), textAllCaps = false)
+            setButtonTextAndIconColor(StringUtil.getDiffBytesText(context, diffByteCount))
             if (diffByteCount >= 0) {
                 val diffColor = if (diffByteCount > 0) R.attr.success_color else R.attr.secondary_color
                 binding.diffText.setTextColor(ResourceUtil.getThemedColor(context, diffColor))
@@ -99,13 +99,12 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         L10nUtil.setConditionalLayoutDirection(this, item.wiki!!.languageCode)
     }
 
-    private fun setButtonTextAndIconColor(text: String, @DrawableRes iconResourceDrawable: Int = 0, textAllCaps: Boolean = true) {
+    private fun setButtonTextAndIconColor(text: String, @DrawableRes iconResourceDrawable: Int = 0) {
         val themedTint = ResourceUtil.getThemedColorStateList(context, R.attr.border_color)
         binding.diffText.text = text
         binding.diffText.setTextColor(themedTint)
         binding.diffText.setIconResource(iconResourceDrawable)
         binding.diffText.iconTint = themedTint
-        binding.diffText.isAllCaps = textAllCaps
     }
 
     interface Callback {

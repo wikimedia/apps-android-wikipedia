@@ -7,10 +7,10 @@ import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import de.mrapp.android.tabswitcher.Animation
 import de.mrapp.android.tabswitcher.TabSwitcher
 import de.mrapp.android.tabswitcher.TabSwitcherDecorator
@@ -156,14 +156,14 @@ class TabActivity : BaseActivity() {
             }
             R.id.menu_close_all_tabs -> {
                 if (app.tabList.isNotEmpty()) {
-                    AlertDialog.Builder(this).run {
+                    MaterialAlertDialogBuilder(this).run {
                         setMessage(R.string.close_all_tabs_confirm)
                         setPositiveButton(R.string.close_all_tabs_confirm_yes) { _, _ ->
                             binding.tabSwitcher.clear()
                             cancelled = false
                         }
                         setNegativeButton(R.string.close_all_tabs_confirm_no, null)
-                        create().show()
+                        .show()
                     }
                 }
                 true

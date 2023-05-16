@@ -7,10 +7,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.databinding.DatePickerDialogBinding
 import org.wikipedia.databinding.ViewCustomCalendarDayBinding
@@ -33,13 +33,13 @@ class CustomDatePicker : DialogFragment() {
     var callback: Callback? = null
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        _binding = DatePickerDialogBinding.inflate(LayoutInflater.from(requireContext()))
+        _binding = DatePickerDialogBinding.inflate(layoutInflater)
         setUpMonthGrid()
         setMonthString()
         setDayString()
         setPreviousMonthClickListener()
         setNextMonthClickListener()
-        return AlertDialog.Builder(requireActivity())
+        return MaterialAlertDialogBuilder(requireActivity())
                 .setView(binding.root)
                 .setPositiveButton(R.string.custom_date_picker_dialog_ok_button_text) { _: DialogInterface?, _: Int -> callback?.onDatePicked(callbackDay[Calendar.MONTH], callbackDay[Calendar.DATE]) }
                 .setNegativeButton(R.string.custom_date_picker_dialog_cancel_button_text) { dialog: DialogInterface, _: Int -> dialog.dismiss() }
@@ -69,7 +69,7 @@ class CustomDatePicker : DialogFragment() {
 
     private fun setMonthString() {
         binding.currentMonth.text = DateUtil.getMonthOnlyWithoutDayDateString(selectedDay.time)
-        binding.calendarGrid.adapter!!.notifyDataSetChanged()
+        binding.calendarGrid.adapter?.notifyDataSetChanged()
     }
 
     inner class CustomCalendarAdapter : RecyclerView.Adapter<CustomCalendarAdapter.ViewHolder>() {
