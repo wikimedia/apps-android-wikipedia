@@ -4,7 +4,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
@@ -37,15 +36,6 @@ object UserContribStats {
                         totalReverts = editorTaskCounts.totalReverts
                         maybePauseAndGetEndDate()
                     }
-                }
-    }
-
-    fun getPageViewsObservable(): Observable<Long> {
-        return ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName, 10, null)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .flatMap { response ->
-                    getPageViewsObservable(response)
                 }
     }
 
@@ -101,10 +91,6 @@ object UserContribStats {
                                 .sumOf { it ?: 0 }
                     }
                 }
-    }
-
-    fun updateStatsInBackground() {
-        getEditCountsObservable().subscribe()
     }
 
     fun getRevertSeverity(): Int {

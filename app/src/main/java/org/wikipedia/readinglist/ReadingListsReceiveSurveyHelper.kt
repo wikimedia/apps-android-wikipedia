@@ -3,10 +3,10 @@ package org.wikipedia.readinglist
 import android.app.Activity
 import android.content.Context
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.ReadingListsSharingAnalyticsHelper
+import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
@@ -39,7 +39,7 @@ object ReadingListsReceiveSurveyHelper {
     private fun showSurveyDialog(activity: Activity) {
         Prefs.readingListReceiveSurveyDialogShown = true
 
-        val dialog = AlertDialog.Builder(activity)
+        val dialog = MaterialAlertDialogBuilder(activity)
                 .setTitle(activity.getString(R.string.reading_list_share_survey_title))
                 .setMessage(StringUtil.fromHtml(activity.getString(R.string.reading_list_share_survey_body) +
                         "<br/><br/><small><a href=\"${getLanguageSpecificPrivacyPolicyUrl()}\">" +
@@ -52,7 +52,7 @@ object ReadingListsReceiveSurveyHelper {
         dialog.findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethodExt { url ->
             CustomTabsUtil.openInCustomTab(activity, url)
         }
-        ReadingListsSharingAnalyticsHelper.logSurveyShown(activity)
+        ReadingListsAnalyticsHelper.logSurveyShown(activity)
     }
 
     private fun isActive(): Boolean {

@@ -18,9 +18,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.chip.Chip
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentPreviewSummaryBinding
@@ -123,12 +121,10 @@ class EditSummaryFragment : Fragment() {
             lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.e(throwable)
             }) {
-                withContext(Dispatchers.IO) {
-                    val query = ServiceFactory.get(title.wikiSite)
-                        .getWatchedStatusWithUserOptions(title.prefixedText).query!!
-                    binding.watchPageCheckBox.isChecked = query.firstPage()!!.watched ||
-                            query.userInfo?.options?.watchDefault == 1
-                }
+                val query = ServiceFactory.get(title.wikiSite)
+                    .getWatchedStatusWithUserOptions(title.prefixedText).query!!
+                binding.watchPageCheckBox.isChecked = query.firstPage()!!.watched ||
+                        query.userInfo?.options?.watchDefault == 1
             }
         } else {
             binding.watchPageCheckBox.isEnabled = false

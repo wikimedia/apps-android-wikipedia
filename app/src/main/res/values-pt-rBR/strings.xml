@@ -500,6 +500,10 @@
     <item quantity="one">1 artigo, %2$.2f MB</item>
     <item quantity="other">%1$d artigos, %2$.2f MB</item>
   </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d de 1 artigo disponível offline</item>
+    <item quantity="other">%1$d de %2$d artigos disponíveis offline</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d de 1 artigo disponível offline, %3$.2f MB</item>
     <item quantity="other">%1$d de %2$d artigos disponíveis offline, %3$.2f MB</item>
@@ -872,7 +876,7 @@
   <string name="description_starts_with_uppercase">Comece com uma letra minúscula, a menos que a primeira palavra seja um nome próprio.</string>
   <string name="description_starts_with_lowercase">Evitar começar com uma letra minúscula.</string>
   <string name="description_is_in_different_language">O texto parece estar em um idioma inesperado. O idioma deve ser %s.</string>
-  <string name="description_verification_notice">Por favor, verifique se sua descrição está em %1$s. Sinta-se à vontade para dispensar esta notificação se a descrição que você escreveu estiver em %2$s.</string>
+  <string name="description_verification_notice">Por favor, verifique se sua descrição está em %1$s. Sinta-se à vontade para ignorar este aviso se a descrição que você escreveu estiver em %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Mostrar descrições sugeridas</string>
   <string name="description_edit_suggested_description_button_tooltip">Experimente descrições de artigos sugeridas por máquinas</string>
   <string name="description_edit_success_saved">Descrição do artigo publicada!</string>
@@ -1055,7 +1059,7 @@
   <string name="suggested_edits_article_descriptions_dialog_title">Descrições sugeridas</string>
   <string name="suggested_edits_descriptions_report_dialog_title">O que gostaria de reportar?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Informações insuficientes</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion" fuzzy="true">Não consigo ver recomendações de descrição</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Não consigo ver descrições sugeridas</string>
   <string name="suggested_edits_inappropriate_suggestion">Sugestão inapropriada</string>
   <string name="suggested_edits_do_not_understand_suggestion">Não entendi a tarefa</string>
   <string name="suggested_edits_report_suggestion">Reportar</string>

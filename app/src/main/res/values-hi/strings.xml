@@ -32,6 +32,7 @@
 * आलोक
 * गोपाल
 * चक्रपाणी
+* मुरही
 * संजीव कुमार
 -->
 <resources>
@@ -459,6 +460,7 @@
   <string name="theme_category_editing">संपादन</string>
   <string name="reading_focus_mode">पढ़ने हेतु फोकस मोड</string>
   <string name="reading_focus_mode_detail">स्क्रॉल पर संपादन सुविधाएँ और निचला टूलबार छुपाता है</string>
+  <string name="editing_line_numbers_label">लाइन नंबर दिखाएं</string>
   <string name="nav_item_saved">सहेजा गया</string>
   <string name="reading_list_save_to">पढ़ने वाली सूची में जोड़ें</string>
   <string name="reading_list_move_to">पठन सूची में जोड़ें</string>
@@ -488,6 +490,9 @@
   <string name="reading_list_sort_by_created">निर्माण तिथि के अनुसार क्रमित करें (नवीनतम)</string>
   <string name="reading_list_sort_by_created_desc">निर्माण तिथि के अनुसार क्रमित करें (सबसे पुराना)</string>
   <string name="reading_list_menu_delete">सूची को मिटायें</string>
+  <string name="reading_list_menu_export">निर्यात लिस्ट</string>
+  <string name="reading_list_menu_select">चुनें</string>
+  <string name="reading_list_menu_unselect">चुनें से हटाएं</string>
   <string name="reading_list_menu_rename">नाम या विवरण बदलें</string>
   <string name="reading_list_action_menu_remove_from_offline">ऑफलाइन से हटाएं</string>
   <string name="reading_list_action_menu_save_for_offline">ऑफलाइन के लिए सुरक्षित करें</string>
@@ -583,6 +588,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">रद्द करें</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द करें</string>
   <string name="reading_list_split_dialog_ok_button_text">ठीक है</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">मिटाएं</string>
   <string name="reading_list_activity_title">पठन सूची: %s</string>
   <string name="reading_lists_preview_save_button">सहेजें</string>
   <string name="reading_lists_preview_save_dialog_title">लिस्ट सेव करें</string>
@@ -806,7 +812,7 @@
   <string name="description_starts_with_uppercase">लोअरकेस से शुरू करें जब तक कि पहला शब्द एक प्रॉपर नाउन न हो।</string>
   <string name="description_starts_with_lowercase">लोअरकेस अक्षर से शुरू करने से बचें।</string>
   <string name="description_is_in_different_language">पाठ किसी अनपेक्षित भाषा में प्रतीत होता है। भाषा %s होनी चाहिए।</string>
-  <string name="description_verification_notice">कृपया सत्यापित करें कि आपका विवरण %1$s में है। यदि आपके द्वारा लिखा गया विवरण %2$s में है, तो बेझिझक इस अधिसूचना को खारिज कर दें।</string>
+  <string name="description_verification_notice" fuzzy="true">कृपया सत्यापित करें कि आपका विवरण %1$s में है। यदि आपके द्वारा लिखा गया विवरण %2$s में है, तो बेझिझक इस अधिसूचना को खारिज कर दें।</string>
   <string name="description_edit_suggested_description_button_text">सुझाए गए लेख विवरण दिखाएं</string>
   <string name="description_edit_suggested_description_button_tooltip">मशीन द्वारा सुझाए गए लेख विवरण आज़माएं</string>
   <string name="description_edit_success_saved">लेख विवरण प्रकाशित किया!</string>

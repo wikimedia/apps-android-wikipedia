@@ -732,7 +732,7 @@
   <string name="description_starts_with_uppercase">ߊ߬ ߘߊߡߌ߬ߣߊ߬ ߞߟߏߘߋ߲߫ ߢߟߋߢߟߋ ߡߊ߬ ߛߐ߲߬ ߝߏ߫ ߞߟߏߘߋ߲߫ ߝߟߐ ߟߋ߬ ߦߋ߫ ߞߍ߫ ߞߟߏ߫ ߓߘߍ ߘߌ߫.</string>
   <string name="description_starts_with_lowercase">ߊ߬ ߘߊߡߌ߬ߣߊ ߡߊߕߊ߲߬ߞߊ߫ ߞߟߏߘߋ߲߫ ߢߟߋߢߟߋ ߡߊ߬</string>
   <string name="description_is_in_different_language">ߛߓߍߟߌ߫ ߡߍ߲ ߞߎ߲߬ߓߐ߬ߣߍ߲߫ ߦߊ߲߬߸ ߏ߬ ߕߍ߫ ߞߊ߲߫ ߘߐߞߐ߬ߣߐ߲߬ߣߍ߲ ߝߋ߲߫ ߘߌ߫. ߞߊ߲ ߞߊߡߊ߲߫ ߦߋ߫ ߞߊ߬ ߞߍ߫ %s ߘߌ߫.</string>
-  <string name="description_verification_notice">ߌ ߟߊ߫ ߛߓߍߟߌ ߝߛߍ߬ߝߛߍ߫ ߣߴߊ߬ ߞߍ߫ ߘߊ߫ %1$s ߘߐ߫ ߡߎߣߎ߲߬ ߖߊ߰ߣߌ߲߫. ߌ ߘߌ߫ ߛߋ߫ ߓߙߐߕߐ߫ ߟߊ߫ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߣߌ߲߬ ߘߐ߫ ߣߴߌ ߟߊ߫ ߛߓߍߟߌ ߞߍ߫ ߘߊ߫ %2$s ߘߐ߫.</string>
+  <string name="description_verification_notice" fuzzy="true">ߌ ߟߊ߫ ߛߓߍߟߌ ߝߛߍ߬ߝߛߍ߫ ߣߴߊ߬ ߞߍ߫ ߘߊ߫ %1$s ߘߐ߫ ߡߎߣߎ߲߬ ߖߊ߰ߣߌ߲߫. ߌ ߘߌ߫ ߛߋ߫ ߓߙߐߕߐ߫ ߟߊ߫ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߣߌ߲߬ ߘߐ߫ ߣߴߌ ߟߊ߫ ߛߓߍߟߌ ߞߍ߫ ߘߊ߫ %2$s ߘߐ߫.</string>
   <string name="description_edit_suggested_description_button_text">ߞߊ߲߬ߛߓߍߟߌ ߘߐ߬ߛߎ߬ߟߌ ߟߎ߫ ߦߌ߬ߘߊ߬</string>
   <string name="description_edit_suggested_description_button_tooltip">ߕߙߏ߬ߞߏ ߟߊ߫ ߞߎߡߘߊ ߞߊ߲߬ߛߓߍߟߌ߫ ߘߐߛߎߣߍ߲ ߠߎ߬ ߡߊߝߍߣߍ߲߫</string>
   <string name="description_edit_success_saved">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߓߘߊ߫ ߟߊߥߊ߲߬ߞߊ߫߹</string>
@@ -891,7 +891,7 @@
   <string name="suggested_edits_article_descriptions_dialog_title">ߘߐ߬ߛߎ߬ߟߌ ߞߊ߲߬ߛߓߍߟߌ ߡߊ߬</string>
   <string name="suggested_edits_descriptions_report_dialog_title">ߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߡߎ߲߬ ߢߊߦߌ߬ߘߊ߬؟</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">ߞߎ߲߬ߠߊ߬ߝߏ߬ߣߌ߲߬ ߖߐ߲ߖߐ߲߫ ߕߴߦߋ߲߬</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion" fuzzy="true">ߌ ߕߍߣߊ߬ ߞߊ߲߬ߛߓߍߟߌ ߞߊ߬ߣߌ߲߬ߣߍ߲߫ ߦߋ߫ ߟߊ߫</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">ߌ ߕߍߣߊ߬ ߞߊ߲߬ߛߓߍߟߌ ߞߊ߬ߣߌ߲߬ߣߍ߲߫ ߦߋ߫ ߟߊ߫</string>
   <string name="suggested_edits_inappropriate_suggestion">ߘߐ߬ߘߎ߬ߟߌ߫ ߓߍ߲߬ߒ߬ߡߊ߬ߓߊߟߌ</string>
   <string name="suggested_edits_do_not_understand_suggestion">ߌ ߡߊ߫ ߘߊߞߎ߲ ߣߌ߲߬ ߢߊߦߋ߫؟</string>
   <string name="suggested_edits_report_suggestion">ߢߊߦߌߘߊߟߌ</string>

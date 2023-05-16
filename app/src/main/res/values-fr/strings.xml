@@ -41,6 +41,7 @@
 * Noé
 * Oupsa
 * Seb35
+* SleaY
 * The RedBurn
 * Thibaut120094
 * Trial
@@ -724,7 +725,7 @@
   <string name="notifications_direct_reply_action">Répondre</string>
   <string name="notifications_direct_reply_progress">Validation de la réponse à %s...</string>
   <string name="notifications_direct_reply_success">Réponse postée.</string>
-  <string name="notifications_direct_reply_error">Impossible de poster automatiquement la réponse.</string>
+  <string name="notifications_direct_reply_error">Impossible de publier automatiquement la réponse.</string>
   <string name="notifications_mark_all_as_read_message">%d marqué(s) comme lu(s)</string>
   <string name="notifications_mark_all_as_unread_message">%d marqué(s) comme non lu(s)</string>
   <plurals name="notifications_mark_as_read_plural">
@@ -886,7 +887,7 @@
   <string name="description_starts_with_uppercase">Commencer avec une lettre minuscule, sauf si le premier mot est un nom propre.</string>
   <string name="description_starts_with_lowercase">Éviter de commencer par une lettre minuscule.</string>
   <string name="description_is_in_different_language">Le texte semble être dans une langue inattendue. La langue devrait être %s.</string>
-  <string name="description_verification_notice">Veuillez vérifier que votre description est en %1$s. Vous pouvez librement ignorer cette notification si votre description est écrite en %2$s.</string>
+  <string name="description_verification_notice">Veuillez vérifier que votre description est en %1$s. Vous pouvez librement ignorer cet avertissement si votre description est écrite en %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Afficher les descriptions suggérées</string>
   <string name="description_edit_suggested_description_button_tooltip">Essayer les descriptions d’article suggérées par la machine</string>
   <string name="description_edit_success_saved">Description de l’article publiée !</string>
@@ -1115,7 +1116,7 @@
   <string name="onboarding_analytics_title">Envoyer les données de manière anonyme</string>
   <string name="onboarding_analytics_offline_text">Aide à améliorer l’application en nous faisant savoir comment vous l’utilisez. Les données collectées sont anonymes. &lt;a href=\"#privacy\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envoyer les données d’utilisation</string>
-  <string name="onboarding_got_it">C’est bon !</string>
+  <string name="onboarding_got_it">Compris !</string>
   <string name="onboarding_multilingual_secondary_text">Nous avons trouvé ceci sur votre appareil :</string>
   <string name="onboarding_multilingual_add_language_text">Ajouter ou modifier des langues</string>
   <string name="onboarding_welcome_title_v2">L’encyclopédie libre\n... dans plus de 300 langues</string>

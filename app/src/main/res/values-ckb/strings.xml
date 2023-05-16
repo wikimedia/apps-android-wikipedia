@@ -738,7 +738,7 @@
   <string name="description_starts_with_uppercase">بە پیتێکی بچووک دەست پێ بکە مەگەر وشەی یەکەم ناوێکی شیاو بێت.</string>
   <string name="description_starts_with_lowercase">پیتی سەرەتا دەبێت کەپیتەڵ بێت.</string>
   <string name="description_is_in_different_language">دەقەکە وا دیارە کە بە زمانێکی نەخوازراو بێت. زمانەکە دەبێت %s بێت.</string>
-  <string name="description_verification_notice">تکایە دڵنیای بکەرەوە کە وەسفکەت بە %1$s نووسراوە. ئەگەر وەسفەکە بە %2$s نووسراوە، ئەوا ئەم ئاگادارییە پێشێل بکە.</string>
+  <string name="description_verification_notice" fuzzy="true">تکایە دڵنیای بکەرەوە کە وەسفکەت بە %1$s نووسراوە. ئەگەر وەسفەکە بە %2$s نووسراوە، ئەوا ئەم ئاگادارییە پێشێل بکە.</string>
   <string name="description_edit_success_saved">وەسفی وتارەکە پاشەکەوتکرا!</string>
   <string name="description_edit_success_saved_snackbar">وەسفی وتارەکە پاشەکەوتکرا!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">وەسفی وتارەکە پاشەکەوتکرا!(%s)</string>

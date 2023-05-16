@@ -914,7 +914,7 @@
   <string name="description_starts_with_uppercase">יש להתחיל באות קטנה, אלא אם המילה הראשונה היא שם פרטי.</string>
   <string name="description_starts_with_lowercase">נא להימנע מלהתחיל את התיאור מאות קטנה.</string>
   <string name="description_is_in_different_language">הטקסט מופיע בשפה בלתי־צפויה. השפה אמורה להיות %s.</string>
-  <string name="description_verification_notice">נא לוודא שהשפה של התיאור שלך היא %1$s. אין בעיה לסגור את ההודעה הזאת אם השפה שכתבת בה היא %2$s.</string>
+  <string name="description_verification_notice">נא לוודא שהשפה של התיאור שלך היא %1$s. אפשר להתעלם מהאזהאה הזאת אם השפה שכתבת בה היא %2$s.</string>
   <string name="description_edit_suggested_description_button_text">הצגת תיאורים מומלצים</string>
   <string name="description_edit_suggested_description_button_tooltip">לנסות תיאורי ערכים מוצעים על־ידי מכונה</string>
   <string name="description_edit_success_saved">תיאור הערך פורסם!</string>

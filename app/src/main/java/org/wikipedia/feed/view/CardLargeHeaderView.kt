@@ -12,6 +12,7 @@ import androidx.palette.graphics.Palette
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewCardHeaderLargeBinding
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -80,15 +81,9 @@ class CardLargeHeaderView : ConstraintLayout {
 
     private fun setGradientDrawableBackground(@ColorInt leftColor: Int, @ColorInt rightColor: Int) {
         val gradientDrawable = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(leftColor, rightColor))
-
-        // card background
         gradientDrawable.alpha = 70
-        gradientDrawable.cornerRadius = binding.viewCardHeaderLargeBorderBase.radius
-        binding.viewCardHeaderLargeContainer.background = gradientDrawable
-
-        // card border's background, which depends on the margin that is applied to the borderBaseView
-        gradientDrawable.alpha = 90
-        gradientDrawable.cornerRadius = resources.getDimension(R.dimen.wiki_card_radius)
-        binding.viewCardHeaderLargeBorderContainer.background = gradientDrawable
+        gradientDrawable.cornerRadius = DimenUtil.dpToPx(12f)
+        gradientDrawable.setStroke(DimenUtil.roundedDpToPx(0.5f), ResourceUtil.getThemedColor(context, R.attr.secondary_color))
+        background = gradientDrawable
     }
 }

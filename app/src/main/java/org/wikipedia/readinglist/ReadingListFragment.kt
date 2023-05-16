@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
@@ -34,7 +35,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.eventplatform.ReadingListsSharingAnalyticsHelper
+import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.PageDownloadEvent
@@ -105,6 +106,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     override fun onResume() {
         super.onResume()
         updateReadingListData()
+        ReadingListsAnalyticsHelper.logListShown(requireContext(), readingList?.pages?.size ?: 0)
         ReadingListsShareSurveyHelper.maybeShowSurvey(requireActivity())
     }
 
@@ -307,7 +309,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                         withContext(Dispatchers.Main) {
                             readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
                             readingList?.let {
-                                ReadingListsSharingAnalyticsHelper.logReceivePreview(requireContext(), it)
+                                ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
                                 binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
                             }
                             update()
@@ -324,9 +326,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 // In this case, there's nothing for us to do, so just bail from the activity.
                 requireActivity().finish()
             }) {
-                val list = withContext(Dispatchers.IO) {
-                    AppDatabase.instance.readingListDao().getListById(readingListId, true)
-                }
+                val list = AppDatabase.instance.readingListDao().getListById(readingListId, true)
                 binding.readingListSwipeRefresh.isRefreshing = false
                 readingList = list
                 readingList?.let {
@@ -457,7 +457,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 }
             })
 
-            previewSaveDialog = AlertDialog.Builder(requireContext())
+            previewSaveDialog = MaterialAlertDialogBuilder(requireContext())
                 .setPositiveButton(R.string.reading_lists_preview_save_dialog_save) { _, _ ->
                     it.pages.clear()
                     it.pages.addAll(savedPages)
