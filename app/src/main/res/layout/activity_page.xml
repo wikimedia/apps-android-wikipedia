@@ -27,11 +27,10 @@
             android:background="?attr/paper_color"
             android:elevation="4dp">
 
-            <androidx.appcompat.widget.Toolbar
+            <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/page_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:theme="@style/PageToolbarTheme"
                 app:contentInsetStartWithNavigation="0dp">
 
                 <LinearLayout
@@ -66,7 +65,7 @@
                         android:layout_height="match_parent"
                         android:contentDescription="@string/notifications_activity_title"/>
 
-                    <androidx.appcompat.widget.AppCompatImageView
+                    <ImageView
                         android:id="@+id/page_toolbar_button_show_overflow_menu"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
@@ -80,15 +79,13 @@
                         app:tint="?attr/primary_color" />
 
                 </LinearLayout>
-            </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.MaterialToolbar>
 
-            <ProgressBar
+            <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/page_progress_bar"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
-                android:layout_marginTop="-7dp"
                 android:indeterminate="true" />
 
         </FrameLayout>

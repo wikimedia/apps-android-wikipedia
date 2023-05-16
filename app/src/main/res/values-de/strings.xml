@@ -828,7 +828,7 @@
   <string name="description_starts_with_uppercase">Beginne mit einem Kleinbuchstaben, es sei denn, das erste Wort ist ein Eigenname.</string>
   <string name="description_starts_with_lowercase">Vermeide es, mit einem Kleinbuchstaben zu beginnen.</string>
   <string name="description_is_in_different_language">Der Text scheint in einer unerwarteten Sprache zu sein. Die Sprache sollte %s sein.</string>
-  <string name="description_verification_notice">Bitte überprüfe, dass deine Beschreibung in %1$s ist. Du kannst diese Benachrichtigung ablehnen, wenn die Beschreibung, die du geschrieben haben, in %2$s ist.</string>
+  <string name="description_verification_notice">Bitte überprüfe, ob deine Beschreibung in %1$s ist. Du kannst diese Warnung ignorieren, wenn die Beschreibung, die du geschrieben hast, in %2$s ist.</string>
   <string name="description_edit_suggested_description_button_text">Vorgeschlagene Beschreibungen anzeigen</string>
   <string name="description_edit_suggested_description_button_tooltip">Probieren Sie computergenerierte Artikelbeschreibungen aus</string>
   <string name="description_edit_success_saved">Artikelbeschreibung veröffentlicht!</string>
@@ -942,9 +942,9 @@
   <string name="suggested_edits_image_captions_task_detail">Beschreibe ein Bild, um den Lesern zu helfen, seine Bedeutung und seinen Kontext zu verstehen.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Fasse einen Artikel zusammen, um Lesern beim Verstehen eines Themas zu helfen.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Gesamtzahl deiner bisherigen Beiträge.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Anzahl der Tage in Folge, an denen Sie Beiträge geleistet haben. Wenn Sie eine Weile nicht beigetragen haben, wird Ihr letztes Beitragsdatum angezeigt.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Totale Seitenaufrufe aller Bearbeitungen, zu denen Sie in den letzten 30 Tagen beigetragen haben.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Basiert darauf, wie oft einer Ihrer Beiträge zurückgesetzt wurde (von einem anderen Editor rückgängig gemacht). Zurückgesetzte Änderungen: %d.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Anzahl der Tage in Folge, an denen du Beiträge geleistet hast. Wenn du eine Weile nicht beigetragen hast, wird dein letztes Beitragsdatum angezeigt.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Totale Seitenaufrufe aller Bearbeitungen, zu denen du in den letzten 30 Tagen beigetragen hast.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Basiert darauf, wie oft einer deiner Beiträge zurückgesetzt wurde (von einem anderen Editor rückgängig gemacht). Zurückgesetzte Änderungen: %d.</string>
   <string name="suggested_edits_paused_message">Vorgeschlagene Bearbeitungen ist pausiert bis %1$s. Entschuldigung, %2$s, manche deiner letzten Beiträge wurden rückgängig gemacht.</string>
   <string name="suggested_edits_disabled_message">Vorgeschlagene Bearbeitungen ist deaktiviert. Entschuldigung, %s, zu viele deiner letzten Beiträge wurden rückgängig gemacht.</string>
   <string name="suggested_edits_ip_blocked_message">Es sieht so aus, als ob Ihre IP-Adresse (oder Ihr IP-Adressbereich) derzeit für die Bearbeitung von Wikipedia gesperrt ist.</string>

@@ -139,8 +139,8 @@
   <string name="login_username_hint">Korisničko ime</string>
   <string name="login_password_hint">Lozinka</string>
   <string name="account_creation_password_hint">Lozinka</string>
-  <string name="login_2fa_hint">Kôd dvočiniteljske potvrde</string>
-  <string name="login_2fa_other_workflow_error_msg">Zahtijeva se dvočiniteljska potvrda! Vratite se na glavnu aktivnost i prijavite se sa svojim 2FA-žetonom te pokušajte ponovo.</string>
+  <string name="login_2fa_hint">Kôd dvofaktorske autentikacije</string>
+  <string name="login_2fa_other_workflow_error_msg">Neophodna je dvofaktorska autentikacija! Vratite se na glavnu aktivnost i prijavite se sa svojim 2FA-žetonom te pokušajte ponovo.</string>
   <string name="onboarding_card_login">Prijavi se</string>
   <string name="page_editing_login">Prijavi se</string>
   <string name="reading_lists_sync_login">Prijavi se</string>
@@ -290,6 +290,11 @@
   <string name="search_did_you_mean">Jeste li mislili \"%s\"?</string>
   <string name="search_recent_header">Nedavne pretrage:</string>
   <string name="search_results_count_zero">Nema rezultata</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 rezultat</item>
+    <item quantity="few">%d rezultata</item>
+    <item quantity="other">%d rezultata</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Očisti nedavne pretrage</string>
   <string name="clear_recent_searches_confirm">Jeste li sigurni da želite očistiti historiju pretrage?</string>
   <string name="clear_recent_searches_confirm_yes">Da</string>
@@ -341,6 +346,20 @@
   <string name="all_tab_items_closed">Sve kartice su zatvorene.</string>
   <string name="tool_tip_bookmark_icon_title">Dodaj na spisak za čitanje</string>
   <string name="tool_tip_bookmark_icon_text">Dodirnite sličicu dočitnice da biste sačuvali članak na listu za čitanje.</string>
+  <string name="tool_tip_toc_text">Sada možete prevlačiti ulijevo da biste otvorili sadržaj, a zatim dodirnuti i prevući dugme ovog pomerača da biste brzo prešli na druge odjeljke članka.</string>
+  <string name="tool_tip_lang_button">Sada možete pretraživati i čitati na više jezika u prilogu.\n\n\nDodirnite ikonu da biste dodali još jezika.</string>
+  <string name="error_response_malformed">Odgovor servera nije ispravno formatiran.</string>
+  <string name="error_unknown">Došlo je do nepoznate greške.</string>
+  <string name="format_error_server_message">Poruka: \"%s\"</string>
+  <string name="address_copied">Adresa stavljena u međuspremnik</string>
+  <string name="text_copied">Tekst stavljen u međuspremnik.</string>
+  <string name="button_continue_to_article">Pročitaj članak</string>
+  <string name="button_continue_to_talk_page">Prikaži stranicu za razgovor</string>
+  <string name="button_continue_to_disambiguation">Pogl. slične stranice</string>
+  <string name="link_preview_disambiguation_description">Naslov se odnosi na više od jedne stranice:</string>
+  <string name="button_add_to_reading_list">Dodaj na spisak za čitanje</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Članak se ne može učitati dok ste van mreže.</string>
+  <string name="page_offline_notice_add_to_reading_list">Savjet: Dodajte članak na spisak za čitanje i bit će preuzet čim se ponovo povežete.</string>
   <string name="theme_category_editing">Uređivanje</string>
   <string name="editing_syntax_highlight_label">Isticanje sintakse</string>
   <string name="reading_lists_preview_save_button">Sačuvaj</string>

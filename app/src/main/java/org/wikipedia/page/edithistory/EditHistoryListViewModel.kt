@@ -85,32 +85,29 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
-            withContext(Dispatchers.IO) {
+            val calendar = Calendar.getInstance()
+            val today = DateUtil.getYMDDateString(calendar.time)
+            calendar.add(Calendar.YEAR, -1)
+            val lastYear = DateUtil.getYMDDateString(calendar.time)
 
-                val calendar = Calendar.getInstance()
-                val today = DateUtil.getYMDDateString(calendar.time)
-                calendar.add(Calendar.YEAR, -1)
-                val lastYear = DateUtil.getYMDDateString(calendar.time)
+            val mwResponse = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsAscending(pageTitle.prefixedText, null, 1, null) }
+            val editCountsResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS) }
+            val editCountsUserResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITORS) }
+            val editCountsAnonResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_ANONYMOUS) }
+            val editCountsBotResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_BOT) }
+            val articleMetricsResponse = async { ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today) }
 
-                val mwResponse = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsAscending(pageTitle.prefixedText, null, 1, null) }
-                val editCountsResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS) }
-                val editCountsUserResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITORS) }
-                val editCountsAnonResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_ANONYMOUS) }
-                val editCountsBotResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_BOT) }
-                val articleMetricsResponse = async { ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today) }
+            val page = mwResponse.await().query?.pages?.first()
+            pageId = page?.pageId ?: -1
 
-                val page = mwResponse.await().query?.pages?.first()
-                pageId = page?.pageId ?: -1
-
-                editHistoryStatsData.postValue(Resource.Success(EditHistoryStats(
-                    page?.revisions?.first()!!,
-                    articleMetricsResponse.await().firstItem.results,
-                    editCountsResponse.await(),
-                    editCountsUserResponse.await(),
-                    editCountsAnonResponse.await(),
-                    editCountsBotResponse.await()
-                )))
-            }
+            editHistoryStatsData.postValue(Resource.Success(EditHistoryStats(
+                page?.revisions?.first()!!,
+                articleMetricsResponse.await().firstItem.results,
+                editCountsResponse.await(),
+                editCountsUserResponse.await(),
+                editCountsAnonResponse.await(),
+                editCountsBotResponse.await()
+            )))
         }
     }
 

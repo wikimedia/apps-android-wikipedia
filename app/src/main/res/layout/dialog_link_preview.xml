@@ -57,7 +57,7 @@
                     android:textSize="20sp"
                     tools:text="Lorem ipsum" />
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <ImageView
                     android:id="@+id/link_preview_overflow_button"
                     android:layout_width="48dp"
                     android:layout_height="48dp"

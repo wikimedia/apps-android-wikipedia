@@ -178,7 +178,7 @@
   <string name="preferences_heading_experimental">Eksperimentalno</string>
   <string name="preference_title_sync_reading_lists_from_account">Sinkronizacija popisa za čitanje</string>
   <string name="preference_title_download_reading_list_articles">Preuzmi članke s popisa za čitanje</string>
-  <string name="preference_summary_sync_reading_lists">Sinkronizirajte popise za čitanje među različitim uređajima tako da ih spremite na Vaš račun na Wikipediji</string>
+  <string name="preference_summary_sync_reading_lists">Sinkronizirajte popise za čitanje među različitim uređajima tako da ih spremite na svoj račun na Wikipediji</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronizirajte popise za čitanje među različitim uređajima tako da ih spremite na Vaš račun \"%s\" na Wikipediji</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ukloniti sinkronizirane popise za čitanje s računa \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ovo će u potpunosti izbrisati sve prethodno sinkronizirane popise za čitanje iz udaljene pohrane. Ukloniti sve sinkronizirane popise za čitanje s Vašeg računa \"%s\"?</string>

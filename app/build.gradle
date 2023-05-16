@@ -37,7 +37,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 50438
+        versionCode 50443
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -182,7 +182,7 @@ dependencies {
     String espressoVersion = '3.5.1'
     String serialization_version = '1.4.0'
 
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs_nio:2.0.2'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"

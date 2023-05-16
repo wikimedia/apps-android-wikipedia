@@ -103,9 +103,9 @@
   <string name="page_edit_history_comment_placeholder">編集の要約がありません</string>
   <string name="page_edit_history_search_or_filter_edits_hint">編集を検索または絞り込む</string>
   <string name="page_edit_history_filter_by">絞り込みの条件：</string>
-  <string name="page_edit_history_filter_by_all">すべての編集（ %s ）</string>
-  <string name="page_edit_history_filter_by_user">ユーザー編集（ %s ）</string>
-  <string name="page_edit_history_filter_by_anon">匿名編集（%s）</string>
+  <string name="page_edit_history_filter_by_all">すべての編集 (%s)</string>
+  <string name="page_edit_history_filter_by_user">利用者編集 (%s)</string>
+  <string name="page_edit_history_filter_by_anon">匿名編集 (%s)</string>
   <string name="page_edit_history_filter_by_bot">ボットの編集 (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s から %2$s までの指標。</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -238,7 +238,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">メールアドレスなしで先に進む</string>
   <string name="email_recommendation_dialog_create_with_email_action">メールアドレスを追加</string>
   <string name="create_account_button">アカウント作成</string>
-  <string name="create_account_name_unavailable">ユーザー名「%s」はご利用になれません。別の名前を選んでください。</string>
+  <string name="create_account_name_unavailable">利用者名「%s」は利用できません。別の名前を指定してください。</string>
   <string name="create_account_ip_block_message">申し訳ありませんが現在あなたのIPアドレスはアカウント作成がブロックされています。</string>
   <string name="create_account_ip_block_help_url">https://ja.wikipedia.org/wiki/ヘルプ:あなたが投稿ブロックされたら</string>
   <string name="create_account_ip_block_details">詳細</string>
@@ -320,7 +320,7 @@
   <string name="edit_summary_tag_other">その他</string>
   <string name="edit_summary_tag_other_hint">ページのその他の改善</string>
   <string name="edit_conflict_title">編集の競合</string>
-  <string name="edit_conflict_message">このページは他のユーザーによって変更されており、あなたの編集と競合しています。編集中のテキストをコピーして、戻ってページを読み込み直した上で、再度編集してください。</string>
+  <string name="edit_conflict_message">ページが他の利用者によって既に変更されており、あなたの編集と競合しています。編集中のテキストをコピーして、戻ってページを読み込み直した上で、再度編集してください。</string>
   <string name="edit_notices">編集の通知</string>
   <string name="edit_notices_please_read">編集する前にお読みください</string>
   <string name="edit_notices_show_auto">編集の通知を自動的に表示する</string>
@@ -447,7 +447,7 @@
   <string name="page_footer_license_text">コンテンツは、特に記載されていない限り、$1のもとで利用可能です。</string>
   <string name="empty_tab_title">新しいタブ</string>
   <string name="menu_save_all_tabs">すべてのタブを保存</string>
-  <string name="error_blocked_title">あなたのユーザー名またはIPアドレスはブロックされています。</string>
+  <string name="error_blocked_title">あなたの利用者名または IP アドレスはブロックされています。</string>
   <string name="error_blocked_by">ブロックは&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;によって作成されました</string>
   <string name="error_blocked_reason">理由は次のとおりです：%s</string>
   <string name="error_blocked_start">ブロックの開始日：%s</string>
@@ -608,7 +608,7 @@
   <string name="default_reading_list_description">保存したページの既定の一覧</string>
   <string name="no_user_lists_title">記事をリストにまとめる</string>
   <string name="no_user_lists_msg">行ってみたい場所や好きな話題その他いろいろなリストを作ってみる</string>
-  <string name="reading_list_saved_list_rename">%1$s (ユーザーによる作成)</string>
+  <string name="reading_list_saved_list_rename">%1$s (利用者による作成)</string>
   <string name="split_reading_list_message">あとで読むリストに登録できる項目数は%d件以下です。既存のリストでこの上限をオーバーしたものは分割されました。</string>
   <string name="reading_list_move_article_limit_message">リストに追加できません。「%1$s」はリスト項目の上限%2$d件に達しました</string>
   <string name="reading_list_article_limit_message">リストに追加できません。「%1$s」はリスト項目の上限%2$d件に達しました。</string>
@@ -874,7 +874,7 @@
   <string name="description_starts_with_uppercase">文章は、最初の語が固有名詞の場合を除いて、小文字で始めます。</string>
   <string name="description_starts_with_lowercase">小文字で始めるものは避けてください。</string>
   <string name="description_is_in_different_language">テキストが予期しない言語で表示されています。言語は %s である必要があります。</string>
-  <string name="description_verification_notice">説明が%1$sであることを確かめてください。もし説明を%2$sで書いていたならば、この通知は無視してください。</string>
+  <string name="description_verification_notice">説明が%1$sであることを確かめてください。もし説明を%2$sで書いていたならば、この警告は無視して構いません。</string>
   <string name="description_edit_suggested_description_button_text">提案された要約を表示する</string>
   <string name="description_edit_suggested_description_button_tooltip">機械によって提案された記事の要約を試し読みする</string>
   <string name="description_edit_success_saved">記事の説明が公開されました!</string>
@@ -1369,7 +1369,7 @@
   <string name="watchlist_filter_type_of_change_header">変更の種類</string>
   <string name="watchlist_filter_type_of_change_page_edits">ページの編集</string>
   <string name="watchlist_filter_type_of_change_page_creations">ページの作成</string>
-  <string name="watchlist_filter_type_of_change_category_changes">カテゴリーの変更</string>
+  <string name="watchlist_filter_type_of_change_category_changes">カテゴリの変更</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">ウィキデータの編集</string>
   <string name="watchlist_filter_type_of_change_logged_actions">記録された活動</string>
   <string name="watchlist_filter_type_of_change_new_users">新しい利用者</string>

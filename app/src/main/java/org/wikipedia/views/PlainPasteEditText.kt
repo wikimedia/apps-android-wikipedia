@@ -21,7 +21,7 @@ open class PlainPasteEditText : TextInputEditText {
     init {
         // The MIME type(s) need to be set for onReceiveContent() to be called.
         ViewCompat.setOnReceiveContentListener(rootView, arrayOf("text/*"), null)
-        applyCustomCursorDrawable()
+        // applyCustomCursorDrawable()
     }
 
     override fun onReceiveContent(payload: ContentInfoCompat): ContentInfoCompat? {
