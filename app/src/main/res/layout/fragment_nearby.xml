@@ -9,8 +9,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="@string/nearby_title"
-        android:theme="@style/ToolbarTheme" />
+        app:title="@string/nearby_title" />
 
     <com.mapbox.mapboxsdk.maps.MapView
         android:id="@+id/mapView"
