@@ -40,16 +40,8 @@ object DateUtil {
         return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).parse(date)!!
     }
 
-    fun getFeedCardDayHeaderDate(age: Int): String {
-        return getDateStringWithSkeletonPattern(UtcDate(age).baseCalendar.time, "MMMM d")
-    }
-
     fun getFeedCardDateString(age: Int): String {
-        return getFeedCardDateString(UtcDate(age).baseCalendar)
-    }
-
-    private fun getFeedCardDateString(date: Calendar): String {
-        return getShortDateString(date.time)
+        return getShortDateString(UtcDate(age).baseCalendar.time)
     }
 
     fun getFeedCardShortDateString(date: Calendar): String {

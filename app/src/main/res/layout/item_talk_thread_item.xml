@@ -107,9 +107,7 @@
         app:layout_constraintBottom_toTopOf="@id/showRepliesContainer"
         app:icon="@drawable/ic_reply_24"
         app:iconTint="@android:color/white"
-        app:backgroundTint="?attr/progressive_color"
-        app:rippleColor="?attr/progressive_color"
-        app:cornerRadius="8dp" />
+        app:backgroundTint="?attr/progressive_color" />
 
     <View
         android:id="@+id/showRepliesTapTarget"

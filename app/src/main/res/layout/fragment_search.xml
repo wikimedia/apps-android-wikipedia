@@ -18,7 +18,6 @@
             android:id="@+id/search_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:theme="@style/ToolbarTheme"
             android:transitionName="@string/transition_search_bar"
             app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
             app:navigationIconTint="?attr/primary_color">
@@ -33,12 +32,12 @@
                     android:id="@+id/search_cab_view"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="-16dp"
                     android:layout_marginEnd="2dp"
                     android:layout_weight="1"
-                    android:focusable="true"
                     android:imeOptions="actionGo|flagNoExtractUi"
                     android:inputType="text"
+                    app:searchIcon="@null"
+                    app:searchHintIcon="@null"
                     app:defaultQueryHint="@string/search_hint" />
 
                 <FrameLayout
@@ -71,15 +70,11 @@
 
         </com.google.android.material.appbar.MaterialToolbar>
 
-        <ProgressBar
+        <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/search_progress_bar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-6.5dp"
             android:indeterminate="true"
-            android:indeterminateTint="?attr/progressive_color"
-            android:progressBackgroundTint="?attr/progressive_color"
             android:visibility="gone"
             tools:visibility="visible" />
 

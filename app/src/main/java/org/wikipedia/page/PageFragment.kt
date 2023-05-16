@@ -12,7 +12,6 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.LinearLayout
-import androidx.appcompat.app.AlertDialog
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
@@ -23,6 +22,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textview.MaterialTextView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
@@ -168,7 +168,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val page get() = model.page
     val historyEntry get() = model.curEntry
     val containerView get() = binding.pageContentsContainer
-    val headerView get() = binding.pageHeaderView
     val isLoading get() = bridge.isLoading
     val leadImageEditLang get() = leadImagesHandler.callToActionEditLang
 
@@ -208,7 +207,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
         }
 
-        bottomBarHideHandler = ViewHideHandler(binding.pageActionsTabLayout, null, Gravity.BOTTOM, updateElevation = false) { false }
+        bottomBarHideHandler = ViewHideHandler(binding.pageActionsTabContainer, null, Gravity.BOTTOM, updateElevation = false) { false }
         bottomBarHideHandler.setScrollView(webView)
         bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
 
@@ -1120,7 +1119,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     fun verifyBeforeEditingDescription(text: String?, invokeSource: InvokeSource) {
         page?.let {
             if (!AccountUtil.isLoggedIn && Prefs.totalAnonDescriptionsEdited >= resources.getInteger(R.integer.description_max_anon_edits)) {
-                AlertDialog.Builder(requireActivity())
+                MaterialAlertDialogBuilder(requireActivity())
                     .setMessage(R.string.description_edit_anon_limit)
                     .setPositiveButton(R.string.page_editing_login) { _, _ ->
                         startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_EDIT))
@@ -1269,7 +1268,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             binding.findInPagePrev.setOnClickListener(this)
             binding.findInPageNext.setOnClickListener(this)
             binding.referenceLabel.setOnClickListener(this)
-            binding.closeButton.setOnClickListener(this)
             binding.referenceLabel.text = getString(R.string.reference_list_title).plus(" $referenceText")
             if (backLinksList.isNotEmpty()) {
                 scrollTo(0)
@@ -1299,7 +1297,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     bridge.execute(JavaScriptActionHandler.scrollToAnchor(referenceAnchor))
                     callback()?.onPageCloseActionMode()
                 }
-                binding.closeButton -> callback()?.onPageCloseActionMode()
             }
         }
 

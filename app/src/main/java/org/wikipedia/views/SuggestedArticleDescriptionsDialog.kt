@@ -1,28 +1,28 @@
 package org.wikipedia.views
 
-import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+import android.app.Activity
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.databinding.DialogArticleDescriptionsBinding
 import org.wikipedia.page.PageTitle
 
 class SuggestedArticleDescriptionsDialog(
-    context: Context,
+    activity: Activity,
     firstSuggestion: String,
     secondSuggestion: String?,
     private val pageTitle: PageTitle,
     private val analyticsHelper: MachineGeneratedArticleDescriptionsAnalyticsHelper,
     callback: Callback
-) : AlertDialog(context) {
+) : MaterialAlertDialogBuilder(activity) {
 
     fun interface Callback {
         fun onSuggestionClicked(suggestion: String)
     }
 
-    private val binding = DialogArticleDescriptionsBinding.inflate(layoutInflater)
+    private val binding = DialogArticleDescriptionsBinding.inflate(activity.layoutInflater)
+    private var dialog: AlertDialog? = null
     private var suggestionChosen = false
 
     init {
@@ -30,26 +30,25 @@ class SuggestedArticleDescriptionsDialog(
         binding.firstSuggestion.text = firstSuggestion
         binding.secondSuggestionLayout.isVisible = secondSuggestion != null
         secondSuggestion?.let { binding.secondSuggestion.text = it }
-        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        binding.closeButton.setOnClickListener { dismiss() }
+        binding.closeButton.setOnClickListener { dialog?.dismiss() }
         binding.firstSuggestion.setOnClickListener {
             callback.onSuggestionClicked(binding.firstSuggestion.text.toString())
             suggestionChosen = true
-            dismiss()
+            dialog?.dismiss()
         }
         binding.secondSuggestion.setOnClickListener {
             callback.onSuggestionClicked(binding.secondSuggestion.text.toString())
             suggestionChosen = true
-            dismiss()
+            dialog?.dismiss()
         }
 
         binding.firstSuggestionFlag.setOnClickListener {
-            SuggestedArticleDescriptionsReportDialog(context, binding.firstSuggestion.text.toString(), pageTitle, analyticsHelper) { dismiss() }.show()
+            SuggestedArticleDescriptionsReportDialog(activity, binding.firstSuggestion.text.toString(), pageTitle, analyticsHelper) { dialog?.dismiss() }.show()
         }
 
         binding.secondSuggestionFlag.setOnClickListener {
-            SuggestedArticleDescriptionsReportDialog(context, binding.secondSuggestion.text.toString(), pageTitle, analyticsHelper) { dismiss() }.show()
+            SuggestedArticleDescriptionsReportDialog(activity, binding.secondSuggestion.text.toString(), pageTitle, analyticsHelper) { dialog?.dismiss() }.show()
         }
 
         setOnDismissListener {
@@ -57,6 +56,11 @@ class SuggestedArticleDescriptionsDialog(
                 analyticsHelper.logSuggestionsDismissed(context, pageTitle)
             }
         }
+    }
+
+    override fun show(): AlertDialog {
+        dialog = super.show()
+        return dialog!!
     }
 
     companion object {

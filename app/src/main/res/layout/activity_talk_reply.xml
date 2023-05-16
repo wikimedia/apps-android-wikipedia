@@ -28,8 +28,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:hint="@string/talk_reply_subject"
-                app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
+                android:hint="@string/talk_reply_subject">
 
                 <org.wikipedia.views.PlainPasteEditText
                     android:id="@+id/replySubjectText"
@@ -65,35 +64,29 @@
 
     </ScrollView>
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/replyToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        style="@style/ToolbarStyle.Small"
         app:contentInsetStart="0dp"
-        app:contentInsetEnd="0dp"
-        style="@style/ToolbarStyle.Small">
+        app:contentInsetEnd="0dp">
 
         <TextView
             android:id="@+id/replySaveButton"
-            style="@style/TransparentButton"
+            style="@style/App.Button.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center_vertical"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="4dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/description_edit_save"
-            android:textColor="?attr/progressive_color"/>
+            android:text="@string/description_edit_save"/>
 
-    </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.MaterialToolbar>
 
-    <ProgressBar
+    <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progressBar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:layout_marginTop="-7dp"
         android:indeterminate="true" />
 
 </FrameLayout>

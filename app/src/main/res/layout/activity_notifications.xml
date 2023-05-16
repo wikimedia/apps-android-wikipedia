@@ -12,9 +12,8 @@
         android:background="?attr/paper_color"
         app:elevation="0dp">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/notifications_toolbar"
-            style="@style/ToolbarStyle"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways" />
@@ -28,6 +27,7 @@
             android:visibility="gone"
             app:tabTextAppearance="@style/H3.Button"
             app:tabTextColor="?attr/placeholder_color"
+            app:tabIndicatorFullWidth="true"
             app:tabSelectedTextColor="?attr/progressive_color"
             app:tabIndicatorColor="?attr/progressive_color"
             app:tabRippleColor="?attr/progressive_color">

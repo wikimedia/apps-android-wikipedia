@@ -29,7 +29,6 @@
         android:paddingEnd="16dp"
         android:paddingBottom="16dp"
         android:text="@string/wikipedia_languages_add_language_text"
-        android:textAllCaps="true"
         android:textColor="?attr/progressive_color"
         android:textSize="14sp"
         tools:text="Lorem ipsum" />
