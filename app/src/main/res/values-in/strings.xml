@@ -307,7 +307,7 @@
   <string name="edit_conflict_title">Konflik penyuntingan</string>
   <string name="edit_conflict_message">Halaman telah dimodifikasi oleh pengguna yang berbeda, dan bertentangan dengan suntingan Anda. Harap salin suntingan Anda, kembali dan segarkan halaman, lalu coba untuk menyunting lagi.</string>
   <string name="edit_notices">Pemberitahuan suntingan</string>
-  <string name="edit_notices_please_read">Tolong baca sebelum menyunting</string>
+  <string name="edit_notices_please_read">Mohon baca sebelum menyunting</string>
   <string name="edit_notices_show_auto">Tampilkan pemberitahuan suntingan secara otomatis</string>
   <string name="edit_notices_tooltip">Tekan tombol ini untuk melihat pemberitahuan suntingan untuk artikel ini.</string>
   <string name="find_next">Cari berikutnya</string>
@@ -319,7 +319,7 @@
   <string name="abusefilter_title_disallow">Anda tidak dapat menerbitkan suntingan ini. Silakan kembali dan mengubahnya.</string>
   <string name="abusefilter_text_warn">Penyaring otomatis telah mengidentifikasi suntingan ini sebagai berpotensi tidak konstruktif. Ini mungkin berisi satu atau lebih hal berikut:&lt;br /&gt;&lt;br /&gt;· Mengetik dengan semua huruf besar&lt;br /&gt;· Mengosongkan artikel atau spam &lt;br /&gt;· Pranala luar atau gambar yang tidak relevan &lt;br /&gt;· Karakter berulang</string>
   <string name="abusefilter_text_disallow">Penyaring otomatis telah mengidentifikasi suntingan ini sebagai berpotensi tidak konstruktif, atau berpotensi vandalisme.&lt;br /&gt;&lt;br /&gt;Wikipedia adalah merupakan ensiklopedia dan selalu netral, konten penting berada di sini.</string>
-  <string name="page_similar_titles">Halaman yang serupa</string>
+  <string name="page_similar_titles">Halaman serupa</string>
   <string name="search_did_you_mean">Apakah maksud Anda \"%s\"?</string>
   <string name="search_recent_header">Penelusuran terkini:</string>
   <string name="search_results_count_zero">Tidak ada hasil</string>
@@ -350,8 +350,8 @@
   <string name="dialog_title_download_only_over_wifi_allow">Izinkan</string>
   <string name="read_more_section">Baca lebih lanjut</string>
   <string name="about_article_section">Mengenai artikel ini</string>
-  <string name="menu_gallery_visit_image_page">Pergi ke halaman berkas</string>
-  <string name="gallery_error_draw_failed">Tidak bisa menggambar gambar</string>
+  <string name="menu_gallery_visit_image_page">Menuju halaman berkas</string>
+  <string name="gallery_error_draw_failed">Tidak bisa membuat gambar</string>
   <string name="license_title">Lisensi untuk %s</string>
   <string name="gallery_menu_share">Bagikan</string>
   <string name="gallery_share_error">Tidak dapat membagikan gambar: %s</string>
@@ -363,7 +363,7 @@
   <string name="gallery_add_image_caption_button">Tambahkan takarir gambar</string>
   <string name="gallery_add_image_caption_in_language_button">Tambahkan takarir gambar (%s)</string>
   <string name="err_cannot_save_file">Tidak dapat menyimpan berkas</string>
-  <string name="expand_refs">Ketuk untuk memperluas</string>
+  <string name="expand_refs">Ketuk untuk membentangkan</string>
   <string name="cc_logo">Lisensi Creative Commons</string>
   <string name="captcha_image">Gambar Captcha</string>
   <string name="gallery_fair_use_license">Penggunaan wajar</string>
@@ -415,7 +415,7 @@
   <string name="error_webview_updating">TampilanWeb Sistem Android saat ini sedang diperbarui. Silakan coba beberapa saat lagi.</string>
   <string name="multi_items_selected">%d dipilih</string>
   <string name="multi_select_items_selected">%d dipilih</string>
-  <string name="error_message_generic">Kesalahan terjadi</string>
+  <string name="error_message_generic">Terjadi kesalahan</string>
   <string name="view_link_preview_error_button_dismiss">Tutup</string>
   <string name="error_page_does_not_exist">Halaman ini tidak ada</string>
   <string name="error_user_page_does_not_exist">Wikipedia tidak memiliki &lt;a href=\"%1$s\"&gt;halaman pengguna&lt;/a&gt; dengan nama ini. Pada umumnya, halaman ini seharusnya dibuat dan disunting oleh &lt;b&gt;%2$s&lt;/b&gt;. Jika ragu, silakan periksa apakah \"%3$s\" sebenarnya ada atau tidak.</string>

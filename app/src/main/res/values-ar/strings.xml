@@ -428,6 +428,7 @@
   <string name="error_message_generic">حدث خطأ</string>
   <string name="view_link_preview_error_button_dismiss">أغلق</string>
   <string name="error_page_does_not_exist">هذه الصفحة غير موجودة</string>
+  <string name="error_user_page_does_not_exist">لا تحتوي Wikipedia على &lt;a href=\"%1$s \"&gt;user page&lt;/a&gt; بهذا الاسم بالضبط. بشكل عام ، يجب إنشاء هذه الصفحة وتحريرها بواسطة &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt; . إذا كنت في شك ، يرجى التحقق من وجود\" %3$s \".</string>
   <string name="view_wiki_error_message_offline">تعذر الاتصال بالإنترنت</string>
   <string name="view_wiki_error_message_timeout">لا يمكن الاتصال بويكيبيديا؛ تحقق من اتصال الشبكة، أو أعد المحاولة لاحقا</string>
   <string name="reference_title">مراجع %s</string>
