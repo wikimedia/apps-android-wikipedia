@@ -9,7 +9,7 @@ import org.wikipedia.util.ReleaseUtil
 object ApplicationData {
 
     val data get() = mapOf(
-        "agent_flavor" to BuildConfig.FLAVOR+BuildConfig.BUILD_TYPE,
+        "agent_flavor" to BuildConfig.FLAVOR + BuildConfig.BUILD_TYPE,
         "app_theme" to WikipediaApp.instance.currentTheme,
         "app_version" to WikipediaApp.instance.versionCode.toString(),
         "database" to WikipediaApp.instance.wikiSite.dbName(),
