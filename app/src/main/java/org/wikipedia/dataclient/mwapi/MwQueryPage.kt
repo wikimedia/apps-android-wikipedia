@@ -2,6 +2,7 @@ package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.wikipedia.dataclient.growthtasks.GrowthImageSuggestion
 import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.page.Namespace
@@ -20,7 +21,7 @@ class MwQueryPage {
     @SerialName("entityterms") val entityTerms: EntityTerms? = null
 
     private val ns = 0
-    private var coordinates: List<Coordinates>? = null
+    val coordinates: List<Coordinates>? = null
     private val thumbnail: Thumbnail? = null
     private val varianttitles: Map<String, String>? = null
     private val actions: Map<String, List<MwServiceError>>? = null
@@ -39,15 +40,13 @@ class MwQueryPage {
     val watched = false
     val lastrevid: Long = 0
 
+    val tasktype: String? = null
+    val difficulty: String? = null
+    val qualityGateIds: List<String>? = null
+    val growthimagesuggestiondata: List<GrowthImageSuggestion>? = null
+
     fun namespace(): Namespace {
         return Namespace.of(ns)
-    }
-
-    fun coordinates(): List<Coordinates>? {
-        // TODO: Handle null values in lists during deserialization, perhaps with a new
-        // @RequiredElements annotation and corresponding TypeAdapter
-        coordinates = coordinates?.filterNotNull()
-        return coordinates
     }
 
     fun thumbUrl(): String? {
@@ -110,7 +109,7 @@ class MwQueryPage {
     class LangLink(val lang: String = "", val title: String = "")
 
     @Serializable
-    class Coordinates(val lat: Double? = null, val lon: Double? = null)
+    class Coordinates(val lat: Double = 0.0, val lon: Double = 0.0)
 
     @Serializable
     internal class Thumbnail(val source: String? = null,

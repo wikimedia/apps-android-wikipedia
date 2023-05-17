@@ -54,7 +54,6 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:text="@string/description_edit_save"
-            android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="14sp" />
     </FrameLayout>

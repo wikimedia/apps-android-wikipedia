@@ -602,6 +602,15 @@
   <string name="reading_list_delete_lists_dialog_delete_button_text">ДӀадаккха</string>
   <string name="reading_list_activity_title">Дешар-мугӀам: %s</string>
   <string name="reading_list_notification_title">Дешара мугӀама(-ий) экспорт</string>
+  <string name="reading_lists_action_menu_export_lists">Экспорт е</string>
+  <string name="reading_lists_export_completed_message">Дешара мугӀама(-шта) экспорт яьй</string>
+  <string name="reading_lists_preview_save_button">ДӀаязбе</string>
+  <string name="reading_lists_preview_save_dialog_title">МугӀам дӀаязбар</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Кепакорта</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Эшац</string>
+  <string name="reading_lists_preview_save_dialog_save">ДӀаязбе</string>
+  <string name="reading_lists_preview_saved_snackbar">Дешара мугӀам дӀаязбаьб</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Куц</string>
   <string name="user_option_sync_label">Оттамаш</string>
   <string name="notification_reverted_title">Юхадаьккха тоадар</string>
   <string name="notification_channel_title">Статьяш хьачуяхар</string>
@@ -825,12 +834,16 @@
   <string name="description_edit_license_notice">Статьях лаьцар тоадарца, Ӏа къоабалду &lt;a href=\"%1$s\"&gt;пайда эцара бехкамаш&lt;/a&gt; а, &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; яхача лицензех дола тӀехьагӀа юхадоаккхалургдоаца кепатохар а.</string>
   <string name="description_edit_helper_text_lowercase_warning">дукхагӀа зӀамигача алапаца дӀадолалу</string>
   <string name="description_edit_voice_input_description">Оазаца Ӏочуяздар</string>
+  <string name="description_edit_learn_more">Статьяех лаьцачох ма дарра</string>
+  <string name="description_edit_image_caption_learn_more">Суртех лаьцачох ма дарра</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/inh#%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D1%8F_%D1%81%D1%82%D0%B0%D1%82%D0%B5%D0%B9</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/inh#%D0%9F%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D0%B8_%D0%BA_%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC</string>
   <string name="description_too_short">Сов лоаца я ер текст.</string>
   <string name="description_ends_with_punctuation">Текста тӀехьа зам латтийта йиш яц.</string>
   <string name="description_starts_with_uppercase">ЗӀамигача алапаца дӀайолае текст, нагахьа санна хьалхара дош цхьан хӀаман е сага цӀи еце.</string>
   <string name="description_starts_with_lowercase">ЗӀамигача алапаца текст йола ца ялийта хьажа.</string>
   <string name="description_is_in_different_language">Цхьа кхыча меттала я хьа текст. Хила безаш бола мотт — %s.</string>
-  <string name="description_verification_notice" fuzzy="true">Ӏайха яздаьр укх меттала дий хьажа → %1$s. Ер хоам теркал ца беш бита йиш я хьа, нагахьа санна Ӏайха яздаьр укх меттала дале → %2$s.</string>
+  <string name="description_verification_notice">Ӏайха яздаьр укх меттала дий хьажа → %1$s. Ер хоам теркал ца беш бита йиш я хьа, нагахьа санна Ӏа яздаьр %2$s яхача меттала дале.</string>
   <string name="description_edit_suggested_description_button_text">Харжа мегаргдар хьагойта</string>
   <string name="description_edit_suggested_description_button_tooltip">Компьютеро могадаь дола статьяех лаьцар мишта хургда хьажа</string>
   <string name="description_edit_success_saved">Статьях лаьцар дӀаяздир!</string>

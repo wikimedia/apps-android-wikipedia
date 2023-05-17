@@ -41,7 +41,7 @@ class DescriptionEditLicenseView constructor(context: Context, attrs: AttributeS
 
     fun buildLicenseNotice(arg: String, lang: String? = null) {
         if ((arg == ARG_NOTICE_ARTICLE_DESCRIPTION || arg == ARG_NOTICE_DEFAULT) &&
-                DescriptionEditFragment.wikiUsesLocalDescriptions(lang.orEmpty())) {
+                DescriptionEditUtil.wikiUsesLocalDescriptions(lang.orEmpty())) {
             binding.licenseText.text = StringUtil.fromHtml(context.getString(R.string.edit_save_action_license_logged_in,
                     context.getString(R.string.terms_of_use_url),
                     context.getString(R.string.cc_by_sa_3_url)))

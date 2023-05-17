@@ -7,10 +7,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:background="@drawable/dialog_16dp_radius_background"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="16dp">
 
         <ImageView
             android:layout_width="24dp"
@@ -20,7 +18,6 @@
             android:layout_marginBottom="8dp"
             android:contentDescription="@null"
             app:srcCompat="@drawable/ic_warning_24" />
-
 
         <TextView
             android:layout_width="match_parent"
@@ -103,60 +100,32 @@
             android:layout_height="1dp"
             android:background="?attr/border_color" />
 
-        <FrameLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/suggestionReportOther"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="7dp"
-            android:paddingBottom="7dp">
+            android:layout_marginTop="8dp"
+            android:gravity="start"
+            android:hint="@string/edit_summary_tag_other"
+            android:textAlignment="viewStart"
+            app:endIconDrawable="@drawable/chip_close_button_dark"
+            app:endIconMode="custom"
+            app:endIconTint="?attr/placeholder_color"
+            app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/suggestionReportOther"
+            <org.wikipedia.views.PlainPasteEditText
+                android:id="@+id/suggestionReportOtherEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="start"
-                android:hint="@string/edit_summary_tag_other"
-                android:textAlignment="viewStart"
-                app:endIconDrawable="@drawable/chip_close_button_dark"
-                app:endIconMode="custom"
-                app:endIconTint="?attr/placeholder_color"
-                app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
+                android:imeOptions="flagNoExtractUi|actionDone"
+                android:inputType="textMultiLine"
+                android:lineSpacingExtra="6sp"
+                android:maxLength="@integer/description_max_chars"
+                android:textSize="16sp">
 
-                <org.wikipedia.views.PlainPasteEditText
-                    android:id="@+id/suggestionReportOtherEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="flagNoExtractUi|actionDone"
-                    android:inputType="textMultiLine"
-                    android:lineSpacingExtra="6sp"
-                    android:maxLength="@integer/description_max_chars"
-                    android:textSize="16sp">
+                <requestFocus />
+            </org.wikipedia.views.PlainPasteEditText>
+        </com.google.android.material.textfield.TextInputLayout>
 
-                    <requestFocus />
-                </org.wikipedia.views.PlainPasteEditText>
-            </com.google.android.material.textfield.TextInputLayout>
-        </FrameLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end">
-
-            <TextView
-                android:id="@+id/cancelButton"
-                style="@style/AlertDialogButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:text="@string/text_input_dialog_cancel_button_text" />
-
-            <TextView
-                android:id="@+id/reportButton"
-                style="@style/AlertDialogButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/suggested_edits_report_suggestion"
-                android:textColor="?attr/colorAccent" />
-        </LinearLayout>
     </LinearLayout>
 </ScrollView>

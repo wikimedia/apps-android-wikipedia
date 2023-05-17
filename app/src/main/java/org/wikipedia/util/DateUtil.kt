@@ -39,10 +39,6 @@ object DateUtil {
         return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).parse(date)!!
     }
 
-    fun getFeedCardDayHeaderDate(age: Int): String {
-        return getDateStringWithSkeletonPattern(getRequestDateForAge(age), "MMMM d")
-    }
-
     fun getFeedCardDateString(age: Int): String {
         return getShortDateString(getRequestDateForAge(age))
     }

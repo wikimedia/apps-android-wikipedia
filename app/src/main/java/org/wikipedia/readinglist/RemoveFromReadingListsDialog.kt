@@ -1,7 +1,7 @@
 package org.wikipedia.readinglist
 
 import android.content.Context
-import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingList
@@ -30,7 +30,7 @@ class RemoveFromReadingListsDialog(private val listsContainingPage: List<Reading
 
     private fun showDialog(context: Context, callback: Callback?) {
         val selectedLists = BooleanArray(listsContainingPage.size)
-        AlertDialog.Builder(context)
+        MaterialAlertDialogBuilder(context)
             .setTitle(R.string.reading_list_remove_from_lists)
             .setPositiveButton(R.string.reading_list_remove_list_dialog_ok_button_text) { _, _ ->
                 val newLists = (listsContainingPage zip selectedLists.asIterable())
@@ -48,7 +48,6 @@ class RemoveFromReadingListsDialog(private val listsContainingPage: List<Reading
             .setMultiChoiceItems(listsContainingPage.map { it.title }.toTypedArray(), selectedLists) { _, which, checked ->
                 selectedLists[which] = checked
             }
-            .create()
             .show()
     }
 }

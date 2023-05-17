@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.DiffUtil
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -60,20 +59,14 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             threadItemsData.postValue(Resource.Error(throwable))
         }) {
-            val discussionToolsInfoResponse = async {
-                ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
+            val discussionToolsInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
                     OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, UriUtil.encodeURL(pageTitle.prefixedText))
-            }
             val oldItemsFlattened = topic?.allReplies.orEmpty()
 
-            topic = discussionToolsInfoResponse.await().pageInfo?.threads.orEmpty().find { it.id == topicId }
+            topic = discussionToolsInfoResponse.pageInfo?.threads.orEmpty().find { it.id == topicId }
 
             if (WikipediaApp.instance.isOnline) {
-                val subscribeResponse = async {
-                    ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(topicName)
-                }
-                val res = subscribeResponse.await()
-                subscribed = res.subscriptions[topicName] == 1
+                subscribed = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(topicName).subscriptions[topicName] == 1
             }
 
             threadSha(topic)?.let {

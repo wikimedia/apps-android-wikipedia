@@ -76,9 +76,6 @@ open class FindInPageActionProvider(private val context: Context) : ActionProvid
             DeviceUtil.hideSoftKeyboard(it)
             listener?.onFindNextClicked()
         }
-        binding.closeButton.setOnClickListener {
-            listener?.onCloseClicked()
-        }
     }
 
     private fun setButtonLongClickListeners() {
