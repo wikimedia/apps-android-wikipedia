@@ -13,7 +13,6 @@ import androidx.test.espresso.action.GeneralSwipeAction
 import androidx.test.espresso.action.Press
 import androidx.test.espresso.action.Swipe
 import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.isRoot
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.By
@@ -78,21 +77,7 @@ object TestUtil {
             }
         }
     }
-    fun withText(title: String) = object : BoundedMatcher<View, View>(View::class.java) {
-        override fun describeTo(description: Description?) {
-            description?.appendText(title)
-        }
 
-        override fun matchesSafely(item: View?): Boolean {
-            val views = ArrayList<View>()
-            item?.findViewsWithText(views, title, View.FIND_VIEWS_WITH_TEXT)
-
-            return when (views.size) {
-                1 -> true
-                else -> false
-            }
-        }
-    }
     fun setAirplaneMode(enabled: Boolean, delaySecAfter: Long = 1) {
         val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
         /*

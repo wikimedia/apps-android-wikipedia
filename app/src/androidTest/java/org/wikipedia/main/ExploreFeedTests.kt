@@ -55,7 +55,7 @@ class ExploreFeedTests {
         // Featured article card seen and saved to reading lists
         onView(allOf(withId(R.id.view_featured_article_card_content_container),
             childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.feed.featured.FeaturedArticleCardView")), 0), 1), isDisplayed()))
-        .perform(longClick())
+        .perform(scrollTo(), longClick())
 
         onView(allOf(withId(R.id.title), withText("Save"),
             childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
@@ -198,29 +198,12 @@ class ExploreFeedTests {
 
         if (AccountUtil.isLoggedIn) {
             // Click through `Edits` screen stats onboarding
-            onView(allOf(withId(R.id.buttonView), withText("Got it"),
-                childAtPosition(childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1), 0), isDisplayed()))
-                .perform(click())
-
-            TestUtil.delay(2)
-
-            onView(allOf(withId(R.id.buttonView), withText("Got it"),
-                childAtPosition(childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1), 0), isDisplayed()))
-                .perform(click())
-
-            TestUtil.delay(2)
-
-            onView(allOf(withId(R.id.buttonView), withText("Got it"),
-                childAtPosition(childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1), 0), isDisplayed()))
-            .perform(click())
-
-            TestUtil.delay(2)
-
-            onView(allOf(withId(R.id.buttonView), withText("Got it"),
-                childAtPosition(childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1), 0), isDisplayed()))
-            .perform(click())
-
-            TestUtil.delay(2)
+            for (i in 1 until 5) {
+                onView(allOf(withId(R.id.buttonView), withText("Got it"),
+                    childAtPosition(childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1), 0), isDisplayed()))
+                    .perform(click())
+                TestUtil.delay(2)
+            }
         }
 
         onView(allOf(withId(R.id.nav_more_container), withContentDescription("More"),
