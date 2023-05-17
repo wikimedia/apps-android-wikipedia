@@ -206,19 +206,17 @@ class ExploreFeedTests {
             }
         }
 
-        onView(allOf(withId(R.id.nav_more_container), withContentDescription("More"),
-            childAtPosition(allOf(withId(R.id.main_nav_tab_container), childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1)), 1), isDisplayed())
-        )
-        .perform(click())
+        // Click on `More` menu
+        onView(allOf(withId(R.id.nav_more_container), withContentDescription("More"), isDisplayed())).perform(click())
 
         TestUtil.delay(2)
 
-        // Test Feed configuration feature on `Settings` screen
-        onView(allOf(withId(R.id.main_drawer_settings_container), childAtPosition(childAtPosition(withId(com.google.android.material.R.id.design_bottom_sheet), 0), 4), isDisplayed()))
-        .perform(click())
+        // Click on `Settings` option
+        onView(allOf(withId(R.id.main_drawer_settings_container), isDisplayed())).perform(click())
 
         TestUtil.delay(2)
 
+        // Click on `Explore feed` option
         onView(allOf(withId(R.id.recycler_view),
             childAtPosition(withId(android.R.id.list_container), 0)))
         .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
@@ -255,18 +253,17 @@ class ExploreFeedTests {
 
         TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.nav_more_container), withContentDescription("More"),
-            childAtPosition(allOf(withId(R.id.main_nav_tab_container), childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1)), 1), isDisplayed()))
-        .perform(click())
+        // Click on `More` menu
+        onView(allOf(withId(R.id.nav_more_container), withContentDescription("More"), isDisplayed())).perform(click())
 
         TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.main_drawer_settings_container),
-            childAtPosition(childAtPosition(withId(com.google.android.material.R.id.design_bottom_sheet), 0), 4), isDisplayed()))
-        .perform(click())
+        // Click on `Settings` option
+        onView(allOf(withId(R.id.main_drawer_settings_container), isDisplayed())).perform(click())
 
         TestUtil.delay(2)
 
+        // Click on `Explore feed` option
         onView(allOf(withId(R.id.recycler_view),
             childAtPosition(withId(android.R.id.list_container), 0)))
         .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
