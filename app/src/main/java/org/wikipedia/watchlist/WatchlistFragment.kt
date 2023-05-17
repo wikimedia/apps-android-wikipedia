@@ -59,7 +59,6 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentWatchlistBinding.inflate(inflater, container, false)
 
-        (requireActivity() as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         (requireActivity() as AppCompatActivity).supportActionBar!!.title = getString(R.string.watchlist_title)
 
         return binding.root
