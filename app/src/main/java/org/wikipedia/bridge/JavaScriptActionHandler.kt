@@ -139,6 +139,7 @@ object JavaScriptActionHandler {
                 "   menu: {" +
                 "       items: [" +
                                 "pcs.c1.Footer.MenuItemType.lastEdited, " +
+                                "pcs.c1.Footer.MenuItemType.pageIssues, " +
                                 (if (showTalkLink) "pcs.c1.Footer.MenuItemType.talkPage, " else "") +
                                 (if (showMapLink) "pcs.c1.Footer.MenuItemType.coordinate, " else "") +
                 "               pcs.c1.Footer.MenuItemType.referenceList " +
