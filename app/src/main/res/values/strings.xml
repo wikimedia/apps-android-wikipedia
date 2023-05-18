@@ -1480,5 +1480,6 @@
 
     <string name="data_opt_in_accept">Accept</string>
     <string name="data_opt_in_reject">Reject</string>
+    <string name="page_issues_title">Page issues</string>
 
 </resources>
