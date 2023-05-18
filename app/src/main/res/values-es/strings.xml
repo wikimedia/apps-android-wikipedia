@@ -456,7 +456,7 @@
   <string name="error_message_generic">Ha habido un error</string>
   <string name="view_link_preview_error_button_dismiss">Descartar</string>
   <string name="error_page_does_not_exist">Esta página no existe</string>
-  <string name="error_user_page_does_not_exist">Wikipedia no tiene una &lt;a href=\"%1$s \"&gt;página de usario&lt;/a&gt; con este nombre exacto. En general, esta página debe ser creada y editada por &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt;. En caso de duda, verifique que exista \"%3$s\".</string>
+  <string name="error_user_page_does_not_exist" fuzzy="true">Wikipedia no tiene una &lt;a href=\"%1$s\"&gt;página de usario&lt;/a&gt; con este nombre exacto. En general, esta página debe ser creada y editada por &lt;b&gt;%2$s&lt;/b&gt;. En caso de duda, verifique que exista \"%3$s\".</string>
   <string name="view_wiki_error_message_offline">No se pudo conectar a Internet.</string>
   <string name="view_wiki_error_message_timeout">No se puede conectar con Wikipedia. Comprueba la conexión de red o inténtalo de nuevo más tarde</string>
   <string name="reference_title">Referencia %s</string>
