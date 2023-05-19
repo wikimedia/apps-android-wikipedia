@@ -188,7 +188,7 @@
   <string name="create_account_generic_error">کاتو کولي نہ سگھيو</string>
   <string name="create_account_next">اڳيون</string>
   <string name="email_recommendation_dialog_title">بغير ايميل پتي جي کاتو کوليون؟</string>
-  <string name="email_recommendation_dialog_message">جيتوڻيڪ برق ٽپال پتو (اي ميل) اختياري آھي، پر اھا &lt;b&gt;بيحد ضروري آھي&lt;/b&gt;، ڇو تہ اوھان جيڪڏھن ڳجھو لفظ وساري ويھو تہ برق ٽپال جي ضرورت پوندي.</string>
+  <string name="email_recommendation_dialog_message">جيتوڻيڪ ايميل اختياري آھي، پر اھا &lt;b&gt;بيحد ضروري آھي&lt;/b&gt;، ڇو تہ اوھان جيڪڏھن ڳجهولفظ وساري ويھو تہ ايميل جي ضرورت پوندي.</string>
   <string name="email_recommendation_message">سفارش ڪيل آھي ڇو جو کاتو واپس ھٿ ڪرڻ ۾ ايميل گهربل ھجي ٿي.</string>
   <string name="email_recommendation_dialog_create_without_email_action">ايميل سواءِ جاري رکو</string>
   <string name="email_recommendation_dialog_create_with_email_action">ڪو ايميل پتو ڏيو</string>
@@ -465,6 +465,7 @@
   <string name="reading_list_sort_by_created">جنھن تاريخ (نئين ترين) تي سرجيو ويو سان مرتب ڪريو</string>
   <string name="reading_list_sort_by_created_desc">جنھن تاريخ (پراڻي ترين) تي سرجيو ويو ان سان مرتب ڪريو</string>
   <string name="reading_list_menu_delete">فھرست ڊاھيو</string>
+  <string name="reading_list_menu_export">فھرست برآمد ڪريو</string>
   <string name="reading_list_menu_select">چونڊيو</string>
   <string name="reading_list_menu_unselect">اڻچونڊيو</string>
   <string name="reading_list_menu_rename">نالا/تشريح  سنواريو</string>
@@ -530,6 +531,7 @@
   <string name="no_user_lists_msg">گھمڻ جي جڳھن، پسنديده عنوان، ۽ وغيره لاءِ فھرست ٺاھيو</string>
   <string name="reading_list_saved_list_rename">%1$s (واپرائيندڙ سرجيو)</string>
   <string name="reading_lists_menu_create_list">نئين فھرست تخليقيو</string>
+  <string name="reading_lists_menu_import_list">فھرست درآمد ڪريو</string>
   <string name="reading_lists_menu_sort_by">مرتب ڪريو</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">داخل ٿيو / شامل ٿيو</string>
   <plurals name="reading_list_article_offline_message">
@@ -549,6 +551,8 @@
   <string name="reading_list_split_dialog_ok_button_text">ٺيڪ</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">ڊاھيو</string>
   <string name="reading_list_activity_title">پڙھڻ جي فھرست: %s</string>
+  <string name="reading_lists_action_menu_export_lists">برآمد ڪريو</string>
+  <string name="reading_lists_preview_header_title">ونڊيل فھرست</string>
   <string name="reading_lists_preview_save_button">سانڍيو</string>
   <string name="reading_lists_preview_save_dialog_title">فھرست سانڍيو</string>
   <string name="reading_lists_preview_save_dialog_title_hint">عنوان</string>
@@ -754,6 +758,7 @@
   <string name="description_edit_helper_text_lowercase_warning">عام طور تي ننڍن اکرن کان شروع ڪريو</string>
   <string name="description_edit_voice_input_description">آوازي انپٽ</string>
   <string name="description_edit_learn_more">مضمون جي تشريح بابت وڌيڪ ڄاڻيو</string>
+  <string name="description_edit_image_caption_learn_more">عڪسن جي عنوانن بابت وڌيڪ ڄاڻيو</string>
   <string name="description_too_short">متن ڏاڍو مختصر آھي.</string>
   <string name="description_ends_with_punctuation">متن بيھڪ جي نشانيءَ سان ختم نہ ٿيڻ گهرجي.</string>
   <string name="description_starts_with_uppercase">ننڍي شڪل واري اکر سان شروع ڪريو جيسيتائين پھريون لفظ اسم خاص نہ ھجي.</string>
@@ -777,6 +782,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">خيالي ھڪ سٽ، ٻن کان ٻارھن اکرن جي وچ ۾</string>
   <string name="description_edit_tutorial_button_label_start_editing">سنوارڻ شروع ڪريو</string>
   <string name="description_edit_tutorial_promise">شروع ڪرڻ سان، مان واعدو ٿو ڪريان مان ھن خصوصيت جو غلط استعمال نہ ڪندس.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">مشين پاران ڏسيل</string>
   <string name="customize_toolbar_title">اوزارپٽي مرضي مطابق بڻايو</string>
   <string name="customize_toolbar_shortcut_description_text">ھيٺئين اوزارپٽيءَکي 5 شارٽ ڪٽس سان ترتيب ڏيو جيڪي توھان کي تمام گهڻو مددگار لڳن ٿا.</string>
   <string name="customize_toolbar_category_toolbar">اوزارپٽي</string>
@@ -860,7 +866,7 @@
   <string name="suggested_edits_image_tags_add_tag">ٽيگ وجهو</string>
   <string name="suggested_edits_image_zoom_tooltip">ھن عڪس کي وڏو ڪرڻ لاءِ چونڊي پايو.</string>
   <string name="suggested_edits_encouragement_message">%s، توھان جي سنوارن لاءِ مھرباني. ھيٺ توھان وڪيپيڊيا ۾ ڀاڱيداري ڪرڻ جا وڌيڪ طريقا ڏسي سگهو ٿا.</string>
-  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;سلام %s&lt;/b&gt;، ڇا توھان کي ڄاڻ ھئي تہ ھرڪوئي وڪيپيڊيا کي سنواري سگھي ٿو؟ ھيٺ توھان وڪيپيڊيا کي بھتر بڻائڻ جا طريقا ڏسي سگھو ٿا. خوشگوار سنوارڪاري!</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;سلام %s&lt;/b&gt;، ھيٺ توھان وڪيپيڊيا کي بھتر ڪرڻ جا تڪڙا ۽ آسان طريقا ڏسي سگهو ٿا. توھان جيئن شروعات ڪندا، ان کانپوءِ توھان جيڪو فرق پيدا ڪريو ٿا اھو ڏسي سگهندا. خوشگوار سنوارڪاري!</string>
   <string name="suggested_edits_image_captions_task_detail">ڪنھن عڪس کي بيان ڪريو تہ جيئن پڙھندڙ کي ان جي معنيٰ ۽ مفھوم سمجھڻ ۾ مدد ٿي.</string>
   <string name="suggested_edits_add_descriptions_task_detail">ڪنھن مضمون کي تت ڏيو تہ جيئن پڙھندڙ کي موضوع کي يڪدم سمجهڻ ۾ مدد ٿي.</string>
   <string name="suggested_edits_contributions_stat_tooltip">توھان جي سمورين ڀاڱيدارين جو ھيل تائين جو ڪل انگ.</string>
@@ -918,6 +924,9 @@
   <string name="suggested_edits_contribution_type_image_tag">عڪس ٽيگ</string>
   <string name="suggested_edits_contribution_current_revision_text">توھان جي سنوار ھاڻي وڪيپيڊيا تي آھي</string>
   <string name="suggested_card_more_edits">وڌيڪ ڏسيل سنوارون</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">ڏسيل تشريحون</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">توھان ڇا رپورٽ ڪرڻ چاھيندا؟</string>
+  <string name="suggested_edits_do_not_understand_suggestion">ڪم سمجهہ ۾ نٿو اچي</string>
   <string name="suggested_edits_report_suggestion">رپورٽ ڪريو</string>
   <string name="suggested_edits_suggestion_report_submitted">رپورٽ اماڻي وئي</string>
   <plurals name="suggested_edits_tags_diff_count_text">
@@ -927,6 +936,14 @@
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$s حرف</item>
     <item quantity="other">%1$s حرفَ</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">توھان ھٽايو %d ھڪ حرف</item>
+    <item quantity="other">توھان ھٽايا %d حرف</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">توھان وڌو %d ھڪ حرف</item>
+    <item quantity="other">توھان وڌا %d حرف</item>
   </plurals>
   <string name="file_page_activity_title">فائيل صفحو</string>
   <string name="file_page_add_image_caption_button">عڪس کي عنوان ڏيو</string>
@@ -1025,6 +1042,7 @@
   <string name="insert_media_settings_caption">عنوان</string>
   <string name="insert_media_settings_alternative_text">متبادل متن</string>
   <string name="insert_media_advanced_settings">اعليٰ ترتيبون</string>
+  <string name="insert_media_advanced_settings_wrap_image">متن کي عڪس جي چوڌاري ويڙھيو</string>
   <string name="insert_media_advanced_settings_image_position">عڪس جي بيھڪ</string>
   <string name="insert_media_advanced_settings_image_position_right">ساڄو</string>
   <string name="insert_media_advanced_settings_image_position_left">کاٻو</string>
@@ -1199,6 +1217,7 @@
   <string name="watchlist_filter_significance_edits">غير-معمولي سنوارون</string>
   <string name="watchlist_filter_latest_revisions_header">تازا-ترين ورجاءَ</string>
   <string name="watchlist_filter_latest_revisions_latest_revision">تازو-ترين ورجاءُ</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">تازوترين ورجاءُ نہ آھي</string>
   <string name="watchlist_filter_type_of_change_header">تبديليءَ جو قِسم</string>
   <string name="watchlist_filter_type_of_change_page_edits">صفحي سنوارون</string>
   <string name="watchlist_filter_type_of_change_page_creations">صفحي سرجايون</string>
@@ -1230,15 +1249,24 @@
   <string name="revision_initial_none">ڪوبہ نہ (هي پھريون ورجاءُ آهي)</string>
   <string name="user_contrib_activity_title">%s جون ڀاڱيداريون</string>
   <string name="archive_empty">ڪي بہ آرڪائيو ڪيل صفحا نہ مليا.</string>
+  <string name="user_contrib_filter_ns">نانءَپولار سان ڇاڻيو</string>
   <string name="user_contrib_filter_all">سڀ نانءَپولار</string>
+  <string name="user_contrib_filter_ns_header">نانءَپولار ڇاڻي</string>
   <string name="namespace_article">مضمون</string>
-  <string name="user_contrib_current">هاڻوڪو</string>
+  <string name="user_contrib_current">موجود نسخو</string>
   <string name="media_playback_error">ميڊيا کي هلائڻ ۾ چُڪَ.</string>
   <string name="user_contrib_menu_label">ڀاڱيداريون</string>
   <string name="user_contrib_filter_activity_title">ڀاڱيداريون ڇاڻيو:</string>
+  <string name="shareable_reading_lists_import_dialog_title">ونڊيل فھرست درآمد ڪريو</string>
   <string name="shareable_reading_lists_new_indicator">*نئون*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">ھڪ پڙھڻ جي فھرست توھان سان ونڊي وئي آھي</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">سمجهي ويس</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">پڙھڻ جي فھرست درآمد ڪئي وئي</string>
   <string name="reading_list_share_menu_label">ونڊيو...</string>
+  <string name="reading_list_share_menu_tooltip">ھيءَ پڙھڻ جي فھرست ٻين سان ونڊيو</string>
+  <string name="reading_list_share_message_v2">سلام! آئون توھان سان پنھنجي وڪيپيڊيا جي پڙھڻ جي فھرست ونڊڻ چاھيندس:</string>
+  <string name="reading_list_share_survey_title">ڇا توھان \"پڙھڻ جون فھرستون ونڊيو\" ۾ اسان جي مدد ڪري سگهو ٿا؟</string>
+  <string name="reading_list_share_survey_body">\"پڙھڻ جون فھرستون ونڊيو\" ھڪ آزمائشي خصوصيت آھي ۽ ان کي بھتر ڪرڻ يا ھٽائڻ لاءِ اسان کي توھان جي موٽ جي ضرورت آھي.</string>
   <string name="data_opt_in_accept">قبوليو</string>
   <string name="data_opt_in_reject">رد ڪريو</string>
 </resources>

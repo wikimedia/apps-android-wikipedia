@@ -23,6 +23,7 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.views.ImagePreviewDialog
 import org.wikipedia.views.SuggestedArticleDescriptionsDialog
@@ -37,7 +38,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
         val pageTitle = intent.getParcelableExtra<PageTitle>(EXTRA_TITLE)!!
 
-        MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment = (AccountUtil.isLoggedIn &&
+        MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment = (ReleaseUtil.isPreBetaRelease && AccountUtil.isLoggedIn &&
                 action == Action.ADD_DESCRIPTION && pageTitle.description.isNullOrEmpty() &&
                 SuggestedArticleDescriptionsDialog.availableLanguages.contains(pageTitle.wikiSite.languageCode))
 

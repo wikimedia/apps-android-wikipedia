@@ -30,12 +30,12 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
         Prefs.customizeToolbarOrder.forEach {
             val view = MaterialTextView(context)
             view.gravity = Gravity.CENTER
-            view.setPadding(DimenUtil.roundedDpToPx(2f), DimenUtil.roundedDpToPx(8f), DimenUtil.roundedDpToPx(2f), 0)
+            view.setPadding(DimenUtil.roundedDpToPx(2f), DimenUtil.roundedDpToPx(12f), DimenUtil.roundedDpToPx(2f), 0)
             view.setBackgroundResource(ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackgroundBorderless))
             view.setTextColor(ResourceUtil.getThemedColor(context, R.attr.placeholder_color))
             view.textAlignment = TEXT_ALIGNMENT_CENTER
             view.setTypeface(typeface, Typeface.NORMAL)
-            view.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f)
+            view.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.bottom_nav_label_text_size))
             view.maxLines = 2
             view.ellipsize = TextUtils.TruncateAt.END
 

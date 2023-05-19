@@ -914,7 +914,9 @@
   <string name="description_starts_with_uppercase">Починайте з малої літери, якщо тільки перше слово не є власною назвою.</string>
   <string name="description_starts_with_lowercase">Уникайте малої літери на початку.</string>
   <string name="description_is_in_different_language">Схоже, текст неочікуваною мовою. Повинна бути така мова: %s.</string>
-  <string name="description_verification_notice" fuzzy="true">Будь ласка, переконайтеся, що ваш опис міститься в %1$s. Не соромтеся відхилити це сповіщення, якщо опис, який ви написали, містить %2$s.</string>
+  <string name="description_verification_notice">Будь ласка, переконайтеся, що мова вашого опису %1$s. Ви можете спокійно проігнорувати це попередження, якщо використана вами мова — %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">Показати запропоновані описи</string>
+  <string name="description_edit_suggested_description_button_tooltip">Спробувати автоматично запропоновані описи статей</string>
   <string name="description_edit_success_saved">Опис статті опубліковано!</string>
   <string name="description_edit_success_saved_snackbar">Опис статті опубліковано!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Опис статті збережено! (%s)</string>
@@ -932,6 +934,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">В ідеалі — один рядок, від двох до дванадцяти слів</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почати редагування</string>
   <string name="description_edit_tutorial_promise">Починаючи, я обіцяю не зловживати цією функцією.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Автоматичні пропозиції</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Пропозиції генеруються машиною, а не волонтерами чи Фондом Вікімедіа</string>
   <string name="customize_toolbar_title">Налаштувати панель інструменту</string>
   <string name="customize_toolbar_shortcut_description_text">Налаштуйте нижню панель інструментів, додавши 5 речей, які ви вважаєте найбільш корисними.</string>
   <string name="customize_toolbar_category_toolbar">Панель інструменту</string>
@@ -1100,6 +1104,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Тег зображення</string>
   <string name="suggested_edits_contribution_current_revision_text">Ваше редагування зараз доступне у Вікіпедії</string>
   <string name="suggested_card_more_edits">Більше пропонованих редагувань</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Пропоновані описи</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Що б ви хотіли повідомити?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Недостатньо інформації</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Не бачу запропоновані описи</string>
+  <string name="suggested_edits_inappropriate_suggestion">Недоречна пропозиція</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Не розумію завдання</string>
+  <string name="suggested_edits_report_suggestion">Повідомити</string>
+  <string name="suggested_edits_suggestion_report_submitted">Надіслано</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s тег</item>
     <item quantity="few">%1$s теги</item>

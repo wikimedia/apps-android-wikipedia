@@ -30,11 +30,12 @@
 
     <TextView
         android:id="@+id/item_title"
-        style="@style/H3.MaterialListTitle"
+        style="@style/P"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
+        android:textColor="?attr/primary_color"
         android:paddingStart="14dp"
         android:paddingEnd="8dp"
         tools:text="Lorem ipsum" />

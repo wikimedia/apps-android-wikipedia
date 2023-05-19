@@ -7,29 +7,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
         style="@style/ToolbarStyle.Small">
 
-        <TextView
+        <Button
             android:id="@+id/compareButton"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
+            style="@style/App.Button.Text"
             android:gravity="center_vertical"
             android:layout_gravity="end"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="?android:selectableItemBackgroundBorderless"
-            android:textColor="?attr/progressive_color"
-            android:textAllCaps="true"
-            android:fontFamily="sans-serif-medium"
-            android:letterSpacing="0.05"
             android:text="@string/revision_compare_button"/>
 
-    </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -105,8 +98,6 @@
             android:layout_height="64dp"
             android:layout_gravity="bottom"
             android:background="?android:attr/colorBackground"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
             android:elevation="8dp">
 
             <com.google.android.material.card.MaterialCardView
@@ -116,7 +107,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="12dp"
                 app:cardUseCompatPadding="true"
                 app:cardElevation="0dp"
                 app:cardCornerRadius="8dp"
@@ -161,22 +152,15 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <TextView
+            <Button
                 android:id="@+id/compareConfirmButton"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                style="@style/App.Button.Text"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginEnd="8dp"
                 android:gravity="center_vertical"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:textColor="?attr/progressive_color"
-                android:textAllCaps="true"
-                android:fontFamily="sans-serif-medium"
-                android:letterSpacing="0.05"
                 android:text="@string/revision_compare_button"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

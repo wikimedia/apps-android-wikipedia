@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
@@ -325,9 +326,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 // In this case, there's nothing for us to do, so just bail from the activity.
                 requireActivity().finish()
             }) {
-                val list = withContext(Dispatchers.IO) {
-                    AppDatabase.instance.readingListDao().getListById(readingListId, true)
-                }
+                val list = AppDatabase.instance.readingListDao().getListById(readingListId, true)
                 binding.readingListSwipeRefresh.isRefreshing = false
                 readingList = list
                 readingList?.let {
@@ -458,7 +457,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 }
             })
 
-            previewSaveDialog = AlertDialog.Builder(requireContext())
+            previewSaveDialog = MaterialAlertDialogBuilder(requireContext())
                 .setPositiveButton(R.string.reading_lists_preview_save_dialog_save) { _, _ ->
                     it.pages.clear()
                     it.pages.addAll(savedPages)

@@ -2,17 +2,17 @@ package org.wikipedia.views
 
 import android.content.Context
 import android.content.DialogInterface
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doOnTextChanged
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.databinding.DialogTextInputBinding
 
-class TextInputDialog constructor(context: Context) : AlertDialog(context) {
+class TextInputDialog constructor(context: Context) : MaterialAlertDialogBuilder(context) {
     interface Callback {
         fun onShow(dialog: TextInputDialog)
         fun onTextChanged(text: CharSequence, dialog: TextInputDialog)
@@ -21,22 +21,30 @@ class TextInputDialog constructor(context: Context) : AlertDialog(context) {
     }
 
     private var binding = DialogTextInputBinding.inflate(LayoutInflater.from(context))
-    private lateinit var watcher: TextWatcher
+    private var dialog: AlertDialog? = null
     var callback: Callback? = null
 
     init {
         setView(binding.root)
         binding.textInputContainer.isErrorEnabled = true
-        setButton(BUTTON_POSITIVE, context.getString(R.string.text_input_dialog_ok_button_text)) { _: DialogInterface, _: Int ->
+        setPositiveButton(R.string.text_input_dialog_ok_button_text) { _: DialogInterface, _: Int ->
             callback?.onSuccess(binding.textInput.text.toString(), binding.secondaryTextInput.text.toString())
         }
-        setButton(BUTTON_NEGATIVE, context.getString(R.string.text_input_dialog_cancel_button_text)) { _: DialogInterface, _: Int ->
+        setNegativeButton(R.string.text_input_dialog_cancel_button_text) { _: DialogInterface, _: Int ->
             callback?.onCancel()
         }
-        setOnShowListener {
-            window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
+        binding.textInput.doOnTextChanged { text, _, _, _ ->
+            callback?.onTextChanged(text ?: "", this)
+        }
+    }
+
+    override fun create(): AlertDialog {
+        dialog = super.create()
+        dialog?.setOnShowListener {
+            dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
             callback?.onShow(this@TextInputDialog)
         }
+        return dialog!!
     }
 
     fun setText(text: CharSequence?, select: Boolean) {
@@ -68,18 +76,6 @@ class TextInputDialog constructor(context: Context) : AlertDialog(context) {
     }
 
     fun setPositiveButtonEnabled(enabled: Boolean) {
-        getButton(BUTTON_POSITIVE).isEnabled = enabled
-    }
-
-    override fun onAttachedToWindow() {
-        super.onAttachedToWindow()
-        watcher = binding.textInput.doOnTextChanged { text, _, _, _ ->
-            callback?.onTextChanged(text ?: "", this)
-        }
-    }
-
-    override fun onDetachedFromWindow() {
-        super.onDetachedFromWindow()
-        binding.textInput.removeTextChangedListener(watcher)
+        dialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = enabled
     }
 }

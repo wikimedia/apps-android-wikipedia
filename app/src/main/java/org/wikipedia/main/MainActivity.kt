@@ -74,11 +74,11 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             controlNavTabInFragment = false
         } else {
             if (tab == NavTab.SEARCH && Prefs.showSearchTabTooltip) {
-                FeedbackUtil.showTooltip(this, fragment.binding.mainNavTabLayout.findViewById(NavTab.SEARCH.id()), getString(R.string.search_tab_tooltip), aboveOrBelow = true, autoDismiss = false)
+                FeedbackUtil.showTooltip(this, fragment.binding.mainNavTabLayout.findViewById(NavTab.SEARCH.id), getString(R.string.search_tab_tooltip), aboveOrBelow = true, autoDismiss = false)
                 Prefs.showSearchTabTooltip = false
             }
             binding.mainToolbarWordmark.visibility = View.GONE
-            binding.mainToolbar.setTitle(tab.text())
+            binding.mainToolbar.setTitle(tab.text)
             controlNavTabInFragment = true
         }
         fragment.requestUpdateToolbarElevation()

@@ -126,7 +126,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Genom att publicera godkänner du &lt;a href=\"%1$s\"&gt;Användarvillkoren&lt;/a&gt;, och att oåterkalleligen släppa ditt bidrag med licensen &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Genom att publicera samtycker till &lt;a href=\"%1$s\"&gt;Användarvillkoren&lt;/a&gt; och att oåterkalleligt släppa dina bidrag under licensen &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redigeringar kommer att tillskrivas till din enhets IP-adress. Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt; kommer du få mer integritet.</string>
-  <string name="edit_anon_warning">Redigeringen kommer tillskrivas din enhets IP-adress. Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt;, kommer ha mer integritet.</string>
+  <string name="edit_anon_warning">Redigeringen kommer tillskrivas din enhets IP-adress. Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt;, kommer du ha mer integritet.</string>
   <string name="preference_title_language">Wikipediaspråk</string>
   <string name="langlinks_filter_hint">Sök</string>
   <string name="langlinks_empty">Denna sida är inte tillgänglig på andra språk</string>
@@ -628,7 +628,7 @@
     <item quantity="one">Misslyckades att importera läslista</item>
     <item quantity="other">Misslyckades att importera läslistor</item>
   </plurals>
-  <string name="reading_lists_preview_header_title">Dela lista</string>
+  <string name="reading_lists_preview_header_title">Delad lista</string>
   <string name="reading_lists_preview_save_button">Spara</string>
   <string name="reading_lists_preview_save_dialog_title">Spara lista</string>
   <string name="reading_lists_preview_save_dialog_text">Namnge lista och välj artiklar att spara.</string>
@@ -813,7 +813,7 @@
   <string name="feed_configure_onboarding_action">Anpassa</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Avbryt</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Anpassa ditt utforskarflöde&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu välja vad som ska visas i ditt flöde och även prioritera dina favoritinnehållstyper.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Anpassa ditt utforskarflöde&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu välja vad som ska visas i ditt flöde och även prioritera dina favorittyper av innehåll.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
   <string name="feed_accessibility_card_text">Du är nu längst ned i flödet.</string>
@@ -855,7 +855,7 @@
   <string name="description_starts_with_uppercase">Börja med liten bokstav om det första ordet inte är ett egennamn.</string>
   <string name="description_starts_with_lowercase">Undvik att börja med en liten bokstav.</string>
   <string name="description_is_in_different_language">Texten verkar vara på ett oväntat språk. Språket bör vara %s.</string>
-  <string name="description_verification_notice" fuzzy="true">Var god verifiera att din beskrivning är på %1$s. Stäng gärna denna avisering om beskrivningen du skrev är på %2$s.</string>
+  <string name="description_verification_notice">Var god verifiera att din beskrivning är på %1$s. Ignorera gärna denna varning om beskrivningen du skrev är på %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Visa föreslagna beskrivningar</string>
   <string name="description_edit_suggested_description_button_tooltip">Prova maskinföreslagna artikelbeskrivningar</string>
   <string name="description_edit_success_saved">Artikelbeskrivningen har publicerats!</string>
@@ -1030,7 +1030,7 @@
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Igår</string>
   <string name="suggested_edits_encourage_account_creation_title">Visste du att alla kan redigera på Wikipedia?</string>
-  <string name="suggested_edits_encourage_account_creation_message">Redigeringsförslag är ett nytt sätt att redigera på Wikipedia på Android. Det hjälper dig att göra små men väsentliga bidrag på Wikipedia.\nVårt mål är att göra det enklare och åtkomligare att redigera för alla! Logga in eller registrera dig på Wikipedia för att komma igång.</string>
+  <string name="suggested_edits_encourage_account_creation_message">Redigeringsförslag är ett nytt sätt att redigera på Wikipedia på Android. Det hjälper dig att göra små men viktiga bidrag på Wikipedia.\nVårt mål är att göra det enklare och åtkomligare att redigera för alla! Logga in eller registrera dig på Wikipedia för att komma igång.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Logga in / skapa konto på Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Bildtagg</string>
   <string name="suggested_edits_contribution_current_revision_text">Din redigering finns nu på Wikipedia</string>
@@ -1038,7 +1038,7 @@
   <string name="suggested_edits_article_descriptions_dialog_title">Föreslagna beskrivningar</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Vad vill du rapportera?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Inte tillräckligt med information</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion" fuzzy="true">Kan inte se beskrivningsrekommendationer</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Kan inte se föreslagna rekommendationer</string>
   <string name="suggested_edits_inappropriate_suggestion">Olämpligt förslag</string>
   <string name="suggested_edits_do_not_understand_suggestion">Förstår inte uppgiften</string>
   <string name="suggested_edits_report_suggestion">Rapportera</string>
@@ -1116,7 +1116,7 @@
     <item quantity="one">Ta bort valt språk?</item>
     <item quantity="other">Ta bort valda språk?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Du kommer endast se innehåll i utforskarflödet och snabbsökningsfilter för tillgängliga Wikipedia-språk.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Du kommer endast se innehåll i utforskarflödet och snabbsökningsfilter för tillgängliga Wikipediaspråk.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Kan inte ta bort alla språk</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Behåll minst ett Wikipedia-språk att söka och läsa innehåll på.</string>
   <string name="more_language_options">fler</string>
@@ -1246,7 +1246,7 @@
   <string name="talk_list_item_swipe_mark_as_read">Läst</string>
   <string name="talk_list_item_swipe_mark_as_unread">Oläst</string>
   <string name="talk_login_to_subscribe_dialog_title">Logga in för att prenumerera på ämnen</string>
-  <string name="talk_login_to_subscribe_dialog_content">Ämnesprenumerationer låter dig få aviseringar om nya kommentarer i detta ämne. Skapa ett konto eller logga in på ditt Wikipedia-konto för att prenumerera på ett ämne.</string>
+  <string name="talk_login_to_subscribe_dialog_content">Ämnesprenumerationer låter dig få aviseringar om nya kommentarer i detta ämne. Skapa ett konto eller logga in på ditt Wikipediakonto för att prenumerera på ett ämne.</string>
   <string name="talk_archived_title">Diskussionsarkiv: %s</string>
   <string name="menu_option_share_talk_discussion">Dela diskussion</string>
   <string name="menu_option_share_talk_page">Dela diskussionssida</string>

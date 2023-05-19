@@ -1,9 +1,10 @@
 package org.wikipedia.page
 
-import android.app.AlertDialog
 import android.content.Context
 import android.net.Uri
 import android.widget.ScrollView
+import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.feed.announcement.Announcement
 import org.wikipedia.feed.announcement.AnnouncementCard
@@ -16,7 +17,12 @@ import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.UriUtil
 
-class AnnouncementDialog internal constructor(context: Context, val announcement: Announcement) : AlertDialog(context), AnnouncementCardView.Callback {
+class AnnouncementDialog internal constructor(
+    context: Context,
+    val announcement: Announcement
+) : MaterialAlertDialogBuilder(context), AnnouncementCardView.Callback {
+
+    private var dialog: AlertDialog? = null
 
     init {
         val scrollView = ScrollView(context)
@@ -26,6 +32,11 @@ class AnnouncementDialog internal constructor(context: Context, val announcement
         scrollView.addView(cardView)
         scrollView.isVerticalScrollBarEnabled = true
         setView(scrollView)
+    }
+
+    override fun show(): AlertDialog {
+        dialog = super.show()
+        return dialog!!
     }
 
     override fun onAnnouncementPositiveAction(card: Card, uri: Uri) {
@@ -49,6 +60,6 @@ class AnnouncementDialog internal constructor(context: Context, val announcement
 
     private fun dismissDialog() {
         Prefs.announcementShownDialogs = setOf(announcement.id)
-        dismiss()
+        dialog?.dismiss()
     }
 }

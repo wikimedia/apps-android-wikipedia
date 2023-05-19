@@ -7,9 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
-import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener
@@ -169,7 +169,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
          */
         private fun showLeavingEditDialogue(runnable: Runnable) {
             // Ask the user if they really meant to leave the edit workflow
-            val leavingEditDialog = AlertDialog.Builder(requireActivity())
+            MaterialAlertDialogBuilder(requireActivity())
                 .setMessage(R.string.dialog_message_leaving_edit)
                 .setPositiveButton(R.string.dialog_message_leaving_edit_leave) { dialog, _: Int ->
                     // They meant to leave; close dialogue and run specified action
@@ -177,8 +177,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
                     runnable.run()
                 }
                 .setNegativeButton(R.string.dialog_message_leaving_edit_stay, null)
-                .create()
-            leavingEditDialog.show()
+                .show()
         }
 
         @Suppress("UNUSED_PARAMETER")

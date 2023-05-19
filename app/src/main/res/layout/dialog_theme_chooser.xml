@@ -6,11 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="?attr/border_color" />
-
     <ProgressBar
         android:id="@+id/font_change_progress_bar"
         android:layout_width="32dp"
@@ -110,7 +105,7 @@
 
             </LinearLayout>
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/syntax_highlight_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -119,7 +114,7 @@
                 android:text="@string/editing_syntax_highlight_label"
                 android:textColor="?attr/primary_color" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/typing_suggestions_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -127,7 +122,7 @@
                 android:text="@string/editing_typing_suggestions"
                 android:textColor="?attr/primary_color" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/show_line_numbers_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -135,7 +130,7 @@
                 android:text="@string/editing_line_numbers_label"
                 android:textColor="?attr/primary_color" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/monospace_font_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -152,7 +147,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_font_family_sans_serif"
-                    style="@style/App.Button"
+                    style="@style/Widget.Material3.Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -162,20 +157,25 @@
                     android:backgroundTint="?attr/paper_color"
                     android:text="@string/font_family_sans_serif"
                     android:tag="@string/font_family_sans_serif"
+                    app:rippleColor="?attr/border_color"
+                    app:strokeWidth="1dp"
                     app:strokeColor="?attr/progressive_color" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_font_family_serif"
-                    style="@style/App.Button"
+                    style="@style/Widget.Material3.Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="serif"
                     android:textColor="?attr/primary_color"
                     android:textStyle="bold"
                     android:backgroundTint="?attr/paper_color"
                     android:text="@string/font_family_serif"
                     android:tag="@string/font_family_serif"
+                    app:rippleColor="?attr/border_color"
+                    app:strokeWidth="1dp"
                     app:strokeColor="?attr/progressive_color" />
 
             </LinearLayout>
@@ -192,7 +192,7 @@
                     android:contentDescription="@null"
                     app:srcCompat="@drawable/ic_icon_reading_focus_mode" />
 
-                <androidx.appcompat.widget.SwitchCompat
+                <com.google.android.material.materialswitch.MaterialSwitch
                     android:id="@+id/theme_chooser_reading_focus_mode_switch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -263,7 +263,7 @@
 
             </LinearLayout>
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/theme_chooser_match_system_theme_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -271,7 +271,7 @@
                 android:text="@string/theme_chooser_dialog_match_system_theme_switch_label"
                 android:textColor="?attr/primary_color" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/theme_chooser_dark_mode_dim_images_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
