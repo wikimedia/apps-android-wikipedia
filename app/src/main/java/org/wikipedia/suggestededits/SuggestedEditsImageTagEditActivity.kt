@@ -84,6 +84,14 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
         }
     }
 
+    override fun onBackPressed() {
+        if (suggestedEditsImageTagsFragment != null && suggestedEditsImageTagsFragment?.atLeastOneTagChecked()!!) {
+            SuggestedEditsImageTagsFragment.getExitWarningDialog(this).show()
+        } else {
+            super.onBackPressed()
+        }
+    }
+
     companion object {
         private const val ARG_PAGE = "imageTagPage"
 
