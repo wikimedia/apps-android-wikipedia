@@ -3,13 +3,16 @@ package org.wikipedia.auth
 import android.accounts.Account
 import android.accounts.AccountAuthenticatorResponse
 import android.accounts.AccountManager
+import android.app.Activity
 import android.os.Build
 import androidx.core.os.bundleOf
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginResult
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L.d
 import org.wikipedia.util.log.L.logRemoteErrorIfProd
@@ -103,6 +106,18 @@ object AccountUtil {
     fun getTempAccountName(): String {
         return UriUtil.decodeURL(SharedPreferenceCookieManager.instance.getCookieByName(CENTRALAUTH_USER_COOKIE_NAME)
             .orEmpty().split(";").firstOrNull().orEmpty().trim())
+    }
+
+    fun maybeShowTempAccountWelcome(activity: Activity) {
+        if (!Prefs.tempAccountWelcomeShown && isTemporaryAccount) {
+            Prefs.tempAccountWelcomeShown = true
+            MaterialAlertDialogBuilder(activity)
+                .setTitle("You dropped this, temp king.")
+                .setMessage("Congratulations on making an edit. You have been automatically assigned a temporary account to protect your IP address. Your account name is \"" + getTempAccountName() + "\".")
+                .setPositiveButton(android.R.string.ok, null)
+                .setCancelable(false)
+                .show()
+        }
     }
 
     private fun createAccount(userName: String, password: String): Boolean {
