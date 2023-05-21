@@ -1,8 +1,9 @@
 package org.wikipedia.util
 
 import android.content.Context
-import androidx.annotation.WorkerThread
-import io.reactivex.rxjava3.core.Observable
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.withContext
 import org.json.JSONException
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -87,18 +88,24 @@ object ThrowableUtil {
                 throwableContainsException(e, SSLException::class.java)
     }
 
-    @WorkerThread
-    fun getBlockMessageHtml(blockInfo: MwServiceError.BlockInfo, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): String {
-        var html = ""
-        Observable.zip(ServiceFactory.get(wikiSite).userInfo,
-            ServiceFactory.get(wikiSite).parsePage("MediaWiki:Blockedtext"),
-            ServiceFactory.get(wikiSite).parseText(blockInfo.blockReason)) { userInfoResponse, blockedParseResponse, reasonParseResponse ->
+    suspend fun getBlockMessageHtml(
+        blockInfo: MwServiceError.BlockInfo,
+        wikiSite: WikiSite = WikipediaApp.instance.wikiSite
+    ): String = withContext(Dispatchers.IO) {
+        try {
+            val service = ServiceFactory.get(wikiSite)
+            val userInfoRequest = async { service.getUserInfo() }
+            val blockedParseRequest = async { service.parsePage("MediaWiki:Blockedtext") }
+            val reasonParseRequest = async { service.parseText(blockInfo.blockReason) }
+
             parseBlockedError(
-                blockedParseResponse.text, blockInfo,
-                reasonParseResponse.text, userInfoResponse.query?.userInfo!!.name
+                blockedParseRequest.await().text, blockInfo,
+                reasonParseRequest.await().text, userInfoRequest.await().query?.userInfo!!.name
             )
-        }.blockingSubscribe({ html = it }) { L.e(it) }
-        return html
+        } catch (e: Exception) {
+            L.e(e)
+            ""
+        }
     }
 
     private fun parseBlockedError(template: String, info: MwServiceError.BlockInfo, reason: String, userName: String): String {

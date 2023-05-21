@@ -126,10 +126,10 @@ interface Service {
     val siteInfo: Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
-    fun parsePage(@Query("page") pageTitle: String): Observable<MwParseResponse>
+    suspend fun parsePage(@Query("page") pageTitle: String): MwParseResponse
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
-    fun parseText(@Query("text") text: String): Observable<MwParseResponse>
+    suspend fun parseText(@Query("text") text: String): MwParseResponse
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
     fun parseTextForMainPage(@Query("page") mainPageTitle: String): Observable<MwParseResponse>
@@ -236,8 +236,8 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
     val userInfo: Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights")
-    suspend fun userInfo(@Query("ususers") userName: String): MwQueryResponse
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
+    suspend fun getUserInfo(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights&meta=allmessages")
     suspend fun userInfoWithMessages(@Query("ususers") userName: String, @Query("ammessages") messages: String): MwQueryResponse

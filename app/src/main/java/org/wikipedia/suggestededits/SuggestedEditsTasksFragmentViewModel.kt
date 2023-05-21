@@ -64,7 +64,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
 
             homeSiteResponse.query?.userInfo?.let {
                 if (it.isBlocked) {
-                    blockMessageWikipedia = ThrowableUtil.getBlockMessageHtml(it, WikipediaApp.instance.wikiSite)
+                    blockMessageWikipedia = ThrowableUtil.getBlockMessageHtml(it)
                 }
             }
             wikidataResponse.query?.userInfo?.let {
