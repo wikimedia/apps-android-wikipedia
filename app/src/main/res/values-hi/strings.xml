@@ -410,7 +410,7 @@
   <string name="error_message_generic">एक त्रुटि हुई है</string>
   <string name="view_link_preview_error_button_dismiss">रद्द करें</string>
   <string name="error_page_does_not_exist">यह पेज अस्तिव में नहीं है</string>
-  <string name="error_user_page_does_not_exist">विकिपीडिया में इस सटीक नाम वाला &lt;a href=\"%1$s \"&gt;सदस्य पृष्ठ&lt;/a&gt; नहीं है। सामान्य तौर पर, यह पृष्ठ &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt; द्वारा बनाया और संपादित किया जाना चाहिए। यदि संदेह है, तो कृपया सत्यापित करें कि \" %3$s \" मौजूद है।</string>
+  <string name="error_user_page_does_not_exist" fuzzy="true">विकिपीडिया में इस सटीक नाम वाला &lt;a href=\"%1$s\"&gt;सदस्य पृष्ठ&lt;/a&gt; नहीं है। सामान्य तौर पर, यह पृष्ठ &lt;b&gt;%2$s&lt;/b&gt; द्वारा बनाया और संपादित किया जाना चाहिए। यदि संदेह है, तो कृपया सत्यापित करें कि \" %3$s \" मौजूद है।</string>
   <string name="view_wiki_error_message_offline">इंटरनेट से जोड़ा नहीं जा सका</string>
   <string name="view_wiki_error_message_timeout">विकिपीडिया से कनेक्ट नहीं हो सकता। अपना नेटवर्क कनेक्शन जांचें, या बाद में पुन: प्रयास करें</string>
   <string name="reference_title">सन्दर्भ %s</string>
@@ -802,7 +802,7 @@
   <string name="description_edit_help_wikidata_guide">वर्णन लिखने के लिए विकिडेटा गाइड</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/सहायता:वर्णन#हिंदी_में_वर्णन हेतु_मार्गदर्शन</string>
   <string name="description_edit_anon_limit">लेख विवरण संपादित करने में आपकी निरंतर रुचि के लिए धन्यवाद! अतिरिक्त संपादन करने के लिए, कृपया अपने विकिपीडिया खाते में लॉग इन करें।</string>
-  <string name="description_edit_license_notice">लेख विवरण को बदलकर, मैं &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;उपयोग शर्तों&lt;/a&gt;से सहमत हूँ और &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;क्रिएटिव काॅमन्स&lt;/a&gt; लाइसेंस के तहत अपने योगदान को अपरिवर्तनीय रूप से जारी करता हूँ।</string>
+  <string name="description_edit_license_notice" fuzzy="true">लेख विवरण को बदलकर, मैं &lt;a href=\"%1$s\"&gt;उपयोग शर्तों&lt;/a&gt;से सहमत हूँ और &lt;a href=\"%2$s\"&gt;क्रिएटिव काॅमन्स&lt;/a&gt; लाइसेंस के तहत अपने योगदान को अपरिवर्तनीय रूप से जारी करता हूँ।</string>
   <string name="description_edit_helper_text_lowercase_warning">आमतौर पर लोअरकेस अक्षर से शुरू होता है</string>
   <string name="description_edit_voice_input_description">ध्वनि द्वारा लिखें</string>
   <string name="description_edit_learn_more">लेख विवरण के बारे में और जानें</string>
