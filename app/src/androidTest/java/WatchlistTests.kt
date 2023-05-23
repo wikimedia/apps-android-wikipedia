@@ -21,6 +21,8 @@ import java.util.concurrent.TimeUnit
 @RunWith(AndroidJUnit4::class)
 class WatchlistTests {
 
+    /* Make sure that your watchlist is empty before starting the test */
+
     @Rule
     @JvmField
     var mActivityTestRule = ActivityScenarioRule(MainActivity::class.java)
