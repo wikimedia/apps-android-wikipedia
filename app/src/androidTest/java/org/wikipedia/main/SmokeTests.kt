@@ -434,7 +434,7 @@ class SmokeTests {
 
         if (AccountUtil.isLoggedIn) {
             // Click on the 5th topic
-            onView(withId(R.id.menu_notifications)).perform(click())
+            onView(withId(R.id.page_toolbar_button_notifications)).perform(click())
 
             // Give the page plenty of time to load fully
             TestUtil.delay(5)
