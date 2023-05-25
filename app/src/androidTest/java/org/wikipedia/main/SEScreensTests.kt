@@ -30,6 +30,7 @@ import org.wikipedia.auth.AccountUtil
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class SEScreensTests {
+
     @Rule
     @JvmField
     var mActivityTestRule = ActivityScenarioRule(MainActivity::class.java)
@@ -44,24 +45,20 @@ class SEScreensTests {
 
     @Test
     fun sEScreensTest() {
+
         // Skip the initial onboarding screens...
-        onView(allOf(ViewMatchers.withId(R.id.fragment_onboarding_skip_button), isDisplayed()))
+        onView(allOf(withId(R.id.fragment_onboarding_skip_button), isDisplayed()))
             .perform(click())
 
         TestUtil.delay(2)
 
         // Dismiss the Feed customization onboarding card in the feed
-        onView(
-            allOf(ViewMatchers.withId(R.id.view_announcement_action_negative),
-            withText("Got it"), isDisplayed())
-        )
-            .perform(click())
+        onView(allOf(withId(R.id.view_announcement_action_negative), withText("Got it"), isDisplayed())).perform(click())
 
         TestUtil.delay(1)
 
         // Go to `Edits` tab
-        onView(allOf(withId(R.id.nav_tab_edits), withContentDescription("Edits"),
-          childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 3), isDisplayed())).perform(click())
+        onView(allOf(withId(R.id.nav_tab_edits), withContentDescription("Edits"), isDisplayed())).perform(click())
 
         TestUtil.delay(2)
 
@@ -118,6 +115,16 @@ class SEScreensTests {
 
         TestUtil.delay(2)
 
+        // Click on one of the contributions
+        onView(allOf(withId(R.id.user_contrib_recycler), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withContentDescription("Navigate up"), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(2)
+
         onView(allOf(withContentDescription("Navigate up"), isDisplayed()))
             .perform(click())
 
@@ -140,6 +147,7 @@ class SEScreensTests {
 
         TestUtil.delay(2)
 
+        // Click on `Image captions` task
         onView(allOf(withId(R.id.tasksRecyclerView), childAtPosition(withId(R.id.tasksContainer), 2)))
         .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
 
@@ -156,22 +164,14 @@ class SEScreensTests {
 
         TestUtil.delay(2)
 
+        // Click on `Image tags` task
         onView(allOf(withId(R.id.tasksRecyclerView), childAtPosition(withId(R.id.tasksContainer), 2)))
         .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
 
         TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.onboarding_done_button), withText("Get started"),
-            /*    childAtPosition(
-                    childAtPosition(
-                        withClassName(Matchers.`is`("android.widget.LinearLayout")),
-                        1
-                    ),
-                    0
-                ),*/
-                isDisplayed()
-            )
-        ).perform(click())
+        onView(allOf(withId(R.id.onboarding_done_button), withText("Get started"), isDisplayed())).perform(click())
+
         TestUtil.delay(2)
 
         // Assert the presence of correct action button
@@ -184,6 +184,7 @@ class SEScreensTests {
 
         TestUtil.delay(2)
 
+        // Assert the presence of tutorial button
         onView(allOf(withId(R.id.learnMoreButton), withText("Learn more"),
             childAtPosition(allOf(withId(R.id.learnMoreCard)), 2), isNotFocused()))
             .perform(scrollTo())
