@@ -14,13 +14,12 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.theme.Theme.Companion.fallback
-import org.wikipedia.util.DateUtil.dbDateFormat
-import org.wikipedia.util.DateUtil.dbDateParse
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
 import java.time.Instant
-import java.util.Date
+import java.time.LocalDateTime
 
 /** Shared preferences utility for convenient POJO access.  */
 object Prefs {
@@ -427,12 +426,16 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_match_system_theme, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_match_system_theme, value)
 
-    var suggestedEditsPauseDate: Date
+    var suggestedEditsPauseDate: LocalDateTime?
         get() {
             val pref = PrefsIoUtil.getString(R.string.preference_key_suggested_edits_pause_date, "")
-            return if (!pref.isNullOrEmpty()) { dbDateParse(pref) } else Date(0)
+            val localDateTime = if (!pref.isNullOrEmpty()) { DateUtil.dbLocalDateTimeParse(pref) } else null
+            return if (localDateTime != DateUtil.EPOCH_DATE.atStartOfDay()) localDateTime else null
         }
-        set(date) = PrefsIoUtil.setString(R.string.preference_key_suggested_edits_pause_date, dbDateFormat(date))
+        set(localDateTime) {
+            val dateString = localDateTime?.let { DateUtil.dbLocalDateTimeFormat(it) }
+            PrefsIoUtil.setString(R.string.preference_key_suggested_edits_pause_date, dateString)
+        }
 
     var suggestedEditsPauseReverts
         get() = PrefsIoUtil.getInt(R.string.preference_key_suggested_edits_pause_reverts, 0)

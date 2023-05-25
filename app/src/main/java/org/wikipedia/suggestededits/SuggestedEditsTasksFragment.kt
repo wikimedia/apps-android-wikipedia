@@ -37,7 +37,6 @@ import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.*
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
-import java.util.*
 
 class SuggestedEditsTasksFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsTasksBinding? = null
@@ -276,7 +275,8 @@ class SuggestedEditsTasksFragment : Fragment() {
             return true
         } else if (pauseEndDate != null) {
             clearContents()
-            binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.userName))
+            binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message,
+                DateUtil.getShortDateString(pauseEndDate.toLocalDate()), AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
             UserContributionEvent.logPaused()
             return true

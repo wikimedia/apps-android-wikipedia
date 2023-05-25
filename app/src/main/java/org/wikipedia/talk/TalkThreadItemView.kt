@@ -68,8 +68,8 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         binding.userNameTapTarget.isVisible = binding.userNameText.isVisible
         StringUtil.highlightAndBoldenText(binding.userNameText, searchQuery, true, Color.YELLOW)
         binding.profileImage.visibility = if (binding.userNameText.isVisible) View.VISIBLE else View.INVISIBLE
-        binding.timeStampText.isVisible = item.date != null
-        item.date?.let {
+        binding.timeStampText.isVisible = item.localDateTime != null
+        item.localDateTime?.let {
             binding.timeStampText.text = DateUtil.getTimeAndDateString(context, it)
             StringUtil.highlightAndBoldenText(binding.timeStampText, searchQuery, true, Color.YELLOW)
         }

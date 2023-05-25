@@ -152,7 +152,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     }
 
     private fun threadSha(threadItem: ThreadItem?): String? {
-        return threadItem?.let { it.id + "|" + it.allReplies.maxOfOrNull { reply -> reply.timestamp } }
+        return threadItem?.let { it.id + "|" + it.allReplies.mapNotNull { reply -> reply.localDateTime }.maxOrNull() }
     }
 
     fun subscribeTopic(commentName: String, subscribed: Boolean) {
@@ -167,10 +167,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     private fun sortAndFilterThreadItems() {
         when (currentSortMode) {
             TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_DESCENDING -> {
-                threadItems.sortByDescending { it.replies.firstOrNull()?.date }
+                threadItems.sortByDescending { it.replies.firstOrNull()?.localDateTime }
             }
             TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_ASCENDING -> {
-                threadItems.sortBy { it.replies.firstOrNull()?.date }
+                threadItems.sortBy { it.replies.firstOrNull()?.localDateTime }
             }
             TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_DESCENDING -> {
                 threadItems.sortByDescending { RichTextUtil.stripHtml(it.html) }
@@ -179,10 +179,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
                 threadItems.sortBy { RichTextUtil.stripHtml(it.html) }
             }
             TalkTopicsSortOverflowView.SORT_BY_DATE_UPDATED_DESCENDING -> {
-                threadItems.sortByDescending { it.replies.lastOrNull()?.date }
+                threadItems.sortByDescending { it.replies.lastOrNull()?.localDateTime }
             }
             TalkTopicsSortOverflowView.SORT_BY_DATE_UPDATED_ASCENDING -> {
-                threadItems.sortBy { it.replies.lastOrNull()?.date }
+                threadItems.sortBy { it.replies.lastOrNull()?.localDateTime }
             }
         }
 

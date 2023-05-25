@@ -20,7 +20,7 @@ import org.wikipedia.page.Namespace
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.*
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
-import java.util.*
+import java.time.LocalDateTime
 
 class TalkTopicHolder internal constructor(
         private val binding: ItemTalkTopicBinding,
@@ -79,7 +79,8 @@ class TalkTopicHolder internal constructor(
 
         // Username with involved user number exclude the author
         val usersInvolved = allReplies.map { it.author }.distinct().size - 1
-        val usernameText = allReplies.maxByOrNull { it.date ?: Date() }?.author.orEmpty() + (if (usersInvolved > 1) " +$usersInvolved" else "")
+        val usernameText = allReplies.maxByOrNull { it.localDateTime ?: LocalDateTime.now() }?.author.orEmpty() +
+                (if (usersInvolved > 1) " +$usersInvolved" else "")
         val usernameColor = if (threadItem.seen) R.attr.inactive_color else R.attr.progressive_color
         binding.topicUsername.text = usernameText
         binding.topicUserIcon.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
@@ -98,7 +99,8 @@ class TalkTopicHolder internal constructor(
         ImageViewCompat.setImageTintList(binding.topicReplyIcon, ResourceUtil.getThemedColorStateList(context, replyNumberColor))
 
         // Last comment date
-        val lastCommentDate = allReplies.mapNotNull { it.date }.maxOrNull()?.run { DateUtil.getDateAndTime(context, this) }
+        val lastCommentDate = allReplies.mapNotNull { it.localDateTime }.maxOrNull()
+            ?.let { DateUtil.getDateAndTime(context, it) }
         val lastCommentColor = if (threadItem.seen) R.attr.inactive_color else R.attr.placeholder_color
         binding.topicLastCommentDate.text = lastCommentDate
         binding.topicLastCommentDate.isVisible = lastCommentDate != null

@@ -27,20 +27,16 @@ object DateUtil {
     private val DATE_TIME_FORMATTERS = ConcurrentHashMap<String, DateTimeFormatter>()
 
     // TODO: Switch to DateTimeFormatter when minSdk = 26.
-    fun iso8601DateParse(date: String): Date {
-        return Date.from(Instant.parse(date))
-    }
-
     fun iso8601LocalDateTimeParse(timestamp: String): LocalDateTime {
         return LocalDateTime.ofInstant(Instant.parse(timestamp), ZoneId.systemDefault())
     }
 
-    fun dbDateFormat(date: Date): String {
-        return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).format(date)
+    fun dbLocalDateTimeFormat(localDateTime: LocalDateTime): String {
+        return getCachedDateTimeFormatter("yyyyMMddHHmmss", Locale.ROOT).format(localDateTime)
     }
 
-    fun dbDateParse(date: String): Date {
-        return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).parse(date)!!
+    fun dbLocalDateTimeParse(date: String): LocalDateTime {
+        return LocalDateTime.parse(date, getCachedDateTimeFormatter("yyyyMMddHHmmss", Locale.ROOT))
     }
 
     fun getFeedCardDateString(age: Int): String {
@@ -95,21 +91,13 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(localDateTime, datePattern)
     }
 
-    private fun getTimeAndDateString(context: Context, instant: Instant): String {
-        return getTimeAndDateString(context, LocalDateTime.ofInstant(instant, ZoneId.systemDefault()))
-    }
-
-    fun getTimeAndDateString(context: Context, date: Date): String {
-        return getTimeAndDateString(context, date.toInstant())
-    }
-
     fun getTimeAndDateString(context: Context, dateStr: String): String {
-        return getTimeAndDateString(context, Instant.parse(dateStr))
+        return getTimeAndDateString(context, iso8601LocalDateTimeParse(dateStr))
     }
 
-    fun getDateAndTime(context: Context, date: Date): String {
+    fun getDateAndTime(context: Context, localDateTime: LocalDateTime): String {
         val datePattern = if (DateFormat.is24HourFormat(context)) "MMM d, yyyy, HH:mm" else "MMM d, yyyy, hh:mm a"
-        return getCachedDateFormat(datePattern, Locale.getDefault(), false).format(date)
+        return getCachedDateTimeFormatter(datePattern, Locale.getDefault()).format(localDateTime)
     }
 
     private fun getDateStringWithSkeletonPattern(date: Date, pattern: String): String {
@@ -137,7 +125,7 @@ object DateUtil {
         }
     }
 
-    fun getShortDateString(date: Date): String {
+    private fun getShortDateString(date: Date): String {
         // todo: consider allowing TWN date formats. It would be useful to have but might be
         //       difficult for translators to write correct format specifiers without being able to
         //       test them. We should investigate localization support in date libraries such as
