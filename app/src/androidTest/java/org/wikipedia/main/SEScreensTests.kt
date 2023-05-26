@@ -147,6 +147,56 @@ class SEScreensTests {
 
         TestUtil.delay(2)
 
+        // Assert `Translate` button leading to add languages screen when there is only one language
+        onView(allOf(withId(R.id.secondaryButton), withText("Translate"), withContentDescription("Translate Article descriptions"),
+                isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Click on add language button
+        onView(allOf(withId(R.id.wikipedia_languages_recycler), childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 0)))
+        .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
+
+        TestUtil.delay(2)
+
+        // Select a language
+        onView(allOf(withId(R.id.languages_list_recycler), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Assert `Translate` button leading to translate description screen, when there is more than one language
+        onView(allOf(withId(R.id.secondaryButton), withText("Translate"), withContentDescription("Translate Article descriptions"),
+            childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.suggestededits.SuggestedEditsTaskView")), 0), 6), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Assert the presence of correct action button text
+        onView(allOf(withId(R.id.addContributionButton), withText("Add translation"), ViewMatchers.withParent(allOf(withId(R.id.bottomButtonContainer))),
+            isDisplayed())).check(ViewAssertions.matches(isDisplayed()))
+
+        TestUtil.delay(2)
+
+        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Verify image caption translation task
+        onView(allOf(withId(R.id.secondaryButton), withText("Translate"), withContentDescription("Translate Image captions"), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Assert the presence of correct action button text
+        onView(allOf(withId(R.id.addContributionButton), withText("Add translation"), ViewMatchers.withParent(allOf(withId(R.id.bottomButtonContainer))), isDisplayed()))
+        .check(ViewAssertions.matches(isDisplayed()))
+
+        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
         // Click on `Image captions` task
         onView(allOf(withId(R.id.tasksRecyclerView), childAtPosition(withId(R.id.tasksContainer), 2)))
         .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
