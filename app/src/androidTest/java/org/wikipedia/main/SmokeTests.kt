@@ -31,6 +31,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.R
 import org.wikipedia.TestUtil
+import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.navtab.NavTab
 import java.util.concurrent.TimeUnit
@@ -477,7 +478,7 @@ class SmokeTests {
         TestUtil.delay(1)
 
         // Go to Saved tab
-        onView(withId(NavTab.READING_LISTS.id())).perform(click())
+        onView(withId(NavTab.READING_LISTS.id)).perform(click())
 
         TestUtil.delay(1)
 
@@ -515,6 +516,23 @@ class SmokeTests {
 
         // Remove article from reading list
         onView(withText("Remove from Saved")).perform(click())
+
+        TestUtil.delay(2)
+
+        pressBack()
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.nav_tab_search), withContentDescription("Search"),
+            childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 2), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.history_delete), withContentDescription("Clear history"), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(androidx.appcompat.R.id.alertTitle), isDisplayed())).check(matches(withText("Clear browsing history")))
 
         TestUtil.delay(2)
 
