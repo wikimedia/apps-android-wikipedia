@@ -5,6 +5,7 @@ import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ActiveTimer
+import org.wikipedia.util.ReleaseUtil
 import java.util.concurrent.TimeUnit
 
 class ArticleEvent {
@@ -278,7 +279,9 @@ class ArticleEvent {
         pageData: PageData?,
         customData: Map<String, Any>
     ) {
-        MetricsPlatform.client.submitMetricsEvent(eventName, pageData, mergeData(customData))
+        if (ReleaseUtil.isPreBetaRelease) {
+            MetricsPlatform.client.submitMetricsEvent(eventName, pageData, mergeData(customData))
+        }
     }
 
     private fun getPageData(fragment: PageFragment): PageData {
