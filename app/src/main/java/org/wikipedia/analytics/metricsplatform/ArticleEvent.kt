@@ -1,6 +1,7 @@
 package org.wikipedia.analytics.metricsplatform
 
 import org.wikimedia.metrics_platform.context.PageData
+import org.wikipedia.Constants
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageFragment
 import org.wikipedia.settings.Prefs
@@ -35,7 +36,7 @@ class ArticleEvent {
             )
 
             submitEvent(
-                "android.metrics_platform.find_in_page_interaction",
+                "find_in_page_interaction",
                 getPageData(fragment),
                 customData
             )
@@ -150,7 +151,7 @@ class ArticleEvent {
                 "time_spent_ms" to timer.elapsedMillis
             )
             submitEvent(
-                "android.metrics_platform.article_toolbar_interaction",
+                "article_toolbar_interaction",
                 getPageData(fragment),
                 customData
             )
@@ -196,7 +197,7 @@ class ArticleEvent {
                 "num_sections" to numSections
             )
             submitEvent(
-                "android.metrics_platform.article_toc_interaction",
+                "article_toc_interaction",
                 getPageData(fragment),
                 customData
             )
@@ -229,7 +230,7 @@ class ArticleEvent {
                 "version" to PROD_LINK_PREVIEW_VERSION
             )
             submitEvent(
-                "android.metrics_platform.article_link_preview_interaction",
+                "article_link_preview_interaction",
                 getPageData(fragment),
                 customData
             )
@@ -264,7 +265,7 @@ class ArticleEvent {
                 "version" to PROD_LINK_PREVIEW_VERSION
             )
             submitEvent(
-                "android.metrics_platform.article_link_preview_interaction",
+                "article_link_preview_interaction",
                 null,
                 customData
             )
@@ -280,18 +281,21 @@ class ArticleEvent {
         customData: Map<String, Any>
     ) {
         if (ReleaseUtil.isPreBetaRelease) {
-            MetricsPlatform.client.submitMetricsEvent(eventName, pageData, mergeData(customData))
+            MetricsPlatform.client.submitMetricsEvent(
+                Constants.ANDROID_METRICS_PLATFORM_EVENT_PREFIX + eventName,
+                pageData,
+                mergeData(customData))
         }
     }
 
-    private fun getPageData(fragment: PageFragment): PageData {
-        val pageProperties = fragment.page?.pageProperties
+    private fun getPageData(fragment: PageFragment): PageData? {
+        val pageProperties = fragment.page?.pageProperties ?: return null
         return PageData(
-            pageProperties?.pageId ?: 0,
-            pageProperties?.displayTitle ?: "",
-            pageProperties?.namespace?.code() ?: 0,
-            Namespace.of(pageProperties?.namespace?.code()!!).toString() ?: "",
-            pageProperties.revisionId.toInt() ?: 0,
+            pageProperties.pageId,
+            pageProperties.displayTitle,
+            pageProperties.namespace.code(),
+            Namespace.of(pageProperties.namespace.code()).toString(),
+            pageProperties.revisionId,
             pageProperties.wikiBaseItem ?: "",
             fragment.model.title?.wikiSite?.languageCode ?: "",
             null,
