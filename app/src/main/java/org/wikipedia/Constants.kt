@@ -21,8 +21,6 @@ object Constants {
     const val ACTIVITY_REQUEST_VOICE_SEARCH = 45
     const val ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION = 44
 
-    const val ANDROID_METRICS_PLATFORM_EVENT_PREFIX = "android.metrics_platform."
-
     const val INTENT_APP_SHORTCUT_CONTINUE_READING = "appShortcutContinueReading"
     const val INTENT_APP_SHORTCUT_RANDOMIZER = "appShortcutRandomizer"
     const val INTENT_APP_SHORTCUT_SEARCH = "appShortcutSearch"

@@ -1,313 +1,230 @@
 package org.wikipedia.analytics.metricsplatform
 
 import org.wikimedia.metrics_platform.context.PageData
-import org.wikipedia.Constants
-import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageFragment
+import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.ActiveTimer
-import org.wikipedia.util.ReleaseUtil
 import java.util.concurrent.TimeUnit
 
-class ArticleEvent {
-    val timer = ActiveTimer()
+class ArticleFindInPageInteraction(private val fragment: PageFragment) : TimedMetricsEvent() {
+    private var numFindNext = 0
+    private var numFindPrev = 0
+    var pageHeight = 0
+    var findText = ""
 
-    inner class ArticleFindInPageInteraction(private val fragment: PageFragment) {
-        private var numFindNext = 0
-        private var numFindPrev = 0
-        var pageHeight = 0
-        var findText = ""
+    fun addFindNext() {
+        numFindNext++
+    }
 
-        fun addFindNext() {
-            numFindNext++
-        }
+    fun addFindPrev() {
+        numFindPrev++
+    }
 
-        fun addFindPrev() {
-            numFindPrev++
-        }
-
-        fun logDone() {
-            val customData = mapOf(
+    fun logDone() {
+        submitEvent(
+            "find_in_page_interaction",
+            mapOf(
                 "find_text" to findText,
                 "find_next_clicks_count" to numFindNext,
                 "find_prev_clicks_count" to numFindPrev,
                 "page_height" to pageHeight,
                 "time_spent_ms" to timer.elapsedMillis,
-            )
+            ),
+            getPageData(fragment)
+        )
+    }
+}
 
-            submitEvent(
-                "find_in_page_interaction",
-                getPageData(fragment),
-                customData
-            )
-        }
+class ArticleToolbarInteraction(private val fragment: PageFragment) : TimedMetricsEvent() {
+
+    fun logLoaded() {
+        submitEvent("load")
     }
 
-    inner class ArticleToolbarInteraction(private val fragment: PageFragment) {
+    fun logSaveClick() {
+        submitEvent("save")
+    }
 
-        fun logLoaded() {
-            submitEvent("load")
-        }
+    fun logLanguageClick() {
+        submitEvent("language")
+    }
 
-        fun logSaveClick() {
-            submitEvent("save")
-        }
+    fun logFindInArticleClick() {
+        submitEvent("find_in_article")
+    }
 
-        fun logLanguageClick() {
-            submitEvent("language")
-        }
+    fun logThemeClick() {
+        submitEvent("theme")
+    }
 
-        fun logFindInArticleClick() {
-            submitEvent("find_in_article")
-        }
+    fun logContentsClick() {
+        submitEvent("contents")
+    }
 
-        fun logThemeClick() {
-            submitEvent("theme")
-        }
+    fun logMoreClick() {
+        submitEvent("more")
+    }
 
-        fun logContentsClick() {
-            submitEvent("contents")
-        }
+    fun logShareClick() {
+        submitEvent("share")
+    }
 
-        fun logMoreClick() {
-            submitEvent("more")
-        }
+    fun logTalkPageClick() {
+        submitEvent("talk_page")
+    }
 
-        fun logShareClick() {
-            submitEvent("share")
-        }
+    fun logEditHistoryClick() {
+        submitEvent("edit_history")
+    }
 
-        fun logTalkPageClick() {
-            submitEvent("talk_page")
-        }
+    fun logNewTabClick() {
+        submitEvent("new_tab")
+    }
 
-        fun logEditHistoryClick() {
-            submitEvent("edit_history")
-        }
+    fun logExploreClick() {
+        submitEvent("explore")
+    }
 
-        fun logNewTabClick() {
-            submitEvent("new_tab")
-        }
+    fun logForwardClick() {
+        submitEvent("forward")
+    }
 
-        fun logExploreClick() {
-            submitEvent("explore")
-        }
+    fun logNotificationClick() {
+        submitEvent("notification")
+    }
 
-        fun logForwardClick() {
-            submitEvent("forward")
-        }
+    fun logTabsClick() {
+        submitEvent("tabs")
+    }
 
-        fun logNotificationClick() {
-            submitEvent("notification")
-        }
+    fun logSearchWikipediaClick() {
+        submitEvent("search_wikipedia")
+    }
 
-        fun logTabsClick() {
-            submitEvent("tabs")
-        }
+    fun logBackClick() {
+        submitEvent("back")
+    }
 
-        fun logSearchWikipediaClick() {
-            submitEvent("search_wikipedia")
-        }
+    fun logEditHistoryArticleClick() {
+        submitEvent("edit_history_from_article")
+    }
 
-        fun logBackClick() {
-            submitEvent("back")
-        }
+    fun logTalkPageArticleClick() {
+        submitEvent("talk_page_from_article")
+    }
 
-        fun logEditHistoryArticleClick() {
-            submitEvent("edit_history_from_article")
-        }
+    fun logTocSwipe() {
+        submitEvent("toc_swipe")
+    }
 
-        fun logTalkPageArticleClick() {
-            submitEvent("talk_page_from_article")
-        }
+    fun logCategoriesClick() {
+        submitEvent("categories")
+    }
 
-        fun logTocSwipe() {
-            submitEvent("toc_swipe")
-        }
+    fun logWatchClick() {
+        submitEvent("watch_article")
+    }
 
-        fun logCategoriesClick() {
-            submitEvent("categories")
-        }
+    fun logUnWatchClick() {
+        submitEvent("unwatch_article")
+    }
 
-        fun logWatchClick() {
-            submitEvent("watch_article")
-        }
+    fun logEditArticleClick() {
+        submitEvent("edit_article")
+    }
 
-        fun logUnWatchClick() {
-            submitEvent("unwatch_article")
-        }
+    fun pause() { timer.pause() }
+    fun resume() { timer.resume() }
+    fun reset() { timer.reset() }
 
-        fun logEditArticleClick() {
-            submitEvent("edit_article")
-        }
-
-        fun pause() { timer.pause() }
-        fun resume() { timer.resume() }
-        fun reset() { timer.reset() }
-
-        private fun submitEvent(action: String) {
-            val customData = mapOf(
+    private fun submitEvent(action: String) {
+        submitEvent(
+            "article_toolbar_interaction",
+            mapOf(
                 "action" to action,
                 "time_spent_ms" to timer.elapsedMillis
-            )
-            submitEvent(
-                "article_toolbar_interaction",
-                getPageData(fragment),
-                customData
-            )
-        }
+            ),
+            getPageData(fragment)
+        )
+    }
+}
+
+class ArticleTocInteraction(private val fragment: PageFragment, private val numSections: Int) : MetricsEvent() {
+    private var numOpens = 0
+    private var numSectionClicks = 0
+    private var lastScrollStartMillis = 0L
+    private var totalOpenedSec = 0
+
+    fun scrollStart() {
+        numOpens++
+        lastScrollStartMillis = System.currentTimeMillis()
     }
 
-    inner class ArticleTocInteraction(
-        private val fragment: PageFragment,
-        private val numSections: Int
-    ) {
-        private var numOpens = 0
-        private var numSectionClicks = 0
-        private var lastScrollStartMillis = 0L
-        private var totalOpenedSec = 0
-
-        fun scrollStart() {
-            numOpens++
-            lastScrollStartMillis = System.currentTimeMillis()
+    fun scrollStop() {
+        if (lastScrollStartMillis == 0L) {
+            return
         }
+        totalOpenedSec += ((System.currentTimeMillis() - lastScrollStartMillis) / TimeUnit.SECONDS.toMillis(1)).toInt()
+        lastScrollStartMillis = 0
+    }
 
-        fun scrollStop() {
-            if (lastScrollStartMillis == 0L) {
-                return
-            }
-            totalOpenedSec += ((System.currentTimeMillis() - lastScrollStartMillis) / TimeUnit.SECONDS.toMillis(1)).toInt()
-            lastScrollStartMillis = 0
+    fun logClick() {
+        numSectionClicks++
+    }
+
+    fun logEvent() {
+        scrollStop()
+        if (numSections == 0 || numOpens == 0) {
+            return
         }
-
-        fun logClick() {
-            numSectionClicks++
-        }
-
-        fun logEvent() {
-            scrollStop()
-            if (numSections == 0 || numOpens == 0) {
-                return
-            }
-
-            val customData = mapOf(
+        submitEvent(
+            "article_toc_interaction",
+            mapOf(
                 "num_opens" to numOpens,
                 "num_section_clicks" to numSectionClicks,
                 "total_open_sec" to totalOpenedSec,
                 "num_sections" to numSections
-            )
-            submitEvent(
-                "article_toc_interaction",
-                getPageData(fragment),
-                customData
-            )
-        }
-    }
-
-    inner class ArticleLinkPreviewInteraction(
-        private val fragment: PageFragment,
-        private val source: Int
-    ) {
-        private val PROD_LINK_PREVIEW_VERSION = 3
-        fun logLinkClick() {
-            submitEvent("linkclick")
-        }
-
-        fun logNavigate() {
-            submitEvent(if (Prefs.isLinkPreviewEnabled) "navigate" else "disabled")
-        }
-
-        fun logCancel() {
-            submitEvent("cancel")
-        }
-
-        private fun submitEvent(action: String) {
-            val customData = mapOf(
-                "action" to action,
-                "source" to source,
-                "time_spent_ms" to timer.elapsedMillis,
-                "wiki_db" to (fragment.title?.wikiSite?.dbName() ?: ""),
-                "version" to PROD_LINK_PREVIEW_VERSION
-            )
-            submitEvent(
-                "article_link_preview_interaction",
-                getPageData(fragment),
-                customData
-            )
-        }
-    }
-
-    inner class ArticleLinkPreviewDialogInteraction(
-        private val wikiDb: String,
-        private val pageId: Int,
-        private val source: Int
-    ) {
-        private val PROD_LINK_PREVIEW_VERSION = 3
-        fun logLinkClick() {
-            submitEvent("linkclick")
-        }
-
-        fun logNavigate() {
-            submitEvent(if (Prefs.isLinkPreviewEnabled) "navigate" else "disabled")
-        }
-
-        fun logCancel() {
-            submitEvent("cancel")
-        }
-
-        private fun submitEvent(action: String) {
-            val customData = mapOf(
-                "action" to action,
-                "source" to source,
-                "time_spent_ms" to timer.elapsedMillis,
-                "wiki_db" to wikiDb,
-                "page_id" to pageId,
-                "version" to PROD_LINK_PREVIEW_VERSION
-            )
-            submitEvent(
-                "article_link_preview_interaction",
-                null,
-                customData
-            )
-        }
-    }
-
-    /**
-     * Submits events to the Metrics Platform.
-     */
-    private fun submitEvent(
-        eventName: String,
-        pageData: PageData?,
-        customData: Map<String, Any>
-    ) {
-        if (ReleaseUtil.isPreBetaRelease) {
-            MetricsPlatform.client.submitMetricsEvent(
-                Constants.ANDROID_METRICS_PLATFORM_EVENT_PREFIX + eventName,
-                pageData,
-                mergeData(customData))
-        }
-    }
-
-    private fun getPageData(fragment: PageFragment): PageData? {
-        val pageProperties = fragment.page?.pageProperties ?: return null
-        return PageData(
-            pageProperties.pageId,
-            pageProperties.displayTitle,
-            pageProperties.namespace.code(),
-            Namespace.of(pageProperties.namespace.code()).toString(),
-            pageProperties.revisionId,
-            pageProperties.wikiBaseItem ?: "",
-            fragment.model.title?.wikiSite?.languageCode ?: "",
-            null,
-            null,
-            null
+            ),
+            getPageData(fragment)
         )
     }
+}
 
-    /**
-     * Merges custom data with additional client metadata.
-     */
-    private fun mergeData(data: Map<String, Any?>): Map<String, Any?> {
-        return data + ApplicationData.data
+class ArticleLinkPreviewInteraction : TimedMetricsEvent {
+    private val pageData: PageData?
+    private val source: Int
+
+    constructor(fragment: PageFragment, source: Int) {
+        this.source = source
+        pageData = getPageData(fragment)
+    }
+
+    constructor(pageTitle: PageTitle, pageId: Int, source: Int) {
+        this.source = source
+        pageData = getPageData(pageTitle, pageId)
+    }
+
+    fun logLinkClick() {
+        submitEvent("linkclick")
+    }
+
+    fun logNavigate() {
+        submitEvent(if (Prefs.isLinkPreviewEnabled) "navigate" else "disabled")
+    }
+
+    fun logCancel() {
+        submitEvent("cancel")
+    }
+
+    private fun submitEvent(action: String) {
+        submitEvent(
+            "article_link_preview_interaction",
+            mapOf(
+                "action" to action,
+                "source" to source,
+                "time_spent_ms" to timer.elapsedMillis,
+            ),
+            pageData
+        )
     }
 }

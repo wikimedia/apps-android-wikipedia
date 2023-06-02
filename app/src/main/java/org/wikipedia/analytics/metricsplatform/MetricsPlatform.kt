@@ -6,13 +6,13 @@ import org.wikimedia.metrics_platform.context.ClientData
 import org.wikipedia.WikipediaApp
 
 object MetricsPlatform {
-    private val agentData: AgentData = AgentData(
+    private val agentData = AgentData(
         WikipediaApp.instance.appInstallID,
         "mobile app",
         "android"
     )
 
-    private val clientData: ClientData = ClientData(
+    private val clientData = ClientData(
         agentData,
         null,
         null,
