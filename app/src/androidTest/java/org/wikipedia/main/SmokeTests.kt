@@ -433,6 +433,20 @@ class SmokeTests {
         // Get back to article screen
         pressBack()
 
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.page_language), withContentDescription("Language"), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.langlinks_recycler),)).perform(actionOnItemAtPosition<ViewHolder>(3, click()))
+
+        TestUtil.delay(2)
+
+        // Ensure that the title in the WebView is still what we expect
+        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
+            .check(WebViewAssertions.webMatches(DriverAtoms.getText(), `is`(ARTICLE_TITLE_ESPANOL)))
+
         if (AccountUtil.isLoggedIn) {
             // Click on the 5th topic
             onView(withId(R.id.page_toolbar_button_notifications)).perform(click())
@@ -523,6 +537,10 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
+        pressBack()
+
+        TestUtil.delay(2)
+
         onView(allOf(withId(R.id.nav_tab_search), withContentDescription("Search"),
             childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 2), isDisplayed())).perform(click())
 
@@ -536,6 +554,10 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
+        onView(allOf(withId(android.R.id.button2), withText("No"), isDisplayed())).perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
         TestUtil.setAirplaneMode(false)
 
         TestUtil.delay(2)
@@ -544,5 +566,6 @@ class SmokeTests {
     companion object {
         private val SEARCH_TERM = "hopf fibration"
         private val ARTICLE_TITLE = "Hopf fibration"
+        private val ARTICLE_TITLE_ESPANOL = "Fibración de Hopf"
     }
 }
