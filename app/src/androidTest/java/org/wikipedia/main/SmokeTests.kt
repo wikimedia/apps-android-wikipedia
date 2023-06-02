@@ -181,6 +181,16 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
+        onView(allOf(withContentDescription("More options"), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.title), withText("Go to image page"), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        pressBack()
+
         // Go back to the article
         pressBack()
 
