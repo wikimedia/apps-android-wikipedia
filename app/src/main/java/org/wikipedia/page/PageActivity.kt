@@ -23,7 +23,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
-import org.wikipedia.analytics.metricsplatform.ArticleEvent
+import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityPageBinding
@@ -560,8 +560,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 pageFragment.page?.pageProperties?.pageId ?: 0, entry.source)
             articleLinkPreviewInteractionEvent.logNavigate()
 
-            val metricsPlatformArticleEventLinkPreviewInteraction = ArticleEvent().ArticleLinkPreviewInteraction(pageFragment, entry.source)
-            metricsPlatformArticleEventLinkPreviewInteraction.logNavigate()
+            ArticleLinkPreviewInteraction(pageFragment, entry.source).logNavigate()
         }
         app.putCrashReportProperty("api", pageTitle.wikiSite.authority())
         app.putCrashReportProperty("title", pageTitle.toString())

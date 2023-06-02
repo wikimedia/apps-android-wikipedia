@@ -20,7 +20,7 @@ import org.json.JSONException
 import org.json.JSONObject
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.ArticleTocInteractionEvent
-import org.wikipedia.analytics.metricsplatform.ArticleEvent
+import org.wikipedia.analytics.metricsplatform.ArticleTocInteraction
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.util.DimenUtil
@@ -43,7 +43,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     private var rtl = false
     private var currentItemSelected = 0
     private var articleTocInteractionEvent: ArticleTocInteractionEvent? = null
-    private var metricsPlatformArticleEventTocInteraction: ArticleEvent.ArticleTocInteraction? = null
+    private var metricsPlatformArticleEventTocInteraction: ArticleTocInteraction? = null
 
     private val sectionOffsetsCallback: ValueCallback<String> = ValueCallback { value ->
         if (!fragment.isAdded) {
@@ -105,7 +105,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         articleTocInteractionEvent = ArticleTocInteractionEvent(page.pageProperties.pageId, page.title.wikiSite.dbName(), tocAdapter.count)
         articleTocInteractionEvent?.logClick()
 
-        metricsPlatformArticleEventTocInteraction = ArticleEvent().ArticleTocInteraction(fragment, tocAdapter.count)
+        metricsPlatformArticleEventTocInteraction = ArticleTocInteraction(fragment, tocAdapter.count)
         metricsPlatformArticleEventTocInteraction?.logClick()
     }
 

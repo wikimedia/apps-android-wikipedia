@@ -1,7 +1,7 @@
 package org.wikipedia.page
 
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
-import org.wikipedia.analytics.metricsplatform.ArticleEvent
+import org.wikipedia.analytics.metricsplatform.ArticleFindInPageInteraction
 import org.wikipedia.views.FindInPageActionProvider
 import org.wikipedia.views.FindInPageActionProvider.FindInPageListener
 
@@ -10,7 +10,7 @@ class FindInWebPageActionProvider(private val fragment: PageFragment,
         FindInPageActionProvider(fragment.requireContext()), FindInPageListener {
 
     private var searchQuery: String? = null
-    private var metricsPlatformArticleFindInPageInteraction = ArticleEvent().ArticleFindInPageInteraction(fragment)
+    private val metricsPlatformArticleFindInPageInteraction = ArticleFindInPageInteraction(fragment)
 
     init {
         listener = this

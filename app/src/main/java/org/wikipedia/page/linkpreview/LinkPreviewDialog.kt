@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
-import org.wikipedia.analytics.metricsplatform.ArticleEvent
+import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.DialogLinkPreviewBinding
 import org.wikipedia.dataclient.page.PageSummary
@@ -48,7 +48,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private val binding get() = _binding!!
 
     private var articleLinkPreviewInteractionEvent: ArticleLinkPreviewInteractionEvent? = null
-    private var metricsPlatformArticleEventLinkPreviewDialogInteraction: ArticleEvent.ArticleLinkPreviewDialogInteraction? = null
+    private var linkPreviewInteraction: ArticleLinkPreviewInteraction? = null
     private var overlayView: LinkPreviewOverlayView? = null
     private var navigateSuccess = false
     private var revision: Long = 0
@@ -143,12 +143,12 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         )
         articleLinkPreviewInteractionEvent?.logLinkClick()
 
-        metricsPlatformArticleEventLinkPreviewDialogInteraction = ArticleEvent().ArticleLinkPreviewDialogInteraction(
-            viewModel.pageTitle.wikiSite.dbName(),
+        linkPreviewInteraction = ArticleLinkPreviewInteraction(
+            viewModel.pageTitle,
             summary.pageId,
             viewModel.historyEntry.source
         )
-        metricsPlatformArticleEventLinkPreviewDialogInteraction?.logLinkClick()
+        linkPreviewInteraction?.logLinkClick()
 
         revision = summary.revision
 
@@ -203,7 +203,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         super.onDismiss(dialogInterface)
         if (!navigateSuccess) {
             articleLinkPreviewInteractionEvent?.logCancel()
-            metricsPlatformArticleEventLinkPreviewDialogInteraction?.logCancel()
+            linkPreviewInteraction?.logCancel()
         }
     }
 
@@ -285,7 +285,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private fun goToLinkedPage(inNewTab: Boolean) {
         navigateSuccess = true
         articleLinkPreviewInteractionEvent?.logNavigate()
-        metricsPlatformArticleEventLinkPreviewDialogInteraction?.logNavigate()
+        linkPreviewInteraction?.logNavigate()
         dialog?.dismiss()
         loadPage(viewModel.pageTitle, viewModel.historyEntry, inNewTab)
     }
