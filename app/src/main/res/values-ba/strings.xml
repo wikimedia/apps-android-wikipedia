@@ -65,7 +65,7 @@
   <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Үҙгәртеүҙәр аңлатмаһы буш</string>
   <string name="page_edit_history_filter_by_anon">Аноним төҙәтеүселәр (%s)</string>
-  <string name="page_edit_history_filter_by_bot" fuzzy="true">Робот төҙәтеүҙәре</string>
+  <string name="page_edit_history_filter_by_bot">Робот төҙәтеүҙәре (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s тиклем %2$s метрикалар</string>
   <string name="page_edit_history_empty_search_message">Төҙәтеүҙәрҙе күберәк күреү өсөн үҙгәртеп ҡарағыҙ &lt;a href=\"#\"&gt;фильтры&lt;/a&gt;</string>
   <string name="menu_page_show_tabs">Ҡушымтаны күрһәтергә</string>
