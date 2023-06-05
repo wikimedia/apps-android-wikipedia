@@ -4,6 +4,7 @@ import org.wikimedia.metrics_platform.MetricsClient
 import org.wikimedia.metrics_platform.context.AgentData
 import org.wikimedia.metrics_platform.context.ClientData
 import org.wikipedia.WikipediaApp
+import org.wikipedia.settings.Prefs
 import java.time.Duration
 
 object MetricsPlatform {
@@ -21,7 +22,7 @@ object MetricsPlatform {
     )
 
     val client: MetricsClient = MetricsClient.builder(clientData)
-        .eventQueueCapacity(256)
+        .eventQueueCapacity(Prefs.analyticsQueueSize)
         .streamConfigFetchInterval(Duration.ofHours(12))
         .sendEventsInterval(Duration.ofSeconds(30))
         .build()
