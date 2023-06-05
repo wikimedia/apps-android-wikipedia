@@ -235,29 +235,29 @@ interface Service {
         @Field("captchaWord") captchaWord: String?
     ): Observable<CreateAccountResponse>
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
-    @get:Headers("Cache-Control: no-cache")
-    val loginToken: Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
+    @Headers("Cache-Control: no-cache")
+    suspend fun getLoginToken(): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
-    fun postLogIn(
+    suspend fun postLogIn(
         @Field("username") user: String?,
         @Field("password") pass: String?,
         @Field("logintoken") token: String?,
         @Field("loginreturnurl") url: String?
-    ): Observable<LoginResponse>
+    ): LoginResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
-    fun postLogIn(
+    suspend fun postLogIn(
         @Field("username") user: String?,
         @Field("password") pass: String?,
         @Field("retype") retypedPass: String?,
         @Field("OATHToken") twoFactorCode: String?,
         @Field("logintoken") token: String?,
         @Field("logincontinue") loginContinue: Boolean
-    ): Observable<LoginResponse>
+    ): LoginResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=logout")
@@ -268,6 +268,9 @@ interface Service {
 
     @get:GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
     val userInfo: Observable<MwQueryResponse>
+
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
+    suspend fun getUserInfo(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights")
     suspend fun userInfo(@Query("ususers") userName: String): MwQueryResponse

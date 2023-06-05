@@ -9,7 +9,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -33,7 +35,6 @@ class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginSource: String
     private var firstStepToken: String? = null
-    private val loginClient = LoginClient()
     private val loginCallback = LoginCallback()
     private var shouldLogLogin = true
 
@@ -98,7 +99,6 @@ class LoginActivity : BaseActivity() {
 
     override fun onStop() {
         binding.viewProgressBar.visibility = View.GONE
-        loginClient.cancel()
         super.onStop()
     }
 
@@ -168,11 +168,10 @@ class LoginActivity : BaseActivity() {
         val password = getText(binding.loginPasswordInput)
         val twoFactorCode = getText(binding.login2faText)
         showProgressBar(true)
-        if (twoFactorCode.isNotEmpty() && !firstStepToken.isNullOrEmpty()) {
-            loginClient.login(WikipediaApp.instance.wikiSite, username, password,
-                    null, twoFactorCode, firstStepToken!!, loginCallback)
-        } else {
-            loginClient.request(WikipediaApp.instance.wikiSite, username, password, loginCallback)
+        lifecycleScope.launch {
+            val loginToken = firstStepToken.orEmpty().ifEmpty { LoginClient.getLoginToken(WikipediaApp.instance.wikiSite) }
+            LoginClient.login(username, password, twoFactorCode = twoFactorCode.ifEmpty { null },
+                loginToken = loginToken, cb = loginCallback)
         }
     }
 

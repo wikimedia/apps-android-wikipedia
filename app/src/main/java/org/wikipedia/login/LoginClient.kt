@@ -1,10 +1,8 @@
 package org.wikipedia.login
 
 import android.widget.Toast
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
@@ -16,10 +14,7 @@ import org.wikipedia.dataclient.mwapi.MwResponse
 import org.wikipedia.util.log.L
 import java.io.IOException
 
-class LoginClient {
-
-    private val disposables = CompositeDisposable()
-
+object LoginClient {
     interface LoginCallback {
         fun success(result: LoginResult)
         fun twoFactorPrompt(caught: Throwable, token: String?)
@@ -27,104 +22,94 @@ class LoginClient {
         fun error(caught: Throwable)
     }
 
-    fun request(wiki: WikiSite, userName: String, password: String, cb: LoginCallback) {
-        cancel()
-        disposables.add(getLoginToken(wiki)
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ loginToken ->
-                login(wiki, userName, password, null, null, loginToken, cb)
-            }, { caught -> cb.error(caught) }))
-    }
+    suspend fun login(
+        userName: String, password: String, retypedPassword: String? = null, twoFactorCode: String?,
+        loginToken: String?, cb: LoginCallback
+    ) {
+        try {
+            val wiki = WikipediaApp.instance.wikiSite
+            val loginResponse = getLoginResponse(wiki, userName, password, retypedPassword,
+                twoFactorCode, loginToken)
+            var loginResult = loginResponse.toLoginResult(wiki, password)
+            if (loginResult != null) {
+                if (loginResult.pass() && userName.isNotEmpty()) {
+                    loginResult = getExtendedInfo(wiki, loginResult)
+                } else if (LoginResult.STATUS_UI == loginResult.status) {
+                    when (loginResult) {
+                        is LoginOAuthResult -> cb.twoFactorPrompt(
+                            LoginFailedException(loginResult.message),
+                            loginToken
+                        )
 
-    fun login(wiki: WikiSite, userName: String, password: String, retypedPassword: String?,
-        twoFactorCode: String?, loginToken: String?, cb: LoginCallback) {
-        disposables.add(getLoginResponse(wiki, userName, password, retypedPassword, twoFactorCode, loginToken)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .flatMap { loginResponse ->
-                val loginResult = loginResponse.toLoginResult(wiki, password)
-                if (loginResult != null) {
-                    if (loginResult.pass() && userName.isNotEmpty()) {
-                        return@flatMap getExtendedInfo(wiki, loginResult)
-                    } else if (LoginResult.STATUS_UI == loginResult.status) {
-                        when (loginResult) {
-                            is LoginOAuthResult -> cb.twoFactorPrompt(LoginFailedException(loginResult.message), loginToken)
-                            is LoginResetPasswordResult -> cb.passwordResetPrompt(loginToken)
-                            else -> cb.error(LoginFailedException(loginResult.message))
-                        }
-                    } else {
-                        cb.error(LoginFailedException(loginResult.message))
+                        is LoginResetPasswordResult -> cb.passwordResetPrompt(loginToken)
+                        else -> cb.error(LoginFailedException(loginResult.message))
                     }
                 } else {
-                    cb.error(IOException("Login failed. Unexpected response."))
+                    cb.error(LoginFailedException(loginResult.message))
                 }
-                Observable.empty()
+            } else {
+                cb.error(IOException("Login failed. Unexpected response."))
             }
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ loginResult ->
+
+            if (loginResult != null) {
                 cb.success(loginResult)
-            }) { caught ->
-                L.e("Login process failed. $caught")
-                cb.error(caught)
-            })
-    }
-
-    fun loginBlocking(wiki: WikiSite, userName: String, password: String, twoFactorCode: String?): Observable<LoginResponse> {
-        return getLoginToken(wiki)
-            .flatMap { loginToken ->
-                getLoginResponse(wiki, userName, password, null, twoFactorCode, loginToken)
             }
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .map { loginResponse ->
-                val loginResult = loginResponse.toLoginResult(wiki, password) ?: throw IOException("Unexpected response when logging in.")
-                if (LoginResult.STATUS_UI == loginResult.status) {
-                    if (loginResult is LoginOAuthResult) {
-                        // TODO: Find a better way to boil up the warning about 2FA
-                        Toast.makeText(WikipediaApp.instance,
-                            R.string.login_2fa_other_workflow_error_msg, Toast.LENGTH_LONG).show()
-                    }
-                    throw LoginFailedException(loginResult.message)
-                } else if (!loginResult.pass() || loginResult.userName.isNullOrEmpty()) {
-                    throw LoginFailedException(loginResult.message)
-                }
-                loginResponse
+        } catch (caught: Exception) {
+            L.e("Login process failed. $caught")
+            cb.error(caught)
+        }
+    }
+
+    suspend fun login(wiki: WikiSite, userName: String, password: String) {
+        val loginResponse = getLoginResponse(wiki, userName, password, getLoginToken(wiki))
+        val loginResult = loginResponse.toLoginResult(wiki, password)
+            ?: throw IOException("Unexpected response when logging in.")
+        if (LoginResult.STATUS_UI == loginResult.status) {
+            if (loginResult is LoginOAuthResult) {
+                // TODO: Find a better way to boil up the warning about 2FA
+                Toast.makeText(WikipediaApp.instance,
+                    R.string.login_2fa_other_workflow_error_msg, Toast.LENGTH_LONG).show()
             }
+            throw LoginFailedException(loginResult.message)
+        } else if (!loginResult.pass() || loginResult.userName.isNullOrEmpty()) {
+            throw LoginFailedException(loginResult.message)
+        }
     }
 
-    private fun getLoginToken(wiki: WikiSite): Observable<String> {
-        return ServiceFactory.get(wiki).loginToken
-            .subscribeOn(Schedulers.io())
-            .map { response ->
-                val loginToken = response.query?.loginToken()
-                if (loginToken.isNullOrEmpty()) {
-                    throw RuntimeException("Received empty login token.")
-                }
-                loginToken
-            }
+    suspend fun getLoginToken(wiki: WikiSite): String {
+        val response = withContext(Dispatchers.IO) { ServiceFactory.get(wiki).getLoginToken() }
+        val loginToken = response.query?.loginToken()
+        if (loginToken.isNullOrEmpty()) {
+            throw RuntimeException("Received empty login token.")
+        }
+        return loginToken
     }
 
-    private fun getLoginResponse(wiki: WikiSite, userName: String, password: String, retypedPassword: String?,
-        twoFactorCode: String?, loginToken: String?): Observable<LoginResponse> {
-        return if (twoFactorCode.isNullOrEmpty() && retypedPassword.isNullOrEmpty())
-            ServiceFactory.get(wiki).postLogIn(userName, password, loginToken, Service.WIKIPEDIA_URL)
-        else ServiceFactory.get(wiki).postLogIn(userName, password, retypedPassword, twoFactorCode, loginToken, true)
+    private suspend fun getLoginResponse(
+        wiki: WikiSite, userName: String, password: String, loginToken: String?
+    ): LoginResponse {
+        return ServiceFactory.get(wiki).postLogIn(userName, password, loginToken, Service.WIKIPEDIA_URL)
     }
 
-    private fun getExtendedInfo(wiki: WikiSite, loginResult: LoginResult): Observable<LoginResult> {
-        return ServiceFactory.get(wiki).userInfo
-            .subscribeOn(Schedulers.io())
-            .map { response ->
-                val id = response.query?.userInfo!!.id
-                loginResult.userId = id
-                loginResult.groups = response.query?.userInfo!!.groups()
-                L.v("Found user ID " + id + " for " + wiki.subdomain())
-                loginResult
-            }
+    private suspend fun getLoginResponse(
+        wiki: WikiSite, userName: String, password: String, retypedPassword: String?,
+        twoFactorCode: String?, loginToken: String?
+    ): LoginResponse = withContext(Dispatchers.IO) {
+        val service = ServiceFactory.get(wiki)
+        if (twoFactorCode.isNullOrEmpty() && retypedPassword.isNullOrEmpty()) {
+            service.postLogIn(userName, password, loginToken, Service.WIKIPEDIA_URL)
+        } else {
+            service.postLogIn(userName, password, retypedPassword, twoFactorCode, loginToken, true)
+        }
     }
 
-    fun cancel() {
-        disposables.clear()
+    private suspend fun getExtendedInfo(wiki: WikiSite, loginResult: LoginResult): LoginResult {
+        val response = withContext(Dispatchers.IO) { ServiceFactory.get(wiki).getUserInfo() }
+        val userInfo = response.query?.userInfo!!
+        loginResult.userId = userInfo.id
+        loginResult.groups = userInfo.groups()
+        L.v("Found user ID ${userInfo.id} for ${wiki.subdomain()}")
+        return loginResult
     }
 
     @Serializable

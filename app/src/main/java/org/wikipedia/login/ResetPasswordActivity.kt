@@ -7,9 +7,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.launch
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.auth.AccountUtil.updateAccount
 import org.wikipedia.createaccount.CreateAccountActivity.Companion.validateInput
@@ -26,7 +27,6 @@ class ResetPasswordActivity : BaseActivity() {
     private lateinit var binding: ActivityResetPasswordBinding
     private lateinit var firstStepToken: String
     private lateinit var userName: String
-    private var loginClient: LoginClient? = null
     private val loginCallback = LoginCallback()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,11 +96,11 @@ class ResetPasswordActivity : BaseActivity() {
         val retypedPassword = getText(binding.resetPasswordRepeat)
         val twoFactorCode = binding.login2faText.text.toString()
         showProgressBar(true)
-        if (loginClient == null) {
-            loginClient = LoginClient()
+        lifecycleScope.launch {
+            LoginClient.login(
+                userName, password, retypedPassword, twoFactorCode, firstStepToken, loginCallback
+            )
         }
-        loginClient?.login(WikipediaApp.instance.wikiSite, userName, password,
-                retypedPassword, twoFactorCode, firstStepToken, loginCallback)
     }
 
     private inner class LoginCallback : LoginClient.LoginCallback {
