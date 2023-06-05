@@ -193,6 +193,7 @@
   <string name="create_account_button">Crear conto</string>
   <string name="create_account_name_unavailable">Le nomine de usator \"%s\" non es disponibile. Per favor elige un altere nomine.</string>
   <string name="create_account_ip_block_message">Guai, tu adresse IP es actualmente blocate de crear nove contos.</string>
+  <string name="create_account_ip_block_details">Detalios</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">FAQ re app Wikipedia</string>
   <string name="send_feedback">Inviar commentario re le application</string>
