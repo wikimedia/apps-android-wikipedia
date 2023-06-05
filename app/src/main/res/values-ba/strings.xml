@@ -20,8 +20,8 @@
 -->
 <resources>
   <string name="app_name_prod">Википедия</string>
-  <string name="app_name_beta">Википедия бета</string>
-  <string name="app_name_alpha">Википедия альфа</string>
+  <string name="app_name_beta">Википедия Бета</string>
+  <string name="app_name_alpha">Википедия Альфа</string>
   <string name="wikimedia">Викимедиа</string>
   <string name="nav_item_back">Артҡа</string>
   <string name="page_tabs_back">Артҡа</string>
@@ -45,12 +45,13 @@
   <string name="menu_clear_all_history">Тарихты юйыу</string>
   <string name="history_item_deleted">\"%s\" мәҡәләһе ҡарау тарихынан юйылған</string>
   <string name="history_items_deleted">%d мәҡәлә ҡарау тарихынан юйылған</string>
-  <string name="history_item_delete_undo">Кире ҡайтарыу</string>
-  <string name="notification_archive_undo">Кире ҡайтарыу</string>
+  <string name="history_item_delete_undo">Кире алырға</string>
+  <string name="notification_archive_undo">Кире алырға</string>
   <string name="app_settings">Ҡушымта көйләүҙәре</string>
-  <string name="search_tab_tooltip">Эҙләү һорауын яҙа башлау өсөн тағы бер тапҡып тамғаға баҫығыҙ.</string>
+  <string name="search_tab_tooltip">Эҙләгән һорауһы яҙа башлау өсөн яңынан иконаға баҫығыҙ.</string>
   <string name="history_list_title">Тарих</string>
   <string name="image_content_description">Рәсем: %s</string>
+  <string name="page_content_description">Бит: %s</string>
   <string name="wikimedia_commons">Викимилек</string>
   <string name="wikidata">Викидата</string>
   <string name="dialog_title_clear_history">Тарихты таҙартырға</string>
@@ -60,13 +61,23 @@
   <string name="share_via">Уртаҡлашырға</string>
   <string name="image_share_via">Уртаҡлашырға</string>
   <string name="search_redirect_from">%s битенән йүнәлтелде</string>
+  <string name="page_edit_history_activity_title">Үҙгәртеүҙәр тарихы: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Үҙгәртеүҙәр аңлатмаһы буш</string>
+  <string name="page_edit_history_filter_by_anon">Аноним төҙәтеүселәр (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Робот төҙәтеүҙәре (%s)</string>
+  <string name="page_edit_history_metrics_content_description">%1$s тиклем %2$s метрикалар</string>
+  <string name="page_edit_history_empty_search_message">Төҙәтеүҙәрҙе күберәк күреү өсөн үҙгәртеп ҡарағыҙ &lt;a href=\"#\"&gt;фильтры&lt;/a&gt;</string>
   <string name="menu_page_show_tabs">Ҡушымтаны күрһәтергә</string>
   <string name="menu_page_other_languages">Телде һайларға</string>
   <string name="menu_page_find_in_page">Мәҡәләлә эҙләү</string>
   <string name="menu_page_add_to_watchlist">Күҙәтеү исемлегенә өҫтәргә</string>
   <string name="menu_page_view_talk">Әңгәмә битен ҡарау</string>
+  <string name="menu_page_talk_page">Фекер алышыу бите</string>
   <string name="menu_page_view_edit_history">Үҙгәртеүҙәр тарихын ҡарау</string>
+  <string name="menu_page_edit_history">Үҙгәртеүҙәр тарихы</string>
   <string name="menu_page_remove_from_watchlist">Күҙәтеү исемлегенән юйырға</string>
+  <string name="menu_page_watched">Күҙәтеүселәр</string>
   <string name="edit_section_find_in_page">Биттә эҙләргә</string>
   <string name="menu_page_font_and_theme">Шрифты һәм биҙәлеште үҙгәртергә</string>
   <string name="menu_page_add_to_list">Уҡыу исемлегенә өҫтәргә</string>
@@ -74,10 +85,13 @@
   <string name="feed_card_add_to_list">Уҡыу исемлегенә өҫтәргә</string>
   <string name="feed_card_add_to_default_list">Һаҡларға</string>
   <string name="menu_page_share">Һылтанма менән бүлешергә</string>
+  <string name="menu_article_share">Мәҡәлә менән ураҡлашыу</string>
+  <string name="menu_page_article_share">Уртаҡлашырға</string>
   <string name="menu_page_open_a_new_tab">Яңы ҡушылманы асырға</string>
   <string name="menu_page_new_tab">Яңы ҡушымта</string>
   <string name="menu_page_reading_lists">Уҡыу исемлектәре</string>
   <string name="menu_page_recently_viewed">Яңыраҡ ҡаралған</string>
+  <string name="menu_page_archive">Архивланған</string>
   <string name="menu_long_press_open_page">Асырға</string>
   <string name="menu_long_press_open_in_new_tab">Битте яңы ҡушылмала асырға</string>
   <string name="menu_long_press_copy_page">Һылтанма адресын күсереп алырға</string>
@@ -85,6 +99,7 @@
   <string name="on_this_day_page_share">Уртаҡлашырға</string>
   <string name="reading_list_page_share">Уртаҡлашырға</string>
   <string name="menu_text_select_edit_here">Бында төҙәтергә</string>
+  <string name="menu_edit_article">Мәҡәләне төҙәтергә</string>
   <string name="last_updated_text">Һуңғы яңыртыу %s</string>
   <string name="talk_page_link_text">Әңгәмә битен ҡарау</string>
   <string name="edit_history_link_text">Үҙгәртеүҙәр тарихын ҡарау</string>
@@ -94,6 +109,7 @@
   <string name="content_license_cc_by_sa">CC-BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Үҙгәртеүҙәрҙе ебәреп, һеҙ &lt;a href=\"%1$s\"&gt;Ҡулланыу шарттарына&lt;/a&gt; ризалашаһығыҙ, шулай уҡ ошо лицензия буйынса, кире алынмай торған баҫтырыуға ризалыҡ бирәһегеҙ&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Үҙгәрештәрҙе һаҡлап, һеҙ &lt;a href=\"%1$s\"&gt; &lt;/a&gt; менән килешәһегеҙ, шулай уҡ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензияһы буйынса баҫманы кире таптырып алмаҫҡа ризалашаһығыҙ. Төҙәтмәләр һеҙҙең ҡоролманың IP-адресына бәйләнәсәк. Әгәр ҙә &lt;a href=\"https://#login\"&gt;танылһағыҙ&lt;/a&gt;, сер һаҡлауҙың юғары кимәле менән ҡуллана алаһығыҙ.</string>
+  <string name="edit_anon_warning">Төҙәтеү имзаһына һеҙҙең ҡоролманың IP-адресы яҙыла. Әгәр системаға инһәгеҙ &lt;a href=\"https://#login\"&gt;шәхси эшләргә мөмкинлектәр күберәк буласаҡ&lt;/a&gt;.</string>
   <string name="preference_title_language">Википедия телдәре</string>
   <string name="langlinks_filter_hint">Эҙләү</string>
   <string name="langlinks_empty">Был бит башҡа телдәрҙә юҡ.</string>
@@ -160,6 +176,7 @@
   <string name="dialog_create_account_checking_progress">Тикшереү</string>
   <string name="create_account_email_hint">Электрон почта адресы (мотлаҡ түгел)</string>
   <string name="create_account_password_repeat_hint">Серһүҙҙе ҡабатлау</string>
+  <string name="create_account_password_is_username">Серһүҙ хисап яҙмаһы менән бер төрлө була алмай</string>
   <string name="create_account_passwords_mismatch_error">Серһүҙ тура килмәй</string>
   <string name="create_account_email_error">Электрон почта адресы дөрөҫ түгел</string>
   <string name="create_account_username_error">Ҡатнашыусы исемендә дөрөҫ булмаған символдар</string>
@@ -189,7 +206,7 @@
   <string name="preference_summary_sync_reading_lists">Уҡыу исемлектәрен ҡулайламалар аша Википедия аккаунтына һаҡлап синхронлаштыра</string>
   <string name="preference_summary_sync_reading_lists_from_account">Уҡыу исемлектәрен ҡулайламалар аша Википедия аккаунтығыҙға «%s» һаҡлап синхронлаштыра</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">«%s» синхрон уҡыу исемлектәрен юйырғамы?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Был элек синхрон уҡыу исемлектәрен алыҫтағы һаҡлағыстан тулыһынса алып ташлай. Бөтә синхрон исемлектәрҙе үҙегеҙҙең \"%s\" аккаунтығыҙҙан юйырғамы?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Был элек синхрон уҡыу исемлектәрен алыҫтағы һаҡлағыстан тулыһынса алып ташлай. Бөтә синхрон исемлектәрҙе үҙегеҙҙең \"%s\" аккаунтығыҙҙан юйырғамы?</string>
   <string name="preferences_privacy_settings_heading">Сер һаҡлау</string>
   <string name="preference_title_eventlogging_opt_in">Файҙаланыу тураһында отчет ебәреү</string>
   <string name="preference_summary_eventlogging_opt_in">Викимедиаға һеҙҙең ҡушымтаны нисек файҙаланыуығыҙ тураһында мәғлүмәт бирергә рөхсәт итеү. Был уны тағы ла яҡшыраҡ итергә мөмкинселек бирәсәк</string>
