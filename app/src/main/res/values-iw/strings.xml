@@ -546,7 +546,7 @@
     <item quantity="other">%d ערכים הוסרו מהרשימה %s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
-    <item quantity="one">נחמקה רשימה אחת</item>
+    <item quantity="one">נמחקה רשימה אחת</item>
     <item quantity="two">נמחקו %d רשימות</item>
     <item quantity="many">נמחקו %d רשימות</item>
     <item quantity="other">נמחקו %d רשימות</item>

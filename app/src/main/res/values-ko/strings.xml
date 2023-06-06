@@ -607,10 +607,13 @@
   <string name="reading_lists_import_failure_message">읽기 목록을 가져오지 못했습니다</string>
   <string name="reading_lists_export_select_lists_message">내보낼 목록을 선택하십시오</string>
   <string name="reading_lists_export_completed_message">읽기 목록을 내보냈습니다</string>
+  <string name="reading_lists_preview_header_title">공유 목록</string>
   <string name="reading_lists_preview_save_button">저장</string>
+  <string name="reading_lists_preview_save_dialog_title">목록 저장</string>
   <string name="reading_lists_preview_save_dialog_title_hint">제목</string>
   <string name="reading_lists_preview_save_dialog_cancel">취소</string>
   <string name="reading_lists_preview_save_dialog_save">저장</string>
+  <string name="reading_lists_preview_saved_snackbar">읽기 목록을 저장했습니다</string>
   <string name="reading_lists_preview_saved_snackbar_action">보기</string>
   <string name="user_option_sync_label">환경 설정</string>
   <string name="notification_reverted_title">되돌려진 편집</string>
