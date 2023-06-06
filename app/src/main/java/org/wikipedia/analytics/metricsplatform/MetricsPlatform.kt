@@ -10,8 +10,8 @@ import java.time.Duration
 object MetricsPlatform {
     private val agentData = AgentData(
         WikipediaApp.instance.appInstallID,
-        "mobile app",
-        "android"
+        "android",
+        "app"
     )
 
     private val clientData = ClientData(
