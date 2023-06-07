@@ -21,20 +21,20 @@ import static org.hamcrest.Matchers.is;
     @Test public void testDefaultLocaleAndAcceptLanguageAgree() {
         preserveAppState();
 
-        testDefaultLocaleAndAcceptLanguageAgree("zh,zh-hant;q=0.8", "zh",
+        testDefaultLocaleAndAcceptLanguageAgree("zh,zh-Hant;q=0.8", "zh",
                 Locale.TRADITIONAL_CHINESE);
-        testDefaultLocaleAndAcceptLanguageAgree("zh,zh-hans;q=0.8", "zh",
+        testDefaultLocaleAndAcceptLanguageAgree("zh,zh-Hans;q=0.8", "zh",
                 Locale.SIMPLIFIED_CHINESE);
         testDefaultLocaleAndAcceptLanguageAgree("zh,en;q=0.8", "zh", Locale.US);
         testDefaultLocaleAndAcceptLanguageAgree("zh,en;q=0.8", "zh", Locale.ENGLISH);
-        testDefaultLocaleAndAcceptLanguageAgree("en,zh-hans;q=0.8", "en",
+        testDefaultLocaleAndAcceptLanguageAgree("en,zh-Hans;q=0.8", "en",
                 Locale.SIMPLIFIED_CHINESE);
-        testDefaultLocaleAndAcceptLanguageAgree("test,zh-hans;q=0.8", "test",
+        testDefaultLocaleAndAcceptLanguageAgree("test,zh-Hans;q=0.8", "test",
                 Locale.SIMPLIFIED_CHINESE);
-        testDefaultLocaleAndAcceptLanguageAgree("es,zh-hans;q=0.9,zh-hant;q=0.8",
+        testDefaultLocaleAndAcceptLanguageAgree("es,zh-Hans;q=0.9,zh-Hant;q=0.8",
                 AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
                 Locale.TRADITIONAL_CHINESE, WikiSite.forLanguageCode("es"));
-        testDefaultLocaleAndAcceptLanguageAgree("zh-hant",
+        testDefaultLocaleAndAcceptLanguageAgree("zh-Hant",
                 AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE,
                 Locale.TRADITIONAL_CHINESE);
 
