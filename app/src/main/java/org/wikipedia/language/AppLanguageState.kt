@@ -136,6 +136,10 @@ class AppLanguageState(context: Context) {
         }
     }
 
+    fun getBcp47LanguageCode(langCode: String): String {
+        return appLanguageLookUpTable.getBcp47Code(langCode)
+    }
+
     private fun initAppLanguageCodes() {
         if (_appLanguageCodes.isEmpty()) {
             if (Prefs.isInitialOnboardingEnabled) {

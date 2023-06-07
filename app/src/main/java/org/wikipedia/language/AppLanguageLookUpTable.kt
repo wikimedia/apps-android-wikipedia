@@ -2,58 +2,38 @@ package org.wikipedia.language
 
 import android.content.Context
 import org.wikipedia.R
-import java.lang.ref.SoftReference
 import java.util.*
 
 class AppLanguageLookUpTable(context: Context) {
     private val resources = context.resources
-    private var codesRef = SoftReference<List<String>>(null)
-    private var canonicalNamesRef = SoftReference<List<String>>(null)
-    private var localizedNamesRef = SoftReference<List<String>>(null)
-    private var languagesVariantsRef = SoftReference<Map<String, List<String>>>(null)
 
-    val codes: List<String>
-        get() {
-            var codes = codesRef.get()
-            if (codes == null) {
-                codes = getStringList(R.array.preference_language_keys)
-                codesRef = SoftReference(codes)
-            }
-            return codes
-        }
+    val codes by lazy {
+        getStringList(R.array.preference_language_keys)
+    }
 
-    private val canonicalNames: List<String>
-        get() {
-            var names = canonicalNamesRef.get()
-            if (names == null) {
-                names = getStringList(R.array.preference_language_canonical_names)
-                canonicalNamesRef = SoftReference(names)
-            }
-            return names
+    val bcp47codes by lazy {
+        val bcpCodes = mutableMapOf<String, String>()
+        val bcpList = getStringList(R.array.preference_bcp47_keys)
+        for (i in bcpList.indices) {
+            bcpCodes[codes[i]] = bcpList[i]
         }
+        bcpCodes
+    }
 
-    private val localizedNames: List<String>
-        get() {
-            var names = localizedNamesRef.get()
-            if (names == null) {
-                names = getStringList(R.array.preference_language_local_names)
-                localizedNamesRef = SoftReference(names)
-            }
-            return names
-        }
+    private val canonicalNames by lazy {
+        getStringList(R.array.preference_language_canonical_names)
+    }
 
-    private val languagesVariants: Map<String, List<String>>
-        get() {
-            var map = languagesVariantsRef.get()
-            if (map == null) {
-                map = getStringList(R.array.preference_language_variants)
-                    .map { it.split(",") }
-                    .filter { it.size > 1 }
-                    .associate { it[0] to ArrayList(it.subList(1, it.size)) }
-                languagesVariantsRef = SoftReference(map)
-            }
-            return map
-        }
+    private val localizedNames by lazy {
+        getStringList(R.array.preference_language_local_names)
+    }
+
+    private val languagesVariants by lazy {
+        getStringList(R.array.preference_language_variants)
+            .map { it.split(",") }
+            .filter { it.size > 1 }
+            .associate { it[0] to ArrayList(it.subList(1, it.size)) }
+    }
 
     fun getCanonicalName(code: String?): String? {
         var name = canonicalNames.getOrNull(indexOfCode(code))
@@ -87,6 +67,10 @@ class AppLanguageLookUpTable(context: Context) {
 
     fun getDefaultLanguageCodeFromVariant(code: String?): String? {
         return languagesVariants.entries.firstOrNull { (_, value) -> code in value }?.key
+    }
+
+    fun getBcp47Code(code: String): String {
+        return bcp47codes[code].orEmpty().ifEmpty { code }
     }
 
     fun isSupportedCode(code: String?): Boolean {
