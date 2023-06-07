@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <com.skydoves.balloon.vectortext.VectorTextView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="24dp"
@@ -15,7 +15,7 @@
         android:layout_marginBottom="4dp"
         android:gravity="center_vertical"
         android:drawablePadding="8dp"
-        app:drawableStart="@drawable/ic_star_24"
+        app:drawableStartCompat="@drawable/ic_star_24"
         app:drawableTint="@android:color/white"/>
 
     <org.wikipedia.views.AppTextView
