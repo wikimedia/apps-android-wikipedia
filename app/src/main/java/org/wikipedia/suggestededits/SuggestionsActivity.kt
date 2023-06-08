@@ -9,16 +9,28 @@ import org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
 import org.wikipedia.suggestededits.SuggestedEditsCardsFragment.Companion.newInstance
 
 class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>() {
+    private var suggestedEditsImageTagsFragment: SuggestedEditsImageTagsFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getActionBarTitle(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action)
+        suggestedEditsImageTagsFragment = supportFragmentManager.findFragmentById(R.id.imageTagFragment) as SuggestedEditsImageTagsFragment?
         setImageZoomHelper()
+    }
+
+    override fun onBackPressed() {
+        if (fragment.topBaseChild() is SuggestedEditsImageTagsFragment && (fragment.topBaseChild() as SuggestedEditsImageTagsFragment).atLeastOneTagChecked()) {
+                SuggestedEditsImageTagsFragment.getExitWarningDialog(this).show()
+        } else {
+            super.onBackPressed()
+        }
     }
 
     override fun createFragment(): SuggestedEditsCardsFragment {
