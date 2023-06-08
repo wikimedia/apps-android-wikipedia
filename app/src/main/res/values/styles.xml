@@ -75,7 +75,6 @@
         <item name="shadow_border">@drawable/shadow_light</item>
 
         <item name="input_stroke_color_state">@color/color_state_input_field_light</item>
-        <item name="nav_tab_item_color_state">@color/color_state_nav_tab_light</item>
         <item name="image_tags_onboarding_drawables">@drawable/ic_image_tags_onboarding_light</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_light</item>
 
