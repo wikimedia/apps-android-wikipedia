@@ -347,10 +347,10 @@ interface Service {
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
-    fun getPageViewsForTitles(@Query("titles") titles: String): Observable<MwQueryResponse>
+    suspend fun getPageViewsForTitles(@Query("titles") titles: String): MwQueryResponse
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
-    val editorTaskCounts: Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
+    suspend fun getEditorTaskCounts(): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=rollback")
@@ -389,7 +389,7 @@ interface Service {
     ): Observable<Claims>
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
-    fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Observable<Entities>
+    suspend fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Entities
 
     @POST(MW_API_PREFIX + "action=wbsetclaim&errorlang=uselang")
     @FormUrlEncoded
