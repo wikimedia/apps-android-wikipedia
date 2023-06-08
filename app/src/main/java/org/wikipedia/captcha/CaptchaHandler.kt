@@ -2,6 +2,7 @@ package org.wikipedia.captcha
 
 import android.app.Activity
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -82,7 +83,7 @@ class CaptchaHandler(private val activity: Activity, private val wiki: WikiSite,
     }
 
     fun hideCaptcha() {
-        // (activity as AppCompatActivity).supportActionBar!!.title = prevTitle
+        (activity as AppCompatActivity).supportActionBar?.let { it.title = prevTitle }
         ViewAnimations.crossFade(binding.root, primaryView)
     }
 

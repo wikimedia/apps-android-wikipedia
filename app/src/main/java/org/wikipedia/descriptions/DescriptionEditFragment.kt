@@ -489,8 +489,7 @@ class DescriptionEditFragment : Fragment() {
             if (captchaHandler.isActive) {
                 captchaHandler.cancelCaptcha()
                 binding.fragmentDescriptionEditView.updateCaptchaVisibility(false)
-            }
-            if (binding.fragmentDescriptionEditView.showingReviewContent()) {
+            } else if (binding.fragmentDescriptionEditView.showingReviewContent()) {
                 binding.fragmentDescriptionEditView.loadReviewContent(false)
                 analyticsHelper.timer.resume()
             } else {

@@ -465,9 +465,11 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     fun updateCaptchaVisibility(show: Boolean) {
         binding.viewDescriptionEditing.isVisible = !show
-        binding.captchaContainer.root.isVisible = !show
-        showProgressBar(!show)
-        enableSaveButton(enabled = true, saveInProgress = false)
+        binding.captchaContainer.root.isVisible = show
+        if (show) {
+            showProgressBar(false)
+            enableSaveButton(enabled = true, saveInProgress = false)
+        }
     }
 
     companion object {
