@@ -14,7 +14,7 @@
   <string name="app_name_beta">Vikipeedia Beeta</string>
   <string name="nav_item_back">Tagasi</string>
   <string name="page_tabs_back">Tagasi</string>
-  <string name="nav_item_forward">Suunatud</string>
+  <string name="nav_item_forward">Edasi</string>
   <string name="search_hint">Otsi Vikipeediast</string>
   <string name="error_network_error">Internetti ühendamine ei õnnestu.</string>
   <string name="page_error_retry">Proovi uuesti</string>

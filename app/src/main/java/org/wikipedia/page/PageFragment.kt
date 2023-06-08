@@ -41,6 +41,8 @@ import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
+import org.wikipedia.analytics.metricsplatform.ArticleFindInPageInteraction
+import org.wikipedia.analytics.metricsplatform.ArticleToolbarInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
@@ -137,6 +139,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private lateinit var pageFragmentLoadState: PageFragmentLoadState
     private lateinit var bottomBarHideHandler: ViewHideHandler
     internal var articleInteractionEvent: ArticleInteractionEvent? = null
+    internal var metricsPlatformArticleEventToolbarInteraction = ArticleToolbarInteraction(this)
     private var pageRefreshed = false
     private var errorState = false
     private var watchlistExpiryChanged = false
@@ -263,6 +266,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         val time = if (app.tabList.size >= 1 && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
         Prefs.pageLastShown = time
         articleInteractionEvent?.pause()
+        metricsPlatformArticleEventToolbarInteraction.pause()
     }
 
     override fun onResume() {
@@ -274,6 +278,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageActionsTabLayout.update()
         updateQuickActionsAndMenuOptions()
         articleInteractionEvent?.resume()
+        metricsPlatformArticleEventToolbarInteraction.resume()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -287,6 +292,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     override fun onBackPressed(): Boolean {
         articleInteractionEvent?.logBackClick()
+        metricsPlatformArticleEventToolbarInteraction.logBackClick()
         if (sidePanelHandler.isVisible) {
             sidePanelHandler.hide()
             return true
@@ -716,6 +722,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
             bridge.onPcsReady()
             articleInteractionEvent?.logLoaded()
+            metricsPlatformArticleEventToolbarInteraction.logLoaded()
             callback()?.onPageLoadComplete()
 
             // do we have a URL fragment to scroll to?
@@ -796,12 +803,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 when (payload["itemType"]?.jsonPrimitive?.content) {
                     "talkPage" -> model.title?.run {
                         articleInteractionEvent?.logTalkPageArticleClick()
+                        metricsPlatformArticleEventToolbarInteraction.logTalkPageArticleClick()
                         startTalkTopicsActivity(this, true)
                     }
                     "languages" -> startLangLinksActivity()
                     "lastEdited" -> {
                         model.title?.run {
                             articleInteractionEvent?.logEditHistoryArticleClick()
+                            metricsPlatformArticleEventToolbarInteraction.logEditHistoryArticleClick()
                             startActivity(EditHistoryListActivity.newIntent(requireContext(), this))
                         }
                     }
@@ -1040,6 +1049,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     return@evaluate
                 }
                 val articleFindInPageInteractionEvent = ArticleFindInPageInteractionEvent(model.page?.pageProperties?.pageId ?: -1)
+                val metricsPlatformArticleEventFindInPageInteraction = ArticleFindInPageInteraction(this)
                 val findInPageActionProvider = FindInWebPageActionProvider(this, articleFindInPageInteractionEvent)
                 startSupportActionMode(object : ActionMode.Callback {
                     override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
@@ -1065,6 +1075,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         }
                         articleFindInPageInteractionEvent.pageHeight = webView.contentHeight
                         articleFindInPageInteractionEvent.logDone()
+                        metricsPlatformArticleEventFindInPageInteraction.pageHeight = webView.contentHeight
+                        metricsPlatformArticleEventFindInPageInteraction.logDone()
                         webView.clearMatches()
                         callback()?.onPageHideSoftKeyboard()
                         callback()?.onPageSetToolbarElevationEnabled(true)
@@ -1354,20 +1366,24 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 }
             }
             articleInteractionEvent?.logSaveClick()
+            metricsPlatformArticleEventToolbarInteraction.logSaveClick()
         }
 
         override fun onLanguageSelected() {
             startLangLinksActivity()
             articleInteractionEvent?.logLanguageClick()
+            metricsPlatformArticleEventToolbarInteraction.logLanguageClick()
         }
 
         override fun onFindInArticleSelected() {
             showFindInPage()
             articleInteractionEvent?.logFindInArticleClick()
+            metricsPlatformArticleEventToolbarInteraction.logFindInArticleClick()
         }
 
         override fun onThemeSelected() {
             articleInteractionEvent?.logThemeClick()
+            metricsPlatformArticleEventToolbarInteraction.logThemeClick()
 
             // If we're looking at the top of the article, then scroll down a bit so that at least
             // some of the text is shown.
@@ -1388,20 +1404,24 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         override fun onContentsSelected() {
             sidePanelHandler.showToC()
             articleInteractionEvent?.logContentsClick()
+            metricsPlatformArticleEventToolbarInteraction.logContentsClick()
         }
 
         override fun onShareSelected() {
             sharePageLink()
             articleInteractionEvent?.logShareClick()
+            metricsPlatformArticleEventToolbarInteraction.logShareClick()
         }
 
         override fun onAddToWatchlistSelected() {
             if (model.isWatched) {
                 WatchlistAnalyticsHelper.logRemovedFromWatchlist(model.title, requireContext())
                 articleInteractionEvent?.logUnWatchClick()
+                metricsPlatformArticleEventToolbarInteraction.logUnWatchClick()
             } else {
                 WatchlistAnalyticsHelper.logAddedToWatchlist(model.title, requireContext())
                 articleInteractionEvent?.logWatchClick()
+                metricsPlatformArticleEventToolbarInteraction.logWatchClick()
             }
             updateWatchlist(WatchlistExpiry.NEVER, model.isWatched)
         }
@@ -1411,6 +1431,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 startTalkTopicsActivity(it, true)
             }
             articleInteractionEvent?.logTalkPageClick()
+            metricsPlatformArticleEventToolbarInteraction.logTalkPageClick()
         }
 
         override fun onViewEditHistorySelected() {
@@ -1418,16 +1439,19 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 startActivity(EditHistoryListActivity.newIntent(requireContext(), this))
             }
             articleInteractionEvent?.logEditHistoryClick()
+            metricsPlatformArticleEventToolbarInteraction.logEditHistoryClick()
         }
 
         override fun onNewTabSelected() {
             startActivity(PageActivity.newIntentForNewTab(requireContext()))
             articleInteractionEvent?.logNewTabClick()
+            metricsPlatformArticleEventToolbarInteraction.logNewTabClick()
         }
 
         override fun onExploreSelected() {
             goToMainTab()
             articleInteractionEvent?.logExploreClick()
+            metricsPlatformArticleEventToolbarInteraction.logExploreClick()
         }
 
         override fun onCategoriesSelected() {
@@ -1435,16 +1459,19 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, CategoryDialog.newInstance(it))
             }
             articleInteractionEvent?.logCategoriesClick()
+            metricsPlatformArticleEventToolbarInteraction.logCategoriesClick()
         }
 
         override fun onEditArticleSelected() {
             editHandler.startEditingArticle()
             articleInteractionEvent?.logEditArticleClick()
+            metricsPlatformArticleEventToolbarInteraction.logEditArticleClick()
         }
 
         override fun forwardClick() {
             goForward()
             articleInteractionEvent?.logForwardClick()
+            metricsPlatformArticleEventToolbarInteraction.logForwardClick()
         }
     }
 

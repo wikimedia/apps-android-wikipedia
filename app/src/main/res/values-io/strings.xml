@@ -388,7 +388,7 @@
   </plurals>
   <string name="multi_select_items_selected">%d selektita</string>
   <string name="error_message_generic">Eventis eroro</string>
-  <string name="view_link_preview_error_button_dismiss">Celar</string>
+  <string name="view_link_preview_error_button_dismiss">Eskartar</string>
   <string name="error_page_does_not_exist">Ica pagino ne existas</string>
   <string name="error_user_page_does_not_exist">Wikipedia ne havas &lt;a href=\"%1$s\"&gt;uzero-pagino&lt;/a&gt; kun ca nomo. Ordinare, ca pagino mustos kreesar e redaktesar da &lt;b&gt;%2$s&lt;/b&gt;. Se vu havas dubi, voluntez verifikar se \"%3$s\" existas.</string>
   <string name="view_wiki_error_message_offline">Ne povas konektar a la interreto</string>
