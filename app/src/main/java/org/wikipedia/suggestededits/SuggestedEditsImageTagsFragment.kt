@@ -1,7 +1,5 @@
 package org.wikipedia.suggestededits
 
-import android.app.Activity
-import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
@@ -248,19 +246,18 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         return chip
     }
 
-    companion object {
-        fun newInstance(): SuggestedEditsItemFragment {
-            return SuggestedEditsImageTagsFragment()
+    override fun onBackPressed(): Boolean {
+        if (!atLeastOneTagChecked()) {
+            return true
         }
-
-        fun getExitWarningDialog(context: Context): MaterialAlertDialogBuilder {
-            return MaterialAlertDialogBuilder(context)
-                .setCancelable(false)
-                .setTitle(R.string.talk_new_topic_exit_dialog_title)
-                .setMessage(R.string.suggested_edits_image_tags_exit_dialog_message)
-                .setPositiveButton(R.string.edit_abandon_confirm_yes) { _, _ -> (context as Activity).finish() }
-                .setNegativeButton(R.string.edit_abandon_confirm_no, null)
-        }
+        MaterialAlertDialogBuilder(requireActivity())
+            .setCancelable(false)
+            .setTitle(R.string.talk_new_topic_exit_dialog_title)
+            .setMessage(R.string.suggested_edits_image_tags_exit_dialog_message)
+            .setPositiveButton(R.string.edit_abandon_confirm_yes) { _, _ -> requireActivity().finish() }
+            .setNegativeButton(R.string.edit_abandon_confirm_no, null)
+            .show()
+        return false
     }
 
     override fun onClick(v: View?) {
@@ -457,7 +454,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         }
     }
 
-    fun atLeastOneTagChecked(): Boolean {
+    private fun atLeastOneTagChecked(): Boolean {
         return binding.tagsChipGroup.children.filterIsInstance<Chip>().any { it.isChecked }
     }
 
@@ -474,5 +471,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun callback(): Callback {
         return FragmentUtil.getCallback(this, Callback::class.java)!!
+    }
+
+    companion object {
+        fun newInstance(): SuggestedEditsItemFragment {
+            return SuggestedEditsImageTagsFragment()
+        }
     }
 }
