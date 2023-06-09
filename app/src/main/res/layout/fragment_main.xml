@@ -35,10 +35,10 @@
             android:layout_gravity="bottom"
             android:layout_weight="0.8"
             android:background="@android:color/transparent"
-            app:itemIconTint="?attr/nav_tab_item_color_state"
+            app:itemIconTint="@color/color_state_nav_tab"
             app:itemTextAppearanceActive="@style/BottomNavigationTextAppearance.Active"
             app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearance"
-            app:itemTextColor="?attr/nav_tab_item_color_state"
+            app:itemTextColor="@color/color_state_nav_tab"
             app:labelVisibilityMode="labeled"
             app:tabGravity="fill"
             app:itemPaddingTop="8dp"
@@ -59,7 +59,7 @@
                 android:contentDescription="@null"
                 android:layout_marginTop="12dp"
                 android:layout_gravity="center_horizontal"
-                app:tint="?attr/nav_tab_item_color_state"
+                app:tint="?attr/placeholder_color"
                 app:srcCompat="@drawable/ic_menu_white_24dp" />
 
             <TextView
@@ -70,7 +70,7 @@
                 android:layout_marginTop="44dp"
                 android:textAlignment="center"
                 android:text="@string/nav_item_more"
-                android:textColor="?attr/nav_tab_item_color_state"/>
+                android:textColor="?attr/placeholder_color"/>
 
         </FrameLayout>
     </LinearLayout>

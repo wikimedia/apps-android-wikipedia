@@ -4,12 +4,14 @@ import org.wikimedia.metrics_platform.MetricsClient
 import org.wikimedia.metrics_platform.context.AgentData
 import org.wikimedia.metrics_platform.context.ClientData
 import org.wikipedia.WikipediaApp
+import org.wikipedia.settings.Prefs
+import java.time.Duration
 
 object MetricsPlatform {
     private val agentData = AgentData(
         WikipediaApp.instance.appInstallID,
-        "mobile app",
-        "android"
+        "android",
+        "app"
     )
 
     private val clientData = ClientData(
@@ -19,5 +21,9 @@ object MetricsPlatform {
         WikipediaApp.instance.wikiSite.authority()
     )
 
-    val client: MetricsClient = MetricsClient.builder(clientData).build()
+    val client: MetricsClient = MetricsClient.builder(clientData)
+        .eventQueueCapacity(Prefs.analyticsQueueSize)
+        .streamConfigFetchInterval(Duration.ofHours(12))
+        .sendEventsInterval(Duration.ofSeconds(30))
+        .build()
 }

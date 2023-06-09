@@ -41,6 +41,7 @@
 * Wnme
 * Wolfdietmann
 * Xqt
+* Ygramul
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -492,9 +493,17 @@
   <string name="reading_list_articles_already_exist_message">Alles gut! %s enthält bereits alle Artikel.</string>
   <string name="reading_list_added_view_button">Liste ansehen</string>
   <string name="reading_list_add_to_list_button">Zu Liste hinzufügen</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">%d Artikel</item>
+    <item quantity="other">%d Artikel</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 Artikel, %2$.2f MB</item>
     <item quantity="other">%1$d Artikel, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d von 1 Artikeln offline verfügbar</item>
+    <item quantity="other">%1$d von %2$d Artikeln offline verfügbar</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d von 1 Artikel offline verfügbar, %3$.2f MB</item>
@@ -509,6 +518,9 @@
   <string name="reading_list_sort_by_created">Nach Erstellungsdatum sortieren (neueste)</string>
   <string name="reading_list_sort_by_created_desc">Nach Erstellungsdatum sortieren (älteste)</string>
   <string name="reading_list_menu_delete">Liste löschen</string>
+  <string name="reading_list_menu_export">Liste exportieren</string>
+  <string name="reading_list_menu_select">Auswählen</string>
+  <string name="reading_list_menu_unselect">Auswahl aufheben</string>
   <string name="reading_list_menu_rename">Namen/Beschreibung bearbeiten</string>
   <string name="reading_list_action_menu_remove_from_offline">Von offline entfernen</string>
   <string name="reading_list_action_menu_save_for_offline">Für offline speichern</string>
