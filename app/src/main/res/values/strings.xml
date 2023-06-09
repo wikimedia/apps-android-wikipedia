@@ -1481,5 +1481,6 @@
 
     <string name="data_opt_in_accept">Accept</string>
     <string name="data_opt_in_reject">Reject</string>
+    <string name="generic_release_notes">Minor bug fixes and enhancements</string>
 
 </resources>
