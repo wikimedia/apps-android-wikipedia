@@ -477,7 +477,7 @@ class SmokeTests {
         TestUtil.delay(1)
 
         // Go to Saved tab
-        onView(withId(NavTab.READING_LISTS.id())).perform(click())
+        onView(withId(NavTab.READING_LISTS.id)).perform(click())
 
         TestUtil.delay(1)
 
