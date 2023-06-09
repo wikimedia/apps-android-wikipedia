@@ -23,7 +23,6 @@
         <item name="list_divider">@drawable/divider_dark</item>
         <item name="shadow_border">@drawable/shadow_dark</item>
 
-        <item name="nav_tab_item_color_state">@color/color_state_nav_tab_dark</item>
         <item name="input_stroke_color_state">@color/color_state_input_field_dark</item>
         <item name="image_tags_onboarding_drawables">@drawable/ic_image_tags_onboarding_dark</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_dark</item>
