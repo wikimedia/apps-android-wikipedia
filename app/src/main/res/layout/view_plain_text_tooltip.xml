@@ -25,7 +25,9 @@
             android:id="@+id/buttonView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/App.Button.Secondary"
+            style="@style/Widget.Material3.Button"
+            android:textColor="?attr/progressive_color"
+            android:backgroundTint="?attr/paper_color"
             android:text="@string/onboarding_got_it"
             android:visibility="gone"
             tools:visibility="visible"/>
