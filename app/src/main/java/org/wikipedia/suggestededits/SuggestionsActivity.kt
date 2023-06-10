@@ -9,7 +9,9 @@ import org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
 import org.wikipedia.suggestededits.SuggestedEditsCardsFragment.Companion.newInstance
 
 class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>() {
@@ -19,6 +21,13 @@ class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>(
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getActionBarTitle(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action)
         setImageZoomHelper()
+    }
+
+    override fun onBackPressed() {
+        if (fragment.topBaseChild()?.onBackPressed() == false) {
+            return
+        }
+        super.onBackPressed()
     }
 
     override fun createFragment(): SuggestedEditsCardsFragment {

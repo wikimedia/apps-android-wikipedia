@@ -19,10 +19,7 @@ import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.databinding.ActivityWatchlistFiltersBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.DefaultViewHolder
-import org.wikipedia.views.DrawableItemDecoration
 
 class WatchlistFilterActivity : BaseActivity() {
 
@@ -38,8 +35,6 @@ class WatchlistFilterActivity : BaseActivity() {
         setResult(RESULT_OK)
         setUpRecyclerView()
         setContentView(binding.root)
-        window.statusBarColor = ResourceUtil.getThemedColor(this, android.R.attr.colorBackground)
-        DeviceUtil.setNavigationBarColor(window, ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -66,7 +61,6 @@ class WatchlistFilterActivity : BaseActivity() {
     private fun setUpRecyclerView() {
         binding.watchlistFiltersRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.watchlistFiltersRecyclerView.adapter = WatchlistFilterAdapter(this, filterListWithHeaders())
-        binding.watchlistFiltersRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_divider, drawStart = false, drawEnd = true, skipSearchBar = true))
         binding.watchlistFiltersRecyclerView.itemAnimator = null
     }
 

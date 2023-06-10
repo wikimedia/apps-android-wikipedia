@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
-        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
         android:maxLines="1"
         android:padding="16dp"
         android:textColor="?attr/progressive_color"
@@ -43,9 +43,9 @@
 
     <ImageView
         android:id="@+id/find_in_page_prev"
-        style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:padding="12dp"
         android:layout_gravity="center_vertical"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/find_previous"
@@ -54,23 +54,13 @@
 
     <ImageView
         android:id="@+id/find_in_page_next"
-        style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:padding="12dp"
         android:layout_gravity="center_vertical"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/find_next"
         app:srcCompat="@drawable/ic_expand_more_white_24dp"
         app:tint="?attr/placeholder_color" />
 
-    <ImageView
-        android:id="@+id/close_button"
-        style="@style/Widget.AppCompat.ImageButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_gravity="center_vertical"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/dialog_close_description"
-        android:src="@drawable/ic_close_black_24dp"
-        app:tint="?attr/placeholder_color" />
 </LinearLayout>

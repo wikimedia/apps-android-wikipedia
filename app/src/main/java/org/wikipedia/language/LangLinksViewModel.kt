@@ -35,7 +35,7 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
             languageEntries.postValue(Resource.Error(throwable))
         }) {
             val response = ServiceFactory.get(pageTitle.wikiSite).getLangLinks(pageTitle.prefixedText)
-            val langLinks = response.query!!.langLinks()
+            val langLinks = response.query!!.langLinks().toMutableList()
             updateLanguageEntriesSupported(langLinks)
             sortLanguageEntriesByMru(langLinks)
             languageEntries.postValue(Resource.Success(langLinks))
