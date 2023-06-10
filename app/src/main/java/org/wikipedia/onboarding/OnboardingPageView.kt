@@ -72,7 +72,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                 binding.secondaryTextView.movementMethod = LinkMovementMethodExt { url: String ->
                     callback?.onLinkClick(this@OnboardingPageView, url)
                 }
-                binding.languageListContainer.addLangContainer.setOnClickListener {
+                binding.languageListContainer.addLanguageButton.setOnClickListener {
                     callback?.onListActionButtonClicked(this@OnboardingPageView)
                 }
                 binding.acceptButton.setOnClickListener { callback?.onAcceptOrReject(this@OnboardingPageView, true) }

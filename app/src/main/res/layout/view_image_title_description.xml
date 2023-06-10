@@ -10,7 +10,7 @@
     <FrameLayout
         android:layout_width="@dimen/suggested_edits_icon_size"
         android:layout_height="@dimen/suggested_edits_icon_size"
-        android:layout_gravity="center_vertical">
+        android:layout_marginTop="8dp">
 
         <org.wikipedia.views.CircularProgressBar
             android:id="@+id/circularProgressBar"

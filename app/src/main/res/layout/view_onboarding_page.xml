@@ -78,30 +78,15 @@
                         android:id="@+id/rejectButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        style="@style/FlatButton"
-                        android:paddingTop="6dp"
-                        android:paddingBottom="8dp"
-                        android:paddingStart="18dp"
-                        android:paddingEnd="18dp"
-                        android:letterSpacing="0"
-                        android:textSize="16sp"
-                        android:text="@string/data_opt_in_reject"
-                        android:textAllCaps="false" />
+                        style="@style/App.Button.Secondary"
+                        android:text="@string/data_opt_in_reject" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/acceptButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        style="@style/FlatButton"
-                        android:paddingTop="6dp"
-                        android:paddingBottom="8dp"
-                        android:paddingStart="18dp"
-                        android:paddingEnd="18dp"
                         android:layout_marginStart="16dp"
-                        android:text="@string/data_opt_in_accept"
-                        android:letterSpacing="0"
-                        android:textSize="16sp"
-                        android:textAllCaps="false" />
+                        android:text="@string/data_opt_in_accept" />
 
                 </LinearLayout>
 

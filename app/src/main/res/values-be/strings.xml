@@ -413,7 +413,7 @@
   <string name="error_message_generic">Адбылася памылка</string>
   <string name="view_link_preview_error_button_dismiss">Закрыць</string>
   <string name="error_page_does_not_exist">Няма такой старонкі</string>
-  <string name="error_user_page_does_not_exist">Вікіпедыя не мае &lt;a href=\"%1$s \"&gt;user page&lt;/a&gt; з такой дакладнай назвай. Увогуле, гэтая старонка павінна быць створана і адрэдагавана &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt; . Калі вы сумняваецеся, пераканайцеся, што \" %3$s \" існуе.</string>
+  <string name="error_user_page_does_not_exist" fuzzy="true">Вікіпедыя не мае &lt;a href=\"%1$s\"&gt;user page&lt;/a&gt; з такой дакладнай назвай. Увогуле, гэтая старонка павінна быць створана і адрэдагавана &lt;b&gt;%2$s&lt;/b&gt;. Калі вы сумняваецеся, пераканайцеся, што \"%3$s\" існуе.</string>
   <string name="view_wiki_error_message_offline">Немагчыма падлучыцца да Інтэрнэту</string>
   <string name="view_wiki_error_message_timeout">Немагчыма падключыцца да Вікіпедыі. Праверце падключэнне да сеткі або паўтарыце спробу пазней</string>
   <string name="reference_title">Заўвага %s</string>

@@ -3,16 +3,8 @@
 
     <style name="ThemeDark">
 
-        <!-- Overrides of base Android styles with color sub-definitions -->
-        <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.PopupMenu.Overflow</item>
-        <item name="popupMenuStyle">@style/PopupMenuDark</item>
-        <item name="dialogTheme">@style/DialogDark</item>
-        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogDark</item>
-
-        <!-- Overrides of our own custom style attributes -->
         <item name="talk_page_empty_state_drawable">@drawable/talk_page_empty_state_illustration_dark</item>
 
-        <!-- Component updates -->
         <item name="paper_color">@color/gray700</item>
         <item name="background_color">@color/gray675</item>
         <item name="border_color">@color/gray650</item>
@@ -30,33 +22,11 @@
         <item name="overlay_color">@color/black_70</item>
         <item name="list_divider">@drawable/divider_dark</item>
         <item name="shadow_border">@drawable/shadow_dark</item>
-        <!-- Component updates -->
 
-        <item name="nav_tab_item_color_state">@color/color_state_nav_tab_dark</item>
         <item name="input_stroke_color_state">@color/color_state_input_field_dark</item>
         <item name="image_tags_onboarding_drawables">@drawable/ic_image_tags_onboarding_dark</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_dark</item>
 
-    </style>
-
-    <style name="DialogDark" parent="Theme.MaterialComponents.Dialog">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:colorBackground">?attr/paper_color</item>
-        <item name="android:lineSpacingExtra">@dimen/dialog_line_spacing_extra</item>
-    </style>
-
-    <style name="PopupMenuDark" parent="Widget.AppCompat.PopupMenu">
-        <item name="overlapAnchor">true</item>
-    </style>
-
-    <style name="BottomSheetDialogDark" parent="Theme.MaterialComponents.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
-        <item name="colorAccent">?attr/progressive_color</item>
-        <item name="colorPrimary">?attr/progressive_color</item>
-        <item name="colorSwitchThumbNormal">@color/gray100</item>
-        <item name="android:colorBackground">?attr/paper_color</item>
-        <item name="android:disabledAlpha">1.0</item>
     </style>
 
     <style name="ThemeDark.Translucent">

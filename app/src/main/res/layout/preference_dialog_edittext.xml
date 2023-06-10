@@ -4,28 +4,24 @@ Modifications annotated below.
 -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="48dp"
-    android:layout_marginBottom="48dp"
-    android:overScrollMode="ifContentScrolls">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="5dip">
+        android:padding="16dp">
 
-        <!-- Added 'textIsSelectable' attribute: -->
         <TextView
             android:id="@android:id/message"
             style="?android:attr/textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="48dp"
-            android:textColor="?android:attr/textColorSecondary"
+            android:layout_marginBottom="16dp"
+            android:textColor="?attr/primary_color"
             android:textIsSelectable="true" />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@android:id/edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

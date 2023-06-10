@@ -11,13 +11,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
             style="@style/ToolbarStyle.Small"
-            android:background="?paper_color"
             app:layout_scrollFlags="scroll|enterAlways" />
 
         <FrameLayout
@@ -108,7 +106,6 @@
 
                 <ProgressBar
                     android:id="@+id/talkProgressBar"
-                    style="@style/Widget.AppCompat.ProgressBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -127,8 +124,10 @@
                 android:id="@+id/talkNewTopicButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minHeight="56dp"
                 android:layout_margin="16dp"
                 android:layout_gravity="bottom|end"
+                style="@style/App.Button"
                 app:backgroundTint="?attr/progressive_color"
                 app:icon="@drawable/ic_add_gray_white_24dp"
                 app:iconTint="@android:color/white"

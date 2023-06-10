@@ -74,12 +74,11 @@
 
                 <Button
                     android:id="@+id/login_button"
-                    style="@style/App.Button.Blue.NonDisabled"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="0dp"
                     android:layout_marginEnd="0dp"
-                    android:alpha="0.5"
-                    android:enabled="false"
+                    android:layout_marginTop="8dp"
                     android:text="@string/menu_login" />
 
                 <View
@@ -104,11 +103,10 @@
 
                     <Button
                         android:id="@+id/login_create_account_button"
-                        style="@style/FlatButton"
+                        style="@style/App.Button.Secondary"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/login_join_wikipedia"
-                        android:textColor="?attr/progressive_color" />
+                        android:text="@string/login_join_wikipedia" />
 
                 </LinearLayout>
 
@@ -131,15 +129,11 @@
         android:orientation="vertical"
         android:visibility="gone" />
 
-    <ProgressBar
+    <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/view_progress_bar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-6dp"
         android:indeterminate="true"
-        android:indeterminateTint="?attr/progressive_color"
-        android:progressBackgroundTint="?attr/progressive_color"
         android:visibility="gone"
         tools:visibility="visible" />
 

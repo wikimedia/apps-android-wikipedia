@@ -12,13 +12,13 @@ import android.text.TextWatcher
 import android.view.*
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
 import androidx.core.os.postDelayed
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -398,15 +398,14 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     }
 
     private fun showRetryDialog(t: Throwable) {
-        val retryDialog = AlertDialog.Builder(this@EditSectionActivity)
+        MaterialAlertDialogBuilder(this@EditSectionActivity)
                 .setTitle(R.string.dialog_message_edit_failed)
                 .setMessage(t.localizedMessage)
                 .setPositiveButton(R.string.dialog_message_edit_failed_retry) { dialog, _ ->
                     editTokenThenSave
                     dialog.dismiss()
                 }
-                .setNegativeButton(R.string.dialog_message_edit_failed_cancel) { dialog, _ -> dialog.dismiss() }.create()
-        retryDialog.show()
+                .setNegativeButton(R.string.dialog_message_edit_failed_cancel) { dialog, _ -> dialog.dismiss() }.show()
     }
 
     /**
@@ -424,7 +423,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response: MwParseResponse -> showError(MwException(MwServiceError(code, response.text))) }) { showError(it) })
         } else if ("editconflict" == code) {
-            AlertDialog.Builder(this@EditSectionActivity)
+            MaterialAlertDialogBuilder(this@EditSectionActivity)
                     .setTitle(R.string.edit_conflict_title)
                     .setMessage(R.string.edit_conflict_message)
                     .setPositiveButton(R.string.edit_conflict_dialog_ok_button_text, null)
@@ -665,7 +664,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         val binding = DialogWithCheckboxBinding.inflate(layoutInflater)
         binding.dialogMessage.text = StringUtil.fromHtml(getString(R.string.talk_edit_disclaimer))
         binding.dialogMessage.movementMethod = movementMethod
-        AlertDialog.Builder(this@EditSectionActivity)
+        MaterialAlertDialogBuilder(this@EditSectionActivity)
             .setView(binding.root)
             .setPositiveButton(R.string.onboarding_got_it) { dialog, _ -> dialog.dismiss() }
             .setOnDismissListener {
@@ -725,7 +724,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
         DeviceUtil.hideSoftKeyboard(this)
         if (sectionTextModified) {
-            val alert = AlertDialog.Builder(this)
+            val alert = MaterialAlertDialogBuilder(this)
             alert.setMessage(getString(R.string.edit_abandon_confirm))
             alert.setPositiveButton(getString(R.string.edit_abandon_confirm_yes)) { dialog, _ ->
                 dialog.dismiss()

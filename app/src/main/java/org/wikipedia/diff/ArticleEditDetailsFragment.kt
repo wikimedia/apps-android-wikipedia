@@ -1,6 +1,5 @@
 package org.wikipedia.diff
 
-import android.app.AlertDialog
 import android.content.res.ColorStateList
 import android.graphics.Rect
 import android.os.Bundle
@@ -20,6 +19,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
@@ -253,6 +253,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     override fun onPrepareMenu(menu: Menu) {
         val watchlistItem = menu.findItem(R.id.menu_add_watchlist)
+        watchlistItem.isVisible = AccountUtil.isLoggedIn
         watchlistItem.title = getString(if (isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
         watchlistItem.setIcon(getWatchlistIcon(isWatched, hasWatchlistExpiry))
     }
@@ -359,7 +360,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun setEnableDisableTint(view: ImageView, isDisabled: Boolean) {
         ImageViewCompat.setImageTintList(view, AppCompatResources.getColorStateList(requireContext(),
             ResourceUtil.getThemedAttributeId(requireContext(), if (isDisabled)
-                R.attr.placeholder_color else R.attr.secondary_color)))
+                R.attr.inactive_color else R.attr.secondary_color)))
     }
 
     private fun setButtonTextAndIconColor(view: MaterialButton, themedColor: Int) {
@@ -400,7 +401,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun showThankDialog() {
         val parent = FrameLayout(requireContext())
-        val dialog: AlertDialog = AlertDialog.Builder(activity)
+        val dialog = MaterialAlertDialogBuilder(requireActivity())
                 .setView(parent)
                 .setPositiveButton(R.string.thank_dialog_positive_button_text) { _, _ ->
                     viewModel.sendThanks(viewModel.pageTitle.wikiSite, viewModel.revisionToId)
@@ -410,10 +411,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 }
                 .create()
         dialog.layoutInflater.inflate(R.layout.view_thank_dialog, parent)
-        dialog.setOnShowListener {
-            dialog.getButton(AlertDialog.BUTTON_NEGATIVE)
-                    .setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
-        }
         dialog.show()
     }
 
@@ -428,7 +425,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun showRollbackDialog() {
-        AlertDialog.Builder(requireActivity())
+        MaterialAlertDialogBuilder(requireActivity())
             .setMessage(R.string.revision_rollback_dialog_title)
             .setPositiveButton(android.R.string.ok) { _, _ ->
                 binding.progressBar.isVisible = true

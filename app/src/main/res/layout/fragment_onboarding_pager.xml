@@ -28,12 +28,10 @@
 
             <Button
                 android:id="@+id/fragment_onboarding_skip_button"
-                style="@style/TransparentButton"
+                style="@style/App.Button.Text.Secondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:text="@string/onboarding_skip"
-                android:textColor="?attr/placeholder_color" />
+                android:text="@string/onboarding_skip" />
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/view_onboarding_page_indicator"
@@ -55,23 +53,19 @@
 
                 <Button
                     android:id="@+id/fragment_onboarding_forward_button"
-                    style="@style/TransparentButton"
+                    style="@style/App.Button.Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="0dp"
                     android:layout_gravity="end"
-                    android:text="@string/onboarding_continue"
-                    android:textColor="?attr/progressive_color" />
+                    android:text="@string/onboarding_continue" />
 
                 <Button
                     android:id="@+id/fragment_onboarding_done_button"
-                    style="@style/TransparentButton"
+                    style="@style/App.Button.Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="0dp"
                     android:layout_gravity="end"
-                    android:text="@string/onboarding_get_started"
-                    android:textColor="?attr/progressive_color" />
+                    android:text="@string/onboarding_get_started" />
 
             </FrameLayout>
 
