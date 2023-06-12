@@ -975,6 +975,7 @@
   <string name="suggested_edits_image_tags_select_title">您尚未對此圖片選擇任何標籤</string>
   <string name="suggested_edits_image_tags_select_text">僅添加您挑選的標籤到圖片上。未被選擇到的標籤將會被標記為拒絕，您確定要將所有標籤標記為拒絕？</string>
   <string name="suggested_edits_image_tags_add_tag">新增標籤</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">不會儲存未發布的標籤</string>
   <string name="suggested_edits_image_zoom_tooltip">做出夾捏的動作來縮放此圖片。</string>
   <string name="suggested_edits_encouragement_message">%s，感謝您所做的編輯。在下方您可以找出更多貢獻維基百科的方式。</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;嗨，%s&lt;/b&gt;：在下方，您可以找到一些快速且簡易的方式來改善維基百科，您一開始就會看到您所做出的更改。來快樂地編輯吧！</string>
@@ -1414,4 +1415,5 @@
   <string name="reading_list_share_survey_body">「分享閱讀清單」是一項測試功能，我們需要您的意見回饋來改善、或是移除這項功能。</string>
   <string name="data_opt_in_accept">接受</string>
   <string name="data_opt_in_reject">拒絕</string>
+  <string name="generic_release_notes">小錯誤修正和改善</string>
 </resources>
