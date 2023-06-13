@@ -85,7 +85,7 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
                 onPageLinkClicked(uri.fragment!!, linkText)
             }
             !uri.getQueryParameter("title").isNullOrEmpty() && !uri.getQueryParameter("diff").isNullOrEmpty() && supportedAuthority -> {
-                onDiffLinkClicked(PageTitle(uri.getQueryParameter("title"), site), uri.getQueryParameter("diff")!!.toLong())
+                onDiffLinkClicked(PageTitle(uri.getQueryParameter("title"), site), uri.getQueryParameter("diff")?.toLongOrNull() ?: -1)
             }
             else -> {
                 onExternalLinkClicked(uri)
