@@ -53,7 +53,12 @@ class SuggestedEditsFeedClient : FeedClient {
             // Suggested Edits feature is paused or disabled, the next time the feed is refreshed.
             CoroutineScope(Dispatchers.Main).launch {
                 withContext(Dispatchers.IO) {
-                    UserContribStats.verifyEditCountsAndPauseState()
+                    try {
+                        UserContribStats.verifyEditCountsAndPauseState()
+                    } catch (e: Exception) {
+                        // Log the exception; will retry next time the feed is refreshed.
+                        L.e(e)
+                    }
                 }
             }
         }
