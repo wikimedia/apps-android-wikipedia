@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Dbrant
 * Envlh
 * Kareyac
 * Lizalizaufa
@@ -64,9 +65,14 @@
   <string name="page_edit_history_activity_title">Үҙгәртеүҙәр тарихы: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Үҙгәртеүҙәр аңлатмаһы буш</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Төҙәтеүҙәрҙе табырға һәм һөҙгөс аша үткәрергә</string>
+  <string name="page_edit_history_filter_by">Һөҙгөс идентификаторы</string>
+  <string name="page_edit_history_filter_by_all">Бөтә төҙәтеүҙәр (%s)</string>
+  <string name="page_edit_history_filter_by_user">Ҡатнашыусы төҙәтеүҙәре (%s)</string>
   <string name="page_edit_history_filter_by_anon">Аноним төҙәтеүселәр (%s)</string>
   <string name="page_edit_history_filter_by_bot">Робот төҙәтеүҙәре (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s тиклем %2$s метрикалар</string>
+  <string name="page_edit_history_article_edits_since_year">{{PLURAL\n|one=%1$d төҙәтеүҙәр %2$s|%1$d төҙәтеүҙәр %2$s}}</string>
   <string name="page_edit_history_empty_search_message">Төҙәтеүҙәрҙе күберәк күреү өсөн үҙгәртеп ҡарағыҙ &lt;a href=\"#\"&gt;фильтры&lt;/a&gt;</string>
   <string name="menu_page_show_tabs">Ҡушымтаны күрһәтергә</string>
   <string name="menu_page_other_languages">Телде һайларға</string>
@@ -257,6 +263,13 @@
   <string name="edit_preview">Ҡарап сығырға</string>
   <string name="edit_undo">Кире алырға</string>
   <string name="edit_redo">Ҡабатлау</string>
+  <string name="edit_rollback">кире ҡайтарырға</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s байт</item>
+    <item quantity="few">%s байт</item>
+    <item quantity="many">%s байт</item>
+    <item quantity="other">%s байт</item>
+  </plurals>
   <string name="edit_zoom_in">Яҡынайтырға</string>
   <string name="edit_zoom_out">Йырағайтырға</string>
   <string name="edit_summary_tag_typo">Баҫылған хата төҙәтелде</string>
@@ -268,6 +281,7 @@
   <string name="edit_conflict_message">Мөхәррирләү конфликты килеп сыҡты, сөнки был башҡа ҡулланыусы тарафынан үҙгәртелгән. Үҙгәрештәрегеҙҙе күсерегеҙ, кире ҡайтығыҙ һәм битте яңыртығыҙ, ә һуңынан мөхәррирләп ҡарағыҙ.</string>
   <string name="edit_notices">Мөхәррирләү билдәләре</string>
   <string name="edit_notices_please_read">Зинһар, төҙәтер алдынан уҡығыҙ</string>
+  <string name="edit_notices_show_auto">Төҙәтеүҙәр тураһында иҫкәрмәне автомитик рәүештә күрһәтергә</string>
   <string name="edit_notices_tooltip">Был мәҡәлә өсөн төҙәтелгән белдереүҙәрҙе ҡарау өсөн ошо төймәгә баҫырға.</string>
   <string name="find_next">Артабан эҙләп табырға</string>
   <string name="find_previous">Тәүгеләрҙе эҙләү</string>
@@ -318,6 +332,7 @@
   <string name="gallery_save_success">Файл һаҡланды.</string>
   <string name="gallery_error_video_failed">Видеоны күрһәтеп булмай</string>
   <string name="gallery_save_image_write_permission_rationale">Һүрәтте һаҡлау өсөн һеҙҙең ҡорамалдың һаҡлағысына яҙҙырырға рөхсәт талап ителә.</string>
+  <string name="gallery_edit_button_content_description">Һүрәт тасуирламаһын төҙәтеү</string>
   <string name="gallery_add_image_caption_button">Һүрәт тасуирламаһын өҫтәү</string>
   <string name="gallery_add_image_caption_in_language_button">Һүрәт тасуирламаһын өҫтәү (%s)</string>
   <string name="err_cannot_save_file">\nФайлды һаҡлап булмай</string>
@@ -355,12 +370,32 @@
   <string name="button_add_to_reading_list">Уҡыу исемлегенә өҫтәргә</string>
   <string name="page_offline_notice_cannot_load_while_offline">Мәҡәләне Интернетҡа тоташмайынса күсереп алып булмай.</string>
   <string name="page_offline_notice_add_to_reading_list">Кәңәш:Был мәҡәләне уҡыу исемлегенә өҫтәгеҙ, ул һеҙ онлайн булғас уҡ йөкләнәсәк.</string>
+  <string name="page_offline_notice_last_date"> %s проценты һаҡланған офлайн-мәҡәләне уҡыйһығыҙ.</string>
   <string name="button_get_directions">Маршрут һалыу</string>
   <string name="error_no_maps_app">Маршрут һалырлыҡ бер ҡушымтаны ла табып булманы</string>
+  <string name="preference_title_customize_explore_feed">Таҫманы тикшереүсе</string>
   <string name="preference_title_show_link_previews">Һылтанмаларға  байҡауҙы алдан күрһәтеп ҡуйыу</string>
+  <string name="preference_summary_customize_explore_feed">Таҫманы көйләгеҙ</string>
   <string name="preference_summary_show_link_previews">Һылтанмаға баҫып, мәҡәләне алдан тиҙ ҡарауҙы күрһәтергә</string>
-  <string name="nav_item_donate" fuzzy="true">Википедияға ярҙам итергә</string>
+  <string name="preference_title_collapse_tables">Таблицаларҙы төрөргә</string>
+  <string name="preference_summary_collapse_tables">Инфобокс, иҫкәрмәләр һәм комментарийҙар кеүек таблица блоктарын автоматик төрөргә</string>
+  <string name="nav_item_donate">Иғәнә бирергә</string>
   <string name="error_voice_search_not_available">Ҡыҙғанысҡа ҡаршы, телмәрҙе таныу мөмкин түгел.</string>
+  <string name="location_service_disabled">Геолокация хеҙмәте һүндерелгән.</string>
+  <string name="enable_location_service">Әүҙемләштерергә</string>
+  <string name="location_permissions_enable_prompt">Үҙебеҙҙән алыҫ түгел урындарҙы күреү өсөн ҡайҙа булыуын билдәләргә рөхсәт итергә.</string>
+  <string name="location_permissions_enable_action">Ҡабыҙырға</string>
+  <string name="error_webview_updating">Android System WebView хәҙерге ваҡытта яңыртыла. Зинһар өсөн, бер аҙ һуңыраҡ ҡабатлап ҡарағыҙ.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">Һайланған %d</item>
+    <item quantity="few">Һайланған %d</item>
+    <item quantity="many">Выбрано %d</item>
+    <item quantity="other">Һайланған %d</item>
+  </plurals>
+  <string name="multi_select_items_selected">%d һайланды</string>
+  <string name="error_message_generic">Хата</string>
+  <string name="view_link_preview_error_button_dismiss">Ябырға</string>
+  <string name="error_page_does_not_exist">Был бит юҡ</string>
   <string name="crash_report_activity_title">Ҡушымта хатаһы</string>
   <string name="crash_report_relaunch_or_quit">Һеҙ яңынан башларға йәки сығырға теләйһегеҙме?</string>
   <string name="crash_report_relaunch">Яңынан ебәреү</string>

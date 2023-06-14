@@ -981,6 +981,7 @@
   <string name="suggested_edits_image_tags_select_title">Title for a dialog box informing the user that they have not selected any tags for the current image.</string>
   <string name="suggested_edits_image_tags_select_text">Text for a dialog box asking the user whether they are sure about rejecting all of the suggested tags for the current image.</string>
   <string name="suggested_edits_image_tags_add_tag">Label text suggesting that user can add custom tags.</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Confirmation message text shown to user when they are exiting from image tags editing screen without publishing.</string>
   <string name="suggested_edits_image_zoom_tooltip">Short message telling the user that they can pinch to zoom the image that is shown.</string>
   <string name="suggested_edits_encouragement_message">Message text shown to users to encourage them to continue and increase editing.%s represents the user\'s name.</string>
   <string name="suggested_edits_onboarding_message">Message text shown to users who havent yet used the suggested edits features, to encourage them to start editing.%s represents the user\'s name</string>
@@ -1414,4 +1415,5 @@
   <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
   <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
   <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
+  <string name="generic_release_notes">Release notes message that will be used on app stores for minor releases and maintenance updates.</string>
 </resources>

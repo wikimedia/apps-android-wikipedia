@@ -996,6 +996,7 @@
     <string name="suggested_edits_image_tags_select_title">You haven\'t selected any tags for this image</string>
     <string name="suggested_edits_image_tags_select_text">Only tags that you choose will be added to images. Tags that are not selected will be marked as rejected. Are you sure you want to mark all tags as rejected?</string>
     <string name="suggested_edits_image_tags_add_tag">Add tag</string>
+    <string name="suggested_edits_image_tags_exit_dialog_message">The unpublished tags will not be saved</string>
     <string name="suggested_edits_image_zoom_tooltip">Pinch to zoom this image.</string>
     <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Wikipedia.</string>
     <string name="suggested_edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, below you can find some quick and easy ways to help improve Wikipedia. You\'ll see the difference you\'re making as soon as you get started. Happy editing!]]></string>
@@ -1480,5 +1481,6 @@
 
     <string name="data_opt_in_accept">Accept</string>
     <string name="data_opt_in_reject">Reject</string>
+    <string name="generic_release_notes">Minor bug fixes and enhancements</string>
 
 </resources>
