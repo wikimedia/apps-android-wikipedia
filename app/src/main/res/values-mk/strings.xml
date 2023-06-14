@@ -950,6 +950,7 @@
   <string name="suggested_edits_image_tags_select_title">Немате избрано ниедна ознака за сликава</string>
   <string name="suggested_edits_image_tags_select_text">Во сликите ќе се додаваат само ознаки кои сте ги избрале вие. Неизбраните ознаки ќе се сметаат за одбиени. Дали сигурно сакате да ги означите сите како одбиени?</string>
   <string name="suggested_edits_image_tags_add_tag">Додај ознака</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Необјавените ознаки нема да се зачуваат</string>
   <string name="suggested_edits_image_zoom_tooltip">Штипнете за да ја приближите сликата.</string>
   <string name="suggested_edits_encouragement_message">%s, ви благодариме за уредувањата. Подолу ќе најдете други начини да учествувате на Википедија.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здраво, %s&lt;/b&gt;. Подолу погледајте како брзо и лесно начини да помогнете на Википедија. Штом започнете, ќе забележите каква разлика правите. Среќно уредување!</string>
@@ -1389,4 +1390,5 @@
   <string name="reading_list_share_survey_body">„Споделување на списоци за читање“ е пробна функција и ни требаат ваши мислења за да ја подобриме или отстраниме.</string>
   <string name="data_opt_in_accept">Прифати</string>
   <string name="data_opt_in_reject">Одбиј</string>
+  <string name="generic_release_notes">Ситни поправки на грешки и подобрувања</string>
 </resources>

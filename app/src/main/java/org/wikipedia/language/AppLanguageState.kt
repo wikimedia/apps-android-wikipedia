@@ -145,5 +145,11 @@ class AppLanguageState(context: Context) {
                 addAppLanguageCode(systemLanguageCode)
             }
         }
+        if (_appLanguageCodes.isEmpty()) {
+            // If the language list is still empty, add the fallback language.
+            // This is for devices that have very nonstandard language configurations, or
+            // variants of languages that we don't support yet.
+            addAppLanguageCode(systemLanguageCode)
+        }
     }
 }

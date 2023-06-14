@@ -522,6 +522,11 @@
   <string name="watchlist_title">Spisak praćenja</string>
   <string name="preference_title_notification_system">Sistem</string>
   <string name="preference_title_notification_thanks">Zahvali se</string>
+  <string name="notifications_select_all_filters">Izaberi sve filtere</string>
+  <string name="notifications_tab_filter_all">Sve</string>
+  <string name="notifications_tab_filter_mentions">Spominjanja</string>
+  <string name="notifications_menu_mark_as_read">Označi kao pročitano</string>
+  <string name="notifications_menu_mark_as_unread">Označi kao nepročitano</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Nasumična stranica</string>
   <string name="view_random_article_card_title">Nasumični članak</string>
