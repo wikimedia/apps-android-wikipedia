@@ -149,7 +149,7 @@ class AppLanguageState(context: Context) {
             // If the language list is still empty, add the fallback language.
             // This is for devices that have very nonstandard language configurations, or
             // variants of languages that we don't support yet.
-            addAppLanguageCode(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)
+            addAppLanguageCode(systemLanguageCode)
         }
     }
 }
