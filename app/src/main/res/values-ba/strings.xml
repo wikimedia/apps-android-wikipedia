@@ -73,11 +73,17 @@
   <string name="page_edit_history_filter_by_bot">Робот төҙәтеүҙәре (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s тиклем %2$s метрикалар</string>
   <string name="page_edit_history_article_edits_since_year">{{PLURAL\n|one=%1$d төҙәтеүҙәр %2$s|%1$d төҙәтеүҙәр %2$s}}</string>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%2$s юлынан %1$d төҙәтеү (%3$s)</item>
+    <item quantity="other">%2$s юлынан %1$d төҙәтеү(%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Төҙәтеүҙәрҙе күберәк күреү өсөн үҙгәртеп ҡарағыҙ &lt;a href=\"#\"&gt;фильтры&lt;/a&gt;</string>
   <string name="menu_page_show_tabs">Ҡушымтаны күрһәтергә</string>
   <string name="menu_page_other_languages">Телде һайларға</string>
   <string name="menu_page_find_in_page">Мәҡәләлә эҙләү</string>
   <string name="menu_page_add_to_watchlist">Күҙәтеү исемлегенә өҫтәргә</string>
+  <string name="menu_page_watch">Күҙәтергә</string>
+  <string name="menu_page_unwatch">Күҙәтмәҫкә</string>
   <string name="menu_page_view_talk">Әңгәмә битен ҡарау</string>
   <string name="menu_page_talk_page">Фекер алышыу бите</string>
   <string name="menu_page_view_edit_history">Үҙгәртеүҙәр тарихын ҡарау</string>
@@ -248,7 +254,7 @@
   <string name="about_translators_heading">Тәржемәселәр</string>
   <string name="about_translators_translatewiki">Был ҡушымта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; төркөмө ирекмәндәре тарафынан тәржемә ителгән.</string>
   <string name="about_app_license_heading">Лицензия</string>
-  <string name="about_app_license" fuzzy="true">&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;Apache 2.0&lt;/a&gt; лицензияһы буйынса\nбашланғыс код бында &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; һәм &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Gerrit&lt;/a&gt; алырға мөмкин. Әгәр ҙә башҡа күрһәтмә булмаһа, йөкмәтке &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt; лицезияһына ярашлы алына.</string>
+  <string name="about_app_license">Башланғыс код &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; һәм &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisansı&lt;/a&gt; урынлашҡан. Башҡа шарт күрһәтелмәһә &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Creative_Commons_Atıf-AynıLisanslaPaylaş_3.0_Yerelleştirilmemiş_lisans_metni\"&gt;Creative Commons Atıf-лицензияһы&lt;/a&gt; .</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt; Викимедиа фонды &lt;/a&gt;-ның продукты</string>
   <string name="about_activity_title">Ҡушымта тураһында</string>
   <string name="edit_abandon_confirm">\nБит үҙгәртелде. Үҙгәртеүҙәрҙе һаҡламайынса сығырға уйлайһығыҙмы?</string>
