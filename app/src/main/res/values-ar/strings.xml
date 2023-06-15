@@ -1401,4 +1401,5 @@
   <string name="reading_list_share_survey_body">\"مشاركة قوائم القراءة\" هي ميزة اختبار ونحن بحاجة إلى ملاحظاتك لتحسينها أو إزالتها.</string>
   <string name="data_opt_in_accept">قبول</string>
   <string name="data_opt_in_reject">رفض</string>
+  <string name="generic_release_notes">إصلاحات الشوائب الطفيفة والتحسينات</string>
 </resources>
