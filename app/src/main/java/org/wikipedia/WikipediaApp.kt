@@ -150,7 +150,7 @@ class WikipediaApp : Application() {
 
         WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
 
-        connectionStateMonitor.enable(this)
+        connectionStateMonitor.enable()
 
         setupLeakCanary()
 
