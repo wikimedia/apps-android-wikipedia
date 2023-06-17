@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* AProdromou
 * Auslaender
 * Dbrant
 * Evropi
@@ -809,6 +810,7 @@
   <string name="suggested_edits_image_tags_select_title">Δεν έχετε επιλέξει ετικέτες για την εικόνα</string>
   <string name="suggested_edits_image_tags_select_text">Μόνο ετικέτες που επιλέγετε θα προστεθούν στις εικόνες. Αυτές που δεν έχουν επιλεγεί θα επισημανθούν ως απορριφθείσες. Είστε βέβαιοι ότι θέλετε να επισημάνετε όλες τις ετικέτες ως απορριφθείσες;</string>
   <string name="suggested_edits_image_tags_add_tag">Προσθήκη ετικέτας</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Οι μη δημοσιευμένες ετικέτες δε θα αποθηκευτούν</string>
   <string name="suggested_edits_encouragement_message">%s, σας ευχαριστούμε για τις τροποποιήσεις σας. Παρακάτω μπορείτε να βρείτε περισσότερους τρόπους για να συνεισφέρετε στη Βικιπαίδεια.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Γειά σας %s&lt;/b&gt;, παρακάτω μπορείτε να βρείτε μερικούς γρήγορους και εύκολους τρόπους για να βοηθήσετε στην βελτίωση της Βικιπαίδεια. Θα δείτε τη διαφορά που κάνετε αμέσως μόλις ξεκινήσετε. Καλή επεξεργασία!</string>
   <string name="suggested_edits_image_captions_task_detail">Περιγράψτε μια εικόνα για να βοηθήσετε τους αναγνώστες να κατανοήσουν τη σημασία και το περιεχόμενό της.</string>
@@ -997,4 +999,5 @@
   <string name="subcategory_empty">Δε βρέθηκαν υποκατηγορίες σε αυτή την κατηγορία.</string>
   <string name="data_opt_in_accept">Αποδοχή</string>
   <string name="data_opt_in_reject">Απόρριψη</string>
+  <string name="generic_release_notes">Μικρές διορθώσεις σφαλμάτων και βελτιώσεις</string>
 </resources>

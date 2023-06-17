@@ -985,6 +985,7 @@
   <string name="suggested_edits_image_tags_select_title">لم تقم بتحديد أي علامات لهذه الصورة</string>
   <string name="suggested_edits_image_tags_select_text">ستتم إضافة الأوسمة التي تختارها فقط إلى الصور. سيتم تمييز الأوسمة التي لم يتم تحديدها على أنها مرفوضة. هل أنت متأكد أنك تريد وضع علامة على جميع الأوسمة على أنها مرفوضة؟</string>
   <string name="suggested_edits_image_tags_add_tag">إضافة وسم</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">لن يتم حفظ العلامات غير المنشورة</string>
   <string name="suggested_edits_image_zoom_tooltip">ضم الاصبعين لتكبير هذه الصورة.</string>
   <string name="suggested_edits_encouragement_message">%s، شكرا على تعديلاتك، يمكنك العثور أدناه على المزيد من الطرق للمساهمة في ويكيبيديا.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;مرحبا %s&lt;/b&gt;، يمكنك العثور أدناه على بعض الطرق السريعة والسهلة للمساعدة في تحسين ويكيبيديا. ستلاحظ الفرق الذي تحدثه بمجرد أن تبدأ. نتمنى لك تحرير سعيد!</string>
@@ -1400,4 +1401,5 @@
   <string name="reading_list_share_survey_body">\"مشاركة قوائم القراءة\" هي ميزة اختبار ونحن بحاجة إلى ملاحظاتك لتحسينها أو إزالتها.</string>
   <string name="data_opt_in_accept">قبول</string>
   <string name="data_opt_in_reject">رفض</string>
+  <string name="generic_release_notes">إصلاحات الشوائب الطفيفة والتحسينات</string>
 </resources>
