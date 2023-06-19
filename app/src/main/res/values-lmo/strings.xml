@@ -39,7 +39,7 @@
   <string name="page_content_description">Pagina: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
-  <string name="dialog_title_clear_history">Netta via la cronologia del programa de navigazzion</string>
+  <string name="dialog_title_clear_history">Netta via la cronologia del curiosador</string>
   <string name="dialog_message_clear_history">Chesschì el scancelarà tuta la cronologia ne navigazzion e \'l sararà su tucc i schede adee averte. Te see sicur?</string>
   <string name="dialog_message_clear_history_yes">Sì</string>
   <string name="dialog_message_clear_history_no">Nò</string>
@@ -293,7 +293,7 @@
   <string name="clear_recent_searches_confirm">Te se sicur de vorè scancelà la cronologia di ricerche recente?</string>
   <string name="clear_recent_searches_confirm_yes">Sì</string>
   <string name="clear_recent_searches_confirm_no">Nò</string>
-  <string name="error_browser_not_found">Impossibel dervì la pagina web (nanca on programa de navigazzion trovad).</string>
+  <string name="error_browser_not_found">Impossibel dervì la pagina web (nanca on curiosador trovad).</string>
   <string name="table_infobox">Dati svelt</string>
   <string name="table_other">Pussee de informazzion</string>
   <string name="table_close">Sarra su</string>

@@ -17,6 +17,7 @@
 * Norhorn
 * Panos78
 * Protnet
+* Sofia Chiali
 * Tgkarounos
 -->
 <resources>
@@ -63,7 +64,12 @@
   <string name="image_share_via">Κοινοποίηση μέσω</string>
   <string name="search_redirect_from">Ανακατεύθυνση από %s</string>
   <string name="page_edit_history_activity_title">Ιστορικό αναθεωρήσεων: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Κενό σύνολο επεξεργασίας</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Αναζήτηση ή φιλτράρισμα αλλαγών</string>
+  <string name="page_edit_history_filter_by">Φιλτράρισμα κατά</string>
+  <string name="page_edit_history_filter_by_all">Όλες οι τροποποιήσεις (%s)</string>
+  <string name="page_edit_history_filter_by_user">Τροποποιήσεις χρηστών (%s)</string>
   <string name="menu_page_show_tabs">Εμφάνιση καρτελών</string>
   <string name="menu_page_other_languages">Αλλαγή γλώσσας</string>
   <string name="menu_page_find_in_page">Βρείτε στο λήμμα</string>
