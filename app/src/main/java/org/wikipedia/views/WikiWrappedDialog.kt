@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
+import android.widget.ResourceCursorAdapter
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
@@ -35,6 +36,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.DialogWikiWrappedBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 
 class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activity) {
@@ -49,54 +51,37 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
             .load(R.raw.wrapped_shapes)
             .into(DrawableImageViewTarget(binding.wrappedGifView))
 
-   /*     CoroutineScope(Dispatchers.Main).launch {
+        CoroutineScope(Dispatchers.Main).launch {
             try {
                 fetchListOfTopics(CoroutineScope(Dispatchers.Main))
             } catch (e: Exception) {
                 L.e(e)
             }
-        }*/
-        fetchHistoryItems()
+        }
         binding.wrappedRecycler.layoutManager = LinearLayoutManager(context)
         binding.wrappedRecycler.adapter = CustomWrappedAdapter(mutableListOf(), activity)
     }
-    private fun fetchHistoryItems() {
-        disposables.clear()
-        disposables.add(Observable.fromCallable { AppDatabase.instance.historyEntryWithImageDao().filterHistoryItems("") }
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ items -> onLoadItemsFinished(items) }) { t ->
-                L.e(t)
-                onLoadItemsFinished(emptyList())
-            })
-    }
 
-    private fun onLoadItemsFinished(items: List<Any>) {
-        val list = mutableListOf<String>()
-        for (listItem in items) {
-            if (listItem is HistoryEntry)
-                list.add(listItem.apiTitle)
-        }
+    private fun onLoadItemsFinished(readingTopics: List<String>, editingTopics: List<String>, editCount: Int) {
+
         finalWrappedList.add(
             WrappedObject(
-                context.getString(R.string.articles_stat_string, 10),
-                listOf("Media", "Politics")
+                context.getString(R.string.articles_stat_string),
+                readingTopics
             )
         )
         finalWrappedList.add(
             WrappedObject(
-                context.getString(R.string.edits_stat_string, 400),
+                context.getString(R.string.edits_stat_string, editCount),
                 emptyList()
             )
         )
         finalWrappedList.add(
             WrappedObject(
                 context.getString(R.string.contributions_stat_string),
-                listOf("Media", "Politics")
+                editingTopics
             )
         )
-
-       //  runBlocking { showSLowProgress(CoroutineScope(Dispatchers.Main)) }
     }
 
     private suspend fun fetchListOfTopics(scope: CoroutineScope) {
@@ -203,11 +188,21 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
 
             L.d(">>> " + readingTopics)
             L.d(">>> " + editingTopics)
+
+
+
+
+
+            onLoadItemsFinished(readingTopics.keys.map { key ->
+                    key + " (" + readingTopics[key] + ")"
+                },
+                editingTopics.keys.map { key ->
+                    key + " (" + editingTopics[key] + ")"
+                }, totalEditCount)
         }
 
 
         scope.launch {
-            delay(2000)
             finalWrappedList.forEach {
                 (binding.wrappedRecycler.adapter as CustomWrappedAdapter).addToList(it)
                 delay(2000)
@@ -247,17 +242,16 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.text.text = items[position].statString
-            holder.chipGroup.isVisible = items[position].chipStringList.isEmpty()
+
+            holder.chipGroup.setSingleLine(true)
+            holder.chipGroup.isVisible = items[position].chipStringList.isNotEmpty()
             if (items[position].chipStringList.isNotEmpty()) {
                 items[position].chipStringList.forEach {
                     val chip = Chip(context)
                     chip.text = it
-                    chip.setChipBackgroundColorResource(R.color.blue600)
-                    chip.isCloseIconVisible = true
-                    chip.setTextColor(context.resources.getColor(R.color.white))
-                    chip.setTextAppearance(
-                        R.style.Chip
-                    )
+                    chip.isCloseIconVisible = false
+                    chip.setTextColor(ResourceUtil.getThemedColor(context, R.attr.primary_color))
+
                     holder.chipGroup.addView(chip)
                 }
             }

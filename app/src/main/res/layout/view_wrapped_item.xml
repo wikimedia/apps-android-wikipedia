@@ -12,10 +12,15 @@
         android:minHeight="?android:attr/listPreferredItemHeightSmall"
         android:textAppearance="?android:attr/textAppearanceListItemSmall" />
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal">
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/wrappedChipGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    </HorizontalScrollView>
 
     <View
         android:layout_width="match_parent"

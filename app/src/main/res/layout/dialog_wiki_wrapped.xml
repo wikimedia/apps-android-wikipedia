@@ -61,6 +61,14 @@
                         android:textColor="?attr/primary_color"
                         android:textSize="16sp" />
                 </LinearLayout>
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="8dp"
+                    app:srcCompat="@drawable/ic_share"
+                    app:tint="?attr/primary_color"
+                    android:layout_marginStart="64dp"/>
             </LinearLayout>
 
             <View
