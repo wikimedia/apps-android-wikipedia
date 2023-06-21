@@ -18,12 +18,14 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.DialogWikiWrappedBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -44,47 +46,119 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
         binding.wrappedRecycler.adapter =
             CustomWrappedAdapter(mutableListOf(wrappedList[0]), activity)
 
-        runBlocking { fetchListOfTopics(CoroutineScope(Dispatchers.Main)) }
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                fetchListOfTopics(CoroutineScope(Dispatchers.Main))
+            } catch (e: Exception) {
+                L.e(e)
+            }
+        }
     }
 
     private suspend fun fetchListOfTopics(scope: CoroutineScope) {
 
         withContext(Dispatchers.IO) {
 
-            val historyItems = AppDatabase.instance.historyEntryWithImageDao().findEntriesBySearchTerm("%%")
-                .map { it.apiTitle }
+            val readingTopicsTask = async {
+                val historyItems =
+                    AppDatabase.instance.historyEntryWithImageDao().findEntriesBySearchTerm("%%")
+                        .take(50)
+                        .map { it.apiTitle }
 
-            val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getCirrusDocData(historyItems.joinToString("|"))
+                val response = ServiceFactory.get(WikipediaApp.instance.wikiSite)
+                    .getCirrusDocData(historyItems.joinToString("|"))
 
-            val topicSet = mutableSetOf<String>()
+                val topicMap = mutableMapOf<String, Int>()
 
-            response.query?.pages?.forEach { page ->
-                var haveAsterisks = false
+                response.query?.pages?.forEach { page ->
+                    var haveAsterisks = false
 
-                var topics =
-                    page.cirrusdoc?.get(0)?.source?.ores_articletopics.orEmpty()
-                        .filter { it.startsWith("articletopic/") }
-                        .map {
-                            if (it.contains("*")) haveAsterisks =
-                                true; it.substringAfter("articletopic/")
+                    var topics =
+                        page.cirrusdoc?.get(0)?.source?.ores_articletopics.orEmpty()
+                            .filter { it.startsWith("articletopic/") }
+                            .map {
+                                if (it.contains("*")) haveAsterisks =
+                                    true; it.substringAfter("articletopic/")
+                            }
+
+                    if (haveAsterisks) {
+                        topics = topics.filter { it.contains("*") }.map { it.replace("*", "") }
+                    }
+
+                    topics = topics.sortedBy { it.split("|")[1].toInt() }
+                        .map { it.split("|")[0] }
+                        .map { if (it.contains(".")) it.split(".").last() else it }
+
+                    topics.forEach {
+                        if (topicMap.containsKey(it)) {
+                            topicMap[it] = topicMap[it]!! + 1
+                        } else {
+                            topicMap[it] = 1
                         }
-
-                if (haveAsterisks) {
-                    topics = topics.filter { it.contains("*") }.map { it.replace("*", "") }
+                    }
                 }
 
-                topics = topics.sortedBy { it.split("|")[1].toInt() }
-                    .map { it.split("|")[0] }
-                    .map { if (it.contains(".")) it.split(".").last() else it }
-
-                topics.forEach {
-                    topicSet.add(it)
+                topicMap.forEach {
+                    L.d(">>>> " + it)
                 }
+                topicMap
             }
 
-            topicSet.forEach {
-                L.d(">>>> " + it)
+            var totalEditCount = 0
+
+            val editTopicsTask = async {
+                val contribResponse = ServiceFactory.get(WikipediaApp.instance.wikiSite).
+                    getUserContributions(AccountUtil.userName.orEmpty(), 100, null)
+
+                val editedTitles = (contribResponse.query?.userContributions?.map { it.title } ?: emptyList<String>())
+                    .take(50)
+
+                totalEditCount = contribResponse.query?.userInfo?.editCount ?: 0
+
+                val response = ServiceFactory.get(WikipediaApp.instance.wikiSite)
+                    .getCirrusDocData(editedTitles.joinToString("|"))
+
+                val topicMap = mutableMapOf<String, Int>()
+
+                response.query?.pages?.forEach { page ->
+                    var haveAsterisks = false
+
+                    var topics =
+                        page.cirrusdoc?.get(0)?.source?.ores_articletopics.orEmpty()
+                            .filter { it.startsWith("articletopic/") }
+                            .map {
+                                if (it.contains("*")) haveAsterisks =
+                                    true; it.substringAfter("articletopic/")
+                            }
+
+                    if (haveAsterisks) {
+                        topics = topics.filter { it.contains("*") }.map { it.replace("*", "") }
+                    }
+
+                    topics = topics.sortedBy { it.split("|")[1].toInt() }
+                        .map { it.split("|")[0] }
+                        .map { if (it.contains(".")) it.split(".").last() else it }
+
+                    topics.forEach {
+                        if (topicMap.containsKey(it)) {
+                            topicMap[it] = topicMap[it]!! + 1
+                        } else {
+                            topicMap[it] = 1
+                        }
+                    }
+                }
+
+                topicMap.forEach {
+                    L.d(">>>> " + it)
+                }
+                topicMap
             }
+
+            val readingTopics = readingTopicsTask.await()
+            val editingTopics = editTopicsTask.await()
+
+            L.d(">>> " + readingTopics)
+            L.d(">>> " + editingTopics)
         }
 
 
