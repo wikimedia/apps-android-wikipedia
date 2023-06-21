@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
-import android.widget.ResourceCursorAdapter
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
@@ -19,10 +18,7 @@ import com.bumptech.glide.request.target.DrawableImageViewTarget
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -35,7 +31,6 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.DialogWikiWrappedBinding
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 
@@ -136,8 +131,7 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
             var totalEditCount = 0
 
             val editTopicsTask = async {
-                val contribResponse = ServiceFactory.get(WikipediaApp.instance.wikiSite).
-                    getUserContributions(AccountUtil.userName.orEmpty(), 100, null)
+                val contribResponse = ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName.orEmpty(), 100, null)
 
                 val editedTitles = (contribResponse.query?.userContributions?.map { it.title } ?: emptyList<String>())
                     .take(50)
@@ -189,10 +183,6 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
             L.d(">>> " + readingTopics)
             L.d(">>> " + editingTopics)
 
-
-
-
-
             onLoadItemsFinished(readingTopics.keys.map { key ->
                     key + " (" + readingTopics[key] + ")"
                 },
@@ -200,7 +190,6 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
                     key + " (" + editingTopics[key] + ")"
                 }, totalEditCount)
         }
-
 
         scope.launch {
             finalWrappedList.forEach {
