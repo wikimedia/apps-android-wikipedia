@@ -21,6 +21,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.views.WikiWrappedDialog
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
 
@@ -56,6 +57,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (savedInstanceState == null) {
             handleIntent(intent)
         }
+
+        WikiWrappedDialog(this).show()
     }
 
     override fun onResume() {
