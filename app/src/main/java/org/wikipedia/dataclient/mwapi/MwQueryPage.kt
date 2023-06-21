@@ -23,6 +23,7 @@ class MwQueryPage {
     @SerialName("pageid") val pageId = 0
     @SerialName("pageprops") val pageProps: PageProps? = null
     @SerialName("entityterms") val entityTerms: EntityTerms? = null
+    val cirrusdoc: List<CirrusDoc>? = null
 
     private val ns = 0
     val coordinates: List<Coordinates>? = null
@@ -138,5 +139,16 @@ class MwQueryPage {
         val alias: List<String> = emptyList()
         val label: List<String> = emptyList()
         val description: List<String> = emptyList()
+    }
+
+    @Serializable
+    class CirrusDoc {
+        val source: CirrusDocSource? = null
+    }
+
+    @Serializable
+    class CirrusDocSource {
+        val ores_articletopics: List<String>? = null
+        val weighted_tags: List<String>? = null
     }
 }

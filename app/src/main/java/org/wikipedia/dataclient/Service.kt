@@ -450,6 +450,10 @@ interface Service {
     suspend fun getWatchedStatus(@Query("titles") titles: String): MwQueryResponse
 
     @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&prop=cirrusdoc")
+    suspend fun getCirrusDocData(@Query("titles") titles: String): MwQueryResponse
+
+    @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched&meta=userinfo&uiprop=options")
     suspend fun getWatchedStatusWithUserOptions(@Query("titles") titles: String): MwQueryResponse
 

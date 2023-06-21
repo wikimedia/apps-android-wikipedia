@@ -10,21 +10,23 @@ import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.DrawableImageViewTarget
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.DialogWikiWrappedBinding
-import org.wikipedia.history.HistoryEntry
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.util.log.L
 
 class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activity) {
@@ -37,33 +39,44 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
         Glide.with(context)
             .load(R.raw.wrapped_shapes)
             .into(DrawableImageViewTarget(binding.wrappedGifView))
-        fetchHistoryItems()
-    }
-    private fun fetchHistoryItems() {
-        disposables.clear()
-        disposables.add(Observable.fromCallable { AppDatabase.instance.historyEntryWithImageDao().filterHistoryItems("") }
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ items -> onLoadItemsFinished(items) }) { t ->
-                L.e(t)
-                onLoadItemsFinished(emptyList())
-            })
-    }
 
-    private fun onLoadItemsFinished(items: List<Any>) {
-        val list = mutableListOf<String>()
-        for (listItem in items) {
-            if (listItem is HistoryEntry)
-                list.add(listItem.apiTitle)
-        }
-        // Todo: Do this after the api call
-        /*binding.wrappedRecycler.layoutManager = LinearLayoutManager(context)
+        binding.wrappedRecycler.layoutManager = LinearLayoutManager(context)
         binding.wrappedRecycler.adapter =
             CustomWrappedAdapter(mutableListOf(wrappedList[0]), activity)
-        runBlocking { showSLowProgress(CoroutineScope(Dispatchers.Main)) }*/
+        runBlocking { fetchAndShow(CoroutineScope(Dispatchers.Main)) }
     }
 
-    private suspend fun showSLowProgress(scope: CoroutineScope) {
+    private suspend fun fetchAndShow(scope: CoroutineScope) {
+
+        withContext(Dispatchers.IO) {
+
+            val historyItems = AppDatabase.instance.historyEntryDao().findEntryBySearchTerm("")
+
+            val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getCirrusDocData(historyItems.joinToString("|"))
+
+            var haveAsterisks = false
+
+            var topics = response.query?.firstPage()?.cirrusdoc?.get(0)?.source?.ores_articletopics.orEmpty()
+                .filter { it.startsWith("articletopic/") }
+                .map { if (it.contains("*")) haveAsterisks = true; it.substringAfter("articletopic/") }
+
+            if (haveAsterisks) {
+                topics = topics.filter { it.contains("*") }.map { it.replace("*", "") }
+            }
+
+            topics = topics.sortedBy { it.split("|")[1].toInt() }
+                .map { it.split("|")[0] }
+                .map { if (it.contains(".")) it.split(".").last() else it }
+
+
+            topics.forEach {
+                L.d(">>>> " + it)
+
+            }
+
+        }
+
+
         scope.launch {
             delay(2000)
             for (i in 1 until wrappedList.size) {
