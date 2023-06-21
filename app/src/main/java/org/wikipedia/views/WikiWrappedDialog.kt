@@ -35,7 +35,7 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
     init {
         setView(binding.root)
         Glide.with(context)
-            .load("https://media.itsnicethat.com/original_images/22_Wrapped_Shapes.gif")
+            .load(R.raw.wrapped_shapes)
             .into(DrawableImageViewTarget(binding.wrappedGifView))
         fetchHistoryItems()
     }
