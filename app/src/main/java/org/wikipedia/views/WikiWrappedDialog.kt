@@ -259,6 +259,7 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
 
             holder.chipGroup.setSingleLine(true)
             holder.chipGroup.isVisible = items[position].chipStringList.isNotEmpty()
+            holder.chipGroup.removeAllViews()
             if (items[position].chipStringList.isNotEmpty()) {
                 items[position].chipStringList.forEach {
                     val chip = Chip(context)
