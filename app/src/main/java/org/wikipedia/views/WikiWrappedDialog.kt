@@ -34,6 +34,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.DialogWikiWrappedBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activity) {
@@ -55,6 +56,8 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
                 L.e(e)
             }
         }
+
+        binding.wrappedTitle.text = StringUtil.fromHtml("Recap<sup><small>[23]</small></sup>")
 
         binding.shareButton.setOnClickListener {
 

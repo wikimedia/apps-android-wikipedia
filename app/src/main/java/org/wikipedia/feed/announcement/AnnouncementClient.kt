@@ -61,7 +61,7 @@ class AnnouncementClient : FeedClient {
             }
 
             cards.add(AnnouncementCard(Announcement("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Announcement_card_test.png/600px-Announcement_card_test.png",
-                    "WikiRecap<sup>[2023]</sup> is here! See your year-in-review of your activity on Wikipedia!",
+                    "Recap<sup><font style=\"color:#00f\">[23]</font></sup> is here! See your year-in-review of your activity on Wikipedia!",
                     "Test Announcement",
                     listOf("Android"),
                     listOf("US", "ES", "SP"),
