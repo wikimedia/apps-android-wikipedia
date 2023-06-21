@@ -10,32 +10,57 @@ import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.DrawableImageViewTarget
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import org.wikipedia.R
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.DialogWikiWrappedBinding
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.util.log.L
 
 class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activity) {
     private val binding = DialogWikiWrappedBinding.inflate(activity.layoutInflater)
     private var dialog: AlertDialog? = null
+    private val disposables = CompositeDisposable()
 
     init {
         setView(binding.root)
         Glide.with(context)
             .load("https://media.itsnicethat.com/original_images/22_Wrapped_Shapes.gif")
             .into(DrawableImageViewTarget(binding.wrappedGifView))
-        binding.wrappedRecycler.layoutManager = LinearLayoutManager(context)
+        fetchHistoryItems()
+    }
+    private fun fetchHistoryItems() {
+        disposables.clear()
+        disposables.add(Observable.fromCallable { AppDatabase.instance.historyEntryWithImageDao().filterHistoryItems("") }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ items -> onLoadItemsFinished(items) }) { t ->
+                L.e(t)
+                onLoadItemsFinished(emptyList())
+            })
+    }
+
+    private fun onLoadItemsFinished(items: List<Any>) {
+        val list = mutableListOf<String>()
+        for (listItem in items) {
+            if (listItem is HistoryEntry)
+                list.add(listItem.apiTitle)
+        }
+        // Todo: Do this after the api call
+        /*binding.wrappedRecycler.layoutManager = LinearLayoutManager(context)
         binding.wrappedRecycler.adapter =
             CustomWrappedAdapter(mutableListOf(wrappedList[0]), activity)
-        runBlocking { showSLowProgress(CoroutineScope(Dispatchers.Main)) }
+        runBlocking { showSLowProgress(CoroutineScope(Dispatchers.Main)) }*/
     }
 
     private suspend fun showSLowProgress(scope: CoroutineScope) {
