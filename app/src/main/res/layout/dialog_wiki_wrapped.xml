@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialogWrapper"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -63,6 +64,7 @@
                 </LinearLayout>
 
                 <ImageView
+                    android:id="@+id/shareButton"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:padding="8dp"
@@ -93,7 +95,9 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:minHeight="200dp"
-                android:padding="24dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginBottom="16dp"
                 android:background="@color/orange500"
                 android:scrollbars="vertical" />
 
@@ -102,10 +106,10 @@
     </androidx.core.widget.NestedScrollView>
 
     <ProgressBar
-        android:id="@+id/WrappedProgress"
+        android:id="@+id/wrappedProgress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone" />
+        android:layout_marginBottom="48dp"
+        android:layout_gravity="bottom|center_horizontal" />
 
 </FrameLayout>

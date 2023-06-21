@@ -2,6 +2,8 @@
     android:id="@+id/item_layout_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp"
     android:orientation="vertical">
 
     <TextView
@@ -24,6 +26,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/black" />
+        android:layout_height="0.5dp"
+        android:layout_marginTop="4dp"
+        android:background="?attr/border_color" />
 </LinearLayout>

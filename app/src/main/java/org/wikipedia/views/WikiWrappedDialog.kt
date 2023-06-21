@@ -2,6 +2,7 @@ package org.wikipedia.views
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -53,6 +55,18 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
                 L.e(e)
             }
         }
+
+        binding.shareButton.setOnClickListener {
+
+            binding.root.drawToBitmap().let { bitmap ->
+                val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                    type = "image/jpeg"
+                    putExtra(Intent.EXTRA_STREAM, bitmap)
+                }
+                context.startActivity(shareIntent)
+            }
+        }
+
         binding.wrappedRecycler.layoutManager = LinearLayoutManager(context)
         binding.wrappedRecycler.adapter = CustomWrappedAdapter(mutableListOf(), activity)
     }
@@ -80,6 +94,10 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
     }
 
     private suspend fun fetchListOfTopics(scope: CoroutineScope) {
+
+        withContext(Dispatchers.Main) {
+            binding.wrappedProgress.isVisible = true
+        }
 
         withContext(Dispatchers.IO) {
 
@@ -182,6 +200,10 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
 
             L.d(">>> " + readingTopics)
             L.d(">>> " + editingTopics)
+
+            withContext(Dispatchers.Main) {
+                binding.wrappedProgress.isVisible = false
+            }
 
             onLoadItemsFinished(readingTopics.keys.map { key ->
                     key + " (" + readingTopics[key] + ")"
