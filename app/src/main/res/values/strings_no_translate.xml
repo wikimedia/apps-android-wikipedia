@@ -66,4 +66,11 @@
     <string name="tag_icon_key">tagIconKey</string>
     <string name="tag_text_key">tagTextKey</string>
 
+    <!-- Wiki wrapped -->
+
+    <string name="articles_stat_string">You read %d articles under these topics: </string>
+    <string name="edits_stat_string">You bettered Wikipedia with your %d edits</string>
+    <string name="contributions_stat_string">Your contributions spanned over these topics: </string>
+
+
 </resources>

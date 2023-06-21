@@ -7,21 +7,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.FrameLayout
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.DrawableImageViewTarget
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -29,12 +34,14 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.DialogWikiWrappedBinding
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.util.log.L
 
 class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activity) {
     private val binding = DialogWikiWrappedBinding.inflate(activity.layoutInflater)
     private var dialog: AlertDialog? = null
     private val disposables = CompositeDisposable()
+    private val finalWrappedList = mutableListOf<WrappedObject>()
 
     init {
         setView(binding.root)
@@ -42,17 +49,54 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
             .load(R.raw.wrapped_shapes)
             .into(DrawableImageViewTarget(binding.wrappedGifView))
 
-        binding.wrappedRecycler.layoutManager = LinearLayoutManager(context)
-        binding.wrappedRecycler.adapter =
-            CustomWrappedAdapter(mutableListOf(wrappedList[0]), activity)
-
-        CoroutineScope(Dispatchers.Main).launch {
+   /*     CoroutineScope(Dispatchers.Main).launch {
             try {
                 fetchListOfTopics(CoroutineScope(Dispatchers.Main))
             } catch (e: Exception) {
                 L.e(e)
             }
+        }*/
+        fetchHistoryItems()
+        binding.wrappedRecycler.layoutManager = LinearLayoutManager(context)
+        binding.wrappedRecycler.adapter = CustomWrappedAdapter(mutableListOf(), activity)
+    }
+    private fun fetchHistoryItems() {
+        disposables.clear()
+        disposables.add(Observable.fromCallable { AppDatabase.instance.historyEntryWithImageDao().filterHistoryItems("") }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ items -> onLoadItemsFinished(items) }) { t ->
+                L.e(t)
+                onLoadItemsFinished(emptyList())
+            })
+    }
+
+    private fun onLoadItemsFinished(items: List<Any>) {
+        val list = mutableListOf<String>()
+        for (listItem in items) {
+            if (listItem is HistoryEntry)
+                list.add(listItem.apiTitle)
         }
+        finalWrappedList.add(
+            WrappedObject(
+                context.getString(R.string.articles_stat_string, 10),
+                listOf("Media", "Politics")
+            )
+        )
+        finalWrappedList.add(
+            WrappedObject(
+                context.getString(R.string.edits_stat_string, 400),
+                emptyList()
+            )
+        )
+        finalWrappedList.add(
+            WrappedObject(
+                context.getString(R.string.contributions_stat_string),
+                listOf("Media", "Politics")
+            )
+        )
+
+       //  runBlocking { showSLowProgress(CoroutineScope(Dispatchers.Main)) }
     }
 
     private suspend fun fetchListOfTopics(scope: CoroutineScope) {
@@ -164,15 +208,15 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
 
         scope.launch {
             delay(2000)
-            for (i in 1 until wrappedList.size) {
-                (binding.wrappedRecycler.adapter as CustomWrappedAdapter).addToList(wrappedList[i])
+            finalWrappedList.forEach {
+                (binding.wrappedRecycler.adapter as CustomWrappedAdapter).addToList(it)
                 delay(2000)
             }
         }
     }
 
     class CustomWrappedAdapter(
-        private val items: MutableList<String>, private val context: Context
+        private val items: MutableList<WrappedObject>, private val context: Context
     ) :
         RecyclerView.Adapter<CustomWrappedAdapter.ViewHolder>() {
 
@@ -181,11 +225,13 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
         class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             var text: TextView
 
-            var container: FrameLayout
+            var container: LinearLayout
+            var chipGroup: ChipGroup
 
             init {
-                container = itemView.findViewById<View>(R.id.item_layout_container) as FrameLayout
+                container = itemView.findViewById<View>(R.id.item_layout_container) as LinearLayout
                 text = itemView.findViewById<View>(R.id.item_layout_text) as TextView
+                chipGroup = itemView.findViewById<View>(R.id.wrappedChipGroup) as ChipGroup
             }
         }
 
@@ -200,8 +246,21 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.text.text = items[position]
-
+            holder.text.text = items[position].statString
+            holder.chipGroup.isVisible = items[position].chipStringList.isEmpty()
+            if (items[position].chipStringList.isNotEmpty()) {
+                items[position].chipStringList.forEach {
+                    val chip = Chip(context)
+                    chip.text = it
+                    chip.setChipBackgroundColorResource(R.color.blue600)
+                    chip.isCloseIconVisible = true
+                    chip.setTextColor(context.resources.getColor(R.color.white))
+                    chip.setTextAppearance(
+                        R.style.Chip
+                    )
+                    holder.chipGroup.addView(chip)
+                }
+            }
             setAnimation(holder.itemView, position)
         }
 
@@ -215,20 +274,16 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
             }
         }
 
-        fun addToList(item: String) {
+        fun addToList(item: WrappedObject) {
             items.add(item)
             notifyDataSetChanged()
         }
     }
 
+    class WrappedObject(val statString: String, val chipStringList: List<String>)
+
     override fun show(): AlertDialog {
         dialog = super.show()
         return dialog!!
-    }
-
-    companion object {
-        val wrappedList = mutableListOf(
-            "Articles", "Edits", "Contributions"
-        )
     }
 }

@@ -60,7 +60,6 @@ class AnnouncementClient : FeedClient {
                 }
             }
 
-
             cards.add(AnnouncementCard(Announcement("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Announcement_card_test.png/600px-Announcement_card_test.png",
                     "WikiRecap<sup>[2023]</sup> is here! See your year-in-review of your activity on Wikipedia!",
                     "Test Announcement",
@@ -80,7 +79,6 @@ class AnnouncementClient : FeedClient {
                 "feed",
                 Announcement.Action("Show me!", "#wrapped")
                 )))
-
 
             return cards
         }
