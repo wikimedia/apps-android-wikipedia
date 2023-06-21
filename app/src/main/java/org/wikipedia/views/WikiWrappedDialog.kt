@@ -43,37 +43,48 @@ class WikiWrappedDialog(activity: Activity) : MaterialAlertDialogBuilder(activit
         binding.wrappedRecycler.layoutManager = LinearLayoutManager(context)
         binding.wrappedRecycler.adapter =
             CustomWrappedAdapter(mutableListOf(wrappedList[0]), activity)
-        runBlocking { fetchAndShow(CoroutineScope(Dispatchers.Main)) }
+
+        runBlocking { fetchListOfTopics(CoroutineScope(Dispatchers.Main)) }
     }
 
-    private suspend fun fetchAndShow(scope: CoroutineScope) {
+    private suspend fun fetchListOfTopics(scope: CoroutineScope) {
 
         withContext(Dispatchers.IO) {
 
-            val historyItems = AppDatabase.instance.historyEntryDao().findEntryBySearchTerm("")
+            val historyItems = AppDatabase.instance.historyEntryWithImageDao().findEntriesBySearchTerm("%%")
+                .map { it.apiTitle }
 
             val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getCirrusDocData(historyItems.joinToString("|"))
 
-            var haveAsterisks = false
+            val topicSet = mutableSetOf<String>()
 
-            var topics = response.query?.firstPage()?.cirrusdoc?.get(0)?.source?.ores_articletopics.orEmpty()
-                .filter { it.startsWith("articletopic/") }
-                .map { if (it.contains("*")) haveAsterisks = true; it.substringAfter("articletopic/") }
+            response.query?.pages?.forEach { page ->
+                var haveAsterisks = false
 
-            if (haveAsterisks) {
-                topics = topics.filter { it.contains("*") }.map { it.replace("*", "") }
+                var topics =
+                    page.cirrusdoc?.get(0)?.source?.ores_articletopics.orEmpty()
+                        .filter { it.startsWith("articletopic/") }
+                        .map {
+                            if (it.contains("*")) haveAsterisks =
+                                true; it.substringAfter("articletopic/")
+                        }
+
+                if (haveAsterisks) {
+                    topics = topics.filter { it.contains("*") }.map { it.replace("*", "") }
+                }
+
+                topics = topics.sortedBy { it.split("|")[1].toInt() }
+                    .map { it.split("|")[0] }
+                    .map { if (it.contains(".")) it.split(".").last() else it }
+
+                topics.forEach {
+                    topicSet.add(it)
+                }
             }
 
-            topics = topics.sortedBy { it.split("|")[1].toInt() }
-                .map { it.split("|")[0] }
-                .map { if (it.contains(".")) it.split(".").last() else it }
-
-
-            topics.forEach {
+            topicSet.forEach {
                 L.d(">>>> " + it)
-
             }
-
         }
 
 

@@ -11,6 +11,9 @@ interface HistoryEntryDao {
     @Query("SELECT * FROM HistoryEntry WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
     suspend fun findEntryBySearchTerm(term: String): HistoryEntry?
 
+    @Query("SELECT * FROM HistoryEntry WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
+    suspend fun findEntriesBySearchTerm(term: String): List<HistoryEntry>
+
     @Query("SELECT * FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND apiTitle = :apiTitle LIMIT 1")
     suspend fun findEntryBy(authority: String, lang: String, apiTitle: String): HistoryEntry?
 
