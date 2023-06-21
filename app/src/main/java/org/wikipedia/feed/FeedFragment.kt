@@ -40,6 +40,7 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.views.WikiWrappedDialog
 
 class FeedFragment : Fragment(), BackPressedHandler {
     private var _binding: FragmentFeedBinding? = null
@@ -279,6 +280,11 @@ class FeedFragment : Fragment(), BackPressedHandler {
 
         override fun onAnnouncementPositiveAction(card: Card, uri: Uri) {
             when {
+
+                uri.toString() == "#wrapped" -> {
+                    WikiWrappedDialog(requireActivity()).show()
+                }
+
                 uri.toString() == UriUtil.LOCAL_URL_LOGIN -> callback?.onLoginRequested()
                 uri.toString() == UriUtil.LOCAL_URL_SETTINGS -> requestLanguageChangeLauncher.launch(SettingsActivity.newIntent(requireContext()))
                 uri.toString() == UriUtil.LOCAL_URL_CUSTOMIZE_FEED -> {

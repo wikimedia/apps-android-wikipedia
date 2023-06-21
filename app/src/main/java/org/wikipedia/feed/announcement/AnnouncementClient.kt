@@ -59,6 +59,29 @@ class AnnouncementClient : FeedClient {
                     }
                 }
             }
+
+
+            cards.add(AnnouncementCard(Announcement("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Announcement_card_test.png/600px-Announcement_card_test.png",
+                    "WikiRecap<sup>[2023]</sup> is here! See your year-in-review of your activity on Wikipedia!",
+                    "Test Announcement",
+                    listOf("Android"),
+                    listOf("US", "ES", "SP"),
+                    "", "",
+                    "https://media.itsnicethat.com/original_images/22_Wrapped_Shapes.gif",
+                    null,
+                    null,
+                "200",
+                false,
+                false,
+                null,
+                null,
+                false,
+                false,
+                "feed",
+                Announcement.Action("Show me!", "#wrapped")
+                )))
+
+
             return cards
         }
 
