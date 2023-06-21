@@ -57,8 +57,9 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (savedInstanceState == null) {
             handleIntent(intent)
         }
-
-        WikiWrappedDialog(this).show()
+        binding.root.postDelayed({
+            WikiWrappedDialog(this).show()
+        }, 2000)
     }
 
     override fun onResume() {
