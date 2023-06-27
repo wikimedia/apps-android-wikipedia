@@ -5,6 +5,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.json.UriSerializer
 import org.wikipedia.language.AppLanguageLookUpTable
@@ -45,11 +46,11 @@ data class WikiSite(
     constructor(uri: Uri) : this(uri, "") {
         val tempUri = ensureScheme(uri)
         var authority = tempUri.authority.orEmpty()
-        if ((BASE_DOMAIN == authority || ("www." + BASE_DOMAIN) == authority) &&
+        if ((BASE_DOMAIN == authority || ("www.$BASE_DOMAIN") == authority) &&
             tempUri.path?.startsWith("/wiki") == true
         ) {
             // Special case for Wikipedia only: assume English subdomain when none given.
-            authority = "en." + BASE_DOMAIN
+            authority = "en.$BASE_DOMAIN"
         }
 
         // Unconditionally transform any mobile authority to canonical.
@@ -59,6 +60,12 @@ data class WikiSite(
         // This prevents showing mixed Chinese variants article when the URL is /zh/ or /wiki/ in zh.wikipedia.org
         if (languageCode == AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) {
             languageCode = LanguageUtil.firstSelectedChineseVariant
+        }
+
+        if (languageCode == Constants.WIKI_CODE_COMMONS) {
+            // Special case for Commons: if the WikiSite was constructed from "commons.wikimedia.org",
+            // then the languageCode will be "commons" which is incorrect, so set it to the default language.
+            languageCode = WikipediaApp.instance.appOrSystemLanguageCode
         }
 
         // Use default subdomain in authority to prevent error when requesting endpoints. e.g. zh-tw.wikipedia.org
