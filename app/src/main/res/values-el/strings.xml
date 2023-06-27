@@ -17,6 +17,7 @@
 * Norhorn
 * Panos78
 * Protnet
+* Sofia Chiali
 * Tgkarounos
 -->
 <resources>
@@ -63,7 +64,12 @@
   <string name="image_share_via">Κοινοποίηση μέσω</string>
   <string name="search_redirect_from">Ανακατεύθυνση από %s</string>
   <string name="page_edit_history_activity_title">Ιστορικό αναθεωρήσεων: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Κενό σύνολο επεξεργασίας</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Αναζήτηση ή φιλτράρισμα αλλαγών</string>
+  <string name="page_edit_history_filter_by">Φιλτράρισμα κατά</string>
+  <string name="page_edit_history_filter_by_all">Όλες οι τροποποιήσεις (%s)</string>
+  <string name="page_edit_history_filter_by_user">Τροποποιήσεις χρηστών (%s)</string>
   <string name="menu_page_show_tabs">Εμφάνιση καρτελών</string>
   <string name="menu_page_other_languages">Αλλαγή γλώσσας</string>
   <string name="menu_page_find_in_page">Βρείτε στο λήμμα</string>
@@ -810,7 +816,7 @@
   <string name="suggested_edits_image_tags_select_title">Δεν έχετε επιλέξει ετικέτες για την εικόνα</string>
   <string name="suggested_edits_image_tags_select_text">Μόνο ετικέτες που επιλέγετε θα προστεθούν στις εικόνες. Αυτές που δεν έχουν επιλεγεί θα επισημανθούν ως απορριφθείσες. Είστε βέβαιοι ότι θέλετε να επισημάνετε όλες τις ετικέτες ως απορριφθείσες;</string>
   <string name="suggested_edits_image_tags_add_tag">Προσθήκη ετικέτας</string>
-  <string name="suggested_edits_image_tags_exit_dialog_message">Οι μη δημοσιευμένες ετικέτες δεν θα αποθηκευτούν</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Οι μη δημοσιευμένες ετικέτες δε θα αποθηκευτούν</string>
   <string name="suggested_edits_encouragement_message">%s, σας ευχαριστούμε για τις τροποποιήσεις σας. Παρακάτω μπορείτε να βρείτε περισσότερους τρόπους για να συνεισφέρετε στη Βικιπαίδεια.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Γειά σας %s&lt;/b&gt;, παρακάτω μπορείτε να βρείτε μερικούς γρήγορους και εύκολους τρόπους για να βοηθήσετε στην βελτίωση της Βικιπαίδεια. Θα δείτε τη διαφορά που κάνετε αμέσως μόλις ξεκινήσετε. Καλή επεξεργασία!</string>
   <string name="suggested_edits_image_captions_task_detail">Περιγράψτε μια εικόνα για να βοηθήσετε τους αναγνώστες να κατανοήσουν τη σημασία και το περιεχόμενό της.</string>

@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.databinding.DialogWatchlistExpiryBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -45,7 +44,7 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        BottomSheetBehavior.from(requireView().parent as View).peekHeight = DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.navTabDialogPeekHeight))
+        BottomSheetBehavior.from(requireView().parent as View).peekHeight = DimenUtil.displayHeightPx
     }
 
     override fun onDestroyView() {
