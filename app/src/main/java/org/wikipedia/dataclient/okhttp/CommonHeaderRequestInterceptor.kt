@@ -17,6 +17,8 @@ internal class CommonHeaderRequestInterceptor : Interceptor {
                         if (isEventLoggingEnabled) app.appInstallID else "1")
         if (chain.request().url.encodedPath.contains(RestService.PAGE_HTML_ENDPOINT)) {
             builder.header("Accept", RestService.ACCEPT_HEADER_MOBILE_HTML)
+        } else if (chain.request().url.encodedPath.contains("/osm-pbf/")) {
+            builder.header("Referer", "https://maps.wikimedia.org/")
         }
         return chain.proceed(builder.build())
     }
