@@ -36,6 +36,7 @@
   <string name="history_item_delete_undo">Кире кайтару</string>
   <string name="notification_archive_undo">Кире кайтару</string>
   <string name="app_settings">Кушымта көйләнмәләре</string>
+  <string name="search_tab_tooltip">Эзләүне башлап өчен тамгачыкка яңадан басып алыгыз</string>
   <string name="history_list_title">Тарих</string>
   <string name="image_content_description">Сурәт: %s</string>
   <string name="page_content_description">Бит: %s</string>

@@ -969,6 +969,7 @@
   <string name="suggested_edits_image_tags_select_title">No heu seleccionat cap etiqueta per a aquesta imatge</string>
   <string name="suggested_edits_image_tags_select_text">S\'afegiran a les imatges només les etiquetes que trieu. Les etiquetes no seleccionades es marcaran com a rebutjades. Esteu segur que voleu marcar totes les etiquetes com a rebutjades?</string>
   <string name="suggested_edits_image_tags_add_tag">Afegeix una etiqueta</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Les etiquetes no publicades no es desaran</string>
   <string name="suggested_edits_image_zoom_tooltip">Utilitza els dits per a fer zoom de la imatge.</string>
   <string name="suggested_edits_encouragement_message">%s, gràcies per les vostres edicions. A continuació podeu trobar més formes de contribuir a la Viquipèdia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola %s&lt;/b&gt;, a continuació podeu trobar com millorar ràpidament i fàcil la Viquipèdia. Vegeu la diferència tan bon punt hi comenceu. Gaudiu-ne editant-hi!</string>
@@ -1408,4 +1409,5 @@
   <string name="reading_list_share_survey_body">«Comparteix llistes de lectura» és una funcionalitat de prova i ens calen opinions per a millorar-la o bé treure-la.</string>
   <string name="data_opt_in_accept">Accepta</string>
   <string name="data_opt_in_reject">Rebutja</string>
+  <string name="generic_release_notes">Correccions d\'error menors i millores</string>
 </resources>

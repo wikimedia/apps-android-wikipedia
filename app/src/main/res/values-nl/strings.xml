@@ -11,6 +11,7 @@
 * Envlh
 * Festina90
 * Goefie
+* HanV
 * Jeroen N
 * Jillids
 * Klaas van Buiten
@@ -251,7 +252,7 @@
   <string name="preference_title_auto_upload_crash_reports">Crashrapporten verzenden</string>
   <string name="preference_summary_auto_upload_crash_reports">Sta de app toe om automatisch crashrapporteren naar een dienstverlener te sturen zodat we de omstandigheden van uw crash kunnen analyseren en fouten sneller kunnen herstellen.</string>
   <string name="editing_error_spamblacklist">Er zijn koppelingen naar geblokkeerde domeinen (%s) gevonden. Verwijder deze en probeer het opnieuw.</string>
-  <string name="history_filter_list_hint">Filtergeschiedenis</string>
+  <string name="history_filter_list_hint">Geschiedenis filteren</string>
   <string name="error_can_not_process_link">Kon de koppeling niet weergeven</string>
   <string name="page_protected_autoconfirmed">Deze pagina is semibeveiligd.</string>
   <string name="page_protected_sysop">Deze pagina is volledig beveiligd.</string>
@@ -351,7 +352,7 @@
   <string name="preference_summary_show_images">Laden van afbeeldingen in pagina\'s in- of uitschakelen. Schakel deze instelling uit als uw internetverbinding langzaam is, of als u een beperkte hoeveelheid data kunt gebruiken.</string>
   <string name="preference_title_download_only_over_wifi">Alleen downloaden via Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Bevestig downloaden via mobiele data</string>
-  <string name="dialog_text_download_only_over_wifi">U heeft \"Alleen downloaden via wifi\" ingeschakeld in de instellingen. Wilt u toestaan dat uw mobiele data-abonnement alleen voor deze download wordt gebruikt?</string>
+  <string name="dialog_text_download_only_over_wifi">U heeft \"Alleen downloaden via wifi\" ingeschakeld in de instellingen. Wilt u alleen voor deze download toestaan dat uw mobiele data-abonnement wordt gebruikt?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Toestaan</string>
   <string name="read_more_section">Meer lezen</string>
   <string name="about_article_section">Over deze pagina</string>
@@ -983,6 +984,7 @@
   <string name="suggested_edits_image_tags_select_title">U heeft geen labels geselecteerd voor deze afbeelding</string>
   <string name="suggested_edits_image_tags_select_text">Alleen labels die u kiest, worden aan afbeeldingen toegevoegd. Labels die niet zijn geselecteerd, worden gemarkeerd als geweigerd. Weet u zeker dat u alle labels als geweigerd wilt markeren?</string>
   <string name="suggested_edits_image_tags_add_tag">Label toevoegen</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">De ongepubliceerde tags worden niet opgeslagen</string>
   <string name="suggested_edits_image_zoom_tooltip">Knijp om deze afbeelding in te zoemen.</string>
   <string name="suggested_edits_encouragement_message">%s, bedankt voor uw bewerkingen. Onderaan vindt u meer manieren om aan Wikipedia bij te dragen.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hallo %s&lt;/b&gt;, onderaan kunt u manieren vinden om bij te dragen aan het verbeteren van Wikipedia. U ziet het verschil dat u maakt vanaf het moment dat u begint. Veel plezier met bewerken!</string>
@@ -1422,4 +1424,5 @@
   <string name="reading_list_share_survey_body">\"Leeslijsten delen\" is een testfunctie en we hebben uw feedback nodig om deze te verbeteren of te verwijderen.</string>
   <string name="data_opt_in_accept">Aanvaarden</string>
   <string name="data_opt_in_reject">Afwijzen</string>
+  <string name="generic_release_notes">Kleine bugfixes en verbeteringen</string>
 </resources>
