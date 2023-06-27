@@ -8,28 +8,20 @@
 
     <org.wikipedia.views.AppTextView
         android:id="@+id/textView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/H3.Button"
         android:textColor="@android:color/white"
         tools:text="Lorem ipsum"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <!-- Possible bug in Balloon library requires minWidth for the button: -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="4dp"
-        android:gravity="start">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/App.Button.Secondary"
-            android:text="@string/onboarding_got_it"
-            android:visibility="gone"
-            tools:visibility="visible"/>
-
-    </LinearLayout>
+        style="@style/App.Button.Secondary"
+        android:minWidth="88dp"
+        android:text="@string/onboarding_got_it"/>
 
 </LinearLayout>

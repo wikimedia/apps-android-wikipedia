@@ -959,6 +959,7 @@
   <string name="suggested_edits_image_tags_select_title">Anda belum memilih tag apa pun untuk gambar ini</string>
   <string name="suggested_edits_image_tags_select_text">Hanya tag yang Anda pilih yang akan ditambahkan ke gambar. Tag yang tidak dipilih akan ditandai sebagai ditolak. Yakin ingin menandai semua tag sebagai ditolak?</string>
   <string name="suggested_edits_image_tags_add_tag">Tambahkan tag</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Tag yang tidak dipublikasikan tak akan disimpan</string>
   <string name="suggested_edits_image_zoom_tooltip">Cubit untuk memperbesar gambar ini</string>
   <string name="suggested_edits_encouragement_message">Terima kasih atas suntingan Anda, %s. Di bawah ini Anda dapat menemukan lebih banyak cara untuk berkontribusi ke Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hai %s&lt;/b&gt;, di bawah ini Anda dapat menemukan beberapa cara cepat dan mudah untuk membantu menyempurnakan Wikipedia. Anda akan melihat perbedaan yang Anda buat segera setelah Anda memulai. Selamat menyuting!</string>
@@ -1374,4 +1375,5 @@
   <string name="reading_list_share_survey_body">\"Bagikan daftar bacaan\" adalah fitur pengujian dan kami membutuhkan umpan balik Anda untuk meningkatkan atau menghapusnya.</string>
   <string name="data_opt_in_accept">Terima</string>
   <string name="data_opt_in_reject">Tolak</string>
+  <string name="generic_release_notes">Perbaikan kekutu dan peningkatan kecil</string>
 </resources>

@@ -4,6 +4,7 @@
 * Bluetpp
 * Dinhxuanduyet
 * DreamSeeeeker
+* Flyplanevn27
 * Harriettruong3
 * JohnsonLee01
 * Leducthn
@@ -489,7 +490,7 @@
     <item quantity="other">%d bài viết bị xóa khỏi danh sách</item>
   </plurals>
   <string name="reading_list_items_deleted">%d bài viết đã được xóa khỏi danh sách</string>
-  <string name="reading_lists_item_deleted">Đã loại bỏ %s khỏi danh sách</string>
+  <string name="reading_lists_item_deleted">Đã xóa %s khỏi danh sách</string>
   <string name="reading_list_item_delete_undo">Hoàn tác</string>
   <string name="reading_list_deleted">Đã xóa %s</string>
   <string name="saved_list_empty_title">Chưa có danh sách đọc</string>

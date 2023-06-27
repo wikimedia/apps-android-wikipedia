@@ -69,6 +69,7 @@
 * Александр Сигачёв
 * Евгения
 * ЛингвоЧел
+* Умар
 -->
 <resources>
   <string name="app_name_prod">Википедия</string>
@@ -327,7 +328,7 @@
   <string name="edit_next">Далее</string>
   <string name="edit_done">Сохранить</string>
   <string name="edit_preview">Предпросмотр</string>
-  <string name="edit_undo">Да, отменить</string>
+  <string name="edit_undo">Отменить</string>
   <string name="edit_redo">Повтор действия</string>
   <string name="edit_rollback">Откатить</string>
   <plurals name="edit_diff_bytes">
@@ -583,6 +584,7 @@
     <item quantity="many">Статей удалено из %s: %d</item>
     <item quantity="other">Статей удалено из %s: %d</item>
   </plurals>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Списки удалены. Список по умолчанию (%s) не может быть удалён.</string>
   <string name="reading_list_items_deleted">%d статей удалено из списка</string>
   <string name="reading_lists_item_deleted">%s удалено из списков</string>
   <string name="reading_list_item_delete_undo">Отменить</string>
@@ -616,6 +618,12 @@
   <string name="reading_list_articles_moved_to_named">Перемещено статей в %2$s: %1$d</string>
   <string name="reading_list_delete_confirm">Вы уверены, что хотите удалить %s?</string>
   <string name="reading_list_delete_lists_confirm_dialog_title">Удалить выбранные списки?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Вы уверены, что хотите удалить %d список?</item>
+    <item quantity="few">Вы уверены, что хотите удалить %d списка?</item>
+    <item quantity="many">Вы уверены, что хотите удалить %d списков?</item>
+    <item quantity="other">Вы уверены, что хотите удалить %d списков?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Войдите, чтобы включить синхронизацию</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Войдите в систему, чтобы ваши списки чтения были сохранены в вашей учётной записи.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Отмена</string>
@@ -674,6 +682,7 @@
   <string name="reading_lists_preview_save_dialog_title_hint">Заголовок</string>
   <string name="reading_lists_preview_save_dialog_cancel">Отмена</string>
   <string name="reading_lists_preview_save_dialog_save">Сохранить</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Посмотреть</string>
   <string name="user_option_sync_label">Настройки</string>
   <string name="notification_reverted_title">Отменённая правка</string>
   <string name="notification_channel_title">Скачивание статей</string>
@@ -913,7 +922,7 @@
   <string name="description_starts_with_uppercase">Начинайте с маленькой буквы, если только первое слово не является собственным названием.</string>
   <string name="description_starts_with_lowercase">Избегайте начинать с маленькой буквы.</string>
   <string name="description_is_in_different_language">Текст на неожиданном языке. Язык должен быть %s.</string>
-  <string name="description_verification_notice" fuzzy="true">Убедитесь, что язык вашего описания — %1$s. Вы можете отклонить это уведомление, если язык вашего описания — %2$s.</string>
+  <string name="description_verification_notice">Убедитесь, что язык вашего описания — %1$s. Вы можете игнорировать это предупреждение, если язык вашего описания — %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Показать предлагаемые описания</string>
   <string name="description_edit_suggested_description_button_tooltip">Попробуйте описания статей, предложенные компьютером</string>
   <string name="description_edit_success_saved">Описание статьи сохранено!</string>
@@ -1389,6 +1398,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 месяца</string>
   <string name="watchlist_expiry_dialog_six_months">6 месяцев</string>
   <string name="watchlist_empty">В вашем списке наблюдения нет статей.</string>
+  <string name="watchlist_search">Поиск в списке наблюдения</string>
   <string name="watchlist_filter_all">Все</string>
   <string name="watchlist_filter_talk">Обсуждение</string>
   <string name="watchlist_filter_pages">Страницы</string>
@@ -1438,6 +1448,7 @@
   <string name="watchlist_filter_type_of_change_logged_actions">Протоколируемые действия</string>
   <string name="watchlist_filter_type_of_change_new_users">Новые участники</string>
   <string name="watchlist_filter_reset_button">Сбросить</string>
+  <string name="watchlist_search_bar_filter_hint">Фильтр списка наблюдения</string>
   <string name="preview_edit_title">Предпросмотр правки</string>
   <string name="preview_edit_summarize_edit_title">Резюмируйте изменение</string>
   <string name="preview_edit_summarize_edit_hint">Как вы улучшили эту страницу?</string>
@@ -1469,6 +1480,7 @@
   <string name="shareable_reading_lists_new_install_dialog_content">Мы заметили, что с вами поделились списком для чтения. Чтобы просмотреть этот список в приложении, вернитесь к исходному сообщению и снова нажмите на ссылку.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Понятно!</string>
   <string name="reading_list_share_menu_label">Поделиться…</string>
+  <string name="reading_list_share_message_v2">Привет! Я хотел бы поделиться с тобой своим списком для чтения из Википедии:</string>
   <string name="reading_list_share_survey_title">Могли бы вы помочь нам улучшить «Поделиться списком для чтения»?</string>
   <string name="reading_list_share_survey_body">«Поделиться списком для чтения» — тестовый функционал, и нам была бы полезная ваша обратная связь, чтобы в дальнейшем улучшить или удалить этот функционал.</string>
   <string name="data_opt_in_accept">Принять</string>
