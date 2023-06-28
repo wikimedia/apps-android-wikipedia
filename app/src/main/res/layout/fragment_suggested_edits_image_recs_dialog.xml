@@ -3,157 +3,80 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/imageRecommendationDialogContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:paddingTop="16dp"
-        android:paddingBottom="8dp">
-
-        <TextView
-            android:id="@+id/instructionText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="Lorem ipsum"
-            android:textColor="?attr/primary_color"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+        android:paddingBottom="8dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/instructionSubText"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Lorem ipsum"
             android:textColor="?attr/primary_color"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/instructionText" />
+            android:textSize="20sp" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkBox1"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@drawable/rounded_12dp_corner_base90_fill"
-            android:fontFamily="sans-serif-medium"
             android:text="Lorem ipsum"
-            android:textColor="?attr/primary_color"
-            app:buttonTint="?attr/colorAccent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/instructionSubText" />
+            android:textColor="?attr/primary_color" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkBox2"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/checkBox1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"
             android:text="Lorem ipsum"
-            android:textColor="?attr/primary_color"
-            android:fontFamily="sans-serif-medium"
-            android:background="@drawable/rounded_12dp_corner_base90_fill"
-            app:buttonTint="?attr/colorAccent" />
+            android:textColor="?attr/primary_color" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkBox3"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/checkBox2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"
             android:text="Lorem ipsum"
-            android:textColor="?attr/primary_color"
-            android:fontFamily="sans-serif-medium"
-            android:background="@drawable/rounded_12dp_corner_base90_fill"
-            app:buttonTint="?attr/colorAccent" />
+            android:textColor="?attr/primary_color" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkBox4"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/checkBox3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"
             android:text="Lorem ipsum"
-            android:textColor="?attr/primary_color"
-            android:fontFamily="sans-serif-medium"
-            android:background="@drawable/rounded_12dp_corner_base90_fill"
-            app:buttonTint="?attr/colorAccent" />
+            android:textColor="?attr/primary_color" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkBox5"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/checkBox4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"
             android:text="Lorem ipsum"
-            android:textColor="?attr/primary_color"
-            android:fontFamily="sans-serif-medium"
-            android:background="@drawable/rounded_12dp_corner_base90_fill"
-            app:buttonTint="?attr/colorAccent" />
+            android:textColor="?attr/primary_color" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkBox6"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/checkBox5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"
             android:text="Lorem ipsum"
-            android:textColor="?attr/primary_color"
-            android:fontFamily="sans-serif-medium"
-            android:background="@drawable/rounded_12dp_corner_base90_fill"
-            app:buttonTint="?attr/colorAccent" />
+            android:textColor="?attr/primary_color" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkBox7"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/checkBox6"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"
             android:text="Lorem ipsum"
-            android:textColor="?attr/primary_color"
-            android:fontFamily="sans-serif-medium"
-            android:background="@drawable/rounded_12dp_corner_base90_fill"
-            app:buttonTint="?attr/colorAccent" />
+            android:textColor="?attr/primary_color" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/continueButton"
-            android:layout_width="wrap_content"
-            style="@style/App.Button.Text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/checkBox7"
-            android:layout_height="48dp"
-            android:text="Lorem ipsum"
-            android:layout_marginTop="8dp"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/cancelButton"
-            android:layout_width="wrap_content"
-            style="@style/App.Button.Text.Secondary"
-            app:layout_constraintEnd_toStartOf="@id/continueButton"
-            app:layout_constraintTop_toTopOf="@id/continueButton"
-            android:layout_marginEnd="16dp"
-            android:layout_height="48dp"
-            android:textColor="?attr/secondary_color"
-            android:text="@android:string/cancel"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </ScrollView>

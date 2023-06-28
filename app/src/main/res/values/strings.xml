@@ -1093,12 +1093,12 @@
         <item quantity="one">You added %d character</item>
         <item quantity="other">You added %d characters</item>
     </plurals>
-    <string name="suggested_edits_image_recommendations_task_title">Image recommendations</string>
-    <string name="suggested_edits_image_recommendations_task_detail">Add illustrations to articles based on automatic suggestions.</string>
-    <string name="suggested_edits_image_recommendations_task_get_started">Get started</string>
-    <string name="image_recommendation_task_instruction">Would you like to add this image to this article?</string>
-    <string name="image_recommendation_accept">Add</string>
-    <string name="image_recommendation_reject">Reject</string>
+    <string name="suggested_edits_image_recommendations_task_title">Article images</string>
+    <string name="suggested_edits_image_recommendations_task_detail">Add suggested images to Wikipedia articles to enhance understanding.</string>
+    <string name="image_recommendation_task_instruction">Would you add this image to the article?</string>
+    <string name="image_recommendation_accept">Yes</string>
+    <string name="image_recommendation_reject">No</string>
+    <string name="image_recommendation_notsure">Not sure</string>
     <string name="image_recommendation_skip">Skip</string>
     <!-- /Suggested edits -->
 
