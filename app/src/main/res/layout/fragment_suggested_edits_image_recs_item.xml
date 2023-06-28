@@ -115,16 +115,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_bottom_sheet"
-            android:elevation="12dp"
+            android:elevation="8dp"
             android:layout_gravity="bottom">
 
             <View
+                android:id="@+id/topHandle"
                 android:layout_width="32dp"
                 android:layout_height="4dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="12dp"
                 android:background="@drawable/rounded_2dp_fill" />
 
             <ImageView
@@ -132,23 +133,22 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@id/instructionText"
                 android:layout_marginStart="12dp"
                 app:srcCompat="@drawable/ic_robot_24"
                 app:tint="?attr/colorAccent"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="8dp"
                 android:contentDescription="@null" />
 
             <TextView
                 android:id="@+id/instructionText"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/topHandle"
                 app:layout_constraintStart_toEndOf="@id/robotIcon"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constrainedWidth="true"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginEnd="12dp"
                 android:background="@drawable/shape_message_bubble"
                 android:paddingVertical="10dp"
