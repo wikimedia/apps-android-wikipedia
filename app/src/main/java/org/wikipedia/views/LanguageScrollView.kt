@@ -16,6 +16,7 @@ import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewLanguageScrollBinding
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.ResourceUtil
 
@@ -113,7 +114,7 @@ class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = nu
     private fun updateTabLanguageCode(customView: View, languageCode: String?, @ColorInt textColor: Int?, background: Drawable?, @ColorInt backgroundColorTint: Int?) {
         val languageCodeTextView = customView.findViewById<TextView>(R.id.language_code)
         if (languageCode != null) {
-            languageCodeTextView.text = languageCode
+            languageCodeTextView.text = LanguageUtil.formatLangCodeForButton(languageCode)
             ViewUtil.formatLangButton(languageCodeTextView, languageCode, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
         }
         textColor?.let { languageCodeTextView.setTextColor(it) }
