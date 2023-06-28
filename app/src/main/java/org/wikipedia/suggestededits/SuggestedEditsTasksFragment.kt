@@ -321,7 +321,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         imageRecommendationsTask.imageDrawable = R.drawable.ic_image_black_24dp
         imageRecommendationsTask.primaryAction = getString(R.string.suggested_edits_image_recommendations_task_get_started)
         imageRecommendationsTask.primaryActionIcon = R.drawable.ic_robot_24
-        imageRecommendationsTask.new = true //Prefs.shouldShowImageRecsOnboarding()
+        imageRecommendationsTask.new = true // Prefs.shouldShowImageRecsOnboarding()
 
         if (DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikipedia.isNullOrEmpty() ||
             !DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikidata.isNullOrEmpty()) {
@@ -355,11 +355,11 @@ class SuggestedEditsTasksFragment : Fragment() {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, Constants.InvokeSource.SUGGESTED_EDITS))
                 }
             } else if (task == imageRecommendationsTask) {
-                //if (Prefs.shouldShowImageRecsOnboarding()) {
+                // if (Prefs.shouldShowImageRecsOnboarding()) {
                 //    startActivityForResult(ImageRecsOnboardingActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_IMAGE_RECS_ONBOARDING)
-                //} else {
+                // } else {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATIONS, Constants.InvokeSource.SUGGESTED_EDITS))
-                //}
+                // }
             }
         }
     }
