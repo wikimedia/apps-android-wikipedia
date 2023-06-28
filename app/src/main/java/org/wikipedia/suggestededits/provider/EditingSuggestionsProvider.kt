@@ -264,23 +264,11 @@ object EditingSuggestionsProvider {
                 do {
                     if (articlesWithImageRecommendationsCache.empty()) {
                         val response = ServiceFactory.get(WikiSite.forLanguageCode(articlesWithImageRecommendationsCacheLang))
-                            .getGrowthTasks("image-recommendation", null, 10)
-                        // TODO: make use of continuation parameter.
+                            .getPagesWithImageRecommendations(10)
+                        // TODO: make use of continuation parameter?
                         response.query?.pages?.forEach {
                             if (it.growthimagesuggestiondata?.get(0)?.images != null) {
                                 articlesWithImageRecommendationsCache.push(it)
-                            }
-                        }
-
-                        // If the "growthtasks" query fails, fall back to a "random" query.
-                        if (articlesWithImageRecommendationsCache.empty()) {
-                            val responseRandom = ServiceFactory.get(WikiSite.forLanguageCode(articlesWithImageRecommendationsCacheLang))
-                                .getRandomForImageRecommendations()
-
-                            responseRandom.query?.pages?.forEach {
-                                if (it.growthimagesuggestiondata?.get(0)?.images != null) {
-                                    articlesWithImageRecommendationsCache.push(it)
-                                }
                             }
                         }
                     }

@@ -40,10 +40,7 @@ class SuggestedEditsImageRecsDialog : DialogFragment() {
         binding.checkBox6.setOnCheckedChangeListener(checkBoxChangedHandler)
         binding.checkBox7.setOnCheckedChangeListener(checkBoxChangedHandler)
 
-        binding.cancelButton.setOnClickListener {
-            dismiss()
-        }
-
+        /*
         binding.continueButton.setOnClickListener {
             val itemList = ArrayList<Int>()
             if (binding.checkBox1.isChecked) { itemList.add(0) }
@@ -57,6 +54,7 @@ class SuggestedEditsImageRecsDialog : DialogFragment() {
             callback()?.onDialogSubmit(responseCode, itemList)
             dismiss()
         }
+         */
 
         /*
         if (responseCode == ImageRecommendationsFunnel.RESPONSE_REJECT) {
@@ -99,8 +97,8 @@ class SuggestedEditsImageRecsDialog : DialogFragment() {
         val enabled = (binding.checkBox1.isChecked || binding.checkBox2.isChecked || binding.checkBox3.isChecked ||
                 binding.checkBox4.isChecked || binding.checkBox5.isChecked || binding.checkBox6.isChecked ||
                 binding.checkBox7.isChecked)
-        binding.continueButton.isEnabled = enabled
-        binding.continueButton.alpha = if (enabled) 1f else 0.5f
+        //binding.continueButton.isEnabled = enabled
+        //binding.continueButton.alpha = if (enabled) 1f else 0.5f
     }
 
     fun callback(): Callback? {
