@@ -1040,7 +1040,7 @@
     <string name="suggested_edits_ip_blocked_title">IP blocked</string>
     <string name="suggested_edits_last_edited">Last edited</string>
     <string name="suggested_edits_last_edited_never">Never</string>
-    <string name="suggested_edits_task_new">new</string>
+    <string name="suggested_edits_task_new">New</string>
     <string name="suggested_edits_cc0_notice"><![CDATA[By publishing, you agree to the <a href="%1$s">terms of use</a> and to irrevocably release this contribution under the <a href="%2$s">CC0 license</a>.]]></string>
     <string name="suggested_edits_reactivation_notification_title">Suggested edits</string>
     <string name="suggested_edits_reactivation_notification_stage_one">Thanks for editing Wikipedia! Why not continue where you left off?</string>

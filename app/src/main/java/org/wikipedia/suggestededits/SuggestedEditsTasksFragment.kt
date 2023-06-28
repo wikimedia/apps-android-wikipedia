@@ -318,9 +318,8 @@ class SuggestedEditsTasksFragment : Fragment() {
         imageRecommendationsTask = SuggestedEditsTask()
         imageRecommendationsTask.title = getString(R.string.suggested_edits_image_recommendations_task_title)
         imageRecommendationsTask.description = getString(R.string.suggested_edits_image_recommendations_task_detail)
-        imageRecommendationsTask.imageDrawable = R.drawable.ic_image_black_24dp
+        imageRecommendationsTask.imageDrawable = R.drawable.ic_add_image
         imageRecommendationsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
-        imageRecommendationsTask.primaryActionIcon = R.drawable.ic_robot_24
         imageRecommendationsTask.new = true // Prefs.shouldShowImageRecsOnboarding()
 
         if (DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikipedia.isNullOrEmpty() ||
