@@ -11,6 +11,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.ViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemWikipediaLanguageBinding
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
@@ -60,7 +61,7 @@ class WikipediaLanguagesItemView : LinearLayout {
         this.position = position
         binding.wikiLanguageOrder.text = (position + 1).toString()
         binding.wikiLanguageTitle.text = StringUtil.capitalize(languageLocalizedName.orEmpty())
-        binding.wikiLanguageCode.text = langCode
+        binding.wikiLanguageCode.text = LanguageUtil.formatLangCodeForButton(langCode)
         val color = ResourceUtil.getThemedColorStateList(context, R.attr.secondary_color)
         binding.wikiLanguageCode.setTextColor(color)
         ViewCompat.setBackgroundTintList(binding.wikiLanguageCode, color)
