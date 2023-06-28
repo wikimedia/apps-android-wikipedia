@@ -57,12 +57,14 @@
                     <TextView
                         android:id="@+id/search_lang_button"
                         style="@style/TextViewCentered"
-                        android:layout_width="24dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="24dp"
                         android:background="@drawable/lang_button_shape"
                         android:clickable="false"
                         android:focusable="false"
                         android:fontFamily="sans-serif-medium"
+                        android:minWidth="24dp"
+                        android:paddingHorizontal="2dp"
                         android:textColor="@android:color/white" />
                 </FrameLayout>
 
