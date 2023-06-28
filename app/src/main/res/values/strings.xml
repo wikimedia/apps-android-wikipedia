@@ -1099,7 +1099,6 @@
     <string name="image_recommendation_accept">Yes</string>
     <string name="image_recommendation_reject">No</string>
     <string name="image_recommendation_notsure">Not sure</string>
-    <string name="image_recommendation_skip">Skip</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->
