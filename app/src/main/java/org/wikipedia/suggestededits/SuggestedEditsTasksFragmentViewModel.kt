@@ -68,9 +68,10 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
 
             homeSiteParamCall.await().paraminfo?.modules?.let {
                 if (it.isNotEmpty() && it[0].parameters.isNotEmpty()) {
-                    imageRecommendationsEnabled = it[0].parameters[0].typeAsEnum.contains("image-recommendation")
+                    imageRecommendationsEnabled = true // it[0].parameters[0].typeAsEnum.contains("image-recommendation")
                 }
             }
+            imageRecommendationsEnabled = true
 
             homeSiteResponse.query?.userInfo?.let {
                 if (it.isBlocked) {

@@ -30,7 +30,7 @@ object EditingSuggestionsProvider {
 
     private val imagesWithMissingTagsCache: Stack<MwQueryPage> = Stack()
 
-    private val articlesWithImageRecommendationsCache: Stack<String> = Stack()
+    private val articlesWithImageRecommendationsCache: Stack<MwQueryPage> = Stack()
     private var articlesWithImageRecommendationsCacheLang: String = ""
 
     private const val MAX_RETRY_LIMIT: Long = 50
@@ -249,8 +249,8 @@ object EditingSuggestionsProvider {
         }.doFinally { mutex.release() }
     }
 
-    suspend fun getNextArticleWithImageRecommendation(lang: String, retryLimit: Long = MAX_RETRY_LIMIT): String {
-        var title = ""
+    suspend fun getNextArticleWithImageRecommendation(lang: String, retryLimit: Long = MAX_RETRY_LIMIT): MwQueryPage {
+        var page: MwQueryPage
         withContext(Dispatchers.IO) {
             mutex.acquire()
             try {
@@ -263,22 +263,35 @@ object EditingSuggestionsProvider {
                 var tries = 0
                 do {
                     if (articlesWithImageRecommendationsCache.empty()) {
-                        // TODO: make use of continuation parameter.
                         val response = ServiceFactory.get(WikiSite.forLanguageCode(articlesWithImageRecommendationsCacheLang))
-                            .getGrowthTasks("image-recommendation", null, 50)
-
+                            .getGrowthTasks("image-recommendation", null, 10)
+                        // TODO: make use of continuation parameter.
                         response.query?.pages?.forEach {
-                            articlesWithImageRecommendationsCache.push(it.title)
+                            if (it.growthimagesuggestiondata?.get(0)?.images != null) {
+                                articlesWithImageRecommendationsCache.push(it)
+                            }
+                        }
+
+                        // If the "growthtasks" query fails, fall back to a "random" query.
+                        if (articlesWithImageRecommendationsCache.empty()) {
+                            val responseRandom = ServiceFactory.get(WikiSite.forLanguageCode(articlesWithImageRecommendationsCacheLang))
+                                .getRandomForImageRecommendations()
+
+                            responseRandom.query?.pages?.forEach {
+                                if (it.growthimagesuggestiondata?.get(0)?.images != null) {
+                                    articlesWithImageRecommendationsCache.push(it)
+                                }
+                            }
                         }
                     }
                 } while (tries++ < retryLimit && articlesWithImageRecommendationsCache.empty())
 
-                title = articlesWithImageRecommendationsCache.pop()
+                page = articlesWithImageRecommendationsCache.pop()
             } finally {
                 mutex.release()
             }
         }
-        return title
+        return page
     }
 
     class ListEmptyException : RuntimeException()

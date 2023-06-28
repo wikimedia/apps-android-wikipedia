@@ -35,19 +35,14 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
     fun fetchRecommendation() {
         _uiState.value = UiState.Loading()
         viewModelScope.launch(handler) {
-            var title: String
             var page: MwQueryPage?
             var tries = 0
             do {
-                title = EditingSuggestionsProvider.getNextArticleWithImageRecommendation(langCode)
-
-                page = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                    .getImageRecommendationForPage(title)
-                    .query?.firstPage()
+                page = EditingSuggestionsProvider.getNextArticleWithImageRecommendation(langCode)
             } while (tries++ < 10 && page?.growthimagesuggestiondata.isNullOrEmpty())
 
             recommendation = page?.growthimagesuggestiondata?.first()!!
-            summary = ServiceFactory.getRest(WikiSite.forLanguageCode(langCode)).getPageSummary(null, title)
+            summary = ServiceFactory.getRest(WikiSite.forLanguageCode(langCode)).getPageSummary(null, page.title)
 
             _uiState.value = UiState.Success()
         }

@@ -323,13 +323,13 @@ class SuggestedEditsTasksFragment : Fragment() {
         imageRecommendationsTask.primaryActionIcon = R.drawable.ic_robot_24
         imageRecommendationsTask.new = true //Prefs.shouldShowImageRecsOnboarding()
 
-        if (SuggestedEditsImageRecsFragment.isFeatureEnabled() && viewModel.imageRecommendationsEnabled && viewModel.blockMessageWikipedia.isNullOrEmpty()) {
-            displayedTasks.add(imageRecommendationsTask)
-        }
-
         if (DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikipedia.isNullOrEmpty() ||
             !DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikidata.isNullOrEmpty()) {
             displayedTasks.add(addDescriptionsTask)
+        }
+
+        if (SuggestedEditsImageRecsFragment.isFeatureEnabled() && viewModel.imageRecommendationsEnabled && viewModel.blockMessageWikipedia.isNullOrEmpty()) {
+            displayedTasks.add(imageRecommendationsTask)
         }
 
         if (viewModel.blockMessageCommons.isNullOrEmpty()) {
