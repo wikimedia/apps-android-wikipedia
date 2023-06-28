@@ -295,7 +295,7 @@ interface Service {
 
     // ------- Editing -------
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full")
+    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
     fun getWikiTextForSectionWithInfo(
         @Query("titles") title: String,
         @Query("rvsection") section: Int?
@@ -435,9 +435,6 @@ interface Service {
         @Field("summary") summary: String?,
         @Field("tags") tags: String?
     ): Observable<EntityPostResponse>
-
-    @GET(MW_API_PREFIX + "action=visualeditor&paction=metadata")
-    fun getVisualEditorMetadata(@Query("page") page: String): Observable<MwVisualEditorResponse>
 
     // ------- Watchlist -------
 
