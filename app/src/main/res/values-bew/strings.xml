@@ -1218,7 +1218,7 @@
   <string name="talk_list_item_overflow_mark_as_read">Tengerin udah dibaca</string>
   <string name="talk_list_item_overflow_mark_as_unread">Tengerin belon dibaca</string>
   <string name="talk_list_item_overflow_share">Dumanin</string>
-  <string name="talk_list_item_last_comment_date" fuzzy="true">Tanggepan paling baru: $1</string>
+  <string name="talk_list_item_last_comment_date">Tanggepan paling baru: %s</string>
   <string name="talk_list_item_reply_icon_content_description">Jumblah dibaca</string>
   <string name="talk_list_item_user_icon_content_description">Lambang pemaké</string>
   <string name="talk_list_item_swipe_mark_as_read">Baca</string>

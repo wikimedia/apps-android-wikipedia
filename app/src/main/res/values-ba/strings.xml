@@ -575,8 +575,8 @@
   <string name="no_user_lists_title">Мәҡәләләр шәлкемен һаҡлағыҙ</string>
   <string name="no_user_lists_msg">Сәйәхәт итеү урындары, яратҡан темалар һәм башҡа күп нәмәләр буйынса исемлектәр төҙөгөҙ</string>
   <string name="reading_list_saved_list_rename">%1$s (ҡатнашыусы булдырған)</string>
-  <string name="split_reading_list_message" fuzzy="true">Уҡыу исемлегендә максималь мәҡәләләр һаны: %. Был лимиттан артығыраҡ булған мәҡәләләр бер нисә исемлеккә бүленде.</string>
-  <string name="reading_list_move_article_limit_message" fuzzy="true">Был исемлеккә күсереү мөмкин түгел. \"%1s\" өсөн һеҙ  %2$d сигенә еттегеҙ.</string>
+  <string name="split_reading_list_message">Уҡыу исемлегендә максималь мәҡәләләр һаны: %d. Был лимиттан артығыраҡ булған мәҡәләләр бер нисә исемлеккә бүленде.</string>
+  <string name="reading_list_move_article_limit_message">Был исемлеккә күсереү мөмкин түгел. \"%1$s\" өсөн һеҙ  %2$d сигенә еттегеҙ.</string>
   <string name="user_option_sync_label">Көйләүҙәр</string>
   <string name="suggested_edits_task_action_text_add">Өҫтәргә</string>
 </resources>

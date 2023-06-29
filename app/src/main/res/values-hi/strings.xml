@@ -94,7 +94,7 @@
   </plurals>
   <plurals name="edits_since_year_per_wiki">
     <item quantity="one">%1$d संपादन %2$s से ( %3$s)</item>
-    <item quantity="other">% 1$d संपादन %2$s से ( %3$s )</item>
+    <item quantity="other">%1$d संपादन %2$s से ( %3$s )</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">अधिक संपादन देखने के लिए &lt;a href=\"#\"&gt;फ़िल्टर&lt;/a&gt; बदलने की कोशिश करें</string>
   <string name="menu_page_show_tabs">टैब दिखाएँ</string>
