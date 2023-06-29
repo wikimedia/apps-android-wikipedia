@@ -54,6 +54,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
     private var infoClicked = false
     private var scrolled = false
+    private var resumedMillis = 0L
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<CoordinatorLayout>
 
@@ -139,6 +140,11 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        resumedMillis = System.currentTimeMillis()
     }
 
     private fun onLoading() {
@@ -274,6 +280,11 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     }
 
     private fun doPublish() {
+        if (System.currentTimeMillis() - resumedMillis < MIN_TIME_WARNING_MILLIS) {
+            FeedbackUtil.showMessage(this, R.string.image_recommendation_tooltip_warning)
+            return
+        }
+
         // TODO: enter the editing workflow!
 
         // TODO: when returning from editing successfully, go to the next image.
@@ -303,6 +314,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
     companion object {
         const val ARG_LANG = "lang"
+        const val MIN_TIME_WARNING_MILLIS = 5000
 
         fun isFeatureEnabled(): Boolean {
             return AccountUtil.isLoggedIn &&

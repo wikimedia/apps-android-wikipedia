@@ -56,7 +56,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             revertSeverity = 0
 
             val homeSiteCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName!!, 10, null) }
-            val homeSiteParamCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getParamInfo("query+growthtasks") }
+            // val homeSiteParamCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getParamInfo("query+growthtasks") }
             val commonsCall = async { ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName!!, 10, null) }
             val wikidataCall = async { ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName!!, 10, null) }
             val editCountsCall = async { UserContribStats.verifyEditCountsAndPauseState() }
@@ -66,11 +66,14 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             val wikidataResponse = wikidataCall.await()
             editCountsCall.await()
 
+            // TODO: solidify which wikis we want to show image recommendations for.
+            /*
             homeSiteParamCall.await().paraminfo?.modules?.let {
                 if (it.isNotEmpty() && it[0].parameters.isNotEmpty()) {
-                    imageRecommendationsEnabled = true // it[0].parameters[0].typeAsEnum.contains("image-recommendation")
+                    imageRecommendationsEnabled = it[0].parameters[0].typeAsEnum.contains("image-recommendation")
                 }
             }
+            */
             imageRecommendationsEnabled = true
 
             homeSiteResponse.query?.userInfo?.let {
