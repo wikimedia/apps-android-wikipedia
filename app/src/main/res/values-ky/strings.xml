@@ -126,6 +126,7 @@
   <string name="close_all_tabs_confirm_yes">Ооба</string>
   <string name="close_all_tabs_confirm_no">Жок</string>
   <string name="view_link_preview_error_button_dismiss">Жабуу</string>
+  <string name="page_footer_license_text">Башкача белгиленбесе, мазмун $1 лицензиясына ылайык жеткиликтүү.</string>
   <string name="article_menu_bar_language_button">Тил</string>
   <string name="article_menu_bar_search_button">Издөө</string>
   <string name="color_theme_select">Жасалга</string>
@@ -139,6 +140,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Жокко чыгаруу</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Жокко чыгаруу</string>
   <string name="notification_syncing_cancel_button">Жокко чыгаруу</string>
+  <string name="view_featured_image_card_download">Жүктөп алуу</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="description_edit_cancel_hint">Жокко чыгаруу</string>
