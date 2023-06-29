@@ -52,9 +52,6 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     private val viewModel: SuggestedEditsImageRecsFragmentViewModel by viewModels { SuggestedEditsImageRecsFragmentViewModel.Factory(
         bundleOf(ARG_LANG to WikipediaApp.instance.appOrSystemLanguageCode)) }
 
-    private var publishing = false
-    private var publishSuccess = false
-
     private var infoClicked = false
     private var scrolled = false
 
@@ -78,17 +75,12 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         }
         binding.cardItemErrorView.nextClickListener = OnClickListener { callback().nextPage(this) }
 
-        val transparency = 0xd8000000
-
-        binding.publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
-        binding.publishOverlayContainer.visibility = GONE
-
         binding.imageCard.elevation = 0f
         binding.imageCard.strokeColor = ResourceUtil.getThemedColor(requireContext(), R.attr.border_color)
         binding.imageCard.strokeWidth = DimenUtil.roundedDpToPx(0.5f)
 
         binding.acceptButton.setOnClickListener {
-            doPublish(0, emptyList())
+            doPublish()
         }
 
         binding.rejectButton.setOnClickListener {
@@ -154,7 +146,6 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         binding.cardItemErrorView.isVisible = false
         binding.bottomSheetCoordinatorLayout.isVisible = false
         binding.articleContentContainer.isVisible = false
-        binding.publishOverlayContainer.isVisible = false
     }
 
     private fun onError(throwable: Throwable) {
@@ -162,7 +153,6 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         binding.cardItemProgressBar.isVisible = false
         binding.bottomSheetCoordinatorLayout.isVisible = false
         binding.articleContentContainer.isVisible = false
-        binding.publishOverlayContainer.isVisible = false
         binding.cardItemErrorView.isVisible = true
         binding.cardItemErrorView.setError(throwable)
     }
@@ -172,7 +162,6 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         binding.cardItemErrorView.isVisible = false
         binding.bottomSheetCoordinatorLayout.isVisible = true
         binding.articleContentContainer.isVisible = true
-        binding.publishOverlayContainer.isVisible = false
 
         binding.articleTitle.text = StringUtil.fromHtml(viewModel.summary.displayTitle)
         binding.articleDescription.text = viewModel.summary.description
@@ -284,56 +273,11 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         callback().nextPage(this)
     }
 
-    private fun doPublish(response: Int, reasons: List<Int>) {
-        if (publishing || publishSuccess) {
-            return
-        }
+    private fun doPublish() {
+        // TODO: enter the editing workflow!
 
-        // -- point of no return --
-
-        publishing = true
-        publishSuccess = false
-
-        binding.publishProgressCheck.visibility = GONE
-        binding.publishOverlayContainer.visibility = VISIBLE
-        binding.publishProgressBar.visibility = VISIBLE
-
-        publishSuccess = true
-        onPublishSuccess()
-    }
-
-    private fun onPublishSuccess() {
-        val waitUntilNextMillis = 1500L
-
-        val checkDelayMillis = 700L
-        val checkAnimationDuration = 300L
-
-        var progressCount = 0
-        binding.publishProgressBar.post(object : Runnable {
-            override fun run() {
-                if (isAdded) {
-                    if (binding.publishProgressBar.progress >= 100) {
-                        binding.publishProgressCheck.alpha = 0f
-                        binding.publishProgressCheck.visibility = VISIBLE
-                        binding.publishProgressCheck.animate()
-                            .alpha(1f)
-                            .withEndAction {
-                                binding.publishProgressBar.postDelayed({
-                                    if (isAdded) {
-                                        binding.publishOverlayContainer.visibility = GONE
-                                        callback().nextPage(this@SuggestedEditsImageRecsFragment)
-                                        callback().logSuccess()
-                                    }
-                                }, waitUntilNextMillis + checkDelayMillis)
-                            }
-                            .duration = checkAnimationDuration
-                    } else {
-                        binding.publishProgressBar.progress = ++progressCount * 3
-                        binding.publishProgressBar.post(this)
-                    }
-                }
-            }
-        })
+        // TODO: when returning from editing successfully, go to the next image.
+        callback().nextPage(this)
     }
 
     override fun publishEnabled(): Boolean {
@@ -353,7 +297,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     }
 
     override fun onDialogSubmit(response: Int, selectedItems: List<Int>) {
-        // TODO
+        // TODO: send the feedback to the server
         publish()
     }
 
