@@ -234,7 +234,9 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ia</string>
   <string name="about_libraries_heading">Bibliothecas usate</string>
   <string name="about_contributors_heading">Contributores</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del equipa&lt;/a&gt;</string>
   <string name="about_translators_heading">Traductores</string>
+  <string name="about_translators_translatewiki">Iste app ha essite traducite per le traductores voluntari de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentia</string>
   <string name="about_app_license">Le codice fonte es disponibile sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub le &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licentia Apache 2.0&lt;/a&gt;. Salvo indication contrari, le contento es disponibile sub un &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ia\"&gt;licentia Creative Commons Attribution-CompartiSimile&lt;/a&gt;.</string>
   <string name="about_wmf">Un producto del &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundation Wikimedia&lt;/a&gt;</string>
@@ -327,6 +329,19 @@
   <string name="captcha_image">Imagine CAPTCHA</string>
   <string name="gallery_fair_use_license">“Fair use” (uso legitime)</string>
   <string name="gallery_uploader_unknown">Incargator incognite</string>
+  <string name="gallery_not_available_offline_snackbar">Le vista in galeria non es disponibile foras de linea.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Clauder</string>
+  <string name="menu_new_tab">Nove scheda</string>
+  <string name="menu_close_all_tabs">Clauder tote le schedas</string>
+  <string name="close_all_tabs_confirm">Es tu secur de voler clauder tote le schedas?</string>
+  <string name="close_all_tabs_confirm_yes">Si</string>
+  <string name="close_all_tabs_confirm_no">No</string>
+  <string name="button_close_tab">Clauder scheda</string>
+  <string name="unnamed_tab_closed">Scheda claudite.</string>
+  <string name="tab_item_closed">%s claudite.</string>
+  <string name="all_tab_items_closed">Tote le schedas claudite.</string>
+  <string name="tool_tip_bookmark_icon_title">Adder al lista de lectura</string>
+  <string name="tool_tip_bookmark_icon_text">Tocca le icone de marcapaginas pro salveguardar le articulo in un lista de lectura.</string>
   <string name="page_view_in_browser">Visitar iste pagina in le navigator</string>
   <string name="color_theme_select">Thema</string>
   <string name="color_theme_light">Clar</string>
