@@ -40,5 +40,6 @@ object MetricsPlatform {
         .eventQueueCapacity(Prefs.analyticsQueueSize)
         .streamConfigFetchInterval(Duration.ofHours(12))
         .sendEventsInterval(Duration.ofSeconds(30))
+        .isProd(ReleaseUtil.isProdRelease)
         .build()
 }
