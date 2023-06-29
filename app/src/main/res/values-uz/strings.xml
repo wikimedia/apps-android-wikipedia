@@ -951,6 +951,7 @@
   <string name="suggested_edits_image_tags_select_title">Siz ushbu rasm uchun biron bir teg tanlamagansiz</string>
   <string name="suggested_edits_image_tags_select_text">Rasmlarga faqat siz tanlagan teglar qoʻshiladi. Tanlanmagan teglar rad etilgan deb belgilanadi. Barcha teglarni rad etilgan deb belgilashni xohlaysizmi?</string>
   <string name="suggested_edits_image_tags_add_tag">Teg qoʻshmoq</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Nashr etilmagan teglar saqlanmaydi</string>
   <string name="suggested_edits_image_zoom_tooltip">Ushbu rasmni kattalashtirish uchun teging.</string>
   <string name="suggested_edits_encouragement_message">%s, tahrir qilganingiz uchun tashakkur. Quyida Siz Vikipediyaga hissa qoʻshishning koʻproq usullarini topishingiz mumkin.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Salom %s&lt;/b&gt;, quyida Siz Vikipediyani yaxshilashga yordam beradigan tez va oson usullarni topishingiz mumkin. Oʻzingiz amalga oshirayotgan farqni boshlashingiz bilanoq koʻrasiz. Omad!</string>
@@ -1390,4 +1391,5 @@
   <string name="reading_list_share_survey_body">“Oʻqish roʻyxatlarini ulashish” sinov koʻrinishida boʻlib, uni yaxshilash yoki olib tashlash uchun fikr-mulohazalaringiz kerak.</string>
   <string name="data_opt_in_accept">Qabul qilish</string>
   <string name="data_opt_in_reject">Rad etish</string>
+  <string name="generic_release_notes">Asosiy kamchiliklar tuzatildi hamda takomillashtirildi</string>
 </resources>
