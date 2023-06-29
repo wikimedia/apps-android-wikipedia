@@ -40,7 +40,7 @@ import org.wikipedia.views.FaceAndColorDetectImageView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewAnimations
 
-class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment() {
+class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), SuggestedEditsImageRecsDialog.Callback {
     private var _binding: FragmentSuggestedEditsImageRecsItemBinding? = null
     private val binding get() = _binding!!
 
@@ -85,8 +85,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment() {
         }
 
         binding.rejectButton.setOnClickListener {
-            // TODO: something special for rejecting images?
-            publish()
+            SuggestedEditsImageRecsDialog.newInstance(0).show(childFragmentManager, null)
         }
 
         binding.notSureButton.setOnClickListener {
@@ -322,6 +321,11 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment() {
 
     fun onInfoClicked() {
         infoClicked = true
+    }
+
+    override fun onDialogSubmit(response: Int, selectedItems: List<Int>) {
+        // TODO
+        publish()
     }
 
     companion object {

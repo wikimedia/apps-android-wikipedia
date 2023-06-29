@@ -9,72 +9,88 @@
         android:layout_height="wrap_content"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="8dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/instructionSubText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lorem ipsum"
-            android:textColor="?attr/primary_color"
-            android:textSize="20sp" />
+            android:layout_marginStart="6dp"
+            android:text="@string/image_recommendation_reject_subtitle"
+            android:textColor="?attr/secondary_color"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="8dp"
+            android:background="?attr/border_color"/>
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkBox1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Lorem ipsum"
+            android:text="@string/image_recommendation_reject_not_relevant"
             android:textColor="?attr/primary_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/border_color"/>
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkBox2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Lorem ipsum"
+            android:text="@string/image_recommendation_reject_no_info"
             android:textColor="?attr/primary_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/border_color"/>
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkBox3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Lorem ipsum"
+            android:text="@string/image_recommendation_reject_offensive"
             android:textColor="?attr/primary_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/border_color"/>
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkBox4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Lorem ipsum"
+            android:text="@string/image_recommendation_reject_low_quality"
             android:textColor="?attr/primary_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/border_color"/>
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkBox5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Lorem ipsum"
+            android:text="@string/image_recommendation_reject_dont_know"
             android:textColor="?attr/primary_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/border_color"/>
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkBox6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Lorem ipsum"
-            android:textColor="?attr/primary_color" />
-
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/checkBox7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Lorem ipsum"
+            android:text="@string/image_recommendation_reject_other"
             android:textColor="?attr/primary_color" />
 
     </LinearLayout>

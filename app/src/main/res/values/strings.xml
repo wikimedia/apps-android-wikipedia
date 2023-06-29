@@ -1099,6 +1099,15 @@
     <string name="image_recommendation_accept">Yes</string>
     <string name="image_recommendation_reject">No</string>
     <string name="image_recommendation_notsure">Not sure</string>
+    <string name="image_recommendation_reject_title">Why not?</string>
+    <string name="image_recommendation_reject_subtitle">Your answers improve future suggestions.</string>
+    <string name="image_recommendation_reject_not_relevant">Image is not relevant</string>
+    <string name="image_recommendation_reject_no_info">Not enough information to decide</string>
+    <string name="image_recommendation_reject_offensive">Image is offensive</string>
+    <string name="image_recommendation_reject_low_quality">Image is low quality</string>
+    <string name="image_recommendation_reject_dont_know">I don\'t know this subject</string>
+    <string name="image_recommendation_reject_other">Other</string>
+    <string name="image_recommendation_reject_submit">Submit</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->
