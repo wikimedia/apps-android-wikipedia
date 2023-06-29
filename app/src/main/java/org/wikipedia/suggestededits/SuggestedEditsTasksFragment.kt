@@ -320,7 +320,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         imageRecommendationsTask.description = getString(R.string.suggested_edits_image_recommendations_task_detail)
         imageRecommendationsTask.imageDrawable = R.drawable.ic_add_image
         imageRecommendationsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
-        imageRecommendationsTask.new = true // Prefs.shouldShowImageRecsOnboarding()
+        imageRecommendationsTask.new = !Prefs.suggestedEditsImageRecsOnboardingShown
 
         if (DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikipedia.isNullOrEmpty() ||
             !DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikidata.isNullOrEmpty()) {
@@ -354,11 +354,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, Constants.InvokeSource.SUGGESTED_EDITS))
                 }
             } else if (task == imageRecommendationsTask) {
-                // if (Prefs.shouldShowImageRecsOnboarding()) {
-                //    startActivityForResult(ImageRecsOnboardingActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_IMAGE_RECS_ONBOARDING)
-                // } else {
-                    startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATIONS, Constants.InvokeSource.SUGGESTED_EDITS))
-                // }
+                startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATIONS, Constants.InvokeSource.SUGGESTED_EDITS))
             }
         }
     }

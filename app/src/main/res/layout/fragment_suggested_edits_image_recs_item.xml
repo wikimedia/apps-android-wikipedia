@@ -46,11 +46,6 @@
                 android:textColor="?attr/primary_color"
                 android:textSize="26sp" />
 
-            <View
-                android:id="@+id/articleTitlePlaceholder"
-                android:layout_width="120dp"
-                android:layout_height="0dp" />
-
             <org.wikipedia.views.GoneIfEmptyTextView
                 android:id="@+id/articleDescription"
                 android:layout_width="match_parent"

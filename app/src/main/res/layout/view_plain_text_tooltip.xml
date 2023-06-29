@@ -14,14 +14,31 @@
         android:textColor="@android:color/white"
         tools:text="Lorem ipsum"/>
 
-    <!-- Possible bug in Balloon library requires minWidth for the button: -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonView"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        style="@style/App.Button.Secondary"
-        android:minWidth="88dp"
-        android:text="@string/onboarding_got_it"/>
+        android:layout_marginTop="8dp">
+
+        <!-- Possible bug in Balloon library requires minWidth for the button: -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/App.Button.Secondary"
+            android:minWidth="88dp"
+            android:text="@string/onboarding_got_it"/>
+
+        <TextView
+            android:id="@+id/countView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:text="1/1"/>
+
+    </FrameLayout>
 
 </LinearLayout>

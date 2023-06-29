@@ -1109,6 +1109,10 @@
     <string name="image_recommendation_reject_dont_know">I don\'t know this subject</string>
     <string name="image_recommendation_reject_other">Other</string>
     <string name="image_recommendation_reject_submit">Submit</string>
+    <string name="image_recommendation_tooltip_1">Review this article to understand its topic</string>
+    <string name="image_recommendation_tooltip_2">Inspect the image and its associated information</string>
+    <string name="image_recommendation_tooltip_3">Decide if the image helps readers understand this topic better</string>
+    <string name="image_recommendation_tooltip_next">Next</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->

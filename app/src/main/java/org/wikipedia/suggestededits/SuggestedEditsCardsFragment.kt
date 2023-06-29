@@ -139,11 +139,6 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
                         FeedbackUtil.showAndroidAppEditingFAQ(requireContext(),
                             R.string.suggested_edits_image_tags_help_url)
                     }
-                    IMAGE_RECOMMENDATIONS -> {
-                        // TODO: add help link for image recommendations
-                        FeedbackUtil.showAndroidAppEditingFAQ(requireContext(),
-                            R.string.suggested_edits_image_tags_help_url)
-                    }
                     else -> {
                         FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
                     }
@@ -162,6 +157,9 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         if (action == ADD_IMAGE_TAGS && Prefs.showImageTagsOnboarding) {
             Prefs.showImageTagsOnboarding = false
             startActivity(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
+        } else if (action == IMAGE_RECOMMENDATIONS && !Prefs.suggestedEditsImageRecsOnboardingShown) {
+            // TODO
+            // startActivity(ImageRecsOnboardingActivity.newIntent(requireActivity()))
         }
     }
 

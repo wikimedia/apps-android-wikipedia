@@ -38,6 +38,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.FaceAndColorDetectImageView
@@ -262,15 +263,19 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
             if (!isResumed || !isAdded) {
                 return@post
             }
-            /*
-            if (Prefs.shouldShowImageRecsOnboarding()) {
-                Prefs.setShowImageRecsOnboarding(false)
-                val balloon = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendations_tooltip1), autoDismiss = true, showDismissButton = true)
-                balloon.showAlignBottom(binding.articleTitlePlaceholder)
-                balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendations_tooltip2), autoDismiss = true, showDismissButton = true), binding.instructionText)
-                    .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendations_tooltip3), autoDismiss = true, showDismissButton = true), binding.acceptButton)
+            if (!Prefs.suggestedEditsImageRecsOnboardingShown) {
+                val balloonLast = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_3), autoDismiss = true,
+                    showDismissButton = true, countNum = 3, countTotal = 3)
+                balloonLast.setOnBalloonDismissListener {
+                    Prefs.suggestedEditsImageRecsOnboardingShown = true
+                }
+                val balloon = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_1), autoDismiss = true,
+                    showDismissButton = true, dismissButtonText = R.string.image_recommendation_tooltip_next, countNum = 1, countTotal = 3)
+                balloon.showAlignBottom(if (binding.articleDescription.isVisible) binding.articleDescription else binding.articleTitle)
+                balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_2), autoDismiss = true,
+                    showDismissButton = true, dismissButtonText = R.string.image_recommendation_tooltip_next, countNum = 2, countTotal = 3), binding.instructionText)
+                    .relayShowAlignBottom(balloonLast, binding.acceptButton)
             }
-             */
         }
     }
 
