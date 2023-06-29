@@ -22,7 +22,7 @@ class SuggestedEditsImageRecsDialog : DialogFragment() {
 
     private var responseCode = -1
 
-    private val checkBoxChangedHandler = CompoundButton.OnCheckedChangeListener { view, isChecked ->
+    private val checkBoxChangedHandler = CompoundButton.OnCheckedChangeListener { _, _ ->
         updateSubmitState()
     }
 
@@ -46,7 +46,7 @@ class SuggestedEditsImageRecsDialog : DialogFragment() {
             .setView(binding.root)
             .setNegativeButton(android.R.string.cancel) { _, _ -> dismiss() }
             .setPositiveButton(R.string.image_recommendation_reject_submit) { _, _ ->
-                val itemList = ArrayList<Int>()
+                val itemList = mutableListOf<Int>()
                 if (binding.checkBox1.isChecked) { itemList.add(0) }
                 if (binding.checkBox2.isChecked) { itemList.add(1) }
                 if (binding.checkBox3.isChecked) { itemList.add(2) }
