@@ -123,6 +123,10 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     }
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        if (action == IMAGE_RECOMMENDATIONS) {
+            // In the case of image recommendations, the sub-fragment will have its own menu.
+            return
+        }
         menuInflater.inflate(R.menu.menu_suggested_edits, menu)
         ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.progressive_color)
     }

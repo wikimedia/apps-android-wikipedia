@@ -1096,6 +1096,7 @@
     <string name="suggested_edits_image_recommendations_task_title">Article images</string>
     <string name="suggested_edits_image_recommendations_task_detail">Add suggested images to Wikipedia articles to enhance understanding.</string>
     <string name="image_recommendation_task_instruction">Would you add this image to the article?</string>
+    <string name="image_recommendation_tutorial">Tutorial</string>
     <string name="image_recommendation_accept">Yes</string>
     <string name="image_recommendation_reject">No</string>
     <string name="image_recommendation_notsure">Not sure</string>
