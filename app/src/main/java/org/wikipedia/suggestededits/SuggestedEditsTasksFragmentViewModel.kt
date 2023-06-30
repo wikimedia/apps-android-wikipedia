@@ -3,12 +3,10 @@ package org.wikipedia.suggestededits
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -57,11 +55,12 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             val homeSiteCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName, 10, null) }
             val commonsCall = async { ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName, 10, null) }
             val wikidataCall = async { ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName, 10, null) }
-            val editCountsCall = withContext(Dispatchers.IO) { UserContribStats.getEditCountsObservable().blockingSingle() }
+            val editCountsCall = async { UserContribStats.verifyEditCountsAndPauseState() }
 
             val homeSiteResponse = homeSiteCall.await()
             val commonsResponse = commonsCall.await()
             val wikidataResponse = wikidataCall.await()
+            editCountsCall.await()
 
             homeSiteResponse.query?.userInfo?.let {
                 if (it.isBlocked) {
@@ -100,9 +99,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             )
             revertSeverity = UserContribStats.getRevertSeverity()
 
-            withContext(Dispatchers.IO) {
-                totalPageviews = UserContribStats.getPageViewsObservable(wikidataResponse).blockingSingle()
-            }
+            totalPageviews = UserContribStats.getPageViews(wikidataResponse)
 
             _uiState.value = UiState.Success()
         }

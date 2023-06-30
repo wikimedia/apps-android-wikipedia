@@ -60,11 +60,15 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             revisionDetails.postValue(Resource.Error(throwable))
         }) {
+            revisionToId = revisionIdTo
             if (watchedStatus.value !is Resource.Success) {
                 val query = ServiceFactory.get(pageTitle.wikiSite).getWatchedStatusWithRights(pageTitle.prefixedText).query!!
                 val page = query.firstPage()!!
                 if (pageId < 0) {
                     pageId = page.pageId
+                }
+                if (revisionToId < 0) {
+                    revisionToId = page.lastrevid
                 }
                 watchedStatus.postValue(Resource.Success(page))
                 hasRollbackRights = query.userInfo?.rights?.contains("rollback") == true
@@ -72,13 +76,13 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             }
             if (revisionIdFrom >= 0) {
                 val responseFrom = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageId.toString(), 2, revisionIdFrom) }
-                val responseTo = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageId.toString(), 2, revisionIdTo) }
+                val responseTo = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageId.toString(), 2, revisionToId) }
                 val pageTo = responseTo.await().query?.firstPage()!!
                 revisionFrom = responseFrom.await().query?.firstPage()!!.revisions[0]
                 revisionTo = pageTo.revisions[0]
                 canGoForward = revisionTo!!.revId < pageTo.lastrevid
             } else {
-                val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageId.toString(), 2, revisionIdTo)
+                val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageId.toString(), 2, revisionToId)
                 val page = response.query?.firstPage()!!
                 val revisions = page.revisions
                 revisionTo = revisions[0]
