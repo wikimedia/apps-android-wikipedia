@@ -1415,6 +1415,7 @@
   <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
   <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
   <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
+  <string name="page_issues_title">Dialog title for displaying page issues (amboxes) for the current page.</string>
   <string name="generic_release_notes">Release notes message that will be used on app stores for minor releases and maintenance updates.</string>
   <string name="suggested_edits_image_recommendations_task_title">Title for the Suggested Edits task of adding recommended images to articles.</string>
   <string name="suggested_edits_image_recommendations_task_detail">Description for the Suggested Edits task of adding recommended images to articles.</string>
