@@ -26,6 +26,8 @@ import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_3
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.captcha.CaptchaHandler
+import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentDescriptionEditBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -64,6 +66,7 @@ class DescriptionEditFragment : Fragment() {
     private var targetSummary: PageSummaryForEdit? = null
     private var highlightText: String? = null
     private var editingAllowed = true
+    internal lateinit var captchaHandler: CaptchaHandler
 
     private val analyticsHelper = MachineGeneratedArticleDescriptionsAnalyticsHelper()
 
@@ -139,6 +142,8 @@ class DescriptionEditFragment : Fragment() {
             val loginIntent = LoginActivity.newIntent(requireActivity(), LoginActivity.SOURCE_EDIT)
             loginLauncher.launch(loginIntent)
         }
+        captchaHandler = CaptchaHandler(requireActivity(), pageTitle.wikiSite, binding.fragmentDescriptionEditView.getCaptchaContainer().root,
+            binding.fragmentDescriptionEditView.getDescriptionEditTextView(), "", null)
         return binding.root
     }
 
@@ -153,6 +158,7 @@ class DescriptionEditFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        captchaHandler.dispose()
         binding.fragmentDescriptionEditView.callback = null
         _binding = null
         super.onDestroyView()
@@ -296,6 +302,8 @@ class DescriptionEditFragment : Fragment() {
         }
 
         private fun getEditTokenThenSave() {
+            binding.fragmentDescriptionEditView.updateCaptchaVisibility(false)
+            captchaHandler.hideCaptcha()
             val csrfSite = if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                 Constants.commonsWikiSite
@@ -330,10 +338,13 @@ class DescriptionEditFragment : Fragment() {
                         text = updateDescriptionInArticle(text, binding.fragmentDescriptionEditView.description.orEmpty())
 
                         ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.prefixedText, "0", null,
-                                getEditComment().orEmpty(),
-                                if (AccountUtil.isLoggedIn) "user"
-                                else null, text, null, baseRevId, editToken, null, null)
-                                .subscribeOn(Schedulers.io())
+                            getEditComment().orEmpty(),
+                            if (AccountUtil.isLoggedIn) "user"
+                            else null, text, null, baseRevId, editToken,
+                            if (captchaHandler != null && captchaHandler.isActive) captchaHandler.captchaId() else null,
+                            if (captchaHandler != null && captchaHandler.isActive) captchaHandler.captchaWord() else null
+                        )
+                            .subscribeOn(Schedulers.io())
                     }
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ result ->
@@ -354,8 +365,8 @@ class DescriptionEditFragment : Fragment() {
                                     editFailed(MwException(MwServiceError(code, spamblacklist)), false)
                                 }
                                 hasCaptchaResponse -> {
-                                    // TODO: handle captcha
-                                    // new CaptchaResult(result.edit().captchaId());
+                                    binding.fragmentDescriptionEditView.updateCaptchaVisibility(true)
+                                    captchaHandler.handleCaptcha(null, CaptchaResult(result.edit.captchaId))
                                 }
                                 hasSpamBlacklistResponse -> {
                                     editFailed(MwException(MwServiceError(code, info)), false)
@@ -475,7 +486,10 @@ class DescriptionEditFragment : Fragment() {
         }
 
         override fun onCancelClick() {
-            if (binding.fragmentDescriptionEditView.showingReviewContent()) {
+            if (captchaHandler.isActive) {
+                captchaHandler.cancelCaptcha()
+                binding.fragmentDescriptionEditView.updateCaptchaVisibility(false)
+            } else if (binding.fragmentDescriptionEditView.showingReviewContent()) {
                 binding.fragmentDescriptionEditView.loadReviewContent(false)
                 analyticsHelper.timer.resume()
             } else {
