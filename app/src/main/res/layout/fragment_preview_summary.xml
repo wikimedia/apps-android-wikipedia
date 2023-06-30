@@ -68,8 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/preview_edit_minor_edit"
-                android:textColor="?attr/primary_color"
-                android:buttonTint="?attr/progressive_color"/>
+                android:textColor="?attr/primary_color"/>
 
             <ImageView
                 android:id="@+id/minorEditHelpButton"
@@ -94,8 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/preview_edit_watch_this_page"
-                android:textColor="?attr/primary_color"
-                android:buttonTint="?attr/progressive_color"/>
+                android:textColor="?attr/primary_color"/>
 
             <ImageView
                 android:id="@+id/watchPageHelpButton"

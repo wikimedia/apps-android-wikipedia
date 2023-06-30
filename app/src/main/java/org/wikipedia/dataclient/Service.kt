@@ -295,7 +295,7 @@ interface Service {
 
     // ------- Editing -------
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full")
+    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
     fun getWikiTextForSectionWithInfo(
         @Query("titles") title: String,
         @Query("rvsection") section: Int?
@@ -347,10 +347,10 @@ interface Service {
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
-    fun getPageViewsForTitles(@Query("titles") titles: String): Observable<MwQueryResponse>
+    suspend fun getPageViewsForTitles(@Query("titles") titles: String): MwQueryResponse
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
-    val editorTaskCounts: Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
+    suspend fun getEditorTaskCounts(): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=rollback")
@@ -389,7 +389,7 @@ interface Service {
     ): Observable<Claims>
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
-    fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Observable<Entities>
+    suspend fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Entities
 
     @POST(MW_API_PREFIX + "action=wbsetclaim&errorlang=uselang")
     @FormUrlEncoded
@@ -435,9 +435,6 @@ interface Service {
         @Field("summary") summary: String?,
         @Field("tags") tags: String?
     ): Observable<EntityPostResponse>
-
-    @GET(MW_API_PREFIX + "action=visualeditor&paction=metadata")
-    fun getVisualEditorMetadata(@Query("page") page: String): Observable<MwVisualEditorResponse>
 
     // ------- Watchlist -------
 

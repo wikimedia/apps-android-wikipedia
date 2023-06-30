@@ -1167,6 +1167,7 @@
   <string name="watchlist_filter_type_of_change_page_creations">ߞߐߜߍ ߛߌ߲ߘߟߌ</string>
   <string name="watchlist_filter_type_of_change_category_changes">ߦߌߟߡߊ߫ ߡߊߦߟߍߡߊ߲</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">ߥߞߌߘߕߊ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߞߍߟߌ</string>
   <string name="watchlist_filter_type_of_change_new_users">ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ߫ ߞߎߘߊ ߟߎ߬</string>
   <string name="watchlist_filter_reset_button">ߊ߬ ߡߊߛߊ߬ߦߌ߬</string>
   <string name="watchlist_search_bar_hint">ߢߌߣߌ߲ߠߌ߲ ߥߟߊ߫ ߜߋ߬ߟߎ߲߬ߠߌ߲߫ ߛߙߍߘߍ ߛߍ߲ߛߍ߲߫</string>

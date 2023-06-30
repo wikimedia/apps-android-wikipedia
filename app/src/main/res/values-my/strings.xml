@@ -438,6 +438,8 @@
   <string name="reading_list_sort_by_created">ရက်စွဲဖန်တီးသည့် အစဉ်အတိုင်း (အသစ်ဆုံး)</string>
   <string name="reading_list_sort_by_created_desc">ရက်စွဲဖန်တီးသည့် အစဉ်အတိုင်း (အဟောင်းဆုံး)</string>
   <string name="reading_list_menu_delete">စာဖတ်စာရင်း ဖျက်ရန်</string>
+  <string name="reading_list_menu_select">ရွေးချယ်</string>
+  <string name="reading_list_menu_unselect">မရွေးချယ်တော့ရန်</string>
   <string name="reading_list_menu_rename">အမည်/ဖော်ပြချက်ကို တည်းဖြတ်ရန်</string>
   <string name="reading_list_action_menu_remove_from_offline">အင်တာနက်မရှိဘဲ ဖတ်ရှုခြင်းမှ ဖယ်ထုတ်ရန်။</string>
   <string name="reading_list_action_menu_save_for_offline">အင်တာနက်မရှိပဲ ဖတ်ရှုရန် သိမ်းဆည်းခြင်း။</string>
@@ -524,6 +526,13 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="reading_list_split_dialog_ok_button_text">အိုကေ</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">ဖျက်ရန်</string>
+  <string name="reading_lists_action_menu_export_lists">တင်ပို့ရန်</string>
+  <string name="reading_lists_preview_save_button">သိမ်းရန်</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">ခေါင်းစဉ်</string>
+  <string name="reading_lists_preview_save_dialog_cancel">မလုပ်တော့ပါ</string>
+  <string name="reading_lists_preview_save_dialog_save">သိမ်းရန်</string>
+  <string name="reading_lists_preview_saved_snackbar_action">ကြည့်ရန်</string>
   <string name="user_option_sync_label">ရွေးချယ်စရာများ</string>
   <string name="notification_reverted_title">တည်းဖြတ်မှု နောက်ပြန်ပြင်ခဲ့ခြင်း</string>
   <string name="notification_channel_title">ဆောင်ပါးများ ဒေါင်းလုတ်ဆွဲနေသည်</string>
@@ -689,7 +698,10 @@
   <string name="description_edit_anon_limit">ဖော်ပြချက်တည်းဖြတ်မှုကို ဆက်တိုက်စိတ်ဝင်စားသည့်အတွက် ကျေးဇူးတင်ပါသည်၊ ထပ်တိုးတည်းဖြတ်မှုများ လုပ်ဆောင်ရန် ကျေးဇူးပြု၍ ဝီကီပီးဒီးယားအကောင့်ထဲသို့ ဝင်ရောက်ပါ။</string>
   <string name="description_edit_license_notice">ဆောင်းပါးဖော်ပြချက်ကို ပြောင်းလဲရာတွင် &lt;a href=\"%1$s\"&gt;အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ&lt;/a&gt;ကို သဘောတူလိုက်နာပြီး မိမိ၏ပံ့ပိုးမှုများကို &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; လိုင်စင်ဖြင့် အချောသတ်ထုတ်ပြန်ပါမည်။</string>
   <string name="description_edit_voice_input_description">အသံ ထည့်သွင်းမှု</string>
+  <string name="description_edit_learn_more">ဆောင်းပါးဖော်ပြချက်များအကြောင်း ပိုမိုလေ့လာရန်</string>
+  <string name="description_edit_image_caption_learn_more">ပုံစာတန်းများအကြောင်း ပိုမိုလေ့လာရန်</string>
   <string name="description_too_short">စာသားမှာ တိုတောင်းလွန်းသည်။</string>
+  <string name="description_edit_suggested_description_button_text">အကြံပြုထားသော ဖော်ပြချက်များကို ပြပါ</string>
   <string name="description_edit_success_saved">ဆောင်းပါးဖော်ပြချက် လွှင့်တင်ပြီး!</string>
   <string name="description_edit_success_saved_snackbar">ဆောင်းပါးဖော်ပြချက် လွှင့်တင်ပြီး!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">ဆောင်းပါးဖော်ပြချက် လွှင့်တင်ပြီး (%s)</string>
@@ -705,6 +717,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">စာတစ်ကြောင်းထဲ၊ စာလုံး နှစ်လုံးမှ တစ်ဆယ့်နှစ်လုံးအကြား</string>
   <string name="description_edit_tutorial_button_label_start_editing">စတင်တည်းဖြတ်</string>
   <string name="description_edit_tutorial_promise">စတင်ခြင်းဖြင့် ဤအင်္ဂရပ်ကို တလွဲအသုံးမပြုပါဟု ကတိပြုပါသည်။</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">စက်အကြံပြုချက်များ</string>
   <string name="customize_toolbar_category_menu">မီးနူး</string>
   <string name="suggested_edits_describe_articles">ဆောင်းပါးများ ဖော်ပြရန်</string>
   <string name="suggested_edits_caption_images">ရုပ်ပုံများကို ပုံစံသတ်မှတ်ရန်</string>
@@ -820,6 +833,8 @@
   <string name="suggested_edits_encourage_account_creation_login_button">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
   <string name="suggested_edits_contribution_current_revision_text">လက်ရှိသင်၏တည်းဖြတ်မှုသည် ဝီကီပီဒီယားတွင် အချိန်နှင့်တပြေးညီရောက်ရှိနေပါသည်</string>
   <string name="suggested_card_more_edits">ပိုမို၍ အကြံပြုထားသော တည်းဖြတ်မှုများ</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">အကြံပြုထားသော ဖော်ပြချက်များ</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">လုံလောက်မှုမရှိသော သတင်းအချက်အလက်</string>
   <string name="suggested_edits_contribution_diff_count_text">{{ဗဟုဝုစ်ကိန်း|တစ်=%1$s သွင်ပြင်လက္ခဏာ|%1$s သွင်ပြင်လက္ခဏာများ}}</string>
   <string name="file_page_activity_title">ဖိုင်စာမျက်နှာ</string>
   <string name="file_page_add_image_caption_button">ရုပ်ပုံ ပုံစာ ပေါင်းထည့်ရန်</string>
@@ -990,6 +1005,29 @@
   <string name="watchlist_page_moved">ရွေ့ပြောင်းခဲ့</string>
   <string name="watchlist_page_protected">ကာကွယ်ခဲ့သည်</string>
   <string name="watchlist_page_deleted">ဖျက်ပြီးပြီ</string>
+  <string name="watchlist_filter_user_status_newcomers">လူသစ်များ</string>
+  <string name="watchlist_filter_user_status_learners">လေ့လာသူများ</string>
+  <string name="watchlist_filter_user_status_experienced">အတွေ့အကြုံရှိ အသုံးပြုသူများ</string>
+  <string name="watchlist_filter_contribution_authorship_header">ပံ့ပိုးမှု စာပေလက်ရာ</string>
+  <string name="watchlist_filter_contribution_authorship_own">သင်၏ ပြောင်းလဲမှုများ</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">အခြားသူများ၏ ပြောင်းလဲမှုများ</string>
+  <string name="watchlist_filter_automated_contributions_header">အလိုအလျောက် ဆောင်ရွက်ချက်များ</string>
+  <string name="watchlist_filter_automated_contributions_bot">ဘော့</string>
+  <string name="watchlist_filter_automated_contributions_human">လူ (ဘော့မဟုတ်)</string>
+  <string name="watchlist_filter_significance_header">အရေးပါထင်ရှားမှု</string>
+  <string name="watchlist_filter_significance_minor">အရေးမကြီးသည့် တည်းဖြတ်မှုများ</string>
+  <string name="watchlist_filter_significance_edits">အရေးမကြီး မဟုတ်သော တည်းဖြတ်မှုများ</string>
+  <string name="watchlist_filter_latest_revisions_header">နောက်ဆုံး တည်းဖြတ်မူများ</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">နောက်ဆုံး မူ</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">နောက်ဆုံး တည်းဖြတ်မူမဟုတ်</string>
+  <string name="watchlist_filter_type_of_change_header">ပြောင်းလဲမှု အမျိုးအစား</string>
+  <string name="watchlist_filter_type_of_change_page_edits">စာမျက်နှာ တည်းဖြတ်မှုများ</string>
+  <string name="watchlist_filter_type_of_change_page_creations">စာမျက်နှာ ဖန်တီးမှုများ</string>
+  <string name="watchlist_filter_type_of_change_category_changes">ကဏ္ဍပြောင်းလဲမှုများ</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">ဝီကီဒေတာ တည်းဖြတ်မှုများ</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">အကောင့်ဝင်ထားသည့် ပြုလုပ်ချက်များ</string>
+  <string name="watchlist_filter_type_of_change_new_users">အသုံးပြုသူ အသစ်များ</string>
+  <string name="watchlist_filter_reset_button">ပြန်စရန်</string>
   <string name="action_item_categories">ကဏ္ဍများ</string>
   <string name="category_tab_articles">ဆောင်းပါးများ</string>
   <string name="category_tab_subcategories">ကဏ္ဍခွဲများ</string>
@@ -999,4 +1037,6 @@
   <string name="user_contrib_menu_label">ဆောင်ရွက်ချက်များ</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">သဘောပေါက်ပြီ</string>
   <string name="reading_list_share_menu_label">မျှဝေ...</string>
+  <string name="data_opt_in_accept">လက်ခံ</string>
+  <string name="data_opt_in_reject">ပယ်ချရန်</string>
 </resources>

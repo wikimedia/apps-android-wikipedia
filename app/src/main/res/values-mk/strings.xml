@@ -274,7 +274,7 @@
   <string name="edit_summary_tag_links">Додадени врски</string>
   <string name="edit_summary_tag_other">Друго</string>
   <string name="edit_summary_tag_other_hint">Други начини на кои ја подобривте страницата</string>
-  <string name="edit_conflict_title">Спротиставеност во уредувањето</string>
+  <string name="edit_conflict_title">Спротивставеност во уредувањето</string>
   <string name="edit_conflict_message">Оваа страница е веќе изменета од друг корисник, и се коси со вашето уредување. Прекопирајте ги вашите уредувања, превчитајте ја страницата и обидете се повторно.</string>
   <string name="edit_notices">Белешки за уредување</string>
   <string name="edit_notices_please_read">Прочитајте пред да уредувате</string>
@@ -842,7 +842,7 @@
   <string name="description_starts_with_uppercase">Почнете со мала буква освен ако зборот е лична именка.</string>
   <string name="description_starts_with_lowercase">Избегнувајте да почнувате со мала буква.</string>
   <string name="description_is_in_different_language">Се чини дека текстот е напишан на неочекуван јазик. Јазикот треба да биде %s.</string>
-  <string name="description_verification_notice" fuzzy="true">Потврдете дека вашиот опис е на %1$s. Слободно занемарете ја напоменава ако напишаниот опис ви е на %2$s.</string>
+  <string name="description_verification_notice">Потврдете дека вашиот опис е на %1$s. Слободно занемарете го ова предупредување ако напишаниот опис ви е на %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Прикажи предложен опис</string>
   <string name="description_edit_suggested_description_button_tooltip">Пробајте ги машински предложените описи на статии</string>
   <string name="description_edit_success_saved">Описот на статијата е објавен!</string>
@@ -950,6 +950,7 @@
   <string name="suggested_edits_image_tags_select_title">Немате избрано ниедна ознака за сликава</string>
   <string name="suggested_edits_image_tags_select_text">Во сликите ќе се додаваат само ознаки кои сте ги избрале вие. Неизбраните ознаки ќе се сметаат за одбиени. Дали сигурно сакате да ги означите сите како одбиени?</string>
   <string name="suggested_edits_image_tags_add_tag">Додај ознака</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Необјавените ознаки нема да се зачуваат</string>
   <string name="suggested_edits_image_zoom_tooltip">Штипнете за да ја приближите сликата.</string>
   <string name="suggested_edits_encouragement_message">%s, ви благодариме за уредувањата. Подолу ќе најдете други начини да учествувате на Википедија.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здраво, %s&lt;/b&gt;. Подолу погледајте како брзо и лесно начини да помогнете на Википедија. Штом започнете, ќе забележите каква разлика правите. Среќно уредување!</string>
@@ -1025,7 +1026,7 @@
   <string name="suggested_edits_article_descriptions_dialog_title">Предложени описи</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Што би сакале да пријавите?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Нема доволно информации</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion" fuzzy="true">Не можам да ги видам предложените описи</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Не можам да ги видам предложените описи</string>
   <string name="suggested_edits_inappropriate_suggestion">Неприкладен предлог</string>
   <string name="suggested_edits_do_not_understand_suggestion">Не ја разбирам задачата</string>
   <string name="suggested_edits_report_suggestion">Пријави</string>
@@ -1389,4 +1390,5 @@
   <string name="reading_list_share_survey_body">„Споделување на списоци за читање“ е пробна функција и ни требаат ваши мислења за да ја подобриме или отстраниме.</string>
   <string name="data_opt_in_accept">Прифати</string>
   <string name="data_opt_in_reject">Одбиј</string>
+  <string name="generic_release_notes">Ситни поправки на грешки и подобрувања</string>
 </resources>

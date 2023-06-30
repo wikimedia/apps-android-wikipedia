@@ -151,7 +151,7 @@ class WikipediaApp : Application() {
 
         WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
 
-        connectionStateMonitor.enable(this)
+        connectionStateMonitor.enable()
 
         setupLeakCanary()
 
@@ -202,8 +202,10 @@ class WikipediaApp : Application() {
      */
     fun getAcceptLanguage(wiki: WikiSite?): String {
         val wikiLang = if (wiki == null || "meta" == wiki.languageCode) "" else wiki.languageCode
-        return AcceptLanguageUtil.getAcceptLanguage(wikiLang, languageState.appLanguageCode,
-                languageState.systemLanguageCode)
+        return AcceptLanguageUtil.getAcceptLanguage(
+            languageState.getBcp47LanguageCode(wikiLang),
+            languageState.getBcp47LanguageCode(languageState.appLanguageCode),
+                languageState.getBcp47LanguageCode(languageState.systemLanguageCode))
     }
 
     fun constrainFontSizeMultiplier(mult: Int): Int {

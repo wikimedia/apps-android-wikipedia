@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="bottom"
-    app:behavior_peekHeight="@dimen/bottomSheetPeekHeight">
+    android:layout_gravity="bottom">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

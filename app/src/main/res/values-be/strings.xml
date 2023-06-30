@@ -413,7 +413,7 @@
   <string name="error_message_generic">Адбылася памылка</string>
   <string name="view_link_preview_error_button_dismiss">Закрыць</string>
   <string name="error_page_does_not_exist">Няма такой старонкі</string>
-  <string name="error_user_page_does_not_exist">Вікіпедыя не мае &lt;a href=\"%1$s \"&gt;user page&lt;/a&gt; з такой дакладнай назвай. Увогуле, гэтая старонка павінна быць створана і адрэдагавана &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt; . Калі вы сумняваецеся, пераканайцеся, што \" %3$s \" існуе.</string>
+  <string name="error_user_page_does_not_exist" fuzzy="true">Вікіпедыя не мае &lt;a href=\"%1$s\"&gt;user page&lt;/a&gt; з такой дакладнай назвай. Увогуле, гэтая старонка павінна быць створана і адрэдагавана &lt;b&gt;%2$s&lt;/b&gt;. Калі вы сумняваецеся, пераканайцеся, што \"%3$s\" існуе.</string>
   <string name="view_wiki_error_message_offline">Немагчыма падлучыцца да Інтэрнэту</string>
   <string name="view_wiki_error_message_timeout">Немагчыма падключыцца да Вікіпедыі. Праверце падключэнне да сеткі або паўтарыце спробу пазней</string>
   <string name="reference_title">Заўвага %s</string>
@@ -457,7 +457,7 @@
   <string name="preference_summary_color_theme">Пераключыць на цёмную каляровую тэму праграмы</string>
   <string name="text_size_increase">Павялічыць памер тэксту</string>
   <string name="text_size_decrease">Паменшыць памер тэксту</string>
-  <string name="text_size_percent_default">%s (па змаўчанні)</string>
+  <string name="text_size_percent_default">%s (прадвызначана)</string>
   <string name="text_style_title">Шрыфт</string>
   <string name="theme_category_reading">Чытанне</string>
   <string name="theme_category_editing">Рэдагаванне</string>
@@ -604,7 +604,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Уключыць сінхранізацыю</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, дзякуй</string>
   <string name="default_reading_list_name">Захаванае</string>
-  <string name="default_reading_list_description">Спіс па змаўчанні для вашых захаваных артыкулаў</string>
+  <string name="default_reading_list_description">Прадвызначаны спіс для вашых захаваных артыкулаў</string>
   <string name="no_user_lists_title">Арганізуйце артыкулы ў спісы</string>
   <string name="no_user_lists_msg">Стварайце спісы месцаў для падарожжаў, любімых тэм і шмат чаго іншага</string>
   <string name="reading_list_saved_list_rename">%1$s (створаны карыстальнікам)</string>

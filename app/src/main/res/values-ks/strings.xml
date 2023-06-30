@@ -435,11 +435,15 @@
   <string name="notifications_search">اطلاع کٔرِو تلاش</string>
   <string name="notifications_direct_reply_action">جَوآب</string>
   <string name="watchlist_title">نَظَرِ تَل فِہرِست</string>
+  <string name="preference_title_notification_system">سِسٹَم</string>
+  <string name="preference_summary_notification_system">سِسٹَم پؠٹھ پٲغام</string>
+  <string name="preference_title_notification_milestone">سَنگِ میٖل</string>
   <string name="preference_title_notification_thanks">شُکرِیا</string>
   <string name="preference_title_notification_revert">نامَنظور</string>
   <string name="preference_title_notification_login_fail">دٲخل گژھِو</string>
   <string name="preference_title_notification_mention">ذِکر/یاد کۄٚرمُت</string>
   <string name="preference_title_notification_user_talk">کَتھ صَفہٕ</string>
+  <string name="preference_title_notification_email_user">ای میل آو رَٹنہِ</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">وِکیٖپیٖڈیا</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">وِکیٖپیٖڈیا طرفہٕ اطلاعات</string>
   <string name="notifications_channel_group_other_title">باقٕے</string>
@@ -484,6 +488,7 @@
   <string name="home">اَہَم صَفہٕ</string>
   <string name="view_card_news_title">خَبَرَن مَنٛز</string>
   <string name="view_continue_reading_card_subtitle_today">اَز</string>
+  <string name="view_continue_reading_card_subtitle_read_date">پٔرِو %s</string>
   <string name="view_announcement_card_negative_action">نَہ، شُکریا</string>
   <string name="view_featured_article_card_title">مُنتَخٕب مَضموٗن</string>
   <string name="view_static_card_save_button_label">مَحفوٗظ</string>
@@ -495,9 +500,13 @@
   <string name="tabs_activity_title">ٹیب</string>
   <string name="description_edit_text_hint">مَضموٗنٕچ وَضاحَتھ</string>
   <string name="description_edit_article_description_label">مَضموٗن</string>
+  <string name="description_edit_add_caption_hint">تَصویٖر تَفصیٖل</string>
+  <string name="description_edit_translate_caption_label_per_language">تَصویٖر تَفصیٖل (%s)</string>
   <string name="description_edit_save">شایع</string>
   <string name="description_edit_read">پَرُن</string>
   <string name="description_edit_cancel_hint">مَنسوٗخ</string>
+  <string name="description_edit_success_done">دَرٕج</string>
+  <string name="description_edit_success_did_you_know">تۄہہِ چھا پَتا؟</string>
   <string name="suggested_edits_describe_articles">مَضموٗنَن کٕریٚو وؠژھٕنٲی</string>
   <string name="suggested_edits_caption_images">تصویٖرَن کھٲترٕ مُکالمہٕ</string>
   <string name="suggested_edits_tag_images">تصویٖرٕ ٹیگ</string>

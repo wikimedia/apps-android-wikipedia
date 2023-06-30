@@ -24,6 +24,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.dataclient.watch.Watch
@@ -206,6 +207,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.articleTitleView.setOnClickListener {
             if (viewModel.pageTitle.namespace() == Namespace.USER_TALK || viewModel.pageTitle.namespace() == Namespace.TALK) {
                 startActivity(TalkTopicsActivity.newIntent(requireContext(), viewModel.pageTitle, InvokeSource.DIFF_ACTIVITY))
+            } else if (viewModel.pageTitle.namespace() == Namespace.FILE) {
+                startActivity(FilePageActivity.newIntent(requireContext(), viewModel.pageTitle))
             } else {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(
                         HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS), null))
@@ -253,6 +256,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     override fun onPrepareMenu(menu: Menu) {
         val watchlistItem = menu.findItem(R.id.menu_add_watchlist)
+        watchlistItem.isVisible = AccountUtil.isLoggedIn
         watchlistItem.title = getString(if (isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
         watchlistItem.setIcon(getWatchlistIcon(isWatched, hasWatchlistExpiry))
     }
@@ -359,7 +363,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun setEnableDisableTint(view: ImageView, isDisabled: Boolean) {
         ImageViewCompat.setImageTintList(view, AppCompatResources.getColorStateList(requireContext(),
             ResourceUtil.getThemedAttributeId(requireContext(), if (isDisabled)
-                R.attr.placeholder_color else R.attr.secondary_color)))
+                R.attr.inactive_color else R.attr.secondary_color)))
     }
 
     private fun setButtonTextAndIconColor(view: MaterialButton, themedColor: Int) {

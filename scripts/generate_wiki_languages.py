@@ -18,13 +18,14 @@ QUERY_ALLUSERS = '/w/api.php?action=query&format=json&formatversion=2&list=allus
     '&aulimit=50&auactiveusers=1&auwitheditsonly=1'
 
 lang_keys = []
+lang_bcp47_keys = []
 lang_local_names = []
 lang_eng_names = []
 lang_variants = []
 lang_rank = []
 
 
-def add_lang(key, local_name, eng_name, rank):
+def add_lang(key, bcp47key, local_name, eng_name, rank):
     rank_pos = 0
     # Automatically keep the arrays sorted by rank
     for index, item in enumerate(lang_rank):
@@ -32,6 +33,7 @@ def add_lang(key, local_name, eng_name, rank):
         if (rank > item):
             break
     lang_keys.insert(rank_pos, key)
+    lang_bcp47_keys.insert(rank_pos, bcp47key)
     lang_local_names.insert(rank_pos, local_name)
     lang_eng_names.insert(rank_pos, eng_name)
     lang_rank.insert(rank_pos, rank)
@@ -80,9 +82,11 @@ for key, value in data[u"sitematrix"].items():
         language_code = 'nb'
 
     lang_name = value[u"name"]
+    lang_bcp47 = language_code
     for name in lang_list_response[u"query"][u"languages"]:
         if name[u"code"] == language_code:
             lang_name = name[u"name"]
+            lang_bcp47 = name[u"bcp47"]
             break
 
     # add language variants into the list
@@ -97,10 +101,12 @@ for key, value in data[u"sitematrix"].items():
 
             variant_lang_name = ""
             en_lang_name = ""
+            variant_bcp47 = variant
 
             for name in lang_list_response[u"query"][u"languages"]:
                 if name[u"code"] == variant:
                     variant_lang_name = name[u"name"]
+                    variant_bcp47 = name[u"bcp47"]
                     break
 
             for name in lang_list_en_response[u"query"][u"languages"]:
@@ -110,7 +116,7 @@ for key, value in data[u"sitematrix"].items():
 
             language_code_variants = language_code_variants + "," + variant
 
-            add_lang(variant, variant_lang_name.replace("'", "\\'"), en_lang_name.replace("'", "\\'"), rank)
+            add_lang(variant, variant_bcp47, variant_lang_name.replace("'", "\\'"), en_lang_name.replace("'", "\\'"), rank)
 
         add_variant(language_code_variants)
 
@@ -118,10 +124,10 @@ for key, value in data[u"sitematrix"].items():
     if language_code == 'zh':
         continue
 
-    add_lang(language_code, lang_name.replace("'", "\\'"), value[u"localname"].replace("'", "\\'"), rank)
+    add_lang(language_code, lang_bcp47, lang_name.replace("'", "\\'"), value[u"localname"].replace("'", "\\'"), rank)
 
 
-add_lang(key='test', local_name='Test', eng_name='Test', rank=0)
+add_lang(key='test', bcp47key='test', local_name='Test', eng_name='Test', rank=0)
 
 # Generate the XML, for Android
 NAMESPACE = 'http://schemas.android.com/tools'
@@ -132,9 +138,11 @@ keys = [x.item(k) for k in lang_keys]
 local_names = [x.item(k) for k in lang_local_names]
 eng_names = [x.item(k) for k in lang_eng_names]
 language_variants = [x.item(k) for k in lang_variants]
+bcp47_keys = [x.item(k) for k in lang_bcp47_keys]
 
 resources = x.resources(
     getattr(x, 'string-array')(*keys, name='preference_language_keys'),
+    getattr(x, 'string-array')(*bcp47_keys, name='preference_bcp47_keys'),
     getattr(x, 'string-array')(*local_names, name='preference_language_local_names'),
     getattr(x, 'string-array')(*eng_names, name='preference_language_canonical_names'),
     getattr(x, 'string-array')(*language_variants, name='preference_language_variants'))

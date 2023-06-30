@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.skydoves.balloon.*
@@ -165,9 +166,7 @@ object FeedbackUtil {
                    topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false): Balloon {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
-        if (showDismissButton) {
-            binding.buttonView.visibility = View.VISIBLE
-        }
+        binding.buttonView.isVisible = showDismissButton
 
         val balloon = createBalloon(context) {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)

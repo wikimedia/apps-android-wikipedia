@@ -24,6 +24,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -320,7 +321,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     private fun initLangButton() {
-        binding.searchLangButton.text = app.languageState.appLanguageCode.uppercase(Locale.ENGLISH)
+        binding.searchLangButton.text = LanguageUtil.formatLangCodeForButton(app.languageState.appLanguageCode.uppercase(Locale.ENGLISH))
         ViewUtil.formatLangButton(binding.searchLangButton, app.languageState.appLanguageCode.uppercase(Locale.ENGLISH),
                 LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER)
         FeedbackUtil.setButtonLongPressToast(binding.searchLangButtonContainer)
