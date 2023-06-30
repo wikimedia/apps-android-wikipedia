@@ -1409,4 +1409,5 @@
   <string name="reading_list_share_survey_body">«Comparteix llistes de lectura» és una funcionalitat de prova i ens calen opinions per a millorar-la o bé treure-la.</string>
   <string name="data_opt_in_accept">Accepta</string>
   <string name="data_opt_in_reject">Rebutja</string>
+  <string name="generic_release_notes">Correccions d\'error menors i millores</string>
 </resources>
