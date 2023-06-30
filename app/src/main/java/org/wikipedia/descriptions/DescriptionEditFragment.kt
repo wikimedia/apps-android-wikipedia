@@ -66,7 +66,7 @@ class DescriptionEditFragment : Fragment() {
     private var targetSummary: PageSummaryForEdit? = null
     private var highlightText: String? = null
     private var editingAllowed = true
-    internal lateinit var captchaHandler: CaptchaHandler
+    private lateinit var captchaHandler: CaptchaHandler
 
     private val analyticsHelper = MachineGeneratedArticleDescriptionsAnalyticsHelper()
 
@@ -302,8 +302,9 @@ class DescriptionEditFragment : Fragment() {
         }
 
         private fun getEditTokenThenSave() {
-            binding.fragmentDescriptionEditView.updateCaptchaVisibility(false)
-            captchaHandler.hideCaptcha()
+            if (captchaHandler.isActive) {
+                captchaHandler.hideCaptcha()
+            }
             val csrfSite = if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                 Constants.commonsWikiSite
@@ -341,8 +342,8 @@ class DescriptionEditFragment : Fragment() {
                             getEditComment().orEmpty(),
                             if (AccountUtil.isLoggedIn) "user"
                             else null, text, null, baseRevId, editToken,
-                            if (captchaHandler != null && captchaHandler.isActive) captchaHandler.captchaId() else null,
-                            if (captchaHandler != null && captchaHandler.isActive) captchaHandler.captchaWord() else null
+                            if (captchaHandler.isActive) captchaHandler.captchaId() else null,
+                            if (captchaHandler.isActive) captchaHandler.captchaWord() else null
                         )
                             .subscribeOn(Schedulers.io())
                     }
@@ -365,7 +366,8 @@ class DescriptionEditFragment : Fragment() {
                                     editFailed(MwException(MwServiceError(code, spamblacklist)), false)
                                 }
                                 hasCaptchaResponse -> {
-                                    binding.fragmentDescriptionEditView.updateCaptchaVisibility(true)
+                                    binding.fragmentDescriptionEditView.showProgressBar(false)
+                                    binding.fragmentDescriptionEditView.setSaveState(false)
                                     captchaHandler.handleCaptcha(null, CaptchaResult(result.edit.captchaId))
                                 }
                                 hasSpamBlacklistResponse -> {
@@ -488,7 +490,6 @@ class DescriptionEditFragment : Fragment() {
         override fun onCancelClick() {
             if (captchaHandler.isActive) {
                 captchaHandler.cancelCaptcha()
-                binding.fragmentDescriptionEditView.updateCaptchaVisibility(false)
             } else if (binding.fragmentDescriptionEditView.showingReviewContent()) {
                 binding.fragmentDescriptionEditView.loadReviewContent(false)
                 analyticsHelper.timer.resume()

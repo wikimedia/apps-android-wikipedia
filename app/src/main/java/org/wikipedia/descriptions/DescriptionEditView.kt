@@ -406,6 +406,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     fun getDescriptionEditTextView(): LinearLayout {
         return binding.viewDescriptionEditTextLayout
     }
+
     fun updateInfoText() {
         binding.learnMoreButton.text =
             if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION ||
@@ -461,15 +462,6 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     fun getCaptchaContainer(): GroupCaptchaBinding {
         return binding.captchaContainer
-    }
-
-    fun updateCaptchaVisibility(show: Boolean) {
-        binding.viewDescriptionEditing.isVisible = !show
-        binding.captchaContainer.root.isVisible = show
-        if (show) {
-            showProgressBar(false)
-            enableSaveButton(enabled = true, saveInProgress = false)
-        }
     }
 
     companion object {
