@@ -83,7 +83,7 @@ class CaptchaHandler(private val activity: Activity, private val wiki: WikiSite,
     }
 
     fun hideCaptcha() {
-        (activity as AppCompatActivity).supportActionBar?.let { it.title = prevTitle }
+        (activity as AppCompatActivity).supportActionBar?.title = prevTitle
         ViewAnimations.crossFade(binding.root, primaryView)
     }
 

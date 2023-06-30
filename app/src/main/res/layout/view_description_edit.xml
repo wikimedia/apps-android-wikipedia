@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:background="@android:color/white"
     tools:orientation="vertical"
     tools:parentTag="android.widget.LinearLayout">
 
@@ -224,14 +223,13 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?android:windowBackground"
-            tools:visibility="visible">
+            android:layout_height="wrap_content">
             <include
                 android:id="@+id/captcha_container"
                 android:visibility="gone"
-                layout="@layout/group_captcha" />
+                layout="@layout/group_captcha"/>
         </ScrollView>
+
     </FrameLayout>
 
 </merge>
