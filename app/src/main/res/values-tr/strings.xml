@@ -991,6 +991,7 @@
   <string name="suggested_edits_image_tags_select_title">Bu resim için herhangi bir etiket seçmediniz</string>
   <string name="suggested_edits_image_tags_select_text">Yalnızca seçtiğiniz etiketler görüntülere eklenir. Seçilmeyen etiketler reddedildi olarak işaretlenir. Tüm etiketleri reddedildi olarak işaretlemek istediğinizden emin misiniz?</string>
   <string name="suggested_edits_image_tags_add_tag">Etiket ekle</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Yayımlanmamış etiketler kaydedilmeyecek</string>
   <string name="suggested_edits_image_zoom_tooltip">Bu resmi yakınlaştırmak için sıkıştırın.</string>
   <string name="suggested_edits_encouragement_message">%s, düzenlemeleriniz için teşekkürler. Aşağıda Vikipedi\'ye katkıda bulunmak için daha fazla yol bulabilirsiniz.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Merhaba %s&lt;/b&gt;, Aşağıda Vikipedi\'yi geliştirmeye yardımcı olacak bazı hızlı ve kolay yollar bulabilirsiniz. Başladığınız anda yaptığınız farkı göreceksiniz. Mutlu düzenlemeler!</string>
@@ -1427,4 +1428,5 @@
   <string name="reading_list_share_survey_body">\"Okuma listelerini paylaş\" bir deneme özelliğidir ve iyileştirmek ya da kaldırmak için geri bildiriminize ihtiyacımız var.</string>
   <string name="data_opt_in_accept">Kabul et</string>
   <string name="data_opt_in_reject">Reddet</string>
+  <string name="generic_release_notes">Küçük hata düzeltmeleri ve iyileştirmeler</string>
 </resources>

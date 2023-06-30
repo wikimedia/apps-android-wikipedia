@@ -1024,6 +1024,7 @@
   <string name="suggested_edits_image_tags_select_title">לא בחרת שום תגים לתמונה הזאת</string>
   <string name="suggested_edits_image_tags_select_text">רק תגים שתבחרו יוספו לתמונות. תגים שלא בחרת יסומנו בתור תגים שנדחו. האם ברצונך באמת לסמן את כל התגים האלה בתור תגים שנדחו?</string>
   <string name="suggested_edits_image_tags_add_tag">להוסיף תג</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">התגים שלו פורסמו לא יישמרו</string>
   <string name="suggested_edits_image_zoom_tooltip">אפשר לקרב את התמונה הזאת בשתי אצבעות.</string>
   <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;שלום %s&lt;/b&gt;, להלן אפשר למצוא כמה דרכים מהירות ופשוטות לעזור לשפר את ויקיפדיה. יהיה אפשר לראות את השינוי שאתה עושה מייד אחרי שתעשה אותו. עריכה מהנה!</string>
@@ -1489,4 +1490,5 @@
   <string name="reading_list_share_survey_body">\"שיתוף רשימות קריאה\" היא תכונת הבדיקה ואנחנו זקוקים למשוב שלך כדי לשפר או להסיר אותה.</string>
   <string name="data_opt_in_accept">לקבל</string>
   <string name="data_opt_in_reject">לדחות</string>
+  <string name="generic_release_notes">תיקוני באגים קלים ושיפורים</string>
 </resources>

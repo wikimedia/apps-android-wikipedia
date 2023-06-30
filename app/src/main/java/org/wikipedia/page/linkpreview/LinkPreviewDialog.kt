@@ -126,9 +126,9 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 }
             }
         }
-
         return binding.root
     }
+
     private fun renderGalleryState(it: LinkPreviewViewState.Gallery) {
         binding.linkPreviewThumbnailGallery.setGalleryList(it.data)
         binding.linkPreviewThumbnailGallery.listener = galleryViewListener
