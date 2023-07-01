@@ -616,27 +616,23 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                         }
                         displaySectionText()
                         maybeShowEditSourceDialog()
-                    }) {
-                        showError(it)
-                        L.e(it)
-                    })
-            disposables.add(ServiceFactory.get(pageTitle.wikiSite).getVisualEditorMetadata(pageTitle.prefixedText)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({
+
                         editNotices.clear()
                         // Populate edit notices, but filter out anonymous edit warnings, since
                         // we show that type of warning ourselves when previewing.
-                        editNotices.addAll(it.visualeditor?.getEditNotices().orEmpty()
-                                .filterKeys { key -> key.startsWith("editnotice") }
-                                .values.filter { str -> StringUtil.fromHtml(str).trim().isNotEmpty() })
+                        editNotices.addAll(firstPage.getEditNotices()
+                            .filterKeys { key -> (key.startsWith("editnotice") && !key.endsWith("-notext")) }
+                            .values.filter { str -> StringUtil.fromHtml(str).trim().isNotEmpty() })
                         invalidateOptionsMenu()
                         if (Prefs.autoShowEditNotices) {
                             showEditNotices()
                         } else {
                             maybeShowEditNoticesTooltip()
                         }
-                    }, { L.e(it) }))
+                    }) {
+                        showError(it)
+                        L.e(it)
+                    })
         } else {
             displaySectionText()
         }
