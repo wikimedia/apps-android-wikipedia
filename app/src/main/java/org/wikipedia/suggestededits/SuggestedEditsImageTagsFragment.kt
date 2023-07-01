@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.core.view.children
 import androidx.core.widget.ImageViewCompat
 import com.google.android.material.chip.Chip
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -38,7 +39,7 @@ import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
-import java.util.*
+import java.util.UUID
 
 class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener, OnClickListener, SuggestedEditsImageTagDialog.Callback {
 
@@ -245,10 +246,18 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         return chip
     }
 
-    companion object {
-        fun newInstance(): SuggestedEditsItemFragment {
-            return SuggestedEditsImageTagsFragment()
+    override fun onBackPressed(): Boolean {
+        if (!atLeastOneTagChecked()) {
+            return true
         }
+        MaterialAlertDialogBuilder(requireActivity())
+            .setCancelable(false)
+            .setTitle(R.string.talk_new_topic_exit_dialog_title)
+            .setMessage(R.string.suggested_edits_image_tags_exit_dialog_message)
+            .setPositiveButton(R.string.edit_abandon_confirm_yes) { _, _ -> requireActivity().finish() }
+            .setNegativeButton(R.string.edit_abandon_confirm_no, null)
+            .show()
+        return false
     }
 
     override fun onClick(v: View?) {
@@ -462,5 +471,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun callback(): Callback {
         return FragmentUtil.getCallback(this, Callback::class.java)!!
+    }
+
+    companion object {
+        fun newInstance(): SuggestedEditsItemFragment {
+            return SuggestedEditsImageTagsFragment()
+        }
     }
 }

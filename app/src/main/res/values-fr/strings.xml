@@ -995,6 +995,7 @@
   <string name="suggested_edits_image_tags_select_title">Vous n’avez sélectionné aucune balise pour cette image</string>
   <string name="suggested_edits_image_tags_select_text">Seules les balises que vous choisissez seront ajoutées aux images. Les balises qui ne sont pas sélectionnées seront marquées comme rejetées. Êtes-vous sûr de vouloir marquer toutes les balises comme rejetées ?</string>
   <string name="suggested_edits_image_tags_add_tag">Ajouter une balise</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Les balises non publiées ne seront pas enregistrées</string>
   <string name="suggested_edits_image_zoom_tooltip">Pincer pour zoomer sur cette image.</string>
   <string name="suggested_edits_encouragement_message">%s, merci pour vos modifications. Ci-dessous, vous pourrez trouver d’autres moyens de contribuer à Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Bonjour %s&lt;/b&gt;, ci-dessous, vous trouverez des manières rapides et faciles pour aider à améliorer Wikipédia. Vous verrez la différence aussitôt que vous commencerez. Bonnes mises à jour !</string>
@@ -1434,4 +1435,5 @@
   <string name="reading_list_share_survey_body">Le « Partage de listes de lecture » est une fonctionnalité en test et nous avons besoin de vos commentaires pour l’améliorer ou la supprimer.</string>
   <string name="data_opt_in_accept">Accepter</string>
   <string name="data_opt_in_reject">Rejeter</string>
+  <string name="generic_release_notes">Corrections de bogues mineurs et améliorations</string>
 </resources>

@@ -13,6 +13,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemUserContribFilterBinding
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -43,7 +44,7 @@ class UserContribFilterItemView constructor(context: Context, attrs: AttributeSe
 
         if (item.type == UserContribFilterActivity.FILTER_TYPE_WIKI) {
             getTitleCodeFor(item.filterCode)?.let {
-                binding.languageCode.text = it
+                binding.languageCode.text = LanguageUtil.formatLangCodeForButton(it)
                 binding.languageCode.visibility = View.VISIBLE
                 ViewUtil.formatLangButton(binding.languageCode, it, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
             } ?: run {
