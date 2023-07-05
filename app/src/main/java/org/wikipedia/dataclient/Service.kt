@@ -125,6 +125,9 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     val siteInfo: Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=general|magicwords")
+    suspend fun getSiteInfoWithMagicWords(): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
     fun parsePage(@Query("page") pageTitle: String): Observable<MwParseResponse>
 
@@ -300,6 +303,12 @@ interface Service {
         @Query("titles") title: String,
         @Query("rvsection") section: Int?
     ): Observable<MwQueryResponse>
+
+    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
+    suspend fun getWikiTextForSection(
+        @Query("titles") title: String,
+        @Query("rvsection") section: Int?
+    ): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")

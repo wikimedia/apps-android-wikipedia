@@ -287,6 +287,10 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
         // TODO: enter the editing workflow!
 
+
+        viewModel.insertImageIntoArticle(viewModel.recommendation.images.first().image, "Caption!", "Alt text!")
+
+
         // TODO: when returning from editing successfully, go to the next image.
         callback().nextPage(this)
     }
