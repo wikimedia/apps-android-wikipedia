@@ -114,9 +114,9 @@
     <string name="map_view_link_text">View on a map</string>
     <string name="other_languages_indication_text">Read in another language</string>
     <string name="language_count_link_text">Available in %d other languages</string>
-    <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-    <string name="edit_save_action_license_logged_in"><![CDATA[By publishing, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s">CC BY-SA 3.0</a> license.]]></string>
-    <string name="edit_save_action_license_anon"><![CDATA[By publishing, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s/">CC BY-SA 3.0</a> license. Edits will be attributed to the IP address of your device. If you <a href="https://#login">log in</a>, you will have more privacy.]]></string>
+    <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+    <string name="edit_save_action_license_logged_in"><![CDATA[By publishing, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s">CC BY-SA 4.0</a> license.]]></string>
+    <string name="edit_save_action_license_anon"><![CDATA[By publishing, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s/">CC BY-SA 4.0</a> license. Edits will be attributed to the IP address of your device. If you <a href="https://#login">log in</a>, you will have more privacy.]]></string>
     <string name="edit_anon_warning"><![CDATA[Edits will be attributed to the IP address of your device. If you <a href="https://#login">log in</a>, you will have more privacy.]]></string>
     <string name="preference_title_language">Wikipedia languages</string>
     <string name="langlinks_filter_hint">Search</string>
