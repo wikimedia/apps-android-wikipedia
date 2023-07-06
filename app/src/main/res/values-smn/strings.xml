@@ -311,7 +311,7 @@
   <string name="wikitext_template">Myenster</string>
   <string name="wikitext_reference">Käldee</string>
   <string name="insert_media_search_description">Valjii tiätuvuárhá Wikimedia Commonsist</string>
-  <string name="insert_media_settings_caption">Kovetekstâ</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Kovetekstâ</string>
   <string name="insert_media_advanced_settings">Laseasâttâsah</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Miniatyyrkove</string>
   <string name="main_drawer_help">Iše</string>
