@@ -977,11 +977,11 @@
   <string name="insert_media_title">Įterpti mediją</string>
   <string name="insert_media_search_description">Pasirinkti failą iš Vikitekos</string>
   <string name="insert_media_search_hint">Ieškoti medijų</string>
-  <string name="insert_media_settings">Medijų nustatymai</string>
+  <string name="insert_media_settings" fuzzy="true">Medijų nustatymai</string>
   <string name="insert_media_settings_uploaded_image">Įkeltas paveikslėlis</string>
-  <string name="insert_media_settings_caption">Antraštė</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Antraštė</string>
   <string name="insert_media_settings_alternative_text">Alternatyvus tekstas</string>
-  <string name="insert_media_settings_alternative_text_description">Teksto aprašymas skaitytojams, kurie negali matyti paveikslėlio</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Teksto aprašymas skaitytojams, kurie negali matyti paveikslėlio</string>
   <string name="insert_media_advanced_settings">Išplėstiniai nustatymai</string>
   <string name="insert_media_advanced_settings_image_position">Paveikslėlio pozicija</string>
   <string name="insert_media_advanced_settings_image_position_right">Dešinė</string>

@@ -982,6 +982,7 @@
   <string name="suggested_edits_image_tags_select_title">この画像のタグを選択していません</string>
   <string name="suggested_edits_image_tags_select_text">あなたが確認したタグのみ画像に追加されます。選択されていないタグは拒否としてマークされます。すべてのタグを拒否としてマークしますか?</string>
   <string name="suggested_edits_image_tags_add_tag">タグを追加</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">公開されていないタグは保存されません</string>
   <string name="suggested_edits_image_zoom_tooltip">ピンチして画像を拡大します。</string>
   <string name="suggested_edits_encouragement_message">%sさん、編集ありがとうございます。ウィキペディアへのもっと様々な貢献方法を以下に紹介します。</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;%sさん&lt;/b&gt;、ウィキペディアをより良くするための素早く簡単な方法を以下にご紹介します。始めてすぐ、あなたは自分が編集した内容が反映されるのを見ることができます。良い編集を!</string>
@@ -1078,6 +1079,8 @@
     <item quantity="one">%d文字追加しました</item>
     <item quantity="other">%d文字追加しました</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">画像処理アルゴリズムの学習</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">提案された画像が記事の改善につながるかどうかを判断します。</string>
   <string name="file_page_activity_title">ファイルページ</string>
   <string name="file_page_add_image_caption_button">画像キャプションを追加</string>
   <string name="file_page_add_image_tags_button">画像タグを追加</string>
@@ -1176,12 +1179,12 @@
   <string name="insert_media_title">メディアを挿入</string>
   <string name="insert_media_search_description">ウィキメディアコモンズからファイルを選択</string>
   <string name="insert_media_search_hint">メディアを検索</string>
-  <string name="insert_media_settings">メディア設定</string>
+  <string name="insert_media_settings" fuzzy="true">メディア設定</string>
   <string name="insert_media_settings_uploaded_image">アップロード済み画像</string>
-  <string name="insert_media_settings_caption">キャプション</string>
+  <string name="insert_media_settings_caption" fuzzy="true">キャプション</string>
   <string name="insert_media_settings_caption_description">すべての読者のためにアイテムのそばに表示されるラベル</string>
   <string name="insert_media_settings_alternative_text">代替テキスト</string>
-  <string name="insert_media_settings_alternative_text_description">画像が見えない人のための説明テキスト</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">画像が見えない人のための説明テキスト</string>
   <string name="insert_media_advanced_settings">高度な設定</string>
   <string name="insert_media_advanced_settings_wrap_image">テキストを画像に回り込ませる</string>
   <string name="insert_media_advanced_settings_image_position">画像の位置</string>
@@ -1413,4 +1416,5 @@
   <string name="reading_list_share_menu_tooltip">このあとで読むリストを他の人と共有する</string>
   <string name="data_opt_in_accept">承認</string>
   <string name="data_opt_in_reject">却下</string>
+  <string name="generic_release_notes">軽微なバグ修正と強化</string>
 </resources>
