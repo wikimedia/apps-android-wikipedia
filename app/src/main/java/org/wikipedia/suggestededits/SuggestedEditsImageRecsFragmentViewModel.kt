@@ -69,7 +69,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
 
 
             // And of course get the wikitext of the first section of the article.
-            val wikitext = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
+            var wikitext = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
                 .getWikiTextForSection(pageTitle, 0).query?.pages?.firstOrNull()?.revisions?.firstOrNull()?.contentMain.orEmpty()
 
             val namespaceName = FileAliasData.valueFor(langCode)
@@ -81,6 +81,8 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
 
             // But before we resort to inserting the image at the top of the wikitext, let's see if
             // the article has an infobox, and if so, see if we can inject the image right in there.
+
+            var insertAtTop = true
 
             var infoboxStartIndex = -1
             var infoboxEndIndex = -1
@@ -107,46 +109,46 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
             }
 
             if (infoboxStartIndex in 0 until infoboxEndIndex) {
-                val regex = """\|\s*image(\d+)?\s*(=)\s*(\|)""".toRegex()
-                val match = regex.find(wikitext, infoboxStartIndex)
+                val regexImage = """\|\s*image(\d+)?\s*(=)\s*(\|)""".toRegex()
+                var match = regexImage.find(wikitext, infoboxStartIndex)
 
                 if (match != null && match.groups[3] != null &&
                     match.groups[3]!!.range.first < infoboxEndIndex) {
+                    insertAtTop = false
 
-                    var curImageStr = wikitext.substring(match.groups[2]!!.range.first, match.groups[3]!!.range.first)
-
-                    L.d(">>> " + curImageStr)
-
-                    val trimmedStr = curImageStr.trim()
-
-                    L.d(">>> " + trimmedStr)
-                }
-
-                var imagePos = wikitext.indexOf("|image", infoboxStartIndex, true)
-                if (imagePos in (infoboxStartIndex + 1) until infoboxEndIndex) {
-                    val nextPipePos = wikitext.indexOf("|", imagePos + 1)
-                    if (nextPipePos in (imagePos + 1) until infoboxEndIndex) {
-                        val equalsPos = wikitext.indexOf("=", imagePos + 1)
-                        if (equalsPos in (imagePos + 1) until nextPipePos) {
-                            val imageTitleInInfobox = wikitext.substring(equalsPos + 1, nextPipePos).trim()
-                            if (imageTitleInInfobox.isNotEmpty()) {
-                                // There's already an image in the infobox. Let's just replace it.
-                                val newWikitext = wikitext.substring(0, equalsPos + 1) + " $imageTitle" +
-                                        wikitext.substring(nextPipePos)
-                                L.d(">>> " + newWikitext)
-                                return@launch
-                            } else {
-                                // insert image
-                            }
-                            L.d(">>>> " + imageTitleInInfobox)
-                        }
-
+                    var insertPos = match.groups[3]!!.range.first
+                    val curImageStr = wikitext.substring(match.groups[2]!!.range.first + 1, match.groups[3]!!.range.first)
+                    if (curImageStr.contains("\n")) {
+                        insertPos = wikitext.indexOf("\n", match.groups[2]!!.range.first)
                     }
+
+                    wikitext = wikitext.substring(0, insertPos) + namespaceName + ":" + imageTitle + wikitext.substring(insertPos)
                 }
 
+                val regexCaption = """\|\s*caption(\d+)?\s*(=)\s*(\|)""".toRegex()
+                match = regexCaption.find(wikitext, infoboxStartIndex)
+                if (match != null && match.groups[3] != null &&
+                    match.groups[3]!!.range.first < infoboxEndIndex) {
+
+                    var insertPos = match.groups[3]!!.range.first
+                    val curImageStr = wikitext.substring(match.groups[2]!!.range.first + 1, match.groups[3]!!.range.first)
+                    if (curImageStr.contains("\n")) {
+                        insertPos = wikitext.indexOf("\n", match.groups[2]!!.range.first)
+                    }
+
+                    wikitext = wikitext.substring(0, insertPos) + imageCaption + wikitext.substring(insertPos)
+                }
+
+                // TODO: insert image alt text.
             }
 
-            L.d(">>> " + template)
+            if (insertAtTop) {
+                wikitext = template + "\n" + wikitext
+            }
+
+            // Save the new wikitext to the article.
+
+            L.d(">>> " + wikitext)
         }
     }
 
