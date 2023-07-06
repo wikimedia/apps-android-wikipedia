@@ -314,7 +314,7 @@
   <string name="wikitext_template">Mall</string>
   <string name="wikitext_reference">Teâttkäivv</string>
   <string name="insert_media_search_description">Vaʹlljed teâttõõzz Wikimedia Commonsist</string>
-  <string name="insert_media_settings_caption">Kartt- leʹbe snimldõkteʹkstt</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Kartt- leʹbe snimldõkteʹkstt</string>
   <string name="insert_media_advanced_settings">Lââʹssasetõõzz</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Snimldõõǥǥâž</string>
   <string name="main_tooltip_text">Tiõrv %s! Tiõʹđžiǩ-a ton, što puk vuäiʹtte Wikipedia muʹtted?</string>

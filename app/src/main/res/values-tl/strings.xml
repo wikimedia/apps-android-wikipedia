@@ -968,6 +968,8 @@
     <item quantity="one">Nagdagdag ka ng %d karakter</item>
     <item quantity="other">Nagdagdag ka ng %d (na) karakter</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Sanayin ang algoritmo ng larawan</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Magdesisyon kung mapapahusay ng iminungkahing larawan ang artikulo.</string>
   <string name="file_page_activity_title">Pahina ng file</string>
   <string name="file_page_add_image_caption_button">Mag-caption</string>
   <string name="file_page_add_image_tags_button">Mag-tag ng larawan</string>
