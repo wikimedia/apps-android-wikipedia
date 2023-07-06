@@ -895,6 +895,7 @@
   <string name="suggested_edits_inappropriate_suggestion">ߘߐ߬ߘߎ߬ߟߌ߫ ߓߍ߲߬ߒ߬ߡߊ߬ߓߊߟߌ</string>
   <string name="suggested_edits_do_not_understand_suggestion">ߌ ߡߊ߫ ߘߊߞߎ߲ ߣߌ߲߬ ߢߊߦߋ߫؟</string>
   <string name="suggested_edits_report_suggestion">ߢߊߦߌߘߊߟߌ</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">ߊ߬ ߘߐߞߕߌ߫ ߓߊ߫ ߣߌ߫ ߖߌ߬ߦߊ߬ߓߍ߫ ߢߊߦߌ߬ߘߊ߬ߣߍ߲ ߘߌ߫ ߞߎߡߘߊ ߟߊߢߊ߬.</string>
   <string name="file_page_activity_title">ߞߐߕߐ߯ ߞߐߜߍ</string>
   <string name="file_page_add_image_caption_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߝߊ߬ߙߊ߫</string>
   <string name="file_page_add_image_tags_button">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ ߟߎ߬ ߝߙߊ߬</string>
@@ -984,10 +985,10 @@
   <string name="insert_media_title">ߞߟߋߞߟߋ ߟߊߘߏ߲߬</string>
   <string name="insert_media_search_description">ߞߐߕߐ߮ ߘߏ߫ ߓߊߕߐ߬ߡߐ߲߬ ߞߊ߬ ߝߘߊ߫ ߥߞߌߡߋߘߌߦߊ߫ ߞߐߡߐ߲ߛ ߟߊ߫</string>
   <string name="insert_media_search_hint">ߞߟߋߞߟߋ ߢߌߣߌ߲߫</string>
-  <string name="insert_media_settings">ߞߟߋߞߟߋ ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ ߟߎ߬</string>
+  <string name="insert_media_settings" fuzzy="true">ߞߟߋߞߟߋ ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ ߟߎ߬</string>
   <string name="insert_media_settings_uploaded_image">ߖߌ߬ߦߊ߬ߓߍ߫ ߟߊߦߟߍ߬ߣߍ߲</string>
-  <string name="insert_media_settings_caption">ߝߍ߬ߛߓߍߟߌ</string>
-  <string name="insert_media_settings_alternative_text_description">ߛߓߍߘߋ߲߫ ߠߊ߫ ߞߊ߲߬ߛߓߍߟߌ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ߠߊ߫ ߟߎ߫ ߦߋ߫ ߡߍ߲ ߠߎ߬ ߕߍߣߊ߬ ߖߌ߬ߦߊ߬ߓߍ ߦߋ߫ ߟߊ߫</string>
+  <string name="insert_media_settings_caption" fuzzy="true">ߝߍ߬ߛߓߍߟߌ</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">ߛߓߍߘߋ߲߫ ߠߊ߫ ߞߊ߲߬ߛߓߍߟߌ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ߠߊ߫ ߟߎ߫ ߦߋ߫ ߡߍ߲ ߠߎ߬ ߕߍߣߊ߬ ߖߌ߬ߦߊ߬ߓߍ ߦߋ߫ ߟߊ߫</string>
   <string name="insert_media_advanced_settings">ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ ߖߊ߲߬ߝߊ߬ߣߍ߲ ߠߎ߬</string>
   <string name="insert_media_advanced_settings_wrap_image">ߛߓߍߟߌ ߟߎ߫ ߓߌ߬ߟߊ߬ ߖߌ߬ߦߊ߬ߓߍ ߟߊߡߌߣߌ߲ ߘߐ߫</string>
   <string name="insert_media_advanced_settings_image_position">ߖߌ߬ߦߊ߬ߓߍ ߘߌ߲߬ߞߌߙߊ</string>

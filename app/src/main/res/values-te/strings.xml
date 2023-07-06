@@ -943,6 +943,14 @@
     <item quantity="one">మీరు %d కారెక్టరును చేర్చారు</item>
     <item quantity="other">మీరు %d కారెక్టర్లను చేర్చారు</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">వ్యాస చిత్రాలు</string>
+  <string name="suggested_edits_image_recommendations_task_detail">వికీపీడియా వ్యాసాలను మరింత మెరుగ్గా అర్థం చేసుకోవడానికి సూచించిన చిత్రాలను చేర్చండి.</string>
+  <string name="image_recommendation_accept">సరే</string>
+  <string name="image_recommendation_reject_title">ఎందుకని వద్దు?</string>
+  <string name="image_recommendation_reject_dont_know">ఈ విషయం గురించి నాకు తెలియదు</string>
+  <string name="image_recommendation_onboarding_2">సూచించబడిన చిత్రాన్ని వికీపీడియా వ్యాసంలో చేర్చాలా వద్దా అనేది నిర్ణయించవలసినది మీరే.</string>
+  <string name="image_recommendation_onboarding_3">ఈ సూచనలు యాంత్రికంగా తయారైనవి. వీటిని స్వీకరించాలో తిరస్కరించాలో లేదో మీ విజ్ఞతతో మీరే నిర్ణయించుకోవాలి.</string>
+  <string name="image_recommendation_tooltip_1">ఈ వ్యాస విషయం తెలుసుకోవడానికి దీన్ని సమీక్షించండి</string>
   <string name="file_page_activity_title">దస్త్రపు పేజీ</string>
   <string name="file_page_add_image_caption_button">బొమ్మకు వ్యాఖ్య చేర్చండి</string>
   <string name="file_page_add_image_tags_button">బొమ్మకు ట్యాగులు చేర్చండి</string>
@@ -1028,6 +1036,8 @@
   <string name="wikitext_template">మూస</string>
   <string name="wikitext_reference">మూలం</string>
   <string name="wikitext_preview_link">మునుజూపు లింకు</string>
+  <string name="insert_media_settings">బొమ్మ వివరాలను చేర్చండి</string>
+  <string name="insert_media_settings_alternative_text_description">దృష్టి లోపం ఉన్న పాఠకుల కోసం వివరణ</string>
   <string name="main_drawer_help">సహాయం</string>
   <string name="main_drawer_login">వికీపీడియాలో లాగినవండి / చేరండి</string>
   <string name="main_tooltip_text">%s గారూ, వికీపీడియాలో ప్రతీ ఒక్కరూ దిద్దుబాట్లు చెయ్యవచ్చని మీకు తెలుసా?</string>

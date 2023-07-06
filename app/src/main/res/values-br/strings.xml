@@ -964,9 +964,9 @@
   <string name="wikitext_template">Patrom</string>
   <string name="wikitext_reference">Dave</string>
   <string name="insert_media_search_hint">Klask ur media</string>
-  <string name="insert_media_settings">Arventennoù ar media</string>
+  <string name="insert_media_settings" fuzzy="true">Arventennoù ar media</string>
   <string name="insert_media_settings_uploaded_image">Skeudenn enporzhiet</string>
-  <string name="insert_media_settings_caption">Alc\'hwez</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Alc\'hwez</string>
   <string name="insert_media_settings_alternative_text">Testenn all</string>
   <string name="insert_media_advanced_settings">Arventennoù araokaet</string>
   <string name="insert_media_advanced_settings_image_position">Lec\'hiadur</string>

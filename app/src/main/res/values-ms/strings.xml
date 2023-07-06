@@ -912,8 +912,8 @@
   <string name="wikitext_template">Templat</string>
   <string name="wikitext_reference">Rujukan</string>
   <string name="wikitext_preview_link">Pralihat pautan</string>
-  <string name="insert_media_settings">Tetapan media</string>
-  <string name="insert_media_settings_caption">Kapsyen</string>
+  <string name="insert_media_settings" fuzzy="true">Tetapan media</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Kapsyen</string>
   <string name="insert_media_settings_alternative_text">Teks alternatif</string>
   <string name="insert_media_advanced_settings_image_position_right">Kanan</string>
   <string name="insert_media_advanced_settings_image_position_left">Kiri</string>
