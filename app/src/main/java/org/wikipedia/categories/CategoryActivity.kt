@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -255,11 +256,9 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     companion object {
-        const val EXTRA_TITLE = "categoryTitle"
-
         fun newIntent(context: Context, categoryTitle: PageTitle): Intent {
             return Intent(context, CategoryActivity::class.java)
-                    .putExtra(EXTRA_TITLE, categoryTitle)
+                    .putExtra(Constants.ARG_TITLE, categoryTitle)
         }
     }
 }

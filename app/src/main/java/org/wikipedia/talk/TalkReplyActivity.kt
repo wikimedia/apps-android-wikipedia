@@ -324,7 +324,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     companion object {
-        const val EXTRA_PAGE_TITLE = "pageTitle"
         const val EXTRA_PARENT_SUBJECT = "parentSubject"
         const val EXTRA_TOPIC = "topic"
         const val EXTRA_TOPIC_ID = "topicId"
@@ -345,7 +344,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                       undoSubject: CharSequence? = null,
                       undoBody: CharSequence? = null): Intent {
             return Intent(context, TalkReplyActivity::class.java)
-                    .putExtra(EXTRA_PAGE_TITLE, pageTitle)
+                    .putExtra(Constants.ARG_TITLE, pageTitle)
                     .putExtra(EXTRA_PARENT_SUBJECT, parentSubject)
                     .putExtra(EXTRA_TOPIC, topic)
                     .putExtra(EXTRA_SUBJECT, undoSubject)
