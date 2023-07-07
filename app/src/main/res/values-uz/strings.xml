@@ -1048,6 +1048,8 @@
     <item quantity="one">%d ta belgi qoʻshdingiz</item>
     <item quantity="other">%d ta belgi qoʻshdingiz</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Oʻrganish surati algoritmi</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Tavsiya etilgan rasm maqolani yaxshilashi toʻgʻrisida qaror qabul qiling.</string>
   <string name="file_page_activity_title">Fayl sahifasi</string>
   <string name="file_page_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="file_page_add_image_tags_button">Rasmga teg qoʻshmoq</string>
@@ -1146,12 +1148,12 @@
   <string name="insert_media_title">Mediani qoʻymoq</string>
   <string name="insert_media_search_description">Wikimedia Commonsʼdan fayl tanlamoq</string>
   <string name="insert_media_search_hint">Media qidiruvi</string>
-  <string name="insert_media_settings">Media tanlovlari</string>
+  <string name="insert_media_settings" fuzzy="true">Media tanlovlari</string>
   <string name="insert_media_settings_uploaded_image">Yuklangan rasm</string>
-  <string name="insert_media_settings_caption">Izoh</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Izoh</string>
   <string name="insert_media_settings_caption_description">Barcha oʻquvchilar uchun element yonida koʻrsatiladigan yozuv</string>
   <string name="insert_media_settings_alternative_text">Muqobil matn</string>
-  <string name="insert_media_settings_alternative_text_description">Rasmni koʻra olmaydigan oʻquvchilar uchun izohli matn</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Rasmni koʻra olmaydigan oʻquvchilar uchun izohli matn</string>
   <string name="insert_media_advanced_settings">Kengaytirilgan tanlovlar</string>
   <string name="insert_media_advanced_settings_wrap_image">Rasm atrofiga matnni joylashtirmoq</string>
   <string name="insert_media_advanced_settings_image_position">Tasvir oʻrni</string>

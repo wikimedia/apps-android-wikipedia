@@ -1099,12 +1099,12 @@
   <string name="insert_media_title">Inserir multimédia</string>
   <string name="insert_media_search_description">Selecionar um ficheiro da wiki Wikimedia Commons</string>
   <string name="insert_media_search_hint">Procurar multimédia</string>
-  <string name="insert_media_settings">Configurações multimédia</string>
+  <string name="insert_media_settings" fuzzy="true">Configurações multimédia</string>
   <string name="insert_media_settings_uploaded_image">Imagem carregada</string>
-  <string name="insert_media_settings_caption">Legenda</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Legenda</string>
   <string name="insert_media_settings_caption_description">Descrição que aparece ao lado do elemento para todos os leitores</string>
   <string name="insert_media_settings_alternative_text">Texto alternativo</string>
-  <string name="insert_media_settings_alternative_text_description">Descrição em texto para leitores que não podem ver a imagem</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Descrição em texto para leitores que não podem ver a imagem</string>
   <string name="insert_media_advanced_settings">Configurações avançadas</string>
   <string name="insert_media_advanced_settings_wrap_image">Dispor o texto em torno da imagem</string>
   <string name="insert_media_advanced_settings_image_position">Posição da imagem</string>

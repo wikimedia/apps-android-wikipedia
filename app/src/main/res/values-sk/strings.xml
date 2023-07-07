@@ -1040,6 +1040,8 @@
     <item quantity="many">Pridali ste %d znakov</item>
     <item quantity="other">Pridali ste %d znakov</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Trénovať obrázkový algoritmus</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Rozhodnúť či odporúčaný obrázok zlepší článok.</string>
   <string name="file_page_activity_title">Stránka súboru</string>
   <string name="file_page_add_image_caption_button">Pridať obrázkové titulky</string>
   <string name="file_page_add_image_tags_button">Pridať obrázkové štítky</string>

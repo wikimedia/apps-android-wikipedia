@@ -1046,7 +1046,7 @@
   <string name="wikitext_reference">Przypis</string>
   <string name="wikitext_preview_link">Zobacz link</string>
   <string name="insert_media_title">Wstaw media</string>
-  <string name="insert_media_settings">Ustawienia multimediów</string>
+  <string name="insert_media_settings" fuzzy="true">Ustawienia multimediów</string>
   <string name="insert_media_settings_uploaded_image">Przesłany obraz</string>
   <string name="insert_media_settings_alternative_text">Tekst alternatywny</string>
   <string name="insert_media_advanced_settings">Ustawienia zaawansowane</string>

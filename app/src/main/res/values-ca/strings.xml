@@ -1066,6 +1066,8 @@
     <item quantity="one">heu afegit %d caràcter</item>
     <item quantity="other">heu afegit %d caràcters</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Algorisme  d\'entrenament per imatge</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Decidiu si la imatge suggerida milloraria un article.</string>
   <string name="file_page_activity_title">Pàgina de fitxer</string>
   <string name="file_page_add_image_caption_button">Afegir una llegenda a la imatge</string>
   <string name="file_page_add_image_tags_button">Afegir una etiqueta a la imatge</string>
@@ -1164,12 +1166,12 @@
   <string name="insert_media_title">Insereix multimèdia</string>
   <string name="insert_media_search_description">Selecciona un fitxer de Wikimedia Commons</string>
   <string name="insert_media_search_hint">Cerca multimèdia</string>
-  <string name="insert_media_settings">Paràmetres multimèdia</string>
+  <string name="insert_media_settings" fuzzy="true">Paràmetres multimèdia</string>
   <string name="insert_media_settings_uploaded_image">Imatge carregada</string>
-  <string name="insert_media_settings_caption">Llegenda</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Llegenda</string>
   <string name="insert_media_settings_caption_description">L\'etiqueta que es mostra al costat de l\'element per a tots els lectors</string>
   <string name="insert_media_settings_alternative_text">Text alternatiu</string>
-  <string name="insert_media_settings_alternative_text_description">Descripció textual per als lectors que no poden veure la imatge</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Descripció textual per als lectors que no poden veure la imatge</string>
   <string name="insert_media_advanced_settings">Paràmetres avançats</string>
   <string name="insert_media_advanced_settings_wrap_image">Ajusta el text al voltant de la imatge</string>
   <string name="insert_media_advanced_settings_image_position">Posició de la imatge</string>

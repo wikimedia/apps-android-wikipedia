@@ -1160,12 +1160,12 @@
   <string name="insert_media_title">Sett inn media</string>
   <string name="insert_media_search_description">Velg en fil fra Wikimedia Commons</string>
   <string name="insert_media_search_hint">Mediesøk</string>
-  <string name="insert_media_settings">Mediainnstillinger</string>
+  <string name="insert_media_settings" fuzzy="true">Mediainnstillinger</string>
   <string name="insert_media_settings_uploaded_image">Last opp bilde</string>
-  <string name="insert_media_settings_caption">Beskrivelse</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Beskrivelse</string>
   <string name="insert_media_settings_caption_description">Etikett som vises ved siden av elementet for alle lesere</string>
   <string name="insert_media_settings_alternative_text">Alternativ tekst</string>
-  <string name="insert_media_settings_alternative_text_description">Tekstbeskrivelse for lesere som ikke kan se bildet</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Tekstbeskrivelse for lesere som ikke kan se bildet</string>
   <string name="insert_media_advanced_settings">Avanserte innstillinger</string>
   <string name="insert_media_advanced_settings_wrap_image">Bryt teksten omkring et bilde</string>
   <string name="insert_media_advanced_settings_image_position">Bildeposisjon</string>
