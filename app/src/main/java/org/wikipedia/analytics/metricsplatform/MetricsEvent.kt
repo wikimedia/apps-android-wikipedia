@@ -1,6 +1,8 @@
 package org.wikipedia.analytics.metricsplatform
 
+import org.wikimedia.metrics_platform.context.ClientData
 import org.wikimedia.metrics_platform.context.PageData
+import org.wikimedia.metrics_platform.context.PerformerData
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
@@ -23,18 +25,25 @@ open class MetricsEvent {
         "is_dev" to ReleaseUtil.isDevRelease,
         "language_groups" to WikipediaApp.instance.languageState.appLanguageCodes.toString(),
         "language_primary" to WikipediaApp.instance.languageState.appLanguageCode,
-        "performer_id" to AccountUtil.hashCode().toString(),
-        "performer_isloggedin" to AccountUtil.isLoggedIn,
-        "performer_groups" to AccountUtil.groups,
-        "performer_pageviewid" to EventPlatformClient.AssociationController.pageViewId,
-        "performer_sessionid" to EventPlatformClient.AssociationController.sessionId,
-        "performer_username" to AccountUtil.userName,
     )
 
     protected fun submitEvent(eventName: String, customData: Map<String, Any>, pageData: PageData? = null) {
         if (ReleaseUtil.isPreBetaRelease && Prefs.isEventLoggingEnabled) {
-            MetricsPlatform.client.submitMetricsEvent(EVENT_NAME_BASE + eventName, pageData, customData + applicationData)
+            MetricsPlatform.client.submitMetricsEvent(
+                EVENT_NAME_BASE + eventName,
+                getClientData(pageData),
+                customData + applicationData)
         }
+    }
+
+    private fun getClientData(pageData: PageData?): ClientData {
+        return ClientData(
+            MetricsPlatform.agentData,
+            pageData,
+            MetricsPlatform.mediawikiData,
+            getPerformerData(),
+            MetricsPlatform.domain
+        )
     }
 
     protected fun getPageData(fragment: PageFragment?): PageData? {
@@ -64,6 +73,24 @@ open class MetricsEvent {
             "",
             pageTitle.wikiSite.languageCode,
             null, null, null)
+    }
+
+    private fun getPerformerData(): PerformerData {
+        return PerformerData(
+            AccountUtil.userName,
+            AccountUtil.isLoggedIn,
+            AccountUtil.hashCode(),
+            EventPlatformClient.AssociationController.sessionId,
+            EventPlatformClient.AssociationController.pageViewId,
+            AccountUtil.groups,
+            null,
+            WikipediaApp.instance.languageState.appLanguageCode,
+            WikipediaApp.instance.languageState.appLanguageCodes.toString(),
+            null,
+            null,
+            null,
+            null
+        )
     }
 
     companion object {
