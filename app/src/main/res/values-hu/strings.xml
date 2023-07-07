@@ -1062,6 +1062,8 @@
     <item quantity="one">Hozzáadtál egy karaktert</item>
     <item quantity="other">Hozzáadtál %d karaktert</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Képjavasló algoritmus</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Állapítsd meg, hogy az ajánlott kép hozzáadásával színvonalasabbá válik-e a cikk.</string>
   <string name="file_page_activity_title">Fájllap</string>
   <string name="file_page_add_image_caption_button">Képaláírás hozzáadása</string>
   <string name="file_page_add_image_tags_button">Képcímkék hozzáadása</string>
@@ -1160,12 +1162,12 @@
   <string name="insert_media_title">Média beszúrása</string>
   <string name="insert_media_search_description">Fájl kiválasztása a Wikimedia Commonsról</string>
   <string name="insert_media_search_hint">Média keresése</string>
-  <string name="insert_media_settings">Médiabeállítások</string>
+  <string name="insert_media_settings" fuzzy="true">Médiabeállítások</string>
   <string name="insert_media_settings_uploaded_image">Feltöltött kép</string>
-  <string name="insert_media_settings_caption">Képaláírás</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Képaláírás</string>
   <string name="insert_media_settings_caption_description">Minden olvasó számára megjelenő szöveg a média mellett</string>
   <string name="insert_media_settings_alternative_text">Alternatív szöveg</string>
-  <string name="insert_media_settings_alternative_text_description">Leírás olyan olvasók számára, akik nem látják a képet</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Leírás olyan olvasók számára, akik nem látják a képet</string>
   <string name="insert_media_advanced_settings">Speciális beállítások</string>
   <string name="insert_media_advanced_settings_wrap_image">Kép körbefuttatása szöveggel</string>
   <string name="insert_media_advanced_settings_image_position">A kép pozíciója</string>

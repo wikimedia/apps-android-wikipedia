@@ -146,7 +146,7 @@
   <string name="other_languages_indication_text">In een andere taal lezen</string>
   <string name="language_count_link_text">Beschikbaar in %d andere talen</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie.</string>
+  <string name="edit_save_action_license_logged_in">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en geeft u onherroepelijk uw bijdragen vrij onder de licentie &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie. Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt;, hebt u meer privacy.</string>
   <string name="edit_anon_warning">Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u &lt;a href=\"https://#login\"&gt;inlogt&lt;/a&gt;, heeft u meer privacy.</string>
   <string name="preference_title_language">Wikipediatalen</string>
@@ -864,7 +864,7 @@
   <string name="description_edit_help_wikidata_guide">Wikidata-gids voor het schrijven van beschrijvingen</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Bedankt voor uw blijvende interesse in het bewerken van artikelbeschrijvingen! Om extra bewerkingen te maken, gelieve in te loggen op uw Wikipedia-profiel.</string>
-  <string name="description_edit_license_notice">Bij het veranderen van de artikelbeschrijving gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licentie.</string>
+  <string name="description_edit_license_notice">Door de beschrijving van het artikel te wijzigen ga ik akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en geef ik onherroepelijk mijn bijdragen vrij onder de licentie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">begint meestal met een kleine letter</string>
   <string name="description_edit_voice_input_description">Steminvoer</string>
   <string name="description_edit_learn_more">Meer informatie over artikelbeschrijvingen</string>
@@ -919,8 +919,8 @@
   <string name="suggested_edits_review_image_caption">Afbeeldingsbijschrift herzien</string>
   <string name="suggested_edits_my_contributions">Mijn bijdragen</string>
   <string name="suggested_edits_no_description">Dit bestand heeft geen beschrijving</string>
-  <string name="suggested_edits_license_notice">Bij toevoegen van de beschrijving gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licentie.</string>
-  <string name="suggested_edits_image_caption_license_notice">Bij het toevoegen van de afbeeldingsbijschrift, gaat u akkoord met de &lt;a href=\"%1$s\"&gt;Gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licentie.</string>
+  <string name="suggested_edits_license_notice">Door de beschrijving toe te voegen ga ik akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en geef ik onherroepelijk mijn bijdragen vrij onder de licentie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">Door het afbeeldingsbijschrift toe te voegen ga ik akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en geef ik onherroepelijk mijn bijdragen vrij onder de licentie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informatie</string>
   <string name="suggested_edits_task_add_description_title">Artikelbeschrijvingen toevoegen</string>
   <string name="suggested_edits_task_add_description_description">Bijdragen aan artikels zonder beschrijvingen</string>
@@ -1029,7 +1029,7 @@
   <string name="suggested_edits_last_edited">Laatste bewerking:</string>
   <string name="suggested_edits_last_edited_never">Nooit</string>
   <string name="suggested_edits_task_new">nieuw</string>
-  <string name="suggested_edits_cc0_notice">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van deze bijdrage onder de &lt;a href=\"%2$s\"&gt;CC0 licentie&lt;/a&gt;.</string>
+  <string name="suggested_edits_cc0_notice">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en geeft u onherroepelijk deze bijdrage vrij onder de &lt;a href=\"%2$s\"&gt;licentie CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Voorgestelde bewerkingen</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Bedankt voor het bewerken van Wikipedia! Wilt u verder gaan waar u gebleven was?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Heeft u een minuut om Wikipedia verder te verbeteren? Bekijk deze suggesties voor bewerkingen.</string>
@@ -1081,6 +1081,8 @@
     <item quantity="one">U heeft %d karakter toegevoegd</item>
     <item quantity="other">U heeft %d karakters toegevoegd</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Train het afbeeldingsalgoritme</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Beslis of een voorgestelde afbeelding een artikel verbeterd.</string>
   <string name="file_page_activity_title">Bestandspagina</string>
   <string name="file_page_add_image_caption_button">Afbeeldingsbijschrift toevoegen</string>
   <string name="file_page_add_image_tags_button">Afbeeldingslabel toevoegen</string>
@@ -1179,12 +1181,12 @@
   <string name="insert_media_title">Media invoegen</string>
   <string name="insert_media_search_description">Selecteer een bestand van Wikimedia Commons</string>
   <string name="insert_media_search_hint">Zoeken naar media</string>
-  <string name="insert_media_settings">Mediainstellingen</string>
+  <string name="insert_media_settings" fuzzy="true">Mediainstellingen</string>
   <string name="insert_media_settings_uploaded_image">Geüploade afbeelding</string>
-  <string name="insert_media_settings_caption">Bijschrift</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Bijschrift</string>
   <string name="insert_media_settings_caption_description">Beschrijving naast het item die voor alle lezers zichtbaar is</string>
   <string name="insert_media_settings_alternative_text">Alternatieve tekst</string>
-  <string name="insert_media_settings_alternative_text_description">Beschrijving voor lezers die de afbeelding niet kunnen bekijken</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Beschrijving voor lezers die de afbeelding niet kunnen bekijken</string>
   <string name="insert_media_advanced_settings">Geavanceerde instellingen</string>
   <string name="insert_media_advanced_settings_wrap_image">Tekst rond afbeelding laten lopen</string>
   <string name="insert_media_advanced_settings_image_position">Afbeeldingspositie</string>

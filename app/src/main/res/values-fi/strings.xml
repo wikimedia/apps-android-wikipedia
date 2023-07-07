@@ -1068,6 +1068,16 @@
     <item quantity="one">Lisäsit %d merkin</item>
     <item quantity="other">Lisäsit %d merkkiä</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Opeta kuva-algoritmia</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Päätä, jos ehdotettu kuva parantaisi artikkelia.</string>
+  <string name="image_recommendation_accept">Kyllä</string>
+  <string name="image_recommendation_reject">Ei</string>
+  <string name="image_recommendation_notsure">Epävarma</string>
+  <string name="image_recommendation_reject_offensive">Kuva on loukkaava</string>
+  <string name="image_recommendation_reject_low_quality">Kuva on heikkolaatuinen</string>
+  <string name="image_recommendation_tooltip_next">Seuraava</string>
+  <string name="edit_summary_added_image">Lisätty kuva</string>
+  <string name="edit_published_view">Näytä</string>
   <string name="file_page_activity_title">Tiedostosivu</string>
   <string name="file_page_add_image_caption_button">Lisää kuvateksti</string>
   <string name="file_page_add_image_tags_button">Lisää kuvamerkintöjä</string>
@@ -1166,12 +1176,12 @@
   <string name="insert_media_title">Lisää media</string>
   <string name="insert_media_search_description">Valitse tiedosto Wikimedia Commonsista</string>
   <string name="insert_media_search_hint">Etsi mediaa</string>
-  <string name="insert_media_settings">Media-asetukset</string>
+  <string name="insert_media_settings" fuzzy="true">Media-asetukset</string>
   <string name="insert_media_settings_uploaded_image">Tallennettu kuva</string>
   <string name="insert_media_settings_caption">Kuvateksti</string>
   <string name="insert_media_settings_caption_description">Tunniste, joka näkyy kohteen vieressä kaikille lukijoille</string>
   <string name="insert_media_settings_alternative_text">Vaihtoehtoinen teksti</string>
-  <string name="insert_media_settings_alternative_text_description">Tekstimuotoinen kuvaus lukijoille, jotka eivät voi nähdä kuvaa</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Tekstimuotoinen kuvaus lukijoille, jotka eivät voi nähdä kuvaa</string>
   <string name="insert_media_advanced_settings">Lisäasetukset</string>
   <string name="insert_media_advanced_settings_wrap_image">Kiedo teksti kuvan ympärille</string>
   <string name="insert_media_advanced_settings_image_position">Kuvan sijainti</string>
