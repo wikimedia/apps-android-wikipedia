@@ -24,8 +24,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
+import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
-import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.not
 import org.junit.Before
 import org.junit.Rule
@@ -134,7 +134,7 @@ class SmokeTests {
         TestUtil.delay(5)
 
         // Dismiss tooltip, if any
-        onView(allOf(withId(R.id.buttonView))).inRoot(withDecorView(not(`is`(activity.window.decorView))))
+        onView(allOf(withId(R.id.buttonView))).inRoot(withDecorView(not(Matchers.`is`(activity.window.decorView))))
             .perform(click())
 
         TestUtil.delay(2)
@@ -218,7 +218,7 @@ class SmokeTests {
 
         // Make sure the article title still matches what we expect
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
-                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), `is`(ARTICLE_TITLE)))
+                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), Matchers.`is`(ARTICLE_TITLE)))
 
         // Rotate the device back to the original orientation
         device.setOrientationNatural()
@@ -398,7 +398,7 @@ class SmokeTests {
 
         // Ensure that the title in the WebView is still what we expect
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
-                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), `is`(ARTICLE_TITLE)))
+                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), Matchers.`is`(ARTICLE_TITLE)))
 
         // Swipe left to show the table of contents
         onView(allOf(withId(R.id.page_web_view)))
@@ -455,7 +455,7 @@ class SmokeTests {
 
         // Ensure that the title in the WebView is still what we expect
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
-            .check(WebViewAssertions.webMatches(DriverAtoms.getText(), `is`(ARTICLE_TITLE_ESPANOL)))
+            .check(WebViewAssertions.webMatches(DriverAtoms.getText(), Matchers.`is`(ARTICLE_TITLE_ESPANOL)))
 
         TestUtil.delay(1)
 
@@ -470,7 +470,7 @@ class SmokeTests {
 
         // Featured article card seen and saved to reading lists
         onView(allOf(withId(R.id.view_featured_article_card_content_container),
-            childAtPosition(childAtPosition(withClassName(`is`("org.wikipedia.feed.featured.FeaturedArticleCardView")), 0), 1), isDisplayed()))
+            childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.feed.featured.FeaturedArticleCardView")), 0), 1), isDisplayed()))
             .perform(scrollTo(), longClick())
 
         onView(allOf(withId(R.id.title), withText("Save"),
@@ -499,7 +499,7 @@ class SmokeTests {
 
         // Picture of the day card seen and clicked
         onView(allOf(withId(R.id.view_featured_image_card_content_container),
-            childAtPosition(childAtPosition(withClassName(`is`("org.wikipedia.feed.image.FeaturedImageCardView")), 0), 1), isDisplayed()))
+            childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.feed.image.FeaturedImageCardView")), 0), 1), isDisplayed()))
             .perform(click())
 
         TestUtil.delay(2)
@@ -523,7 +523,7 @@ class SmokeTests {
 
         // News card seen and news item saved to reading lists
         onView(allOf(withId(R.id.news_story_items_recyclerview),
-            childAtPosition(withClassName(`is`("android.widget.LinearLayout")), 1)))
+            childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1)))
             .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, longClick()))
 
         onView(allOf(withId(R.id.title), withText("Save"),
@@ -561,7 +561,7 @@ class SmokeTests {
 
         // Random article card seen and saved to reading lists
         onView(allOf(withId(R.id.view_featured_article_card_content_container),
-            childAtPosition(childAtPosition(withClassName(`is`("org.wikipedia.feed.random.RandomCardView")), 0), 1), isDisplayed()))
+            childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.feed.random.RandomCardView")), 0), 1), isDisplayed()))
             .perform(scrollTo(), longClick())
 
         onView(allOf(withId(R.id.title), withText("Save"),
@@ -576,7 +576,7 @@ class SmokeTests {
 
         // Main page card seen clicked
         onView(allOf(withId(R.id.footerActionButton), withText("View main page  "),
-            childAtPosition(allOf(withId(R.id.card_footer), childAtPosition(withClassName(`is`("android.widget.LinearLayout")), 1)), 0), isDisplayed()))
+            childAtPosition(allOf(withId(R.id.card_footer), childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1)), 0), isDisplayed()))
             .perform(click())
 
         TestUtil.delay(2)
@@ -773,7 +773,7 @@ class SmokeTests {
 
         // Dismiss tooltip, if any
         onView(allOf(withId(R.id.buttonView)))
-            .inRoot(withDecorView(not(`is`(activity.window.decorView)))).perform(click())
+            .inRoot(withDecorView(not(Matchers.`is`(activity.window.decorView)))).perform(click())
 
         TestUtil.delay(1)
 
@@ -855,10 +855,10 @@ class SmokeTests {
         TestUtil.delay(2)
 
         // Type in an incorrect username and password
-        onView(allOf(TestUtil.withGrandparent(withId(R.id.login_username_text)), withClassName(`is`("org.wikipedia.views.PlainPasteEditText"))))
+        onView(allOf(TestUtil.withGrandparent(withId(R.id.login_username_text)), withClassName(Matchers.`is`("org.wikipedia.views.PlainPasteEditText"))))
             .perform(replaceText(BuildConfig.TEST_LOGIN_USERNAME), closeSoftKeyboard())
 
-        onView(allOf(TestUtil.withGrandparent(withId(R.id.login_password_input)), withClassName(`is`("org.wikipedia.views.PlainPasteEditText"))))
+        onView(allOf(TestUtil.withGrandparent(withId(R.id.login_password_input)), withClassName(Matchers.`is`("org.wikipedia.views.PlainPasteEditText"))))
             .perform(replaceText(BuildConfig.TEST_LOGIN_PASSWORD), closeSoftKeyboard())
 
         // Click the login button
@@ -996,7 +996,7 @@ class SmokeTests {
         // Click through `Edits` screen stats onboarding - also confirming tooltip display
         for (i in 1 until 5) {
             onView(allOf(withId(R.id.buttonView), withText("Got it"),
-                childAtPosition(childAtPosition(withClassName(`is`("android.widget.LinearLayout")), 1), 0), isDisplayed()))
+                childAtPosition(childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1), 0), isDisplayed()))
                 .perform(click())
             TestUtil.delay(2)
         }
@@ -1083,7 +1083,7 @@ class SmokeTests {
         TestUtil.delay(2)
 
         // Click on add language button
-        onView(allOf(withId(R.id.wikipedia_languages_recycler), childAtPosition(withClassName(`is`("android.widget.LinearLayout")), 0)))
+        onView(allOf(withId(R.id.wikipedia_languages_recycler), childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 0)))
             .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
 
         TestUtil.delay(2)
@@ -1099,7 +1099,7 @@ class SmokeTests {
 
         // Assert `Translate` button leading to translate description screen, when there is more than one language
         onView(allOf(withId(R.id.secondaryButton), withText("Translate"), withContentDescription("Translate Article descriptions"),
-            childAtPosition(childAtPosition(withClassName(`is`("org.wikipedia.suggestiveness.SuggestedEditsTaskView")), 0), 6), isDisplayed())).perform(click())
+            childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.suggestiveness.SuggestedEditsTaskView")), 0), 6), isDisplayed())).perform(click())
 
         TestUtil.delay(2)
 
