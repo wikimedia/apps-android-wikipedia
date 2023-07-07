@@ -143,7 +143,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
 
         override fun onRequestInsertMedia() {
-            requestInsertMedia.launch(InsertMediaActivity.newIntent(this@EditSectionActivity, pageTitle.displayText))
+            requestInsertMedia.launch(InsertMediaActivity.newIntent(this@EditSectionActivity, pageTitle.wikiSite, pageTitle.displayText))
         }
 
         override fun onRequestInsertLink() {
