@@ -120,7 +120,7 @@ class DescriptionEditFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageTitle = requireArguments().getParcelable(ARG_TITLE)!!
+        pageTitle = requireArguments().getParcelable(Constants.ARG_TITLE)!!
         highlightText = requireArguments().getString(ARG_HIGHLIGHT_TEXT)
         action = requireArguments().getSerializable(ARG_ACTION) as DescriptionEditActivity.Action
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
@@ -528,7 +528,6 @@ class DescriptionEditFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_TITLE = "title"
         private const val ARG_REVIEWING = "inReviewing"
         private const val ARG_DESCRIPTION = "description"
         private const val ARG_HIGHLIGHT_TEXT = "highlightText"
@@ -554,7 +553,7 @@ class DescriptionEditFragment : Fragment() {
                         action: DescriptionEditActivity.Action,
                         source: InvokeSource): DescriptionEditFragment {
             return DescriptionEditFragment().apply {
-                arguments = bundleOf(ARG_TITLE to title,
+                arguments = bundleOf(Constants.ARG_TITLE to title,
                         ARG_HIGHLIGHT_TEXT to highlightText,
                         ARG_SOURCE_SUMMARY to sourceSummary,
                         ARG_TARGET_SUMMARY to targetSummary,

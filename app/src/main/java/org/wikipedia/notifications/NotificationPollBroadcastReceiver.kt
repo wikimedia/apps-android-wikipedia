@@ -60,10 +60,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 val remoteInput = RemoteInput.getResultsFromIntent(intent)
                 val text = remoteInput?.getCharSequence(RESULT_KEY_DIRECT_REPLY)
 
-                if (intent.hasExtra(RESULT_EXTRA_WIKI) && intent.hasExtra(RESULT_EXTRA_TITLE) && !text.isNullOrEmpty()) {
+                if (intent.hasExtra(Constants.ARG_WIKISITE) && intent.hasExtra(Constants.ARG_TITLE) && !text.isNullOrEmpty()) {
                     NotificationDirectReplyHelper.handleReply(context,
-                        intent.getParcelableExtra(RESULT_EXTRA_WIKI)!!,
-                        intent.getParcelableExtra(RESULT_EXTRA_TITLE)!!,
+                        intent.getParcelableExtra(Constants.ARG_WIKISITE)!!,
+                        intent.getParcelableExtra(Constants.ARG_TITLE)!!,
                         text.toString(),
                         intent.getStringExtra(RESULT_EXTRA_REPLY_TO).orEmpty(),
                         intent.getIntExtra(RESULT_EXTRA_ID, 0))
@@ -77,8 +77,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         const val ACTION_CANCEL = "action_notification_cancel"
         const val ACTION_DIRECT_REPLY = "action_direct_reply"
         const val RESULT_KEY_DIRECT_REPLY = "key_direct_reply"
-        const val RESULT_EXTRA_WIKI = "extra_wiki"
-        const val RESULT_EXTRA_TITLE = "extra_title"
         const val RESULT_EXTRA_REPLY_TO = "extra_reply_to"
         const val RESULT_EXTRA_ID = "extra_id"
         const val TYPE_MULTIPLE = "multiple"

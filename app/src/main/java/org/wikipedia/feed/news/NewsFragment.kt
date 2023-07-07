@@ -134,7 +134,7 @@ class NewsFragment : Fragment() {
         fun newInstance(item: NewsItem, wiki: WikiSite): NewsFragment {
             return NewsFragment().apply {
                 arguments = bundleOf(NewsActivity.EXTRA_NEWS_ITEM to item,
-                    NewsActivity.EXTRA_WIKI to wiki)
+                    Constants.ARG_WIKISITE to wiki)
             }
         }
     }
