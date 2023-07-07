@@ -918,9 +918,9 @@
   <string name="insert_media_title">မီဒီယာ ထည့်သွင်းရန်</string>
   <string name="insert_media_search_description">ဝီကီမီဒီယာကွန်မွန်းစ်မှ ဖိုင်တစ်ခုကိုရွေးချယ်ပါ</string>
   <string name="insert_media_search_hint">မီဒီယာ ရှာဖွေရန်</string>
-  <string name="insert_media_settings">မီဒီယာ အပြင်အဆင်များ</string>
+  <string name="insert_media_settings" fuzzy="true">မီဒီယာ အပြင်အဆင်များ</string>
   <string name="insert_media_settings_uploaded_image">အက်ပလုတ်တင်ထားသော ရုပ်ပုံ</string>
-  <string name="insert_media_settings_caption">ပုံစာ</string>
+  <string name="insert_media_settings_caption" fuzzy="true">ပုံစာ</string>
   <string name="insert_media_advanced_settings_image_position_right">ညာ</string>
   <string name="insert_media_advanced_settings_image_position_left">ဘယ်</string>
   <string name="insert_media_advanced_settings_image_position_center">အလယ်</string>

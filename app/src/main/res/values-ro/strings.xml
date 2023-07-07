@@ -1023,6 +1023,8 @@
     <item quantity="few">Aţi adăugat %d caractere</item>
     <item quantity="other">Aţi adăugat %d caractere</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Antrenați algoritmul pentru imagini</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Decideți dacă o imagine sugerată va îmbunătăți un articol.</string>
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="file_page_add_image_caption_button">Adaugă legendă pentru imagine</string>
   <string name="file_page_add_image_tags_button">Adaugă etichete pentru imagine</string>
@@ -1123,9 +1125,9 @@
   <string name="insert_media_title">Inserare media</string>
   <string name="insert_media_search_description">Selectați un fișier din Wikimedia Commons</string>
   <string name="insert_media_search_hint">Căutare media</string>
-  <string name="insert_media_settings">Setări media</string>
+  <string name="insert_media_settings" fuzzy="true">Setări media</string>
   <string name="insert_media_settings_uploaded_image">Imagine încărcată</string>
-  <string name="insert_media_settings_caption">Descriere</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Descriere</string>
   <string name="insert_media_settings_alternative_text">Text alternativ</string>
   <string name="insert_media_advanced_settings">Setări avansate</string>
   <string name="insert_media_advanced_settings_wrap_image">Înfășoară textul în jurul imaginii</string>

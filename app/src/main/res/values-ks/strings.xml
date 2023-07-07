@@ -625,12 +625,12 @@
   <string name="insert_media_title">میڈِیا کٕریٚو درٕج</string>
   <string name="insert_media_search_description">وِکیٖمیڈِیا کامنٕز منٛز چُنِیوٚ اکھ فیل</string>
   <string name="insert_media_search_hint">موادس منز ژھٲریوٚ</string>
-  <string name="insert_media_settings">میٖڈیا سؠٹِنگ</string>
+  <string name="insert_media_settings" fuzzy="true">میٖڈیا سؠٹِنگ</string>
   <string name="insert_media_settings_uploaded_image">کھالنہٕ آمٕژ تصویٖر</string>
-  <string name="insert_media_settings_caption">پختِیار</string>
+  <string name="insert_media_settings_caption" fuzzy="true">پختِیار</string>
   <string name="insert_media_settings_caption_description">پرچہِ یُس ہاوان چھُ زِ سارنٕی پَرَن والؠن کھٲترٕ اَمہِ پتہٕ یِنہٕ وول چیٖز</string>
   <string name="insert_media_settings_alternative_text">اَمہِ علاوٕ کینٛہہ مَتَن</string>
-  <string name="insert_media_settings_alternative_text_description">تفصیٖلی مَتَن پرَن والؠن کھٲترٕ یِمہٕ نہٕ تصویٖر ہؠکَن وُچِھت کینٛہہ</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">تفصیٖلی مَتَن پرَن والؠن کھٲترٕ یِمہٕ نہٕ تصویٖر ہؠکَن وُچِھت کینٛہہ</string>
   <string name="insert_media_advanced_settings">اِضٲفی سؠٹِنگ</string>
   <string name="insert_media_advanced_settings_wrap_image">تصویٖر أنٛدی أنٛدی مَتَن لةکھُن</string>
   <string name="insert_media_advanced_settings_image_position">تصویٖر ہِنٛز حرکَتھ</string>
