@@ -280,7 +280,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         val editLicenseText = ActivityCompat.requireViewById<TextView>(this, R.id.licenseText)
         editLicenseText.text = StringUtil.fromHtml(getString(if (isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
                 getString(R.string.terms_of_use_url),
-                getString(R.string.cc_by_sa_3_url)))
+                getString(R.string.cc_by_sa_4_url)))
         editLicenseText.movementMethod = LinkMovementMethodExt { url: String ->
             if (url == "https://#login") {
                 val loginIntent = LoginActivity.newIntent(this@EditSectionActivity, LoginActivity.SOURCE_EDIT)

@@ -44,7 +44,7 @@ class DescriptionEditLicenseView constructor(context: Context, attrs: AttributeS
                 DescriptionEditUtil.wikiUsesLocalDescriptions(lang.orEmpty())) {
             binding.licenseText.text = StringUtil.fromHtml(context.getString(R.string.edit_save_action_license_logged_in,
                     context.getString(R.string.terms_of_use_url),
-                    context.getString(R.string.cc_by_sa_3_url)))
+                    context.getString(R.string.cc_by_sa_4_url)))
         } else {
             binding.licenseText.text = StringUtil.fromHtml(context.getString(when (arg) {
                 ARG_NOTICE_ARTICLE_DESCRIPTION -> R.string.suggested_edits_license_notice

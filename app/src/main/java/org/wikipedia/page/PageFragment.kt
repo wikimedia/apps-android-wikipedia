@@ -844,7 +844,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         bridge.addListener("read_more_titles_retrieved") { _, _ -> }
         bridge.addListener("view_license") { _, _ ->
-            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.cc_by_sa_3_url)))
+            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.cc_by_sa_4_url)))
         }
         bridge.addListener("view_in_browser") { _, _ ->
             model.title?.let {
