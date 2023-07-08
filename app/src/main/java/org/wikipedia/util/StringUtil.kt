@@ -144,23 +144,18 @@ object StringUtil {
         textView.text = fromHtml(parentTextStr)
     }
 
-    fun highlightAndBoldenText(textView: TextView, input: String?, shouldBolden: Boolean, highlightColor: Int) {
-        if (!input.isNullOrEmpty()) {
-            textView.text = buildSpannedString {
-                append(textView.text)
+    fun setHighlightedAndBoldenedText(textView: TextView, input: CharSequence, query: String?) {
+        textView.text = if (query.isNullOrEmpty()) input else buildSpannedString {
+            append(input)
 
-                input.toRegex(HIGHLIGHT_REGEX_OPTIONS)
-                    .findAll(this)
-                    .forEach {
-                        val range = it.range
-                        val (start, end) = range.first to range.last + 1
-                        this[start, end] = BackgroundColorSpan(highlightColor)
-                        this[start, end] = ForegroundColorSpan(Color.BLACK)
-                        if (shouldBolden) {
-                            this[start, end] = StyleSpan(Typeface.BOLD)
-                        }
-                    }
-            }
+            query.toRegex(HIGHLIGHT_REGEX_OPTIONS).findAll(input)
+                .forEach {
+                    val range = it.range
+                    val (start, end) = range.first to range.last + 1
+                    this[start, end] = BackgroundColorSpan(Color.YELLOW)
+                    this[start, end] = ForegroundColorSpan(Color.BLACK)
+                    this[start, end] = StyleSpan(Typeface.BOLD)
+                }
         }
     }
 

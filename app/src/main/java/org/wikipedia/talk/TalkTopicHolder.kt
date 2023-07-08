@@ -2,7 +2,6 @@ package org.wikipedia.talk
 
 import android.app.Activity
 import android.content.Context
-import android.graphics.Color
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.widget.PopupMenu
@@ -34,9 +33,9 @@ class TalkTopicHolder internal constructor(
     fun bindItem(item: ThreadItem) {
         item.seen = viewModel.topicSeen(item)
         threadItem = item
-        binding.topicTitleText.text = RichTextUtil.stripHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }
+        val topicTitle = RichTextUtil.stripHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }
+        StringUtil.setHighlightedAndBoldenedText(binding.topicTitleText, topicTitle, viewModel.currentSearchQuery)
         binding.topicTitleText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_color))
-        StringUtil.highlightAndBoldenText(binding.topicTitleText, viewModel.currentSearchQuery, true, Color.YELLOW)
         itemView.setOnClickListener(this)
 
         // setting tag for swipe action text
@@ -64,8 +63,9 @@ class TalkTopicHolder internal constructor(
             val isHeaderTemplate = TalkTopicActivity.isHeaderTemplate(threadItem)
             binding.otherContentContainer.isVisible = isHeaderTemplate
             if (isHeaderTemplate) {
-                binding.otherContentText.text = RichTextUtil.stripHtml(StringUtil.removeStyleTags(threadItem.othercontent)).trim().replace("\n", " ")
-                StringUtil.highlightAndBoldenText(binding.otherContentText, viewModel.currentSearchQuery, true, Color.YELLOW)
+                StringUtil.setHighlightedAndBoldenedText(binding.otherContentText,
+                    RichTextUtil.stripHtml(StringUtil.removeStyleTags(threadItem.othercontent)).trim().replace("\n", " "),
+                    viewModel.currentSearchQuery)
             }
             return
         }
@@ -73,20 +73,20 @@ class TalkTopicHolder internal constructor(
 
         // Last comment
         binding.topicContentText.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
-        binding.topicContentText.text = RichTextUtil.stripHtml(allReplies.last().html).trim().replace("\n", " ")
+        StringUtil.setHighlightedAndBoldenedText(binding.topicContentText,
+            RichTextUtil.stripHtml(allReplies.last().html).trim().replace("\n", " "),
+            viewModel.currentSearchQuery)
         binding.topicContentText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_color))
-        StringUtil.highlightAndBoldenText(binding.topicContentText, viewModel.currentSearchQuery, true, Color.YELLOW)
 
         // Username with involved user number exclude the author
         val usersInvolved = allReplies.map { it.author }.distinct().size - 1
         val usernameText = allReplies.maxByOrNull { it.date ?: Date() }?.author.orEmpty() + (if (usersInvolved > 1) " +$usersInvolved" else "")
         val usernameColor = if (threadItem.seen) R.attr.inactive_color else R.attr.progressive_color
-        binding.topicUsername.text = usernameText
+        StringUtil.setHighlightedAndBoldenedText(binding.topicUsername, usernameText, viewModel.currentSearchQuery)
         binding.topicUserIcon.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
         binding.topicUsername.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
         binding.topicUsername.setTextColor(ResourceUtil.getThemedColor(context, usernameColor))
         ImageViewCompat.setImageTintList(binding.topicUserIcon, ResourceUtil.getThemedColorStateList(context, usernameColor))
-        StringUtil.highlightAndBoldenText(binding.topicUsername, viewModel.currentSearchQuery, true, Color.YELLOW)
 
         // Amount of replies, exclude the topic in replies[].
         val replyNumber = allReplies.size - 1
