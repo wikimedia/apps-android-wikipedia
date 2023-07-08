@@ -206,7 +206,7 @@ class SmokeTests {
 
         // Ensure the article title matches what we expect
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
-                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), `is`(ARTICLE_TITLE)))
+                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), Matchers.`is`(ARTICLE_TITLE)))
 
         // Rotate the display to landscape
         device.setOrientationRight()
