@@ -81,6 +81,10 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
         }
     }
 
+    fun setSecondaryText(text: String) {
+        binding.secondaryTextView.text = text
+    }
+
     fun setTertiaryTextViewVisible(isVisible: Boolean) {
         binding.tertiaryTextView.isVisible = isVisible
     }

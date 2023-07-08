@@ -162,4 +162,5 @@
     <string name="preference_key_excluded_wiki_codes_watchlist">filterWatchlistExcludedWikiCodes</string>
     <string name="preference_key_included_type_codes_watchlist">filterWatchlistIncludedTypeCodesV2</string>
     <string name="preference_key_event_platform_queue_size">eventPlatformQueueSize</string>
+    <string name="preference_key_se_image_recs_fullscreen_onboarding_show">showImageRecsFullScreenOnboarding</string>
 </resources>

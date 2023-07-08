@@ -58,6 +58,7 @@
     <string name="meta_edit_summary_url">https://meta.wikimedia.org/wiki/Help:Edit_summary</string>
     <string name="meta_minor_edit_url">https://meta.wikimedia.org/wiki/Help:Minor_edit</string>
     <string name="meta_watching_pages_url">https://www.mediawiki.org/wiki/Help:Watching_pages</string>
+    <string name="image_recommendation_onboarding_secondary">%1$s \n %2$s</string>
 
     <!-- Font family -->
     <string name="font_family_sans_serif">sans-serif</string>
