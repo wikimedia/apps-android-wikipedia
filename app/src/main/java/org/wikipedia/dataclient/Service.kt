@@ -125,6 +125,9 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     val siteInfo: Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=general|magicwords")
+    suspend fun getSiteInfoWithMagicWords(): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
     fun parsePage(@Query("page") pageTitle: String): Observable<MwParseResponse>
 

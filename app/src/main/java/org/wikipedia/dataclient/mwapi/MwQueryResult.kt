@@ -35,6 +35,7 @@ class MwQueryResult {
     val watchlist: List<WatchlistItem> = emptyList()
     val namespaces: Map<String, Namespace>? = null
     val allmessages: List<Message>? = null
+    val magicwords: List<MagicWord>? = null
 
     init {
         resolveConvertedTitles()
@@ -193,5 +194,11 @@ class MwQueryResult {
     class Message {
         val name: String = ""
         val content: String = ""
+    }
+
+    @Serializable
+    class MagicWord {
+        val name: String = ""
+        val aliases: List<String> = emptyList()
     }
 }
