@@ -5,13 +5,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
+import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 
 class CategoryActivityViewModel(bundle: Bundle) : ViewModel() {
 
-    val pageTitle = bundle.getParcelable<PageTitle>(CategoryActivity.EXTRA_TITLE)!!
+    val pageTitle = bundle.getParcelable<PageTitle>(Constants.ARG_TITLE)!!
     var showSubcategories = false
 
     val categoryMembersFlow = Pager(PagingConfig(pageSize = 10)) {

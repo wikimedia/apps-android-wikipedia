@@ -181,7 +181,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         setContentView(binding.root)
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
 
-        pageTitle = intent.getParcelableExtra(EXTRA_TITLE)!!
+        pageTitle = intent.getParcelableExtra(Constants.ARG_TITLE)!!
         sectionID = intent.getIntExtra(EXTRA_SECTION_ID, -1)
         sectionAnchor = intent.getStringExtra(EXTRA_SECTION_ANCHOR)
         textToHighlight = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
@@ -736,7 +736,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         private const val EXTRA_KEY_SECTION_TEXT_MODIFIED = "sectionTextModified"
         private const val EXTRA_KEY_TEMPORARY_WIKITEXT_STORED = "hasTemporaryWikitextStored"
         private const val EXTRA_KEY_EDITING_ALLOWED = "editingAllowed"
-        const val EXTRA_TITLE = "org.wikipedia.edit_section.title"
         const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
         const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
         const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight"
@@ -745,7 +744,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             return Intent(context, EditSectionActivity::class.java)
                 .putExtra(EXTRA_SECTION_ID, sectionId)
                 .putExtra(EXTRA_SECTION_ANCHOR, sectionAnchor)
-                .putExtra(EXTRA_TITLE, title)
+                .putExtra(Constants.ARG_TITLE, title)
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
         }
     }
